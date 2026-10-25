@@ -42,16 +42,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** Identities/Color C approved;160 clips finishing with checked Extreme/Expansion/Drive copies. Next: final catalog,32 filmed-content queue entries, finished gallery. Originals preserved; dispatcher paused. Shared-tool commits are local, push blocked by other live edits. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
+**October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** All159 kept Color C clips passed current checks and three-copy verification. One defective lunge section is archived outside usable searches; originals preserved. Next: final catalog/Sheet,32 filmed-content queue entries, finished gallery. Dispatcher paused. Shared-tool pushes remain blocked by other live edits. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R4 - ACTIVE 2026-10-25, Codex.** Dan approved opening and Warm And Rich; full Short authorized. Copying approved opening picture intact, finishing remaining instructions/closing with voice B/crop1. Slot held. Next: complete render, full-file checks and fresh independent review. Approval/recipe: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/`.
+**Five Minute Exercises SFC R4 - REVIEW 2026-10-25, Codex.** Complete55sShort rendered and independently picture-checked. Approved opening unchanged; Warm And Rich/voiceB/crop1 preserved. Dan reviews new0:31–0:55 at http://127.0.0.1:9176/. Numerical gate flags retained; full approval pending. Slot held at Dan’s request. Gitpush blocked by live shared edits. Receipt/next action: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/RESUME.md`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 
 **Five Levels Of Pushups SFC R3 - REVIEW 2026-10-25, Codex.** Checked updated colour at http://127.0.0.1:9180/; watch3.5–11.5s. Awaiting Dan approval. Original cut/audio findings remain explicit. Full/540/context/browser/VLC and independent audit complete. No upload/scheduling. Heartbeat paused; edit slot released for review. Work `/Volumes/Expansion/_edit_work/DS-20/round3/`; owner `01a16a4e-fac9-7db3-89e7-08dba554908b`.
 
-**Dad Bod SFC R3 - ACTIVE 2026-10-25, Codex.** Sole owner `01a17430-0acf-72c1-93fa-026651f4da47`; edit slot held. Both complete revisions independently cleared with no export defects. Playback/seeking and exact served download bytes verified. Final maintained gates queued behind other builds; then final paired page, package and delivery. Earlier failed internal candidates preserved. Journal: `/Volumes/Expansion/_edit_work/DS-35/round3/round-controller.json`.
+**Dad Bod SFC R3 - REVIEW 2026-10-25, Codex.** Both complete revisions await Dan at http://127.0.0.1:9241/. Full VLC copies are in Videos to Review. Next: Dan’s review choice in Docs/DAN_DECISIONS.md. Edit slot released for review.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
