@@ -6,11 +6,14 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Calories Not Losing Weight Shorts covers (2026-10-25; Decision since: 2026-10-25):** [Review25choices](http://127.0.0.1:9250/), pick A-E for each of the five Shorts. Both platform layouts shown; nothing uploaded/scheduled. Dan already authorized Jan4,5,8,9,11,2027at9AM Central, with parent Dec27. Setup continues after picks.
+
+
 - **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** Requested photo/arrow revisions are proceeding on both takes. No action until the new review is returned; Scripted versus Off The Cuff choice remains pending. Prior review: http://127.0.0.1:9238/.
 
 
 
-- **The 3 Exercises I'd Do If I Only Had 5 Minutes SFC R2 (2026-10-25; Decision since: 2026-10-25):** [Review the opening and three context excerpts](http://127.0.0.1:9176/). Approve the proposed exercise clips and two moving graphics, or list changes. Colour B, voice B and crop 1 stay locked. The complete Short follows this review; technical flags remain documented.
+- **The 3 Exercises I'd Do If I Only Had 5 Minutes SFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review the split intro and colour choices](http://127.0.0.1:9176/). Watch 0:00–0:08, approve/change the simultaneous exercise intro and choose colour A/B/C. A recommended. Voice B/crop 1 preserved; complete Short still pending required approvals. Earlier numerical flags remain documented.
 
 
 
