@@ -5,6 +5,9 @@ metadata:
   type: project
 ---
 
+**Current green-screen exception (Dan, 2026-10-25): Codex owns green-screen editing, including reactions.** After choosing Bill Maher Fat 90-Year-Old Codex R5 over the finalized Claude edit, Dan said "Codex now has the green screen jobs". Route new green-screen jobs and their next authorized rounds to Codex, using the newest supported stable Sol at high effort under the existing video rule. This overrides the older RO/DS-to-Claude defaults below for green-screen footage only. Do not interrupt an active owner; an actual transfer uses the sole-owner round controller. All reactions use the locked R5 format in [[greenscreen-reaction-format]]. Other categories and setup keep their existing routing.
+
+
 Dan's assignment (2026-09-17): **Codex edits every first cut from raw footage** — raw ads (RA), organic long-forms (RO) and dedicated shorts (DS; Claude does nothing on those). **Claude does every secondary cut of a finished video** — ad vertical, vertical ≤0:59, square (AV/AS) and shorts cut from a finished long-form (SL).
 
 **Why:** from the Codex trial Dan is "pretty sure" Codex is better at raw → finished video; on cut-downs the two are close and "not conclusive", so he gave those to Claude. Refines [[video-editing-cost-quality-feedback]] and [[codex-owns-non-core-work]].

@@ -1,0 +1,25 @@
+{
+  "decided_date": "2026-10-25",
+  "video": "Bill Maher Fat 90-Year-Old SFC R5",
+  "category": "CONTENT SFC",
+  "decision": "Standard reaction format; Codex owns green-screen editing",
+  "verbatim": "Okay it's pretty close but overall I like the Codex version better. Some things I liked about this were the way that it transitioned from the full-screen vertical to him talking horizontally to talking silently behind me. I think the Codex transition into my reaction was smooth. I also like the title playing above the silent video. The color correction, I think, looked a little better too, both on me and the clip.\n\nYou got it. Codex now has the green screen jobs. In addition to being more token efficient, I want you to now lock this format as our reaction format: the Codex R5 that is now our standard reaction format. I already have the handoff for setup so we're all set here. Just make sure you remember what you did here and lock in the Codex R5 format as our standard format for all reactions.",
+  "master": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4",
+  "master_sha256": "3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720",
+  "frames": 1944,
+  "fps": "30000/1001",
+  "duration_seconds": 64.8648,
+  "revision_id": "01a165ca-9b68-7a61-9ed7-a93bdc65008c",
+  "chat_id": "01a165d0-fd99-7893-b3ea-f6bb5b9f5644",
+  "prior_film_approval": "2026-10-23",
+  "comparison_url": "http://127.0.0.1:9072/",
+  "format_reference": ".claude/skills/shorts/reference/ds40-codex-r5-reaction-format",
+  "supersedes": [
+    "Hormozi Fat Guy Claude R2 as default reaction format",
+    "Bill Maher Claude R4/R6 as default reaction format",
+    "Claude routing for green-screen editing"
+  ],
+  "key_scope": "R5 uses the existing Claude R2 house-key algorithm with source-calibrated full-height pieces and Codex finishing/compositing; this approval does not invent a new key algorithm or change gate thresholds.",
+  "execution_scope": "Record standard and future routing only. No new editing job, render, upload, scheduling, existing-job takeover or setup handoff.",
+  "raw_gate_truth": "Archived verbatim. Human approval is not an automated gate PASS."
+}

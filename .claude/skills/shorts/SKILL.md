@@ -10,6 +10,16 @@ description: >
   use /youtube-packaging. For a fully AI-generated video ad use /make-ad.
 ---
 
+## Green-screen editing: Codex; reaction format: Bill Maher Codex R5 (Dan, 2026-10-25)
+
+For a green-screen reaction, read [the Codex R5 reference](reference/ds40-codex-r5-reaction-format/README.md)
+before planning: early full-screen clip with 0.40 lower-left Dan/laptop → titled horizontal clip still speaking →
+Dan's response with the clip silently moving behind his hair → moving Soft Blue Light field. Preserve R5's
+handover, title ABOVE the panel, and colour reference on Dan and the clip. Codex owns green-screen edits, overriding
+older Claude routing for those jobs; other video categories and setup keep their routing. See VIDEO-RULES,
+"Reaction videos: the locked format, start to finish". Use the existing round/sole-owner transfer for an actual
+continuation; this format lock itself starts no production. The DS-33/DS-44 layout notes below are historical.
+
 ## Edit slot first (Dan, 2026-10-21)
 
 At most 5 edits do production at once. Before this edit's first production step (render-queue job, AI generation,
@@ -1442,7 +1452,7 @@ Recipe: `/Volumes/Expansion/_edit_work/DS-33/r1/recipe/` (copy in `Short-form vi
 
 ## Green-screen reaction shorts: what DS-44 (Hormozi Fat Guy) added (2026-10-22)
 
-**Standard layout since 2026-10-22: VIDEO-RULES.md, "Reaction Shorts: the standard opening layout" (Dan locked DS-40 R4 option B: Dan lower left at 0.40, laptop visible; then the interview plays silently in a horizontal frame behind his head).** The corner geometry in the bullets below (0.22, laptop cropped) is R1 history.
+**Historical layout, superseded 2026-10-25 by Bill Maher Codex R5: [current reference](reference/ds40-codex-r5-reaction-format/README.md).** The corner geometry in the bullets below (0.22, laptop cropped) is R1 history.
 
 Recipe: `/Volumes/Expansion/_edit_work/DS-44/r1/recipe/` (copy in `Short-form video content/Hormozi Fat Guy - DS-44/recipe-r1/`). House key (DS-40 Claude R2) end to end; four builds, two independent passes.
 - **Key at 0.75 scale for W/T framing:** keep the R2 maths, scale stage 1.5's pixel distances x1.5 (band 15, rim 3, colour scales, speck 3 px). Stage 1 ~2 s/frame. Stage 1.5 on a 34 MB/frame hard-disk cache: hand each worker a contiguous run with an lru cache of loaded frames (7x fewer reads), skip finished frames (resume), and expect pool workers to be killed under memory pressure (the pool then hangs: kill it and resume). Measure the key with the R2 scripts on a 9 s render in the R2 geometry (Dan 1080 wide, row 0 at y 175).

@@ -1,0 +1,213 @@
+[
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/plan.json",
+    "snapshot": "snapshot/plan.json",
+    "sha256": "54dfa10bd44d01bd6022b97288bdc74e39acef7e2c190ea3d89dc7451a3deab1"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/assembly.json",
+    "snapshot": "snapshot/assembly.json",
+    "sha256": "8c7a44b2d08f8296919dbc57a7c310f939511f37b19e78066536d7973991d41f"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/graphics-manifest.json",
+    "snapshot": "snapshot/graphics-manifest.json",
+    "sha256": "9113e7be23a53a52edbbd56726153cffe6d1035c570992f09c964e9e8d0f4a98"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/render.py",
+    "snapshot": "snapshot/render.py",
+    "sha256": "df8bd4693fd57df34402fcb4c4b26774457d7531c828f3bbdf0f3a943041cfbd"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/layer.py",
+    "snapshot": "snapshot/layer.py",
+    "sha256": "7b2585eb118b46594c5328c6f9ace7484602076413d61465d7af74cf18560a90"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/graphics.py",
+    "snapshot": "snapshot/graphics.py",
+    "sha256": "07edb1ffa437c26472646d47614c15acb1ed6d4695362265650a2e90af1a3dbb"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/field.py",
+    "snapshot": "snapshot/field.py",
+    "sha256": "7173f26404f666798d9f3e5a8f272365081dfb19ab922d88faa09e42b0094c16"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/repair_bmi.py",
+    "snapshot": "snapshot/repair_bmi.py",
+    "sha256": "8d64fab557fe5a0b1a1d71daf1e6fd908f1e1ca6563fb99a39d45c6433f12547"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/key_piece.py",
+    "snapshot": "snapshot/key_piece.py",
+    "sha256": "c7ff0b17ce2497147bf667c72d987ac200a459c76151cff5514bfd7e18d067af"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/key_stages.py",
+    "snapshot": "snapshot/key_stages.py",
+    "sha256": "9b857914e7fb738da66db4b4c71526378891df868c6e88558972fab0e33d7feb"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/key_check.py",
+    "snapshot": "snapshot/key_check.py",
+    "sha256": "c8a3692a31bbbabc0dae1df670a88dc6a3a22031f8780b2f5c7e429143faf375"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/qa_prepare.py",
+    "snapshot": "snapshot/qa_prepare.py",
+    "sha256": "c7f6dc32429f7efbe040a00ae2af3972d775d8fb0b5350aa0ec715165bd584b2"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/verify_reuse.py",
+    "snapshot": "snapshot/verify_reuse.py",
+    "sha256": "acbaa3d770bee8802bc31f9cb48ef6414e1cf97e95df8c29e6dcd3ccb78b2bcc"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/approved-manifest.json",
+    "snapshot": "snapshot/approved-manifest.json",
+    "sha256": "525afc343914127d57096225cc89dccdb35e0d529b62eaa8051d83ad4ef47967"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/approved-hashes-final.json",
+    "snapshot": "snapshot/approved-hashes-final.json",
+    "sha256": "67d59d5769513667e711be543734c9072131c6c7147b44d9017805bd8dc7a1c2"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/dan-decisions.json",
+    "snapshot": "snapshot/dan-decisions.json",
+    "sha256": "716fa91ee22a5ef6a101d1bf76da5f3f79512aae020e41e8a2c646128cdb759d"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/dan-approval-20261023.json",
+    "snapshot": "snapshot/dan-approval-20261023.json",
+    "sha256": "baf82dc1e163b8ee01a32b3c84482abe2fcd8c603edce5434fdc0e84743af777"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/audio-copy-identity.json",
+    "snapshot": "snapshot/audio-copy-identity.json",
+    "sha256": "224fe78db0802f3a524f3b3d76a481d3473a66c4bedc12f0eab7ed7c4b2fc235"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/gate-dispositions.json",
+    "snapshot": "snapshot/gate-dispositions.json",
+    "sha256": "4b70053d96e4a072b8bfaf8f4b19a9da4b7a55f002f556431d3ea6fec64f8b06"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/final-gate.json",
+    "snapshot": "snapshot/final-gate.json",
+    "sha256": "fea0f3a7f4cf8674c5d888b79fa5753245fabd86309755ffcea7a093a20b0be1"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/R5-REVIEW-RECEIPT.md",
+    "snapshot": "snapshot/R5-REVIEW-RECEIPT.md",
+    "sha256": "b2511a24419f52f7cefb2f407c4d3c3257d80bd659889ebfd2b38caa8ca6f9f0"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/watch-watching.json",
+    "snapshot": "snapshot/watch-watching.json",
+    "sha256": "29f80a135731315a2862591b389018f5345fa03f0f458b12d3b5491a25934734"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/watch-response.json",
+    "snapshot": "snapshot/watch-response.json",
+    "sha256": "a22d0c0abe465e20731c3c0ed6984750d4c32aaf2d03c19f09ad6387c7a1dfcc"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/watch-ending.json",
+    "snapshot": "snapshot/watch-ending.json",
+    "sha256": "58fd0181faab5c0d1c2413fc9d6f540f59312ea89fd77fc5ceb26f63bd82eba3"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/hf/configs/G00.json",
+    "snapshot": "snapshot/hf/configs/G00.json",
+    "sha256": "397aaddb3824ab95abebf76a41737c8fc9c0bd642b3c6eb29c5206dd32eefbec"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/hf/configs/G05.json",
+    "snapshot": "snapshot/hf/configs/G05.json",
+    "sha256": "a2646661d71576c1a6f4b8acf8ed454d4055504a1d7f0c9fe316448f7c796494"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/common.py",
+    "snapshot": "snapshot/recipe/common.py",
+    "sha256": "1ce1b03dc147f583f2ea4d8b759e3759743cafb4da0bfec82713f7ce7cb70ee8"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/grade.py",
+    "snapshot": "snapshot/recipe/grade.py",
+    "sha256": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/keylib.py",
+    "snapshot": "snapshot/recipe/keylib.py",
+    "sha256": "39fe7b02f33a30bfbc5729839cccf4489a4d67979d5e94b55df1fc18984221d4"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/mcflicker.py",
+    "snapshot": "snapshot/recipe/mcflicker.py",
+    "sha256": "e8d122c119b6d564cfa3df8bce88151b2fb950de401bc5a87aa4e812155453fd"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/measure_r2.py",
+    "snapshot": "snapshot/recipe/measure_r2.py",
+    "sha256": "9a40c547f34ff80b36e95e34b7cd472d9b55e854d45f8dcc6b7cc61249874ab9"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/srcprep.py",
+    "snapshot": "snapshot/recipe/srcprep.py",
+    "sha256": "2140f4363d352c72bbabb33625c25784d2e1028da157456c360f9aadba916fd2"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/stage15_temporal.py",
+    "snapshot": "snapshot/recipe/stage15_temporal.py",
+    "sha256": "9cf4b6668644bc238f6c198c09cdcd0d8fe78b51607f1036891bb87da531bc8e"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/stage1_key.py",
+    "snapshot": "snapshot/recipe/stage1_key.py",
+    "sha256": "01b4f19629b219eb5d563e43901e6c0bce0a7b51f4cd0d6045de5ed723774929"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/recipe/stage2_comp.py",
+    "snapshot": "snapshot/recipe/stage2_comp.py",
+    "sha256": "49c2a8a087b626d65d70531ae5baf11692e10f6e2cfc6cc0db2cbec0753c39a5"
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0000.jpg",
+    "snapshot": "stills/frame-0000.jpg",
+    "sha256": "ed47a85d182328f48c14f9bec81599c24685d640e2180669ba2f435b181a5838",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0120.jpg",
+    "snapshot": "stills/frame-0120.jpg",
+    "sha256": "3fd460c41cc319d4489142573f4e697d7b1f34c8bb0ad8495018b49d0d84a760",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0587.jpg",
+    "snapshot": "stills/frame-0587.jpg",
+    "sha256": "1407633eec8c5ee80adbc14d467d496c83bc8fc2a70985be89d504c7da04a5e9",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0588.jpg",
+    "snapshot": "stills/frame-0588.jpg",
+    "sha256": "ead8194fb0bf4bad051e00009a31af92ead12174c2a78648e4e51b72b8673872",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0905.jpg",
+    "snapshot": "stills/frame-0905.jpg",
+    "sha256": "03200e7b5222b5e25b37b57f4b6cb85a7ced5febbe0616bea12b2c9821911fd2",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  },
+  {
+    "source": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/frame-0906.jpg",
+    "snapshot": "stills/frame-0906.jpg",
+    "sha256": "e79cbed55895be4bfc1438aeb4827e9c7f4f2582b97d1c8721d0fd58876cc493",
+    "note": "Layout proof from original R5 assembly; approved final master is authoritative."
+  }
+]
