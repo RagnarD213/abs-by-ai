@@ -30,8 +30,8 @@ function validate(input, now = Date.now()) {
   let routine = null;
   if (input.routine != null) {
     const r = input.routine, clock = /^(?:[01]\d|2[0-3]):[0-5]\d$/;
-    if (r.kind !== 'cloud' || !clock.test(r.startTime) || !clock.test(r.readyBy) || r.startTime >= r.readyBy || r.localCron !== false || r.notifications !== false) throw new Error('Invalid external schedule');
-    routine = {kind:'cloud', startTime:r.startTime, readyBy:r.readyBy, startsOn:date(r.startsOn), confirmedAt:instant(r.confirmedAt), localCron:false, notifications:false};
+    if (!['cloud','local'].includes(r.kind) || !clock.test(r.startTime) || !clock.test(r.readyBy) || r.startTime >= r.readyBy || r.localCron !== false || r.notifications !== false) throw new Error('Invalid external schedule');
+    routine = {kind:r.kind, startTime:r.startTime, readyBy:r.readyBy, startsOn:date(r.startsOn), confirmedAt:instant(r.confirmedAt), localCron:false, notifications:false};
     if (Date.parse(routine.confirmedAt) > now + 300000) throw new Error('Unconfirmed future schedule');
   }
   if (input.routineEnabled && !routine) throw new Error('Enabled routine requires external schedule evidence');

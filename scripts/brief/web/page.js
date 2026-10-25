@@ -12,7 +12,7 @@ function routineStatus(d) {
   if (!d.routineEnabled || !d.routine) return 'No enabled daily schedule is recorded for this edition.';
   const clock = value => { const [h,m]=value.split(':').map(Number); return `${h%12 || 12}:${String(m).padStart(2,'0')} ${h<12 ? 'AM' : 'PM'}`; };
   const r=d.routine;
-  return `Daily updates enabled from ${date(r.startsOn)}. Cloud run starts ${clock(r.startTime)} Central; target ready ${clock(r.readyBy)}. Your Mac must be online. Source availability is shown below. Status confirmed ${instant(r.confirmedAt)}.`;
+  return `Daily updates enabled from ${date(r.startsOn)}. ${r.kind === 'local' ? 'Local chat' : 'Cloud'} run starts ${clock(r.startTime)} Central; target ready ${clock(r.readyBy)}. Your Mac must be online${r.kind === 'local' ? ' with the app running' : ''}. Source availability is shown below. Status confirmed ${instant(r.confirmedAt)}.`;
 }
 function cards(id, rows, empty) {
   if (!rows.length) return $(id).append(el('p',empty,'note'));
