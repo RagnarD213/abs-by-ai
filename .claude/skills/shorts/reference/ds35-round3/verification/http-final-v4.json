@@ -1,0 +1,99 @@
+{
+ "checked_at": "2026-10-25T17:21:26.856328-05:00",
+ "review_url": "http://127.0.0.1:9241/",
+ "scope": "Actual served current media bytes and large-file seeking, separate from final page UI/release approval.",
+ "files": [
+  {
+   "path": "media/dad-bod-r3-scripted.mp4",
+   "sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+   "bytes": 72647972,
+   "http200": true,
+   "ranges206": [
+    [
+     0,
+     1023
+    ],
+    [
+     36323986,
+     36325009
+    ]
+   ]
+  },
+  {
+   "path": "media/dad-bod-r3-scripted-540p.mp4",
+   "sha256": "41bc9b28d318863429a5ddfc21f63edabf364e630ecc31ce80413e22e62ec7b0",
+   "bytes": 11449750,
+   "http200": true,
+   "ranges206": [
+    [
+     0,
+     1023
+    ],
+    [
+     5724875,
+     5725898
+    ]
+   ]
+  },
+  {
+   "path": "media/dad-bod-r3-scripted.srt",
+   "sha256": "b47a7eba6c55d0b5f1356e8e642fe8d0799892ae3cb8fb91eae4947d01a50a3d",
+   "bytes": 4007,
+   "http200": true,
+   "ranges206": []
+  },
+  {
+   "path": "media/dad-bod-r3-scripted-audio-ab.wav",
+   "sha256": "ea5f99c9c243b830320165ab1b64418589baa5648052c7903a31f2a7c0aa1ddc",
+   "bytes": 4704044,
+   "http200": true,
+   "ranges206": []
+  },
+  {
+   "path": "media/dad-bod-r3-off_the_cuff.mp4",
+   "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+   "bytes": 83295310,
+   "http200": true,
+   "ranges206": [
+    [
+     0,
+     1023
+    ],
+    [
+     41647655,
+     41648678
+    ]
+   ]
+  },
+  {
+   "path": "media/dad-bod-r3-off_the_cuff-540p.mp4",
+   "sha256": "e0b55de18864c302402c069453a44fa250ec57fcfb45a6d2a206328983e3698e",
+   "bytes": 12923570,
+   "http200": true,
+   "ranges206": [
+    [
+     0,
+     1023
+    ],
+    [
+     6461785,
+     6462808
+    ]
+   ]
+  },
+  {
+   "path": "media/dad-bod-r3-off_the_cuff.srt",
+   "sha256": "9abb9b2b26fb69cf0db36755380556b9924344b128bfe4559ff7c9a42d7bc45d",
+   "bytes": 4161,
+   "http200": true,
+   "ranges206": []
+  },
+  {
+   "path": "media/dad-bod-r3-off_the_cuff-audio-ab.wav",
+   "sha256": "085fd4820f0cf7917c9ba6281a314e4222f3c584bf4e78073686f7b145a1172a",
+   "bytes": 4704044,
+   "http200": true,
+   "ranges206": []
+  }
+ ]
+}

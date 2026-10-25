@@ -2685,11 +2685,11 @@
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-35-women-say-they-love-the-dad-bod-they-dont.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Edit BOTH versions (scripted and off the cuff) in the locked reaction format, every gate and an independent review on each, deliver both side by side, send Dan the review page, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Dad Bod SFC R2: both complete films delivered for choice at http://127.0.0.1:9238/ . Scripted57.5s and off-cuff61.1s; Warm & Vivid, selected Balanced, R5 reaction format, real Seth Rogen X/Daniel Craig check. Full audited exact-file gates and independent reviews complete; raw reference-tone/whole-source-floor qualifications retained. VLC copies ready. Await Dan version choice and revisions.",
+   "note": "Dad Bod SFC R3: both complete revised takes ready at http://127.0.0.1:9241/. Review both 0:09–0:17 and Scripted 0:31–0:36; choose take and give notes.",
    "needs": "",
    "order": 115,
    "updated": "2026-10-25",
-   "rev": 8,
+   "rev": 10,
    "syncedRev": 3,
    "editor": "Codex",
    "by": "Codex"

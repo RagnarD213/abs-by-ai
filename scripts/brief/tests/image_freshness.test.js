@@ -13,7 +13,7 @@ class Element {
 async function render(image,failed=false) {
   const nodes=Object.fromEntries([...fs.readFileSync(path.join(web,'page.html'),'utf8').matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Element()]));
   const fixture={forDate:'2026-10-08',generatedAt:new Date().toISOString(),editionType:'daily',routineEnabled:false,focus:{status:'missing',source:'Fixture'},yesterday:[],opportunities:[],useful:[],sources:[],image};
-  const context={document:{getElementById:id=>nodes[id],createElement:()=>new Element()},fetch:async()=>({status:failed?503:200,ok:!failed,json:async()=>fixture}),Date,Intl,AbortController,setTimeout:()=>0,clearTimeout:()=>{},location:{replace:()=>{}}};
+  const context={window:{addEventListener(){}},document:{getElementById:id=>nodes[id],createElement:()=>new Element()},fetch:async()=>({status:failed?503:200,ok:!failed,json:async()=>fixture}),Date,Intl,AbortController,setTimeout:()=>0,clearTimeout:()=>{},location:{replace:()=>{}}};
   vm.runInNewContext(fs.readFileSync(path.join(web,'page.js'),'utf8'),context);
   await new Promise(resolve=>setImmediate(resolve));
   return nodes;
