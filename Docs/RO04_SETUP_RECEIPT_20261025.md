@@ -62,4 +62,4 @@ The existing shared daily top-up queues all four posts when there is room and ve
 
 ## Source delivery
 
-Owned assets/source from the prior phase are committed as `b474c4f`. The follow-up commit records the approved date and reservation check. Safe-push remains subject to other sessions' live shared-file edits; no unrelated work was stashed, overwritten or committed. Operational config, waitlist and live cover installer are updated locally; Drive backups carry the approved release config.
+Owned assets/source from the prior phase are committed as `b474c4f`. Follow-up commit `afae884` records the approved date and reservation check. Safe-push remains subject to other sessions' live shared-file edits; no unrelated work was stashed, overwritten or committed. Operational config, waitlist and live cover installer are updated locally; Drive backups carry the approved release config.
