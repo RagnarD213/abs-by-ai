@@ -43,11 +43,12 @@ const {signedHeaders}=require('../web/publication');
   assert.equal((await store.favoriteManifest()).rows.length,1);
   assert.equal((await mutate('/api/brief/favorites',choice)).status,200); // archived original can be reselected even after replacement
   assert.deepEqual(await store.readDocument(),{...doc,image:null});
+  const receipt={rotationIntervalSeconds:1800,displays:[{id:'1'},{id:'2'},{id:'3'}]};
   const manifest=await store.favoriteManifest();assert.match(manifest.feedbackPolicy,/positive.*neutral/);
-  assert.equal(wallpaperStatus({...manifest,receipt:{version:manifest.version,displayCount:3,checkedAt:new Date(now).toISOString()}},now).state,'confirmed');
-  assert.equal(wallpaperStatus({...manifest,receipt:{version:manifest.version,displayCount:3,checkedAt:new Date(now-600000).toISOString()}},now).state,'pending');
-  assert.equal(wallpaperStatus({...manifest,receipt:{version:'old',displayCount:3,checkedAt:new Date(now).toISOString()}},now).state,'pending');
-  assert.equal(wallpaperStatus({...manifest,receipt:{version:manifest.version,displayCount:2,checkedAt:new Date(now).toISOString()}},now).state,'pending');
+  assert.equal(wallpaperStatus({...manifest,receipt:{...receipt,version:manifest.version,displayCount:3,checkedAt:new Date(now).toISOString()}},now).state,'confirmed');
+  assert.equal(wallpaperStatus({...manifest,receipt:{...receipt,version:manifest.version,displayCount:3,checkedAt:new Date(now-600000).toISOString()}},now).state,'pending');
+  assert.equal(wallpaperStatus({...manifest,receipt:{...receipt,version:'old',displayCount:3,checkedAt:new Date(now).toISOString()}},now).state,'pending');
+  assert.equal(wallpaperStatus({...manifest,receipt:{...receipt,version:manifest.version,displayCount:2,checkedAt:new Date(now).toISOString()}},now).state,'pending');
   assert.equal((await call('/api/brief/favorites?after=../../etc/passwd')).status,400);
   assert.equal((await mutate('/api/brief/favorites',{sha256,forDate:image.forDate,padding:'x'.repeat(2000)})).status,413);
   console.log('favorites: owner-only reads/writes, CSRF, digest/date binding, duplicate clicks, immutable originals after replacement, reversible removal, neutral feedback, stale/offline/three-display status passed');

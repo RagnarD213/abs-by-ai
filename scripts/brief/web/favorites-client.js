@@ -14,7 +14,7 @@
     } finally {clearTimeout(timeout);}
   }
   const displayed=()=>source && new URL($('daily-image').src,location.href).searchParams.get('sha256')===source.sha256 && $('daily-image').naturalWidth;
-  function state(){button.disabled=busy || !displayed();button.setAttribute('aria-pressed',String(!!current?.active));button.textContent=busy ? 'Saving…' : current?.active ? 'Remove from wallpaper favorites' : 'Save to wallpaper favorites';}
+  function state(){button.disabled=busy || !displayed();button.setAttribute('aria-pressed',String(!!(current?.active && current.sha256===source?.sha256)));button.textContent=busy ? 'Saving…' : current?.active && current.sha256===source?.sha256 ? 'Remove from wallpaper favorites' : 'Save to wallpaper favorites';}
   const write=(url,method,body)=>request(url,{method,headers:{'Content-Type':'application/json','X-Brief-Action':'favorite'},body:JSON.stringify(body)});
   async function change(sha256,active){return write('/api/brief/favorites/'+sha256,'PUT',{active});}
   function card(row){
@@ -55,8 +55,9 @@
   }
   $('daily-image').addEventListener('load',initialize);
   button.addEventListener('click',async()=>{
-    if(busy || !displayed()){source=null;state();return;}busy=true;state();text('favorite-status','Saving your choice…');
-    try{const result=current?.active ? await change(source.sha256,false) : await write('/api/brief/favorites','POST',{sha256:source.sha256,forDate:source.forDate});
+    if(busy || !displayed()){source=null;state();return;}const selected=source,wasActive=!!(current?.active && current.sha256===selected.sha256);busy=true;state();text('favorite-status','Saving your choice…');
+    try{const result=wasActive ? await change(selected.sha256,false) : await write('/api/brief/favorites','POST',{sha256:selected.sha256,forDate:selected.forDate});
+      if(source?.sha256!==selected.sha256)return;
       current=result.favorite;text('favorite-status',current.active ? result.wallpaper.message : 'Removed from rotation eligibility. Original retained; restore any time. Mac update pending.');
       if($('favorites-details').open)await favorites(true);
     }catch(e){text('favorite-status',e.message);}finally{busy=false;state();}

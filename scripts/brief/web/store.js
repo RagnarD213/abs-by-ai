@@ -21,6 +21,7 @@ function createStore(pool, ready = Promise.resolve()) {
   }
   return {
     ...createFavoritesStore(pool,init),
+    async writeWallpaperReceipt(receipt) { await init(); await pool.query('INSERT INTO brief_wallpaper_sync (id,receipt) VALUES (1,$1) ON CONFLICT (id) DO UPDATE SET receipt=EXCLUDED.receipt',[receipt]); },
     async claimPublicationNonce(id, nonce, expires, now) {
       await init();
       await pool.query('DELETE FROM brief_publish_nonces WHERE expires_at <= $1', [new Date(now)]);

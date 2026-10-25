@@ -1,6 +1,7 @@
 'use strict';
 const express = require('express');
 const {installFavorites} = require('./favorites');
+const {installWallpaperReader} = require('./wallpaper-reader');
 const crypto = require('crypto');
 const path = require('path');
 const {OAuth2Client} = require('google-auth-library');
@@ -145,6 +146,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now, me
     } catch { if (!res.headersSent) res.status(503).json({error:'Private preview unavailable'}); else res.destroy(); }
   });
   installFavorites(router,{store,owner,origin,now});
+  installWallpaperReader(router,{store,env,now});
   router.get('/api/brief/image', owner, async (req, res) => {
     try {
       const image = await store.readImage();

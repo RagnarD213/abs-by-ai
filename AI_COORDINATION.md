@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Wallpaper favorites - READER APPROVAL PENDING 2026-10-25, Codex task-7.** Recovered task-2 changes with matching hashes; original untouched. Private web favorites and inactive reader code prepared. Next: deploy/verify web, then Dan approves separate Keychain reader key, favorites-only Railway public-key grant and user LaunchAgent before activation. No credentials enrolled or wallpapers changed. `scripts/brief/wallpaper/README.md`.
+
 **Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
 
 **Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.

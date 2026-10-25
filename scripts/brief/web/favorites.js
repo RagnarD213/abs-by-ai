@@ -60,8 +60,8 @@ function createFavoritesStore(pool, init) {
 function wallpaperStatus(manifest,now) {
   const r=manifest.receipt;
   if(!r) return {state:'pending_setup',message:'Saved privately. Waiting for Mac wallpaper setup.'};
-  if(!Number.isFinite(Date.parse(r.checkedAt)) || now-Date.parse(r.checkedAt)>5*60000) return {state:'pending',message:'Saved privately. Waiting for the Mac to reconnect.'};
-  if(r.version!==manifest.version || r.displayCount!==3) return {state:'pending',message:'Saved privately. Waiting for all three Mac screens to sync.'};
+  if(!Number.isFinite(Date.parse(r.checkedAt)) || now-Date.parse(r.checkedAt)>5*60000 || Date.parse(r.checkedAt)>now+30000) return {state:'pending',message:'Saved privately. Waiting for the Mac to reconnect.'};
+  if(r.version!==manifest.version || r.displayCount!==3 || r.rotationIntervalSeconds!==1800 || !Array.isArray(r.displays) || r.displays.length!==3 || new Set(r.displays.map(d=>d.id)).size!==3) return {state:'pending',message:'Saved privately. Waiting for all three Mac screens to sync.'};
   return {state:'confirmed',message:'Confirmed in the wallpaper collection for all three Mac screens.',checkedAt:r.checkedAt};
 }
 function installFavorites(router,{store,owner,origin,now}) {
