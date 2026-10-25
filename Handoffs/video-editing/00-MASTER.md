@@ -152,7 +152,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 |---|---|---|---|---|
 | [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | FINALIZED | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
-| [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | IN PROGRESS | S |
+| [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | DELIVERED: awaiting Dan | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | READY | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |

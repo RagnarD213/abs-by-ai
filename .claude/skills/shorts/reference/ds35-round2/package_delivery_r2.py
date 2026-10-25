@@ -4,7 +4,7 @@ W=Path(__file__).resolve().parents[1];R=Path('/Users/danielrose/Projects/Claude/
 D=R/'Short-form video content/Dad Bod - DS-35';V=R/'Videos to Review';D.mkdir(parents=True,exist_ok=True);V.mkdir(exist_ok=True);rec=[]
 sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
 for v,name in [('scripted','scripted'),('off_the_cuff','off the cuff')]:
- s=W/'review/media'/('dad-bod-r2-'+v+'.mp4');g=json.loads((W/'qa'/v/'gate-final.json').read_text());assert g['verdict']=='PASS' and g['sha256']==sha(s)
+ s=W/'review/media'/('dad-bod-r2-'+v+'.mp4');g=json.loads(Path(str(s)+'.deliver_gate.json').read_text());assert g['verdict']=='PASS' and g['sha256']==sha(s)
  out=D/('Dad Bod SFC R2 - '+name+'.mp4');vlc=V/out.name;shutil.copy2(s,out);shutil.copy2(s,vlc);assert sha(s)==sha(out)==sha(vlc)
  for suffix in ['.deliver_gate.json','.audio_gate.json','.audio_untreated.json']:
   p=Path(str(s)+suffix)

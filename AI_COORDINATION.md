@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Pushup Masterclass LFC R1 - REVIEW 2026-10-23, Codex.** RO-09 first-minute, all asset contexts and look/framing choices checked for creative review at http://127.0.0.1:9180/; full-quality VLC copy present. Full-master gates remain failed, recorded explicitly. Next: Dan’s three choices in `Docs/DAN_DECISIONS.md`, then full film and independent audit. Heartbeat paused; slot released for review. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
 
-**Dad Bod SFC R1 - REVIEW 2026-10-24, Codex.** Women Say They Love The Dad Bod. They Don't. (DS-35): checked both openings/all asset contexts, with exact gates and complete independent review. Shared choices: http://127.0.0.1:9185/. Awaiting Dan; voice concern recorded beside auditions. Slot released, heartbeat paused. No full films/approval/uploads. Next: picks in `Docs/DAN_DECISIONS.md`, then both Shorts. Receipt: `/Volumes/Expansion/_edit_work/DS-35/round1/review/shared-choices-receipt.json`.
+**Dad Bod SFC R2 - REVIEW 2026-10-25, Codex.** Both complete films delivered at http://127.0.0.1:9238/ with full VLC copies. Audited exact-file gates and fresh independent reviews complete; selected sound qualifications recorded. Next: Dan chooses scripted or off-the-cuff and gives revisions, listed in Docs/DAN_DECISIONS.md. Slot released for review.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 

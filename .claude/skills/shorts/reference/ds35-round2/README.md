@@ -30,3 +30,7 @@ The full Balanced voice uses the exact approved EQ, no NR, dereverb or expander.
 `prepare_review_media_r2.py` makes540p copies with unchanged AAC packets, posters, sidecars and normal-gate audio comparisons. `page_r2.py` requires a truthful complete-file/independent-review release receipt before publishing the paired page. Serve with the maintained review_server.py, verify200/206 and muted browser play/seek, and copy both1080p files into Videos to Review. Await Dan’s version choice. No cover/upload/scheduling belongs to this round.
 
 Final measurements and release receipt remain in the external working root and delivery folder, never in this source recipe folder.
+
+## Review audio comparison
+
+`review_voice_ab_r2.py` builds browser-compatible PCM WAV: pinned reference20–32s,0.5s gap, actual Dan20–32s. This avoids the generic audio gate A/B selector’s1s opening window on mixed-source Shorts, which can compare the interview instead of Dan. Raw gate A/B artifacts/stamps are retained; this review derivative never alters a film. Both final films received full audited gate PASS with zero unmeasured/pending rows, supported declarations and exact independent evidence. The page was checked for muted playback, backward/forward native seeking and byte-range206.

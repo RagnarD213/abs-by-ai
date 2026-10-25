@@ -9,5 +9,5 @@ for v in ['scripted','off_the_cuff']:
  poster=d/('dad-bod-r2-'+v+'-poster.jpg')
  if not poster.exists():subprocess.run([FF,'-v','error','-nostdin','-y','-ss','17.2','-i',str(s),'-frames:v','1','-q:v','2',str(poster)],check=True)
  shutil.copy2(W/v/'captions.srt',d/('dad-bod-r2-'+v+'.srt'))
- shutil.copy2(W/'qa'/v/'audio-ab.wav',d/('dad-bod-r2-'+v+'-audio-ab.wav'))
+ # Review-only actual Dan comparison is built by review_voice_ab_r2.py; the gate AB may select the interview on short mixed-source films.
  print('REVIEW_MEDIA_READY',v,flush=True)

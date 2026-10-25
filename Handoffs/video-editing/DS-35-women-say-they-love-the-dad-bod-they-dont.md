@@ -1,4 +1,6 @@
-**SFC.** Task name: `Dad Bod SFC R1`.
+**SFC.** Task name: `Dad Bod SFC R2`.
+
+**Round2 review delivered2026-10-25, Codex.** Both complete Shorts: [paired page](http://127.0.0.1:9238/), scripted57.5s and off-the-cuff61.1s. Await Dan’s version choice and revisions. Warm & Vivid/C_Balanced are applied; actual final-file independent reviews and audited gates complete, with raw selected-reference sound qualifications retained. Delivery: `Short-form video content/Dad Bod - DS-35/`; full VLC copies in `Videos to Review/`. Working receipt: `/Volumes/Expansion/_edit_work/DS-35/round2/delivery-receipt.json`. The original first-cut brief below is retained for source context.
 
 # DS-35: "Women Say They Love The Dad Bod. They Don't.", first cut from raw footage
 
