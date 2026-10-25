@@ -875,5 +875,14 @@
     "h": 1920,
     "job": "DS-33",
     "when": "2026-12-24T15:00:00.000Z"
+  },
+  {
+    "match": "Bill Maher asks if you've ever seen a fat 90-year-old. He's right.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds40-codex-r5-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-40",
+    "when": "2026-12-31T15:00:00.000Z",
+    "approved": "Design 1 cover R3, Dan 2026-10-25; Codex R5 film"
   }
 ]

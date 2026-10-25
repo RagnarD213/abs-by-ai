@@ -2792,11 +2792,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "Dan selected Codex R5 on 2026-10-25, SHA256 3808e604, 64.8648 s; replaces Claude R6 in setup handoff. Cover choices and setup in progress; not scheduled.",
+   "note": "Setup complete: exact Codex R5 3808e604 and approved design 1 cover R3 installed; all four media uploads verified. Shared waiting list for Thu Dec 31 2026 9 AM Central because Blotato 197/200. Not scheduled yet; do not mark uploaded until all four schedules read back.",
    "needs": "",
    "order": 120,
    "updated": "2026-10-25",
-   "rev": 14,
+   "rev": 15,
    "syncedRev": 12,
    "editor": "Codex",
    "by": "Codex"

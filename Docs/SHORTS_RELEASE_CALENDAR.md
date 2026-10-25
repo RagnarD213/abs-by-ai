@@ -24,7 +24,7 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Dec 7 | What To Buy 1\* (RO-20C) | Zepbound Tips 6 (sl06-short6, queued) | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2 (SL-18) |
 | Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | (open) |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Ronaldo Ab Belt (DS-33, waiting list) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
-| Dec 28 | Belly Fat 4 | Belly Fat 5 | #1 Change For Abs At 40\* (DS-13) | | |
+| Dec 28 | Belly Fat 4 | Belly Fat 5 | Bill Maher: Fat 90-Year-Old (DS-40, waiting list) | | |
 
 **Moved 2026-10-23 (DS-44 setup):** Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44) is edited, so it takes Thu Dec 17 (queued in Blotato, scripted version). The not-yet-edited DS-13 and DS-16 each move one Thursday later (Dec 24, Dec 31); Top 5 Ab Exercises (DS-01) moves to the first 2027 Thursday, Jan 7.
 
@@ -42,3 +42,6 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~40 dedicated Shorts filmed but not edited.
 
 **Moved 2026-10-25 (Ronaldo Ab Belt setup):** The approved "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?" (DS-33) takes Thu Dec 24, 9 AM America/Chicago, on the shared waiting list because Blotato has 197/200 posts and this video needs four. It follows the already edited dedicated Shorts. The not-yet-edited DS-13 moves to Dec 31; DS-16 moves to Jan 7, 2027, and DS-01 to Jan 14. The daily top-up routine rechecks the live slot before scheduling.
+
+**Moved 2026-10-25 (Bill Maher: Fat 90-Year-Old setup):** Dan selected the approved Codex R5 film and approved revised design 1 cover R3. This edited Short takes Thu Dec 31, 9 AM America/Chicago, on the shared waiting list. The not-yet-edited #1 Change For Abs At 40 (DS-13) moves to Jan 7, 2027; Lose The Last 10 Pounds (DS-16) moves to Jan 14 and Top 5 Ab Exercises (DS-01) to Jan 21. No existing live schedule was moved. The daily top-up routine rechecks the slot before queuing all four destinations.
+
