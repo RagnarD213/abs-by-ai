@@ -61,7 +61,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R4 - REVIEW 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`. Coffee/couch frame repairs, four checked moving scenes and finished-C leg press ready: http://127.0.0.1:9357/. Full film/opening montage pending. Flow6credits; no paid spend. Next: Dan frame approvals and refill/paid choice, then remaining motion/gym work. Slot released for review; pin retained. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
+**Boring Abs At 40 LFC R4 - REVIEW 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`. Coffee/couch frame repairs, four checked moving scenes and finished-C leg press ready: http://127.0.0.1:9357/. Full film/opening montage pending. Flow6credits; no paid spend. Next: Dan frame approvals and refill/paid choice, then remaining motion/gym work. Slot released; pin retained. Record push blocked by seven live files. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
