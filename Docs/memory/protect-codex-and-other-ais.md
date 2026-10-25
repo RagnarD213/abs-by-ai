@@ -28,3 +28,12 @@ A change that only Claude verifies can silently break the others, and he is the 
 2. Update or migrate those references in the same task, keeping the old path working as a link.
 3. Test it from Codex too (a real `codex exec` in the project that reads and writes a file), not only from Claude.
 4. Report to Dan which AIs were checked. If one cannot be tested, say so before calling the change done.
+
+**Second trap (2026-10-25):** Codex keeps a per-chat permission record for its auto-resume timers in
+`~/.codex/.codex-global-state.json` → `heartbeat-thread-permissions-by-id`. Chats started with the `:workspace`
+profile (workspace-write, ask-first, no network) have their workspace on the old `~/Documents/Claude` link, so every
+command fails the sandbox and waits for a click ("Awaiting approval" in the sidebar). Working chats show
+`dangerFullAccess` / `never`. The app rewrites that file every few seconds, so fix it in the app (composer permission
+menu, after Dan turns on Settings > General > Full access, a security switch only Dan flips), never by editing the
+file. A running turn keeps its old policy: stop the turn, leave the composer on Full access, send "continue"; the
+new turn shows `disabled`/`never` in `~/.codex/state_5.sqlite` threads.sandbox_policy (verified 2026-10-25). Cloud Codex chats cannot be given folders at all; Mac-bound work like the morning brief belongs in a local chat.

@@ -1,0 +1,116 @@
+"""RO-24 round 3 picture: round 2's locked cut with the six clip inserts (edl_r3.json), Dan from the round 2 plates (no
+re-key) placed and composed at 1080p on the shared green-screen background template (bg_plan.json,
+.claude/skills/_shared/greenscreen-bg), then every graphic (HyperFrames compositor). Frames under a full-screen item
+(a clip insert, a photo scene, a card, B-roll) skip the plate decode: the compositor replaces them.
+
+  assemble_r3.py OUT.mp4 [--g0 N --g1 M] [--stills 30,800] [--plan bg_plan.json] [--manifest film_manifest_r3.json]
+Writes OUT.mp4.build.json: every run (film frames, item, source frames, framing, placement, background segment, screen
+rect) for the gates and the edit sheet.
+"""
+import argparse, json, os, pathlib, subprocess, sys, time
+import numpy as np, cv2
+R3 = pathlib.Path('/Volumes/Expansion/_edit_work/RO-24/round3')
+GSBG = os.environ.get('GSBG', '/Users/danielrose/Projects/Claude/Projects/Abs By AI/.claude/worktrees/agitated-pike-89e952/.claude/skills/_shared/greenscreen-bg')
+sys.path.insert(0, GSBG); import gsbg as G
+sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/hyperframes'); import composite as HC
+FPS = G.FPS
+SET = dict(plate=str(R3 / 'mock/set_plate.png'), tv=(581, 111, 512, 285))   # Codex set plate; TV screen measured (largest near-black rect)
+
+
+def keymeta(path):
+    q = path + '.json'
+    return json.load(open(q if os.path.exists(q) else path.replace('_refined.mkv', '.mkv') + '.json'))
+
+
+def writer(path):
+    return subprocess.Popen([G.FF, '-y', '-v', 'error', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', '1920x1080', '-r', '30000/1001', '-i', '-',
+                             '-an', '-vf', 'scale=in_range=pc:out_range=tv:out_color_matrix=bt709,format=yuv420p', '-c:v', 'libx264',
+                             '-crf', '14', '-preset', 'medium', '-color_primaries', 'bt709', '-color_trc', 'bt709', '-colorspace', 'bt709',
+                             '-movflags', '+faststart', path], stdin=subprocess.PIPE)
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument('out'); ap.add_argument('--g0', type=int, default=0); ap.add_argument('--g1', type=int)
+    ap.add_argument('--stills', default=''); ap.add_argument('--plan', default=str(R3 / 'bg_plan.json'))
+    ap.add_argument('--manifest', default=str(R3 / 'film_manifest_r3.json')); ap.add_argument('--grade', default='warm')
+    A = ap.parse_args()
+    E = json.load(open(R3 / 'edl_r3.json'))['items']; plan = json.load(open(A.plan))['segments']
+    C = HC.Compositor(json.load(open(A.manifest)))
+    ctx = G.Context(R3, set_plate=SET['plate'], set_tv=SET['tv'])
+    N = E[-1]['o1']; g0 = A.g0; g1 = min(N, A.g1 if A.g1 is not None else N)
+    stills = {int(s) for s in A.stills.split(',') if s}
+    segf = [dict(s, f0=int(round(s['t0'] * FPS)), f1=int(round(s['t1'] * FPS))) for s in plan]
+
+    def seg_at(o):
+        return next((s for s in segf if s['f0'] <= o < s['f1']), None)
+
+    wr = writer(A.out); runs = []; bgs = {}; t_start = time.time(); done = 0; hair = []
+    for it in E:
+        lo, hi = max(it['o0'], g0), min(it['o1'], g1)
+        if lo >= hi: continue
+        if it['kind'] == 'insert':                         # the clip is an opaque manifest item: the compositor draws it
+            for o in range(lo, hi):
+                assert C.opaque(o), f'clip insert {it["clip"]} frame {o} has no opaque manifest item'
+                f = C.apply(None, o); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
+                if o in stills: cv2.imwrite(A.out[:-4] + f'-{o:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
+            runs.append(dict(o0=lo, o1=hi, kind='insert', clip=it['clip']))
+            continue
+        meta = keymeta(it['key']); kf0 = meta['f0']; geo = {g[0]: g for g in meta['geo']}
+        k_item0 = it['src0'] - kf0                          # plate frame of the item's first film frame
+        sk0, sk1 = k_item0, k_item0 + it['n']
+        top, cx = G.shot_head(geo, sk0, sk1)                # head over the WHOLE shot piece (static framing per shot)
+        o = lo
+        while o < hi:
+            covered = C.opaque(o); seg = None if covered else seg_at(o)
+            # run: same coverage and same background segment
+            e = o + 1
+            while e < hi and C.opaque(e) == covered and (covered or seg_at(e) is seg): e += 1
+            if covered:
+                for q in range(o, e):
+                    f = C.apply(None, q); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
+                    if q in stills: cv2.imwrite(A.out[:-4] + f'-{q:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
+                runs.append(dict(o0=o, o1=e, kind='covered', piece=it['piece']))
+                o = e; continue
+            assert seg is not None, f'film frame {o} has Dan on screen but no background segment'
+            bg = bgs.get(seg['id'])
+            if bg is None:
+                for k in [k for k in bgs if k != seg['id']]: bgs.pop(k).close()
+                bg = bgs[seg['id']] = G.make_background(dict(seg, frames=seg['f1'] - seg['f0']), ctx)
+                bg._next = seg['f0']
+            framing = 'W' if it['framing'] in ('W', 'S') else 'T'
+            mode = bg.placement
+            k, ox, oy = G.affine(mode, framing, top, cx)
+            cam = G.camera(mode, framing, top, cx) if seg['type'] in G.CAMERA_LOCKED else (1.0, 0.0, 0.0)
+            pr = G.Presenter(it['key'], k_item0 + (o - it['o0']), e - o, k, ox, oy)
+            light = getattr(bg, 'light', None)
+            for q in range(o, e):
+                while bg._next < q:                         # keep the background's clock on film time (a render that starts mid-segment)
+                    bg.frame(bg._next - seg['f0'], cam); bg._next += 1
+                img = bg.frame(q - seg['f0'], cam).copy(); bg._next = q + 1
+                top_bg = img[:420].copy()
+                F, Al = pr.read()
+                img = G.compose(img, F, Al, pr.rect, k, A.grade, light)
+                # hair clearance, measured on the rendered picture before graphics: first row from the top where at least
+                # 3 pixels differ from the background drawn under him by more than 14/255 (the round 2 hairclear16 rule)
+                dd = (np.abs(img[:420] - top_bg).max(-1) > 14 / 255).sum(1) >= 3
+                hair.append((q, int(np.argmax(dd)) if dd.any() else None, framing, mode))
+                o8 = (img * 255 + .5).astype(np.uint8)
+                o8 = C.apply(o8, q)
+                wr.stdin.write(np.ascontiguousarray(o8).tobytes()); done += 1
+                if q in stills: cv2.imwrite(A.out[:-4] + f'-{q:05d}.jpg', o8[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
+            pr.close()
+            runs.append(dict(o0=o, o1=e, kind='presenter', piece=it['piece'], key=it['key'], src0=it['src0'] + (o - it['o0']),
+                             framing=framing, placement=mode, bg=seg['id'], bg_type=seg['type'], affine=[k, ox, oy], rect=pr.rect,
+                             crop=pr.crop, head=[top, cx]))
+            if done and done % 300 < (e - o):
+                print(f'  {done} frames, {done / (time.time() - t_start):.2f} fps', flush=True)
+            o = e
+    for b in bgs.values(): b.close()
+    wr.stdin.close(); assert wr.wait() == 0
+    json.dump(dict(frames=N, g0=g0, g1=g1, grade=A.grade, plan=A.plan, manifest=A.manifest, runs=runs, hair=hair), open(A.out + '.build.json', 'w'), indent=1)
+    print('ASSEMBLE DONE', A.out, g1 - g0, 'frames', f'{(g1 - g0) / (time.time() - t_start):.2f} fps', flush=True)
+
+
+if __name__ == '__main__':
+    main()
