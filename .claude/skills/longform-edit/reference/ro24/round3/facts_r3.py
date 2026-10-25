@@ -31,8 +31,9 @@ R3P = lambda f: f'photos/{f}'
 people = {
  'Sharon Osbourne': dict(
     # clean shots of her in the full E! News video (no quote boxes over her): interview close-ups, Emmys, MS gala, podcast
-    clip=dict(src='clips/src/sharon_full.mp4', windows=[[52.0, 57.9], [66.0, 71.9], [6.0, 7.9], [36.0, 37.8], [82.0, 83.6], [118.0, 124.0]],
-              after=[[12.0, 17.6], [88.0, 91.9]], focus=[0.45, 0.4]),
+    # (windows on measured shot changes: ffmpeg scene detection + an exact-time 1 fps sheet, clips/sharon_full_sheet_exact.jpg)
+    clip=dict(src='clips/src/sharon_full.mp4', windows=[[54.6, 58.8], [66.6, 70.9], [88.1, 91.8], [36.6, 37.7], [46.7, 47.9], [118.8, 121.5], [34.1, 35.8]],
+              after=[[12.4, 16.8], [54.6, 58.8]], focus=[0.45, 0.4]),
     stat='42 lb, Ozempic', big=['-42 LB', 'OZEMPIC'],
     photos=[R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg'), R3P('sharon/sharon_before_2019_emmys.jpg'),
             R3P('sharon/sharon_after_2024_chateau_marmont.jpg'), R2P('sharon/sharon_c_before_2012.jpg')],
@@ -41,7 +42,7 @@ people = {
            dict(photos=[R3P('sharon/sharon_before_2021_the_talk_set.jpg'), R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg')],
                 years=['2021', '2023'], credits=['CBS via Getty Images', 'Splash News'], crop_k=3.6, top=0.7)]),
  'Fat Joe': dict(
-    clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[26.0, 31.9], [38.0, 43.5], [4.5, 13.5]], after=[[4.5, 13.5], [26.0, 31.9]], focus=[0.5, 0.4]),
+    clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[25.6, 30.9], [38.9, 42.8], [4.5, 13.45]], after=[[4.5, 13.45], [25.6, 30.9]], focus=[0.5, 0.4]),
     stat='200 lb, Ozempic', big=['-200 LB', 'OZEMPIC'],
     photos=[R2P('fatjoe/fatjoe_a_heaviest_2005.jpg'), R2P('fatjoe/fatjoe_b_recent_2023.jpg')],
     # P0 shows MTV TRL 2002 / ESPYs 2026, P3 Brown Sugar 2002 / Fanatics 2024: the panel gets the third pair
@@ -115,11 +116,11 @@ OVR = {
  'BG04': dict(pair=dict(photos=[R3P('sharon/sharon_before_2021_the_talk_set.jpg'), R3P('sharon/sharon_after_2025_villa_park_announcement.jpg')],
                         years=['2021', '2025'], credits=['CBS via Getty Images', 'Samir Hussein/Getty Images for Live Nation UK'], crop_k=6.0, top=0.6),
               why='her own fault, Ozempic face: her before and after with 42 lb, Ozempic (a pair the photo scenes do not use)'),
- 'BG05': dict(clip=dict(src=SH, windows=[[52.0, 57.9], [66.0, 71.9]], zoom=1.22, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
+ 'BG05': dict(clip=dict(src=SH, windows=[[66.6, 70.9], [88.1, 91.8], [54.6, 58.8]], zoom=1.22, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
               why="blaming the medication, overdosing: her clip behind, Dan to the side (Dan: occasionally)"),
- 'BG07': dict(type='set', clip=dict(src=SH, windows=[[6.0, 7.9], [36.0, 37.8], [118.0, 124.0], [82.0, 83.6], [12.0, 17.6]]),
+ 'BG07': dict(type='set', clip=dict(src=SH, windows=[[118.8, 121.5], [36.6, 37.7], [46.7, 47.9], [12.4, 16.8], [34.1, 35.8], [88.1, 91.8], [66.6, 70.9]]),
               why='commentary (scare tactics, skeletons): the studio set, her clip on its TV'),
- 'BG08': dict(type='soft', clip=dict(src=SH, windows=[[88.0, 91.9], [66.0, 71.9]]),
+ 'BG08': dict(type='soft', clip=dict(src=SH, windows=[[54.6, 58.8], [66.6, 70.9]]),
               why='commentary (very unlikely you would get this gaunt): her clip softened behind him'),
  'BG09': dict(type='cards', photos=[R3P('sharon/sharon_before_2019_emmys.jpg'), R3P('sharon/sharon_after_2024_chateau_marmont.jpg'),
                                     R2P('sharon/sharon_c_before_2012.jpg'), R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg'),

@@ -99,6 +99,12 @@ Times are film seconds; paths resolve against the plan's folder. `clip.windows` 
 
 ## Cost (measured 2026-10-25 on RO-24, a busy Mac)
 
-The plate decode dominates: FFV1 16-bit 2880x1620 decodes at about 3 to 4 frames a second on the cores the queue allows.
-Composing at 1080p adds little. A film is decoded once per render; looks are tested on stills and 10-15 s windows
-(`--g0/--g1`), never on a full render. HyperFrames backgrounds render at about 5 to 6 s per second of screen time.
+The plate decode dominates: FFV1 16-bit 2880x1620 costs about 0.45 core-seconds a frame. The RO-24 2:50 preview (3,042
+presenter frames, 2,069 under full-screen items) rendered at 2.9 frames a second in one heavy slot on a Mac running four other
+edits (29 min). A fix to a few background stretches re-composes only those (`assemble_r3.py --reuse OLD --redo BG03,BG05`:
+everything else is copied from the earlier render) at 5.7 frames a second. Looks are tested on stills and 10-15 s windows
+(`--g0/--g1`), never on a full render. HyperFrames backgrounds render at about 7 s per second of screen time.
+
+Trap (2026-10-25): a 1-frame-per-2-s contact sheet made with the `fps` filter can show a frame up to a second later than its
+label, so muted-footage windows picked from it started on the wrong shot (an Ozempic box behind Dan instead of Sharon). Pick
+windows from ffmpeg scene detection (`select='gt(scene,0.25)',showinfo`) and check the first and last frame of each window.

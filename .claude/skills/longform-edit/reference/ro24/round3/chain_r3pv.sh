@@ -6,7 +6,8 @@ R3=/Volumes/Expansion/_edit_work/RO-24/round3; R="$R3/recipe"; A="/Users/danielr
 FF="/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"; PV="$R3/review/preview"; C="$R3/checks"
 mkdir -p "$PV/_build" "$C"
 NAME="DRAFT - RO-24 round 3 - first 2m50s"; G1=${G1:-5111}     # ends after "...he admitted that he used weight loss medication." (G03 out)
-echo "== picture"; python3 "$R/assemble_r3.py" "$PV/_build/picture.mp4" --g1 $G1 --stills 300,560,1700,2350,2700,3050,3500,3870,4120,4980 || { echo "RENDER FAILED (picture)"; exit 1; }
+REUSE_ARGS=(); [ -n "${REUSE:-}" ] && REUSE_ARGS=(--reuse "$REUSE" --redo "$REDO")     # REUSE=<earlier picture> REDO=BG03,BG05: compose only those again
+echo "== picture"; python3 "$R/assemble_r3.py" "$PV/_build/picture.mp4" --g1 $G1 --stills 300,560,1700,2350,2700,3050,3500,3870,4120,4980 "${REUSE_ARGS[@]}" || { echo "RENDER FAILED (picture)"; exit 1; }
 DUR=$(python3 -c "print($G1*1001/30000)")
 "$FF" -v error -y -i "$PV/_build/picture.mp4" -i "$R3/audio/film_voice_r3.wav" -map 0:v:0 -map 1:a:0 -c:v copy -c:a aac -b:a 256k -t "$DUR" -movflags +faststart "$PV/$NAME.mp4"
 cp "$PV/_build/picture.mp4.build.json" "$PV/$NAME.mp4.build.json"

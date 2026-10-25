@@ -34,6 +34,8 @@ def main():
     ap.add_argument('out'); ap.add_argument('--g0', type=int, default=0); ap.add_argument('--g1', type=int)
     ap.add_argument('--stills', default=''); ap.add_argument('--plan', default=str(R3 / 'bg_plan.json'))
     ap.add_argument('--manifest', default=str(R3 / 'film_manifest_r3.json')); ap.add_argument('--grade', default='warm')
+    ap.add_argument('--reuse', help='an earlier render of the same range: frames outside --redo segments are copied from it')
+    ap.add_argument('--redo', default='', help='background segment ids to compose again (with --reuse)')
     A = ap.parse_args()
     E = json.load(open(R3 / 'edl_r3.json'))['items']; plan = json.load(open(A.plan))['segments']
     C = HC.Compositor(json.load(open(A.manifest)))
@@ -41,6 +43,21 @@ def main():
     N = E[-1]['o1']; g0 = A.g0; g1 = min(N, A.g1 if A.g1 is not None else N)
     stills = {int(s) for s in A.stills.split(',') if s}
     segf = [dict(s, f0=int(round(s['t0'] * FPS)), f1=int(round(s['t1'] * FPS))) for s in plan]
+
+    redo = {x for x in A.redo.split(',') if x}
+    old = None
+    if A.reuse:
+        oldb = json.load(open(A.reuse + '.build.json')); assert oldb['g0'] == g0 and oldb['g1'] == g1, 'reuse needs the same range'
+        old_hair = {h[0]: h for h in oldb['hair']}
+        rd = subprocess.Popen([G.FF, '-v', 'error', '-i', A.reuse, '-an', '-vf', 'scale=in_color_matrix=bt709:in_range=tv:out_range=pc,format=rgb24',
+                               '-f', 'rawvideo', '-'], stdout=subprocess.PIPE)
+        old = dict(p=rd, next=g0)
+
+    def old_frame(q):                                     # the earlier render's frame q (sequential)
+        while True:
+            raw = old['p'].stdout.read(1920 * 1080 * 3); assert len(raw) == 1920 * 1080 * 3, 'reuse render too short'
+            n = old['next']; old['next'] += 1
+            if n == q: return np.frombuffer(raw, np.uint8).reshape(1080, 1920, 3)
 
     def seg_at(o):
         return next((s for s in segf if s['f0'] <= o < s['f1']), None)
@@ -52,7 +69,7 @@ def main():
         if it['kind'] == 'insert':                         # the clip is an opaque manifest item: the compositor draws it
             for o in range(lo, hi):
                 assert C.opaque(o), f'clip insert {it["clip"]} frame {o} has no opaque manifest item'
-                f = C.apply(None, o); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
+                f = old_frame(o) if old is not None else C.apply(None, o); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
                 if o in stills: cv2.imwrite(A.out[:-4] + f'-{o:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
             runs.append(dict(o0=lo, o1=hi, kind='insert', clip=it['clip']))
             continue
@@ -68,11 +85,17 @@ def main():
             while e < hi and C.opaque(e) == covered and (covered or seg_at(e) is seg): e += 1
             if covered:
                 for q in range(o, e):
-                    f = C.apply(None, q); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
+                    f = old_frame(q) if old is not None else C.apply(None, q); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
                     if q in stills: cv2.imwrite(A.out[:-4] + f'-{q:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
                 runs.append(dict(o0=o, o1=e, kind='covered', piece=it['piece']))
                 o = e; continue
             assert seg is not None, f'film frame {o} has Dan on screen but no background segment'
+            if old is not None and seg['id'] not in redo:
+                for q in range(o, e):
+                    f = old_frame(q); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
+                    if q in old_hair: hair.append(old_hair[q])
+                    if q in stills: cv2.imwrite(A.out[:-4] + f'-{q:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
+                runs.append(dict(o0=o, o1=e, kind='presenter-reused', piece=it['piece'], bg=seg['id'])); o = e; continue
             bg = bgs.get(seg['id'])
             if bg is None:
                 for k in [k for k in bgs if k != seg['id']]: bgs.pop(k).close()
@@ -87,6 +110,7 @@ def main():
             for q in range(o, e):
                 while bg._next < q:                         # keep the background's clock on film time (a render that starts mid-segment)
                     bg.frame(bg._next - seg['f0'], cam); bg._next += 1
+                if old is not None: old_frame(q)          # keep the earlier render's reader in step
                 img = bg.frame(q - seg['f0'], cam).copy(); bg._next = q + 1
                 top_bg = img[:420].copy()
                 F, Al = pr.read()
@@ -107,6 +131,7 @@ def main():
                 print(f'  {done} frames, {done / (time.time() - t_start):.2f} fps', flush=True)
             o = e
     for b in bgs.values(): b.close()
+    if old is not None: old['p'].stdout.close(); old['p'].wait()
     wr.stdin.close(); assert wr.wait() == 0
     json.dump(dict(frames=N, g0=g0, g1=g1, grade=A.grade, plan=A.plan, manifest=A.manifest, runs=runs, hair=hair), open(A.out + '.build.json', 'w'), indent=1)
     print('ASSEMBLE DONE', A.out, g1 - g0, 'frames', f'{(g1 - g0) / (time.time() - t_start):.2f} fps', flush=True)
