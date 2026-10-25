@@ -1,0 +1,23 @@
+from pathlib import Path
+import sys,json,shutil,hashlib,datetime
+W=Path(__file__).resolve().parents[1];R=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');receipt=json.loads((W/'review/release-receipt.json').read_text());assert receipt['both_complete'] and receipt['independent_review_complete'] and receipt['open_export_defects']==0
+D=R/'Short-form video content/Dad Bod - DS-35';V=R/'Videos to Review';D.mkdir(parents=True,exist_ok=True);V.mkdir(exist_ok=True);rec=[]
+sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+for v,name in [('scripted','scripted'),('off_the_cuff','off the cuff')]:
+ s=W/'review/media'/('dad-bod-r2-'+v+'.mp4');g=json.loads(Path(str(s)+'.deliver_gate.json').read_text());assert g['verdict']=='PASS' and g['sha256']==sha(s)
+ out=D/('Dad Bod SFC R2 - '+name+'.mp4');vlc=V/out.name;shutil.copy2(s,out);shutil.copy2(s,vlc);assert sha(s)==sha(out)==sha(vlc)
+ for suffix in ['.deliver_gate.json','.audio_gate.json','.audio_untreated.json']:
+  p=Path(str(s)+suffix)
+  if p.exists():shutil.copy2(p,Path(str(out)+suffix))
+ shutil.copy2(W/v/'captions.srt',out.with_suffix('.srt'))
+ q=D/('R2 QA - '+name);q.mkdir(exist_ok=True)
+ for n in ['gate-raw.json','gate-final.json','full-speech-junk.json','corrected-caption-sync.json','sound-conform-evidence.json','audited-delivered-mms.json','audited-chunk-onset-projection.json','audio-exact-provenance.json','plan.json']:
+  shutil.copy2(W/'qa'/v/n,q/n)
+ for n in ['report.json','report.md','findings.json','rgb-analysis.json','caption-independent.json']:
+  p=W/'independent'/v/n
+  if p.exists():shutil.copy2(p,q/('independent-'+n))
+ rec.append(dict(version=v,path=str(out),vlc=str(vlc),sha256=sha(out),seconds=57.52413333333333 if v=='scripted' else 61.09436666666667))
+P=D/'Recipe - R2';P.mkdir(exist_ok=True)
+for f in (W/'recipe').glob('[!.]*.py'):shutil.copy2(f,P/f.name)
+notes=f'''CONTENT / SFC. Dad Bod SFC R2. Awaiting Dan’s choice and review, not approved or published.\n\nReview both complete films: {receipt['review_url']}\nScripted57.5s; off the cuff61.1s. Both full-quality1080x1920 at30000/1001fps, AAC48k stereo. Actual VLC files are in Videos to Review.\n\nWatch ranges: both0:08–0:17 for horizontal question/audio handover and silent foreground-hair overlap. Scripted0:20–0:26 or off the cuff0:23–0:30 for Seth Rogen X / Daniel Craig check.\n\nWhat I decided: changed to horizontal at the start of the final natural question9.476s, while the source still speaks, then silent continuation behind Dan until the comparison card. Full actual source title fits above the panel at25px. Reused the real source-inset photos. No additional assets downloaded or generated. Preserved Warm & Vivid, exact selected Balanced EQ, existing caption word groups/times, key repairs and take-specific points/endings.\n\nVerification: full exact native all-frame picture/black/freeze scan, every join and required scene, every caption raster and onset, complete speech junk check and fresh independent whole-file review of each. Captions84/84 and87/87, worst64/73ms, zero absent cue states. Normal audio selftest PASS. Phone copies preserve every AAC packet.\n\nQuality qualifications: raw shared and normal owned-audio FAIL results are retained, not relabelled. Audited complete delivery gates use four explicit build declarations: source/caption shadows confused generic composite framing; independent actual RGB measures real foreground hair in every composition; complete-word junk measurement is separate from sparse chunk timing metadata; selected Balanced differs from generic Muhammad-reference tone. Every owned Dan audio row except tone passes. Off-cuff full mix’s outdoor-source ambience also crosses the generic floor bound by0.1dB while its owned Dan floor passes. Actual final AAC matches selected full C stems/auditions; no NR, dereverb, expander or source-voice overlay was added. Provider listen claims varied and are preserved with source-based dispositions, not erased.\n\nWorking evidence: {W}\nBoth independent reports and raw/final gate results are in R2 QA folders here. Rebuild recipes depend on unchanged approved R1 caches and live external working-root layout. All18 approval locks remain intact.\n\nSource reused: ManVsStreet, Girls Like The Dad Bod Until We Showed Them This, https://www.youtube.com/watch?v=LbwgABvQdUA . Real Rogen/Craig source insets reused from that interview.\n'''
+(D/'Review notes - R2.md').write_text(notes);(W/'delivery-receipt.json').write_text(json.dumps(dict(delivered_at=datetime.datetime.now().astimezone().isoformat(),review_url=receipt['review_url'],files=rec,awaiting='Dan chooses scripted or off the cuff and gives revisions'),indent=2));print('BOTH_REVIEW_DELIVERIES_COPIED',D,flush=True)

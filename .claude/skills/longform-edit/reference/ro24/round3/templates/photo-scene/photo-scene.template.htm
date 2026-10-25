@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light PHOTO SCENE (HyperFrames), 16:9, opaque: one or two photos in the approved photo frame (the
+         before-card's frame, shadow and slow push; softblue.scene_photo's centred layout) on the moving field, a small name
+         chip, their weight + medication (round 3) and a tiny credit line under them. A scene is a run of shots (montage: hard cuts; a two-part scene: a short
+         crossfade). Geometry from build_photos.py. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --cyan: rgb(104, 197, 255);
+        --white: rgb(244, 250, 255);
+        --chip: rgb(6, 17, 30);
+        --cite: rgb(170, 200, 225);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: rgb(5, 13, 28); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; background: rgb(5, 13, 28); }
+      #field { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      #drift, .shot { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      .shadow { position: absolute; border-radius: 36px; background: rgba(0, 2, 12, 0.43); filter: blur(10px); }
+      .frame { position: absolute; border-radius: 26px; background: rgb(42, 80, 113); border: 2px solid rgba(118, 183, 222, 0.59); }
+      .clip { position: absolute; overflow: hidden; border-radius: 16px; }
+      .clip img { display: block; width: 100%; height: 100%; object-fit: cover; }
+      .chip { position: absolute; background: var(--chip); white-space: nowrap; line-height: 1.4; color: var(--white); font-weight: 400; }
+      .year { position: absolute; background: rgba(6, 17, 30, 0.88); white-space: nowrap; line-height: 1.4; color: var(--cyan); font-weight: 700; }
+      .stat { position: absolute; white-space: nowrap; line-height: 1.4; color: var(--cyan); font-weight: 700; }
+      .cite { position: absolute; white-space: nowrap; line-height: 1.4; color: var(--cite); font-weight: 400; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <canvas id="field" width="__W__" height="__H__"></canvas>
+      <div id="drift"></div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      const $ = id => document.getElementById(id);
+      const mk = (cls, parent) => { const e = document.createElement("div"); e.className = cls; parent.appendChild(e); return e; };
+      // ---------- the moving Soft Blue field (softblue.field) ----------
+      const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      const FS = Math.min(CW, CH) / 1080, SX = CW / (1920 * FS), SY = CH / (1080 * FS);
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * SY * (yy - gy) * SY / .35, kyv = (yy - hy) * SY * (yy - hy) * SY / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * SX * (xx - gx) * SX / .18 + gyv)), k = Math.exp(-((xx - hx) * SX * (xx - hx) * SX / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, CW, CH);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      drawField(0);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawField(clock.t) }, 0);
+      tl.fromTo("#drift", { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+
+      CFG.shots.forEach((S, k) => {
+        const g = mk("shot", $("drift"));
+        const t0 = S.t, t1 = k + 1 < CFG.shots.length ? CFG.shots[k + 1].t : D, len = t1 - t0;
+        S.photos.forEach(P => {
+          const sh = mk("shadow", g); place(sh, P.x - 4, P.y + 2, P.w + 24, P.h + 24);
+          const fr = mk("frame", g); place(fr, P.x - 10, P.y - 10, P.w + 20, P.h + 20);
+          const cl = mk("clip", g); place(cl, P.x, P.y, P.w, P.h);
+          const im = document.createElement("img"); im.src = P.src; im.alt = ""; cl.appendChild(im);
+          im.style.transformOrigin = P.origin;
+          // the slow push runs for the whole time the photo is up
+          tl.fromTo(im, { scale: 1 }, { scale: P.push, duration: len + 0.4, ease: "power1.inOut" }, t0);
+          if (P.year) {
+            const y = mk("year", g); place(y, P.year.x, P.year.y, P.year.w, P.year.h); y.style.borderRadius = px(P.year.r);
+            y.style.fontSize = px(P.year.px); y.style.paddingLeft = px(P.year.pad); y.style.paddingTop = px(P.year.pt); y.textContent = P.year.s;
+          }
+        });
+        if (S.chip) {
+          const c = mk("chip", g); place(c, S.chip.x, S.chip.y, S.chip.w, S.chip.h); c.style.borderRadius = px(S.chip.r);
+          c.style.fontSize = px(S.chip.px); c.style.paddingLeft = px(S.chip.pad); c.style.paddingTop = px(S.chip.pt); c.textContent = S.chip.s;
+        }
+        if (S.stat) {
+          const c = mk("stat", g); place(c, S.stat.x, S.stat.y); c.style.fontSize = px(S.stat.px); c.textContent = S.stat.s;
+        }
+        if (S.cite) {
+          const c = mk("cite", g); place(c, S.cite.x, S.cite.y); c.style.fontSize = px(S.cite.px); c.textContent = S.cite.s;
+        }
+        // in: the first shot of a scene that cuts in from Dan rises (before-card photo entrance); a montage cut is instant;
+        // a second part crossfades in over the first, rising a little
+        if (S.enter === "rise") tl.fromTo(g, { opacity: 0, y: 36 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, t0);
+        else if (S.enter === "fade") tl.fromTo(g, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" }, t0);
+        else if (t0 > 0) tl.fromTo(g, { opacity: 0 }, { opacity: 1, duration: 0.001, ease: "none" }, t0 - 0.001);
+        // out: a hard cut on the next shot's first frame, or a fade under the incoming part; the last shot holds to the out
+        if (k + 1 < CFG.shots.length) {
+          const nx = CFG.shots[k + 1];
+          // a fading-in part lands over this one (it is later in the page); this one leaves once it is fully in
+          if (nx.enter === "fade") tl.fromTo(g, { opacity: 1 }, { opacity: 0, duration: 0.001, ease: "none", immediateRender: false }, nx.t + 0.4);
+          else tl.fromTo(g, { opacity: 1 }, { opacity: 0, duration: 0.001, ease: "none", immediateRender: false }, nx.t - 0.001);
+        }
+      });
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

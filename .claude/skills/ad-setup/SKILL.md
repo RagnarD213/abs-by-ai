@@ -102,6 +102,8 @@ of creative corrections. Dan then decides whether the changed HD itself is the n
 `--allow-window MM:SS-MM:SS` is only for a different task: verifying a known, explicitly approved revision between two
 versions. Never use allowed windows to make a non-identical HD export pass this resolution-only identity check.
 
+> **Current thumbnail mix (Dan, 2026-10-25):** Follow the shared five-choice rule: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. The historical clean-thumbnail recipe below does not replace this mix or actual pick approval.
+
 ## 2. Title and tags
 
 - Title = the script title as Dan wrote it (`Stop Paying Human Trainers! Use AI Instead`). It is unlisted; SEO
@@ -131,10 +133,9 @@ is the template:
 
 Never the word "trick" (Dan's rule), never a result promise in the first two lines.
 
-## 4. Thumbnail — the clean look, both grounds
+## 4. Thumbnail choices, then the approved selection
 
-Dan's standing choice for ad thumbnails is the clean look (Manrope caps, red bar, wordmark; O1 dark studio / O2 his
-own backdrop). Neither ground is settled (Ad 1 = dark, Ad 5 = light), so build both and install one.
+Use the 2026-10-25 five-choice mix in `_shared/VIDEO-RULES.md`: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. Show the five and wait for Dan's pick; generate with Codex on the subscription. The older clean-look recipe below is an optional asset reference for the real-photo choice, not a requirement to build two studio backgrounds or install a choice before approval.
 
 ```bash
 python3 .claude/skills/ad-setup/ruler.py studio-gray-87 studio-white-57 --out /tmp/ruler.jpg   # then LOOK at it

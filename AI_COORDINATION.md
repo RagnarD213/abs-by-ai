@@ -25,7 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Fat 90 Year Old SFC Setup - COVER REVIEW 2026-10-25, Codex.** Dan chose Codex R5, verified 3808e604, 64.8648 s. Project/Extreme/Drive copies match. Covers: http://127.0.0.1:9224/ . Next: Dan picks 1-5, then finish four-platform installation or shared waitlist. No social uploads/schedules yet. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+**Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
+
+**Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
 **Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
 
@@ -42,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Pushup Masterclass LFC R1 - REVIEW 2026-10-23, Codex.** RO-09 first-minute, all asset contexts and look/framing choices checked for creative review at http://127.0.0.1:9180/; full-quality VLC copy present. Full-master gates remain failed, recorded explicitly. Next: Dan’s three choices in `Docs/DAN_DECISIONS.md`, then full film and independent audit. Heartbeat paused; slot released for review. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
 
-**Dad Bod SFC R1 - REVIEW 2026-10-24, Codex.** Women Say They Love The Dad Bod. They Don't. (DS-35): checked both openings/all asset contexts, with exact gates and complete independent review. Shared choices: http://127.0.0.1:9185/. Awaiting Dan; voice concern recorded beside auditions. Slot released, heartbeat paused. No full films/approval/uploads. Next: picks in `Docs/DAN_DECISIONS.md`, then both Shorts. Receipt: `/Volumes/Expansion/_edit_work/DS-35/round1/review/shared-choices-receipt.json`.
+**Dad Bod SFC R2 - REVIEW 2026-10-25, Codex.** Both complete films delivered at http://127.0.0.1:9238/ with full VLC copies. Audited exact-file gates and fresh independent reviews complete; selected sound qualifications recorded. Next: Dan chooses scripted or off-the-cuff and gives revisions, listed in Docs/DAN_DECISIONS.md. Slot released for review.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
