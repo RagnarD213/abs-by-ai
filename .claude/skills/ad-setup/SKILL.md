@@ -102,6 +102,8 @@ of creative corrections. Dan then decides whether the changed HD itself is the n
 `--allow-window MM:SS-MM:SS` is only for a different task: verifying a known, explicitly approved revision between two
 versions. Never use allowed windows to make a non-identical HD export pass this resolution-only identity check.
 
+> **Current thumbnail mix (Dan, 2026-10-25):** Follow the shared five-choice rule: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. The historical clean-thumbnail recipe below does not replace this mix or actual pick approval.
+
 ## 2. Title and tags
 
 - Title = the script title as Dan wrote it (`Stop Paying Human Trainers! Use AI Instead`). It is unlisted; SEO
