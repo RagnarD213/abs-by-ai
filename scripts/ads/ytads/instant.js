@@ -1,7 +1,8 @@
 'use strict';
 //
 // YTADS INSTANT: a new public video gets an ENABLED ad in each of the three engagement
-// campaigns within about a minute of going live (Dan 2026-09-27). Replaces the hourly
+// campaigns, and both remarketing ad groups, within about a minute of going live
+// (Dan 2026-09-27; remarketing groups Dan 2026-10-18). Replaces the hourly
 // Ads Script, which is disabled. This path NEVER pauses, enables or removes an existing
 // ad: Dan does all pausing by hand. It only creates.
 //
@@ -14,8 +15,17 @@
 const engine = require('./engine.js');
 const { fetchVideos } = require('./feed.js');
 
-// The three engagement campaigns (ids measured 2026-09-27). Each has exactly one enabled ad group.
-const CAMPAIGNS = { tier2: '24122099676', tier1: '24163535721', rmktg: '24169507109' };
+// Where every new video gets an ad. Tier 1 and tier 2 have one enabled ad group each; the
+// remarketing campaign 24316408288 has two, so its targets name the group. (Until 2026-10-25
+// this pointed at the old remarketing campaign 24169507109, which is paused, so no new video
+// reached remarketing from 2026-10-11.)
+const TARGETS = {
+  tier2: { campaign: '24122099676' },
+  tier1: { campaign: '24163535721' },
+  'rmktg-site': { campaign: '24316408288', adGroup: '200887799219' },
+  'rmktg-yt': { campaign: '24316408288', adGroup: '209156230708' },
+};
+const CAMPAIGNS = Object.fromEntries(Object.entries(TARGETS).map(([k, t]) => [k, t.campaign]));
 const POLL_MS = 60 * 1000;
 const LOOKBACK_HOURS = 72;          // only videos this new are ever considered; older ones are history
 const RETRY_AFTER_MS = 5 * 60 * 1000;
@@ -33,14 +43,19 @@ function missing({ videos, existing, now, startDate, skiplist }) {
     const t = new Date(v.published).getTime();
     if (!(t >= floor)) continue;
     if (engine.isSkipped(v, skiplist)) continue;
-    const keys = Object.keys(CAMPAIGNS).filter(k => !existing.has(`${k}:${v.id}`));
+    const keys = Object.keys(TARGETS).filter(k => !existing.has(`${k}:${v.id}`));
     if (keys.length) out.push({ video: v, keys });
   }
   return out;
 }
 
+// Pure: which target an existing ad belongs to (null = none of ours).
+function keyFor(campaignId, adGroupId) {
+  return Object.keys(TARGETS).find(k => TARGETS[k].campaign === campaignId && (!TARGETS[k].adGroup || TARGETS[k].adGroup === adGroupId)) || null;
+}
+
 // Pure: the create operation for one campaign.
-function createOp({ cid, adGroupId, name, set, template, videoAsset, isShort }) {
+function createOp({ cid, adGroupId, name, set, template, videoAsset, isShort, status = 'ENABLED' }) {
   const video = { asset: videoAsset };
   // Dan 2026-09-13: long-form runs in-feed only; Shorts keep the default (no preference).
   if (!isShort) video.adVideoAssetInfo = { adVideoAssetInventoryPreferences: IN_FEED_ONLY };
@@ -54,7 +69,7 @@ function createOp({ cid, adGroupId, name, set, template, videoAsset, isShort }) 
   };
   if (template.callToActions.length) dg.callToActions = template.callToActions.map(asset => ({ asset }));
   return { adGroupAdOperation: { create: {
-    adGroup: `customers/${cid}/adGroups/${adGroupId}`, status: 'ENABLED',
+    adGroup: `customers/${cid}/adGroups/${adGroupId}`, status,
     ad: { name, finalUrls: template.finalUrls, demandGenVideoResponsiveAd: dg },
   } } };
 }
@@ -63,16 +78,16 @@ function start({ pool, db, writeHeadlinesFor, config, ads = require('../api/clie
   const done = new Set();           // `${key}:${videoId}` confirmed to have an ad
   const failures = new Map();       // videoId → { n, last }
   let busy = false;
-  const campaignIds = Object.values(CAMPAIGNS).join(',');
+  const campaignIds = [...new Set(Object.values(CAMPAIGNS))].join(',');
 
   async function existingAds(videoIds) {
     const like = videoIds.map(id => `ad_group_ad.ad.name LIKE '%yt:${id}%'`);
     const found = new Set();
     // GAQL has no OR; one query per video (only ever a handful).
     for (let i = 0; i < videoIds.length; i++) {
-      const rows = await ads.search(`SELECT campaign.id, ad_group_ad.ad.name FROM ad_group_ad WHERE campaign.id IN (${campaignIds}) AND ${like[i]}`);
+      const rows = await ads.search(`SELECT campaign.id, ad_group.id, ad_group_ad.ad.name FROM ad_group_ad WHERE campaign.id IN (${campaignIds}) AND ${like[i]}`);
       for (const r of rows) {
-        const key = Object.keys(CAMPAIGNS).find(k => CAMPAIGNS[k] === String(r.campaign.id));
+        const key = keyFor(String(r.campaign.id), String(r.adGroup && r.adGroup.id));
         if (key) found.add(`${key}:${videoIds[i]}`);
       }
     }
@@ -83,7 +98,8 @@ function start({ pool, db, writeHeadlinesFor, config, ads = require('../api/clie
     const rows = await ads.search(`SELECT ad_group.id, ad_group.status, ad_group_ad.ad.id, ad_group_ad.ad.final_urls, ` +
       `ad_group_ad.ad.demand_gen_video_responsive_ad.business_name, ad_group_ad.ad.demand_gen_video_responsive_ad.logo_images, ` +
       `ad_group_ad.ad.demand_gen_video_responsive_ad.call_to_actions FROM ad_group_ad WHERE campaign.id = ${CAMPAIGNS[key]} ` +
-      `AND ad_group_ad.status != 'REMOVED' AND ad_group.status = 'ENABLED' AND ad_group_ad.ad.type = 'DEMAND_GEN_VIDEO_RESPONSIVE_AD'`);
+      `AND ad_group_ad.status != 'REMOVED' AND ad_group.status = 'ENABLED' AND ad_group_ad.ad.type = 'DEMAND_GEN_VIDEO_RESPONSIVE_AD'` +
+      (TARGETS[key].adGroup ? ` AND ad_group.id = ${TARGETS[key].adGroup}` : ''));
     const usable = rows.map(r => ({ adGroupId: String(r.adGroup.id), ad: r.adGroupAd.ad }))
       .filter(x => { const d = x.ad.demandGenVideoResponsiveAd || {}; return d.businessName && (d.logoImages || []).length && (x.ad.finalUrls || []).length; })
       .sort((a, b) => Number(b.ad.id) - Number(a.ad.id));
@@ -169,4 +185,4 @@ function start({ pool, db, writeHeadlinesFor, config, ads = require('../api/clie
   return { tick };
 }
 
-module.exports = { start, missing, createOp, CAMPAIGNS, LOOKBACK_HOURS };
+module.exports = { start, missing, createOp, keyFor, CAMPAIGNS, TARGETS, LOOKBACK_HOURS };
