@@ -24,8 +24,8 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
 
-## Current R4 complete Short (2026-10-25)
+## Current R4 complete Short review (2026-10-25)
 
-CONTENT · dedicated Short. Dan approved the R4 opening and Warm And Rich colour. Full54.855-secondShort rendered with all961approvedopeningpictureframes unchanged, approvedvoiceB/crop1 retained. [Complete Short review](http://127.0.0.1:9176/), newsection0:31–0:55. Fullqualitycopy in Videos to Review. Fresh independent sampled picture review found no new visible defect; full automatic gate is queued, not yet a technical PASS. Full film approval pending. No upload or scheduling. Slot held at Dan’s explicit request.
+CONTENT · dedicated Short. Dan approved the opening and selected Warm And Rich, voice B and presenter crop 1. [Review the complete 54.855-second Short](http://127.0.0.1:9176/), concentrating on the new 0:31–0:55 section. All 961 approved opening picture frames are unchanged. The full-quality copy is in Videos to Review. Rendered, exact-file checked and independently sampled for picture defects; awaiting Dan’s full-film review. No upload or scheduling. Slot held at Dan’s explicit request.
 
-Current recipe/evidence/next action: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/RESUME.md`. Native SHA `36155866653500db0538cc9e728275f74c4d87d3e93c07bbe7fb8d73c6ffe8b5`. No new external spend or downloads.
+Native SHA: `36155866653500db0538cc9e728275f74c4d87d3e93c07bbe7fb8d73c6ffe8b5`. Automatic whole-file gate: 30 PASS, 5 FAIL, 0 not measured and 4 not applicable; numerical flags remain, not an all-checks PASS. Fresh watch judgment: all31images, zero open visible defects. Exact scope/raw results in `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/records/`; resume from `full-short/RESUME.md`. Full approval is pending. No new external spend, downloads or generated assets.
