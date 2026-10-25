@@ -318,5 +318,12 @@
   "label": "3 Healthy Foods 3: My 4 Go-To High-Protein Snacks",
   "added": "2026-10-21",
   "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json"
+ },
+ {
+  "config": "scripts/blotato/configs/ds33-ronaldo-ab-belt.json",
+  "kind": "short",
+  "job": "DS-33",
+  "label": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
+  "added": "2026-10-25"
  }
 ]

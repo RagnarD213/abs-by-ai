@@ -1,0 +1,41 @@
+{
+  "title": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
+  "copy": [
+    "Ronaldo\u2019s Ab Belt",
+    "Does It Work?"
+  ],
+  "designs": [
+    {
+      "number": 1,
+      "name": "Electric pool",
+      "source": "photo-247",
+      "treatment": "real pool cutout, cobalt scene, left aligned Impact white and cyan"
+    },
+    {
+      "number": 2,
+      "name": "Studio editorial",
+      "source": "studio-white-49",
+      "treatment": "real studio cutout, cream and yellow, lower black condensed type"
+    },
+    {
+      "number": 3,
+      "name": "Dan tests the belt",
+      "source": "AI Dan with studio-white-49 identity reference",
+      "treatment": "red gym scene, upper cream serif headline with red question panel"
+    },
+    {
+      "number": 4,
+      "name": "The belt close-up",
+      "source": "AI product still life",
+      "treatment": "black and gold, centered elegant geometric headline at bottom"
+    },
+    {
+      "number": 5,
+      "name": "Under the pad",
+      "source": "AI product exploded view",
+      "treatment": "ice blue industrial, left lower navy slab headline with cyan rule"
+    }
+  ],
+  "approval": "awaiting Dan; no uploads or schedules before pick",
+  "film_sha256": "b78674a331cd51c6003614ea149dc89095fc1e2539406a0826a5a100f65e80d0"
+}
