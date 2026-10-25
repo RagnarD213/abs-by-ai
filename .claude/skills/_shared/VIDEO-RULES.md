@@ -272,36 +272,20 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   cover is queued or installed until his OK. If he named no letter for a short, that is a question, not a default.
 - Binds Claude and Codex, `/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`, and any cover swap on a live queue.
 
-## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-13)
+## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-25)
 
-Dan, finalizing RO-19: *"Let's make this a standard way of making thumbnails going forward. We always have one pool, one
-studio, one AI-enhanced or AI-generated image of me, and two other AI-generated images, which can be me or not. We'll leave
-the other two up to Codex's judgment, and then we always have five unique designs for thumbnails... Make sure that Codex is
-always the one making these thumbnails."*
+Dan changed the standard after choosing C for all five Calories Shorts: he chooses AI images of himself most often and rarely picks covers without him. This replaces the 2026-10-13 pool + studio + one AI Dan + two discretionary mix for new cover and thumbnail sets. Existing approved files and picks stay locked.
 
-- **The five, every video:**
-  1. one real **pool-shoot** photo of Dan;
-  2. one real **studio-shoot** photo of Dan;
-  3. one **AI-enhanced or AI-generated image of Dan** (on a topic video, Dan in the video's subject: for RO-19 he asked for
-     "an AI-enhanced image of me getting a spray tan, or an AI-generated image of me getting a spray tan");
-  4. and 5. **two more AI-generated images of Codex's choice**, which may show Dan or not. That call is Codex's.
-- **Five unique designs, all five.** His words on the RO-19 request: "Unique design for all thumbnails." No two share a
-  layout, type treatment, colour and composition. This now covers the pool and studio options as well: the 2026-10-10 note
-  that the real photos could keep the house layout is replaced. Write one line per option naming its design before building.
-- **Codex always makes them.** The Claude upload and setup task (`/video-setup`, `/ad-setup`) makes all five by calling Codex
-  in the command line on Dan's subscription (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`); a Codex task makes
-  them the same way. Codex chooses the designs of options 3 to 5. No other image model, and no design drawn by Claude in
-  place of a Codex one.
-- **Options 1 and 2 stay real.** His real cutout over a Codex background, type set in code ([IMAGE-GENERATION.md](IMAGE-GENERATION.md):
-  Codex redraws people). **Option 3 is the one place a picture of Dan may be AI-enhanced or AI-generated**, by this
-  instruction. Give Codex a real photo of him as the reference, ask for "lean and shredded, not bulky, same size as the
-  reference", and look at the face before it goes on the sheet: it has to read as him.
-- Unchanged: one review sheet, then **stop for Dan's pick** before any upload or scheduling; the same copy on all five unless
-  he asks for copy options; no claims, no "Real picture" label and no AbsByAI.com on a thumbnail; text off his face and hair;
-  no frowning photo; the Speedo crop.
-- Editor's reading, not his words: Shorts covers follow the same five (each still in its Instagram and YouTube layouts), as
-  they followed the mix this replaces.
-- This replaces the 2026-10-02 mix below (pool, studio, three AI designs of Codex's choice).
+- **The initial five, every video:**
+  1. An AI-generated or AI-enhanced image of Dan acting out the video's topic.
+  2. A second AI-generated or AI-enhanced image of Dan in a different topic-relevant scene, action or composition. These are two distinct concepts, not crops of one picture.
+  3. One real photograph of Dan from EITHER the pool OR studio shoot, chosen for the strongest image. A separate photo from each shoot is no longer required.
+  4. and 5. Two concepts at Codex's discretion, chosen for how likely Dan is to pick them based on his actual approved-cover history. They may show Dan, including more AI Dan, or omit him when there is a strong visual reason. Do not fill these slots automatically with object-only or no-Dan designs just for variety.
+- **Learn from the picks before planning:** inspect recent `covers/approved-*/picks.json` and the corresponding selected images, not only proposed sheets. Use `Docs/memory/cover-picks-ai-dan-acting-topic.md` as a guide to earlier evidence. Calories Shorts (SL-08, 2026-10-25) adds five more C picks: recognisable lean Dan, naturally acting out the exact topic, clear abs and readable type. Record the new pick with its actual final asset hashes. Carry forward winning qualities while keeping five genuinely different designs; do not force every design into the yellow-band layout.
+- **Five unique designs:** vary layout, typography, colour and composition, and write one design line per option before building. Same approved copy across the five unless Dan asks for copy options.
+- **Codex always makes them on Dan's subscription:** `_shared/codex-image.sh` with the newest supported stable GPT at high effort, currently `gpt-6.1-sol`. No outside image model or paid still-image API by default. Claude setup tasks call that helper; Codex tasks use it directly.
+- **The real-photo choice stays real:** preserve the original face and body pixels, generate only its background, then composite the real cutout and type locally. Any AI Dan choice gets a real identity reference, the prompt "lean and shredded, not bulky, same size as the reference", and an actual face check before review. This explicit permission covers the two required AI Dan choices and any additional discretionary AI Dan choices.
+- **Review and installation:** show all five, then stop for Dan's actual picks before uploading or scheduling. Shorts still get separate Instagram and YouTube layouts per choice. Keep text off face/hair; no frowning default, visible standing swim-brief shape, website mark or real-photo label. A requested revision to a picked cover needs approval of the exact revised files before installation. The full quality and disclosure rules keep their existing scopes.
 
 ## Pickups are recorded on the studio set at a shoot, not on the desk mic (Dan, 2026-10-13)
 

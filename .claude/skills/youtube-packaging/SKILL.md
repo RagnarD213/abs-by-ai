@@ -56,10 +56,9 @@ handles them after release). Ads never get an article.
 
 ## Thumbnail rules
 
-### Required five-choice review (Dan, 2026-09-30)
+### Required five-choice review (Dan, 2026-10-25)
 
-Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex" (Dan, 2026-10-13): one pool photo, one studio photo, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice (Dan or not). Five unique designs, always made by Codex (`_shared/codex-image.sh --model gpt-6.1-sol --effort high`). Handoffs list all five. Keep copy consistent, show the finished five choices and stop for Dan's picks. This supersedes older two-thumbnail counts and two-pool mixes below. If an A/B test is requested, Dan selects its contenders from the five.
-
+Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex": two distinct AI images of Dan acting out the topic, one real pool OR studio photograph, and two concepts chosen by Codex from Dan's actual approved-cover history. Additional AI Dan choices are allowed; do not force object-only alternatives. Read the current pick history and selected images before planning, including the five Calories Shorts C picks. Keep five unique designs and consistent copy, use the Codex subscription with the newest supported stable GPT at high effort, show the five and stop for Dan's picks. Handoffs state this mix. It replaces the 2026-10-13 mix. An A/B test uses Dan's chosen contenders from those five.
 
 ### Source-photo variety (Dan, 2026-09-16)
 

@@ -26,7 +26,7 @@ Tests: `node scripts/ads/ytads/sunday.test.js`. instant.js still never pauses; t
 ## CURRENT BEHAVIOR (Dan 2026-09-27): instant creation, never pause
 
 Dan does all pausing and enabling by hand. Automation only ADDS: every new public video gets an
-**ENABLED** ad in tier2, tier1 and rmktg within about a minute of going live.
+**ENABLED** ad in tier2, tier1 and both remarketing groups (campaign `24316408288`) within about a minute of going live.
 
 - `scripts/ads/ytads/instant.js`, started from `routes.js` when `YTADS_INSTANT=1` (Railway `abs-by-ai`).
   Every 60 s it reads the RSS feed; for videos from the last 72 h with no ad (any status, removed
@@ -298,11 +298,12 @@ Abs Every Day, Jelly Beans, AI Macro Estimates, Instead Of Crunches, 8 Hours In 
 `tier1` swapped for `rmktg-site` or `rmktg-yt`; the two older ads with no `tier1` in the name got ` · rmktg-site` /
 ` · rmktg-yt` added at the end.
 
-**This campaign is a snapshot. The automation does not know about it.** `instant.js`, the hourly engine and the Sunday
-pause routine are all scoped by campaign id (tier 2, tier 1, old remarketing), so nothing adds new videos here and
-nothing pauses ads here. To refresh by hand after tier 1 changes: `node scripts/ads/api/dgen-rmktg-campaigns.js b --apply`
-adds every enabled tier 1 ad that is missing (it never pauses one). Wiring it into `instant.js` is not a one-line change:
-that code assumes one ad group per campaign, and this campaign has two.
+**`instant.js` adds every new video here, in both groups (fixed 2026-10-25).** Its `TARGETS` are tier 2, tier 1,
+`rmktg-site` (`200887799219`) and `rmktg-yt` (`209156230708`), each ENABLED with the same headlines as the tier ads.
+Until 2026-10-25 it still pointed at the old paused campaign `24169507109`, so no video from 2026-10-06 on reached this
+campaign (I'm 41. I'm Top 1% was the one Dan noticed). That day: Top 1% added ENABLED (`829485243540` site,
+`829485243561` yt); the 16 earlier videos backfilled PAUSED with their tier copy. `instant.test.js` locks the four
+targets. The Sunday pause routine still leaves this campaign alone.
 
 **One-off add (Dan, 2026-10-10):** `0zspIJVrv08` (Use AI To Get REAL Six Pack Abs, 6 Strategies) added to both groups,
 ENABLED: `827584375855` (site) and `827584375858` (yt), video asset `429095777113`. It had no tier 1 twin, so the copy

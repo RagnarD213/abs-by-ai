@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Codex after the iCloud move](handoff-20261024-codex-icloud-repair-followup.md): **Fire now. Codex, GPT-6.1 Sol, high.** Tooling. Brief collector fixed (ef5d7a3); Codex finishes the morning brief run from the main project and checks the background move of its own folder out of iCloud (`rename.sh Codex`).
 - [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Fire after Dan films the cable crunch B-roll (planned 2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-01: Muhammad's V4 accepted; swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on our side, everything else untouched; review page, stop.
-- [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md): **Fire now. Claude Opus 5.5, high.** DS-40 R6 approved 2026-10-23 (Bill Maher green screen reaction); five Codex covers, stop for Dan's pick, then Blotato on the next Thursday dedicated slot.
 - [Getting Abs + Supplements SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Fire when Muhammad's HQ exports of both arrive. Claude Opus 5.5, high.** DS-02 and DS-03 finalized 2026-10-22; light-check HQ, five Codex covers each, stop for picks, Blotato.
 - [Mac mini M6 Render Node](handoff-20261021-mac-mini-m6-render-node.md): **Fire after the Mac mini arrives (Nov 11-18) and the Thunderbolt cable is connected. Claude Opus 5.5, high.** Tooling. Thunderbolt Bridge link, SSH, toolchain parity, second pool in the render queue with identical-output proof, benchmark for the keep-or-sell call.
 - [Render throughput plan](handoff-20261021-render-throughput-plan.md): **Phase 1 start now (2026-10-21). Claude Opus 5.5, high.** Tooling. Diagnosis: queue counts steps not cores/GB (swap full, kernel 27% CPU), house chroma key is half of all heavy time and gets re-run 3x per clip for calibration, iCloud syncs the project folder (one core all day). Phase 1 render queue v3 (core + memory budgets), Phase 2 cheap key with identical gated output, Phase 3 extra compute only if still needed. Phase 0 is Dan: iCloud Desktop & Documents off, Spotlight off on work drives.
@@ -164,6 +163,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- 2026-10-25: [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md) executed. Dan selected Codex R5 and approved cover design 1 R3. Setup complete; shared waiting list for Dec 31, 9 AM Central. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
 | Document | Why |
 |---|---|
