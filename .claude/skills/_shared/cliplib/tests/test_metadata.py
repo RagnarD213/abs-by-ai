@@ -25,5 +25,5 @@ class LibraryMetadataTests(unittest.TestCase):
  def test_metadata_cannot_replace_id_or_library_path(self):
   self.assertEqual(C.metadata_fields({'id':'B9999','library_path':'bad','favorite':True}),{'favorite':True})
  def test_existing_sheet_shape_remains_aligned(self):
-  r=self.records()[0];r.update(has_audio=True,needs_ai_label=False,file_name='clip.mp4');rows=C.sheet_rows({'clips':[r]});self.assertEqual(len(rows[0]),len(rows[1]))
+  r=self.records()[0];r.update(has_audio=True,needs_ai_label=False,file_name='clip.mp4',grade={'name':'C','filter':'technical recipe'});rows=C.sheet_rows({'clips':[r]});self.assertEqual(len(rows[0]),len(rows[1]));self.assertEqual(rows[1][-1],'C')
 if __name__=='__main__':unittest.main()

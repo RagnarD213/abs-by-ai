@@ -535,7 +535,8 @@ def sheet_rows(cat):
                      "YES" if c.get("favorite") else "", c.get("exercise", ""), c.get("equipment", ""),
                      c.get("angle", ""), c.get("intended_use", "unknown"),
                      "{} {:.3f}-{:.3f}s".format(c["source"].get("file", ""), c["source"]["in"], c["source"]["out"]) if c.get("source") else "",
-                     json.dumps(c.get("grade", ""), ensure_ascii=False)])
+                     (c["grade"].get("name", "") if isinstance(c.get("grade"), dict)
+                      else c.get("grade", ""))])
     return rows
 
 
