@@ -1,0 +1,36 @@
+{
+  "content_type": "organic",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short5_make-fasting-easier-with-black-coffee.mp4",
+  "slug": "sl08-short5",
+  "campaign": "calories-not-losing-weight",
+  "title": "Make Fasting Easier With Black Coffee",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ada094b3-a1db-4da3-8dda-93abbef41cf9.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b4246b6a-926d-4997-8ea1-aebf4f5647ca.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a38b4248-b506-4103-b703-3caed53bc253.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/99bc0ca0-c782-4117-b48e-af584ce874c7.jpg",
+  "main": "2027-01-11T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": false,
+  "hook": "Drink black coffee while you’re fasting.",
+  "body": "I drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.",
+  "close": "If you can't stand it black, give it a week.",
+  "tags": "#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition",
+  "youtube_description": "Drink black coffee while you’re fasting.\n\nI drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.\n\nIf you can't stand it black, give it a week.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short5\n\nFull video on this channel: Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)\n\n#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition #Shorts",
+  "pinned_comment": "Do you drink your coffee black or add cream and sugar?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short5",
+  "caption_overrides": {
+    "facebook": "Drink black coffee while you’re fasting.\n\nI drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.\n\nIf you can't stand it black, give it a week.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short5\n\n#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition",
+    "instagram": "Drink black coffee while you’re fasting.\n\nI drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.\n\nIf you can't stand it black, give it a week.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition",
+    "tiktok": "Drink black coffee while you’re fasting.\n\nI drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.\n\nIf you can't stand it black, give it a week.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short5\n\n#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition"
+  },
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "parent_schedule_id": "5287937",
+  "approved_cover": "C",
+  "approval_date": "2026-10-25",
+  "media_sha256": {
+    "master": "99dbc301401f3eb98e6aff6200f9b97dc3459621f7bd4bdf92c283f9b69d4ddf",
+    "tiktok": "5f9ba00056737b9b75c016271a8fa79d3a4ccb6aed515c40a9a3dc0a1ca515d0",
+    "ig": "3bc3c1cda5a39bc3cf8bdfa7ab87465edbbc1d9421d73e448137ed456e46909c",
+    "yt": "f24ca5d09b37ad7247013059aa3294d9f1e1c96da7f39f545426cabfc1ab1d66"
+  }
+}
