@@ -25,15 +25,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**October 23 Footage Copy - ACTIVE 2026-10-25, Codex.** Copy-only: C1882-C1899 plus mouthpiece C1790, about94.6GB, Expansion to Extreme. All Seagate originals and commercial-gym B-roll stay. Footage-processing owner continues. Next: copy exact selected files and verify checksums; no source deletion or active-owner pointer edits.
+**Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
 
-**Calories Not Losing Weight SFL Setup - ACTIVE 2026-10-25, Codex.** Owner `01a1744c-82d4-7731-91b6-5056da5a5102`. Five approved R6 Shorts locked. Making25cover choices on Codex subscription, then stop for Dan picks. No uploads/schedules before picks. Next: checked paired-layout gallery; reconcile parent live date before booking. Detail: `Handoffs/handoff-20261025-sl08-calories-shorts-covers-and-setup.md`.
+**Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
 
-**August 3 Footage Offload - RECORD SYNC BLOCKED 2026-10-25, Codex.** Physical move and backup checks complete; older repair sources intact. Next: safe-push owned records after live shared edits clear. Detail: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`.
 
 **Arms Shoulders handoff sync - BLOCKED 2026-10-25, Codex.** Video complete, canonical master and Extreme backup verified; setup/offload handoffs ready locally and backed up. Commit09bedc24c cannot push past live changes in board, Dan decisions, master/jobs and staged RO26article; Handoffs README also blocks. Next: retry safe-push after live owners finish. No media work remains.
 
-**Arms Shoulders Workout LFC Setup - HEADLINE R5 REVIEW 2026-10-25, Codex.** R4 image/abs/background approved. Four larger single-line headline styles checked: http://127.0.0.1:9225/ . Next: Dan picks1-4, then setup. Photo unchanged; no uploads/schedules. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
+**Arms Shoulders Workout LFC Setup - CAPACITY HOLD 2026-10-25, Codex.** Dan approved Jan 6, 2027 YouTube 9 AM Chicago; socials Jan 7 noon. Setup ready; shared waitlist eligible. Queue 197/200, needs four. Top-up preserves approved date; seven tests pass. Backups/covers/article verified. Commits saved; push blocked by live shared files. Next: existing daily top-up schedules when room opens. No Dan action. RO-04 stays finalized until verified scheduling. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
 
 **Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
@@ -44,13 +43,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** Dan finalized identities: decline setup has no medicine ball; second pull-up close-up is chin-ups. Color C and trim standard approved. Owns SHOOT-20261023 and its edit slot. Next: full-action speech/reset checks, native-resolution library masters, verified shared-library registration, then 32 filmed-content queue entries. Originals preserved; dispatcher remains paused. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R3 - ACTIVE 2026-10-25, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): R3 owner `01a1743a-7136-78a2-b270-fa6b7c29434b`, started/pinned; R2 unpinned. Slot retained. Voice B/crop1 locked; colour reopened. Next: simultaneous three-panel 0–4s opening and new colour comparisons. Journal: `/Volumes/Extreme/_edit_work/DS-55/round3/round-controller.json`.
+**Five Minute Exercises SFC R4 - REVIEW 2026-10-25, Codex.** Warm And Rich selected; revised half-and-half opening rendered and checked. Tight floor strips above larger squat. Voice B/crop1 preserved; earlier numerical flags retained. Slot held at Dan request. Next: Dan reviews0:00–0:08 at http://127.0.0.1:9176/. Full Short pending approvals. Journal: `/Volumes/Extreme/_edit_work/DS-55/round4/round-controller.json`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 
-**Pushup Masterclass LFC R1 - VERSION CHECK 2026-10-25, Codex.** Dan questioned music-only treatment. Separate scripted Five Levels Of Pushups Short already edited by Muhammad; October22 notes await revision. No completed six-level scripted long-form found; spoken source remains unlocated. Shoot5 says no workout-only Masterclass. R1 unapproved; no full assembly. Heartbeat paused, slot released. Findings and sources: `Handoffs/video-editing/RO-09-pushup-masterclass.md`; checkpoint preserved.
+**Five Levels Of Pushups SFC R2 - REVIEW 2026-10-25, Codex.** Muhammad repair checked at http://127.0.0.1:9180/: Dan countertop5.138–9.676s, cards removed, original audio retained. Independent audit finds no new scoped visual defect; original cuts3.937/11.311 and audio/delivery gate FAIL remain explicit. Await Dan approval or further scope. RO-09 superseded; heartbeat paused. Resume `Media/video-edits/DS-20/round2/checkpoint.json`; owner `01a16a4e-fac9-7db3-89e7-08dba554908b`.
 
-**Dad Bod SFC R3 - ACTIVE 2026-10-25, Codex.** Sole owner `01a17430-0acf-72c1-93fa-026651f4da47`; locked hashes verified and edit slot held. Both takes: one larger Craig image/label/arrow through interview audio. Scripted: stronger real studio photo at 33s. Building narrow changes from R2; preserve chosen look, voice and timing. Next: complete exact-file checks and independent review, then return paired R3 films. Journal: `/Volumes/Expansion/_edit_work/DS-35/round3/round-controller.json`.
+**Dad Bod SFC R3 - ACTIVE 2026-10-25, Codex.** Sole owner `01a17430-0acf-72c1-93fa-026651f4da47`; edit slot held. Callout/real-photo changes checked. Independent review found inherited arm truncation at internal camera edge. Reframing only large-watching span to put both source edges outside canvas, retaining safe hair and head center. Failed candidates/evidence preserved. Next: corrected full exports and fresh independent checks, then paired review. Journal: `/Volumes/Expansion/_edit_work/DS-35/round3/round-controller.json`.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
@@ -60,7 +59,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R4 - WAITING 2026-10-25, Codex.** R3 notes saved:10pairs approved; revise outside-only coffee opener, ripped-looking gym selections and average-overweight couch likeness. First in edit-slot line; auto-resume armed. Wait for finished approved-C gym masters. No R4 production/transfer yet. Owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`. Next: acquire RO-27, then controller R4. Commit9e7c3b3 local; sync waits on live edits. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
+**Boring Abs At 40 LFC R4 - ACTIVE 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`, started/pinned; R3 unpinned. RO-27 slot held;80approval/reference hashes verified. Next: outside-only coffee opener, stronger-looking corrected gym shots, average-overweight couch likeness from real T-shirt photos; preserve10approved pairs. Use finished approved-C gym footage; no uploads. Journal: `/Volumes/Extreme/_edit_work/ro27/round4/round-controller.json`. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
