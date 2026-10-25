@@ -12,7 +12,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **The 3 Exercises I'd Do If I Only Had 5 Minutes SFC R2 (2026-10-25; Decision since: 2026-10-25):** [Review the opening and three context excerpts](http://127.0.0.1:9176/). Approve the proposed exercise clips and two moving graphics, or list changes. Colour B, voice B and crop 1 stay locked. The complete Short follows this review; technical flags remain documented.
 
-- **Boring Abs At 40 LFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review15 placed scenes and the four-quadrant opening](http://127.0.0.1:9237/). Approve/change/remove the new frames and note gym trim/colour changes. A02 Skip Gym Day, A03 Meal Prep Rescue and A04 Football And Beer stay approved. Storyboards only; full motion and film pending.
 
 
 

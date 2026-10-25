@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Arms Shoulders handoff sync - BLOCKED 2026-10-25, Codex.** Video complete, canonical master and Extreme backup verified; setup/offload handoffs ready locally and backed up. Commit09bedc24c cannot push past live changes in board, Dan decisions, master/jobs and staged RO26article; Handoffs README also blocks. Next: retry safe-push after live owners finish. No media work remains.
 
-**Arms Shoulders Workout LFC Setup - ABS RETOUCH R4 REVIEW 2026-10-25, Codex.** New abs match R2 reference; R3 natural background and all non-ab pixels preserved exactly. Checked at http://127.0.0.1:9225/ . Next: Dan approves exact R4 PNG, then setup. No uploads/schedules. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
+**Arms Shoulders Workout LFC Setup - HEADLINE R5 REVIEW 2026-10-25, Codex.** R4 image/abs/background approved. Four larger single-line headline styles checked: http://127.0.0.1:9225/ . Next: Dan picks1-4, then setup. Photo unchanged; no uploads/schedules. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
 
 **Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
@@ -60,7 +60,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R3 - REVIEW 2026-10-25, Codex.** Checked contextual frame packet: http://127.0.0.1:9237/ (15 placed scenes, new real gym footage, four-quadrant storyboard). All33locks preserved; eight new pairs independently passed. No AI motion/full film. Next: Dan's frame/layout and B-roll notes in `Docs/DAN_DECISIONS.md`. Receipt: `Docs/RO27_R3_RECEIPT_20261025.md`. Slot released. Commit49a7eaf local; push waits on live handoff-file edits.
+**Boring Abs At 40 LFC R4 - WAITING 2026-10-25, Codex.** R3 notes saved:10pairs approved; revise outside-only coffee opener, ripped-looking gym selections and average-overweight couch likeness. First in edit-slot line; auto-resume armed. Wait for finished approved-C gym masters. No R4 production/transfer yet. Owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`. Next: acquire RO-27, then controller R4 and exact locks. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
