@@ -53,3 +53,13 @@ Edit Queue: DS-40 remains finalized, not uploaded; selected version note updated
 5. After release, existing platform-cover monitor verifies actual tiles. Existing pinned-comment routine posts and pins question. No new single-video automation.
 
 State: `Short-form video content/Fat 90 Year Old - DS-40/Codex R5 setup/SETUP-STATE.json`.
+
+## Cover round 2, Dan’s revision 2026-10-25
+
+Dan rejected all five Round 1 covers. He requested two designs of a full-screen vertical Bill Maher clip behind him, a speech bubble from Bill’s mouth saying exactly “Have you ever seen a fat 90-year-old?”, and AI shirtless Dan beside an overweight older man in a shirt, both shocked while watching one laptop together.
+
+Two designs built with the actual Maher clip as background and two newly generated transparent foreground groups. Design 1 uses a white rounded bubble, Dan left and older man right; Design 2 uses a yellow bubble, older man left and Dan right with hand-to-chest reaction. Each has an Instagram and YouTube layout. Instagram raises the reaction and widens the background crop so faces, quote and laptop remain visible in the profile grid.
+
+Review remains http://127.0.0.1:9224/ . Assets, comparisons, manifest and measured dimensions: `Short-form video content/covers/review/ds40-codex-r5-20261025/round2/`. Reproducible builder and both generation prompts: `scripts/covers/ds40-codex-r5-20261025/round2/`. Both alpha cutouts, expressions, identity, hands, full compositions and Instagram grid crops inspected. Four 1080 x 1920 outputs; both YouTube JPEGs under 2 MB. Exact quote set locally, no generated spelling.
+
+Two subscription calls, 45,381 reported Codex tokens, $0 paid generation. Existing downloaded Bill Maher source reused; no new external downloads. Codex R5 master remains SHA-256 `3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720`. These revised covers await Dan’s choice and exact-file approval. No social upload, installation, waitlist entry or schedule.
