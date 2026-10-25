@@ -6,7 +6,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Boring Abs At 40 LFC R4 (2026-10-25; Decision since: 2026-10-25):** Review http://127.0.0.1:9357/ and approve/change outside-coffee and slimmer couch frame pairs. Flow6credits left: choose subscription refill or authorize up to10USD for about11 remaining/retake silent clips (estimate8.80USD). No paid generation yet; full film pending. Four checked moving scenes and finished-C leg press included for review.
 
 
 
