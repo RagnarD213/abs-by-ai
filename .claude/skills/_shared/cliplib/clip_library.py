@@ -402,13 +402,23 @@ DESCRIBE_PROMPT = (
     "text or watermark you can read, else \"\"}. The editor's draft description is: ")
 
 
+def apply_vision_tags(clip):
+    """Keep model suggestions separate after the owner has confirmed an exercise."""
+    if clip.get("approval", {}).get("exercise"):
+        return
+    for tag in clip.get("vision", {}).get("tags", []) or []:
+        if tag not in clip["tags"]:
+            clip["tags"].append(tag)
+
+
 @transaction
 def cmd_describe(args):
     cat = load()
     key = rs.secret_value("GEMINI_API_KEY")
     model = args.model
     spent = 0.0
-    todo = [c for c in cat["clips"] if args.force or "vision" not in c]
+    todo = [c for c in cat["clips"] if (args.force or c.get("status") != "unusable")
+            and (args.force or "vision" not in c)]
     if args.ids:
         todo = [c for c in todo if c["id"] in args.ids]
     print("describing {} clips, est ${:.2f}".format(len(todo), len(todo) * 0.0015), flush=True)
@@ -432,9 +442,7 @@ def cmd_describe(args):
             c["vision"]["model"] = model
         except Exception as exc:  # keep going; one bad clip must not stop the batch
             c["vision"] = {"error": str(exc)[:200]}
-        for t in c.get("vision", {}).get("tags", []) or []:
-            if t not in c["tags"]:
-                c["tags"].append(t)
+        apply_vision_tags(c)
     save(cat)
     print("spent about ${:.3f}".format(spent))
 

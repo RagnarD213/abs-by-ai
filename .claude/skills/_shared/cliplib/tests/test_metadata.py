@@ -23,6 +23,10 @@ class LibraryMetadataTests(unittest.TestCase):
  def test_unusable_record_is_excluded_from_search(self):
   records=self.records();records[0]['status']='unusable'
   with patch.object(self,'records',return_value=records):self.assertNotIn('B0001',self.search())
+ def test_owner_correction_survives_automatic_tag_suggestion(self):
+  clip={'tags':['decline bench'],'approval':{'exercise':'confirmed by Dan'},'vision':{'tags':['medicine ball']}}
+  C.apply_vision_tags(clip);self.assertEqual(clip['tags'],['decline bench'])
+  legacy={'tags':['bench'],'vision':{'tags':['dumbbell']}};C.apply_vision_tags(legacy);self.assertIn('dumbbell',legacy['tags'])
  def test_source_out_of_bounds_rejected(self):
   with self.assertRaises(ValueError):C.metadata_fields({'source':{'in':2,'out':11,'duration':10}})
  def test_metadata_cannot_replace_id_or_library_path(self):

@@ -72,6 +72,8 @@ Metadata cannot overwrite a permanent ID or a library path. `source_range_key` p
 second ID for the same original range. Mutating commands take one catalog lock and read fresh
 state before allocating IDs. Python batch callers must use `with catalog_lock():` around their
 load/allocate/save transaction too.
+An owner-confirmed `approval.exercise` protects the search tags from automatic `describe` suggestions.
+The model's separate `vision` proposal is retained without changing the confirmed exercise or its tags.
 
 Both Codex and Claude use the same commands from the project root:
 
