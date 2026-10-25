@@ -18,7 +18,9 @@ revision docs and EDLs. File name: `<ID>_<what-it-shows>_<shape>_<seconds>s.<ext
 
 **AI categories:** ai-dan, people, food-nutrition, gym-and-exercise, lifestyle, concepts-and-gags, exercise-demos.
 
-**Status:** `used-final` (in a finished video; `used_in` says which) or `usable-unused`. Rejected takes are never
+**Status:** `used-final` (in a finished video; `used_in` says which), `usable-unused`, or `unusable` for a registered
+asset later excluded by quality checks. `find` excludes unusable records; `show ID` retains their source history.
+Rejected takes are never
 filed. Files that sat loose in folders 03/04 before the 2026-09-29 sweep and were not catalogued (stick-figure gags,
 the robot story montages whose shots are catalogued, a lower-quality toe-touch copy, old `.roll` sidecars) were moved
 to `/Volumes/Extreme/_edit_work/_clip_library_set_aside/`. Old file names are kept in each clip's `legacy_name`.
