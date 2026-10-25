@@ -86,3 +86,9 @@ path, exact in/out and identity needed to reconstruct a range. Keep Dan's confir
 names and source corrections; an automatic description never overrides them. Talking through
 what will be filmed, resets and accidental camera handling are not reusable exercise B-roll.
 Original recordings are always preserved, including excluded material.
+
+The Drive connection can be selected without changing library folders or sharing:
+`CLIPLIB_DRIVE_REMOTE=gdrive_backup: python3 .claude/skills/_shared/cliplib/clip_library.py sheet`.
+Use the existing dedicated-client `gdrive_backup:` connection for the October 23 batch;
+the old shared Google client can return project-wide rate-limit errors. Confirm the existing
+library root is accessible first. This selects an existing connection; it grants no new access.

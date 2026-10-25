@@ -46,6 +46,7 @@ CONTACT = CAT_DIR / "contact"
 LIB = Path(os.environ.get("CLIPLIB_ROOT", "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"))
 DRIVE_ROOT = "1Hby8O4mB4HZS341qvrVKHSHyCGBgP8mi"
 RCLONE = str(Path.home() / "bin" / "rclone")
+DRIVE_REMOTE = os.environ.get("CLIPLIB_DRIVE_REMOTE", "gdrive:").rstrip(":") + ":"
 REJECTS = Path("/Volumes/Extreme/_edit_work/_clip_library_set_aside")
 
 AI_DIR = "04 AI-Generated Clips"
@@ -439,9 +440,9 @@ def cmd_describe(args):
 # ---------------------------------------------------------------- Drive + Sheet
 
 def drive_token():
-    subprocess.run([RCLONE, "about", "gdrive:"], capture_output=True)  # refreshes the token if stale
+    subprocess.run([RCLONE, "about", DRIVE_REMOTE], capture_output=True)  # refreshes the token if stale
     dump = json.loads(subprocess.run([RCLONE, "config", "dump"], capture_output=True, text=True).stdout)
-    return json.loads(dump["gdrive"]["token"])["access_token"]
+    return json.loads(dump[DRIVE_REMOTE.rstrip(":")]["token"])["access_token"]
 
 
 def api(method, url, token, body=None, ctype="application/json"):
@@ -491,14 +492,14 @@ def drive_sync(cat, only=None):
     if only:
         for c in cat["clips"]:
             if c["id"] in only and (LIB / c["library_path"]).exists():
-                subprocess.run([RCLONE, "copyto", str(LIB / c["library_path"]), "gdrive:" + c["library_path"],
+                subprocess.run([RCLONE, "copyto", str(LIB / c["library_path"]), DRIVE_REMOTE + c["library_path"],
                                 "--drive-root-folder-id=" + DRIVE_ROOT, "-q"], check=True)
     else:
-        subprocess.run([RCLONE, "copy", str(LIB), "gdrive:", "--drive-root-folder-id=" + DRIVE_ROOT,
+        subprocess.run([RCLONE, "copy", str(LIB), DRIVE_REMOTE, "--drive-root-folder-id=" + DRIVE_ROOT,
                         "--transfers", "4", "--drive-chunk-size", "64M", "--stats", "60s", "--stats-one-line",
                         "-v"] + RCLONE_EXCLUDES, check=True)
     for top in (AI_DIR, BROLL_DIR):
-        res = subprocess.run([RCLONE, "lsjson", "-R", "--files-only", "gdrive:" + top, "--drive-root-folder-id=" + DRIVE_ROOT],
+        res = subprocess.run([RCLONE, "lsjson", "-R", "--files-only", DRIVE_REMOTE + top, "--drive-root-folder-id=" + DRIVE_ROOT],
                              capture_output=True, text=True, check=True)
         ids = {top + "/" + r["Path"]: r["ID"] for r in json.loads(res.stdout)}
         for c in cat["clips"]:
