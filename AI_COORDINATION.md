@@ -60,7 +60,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R4 - WAITING 2026-10-25, Codex.** R3 notes saved:10pairs approved; revise outside-only coffee opener, ripped-looking gym selections and average-overweight couch likeness. First in edit-slot line; auto-resume armed. Wait for finished approved-C gym masters. No R4 production/transfer yet. Owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`. Next: acquire RO-27, then controller R4 and exact locks. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
+**Boring Abs At 40 LFC R4 - WAITING 2026-10-25, Codex.** R3 notes saved:10pairs approved; revise outside-only coffee opener, ripped-looking gym selections and average-overweight couch likeness. First in edit-slot line; auto-resume armed. Wait for finished approved-C gym masters. No R4 production/transfer yet. Owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`. Next: acquire RO-27, then controller R4. Commit9e7c3b3 local; sync waits on live edits. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
