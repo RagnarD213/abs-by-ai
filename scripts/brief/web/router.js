@@ -1,5 +1,6 @@
 'use strict';
 const express = require('express');
+const {installFavorites} = require('./favorites');
 const crypto = require('crypto');
 const path = require('path');
 const {OAuth2Client} = require('google-auth-library');
@@ -98,6 +99,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now, me
   router.get(['/morningbrief','/morningbrief.html'], owner, file('page.html'));
   router.get('/brief-publish', owner, file('publish.html'));
   router.get('/api/brief/page.js', owner, file('page.js'));
+  router.get('/api/brief/favorites.js', owner, file('favorites-client.js'));
   router.get('/api/brief/publish.js', owner, file('publish.js'));
   router.get('/api/brief/style.css', owner, file('style.css'));
   router.get('/api/brief/data', owner, async (req, res) => {
@@ -142,6 +144,7 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now, me
       upstream.body.pipe(res);
     } catch { if (!res.headersSent) res.status(503).json({error:'Private preview unavailable'}); else res.destroy(); }
   });
+  installFavorites(router,{store,owner,origin,now});
   router.get('/api/brief/image', owner, async (req, res) => {
     try {
       const image = await store.readImage();

@@ -1,6 +1,7 @@
 'use strict';
 // Separate private tables, never product accounts or public Git-backed stores.
 const crypto = require('crypto');
+const {createFavoritesStore} = require('./favorites');
 const hash = token => crypto.createHash('sha256').update(token).digest('hex');
 function createStore(pool, ready = Promise.resolve()) {
   let initialized;
@@ -13,10 +14,13 @@ function createStore(pool, ready = Promise.resolve()) {
       CREATE TABLE IF NOT EXISTS brief_image (id INTEGER PRIMARY KEY CHECK (id = 1), mime TEXT NOT NULL, bytes BYTEA NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_publish_nonces (nonce_key TEXT PRIMARY KEY, expires_at TIMESTAMPTZ NOT NULL);
       CREATE TABLE IF NOT EXISTS brief_social_master (id TEXT PRIMARY KEY, record JSONB NOT NULL);
+      CREATE TABLE IF NOT EXISTS brief_favorites (sha256 TEXT PRIMARY KEY, for_date TEXT NOT NULL, mime TEXT NOT NULL, bytes BYTEA NOT NULL, size_bytes INTEGER NOT NULL, published_at TIMESTAMPTZ NOT NULL, favorited_at TIMESTAMPTZ NOT NULL, active BOOLEAN NOT NULL, updated_at TIMESTAMPTZ NOT NULL);
+      CREATE TABLE IF NOT EXISTS brief_wallpaper_sync (id INTEGER PRIMARY KEY CHECK (id=1), receipt JSONB NOT NULL);
     `)).catch(e => { initialized = null; throw e; });
     await initialized;
   }
   return {
+    ...createFavoritesStore(pool,init),
     async claimPublicationNonce(id, nonce, expires, now) {
       await init();
       await pool.query('DELETE FROM brief_publish_nonces WHERE expires_at <= $1', [new Date(now)]);

@@ -112,7 +112,7 @@ app.use(createWorkboardRouter({store:workboardStore,ownerStore:createWorkboardOw
 
 const productJson = express.json({ limit: '100mb' });
 // The private publisher owns its bounded parser and verifies exact signed bytes.
-app.use((req, res, next) => /^\/api\/brief\/(?:publish|image\/publish)\/?$/i.test(req.path) ? next() : productJson(req, res, next));
+app.use((req, res, next) => /^\/api\/brief\/(?:publish|image\/publish|favorites(?:\/[a-f0-9]{64})?)\/?$/i.test(req.path) ? next() : productJson(req, res, next));
 
 // Rate limiting: applied ONLY to the expensive AI endpoints (photo check,
 // prompt + image generation). Dashboard/task endpoints are polled frequently
