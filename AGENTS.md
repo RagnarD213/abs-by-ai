@@ -62,15 +62,11 @@ Every new or revised video graphic uses the Soft Blue Light theme and real Hyper
 
 - When a video is mostly finished and a later round changes only a few things, always deliver a concise revision list in chat with exact timestamps in the new full film and short watch ranges around each change. Link available repair clips. Dan should not need to watch the whole film again to find a few revisions. This applies to all video workflows and both Claude and Codex. Full procedure: `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Thumbnail and cover mix, and who makes them (Dan, 2026-10-13)
+## Thumbnail and cover mix, and who makes them (Dan, 2026-10-25)
 
-Every finished video gets five thumbnail (or cover) choices, each a unique design: one from the pool shoot, one from the
-studio shoot, one AI-enhanced or AI-generated image of Dan, and two more AI-generated images of Codex's choice, which may
-show Dan or not. Codex always makes them: the Claude upload and setup task calls Codex in the command line on Dan's
-subscription (`.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`), shows all five, stops for Dan's
-pick, then uploads. GPT-6.1 Sol at high effort is the default for every thumbnail task. No Gemini or other outside image
-model. This is the standard unless Dan says otherwise for a given video. It replaces the 2026-10-02 mix (pool, studio, three
-AI designs). Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, first section.
+Every initial five-choice cover/thumbnail set requires **two distinct AI images of Dan acting out the topic, one real photograph from EITHER the pool OR studio shoot, and two concepts at Codex's discretion guided by his actual approved-cover history**. The discretionary choices may include more AI Dan; do not force object-only/no-Dan designs. Dan chose C for all five Calories Shorts and says AI images of himself are his most frequent picks. Inspect recent picks and their final images before planning; record each new pick/hash and build more of the qualities he chooses, while keeping five genuinely different designs. This replaces the 2026-10-13 pool + studio + one AI Dan mix. Existing approved files stay locked.
+
+Codex makes them on Dan's subscription using `.claude/skills/_shared/codex-image.sh`, newest supported stable GPT at high effort (currently `gpt-6.1-sol`). No outside still-image model. Preserve original person pixels for the real-photo choice; use a real identity reference and inspect every AI Dan face. Show the checked five, both Instagram/YouTube layouts for Shorts, and stop for picks before uploading or scheduling. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Thumbnails: the five"; implementation: `/coverimage` and `/youtube-packaging`.
 
 ## Context preservation
 

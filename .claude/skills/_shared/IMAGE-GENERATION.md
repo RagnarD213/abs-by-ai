@@ -28,9 +28,7 @@ State the image count before a batch; it draws on the Codex allowance, so do not
   the piece uses a real photo of Dan, generate the BACKGROUND ONLY with Codex, then layer his real cutout
   (`photos/finalized social media photos/_cutouts/`) and the type on top in code. This is how the Jelly
   Beans cover and the studio posts are built, and it stays the rule.
-  **One exception, by Dan's instruction (2026-10-13):** every thumbnail set carries one AI-enhanced or AI-generated image
-  of him (option 3 of the five; VIDEO-RULES, "Thumbnails: the five"). Give Codex a real photo of him as the reference and
-  check the face reads as him before showing it. The pool and studio options stay his real cutout.
+  **AI Dan choices are explicitly authorized (Dan, 2026-10-25):** each initial five-choice cover/thumbnail set requires two distinct AI-generated or AI-enhanced images of him acting out the topic, one real pool OR studio photograph, and two history-guided Codex choices. The latter may include more AI Dan. Give every AI Dan generation a real identity reference and inspect the actual face. The real-photo slot retains original person pixels; this permission never turns it into an AI redraw. Full mix and learning rule: VIDEO-RULES, "Thumbnails: the five".
 - **It adds bulk.** For a generated Dan (no real photo available), say "lean and shredded, not bulky,
   same size as the reference" in the prompt.
 - **Text.** It spells headlines correctly but lets them touch the head and arms. Type that ships is set
