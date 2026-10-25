@@ -35,4 +35,5 @@ profile (workspace-write, ask-first, no network) have their workspace on the old
 command fails the sandbox and waits for a click ("Awaiting approval" in the sidebar). Working chats show
 `dangerFullAccess` / `never`. The app rewrites that file every few seconds, so fix it in the app (composer permission
 menu, after Dan turns on Settings > General > Full access, a security switch only Dan flips), never by editing the
-file. Cloud Codex chats cannot be given folders at all; Mac-bound work like the morning brief belongs in a local chat.
+file. A running turn keeps its old policy: stop the turn, leave the composer on Full access, send "continue"; the
+new turn shows `disabled`/`never` in `~/.codex/state_5.sqlite` threads.sandbox_policy (verified 2026-10-25). Cloud Codex chats cannot be given folders at all; Mac-bound work like the morning brief belongs in a local chat.
