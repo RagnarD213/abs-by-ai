@@ -25,9 +25,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**October 23 Footage Copy - ACTIVE 2026-10-25, Codex.** Copy-only: C1882-C1899 plus mouthpiece C1790, about94.6GB, Expansion to Extreme. All Seagate originals and commercial-gym B-roll stay. Footage-processing owner continues. Next: copy exact selected files and verify checksums; no source deletion or active-owner pointer edits.
+
 **Calories Not Losing Weight SFL Setup - ACTIVE 2026-10-25, Codex.** Owner `01a1744c-82d4-7731-91b6-5056da5a5102`. Five approved R6 Shorts locked. Making25cover choices on Codex subscription, then stop for Dan picks. No uploads/schedules before picks. Next: checked paired-layout gallery; reconcile parent live date before booking. Detail: `Handoffs/handoff-20261025-sl08-calories-shorts-covers-and-setup.md`.
 
-**August 3 Footage Offload - RECORD SYNC BLOCKED 2026-10-25, Codex.** Physical move complete: 1,001 files verified/removed, 178.40GB net freed; older repair sources intact. Completed receipts checksum-verified on Expansion/Drive. Next: safe-push owned receipt/handoff edits after live board, Shorts-calendar, handoff-index, master/jobs and staged RO26 article clear. Detail: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`. Global pause unchanged.
+**August 3 Footage Offload - RECORD SYNC BLOCKED 2026-10-25, Codex.** Physical move and backup checks complete; older repair sources intact. Next: safe-push owned records after live shared edits clear. Detail: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`.
 
 **Arms Shoulders handoff sync - BLOCKED 2026-10-25, Codex.** Video complete, canonical master and Extreme backup verified; setup/offload handoffs ready locally and backed up. Commit09bedc24c cannot push past live changes in board, Dan decisions, master/jobs and staged RO26article; Handoffs README also blocks. Next: retry safe-push after live owners finish. No media work remains.
 
