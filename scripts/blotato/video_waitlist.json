@@ -27,7 +27,11 @@
   "job": "SL-17",
   "label": "Top 1% 1: Nutrition Matters More Than Your Workouts",
   "added": "2026-10-23",
-  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-25",
+   "main": "2026-10-30T14:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl17-short2-start-with-5-minutes-every-morning.json",
@@ -35,7 +39,11 @@
   "job": "SL-17",
   "label": "Top 1% 2: Start With 5 Minutes Every Morning",
   "added": "2026-10-23",
-  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-25",
+   "main": "2026-11-06T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl17-short3-every-man-should-train-a-martial-art.json",

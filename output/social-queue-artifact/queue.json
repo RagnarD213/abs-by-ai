@@ -1,79 +1,7 @@
 {
-"generated": "2026-10-24T11:25:42+00:00",
+"generated": "2026-10-25T11:26:11+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5053515",
-"platform": "facebook",
-"when": "2026-10-24T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
-"batch": ""
-},
-{
-"id": "5053516",
-"platform": "instagram",
-"when": "2026-10-24T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
-"batch": ""
-},
-{
-"id": "5053517",
-"platform": "tiktok",
-"when": "2026-10-24T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Skip the deadlift. Here are the 2 back exercises I do instead.",
-"batch": ""
-},
-{
-"id": "5053518",
-"platform": "youtube",
-"when": "2026-10-24T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "The 2 back exercises I do instead of deadlifts: wide-grip T-bar or barbell rows, then wide-grip lat pulldowns.",
-"batch": ""
-},
-{
-"id": "5826205",
-"platform": "instagram",
-"when": "2026-10-24T17:00:00.000Z",
-"kind": "Carousel",
-"slides": 9,
-"text": "7 things I'd skip if I started over at 40.",
-"batch": ""
-},
-{
-"id": "3563172",
-"platform": "facebook",
-"when": "2026-10-24T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Build superhero abs with spiderman planks.",
-"batch": ""
-},
-{
-"id": "3793998",
-"platform": "instagram",
-"when": "2026-10-24T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Build superhero abs with spiderman planks.",
-"batch": ""
-},
-{
-"id": "4553228",
-"platform": "tiktok",
-"when": "2026-10-24T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Build superhero abs with spiderman planks.",
-"batch": ""
-},
 {
 "id": "5723694",
 "platform": "youtube",
@@ -333,6 +261,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "The biggest ab wheel mistake is an arched back.",
+"batch": ""
+},
+{
+"id": "6007655",
+"platform": "facebook",
+"when": "2026-10-30T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Believe it or not, nutrition made an even bigger impact than working out.",
+"batch": ""
+},
+{
+"id": "6007657",
+"platform": "instagram",
+"when": "2026-10-30T14:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Believe it or not, nutrition made an even bigger impact than working out.",
+"batch": ""
+},
+{
+"id": "6007659",
+"platform": "tiktok",
+"when": "2026-10-30T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Believe it or not, nutrition made an even bigger impact than working out.",
+"batch": ""
+},
+{
+"id": "6007660",
+"platform": "youtube",
+"when": "2026-10-30T14:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Believe it or not, nutrition made an even bigger impact than working out.",
 "batch": ""
 },
 {
@@ -612,6 +576,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Crunches mostly train one ab muscle.",
+"batch": ""
+},
+{
+"id": "6007663",
+"platform": "facebook",
+"when": "2026-11-06T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
+"batch": ""
+},
+{
+"id": "6007665",
+"platform": "instagram",
+"when": "2026-11-06T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
+"batch": ""
+},
+{
+"id": "6007666",
+"platform": "tiktok",
+"when": "2026-11-06T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
+"batch": ""
+},
+{
+"id": "6007667",
+"platform": "youtube",
+"when": "2026-11-06T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
 "batch": ""
 },
 {
