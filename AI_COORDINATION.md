@@ -66,7 +66,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 
-**Hormozi Fat Guy Off-Cuff SFC R1 - REVIEW 2026-10-24, Claude.** DS-44B independent review SHIP; side-by-side page http://127.0.0.1:9045/ (scripted A vs off-cuff B, 73.6 s). Slot released. Next: Dan picks; if B, DS-44 setup swaps media to `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R1 - complete Short.mp4` (sha 15cd84a8, no AI flag).
+**Hormozi Fat Guy Off-Cuff SFC R2 - REVIEW 2026-10-25, Claude.** Dan picked off-cuff (DS-44B). R2: 1.135x to 64.9 s, Codex titled panel; review SHIP; page http://127.0.0.1:9045/. Next: Dan approves; then DS-44 setup swaps the Dec 17 media to `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R2 - complete Short.mp4` (sha eb63aaec, no AI flag).
 
 **DS-44 Hormozi QUEUED 2026-10-23, Claude.** Scripted R2 queued Thu Dec 17, all four; if Dan picks off-cuff (DS-44B), swap media. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
