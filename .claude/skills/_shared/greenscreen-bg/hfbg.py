@@ -10,7 +10,8 @@ segment's "mov" in the plan.
 panel segment:   {"type": "panel", "pair": {"photos": [before, after], "years": ["2012", "2023"], "crop_k": 6.0,
                   "credits": ["Eva Rinaldi (CC BY-SA 2.0)", "Dave Benett/Getty Images"]},
                   "name": "Sharon Osbourne", "stat": "42 lb, Ozempic"}
-bigtype segment: {"type": "bigtype", "lines": ["-42 LB", "OZEMPIC"]}   (a line starting with a number counts up)
+bigtype segment: {"type": "bigtype", "lines": ["-42 LB", "OZEMPIC"], "line_times": [53.6, 54.1]}   (a line starting with a
+                 whole number counts up; line_times, film seconds, land each line on the word that says it)
 """
 import hashlib, json, pathlib, re, sys
 HERE = pathlib.Path(__file__).resolve().parent
@@ -20,7 +21,7 @@ sys.path.insert(0, str(HERE))
 import gsbg as G                                       # noqa: E402
 
 # panel geometry (left of Dan; he stands right, 'right' placement): photos 3:4, the name and stat under them
-PANEL = dict(x=84, y=84, pw=380, ph=506, gap=32, name_px=58, stat_px=52, cite_px=22)   # everything ends above y 810 (lower thirds start at 840)
+PANEL = dict(x=84, y=84, pw=364, ph=486, gap=30, name_px=58, stat_px=52, cite_px=22, cite_w=600)   # everything ends above y 810 (lower thirds start at 840)
 
 
 def year(s, x, y):
@@ -45,7 +46,15 @@ def panel_cfg(seg, root, work):
                name=dict(s=seg["name"], x=P["x"], y=ty, px=P["name_px"]),
                acc=dict(x=P["x"], y=ty + 88, w=120),
                stat=dict(s=seg["stat"], x=P["x"], y=ty + 98, px=P["stat_px"]),
-               cite=dict(s="Photos: " + ", ".join(dict.fromkeys(pr["credits"])), x=P["x"], y=ty + 178, px=P["cite_px"]) if pr.get("credits") else None)
+               cite=None)
+    if pr.get("credits"):                  # the credit wraps inside cite_w so a tight shot's shoulder never covers it (RO-24 R3 review)
+        words = ("Photos: " + ", ".join(dict.fromkeys(pr["credits"]))).split(" "); lines = [""]
+        for wd in words:
+            t = (lines[-1] + " " + wd).strip()
+            if H.text_w(t, P["cite_px"], False) <= P["cite_w"] or not lines[-1]: lines[-1] = t
+            else: lines.append(wd)
+        assert len(lines) <= 2, f"{seg['id']}: the credit needs more than two lines"
+        cfg["cite"] = dict(s="\n".join(lines), x=P["x"], y=ty + 172, px=P["cite_px"])
     right = P["x"] + 2 * P["pw"] + P["gap"]
     for s, px_, bold in ((seg["name"], P["name_px"], True), (seg["stat"], P["stat_px"], True)):
         assert P["x"] + H.text_w(s, px_, bold) <= right + 60, f"{seg['id']}: '{s}' is wider than the panel"
@@ -61,7 +70,8 @@ def bigtype_cfg(seg, root, work):
     px_ = min(B["max_px"], *[int(B["max_px"] * B["max_w"] / max(1, H.text_w(s, B["max_px"]))) for s in lines])
     out, y = [], B["y0"]
     for n, s in enumerate(lines):
-        L = dict(s=s, x=B["x"], y=y, px=px_, t=round(0.1 + 0.22 * n, 2), dy=-10 - 14 * n)
+        lt = (seg.get("line_times") or [None] * len(lines))[n]
+        L = dict(s=s, x=B["x"], y=y, px=px_, t=round(lt - seg["t0"], 2) if lt else round(0.1 + 0.22 * n, 2), dy=-10 - 14 * n)
         m = re.match(r"^([^\d]*)(\d+)(.*)$", s)
         if m and n == 0 and "." not in m.group(3)[:1]:
             L["count"] = dict(pre=m.group(1), value=int(m.group(2)), post=m.group(3))

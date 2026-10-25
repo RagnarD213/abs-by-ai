@@ -111,7 +111,7 @@
       const breaths = Math.max(1, Math.floor((D - 1.2) / 2.6));
       tl.fromTo(ac, { opacity: 1 }, { opacity: 0.45, duration: 1.3, ease: "sine.inOut", yoyo: true, repeat: breaths * 2 - 1, immediateRender: false }, 1.2);
       if (CFG.cite) {
-        const ci = mk("t", P); ci.id = "cite"; place(ci, CFG.cite.x, CFG.cite.y); ci.style.fontSize = px(CFG.cite.px); ci.textContent = CFG.cite.s;
+        const ci = mk("t", P); ci.id = "cite"; place(ci, CFG.cite.x, CFG.cite.y); ci.style.fontSize = px(CFG.cite.px); ci.style.whiteSpace = "pre"; ci.textContent = CFG.cite.s;
         tl.fromTo(ci, { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.out" }, 0.8);
       }
       window.__timelines["__ID__"] = tl;

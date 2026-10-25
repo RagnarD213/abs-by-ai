@@ -13,6 +13,10 @@ approved: `/Volumes/Expansion/_edit_work/RO-24/round3/mock/background_options.jp
 
 Status: **built 2026-10-25, shown to Dan in RO-24 round 3; not yet locked by Dan.** Record his verdict here when it comes.
 
+**Scope (2026-10-25):** green-screen long-form commentary and reaction films with several backgrounds. Reaction SHORTS keep
+the locked Bill Maher Codex R5 format (VIDEO-RULES, "Reaction videos: the locked format"); this template does not replace it.
+Codex owns green-screen editing from 2026-10-25 (same section): Codex uses this module as is, through the same plan format.
+
 ## The types (Dan's numbers from the mockups)
 
 | # | type | what is behind Dan | Dan | use it when |
@@ -31,16 +35,19 @@ sit between background segments and are not backgrounds.
 
 **Placement** (`gsbg.affine`, output pixels, from the house-key plate 2880x1620): centre W = the plate scaled 2/3; centre T =
 round 2's tight window (0.74 of the width, hair 4 % of the window below the top); right W = W moved +346 px (round 2's S
-framing); right T = the tight scale with his head centre at x 1330; corner W/T = scale 0.56 / 0.64 with the head centre at
-x 1540 / 1525 and the hair top at y 455 / 420 (bigger than the reaction Shorts' corner; Dan asked for that). Every shot keeps
+framing); right T = the tight scale with his head centre at x 1330; corner W/T = scale 0.48 / 0.65 (1.35x apart, the
+same step as W/T; 0.56 / 0.64 read as a jump cut in the RO-24 R3 review) with the head centre at x 1580 / 1505 and the hair
+top at y 490 / 400, lower right as in Dan's approved mockup 2. Every shot keeps
 one fixed placement (horizontal footage stays still); the round's W/T alternation at every cut is kept, so a cut still changes
 the framing. Where the camera's own frame edge lands on screen (right, corner) his alpha gets a 22 px soft edge.
 
 **Camera-locked types** (`soft`, `set`): a tight cut zooms the background with him, as a real camera would (`gsbg.camera`).
 The others are screen graphics and stay put.
 
-**Light match on the set (8):** Dan 8 % dimmer, a warm edge light (the set's practicals), a 1.3 px depth-of-field blur on the
-set. The set plate is one Codex image for the whole film (RO-24: `round3/mock/set_plate.png`, TV screen measured as the
+**Light match on the set (8):** Dan 12 % dimmer and a touch cooler, a blue rim on his edges facing the set's blue lamps (left)
+and a warm rim facing its floor lamp (right), a 1.3 px depth-of-field blur on the set. The set is an AI picture, so it carries
+the AI-GENERATED chip (top left) while it is on screen (`ai_label: false` in a segment turns it off if Dan says so). Its TV
+shows 2-4 steady stretches of 3 s or more (a TV flipping every second reads as busy). The set plate is one Codex image for the whole film (RO-24: `round3/mock/set_plate.png`, TV screen measured as the
 largest near-black rectangle, `SET` in the film's assembler).
 
 ## The rules (`planner.py`)
@@ -53,8 +60,13 @@ largest near-black rectangle, `SET` in the film's assembler).
 3. Never the same type twice in a row.
 4. No photo or pair repeated where it can be avoided (the planner hands out the least-used first; credited photos go where a
    credit line shows, uncredited agency photos only in walls, cards and the set's TV).
-5. Muted footage behind Dan comes from clean windows of the person's clip: no burned-in quote box, chyron or product shot
-   behind him (pick the windows from a 1 frame per 2 s contact sheet of the FULL source video; download it whole).
+5. Muted footage behind Dan comes from clean, STEADY windows of the person's clip: no burned-in quote box, chyron, product
+   shot or transition behind him, and no flashing red-carpet cameras (a whole-frame pulse 6-16 times a second behind him read
+   as strobing in the RO-24 R3 review). Download the full source video; set window edges on scene detection; scan each window
+   for brightness jumps (more than 8/255 between frames, under about 1 a second); keep the logo/bug off him with the zoom.
+7. Photos: every tile and card unique where the pool allows (the wall deals photos so a repeat lands in a far column); a
+   person's card set right before their own photo scene leaves that person out.
+8. Big type lands on the words: `line_times` (film seconds) per line; the drug can show from the cut, the number on the number.
 6. Overrides: the editor's calls where the rules allow two answers go in the film's `bg_overrides.json`, each with its why;
    the plan records "(editor's override)".
 

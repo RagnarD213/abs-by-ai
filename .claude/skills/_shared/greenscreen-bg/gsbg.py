@@ -38,7 +38,7 @@ PW, PH = 2880, 1620                                     # plate size (house key 
 TW = int(round(PW * 0.74)) // 2 * 2; TH = int(round(TW * 9 / 16))   # the tight framing window (round 2)
 RIGHT_W_DX = 346                                       # Dan to the side, wide: round 2's S framing (+519 plate px)
 RIGHT_T_HX = 1330                                      # Dan to the side, tight: head centre x on screen
-CORNER = {"W": dict(k=0.56, hx=1540, hy=455), "T": dict(k=0.64, hx=1525, hy=420)}
+CORNER = {"W": dict(k=0.48, hx=1580, hy=490), "T": dict(k=0.65, hx=1505, hy=400)}   # 1.35x apart, like W/T (a 1.14x step read as a jump cut)
 FEATHER = 22                                           # px: soft edge where the camera's own frame edge is on screen
 PLACEMENT = {"soft": "center", "corner": "corner", "side": "right", "wall": "center", "panel": "right",
              "cards": "center", "bigtype": "right", "set": "right", "plain": "center"}
@@ -381,22 +381,29 @@ class Wall(Background):
         self.tw = (OW - (cols - 1) * gap) // cols; self.th = int(round(self.tw * 4 / 3)); self.gap = gap; self.cols = cols
         photos = [ctx.path(p) for p in seg["photos"]]
         tiles = [to_f32(person_crop(p, 3 / 4, k=seg.get("k", 5.5), top=0.7).resize((self.tw, self.th), Image.Resampling.LANCZOS)) for p in photos]
-        rows = int(math.ceil(OH / (self.th + gap))) + 2
-        self.strips = []
-        for c in range(cols):                     # each column a strip of tiles, offset so neighbours differ
-            seq = [tiles[(c * 2 + r * (cols + 1)) % len(tiles)] for r in range(rows)]
-            strip = np.zeros((rows * (self.th + gap), self.tw, 3), np.float32) + np.array(SB.BASE, np.float32) / 255
-            for r, t in enumerate(seq): strip[r * (self.th + gap): r * (self.th + gap) + self.th] = t
-            self.strips.append(np.concatenate([strip, strip], 0))
-        self.period = rows * (self.th + gap)
         self.speed = seg.get("speed", 26.0)          # px per second
+        travel = self.speed * seg.get("frames", 600) / FPS
+        rows = int(math.ceil((OH + travel) / (self.th + gap))) + 1   # only the tiles that come on screen during the segment
+        # deal the photos column by column so each tile is unique while the pool lasts; a repeat lands in a far column,
+        # scrolling the other way, at another height (RO-24 R3 review: two copies of one photo on screen at once)
+        order = [(r, c) for r in range(rows) for c in (0, 3, 1, 4, 2, 5)[:cols] if c < cols]
+        deal = {rc: tiles[i % len(tiles)] for i, rc in enumerate(order)}
+        self.strips = []
+        for c in range(cols):
+            strip = np.zeros((rows * (self.th + gap), self.tw, 3), np.float32) + np.array(SB.BASE, np.float32) / 255
+            for r in range(rows): strip[r * (self.th + gap): r * (self.th + gap) + self.th] = deal[(r, c)]
+            self.strips.append(strip)
+        self.period = rows * (self.th + gap)
+        self.unique = len(tiles) >= rows * cols
         self.vig = radial(cx=0.5, cy=0.45, rx=0.38, ry=0.75)[..., None]
 
     def frame(self, i, cam):
         t = i / FPS; out = np.zeros((OH, OW, 3), np.float32) + np.array(SB.BASE, np.float32) / 255
+        span = self.period - OH - 1
         for c, strip in enumerate(self.strips):
-            d = (self.speed * t + c * 97) % self.period
-            off = d if c % 2 == 0 else (self.period - d) % self.period
+            st = (c * 97) % max(1, span - int(self.speed * self.seg.get("frames", 600) / FPS)) if span > 0 else 0
+            d = min(span, st + self.speed * t)
+            off = d if c % 2 == 0 else span - d                # alternate columns scroll the other way, no wrap
             o = int(off); fr = off - o
             a = strip[o:o + OH + 1]
             col = a[:-1] * (1 - fr) + a[1:] * fr               # sub-pixel scroll: smooth at 26 px/s
@@ -462,6 +469,10 @@ class Set(Background):
             self.tvimg = pair_image(ctx, seg["photos"][:2], (w, h))
         yy, xx = np.mgrid[:h, :w].astype(np.float32)
         self.glare = (0.06 * np.clip(1 - np.abs((xx / w - 0.25) - (yy / h) * 0.5) * 4, 0, 1))[..., None]
+        self.chip = None
+        if seg.get("ai_label", True):                    # every AI image carries AI-GENERATED (00-RULES); top left, clear of Dan
+            im = Image.new("RGBA", (OW, OH), (0, 0, 0, 0)); SB.disclosure(im, "AI-GENERATED", xy=(56, 48))
+            a = np.asarray(im, np.float32) * (1 / 255); self.chip = (a[..., :3], a[..., 3:4])
 
     def frame(self, i, cam):
         out = self.plate.copy(); x, y, w, h = self.tv
@@ -469,15 +480,23 @@ class Set(Background):
         tvc = np.clip(tvc * 0.86 + self.glare, 0, 1)
         out[y:y + h, x:x + w] = tvc
         out = cv2.GaussianBlur(out, (0, 0), 1.3)            # depth of field: the set sits behind him
-        return warp(out, cam)
+        out = warp(out, cam)
+        if self.chip is not None: out = out * (1 - self.chip[1]) + self.chip[0] * self.chip[1]
+        return out
 
     @staticmethod
     def light(G, A, reg):
-        """Dan in the set's light: 8 % dimmer, warmer edge light, a faint shadow on the set beside him."""
-        edge = np.clip(A - cv2.GaussianBlur(A, (0, 0), 4), 0, 1)[..., None] * 2.2
-        G = G * 0.92
-        G = G * (1 - 0.25 * edge) + (G * np.array([1.10, 1.0, 0.86], np.float32)) * 0.25 * edge
-        return np.clip(G, 0, 1)
+        """Dan in the set's light (dark room, blue practicals left, warm lamp right): 12 % dimmer and a touch cooler, a blue
+        rim on the edges facing left and a warm rim on the edges facing right."""
+        h, w = A.shape
+        edge = np.clip(A - cv2.GaussianBlur(A, (0, 0), 4), 0, 1) * 2.4
+        gx = cv2.Sobel(cv2.GaussianBlur(A, (0, 0), 3), cv2.CV_32F, 1, 0, ksize=5)
+        left = np.clip(gx, 0, None); right = np.clip(-gx, 0, None); tot = left + right + 1e-6
+        G = G * 0.88 * np.array([0.98, 1.0, 1.03], np.float32)
+        blue, warm = np.array([0.80, 0.95, 1.30], np.float32), np.array([1.12, 1.0, 0.84], np.float32)
+        rim = (left / tot)[..., None] * blue + (right / tot)[..., None] * warm
+        e = (0.35 * edge)[..., None]
+        return np.clip(G * (1 - e) + G * rim * e, 0, 1)
 
     def close(self):
         if self.src: self.src.close()
