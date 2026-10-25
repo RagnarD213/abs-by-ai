@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Fat 90 Year Old SFC Setup - COVER R2 REVIEW 2026-10-25, Codex.** Two requested Maher/laptop shock designs checked at http://127.0.0.1:9224/ . Exact question, real Maher background, AI shirtless Dan and older clothed man. Next: Dan picks 1 or 2, then installation/shared waitlist. Codex R5 stays 3808e604; no social uploads/schedules. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+**Fat 90 Year Old SFC Setup - COVER R3 REVIEW 2026-10-25, Codex.** Design 1 revised and checked: seamless curved bubble, two text lines, Bill higher/face clear, 15% smaller reaction. Review: http://127.0.0.1:9224/ . Next: Dan approves exact revised cover, then installation/shared waitlist. Codex R5 stays 3808e604; no social uploads/schedules. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
 **Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
 

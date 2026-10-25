@@ -63,3 +63,11 @@ Two designs built with the actual Maher clip as background and two newly generat
 Review remains http://127.0.0.1:9224/ . Assets, comparisons, manifest and measured dimensions: `Short-form video content/covers/review/ds40-codex-r5-20261025/round2/`. Reproducible builder and both generation prompts: `scripts/covers/ds40-codex-r5-20261025/round2/`. Both alpha cutouts, expressions, identity, hands, full compositions and Instagram grid crops inspected. Four 1080 x 1920 outputs; both YouTube JPEGs under 2 MB. Exact quote set locally, no generated spelling.
 
 Two subscription calls, 45,381 reported Codex tokens, $0 paid generation. Existing downloaded Bill Maher source reused; no new external downloads. Codex R5 master remains SHA-256 `3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720`. These revised covers await Dan’s choice and exact-file approval. No social upload, installation, waitlist entry or schedule.
+
+## Cover round 3, design 1 revision, 2026-10-25
+
+Dan selected design 1 as the direction, with changes before installation: better speech bubble with no line between the tail and body, more words per line to reduce height, Bill Maher slightly higher and face visible, tail away from his face, and both laptop viewers slightly smaller.
+
+Revised both Instagram and YouTube covers, preserving the same real Maher frame and exact AI foreground pixels. Bubble is one mask union with a curved tapered tail and external outline only. Exact question is two lines: “Have you ever seen a” / “fat 90-year-old?”. Bubble body is 230 px tall, down from 315/320 px. Bill moved up 75 px. Foreground width is 859 px, about 15% smaller. Both face clearances, full layouts and final output dimensions checked; YouTube JPEG remains under 2 MB. No new generation, no metered spend, no video edits.
+
+Review: http://127.0.0.1:9224/ . Full-quality covers and paired sheet: `Short-form video content/covers/review/ds40-codex-r5-20261025/round3/`. Builder and exact requested changes: `scripts/covers/ds40-codex-r5-20261025/round3/`. Dan has not approved these revised files. No installation, social upload or schedule until exact-file approval. Approved film is still Codex R5.
