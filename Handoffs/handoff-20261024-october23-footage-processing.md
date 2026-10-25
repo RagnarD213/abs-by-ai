@@ -21,6 +21,8 @@ Dan approved this plan and requested this execution handoff. His decisions:
 
 ## Verified source and current state
 
+**Execution routing update, 2026-10-25:** Dan requested the verified non-B-roll working copies on Extreme for editing. Use `/Volumes/Extreme/10:23 dan rose fitness shoot - pool shorts and long form content` for C1790 and C1882 through C1899 (19 recordings). All 96 other gym recordings remain on Expansion. The Expansion paths below identify preserved originals and import provenance; they are not the active content-editing root for those 19 files. The 32 prepared intake maps and matching Extreme/project roll sidecars follow this split. Copy/routing evidence: `Media/footage-index/shoot-20261023/extreme-copy-20261025/verified-copy-manifest.json` and `source-routing-policy-20261025.json`. Historical receipts and the selected Expansion originals/sidecars stay unchanged. The saved inventory generator resolves this policy and preserves reviewed classifications.
+
 Project: `/Users/danielrose/Documents/Claude/Projects/Abs By AI` (resolves to `/Users/danielrose/Projects/Claude/Projects/Abs By AI`).
 
 Primary footage folder:
