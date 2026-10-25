@@ -39,7 +39,7 @@ through Flow's agent. Click the settings chip at the right of the prompt box (it
 
 - **Video** (not Image), then **Frames** (not Ingredients).
 - Orientation from the clip's `aspect`: 16:9 or 9:16.
-- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite`, `quality` or `omni` (`omni` = **Omni 1.1 Flash**). Since 2026-10-21 a job often mixes models (a Veo clip `A3` and its Omni twin `A3o`, see README "Which model and how many takes"): **re-check the dropdown before EVERY submit** and switch it to that clip's model; it is not a set-once setting in a mixed job. Omni's length: use the clip's `seconds` (4, 6, 8 or 10); Veo Frames mode stays 8 s.
+- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite`, `quality` or `omni` (`quality` only on a clip whose job entry records `dan_asked`; otherwise use Fast and report it) (`omni` = **Omni 1.1 Flash**). Since 2026-10-21 a job often mixes models (a Veo clip `A3` and its Omni twin `A3o`, see README "Which model and how many takes"): **re-check the dropdown before EVERY submit** and switch it to that clip's model; it is not a set-once setting in a mixed job. Omni's length: use the clip's `seconds` (4, 6, 8 or 10); Veo Frames mode stays 8 s.
 - Count **x1**.
 - Read the "Generating will use N credits" line. Press Escape.
 

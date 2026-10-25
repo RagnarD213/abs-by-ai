@@ -125,6 +125,7 @@
 - [Shorts graphics](shorts-soft-blue-hyperframes-from-now.md): Soft Blue now
 - [Olive retired](old-graphics-retired-soft-blue-hyperframes.md): Soft Blue after Ad 8
 - [Veo subscription](veo-subscription-first.md): Flow first; API on rush
+- [Veo Quality](veo-quality-only-when-asked.md): only when Dan names it; Fast default (10-25)
 - [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
 - [Task names](video-task-names.md): Setup, V/S/Sh
 - [Edit sheet](edit-sheet-and-kit-sheet-path.md): kit_run --sheet

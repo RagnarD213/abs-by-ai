@@ -112,6 +112,9 @@ def cmd_add(a):
     J = load(a.jobdir)
     if any(c["id"] == a.id for c in J["clips"]):
         raise SystemExit(f"{a.id} is already in the job; pick a new id (A1b) for a materially different clip")
+    if a.model == "quality" and not a.dan_asked:   # Dan, 2026-10-25: Quality only when he names it (48 Quality clips ate two-thirds of 10-20..23 credits)
+        raise SystemExit("Veo Quality costs 10x Fast and is used only when Dan asks for it by name. "
+                         "Use --model fast, or pass --dan-asked \"<his exact words>\".")
     if not a.skip_gate and a.end:
         sys.path.insert(0, os.path.join(HERE, "..", "framecheck"))
         from gate import require_pass
@@ -123,6 +126,7 @@ def cmd_add(a):
          "end": os.path.abspath(a.end) if a.end else None, "end_sha256": sha(a.end) if a.end else None,
          "upload_start": stage(a.start, f"{up}/{a.id}-start.jpg"), "upload_end": stage(a.end, f"{up}/{a.id}-end.jpg") if a.end else None,
          "prompt": prompt, "negative": neg, "seconds": a.seconds, "aspect": a.aspect, "model": a.model, "takes": a.takes,
+         "dan_asked": a.dan_asked,
          "gate": f"skipped: {a.skip_gate}" if a.skip_gate else ("framecheck PASS" if a.end else "single frame, no pair gate"),
          "route": "flow", "status": "queued", "added": now(), "outputs": [], "events": []}
     J["clips"].append(c); save(a.jobdir, J)
@@ -314,7 +318,7 @@ if __name__ == "__main__":
     s.add_argument("--end"); s.add_argument("--prompt-file", required=True); s.add_argument("--negative-file")
     s.add_argument("--seconds", type=int, default=8, choices=(4, 6, 8, 10)); s.add_argument("--aspect", default="16:9", choices=("16:9", "9:16"))
     s.add_argument("--model", default="fast", choices=tuple(CREDITS)); s.add_argument("--takes", type=int, default=1)
-    s.add_argument("--skip-gate")
+    s.add_argument("--skip-gate"); s.add_argument("--dan-asked", help="Dan's exact words asking for Veo Quality (required for --model quality)")
     s = S.add_parser("status"); s.add_argument("jobdir")
     s = S.add_parser("mark"); s.add_argument("jobdir"); s.add_argument("id"); s.add_argument("state", choices=("submitted", "failed", "skipped"))
     s.add_argument("--note"); s.add_argument("--credits-left", type=int)
