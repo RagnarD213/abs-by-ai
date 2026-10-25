@@ -43,7 +43,11 @@ def main():
     global CAL
     os.environ.pop("CLAUDE_CODE_HOST_SESSION_ID", None)
     os.environ["CLAUDE_CODE_SESSION_ID"] = "selftest"
-    CAL = ec.Calendar(today=TODAY)
+    # Fixed calendar inputs keep scheduling assertions stable as production dates change.
+    CAL = ec.Calendar(longform="| Sun Oct 18 | RO-25 |\n| Sun Oct 25 | RO-26 |\n"
+                      "| Sun Dec 6 | RO-20C |\n**2027 tentative**\nRO-22\n",
+                      shorts="| Nov 9 | | | | Dedicated Short (SL-09) | |\n",
+                      jobs={"SL-18": {"title": "Wasted Life (RO-25)"}}, today=TODAY)
     print("editcap selftest")
 
     # 1. job codes
@@ -54,7 +58,7 @@ def main():
     bad = {k: ec.job_code(k) for k, v in cases.items() if ec.job_code(k) != v}
     check("job codes from render-queue groups", not bad, bad)
 
-    # 2. release dates from the real calendars
+    # 2. release dates parsed from representative calendar fixtures
     want = {"RO-26": "2026-10-25", "SL-09": "2026-11-13", "SL-18": "2026-10-19", "RO-20C": "2026-12-06",
             "RO-22": ec.LATER, "DS-44": ec.UNDATED}
     got = {j: CAL.date(j)[0] for j in want}
