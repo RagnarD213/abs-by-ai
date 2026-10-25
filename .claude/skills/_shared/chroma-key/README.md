@@ -5,6 +5,12 @@ as our default way to chroma key things. I want all green screen videos keyed ou
 clean... Let's make all our future chroma keys this clean and make this a standard."* It replaces the Codex R3 key
 (locked 2026-10-20, kept below as history). Claude and Codex both key every future green-screen video this way.
 
+**Editor and finished reaction reference updated 2026-10-25:** Codex owns green-screen editing; Dan selected
+[Bill Maher Codex R5](../../shorts/reference/ds40-codex-r5-reaction-format/README.md) as the standard reaction format,
+including its transitions, title above the panel, and colour on both Dan and the clip. R5 uses this Claude R2
+algorithm with its own calibrated full-height pieces and Codex finishing/compositing. Keep the algorithm below;
+match the approved R5 finished look. This is not permission to re-key an approved piece or replace gate results.
+
 **The bar every key must meet** (measured on the approved sample, every frame, independent review SHIP):
 edge flicker with motion removed below the camera's own picture (R2: 0.69 overall, 0.68 hair; `mcflicker.py`),
 dark rim on skin edges at or below the source's (R2: 2.7%, source 8%; `measure_r2.py`), nothing see-through inside

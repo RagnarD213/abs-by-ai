@@ -1,0 +1,61 @@
+{
+  "category": "CONTENT SFC",
+  "revisionId": "01a165ca-9b68-7a61-9ed7-a93bdc65008c",
+  "fps": 29.97002997002997,
+  "frames": 1944,
+  "opening_frames": 588,
+  "pieces": [
+    {
+      "id": "watching",
+      "t0": 1354.4866,
+      "n": 588
+    },
+    {
+      "id": "response",
+      "t0": 1400.2322,
+      "n": 686
+    },
+    {
+      "id": "ending",
+      "t0": 1444.7099667,
+      "n": 126
+    }
+  ],
+  "editorial": [
+    {
+      "a": 0,
+      "b": 4,
+      "picture": "Bill full-screen portrait, Dan keyed lower-left at 0.40 with real laptop"
+    },
+    {
+      "a": 4,
+      "b": 19.6196,
+      "picture": "full 16:9 panel behind full keyed reaction, hair foreground; captions below panel"
+    },
+    {
+      "a": 19.6196,
+      "b": 30.2,
+      "picture": "Dan response foreground, silent Bill horizontal panel behind hair"
+    },
+    {
+      "a": 30.2,
+      "b": 42.5091,
+      "picture": "Presenter with purposeful fixed wide/tight cuts and original health key point"
+    },
+    {
+      "a": 42.5091,
+      "b": 60.6606,
+      "picture": "BMI table with continuous HyperFrames field and category-focused detail cuts"
+    },
+    {
+      "a": 60.6606,
+      "b": 64.8648,
+      "picture": "Direct presenter subscribe ending"
+    }
+  ],
+  "locks": {
+    "audio": "round4/mix.wav untouched",
+    "grade": "own round3/grade.py warm",
+    "key": "Claude R2 optimized shared code, full laptop calibration"
+  }
+}

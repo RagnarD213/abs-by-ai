@@ -5,6 +5,9 @@ metadata:
   type: feedback
 ---
 
+**Reaction-format precedence (Dan, 2026-10-25):** Bill Maher Codex R5 is now the locked format for all reactions, with its early speaking horizontal panel, title ABOVE it, silent clip behind Dan and moving Soft Blue Light field: [[greenscreen-reaction-format]]. Do not replace that chosen sequence with a background-option cycle. The RO-24 commentary references below remain available for relevant sections that do not override the reaction format. Codex owns green-screen editing.
+
+
 On a green-screen reaction or commentary video, the background behind Dan is never plain and keeps changing. Dan, 2026-10-24 (RO-24 round 2 review, after mockups of 8 options): he approved options 1, 2, 3, 4, 6, 7, 8 and rejected 5. "Cycle through all of these options where it's appropriate in the video... always keeping the background visually interesting, always changing up the background... put extra effort into establishing a template for making these visually interesting."
 
 The approved types (mockups: /Volumes/Expansion/_edit_work/RO-24/round3/mock/background_options*.jpg):

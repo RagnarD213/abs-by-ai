@@ -34,29 +34,34 @@ me for review and regenerate if you get some slop like this."*
   by side so Dan picks which ships. Takes and ranges are in each job doc (DS-35 to DS-45, 10/15 roll C1730). DS-33, DS-34 and
   RO-22 have no off-the-cuff take.
 
-## Reaction videos: the locked format, start to finish (Dan, 2026-10-23, DS-44 Hormozi Fat Guy R2 approved)
+## Reaction videos: the locked format, start to finish (Dan, 2026-10-25, Bill Maher Codex R5)
 
-Dan approved Hormozi Fat Guy (DS-44) round 2 and locked it as THE format for green-screen reaction videos: *"Okay, looks good.
-This is approved... I want to lock this as our format for reaction videos."* Every reaction Short, Claude and Codex:
-1. **Opening:** the reaction clip plays first, full screen (fixed vertical window on whoever is talking, per camera shot), with
-   its own sound and nothing before it; Dan keyed small in the lower left with the laptop visible, his real reaction synced to
-   the clip. Exact geometry: "Green screen reaction opening: the locked format" below (0.40 of full size, flush left and
-   bottom, full-height key, soft right edge widened wherever a hand or elbow reaches the camera's edge).
-2. **The handover (about 0.5 s):** the clip shrinks into a 16:9 frame at the top of the screen (about 1000 x 562 at y 30)
-   while Dan grows from the corner to full width in front of it. Keep the silence between the clip's last word and Dan's first
-   under 1 s.
-3. **The interview keeps playing silently behind Dan's head** in that top frame for about the first 30 seconds of the Short,
-   ending at a natural section break. Dan's hair overlaps the frame's bottom edge slightly (about 40-50 px), his head in front.
-   Use a continuous shot of the speaker from the same interview (no webcam banners), full 16:9 height; it pauses behind any
-   full-screen cutaway. Dan's own words: *"I want my head to be in the foreground, and this to be playing in the background.
-   There'll be a slight overlap between my head and my hair, and the bottom of the horizontal frame at the top."*
-4. **Then Dan's take on the moving Soft Blue field**, wide/tight zoom cuts, Soft Blue Light HyperFrames lower thirds placed
-   clear of his face (they sit lower while the interview frame is up, because he sits lower), B-roll and clip cutaways as usual.
-- Both takes were filmed for every reaction: the teleprompter script and an off-the-cuff take right after it on the roll.
-  The scripted take is built first; Dan may ask for the off-the-cuff take in the same format to compare (DS-44, 10-23).
-- Reference build (code, every step): `.claude/skills/shorts/reference/ds44-reaction-format/` (README there). Known gate
-  mismatches with this format: framing:hair_top / headroom read the speaker in the top frame or behind the corner as Dan's
-  hair; confirm by eye, never tune.
+**The standard for all reactions is Bill Maher Fat 90-Year-Old Codex R5. Codex owns green-screen editing.**
+Dan chose it after comparing the finalized Claude and Codex films: "overall I like the Codex version better";
+"Codex now has the green screen jobs"; "lock this format as our reaction format: the Codex R5".
+He preferred the full-screen vertical → horizontal speaking clip → silent clip behind Dan sequence, the smooth
+handover into his response, the title ABOVE the silent video, and the colour on both Dan and the clip.
+
+1. **Open on the clip, fixed portrait crop**, with its own sound and nothing before it. Dan's real synced reaction
+   is keyed lower left at 0.40 of full size, flush left/bottom, laptop visible, mic silent.
+2. **Move to the titled horizontal panel WHILE THE CLIP IS STILL SPEAKING**, with Dan large watching in front.
+   R5 changes at 4.004 s. Preserve full 16:9 height; title/source label ABOVE the panel. Do not wait until the quote
+   ends to introduce this layout. The reference uses clean cuts, not a mandatory half-second shrink/grow animation.
+3. **Hand over smoothly to Dan's response in that same layout**, with the interview still moving but now SILENT
+   behind his real foreground hair. R5 changes speaker at 19.6196 s and keeps the panel through 30.2302 s total film
+   time. No restarted quote, held frame, doubled head or dead gap. Fit times to the source, keeping the sequence.
+4. **Then Dan on the moving Soft Blue Light field**, purposeful fixed wide/tight cuts, relevant HyperFrames graphics
+   and cutaways. Match the approved R5 look on BOTH Dan and the source clip, calibrating for different footage.
+
+Exact master/hash, Dan's words, timing/geometry, title config, colour recipe, actual key/compositor code and evidence:
+[Codex R5 reaction reference](../shorts/reference/ds40-codex-r5-reaction-format/README.md).
+This supersedes the earlier Hormozi Fat Guy Claude R2 and Bill Maher Claude opening/full-format references, and
+older Claude routing for green-screen edits. R5 already uses the house Claude R2 key algorithm; this changes the
+finished format/editor reference, not the algorithm or numeric QA gates. Other videos' audio stays source-specific.
+The separate both-takes rule above still applies. The older multi-background commentary reference does not replace
+this reaction layout. Existing approved exports and the existing setup handoff remain as they are.
+Codex owns new green-screen work and the next authorized edit round; use the sole-owner round workflow for an
+actual transfer. Do not interrupt another active editor or launch a new job merely to install this standard.
 
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
@@ -75,14 +80,13 @@ RO-27 R1 used fixed `3440:1935:200:112` and `3000:1688:420:236` source crops wit
 
 Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 key, Claude and Codex alike. Dan: "let's lock this chroma key as our default way to chroma key things. I want all green screen videos keyed out like this" and "Let's make all our future chroma keys this clean and make this a standard." It replaces the Codex R3 key locked the day before. The bar: edges steadier than the camera's own picture with motion removed, dark rim no worse than the source, nothing see-through over saturated pink (watch, glasses), no specks, strands and motion blur kept, measured with the shared scripts before Dan sees it. Method, exact code and hashes: `.claude/skills/_shared/chroma-key/README.md`. Calibrate plate, crop and hold-out boxes to each source on 2-3 s excerpts with `chroma-key/calibrate.py` (quick lane, minutes; it picks the motion peaks and the tracked hold-out and makes a contact sheet), never by re-keying a full clip; then key each piece exactly once through `chroma-key/keyonce.py`, whose `.done` stamp makes every later round skip an approved piece (every recipe, Claude and Codex), gate that one full run, and re-key only a failing piece. Why: on 10-21 re-keying whole clips to try settings was about 6 of the day's 8.5 key hours. Never average across a cut. Do not reopen the accepted style. This locks keying only; grade and audio stay per video, and already approved exports stay as they are.
 
-## Green screen reaction opening: the locked format (Dan, 2026-10-22)
+## Green screen reaction opening: the locked format (current reference: Codex R5, 2026-10-25)
 
-Every green screen reaction Short opens the same way. Dan, picking version B of Bill Maher Fat 90-Year-Old (DS-40) R4: "Let's go with B. Let's lock this as our format, this size, and the laptop visible for all of these green screen reactions."
-- The reaction clip plays first, full screen, as a fixed vertical crop on the speaker (one steady crop per shot), with its own sound; nothing plays before it.
-- Dan is keyed small in the LOWER LEFT at 0.40 of full size, flush against the left and bottom screen edges, with the laptop visible along the bottom of his footage (key the full camera height; do not crop above the laptop).
-- The small Dan is his REAL reaction: the stretch of his roll where the clip played on his laptop (find it by matching the clip audio in the roll transcript), in sync with the clip. His mic is off while the clip plays.
-- His footage's right edge gets a narrow soft fade (12 px on screen), widened only on frames where a hand leaves the camera picture, so nothing ends on a hard line; keep his head clear of the speaker's face.
-- Key with the house chroma key standard above. The recipe and code: `.claude/skills/shorts/reference/ds40-greenscreen/comp_r4.py` (version B) and its README.
+Use the complete "Reaction videos: the locked format, start to finish" rule above. The inherited corner geometry
+is Dan at 0.40, lower left, flush left/bottom, full camera height with laptop, real synced reaction and mic silent.
+Keep the camera-edge fade narrow except on frames where a hand exits. The speaking clip becomes horizontal early,
+before Dan speaks, then stays silent behind him. The old Claude R4 B / Hormozi shrink-and-grow recipes are history;
+[Bill Maher Codex R5](../shorts/reference/ds40-codex-r5-reaction-format/README.md) is the authoritative format.
 
 ## AI video clips: Google Flow subscription first, paid API only on "rush" (Dan, 2026-10-17)
 

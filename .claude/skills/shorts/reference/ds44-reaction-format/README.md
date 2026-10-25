@@ -1,6 +1,6 @@
 # Reaction-video format: the reference build (DS-44 Hormozi Fat Guy SFC, R2 approved 2026-10-23)
 
-Dan locked this as THE format for green-screen reaction videos (VIDEO-RULES.md, "Reaction videos: the locked format").
+Historical reference, superseded by Dan on 2026-10-25: [Bill Maher Codex R5](../ds40-codex-r5-reaction-format/README.md) is now the standard for all reactions; Codex owns green-screen editing. Keep this recipe for existing approved Hormozi exports, not as the default format.
 Copy of `/Volumes/Expansion/_edit_work/DS-44/r2/recipe/` (R1 assets live in `../r1/`; R2 symlinks key/src/audio to them).
 Copy into your own work folder and edit the constants; never run it inside another job's folder.
 
