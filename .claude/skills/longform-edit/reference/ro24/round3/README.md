@@ -25,7 +25,7 @@ Traps met:
 - yt-dlp `--download-sections` on a long video can return audio only (format selector fell back): list formats, pick `137+ba`.
   Check every download has video. Dubbed-auto audio tracks exist on some videos: transcribe to confirm the language.
 - News clips burn quote boxes and product shots over the person: download the WHOLE source video and pick clean windows for the
-  muted footage behind Dan (Sharon: 52-58, 66-72, 88-92, 12-17.6 s of the E! video).
+  muted footage behind Dan (steady Sharon windows of the E! video: 12.4-16.8, 54.6-58.8, 88.5-91.8, 118.95-124.4 s; 66-71 strobes).
 - HyperFrames `check` fails deliberately faint big type on contrast: it is a texture, drawn on a canvas.
 - The plate decode (FFV1 16-bit 2880x1620) is about 0.45 core-seconds a frame and dominates every render.
 
