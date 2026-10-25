@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Fat 90 Year Old SFC Setup - COVER REVIEW 2026-10-25, Codex.** Dan chose Codex R5, verified 3808e604, 64.8648 s. Project/Extreme/Drive copies match. Covers: http://127.0.0.1:9224/ . Next: Dan picks 1-5, then finish four-platform installation or shared waitlist. No social uploads/schedules yet. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+
 **Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.

@@ -1,0 +1,17 @@
+{
+  "job": "DS-40",
+  "selected_version": "Codex R5",
+  "master": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4",
+  "sha256": "3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720",
+  "duration": 64.8648,
+  "status": "awaiting_cover_choice",
+  "cover_review_url": "http://127.0.0.1:9224/",
+  "generation": {
+    "provider": "Codex subscription via codex-image.sh",
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "count": 5,
+    "paid_generation_usd": 0,
+    "reported_codex_tokens_total": 136153
+  }
+}
