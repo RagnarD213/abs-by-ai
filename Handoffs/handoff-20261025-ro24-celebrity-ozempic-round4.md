@@ -28,7 +28,7 @@ six interview clips, the remaining before/after photo scenes and panels, then th
   CAPITALS; G14's button placement must be re-measured on the new end shot (its background changes).
 - Open with Dan on the round 3 page: template lock, clip trims, Tracy clip placement, B-roll bench press A/B, AI clips A1-A8.
 - Round 3 independent review: `round3/review/INDEPENDENT-R3.md` (first build: FIX FIRST, six items, all fixed) and the re-check
-  `INDEPENDENT-R3-RECHECK.md`. Its notes still open for the whole film: lower thirds pass over his chest in the corner layout
+  `INDEPENDENT-R3-RECHECK.md`, `INDEPENDENT-R3-FINAL.md`, `INDEPENDENT-R3-LAST.md` (READY FOR DAN). Its notes still open for the whole film: lower thirds pass over his chest in the corner layout
   (kept: approved graphics), and the clips are used as broadcast (R5 grades the clip too: consider matching it).
 - Codex note: the template is Python (`gsbg.py`, numpy/cv2/PIL) plus two HyperFrames templates; the film assembler is
   `round3/recipe/assemble_r3.py` (`--reuse/--redo` re-composes only changed background segments).
