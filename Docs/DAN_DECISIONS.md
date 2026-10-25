@@ -14,8 +14,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **Boring Abs At 40 LFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review15 placed scenes and the four-quadrant opening](http://127.0.0.1:9237/). Approve/change/remove the new frames and note gym trim/colour changes. A02 Skip Gym Day, A03 Meal Prep Rescue and A04 Football And Beer stay approved. Storyboards only; full motion and film pending.
 
-- **October 23 Footage Processing (updated 2026-10-25; Decision since: 2026-10-24):** [Continue identification review at rear delts](http://127.0.0.1:9205/#O23-C1847-01). Color C approved; three junk selections excluded, incline press/rear-delt labels saved, sideways copies and missing stills repaired. Review remaining exercise names, intended use and favorites, then Export Review or reply with corrections. All originals preserved. Shared-library finishing and Claude Edit Queue registration follow the remaining review.
-
 
 
 

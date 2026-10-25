@@ -25,11 +25,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**August 3 Footage Offload - VERIFIED 2026-10-25, Codex.** All 1,001 files/178.65GB have matching Expansion/Drive copies; restore map covers metadata versions. Master/SRT backups checked; older repair sources protected. Next: final per-file rehash/removal. Global pause stays. Commit defedfe push waits on live Dan-decisions, handoff-index, master/jobs and staged RO26 article edits; retry at finish.
+**Calories Not Losing Weight SFL Setup - ACTIVE 2026-10-25, Codex.** Owner `01a1744c-82d4-7731-91b6-5056da5a5102`. Five approved R6 Shorts locked. Making25cover choices on Codex subscription, then stop for Dan picks. No uploads/schedules before picks. Next: checked paired-layout gallery; reconcile parent live date before booking. Detail: `Handoffs/handoff-20261025-sl08-calories-shorts-covers-and-setup.md`.
+
+**August 3 Footage Offload - RECORD SYNC BLOCKED 2026-10-25, Codex.** Physical move complete: 1,001 files verified/removed, 178.40GB net freed; older repair sources intact. Completed receipts checksum-verified on Expansion/Drive. Next: safe-push owned receipt/handoff edits after live board, Shorts-calendar, handoff-index, master/jobs and staged RO26 article clear. Detail: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`. Global pause unchanged.
 
 **Arms Shoulders handoff sync - BLOCKED 2026-10-25, Codex.** Video complete, canonical master and Extreme backup verified; setup/offload handoffs ready locally and backed up. Commit09bedc24c cannot push past live changes in board, Dan decisions, master/jobs and staged RO26article; Handoffs README also blocks. Next: retry safe-push after live owners finish. No media work remains.
 
-**Arms Shoulders Workout LFC Setup - REAL THUMBNAIL R3 REVIEW 2026-10-25, Codex.** Design1 rebuilt from actual camera pixels, standard photo adjustments only: http://127.0.0.1:9225/ . Prior AI redraw corrected. Next: Dan approves exact real-image version, then setup. No uploads/schedules. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
+**Arms Shoulders Workout LFC Setup - ABS RETOUCH R4 REVIEW 2026-10-25, Codex.** New abs match R2 reference; R3 natural background and all non-ab pixels preserved exactly. Checked at http://127.0.0.1:9225/ . Next: Dan approves exact R4 PNG, then setup. No uploads/schedules. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
 
 **Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
@@ -37,10 +39,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 Footage Processing - REVIEW 2026-10-25, Codex.** Color C approved. Named exercise corrections and three junk exclusions saved to shared source records. Gallery http://127.0.0.1:9205/#O23-C1847-01 has 96 selections; all 288 stills checked, three sideways review copies corrected. Slot released. Coordination Git sync waits for unrelated live edits. Next: Dan reviews remaining identities, then library finishing and queue registration. Originals preserved. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
+**October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** Dan finalized identities: decline setup has no medicine ball; second pull-up close-up is chin-ups. Color C and trim standard approved. Owns SHOOT-20261023 and its edit slot. Next: full-action speech/reset checks, native-resolution library masters, verified shared-library registration, then 32 filmed-content queue entries. Originals preserved; dispatcher remains paused. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R2 - REVIEW 2026-10-25, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): opening and all assets checked at http://127.0.0.1:9176/ . B/B/1 locked; slot retained at Dan's request. Next: Dan's asset review, then complete 54.85-second Short. Automated flags retained; no spending/publishing. State: `/Volumes/Extreme/_edit_work/DS-55/round2/execution-decisions.json`.
+**Five Minute Exercises SFC R3 - ACTIVE 2026-10-25, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): R3 owner `01a1743a-7136-78a2-b270-fa6b7c29434b`, started/pinned; R2 unpinned. Slot retained. Voice B/crop1 locked; colour reopened. Next: simultaneous three-panel 0–4s opening and new colour comparisons. Journal: `/Volumes/Extreme/_edit_work/DS-55/round3/round-controller.json`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 

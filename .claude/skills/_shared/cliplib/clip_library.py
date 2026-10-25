@@ -18,7 +18,10 @@ Drive mirror: folder 1Hby8O4mB4HZS341qvrVKHSHyCGBgP8mi (anyone-with-link, childr
 
 import argparse
 import base64
+import contextlib
 import datetime as dt
+import fcntl
+import functools
 import json
 import os
 from pathlib import Path
@@ -54,6 +57,42 @@ STOCK_SUBS = ["food-nutrition", "gym-and-exercise", "lifestyle", "people"]
 KINDS = ["ai", "real", "screen", "stock"]
 STATUSES = ["used-final", "usable-unused"]
 PEOPLE = ["dan", "ai-dan", "other-man", "woman", "mixed", "none"]
+INTENDED_USES = ["unknown", "correct demonstration", "deliberate mistake", "beginner variation", "setup/detail", "other useful material"]
+METADATA_FIELDS = {"favorite", "exercise", "aliases", "equipment", "angle", "intended_use",
+                   "source", "source_range_key", "grade", "approval", "candidate_ids", "shoot", "checks"}
+
+
+@contextlib.contextmanager
+def catalog_lock():
+    """Allocate IDs and save against a fresh catalog under one cross-process lock."""
+    CAT_DIR.mkdir(parents=True, exist_ok=True)
+    with (CAT_DIR / ".catalog.lock").open("a") as handle:
+        fcntl.flock(handle, fcntl.LOCK_EX)
+        try:
+            yield
+        finally:
+            fcntl.flock(handle, fcntl.LOCK_UN)
+
+
+def transaction(fn):
+    @functools.wraps(fn)
+    def wrapped(*args, **kwargs):
+        with catalog_lock():
+            return fn(*args, **kwargs)
+    return wrapped
+
+
+def metadata_fields(fields):
+    data = {key: fields[key] for key in METADATA_FIELDS if key in fields}
+    if "favorite" in data and not isinstance(data["favorite"], bool):
+        raise ValueError("favorite must be true or false")
+    if data.get("intended_use", "unknown") not in INTENDED_USES:
+        raise ValueError("Unknown intended_use")
+    source = data.get("source")
+    if source:
+        if not (0 <= source["in"] < source["out"] <= source["duration"] + .001):
+            raise ValueError("Source range must be inside the original recording")
+    return data
 
 
 def now():
@@ -178,11 +217,13 @@ def new_record(cat, src, kind, slug, fields):
         "drive_id": None, "added": now(),
     }
     rec.update(info)
+    rec.update(metadata_fields(fields))
     return rec
 
 
 # ---------------------------------------------------------------- commands
 
+@transaction
 def cmd_ingest(args):
     cat = load()
     keys = by_key(cat)
@@ -238,17 +279,20 @@ def cmd_ingest(args):
             print("  MISSING", p)
 
 
+@transaction
 def cmd_add(args):
     cat = load()
     src = Path(args.file).expanduser().resolve()
     ident = rs.content_identity(src)
+    metadata = metadata_fields(json.loads(Path(args.metadata).read_text())) if getattr(args, "metadata", None) else {}
     for c in cat["clips"]:
-        if c["content_key"] == ident["content_key"]:
+        if c["content_key"] == ident["content_key"] or (metadata.get("source_range_key") and c.get("source_range_key") == metadata["source_range_key"]):
             print("already in library as {} ({})".format(c["id"], c["library_path"]))
             return 0
     fields = {"category": args.category, "description": args.description, "tags": args.tags or [],
               "people": args.people, "status": args.status, "used_in": args.used_in or [],
               "model": args.model, "prompt": args.prompt, "notes": args.notes or ""}
+    fields.update(metadata)
     rec = new_record(cat, src, args.kind, args.slug, fields)
     place(src, rec, move=False)
     make_thumbs(rec)
@@ -268,7 +312,8 @@ def tokens(text):
 
 
 def score(clip, q):
-    fields = {"slug": 3, "description": 2, "tags": 3, "category": 2, "prompt": 1, "notes": 1, "legacy_name": 1}
+    fields = {"slug": 3, "description": 2, "tags": 3, "category": 2, "prompt": 1, "notes": 1, "legacy_name": 1,
+              "exercise": 3, "aliases": 3, "equipment": 3, "angle": 1}
     total = 0
     for word in q:
         best = 0
@@ -290,6 +335,14 @@ def cmd_find(args):
     q = tokens(args.words)
     hits = []
     for c in cat["clips"]:
+        if getattr(args, "favorite", False) and not c.get("favorite"):
+            continue
+        if getattr(args, "intended_use", None) and c.get("intended_use", "unknown") != args.intended_use:
+            continue
+        if getattr(args, "exclude_mistakes", False) and c.get("intended_use") == "deliberate mistake":
+            continue
+        if getattr(args, "equipment", None) and not all(t in tokens(c.get("equipment", "")) for t in tokens(args.equipment)):
+            continue
         if args.kind and c["kind"] != args.kind:
             continue
         if args.aspect and c["aspect"] != args.aspect:
@@ -346,6 +399,7 @@ DESCRIBE_PROMPT = (
     "text or watermark you can read, else \"\"}. The editor's draft description is: ")
 
 
+@transaction
 def cmd_describe(args):
     cat = load()
     key = rs.secret_value("GEMINI_API_KEY")
@@ -453,6 +507,7 @@ def drive_sync(cat, only=None):
     return cat
 
 
+@transaction
 def cmd_drive_sync(args):
     cat = load()
     try:
@@ -463,7 +518,8 @@ def cmd_drive_sync(args):
 
 
 SHEET_COLS = ["ID", "Preview", "Description", "Kind", "Category", "People", "Shape", "Seconds", "Sound",
-              "Status", "Used in", "Tags", "AI label needed", "Notes", "Drive link", "File name"]
+              "Status", "Used in", "Tags", "AI label needed", "Notes", "Drive link", "File name",
+              "Favorite", "Exercise", "Equipment", "Angle", "Intended use", "Original range", "Grade"]
 
 
 def sheet_rows(cat):
@@ -474,7 +530,11 @@ def sheet_rows(cat):
                      round(c["duration"], 1), "yes" if c["has_audio"] else "no",
                      "used in a finished video" if c["status"] == "used-final" else "not used yet",
                      ", ".join(c["used_in"]), ", ".join(c["tags"][:12]), "YES" if c.get("needs_ai_label") else "",
-                     c.get("notes", ""), drive_link(c), c["file_name"]])
+                     c.get("notes", ""), drive_link(c), c["file_name"],
+                     "YES" if c.get("favorite") else "", c.get("exercise", ""), c.get("equipment", ""),
+                     c.get("angle", ""), c.get("intended_use", "unknown"),
+                     "{} {:.3f}-{:.3f}s".format(c["source"].get("file", ""), c["source"]["in"], c["source"]["out"]) if c.get("source") else "",
+                     json.dumps(c.get("grade", ""), ensure_ascii=False)])
     return rows
 
 
@@ -488,7 +548,7 @@ def build_xlsx(cat, path):
     rows = sheet_rows(cat)
     for r in rows:
         ws.append(r)
-    widths = [8, 24, 60, 9, 18, 11, 9, 9, 8, 20, 26, 36, 11, 36, 36, 44]
+    widths = [8, 24, 60, 9, 18, 11, 9, 9, 8, 20, 26, 36, 11, 36, 36, 44, 10, 34, 28, 22, 24, 34, 50]
     for i, w in enumerate(widths):
         ws.column_dimensions[chr(65 + i)].width = w
     for cell in ws[1]:
@@ -523,6 +583,7 @@ HOWTO = [
 ]
 
 
+@transaction
 def cmd_sheet(args):
     cat = load()
     token = drive_token()
@@ -578,6 +639,10 @@ def main():
     f.add_argument("--min-seconds", type=float)
     f.add_argument("--limit", type=int, default=15)
     f.add_argument("--rolls", action="store_true", help="also search raw shoot rolls via roll_sidecar")
+    f.add_argument("--favorite", action="store_true", help="only clips explicitly marked favorite")
+    f.add_argument("--intended-use", choices=INTENDED_USES)
+    f.add_argument("--exclude-mistakes", action="store_true")
+    f.add_argument("--equipment", help="filter by equipment words")
     s = sub.add_parser("show"); s.add_argument("id")
     a = sub.add_parser("add", help="register a newly approved clip (copies it in, previews, Drive)")
     a.add_argument("file")
@@ -591,6 +656,7 @@ def main():
     a.add_argument("--tags", nargs="*")
     a.add_argument("--model"); a.add_argument("--prompt"); a.add_argument("--notes")
     a.add_argument("--no-drive", action="store_true")
+    a.add_argument("--metadata", help="JSON with source range, grade, favorite, intended use and approval evidence")
     i = sub.add_parser("ingest"); i.add_argument("files", nargs="+"); i.add_argument("--dry-run", action="store_true")
     t = sub.add_parser("thumbs"); t.add_argument("--force", action="store_true")
     d = sub.add_parser("describe"); d.add_argument("--force", action="store_true"); d.add_argument("--ids", nargs="*")

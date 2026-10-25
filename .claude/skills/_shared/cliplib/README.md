@@ -59,3 +59,30 @@ and flags visible AI defects, about $0.0015 a clip), `drive-sync`, `thumbs`.
   1.30 LUT plus `colortemperature=temperature=8500:pl=1` or skin reads orange. Hard-sun rolls C1673-C1677 take 1.15-1.30,
   the patio rolls C1684-C1685 take 1.45. To re-grade a clip in place: overwrite the library file, `make_thumbs`,
   `drive_sync(cat, only={id})`, then `sheet`.
+
+## Source ranges, favorites and teaching intent
+
+`add FILE --metadata /private/path/clip.json` accepts exercise/aliases, equipment, angle,
+`favorite` (boolean), `intended_use`, source `{file,path,in,out,duration,content_key,sha256}`,
+`source_range_key`, grade, approval, candidate IDs, shoot and checks. These fields stay in
+`catalog.json`; the human sheet also displays favorites, equipment, intent and original ranges.
+Metadata cannot overwrite a permanent ID or a library path. `source_range_key` prevents a
+second ID for the same original range. Mutating commands take one catalog lock and read fresh
+state before allocating IDs. Python batch callers must use `with catalog_lock():` around their
+load/allocate/save transaction too.
+
+Both Codex and Claude use the same commands from the project root:
+
+```bash
+python3 .claude/skills/_shared/cliplib/clip_library.py find "cable crunch" --favorite
+python3 .claude/skills/_shared/cliplib/clip_library.py find "rope" --intended-use "correct demonstration"
+python3 .claude/skills/_shared/cliplib/clip_library.py find "rear delt" --equipment "machine" --exclude-mistakes
+python3 .claude/skills/_shared/cliplib/clip_library.py show B0001
+```
+
+A correct-demonstration query excludes unknown, deliberate-mistake and beginner clips.
+Do not silently convert unknown intent into correct form. `show` exposes the original source
+path, exact in/out and identity needed to reconstruct a range. Keep Dan's confirmed exercise
+names and source corrections; an automatic description never overrides them. Talking through
+what will be filmed, resets and accidental camera handling are not reusable exercise B-roll.
+Original recordings are always preserved, including excluded material.
