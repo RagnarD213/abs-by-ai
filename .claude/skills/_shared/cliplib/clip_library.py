@@ -56,7 +56,7 @@ AI_CATEGORIES = ["ai-dan", "people", "food-nutrition", "gym-and-exercise", "life
 BROLL_CATEGORIES = ["dan-filmed", "screen-recordings", "stock"]
 STOCK_SUBS = ["food-nutrition", "gym-and-exercise", "lifestyle", "people"]
 KINDS = ["ai", "real", "screen", "stock"]
-STATUSES = ["used-final", "usable-unused"]
+STATUSES = ["used-final", "usable-unused", "unusable"]
 PEOPLE = ["dan", "ai-dan", "other-man", "woman", "mixed", "none"]
 INTENDED_USES = ["unknown", "correct demonstration", "deliberate mistake", "beginner variation", "setup/detail", "other useful material"]
 METADATA_FIELDS = {"favorite", "exercise", "aliases", "equipment", "angle", "intended_use",
@@ -336,6 +336,8 @@ def cmd_find(args):
     q = tokens(args.words)
     hits = []
     for c in cat["clips"]:
+        if c.get("status") == "unusable":
+            continue
         if getattr(args, "favorite", False) and not c.get("favorite"):
             continue
         if getattr(args, "intended_use", None) and c.get("intended_use", "unknown") != args.intended_use:
@@ -577,6 +579,7 @@ HOWTO = [
     "Find a clip: use the filter arrows on the Clips tab (Kind, Category, People, Shape), or Ctrl/Cmd+F for a word like salad, sleep, gym, phone.",
     "Open it: click the Drive link using an account with access to the library.",
     "Filter Favorite for the strongest suggested takes. All other usable takes remain available.",
+    "Unusable records keep their IDs and source history, but are excluded from clip searches and must not be used in a film.",
     "Intended use distinguishes correct demonstrations, mistakes, beginner variations, setup/details and unknown. Unknown is not a correct-form approval.",
     "The ID (A0042 = AI clip, B0031 = B-roll) is the clip's permanent name. Quote the ID in revision notes.",
     "Status 'used in a finished video' means it is already in the videos listed under Used in: avoid repeating it in the same audience's feed.",
