@@ -19,7 +19,8 @@ for v,title in [('scripted','scripted'),('off_the_cuff','off the cuff')]:
  p=W/'independent'/v/'report.md';shutil.copyfile(p,qd/'independent-report.md')
  files.append(dict(take=v,path=str(out),vlc_path=str(vlc),sha256=sha(out),seconds=json.loads((W/v/'edl.json').read_text())['total_seconds']))
 rd=D/'Recipe - R3';rd.mkdir(exist_ok=True)
-for p in (W/'recipe').glob('*.py'):shutil.copyfile(p,rd/p.name)
+for p in (W/'recipe').iterdir():
+ if p.is_file() and p.suffix in {'.py','.sh'}:shutil.copyfile(p,rd/p.name)
 for n in ['decisions.json','asset-provenance.json','approval-manifest.json','execution-state.json','panel-geometry-r3.json']:
  p=W/n
  if p.exists():shutil.copyfile(p,rd/n)
