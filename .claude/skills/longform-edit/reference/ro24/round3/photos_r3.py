@@ -151,7 +151,7 @@ def scenes():
         dict(t=t, enter="cut", layout=lay, args=dict(push=1.04, **a)) for lay, a, t in mont],
         why="starts with the film; all six people, each with Dan's approved weight and medication line; hard cuts on the hook's words "
             "('ripped', 'weight loss medication', 'Well for other people', 'it totally', 'destroys their life'); out on the first cut to Dan (5.97)"))
-    S.append(dict(id="P1", name="Sharon Osbourne, before and after", t0=round(677 / FPS + 0.0005, 4), t1=round(785 / FPS + 0.0005, 4),
+    S.append(dict(id="P1", name="Sharon Osbourne, before and after", t0=round(677 / FPS + 0.0005, 4), t1=round(784 / FPS + 0.0005, 4),
                   shots=[dict(t=0.0, enter="rise", layout="pair", args=dict(stems=("sharon_before_2019_million_little_pieces", "sharon_a_recent_gaunt_2023_rollingstone_uk"),
                                                                            years=("2019", "2023"), name="Sharon Osbourne", aspect=2 / 3, k=6.0))],
                   why="as round 2 (in on the cut 0.45 s before 'Let's start with the one who shows you exactly what not to do'), now her "

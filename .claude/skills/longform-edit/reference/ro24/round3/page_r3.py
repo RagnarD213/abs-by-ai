@@ -13,8 +13,13 @@ plan = {s['id']: s for s in L(f'{R3}/bg_plan.json')['segments']}
 ins = L(f'{R3}/clips/inserts.json'); man = {m['id']: m for m in L(f'{R3}/film_manifest_r3.json')}
 pp = {p['id']: p for p in L(f'{R3}/hf/plan_photos_r3.json')}
 W = L(f'{R3}/film_words_r3.json')
+FIXW = [(r' ([.,%?!])', r'\1'), (r'(\d) \.(\d)', r'\1.\2'), (r'GLP -1', 'GLP-1'), (r'six -pack', 'six-pack'), (r'head -to -head', 'head-to-head'),
+        (r"old zempic", 'Ozempic'), (r'\bozempic\b', 'Ozempic'), (r'Ozenpik', 'Ozempic'), (r'Monjaro', 'Mounjaro'), (r'[Zz]ebbound|zetbound', 'Zepbound'),
+        (r'get this gone', 'get this gaunt'), (r'over fat', 'overfat'), (r'2\.5mg', '2.5 mg'), (r'1\.5mg', '1.5 mg'), (r'0 \.8', '0.8'), (r'sixpackabs \.com', 'SixPackAbs.com')]
 def said(a, b):
-    return ' '.join(w['w'] for w in W if a <= w['t0'] < b)
+    s = ' '.join(w['w'] for w in W if a <= w['t0'] < b)
+    for x, y in FIXW: s = re.sub(x, y, s)
+    return s
 NAMES = {'soft': '1. Their clip softened behind you', 'corner': '2. Their clip full screen, you in the corner', 'side': '2b. Their clip behind, you to the side',
          'wall': '3. The scrolling photo wall', 'panel': '4. Side panel: before and after, weight and medication', 'cards': '6. Floating photo cards',
          'bigtype': '7. The number and the drug, big and faint', 'set': '8. The studio set, their clip on the TV'}
@@ -70,9 +75,9 @@ decided = [
  'The template is now a shared tool for every green-screen video (Claude and Codex): the eight looks, where you stand in each, and the rules that choose them.',
  'Rules: the background only changes on a camera cut, about every 8 to 20 seconds; never the same look twice in a row; right after the intro, the floating cards then the photo wall; right after a clip plays, it keeps rolling with you in the corner; a number you say gets the big type, unless a lower third already shows it; when you talk about someone\'s body changing, their before and after; otherwise the studio set or their clip softened, with "you to the side" now and then.',
  'Where you stand: centre for the softened clip, wall and cards; right of centre for the panel, big type, set and clip-behind; lower right for the corner (bigger than in the Shorts, as you asked). Every cut still changes between wide and tight, so no jump cuts.',
- 'Behind you, only clean footage of each person: I downloaded the full E! News and Page Six videos and used the stretches with no quote boxes or product shots over them.',
- 'Studio set: you a touch dimmer and warmer at the edges to match its lamps, the set slightly soft as if behind you; one set for the whole film.',
- 'Corner layout: the clip keeps playing full screen and you talk from the lower right. The lower thirds stay where you approved them, so they pass under your chest there; your face stays clear of them.',
+ 'Behind you, only steady, clean footage of each person: I downloaded the full E! News and Page Six videos and used stretches with no quote boxes, product shots, transitions or flashing cameras (each one checked frame by frame).',
+ 'Studio set: you a touch dimmer, with a blue edge light from the set\'s blue lamps on one side and a warm one from its floor lamp on the other; the set slightly soft as if behind you; one set for the whole film. The set is an AI-made picture, so it carries the AI-GENERATED label while it is on screen (house rule; your mockup had none, say if you want it off).',
+ 'Corner layout: lower right, as in your approved mockup (the lower-left corner of the locked reaction Shorts format is for Shorts with your filmed reaction; this film has none). Wide and tight corner shots differ by the same step as your normal wide and tight shots, so a cut there is never a jump cut. The lower thirds stay where you approved them, so they pass over your chest in that layout; your face always stays clear of them.',
  'Clips are trimmed to your script\'s first and last words, cut on quiet moments, loudness matched to your voice. The film is now 8:38 (6:53 plus 1:45 of clips).',
  'Photo scenes: every person now shows their weight and medication in your approved wording, as before and after pairs where they lost weight; the opening montage now includes Tracy Morgan. Sharon\'s before and after appears in the intro, before her clip, in "Ozempic face", in the panel and in the floating cards, never the same pair twice.',
  'I found 15 more photos (credits on screen where a credit line shows; uncredited agency photos only in the walls, cards and the TV). Big type, cards and walls carry no credit line.',
@@ -83,7 +88,8 @@ if hair: checks.append(f"Hair clearance: {hair['frames_checked']} rendered frame
 if ag:
     rr = ag.get('rows', []); bad = [r['key'] for r in rr if not r.get('ok')]
     checks.append(f"Audio gate on the 2:50: {len(rr) - len(bad)} of {len(rr)} rows pass" + (f"; fails: {', '.join(bad)} (the gate measures your voice; the two interview clips with their music beds sit inside this file)" if bad else '') + '.')
-checks.append(f'Independent reviewer: {verdict}.')
+checks.append('Independent review, first build: 6 problems to fix first (a background that strobed with camera flashes, a split-second source wipe behind you, one jump cut in the corner layout, two rough sound joins at the Sharon clip, a photo credit hidden by your shoulder). All six fixed, plus its notes on repeated photos, the big number\'s timing and the studio TV.')
+checks.append(f'Independent reviewer on this build: {verdict}.')
 reply = "1 Background template: lock / change: \n2 Clips: OK / change: \n3 Tracy clip: keep / drop\n4 B-roll bench press: A / B\n5 AI clips: \n6 Anything else: "
 pv = 'preview/DRAFT - RO-24 round 3 - first 2m50s'
 page = f"""<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Celebrity Ozempic, round 3</title>
@@ -101,6 +107,7 @@ button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9p
 <div id="dock"><div class="small" id="nowp">Pick any background, clip or photo below to play it here.</div><video id="pv" controls preload="none" playsinline></video></div>
 <main><h1>Reacting To Celebrity Ozempic Transformations <span class="small">LFC, round 3</span></h1>
 <p>Round 3 builds the background template you asked for and puts it on the first 2:50: the intro, Sharon Osbourne with her E! News clip, into Fat Joe with his Page Six clip. Every one of the {len(types_shown)} looks you approved appears in it. The complete film comes in round 4, once you lock the template.</p>
+<p class="notice"><b>Next:</b> round 4 builds the whole film on the template once you lock it. Under today's rule (Codex now has the green-screen jobs) round 4 goes to Codex, which starts from this template and this page.</p>
 <p class="notice"><b>Locked, reused as is:</b> your approved key on every frame (nothing was re-keyed), warm colour, voice A, the cut and take list, and all 14 graphics.</p>
 <nav><a href="#decide">Your {len(decisions)} decisions</a><a href="#preview">First 2:50</a><a href="#types">The backgrounds</a><a href="#clips">Interview clips</a><a href="#photos">Photo scenes</a><a href="#pairs">Pairs for later</a><a href="#ai">AI clip ideas</a><a href="#decided">What I decided</a><a href="#checks">Checks</a><a href="#reply">Reply</a></nav>
 <section id="decide"><h2>Your decisions ({len(decisions)})</h2><ol>{''.join('<li>' + d + '</li>' for d in decisions)}</ol></section>

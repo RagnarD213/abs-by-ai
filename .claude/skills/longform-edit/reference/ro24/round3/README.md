@@ -28,3 +28,10 @@ Traps met:
   muted footage behind Dan (Sharon: 52-58, 66-72, 88-92, 12-17.6 s of the E! video).
 - HyperFrames `check` fails deliberately faint big type on contrast: it is a texture, drawn on a canvas.
 - The plate decode (FFV1 16-bit 2880x1620) is about 0.45 core-seconds a frame and dominates every render.
+
+Round 3 review loop (2026-10-25): the first independent review (FIX FIRST) caught a strobing red-carpet window, a source wipe at a
+window's first frames, a 1.14x corner W/T step that read as a jump cut, a split on round 2's join crossfade ("Sharon" chopped),
+digital silence at a clip head, and a credit under Dan's shoulder. Fixes: windows on scene detection + a flicker scan,
+corner 1.35x, the insert one frame earlier with the next take's pre-roll frame in its slot (`PREROLL`) and room tone over the
+clip's silent head (`ROOMTONE_HEAD`), credit wrapped at 600 px. `assemble_r3.py --reuse OLD --redo BG03,...` re-composes only
+changed background segments; `hair_corner_r3.py` measures the corner layout the main hair scan cannot see.

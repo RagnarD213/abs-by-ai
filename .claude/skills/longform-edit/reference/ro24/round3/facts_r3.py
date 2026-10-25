@@ -24,6 +24,7 @@ def w(phrase, lo, hi=None):
 
 
 S = TL.shift_t
+W = lambda phrase, lo: round(S(w(phrase, lo)), 3)
 P = lambda *a: [f'../round2/photos/{x}' if '/' in x and not x.startswith('photos/') else x for x in a]
 R2P = lambda f: f'../round2/photos/{f}'
 R3P = lambda f: f'photos/{f}'
@@ -32,8 +33,9 @@ people = {
  'Sharon Osbourne': dict(
     # clean shots of her in the full E! News video (no quote boxes over her): interview close-ups, Emmys, MS gala, podcast
     # (windows on measured shot changes: ffmpeg scene detection + an exact-time 1 fps sheet, clips/sharon_full_sheet_exact.jpg)
-    clip=dict(src='clips/src/sharon_full.mp4', windows=[[54.6, 58.8], [66.6, 70.9], [88.1, 91.8], [36.6, 37.7], [46.7, 47.9], [118.8, 121.5], [34.1, 35.8]],
-              after=[[12.4, 16.8], [54.6, 58.8]], focus=[0.45, 0.4]),
+    # only steady stretches: no flashes, no transitions (R3 review F1/F2; flicker scan in the round 3 notes)
+    clip=dict(src='clips/src/sharon_full.mp4', windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8], [118.95, 124.4]],
+              after=[[12.4, 16.8], [118.95, 123.2]], focus=[0.45, 0.4]),
     stat='42 lb, Ozempic', big=['-42 LB', 'OZEMPIC'],
     photos=[R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg'), R3P('sharon/sharon_before_2019_emmys.jpg'),
             R3P('sharon/sharon_after_2024_chateau_marmont.jpg'), R2P('sharon/sharon_c_before_2012.jpg')],
@@ -42,7 +44,7 @@ people = {
            dict(photos=[R3P('sharon/sharon_before_2021_the_talk_set.jpg'), R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg')],
                 years=['2021', '2023'], credits=['CBS via Getty Images', 'Splash News'], crop_k=3.6, top=0.7)]),
  'Fat Joe': dict(
-    clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[25.6, 30.9], [38.9, 42.8], [4.5, 13.45]], after=[[4.5, 13.45], [25.6, 30.9]], focus=[0.5, 0.4]),
+    clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[25.6, 30.8], [39.0, 42.8], [6.0, 8.75]], after=[[6.0, 8.75], [25.6, 30.8], [39.0, 40.6]], focus=[0.5, 0.4]),
     stat='200 lb, Ozempic', big=['-200 LB', 'OZEMPIC'],
     photos=[R2P('fatjoe/fatjoe_a_heaviest_2005.jpg'), R2P('fatjoe/fatjoe_b_recent_2023.jpg')],
     # P0 shows MTV TRL 2002 / ESPYs 2026, P3 Brown Sugar 2002 / Fanatics 2024: the panel gets the third pair
@@ -113,18 +115,25 @@ print('facts:', len(shots), 'shots,', len(F['inserts']), 'inserts')
 # ---- the editor's calls where the rules allow two answers (first three minutes; round 4 reviews the rest)
 SH = 'clips/src/sharon_full.mp4'
 OVR = {
+ 'BG01': dict(photos=[R2P('fatjoe/fatjoe_a_heaviest_2005.jpg'), R2P('oprah/oprah_recent_2025_abt_gala.jpg'), R3P('amy/amy_before_2024_variety-power-of-women.jpg'),
+                      R3P('meghan/meghan_before_2019_star-wars-premiere-london.jpg'), R2P('tracy/tracy_recent_2023_gotham_ball.jpg')],
+              why='right after the intro: five cards, one per person not in the next photo scene (Sharon comes next, so no Sharon card)'),
+ 'BG03': dict(clip=dict(src=SH, windows=[[12.4, 16.8], [118.95, 123.2]], focus=[0.45, 0.4])),
  'BG04': dict(pair=dict(photos=[R3P('sharon/sharon_before_2021_the_talk_set.jpg'), R3P('sharon/sharon_after_2025_villa_park_announcement.jpg')],
-                        years=['2021', '2025'], credits=['CBS via Getty Images', 'Samir Hussein/Getty Images for Live Nation UK'], crop_k=6.0, top=0.6),
+                        years=['2021', '2025'], credits=['CBS via Getty Images', 'Getty Images for Live Nation UK'], crop_k=6.0, top=0.6),
               why='her own fault, Ozempic face: her before and after with 42 lb, Ozempic (a pair the photo scenes do not use)'),
- 'BG05': dict(clip=dict(src=SH, windows=[[66.6, 70.9], [88.1, 91.8], [54.6, 58.8]], zoom=1.22, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
-              why="blaming the medication, overdosing: her clip behind, Dan to the side (Dan: occasionally)"),
- 'BG07': dict(type='set', clip=dict(src=SH, windows=[[118.8, 121.5], [36.6, 37.7], [46.7, 47.9], [12.4, 16.8], [34.1, 35.8], [88.1, 91.8], [66.6, 70.9]]),
-              why='commentary (scare tactics, skeletons): the studio set, her clip on its TV'),
- 'BG08': dict(type='soft', clip=dict(src=SH, windows=[[54.6, 58.8], [66.6, 70.9]]),
+ 'BG05': dict(clip=dict(src=SH, windows=[[54.6, 58.8], [118.95, 124.4], [12.4, 14.2]], zoom=1.38, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
+              why="blaming the medication, overdosing: her clip behind, Dan to the side (Dan: occasionally); zoomed so the E! logo stays off him"),
+ 'BG06': dict(lines=['ZEPBOUND', '2.5 MG', 'OR LESS'], line_times=[S(69.20) + 0.1, W('2', 78.0), W('or less', 78.5)], t1=S(86.25),
+              why='he says the number: the drug from the cut ("high doses of Zepbound"), the dose lands on "2.5mg or less" and stays through "That\'s all you need"'),
+ 'BG07': dict(type='set', t0=S(86.25), clip=dict(src=SH, windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8], [118.95, 124.4]]),
+              why='commentary (scare tactics, skeletons): the studio set, her clip on its TV (four steady stretches)'),
+ 'BG08': dict(type='soft', clip=dict(src=SH, windows=[[88.5, 91.8], [54.6, 58.8], [12.4, 13.2]]),
               why='commentary (very unlikely you would get this gaunt): her clip softened behind him'),
  'BG09': dict(type='cards', photos=[R3P('sharon/sharon_before_2019_emmys.jpg'), R3P('sharon/sharon_after_2024_chateau_marmont.jpg'),
-                                    R2P('sharon/sharon_c_before_2012.jpg'), R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg'),
-                                    R3P('sharon/sharon_before_2019_million_little_pieces.jpg'), R2P('sharon/sharon_b_face_closeup_2023_claridges.jpg')],
-              why='ending up looking like Sharon Osbourne: her photos, before and after, floating around him'),
+                                    R2P('sharon/sharon_c_before_2012.jpg'), R2P('sharon/sharon_a_recent_gaunt_2023_rollingstone_uk.jpg')],
+              why='ending up looking like Sharon Osbourne: four of her photos, the two not shown yet and the two seen longest ago'),
+ 'BG10': dict(clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[6.0, 8.75], [25.6, 30.8], [39.0, 40.6]], focus=[0.5, 0.4]),
+              why="right after Fat Joe's clip: it keeps rolling (steady stretches, no flashing carpets), Dan reacts from the corner"),
 }
 json.dump(OVR, open(R3 / 'bg_overrides.json', 'w'), indent=1)
