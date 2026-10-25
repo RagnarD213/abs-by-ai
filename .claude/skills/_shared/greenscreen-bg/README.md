@@ -64,8 +64,11 @@ largest near-black rectangle, `SET` in the film's assembler).
    shot or transition behind him, and no flashing red-carpet cameras (a whole-frame pulse 6-16 times a second behind him read
    as strobing in the RO-24 R3 review). Download the full source video; set window edges on scene detection; scan each window
    for brightness jumps (more than 8/255 between frames, under about 1 a second); keep the logo/bug off him with the zoom.
-7. Photos: every tile and card unique where the pool allows (the wall deals photos so a repeat lands in a far column); a
-   person's card set right before their own photo scene leaves that person out.
+7. Photos: every tile and card unique where the pool allows. The wall builds only the tiles that come on screen during the
+   segment (it scrolls a little slower rather than add a row it cannot fill uniquely) and deals them so any unavoidable repeat
+   lands in a far column. A wall or card set right before a person's own photo scene leaves that person out, and a wall right
+   after a card set leaves out those cards.
+9. Footage behind the corner keeps the source's logo bug out of Dan's corner (zoom, and out_focus that crops the bottom).
 8. Big type lands on the words: `line_times` (film seconds) per line; the drug can show from the cut, the number on the number.
 6. Overrides: the editor's calls where the rules allow two answers go in the film's `bg_overrides.json`, each with its why;
    the plan records "(editor's override)".

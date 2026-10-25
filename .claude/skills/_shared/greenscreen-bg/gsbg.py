@@ -379,11 +379,16 @@ class Wall(Background):
         super().__init__(seg, ctx)
         cols = seg.get("cols", 6); gap = 12
         self.tw = (OW - (cols - 1) * gap) // cols; self.th = int(round(self.tw * 4 / 3)); self.gap = gap; self.cols = cols
-        photos = [ctx.path(p) for p in seg["photos"]]
+        photos = list(dict.fromkeys(ctx.path(p) for p in seg["photos"]))
         tiles = [to_f32(person_crop(p, 3 / 4, k=seg.get("k", 5.5), top=0.7).resize((self.tw, self.th), Image.Resampling.LANCZOS)) for p in photos]
         self.speed = seg.get("speed", 26.0)          # px per second
         travel = self.speed * seg.get("frames", 600) / FPS
-        rows = int(math.ceil((OH + travel) / (self.th + gap))) + 1   # only the tiles that come on screen during the segment
+        rows = int(math.ceil((OH + 2 + travel) / (self.th + gap)))   # only the tiles that come on screen during the segment
+        r0 = int(math.ceil((OH + 2) / (self.th + gap)))
+        if rows > r0 and len(tiles) < rows * cols <= len(tiles) + cols:  # one row short of unique tiles: scroll a little slower
+            dur = seg.get("frames", 600) / FPS
+            sp = (r0 * (self.th + gap) - OH - 2) / dur
+            if sp >= 12: self.speed, rows = sp, r0
         # deal the photos column by column so each tile is unique while the pool lasts; a repeat lands in a far column,
         # scrolling the other way, at another height (RO-24 R3 review: two copies of one photo on screen at once)
         order = [(r, c) for r in range(rows) for c in (0, 3, 1, 4, 2, 5)[:cols] if c < cols]
@@ -400,8 +405,9 @@ class Wall(Background):
     def frame(self, i, cam):
         t = i / FPS; out = np.zeros((OH, OW, 3), np.float32) + np.array(SB.BASE, np.float32) / 255
         span = self.period - OH - 1
+        room = span - int(self.speed * self.seg.get("frames", 600) / FPS)      # spare scroll beyond what the segment uses
         for c, strip in enumerate(self.strips):
-            st = (c * 97) % max(1, span - int(self.speed * self.seg.get("frames", 600) / FPS)) if span > 0 else 0
+            st = (c * 97) % room if room > 0 else 0
             d = min(span, st + self.speed * t)
             off = d if c % 2 == 0 else span - d                # alternate columns scroll the other way, no wrap
             o = int(off); fr = off - o

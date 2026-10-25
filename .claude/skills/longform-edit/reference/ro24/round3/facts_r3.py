@@ -34,8 +34,8 @@ people = {
     # clean shots of her in the full E! News video (no quote boxes over her): interview close-ups, Emmys, MS gala, podcast
     # (windows on measured shot changes: ffmpeg scene detection + an exact-time 1 fps sheet, clips/sharon_full_sheet_exact.jpg)
     # only steady stretches: no flashes, no transitions (R3 review F1/F2; flicker scan in the round 3 notes)
-    clip=dict(src='clips/src/sharon_full.mp4', windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8], [118.95, 124.4]],
-              after=[[12.4, 16.8], [118.95, 123.2]], focus=[0.45, 0.4]),
+    clip=dict(src='clips/src/sharon_full.mp4', windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8], [119.1, 120.9]],
+              after=[[12.4, 16.8], [54.6, 58.8]], focus=[0.45, 0.4]),
     stat='42 lb, Ozempic', big=['-42 LB', 'OZEMPIC'],
     photos=[R2P('sharon/sharon_a_recent_gaunt_2023_mayfair.jpg'), R3P('sharon/sharon_before_2019_emmys.jpg'),
             R3P('sharon/sharon_after_2024_chateau_marmont.jpg'), R2P('sharon/sharon_c_before_2012.jpg')],
@@ -118,16 +118,17 @@ OVR = {
  'BG01': dict(photos=[R2P('fatjoe/fatjoe_a_heaviest_2005.jpg'), R2P('oprah/oprah_recent_2025_abt_gala.jpg'), R3P('amy/amy_before_2024_variety-power-of-women.jpg'),
                       R3P('meghan/meghan_before_2019_star-wars-premiere-london.jpg'), R2P('tracy/tracy_recent_2023_gotham_ball.jpg')],
               why='right after the intro: five cards, one per person not in the next photo scene (Sharon comes next, so no Sharon card)'),
- 'BG03': dict(clip=dict(src=SH, windows=[[12.4, 16.8], [118.95, 123.2]], focus=[0.45, 0.4])),
+ 'BG03': dict(clip=dict(src=SH, windows=[[12.4, 16.8], [54.6, 58.8]], zoom=1.35, focus=[0.47, 0.42], out_focus=[0.45, 0.5]),
+              why="right after Sharon Osbourne's clip: it keeps rolling, Dan reacts from the corner (zoomed so E!'s corner logo stays out of his corner)"),
  'BG04': dict(pair=dict(photos=[R3P('sharon/sharon_before_2021_the_talk_set.jpg'), R3P('sharon/sharon_after_2025_villa_park_announcement.jpg')],
                         years=['2021', '2025'], credits=['CBS via Getty Images', 'Getty Images for Live Nation UK'], crop_k=6.0, top=0.6),
               why='her own fault, Ozempic face: her before and after with 42 lb, Ozempic (a pair the photo scenes do not use)'),
- 'BG05': dict(clip=dict(src=SH, windows=[[54.6, 58.8], [118.95, 124.4], [12.4, 14.2]], zoom=1.38, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
+ 'BG05': dict(clip=dict(src=SH, windows=[[54.6, 58.8], [119.1, 120.9], [12.4, 16.8], [6.1, 7.85]], zoom=1.5, focus=[0.47, 0.42], out_focus=[0.33, 0.44]),
               why="blaming the medication, overdosing: her clip behind, Dan to the side (Dan: occasionally); zoomed so the E! logo stays off him"),
  'BG06': dict(lines=['ZEPBOUND', '2.5 MG', 'OR LESS'], line_times=[S(69.20) + 0.1, W('2', 78.0), W('or less', 78.5)], t1=S(86.25),
               why='he says the number: the drug from the cut ("high doses of Zepbound"), the dose lands on "2.5mg or less" and stays through "That\'s all you need"'),
- 'BG07': dict(type='set', t0=S(86.25), clip=dict(src=SH, windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8], [118.95, 124.4]]),
-              why='commentary (scare tactics, skeletons): the studio set, her clip on its TV (four steady stretches)'),
+ 'BG07': dict(type='set', t0=S(86.25), clip=dict(src=SH, windows=[[54.6, 58.8], [12.4, 16.8], [88.5, 91.8]]),
+              why='commentary (scare tactics, skeletons): the studio set, her clip on its TV (three steady stretches)'),
  'BG08': dict(type='soft', clip=dict(src=SH, windows=[[88.5, 91.8], [54.6, 58.8], [12.4, 13.2]]),
               why='commentary (very unlikely you would get this gaunt): her clip softened behind him'),
  'BG09': dict(type='cards', photos=[R3P('sharon/sharon_before_2019_emmys.jpg'), R3P('sharon/sharon_after_2024_chateau_marmont.jpg'),
@@ -136,4 +137,9 @@ OVR = {
  'BG10': dict(clip=dict(src='clips/src/fatjoe_full.mp4', windows=[[6.0, 8.75], [25.6, 30.8], [39.0, 40.6]], focus=[0.5, 0.4]),
               why="right after Fat Joe's clip: it keeps rolling (steady stretches, no flashing carpets), Dan reacts from the corner"),
 }
+_cards = set(OVR['BG01']['photos'])
+OVR['BG02'] = dict(photos=[p for p in everyone + [R3P('meghan/meghan_before_2020_tommynow-london-fashion-week.jpg'), R2P('fatjoe/fatjoe_b_recent_2023.jpg'),
+                                                  R2P('meghan/meghan_recent_slim_2025_baby2baby_gala.jpg'), R2P('amy/amy_recent_slim_2025_street.jpg')]
+                           if 'sharon' not in p and p not in _cards],
+                   why='right after the intro: the photo wall, without Sharon (her photo scene comes next) and without the five intro cards')
 json.dump(OVR, open(R3 / 'bg_overrides.json', 'w'), indent=1)

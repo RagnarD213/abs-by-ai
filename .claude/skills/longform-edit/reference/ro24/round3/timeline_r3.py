@@ -23,7 +23,6 @@ AT = {'sharon': 784,    # 26.159: after "...what not to do." (voice -41 dB). Not
       'tracy': 9026}    # 301.168: "...a lifetime thing." / "And Tracy Morgan said it" (-52 dB), Dan on camera
 ORDER = sorted(AT, key=AT.get)
 PREROLL = {'sharon': 'P02'}   # the frame after the insert comes from this piece's plate, one frame before its in-point
-ROOMTONE_HEAD = {'sharon': 3}  # the clip's first frames are digital silence: his room tone there instead (R3 review F5)
 
 
 def shift_f(f):
@@ -69,39 +68,53 @@ def main():
                    new_at={n: shift_f(AT[n]) - INS[n]['frames'] for n in ORDER}), open(R3 / 'timemap.json', 'w'), indent=1)
     # ---- words
     W = json.load(open(R2 / 'film_words.json'))
-    for w in W: w['t0'] = round(shift_t(w['t0']), 3); w['t1'] = round(shift_t(w['t1']), 3)
+    for w in W:
+        late = any(0 <= AT[n] / FPS - w['t0'] < 0.1 and w['w'][:1].isupper() for n in ORDER)
+        if late:
+            n = next(n for n in ORDER if 0 <= AT[n] / FPS - w['t0'] < 0.1); d = INS[n]['frames'] / FPS
+            w['t0'] = round(shift_t(AT[n] / FPS) + 0.02, 3); w['t1'] = round(shift_t(w['t1']) + (0 if w['t1'] * FPS >= AT[n] else d), 3)
+        else:
+            w['t0'] = round(shift_t(w['t0']), 3); w['t1'] = round(shift_t(w['t1']), 3)
     json.dump(W, open(R3 / 'film_words_r3.json', 'w'))
     # ---- audio: his voice, cut at each insert frame, the clip's sound in between
     raw = subprocess.check_output([FF, '-v', 'error', '-i', str(R2 / 'audio/film_voice_A.wav'), '-f', 's16le', '-ac', '2', '-ar', str(SR), '-'])
     v = np.frombuffer(raw, '<i2').reshape(-1, 2)
     sm = lambda f: int(round(f * SR * 1001 / 30000))
-    # room tone: the quietest 150 ms of his voice track in the first take (between sentences), for clip heads that are silent
-    vf = v.astype(np.float32).mean(1); L = int(0.15 * SR); hop = 480
-    rms = [np.sqrt(np.mean(vf[i:i + L] ** 2)) for i in range(int(6.5 * SR), int(25.9 * SR), hop)]
-    i0 = int(6.5 * SR) + int(np.argmin(rms)) * hop; room = v[i0:i0 + L].astype(np.float32)
-    print('room tone from', round(i0 / SR, 3), 's,', round(20 * np.log10(min(rms) / 32768 + 1e-12), 1), 'dBFS')
-    def fade(x, a_ms, b_ms):
-        x = x.astype(np.float32).copy(); na, nb = int(a_ms * SR / 1000), int(b_ms * SR / 1000)
-        if na: x[:na] *= np.linspace(0, 1, na)[:, None]
-        if nb: x[-nb:] *= np.linspace(1, 0, nb)[:, None]
-        return x
+    # Each clip's sound blends with his room tone at both edges instead of fading to silence (R3 re-check R2: a bed that
+    # stopped dead in 10 ms with digital zero either side read as a chop). Room tone: a 300 ms speech-free stretch of take 1,
+    # level-matched to his floor just before each insert; 10 ms crossfades into his own audio on both sides keep the
+    # waveform continuous. Clip fade lengths fit the room before its first word and after its last (measured, ms).
+    vf = v.astype(np.float32); L = int(0.30 * SR); hop = 480
+    mono = vf.mean(1)
+    rms = np.array([np.sqrt(np.mean(mono[k:k + L] ** 2)) for k in range(int(6.5 * SR), int(25.9 * SR) - L, hop)])
+    k0 = int(6.5 * SR) + int(np.argmin(rms)) * hop; room = vf[k0:k0 + L]
+    room = np.concatenate([room, room[::-1]])                  # mirrored loop: no seam click
+    room_rms = np.sqrt(np.mean(room ** 2)) + 1e-9
+    print('room tone from', round(k0 / SR, 3), 's')
+    FADE = {'sharon': (150, 80), 'fatjoe': (250, 80), 'amy': (40, 120), 'meghan': (150, 150), 'oprah': (60, 150), 'tracy': (80, 30)}
+    x10 = int(0.010 * SR)
+    def eq(n):                                                 # equal-power 0 -> 1 over n samples
+        return np.sin(np.linspace(0, np.pi / 2, max(1, n)))[:, None]
     parts, last = [], 0
     for nm in ORDER:
-        c = sm(AT[nm]); parts.append(fade(v[last:c], 0, 10)); last = c
+        c = sm(AT[nm]); parts.append(vf[last:c]); last = c
         raw = subprocess.check_output([FF, '-v', 'error', '-i', str(R3 / INS[nm]['wav']), '-f', 's16le', '-ac', '2', '-ar', str(SR), '-'])
-        a = np.frombuffer(raw, '<i2').reshape(-1, 2); want = sm(INS[nm]['frames'])
-        a = (a[:want] if len(a) >= want else np.concatenate([a, np.zeros((want - len(a), 2), '<i2')])).astype(np.float32)
-        if nm in ROOMTONE_HEAD:                  # his room tone over the clip's silent head, crossfading (20 ms) into the clip
-            k = sm(ROOMTONE_HEAD[nm]); x = int(0.02 * SR); rt = np.resize(room, (k + x, 2)) * 1.0
-            a[:k] = rt[:k]; w = np.linspace(0, 1, x)[:, None]; a[k:k + x] = rt[k:k + x] * (1 - w) + a[k:k + x] * w
-        parts.append(a)
-        parts.append(None)                       # marker: the next part (his voice) gets a 10 ms fade-in
-    parts.append(v[last:])
-    fixed = []
-    for k, x in enumerate(parts):
-        if x is None: continue
-        if k > 0 and parts[k - 1] is None: x = fade(x, 10, 0)
-        fixed.append(x.astype(np.float32))
+        a = np.frombuffer(raw, '<i2').reshape(-1, 2).astype(np.float32); want = sm(INS[nm]['frames'])
+        a = a[:want] if len(a) >= want else np.concatenate([a, np.zeros((want - len(a), 2), np.float32)])
+        floor = np.sqrt(np.mean(mono[c - int(0.06 * SR):c] ** 2)) + 1e-9
+        floor = float(np.clip(floor, 32768 * 10 ** (-52 / 20), 32768 * 10 ** (-38 / 20)))
+        rt = np.resize(room * (floor / room_rms), (want, 2))
+        fi, fo = (int(ms * SR / 1000) for ms in FADE[nm])
+        e = np.ones((want, 1), np.float32); e[:fi] = eq(fi) ** 2; e[want - fo:] = (eq(fo) ** 2)[::-1]   # S-curve: the bed eases in
+        # and out (an equal-power sine reached -6 dB in a sixth of the fade and still read as an abrupt start, R3 final check D2)
+        r = np.sqrt(np.clip(1 - e ** 2, 0, 1))                  # room tone where the clip is faded
+        reg = a * e + rt * r
+        w = eq(x10)
+        reg[:x10] = vf[c:c + x10] * (1 - w ** 2) ** 0.5 + reg[:x10] * w                  # out of his audio
+        reg[-x10:] = reg[-x10:] * (1 - w ** 2) ** 0.5 + vf[c - x10:c] * w                  # back into it
+        parts.append(reg)
+    parts.append(vf[last:])
+    fixed = parts
     out = np.clip(np.concatenate(fixed), -32768, 32767).astype('<i2')
     (R3 / 'audio').mkdir(exist_ok=True)
     subprocess.run([FF, '-y', '-v', 'error', '-f', 's16le', '-ac', '2', '-ar', str(SR), '-i', '-', '-c:a', 'pcm_s16le', str(R3 / 'audio/film_voice_r3.wav')],
