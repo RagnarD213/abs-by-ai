@@ -29,6 +29,7 @@
       #chip { position: absolute; height: 80px; border-radius: 24px; background: var(--chip); }
       #chip div { position: absolute; left: 40px; top: 14px; font-size: 46px; font-weight: 400; line-height: 1.4; color: var(--white); white-space: nowrap; }
       #kicker { color: var(--cyan); }
+      .panel-label { position: absolute; color: var(--cyan); font-size: 36px; line-height: 1.4; white-space: nowrap; background: rgba(6,17,30,.88); border: 1px solid rgba(118,183,222,.59); border-radius: 12px; padding: 2px 14px; }
     </style>
   </head>
   <body>
@@ -46,14 +47,20 @@
       const $ = id => document.getElementById(id);
       const words = (e, s) => s.split(" ").map((w, i, a) => { const sp = document.createElement("span"); sp.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(sp); return sp; });
       // the hole: punched out of the field on every frame, so the media under the plate shows through
-      const [hx0, hy0, hw, hh] = CFG.hole, hr = CFG.radius;
+      // Optional simultaneous panels share this exact field and card renderer.
+      // The historical single-card branch keeps its existing geometry/motion.
+      const panels = CFG.panels || [{ hole: CFG.hole, radius: CFG.radius }];
+      const [hx0, hy0, hw, hh] = panels[0].hole, hr = panels[0].radius;
       function afterField(c) {
+        for (const panel of panels) {
+        const [hx0, hy0, hw, hh] = panel.hole, hr = panel.radius;
         // soft shadow ring around the hole, then the hole itself
         c.save(); c.shadowColor = "rgba(0, 2, 12, 0.55)"; c.shadowBlur = 28; c.shadowOffsetY = 10; c.fillStyle = "rgb(42, 80, 113)";
         c.beginPath(); c.roundRect(hx0 - 10, hy0 - 10, hw + 20, hh + 20, hr + 8); c.fill(); c.restore();
         c.globalCompositeOperation = "destination-out"; c.fillStyle = "#000";
         c.beginPath(); c.roundRect(hx0, hy0, hw, hh, hr); c.fill();
         c.globalCompositeOperation = "source-over";
+        }
       }
       // ---------- the moving Soft Blue field (softblue.field, same formula; blob size constant against the short side) ----------
       const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
@@ -93,6 +100,23 @@
       const sp = $("spec"); place(sp, hx0 + 30, hy0 - 12);
       const specN = Math.max(1, Math.round(D / 2.4));
       tl.fromTo(sp, { x: 0 }, { x: hw - 60 - 180, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      panels.forEach((panel, i) => {
+        const [x, y, w, h] = panel.hole;
+        if (i) {
+          const frame = document.createElement("div");
+          Object.assign(frame.style, { position: "absolute", border: "2px solid rgba(118,183,222,.59)", borderRadius: px(panel.radius + 2) });
+          place(frame, x - 2, y - 2, w + 4, h + 4); $("root").appendChild(frame);
+          const sweep = document.createElement("div");
+          Object.assign(sweep.style, { position: "absolute", width: "180px", height: "3px", background: "var(--spec)", borderRadius: "2px" });
+          place(sweep, x + 30, y - 12); $("root").appendChild(sweep);
+          tl.fromTo(sweep, { x: 0 }, { x: w - 240, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+        }
+        if (panel.label) {
+          const label = document.createElement("div"); label.className = "panel-label";
+          label.textContent = panel.label; place(label, x + 4, panel.label_y);
+          label.style.fontSize = px(panel.label_px || 36); $("root").appendChild(label);
+        }
+      });
       const chip = $("chip");
       if (CFG.chip) {
         place(chip, CFG.chip.x, CFG.chip.y, CFG.chip.w, 80); $("chipText").textContent = CFG.chip.s;

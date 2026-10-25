@@ -80,6 +80,12 @@ unchanged: the edited lower third re-renders to PSNR infinity against RO-10's ap
 `composite.py` takes `Compositor(manifest, wh=(1080, 1920))`. New templates are NOT approved by Dan until he passes the
 graphic-lock page.
 
+The shared `media-card.template.htm` also accepts `panels` for simultaneous cards (first use: Five Minute Exercises R3,
+2026-10-25, awaiting Dan). Each entry has `hole: [x,y,w,h]`, `radius`, and optional `label`, `label_y`, `label_px`.
+Every hole uses the same moving field and continuing frame accent. The single-card `hole`/`radius` config still follows
+its original branch. Keep full source height for horizontal media, preserve aspect ratio, and verify action/caption
+clearance on the actual composite. A multi-panel render is an overlay, not three separately painted static fields.
+
 ## 1:1 layouts (2026-10-02) -- `square.py`
 
 The same templates and configs at 1080x1080: `python3 square.py --sheet SHEET.json --out OUT [--render] [--snap]`.
