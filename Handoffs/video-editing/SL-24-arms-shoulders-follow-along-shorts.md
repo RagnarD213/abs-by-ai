@@ -18,7 +18,7 @@ Use Soft Blue Light with continuing HyperFrames motion for new graphics. Preserv
 
 ## Release dependency
 
-Parent setup config: `scripts/blotato/configs/ro04-arms-shoulders-workout-only.json`. Its release hold is active. Jan 6, 2027 is proposed only, not booked. No Short can release before the parent is public. Determine dates only after the parent release is settled; follow the current Shorts calendar and one shared video waitlist.
+Parent setup config: `scripts/blotato/configs/ro04-arms-shoulders-workout-only.json`. Dan approved January 6, 2027 at 9 AM Chicago on October 25. Release hold removed; parent is on the shared waiting list pending queue capacity, not yet scheduled. No Short can release before the parent is public. Determine dates only after the parent release is settled; follow the current Shorts calendar and one shared video waitlist.
 
 ## Starter prompt
 

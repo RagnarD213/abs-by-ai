@@ -24,11 +24,19 @@
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/652dc84a-10ed-41af-9d27-0e16122eba8f.png",
   "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/652dc84a-10ed-41af-9d27-0e16122eba8f.png",
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fa806386-2477-4ff4-a1cc-a1250632d7eb.mp4",
-  "release_hold": "Dan must choose the release date: every remaining 2026 Sunday/Wednesday is booked or reserved. Jan 6, 2027 is proposed only. Do not displace another film or schedule automatically.",
   "platform_ctas": {
     "facebook": "Try Abs By AI free for 7 days:\n{link}",
     "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
+  },
+  "release_approval": {
+    "approved_by": "Dan",
+    "date": "2026-10-25",
+    "words": "January 6 is fine. Go ahead and finish the setup.",
+    "youtube": "2027-01-06T15:00:00.000Z",
+    "socials": "2027-01-07T18:00:00.000Z",
+    "timezone": "America/Chicago",
+    "exception": "Explicit approval of 2027 date despite finished-film 2026 rule."
   }
 }

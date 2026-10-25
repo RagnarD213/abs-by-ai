@@ -117,6 +117,10 @@ def main() -> int:
             if "utm_campaign=longform" in text:
                 longform_days.add(local_day(when))
 
+    # Explicit date approvals reserve their day even while earlier entries wait for
+    # capacity. Otherwise an earlier film's fallback can take a later film's date.
+    approved_days = {local_day(e['approved_release']): e['config'] for e in pending(entries)
+                     if e.get('kind') == 'longform' and e.get('approved_release')}
     queued_now, problem, queued_slugs = [], None, set()
     print(f"queue {len(items)}/{CAP}, free {free}, videos waiting {len(pending(entries))}")
     for e in pending(entries):
@@ -144,10 +148,15 @@ def main() -> int:
 
         want = local_day(v["main"])
         if e["kind"] == "longform":
-            ok = want.weekday() in LONGFORM_DAYS and want >= today + timedelta(days=1) and want not in longform_days
+            reserved = {day for day, owner in approved_days.items() if owner != e['config']}
+            ok = (want.weekday() in LONGFORM_DAYS and want >= today + timedelta(days=1)
+                  and want not in longform_days and want not in reserved)
+            if e.get('approved_release') and (not ok or v['main'] != e['approved_release']):
+                problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
+                break
             if not ok:
                 want = max(max(longform_days, default=today), today + timedelta(days=1)) + timedelta(days=1)
-                while want.weekday() not in LONGFORM_DAYS or want in longform_days:
+                while want.weekday() not in LONGFORM_DAYS or want in longform_days or want in reserved:
                     want += timedelta(days=1)
             main = utc(want)
         else:

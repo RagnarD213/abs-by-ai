@@ -1,6 +1,6 @@
 # CONTENT (LFC): Arms & Shoulders Workout Only setup
 
-Updated October 25, 2026. **Approved black-on-yellow thumbnail finalized and installed in release setup. Media uploaded and verified. Release date is held for Dan. No Blotato posts scheduled; nothing public.**
+Updated October 25, 2026. **Approved black-on-yellow thumbnail finalized and installed in release setup. Media uploaded and verified. Dan approved January 6, 2027 at 9 AM Chicago. Setup is ready on the shared waiting list because Blotato remains 197/200; four posts are needed. No Blotato posts scheduled; nothing public.**
 
 ## Approved thumbnail
 
@@ -34,19 +34,21 @@ YouTube and Instagram point to exact approved PNG. Facebook repository/live regi
 
 All four proposed platform cover payloads PASS. Full live cover audit: 197 schedules, no issues. No post requests made. Main file fits existing Instagram/Blotato size caps, so Facebook, Instagram and YouTube use the exact master.
 
-## Release conflict and waiting list
+## Approved release and waiting list
 
-Fresh live queue: **197/200** posts. This film requires four posts, so it cannot fit yet. Shared `video_waitlist.json` contains RO-04 with an explicit release hold in both entry and config. Existing daily top-up handles capacity; no new automation created.
+Dan approved on October 25: “January 6 is fine. Go ahead and finish the setup.” Saved `release-approval.json` in project, Extreme and Drive, with the exact user words. This expressly resolves the earlier 2026/2027 conflict. Removed the pending decision from `Docs/DAN_DECISIONS.md` and entered the approved date in the long-form calendar.
 
-Every remaining 2026 Sunday/Wednesday is occupied or reserved. No eligible unstarted 2026 Sunday remains to take under the finished-film rule. Sunday Nov 15 belongs to an active edit, not a free slot. Calendar reserves Dec 30 for Can You Drink Alcohol And Still Have Abs?; the separate My First Spray Tan config also claims it, an existing unrelated conflict preserved for its owner. Do not silently displace either film.
+**Approved dates:** YouTube Wednesday January 6, 2027 at 9 AM America/Chicago (`2027-01-06T15:00:00.000Z`). Facebook, Instagram and TikTok Thursday January 7 at noon (`2027-01-07T18:00:00.000Z`), after YouTube is public. Saved config and all four dry-run payloads use these dates; no live slot clash.
 
-**Proposed only:** YouTube Wednesday January 6, 2027 at 9 AM America/Chicago, Facebook/Instagram/TikTok Thursday January 7 at noon, after YouTube is public. Fresh live checks show no four-platform slot clashes then. Alternative requiring Dan's explicit priority choice: use Wednesday December 30 for this workout and move the displaced 2026 film(s) with the date-conflict owner. Nothing booked. Pending decision recorded in `Docs/DAN_DECISIONS.md`.
+Fresh live queue: **197/200** posts. Four posts would make 201, so the normal helper refuses on the plan cap. No posts were submitted, removed or moved. Config and shared waiting-list release holds are removed. RO-04 is eligible for the existing daily top-up routine; no per-video automation created. It has `approved_release` set to January 6, not a tentative date.
 
-Keep RO-04 Edit Queue state **finalized**, not uploaded, until actual schedules exist and fresh read-back succeeds. Future apply must recheck queue capacity/date and cover audit, then verify four schedule IDs and exact payloads. Release hold must be removed only after Dan's date choice.
+The top-up routine previously could give an explicitly approved date to an earlier film that needed a fallback date. Added a narrow date-reservation check: earlier fallback dates skip an approved waiting film's day, and an approved film is not silently moved if its own date is unavailable or changed. Seven release/hold tests pass, including date preservation, live date clash and changed-config cases. No other film's stored date or schedule was changed. Queue order is preserved.
+
+Keep RO-04 Edit Queue state **finalized**, not uploaded, until actual schedules exist and fresh read-back succeeds. Existing daily top-up will submit the four posts when capacity opens. The cover audit reports 197 schedules, no issues; organic ad guard is clean. Public tile checks, English subtitle attachment, article publishing and pinned comment happen through the existing release routines after YouTube has a real public ID.
 
 ## Separate Shorts registration
 
-Registered **SL-24** in jobs/master list and uploaded Edit Queue Drive status successfully. Handoff: `Handoffs/video-editing/SL-24-arms-shoulders-follow-along-shorts.md`. Three music-led exercise candidates, no invented narration, Dan chooses segments before rendering. No Shorts production launched. Parent release date unresolved; none can release before parent public.
+Registered **SL-24** in jobs/master list and uploaded Edit Queue Drive status successfully. Handoff: `Handoffs/video-editing/SL-24-arms-shoulders-follow-along-shorts.md`. Three music-led exercise candidates, no invented narration, Dan chooses segments before rendering. No Shorts production launched. Parent release approved for January 6, 2027; none can release before parent public.
 
 ## Uploaded media
 
@@ -54,6 +56,10 @@ Registered **SL-24** in jobs/master list and uploaded Edit Queue Drive status su
 - cover: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/652dc84a-10ed-41af-9d27-0e16122eba8f.png
 - tiktok: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fa806386-2477-4ff4-a1cc-a1250632d7eb.mp4
 
-## Resume after Dan chooses the date
+## Remaining automatic work
 
-Update config, waiting-list hold, approved calendar and decision record together. Recheck capacity and date clashes. If four slots are available, apply normal helper and fresh-read all four saved posts. Otherwise leave the now-approved date on the single shared waitlist for its existing daily routine. Do not create a private YouTube holding upload or per-video automation. Existing routines handle public-release check before socials, subtitle attachment, article and pinned comment.
+The existing shared daily top-up queues all four posts when there is room and verifies fresh schedule read-back. If the explicitly approved date is unavailable, it reports that conflict instead of moving this film. No action is required from Dan now. Release checks, English subtitles, article and pinned comment follow through existing routines. Actual publication and public covers are not claimed before release.
+
+## Source delivery
+
+Owned assets/source from the prior phase are committed as `b474c4f`. The follow-up commit records the approved date and reservation check. Safe-push remains subject to other sessions' live shared-file edits; no unrelated work was stashed, overwritten or committed. Operational config, waitlist and live cover installer are updated locally; Drive backups carry the approved release config.
