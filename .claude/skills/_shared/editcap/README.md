@@ -35,6 +35,9 @@ Exempt (never call it): setup/upload tasks, thumbnail and cover picks, script an
 **Job names:** use the video's code (`RO-27`, `SL-18`, `DS-44`, `RA-09`), the same one the render queue shows in
 `[brackets]`. Render-queue groups like `work:ro27` or `DS-40-codex` map to `RO-27` / `DS-40` automatically.
 
+Footage preparation batches use `SHOOT-YYYYMMDD` in both queues. They count as one active production job;
+their render activity renews the lease even when no SFC/LFC/AD type applies.
+
 ## See it
 
 `python3 $E status` (read-only, no permission needed): the 5 slots and who holds them, the waiting list in start order

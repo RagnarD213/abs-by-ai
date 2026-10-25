@@ -77,6 +77,9 @@ def job_code(name):
         s = s[5:]
     elif ":" in s:
         return None                                    # pg:12345 and similar process-group fallbacks
+    batch = re.match(r"^SHOOT-(\d{8})(?![0-9])", s, re.IGNORECASE)
+    if batch:
+        return "SHOOT-" + batch.group(1)
     m = _CODE.match(s)
     if not m:
         return None
