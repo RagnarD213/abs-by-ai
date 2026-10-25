@@ -8,8 +8,8 @@ for v in (sys.argv[1:] or ['scripted','off_the_cuff']):
  assert json.loads((q/'audio-packet-identity.json').read_text())['identical_packet_hashes_and_timestamps'] and json.loads((q/'audio-packet-identity.json').read_text())['decoded_pcm_identical']
  for name in ['full-speech-junk','corrected-caption-sync']:
   a=json.loads((q/(name+'.json')).read_text());assert a['video_sha256']==h and all(x['ok'] for x in a['rows']),a
- dan=json.loads((q/'Dan-exact-stereo-final-AAC.wav.audio_gate.json').read_text());assert [x['key'] for x in dan['rows'] if not x['ok']]==['tone']
- full=json.loads(Path(str(f)+'.audio_gate.json').read_text());assert {x['key'] for x in full['rows'] if not x['ok']} <= {'tone','floor'}
+ dan=json.loads((q/'Dan-exact-stereo-final-AAC.wav.audio_gate.json').read_text());assert dan['sha256']==sha(q/'Dan-exact-stereo-final-AAC.wav');assert [x['key'] for x in dan['rows'] if not x['ok']]==['tone']
+ full=json.loads(Path(str(f)+'.audio_gate.json').read_text());assert full['sha256']==h;assert {x['key'] for x in full['rows'] if not x['ok']} <= {'tone','floor'}
  p['declare']={
  'audio:stamp':'Explicit selected C_Balanced voice preserved by identical SHA256/PTS/duration/size of EVERY actual R3 AAC packet versus reviewed R2. Fresh normal own-mix exact AAC and isolated stereo Dan gates retained; only generic reference tone fails for owned Dan; mixed outdoor source floor may differ. No reference/verbatim bypass, extra processing or threshold change. '+str(q/'audio-packet-identity.json')+'; fresh complete independent report '+str(report),
  'framing:hair_top':'Generic source/graphic/caption landmark ambiguity in intentional R5 corner/panel composites. Fresh independent actual R3 native RGB and native worst-frame inspection checks all real foreground hair populations, including Craig-callout overlap; no clipping or unresolved detection is accepted. '+str(report),

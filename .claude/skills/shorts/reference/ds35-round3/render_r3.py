@@ -13,31 +13,22 @@ def check():
  j=json.loads((W/'round-controller.json').read_text());assert j['productionOwner']==OWNER and j['phase']=='complete'
 class Patch:
  def __init__(self,v):
-  self.cached=None;self.nextcache=None;self.v=v;self.rejected=None;self.nextr=None;self.after=None;self.nexta=None
+  self.use_cache=True;self.cache_verified=False;self.cached=None;self.nextcache=None;self.v=v;self.rejected=None;self.nextr=None;self.after=None;self.nexta=None
   self.photo=np.asarray(Image.open(W/'assets/Daniel-source-inset.png').convert('RGB').resize((425,428),Image.Resampling.LANCZOS))
   self.caps=json.loads((B/'qa'/v/'caption-states.json').read_text())['states'];self.capimgs={}
  def apply(self,f,g):
   f=f.copy()
-  if 284<=g<469:
-   if (W/'proofs/craig-context-v2-checked.json').exists():
+  if 284<=g<485:
+   if self.use_cache and (W/'proofs/craig-context-v4-checked.json').exists():
+    if not self.cache_verified:
+     approved=json.loads((W/'proofs/craig-context-v4-checked.json').read_text());assert hashlib.sha256((W/'proofs/craig-v4-in-audio-context.mp4').read_bytes()).hexdigest()==approved['sha256'];self.cache_verified=True
     k=g-240
-    if self.cached is None or self.nextcache!=k:self.cached=C.reader(str(W/'proofs/craig-v2-in-audio-context.mp4'),start=k,wh=(1080,1920))
+    if self.cached is None or self.nextcache!=k:self.cached=C.reader(str(W/'proofs/craig-v4-in-audio-context.mp4'),start=k,wh=(1080,1920))
     self.nextcache=k+1
     return next(self.cached).copy()
-   # Preserve the already-correct native photo and foreground from candidate1.
-   # Restore only its rejected label/arrow pixels from the locked R2 frame.
-   # This is picture evidence only; no rejected verdict or QA is reused.
-   if self.rejected is None or self.nextr!=g:
-    self.rejected=C.reader(str(W/'rejected-candidate1'/f'dad-bod-r3-{self.v}.mp4'),start=g,wh=(1080,1920))
-   old=next(self.rejected).copy();self.nextr=g+1
-   label=old[282:362,8:465].copy()
-   old[282:362,8:465]=f[282:362,8:465]
-   old[375:440,337:403]=f[375:440,337:403]
-   old[100:180,8:465]=label
-   ar=Image.fromarray(old);d=ImageDraw.Draw(ar)
-   d.line([(92,192),(92,404),(128,433)],fill=(104,197,255),width=7)
-   d.polygon([(128,433),(102,427),(117,410)],fill=(104,197,255))
-   f=np.asarray(ar).copy()
+   from opening_v3 import Opening
+   if not hasattr(self,'opening'):self.opening=Opening(self.v)
+   return self.opening.apply(g,f)
   if self.v=='scripted' and 973<=g<1058:
    k=g-973
    if self.after is None or self.nexta!=k:self.after=C.reader(str(W/'hf/renders/R3_After.mov'),start=k,wh=(1080,1920))
@@ -52,7 +43,7 @@ class Patch:
 
 def render(v,a=0,b=None,outpath=None):
  check();source=B/'review/media'/f'dad-bod-r2-{v}.mp4';out=Path(outpath) if outpath else W/'review/media'/f'dad-bod-r3-{v}.mp4';out.parent.mkdir(parents=True,exist_ok=True)
- n=json.loads((W/v/'edl.json').read_text())['total_frames'];b=b if b is not None else n;n=b-a;p=Patch(v)
+ n=json.loads((W/v/'edl.json').read_text())['total_frames'];b=b if b is not None else n;n=b-a;p=Patch(v);p.use_cache=out.resolve()!=(W/'proofs/craig-v4-in-audio-context.mp4').resolve()
  cmd=[F,'-v','error','-nostdin','-y','-f','rawvideo','-pix_fmt','rgb24','-s','1080x1920','-framerate','30000/1001','-i','-','-ss',str(a/FPS),'-i',str(source),'-map','0:v:0','-map','1:a:0','-vf','scale=in_range=pc:out_color_matrix=bt709:out_range=tv,format=yuv420p','-c:v','libx264','-preset','fast','-crf','16','-threads',os.environ.get('RENDERQ_CORES','4'),'-c:a','copy','-t',str(n/FPS),'-colorspace','bt709','-color_primaries','bt709','-color_trc','bt709','-color_range','tv','-movflags','+faststart',str(out)]
  enc=subprocess.Popen(cmd,stdin=subprocess.PIPE)
  count=0
@@ -69,7 +60,9 @@ if __name__=='__main__':
    for t in [9.476133333333333,10,13,14.7814333333,14.8148,14.8481667,14.9,15.2,15.6,15.6489666667]+([33] if v=='scripted' else []):
     g=round(t*FPS);f=next(C.reader(str(B/'review/media'/f'dad-bod-r2-{v}.mp4'),start=g,n=1,wh=(1080,1920)));Image.fromarray(Patch(v).apply(f,g)).save(out/f'{v}-{g:04d}.png')
   print('R3_PROOFS_READY',flush=True)
+ elif sys.argv[1]=='context3':
+  render('scripted',240,510,str(W/'proofs/craig-v4-in-audio-context.mp4'))
  elif sys.argv[1]=='contexts':
-  render('scripted',240,510,str(W/'proofs/craig-v2-in-audio-context.mp4'))
+  render('scripted',240,510,str(W/'proofs/craig-v4-in-audio-context.mp4'))
   render('scripted',910,1100,str(W/'proofs/abs-in-audio-context.mp4'))
  else:render(sys.argv[1])

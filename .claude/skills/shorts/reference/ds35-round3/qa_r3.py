@@ -21,6 +21,7 @@ def prep(v):
  p['joins']=sorted(set(p['joins']+[284/FPS,469/FPS]+([973/FPS,1058/FPS] if v=='scripted' else [])))
  p['graphic_regions'] += [dict(name='R3 Craig label',beat=[284/FPS,469/FPS],rect=[8,100,457,80]),dict(name='R3 Craig photo arrow',beat=[284/FPS,469/FPS],rect=[10,190,445,705])]
  prov=json.loads((W/'asset-provenance.json').read_text())
+ p['watching_camera_edge_repair']=dict(frames=[284,485],scale=2/3,x=0,y=234.66666666666669,basis='R5 full-camera watching alignment: both source boundaries coincide with outer canvas at0/1080. Preserve original watching size and23percent distinct response punch-in. Watching is left anchored; response stays centered. Worst hair top672px. Raw key algorithm/grade unchanged.',geometry=str(W/'panel-geometry-r3.json'))
  p['independent_scenes'].append(dict(id='R3 Craig callout',beat=[284/FPS,469/FPS],reference=prov['craig']['path'],reference_sha256=prov['craig']['sha256'],expected='One larger Daniel Craig lower-left, exact The Dad Bod she likes label and arrow; cover baked repeats, clear faces; remain until source audio ends',template=str(W/'hf/configs/R3_Craig.json')))
  if v=='scripted':
   for x in p['graphics']:
