@@ -575,13 +575,15 @@ HOWTO = [
     "CLIP LIBRARY: every reusable AI clip and B-roll clip we own. Check here before making or buying a new clip.",
     "",
     "Find a clip: use the filter arrows on the Clips tab (Kind, Category, People, Shape), or Ctrl/Cmd+F for a word like salad, sleep, gym, phone.",
-    "Open it: click the Drive link. Every file is view-for-anyone-with-the-link and downloadable.",
+    "Open it: click the Drive link using an account with access to the library.",
+    "Filter Favorite for the strongest suggested takes. All other usable takes remain available.",
+    "Intended use distinguishes correct demonstrations, mistakes, beginner variations, setup/details and unknown. Unknown is not a correct-form approval.",
     "The ID (A0042 = AI clip, B0031 = B-roll) is the clip's permanent name. Quote the ID in revision notes.",
     "Status 'used in a finished video' means it is already in the videos listed under Used in: avoid repeating it in the same audience's feed.",
     "AI label needed = YES: burn the on-screen 'AI-GENERATED' tag while the clip is on screen.",
     "Before/after rule: a before and its after must be the same person. Never pair two different people.",
     "Folders: 04 AI-Generated Clips/<category>, 03 B-Roll - Real Footage/<dan-filmed | screen-recordings | stock>.",
-    "This sheet is rebuilt from the catalog; edits typed here are overwritten. Send corrections to Dan or Claude.",
+    "This sheet is rebuilt from the library records; edits typed here are overwritten. Save corrections through the identification gallery or tell Codex or Claude.",
 ]
 
 
