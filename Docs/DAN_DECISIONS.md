@@ -8,7 +8,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **October 23 Footage Processing (2026-10-24; Decision since: 2026-10-24):** [Review identification gallery and six color/trim samples](http://127.0.0.1:9205/). Confirm exercise names and teaching intent, adjust 25 suggested favorites among 99 selections, and choose colors/trim. Recommend B and complete reps with short handles. Export Review, then tell Codex. All 115 originals preserved. Bulk finishing, shared library and Claude Edit Queue registration await these choices.
 
-- **Dad Bod SFC R2 (2026-10-25; Decision since: 2026-10-25):** [Watch both complete Shorts](http://127.0.0.1:9238/). Choose Scripted57.5s or Off The Cuff61.1s and list any revisions. Both use Warm & Vivid, selected Balanced voice, the R5 reaction sequence and real Seth Rogen X/Daniel Craig check. Full-quality VLC copies are in Videos to Review.
+- **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review both complete takes](http://127.0.0.1:9241/). Check 0:09–0:17 in both and 0:31–0:36 in Scripted, then choose Scripted or Off The Cuff and give any remaining notes. Both are independently checked; full-quality VLC copies are in Videos to Review.
 
 - **Pushup Masterclass LFC R1 (2026-10-23; Decision since: 2026-10-23):** [Review first minute and all assets](http://127.0.0.1:9180/). Choose music-led demonstration or filmed spoken lesson, colour A/B/C, and keep/change framing. Recommendation: music-led, A balanced, recommended full-body crops. Full-quality VLC copy is in Videos to Review. Full film and its independent audit follow these choices; automated master-gate failures remain recorded.
 

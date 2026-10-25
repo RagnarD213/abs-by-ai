@@ -1,0 +1,24 @@
+{
+  "delivered_at": "2026-10-25T17:21:43.015263-05:00",
+  "review_url": "http://127.0.0.1:9241/",
+  "files": [
+    {
+      "take": "scripted",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - scripted.mp4",
+      "vlc_path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Dad Bod SFC R3 - scripted.mp4",
+      "sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+      "seconds": 57.52413333333333
+    },
+    {
+      "take": "off_the_cuff",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+      "vlc_path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Dad Bod SFC R3 - off the cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "seconds": 61.094366666666666
+    }
+  ],
+  "status": "delivered_for_Dan_review",
+  "not_approved": true,
+  "not_uploaded": true,
+  "new_paid_spend": 0
+}
