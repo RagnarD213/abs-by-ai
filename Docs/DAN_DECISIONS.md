@@ -6,9 +6,15 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** Requested photo/arrow revisions are proceeding on both takes. No action until the new review is returned; Scripted versus Off The Cuff choice remains pending. Prior review: http://127.0.0.1:9238/.
+
+
+
+- **The 3 Exercises I'd Do If I Only Had 5 Minutes SFC R2 (2026-10-25; Decision since: 2026-10-25):** [Review the opening and three context excerpts](http://127.0.0.1:9176/). Approve the proposed exercise clips and two moving graphics, or list changes. Colour B, voice B and crop 1 stay locked. The complete Short follows this review; technical flags remain documented.
+
 - **Boring Abs At 40 LFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review15 placed scenes and the four-quadrant opening](http://127.0.0.1:9237/). Approve/change/remove the new frames and note gym trim/colour changes. A02 Skip Gym Day, A03 Meal Prep Rescue and A04 Football And Beer stay approved. Storyboards only; full motion and film pending.
 
-- **October 23 Footage Processing (2026-10-24; Decision since: 2026-10-24):** [Review identification gallery and six color/trim samples](http://127.0.0.1:9205/). Confirm exercise names and teaching intent, adjust 25 suggested favorites among 99 selections, and choose colors/trim. Recommend B and complete reps with short handles. Export Review, then tell Codex. All 115 originals preserved. Bulk finishing, shared library and Claude Edit Queue registration await these choices.
+- **October 23 Footage Processing (updated 2026-10-25; Decision since: 2026-10-24):** [Continue identification review at rear delts](http://127.0.0.1:9205/#O23-C1847-01). Color C approved; three junk selections excluded, incline press/rear-delt labels saved, sideways copies and missing stills repaired. Review remaining exercise names, intended use and favorites, then Export Review or reply with corrections. All originals preserved. Shared-library finishing and Claude Edit Queue registration follow the remaining review.
 
 
 
