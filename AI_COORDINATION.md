@@ -36,6 +36,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
+**Veo Quality rule push BLOCKED 2026-10-25, Claude.** Local commit 3eb4003 (veo.py, veo README/runbook, memory) waits on live shared files. Next: rerun `scripts/git/safe-push.sh` with those files; then delete this.
+
 **Codex memory push BLOCKED 2026-10-25, Claude.** Local commit c4402f1 (`Docs/memory/protect-codex-and-other-ais.md`) waits on a live file. Next: rerun `scripts/git/safe-push.sh` with that file; then delete this.
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
@@ -43,13 +45,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** Identities/Color C approved; all95 source selections retained across158 action/detail clips. Native finishing, boundary refinements and Extreme/Expansion/Drive verification continue under SHOOT-20261023. B0566/B0567 were refined; library hashes/ranges may change until completion. Next: final map/catalog, then32 filmed-content queue entries without launching edits. Originals preserved; dispatcher paused. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
 
 
-**Five Minute Exercises SFC R4 - REVIEW 2026-10-25, Codex.** Warm And Rich selected; revised half-and-half opening rendered and checked. Tight floor strips above larger squat. Voice B/crop1 preserved; earlier numerical flags retained. Slot held at Dan request. Next: Dan reviews0:00–0:08 at http://127.0.0.1:9176/. Full Short pending approvals. Journal: `/Volumes/Extreme/_edit_work/DS-55/round4/round-controller.json`.
+**Five Minute Exercises SFC R4 - ACTIVE 2026-10-25, Codex.** Dan approved opening and Warm And Rich; full Short authorized. Copying approved opening picture intact, finishing remaining instructions/closing with voice B/crop1. Slot held. Next: complete render, full-file checks and fresh independent review. Approval/recipe: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 
-**Five Levels Of Pushups SFC R2 - REVIEW 2026-10-25, Codex.** Muhammad repair checked at http://127.0.0.1:9180/: Dan countertop5.138–9.676s, cards removed, original audio retained. Independent audit finds no new scoped visual defect; original cuts3.937/11.311 and audio/delivery gate FAIL remain explicit. Await Dan approval or further scope. RO-09 superseded; heartbeat paused. Resume `Media/video-edits/DS-20/round2/checkpoint.json`; owner `01a16a4e-fac9-7db3-89e7-08dba554908b`.
+**Five Levels Of Pushups SFC R3 - WAITING 2026-10-25, Codex.** Dan requested countertop colour match to the other exercise B-roll. Editcap exit3, first in line; noR3production. Existing heartbeat repurposed and active on same chat. R2 review stays at http://127.0.0.1:9180/. Next: acquireDS20, pauseheartbeat onexit0, execute `/Volumes/Expansion/_edit_work/DS-20/round3/handoff.md`. Owner `01a16a4e-fac9-7db3-89e7-08dba554908b`; preserve original audio, framing and inherited findings.
 
-**Dad Bod SFC R3 - ACTIVE 2026-10-25, Codex.** Sole owner `01a17430-0acf-72c1-93fa-026651f4da47`; edit slot held. Callout/photo changes checked. Aligning watching camera full width at x0 per approved R5: removes internal arm edge while preserving original size and distinct response punch-in. Failed internal candidates/evidence preserved. Next: native handover preview, corrected full exports and fresh independent checks, then paired review. Journal: `/Volumes/Expansion/_edit_work/DS-35/round3/round-controller.json`.
+**Dad Bod SFC R3 - ACTIVE 2026-10-25, Codex.** Sole owner `01a17430-0acf-72c1-93fa-026651f4da47`; edit slot held. Both complete revised movies rendered; exact original audio, captions, native watch scans and preservation checks pass. Playback copies ready. Fresh independent native framing/caption audit running; final shared gates and browser verification precede paired delivery. Earlier failed internal candidates preserved. Journal: `/Volumes/Expansion/_edit_work/DS-35/round3/round-controller.json`.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
@@ -59,7 +61,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
 
-**Boring Abs At 40 LFC R4 - ACTIVE 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`, started/pinned; R3 unpinned. RO-27 slot held;80approval/reference hashes verified. Next: outside-only coffee opener, stronger-looking corrected gym shots, average-overweight couch likeness from real T-shirt photos; preserve10approved pairs. Use finished approved-C gym footage; no uploads. Journal: `/Volumes/Extreme/_edit_work/ro27/round4/round-controller.json`. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
+**Boring Abs At 40 LFC R4 - REVIEW 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`. Coffee/couch frame repairs, four checked moving scenes and finished-C leg press ready: http://127.0.0.1:9357/. Full film/opening montage pending. Flow6credits; no paid spend. Next: Dan frame approvals and refill/paid choice, then remaining motion/gym work. Slot released for review; pin retained. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
