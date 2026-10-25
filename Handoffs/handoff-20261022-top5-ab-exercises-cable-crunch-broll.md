@@ -64,3 +64,14 @@ exists. Nothing built yet.
 
 ## Starter prompt
 > Read `Handoffs/handoff-20261022-top5-ab-exercises-cable-crunch-broll.md` and execute it. Top 5 Ab Exercises SFC R4: replace the stock cable crunch clip (0:18.79 - 0:25.99) in Muhammad's approved V4 with my cable crunch B-roll from today's shoot, matching his layout, captions and our graphic, everything else untouched. Review page, then stop for me.
+
+
+## October 23 library dependency resolved (2026-10-25)
+
+Dan finalized the exercise identities and Color C. The checked full-quality cable-crunch assets below are registered in the shared library and have verified copies on Extreme, Expansion and Drive. Use the final Color C editing masters, then fit them to the approved film as already required. The source range map and checked clip hashes are in `Media/footage-index/shoot-20261023/permanent-library-map.json`. Original recordings remain on Expansion.
+
+- **B0574**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+- **B0582**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+- **B0583**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+
+The longer side-angle second take is the first candidate for the 7.2-second replacement. Inspect its complete motion and keep the rope near the head, ribs curling toward the pelvis and hips steady. The short frontal close-ups provide alternatives. Teaching intent remains unknown where the source did not establish it; these are identified cable-crunch assets, not a blanket endorsement of every rep. The stock-footage dependency is resolved. The existing film revision has not been executed by this footage-preparation task. No editing chat was started.
