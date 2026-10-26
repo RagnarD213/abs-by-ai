@@ -22,7 +22,7 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 (sl06-short3, queued) |
 | Nov 30 | Top 1% 3 (SL-17, Every Man Should Train A Martial Art) | Zepbound Tips 4 (sl06-short4, queued) | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 (sl06-short5, queued) |
 | Dec 7 | What To Buy 1\* (RO-20C) | Zepbound Tips 6 (sl06-short6, queued) | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2 (SL-18) |
-| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | (open) |
+| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | Dad Bod (DS-35, approved Saturday exception) |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Ronaldo Ab Belt (DS-33, waiting list) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
 | Dec 28 | Belly Fat 4 | Belly Fat 5 | Bill Maher: Fat 90-Year-Old (DS-40, waiting list) | | |
 
@@ -55,3 +55,5 @@ Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~4
 | January 8 | Stop Drinking Your Calories |
 | January 9 | Snack on Protein, Not Carbs |
 | January 11 | Make Fasting Easier With Black Coffee |
+
+**Approved 2026-10-26 (Dad Bod, DS-35):** Dan explicitly chose Saturday December 19, 2026 at 9 AM America/Chicago on all four platforms. This is a one-time exception to dedicated Thursdays because all remaining 2026 Thursdays are reserved. The slot was open; no other video is displaced. Cover design 2 with title-case R3 text and Off The Cuff R3 film approved. Final media preflight is in progress; this is a reservation until Blotato readback confirms four schedules.
