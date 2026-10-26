@@ -25,7 +25,32 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-02/03/07/11 setup COVERS 2026-10-26, Claude.**
+
+
+**[DS20:DESIGN3-TITLE:REVIEW:2026-10-26:Codex:pickA-C](http://127.0.0.1:9180/)**
+
+**Mouthpiece SFC R1 REVIEW 2026-10-26, Codex.** [Look/assets](http://127.0.0.1:9274/). Full Short awaits Dan choices; sound/caption finishing flags retained. Queue/Drive updated. Local Git push blocked by live shared edits. `Docs/DS105_R1_CHECKPOINT_20261026.md`.
+
+**Five Minute Exercises SFC Setup - REVIEW 2026-10-26, Codex.** [Tightened A pair](http://127.0.0.1:9270/). Next: Dan approves. Commit0b22c31 local.
+
+**DS-55 records sync BLOCKED 2026-10-26, Codex.** Approved edit finished. Commit977e5b0 local; live shared edits block push. Next: retry safe-push when owners finish. No Dan action.
+
+
+**ADHD article push BLOCKED 2026-10-26, Claude.** Live; commit 9e58141 unpushed. Next: safe-push `sixpackabs/articles/3w5rVosGQz4.md`, delete.
+
+**DS-84 R3 REVIEW 2026-10-26, Codex.** [Full Short](http://127.0.0.1:9284/). F, tighter exercise crops and matching large titles rendered; independent review ready. Original automatic framing/caption flags retained with audit. Native VLC copy verified; queue/Drive delivered. Next: Dan approves or lists changes. Slot released; dispatcher/heartbeat paused. No setup. Git2811712 local; shared edits block push.
+
+
+**[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
+
 **RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
+
+**DS-47 R4 REVIEW 2026-10-26,Codex:01a179fe.** [Intro](http://127.0.0.1:9214/). D enlarged/arrows/title checked. A/B/portrait locked; full Short unfinished. Next: Dan. `Docs/DS47_R4_INTRO_REVIEW_20261026.md`.
+
+**Brief overlap - NEEDS DAN 2026-10-26, Codex.** Both published. Pause old cloud schedule; retain local.
+
+**Muhammad HQ push BLOCKED 2026-10-26, Claude.** Commit 509607e local. Next: safe-push, delete.
 
 **Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
 
@@ -46,16 +71,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 footage Git sync - BLOCKED 2026-10-25, Codex.** Library/gallery and32 shared queue registrations verified; no media work remains. Native Claude fallback is unconfirmed, shared Drive data verified. Next: safe-push owned briefs/receipt after other live jobs/master/board edits clear; preserve mixed queue changes. Dispatcher paused, batch slot released. Receipt: `Docs/OCTOBER23_FOOTAGE_PROCESSING_RECEIPT_20261025.md`.
 
-
-**Five Minute Exercises SFC R4 - REVIEW 2026-10-25, Codex.** Complete55sShort rendered and independently picture-checked. Approved opening unchanged; Warm And Rich/voiceB/crop1 preserved. Dan reviews new0:31–0:55 at http://127.0.0.1:9176/. Numerical gate flags retained; full approval pending. Slot held at Dan’s request. Gitpush blocked by live shared edits. Receipt/next action: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/RESUME.md`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 
-**Five Levels Of Pushups SFC R3 - REVIEW 2026-10-25, Codex.** Checked updated colour at http://127.0.0.1:9180/; watch3.5–11.5s. Awaiting Dan approval. Original cut/audio findings remain explicit. Full/540/context/browser/VLC and independent audit complete. No upload/scheduling. Heartbeat paused; edit slot released for review. Work `/Volumes/Expansion/_edit_work/DS-20/round3/`; owner `01a16a4e-fac9-7db3-89e7-08dba554908b`.
-
-**Dad Bod SFC R3 - REVIEW 2026-10-25, Codex.** Both complete revisions await Dan at http://127.0.0.1:9241/. Full VLC copies are in Videos to Review. Next: Dan’s review choice in Docs/DAN_DECISIONS.md. Edit slot released for review.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
@@ -65,7 +84,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16:R2-REVIEW:9116:2026-10-25:Claude.** Fasting shorts x4, new openers.
 
-**Boring Abs At 40 LFC R4 - REVIEW 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`; heartbeat paused, slot released for review. [First minute and12 scenes](http://127.0.0.1:9357/): watch0–4,19–25,26–33s. Tracked$9.84/$10. Dan chooses additional up to$5 for neighbour/fridge/couch retakes or camera. Full film not assembled. Checkpoint: `Docs/RO27_R4_CHECKPOINT_20261025.md`. Local3059bd5 saved; push blocked by5 live owners.
+**Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
