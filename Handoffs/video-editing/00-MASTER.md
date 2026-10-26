@@ -58,7 +58,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | BLOCKED | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY | S |
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | FINALIZED | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | FINALIZED | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
@@ -189,7 +189,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-69](DS-69-clavicular-recommends-retatrutide-hes-wrong.md) | Clavicular Recommends Retatrutide. He's Wrong. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-70](DS-70-clavicular-says-hair-is-life-hes-right.md) | Clavicular Says Hair Is Life. He's Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-71](DS-71-why-i-only-do-3-sets-per-exercise.md) | Why I Only Do 3 Sets Per Exercise | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
-| [DS-72](DS-72-why-cables-beat-dumbbells-for-building-muscle.md) | Why Cables Beat Dumbbells For Building Muscle | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document; also needs gym cable B-roll | S |
+| [DS-72](DS-72-why-cables-beat-dumbbells-for-building-muscle.md) | Why Cables Beat Dumbbells For Building Muscle | next shoot | BLOCKED: spoken recording still required; cable B-roll ready | S |
 | [DS-73](DS-73-why-i-do-a-total-body-workout-every-day.md) | Why I Do A Total Body Workout Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-74](DS-74-why-i-work-out-first-thing-in-the-morning.md) | Why I Work Out First Thing In The Morning | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-75](DS-75-why-you-must-train-your-abs-every-day.md) | Why You Must Train Your Abs Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
@@ -213,6 +213,45 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-35](RO-35-20-minute-jump-rope-and-dumbbell-full-body-workout.md) | 20-Minute Jump Rope And Dumbbell Full Body Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-36](RO-36-15-minute-jump-rope-and-abs-workout.md) | 15-Minute Jump Rope And Abs Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 
+
+### 1C4 · 10/23 shoot: verified filmed content
+
+Thirty dedicated Shorts and two long-form recordings. Working content sources: Extreme. Exact private source/take maps are linked from each brief; library assets are checked and backed up. No edits launched.
+
+| job | video | roll | status | size |
+|---|---|---|---|---|
+| [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | READY | S |
+| [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | READY | S |
+| [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | READY | S |
+| [DS-79](DS-79-how-to-do-chest-flies-with-dumbbells.md) | How To Do Chest Flies With Dumbbells | 10/23 C1882, C1883 | READY | S |
+| [DS-80](DS-80-how-to-do-cable-crunches.md) | How To Do Cable Crunches | 10/23 C1884 | READY | S |
+| [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
+| [DS-82](DS-82-the-only-3-leg-exercises-i-do-every-week.md) | The Only 3 Leg Exercises I Do Every Week | 10/23 C1885, C1886 | READY | S |
+| [DS-83](DS-83-how-to-use-the-leg-press-without-wrecking-your-knees.md) | How To Use The Leg Press Without Wrecking Your Knees | 10/23 C1886 | READY | S |
+| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | READY | S |
+| [DS-85](DS-85-how-to-use-the-glute-bridge-machine.md) | How To Use The Glute Bridge Machine | 10/23 C1887 | READY | S |
+| [DS-86](DS-86-how-to-do-lat-pulldowns.md) | How To Do Lat Pulldowns | 10/23 C1887 | READY | S |
+| [DS-87](DS-87-how-to-do-seated-cable-rows.md) | How To Do Seated Cable Rows | 10/23 C1887 | READY | S |
+| [DS-88](DS-88-how-to-use-the-chest-press-machine.md) | How To Use The Chest Press Machine | 10/23 C1887, C1888 | READY | S |
+| [DS-89](DS-89-how-to-use-the-shoulder-press-machine.md) | How To Use The Shoulder Press Machine | 10/23 C1888 | READY | S |
+| [DS-90](DS-90-how-to-do-dips-and-what-to-do-if-you-can-t-do-one.md) | How To Do Dips (And What To Do If You Can't Do One) | 10/23 C1888 | READY | S |
+| [DS-91](DS-91-how-to-do-decline-sit-ups.md) | How To Do Decline Sit-Ups | 10/23 C1889 | READY | S |
+| [DS-92](DS-92-how-to-do-incline-dumbbell-press.md) | How To Do Incline Dumbbell Press | 10/23 C1889 | READY | S |
+| [DS-93](DS-93-how-to-do-preacher-curls.md) | How To Do Preacher Curls | 10/23 C1889 | READY | S |
+| [DS-94](DS-94-how-to-use-the-stairmaster-to-burn-fat.md) | How To Use The Stairmaster To Burn Fat | 10/23 C1891 | READY | S |
+| [DS-95](DS-95-what-to-do-your-first-day-at-the-gym.md) | What To Do Your First Day At The Gym | 10/23 C1891 | READY | S |
+| [DS-96](DS-96-how-to-pick-the-right-weight-on-every-exercise.md) | How To Pick The Right Weight On Every Exercise | 10/23 C1891 | READY | S |
+| [DS-97](DS-97-how-to-stop-feeling-embarrassed-at-the-gym-when-you-re-fat.md) | How To Stop Feeling Embarrassed At The Gym When You're Fat | 10/23 C1891 | READY | S |
+| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | READY | S |
+| [DS-99](DS-99-why-i-use-machines-and-cables-instead-of-barbells-at-41.md) | Why I Use Machines And Cables Instead Of Barbells At 41 | 10/23 C1891 | READY | S |
+| [DS-100](DS-100-the-3-gym-exercises-i-never-do.md) | The 3 Gym Exercises I Never Do | 10/23 C1892 | READY | S |
+| [DS-101](DS-101-the-only-2-exercises-you-need-for-a-wide-back.md) | The Only 2 Exercises You Need For A Wide Back | 10/23 C1892 | READY | S |
+| [DS-102](DS-102-why-i-don-t-do-flat-bench-press.md) | Why I Don't Do Flat Bench Press | 10/23 C1892 | READY | S |
+| [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
+| [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
+| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | READY | S |
+| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | READY | L |
+| [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | READY | L |
 
 ### 1E · Website VSLs, 9/23 shoot (2)
 

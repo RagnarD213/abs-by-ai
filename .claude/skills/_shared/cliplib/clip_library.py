@@ -46,7 +46,7 @@ CONTACT = CAT_DIR / "contact"
 LIB = Path(os.environ.get("CLIPLIB_ROOT", "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library"))
 DRIVE_ROOT = "1Hby8O4mB4HZS341qvrVKHSHyCGBgP8mi"
 RCLONE = str(Path.home() / "bin" / "rclone")
-DRIVE_REMOTE = os.environ.get("CLIPLIB_DRIVE_REMOTE", "gdrive:").rstrip(":") + ":"
+DRIVE_REMOTE = os.environ.get("CLIPLIB_DRIVE_REMOTE", "gdrive_backup:").rstrip(":") + ":"
 REJECTS = Path("/Volumes/Extreme/_edit_work/_clip_library_set_aside")
 
 AI_DIR = "04 AI-Generated Clips"

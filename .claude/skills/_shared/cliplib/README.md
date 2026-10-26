@@ -93,6 +93,9 @@ Original recordings are always preserved, including excluded material.
 
 The Drive connection can be selected without changing library folders or sharing:
 `CLIPLIB_DRIVE_REMOTE=gdrive_backup: python3 .claude/skills/_shared/cliplib/clip_library.py sheet`.
-Use the existing dedicated-client `gdrive_backup:` connection for the October 23 batch;
+The default is the existing dedicated-client `gdrive_backup:` connection;
 the old shared Google client can return project-wide rate-limit errors. Confirm the existing
 library root is accessible first. This selects an existing connection; it grants no new access.
+
+
+October23 finished assets and Claude queue access: `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md`. Both editing workflows may use every usable catalogued take, not only the initial IDs suggested in a particular brief.
