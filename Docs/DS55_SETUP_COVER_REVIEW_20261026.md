@@ -43,3 +43,11 @@ Current choices:1 previous number3 revised, source0.5s and bottom warm Impact he
 Six rendered files pass1080x1920 RGB, YouTube JPEG size and measured text/graphic clearance of manually calibrated face/hair/abs regions, including15px text margin. All full-resolution candidates and final sheet visually inspected. Saturation increased on all three by measurement, skin tone warmer, black detail retained. Graphic positions follow Dan explicit face/abs scope; lower graphics sit on legs/mat, never face/abs. Hashes, source times, colour measurements and protected regions in round3/manifest.json, cover-checks.json, decisions.json. Colour before/after and original/retouch face strips retained.
 
 Awaiting final 1/2/3 pick on http://127.0.0.1:9270/ . Approved R5 film unchanged; no platform uploads, schedule/date reservations, cover installations or waiting-list entries made.
+
+## Cover round 4, selected base2 and two top graphic variations
+
+Dan selected round3 number2's picture and requested a better top graphic: standard translucent Soft Blue Light plus one discretionary design filling the headroom. This is a requested revision, not approval of the final new header.
+
+A uses actual shared softblue.glass (54percent tint mixture, blue22/51/81, blur14, rounded hairline/specular detail) and Poppins Bold, cyan accent and pale white point text. B uses a full-width cream/orange editorial header, oversized5, DIN Condensed type, full headroom0-610px. Same5 Minute / Home Workout wording. Two distinct layouts per choice: Instagram type stays within grid-safe area, YouTube type fills the taller headroom. Four1080x1920 RGB outputs with JPEG under2MB. Native template/text compositing, no generation calls or API spend.
+
+Every PNG pixel below620px is exactly the selected round3 picture, including all of Dan. Measured face/hair/abs regions have zero changed pixels and zero text collisions with15px margin. Four finals visually checked. Choice/source/final hashes and proof in round4/decisions.json, manifest.json and cover-checks.json. Review at sameURL. Awaiting Dan's exact A/B approval. No platform upload, cover installation, schedule or date booking. Original approved R5 film and backups remain unchanged.
