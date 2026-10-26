@@ -1,3 +1,11 @@
+# LATEST DECISION: full edit authorized, 2026-10-26
+
+Dan approved the exact neighbour retake, rejected fridge/prepared-meals and heavier-Dan/phone-goal inserts, and said to finish the edit. Use the approved real camera scenes in place of A03 and COUCH; keep A01. His final "never" refers to the neighbour he explicitly approved in the same message. All remaining motion choices resolved for assembly; do not ask again. Exact words and immutable hash: `round4/DAN-FINAL-MOTION-DECISIONS-20261026.json` and `final-motion-decision-manifest-20261026.json`.
+
+Acquire RO-27 returned exit3: position1, all5slots in use. No production, rendering, generation or spend on this decision. Existing same-chat heartbeat is being reactivated to admit automatically, pause itself on exit0, then finish full film. Current `round4/state.json` is authoritative for queue/automation status. Use shared round workflow once on admission for the actual new revision, preserving current sole-owner identity, all R4 reviewed media/hashes and exact Dan decisions. No duplicate R4/owner/old-owner messages. No more AI motion or new budget question. Preserve approved opening review file byte-for-byte; full film may include the now-approved neighbour insert. Keep ColourC/voiceB/crops/cleared ranges and finished approved-C gym masters. Full candidate needs full native continuity/hair/audio checks and fresh independent review; inherited voice-reference mismatch remains explicitly open. No upload/publication/scheduling. Old review status below is superseded.
+
+---
+
 # CONTENT LFC: Boring Abs At 40 RO-27 R4
 
 Updated 2026-10-26. Same R4, sole owner **01a1748f-68e1-7912-88c1-ca7154f07ee2**, pinned, newest supported stable Sol/high. **Dan approved the exact opening v3 and authorized an additional up to $10 for neighbour/fridge/couch retakes.** Three checked narrated retakes now at **http://127.0.0.1:9357/#retakes**. Final independent context QA PASS / ACCEPT for all3 exact v2 files; edit slot released for Dan review, exit0 verified. See current `state.json`. Full film not assembled. No upload/publication/scheduling.
