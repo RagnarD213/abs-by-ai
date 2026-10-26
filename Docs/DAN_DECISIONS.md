@@ -7,8 +7,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 ---
 
 
-- **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review both complete takes](http://127.0.0.1:9241/). Check 0:09–0:17 in both and 0:31–0:36 in Scripted, then choose Scripted or Off The Cuff and give any remaining notes. Both are independently checked; full-quality VLC copies are in Videos to Review.
-
 
 - **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** Requested photo/arrow revisions are proceeding on both takes. No action until the new review is returned; Scripted versus Off The Cuff choice remains pending. Prior review: http://127.0.0.1:9238/.
 

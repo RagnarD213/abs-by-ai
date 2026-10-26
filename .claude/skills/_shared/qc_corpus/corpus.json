@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-25",
+  "updated": "2026-10-26",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -3938,6 +3938,25 @@
       "measured": "R2 had light curve, contrast1.03, saturation1.08 and slight warm balance, but did not visibly match the other exercise B-roll. No automated skin/scene colour-match verdict is implemented; human rejected control.",
       "notes": "R3 colour-only fix, source/geometry/audio/timing locked. No gate or threshold changes authorized.",
       "human_coverage_gap": "Human scene-to-scene colour matching is not automated. Exact-file/filter-presence checks do not prove a good visible match. Retain this control until a validated match check exists."
+    },
+    {
+      "id": "ds35-r3-off-cuff-approved-20261026",
+      "verdict": "approved",
+      "date": "2026-10-26",
+      "root": "repo",
+      "path": "Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "bytes": 83295310,
+      "excerpt": [
+        0,
+        61.094366666666666
+      ],
+      "dan": "I like the Off The Cuff version. Let's do the handoff setup with that version",
+      "scope": "Complete R3 Off The Cuff film selected and approved for setup. Scripted is an unselected alternate; no new edit authorized. Covers require a separate pick before upload/scheduling.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact final R3 gate2.6.1 PASS:39 passing rows,0 failed/unmeasured/pending,8 explicit applicability declarations. Fresh independent full-file review complete with0 open export defects. Every actual AAC packet and decoded stereo PCM identical to selected R2; normal reference-tone and mixed-source floor qualifications retained.",
+      "notes": "Human creative approval fixture. No new automated predicate, threshold, audio processing or gate change. Exact approval: Handoffs/video-editing/DS-35-R3-approval.json."
     }
   ]
 }

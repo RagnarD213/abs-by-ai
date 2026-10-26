@@ -1,0 +1,27 @@
+{
+  "job": "DS-35",
+  "title": "Dad Bod",
+  "category": "CONTENT SFC",
+  "date": "2026-10-26",
+  "approved_by": "Dan",
+  "dan": "I like the Off The Cuff version. Let's do the handoff setup with that version",
+  "scope": "Complete R3 Off The Cuff film selected and approved for setup. Scripted is an unselected alternate; no new edit authorized. Covers require a separate pick before upload/scheduling.",
+  "take": "off_the_cuff",
+  "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+  "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+  "bytes": 83295310,
+  "duration_seconds": 61.094366666666666,
+  "frames": 1831,
+  "dimensions": [
+    1080,
+    1920
+  ],
+  "fps": "30000/1001",
+  "delivery_gate": "PASS; 39 passing rows, 0 failures, explicit applicability declarations retained",
+  "not_uploaded": true,
+  "not_scheduled": true,
+  "source_task": "01a17430-0acf-72c1-93fa-026651f4da47",
+  "setup_handoff": "Handoffs/handoff-20261026-ds35-dad-bod-off-cuff-setup.md",
+  "ending": "Subscribe to my channel to learn how to build an aesthetic physique.",
+  "classification": "Organic dedicated Short. Subscribe CTA; no tap/click-button CTA."
+}

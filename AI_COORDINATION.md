@@ -49,8 +49,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Five Levels Of Pushups SFC R3 - REVIEW 2026-10-25, Codex.** Checked updated colour at http://127.0.0.1:9180/; watch3.5–11.5s. Awaiting Dan approval. Original cut/audio findings remain explicit. Full/540/context/browser/VLC and independent audit complete. No upload/scheduling. Heartbeat paused; edit slot released for review. Work `/Volumes/Expansion/_edit_work/DS-20/round3/`; owner `01a16a4e-fac9-7db3-89e7-08dba554908b`.
 
-**Dad Bod SFC R3 - REVIEW 2026-10-25, Codex.** Both complete revisions await Dan at http://127.0.0.1:9241/. Full VLC copies are in Videos to Review. Next: Dan’s review choice in Docs/DAN_DECISIONS.md. Edit slot released for review.
-
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
 **SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
