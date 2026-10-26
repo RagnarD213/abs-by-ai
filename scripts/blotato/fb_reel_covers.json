@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles — not just a six-pack.",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch — a killer six-pack move you can do at home.",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -928,11 +928,19 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you’re fasting.",
+    "match": "Drink black coffee while you\u2019re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
     "approved": "C, Dan 2026-10-25",
     "sha256": "3bc3c1cda5a39bc3cf8bdfa7ab87465edbbc1d9421d73e448137ed456e46909c"
+  },
+  {
+    "job": "DS-35",
+    "match": "Women say they like the dad bod, but what do they mean by that?",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds35-dad-bod-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan approved cover design 2 R3 on 2026-10-26; release date pending."
   }
 ]
