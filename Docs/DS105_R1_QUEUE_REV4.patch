@@ -1,0 +1,34 @@
+diff --git a/Handoffs/video-editing/jobs.json b/Handoffs/video-editing/jobs.json
+index e12935c..de5a6bb 100644
+--- a/Handoffs/video-editing/jobs.json
++++ b/Handoffs/video-editing/jobs.json
+@@ -4761,13 +4761,13 @@
+    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-105.json, then execute Handoffs/video-editing/DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md for \"Why I Wear A Mouthpiece For Cardio And Weightlifting\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
+    "codexModel": "GPT-6.1 Sol, high",
+    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-105.json, then execute Handoffs/video-editing/DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md for \"Why I Wear A Mouthpiece For Cardio And Weightlifting\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
+-   "state": "in_progress",
+-   "note": "R1 take selection and first-review preparation; no publishing or setup",
++   "state": "delivered",
++   "note": "R1 look/assets review: http://127.0.0.1:9274/ . Opening34s, all graphics with narration, colour/voice/framing options. Full64s Short not assembled; awaiting Dan choices. Final gate not cleared: sound reference flags and9px caption gap remain. No publishing/setup; dispatcher stays paused.",
+    "unattended": false,
+    "intakeKey": "SHOOT-20261023-30",
+    "order": 207,
+    "updated": "2026-10-26",
+-   "rev": 3,
++   "rev": 4,
+    "syncedRev": 0,
+    "by": "Codex",
+    "editor": "Codex",
+diff --git a/Handoffs/video-editing/00-MASTER.md b/Handoffs/video-editing/00-MASTER.md
+index 0155326..9c00fb4 100644
+--- a/Handoffs/video-editing/00-MASTER.md
++++ b/Handoffs/video-editing/00-MASTER.md
+@@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
+ | [DS-102](DS-102-why-i-don-t-do-flat-bench-press.md) | Why I Don't Do Flat Bench Press | 10/23 C1892 | READY | S |
+ | [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
+ | [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
+-| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | IN PROGRESS | S |
++| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | DELIVERED: awaiting Dan | S |
+ | [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | READY | L |
+ | [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | READY | L |
+ 

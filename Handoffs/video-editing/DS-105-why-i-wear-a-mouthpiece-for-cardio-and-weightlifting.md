@@ -33,3 +33,7 @@ One dedicated Short. No derivative versions or extracted Shorts. Use the recorde
 
 **Codex: GPT-6.1 Sol, high effort, verified newest supported workhorse on this client.**
 > Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-105.json, then execute Handoffs/video-editing/DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md for "Why I Wear A Mouthpiece For Cardio And Weightlifting". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.
+
+## R1 first review delivered, 2026-10-26, Codex
+
+Review: http://127.0.0.1:9274/ . Opening34s, all proposed graphics with narration, closing, colour/voice/framing choices. Full64s Short remains unassembled and unapproved. Recommended B/A/1; awaiting Dan. Exact checks ran; opening delivery stamp remains FAIL with sound-reference flags and9px caption gap open for finishing, plus documented style/detector limits. No limits relaxed. Verified Extreme original and prepared library references used; no matching mouthpiece B-roll. No covers, publishing/setup or dispatcher changes. Queue delivered rev4; Drive upload verified. Work/receipt/next actions: `Docs/DS105_R1_CHECKPOINT_20261026.md`.
