@@ -26,6 +26,12 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## R1 review state, October 26, 2026
+
+First look and all-assets review: http://127.0.0.1:9267/. Three colour choices, four matched voice auditions and three portrait crop sizes, plus five narrated excerpts covering every proposed graphic/clip. Recommended B/A/1; nothing approved for this film yet. Complete spoken cut is55.489seconds, using C1887 native frames385–998 and1044–2094. False opening and Pulling restart removed, filmed words and closing preserved. B0626/B0628/B0629/B0630 approved editing masters verified; B0627 omitted because it shows upper-body effort, not feet.
+
+Work/recipe/evidence: `/Volumes/Extreme/_edit_work/DS-84/round1/`. Five exact native-context watch records independently inspected, zero open picture defects after repairs. Audio audition gates retain reference-tone and some tail-drop failures; these are not final sound PASS. Actual hair masks clear the90px title throughout846presenter frames; one loose face-width diagnostic flag is retained. Complete-film delivery gates/captions/final positioning remain due. Resume this chat after Dan's choices; use the automatic next-round workflow and preserve the reviewed R1 files. Do not assemble until required choices/assets are locked. No publishing, upload, covers or setup. Dispatcher stays paused.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**
