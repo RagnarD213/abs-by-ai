@@ -6,6 +6,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
+
 
 
 

@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO-30:REVIEW:8831:2026-10-26:Codex:01a17836**
+**RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
 
 **Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
 
