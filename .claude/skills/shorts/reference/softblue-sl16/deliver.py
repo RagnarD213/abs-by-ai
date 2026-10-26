@@ -149,7 +149,7 @@ def plan(S):
     pl["negative_events_scan"] = dict(sha256=h, when=datetime.datetime.now().isoformat(timespec="seconds"), frames_checked=int(dur) + 1,
         method="one frame per second (watch-pass contact sheets; " + (lambda w: f"judged image by image by {w['judged_by']}, {w.get('open_defects')} open defect(s)" if w.get("judged_by") and w.get("sha256") == h else "scanned by the builder only, the independent judge has not run on this file yet")(json.load(open(f"{G}/logs/watch_pass.json")) if os.path.exists(f"{G}/logs/watch_pass.json") else {}) + ") plus every shot's first, "
                "middle and last frame on the build's proof sheets; the footage is Dan in a tank top talking in his studio set, stock and library B-roll, " +
-               ((lambda ids: ("AI clips " + ", ".join(ids) + " with the AI-GENERATED chip (each passed clipcheck and a fresh frame-reviewer on its used range)") if ids else "no AI clips")([sh["cover"]["id"] for sh in shots if sh["kind"] == "clip" and sh["cover"].get("ai")]) + "; no photos of Dan"),
+               ((lambda ids: ("AI clips " + ", ".join(ids) + " with the AI-GENERATED chip (the workday time-lapse is Dan's named pick; a fresh frame reviewer had failed its frames 0-87 in R1; the others passed clipcheck and a fresh frame-reviewer on their used ranges)") if ids else "no AI clips")([sh["cover"]["id"] for sh in shots if sh["kind"] == "clip" and sh["cover"].get("ai")]) + "; no photos of Dan"),
         findings=[])
     json.dump(pl, open(f"{G}/plan.json", "w"), indent=1)
     print(S, "plan", f"{G}/plan.json", "joins", len(joins), "covered", len(covered), "cues", len(states))
