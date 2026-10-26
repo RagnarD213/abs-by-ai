@@ -150,6 +150,8 @@ Red = B.BAD (235,64,64); teal (45,212,191). Arrows 4 px round caps, chevron head
 
 ## Placing Dan beside the card (the reframe)
 
+For a cycle card, an optional plan `place: {x, y, scale}` uses the existing template placement transform. `from_plan.py` forwards it through the cycle builder and records the transformed card rectangle for composite checks. Omit it to retain the original layout. Measure the actual moving arms before choosing the scale.
+
 Dan must sit right of the card with his arms clear. Do not stretch the wall (`shift_presenter`) when the roll has room:
 slide the approved crop window LEFT inside the 4K frame, same size, same y, same grade, only while the card is up
 (`base/build_shift.py` in the pilot: FAR x 239.7 to 0, NEAR x 327.7 to 117.5, both a 322 px move). Check every 10th
@@ -213,3 +215,9 @@ frames (pilot: 43 dB PSNR).
   analysis card's bars showed filled on the card's first frame because a slow "creep" tween started from the filled value. Every
   follow-on tween on a property already animated needs `immediateRender: false`; look at frame 0 of every new template render.
 - Side-list cards hold still by default (2026-10-04). Fractional drift can make settled type appear to shrink as its edges redraw. Keep the spoken reveals and specular sweep; use `drift: 0` for a steady text hold. Existing approved exports are unchanged.
+
+### Raster inputs and cached renders (RO-30, 2026-10-26)
+
+The render cache hashes the config and template code, including an image's path, but not changed image bytes at that same path. After revising a raster input, force only its affected IDs with `from_plan.py --only ID1,ID2 --render --force`, then inspect and rebuild the overlapping contexts. A successful unchanged-cache message does not prove the revised picture reached the MOV.
+
+Fact cards can opt into `snap_in: true` to enter on the nearest declared shot boundary within the existing snap window. Keep the plan's start phrase and text reveals tied to spoken words; this only moves the opaque field's entrance to cover an adjacent source cut. Check the resulting manifest and native entry frames. Continuous-source punch changes immediately before opaque cards should instead be removed so they cannot leave a few-frame intermediate crop.

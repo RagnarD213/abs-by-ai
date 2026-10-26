@@ -161,6 +161,8 @@ def cycle_cfg(it, W, beats):
     kind = it.get("cycle_kind", "build")
     cfg = dict(id=it["id"], kind=kind, a=a, b=b, title=it["title"], hue=it["hue"], direction=it["direction"],
                boxes=it["boxes"], close=at(it["close"], "close"), pulse=at(it["pulse"], "pulse"), drift=it.get("drift", 0))
+    if it.get("place"):
+        cfg["place"] = it["place"]
     fits(it["title"], 56, 740 - 60, f"{it['id']} title")
     for bx in it["boxes"]: fits(bx, 28, 278 - 24, f"{it['id']} box")
     beats += [(a, "", f"card rises, title \"{it['title']}\"")]
@@ -247,6 +249,8 @@ def main():
         it = dict(it)
         if tk in ("l3", "cycle") and joins:
             it["t0"] = snap_edge(it["t0"], joins, it["id"] + " in"); it["t1"] = snap_edge(it["t1"], joins, it["id"] + " out")
+        if tk == "fact" and it.get("snap_in") and joins:
+            it["t0"] = snap_edge(it["t0"], joins, it["id"] + " in")
         beats = []
         cfg = BUILD[tk](it, W, beats)
         rd = out / "renders"
@@ -256,7 +260,10 @@ def main():
         if tk == "l3":
             x0, y0, x1, y1 = B.left_third_box(1920, 1080, it["heading"], it["points"])
             m.update(card_right=752, card=[round(x0), round(y0), round(x1), round(y1)])
-        if tk == "cycle": m.update(card_right=776, card=[36, 42, 776, 530])
+        if tk == "cycle":
+            place = cfg.get("place", dict(x=36, y=42, scale=1))
+            x, y, k = place["x"], place["y"], place["scale"]
+            m.update(card_right=round(x + 740*k), card=[round(x), round(y), round(x + 740*k), round(y + 488*k)])
         if A.render: render_scene(tk, cfg, out, A.force)
         else:
             cdir = out / "configs" / TEMPLATE[tk]; cdir.mkdir(parents=True, exist_ok=True)
