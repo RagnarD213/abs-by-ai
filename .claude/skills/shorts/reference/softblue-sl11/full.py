@@ -1,4 +1,4 @@
-"""CONTENT SFL SL-11. Full Shorts from approved RO02 + Dan's explicitly authorized Yeti pickup.
+"""CONTENT SFL SL-11. Full Shorts from approved RO02 + Dan's explicitly approved ownvoice Natural pickup.
 Own work only. Source files read-only. Commands: prepare, gfx, render [A B C]."""
 from pathlib import Path
 import sys,os,json,math,re,wave,subprocess,hashlib

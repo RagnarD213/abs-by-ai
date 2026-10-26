@@ -2,7 +2,7 @@ CONTENT (SFL) | SL-11 | The Vacuum SFC R1
 
 # Segment picks, 2026-10-26
 
-Dan selected **A, B, C** on2026-10-26 and approved the shown framing and graphics. Complete Shorts are being assembled and are not yet delivered or approved. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`; working folder `/Volumes/Extreme/_edit_work/SL-11/round1/`.
+Dan selected **A, B, C** on2026-10-26 and approved the shown framing and graphics. All three complete Shorts are delivered, gated and independently audited; full films await Dan approval. Review: http://127.0.0.1:9411/ . Authoritative receipt: `Docs/SL11_R1_DELIVERY_RECEIPT_20261026.md`. Proposal and intermediate-stage notes below are historical. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`; working folder `/Volumes/Extreme/_edit_work/SL-11/round1/`.
 
 Dan first recorded three Yeti takes, then authorized ownvoice AI if the recording did not blend. After comparing both, he confirmed the permanently saved50second AI Natural mix: **“Yes, use this version.”** Exact approved WAV SHA256 `f83dff214840e22784a404f49cb6e1afff5f0474984540cb39b78c24e3251f81`; immutable file and approval in `audio/pickup-choice.json`. This supersedes AI Quicker. An earlier mutable player was wrongly labeled Yeti; the mistake was explained and corrected before confirmation. Preserve this exact audio during picture repair. Original Yeti was unclipped; previous heavy processing worsened it. Dan reported addressing the rear gain/pattern side in cardioid at9inches; front logo/mute-side test recommended. No new shoot required. Full-film review remains.
 
@@ -135,6 +135,6 @@ Dan: “Okay framing and graphics look good.” Approval binds the21media/still 
 Dan explicitly overrides the studio-only pickup route for this attempt: he will record the approved opening with his Yeti now. Test it against the original shoot mix. If it does not blend, he authorizes trying an AI-generated version of his own voice matched to the shoot. Neither a recording nor an AI version exists yet. No generation/spend has occurred. Do not ask him to approve the wording or shown framing/graphics again. Studio pickup is fallback only while this test is pending.
 
 
-## Current final QA, 2026-10-26
+## Historical internal QA progress, 2026-10-26
 
 A exact delivery gate passes. C independent moving/native audit clear; palette-only coverage counter returned0% because separate exercise rolls share the same pool palette. Native source verification proves756/1419frames53.27696% actual alternate exercise footage, minNCC0.9998037 over25frames. Independent memo supports narrowly declaring that instrument inapplicable while preserving the30% editorial rule, originalFAIL and positive evidence. Full regate queued. B first AI Natural picture candidate rejected for bilateral hand crop4.67–5.14s; picture-only repair extends existing exercise opening to6.006s without changing approved audio. Fresh exact-file checks and independent audit required before delivery.
