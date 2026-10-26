@@ -21,9 +21,7 @@ Read `_shared/VIDEO-RULES.md` first.
 Instagram defaults a Reel's cover to frame 0, which on our shorts is the black
 opening frame — an empty tile in the profile grid. Every short needs a built cover.
 
-**The abs decide everything.** This is an abs channel; the cover sells the physique
-before it sells the topic. A technically clean, perfectly on-topic image is still a
-FAIL if the abs don't read. Reject and keep looking rather than shipping one.
+**When a cover shows Dan, his abs must read clearly.** Choose strong definition and a natural extended torso. The two discretionary slots may omit him when the concept is likely to win based on his actual picks; that exception does not weaken physique checks on images that show him.
 
 ## Required five-choice review
 

@@ -1,0 +1,36 @@
+{
+  "content_type": "organic",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short4_snack-on-protein-not-carbs.mp4",
+  "slug": "sl08-short4",
+  "campaign": "calories-not-losing-weight",
+  "title": "Snack on Protein, Not Carbs",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/587ab02a-abdd-472c-96a5-dab74635822b.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e19ca687-ae05-4c8d-8145-9183f35f03fe.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dcdaedfb-bf5c-4a36-b9f0-8163a49c5b25.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e9653d98-ddbf-4df8-8519-af6e1b4303f2.jpg",
+  "main": "2027-01-09T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": false,
+  "hook": "Snack on protein, not on carbs.",
+  "body": "You can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.",
+  "close": "Save this for the next time you buy snacks.",
+  "tags": "#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
+  "youtube_description": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\nFull video on this channel: Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss #Shorts",
+  "pinned_comment": "Which protein snack do you like the most?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4",
+  "caption_overrides": {
+    "facebook": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
+    "instagram": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
+    "tiktok": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss"
+  },
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "parent_schedule_id": "5287937",
+  "approved_cover": "C",
+  "approval_date": "2026-10-25",
+  "media_sha256": {
+    "master": "28762ad176e04aa8e644e0c03b5df9b8d630982a8b1c06563ed0e53dbb87f6c0",
+    "tiktok": "b713914a017c12bbb66d29faab0495163ce9b2f97949248bc86f9ce8ba3f374e",
+    "ig": "b97505adef7f38ee1bbbf7ab552323c05852bbbee66dea645bfe439fc6770d50",
+    "yt": "8880787717c0399d8fc1dab6aa580dd122b136058ccc4e0dba8bc1e540202103"
+  }
+}

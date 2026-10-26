@@ -1,0 +1,24 @@
+{
+ "checked_at": "2026-10-25T17:19:42.718234-05:00",
+ "both_complete": true,
+ "independent_review_complete": true,
+ "open_export_defects": 0,
+ "browser_verified": true,
+ "review_url": "http://127.0.0.1:9241/",
+ "files": [
+  {
+   "take": "scripted",
+   "path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-scripted.mp4",
+   "sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+   "independent_report_sha256": "009e7cc20159c4ae2507135cfdb7de7d7398228921f0857da0057051096d8421"
+  },
+  {
+   "take": "off_the_cuff",
+   "path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-off_the_cuff.mp4",
+   "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+   "independent_report_sha256": "fcbbf5b452200366b80c6818f6ac3e410cbc029ae80c2afa79e902453fb89cc8"
+  }
+ ],
+ "browser_evidence": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/browser-final-v4.json",
+ "http_evidence": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/http-final-v4.json"
+}

@@ -1,4 +1,6 @@
-**SFC.** Task name: `Dad Bod SFC R1`.
+**CONTENT SFC.** Task name: `Dad Bod SFC R3`.
+
+**Round 3 review delivered 2026-10-25, Codex.** [Paired review](http://127.0.0.1:9241/), Scripted 57.5s and Off The Cuff 61.1s. Check both 0:09–0:17 for larger Craig photo, exact label/arrow and repaired watching camera edge; Scripted 0:31–0:36 for the stronger real studio photo. Both exact full files have fresh independent reviews and maintained PASS delivery gates, with selected audio and diagnostic limits retained. Await Dan’s take choice and notes. Full copies are in `Short-form video content/Dad Bod - DS-35/` and `Videos to Review/`. Receipt: `/Volumes/Expansion/_edit_work/DS-35/round3/delivery-receipt.json`. Nothing is approved, uploaded or scheduled. Original first-cut context follows.
 
 # DS-35: "Women Say They Love The Dad Bod. They Don't.", first cut from raw footage
 

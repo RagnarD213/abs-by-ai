@@ -1,3 +1,7 @@
+> **EXECUTED 2026-10-25:** Exact Codex R5 and approved cover design 1 R3 installed, media uploaded and verified, one shared-waitlist entry for Thu Dec 31 at 9 AM America/Chicago. Blotato 197/200, no DS-40 schedules yet. Do not rerun this handoff. Existing daily top-up owns queuing. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+
+> **SUPERSEDED SOURCE SELECTION, Dan 2026-10-25:** Dan explicitly selected **Codex R5**, shown in his screenshot as approved, 1:04.86. Set up only `/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4`, SHA-256 `3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720`. Codex R5 approval is recorded in its `dan-approval-20261023.json`. All Claude R6 source directions below are historical and must not be used. Current setup state: `Short-form video content/Fat 90 Year Old - DS-40/Codex R5 setup/SETUP-STATE.json`.
+
 # Fat 90 Year Old SFC Setup (DS-40): "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right."
 
 **CONTENT (SFC), a dedicated green screen reaction Short edited by Claude (rounds 1 to 6). No ads, no Google Ads work, no unlisted upload.**

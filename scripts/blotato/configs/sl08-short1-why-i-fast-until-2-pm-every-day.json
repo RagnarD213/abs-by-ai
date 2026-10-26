@@ -1,0 +1,36 @@
+{
+  "content_type": "organic",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short1_why-i-fast-until-2-pm-every-day.mp4",
+  "slug": "sl08-short1",
+  "campaign": "calories-not-losing-weight",
+  "title": "Why I Fast Until 2 pm Every Day",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7d95054d-edf5-41e9-a6cc-75697a206938.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bf44e1c8-3330-4a9a-8b54-3acad224ae96.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2273b0ef-e6ea-484f-822b-c0db8bc0af19.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e769998a-8a00-4eb3-9e9f-34c158b0b170.jpg",
+  "main": "2027-01-04T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": true,
+  "hook": "I don't eat anything until 2 in the afternoon, and here's why I love it.",
+  "body": "I break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.",
+  "close": "Would you rather save more of your calories for dinner?",
+  "tags": "#AbsByAI #IntermittentFasting #FatLoss #Nutrition",
+  "youtube_description": "I don't eat anything until 2 in the afternoon, and here's why I love it.\n\nI break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.\n\nWould you rather save more of your calories for dinner?\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short1\n\nFull video on this channel: Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#AbsByAI #IntermittentFasting #FatLoss #Nutrition #Shorts",
+  "pinned_comment": "What time do you usually eat your first meal?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short1",
+  "caption_overrides": {
+    "facebook": "I don't eat anything until 2 in the afternoon, and here's why I love it.\n\nI break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.\n\nWould you rather save more of your calories for dinner?\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short1\n\n#AbsByAI #IntermittentFasting #FatLoss #Nutrition",
+    "instagram": "I don't eat anything until 2 in the afternoon, and here's why I love it.\n\nI break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.\n\nWould you rather save more of your calories for dinner?\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#AbsByAI #IntermittentFasting #FatLoss #Nutrition",
+    "tiktok": "I don't eat anything until 2 in the afternoon, and here's why I love it.\n\nI break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.\n\nWould you rather save more of your calories for dinner?\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short1\n\n#AbsByAI #IntermittentFasting #FatLoss #Nutrition"
+  },
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "parent_schedule_id": "5287937",
+  "approved_cover": "C",
+  "approval_date": "2026-10-25",
+  "media_sha256": {
+    "master": "f8a1ff8a1574542dd380bcdb29eb298d2d060e3a4a82b8987c2aad3c48b39eed",
+    "tiktok": "373a2366dbdc7817617df5141b00816f6c2b2d78cf58e34dd4e4a25ccb0ddc62",
+    "ig": "e74c15b6b77520abdc4c76e0981df4603e9f38a17233250de87338f5a89cb4e9",
+    "yt": "44c0ad899d61850eb5984ca1ee3a4575b381759b8bb196311f5f407acf5b6cf0"
+  }
+}

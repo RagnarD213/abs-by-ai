@@ -25,7 +25,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
+**Wallpaper favorites - MAC APPROVAL PENDING 2026-10-25, Codex task-7.** Web save/remove/restore verified on 49b86329, correct October 21 original, private access preserved. Source recovery hashes match. Reader remains uninstalled; disable/restore safeguards tested. Next: Dan approves separate Keychain key, favorites-only server grant and LaunchAgent, then real three-screen rotation verification. `scripts/brief/wallpaper/README.md`.
+
+**Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
+
+**Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+
+**Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
+
+
+
 
 **Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
 
@@ -130,7 +139,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R3-HANDOFF:2026-10-24:Claude.** Card `Celebrity Ozempic LFC R3`.
+**Celebrity Ozempic LFC R3 - REVIEW 2026-10-25, Claude.** RO-24 first 2:50 on the shared green-screen template (`_shared/greenscreen-bg/`), page :9126; independent review READY. Slot released. Next: Dan's reply, then round 4 to Codex (green-screen rule 10-25): `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md`.
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 

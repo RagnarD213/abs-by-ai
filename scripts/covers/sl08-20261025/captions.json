@@ -1,0 +1,37 @@
+{
+  "s1": {
+    "hook": "I don't eat anything until 2 in the afternoon, and here's why I love it.",
+    "body": "I break my fast with a big salad, then I eat dinner in the evening. If your number is 2,000 calories, breakfast, a snack and lunch can leave you with very little for dinner. But when you fast until 2, you can sit down with your family, eat a big dinner and still be under your number for the day.",
+    "close": "Would you rather save more of your calories for dinner?",
+    "tags": "#AbsByAI #IntermittentFasting #FatLoss #Nutrition",
+    "pinned_comment": "What time do you usually eat your first meal?"
+  },
+  "s2": {
+    "hook": "Start your meal with a big salad if you want to eat less.",
+    "body": "Researchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.",
+    "close": "Try eating that first before you eat your main meal.",
+    "tags": "#AbsByAI #Nutrition #FatLoss #HealthyEating",
+    "pinned_comment": "Would you rather start your meal with a salad or soup?"
+  },
+  "s3": {
+    "hook": "Stop drinking your calories.",
+    "body": "Researchers at Purdue gave people 450 extra calories a day as jelly beans or soda, and when they ate the jelly beans, they ate less food to make up for it. But when they drank the soda, they didn't eat any less and they gained weight. So look at the soda, juice, sweet tea, coffee drinks and beer you're drinking, because those calories aren't filling you up.",
+    "close": "Try water, black coffee or zero calorie drinks instead.",
+    "tags": "#AbsByAI #LiquidCalories #FatLoss #Nutrition",
+    "pinned_comment": "Which drink adds the most calories to your day?"
+  },
+  "s4": {
+    "hook": "Snack on protein, not on carbs.",
+    "body": "You can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.",
+    "close": "Save this for the next time you buy snacks.",
+    "tags": "#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
+    "pinned_comment": "Which protein snack do you like the most?"
+  },
+  "s5": {
+    "hook": "Drink black coffee while you’re fasting.",
+    "body": "I drink 2 to 4 cups every morning, and most days I'm not even thinking about food until 2 o'clock. The effect on appetite in studies is pretty small, but for me it's the difference between an easy fast and a miserable one. It has to be black though, because cream and sugar can add 200 calories to a cup and that breaks your fast.",
+    "close": "If you can't stand it black, give it a week.",
+    "tags": "#AbsByAI #BlackCoffee #IntermittentFasting #Nutrition",
+    "pinned_comment": "Do you drink your coffee black or add cream and sugar?"
+  }
+}

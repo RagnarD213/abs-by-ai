@@ -73,3 +73,20 @@ Repeat in order: refresh both queue sources, run `collect_inputs.py --live`, hav
 Measured one-run timings: queue refresh 7.42 seconds, local collection 14.28 seconds, image upload 2.54 seconds and edition upload 0.89 seconds. The 25.13-second sum excludes writer/model time, connected inbox/calendar intake, new image generation and external failures. It is not a guaranteed schedule runtime. The enabled 7:00 AM Central start leaves 30 minutes before desired 7:30 readiness; verify the first recurring completion. Mac must be online. Optional missing-source features do not block core text publication.
 
 The writer reads private `cloud-routine-state.json`. An enabled edition sets `routineEnabled: true` and `routine: {kind: "cloud", startTime: "07:00", readyBy: "07:30", startsOn: "2026-10-04", confirmedAt: "<actual confirmation timestamp>", localCron: false, notifications: false}`. Do not copy the automation ID into page data. Legacy disabled editions remain readable. The page reports the recorded schedule's confirmation time and Mac dependency without asserting that every optional source is connected.
+
+## Private wallpaper favorites as image feedback
+
+Before preparing another personal image, consult the owner's private favorites
+manifest or the locally synced original collection when access is available.
+Active favorites are positive preference feedback. Unselected and removed images
+are neutral, never dislikes. Preserve variety in activities, composition and
+framing instead of copying a single favorite repeatedly. If that source cannot be
+read, report feedback unavailable and retain already approved guidance. Keep
+personal references, specific preferences and prompts outside Git.
+
+Favorites identify exact original bytes by SHA-256 and the image's real date,
+which may differ from the brief edition date. Never substitute a newer image
+because its date matches the edition. Removal is reversible and retains the
+original. Website saves remain pending until the separate, approved Mac reader
+reports the current collection, all three screens and a 30-minute configuration.
+Reader deployment and activation: `scripts/brief/wallpaper/README.md`.
