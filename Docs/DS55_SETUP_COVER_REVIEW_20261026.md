@@ -51,3 +51,9 @@ Dan selected round3 number2's picture and requested a better top graphic: standa
 A uses actual shared softblue.glass (54percent tint mixture, blue22/51/81, blur14, rounded hairline/specular detail) and Poppins Bold, cyan accent and pale white point text. B uses a full-width cream/orange editorial header, oversized5, DIN Condensed type, full headroom0-610px. Same5 Minute / Home Workout wording. Two distinct layouts per choice: Instagram type stays within grid-safe area, YouTube type fills the taller headroom. Four1080x1920 RGB outputs with JPEG under2MB. Native template/text compositing, no generation calls or API spend.
 
 Every PNG pixel below620px is exactly the selected round3 picture, including all of Dan. Measured face/hair/abs regions have zero changed pixels and zero text collisions with15px margin. Four finals visually checked. Choice/source/final hashes and proof in round4/decisions.json, manifest.json and cover-checks.json. Review at sameURL. Awaiting Dan's exact A/B approval. No platform upload, cover installation, schedule or date booking. Original approved R5 film and backups remain unchanged.
+
+## Cover round5, A with tight vertical padding
+
+Dan liked A but requested removal of blank translucent space, leaving a little top/bottom padding in both layouts. Revised only A. Same words, Poppins fonts/sizes, transparency, screenshot, full-screen crop and warm colour. Card fitted to measured glyph bounds with24px top/bottom padding and24px interline gap. IG card36/226/1044/521, YouTube36/100/1044/407. Cyan accent fitted to same text extent. Shared actual glass renderer, no generation calls.
+
+Both finals checked for dimensions, RGB, JPEG size and exact picture preservation below620px; face/hair/abs and phone-size layouts inspected. Source/final hashes, bounds and checks in round5. Exact pair awaits approval before installation or upload/scheduling. ReviewURL unchanged. Approved R5 movie unchanged.
