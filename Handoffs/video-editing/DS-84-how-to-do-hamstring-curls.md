@@ -1,8 +1,8 @@
-CONTENT (SFC). Task name: `How To Do Hamstring Curls SFC R1`.
+CONTENT (SFC). Task name: `How To Do Hamstring Curls SFC R2`.
 
 # DS-84: How To Do Hamstring Curls
 
-**Filmed source ready for editing.** Sources and exercise library are prepared. This job has not been edited, rendered, approved, uploaded or scheduled. Registration does not launch this job; unattended execution is disabled.
+**R2 in progress.** Dan approved Natural Warmth voice A, original portrait crop 1 and all nonintro shots/graphics after R1. R2 revises only the intro and colour choices. Full Short assembly awaits those remaining approvals. Unattended execution is disabled; no setup or publishing.
 
 ## Read first
 
@@ -31,6 +31,14 @@ One dedicated Short. No derivative versions or extracted Shorts. Use the recorde
 First look and all-assets review: http://127.0.0.1:9267/. Three colour choices, four matched voice auditions and three portrait crop sizes, plus five narrated excerpts covering every proposed graphic/clip. Recommended B/A/1; nothing approved for this film yet. Complete spoken cut is55.489seconds, using C1887 native frames385–998 and1044–2094. False opening and Pulling restart removed, filmed words and closing preserved. B0626/B0628/B0629/B0630 approved editing masters verified; B0627 omitted because it shows upper-body effort, not feet.
 
 Work/recipe/evidence: `/Volumes/Extreme/_edit_work/DS-84/round1/`. Five exact native-context watch records independently inspected, zero open picture defects after repairs. Audio audition gates retain reference-tone and some tail-drop failures; these are not final sound PASS. Actual hair masks clear the90px title throughout846presenter frames; one loose face-width diagnostic flag is retained. Complete-film delivery gates/captions/final positioning remain due. Resume this chat after Dan's choices; use the automatic next-round workflow and preserve the reviewed R1 files. Do not assemble until required choices/assets are locked. No publishing, upload, covers or setup. Dispatcher stays paused.
+
+## R2 revision state, October 26, 2026
+
+Dan requested richer, less washed-out colour based on B, a much taller/larger exercise intro, the very large exact title “How to Do Hamstring Curls,” and removal of the intro “Complete Curl” label. Preserve Natural Warmth A, Original Portrait 1, all other approved graphics/shots, source wording, correction and timing. Nine exact approval locks and four real exercise-library hashes were reverified unchanged. Same sole owner chat `01a178a0-9b62-7322-a5bd-c23daafbff59`; automatic round controller completed in `/Volumes/Extreme/_edit_work/DS-84/round2/round-controller.json`.
+
+R2 candidates: three matched 12.012-second colour previews D Rich Natural, E Vivid (recommended), F Deep And Vivid; revised 12.012-second intro context using provisional E. Intro uses native B0626 source crop `[1000,0,1640,2160]`, full height, taller 1056×1390 window and 118px two-line title, about 67% more exercise-window area than R1. The initial narrower R2 crop clipped the final shoe/roller frames, was rejected and retained, then repaired and exhaustively rechecked across all 120 native opening frames. No approved R1 file was changed.
+
+Work and current evidence: `/Volumes/Extreme/_edit_work/DS-84/round2/`; review URL http://127.0.0.1:9268/. Exact audio AAC/PCM matches Dan’s chosen A in all four new previews. Original reference-tone/tail numerical flags remain recorded, not a final audio PASS. Final technical stamps and hair-check completion still pending as this checkpoint is written. An initial hair-mask check incorrectly included equipment frame 262 using float seconds; applicability corrected to renderer frame spans 120:171 and 249:262, retaining failed log and unchanged safety thresholds. Do not claim review delivered until `RESUME.md`, independent report, queue and browser checks confirm completion. Full film, SRT and complete-film gates remain next after Dan’s colour/intro approval. Dispatcher and old capacity heartbeat stay paused. No covers, upload, setup or publishing.
 
 ## Starter prompts
 
