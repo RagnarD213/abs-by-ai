@@ -11,10 +11,18 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+
+- [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
+
+
+
+- [Arms Shoulders Workout LFC Setup](handoff-20261025-ro04-finalized-video-setup.md): **Claude Opus 5.5, high. READY 2026-10-25.** Approved full master checked/filed, project and Extreme copies verified; finalization-state completed. Resume the existing thumbnail/setup task. No duplicate editor or setup task.
+
+
 - [Codex after the iCloud move](handoff-20261024-codex-icloud-repair-followup.md): **Fire now. Codex, GPT-6.1 Sol, high.** Tooling. Brief collector fixed (ef5d7a3); Codex finishes the morning brief run from the main project and checks the background move of its own folder out of iCloud (`rename.sh Codex`).
-- [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Fire after Dan films the cable crunch B-roll (planned 2026-10-23). Claude Opus 5.5, high.** CONTENT SFC DS-01: Muhammad's V4 accepted; swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on our side, everything else untouched; review page, stop.
-- [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md): **Fire now. Claude Opus 5.5, high.** DS-40 R6 approved 2026-10-23 (Bill Maher green screen reaction); five Codex covers, stop for Dan's pick, then Blotato on the next Thursday dedicated slot.
-- [Getting Abs + Supplements SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Fire when Muhammad's HQ exports of both arrive. Claude Opus 5.5, high.** DS-02 and DS-03 finalized 2026-10-22; light-check HQ, five Codex covers each, stop for picks, Blotato.
+- [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Start now (cable crunch footage and Muhammad's HQ V4 both in, 2026-10-26). Claude Opus 5.5, high.** CONTENT SFC DS-01: swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on the HQ, everything else untouched; review page, stop.
+- [Muhammad Shorts Batch A SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Start now (HQ exports in and checked 2026-10-26). Claude Opus 5.5, high.** Getting Abs, Supplements, Top 3 Ways AI, Weigh Daily (DS-02/03/07/11): five Codex covers each, stop for picks, Blotato.
+- [Muhammad Shorts Batch B SFC Setup](handoff-20261026-muhammad-shorts-batch-b-sfc-setup.md): **Start now. Claude Opus 5.5, high.** Body Fat Percentage, Zepbound Helped Me, #1 Change At 40 (DS-06/10/13): HDs approved since 10-19, never set up; five Codex covers each, stop for picks, Blotato.
 - [Mac mini M6 Render Node](handoff-20261021-mac-mini-m6-render-node.md): **Fire after the Mac mini arrives (Nov 11-18) and the Thunderbolt cable is connected. Claude Opus 5.5, high.** Tooling. Thunderbolt Bridge link, SSH, toolchain parity, second pool in the render queue with identical-output proof, benchmark for the keep-or-sell call.
 - [Render throughput plan](handoff-20261021-render-throughput-plan.md): **Phase 1 start now (2026-10-21). Claude Opus 5.5, high.** Tooling. Diagnosis: queue counts steps not cores/GB (swap full, kernel 27% CPU), house chroma key is half of all heavy time and gets re-run 3x per clip for calibration, iCloud syncs the project folder (one core all day). Phase 1 render queue v3 (core + memory budgets), Phase 2 cheap key with identical gated output, Phase 3 extra compute only if still needed. Phase 0 is Dan: iCloud Desktop & Documents off, Spotlight off on work drives.
 - [First Step Abs AD Setup](handoff-20261021-ra12-setup.md): RA-12 approved 9:16 (2026-10-21): five Codex thumbnails, stop for Dan's pick, Unlisted upload, trial campaign. Opus 5.5 high.
@@ -42,7 +50,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [Arms Shoulders Workout LFC R5](handoff-20261023-ro04-round5-celebration-preview.md) | **EXECUTED: continuation started2026-10-23. GPT-6.1 Sol, high.** Larger centered titles/replay text and celebratory confetti in completion-card approval preview; original crop remains pending. Production waits for edit slot, automatic resume active. |
 | [Fat Millionaire SFC R4](handoff-20261016-ds05-correct-version.md) | **Exact-file owner decision pending (2026-10-16), Codex. GPT-6 Sol / Medium.** Corrected review copy and F3 TikTok preparation verified. Full checks: 30 pass, 2 retained-source failures, 0 missing, 7 N/A; 43 independent images clear. No active worker. Posting held; no upload or booking. |
 | [Top 1 Percent LFC R5](handoff-20261017-ro26-round5-every-man-cut-hyperframes-recap.md) | **COMPLETE, approved and finalized 2026-10-17.** Exact approved film, subtitles and complete QA filed in Codex Content Videos/Top 1 Percent - RO-26 with verified Extreme backup. Historical gate FAIL remains 31 PASS/8 FAIL; whole-film approval recorded separately. Setup continues in the handoff above. |
 | [handoff-20261015-ro18-round2-full-film.md](handoff-20261015-ro18-round2-full-film.md) | **Ready 2026-10-18: Dan answered the round 1 page. Claude Opus 5.5 / High. Card `Make Time Exercise LFC R2`.** How To Make Time For Exercise & Nutrition (RO-18, LFC), round 2: camera opener (A1 dropped), Flow motion for A2, A6, A7, A8, A9 and their checks, new college-age clips for C36 and C37, then the full film, every gate, independent review, deliver with a timestamped revision list. |
@@ -165,6 +172,10 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [August 3 Footage Offload](handoff-20261025-shoot0803-raw-footage-offload.md): **COMPLETED 2026-10-25.** All 1,001 raw files verified on Expansion/Drive and removed from Extreme; older Shorts repair inputs preserved, global pause unchanged. [Receipt](../Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md).
+
+- 2026-10-25: [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md) executed. Dan selected Codex R5 and approved cover design 1 R3. Setup complete; shared waiting list for Dec 31, 9 AM Central. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+
 | Document | Why |
 |---|---|
 | [Top 1 Percent SFL Setup](handoff-20261023-sl17-top-1-percent-shorts-covers-and-setup.md) | EXECUTED 2026-10-23: covers 1 C, 2 C, 3 F (revised); all three on the waiting list Oct 30 / Nov 6 / Nov 30 tied to RO-26. Receipt `Docs/SL17_SETUP_RECEIPT_20261023.md`. |
@@ -194,6 +205,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Date | Document | Subject |
 |---|---|---|
+| [Arms Shoulders Workout LFC R5](handoff-20261023-ro04-round5-celebration-preview.md) | **EXECUTED 2026-10-25.** Revised completion preview rendered/checked, delivered at9191; new completion and unchanged closer crop await Dan. No full-film rebuild. Receipt in Media/video-edits/RO-04/round5. |
 | 2026-10-20 | [Skip List Carousel R2](handoff-20261020-skip-list-carousel-redesign.md) | EXECUTED 2026-10-20: Dan picked cover A (navy gym stack), kept "at 40". 9 slides queued once on Instagram @danrosefit for Sat Oct 24 noon CT (Blotato schedule 5826205, verified by hash); finals in `Short-form video content/instagram-danrosefit/carousel-skip-list-r2/`, public Drive folder `1ORREG5GbagpW7lRkXfYf7AdFOgUkoMRu`. Script: `scripts/blotato/skiplist_r2_queue.py`. |
 | 2026-10-20 | [Invest In Your Health LFC Setup](handoff-20261020-ro20-ro20b-thumbnails-and-video-setup.md) | EXECUTED 2026-10-20: RO-20/RO-20B thumbnails picked (A7 piggy bank, B7 Skid Row T3), configs, media, FB covers, waitlist for Sun Nov 22 / Sun Nov 29. [Receipt](../Docs/RO20_RO20B_SETUP_RECEIPT_20261020.md) |
 | 2026-10-20 | [Arms Shoulders Workout LFC R3](handoff-20261020-ro04-round3-color-b-full-film.md) | EXECUTED: complete workout delivered for Dan review at http://127.0.0.1:8974/. [Receipt](video-editing/ro04-round3-plan/review-receipt.json). |

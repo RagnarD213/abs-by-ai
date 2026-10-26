@@ -58,19 +58,19 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | BLOCKED | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY | S |
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | FINALIZED | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | FINALIZED | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
 | [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | BLOCKED | S |
-| [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | IN PROGRESS | S |
-| [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | IN PROGRESS | S |
+| [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | FINALIZED | S |
+| [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | FINALIZED | S |
 | [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | UPLOADED | S |
 | [DS-09](DS-09-how-to-make-time-to-work-out.md) | How To Make Time To Work Out | C1659 | UPLOADED | S |
-| [DS-10](DS-10-3-unexpected-ways-zepbound-helped-me.md) | 3 Unexpected Ways Zepbound Helped Me | C1660 | IN PROGRESS | S |
-| [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | IN PROGRESS | S |
+| [DS-10](DS-10-3-unexpected-ways-zepbound-helped-me.md) | 3 Unexpected Ways Zepbound Helped Me | C1660 | FINALIZED | S |
+| [DS-11](DS-11-why-you-must-weigh-yourself-daily.md) | Why You Must Weigh Yourself Daily | C1660 | FINALIZED | S |
 | [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | UPLOADED | S |
-| [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | IN PROGRESS | S |
+| [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | FINALIZED | S |
 | [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | FINALIZED | S |
 | [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | IN PROGRESS | S |
 | [DS-16](DS-16-how-to-lose-the-last-ten-pounds.md) | How To Lose The Last Ten Pounds Of Fat | C1662 | IN PROGRESS | S |
@@ -82,7 +82,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
 | [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | UPLOADED | S |
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | IN PROGRESS | S |
-| [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | IN PROGRESS | S |
+| [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | FINALIZED | S |
 | [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | FINALIZED | S |
 | [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | FINALIZED | S |
 | [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | UPLOADED | S |
@@ -96,12 +96,12 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-01](RO-01-keep-your-muscle-on-zepbound.md) | How To Keep Your Muscle On Zepbound | 8/14 C1605–08 (27 min) | UPLOADED | L |
 | [RO-02](RO-02-the-vacuum-explainer.md) | The Vacuum: Best Ab Exercise For Belly Fat | 8/14 C1614–29 (26 min) | UPLOADED | L |
 | [RO-03](RO-03-the-vacuum-workout-only.md) | The Vacuum — Workout Only | 8/14 C1625 | UPLOADED | S |
-| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | DELIVERED: awaiting Dan | S |
+| [RO-04](RO-04-arms-shoulders-workout-only.md) | Arms & Shoulders — Workout Only | 8/3 C1586 | FINALIZED | S |
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | UPLOADED | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | FINALIZED | L |
 | [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | FINALIZED | L |
-| [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | IN PROGRESS | M |
+| [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | UNEDITED: old edit scrapped, redo from scratch | M |
 
 **9/23 shoot shorts (portrait, C1719-C1720)**
 
@@ -127,7 +127,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
-| [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | **NEEDS DAN** | L |
+| [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | DELIVERED: awaiting Dan | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | FINALIZED | L |
 | [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | FINALIZED | L |
 | [RO-20B](RO-20-invest-more-in-your-health.md) | What To Cut To Afford Getting In Shape (part 2 of 3, split from RO-20 on 10-11) | 8/3 C1511 (69 min) | FINALIZED | L |
@@ -152,7 +152,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 |---|---|---|---|---|
 | [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | FINALIZED | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
-| [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | IN PROGRESS | S |
+| [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | READY | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |
@@ -164,7 +164,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
-| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | READY | S |
+| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | DRAFT: asset choices waiting for Dan | S |
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | READY | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
@@ -172,7 +172,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
-| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | DRAFT: asset choices waiting for Dan | S |
+| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | FINALIZED | S |
 | [DS-56](DS-56-the-only-ab-exercise-that-hits-all-4-ab-muscles.md) | The Only Ab Exercise That Hits All 4 Ab Muscles | 10/15 C1765-C1766 | READY | S |
 | [DS-57](DS-57-why-i-train-with-a-timer-instead-of-counting-reps.md) | Why I Train With A Timer Instead Of Counting Reps | 10/15 C1777 | READY | S |
 | [DS-58](DS-58-3-exercises-you-can-do-in-one-commercial-break.md) | 3 Exercises You Can Do In One Commercial Break | 10/15 C1777-C1778 | BLOCKED: home B-roll: the couch when the game cuts to a commercial, then the exercises in front of the projector | S |
@@ -189,7 +189,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-69](DS-69-clavicular-recommends-retatrutide-hes-wrong.md) | Clavicular Recommends Retatrutide. He's Wrong. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-70](DS-70-clavicular-says-hair-is-life-hes-right.md) | Clavicular Says Hair Is Life. He's Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-71](DS-71-why-i-only-do-3-sets-per-exercise.md) | Why I Only Do 3 Sets Per Exercise | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
-| [DS-72](DS-72-why-cables-beat-dumbbells-for-building-muscle.md) | Why Cables Beat Dumbbells For Building Muscle | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document; also needs gym cable B-roll | S |
+| [DS-72](DS-72-why-cables-beat-dumbbells-for-building-muscle.md) | Why Cables Beat Dumbbells For Building Muscle | next shoot | BLOCKED: spoken recording still required; cable B-roll ready | S |
 | [DS-73](DS-73-why-i-do-a-total-body-workout-every-day.md) | Why I Do A Total Body Workout Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-74](DS-74-why-i-work-out-first-thing-in-the-morning.md) | Why I Work Out First Thing In The Morning | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-75](DS-75-why-you-must-train-your-abs-every-day.md) | Why You Must Train Your Abs Every Day | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
@@ -205,7 +205,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | IN PROGRESS | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
-| [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | DELIVERED: awaiting Dan | L |
+| [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | IN PROGRESS | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
 | [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 | BLOCKED: gym B-roll of the exercises (next gym shoot) | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
@@ -213,6 +213,45 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-35](RO-35-20-minute-jump-rope-and-dumbbell-full-body-workout.md) | 20-Minute Jump Rope And Dumbbell Full Body Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-36](RO-36-15-minute-jump-rope-and-abs-workout.md) | 15-Minute Jump Rope And Abs Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 
+
+### 1C4 · 10/23 shoot: verified filmed content
+
+Thirty dedicated Shorts and two long-form recordings. Working content sources: Extreme. Exact private source/take maps are linked from each brief; library assets are checked and backed up. No edits launched.
+
+| job | video | roll | status | size |
+|---|---|---|---|---|
+| [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | READY | S |
+| [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | READY | S |
+| [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | READY | S |
+| [DS-79](DS-79-how-to-do-chest-flies-with-dumbbells.md) | How To Do Chest Flies With Dumbbells | 10/23 C1882, C1883 | READY | S |
+| [DS-80](DS-80-how-to-do-cable-crunches.md) | How To Do Cable Crunches | 10/23 C1884 | READY | S |
+| [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
+| [DS-82](DS-82-the-only-3-leg-exercises-i-do-every-week.md) | The Only 3 Leg Exercises I Do Every Week | 10/23 C1885, C1886 | READY | S |
+| [DS-83](DS-83-how-to-use-the-leg-press-without-wrecking-your-knees.md) | How To Use The Leg Press Without Wrecking Your Knees | 10/23 C1886 | READY | S |
+| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | IN PROGRESS | S |
+| [DS-85](DS-85-how-to-use-the-glute-bridge-machine.md) | How To Use The Glute Bridge Machine | 10/23 C1887 | READY | S |
+| [DS-86](DS-86-how-to-do-lat-pulldowns.md) | How To Do Lat Pulldowns | 10/23 C1887 | READY | S |
+| [DS-87](DS-87-how-to-do-seated-cable-rows.md) | How To Do Seated Cable Rows | 10/23 C1887 | READY | S |
+| [DS-88](DS-88-how-to-use-the-chest-press-machine.md) | How To Use The Chest Press Machine | 10/23 C1887, C1888 | READY | S |
+| [DS-89](DS-89-how-to-use-the-shoulder-press-machine.md) | How To Use The Shoulder Press Machine | 10/23 C1888 | READY | S |
+| [DS-90](DS-90-how-to-do-dips-and-what-to-do-if-you-can-t-do-one.md) | How To Do Dips (And What To Do If You Can't Do One) | 10/23 C1888 | READY | S |
+| [DS-91](DS-91-how-to-do-decline-sit-ups.md) | How To Do Decline Sit-Ups | 10/23 C1889 | READY | S |
+| [DS-92](DS-92-how-to-do-incline-dumbbell-press.md) | How To Do Incline Dumbbell Press | 10/23 C1889 | READY | S |
+| [DS-93](DS-93-how-to-do-preacher-curls.md) | How To Do Preacher Curls | 10/23 C1889 | READY | S |
+| [DS-94](DS-94-how-to-use-the-stairmaster-to-burn-fat.md) | How To Use The Stairmaster To Burn Fat | 10/23 C1891 | READY | S |
+| [DS-95](DS-95-what-to-do-your-first-day-at-the-gym.md) | What To Do Your First Day At The Gym | 10/23 C1891 | READY | S |
+| [DS-96](DS-96-how-to-pick-the-right-weight-on-every-exercise.md) | How To Pick The Right Weight On Every Exercise | 10/23 C1891 | READY | S |
+| [DS-97](DS-97-how-to-stop-feeling-embarrassed-at-the-gym-when-you-re-fat.md) | How To Stop Feeling Embarrassed At The Gym When You're Fat | 10/23 C1891 | READY | S |
+| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | READY | S |
+| [DS-99](DS-99-why-i-use-machines-and-cables-instead-of-barbells-at-41.md) | Why I Use Machines And Cables Instead Of Barbells At 41 | 10/23 C1891 | READY | S |
+| [DS-100](DS-100-the-3-gym-exercises-i-never-do.md) | The 3 Gym Exercises I Never Do | 10/23 C1892 | READY | S |
+| [DS-101](DS-101-the-only-2-exercises-you-need-for-a-wide-back.md) | The Only 2 Exercises You Need For A Wide Back | 10/23 C1892 | READY | S |
+| [DS-102](DS-102-why-i-don-t-do-flat-bench-press.md) | Why I Don't Do Flat Bench Press | 10/23 C1892 | READY | S |
+| [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
+| [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
+| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | IN PROGRESS | S |
+| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | READY | L |
+| [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | READY | L |
 
 ### 1E · Website VSLs, 9/23 shoot (2)
 
@@ -241,15 +280,15 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | UPLOADED | S |
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | UPLOADED | S |
-| [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | DELIVERED: awaiting Dan | S |
+| [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Dec 30 target, waitlisted after Dan authorized queue displacement Oct 17) | READY | S |
-| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | READY | S |
+| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | IN PROGRESS | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | UPLOADED | S |
-| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | IN PROGRESS | S |
+| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | DELIVERED: awaiting Dan | S |
 
 | [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | UPLOADED | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
@@ -258,6 +297,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
 | [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7) | READY: approved parent filed; due Dec 6 | S |
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
+| [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
