@@ -24,7 +24,9 @@ Keep this file current: when something is filmed, delete its row and note the ro
 
 ## 1. Quick pickups (about 15 minutes total)
 
-**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). Nothing left in this section.
+**SL-11, The Vacuum, Short B (added 2026-10-26):** one new studio opening, clip-on mic, read twice. Proposed recommended wording: “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.” Dan selected Short B; exact new line remains for his confirmation. Joins the existing film on “So when they do the vacuum, they inhale, but they hold their breath.” This pickup has not been filmed. The edit task prepares everything else meanwhile. Detail: `Handoffs/video-editing/SL-11-SHORTLIST-R1.md`.
+
+**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). The new SL-11 opening above remains to film.
 
 These are tiny. Shoot them at the start of the next session while the lights are already up.
 

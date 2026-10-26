@@ -2,7 +2,9 @@ CONTENT (SFL) | SL-11 | The Vacuum SFC R1
 
 # Segment picks, 2026-10-26
 
-Awaiting Dan's picks. No cuts, graphics, previews, gates, audits, covers, uploads or schedules have been produced. Chat title follows Dan's exact requested SFC name; these are SFL internally. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`.
+Dan selected **A, B, C** on 2026-10-26: “Okay my picks for the shorts: let's do A, B, C”. Segment/content selection is approved. New graphics, vertical crops, the B pickup and finished films are not yet approved. Work: `/Volumes/Extreme/_edit_work/SL-11/round1/`. Chat title follows Dan's exact requested SFC name; these are SFL internally. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`.
+
+Asset review is being prepared at `http://127.0.0.1:9411/` (managed review service; cache survives the work drive going away). Selected three complete Shorts are not yet assembled. B needs the studio opening on `Docs/NEXT_SHOOT_LIST.md`, exact line pending Dan. Preserve this phase as R1 asset approval, not film delivery or final approval. The remaining work after approval is full assembly, exact-file audio/delivery gates, 540p copies and full-file independent audit. No uploads or covers.
 
 Source: `claude edited long form content/12 - The Vacuum The Best Ab Exercise For Belly Fat/The Vacuum The Best Ab Exercise For Belly Fat | claude round 3 | 16x9 | RO-02.mp4`.
 SHA256 verified in this session: `24d71e04f1d952c3809b82e25c10f388fe722c12f7258d9c7cd1cb24d874996d`.
@@ -100,4 +102,12 @@ Complete spoken transcript:
 4. Once relevant assets are approved, finish the chosen cuts, run current audio and delivery gates on exact files plus 540p copies and independent full-file audit. User explicitly authorized independent audit. Do not call unrun/failed checks passes. No uploads or scheduling.
 5. Deliver `Short-form video content/vacuum-short<N>_<title>.mp4`, review page/540p copies, VLC copies, A/B and stamps, notes and reproducible recipe. Create/update `vacuum-SHORTS.md`, mark SL-11 delivered only when actual review videos are supplied. Keep review state distinct from Dan's approval. Articles are handled after release by sixpackabs-article-gap-daily.
 
-Read so far: 00-RULES, SL-11 handoff, all shared VIDEO-RULES, current `/shorts` front rules and Steps 0–3 selection sections, edit-queue instructions, historical Codex environment table, RO-02 corrected SRT, SL-07/SL-08 final selection notes. Remaining production-only skill/reference sections deliberately deferred until the picks boundary. No audit or quality claim is made for text proposals.
+Production reading completed after picks: full `/shorts`, shared video rules, pre-render approval, graphics standards, HyperFrames plumbing/vertical templates, framing motion, cut continuity, Soft Blue SL-03/07/15 and parent RO-02 recipe. The source clean-picture caches had been purged; camera picture was reconstructed from archived original C1622–C1626 rolls using the exact parent LUTs and cut metadata. Parent colour comparison measured mean RGB differences 2.2/3.1 (median2), consistent with encoding differences. Audio remains the approved master mix with no new voice chain.
+
+## R1 asset packet checkpoint
+
+Work: `/Volumes/Extreme/_edit_work/SL-11/round1/`. Every original, audit and rejected intermediate is preserved. The packet contains nine core stills, A/B optional closer stills, nine short motion contexts and the isolated 22-second source demonstration. The too-tight C comparison is rejected for a cropped elbow and omitted. All new graphics use moving Soft Blue Light HyperFrames. The isolated exercise has intentional silence.
+
+Still audits: `asset-audit.json`, `asset-repair-audit.json`, `final-still-audit.json`. Independent motion review found gesture and strip conflicts that were absent in selected stills; repair changed illustrative context intervals for A-step2/3 and B-recover, moved B's strip/caption lower, then exact clips are rechecked. These are asset-context checks only. No finished-film gate or full-film audit has run.
+
+Representative preview windows are not a license to crop essential action elsewhere in the finished films. Preserve complete exercise movement. Use an explicitly wider complete-picture treatment when gestures need it; never hide these conflicts by pretending the preview covers the whole film. Segment words and joins still require audible/native-frame review on the actual full cuts.
