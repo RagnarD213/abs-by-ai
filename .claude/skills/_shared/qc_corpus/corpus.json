@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-20",
+  "updated": "2026-10-25",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work"
@@ -3829,6 +3829,90 @@
       "must_trigger": [],
       "must_pass": [],
       "notes": "Scoped creative revision: closer safe overhead crop and exact new completion screen; not an audio/color rejection. Automated creative-layout coverage is pending; no threshold changes."
+    },
+    {
+      "id": "sl08-a-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short1_why-i-fast-until-2-pm-every-day.mp4",
+      "sha256": "f8a1ff8a1574542dd380bcdb29eb298d2d060e3a4a82b8987c2aad3c48b39eed",
+      "bytes": 65786638,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-b-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short2_eat-a-salad-first-to-eat-less.mp4",
+      "sha256": "4f3bb0e411aef33afddb45dbc5932d32c3c5602f3c3a36f976c8a8eb3663f01e",
+      "bytes": 127066185,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-c-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short3_stop-drinking-your-calories.mp4",
+      "sha256": "72c98cc9bb88ce9826391659c7f1dcf52c076bececa85502c9a0e91216c0edae",
+      "bytes": 131694826,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-d-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short4_snack-on-protein-not-carbs.mp4",
+      "sha256": "28762ad176e04aa8e644e0c03b5df9b8d630982a8b1c06563ed0e53dbb87f6c0",
+      "bytes": 77017594,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-e-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short5_make-fasting-easier-with-black-coffee.mp4",
+      "sha256": "99dbc301401f3eb98e6aff6200f9b97dc3459621f7bd4bdf92c283f9b69d4ddf",
+      "bytes": 85268591,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "ds20-countertop-colour-r2-20261025",
+      "verdict": "rejected",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Videos to Review/Five Levels Of Pushups SFC R2 - full short.mp4",
+      "sha256": "6c3efcf6e66223aca58a1db3f0e8b3fd8e2a5e661d1b46ffef94c07594c79577",
+      "bytes": 63777779,
+      "excerpt": [
+        3.5,
+        8
+      ],
+      "dan": "For the countertop pushup footage is this the color-corrected clip? I feel like it's not color corrected // Make it look as similar to the other B-roll in the video as you can",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "R2 had light curve, contrast1.03, saturation1.08 and slight warm balance, but did not visibly match the other exercise B-roll. No automated skin/scene colour-match verdict is implemented; human rejected control.",
+      "notes": "R3 colour-only fix, source/geometry/audio/timing locked. No gate or threshold changes authorized.",
+      "human_coverage_gap": "Human scene-to-scene colour matching is not automated. Exact-file/filter-presence checks do not prove a good visible match. Retain this control until a validated match check exists."
     }
   ]
 }
