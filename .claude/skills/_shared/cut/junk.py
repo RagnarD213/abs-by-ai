@@ -71,7 +71,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(HERE)))
 
 from _shared.cut import speech as S                          # noqa: E402
 
-REPORT_VERSION = "1.0.0"
+REPORT_VERSION = "1.1.0"   # 1.1.0 2026-10-25: REPEAT keeps parallel example pairs (`_parallel`)
 
 # The detectors' PROVEN defaults, carried from the scripts they came from. These are detector
 # settings, not delivery bounds: what makes a file FAIL lives in _shared/deliver/formats.py.
@@ -273,6 +273,68 @@ def _sim(a, b):
     return difflib.SequenceMatcher(None, a, b).ratio() if a and b else 0.0
 
 
+# PARALLEL: a deliberate example pair, not a re-take. Measured on SL-16 short 1 (2026-10-25): "So if
+# you wake up at 9am like me, you eat lunch at 2 o'clock.[0.66 s] If you wake up at 7am, that means
+# you eat lunch at noon." The 0.66 s is the full stop between two complete sentences, and the two
+# copies differ in the ITEM SLOT (9 -> 7) right after the repeated words.
+PARALLEL_MIN_CLAUSE = 5   # words the first copy says after the repeat before it can be a complete sentence
+PARALLEL_SLOT = 3         # the contrast must be the FIRST difference, within this many words of the repeat
+PARALLEL_MAX_SIM = 0.8    # continuations this alike are the same sentence said twice, whatever the slot
+_SENT_END = re.compile(r"[.?!]['\"”’)]*$")
+_NUMBER_WORDS = set("""zero one two three four five six seven eight nine ten eleven twelve thirteen
+    fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty
+    ninety hundred thousand million billion half quarter dozen first second third fourth fifth sixth
+    seventh eighth ninth tenth noon midnight am pm percent""".split())
+
+
+def _contrast_token(tok, raw):
+    """A word that names a contrasting item: a number, a time, or a proper name (capitalised mid-sentence)."""
+    if re.search(r"\d", tok) or tok in _NUMBER_WORDS:
+        return True
+    word = re.sub(r"^[^A-Za-z]+", "", raw.strip())
+    return bool(word) and word[0].isupper() and tok not in ("i", "i'm", "i've", "i'll", "i'd")
+
+
+def _parallel(toks, j, i, n, breaks):
+    """The repeat at toks[j] / toks[i] is a deliberate parallel pair: (1) the first copy finishes a
+    sentence of ≥ PARALLEL_MIN_CLAUSE words before the second begins, (2) every hesitation sits in
+    that sentence break, none inside either copy, and (3) the continuations differ first in a
+    contrasting slot (a number, a time, a name) within PARALLEL_SLOT words of the repeat and are not
+    near-identical. Returns the contrast as "9 → 7", or None. A restart fails at least one: an
+    abandoned first copy has no finished sentence, a re-take says the same item again, a correction
+    ("...lunch at 2. If you wake up at 9am, you eat lunch at 3") keeps the slot and changes a later word."""
+    k = 0                                      # the repeated run's real start (the gram may begin mid-run)
+    while j - k - 1 >= 0 and i - k - 1 > j and toks[i - k - 1][2] == toks[j - k - 1][2]:
+        k += 1
+    i0 = i - k
+    cont_a = [x[2] for x in toks[j + n:i0]]
+    if len(cont_a) < PARALLEL_MIN_CLAUSE:
+        return None
+    # the first copy's sentence ends on one of the last two words before the second copy (one
+    # connective allowed: "o'clock. So if you...")
+    ends = [m for m in (i0 - 1, i0 - 2) if m >= j + n and _SENT_END.search(toks[m][3].strip())]
+    if not ends:
+        return None
+    m = ends[0]
+    bound_lo, bound_hi = toks[m][1] - 0.05, toks[i0][0] + 0.05
+    first_t, second_end = toks[j][0], toks[min(i + n - 1, len(toks) - 1)][1]
+    for b0, b1 in breaks:
+        if b1 > first_t and b0 < second_end and not (b0 >= bound_lo and b1 <= bound_hi):
+            return None                        # a hesitation inside a copy: a restart's signature
+    cont_b = [x[2] for x in toks[i + n:i + n + len(cont_a) + 2]]
+    if _sim(cont_a, cont_b) >= PARALLEL_MAX_SIM:
+        return None
+    ops = [o for o in difflib.SequenceMatcher(None, cont_a, cont_b, autojunk=False).get_opcodes() if o[0] != "equal"]
+    if not ops or ops[0][0] != "replace" or ops[0][1] >= PARALLEL_SLOT or ops[0][3] >= PARALLEL_SLOT:
+        return None
+    _, a0, a1, b0_, b1_ = ops[0]
+    a_raw = [(toks[j + n + x][2], toks[j + n + x][3]) for x in range(a0, a1)]
+    b_raw = [(toks[i + n + x][2], toks[i + n + x][3]) for x in range(b0_, b1_)]
+    if not (any(_contrast_token(t, r) for t, r in a_raw) and any(_contrast_token(t, r) for t, r in b_raw)):
+        return None
+    return f"{' '.join(t for t, _ in a_raw)} → {' '.join(t for t, _ in b_raw)}"
+
+
 def detect_repeats(words, gaps=(), n=REPEAT_N, window=REPEAT_WINDOW):
     """REPEAT: a repeated n-gram within `window` seconds, classified by HOW it was delivered.
 
@@ -297,6 +359,10 @@ def detect_repeats(words, gaps=(), n=REPEAT_N, window=REPEAT_WINDOW):
       "We have an AI personal trainer, which… We have an AI nutritionist, which…" -- a fluent
       parallel structure whose items differ. His rhetorical repeats are deliberate; only
       re-INTRODUCTIONS of the same item are junk (longform-edit junk rule 3).
+      A pair that measures as a RESTART is ANAPHORA (measure `parallel`) when `_parallel` holds: the
+      first copy finished a sentence, the only hesitation is that full stop, and the second copy
+      changes the item slot to a contrasting number, time or name. SL-16 short 1, 2026-10-25: "...you
+      eat lunch at 2 o'clock.[0.66 s] If you wake up at 7am..." (no bound was changed for it).
     """
     toks = [(w["t"], w["e"], S.norm(w["w"]), w["w"]) for w in words if S.norm(w["w"])]
     stretched = [(w["t"], w["e"]) for w in words if w["e"] - w["t"] > STRETCH_MIN]
@@ -333,7 +399,13 @@ def detect_repeats(words, gaps=(), n=REPEAT_N, window=REPEAT_WINDOW):
             # measured on rev 2 (2026-09-24): "the photographer was a little bit better And[0.86 s]
             # I was a little bit leaner" is a list with a breath, not a restart -- a WEAK re-say
             # needs a STRONG hesitation (Dan's 4:00 take: 1.6 s + 1.46 s) before it counts
-            if (brk and resaid_strong) or (brk_strong and resaid_weak):
+            restart = (brk and resaid_strong) or (brk_strong and resaid_weak)
+            contrast = _parallel(toks, j, i, n, breaks) if restart else None
+            if contrast:
+                kind, conf = "ANAPHORA", "low"
+                action = (f"keep -- a deliberate parallel pair: the first copy finishes its sentence and "
+                          f"the second changes the item ({contrast}); the pause is the full stop")
+            elif restart:
                 kind = "RESTART"
                 conf = "high" if resaid_strong else "medium"
                 action = ("junk: cut the whole restated sentence back to the first copy's start "
@@ -351,7 +423,8 @@ def detect_repeats(words, gaps=(), n=REPEAT_N, window=REPEAT_WINDOW):
                              dict(gram=g, first=round(toks[j][0], 2), second=round(t, 2),
                                   gap_s=round(t - toks[j][0], 2), kind=kind, hesitation=brk,
                                   continuation_similarity=round(sim, 2), whole_similarity=round(whole, 2),
-                                  item_similarity=round(head, 2), words_between=len(cont_a)),
+                                  item_similarity=round(head, 2), words_between=len(cont_a),
+                                  **(dict(parallel=contrast) if contrast else {})),
                              action, conf))
         seen[g] = i
     # one row per (first, second) pair: the same restart repeats for every n-gram inside it

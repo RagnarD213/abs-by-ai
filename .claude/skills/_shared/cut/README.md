@@ -46,6 +46,13 @@ python3 .claude/skills/_shared/cut/tests/test_junk.py      # the fixture; run.py
   the gate on its own.
 * **ANAPHORA** (deliberate, low): everything else. *"He's trying to avoid cancer. He's trying to
   avoid skin damage."* His rhetorical repeats are deliberate; only re-introductions are junk.
+* **Parallel pair** (ANAPHORA with `parallel`, since 2026-10-25, gate 2.6.2): a pair that measures
+  RESTART is kept when the first copy **finished a sentence** (≥ 5 words after the repeat, ending
+  on . ? !), the only hesitation is **that full stop**, and the second copy changes the **item
+  slot** (first difference, within 3 words of the repeat) to a contrasting number, time or name.
+  *"…you eat lunch at 2 o'clock.[0.66 s] If you wake up at 7am…"* (SL-16 short 1, `9 → 7`) is this.
+  Still RESTART: an abandoned first copy, the same sentence twice (continuation ≥ 0.8), a
+  corrected later number with the same item, a hesitation inside either copy.
 
 **Verification.** `STRETCH`, `RESTART`/`REINTRO` and `ORPHAN` candidates are re-transcribed alone
 (4 s window, `medium.en`, `condition_on_previous_text=False`) before they count. `verified` is
