@@ -125,3 +125,9 @@ Master/queue: NEEDS DAN rev6; Drive status upload confirmed. B studio opening wo
 Dan selected exactly: “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.”
 
 Added twice to the PICKUPS section at the top of the current native studio shoot document: https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg . Local teleprompter-only copy: `Docs/PICKUPS_NEXT_STUDIO_SHOOT.txt` (not loaded into PromptSmart in this task). This approves wording only, not framing/graphics, filming, completed edits or publication.
+
+## Framing/graphics approved; Yeti-first pickup, 2026-10-26
+
+Dan: “Okay framing and graphics look good.” Approval binds the21media/still files in `framing-graphics-approval.json`, not completed Shorts or publication. Preserve those approved file hashes. Full assembly, joins, final caption timing, gates and finished-file audit remain.
+
+Dan explicitly overrides the studio-only pickup route for this attempt: he will record the approved opening with his Yeti now. Test it against the original shoot mix. If it does not blend, he authorizes trying an AI-generated version of his own voice matched to the shoot. Neither a recording nor an AI version exists yet. No generation/spend has occurred. Do not ask him to approve the wording or shown framing/graphics again. Studio pickup is fallback only while this test is pending.
