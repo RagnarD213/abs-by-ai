@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-01:R4-REVIEW:9101:2026-10-26:Claude**
+**DS-01:R4-REVIEW:9101:2026-10-26:Claude;push-bcf3400-local**
 
 **DS-02/03/07/11 setup COVERS 2026-10-26, Claude.**
 
