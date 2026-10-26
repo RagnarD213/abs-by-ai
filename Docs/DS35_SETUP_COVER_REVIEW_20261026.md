@@ -1,3 +1,5 @@
+**Installed and scheduled 2026-10-26:** Dan approved design 2 R3 title-case covers, then Saturday December 19 at 9 AM Central. Both exact covers installed; four schedules verified. Current receipt: `Docs/DS35_SETUP_RECEIPT_20261026.md`. Earlier review-round notes below are history.
+
 # CONTENT SFC: Dad Bod setup cover review, 2026-10-26
 
 ## Current: cover round 3, revised design 2 awaiting approval
