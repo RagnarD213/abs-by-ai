@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 Footage Processing - ACTIVE 2026-10-25, Codex.** All159 kept Color C clips passed current checks and three-copy verification. One defective lunge section is archived outside usable searches; originals preserved. Next: final catalog/Sheet,32 filmed-content queue entries, finished gallery. Dispatcher paused. Shared-tool pushes remain blocked by other live edits. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
+**October 23 footage Git sync - BLOCKED 2026-10-25, Codex.** Library/gallery and32 shared queue registrations verified; no media work remains. Native Claude fallback is unconfirmed, shared Drive data verified. Next: safe-push owned briefs/receipt after other live jobs/master/board edits clear; preserve mixed queue changes. Dispatcher paused, batch slot released. Receipt: `Docs/OCTOBER23_FOOTAGE_PROCESSING_RECEIPT_20261025.md`.
 
 
 **Five Minute Exercises SFC R4 - REVIEW 2026-10-25, Codex.** Complete55sShort rendered and independently picture-checked. Approved opening unchanged; Warm And Rich/voiceB/crop1 preserved. Dan reviews new0:31–0:55 at http://127.0.0.1:9176/. Numerical gate flags retained; full approval pending. Slot held at Dan’s request. Gitpush blocked by live shared edits. Receipt/next action: `/Volumes/Extreme/_edit_work/DS-55/round4/full-short/RESUME.md`.
@@ -59,9 +59,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
+**SL-16:R2-REVIEW:9116:2026-10-25:Claude.** Fasting shorts x4, new openers.
 
-**Boring Abs At 40 LFC R4 - ACTIVE 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`; slot held, heartbeat paused. Both frame pairs approved;10USD paid-motion cap. Ten isolated Fast jobs estimated8USD, provider/gate reviews underway; no unverified outputs shown. Finished-C gym candidates inspected, preacher curls still processing. Next: checked motion/context opening and gym selections. Detail: `Docs/RO27_R4_CHECKPOINT_20261025.md`.
+**Boring Abs At 40 LFC R4 - REVIEW 2026-10-25, Codex.** Sole owner `01a1748f-68e1-7912-88c1-ca7154f07ee2`; heartbeat paused, slot released for review. [First minute and12 scenes](http://127.0.0.1:9357/): watch0–4,19–25,26–33s. Tracked$9.84/$10. Dan chooses additional up to$5 for neighbour/fridge/couch retakes or camera. Full film not assembled. Checkpoint: `Docs/RO27_R4_CHECKPOINT_20261025.md`. Local3059bd5 saved; push blocked by5 live owners.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
@@ -136,7 +136,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R3 - REVIEW 2026-10-22, Claude.** Full film, page :8930. Next: Dan; then setup handoff.
 
-**Make Time Exercise LFC R3 - REVIEW :8983 2026-10-24, Claude.** Delivered; gate 36 pass + 3 known rows. Next: Dan reviews; on approval register mower/Wispr clips in library. `RO-18/round3/NOTES-R3.md`.
+**Make Time Exercise LFC R4 - ACTIVE 2026-10-25, Claude.** Dan: his Wispr Flow take (C1719) after the 1:28 card; full film rendering. Next: checks, review, page. `RO-18/round4/`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
