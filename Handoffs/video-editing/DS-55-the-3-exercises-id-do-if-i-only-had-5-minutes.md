@@ -21,11 +21,11 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md`: cut "The 3 Exercises I'd Do If I Only Had 5 Minutes" from 10/15 roll C1765 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
 
-**Codex (GPT-6 Sol, high):**
+**Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
 
-## Current R5 label revision (2026-10-26)
+## Current R5 label revision finished (2026-10-26)
 
-CONTENT · dedicated Short. [R5 review](http://127.0.0.1:9176/). All four requested labels rendered and independently checked: Bodyweight Squats in opening/full squat; Spiderman Planks in opening/main demonstration. Watch0:00–0:05,0:08–0:18,0:30–0:40. Appearance, timing, voice and captions preserved. Native/540p and actual VLCcopy ready. R5 not yet viewed by Dan; no new creative choice requested, upload or scheduling.
+CONTENT · dedicated Short. [Finished R5 Short](http://127.0.0.1:9176/). Four requested labels applied exactly: Bodyweight Squats in the opening lower panel and full squat shot; Spiderman Planks in the opening and main demonstration. Quick watch ranges0:00–0:05,0:08–0:18,0:30–0:40. Approved appearance/crops/voice/captions/timing preserved. Dan authorized these labels then finish; R5 export has not yet been viewed by him. No upload or scheduling.
 
-Fresh watch31images14boundaries, zero newvisibledefects; independently verified2573AACpackets/timestamps identicalR4. Gate2.6.1completed30PASS5FAIL0missing4NA; its known failures retained. Checkout version mismatch found: published2.6.2 is queued in isolation, without modifying live shared modules. Final delivery record waits for that genuine report. Sole owner01a17887; revision01a1787b processed once. Work/checkpoint `/Volumes/Extreme/_edit_work/DS-55/round5/`; immutable master SHA36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a. No new paid generation/downloads. Existing Dan edit-slot preference retained.
+Rendered native54.8548s/1644frames and540p; realfullqualitycopy in Videos to Review. All2573AACpackets/timestamps exactR4. Freshindependent review: no newvisibledefect,31watchimages14boundaries. Currentrawgate30PASS,5FAIL,0notmeasured,4NA; inheritedflags retained. NooveralltechnicalPASS. MasterSHA`36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a`. Receipt`Docs/DS55_R5_LABEL_REVISION_RECEIPT_20261026.json`; completecheckpoint`/Volumes/Extreme/_edit_work/DS-55/round5/RESUME.md`. Revisionalreadydelivered, do notreapply. No new externalspend/downloads. Existingexplicitedit-slotholdpreserved.
