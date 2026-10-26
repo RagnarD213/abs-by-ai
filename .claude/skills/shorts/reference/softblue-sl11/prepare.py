@@ -16,4 +16,4 @@ for t in [390,450,455,470,490,505,551,556,566,580,590,530,540]:
     meta.append(dict(t=t,shot=sh,source=src,source_t=ts,lut=lut,vf=vf))
     print(t,sh['roll'],round(ts,3),Path(lut).name,flush=True)
 (R/'sources.json').write_text(json.dumps(meta,indent=2))
-(R/'decisions.json').write_text(json.dumps(dict(date='2026-10-26',verbatim="Okay my picks for the shorts: let's do A, B, C",selected=['A','B','C'],scope='Segments selected; graphics and final films pending',owner='01a17836-0018-74b3-9c6f-5c6b3c57ba02',pickup_B='Proposed line 1; not yet recorded'),indent=2))
+(R/'decisions.json').write_text(json.dumps(dict(date='2026-10-26',verbatim="Okay my picks for the shorts: let's do A, B, C",selected=['A','B','C'],scope='Segments selected; graphics and final films pending',owner='01a17836-0018-74b3-9c6f-5c6b3c57ba02',pickup_B='Approved option1 by Dan on2026-10-26; not yet recorded'),indent=2))

@@ -1,6 +1,6 @@
 # SL-11 R1 asset review recipe
 
-CONTENT (SFL), The Vacuum, A/B/C selected by Dan on2026-10-26. Stage: asset/crop/graphics approval only. Complete Shorts, final caption timing, native joins, audio/delivery gates, 540p copies and full-file independent audit remain. B needs a new studio opening, not filmed. No covers/uploads.
+CONTENT (SFL), The Vacuum, A/B/C selected by Dan on2026-10-26. Stage: asset/crop/graphics approval only. Complete Shorts, final caption timing, native joins, audio/delivery gates, 540p copies and full-file independent audit remain. B's exact studio opening is approved on2026-10-26, not filmed. No covers/uploads.
 
 Canonical workdir: `/Volumes/Extreme/_edit_work/SL-11/round1/`. These scripts expect to live in its `recipe/` folder; this directory is a reproducibility snapshot. Copy back into that folder to run. Never execute inside parent RO-02's build. Parent metadata/LUTs are copied under own `parent/`; raw roll originals in the Expansion archive remain read-only. Exact source paths and LUTs are in `sources.json`. Original parent mix remains verbatim except encoding/cutting. Master SHA256 is recorded in the shortlist.
 

@@ -2,9 +2,9 @@ CONTENT (SFL) | SL-11 | The Vacuum SFC R1
 
 # Segment picks, 2026-10-26
 
-Dan selected **A, B, C** on 2026-10-26: “Okay my picks for the shorts: let's do A, B, C”. Segment/content selection is approved. New graphics, vertical crops, the B pickup and finished films are not yet approved. Work: `/Volumes/Extreme/_edit_work/SL-11/round1/`. Chat title follows Dan's exact requested SFC name; these are SFL internally. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`.
+Dan selected **A, B, C** on 2026-10-26: “Okay my picks for the shorts: let's do A, B, C”. Segment/content selection is approved. New graphics, vertical crops, finished films are not yet approved. B's exact opening wording is approved, not yet filmed. Work: `/Volumes/Extreme/_edit_work/SL-11/round1/`. Chat title follows Dan's exact requested SFC name; these are SFL internally. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`.
 
-Asset review is being prepared at `http://127.0.0.1:9411/` (managed review service; cache survives the work drive going away). Selected three complete Shorts are not yet assembled. B needs the studio opening on `Docs/NEXT_SHOOT_LIST.md`, exact line pending Dan. Preserve this phase as R1 asset approval, not film delivery or final approval. The remaining work after approval is full assembly, exact-file audio/delivery gates, 540p copies and full-file independent audit. No uploads or covers.
+Asset review is ready at `http://127.0.0.1:9411/` (managed review service; cache survives the work drive going away). Selected three complete Shorts are not yet assembled. B needs the studio opening on `Docs/NEXT_SHOOT_LIST.md`, exact line approved by Dan on2026-10-26, not yet filmed. Preserve this phase as R1 asset approval, not film delivery or final approval. The remaining work after approval is full assembly, exact-file audio/delivery gates, 540p copies and full-file independent audit. No uploads or covers.
 
 Source: `claude edited long form content/12 - The Vacuum The Best Ab Exercise For Belly Fat/The Vacuum The Best Ab Exercise For Belly Fat | claude round 3 | 16x9 | RO-02.mp4`.
 SHA256 verified in this session: `24d71e04f1d952c3809b82e25c10f388fe722c12f7258d9c7cd1cb24d874996d`.
@@ -42,9 +42,9 @@ Pickup options from independent dan-voice-writer pass:
 2. Here's what a lot of beginners get wrong when they do stomach vacuums.
 3. A lot of beginners make this mistake when they start doing stomach vacuums.
 
-If B is selected, obtain Dan's line choice and add it to the current shoot pickup list after checking that list. A new pickup is recorded on the studio set, not the desk mic. The rest of the edit can be prepared while it waits. The three lines above are alternatives; only one is spoken.
+Dan selected option1 exactly on2026-10-26. It is recorded on the current shoot pickup list and at the top of the native Next Studio Shoot document. A new pickup is recorded on the studio set, not the desk mic. The rest of the edit can be prepared while it waits. The three lines above are alternatives; only one is spoken.
 
-Complete proposed transcript using option 1:
+Complete transcript using Dan's approved option1 opening:
 
 > [New studio pickup:] Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.
 >
@@ -118,4 +118,10 @@ Ready for Dan at http://127.0.0.1:9411/ . Eleven current stills and all six repl
 
 Managed service cached22linked files locally; all served200 and media/image hashes matched; byte-range206 and actual browser playback/middle seek verified. `asset-review-manifest.json` binds current packet. No >=45s clip exists yet, so VLC long-review requirement applies to the future full Shorts, not these short asset examples.
 
-Master/queue: NEEDS DAN rev6; Drive status upload confirmed. B studio opening remains unfilmed and exact line pending; both this and asset approval are on Dan's decisions list. Slot released for review at delivery. Recipe/checkpoint commit is local; safe-push was blocked by live shared edits and did not merge or alter other owners' files. Do not mark this job delivered/finalized until actual complete review Shorts exist and their required checks pass.
+Master/queue: NEEDS DAN rev6; Drive status upload confirmed. B studio opening wording is approved; recording is still needed. Asset approval remains on Dan's decisions list. Slot released for review at delivery. Recipe/checkpoint commit is local; safe-push was blocked by live shared edits and did not merge or alter other owners' files. Do not mark this job delivered/finalized until actual complete review Shorts exist and their required checks pass.
+
+## B opening approved, 2026-10-26
+
+Dan selected exactly: “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.”
+
+Added twice to the PICKUPS section at the top of the current native studio shoot document: https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg . Local teleprompter-only copy: `Docs/PICKUPS_NEXT_STUDIO_SHOOT.txt` (not loaded into PromptSmart in this task). This approves wording only, not framing/graphics, filming, completed edits or publication.
