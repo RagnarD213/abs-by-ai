@@ -2,9 +2,11 @@ CONTENT (SFL) | SL-11 | The Vacuum SFC R1
 
 # Segment picks, 2026-10-26
 
-Dan selected **A, B, C** on 2026-10-26: “Okay my picks for the shorts: let's do A, B, C”. Segment/content selection is approved. New graphics, vertical crops, finished films are not yet approved. B's exact opening wording is approved, not yet filmed. Work: `/Volumes/Extreme/_edit_work/SL-11/round1/`. Chat title follows Dan's exact requested SFC name; these are SFL internally. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`.
+Dan selected **A, B, C** on2026-10-26 and approved the shown framing and graphics. Complete Shorts are being assembled and are not yet delivered or approved. Sole owner: Codex chat `01a17836-0018-74b3-9c6f-5c6b3c57ba02`; working folder `/Volumes/Extreme/_edit_work/SL-11/round1/`.
 
-Asset review is ready at `http://127.0.0.1:9411/` (managed review service; cache survives the work drive going away). Selected three complete Shorts are not yet assembled. B needs the studio opening on `Docs/NEXT_SHOOT_LIST.md`, exact line approved by Dan on2026-10-26, not yet filmed. Preserve this phase as R1 asset approval, not film delivery or final approval. The remaining work after approval is full assembly, exact-file audio/delivery gates, 540p copies and full-file independent audit. No uploads or covers.
+Dan explicitly chose a Yeti recording now, with AI-generated own voice only if the Yeti does not blend. Desktop `vaccuum pickup.aifc` was received and preserved. Take3 was selected after three blind listening comparisons. Exact-export checks then found stereo summing after the limiter had clipped the audition intermediate; it is being recreated from the untouched recording with averaging before the shared limiter. The corrected hash needs fresh listening. No fitted EQ or dereverb is used. No AI voice was generated. The earlier audition is retained as rejected processing evidence; the current opening uses `take3-peak-safe.wav`. The studio pickup is now a fallback.
+
+Approved asset review: `http://127.0.0.1:9411/`. Full assembly, exact-file gates,540p copies and independent full-file audit remain. No covers or uploads.
 
 Source: `claude edited long form content/12 - The Vacuum The Best Ab Exercise For Belly Fat/The Vacuum The Best Ab Exercise For Belly Fat | claude round 3 | 16x9 | RO-02.mp4`.
 SHA256 verified in this session: `24d71e04f1d952c3809b82e25c10f388fe722c12f7258d9c7cd1cb24d874996d`.
@@ -32,7 +34,7 @@ Complete spoken transcript:
 
 ## B. Stop Holding Your Breath During Stomach Vacuums
 
-Exercise fix. About 51–54 seconds including a new studio pickup. Film order after pickup: **8:07.405–8:42.724 → 9:35.618–9:43.518 → 9:50.378–9:53.157**.
+Exercise fix. About 51–54 seconds including the new Yeti pickup. Film order after pickup: **8:07.405–8:42.724 → 9:35.618–9:43.518 → 9:50.378–9:53.157**.
 
 Viewer gets short breaths during the hold and deep recovery breaths between sets. First five seconds: a complete active vacuum demonstration from this film under the new opening, then the original explanation. The original breathing demonstration at 8:21–8:39 is the primary picture for the small-breath instruction. The whole draw-in/hold/release is available at 8:48.535–9:10.345. Match wrong/correct demonstrations to spoken warnings. No new recording is presumed available.
 
@@ -42,11 +44,11 @@ Pickup options from independent dan-voice-writer pass:
 2. Here's what a lot of beginners get wrong when they do stomach vacuums.
 3. A lot of beginners make this mistake when they start doing stomach vacuums.
 
-Dan selected option1 exactly on2026-10-26. It is recorded on the current shoot pickup list and at the top of the native Next Studio Shoot document. A new pickup is recorded on the studio set, not the desk mic. The rest of the edit can be prepared while it waits. The three lines above are alternatives; only one is spoken.
+Dan selected option1 exactly on2026-10-26. It is recorded on the current shoot pickup list and at the top of the native Next Studio Shoot document. Dan subsequently overrode the studio route: use his Yeti recording first; try AI-generated own voice only if it does not blend. Take3 is selected after independent listening; full Short review remains. The three lines above are alternatives; only one is spoken.
 
 Complete transcript using Dan's approved option1 opening:
 
-> [New studio pickup:] Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.
+> [New Yeti pickup:] Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.
 >
 > [Join the film, skipping its dependent opening.]
 >

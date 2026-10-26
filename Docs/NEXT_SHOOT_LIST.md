@@ -24,9 +24,9 @@ Keep this file current: when something is filmed, delete its row and note the ro
 
 ## 1. Quick pickups (about 15 minutes total)
 
-**SL-11, The Vacuum, Short B (updated 2026-10-26):** studio pickup is fallback only. Dan explicitly chose a Yeti recording first, then an AI version of his own voice if the Yeti does not blend with the original shoot. Neither recording exists yet. If studio fallback is needed, use the clip-on mic and read twice. Approved wording (Dan, 2026-10-26): “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.” Dan selected this exact opening. Joins the existing film on “So when they do the vacuum, they inhale, but they hold their breath.” This pickup has not been filmed. The edit task prepares everything else meanwhile. Detail: `Handoffs/video-editing/SL-11-SHORTLIST-R1.md`.
+**SL-11, The Vacuum, Short B (updated2026-10-26):** Dan recorded the approved opening on his Yeti: “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.” Take3 is being used in the full Short; final listening and Dan's full-film review remain. Studio recording is a fallback only if Dan rejects the Yeti result. No new shoot is currently required. Detail: `Handoffs/video-editing/SL-11-SHORTLIST-R1.md`.
 
-**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). The new SL-11 opening above remains to film.
+**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). SL-11 was subsequently recorded on Yeti; see the fallback note above.
 
 These are tiny. Shoot them at the start of the next session while the lights are already up.
 
