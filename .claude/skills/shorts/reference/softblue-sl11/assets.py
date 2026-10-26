@@ -13,7 +13,7 @@ TITLES={'A':['How To Do A Standing','Stomach Vacuum'],'B':['Stop Holding Your Br
 FULL={'A':'How To Do A Standing Stomach Vacuum','B':'Stop Holding Your Breath During Stomach Vacuums','C':'Start With One 20-Second Vacuum Every Morning'}
 ITEMS=[
  dict(id='A-title',short='A',t=390,topic=None,point=None,cap='do it in',note='Title and wider presenter crop. The full film keeps its approved colour and voice.'),
- dict(id='A-step1',short='A',t=450,topic='STEP 1',point='Relax Before You Draw In',cap='consciously slump',note='The deliberate slump is shown as the starting position, not the finished exercise.'),
+ dict(id='A-step1',short='A',t=450,topic=None,point='Slump Before You Draw In',cap='consciously slump',note='The starting position is shown without a key-point bar, keeping both hands clear. The footage and captions teach the step.'),
  dict(id='A-step2',short='A',t=455,topic='STEP 2',point='Draw In And Hold',cap='suck it in',note='Keep the whole draw-in visible; do not zoom into the belly.'),
  dict(id='A-step3',short='A',t=470,topic='STEP 3',point='Use Time, Not Guesswork',cap='20 second sets',note='A compact timer instruction. The original long-form graphic is rebuilt, not sliced.'),
  dict(id='B-title',short='B',t=490,topic=None,point=None,cap='hold their breath',note='This is the original warning, not the new opening. B still needs its studio pickup.'),

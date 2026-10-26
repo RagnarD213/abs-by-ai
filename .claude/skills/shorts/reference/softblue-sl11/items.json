@@ -36,24 +36,10 @@
     "id": "A-step1",
     "short": "A",
     "t": 450,
-    "topic": "STEP 1",
-    "point": "Relax Before You Draw In",
+    "topic": null,
+    "point": "Slump Before You Draw In",
     "cap": "consciously slump",
-    "note": "The deliberate slump is shown as the starting position, not the finished exercise.",
-    "graphic": {
-      "kind": "glass",
-      "band": [
-        1118,
-        1366
-      ],
-      "box": [
-        68,
-        1130,
-        1012,
-        1306
-      ],
-      "lines": 1
-    },
+    "note": "The starting position is shown without a key-point bar, keeping both hands clear. The footage and captions teach the step.",
     "cap_top": 1412,
     "file": "stills/A-step1.jpg",
     "crop": [
