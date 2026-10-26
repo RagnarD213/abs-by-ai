@@ -99,3 +99,20 @@ specs: `ai-frame-prompts/`, `frame-specs/`.
 24. **Approved assets on Extreme get cleaned:** `ro06/round5/phone/P01-softblue.mp4` (the self-generation demo) was gone; its exact frames
     came back from round 1's 1080p render block. Copy every borrowed asset into the job's own `assets/` when a round first uses it.
 25. **zsh: `rm -f x*` with no match aborts an `&&` chain** (the first master render never started). Use `setopt null_glob` or no glob.
+
+## Round 4 lessons (2026-10-25)
+
+26. **A demo's wait never plays as silence.** The longform gate bounds inner silence at 2.0 s (`junk:dead_air`) and fails any second
+    under -50 dBFS (`audio:stream_integrity`); the voice chain's expander pulls room tone down about 9 dB, so even a room bed reads silent.
+    A screen recording's processing wait (Wispr Flow: 2.5 s after the voice) goes UNDER the next line: cut the phone to its result as the
+    speaker finishes and hold the picture over the next line (`hold_over` in resolve.py, an L-cut of picture). Round 4 v1 failed both rows.
+27. **Inserting new speech into a finished film:** add the roll to the virtual timeline (frames.ROLLS + lav.wav at an offset), splice ONE
+    shot after the anchor shot and shift every later out_f (r4_insert.py), shift words_out and the HyperFrames manifest by the same frames
+    (r4_hf_shift.py asserts each graphic keeps its old offset from its item), then prove it with a shifted frame diff (framediff_r4.py).
+    Approved framings stay put because shot ids, CROP_Y and the DP's covered joins are unchanged; compare against the last approved build.json.
+28. **A portrait roll in a 16:9 film:** give it its own framing (P: a 3:4 window of the autorotated frame placed in a panel) and paint the
+    scene from a per-item reader (build.SplitReader), not from the base frame, so the panel can run past its shot.
+29. **Sync a screen recording to the camera by the UI, not by ear:** the waveform bars' white-pixel activity (20 fps) against the lav level;
+    match the longest dip to the longest voice gap and the bars' stop to the voice's end (RO-18: recording = C1719 - 94.8 s).
+30. **The shared ffmpeg in Media/video_edit/bin queues in renderq:** a light measurement can wait 20+ minutes on a loaded machine; start it
+    in the background, never assume it hung.
