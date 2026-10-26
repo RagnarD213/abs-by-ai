@@ -44,7 +44,7 @@ def picshots(S,T):
  if S=='A': blocks=[(0,2.5,'demo',36.0,False),(2.5,T['seg'][1]['a'],'talk',None,True),(T['seg'][1]['a'],13.5,'talk',None,False),(13.5,13.5+demo_dur,'demo',1001/FPS,False),(13.5+demo_dur,T['seg'][1]['a']+477.643833333-446.586,'talk',None,False),(T['seg'][1]['a']+477.643833333-446.586,end,'talk',None,True)]
  elif S=='B':
   rest=T['seg'][2]['a'];start=rest+3.5-demo_dur
-  blocks=[(0,T['seg'][1]['a'],'demo',36.0,False),(T['seg'][1]['a'],start,'talk',None,True),(start,rest+3.5,'demo',1001/FPS,False),(rest+3.5,T['seg'][3]['a'],'talk',None,True),(T['seg'][3]['a'],end,'talk',None,False)]
+  blocks=[(0,180/FPS,'demo',36.0,False),(180/FPS,start,'talk',None,True),(start,rest+3.5,'demo',1001/FPS,False),(rest+3.5,T['seg'][3]['a'],'talk',None,True),(T['seg'][3]['a'],end,'talk',None,False)]
  else:blocks=[(0,2.5,'demo',36.0,True),(2.5,5.5,'talk',None,True),(5.5,5.5+demo_dur,'demo',1001/FPS,False),(5.5+demo_dur,34.98,'talk',None,True),(34.98,end,'talk',None,False)]
  for a,b,kind,raw0,near in blocks:
   f0=round(a*FPS);f1=min(N,round(b*FPS));a=f0/FPS;b=f1/FPS
@@ -72,7 +72,7 @@ def picshots(S,T):
 def prepare(S):
  d=R/'build'/S;d.mkdir(exist_ok=True);pieces=[];seg=[];cursor=0;words=[]
  if S=='B':
-  pickup=json.loads((R/'audio/pickup-choice.json').read_text());z=rd(Path(pickup['file']));n=len(z);overlap=2880
+  pickup=json.loads((R/'audio/pickup-choice.json').read_text());z=rd(Path(pickup['file']));n=round(math.ceil(len(z)/SR*FPS-1e-8)/FPS*SR);z=np.pad(z,((0,n-len(z)),(0,0)));overlap=2880
   # Match the tested audition: final quiet60ms overlaps the parent's100ms preroll.
   parent=pcm(*SEG[S][0]);z[-overlap:]=z[-overlap:]*np.linspace(1,0,overlap)[:,None]+parent[:overlap]*np.linspace(0,1,overlap)[:,None]
   pieces.append(z);cursor=n/SR;seg.append(dict(kind='pickup',a=0,b=cursor,text=PICKUP,audio_start=0,audio_end=cursor))
