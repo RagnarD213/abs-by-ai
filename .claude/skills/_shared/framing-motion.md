@@ -105,3 +105,7 @@ Report the four measurements via `landing.motion_stats`: travel, p90 speed, time
 ## Blue side-light studio set default (Dan, 2026-10-12)
 
 For the set shown in C1720, use approved DS-28 round2 crop pair B: both complete blue lights visible in wide, neither visible in tight. Read `Docs/STUDIO_BLUE_LIGHT_CROP_DEFAULT.md` for geometry, moving reference and approval evidence. Keep the shared land-then-hold method, hair clearance and source-specific landmark checks. This is a set-specific default, not a change to other sets or quality thresholds.
+
+## Verify runtime crop control on the installed FFmpeg (2026-10-26)
+
+On DS-105, this project's FFmpeg returned `Function not implemented` for `sendcmd` updates to `crop@C x`; with error-only logging, the crop silently stayed at its initial position. A valid tracking array and command file did not prove the delivered picture moved. Verify the command response with debug logging and compare the same source frame in the actual render. The verified fallback is a flat per-frame `x0 + d1*gte(n,1) + …` crop expression derived from the unchanged shared `landing.vertical_track` centres, evaluated after `setpts=PTS-STARTPTS`. Keep the original shot boundaries and source-frame offsets. DS-105's exact 3-second smoke and full review exports confirmed correct centring; this changes the transport of the existing track, not the framing policy or gate bounds. Evidence: the job's `round1/evidence/crop-command-debug.log`, `crop-expression-smoke.log` and `records/crop-expression.txt`.
