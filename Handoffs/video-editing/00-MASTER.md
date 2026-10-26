@@ -58,7 +58,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | READY | S |
+| [DS-01](DS-01-top-5-ab-exercises.md) | Top 5 Ab Exercises | C1654 | DELIVERED: awaiting Dan | S |
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | FINALIZED | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | FINALIZED | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
@@ -228,7 +228,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
 | [DS-82](DS-82-the-only-3-leg-exercises-i-do-every-week.md) | The Only 3 Leg Exercises I Do Every Week | 10/23 C1885, C1886 | READY | S |
 | [DS-83](DS-83-how-to-use-the-leg-press-without-wrecking-your-knees.md) | How To Use The Leg Press Without Wrecking Your Knees | 10/23 C1886 | READY | S |
-| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | IN PROGRESS | S |
+| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | DELIVERED: awaiting Dan | S |
 | [DS-85](DS-85-how-to-use-the-glute-bridge-machine.md) | How To Use The Glute Bridge Machine | 10/23 C1887 | READY | S |
 | [DS-86](DS-86-how-to-do-lat-pulldowns.md) | How To Do Lat Pulldowns | 10/23 C1887 | READY | S |
 | [DS-87](DS-87-how-to-do-seated-cable-rows.md) | How To Do Seated Cable Rows | 10/23 C1887 | READY | S |
@@ -249,7 +249,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-102](DS-102-why-i-don-t-do-flat-bench-press.md) | Why I Don't Do Flat Bench Press | 10/23 C1892 | READY | S |
 | [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
 | [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
-| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | IN PROGRESS | S |
+| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | DELIVERED: awaiting Dan | S |
 | [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | READY | L |
 | [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | READY | L |
 
@@ -283,7 +283,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Dec 30 target, waitlisted after Dan authorized queue displacement Oct 17) | READY | S |
-| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | IN PROGRESS | S |
+| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | DELIVERED: awaiting Dan | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |

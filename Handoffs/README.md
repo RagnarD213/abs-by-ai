@@ -20,7 +20,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Codex after the iCloud move](handoff-20261024-codex-icloud-repair-followup.md): **Fire now. Codex, GPT-6.1 Sol, high.** Tooling. Brief collector fixed (ef5d7a3); Codex finishes the morning brief run from the main project and checks the background move of its own folder out of iCloud (`rename.sh Codex`).
-- [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **Start now (cable crunch footage and Muhammad's HQ V4 both in, 2026-10-26). Claude Opus 5.5, high.** CONTENT SFC DS-01: swap the stock cable crunch clip (0:18.79 - 0:25.99) for Dan's footage on the HQ, everything else untouched; review page, stop.
 - [Muhammad Shorts Batch A SFC Setup](handoff-20261022-getting-abs-and-supplements-sfc-setup.md): **Start now (HQ exports in and checked 2026-10-26). Claude Opus 5.5, high.** Getting Abs, Supplements, Top 3 Ways AI, Weigh Daily (DS-02/03/07/11): five Codex covers each, stop for picks, Blotato.
 - [Muhammad Shorts Batch B SFC Setup](handoff-20261026-muhammad-shorts-batch-b-sfc-setup.md): **Start now. Claude Opus 5.5, high.** Body Fat Percentage, Zepbound Helped Me, #1 Change At 40 (DS-06/10/13): HDs approved since 10-19, never set up; five Codex covers each, stop for picks, Blotato.
 - [Mac mini M6 Render Node](handoff-20261021-mac-mini-m6-render-node.md): **Fire after the Mac mini arrives (Nov 11-18) and the Thunderbolt cable is connected. Claude Opus 5.5, high.** Tooling. Thunderbolt Bridge link, SSH, toolchain parity, second pool in the render queue with identical-output proof, benchmark for the keep-or-sell call.
@@ -172,6 +171,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **EXECUTED 2026-10-26, with Dan for review** (http://127.0.0.1:9101/). Do not fire again. After approval: finalize, file master, `/video-setup`. Notes: `/Volumes/Extreme/_edit_work/DS-01/round4/NOTES-R4.md`.
 - [August 3 Footage Offload](handoff-20261025-shoot0803-raw-footage-offload.md): **COMPLETED 2026-10-25.** All 1,001 raw files verified on Expansion/Drive and removed from Extreme; older Shorts repair inputs preserved, global pause unchanged. [Receipt](../Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md).
 
 - 2026-10-25: [Fat 90 Year Old SFC Setup](handoff-20261023-ds40-fat-90-year-old-sfc-setup.md) executed. Dan selected Codex R5 and approved cover design 1 R3. Setup complete; shared waiting list for Dec 31, 9 AM Central. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.

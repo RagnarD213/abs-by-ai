@@ -1,4 +1,4 @@
-**Current next action (2026-10-25):** the in-house R4 cable-crunch swap is ready. Use `Handoffs/handoff-20261022-top5-ab-exercises-cable-crunch-broll.md`; preserve the accepted V4 outside 18.79–25.99s. This footage-preparation task has not launched the revision. The original first-cut instructions below are historical.
+**Current next action (2026-10-26):** R4 delivered for Dan's review: Dan's own cable crunch (B0574) swapped into Muhammad's HQ V4 at 18.785-25.993, everything else unchanged. Review http://127.0.0.1:9101/; notes `/Volumes/Extreme/_edit_work/DS-01/round4/NOTES-R4.md`. After approval: finalize, file `Short-form video content/ds-01_top-5-ab-exercises.mp4`, then `/video-setup`. The original first-cut instructions below are historical.
 
 # DS-01 — "Top 5 Ab Exercises": dedicated talking short, first cut from raw footage
 
