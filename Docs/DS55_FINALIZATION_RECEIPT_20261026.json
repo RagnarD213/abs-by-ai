@@ -1,0 +1,149 @@
+{
+  "job": "DS-55",
+  "status": "approved_finalized_setup_handoff_ready",
+  "at": "2026-10-26T16:39:48.235383+00:00",
+  "approval_record": "Handoffs/video-editing/DS-55-R5-approval.json",
+  "master_sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+  "project_folder": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55",
+  "extreme_backup": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55",
+  "files": [
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "bytes": 84474520,
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "bytes": 84474520,
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/captions.srt",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.srt",
+      "bytes": 3611,
+      "sha256": "82d16c95c2c615d043a57e2dd5c5c245b429ad6cbaec56e75364a12c92066ae5",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/captions.srt",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.srt",
+      "bytes": 3611,
+      "sha256": "82d16c95c2c615d043a57e2dd5c5c245b429ad6cbaec56e75364a12c92066ae5",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4.audio_gate.json",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4.audio_gate.json",
+      "bytes": 3841,
+      "sha256": "7e5275bbb395f265c769d1fc9812f5ac28d36f16e95ae145908d779bc360ba82",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4.audio_gate.json",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4.audio_gate.json",
+      "bytes": 3841,
+      "sha256": "7e5275bbb395f265c769d1fc9812f5ac28d36f16e95ae145908d779bc360ba82",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4.deliver_gate.json",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4.deliver_gate.json",
+      "bytes": 12960,
+      "sha256": "20c043c86bdb3050200ba70d8e058bd42de377c2772945a3ed4add0c8e924122",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4.deliver_gate.json",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4.deliver_gate.json",
+      "bytes": 12960,
+      "sha256": "20c043c86bdb3050200ba70d8e058bd42de377c2772945a3ed4add0c8e924122",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/full-delivery-gate.json",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/full-delivery-gate.json",
+      "bytes": 14533,
+      "sha256": "70bae2dee897b1f5650aa96ebac4a568644ca52aa82ee221eec04435fa3c3fde",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/full-delivery-gate.json",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/full-delivery-gate.json",
+      "bytes": 14533,
+      "sha256": "70bae2dee897b1f5650aa96ebac4a568644ca52aa82ee221eec04435fa3c3fde",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/gate-summary.json",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/gate-summary.json",
+      "bytes": 6983,
+      "sha256": "af86b17ab285f88ff66e39c45008cc3808ae9d15f8ad93a0882d712a004840ff",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/gate-summary.json",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/gate-summary.json",
+      "bytes": 6983,
+      "sha256": "af86b17ab285f88ff66e39c45008cc3808ae9d15f8ad93a0882d712a004840ff",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/independent-review.md",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/independent-review.md",
+      "bytes": 6633,
+      "sha256": "25a50e9caeead2bb6dc554f434d2f75db2041e991f3273a8a30bff279a10c921",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/independent-review.md",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/independent-review.md",
+      "bytes": 6633,
+      "sha256": "25a50e9caeead2bb6dc554f434d2f75db2041e991f3273a8a30bff279a10c921",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/delivery-manifest.json",
+      "copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/delivery-manifest.json",
+      "bytes": 4333,
+      "sha256": "9920147825dd5951af320aa0659916b885067bc46f36c95caa5cdf4004134005",
+      "verified": true
+    },
+    {
+      "source": "/Volumes/Extreme/_edit_work/DS-55/round5/records/delivery-manifest.json",
+      "copy": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/delivery-manifest.json",
+      "bytes": 4333,
+      "sha256": "9920147825dd5951af320aa0659916b885067bc46f36c95caa5cdf4004134005",
+      "verified": true
+    }
+  ],
+  "google_drive": "Not uploaded or verified by this handoff preparation; setup task must complete and verify.",
+  "covers": "Not created or approved",
+  "publishing": "No media-platform upload or schedule created",
+  "review_cleanup": {
+    "at": "2026-10-26T16:42:15.688366+00:00",
+    "removed_review_copy_count": 8,
+    "removed_review_paths": [
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R5 - complete Short.mp4.deliver_gate.json",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R4 - complete Short.mp4",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R4 - complete Short.mp4.deliver_gate.json",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R4 - complete Short.srt",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R5 - complete Short.mp4.audio_gate.json",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R4 - complete Short.mp4.audio_gate.json",
+      "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R5 - complete Short.srt"
+    ],
+    "owned_review_service9176": "removed_and_registration_absent_verified",
+    "original_work_and_delivery_packages": "preserved"
+  },
+  "raw_qa": "Gate2.6.2 FAIL with30 applicablePASS5FAIL0NOTMEASURED4NA retained; independent sampled picture review found no new visible defect; Dan approved exact film.",
+  "external_spend_usd": 0,
+  "setup_handoff": "Handoffs/handoff-20261026-ds55-five-minute-exercises-setup.md",
+  "edit_slot": "DS-55 finished slot release verified",
+  "queue_status": "finalized_rev9_statusfile_sync_verified",
+  "editing_heartbeat": "PAUSED",
+  "setup_started": false
+}
