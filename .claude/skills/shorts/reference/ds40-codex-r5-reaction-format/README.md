@@ -1,7 +1,7 @@
 # Bill Maher Fat 90-Year-Old: Codex R5 reaction standard
 
 **Locked by Dan on October 25, 2026 after comparing the complete Codex and Claude edits.**
-CONTENT SFC reference. Codex owns green-screen editing, including reactions. This replaces the earlier Hormozi Fat Guy Claude R2 format reference. Dan already has the setup handoff; this lock starts no production or upload.
+CONTENT SFC reference. Since 2026-10-27 no AI owns green-screen editing (Dan: "let's not have any rule for which one"); his lean is Codex for reaction Shorts, Claude for long-form. This replaces the earlier Hormozi Fat Guy Claude R2 format reference. Dan already has the setup handoff; this lock starts no production or upload.
 
 The authority is the exact approved [R5 master](/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4), SHA-256 `3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720`: 1080x1920, 1944 frames at 30000/1001, 64.8648 s. Film approved October 23; promoted to the house reaction format October 25. `approval.json` records Dan's exact words and scope; `snapshot-manifest.json` hashes the unchanged working recipe and evidence.
 
@@ -31,4 +31,4 @@ The 4.004 s opening and ~30.23 s panel exit are the reference rhythm, not compul
 
 These are provenance snapshots, not a standalone generic launcher. Copy into the new job and adapt its paths, source ranges, captions, geometry and calibration. The `stills/` files illustrate the approved opening/handover geometry; judge motion and colour from the master. No new media was generated for this lock. Preserve all raw FAIL / NOT MEASURED findings; neither this style approval nor a source-specific gate mismatch changes a gate result. Use the existing exact-file QA and fresh independent review on each new film.
 
-Routing: Codex handles new green-screen jobs and the next separately authorized green-screen edit round. An active Claude session is not interrupted or taken over by this documentation update. Apply any actual transfer through the existing round/sole-owner controller. Setup, thumbnails and upload remain in the existing setup workflow.
+Routing (Dan, 2026-10-27, replaces 2026-10-25): no fixed owner. A video stays with the AI it started on; for a new reaction Short recommend Codex (newest Sol, high), his lean. An active Claude session is not interrupted or taken over by this documentation update. Apply any actual transfer through the existing round/sole-owner controller. Setup, thumbnails and upload remain in the existing setup workflow.

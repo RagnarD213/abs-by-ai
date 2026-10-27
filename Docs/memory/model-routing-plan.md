@@ -8,7 +8,7 @@ metadata:
   modified: 2026-10-20
 ---
 
-**Green-screen executor update (Dan, 2026-10-25):** Codex now owns green-screen editing, including reactions, after Dan selected Bill Maher Fat 90-Year-Old Codex R5. This overrides older Opus/Claude routine-first-cut routing below for green-screen work. Use the newest supported stable Sol at high effort under the video rule; verify availability when recommending a specific model. Reaction format: [[greenscreen-reaction-format]]. Other categories and setup retain their routing. Do not start or transfer a live job merely to save this decision.
+**Green-screen routing (Dan, 2026-10-27, replaces the 10-25 "Codex owns green-screen" rule):** no fixed AI; a video stays with the AI it started on. For a NEW green-screen job recommend Claude (Opus 5.5 high) for long-form and Codex (newest Sol high) for reaction Shorts: his lean, not a rule. Dan: "Claude is our likely champion for long-form green screen, probably Codex for the short form." Detail: [[video-editing-executor-routing]], [[greenscreen-reaction-format]].
 
 
 ## Current GPT rule, October 20, 2026

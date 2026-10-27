@@ -1,7 +1,7 @@
 # Green screen keying (DS-40, the first green screen video, 2026-10-19)
 
 **Current format since 2026-10-25:** [Bill Maher Codex R5](../ds40-codex-r5-reaction-format/README.md).
-Codex owns green-screen editing. The Claude recipes below remain key-method/history references and approved-film
+No AI owns green-screen editing since 2026-10-27 (VIDEO-RULES). The Claude recipes below remain key-method/history references and approved-film
 reproduction evidence; their opening/handover is no longer the default reaction format.
 
 

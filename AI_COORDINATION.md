@@ -146,7 +146,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R3 - REVIEW 2026-10-25, Claude.** RO-24 first 2:50 on the shared green-screen template (`_shared/greenscreen-bg/`), page :9126; independent review READY. Slot released. Next: Dan's reply, then round 4 to Codex (green-screen rule 10-25): `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md`.
+**Celebrity Ozempic LFC R4 - HANDOFF 2026-10-27, Claude.** Dan approved R3 and LOCKED the green-screen template as the long-form standard. Next: Opus 5.5 high fires the R4 handoff (whole film, AI frames A1/A3/A4/A6/A7/A8); R4 pins itself, unpins R3. `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md`.
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 

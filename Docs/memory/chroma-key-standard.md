@@ -5,7 +5,7 @@ metadata:
   type: project
 ---
 
-**Finished reaction/editor reference, 2026-10-25:** Dan selected Bill Maher Fat 90-Year-Old Codex R5 as the standard reaction format and assigned green-screen edits to Codex. R5 uses this same house Claude R2 algorithm with calibrated full-height key pieces and Codex finishing/compositing. The locked finished look, title/panel transitions, grade and archived working recipe are in `.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`; see [[greenscreen-reaction-format]]. This update does not substitute the old Codex R3 key, alter gate thresholds or re-key approved footage.
+**Finished reaction/editor reference, 2026-10-25:** Dan selected Bill Maher Fat 90-Year-Old Codex R5 as the standard reaction format (his 10-25 assignment of green-screen edits to Codex was dropped 2026-10-27: no fixed AI). R5 uses this same house Claude R2 algorithm with calibrated full-height key pieces and Codex finishing/compositing. The locked finished look, title/panel transitions, grade and archived working recipe are in `.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`; see [[greenscreen-reaction-format]]. This update does not substitute the old Codex R3 key, alter gate thresholds or re-key approved footage.
 
 
 Dan locked Claude's Bill Maher Fat 90-Year-Old R2 key (DS-40) as the default for every green-screen video on 2026-10-21, after picking it over R1: "lock this chroma key as our default way to chroma key things" and "Let's make all our future chroma keys this clean and make this a standard." It replaced the Codex R3 key he had locked the day before.
