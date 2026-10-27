@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
 
 
-**DS-01 setup COVERS 2026-10-27, Claude.** Awaiting pick.
+**DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
 
 
 **Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.

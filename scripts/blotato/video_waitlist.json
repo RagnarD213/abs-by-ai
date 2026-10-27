@@ -451,5 +451,45 @@
   "added": "2026-10-27",
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/ds01-top-5-ab-exercises.json",
+  "kind": "short",
+  "job": "DS-01",
+  "label": "Top 5 Ab Exercises For Six Pack Abs",
+  "added": "2026-10-27",
+  "note": "R4 master (Dan's own cable crunch footage). Cover B. Target Thu 2027-01-28, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds02-getting-abs-looksmaxxes-your-face.json",
+  "kind": "short",
+  "job": "DS-02",
+  "label": "How Getting Abs Looksmaxxes Your Face",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-04, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds03-3-most-important-supplements-for-men.json",
+  "kind": "short",
+  "job": "DS-03",
+  "label": "The 3 Most Important Supplements For Men",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (round 2 blue (2)). Target Thu 2027-02-11, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds07-top-3-ways-to-use-ai-to-get-abs.json",
+  "kind": "short",
+  "job": "DS-07",
+  "label": "Top 3 Ways To Use AI To Get Abs",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-18, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds11-why-you-must-weigh-yourself-daily.json",
+  "kind": "short",
+  "job": "DS-11",
+  "label": "Why You Must Weigh Yourself Daily",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-25, 9 AM America/Chicago. Four media uploads hash-checked."
  }
 ]

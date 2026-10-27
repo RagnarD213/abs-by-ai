@@ -32,6 +32,9 @@ SHORTS = {
                  cutout='studio-white-62'),
 }
 
+# Source crop boxes (x0, y0, x1, y1) on the 941x1672 Codex plate.
+ZOOM = {'E': (166, 555, 754, 1600)}
+
 def sha(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
@@ -88,15 +91,19 @@ def person_top(im):
 def picture(key, k, platform):
     spec = SHORTS[key]
     plate = SRC/f'{key}-{k}.png'
-    im = ImageOps.fit(Image.open(plate).convert('RGB'), (W, H), method=Image.Resampling.LANCZOS).convert('RGBA')
+    src = Image.open(plate).convert('RGB')
+    if k in ZOOM:
+        src = src.crop(ZOOM[k])   # E: Codex framed him too small; zoom so the abs read on a phone
+    im = ImageOps.fit(src, (W, H), method=Image.Resampling.LANCZOS).convert('RGBA')
     info = {'plate': str(plate.relative_to(ROOT)), 'plate_sha256': sha(plate)}
     if platform == 'youtube' and k != 'C':
         # Drop the Instagram reserve while keeping the complete lower picture.
         im = im.crop((0, 145, W, H)).resize((W, H), Image.Resampling.LANCZOS)
     if k in 'BE':
         a = np.zeros((H, W, 4), np.uint8); a[:, :, :3] = [5, 13, 26]
-        for y in range(850):
-            a[y, :, 3] = int(220*max(0, 1-y/850))
+        fade = 850 if k == 'B' else 560   # E's zoomed face sits higher; keep it out of the fade
+        for y in range(fade):
+            a[y, :, 3] = int(220*max(0, 1-y/fade))
         im.alpha_composite(Image.fromarray(a))
     if k == 'C':
         p = CUT/f"{spec['cutout']}_CUTOUT.png"
@@ -118,6 +125,12 @@ def picture(key, k, platform):
         if shift:
             color = tuple(int(v) for v in np.array(im.convert('RGB'))[:40].reshape(-1, 3).mean(axis=0))
             shifted = Image.new('RGBA', (W, H), color+(255,)); shifted.alpha_composite(im.crop((0, 0, W, H-shift)), (0, shift)); im = shifted
+            # Feather the join so the moved picture has no hard top edge.
+            f = np.zeros((H, W, 4), np.uint8); f[:, :, :3] = color
+            L = max(1, min(160, top-30))   # stop above his hair (it now starts at top+shift)
+            for yy in range(shift, min(H, shift+L)):
+                f[yy, :, 3] = int(255*(1-(yy-shift)/L))
+            im.alpha_composite(Image.fromarray(f))
         info.update(source_person_top=top, picture_shift=shift, minimum_subject_top=target)
     return im, info
 

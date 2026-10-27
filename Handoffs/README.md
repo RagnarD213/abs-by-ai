@@ -12,7 +12,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## OPEN — not yet executed
 
 - [Make Time Exercise LFC Setup](handoff-20261027-ro18-thumbnails-and-video-setup.md): **Fire now. Claude Opus 5.5, high.** CONTENT LFC RO-18, R4 approved 2026-10-27: five Codex thumbnails (2026-10-25 mix), Dan's pick, then confirm the release date with Dan (no 2026 slot left) and schedule on Blotato.
-- [Top 5 Ab Exercises SFC Setup](handoff-20261027-top5-ab-exercises-sfc-setup.md): **Fire now. Claude Opus 5.5, high.** CONTENT SFC DS-01, R4 approved 2026-10-27: Drive backup, five Codex covers, Dan's pick, Blotato on the next free Thursday.
 
 
 - [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
@@ -171,6 +170,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [Top 5 Ab Exercises SFC Setup](handoff-20261027-top5-ab-exercises-sfc-setup.md): **EXECUTED 2026-10-27.** Cover B; waiting list for Thu Jan 28, 2027. Receipt: `Docs/DS01_SETUP_RECEIPT_20261027.md`.
 - [Top 5 Ab Exercises SFC R4](handoff-20261022-top5-ab-exercises-cable-crunch-broll.md): **EXECUTED 2026-10-26, with Dan for review** (http://127.0.0.1:9101/). Do not fire again. After approval: finalize, file master, `/video-setup`. Notes: `/Volumes/Extreme/_edit_work/DS-01/round4/NOTES-R4.md`.
 - [August 3 Footage Offload](handoff-20261025-shoot0803-raw-footage-offload.md): **COMPLETED 2026-10-25.** All 1,001 raw files verified on Expansion/Drive and removed from Extreme; older Shorts repair inputs preserved, global pause unchanged. [Receipt](../Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md).
 
