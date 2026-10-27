@@ -46,7 +46,9 @@ date at setup.
 
 **2027:** Sun Jan 3: RO-14 Why You're Not Losing Weight (4 Hidden Calorie Leaks), set up 2026-10-22 (no 2026 slot was left; Dan approved the setup after being told; socials Mon Jan 4 noon). Receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`.
 
-**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-21, RO-30, RO-28 (gave Nov 22, Nov 29, Dec 6 to the Invest In Your Health series), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-09, RO-15, RO-18 (weakest
+**2027, tentative:** Sundays RO-22 (gave Dec 13 to RO-17), RO-21, RO-30, RO-28 (gave Nov 22, Nov 29, Dec 6 to the Invest In Your Health series), RO-24, RO-29, RO-31, RO-23; Wednesdays RO-09, RO-15 (weakest
 first by the ranking). RO-32 waits for gym B-roll; RO-33 to RO-36 are not filmed.
 
 **2027 approved October 25:** Wed Jan 6: **Arms & Shoulders Workout Only (RO-04)**, YouTube 9 AM America/Chicago. Facebook/Instagram/TikTok Thu Jan 7 noon, after YouTube is public. Dan: “January 6 is fine. Go ahead and finish the setup.” This explicitly approves the 2027 exception. Ready on the shared waiting list for four queue slots; not scheduled until live read-back verifies. Receipt `Docs/RO04_SETUP_RECEIPT_20261025.md`.
+
+**2027 approved October 27:** Wed Jan 13: **How To Make Time For Exercise & Nutrition (RO-18)**, YouTube 9 AM America/Chicago; Facebook/Instagram Thu Jan 14 noon, TikTok direct Thu Jan 14 noon (10:58, over the Blotato TikTok limit), after YouTube is public. Dan: "January 13, 2027 is fine. Go ahead and finish the setup." No 2026 slot was free. On the shared waiting list. Receipt `Docs/RO18_SETUP_RECEIPT_20261027.md`.
