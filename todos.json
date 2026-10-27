@@ -317,34 +317,6 @@
   ],
   "assistant": [
     {
-      "text": "Take Audi to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in Tesla frunk",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 0
-    },
-    {
-      "text": "Take Tesla to car wash. Wash interior, vaccum interior, and clean surfaces using sprays in frunk",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 1
-    },
-    {
-      "text": "Post ads on eBay and Facebook marketplace to sell watches where I sent you the images",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 2
-    },
-    {
-      "text": "Empty Dishwasher",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 3
-    },
-    {
       "text": "Cut up all boxes in spare room in small pieces",
       "priority": "high",
       "recurring": false,
@@ -359,13 +331,6 @@
       "boardRank": 5
     },
     {
-      "text": "Wash, dry, and fold all dirty laundry",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 6
-    },
-    {
       "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
@@ -378,13 +343,6 @@
       "recurring": false,
       "addedAt": "2026-10-06",
       "boardRank": 8
-    },
-    {
-      "text": "Robot vaccuum bedroom 3x. Remove mop pads first and put back after",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-06",
-      "boardRank": 9
     },
     {
       "text": "Spray weeds with roundup",
@@ -419,27 +377,6 @@
       "boardRank": 13
     },
     {
-      "text": "Change robot mop water/refill",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take out garbage & bring bins back from driveway",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Make bed",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "addedBy": "assistant"
-    },
-    {
       "text": "Find coffee table for living room and have Daniel review it",
       "priority": "unassigned",
       "recurring": false,
@@ -447,28 +384,7 @@
       "addedBy": "assistant"
     },
     {
-      "text": "Tidy up kitchen",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "addedBy": "assistant"
-    },
-    {
       "text": "Tidy bathrooms",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-21",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy living room",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-21",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Tidy garage",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-10-21",
