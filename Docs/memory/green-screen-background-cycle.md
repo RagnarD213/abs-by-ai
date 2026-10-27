@@ -1,6 +1,6 @@
 ---
 name: green-screen-background-cycle
-description: Dan 2026-10-24: green-screen reaction/commentary videos never sit on a plain background; cycle 7 approved background types by what is being said
+description: Dan 2026-10-24, LOCKED 10-27: long-form green-screen videos never sit on a plain background; the greenscreen-bg template cycles 7 types by what is being said
 metadata:
   type: feedback
 ---
@@ -20,4 +20,4 @@ Not 5 (the flat built TV wall).
 
 **Why:** Dan: "we can't just have a white background the whole time"; the plain backdrop read as too plain after the intro.
 
-**How to apply:** every green-screen reaction/commentary edit, Claude and Codex. Plan the background per section at cuts: right after an intro, 6 or 3; when a clip exists, 2 (or Dan to the side with the clip behind); when a number is said, 7; transformations, 4 with before/after, weight and medication; long commentary, 8 or 1. Before/after pairs show weight lost and medication when known; no photo repeated where avoidable. Template: `.claude/skills/_shared/greenscreen-bg/` (README with the types, placements and rules; `gsbg.py`, `planner.py`, `hfbg.py`), built 2026-10-25 in RO-24 round 3 and shown to Dan on that round's page (not locked yet: record his verdict in the README). Interview clips play full screen with their own sound where the script says [PLAY CLIP], then keep rolling muted behind him; use clean windows of the full source video (no burned quote boxes behind his head). Related: [[reaction-videos-clips-first]], [[chroma-key-efficiency]].
+**How to apply:** every green-screen reaction/commentary edit, Claude and Codex. Plan the background per section at cuts: right after an intro, 6 or 3; when a clip exists, 2 (or Dan to the side with the clip behind); when a number is said, 7; transformations, 4 with before/after, weight and medication; long commentary, 8 or 1. Before/after pairs show weight lost and medication when known; no photo repeated where avoidable. Template: `.claude/skills/_shared/greenscreen-bg/` (README with the types, placements and rules; `gsbg.py`, `planner.py`, `hfbg.py`), built 2026-10-25 in RO-24 round 3 and LOCKED by Dan 2026-10-27 as the permanent standard for long-form green-screen videos ("I want to lock this as our permanent format"); do not reopen the style. Interview clips play full screen with their own sound where the script says [PLAY CLIP], then keep rolling muted behind him; use clean windows of the full source video (no burned quote boxes behind his head). Related: [[reaction-videos-clips-first]], [[chroma-key-efficiency]].

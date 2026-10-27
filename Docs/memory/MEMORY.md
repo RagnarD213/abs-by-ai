@@ -8,7 +8,7 @@
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
-- [Green-screen backgrounds](green-screen-background-cycle.md): RO-24 commentary options (10-24); Codex R5 reaction lock takes precedence (10-25)
+- [Green-screen backgrounds](green-screen-background-cycle.md): LOCKED 10-27 for long-form: greenscreen-bg template; reaction Shorts keep Codex R5
 - [Key efficiency](chroma-key-efficiency.md): keys cheap like Codex; excerpts + key once (10-24)
 - [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
 - [Bias to action](bias-toward-action.md): act if reversible
