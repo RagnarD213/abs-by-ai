@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles — not just a six-pack.",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch — a killer six-pack move you can do at home.",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -875,5 +875,82 @@
     "h": 1920,
     "job": "DS-33",
     "when": "2026-12-24T15:00:00.000Z"
+  },
+  {
+    "match": "Bill Maher asks if you've ever seen a fat 90-year-old. He's right.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds40-codex-r5-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-40",
+    "when": "2026-12-31T15:00:00.000Z",
+    "approved": "Design 1 cover R3, Dan 2026-10-25; Codex R5 film"
+  },
+  {
+    "job": "RO-04",
+    "match": "Grab a pair of dumbbells and do these three arms and shoulders exercises with me.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro04-arms-shoulders-workout-only-approved.png",
+    "w": 1280,
+    "h": 720,
+    "note": "Exact approved black-on-yellow PNG. Release approved Jan 6 2027 YouTube, Jan 7 noon Chicago Facebook. Public tile verification follows release.",
+    "when": "2027-01-07T18:00:00.000Z"
+  },
+  {
+    "job": "SL-08 short 1",
+    "when": "2027-01-04T15:00:00.000Z",
+    "match": "I don't eat anything until 2 in the afternoon, and here's why I love it.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short1-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "C, Dan 2026-10-25",
+    "sha256": "e74c15b6b77520abdc4c76e0981df4603e9f38a17233250de87338f5a89cb4e9"
+  },
+  {
+    "job": "SL-08 short 2",
+    "when": "2027-01-05T15:00:00.000Z",
+    "match": "Start your meal with a big salad if you want to eat less.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short2-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "C, Dan 2026-10-25",
+    "sha256": "fae3894673c4c7156d27d3190fdae85b5072547c191493579b9fe2758dc541c2"
+  },
+  {
+    "job": "SL-08 short 3",
+    "when": "2027-01-08T15:00:00.000Z",
+    "match": "Stop drinking your calories.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short3-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "C, Dan 2026-10-25",
+    "sha256": "b663bcde21d1c795467a1405bac84cde9828c47170a2e9e2ece68fc9eda870de"
+  },
+  {
+    "job": "SL-08 short 4",
+    "when": "2027-01-09T15:00:00.000Z",
+    "match": "Snack on protein, not on carbs.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short4-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "C, Dan 2026-10-25",
+    "sha256": "b97505adef7f38ee1bbbf7ab552323c05852bbbee66dea645bfe439fc6770d50"
+  },
+  {
+    "job": "SL-08 short 5",
+    "when": "2027-01-11T15:00:00.000Z",
+    "match": "Drink black coffee while you\u2019re fasting.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "C, Dan 2026-10-25",
+    "sha256": "3bc3c1cda5a39bc3cf8bdfa7ab87465edbbc1d9421d73e448137ed456e46909c"
+  },
+  {
+    "job": "DS-35",
+    "match": "Women say they like the dad bod, but what do they mean by that?",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds35-dad-bod-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan approved design 2 R3 and Saturday Dec 19, 2026, 9AM Central; all four schedules verified.",
+    "when": "2026-12-19T15:00:00.000Z"
   }
 ]

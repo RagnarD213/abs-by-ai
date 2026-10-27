@@ -1,5 +1,6 @@
 # Dan's decisions
 
+
 Open decisions only Dan can make. Moved verbatim from the DAN'S DECISIONS section of `AI_COORDINATION.md` on 2026-10-16 so the auto-loaded board holds only open coordination. Every date and `Decision since:` below is the original; moving a decision here does not make it younger.
 
 Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop at 14+ days), `/prioritize` and `/plantheday`. A session that raises a new decision for Dan adds one dated line here (≤80 words, `Decision since: YYYY-MM-DD`); when Dan rules, record the outcome where it belongs and delete the line.
@@ -8,10 +9,23 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
 
+- **Boring Abs At 40 LFC R5 (2026-10-26; Decision since: 2026-10-26):** [Review the complete 8:01 film](http://127.0.0.1:9357/?r5=20261026#current), approve or give timestamped changes. Final scene choices applied: neighbour 0:37–0:44 kept; fridge 4:11–4:21 and phone-goal 6:32–6:38 use camera. Colour C, voice B and crops preserved; remaining numerical flags documented. Nothing uploaded or scheduled.
+
+- **V-Taper Exercises SFC R4 (2026-10-26; Decision since: 2026-10-26):** [Review revised Photo D opening](http://127.0.0.1:9214/),0:00–0:10. Approve or name changes to larger photo, straight arrows, symmetrical V guides and title/background. A/B/original portrait locked; full Short unfinished.
+
+- **Mouthpiece SFC R1 (2026-10-26; Decision since: 2026-10-26):** [Review opening and all graphics](http://127.0.0.1:9274/), choose colour/voice/framing and approve or name changes. Recommend B/A/1 and real demonstration. Full64s Short unassembled; final sound/caption finishing remains.
 
 
 
-- **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** Requested photo/arrow revisions are proceeding on both takes. No action until the new review is returned; Scripted versus Off The Cuff choice remains pending. Prior review: http://127.0.0.1:9238/.
+- **Five Levels Of Pushups design3 title (2026-10-26; Decision since: 2026-10-26):** Base3 selected. Choose title A/B/C at http://127.0.0.1:9180/ . Same real photos; middle text only. Nothing uploaded or scheduled. `Docs/DS20_DESIGN3_TITLE_R3_REVIEW_20261026.md`.
+
+
+
+
+
+
+
+
 
 
 
@@ -89,5 +103,9 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
 
 - **Fat Millionaire SFC R4 (2026-10-16), Decision since: 2026-10-16:** Approve the exact corrected review copy with the original camera framing and caption timing retained, or request a broader pass on those parts. The strict preset still flags both; no exception or approval is assumed. F3 stays selected and posting stays held. `Handoffs/handoff-20261016-ds05-correct-version.md`
+
+
+
+
 
 

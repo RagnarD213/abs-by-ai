@@ -22,9 +22,9 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 | Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 (sl06-short3, queued) |
 | Nov 30 | Top 1% 3 (SL-17, Every Man Should Train A Martial Art) | Zepbound Tips 4 (sl06-short4, queued) | AI Homework (DS-31, needs Dan's OK) | 40 vs 25 1\* (SL-14) | Zepbound Tips 5 (sl06-short5, queued) |
 | Dec 7 | What To Buy 1\* (RO-20C) | Zepbound Tips 6 (sl06-short6, queued) | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2 (SL-18) |
-| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | (open) |
+| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1\* (SL-16, "Just Skip Breakfast") | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | Dad Bod (DS-35, queued; approved Saturday exception) |
 | Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Ronaldo Ab Belt (DS-33, waiting list) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
-| Dec 28 | Belly Fat 4 | Belly Fat 5 | #1 Change For Abs At 40\* (DS-13) | | |
+| Dec 28 | Belly Fat 4 | Belly Fat 5 | Bill Maher: Fat 90-Year-Old (DS-40, waiting list) | | |
 
 **Moved 2026-10-23 (DS-44 setup):** Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44) is edited, so it takes Thu Dec 17 (queued in Blotato, scripted version). The not-yet-edited DS-13 and DS-16 each move one Thursday later (Dec 24, Dec 31); Top 5 Ab Exercises (DS-01) moves to the first 2027 Thursday, Jan 7.
 
@@ -42,3 +42,17 @@ Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be ed
 Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~40 dedicated Shorts filmed but not edited.
 
 **Moved 2026-10-25 (Ronaldo Ab Belt setup):** The approved "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?" (DS-33) takes Thu Dec 24, 9 AM America/Chicago, on the shared waiting list because Blotato has 197/200 posts and this video needs four. It follows the already edited dedicated Shorts. The not-yet-edited DS-13 moves to Dec 31; DS-16 moves to Jan 7, 2027, and DS-01 to Jan 14. The daily top-up routine rechecks the live slot before scheduling.
+
+**Moved 2026-10-25 (Bill Maher: Fat 90-Year-Old setup):** Dan selected the approved Codex R5 film and approved revised design 1 cover R3. This edited Short takes Thu Dec 31, 9 AM America/Chicago, on the shared waiting list. The not-yet-edited #1 Change For Abs At 40 (DS-13) moves to Jan 7, 2027; Lose The Last 10 Pounds (DS-16) moves to Jan 14 and Top 5 Ab Exercises (DS-01) to Jan 21. No existing live schedule was moved. The daily top-up routine rechecks the slot before queuing all four destinations.
+
+**Approved 2026-10-25 (Calories Not Losing Weight Shorts, SL-08):** Dan kept the parent on Sunday December 27 and explicitly approved these five 2027 slots, all at 9 AM America/Chicago on YouTube/Facebook/Instagram @danrosefit/TikTok. Covers C approved for all five. Setup is on the shared waiting list at 197/200 Blotato posts; the daily top-up routine rechecks live slots before scheduling. Parent dependency: RO-10.
+
+| 2027 date | Approved Short |
+|---|---|
+| January 4 | Why I Fast Until 2 pm Every Day |
+| January 5 | Eat a Salad First to Eat Less |
+| January 8 | Stop Drinking Your Calories |
+| January 9 | Snack on Protein, Not Carbs |
+| January 11 | Make Fasting Easier With Black Coffee |
+
+**Approved 2026-10-26 (Dad Bod, DS-35):** Dan explicitly chose Saturday December 19, 2026 at 9 AM America/Chicago on all four platforms. This is a one-time exception to dedicated Thursdays because all remaining 2026 Thursdays are reserved. The slot was open; no other video is displaced. Cover design 2 with title-case R3 text and Off The Cuff R3 film approved. All four Blotato schedules created and read back: Facebook 6072714, Instagram 6072716, TikTok 6072718, YouTube 6072720.
