@@ -4816,6 +4816,30 @@
    "updated": "2026-10-25",
    "rev": 1,
    "syncedRev": 0
+  },
+  {
+   "id": "SL-25",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "How To Make Time For Exercise & Nutrition (RO-18, YouTube Wed Jan 13, 2027; 3 Shorts)",
+   "roll": "9/23 C1714-C1715",
+   "size": "S",
+   "file": "SL-25-make-time-for-exercise-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "codexModel": "GPT-6.1 Sol, high",
+   "claude": "CONTENT (SFL). Name this task Make Time Exercise SFL R1. Read Handoffs/video-editing/00-RULES.md, then Handoffs/video-editing/SL-25-make-time-for-exercise-shorts.md. Propose segments and wait for my picks before rendering. Parent releases Jan 13, 2027, 9 AM Chicago; no Short before parent is public.",
+   "codex": "CONTENT (SFL). Name this task Make Time Exercise SFL R1. Read Handoffs/video-editing/00-RULES.md and Handoffs/video-editing/SL-25-make-time-for-exercise-shorts.md, using .claude/skills/shorts/SKILL.md. Propose segments and wait for Dan picks before rendering. Parent releases Jan 13, 2027, 9 AM Chicago; no Short before parent is public.",
+   "state": "ready",
+   "note": "Parent RO-18 approved 2026-10-27, on the waiting list for Wed Jan 13, 2027. Propose segments and wait for Dan picks. No Short before parent is public.",
+   "unattended": false,
+   "unattended_why": "Dan selects segments before rendering.",
+   "needs": "",
+   "by": "Claude",
+   "order": 210,
+   "updated": "2026-10-27",
+   "rev": 1,
+   "syncedRev": 0
   }
  ]
 }
