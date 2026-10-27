@@ -4,17 +4,17 @@ Written 2026-10-22 by Claude (Opus 5.5) at the end of round 3. Sidebar name: **Z
 **Recommended model:** Claude Opus 5.5, high effort (the film started on Claude). **Use the Codex subscription to generate the images.**
 Every generated still uses `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`.
 
-"Why Zepbound Improves Your Health Even If You're Ripped" (RO-28), 10/15 studio roll C1771. **Fire only after Dan approves round 3**
-(review page http://127.0.0.1:8930/). Record his words and set the queue to `finalized` first.
+"Why Zepbound Improves Your Health Even If You're Ripped" (RO-28), 10/15 studio roll C1771. **Fire only after Dan approves round 4**
+(review page http://127.0.0.1:8931/). Record his words and set the queue to `finalized` first.
 
 ## Exact file (never edit it; re-hash before setup)
 - `claude edited long form content/23 - Why Zepbound Improves Your Health Even If You're Ripped/Why Zepbound Improves Your Health Even
-  If You're Ripped | claude round 3 | 16x9 | RO-28.mp4` sha256 `3678bc9c87ac0387044122fa39d367830af6db33cb7180b4f606e4ebd83d37b4`, 6:26.0, ~848 MB (over the 400 MB Blotato
+  If You're Ripped | claude round 4 | 16x9 | RO-28.mp4` sha256 `86f7fbece5aada923fff6702053dbbab16a3fc05eaccd8e8c88b399974b29b8f`, 6:26.0, ~848 MB (over the 400 MB Blotato
   cap: make an upload derivative per `/video-setup`). Same folder: `.srt` (upload, never burn in), `.chapters.txt`, gate stamps,
-  `recipe-RO-28/ROUND-3-REVIEW.md`. No edit sheet (the writer demands a label on real moving footage of Dan, which the film rightly lacks).
+  `recipe-RO-28-r4/ROUND-4-REVIEW.md`. No edit sheet (the writer demands a label on real moving footage of Dan, which the film rightly lacks).
 - Gate: 36 pass; 3 known fails (warm-bass tone, two caption false positives), as RO-14 shipped.
 - AI footage, each labelled AI-GENERATED: pharmacist double take (0:00), doctor says no (0:38), gym sit-up (1:32), barbecue (1:50),
-  doctor visit (4:06). YouTube altered/synthetic disclosure and the TikTok AI flag apply. Organic: Zepbound may be named.
+  doctor visit (4:06). R4: ab wheel at 4:03 removed (Dan on camera); pool clips 2:22 and 6:12 re-graded (Dan 10-23: never raw footage). YouTube altered/synthetic disclosure and the TikTok AI flag apply. Organic: Zepbound may be named.
 - Chapters: 0:00 Why I think ripped men should take Zepbound, 1:04 What losing weight does for you, 1:34 Reason 1: You're probably not
   at your ideal weight, 2:26 Reason 2: Health benefits beyond weight loss, 4:29 Why I'm staying on it for life, 5:31 How I take it.
 - Ending (organic): subscribe + "go to SixPackAbs.com to get all my newest videos". Confirm with setup Step 0.
