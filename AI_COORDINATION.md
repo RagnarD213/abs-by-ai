@@ -91,7 +91,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 
-**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
+**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Commits f0284c0/f43babe local (live shared edits block push): next safe-push carries them. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
