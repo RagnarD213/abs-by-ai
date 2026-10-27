@@ -90,7 +90,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16 setup COVERS 2026-10-27, Claude.** Awaiting picks. Commit f43babe local.
+**SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
 **Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 

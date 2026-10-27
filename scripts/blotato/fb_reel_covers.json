@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
+    "match": "You have 4 ab muscles — not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
+    "match": "The toe touch — a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -937,7 +937,7 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you\u2019re fasting.",
+    "match": "Drink black coffee while you’re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
@@ -979,5 +979,45 @@
     "h": 1920,
     "approved": "Dan picked cover A-r2 (2026-10-27); Thu 2027-01-21 9 AM Central, all four.",
     "when": "2027-01-21T15:00:00.000Z"
+  },
+  {
+    "job": "SL-16 short 1",
+    "when": "2026-12-15T15:00:00.000Z",
+    "match": "The easiest way to get started with intermittent fasting is to just skip your breakfast.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl16-short1-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "F, Dan 2026-10-27",
+    "sha256": "9708e55347b33aeddaff59f31ad35267be2113abc7800683269be5a5d8d39549"
+  },
+  {
+    "job": "SL-16 short 2",
+    "when": "2026-12-04T15:00:00.000Z",
+    "match": "A ton of carbs for breakfast or lunch will lower your productivity.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl16-short2-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "A2, Dan 2026-10-27",
+    "sha256": "9eb01ee3a122ff36ce93a89befc413ced7c0f609c9f8cc280959eea56cf1d6a0"
+  },
+  {
+    "job": "SL-16 short 3",
+    "when": "2026-12-07T15:00:00.000Z",
+    "match": "The number one mistake with fasting is breaking your fast with alcohol.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl16-short3-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "A2, Dan 2026-10-27",
+    "sha256": "4eea8ab5354e003d540b0f2fd73db207ab835b31e2d03421d90d36c1b41612ab"
+  },
+  {
+    "job": "SL-16 short 4",
+    "when": "2027-01-12T15:00:00.000Z",
+    "match": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is going to punch you in the face.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl16-short4-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "F, Dan 2026-10-27",
+    "sha256": "b28015951498efbb353ccd19f00e9348a1a60a2e92f53edaeecf81214e803bcd"
   }
 ]

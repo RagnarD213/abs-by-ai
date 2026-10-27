@@ -288,14 +288,14 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | UPLOADED | S |
-| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, finalized 10-14; release date set at setup) | FINALIZED | S |
+| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, Wed Nov 18; Shorts Dec 4, Dec 7, Dec 15, Jan 12 2027 on the waiting list, setup done 10-27) | FINALIZED | S |
 
 | [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | UPLOADED | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | UPLOADED | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
 | [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
-| [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Mon Dec 7) | READY: approved parent filed; due Dec 6 | S |
+| [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Fri Jan 15, 2027) | READY: approved parent filed; due Jan 14, 2027 | S |
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 

@@ -14,7 +14,7 @@ Three Shorts, Dan's rule of 3 per new long-form (best three moments):
 
 | Short | Airs | Edited, approved and set up by |
 |---|---|---|
-| 1 | **Mon Dec 7, 9 AM Chicago** (the day after RO-20C; "What To Buy 1" in `Docs/SHORTS_RELEASE_CALENDAR.md`) | **Sun Dec 6**, with at least 10 days of editing time |
+| 1 | **Fri Jan 15, 2027, 9 AM Chicago** (moved 2026-10-27: Mon Dec 7 went to an already edited Intermittent Fasting Short; see `Docs/SHORTS_RELEASE_CALENDAR.md`) | **Thu Jan 14, 2027**, with at least 10 days of editing time |
 | 2 | next free Mon/Tue/Fri/Sat Shorts slot after Short 1 | set at its setup |
 | 3 | next free slot after Short 2 | set at its setup |
 
@@ -37,12 +37,12 @@ wording in the shortlist (pickups are recorded on the studio set at a shoot, so 
 ## Deliver
 `Short-form video content/whattobuy-short<N>_<title>.mp4` + stamps and `whattobuy-SHORTS.md` (in/out, title, parent).
 Send Dan the review copies (and copies in `Videos to Review/`), gates and an independent audit. Update `00-MASTER.md`.
-Next after approval: the setup task makes the covers with Codex and queues Short 1 for Mon Dec 7, 9 AM Chicago (or the waiting
+Next after approval: the setup task makes the covers with Codex and queues Short 1 for Fri Jan 15, 2027, 9 AM Chicago (or the waiting
 list if Blotato is full).
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**
-> CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-22-what-to-buy-shorts.md`: confirm the approved RO-20C master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Mon Dec 7. Name this session "What To Buy SFL R1".
+> CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-22-what-to-buy-shorts.md`: confirm the approved RO-20C master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Fri Jan 15, 2027. Name this session "What To Buy SFL R1".
 
 **Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-22-what-to-buy-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: confirm the approved RO-20C master, propose segments, wait for Dan's picks, cut three Shorts, gate, deliver, update `00-MASTER.md`. Name this task "What To Buy SFL R1".

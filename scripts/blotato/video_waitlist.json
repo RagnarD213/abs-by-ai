@@ -415,5 +415,41 @@
   "label": "Top 3 Non-Weight Loss Benefits Of Zepbound",
   "added": "2026-10-27",
   "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-21, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short1-just-skip-breakfast.json",
+  "kind": "short",
+  "job": "SL-16 short 1",
+  "label": "How To Start Fasting: Just Skip Breakfast",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
+  "kind": "short",
+  "job": "SL-16 short 2",
+  "label": "Why Carbs Destroy Your Productivity",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short3-never-break-your-fast-with-alcohol.json",
+  "kind": "short",
+  "job": "SL-16 short 3",
+  "label": "Never Break Your Fast With Alcohol",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short4-why-you-need-a-simple-nutrition-plan.json",
+  "kind": "short",
+  "job": "SL-16 short 4",
+  "label": "Why You Need A Simple Nutrition Plan",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
  }
 ]

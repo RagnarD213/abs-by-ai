@@ -1,0 +1,35 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/fasting-short3_never-break-your-fast-with-alcohol.mp4",
+  "slug": "sl16-short3",
+  "campaign": "intermittent-fasting",
+  "title": "Never Break Your Fast With Alcohol",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7e9d21f7-3d4e-41d9-90a4-e685a8505f34.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b1ea6353-4c3b-462e-a968-52ddc0f8be33.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6ebb69f6-8bd0-44d6-a162-d81b59426923.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bf5f82fc-f4b7-40ee-892e-a4f5adbceecc.jpg",
+  "main": "2026-12-07T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": true,
+  "hook": "The number one mistake with fasting is breaking your fast with alcohol.",
+  "body": "Don't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.",
+  "close": "Leave a comment to let me know if you've ever broken a fast with a drink.",
+  "tags": "#IntermittentFasting #Alcohol #FatLoss #FastingTips #AbsByAI",
+  "youtube_description": "The number one mistake with fasting is breaking your fast with alcohol.\n\nDon't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.\n\nLeave a comment to let me know if you've ever broken a fast with a drink.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short3\n\nFull video on this channel: Intermittent Fasting: The Best Way To Get Abs\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#IntermittentFasting #Alcohol #FatLoss #FastingTips #Shorts",
+  "pinned_comment": "Have you ever broken a fast with alcohol? If so, what were you drinking?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short3",
+  "caption_overrides": {
+    "facebook": "The number one mistake with fasting is breaking your fast with alcohol.\n\nDon't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.\n\nLeave a comment to let me know if you've ever broken a fast with a drink.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short3\n\n#IntermittentFasting #Alcohol #FatLoss #FastingTips #AbsByAI",
+    "instagram": "The number one mistake with fasting is breaking your fast with alcohol.\n\nDon't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.\n\nLeave a comment to let me know if you've ever broken a fast with a drink.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#IntermittentFasting #Alcohol #FatLoss #FastingTips #AbsByAI",
+    "tiktok": "The number one mistake with fasting is breaking your fast with alcohol.\n\nDon't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.\n\nLeave a comment to let me know if you've ever broken a fast with a drink.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short3\n\n#IntermittentFasting #Alcohol #FatLoss #FastingTips #AbsByAI"
+  },
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "approved_cover": "A2",
+  "approval_date": "2026-10-27",
+  "media_sha256": {
+    "master": "0f41a8db9aea880c657ea1d51ac133695b3311944fbd825966c2ca5c5077a452",
+    "tiktok": "144b6d79fffd561fe1dd72d94def20be7822386688c900fdd9ed5461a89aabef",
+    "ig": "4eea8ab5354e003d540b0f2fd73db207ab835b31e2d03421d90d36c1b41612ab",
+    "yt": "020c9539f59feb9365b38af380a71d1c2000078027c1ef0c547d911f3c57d7a1"
+  }
+}

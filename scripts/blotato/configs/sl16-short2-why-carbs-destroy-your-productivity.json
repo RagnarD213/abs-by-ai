@@ -1,0 +1,35 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/fasting-short2_carbs-are-killing-your-workday.mp4",
+  "slug": "sl16-short2",
+  "campaign": "intermittent-fasting",
+  "title": "Why Carbs Destroy Your Productivity",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/13ad30ab-4c2a-4bca-80b8-b266bfef6991.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/25150452-7d58-4b98-9b89-a6785d4d9d74.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1c667fe3-8cf7-4c32-a9cb-9c77bd9d323e.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/64847440-d9bf-45f1-8bf5-6e7195c965c4.jpg",
+  "main": "2026-12-04T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": true,
+  "hook": "A ton of carbs for breakfast or lunch will lower your productivity.",
+  "body": "A heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.",
+  "close": "Leave a comment to let me know what you usually eat for lunch on a work day.",
+  "tags": "#IntermittentFasting #LowCarb #Productivity #BlackCoffee #AbsByAI",
+  "youtube_description": "A ton of carbs for breakfast or lunch will lower your productivity.\n\nA heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.\n\nLeave a comment to let me know what you usually eat for lunch on a work day.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short2\n\nFull video on this channel: Intermittent Fasting: The Best Way To Get Abs\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#IntermittentFasting #LowCarb #Productivity #BlackCoffee #Shorts",
+  "pinned_comment": "Do you get that food coma feeling after lunch? What do you usually eat?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short2",
+  "caption_overrides": {
+    "facebook": "A ton of carbs for breakfast or lunch will lower your productivity.\n\nA heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.\n\nLeave a comment to let me know what you usually eat for lunch on a work day.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short2\n\n#IntermittentFasting #LowCarb #Productivity #BlackCoffee #AbsByAI",
+    "instagram": "A ton of carbs for breakfast or lunch will lower your productivity.\n\nA heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.\n\nLeave a comment to let me know what you usually eat for lunch on a work day.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#IntermittentFasting #LowCarb #Productivity #BlackCoffee #AbsByAI",
+    "tiktok": "A ton of carbs for breakfast or lunch will lower your productivity.\n\nA heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.\n\nLeave a comment to let me know what you usually eat for lunch on a work day.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=intermittent-fasting&utm_content=sl16-short2\n\n#IntermittentFasting #LowCarb #Productivity #BlackCoffee #AbsByAI"
+  },
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "approved_cover": "A2",
+  "approval_date": "2026-10-27",
+  "media_sha256": {
+    "master": "9da5c4a23772425ab091fff41fabd51c88434e4317a22e91f155484ed0a4834b",
+    "tiktok": "a72c09ed265056f2507d98da218cf28c890768e7d514d585e0ba74ec997ddc77",
+    "ig": "9eb01ee3a122ff36ce93a89befc413ced7c0f609c9f8cc280959eea56cf1d6a0",
+    "yt": "1b551da21d0ba73be3b9e8f376e37ab652de79e019a8dc8d8965f03577830213"
+  }
+}

@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Make Time Exercise LFC Setup](handoff-20261027-ro18-thumbnails-and-video-setup.md): **Fire now. Claude Opus 5.5, high.** CONTENT LFC RO-18, R4 approved 2026-10-27: five Codex thumbnails (2026-10-25 mix), Dan's pick, then confirm the release date with Dan (no 2026 slot left) and schedule on Blotato.
 - [Top 5 Ab Exercises SFC Setup](handoff-20261027-top5-ab-exercises-sfc-setup.md): **Fire now. Claude Opus 5.5, high.** CONTENT SFC DS-01, R4 approved 2026-10-27: Drive backup, five Codex covers, Dan's pick, Blotato on the next free Thursday.
-- [Intermittent Fasting SFL Setup](handoff-20261027-sl16-intermittent-fasting-shorts-covers-and-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved all four R2 Shorts on October 27. One setup task makes five Codex covers per Short (new 2026-10-25 mix), stops for picks, then backups, metadata and Blotato. Short 1 Tue Dec 15; verify RO-08's live release date first (calendar Nov 18 vs receipt Jan 24, 2027). Short 4 needs the Glenn Francis photo credit.
 
 
 - [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
