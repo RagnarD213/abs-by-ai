@@ -1069,5 +1069,15 @@
   "approved": "Dan approved cover B with larger title (2026-10-27); Thu 2027-02-25 9 AM Central, all four.",
   "sha256": "7432629d4ad6a54d9d04cb4ca63c15bf4a76335bf63f7ee873c17628cfad3756",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds11-why-you-must-weigh-yourself-daily-approved.png"
+ },
+ {
+  "job": "RO-18",
+  "when": "2027-01-14T18:00:00.000Z",
+  "match": "You don't have belly fat because you lack knowledge. You have belly fat because you don't have the time to work out and eat right.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan approved Robot Mower R2 (6 Ways To Make Time To Work Out) 2026-10-27; YouTube Wed 2027-01-13 9 AM, Facebook Thu Jan 14 noon Central.",
+  "sha256": "0eb63531a6c9aac51985e0432c2c071f52e0f5f41b9256fe86778e5fe2043b3e",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro18-make-time-for-exercise-approved.jpg"
  }
 ]

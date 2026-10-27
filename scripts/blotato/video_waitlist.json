@@ -491,5 +491,14 @@
   "label": "Why You Must Weigh Yourself Daily",
   "added": "2026-10-27",
   "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-25, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ro18-make-time-for-exercise.json",
+  "kind": "longform",
+  "job": "RO-18",
+  "label": "How To Make Time For Exercise & Nutrition",
+  "added": "2026-10-27",
+  "note": "Dan approved Wed Jan 13, 2027 at 9 AM Chicago on Oct 27; Facebook/Instagram Thu Jan 14 noon. TikTok is a direct TikTok Studio upload Jan 14 noon (10:58, tiktok_direct; file /Volumes/Extreme/_edit_work/ro18-publish/ro18-tiktok-cover-first.mp4). Media, thumbnail and FB cover verified. Needs 3 slots.",
+  "approved_release": "2027-01-13T15:00:00.000Z"
  }
 ]
