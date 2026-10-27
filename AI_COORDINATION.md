@@ -158,6 +158,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R4 - REVIEW 2026-10-27, Claude.** Full film, page :8931. Next: Dan; then setup handoff.
 
+**How To Do Pull-Ups SFC R1 - IN PROGRESS 2026-10-27, Claude.** Whole-Short R1 building from C1882. Next: checks, review page, queue delivered. `/Volumes/Extreme/_edit_work/DS-76/round1/`
+
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
