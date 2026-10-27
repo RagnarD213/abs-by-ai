@@ -961,5 +961,23 @@
     "h": 1920,
     "approved": "Dan picked cover A (2026-10-27); Thu 2027-01-07 9 AM Central, all four.",
     "when": "2027-01-07T15:00:00.000Z"
+  },
+  {
+    "job": "DS-06",
+    "match": "This is what every body fat percentage actually looks like on a man.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds06-what-every-body-fat-percentage-looks-like-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan picked cover A-r2 (2026-10-27); Thu 2027-01-14 9 AM Central, all four.",
+    "when": "2027-01-14T15:00:00.000Z"
+  },
+  {
+    "job": "DS-10",
+    "match": "Here are three unexpected ways Zepbound made my life better beyond just helping me get lean.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds10-top-3-non-weight-loss-benefits-of-zepbound-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan picked cover A-r2 (2026-10-27); Thu 2027-01-21 9 AM Central, all four.",
+    "when": "2027-01-21T15:00:00.000Z"
   }
 ]

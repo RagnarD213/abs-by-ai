@@ -10,3 +10,7 @@ On the Belly Fat (SL-07, 2026-10-18) and Oura Ring Review (SL-09, 2026-10-21) sh
 **Why:** the picture has to act the title out at a glance; a calm portrait next to the headline doesn't sell a topic like bad sleep.
 
 **How to apply:** in every shorts cover set, make the AI-Dan option (slot 3) show him visibly living the title, with the expression the topic needs (exhausted, wired, surprised), while staying ripped, and keep the yellow band among the layouts. The calm closed-mouth rule for AI clips ([[ai-clips-natural-or-regenerate]]) is about motion looking real, not a ban on expressive cover stills. Reusing a character from the short's approved AI clips is a strong option. Related: [[thumbnail-standard-codex-in-setup]], [[thumbnail-unique-designs]].
+
+## Muhammad Shorts Batch B (DS-06, DS-10, DS-13), picked 2026-10-27
+
+A (yellow band over AI Dan acting the topic) for all three, again beating the real studio photo and the other AI Dan layouts. His revisions show what he looks at: on the body fat poster he wanted the body types more extreme ("a little fatter on the fattest, a little skinnier on the skinniest, just so you can tell what I'm pointing to") and the poster higher; on Zepbound he rewrote the headline to "Top 3 Non-Weight Loss Benefits Of Zepbound". Props that explain the topic must read instantly at feed size. Files and hashes: `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`.

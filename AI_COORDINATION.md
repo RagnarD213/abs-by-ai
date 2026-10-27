@@ -27,9 +27,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Main folder JAM 2026-10-27, Claude.** Ahead 44 / behind 64; safe-push hand-merge conflicts: corpus.json, board, DAN_DECISIONS, SHORTS_RELEASE_CALENDAR, Handoffs/README, 00-MASTER, jobs.json, fb_reel_covers.json, video_waitlist.json. Local: RO-18 setup handoff (ce2a5f7). Next: one session hand-merges, then deletes this.
 
-**Muhammad Shorts Batch B SFC Setup - COVERS 2026-10-27, Claude.** Body Fat %, Zepbound Helped Me, #1 Change At 40 (DS-06/10/13): 15 Codex covers generating. Next: Dan's picks, then Blotato/waitlist. Handoff: `Handoffs/handoff-20261026-muhammad-shorts-batch-b-sfc-setup.md`.
+**Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. ⚠ Main folder lacks DS-40/SL-08 configs (jam): top-up crashes on them until merged. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
-**DS-02/03/07/11 setup COVERS 2026-10-26, Claude.**
+**DS-02/03/07/11 setup COVERS 2026-10-27, Claude.**
 
 
 **[DS20:DESIGN3-TITLE:REVIEW:2026-10-26:Codex:pickA-C](http://127.0.0.1:9180/)**

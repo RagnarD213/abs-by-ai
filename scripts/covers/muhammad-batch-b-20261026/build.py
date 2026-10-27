@@ -105,9 +105,10 @@ def body_fat_scale(im, platform):
         if i < len(vals)-1:
             d.line((144, yy+50, 144, yy+125), fill='#171C24', width=5)
 
-R2 = {'ds06': dict(plate='ds06-A-r2'), 'ds10': dict(copy=['Top 3 Non-Weight Loss', 'Benefits Of Zepbound'])}
+# ig_extra: the raised poster needs clearance under the Instagram title band.
+R2 = {'ds06': dict(plate='ds06-A-r2-moved', ig_extra=60), 'ds10': dict(copy=['Top 3 Non-Weight Loss', 'Benefits Of Zepbound'])}
 
-def picture(key, k, platform, plate_name=None):
+def picture(key, k, platform, plate_name=None, extra=0):
     spec = SHORTS[key]
     plate = SRC/f"{plate_name or f'{key}-{k}'}.png"
     im = ImageOps.fit(Image.open(plate).convert('RGB'), (W, H), method=Image.Resampling.LANCZOS).convert('RGBA')
@@ -136,7 +137,7 @@ def picture(key, k, platform, plate_name=None):
         # Keep the whole headline panel clear of actual hair, not just the glyphs.
         top = person_top(im)
         target = (260 if platform == 'instagram' else 90)+{'D': 365, 'E': 340, 'B': 330}.get(k, 355)
-        shift = max(0, target-top)
+        shift = max(0, target-top, extra)   # extra: a minimum shift (raised DS-06 poster vs the title band)
         if shift:
             color = tuple(int(v) for v in np.array(im.convert('RGB'))[:40].reshape(-1, 3).mean(axis=0))
             shifted = Image.new('RGBA', (W, H), color+(255,)); shifted.alpha_composite(im.crop((0, 0, W, H-shift)), (0, shift)); im = shifted
@@ -183,7 +184,7 @@ def build_r2():
         spec = SHORTS[key]; copy = rev.get('copy', spec['copy']); rows = []
         for platform in ['instagram', 'youtube']:
             d = OUT/key/platform
-            im, info = picture(key, 'A', platform, rev.get('plate'))
+            im, info = picture(key, 'A', platform, rev.get('plate'), rev.get('ig_extra', 0) if platform == 'instagram' else 0)
             p = d/f"{spec['slug']}_cover-A-r2.png"
             mask = Image.new('L', (W, H)); bounds = title(im, mask, 'A', platform, copy)
             assert all(30 <= b[0] < b[2] <= W-30 for b in bounds), bounds
