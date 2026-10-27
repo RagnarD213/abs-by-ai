@@ -12,7 +12,7 @@ SCALE=1.12
 BIG={'ds02':['How Getting Abs','Looksmaxxes','Your Face'],'ds07':['Top 3 Ways','To Use AI','To Get Abs'],'ds11':['Why You Must','Weigh Yourself','Daily']}
 def lay_big_bottom(canvas,mask,k,ig):
  """Bottom headline, no pill, significantly larger (Avenir Heavy up to 240 px, full width)."""
- lines=BIG[k];limit=1608 if ig else 1740
+ lines=BIG[k];limit=1652 if ig else 1800  # R3 (Dan 10-27): moved down for more abs; IG grid keeps y<1680, YouTube keeps 120 px bottom margin
  cap=round(min(300,1.15*common(lines,AVENIR,330,1020,6).size)*(0.88 if ig else 1))
  fs=[B.fit(ln,AVENIR,cap,1020,6) for ln in lines];y=limit;ys=[]
  for ln,f in zip(reversed(lines),reversed(fs)):
