@@ -34,7 +34,7 @@ A1 is an alternative cold open: show it as an option over the approved opening; 
 `Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (incl. "Long-form green-screen backgrounds: the
 locked template"), `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`, `.claude/skills/_shared/greenscreen-bg/README.md`, the round
 3 recipe `.claude/skills/longform-edit/reference/ro24/round3/README.md`, `round3/DAN-DECISIONS.md`, `round4/DAN-DECISIONS.md`.
-AI clips: `.claude/skills/ai-clip-ideas/SKILL.md`, `_shared/IMAGE-GENERATION.md`, `_shared/framecheck/`, `_shared/veo/FLOW-RUNBOOK.md`.
+AI clips: `.claude/skills/ai-clip-ideas/SKILL.md`, `_shared/IMAGE-GENERATION.md`, `_shared/framecheck/`, `_shared/veo/README.md` (motion: the `flow-veo` background agent).
 
 ## State after round 3 (work dir `/Volumes/Expansion/_edit_work/RO-24/`)
 - Never re-key: plates `round2/key/R*.mkv` (approved key). Colour warm, voice A, take list: locked.
@@ -63,9 +63,9 @@ AI clips: `.claude/skills/ai-clip-ideas/SKILL.md`, `_shared/IMAGE-GENERATION.md`
 2. **AI frames first, in parallel with the film.** Six start/end pairs through `.claude/skills/_shared/codex-image.sh`
    (Codex subscription, never a paid API). Calm, real-looking people, natural light, no slop (memory
    `ai-clips-natural-or-regenerate`, `ai-clip-sense-qc`: the picture shows the line, cause and effect reads). Each pair:
-   `_shared/framecheck/gate.py --verify`, then a fresh independent frame review per pair (Claude: `frame-reviewer` agent).
+   `_shared/framecheck/gate.py --verify`, then a fresh independent frame review per pair (a fresh `frame-reviewer` agent each time).
    Put the passing pairs on an early frames page and tell Dan, then keep building the film. After his yes: motion in Google
-   Flow on his subscription (never the paid API unless he says rush), AI-GENERATED label, insert into the film if the film is
+   Flow on his subscription through the `flow-veo` background agent (never the paid API unless he says rush), AI-GENERATED label, insert into the film if the film is
    not yet delivered, else next round.
 3. Whole-film plan: facts for every section after 2:50, planner, the editor's overrides with a why each; HyperFrames panels
    and big types (`hfbg.py --snap` first, then `--render`); one still per segment through the assembler before any long render.
