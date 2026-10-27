@@ -45,7 +45,8 @@ STATES = {
 LAUNCHABLE = ("frames_approved", "ready")   # frames_approved arrives with Phase 2; it goes first
 LOCK = os.path.join(DIR, ".jobs.lock")
 RCLONE = os.path.expanduser("~/bin/rclone")
-DRIVE_PATH = "gdrive:Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
+DRIVE_REMOTE = os.environ.get("EDIT_QUEUE_DRIVE_REMOTE", "gdrive_backup:").rstrip(":") + ":"
+DRIVE_PATH = DRIVE_REMOTE + "Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
 DB_FIELDS = ("id", "list", "group", "sub", "title", "roll", "size", "file", "claudeModel", "claude",
              "codexModel", "codex", "state", "note", "order", "updated", "by", "rev", "editor", "needs")
 EDITORS = {"claude": "Claude", "codex": "Codex", "muhammad": "Muhammad", "zeeshan": "Zeeshan", "waleed": "Waleed"}

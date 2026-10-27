@@ -25,9 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Main folder JAM 2026-10-27, Claude.** Ahead 44 / behind 64; safe-push hand-merge conflicts: corpus.json, board, DAN_DECISIONS, SHORTS_RELEASE_CALENDAR, Handoffs/README, 00-MASTER, jobs.json, fb_reel_covers.json, video_waitlist.json. Local: RO-18 setup handoff (ce2a5f7). Next: one session hand-merges, then deletes this.
-
-**Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. ⚠ Main folder lacks DS-40/SL-08 configs (jam): top-up crashes on them until merged. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
+**Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
 **DS-02/03/07/11 setup COVERS 2026-10-27, Claude.**
 
@@ -38,10 +36,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Five Minute Exercises SFC Setup - REVIEW 2026-10-26, Codex.** [Tightened A pair](http://127.0.0.1:9270/). Next: Dan approves. Commit0b22c31 local.
 
-**DS-55 records sync BLOCKED 2026-10-26, Codex.** Approved edit finished. Commit977e5b0 local; live shared edits block push. Next: retry safe-push when owners finish. No Dan action.
-
-
-**ADHD article push BLOCKED 2026-10-26, Claude.** Live; commit 9e58141 unpushed. Next: safe-push `sixpackabs/articles/3w5rVosGQz4.md`, delete.
 
 **DS-84 R3 REVIEW 2026-10-26, Codex.** [Full Short](http://127.0.0.1:9284/). F, tighter exercise crops and matching large titles rendered; independent review ready. Original automatic framing/caption flags retained with audit. Native VLC copy verified; queue/Drive delivered. Next: Dan approves or lists changes. Slot released; dispatcher/heartbeat paused. No setup. Git2811712 local; shared edits block push.
 
@@ -54,31 +48,24 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
 
-**DS-01:PUSH-BLOCKED:4ddb18f:2026-10-27:Claude**
 
 **DS-01 setup COVERS 2026-10-27, Claude.** Awaiting pick.
 
-**Muhammad HQ push BLOCKED 2026-10-26, Claude.** Commit 509607e local. Next: safe-push, delete.
-
-**Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
 
 **Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
+**Wallpaper favorites - MAC APPROVAL PENDING 2026-10-25, Codex task-7.** Web save/remove/restore verified on 49b86329, correct October 21 original, private access preserved. Source recovery hashes match. Reader remains uninstalled; disable/restore safeguards tested. Next: Dan approves separate Keychain key, favorites-only server grant and LaunchAgent, then real three-screen rotation verification. `scripts/brief/wallpaper/README.md`.
 
 **Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
 
+**Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
 
-**Arms Shoulders handoff sync - BLOCKED 2026-10-25, Codex.** Video complete, canonical master and Extreme backup verified; setup/offload handoffs ready locally and backed up. Commit09bedc24c cannot push past live changes in board, Dan decisions, master/jobs and staged RO26article; Handoffs README also blocks. Next: retry safe-push after live owners finish. No media work remains.
+**Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
+
 
 **Arms Shoulders Workout LFC Setup - CAPACITY HOLD 2026-10-25, Codex.** Dan approved Jan 6, 2027 YouTube 9 AM Chicago; socials Jan 7 noon. Setup ready; shared waitlist eligible. Queue 197/200, needs four. Top-up preserves approved date; seven tests pass. Backups/covers/article verified. Commits saved; push blocked by live shared files. Next: existing daily top-up schedules when room opens. No Dan action. RO-04 stays finalized until verified scheduling. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
 
-**Fat 90 Year Old SFC Setup - HOLD 2026-10-25, Codex.** Exact Codex R5 and approved cover installed; media verified. Shared waitlist Dec 31, 9 AM Central (Blotato 197/200). Next: daily top-up queues four, then public-cover checks. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
-
-**Veo Quality rule push BLOCKED 2026-10-25, Claude.** Local commit 3eb4003 (veo.py, veo README/runbook, memory) waits on live shared files. Next: rerun `scripts/git/safe-push.sh` with those files; then delete this.
-
-**Codex memory push BLOCKED 2026-10-25, Claude.** Local commit c4402f1 (`Docs/memory/protect-codex-and-other-ais.md`) waits on a live file. Next: rerun `scripts/git/safe-push.sh` with that file; then delete this.
 
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
-
 
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
@@ -157,7 +144,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**RO-24:R3-HANDOFF:2026-10-24:Claude.** Card `Celebrity Ozempic LFC R3`.
+**Celebrity Ozempic LFC R3 - REVIEW 2026-10-25, Claude.** RO-24 first 2:50 on the shared green-screen template (`_shared/greenscreen-bg/`), page :9126; independent review READY. Slot released. Next: Dan's reply, then round 4 to Codex (green-screen rule 10-25): `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md`.
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
@@ -173,8 +160,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-08 HOLD 2026-10-14.** Jan 24 2027; B test after. `Docs/RO08_SETUP_RECEIPT_20261014.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
-
-**SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

@@ -1,0 +1,36 @@
+{
+  "content_type": "organic",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short2_eat-a-salad-first-to-eat-less.mp4",
+  "slug": "sl08-short2",
+  "campaign": "calories-not-losing-weight",
+  "title": "Eat a Salad First to Eat Less",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cedc6224-d1b7-4403-aae4-465579621301.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dce22994-c8f3-48af-a0a5-365fcfdf21dd.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/61269dea-52eb-4a70-841b-a79bebad321d.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/acc89509-6754-4ed0-aad9-1cb38c76134f.jpg",
+  "main": "2027-01-05T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": false,
+  "hook": "Start your meal with a big salad if you want to eat less.",
+  "body": "Researchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.",
+  "close": "Try eating that first before you eat your main meal.",
+  "tags": "#AbsByAI #Nutrition #FatLoss #HealthyEating",
+  "youtube_description": "Start your meal with a big salad if you want to eat less.\n\nResearchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.\n\nTry eating that first before you eat your main meal.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short2\n\nFull video on this channel: Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)\n\n#AbsByAI #Nutrition #FatLoss #HealthyEating #Shorts",
+  "pinned_comment": "Would you rather start your meal with a salad or soup?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short2",
+  "caption_overrides": {
+    "facebook": "Start your meal with a big salad if you want to eat less.\n\nResearchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.\n\nTry eating that first before you eat your main meal.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short2\n\n#AbsByAI #Nutrition #FatLoss #HealthyEating",
+    "instagram": "Start your meal with a big salad if you want to eat less.\n\nResearchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.\n\nTry eating that first before you eat your main meal.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#AbsByAI #Nutrition #FatLoss #HealthyEating",
+    "tiktok": "Start your meal with a big salad if you want to eat less.\n\nResearchers at Penn State gave people a big, low calorie salad before their meal, and they ate about 12% fewer calories for the whole meal, even counting the salad. And they didn't feel any less full. That's the reason why I break my fast with a salad, but you can also start with vegetables or a broth based soup.\n\nTry eating that first before you eat your main meal.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short2\n\n#AbsByAI #Nutrition #FatLoss #HealthyEating"
+  },
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "parent_schedule_id": "5287937",
+  "approved_cover": "C",
+  "approval_date": "2026-10-25",
+  "media_sha256": {
+    "master": "4f3bb0e411aef33afddb45dbc5932d32c3c5602f3c3a36f976c8a8eb3663f01e",
+    "tiktok": "a610cdcfef37301f49f12940278959ceb88da8796811c3cdfb66e30adcd9edd2",
+    "ig": "fae3894673c4c7156d27d3190fdae85b5072547c191493579b9fe2758dc541c2",
+    "yt": "dd011bfea927084e75830979a23336c49d389307164ff7194c16bd68d65af7dd"
+  }
+}

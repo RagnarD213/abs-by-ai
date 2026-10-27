@@ -30,3 +30,14 @@ Private completion receipt: `Media/footage-index/shoot-20261023/completion-recei
 The batch production slot was released after finishing. Required shared-tool checks passed: eight clip-library checks and 27 edit-cap self-tests. No new media was downloaded from outside services for this completion phase.
 
 Git synchronization is pending while other sessions have live changes in shared jobs, master, board and related files. Only this task's owned new briefs and receipts are committed; mixed shared-file work is preserved without adopting another owner's active edits. The Drive library and queue updates are already saved and verified independently of Git.
+
+
+## October26 access and synchronization follow-up
+
+Dan requested confirmation inside Claude and completion of project synchronization. In the signed-in native Claude app, both long-forms were already visible but the30 new Shorts were hidden by the artifact's enumerated subgroup layout. Their display group was corrected to supported Talking, retaining October23 roll/intake identity. The native queue now visibly lists all30 Shorts and both long-forms when searching10/23. No editing or dispatcher launch occurred. The separate fallback database was not marked synced; the live Drive-backed display works.
+
+All159 native masters were freshly opened for readability; current Drive sizes/MD5s matched all159 backup receipts.115 shared source sidecars and eight real library retrieval checks passed. Claude's project instructions point to `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md` and the entire usable catalog. Both queue/library tools default to the working dedicated-client Drive connection.
+
+Project commits were integrated with current GitHub main in an isolated managed checkout, preserving primary-folder live edits. Merge conflicts retained later approved setup records and additive metadata. Private evidence: `Media/footage-index/shoot-20261023/claude-sync-20261026/`. Final push/deployment readback is recorded there; this paragraph alone does not assert a successful push.
+
+Eight library tests and the relevant shared-queue export test passed. A full pre-change queue test run had three existing routing-fixture failures against current routing; no routing configuration was changed by this task.

@@ -133,10 +133,9 @@ is the template:
 
 Never the word "trick" (Dan's rule), never a result promise in the first two lines.
 
-## 4. Thumbnail — the clean look, both grounds
+## 4. Thumbnail choices, then the approved selection
 
-Dan's standing choice for ad thumbnails is the clean look (Manrope caps, red bar, wordmark; O1 dark studio / O2 his
-own backdrop). Neither ground is settled (Ad 1 = dark, Ad 5 = light), so build both and install one.
+Use the 2026-10-25 five-choice mix in `_shared/VIDEO-RULES.md`: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. Show the five and wait for Dan's pick; generate with Codex on the subscription. The older clean-look recipe below is an optional asset reference for the real-photo choice, not a requirement to build two studio backgrounds or install a choice before approval.
 
 ```bash
 python3 .claude/skills/ad-setup/ruler.py studio-gray-87 studio-white-57 --out /tmp/ruler.jpg   # then LOOK at it

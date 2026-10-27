@@ -45,6 +45,7 @@ Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~4
 
 **Moved 2026-10-25 (Bill Maher: Fat 90-Year-Old setup):** Dan selected the approved Codex R5 film and approved revised design 1 cover R3. This edited Short takes Thu Dec 31, 9 AM America/Chicago, on the shared waiting list. The not-yet-edited #1 Change For Abs At 40 (DS-13) moves to Jan 7, 2027; Lose The Last 10 Pounds (DS-16) moves to Jan 14 and Top 5 Ab Exercises (DS-01) to Jan 21. No existing live schedule was moved. The daily top-up routine rechecks the slot before queuing all four destinations.
 
+
 **Approved 2026-10-25 (Calories Not Losing Weight Shorts, SL-08):** Dan kept the parent on Sunday December 27 and explicitly approved these five 2027 slots, all at 9 AM America/Chicago on YouTube/Facebook/Instagram @danrosefit/TikTok. Covers C approved for all five. Setup is on the shared waiting list at 197/200 Blotato posts; the daily top-up routine rechecks live slots before scheduling. Parent dependency: RO-10.
 
 | 2027 date | Approved Short |

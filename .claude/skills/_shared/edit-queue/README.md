@@ -83,3 +83,10 @@ A failed `write_db` or Drive upload never blocks the repo update: `jobs.json` st
 re-uploads everything. For the db, `syncedRev` stays behind and `pending` picks it up later. ⚠ rclone uses a shared
 Google client id that Google is retiring during 2026 (memory `drive-backup-capability`). If uploads start failing
 with quota or auth errors, that's why, and Dan needs his own client id set up.
+
+
+## Display groups and the existing Drive connection
+
+The existing artifact enumerates Dedicated Shorts subgroups. Spoken October23 Shorts use supported `Talking`; preserve actual shoot identity in `roll`, the master section and private intake map. An unsupported `sub` can hide a valid job. Search `10/23` for all30 Shorts and two long-forms. Access note: `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md`.
+
+`queue.py` defaults to the existing dedicated-client `gdrive_backup:` connection for the same status file. Override with `EDIT_QUEUE_DRIVE_REMOTE` if needed. A successful live Drive display is not a native fallback database write; mirror revisions remain pending until the documented version-guarded native writer succeeds.

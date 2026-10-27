@@ -12,6 +12,13 @@
   ],
   "timeZone": "America/Chicago",
   "time": "09:00",
-  "coverPicks": null,
-  "booked": false
+  "coverPicks": {
+    "s1": "C",
+    "s2": "C",
+    "s3": "C",
+    "s4": "C",
+    "s5": "C"
+  },
+  "booked": false,
+  "preparedAs": "shared_waitlist"
 }

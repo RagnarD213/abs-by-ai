@@ -1,4 +1,6 @@
-**SFC.** Task name: `Dad Bod SFC R1`.
+**CONTENT SFC.** Task name: `Dad Bod SFC Setup`.
+
+**FINALIZED October 26, 2026:** Dan selected and approved the complete **Off The Cuff R3**. Exact master: `Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4`, SHA-256 `c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d`, 61.094367s. Project/Extreme/Drive copies verified. Approval: `Handoffs/video-editing/DS-35-R3-approval.json`. Continue with the single [Claude cover-pick/setup handoff](../handoff-20261026-ds35-dad-bod-off-cuff-setup.md), Opus 5.5 high. Scripted is an unselected alternate. Cover pick, upload and scheduling remain. Original first-cut context follows.
 
 # DS-35: "Women Say They Love The Dad Bod. They Don't.", first cut from raw footage
 

@@ -1,0 +1,28 @@
+{
+  "job": "DS-40",
+  "selected_version": "Codex R5",
+  "master": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4",
+  "sha256": "3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720",
+  "duration": 64.8648,
+  "status": "setup_complete_waitlisted",
+  "cover_review_url": "http://127.0.0.1:9224/",
+  "generation": {
+    "provider": "Codex subscription via codex-image.sh",
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "count": 5,
+    "paid_generation_usd": 0,
+    "reported_codex_tokens_total": 136153
+  },
+  "approved_cover": "Design 1 revised round 3",
+  "cover_approved_by": "Dan, 2026-10-25",
+  "cover_hashes": {
+    "instagram_png": "956fda712985552b9cc4b46aec8359a1be4b3a269e00432fdd43422f8f7df953",
+    "instagram_jpg": "60350811161c3b97879043ebc10624044f6e1e69f608d2b15b737536296adcd8",
+    "youtube_png": "c73e323f958da872479de929cb000c50ef1355d4305453d769a97c9525132dc8",
+    "youtube_jpg": "7e390883187cc6c1c2dda0c374668b49169019cd22eab2de8bd8cfb613728f4b"
+  },
+  "config": "scripts/blotato/configs/ds40-bill-maher-fat-90-year-old.json",
+  "release_target": "2026-12-31T15:00:00.000Z",
+  "scheduled": false
+}

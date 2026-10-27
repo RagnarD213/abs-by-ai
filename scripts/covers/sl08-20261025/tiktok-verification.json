@@ -1,0 +1,97 @@
+[
+  {
+    "short": 1,
+    "title": "Why I Fast Until 2 pm Every Day",
+    "path": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short1_why-i-fast-until-2-pm-every-day_tiktok.mp4",
+    "sha256": "373a2366dbdc7817617df5141b00816f6c2b2d78cf58e34dd4e4a25ccb0ddc62",
+    "bytes": 65974005,
+    "firstFrame": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short1_why-i-fast-until-2-pm-every-day_frame0.png",
+    "audio_payload_sha256": "ecae59c336c7c2d0f5c800612bd72e1f1d6645212c072b8bbc349bae90002152",
+    "audio_identical": true,
+    "verification": {
+      "frames_src": 1166,
+      "frames_out": 1167,
+      "audio_pkts_src": 1825,
+      "audio_pkts_out": 1825,
+      "decode_errors": "",
+      "cover_psnr": 47.72263826912034,
+      "ok": true
+    }
+  },
+  {
+    "short": 2,
+    "title": "Eat a Salad First to Eat Less",
+    "path": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short2_eat-a-salad-first-to-eat-less_tiktok.mp4",
+    "sha256": "a610cdcfef37301f49f12940278959ceb88da8796811c3cdfb66e30adcd9edd2",
+    "bytes": 127220069,
+    "firstFrame": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short2_eat-a-salad-first-to-eat-less_frame0.png",
+    "audio_payload_sha256": "9d7a21e5f89fe8662fec42726f197f77bc26fee56cb2c7967acdb0f1f7525dc2",
+    "audio_identical": true,
+    "verification": {
+      "frames_src": 1418,
+      "frames_out": 1419,
+      "audio_pkts_src": 2221,
+      "audio_pkts_out": 2221,
+      "decode_errors": "",
+      "cover_psnr": 48.503756854954304,
+      "ok": true
+    }
+  },
+  {
+    "short": 3,
+    "title": "Stop Drinking Your Calories",
+    "path": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short3_stop-drinking-your-calories_tiktok.mp4",
+    "sha256": "91653c2f7159cc68fef8860bfcaaf302a5b0e7f99ef3f9ea2e04f09d904ed641",
+    "bytes": 131827162,
+    "firstFrame": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short3_stop-drinking-your-calories_frame0.png",
+    "audio_payload_sha256": "74cab400d2c905b3820f819c0bb9841071c7a4e084b2576074cbcd6e17f0482c",
+    "audio_identical": true,
+    "verification": {
+      "frames_src": 1504,
+      "frames_out": 1505,
+      "audio_pkts_src": 2356,
+      "audio_pkts_out": 2356,
+      "decode_errors": "",
+      "cover_psnr": 48.00763183586943,
+      "ok": true
+    }
+  },
+  {
+    "short": 4,
+    "title": "Snack on Protein, Not Carbs",
+    "path": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short4_snack-on-protein-not-carbs_tiktok.mp4",
+    "sha256": "b713914a017c12bbb66d29faab0495163ce9b2f97949248bc86f9ce8ba3f374e",
+    "bytes": 77144979,
+    "firstFrame": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short4_snack-on-protein-not-carbs_frame0.png",
+    "audio_payload_sha256": "2859fa2d17416b025a308bac73b26e5dcc91e3dc4389c9a1c85caaa74c2c75f8",
+    "audio_identical": true,
+    "verification": {
+      "frames_src": 1061,
+      "frames_out": 1062,
+      "audio_pkts_src": 1661,
+      "audio_pkts_out": 1661,
+      "decode_errors": "",
+      "cover_psnr": 48.186578008090066,
+      "ok": true
+    }
+  },
+  {
+    "short": 5,
+    "title": "Make Fasting Easier With Black Coffee",
+    "path": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short5_make-fasting-easier-with-black-coffee_tiktok.mp4",
+    "sha256": "5f9ba00056737b9b75c016271a8fa79d3a4ccb6aed515c40a9a3dc0a1ca515d0",
+    "bytes": 85417847,
+    "firstFrame": "/Volumes/Extreme/_edit_work/sl08-publish/calories-short5_make-fasting-easier-with-black-coffee_frame0.png",
+    "audio_payload_sha256": "33e325abad8b616206bcd5e96b5898df3c869cbaf43f8db6db3cd28eb00eaa61",
+    "audio_identical": true,
+    "verification": {
+      "frames_src": 970,
+      "frames_out": 971,
+      "audio_pkts_src": 1521,
+      "audio_pkts_out": 1521,
+      "decode_errors": "",
+      "cover_psnr": 47.50837965136478,
+      "ok": true
+    }
+  }
+]

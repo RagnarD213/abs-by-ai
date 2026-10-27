@@ -1,9 +1,10 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your morning brief</title><link rel="stylesheet" href="/api/brief/style.css"><script src="/api/brief/page.js" defer></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Your morning brief</title><link rel="stylesheet" href="/api/brief/style.css"><script src="/api/brief/page.js" defer></script><script src="/api/brief/favorites.js" defer></script></head>
 <body><main>
 <header><div><div class="eyebrow">Your morning brief</div><h1 id="edition">Loading your brief</h1><p class="meta" id="edition-note">About two to three minutes</p></div><button id="logout" type="button">Sign out</button></header>
-<section id="image-section" class="hero" hidden><img id="daily-image" alt="Your private daily inspiration" fetchpriority="high"><p id="image-caption" class="meta">Image date not verified</p></section>
+<section id="image-section" class="hero" hidden><img id="daily-image" alt="Your private daily inspiration" fetchpriority="high"><p id="image-caption" class="meta">Image date not verified</p><div class="favorite-actions"><button id="favorite-image" type="button" disabled aria-pressed="false">Save to wallpaper favorites</button><a href="#wallpaper-favorites">View favorites</a></div><p id="favorite-status" class="note" role="status" aria-live="polite"></p></section>
+<section id="wallpaper-favorites"><details id="favorites-details"><summary>Private wallpaper favorites</summary><p class="note">Favorites guide future images. Leaving an image unselected or removing it is neutral. Removal keeps the original available to restore.</p><p id="favorites-status" class="note" role="status" aria-live="polite"></p><div id="favorites-grid" class="favorites-grid"></div><button id="favorites-more" type="button" hidden>Load more favorites</button><button id="favorites-refresh" type="button">Refresh favorites and Mac status</button></details></section>
 <p id="notice" class="notice" role="status"></p>
 <button id="retry" type="button" hidden>Try loading again</button>
 <p id="routine-status" class="meta"></p>
