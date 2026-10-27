@@ -31,6 +31,8 @@ Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, alw
 
 **Choose for Dan's demonstrated preferences.** Before the design plan, inspect recent `covers/approved-*/picks.json` and their final images, plus `Docs/memory/cover-picks-ai-dan-acting-topic.md`. The five Calories Shorts C picks (2026-10-25) are a strong current reference: recognisable lean Dan, a natural action illustrating that exact Short, clear abs, readable type. Prefer more of those winning qualities and fewer no-Dan concepts he rarely picks, while giving each option a genuinely different design. Do not infer that the same layout must be repeated. Preserve the real photograph's original person pixels; AI Dan uses a real identity reference and a face check. Record every actual pick and final hash so later sets keep learning.
 
+**Bottom-title layout (Dan, 2026-10-27):** when a design puts his picture on top and the headline stacked at the bottom, make the picture slightly larger, drop the eyebrow pill and make the headline significantly larger (three balanced lines), keeping the abs clear. Memory `cover-bottom-title-layout-rule`; recipe `scripts/covers/ds02-03-07-11-20261026/round2.py`.
+
 ## The rules, in priority order
 
 1. **For the real-photo slot, prefer a photograph over a video frame.** Shoot photography is lit, posed and
