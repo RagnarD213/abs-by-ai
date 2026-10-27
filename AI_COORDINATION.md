@@ -50,7 +50,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-47 R4 REVIEW 2026-10-26,Codex:01a179fe.** [Intro](http://127.0.0.1:9214/). D enlarged/arrows/title checked. A/B/portrait locked; full Short unfinished. Next: Dan. `Docs/DS47_R4_INTRO_REVIEW_20261026.md`.
 
-**Brief overlap - NEEDS DAN 2026-10-26, Codex.** Both published. Pause old cloud schedule; retain local.
+**Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
 
 **Muhammad HQ push BLOCKED 2026-10-26, Claude.** Commit 509607e local. Next: safe-push, delete.
 
@@ -91,9 +91,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 
-**Hormozi Fat Guy Off-Cuff SFC R2 - REVIEW 2026-10-25, Claude.** Dan picked off-cuff (DS-44B). R2: 1.135x to 64.9 s, Codex titled panel; review SHIP; page http://127.0.0.1:9045/. Next: Dan approves; then DS-44 setup swaps the Dec 17 media to `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R2 - complete Short.mp4` (sha eb63aaec, no AI flag).
-
-**DS-44 Hormozi QUEUED 2026-10-23, Claude.** Scripted R2 queued Thu Dec 17, all four; if Dan picks off-cuff (DS-44B), swap media. `Docs/DS44_SETUP_RECEIPT_20261023.md`
+**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
