@@ -55,7 +55,7 @@ AI clips: `.claude/skills/ai-clip-ideas/SKILL.md`, `_shared/IMAGE-GENERATION.md`
 - Round 3 reviews: `round3/review/INDEPENDENT-R3*.md` (last: READY FOR DAN). Open notes for the whole film: lower thirds pass
   over his chest in the corner layout (kept: approved graphics); clips used as broadcast; Fat Joe fade-out about 60 ms
   (optional 100 ms).
-- Codex note: the template is Python (`gsbg.py`, numpy/cv2/PIL) plus two HyperFrames templates; the film assembler is
+- The template is Python (`gsbg.py`, numpy/cv2/PIL) plus two HyperFrames templates; the film assembler is
   `round3/recipe/assemble_r3.py` (`--reuse/--redo` re-composes only changed background segments).
 
 ## Work
@@ -82,11 +82,13 @@ No re-keying. Render through the queue. Test on stills (`stills_r3.py`) and 10-1
 render to test a look. The plate decode is the cost: about 3-4 frames a second on a busy Mac.
 
 ## Model
-**Codex, newest stable Sol at high effort (currently `gpt-6.1-sol`).** Dan, 2026-10-25 (VIDEO-RULES "Reaction videos: the locked
-format" and AGENTS.md "Green-screen editing"): "Codex now has the green screen jobs"; Codex handles green-screen jobs and their
-next authorized edit rounds. Round 3 finished on Claude because it was already running. Resolve Sol against the client's
-model catalog; never guess a future ID. The Claude R3 task stays pinned until this task is verified running (Claude cannot
-start or read a Codex task); the R4 editor records the transfer in the round journal (`_shared/video-rounds/README.md`).
+**Claude Opus 5.5, high effort.** RO-24 started on Claude, and a video stays with the AI it started on (2026-10-20 rule).
+Dan, 2026-10-27, withdrawing the 10-25 "Codex owns green-screen" rule: *"I've changed my mind about that rule of doing green
+screen on Codex because this edit was so good... let's not have any rule for which one. Codex is untested, but I think
+Claude is our likely champion for long-form green screen, probably Codex for the short form."* Images still come from Codex
+on the subscription (`codex-image.sh`); Claude's `frame-reviewer` and `ra-reviewer` agents do the independent reviews.
+Pins (`_shared/video-rounds/README.md`): once this task is running, pin it and unpin only its predecessor, the Claude task
+"Celebrity Ozempic LFC R3" (`ccd_sidebar` set_pinned), after checking this task shows as started.
 
 ## Starter prompt
-> Celebrity Ozempic LFC R4. Use Codex (newest Sol, high). Read `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md` and `/Volumes/Expansion/_edit_work/RO-24/round4/DAN-DECISIONS.md`, then execute round 4 of "Reacting To Celebrity Ozempic Transformations" (RO-24) with `$long-form-content-edit` (Claude: /longform-edit): the whole film on the locked green-screen background template, all six interview clips and the before/after photos; start and end frames for AI clips A1, A3, A4, A6, A7 and A8 through the frame gate and an independent frame review, shown to Dan early while the film builds; every gate, independent review, deliver the round 4 page.
+> Celebrity Ozempic LFC R4. Model: Claude Opus 5.5, high effort. Rename this task to `Celebrity Ozempic LFC R4` at the start. Read `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md` and `/Volumes/Expansion/_edit_work/RO-24/round4/DAN-DECISIONS.md`, then execute round 4 of "Reacting To Celebrity Ozempic Transformations" (RO-24) with /longform-edit: the whole film on the locked green-screen background template, all six interview clips and the before/after photos; start and end frames for AI clips A1, A3, A4, A6, A7 and A8 through the frame gate and an independent frame review, shown to Dan early while the film builds; every gate, independent review, deliver the round 4 page.

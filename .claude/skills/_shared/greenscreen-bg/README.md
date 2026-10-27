@@ -19,7 +19,9 @@ style. A new film changes only its facts, plan, photos and clip windows (and a n
 
 **Scope (2026-10-25):** green-screen long-form commentary and reaction films with several backgrounds. Reaction SHORTS keep
 the locked Bill Maher Codex R5 format (VIDEO-RULES, "Reaction videos: the locked format"); this template does not replace it.
-Codex owns green-screen editing from 2026-10-25 (same section): Codex uses this module as is, through the same plan format.
+No AI owns green-screen editing (Dan, 2026-10-27, VIDEO-RULES same section): a film stays with the AI it started on; for a
+new long-form film Dan leans to Claude Opus 5.5 high ("Claude is our likely champion for long-form green screen"). Claude
+and Codex use this module as is, through the same plan format.
 
 ## The types (Dan's numbers from the mockups)
 

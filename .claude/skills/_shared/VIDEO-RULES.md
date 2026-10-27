@@ -36,9 +36,9 @@ me for review and regenerate if you get some slop like this."*
 
 ## Reaction videos: the locked format, start to finish (Dan, 2026-10-25, Bill Maher Codex R5)
 
-**The standard for all reactions is Bill Maher Fat 90-Year-Old Codex R5. Codex owns green-screen editing.**
+**The standard for all reaction Shorts is Bill Maher Fat 90-Year-Old Codex R5.** (Routing: no AI owns green-screen editing since 2026-10-27; see the end of this section.)
 Dan chose it after comparing the finalized Claude and Codex films: "overall I like the Codex version better";
-"Codex now has the green screen jobs"; "lock this format as our reaction format: the Codex R5".
+"Codex now has the green screen jobs" (routing withdrawn 2026-10-27, below); "lock this format as our reaction format: the Codex R5".
 He preferred the full-screen vertical → horizontal speaking clip → silent clip behind Dan sequence, the smooth
 handover into his response, the title ABOVE the silent video, and the colour on both Dan and the clip.
 
@@ -55,13 +55,18 @@ handover into his response, the title ABOVE the silent video, and the colour on 
 
 Exact master/hash, Dan's words, timing/geometry, title config, colour recipe, actual key/compositor code and evidence:
 [Codex R5 reaction reference](../shorts/reference/ds40-codex-r5-reaction-format/README.md).
-This supersedes the earlier Hormozi Fat Guy Claude R2 and Bill Maher Claude opening/full-format references, and
-older Claude routing for green-screen edits. R5 already uses the house Claude R2 key algorithm; this changes the
+This supersedes the earlier Hormozi Fat Guy Claude R2 and Bill Maher Claude opening/full-format references. R5 already uses the house Claude R2 key algorithm; this changes the
 finished format/editor reference, not the algorithm or numeric QA gates. Other videos' audio stays source-specific.
 The separate both-takes rule above still applies. The older multi-background commentary reference does not replace
 this reaction layout. Existing approved exports and the existing setup handoff remain as they are.
-Codex owns new green-screen work and the next authorized edit round; use the sole-owner round workflow for an
-actual transfer. Do not interrupt another active editor or launch a new job merely to install this standard.
+Do not interrupt another active editor or launch a new job merely to install this standard.
+
+**Routing (Dan, 2026-10-27, replaces "Codex owns green-screen editing" of 10-25): no AI owns green-screen editing.**
+*"I've changed my mind about that rule of doing green screen on Codex because this edit was so good. I haven't tested
+Codex yet, but let's not have any rule for which one. Codex is untested, but I think Claude is our likely champion for
+long-form green screen, probably Codex for the short form."* A video stays with the AI it started on (2026-10-20 rule).
+For a new green-screen job, recommend Claude Opus 5.5 high for long-form and Codex newest Sol high for reaction Shorts: a
+lean, not a rule. The R5 reaction format and the long-form background template stay locked whichever AI edits.
 
 ## Long-form green-screen backgrounds: the locked template (Dan, 2026-10-27, RO-24 R3)
 
