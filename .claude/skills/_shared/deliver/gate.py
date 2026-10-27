@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.6.1"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.6.2"        # 1.1.0: an insert may declare its own label chip + position
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -100,6 +100,11 @@ GATE_VERSION = "2.6.1"        # 1.1.0: an insert may declare its own label chip 
 # start, 1.5 frames before its end; a very short card on its middle frame) and seeks half a frame before
 # the frame it means. A 0.9 s card's "0.9 s in" sample decoded the NEXT card's first frame and failed
 # RA-12's D1 and P1 real-photo chips that were on every frame. Bounds are unchanged.
+# 2.6.2 (2026-10-25): junk:repeated_take keeps a deliberate parallel pair. A repeat that measured RESTART is
+# ANAPHORA when the first copy finished a sentence (>= 5 words, ends on . ? !), the only hesitation is that
+# full stop, and the second copy changes the item slot right after the repeat to a contrasting number, time or
+# name (_shared/cut/junk.py `_parallel`). SL-16 short 1 failed on "...lunch at 2 o'clock.[0.66 s] If you wake
+# up at 7am". Cut-off first copies, the same sentence twice and corrected later numbers still fail. Bounds unchanged.
 STAMP_SUFFIX = ".deliver_gate.json"
 
 PLAN_KEYS = """

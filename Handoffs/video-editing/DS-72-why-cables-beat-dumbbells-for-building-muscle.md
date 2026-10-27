@@ -24,3 +24,8 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-72-why-cables-beat-dumbbells-for-building-muscle.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+
+## October 23 source check (2026-10-25)
+
+The gym cable B-roll is prepared, Color C approved, catalogued and backed up in the shared library. Search by the exact exercise/equipment and inspect teaching intent. The matching spoken script was not found among the verified October 23 recordings; keep this job blocked for that recording. The filmed Short about machines and cables instead of barbells is a separate script and must not be duplicated here.

@@ -1,0 +1,192 @@
+{
+  "job": "DS-35",
+  "category": "CONTENT SFC",
+  "status": "uploaded and scheduled; four exact targets and captions read back; all four rehosted media hashes match",
+  "selected_version": "Off The Cuff R3",
+  "master": {
+    "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+    "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+    "md5": "3736db85645f4f8a19f71bf059f6d38a",
+    "bytes": 83295310,
+    "film_and_audio_unchanged": true
+  },
+  "cover_approval": {
+    "job": "DS-35",
+    "approved_by": "Dan",
+    "date": "2026-10-26",
+    "dan_words": "This is approved. Go ahead and install this one",
+    "design": "Round 2 design 2, revised title-case cover round 3",
+    "files": {
+      "instagram": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds35/dad-bod-instagram-approved.png",
+        "sha256": "0425cac52ddfa5911107bbc2856de82cc9b56148c0643037dc8b78003a93c4f4",
+        "bytes": 2595641,
+        "copy": {
+          "headline": "Do Women Like The Dad Bod?",
+          "teaser": "Surprising Answer Revealed!"
+        }
+      },
+      "youtube": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds35/dad-bod-youtube-approved.jpg",
+        "sha256": "3db833c58c55d16ecbde7f479082cd813481c1389d119c743d7b261cdac57e89",
+        "bytes": 581974,
+        "copy": {
+          "headline": "Do Women Like The Dad Bod?",
+          "teaser": "Surprising Answer Revealed!"
+        }
+      }
+    },
+    "cover_copy": {
+      "headline": "Do Women Like The Dad Bod?",
+      "teaser": "Surprising Answer Revealed!"
+    },
+    "movie": "Off The Cuff R3",
+    "movie_sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d"
+  },
+  "date_approval": {
+    "user_choice": "Saturday, December 19, 2026 at 9 AM Central (Recommended)",
+    "approved_date": "2026-10-26",
+    "cadence_exception": "One-time Saturday release approved by Dan; remaining 2026 Thursdays reserved; no other video displaced."
+  },
+  "release_utc": "2026-12-19T15:00:00.000Z",
+  "release_local": "Saturday December 19, 2026 at 9 AM America/Chicago",
+  "schedule_ids": {
+    "facebook": "6072714",
+    "instagram": "6072716",
+    "tiktok": "6072718",
+    "youtube": "6072720"
+  },
+  "actual_scheduled_media": {
+    "queue_count": 194,
+    "posts": [
+      {
+        "platform": "facebook",
+        "schedule_id": "6072714",
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f303cacc-2f77-4598-a2cc-ca5d1acd05f4.mp4",
+        "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+        "bytes": 83295310,
+        "scheduled_at": "2026-12-19T15:00:00.000Z",
+        "text_exact": true,
+        "target_exact": true,
+        "remote_media_hash_verified": true
+      },
+      {
+        "platform": "instagram",
+        "schedule_id": "6072716",
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/32cac051-7a5b-4d7e-a709-2eabe90b9537.mp4",
+        "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+        "bytes": 83295310,
+        "scheduled_at": "2026-12-19T15:00:00.000Z",
+        "text_exact": true,
+        "target_exact": true,
+        "remote_media_hash_verified": true
+      },
+      {
+        "platform": "tiktok",
+        "schedule_id": "6072718",
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5ef39e3a-6589-4cde-9346-d1cf48987252.mp4",
+        "sha256": "8f14bbf88478c3927607d4900a92c46f32818467adfbfe45785c132a484ee0b2",
+        "bytes": 83580792,
+        "scheduled_at": "2026-12-19T15:00:00.000Z",
+        "text_exact": true,
+        "target_exact": true,
+        "remote_media_hash_verified": true
+      },
+      {
+        "platform": "youtube",
+        "schedule_id": "6072720",
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8f4322b5-f24d-44fa-a653-510563d24437.mp4",
+        "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+        "bytes": 83295310,
+        "scheduled_at": "2026-12-19T15:00:00.000Z",
+        "text_exact": true,
+        "target_exact": true,
+        "remote_media_hash_verified": true
+      }
+    ],
+    "note": "Blotato asynchronously rehosts each media URL. Actual rehosted bytes verified against exact approved source/cover-first derivative, with exact captions and targets."
+  },
+  "schedule_readback_file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds35-dad-bod-20261026/setup/schedule-readback.json",
+  "initial_uploads": {
+    "instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/054e812a-94a4-4cd1-b2e3-9f21a8502f65.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds35/dad-bod-instagram-approved.png",
+      "sha256": "0425cac52ddfa5911107bbc2856de82cc9b56148c0643037dc8b78003a93c4f4",
+      "bytes": 2595641,
+      "remote_hash_verified": true
+    },
+    "youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c09a1a1a-0dd1-4f33-8ed9-0a3185054569.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds35/dad-bod-youtube-approved.jpg",
+      "sha256": "3db833c58c55d16ecbde7f479082cd813481c1389d119c743d7b261cdac57e89",
+      "bytes": 581974,
+      "remote_hash_verified": true
+    },
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/289388cc-d97f-4f09-b21b-a75fb92cc9c7.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "bytes": 83295310,
+      "remote_hash_verified": true
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c168f13b-f9b2-4b94-baf4-2d695b6c6d8c.mp4",
+      "path": "/Volumes/Expansion/_edit_work/ds35-publish/Dad Bod Off The Cuff R3 - TikTok cover first.mp4",
+      "sha256": "8f14bbf88478c3927607d4900a92c46f32818467adfbfe45785c132a484ee0b2",
+      "bytes": 83580792,
+      "remote_hash_verified": true
+    }
+  },
+  "quality": {
+    "current_gate": "2.6.2 PASS",
+    "rows": 39,
+    "explicit_applicability_declarations": 8,
+    "historical_gate_preserved": "2.6.1; original plan/evidence and qualifications unchanged",
+    "report": "/Volumes/Expansion/_edit_work/ds35-publish/current-gate-2.6.2.json"
+  },
+  "tiktok_verification": {
+    "frames_src": 1831,
+    "frames_out": 1832,
+    "audio_pkts_src": 2865,
+    "audio_pkts_out": 2865,
+    "decode_errors": "",
+    "cover_psnr": 49.87039319933487,
+    "ok": true,
+    "path": "/Volumes/Expansion/_edit_work/ds35-publish/Dad Bod Off The Cuff R3 - TikTok cover first.mp4",
+    "sha256": "8f14bbf88478c3927607d4900a92c46f32818467adfbfe45785c132a484ee0b2",
+    "bytes": 83580792,
+    "audio_payload_sha256": "af476e2e7a5ce80cc488b63ffdd2224d52ea3b8e7841b718eda492dcc965d0a5",
+    "audio_identical": true,
+    "first_frame": "/Volumes/Expansion/_edit_work/ds35-publish/TikTok actual frame zero.png"
+  },
+  "uploaded_tiktok_first_frame": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c168f13b-f9b2-4b94-baf4-2d695b6c6d8c.mp4",
+    "direct_remote_first_frame": "/Volumes/Expansion/_edit_work/ds35-publish/TikTok uploaded actual frame zero.png",
+    "decoded_pixels_identical_to_local_verified_frame": true,
+    "visually_checked": true,
+    "frame_sha256": "5d991d83d63a7326cd59d0440f99e9c20e35d85e219d3723879962fcbe613e3a"
+  },
+  "backups": {
+    "master": "Project/Extreme SHA256 match; Drive four original package files matched with zero differences; movie unchanged",
+    "covers": "Project/Extreme SHA256 match; Drive four matching files, zero differences",
+    "gate_evidence": "Project/Extreme match; Drive three matching files, zero differences",
+    "tiktok_publishing_media": "Project/Extreme SHA256 match; Google Drive three matching files, zero differences"
+  },
+  "pinned_comment": "When you say dad bod, do you mean someone more like Seth Rogen or Daniel Craig?",
+  "pinned_comment_status": "Existing youtube-pinned-comment-daily routine posts/pins after public release; not yet posted",
+  "article_row": "Dedicated Short; existing sixpackabs-article-gap-daily writes searchable 300-500-word article or records skip after release",
+  "public_cover_status": "Not yet public; existing four-platform cover monitor must visually verify actual public tiles after release",
+  "source_credit": "ManVsStreet, Girls Like The Dad Bod Until We Showed Them This",
+  "source_url": "https://www.youtube.com/watch?v=LbwgABvQdUA",
+  "synthetic_media_flags": false,
+  "no_direct_youtube_upload": true,
+  "no_per_video_automation": true,
+  "no_other_video_displaced": true,
+  "verified_at": "2026-10-26T19:21:52.614716+00:00",
+  "edit_queue": "DS-35 uploaded rev12; Drive live status upload succeeded; native artifact mirror remains for next Claude session per shared Codex procedure",
+  "post_queue_preflight": {
+    "scheduled_posts": 194,
+    "cover_issues": [],
+    "ad_content_found": false
+  }
+}

@@ -252,7 +252,7 @@ def from_round(B, a, facts):
             txt = [s for t_ in txt for s in t_.split("\n")]
             graphics.append(dict(id=it["id"], template="softblue:" + it["scene"], config=cfg, text=txt, t0=it["t0"], t1=it["t1"],
                                  layer="full", driven_by=[dict(part="in", phrase=it["start"], t=it["t0"])]))
-        elif k in ("clip", "phone", "ai"):
+        elif k in ("clip", "phone", "ai", "split"):      # RO-18 R4: "split" = a camera take beside its own phone screen recording (the recording is the picture here; the take is a presenter segment)
             n = int(round(it["t1"] * FPS)) - int(round(it["t0"] * FPS))
             per = n // len(it["src"])
             srcs, lib_id = [], None
@@ -267,7 +267,7 @@ def from_round(B, a, facts):
                     path, st = hits[0], float(sp.split("@")[1]) if "@" in sp else 0.0
                 srcs.append(dict(path=path, src_in=st, frames=per if j < len(it["src"]) - 1 else n - per * (len(it["src"]) - 1)))
             people, phys, src = who(it["id"], it, facts, lib_id)
-            pictures.append(dict(id=it["id"], t0=it["t0"], t1=it["t1"], kind="phone" if k == "phone" else "clip", sources=srcs,
+            pictures.append(dict(id=it["id"], t0=it["t0"], t1=it["t1"], kind="phone" if k in ("phone", "split") else "clip", sources=srcs,
                                  label_kind=label_kind(it.get("label")), label=it.get("label"),
                                  label_source="plan_resolved.json label (the editor's record)", people=people, physique=phys,
                                  people_source=src, approved_crop=None, library_id=lib_id, zoom=it.get("zoom", 1.0),

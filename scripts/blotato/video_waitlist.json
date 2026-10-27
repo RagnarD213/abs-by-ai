@@ -51,7 +51,11 @@
   "job": "SL-17",
   "label": "Top 1% 3: Every Man Should Train A Martial Art",
   "added": "2026-10-23",
-  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json"
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-27",
+   "main": "2026-11-30T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
@@ -335,6 +339,15 @@
   "note": "Dan approved exact Codex R5 film and design 1 cover R3. Target Thu Dec 31, 9 AM America/Chicago. All four media uploads verified; Blotato 197/200, needs four slots."
  },
  {
+  "config": "scripts/blotato/configs/ro04-arms-shoulders-workout-only.json",
+  "kind": "longform",
+  "job": "RO-04",
+  "label": "Arms & Shoulders Workout Only",
+  "added": "2026-10-25",
+  "note": "Dan approved Jan 6, 2027 at 9 AM Chicago on Oct 25; socials Jan 7 noon. All media/covers verified. Ready for existing daily top-up when four queue slots are available. No release hold.",
+  "approved_release": "2027-01-06T15:00:00.000Z"
+ },
+ {
   "config": "scripts/blotato/configs/sl08-short1-why-i-fast-until-2-pm-every-day.json",
   "kind": "short",
   "job": "SL-08 short 1",
@@ -378,5 +391,105 @@
   "added": "2026-10-25",
   "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
   "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json"
+ },
+ {
+  "config": "scripts/blotato/configs/ds13-the-1-change-i-made-to-get-abs-at-40.json",
+  "kind": "short",
+  "job": "DS-13",
+  "label": "The #1 Change I Made To Get Abs At 40",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A. Target Thu 2027-01-07, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds06-what-every-body-fat-percentage-looks-like.json",
+  "kind": "short",
+  "job": "DS-06",
+  "label": "What Every Body Fat Percentage Looks Like",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-14, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds10-top-3-non-weight-loss-benefits-of-zepbound.json",
+  "kind": "short",
+  "job": "DS-10",
+  "label": "Top 3 Non-Weight Loss Benefits Of Zepbound",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-21, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short1-just-skip-breakfast.json",
+  "kind": "short",
+  "job": "SL-16 short 1",
+  "label": "How To Start Fasting: Just Skip Breakfast",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
+  "kind": "short",
+  "job": "SL-16 short 2",
+  "label": "Why Carbs Destroy Your Productivity",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short3-never-break-your-fast-with-alcohol.json",
+  "kind": "short",
+  "job": "SL-16 short 3",
+  "label": "Never Break Your Fast With Alcohol",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short4-why-you-need-a-simple-nutrition-plan.json",
+  "kind": "short",
+  "job": "SL-16 short 4",
+  "label": "Why You Need A Simple Nutrition Plan",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json"
+ },
+ {
+  "config": "scripts/blotato/configs/ds01-top-5-ab-exercises.json",
+  "kind": "short",
+  "job": "DS-01",
+  "label": "Top 5 Ab Exercises For Six Pack Abs",
+  "added": "2026-10-27",
+  "note": "R4 master (Dan's own cable crunch footage). Cover B. Target Thu 2027-01-28, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds02-getting-abs-looksmaxxes-your-face.json",
+  "kind": "short",
+  "job": "DS-02",
+  "label": "How Getting Abs Looksmaxxes Your Face",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-04, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds03-3-most-important-supplements-for-men.json",
+  "kind": "short",
+  "job": "DS-03",
+  "label": "The 3 Most Important Supplements For Men",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (round 2 blue (2)). Target Thu 2027-02-11, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds07-top-3-ways-to-use-ai-to-get-abs.json",
+  "kind": "short",
+  "job": "DS-07",
+  "label": "Top 3 Ways To Use AI To Get Abs",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-18, 9 AM America/Chicago. Four media uploads hash-checked."
+ },
+ {
+  "config": "scripts/blotato/configs/ds11-why-you-must-weigh-yourself-daily.json",
+  "kind": "short",
+  "job": "DS-11",
+  "label": "Why You Must Weigh Yourself Daily",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-25, 9 AM America/Chicago. Four media uploads hash-checked."
  }
 ]

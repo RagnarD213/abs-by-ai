@@ -25,6 +25,36 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
+
+**DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
+
+
+**[DS20:DESIGN3-TITLE:REVIEW:2026-10-26:Codex:pickA-C](http://127.0.0.1:9180/)**
+
+**Mouthpiece SFC R1 REVIEW 2026-10-26, Codex.** [Look/assets](http://127.0.0.1:9274/). Full Short awaits Dan choices; sound/caption finishing flags retained. Queue/Drive updated. Local Git push blocked by live shared edits. `Docs/DS105_R1_CHECKPOINT_20261026.md`.
+
+**Five Minute Exercises SFC Setup - REVIEW 2026-10-26, Codex.** [Tightened A pair](http://127.0.0.1:9270/). Next: Dan approves. Commit0b22c31 local.
+
+
+**DS-84 R3 REVIEW 2026-10-26, Codex.** [Full Short](http://127.0.0.1:9284/). F, tighter exercise crops and matching large titles rendered; independent review ready. Original automatic framing/caption flags retained with audit. Native VLC copy verified; queue/Drive delivered. Next: Dan approves or lists changes. Slot released; dispatcher/heartbeat paused. No setup. Git2811712 local; shared edits block push.
+
+
+**[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
+
+**RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
+
+**DS-47 R4 REVIEW 2026-10-26,Codex:01a179fe.** [Intro](http://127.0.0.1:9214/). D enlarged/arrows/title checked. A/B/portrait locked; full Short unfinished. Next: Dan. `Docs/DS47_R4_INTRO_REVIEW_20261026.md`.
+
+**Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
+
+
+**DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
+
+**Make Time Exercise LFC Setup (RO-18) COVERS 2026-10-27, Claude.** Five choices out; awaiting pick + Jan 13 2027 date OK. `social media graphics/youtube/thumbnails/Make Time For Exercise/THUMBNAIL-REVIEW.md`
+
+
+**Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
 **Wallpaper favorites - MAC APPROVAL PENDING 2026-10-25, Codex task-7.** Web save/remove/restore verified on 49b86329, correct October 21 original, private access preserved. Source recovery hashes match. Reader remains uninstalled; disable/restore safeguards tested. Next: Dan approves separate Keychain key, favorites-only server grant and LaunchAgent, then real three-screen rotation verification. `scripts/brief/wallpaper/README.md`.
 
 **Calories Not Losing Weight SFL Setup - HOLD 2026-10-25, Codex.** Five C covers approved; all media/backups checked. Five shared-waitlist entries: Jan 4/5/8/9/11, 2027, 9 AM Central, after parent Dec 27. Blotato 197/200; no live Short schedules. Next: existing daily top-up queues four destinations per Short, then release checks. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
@@ -33,20 +63,15 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Morning brief recovery - MOVE WATCH 2026-10-24, Codex.** October 24 brief published and stored document verified; planning paths repaired, 30 tests pass. Codex mover running; cloud-only files decreased 3,162 to 2,432 at 13:57 Central. Hourly heartbeat `verify-codex-icloud-move` waits for Codex DONE, then verifies local files, Git and trust config. Detail: recovery handoff.
 
+
+**Arms Shoulders Workout LFC Setup - CAPACITY HOLD 2026-10-25, Codex.** Dan approved Jan 6, 2027 YouTube 9 AM Chicago; socials Jan 7 noon. Setup ready; shared waitlist eligible. Queue 197/200, needs four. Top-up preserves approved date; seven tests pass. Backups/covers/article verified. Commits saved; push blocked by live shared files. Next: existing daily top-up schedules when room opens. No Dan action. RO-04 stays finalized until verified scheduling. Receipt: `Docs/RO04_SETUP_RECEIPT_20261025.md`.
+
+
 **Codex folder iCloud move WATCHING 2026-10-24, Claude.** `rename.sh Codex` downloads 3,162 cloud-only files, then moves `~/Documents/Codex` to `~/Projects/Codex`. Next: `DONE` in `~/Projects/.icloud-move.log`; Codex verifies per `Handoffs/handoff-20261024-codex-icloud-repair-followup.md`.
 
-**October 23 Footage Processing - REVIEW 2026-10-24, Codex.** Owns SHOOT-20261023. Gallery: http://127.0.0.1:9205/ (99 selections, 25 suggested favorites, six color/trim samples). All 115 sources indexed; 30 Shorts and two long-forms mapped privately. Slot released. Next: import Dan export, then finish all usable takes, shared library and queue registration. Originals preserved; no final library masters or queue writes yet. Checkpoint: `Media/footage-index/shoot-20261023/checkpoint.json`.
-
-
-**Five Minute Exercises SFC R2 - APP HOLD 2026-10-24, Codex.** The 3 Exercises I'd Do If I Only Had 5 Minutes (DS-55): B/B/1 locked. Owner `01a16ec1-c45d-7330-b5dc-a3fefc7b1ddd` started/pinned on Sol high; R1 unpinned after verification. App reports waitingOnApproval; tools hide requested action. Production not verified. Next: inspect R2 app approval, then narrated opening/asset packet. Receipt: `/Volumes/Extreme/_edit_work/DS-55/round2/transfer-receipt.json`.
-
-**Arms Shoulders Workout LFC R5 - RENDER QUEUED 2026-10-23, Codex.** Owner01a16ad1-c23f-7342-b38d-72b5ecf64445 verified; slot held. Scoped celebration preview and initial QA queued as one chain; no new review export yet. Heartbeat resumes this owner automatically for self-review, independent review and delivery. Exact R4closer remains pending. Checkpoint: `Media/video-edits/RO-04/round5/decisions.json`.
 
 **Ronaldo Ab Belt SFC Setup - HOLD 2026-10-25, Codex.** Approved cover 3 R3 installed; exact R5 backed up, four media uploads hash-checked, pinned question saved. Blotato 197/200: one DS-33 shared-waitlist entry for Thu Dec 24, 9 AM Central. Next: daily top-up queues four posts, then saved-schedule/public-tile checks. `Docs/DS33_SETUP_RECEIPT_20261025.md`.
 
-**Pushup Masterclass LFC R1 - REVIEW 2026-10-23, Codex.** RO-09 first-minute, all asset contexts and look/framing choices checked for creative review at http://127.0.0.1:9180/; full-quality VLC copy present. Full-master gates remain failed, recorded explicitly. Next: Dan’s three choices in `Docs/DAN_DECISIONS.md`, then full film and independent audit. Heartbeat paused; slot released for review. Resume: `Media/video-edits/RO-09/round1/checkpoint.json`.
-
-**Dad Bod SFC R3 - REVIEW 2026-10-25, Codex.** Both complete revisions await Dan at http://127.0.0.1:9241/. Full VLC copies are in Videos to Review. Next: Dan’s review choice in Docs/DAN_DECISIONS.md. Edit slot released for review.
 
 **ChatGPT Ads account - NEEDS DAN 2026-10-23, Codex.** Final creation prepared for Rose Digital Holdings LLC (US, USD, Chicago); awaiting action-time approval of OpenAI advertising/promo terms. Research complete: BetterMe and Fitbod observed. No campaign or spend. Evidence: `Research/ChatGPT Ads 2026-10-23/research-evidence.json`. Next: submit once approved, verify account.
 
@@ -54,18 +79,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16:R1-REVIEW:9016:2026-10-24:Claude.** Fasting shorts x4 delivered.
+**SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
-**Boring Abs At 40 LFC R3 - APP HOLD 2026-10-24, Codex.** Started/pinned owner `01a16eb1-8a47-70e1-b86c-87dd9d5a12f5`; R2 unpinned after verification. Slot held,33locks preserved. App reports waitingOnApproval; tools do not expose requested action. Media production not verified. Next: inspect pending approval in R3, then execute contextual routine-clip revision. Handoff: `/Volumes/Extreme/_edit_work/ro27/round3/RESUME-R3.md`.
-
-**Calories Not Losing Weight SFL R6 (SL-08) - REVIEW 2026-10-23, Codex.** Checked fasting opening and narrated context: http://127.0.0.1:9058/. Protein approved pair provider-refused twice; replacement direction pending in Docs/DAN_DECISIONS.md. R3 and B/C/E hashes preserved. Slot released; heartbeat paused. Resume same owner/revision after feedback, no duplicate round/task. State: `/Volumes/Extreme/_edit_work/sl08/round6/records/execution-state.json`.
+**Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 
-**Hormozi Fat Guy Off-Cuff SFC R1 - REVIEW 2026-10-24, Claude.** DS-44B independent review SHIP; side-by-side page http://127.0.0.1:9045/ (scripted A vs off-cuff B, 73.6 s). Slot released. Next: Dan picks; if B, DS-44 setup swaps media to `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R1 - complete Short.mp4` (sha 15cd84a8, no AI flag).
-
-**DS-44 Hormozi QUEUED 2026-10-23, Claude.** Scripted R2 queued Thu Dec 17, all four; if Dan picks off-cuff (DS-44B), swap media. `Docs/DS44_SETUP_RECEIPT_20261023.md`
+**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Commits f0284c0/f43babe local (live shared edits block push): next safe-push carries them. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
@@ -91,7 +112,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - COPYING ACTIVE 2026-10-17, Codex/Claude.** Seven shoots, including 10/15, checksum verified on Seagate and Drive. Nightly 8 pm copy-only routine remains active. Extreme originals remain; deletion paused. Next: decide the offload rule before enabling deletion. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - COPYING ACTIVE 2026-10-26, Codex/Claude.** Eight shoots, including 10/23, checksum verified on Seagate and Drive. Nightly 8 pm copy-only routine remains active. Current Extreme originals remain; deletion paused. Next: decide the offload rule before enabling deletion. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
@@ -133,7 +154,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R3 - REVIEW 2026-10-22, Claude.** Full film, page :8930. Next: Dan; then setup handoff.
 
-**Make Time Exercise LFC R3 - REVIEW :8983 2026-10-24, Claude.** Delivered; gate 36 pass + 3 known rows. Next: Dan reviews; on approval register mower/Wispr clips in library. `RO-18/round3/NOTES-R3.md`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
@@ -142,8 +162,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-08 HOLD 2026-10-14.** Jan 24 2027; B test after. `Docs/RO08_SETUP_RECEIPT_20261014.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
-
-**SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

@@ -1,7 +1,7 @@
 ---
-id: TBD
-post_id: TBD
-slug: TBD
+id: tnzIUH6RW7g
+post_id: 913
+slug: im-41-im-top-1-how-i-did-it
 title: I'm 41. I'm Top 1%. How I Did It.
 excerpt: The four decisions I made about working out, nutrition, business and martial arts, and what you can start doing today.
 ---

@@ -125,6 +125,7 @@
 - [Shorts graphics](shorts-soft-blue-hyperframes-from-now.md): Soft Blue now
 - [Olive retired](old-graphics-retired-soft-blue-hyperframes.md): Soft Blue after Ad 8
 - [Veo subscription](veo-subscription-first.md): Flow first; API on rush
+- [Veo Quality](veo-quality-only-when-asked.md): only when Dan names it; Fast default (10-25)
 - [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
 - [Task names](video-task-names.md): Setup, V/S/Sh
 - [Edit sheet](edit-sheet-and-kit-sheet-path.md): kit_run --sheet
@@ -254,6 +255,7 @@
 
 - [Approve revised cover before install](approve-revised-cover-before-install.md) — a revised thumbnail/cover waits for Dan's OK on the final file
 - [Shorts shortlist: full transcripts](shorts-shortlist-full-transcripts.md) — every proposed Short shows its title and full word-for-word transcript
+- [Bottom-title cover rule](cover-bottom-title-layout-rule.md): 10-27: bigger picture, no pill, much larger bottom title
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results

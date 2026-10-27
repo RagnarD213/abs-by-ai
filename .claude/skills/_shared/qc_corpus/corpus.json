@@ -1,17 +1,18 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-20",
+  "updated": "2026-10-26",
   "roots": {
     "repo": ".",
-    "ssd": "/Volumes/Extreme/_edit_work"
+    "ssd": "/Volumes/Extreme/_edit_work",
+    "expansion": "/Volumes/Expansion/_edit_work"
   },
   "entries": [
     {
       "id": "codex-vertical-centering-right-20261005",
       "verdict": "reference",
       "date": "2026-10-05",
-      "root": "ssd",
+      "root": "expansion",
       "path": "vertical-centering-codex-proof-20261003/after.mp4",
       "excerpt": [
         0,
@@ -579,7 +580,7 @@
       "gate_args": [
         "--reference-mix",
         {
-          "root": "ssd",
+          "root": "expansion",
           "path": "ad1-sq/his_mix.wav"
         },
         "--verbatim"
@@ -612,7 +613,7 @@
       "gate_args": [
         "--reference-mix",
         {
-          "root": "ssd",
+          "root": "expansion",
           "path": "ad1-sq/cut/his_mix.wav"
         },
         "--verbatim"
@@ -757,7 +758,7 @@
       "id": "ad3-square-r1-wide-camera-motion",
       "verdict": "rejected",
       "date": "2026-09-15",
-      "root": "ssd",
+      "root": "expansion",
       "path": "ad3-sq/ad3_square_r1.mp4",
       "excerpt": [
         7.47,
@@ -776,7 +777,7 @@
       "id": "ad3-square-59s-r1-accepted-optional",
       "verdict": "approved-with-notes",
       "date": "2026-09-15",
-      "root": "ssd",
+      "root": "expansion",
       "path": "ad3-sq/cut/ad3_square_59s_r1.mp4",
       "excerpt": [
         0,
@@ -926,7 +927,7 @@
       "id": "ad3-square-r2-1-steady-wide-approved",
       "verdict": "approved",
       "date": "2026-09-16",
-      "root": "ssd",
+      "root": "expansion",
       "path": "ad3-sq-r2/ad3_square_r2_1.mp4",
       "excerpt": [
         7.47,
@@ -3305,6 +3306,30 @@
       "notes": "FINDING: no gate row and no reviewer saw this false start; Dan heard it. junk:repeated_take did not flag it, and no threshold was tuned. The named check is PENDING: nothing automated looks for a short spoken fragment followed by a pause of 0.7 s or more and then the same opening words (a per-shot standalone transcript would have). Process fix and the candidate rule (every shot under 2.5 s followed by a long pause gets its own transcript and an envelope read): longform-edit/reference/ro19/README.md, Round 4. Record: ro19/round4-plan/decisions.json. Paired with ro19-r4-final-approved-20261013."
     },
     {
+      "id": "sl16-short1-parallel-pair-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "ssd",
+      "path": "SL-16/r1_archive/fasting-short1_just-skip-breakfast.mp4",
+      "sha256": "362ee4509e06ba2ce459741403ab09b38fa00f49dc3a64e05e310e0e0e345627",
+      "bytes": 81632038,
+      "excerpt": [
+        44,
+        14
+      ],
+      "dan": "The transcript is \"So if you wake up at 9am like me, you eat lunch at 2 o'clock. If you wake up at 7am, that means you eat lunch at noon.\" These are two complete parallel sentences (a deliberate example pair), not a restart",
+      "deliver": {
+        "format": "short",
+        "_why": "SL-16 short 1 is a Short cut from the fasting long-form; junk:repeated_take is graded on the short format's rows"
+      },
+      "must_trigger": [],
+      "must_pass": [
+        "junk:repeated_take"
+      ],
+      "measured": "Delivery gate 2.6.1: junk:repeated_take FAIL, REPEAT RESTART @ 0:47.24 'if you wake up', hesitation true (the 0.66 s gap 50.40-51.06 is the full stop after \"o'clock.\", 0.01 s past the 0.65 s breath bound), gap 3.82 s, 13 words between, continuation 0.50, whole 0.65. Gate 2.6.2: ANAPHORA, parallel '9 -> 7'; 0 confirmed restarts.",
+      "notes": "The R1 file the gate failed, archived by SL-16 R2 (which re-rendered Short-form video content/fasting-short1_just-skip-breakfast.mp4 with a new opener on 2026-10-25). Approved PATTERN, not an approval of the whole Short: only junk:repeated_take must pass. Fixed in _shared/cut/junk.py `_parallel` (gate 2.6.2) without moving any bound; the synthetic look-alikes (abandoned first copy, the same sentence twice, a corrected later number, a hesitation inside the second copy) stay RESTART in cut/tests/test_junk.py."
+    },
+    {
       "id": "ro19-r4-final-approved-20261013",
       "date": "2026-10-13",
       "root": "ssd",
@@ -3829,6 +3854,203 @@
       "must_trigger": [],
       "must_pass": [],
       "notes": "Scoped creative revision: closer safe overhead crop and exact new completion screen; not an audio/color rejection. Automated creative-layout coverage is pending; no threshold changes."
+    },
+    {
+      "id": "sl08-a-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short1_why-i-fast-until-2-pm-every-day.mp4",
+      "sha256": "f8a1ff8a1574542dd380bcdb29eb298d2d060e3a4a82b8987c2aad3c48b39eed",
+      "bytes": 65786638,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-b-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short2_eat-a-salad-first-to-eat-less.mp4",
+      "sha256": "4f3bb0e411aef33afddb45dbc5932d32c3c5602f3c3a36f976c8a8eb3663f01e",
+      "bytes": 127066185,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-c-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short3_stop-drinking-your-calories.mp4",
+      "sha256": "72c98cc9bb88ce9826391659c7f1dcf52c076bececa85502c9a0e91216c0edae",
+      "bytes": 131694826,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-d-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short4_snack-on-protein-not-carbs.mp4",
+      "sha256": "28762ad176e04aa8e644e0c03b5df9b8d630982a8b1c06563ed0e53dbb87f6c0",
+      "bytes": 77017594,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "sl08-e-r6-approved-final-20261025",
+      "verdict": "approved",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Short-form video content/Calories Not Losing Weight - Shorts R6/calories-short5_make-fasting-easier-with-black-coffee.mp4",
+      "sha256": "99dbc301401f3eb98e6aff6200f9b97dc3459621f7bd4bdf92c283f9b69d4ddf",
+      "bytes": 85268591,
+      "dan": "All right everything looks good. These are approved. Go ahead and create the handoff or setup",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Exact complete Short approved on final R6 five-film page. Audio/delivery stamps PASS on exact file. Creative approval fixture, no new gate coverage or threshold change claimed. A/D revised; B/C/E preserve prior exact masters. Approval receipt: Short-form video content/Calories Not Losing Weight - Shorts R6/approval.json."
+    },
+    {
+      "id": "ds20-countertop-colour-r2-20261025",
+      "verdict": "rejected",
+      "date": "2026-10-25",
+      "root": "repo",
+      "path": "Videos to Review/Five Levels Of Pushups SFC R2 - full short.mp4",
+      "sha256": "6c3efcf6e66223aca58a1db3f0e8b3fd8e2a5e661d1b46ffef94c07594c79577",
+      "bytes": 63777779,
+      "excerpt": [
+        3.5,
+        8
+      ],
+      "dan": "For the countertop pushup footage is this the color-corrected clip? I feel like it's not color corrected // Make it look as similar to the other B-roll in the video as you can",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "R2 had light curve, contrast1.03, saturation1.08 and slight warm balance, but did not visibly match the other exercise B-roll. No automated skin/scene colour-match verdict is implemented; human rejected control.",
+      "notes": "R3 colour-only fix, source/geometry/audio/timing locked. No gate or threshold changes authorized.",
+      "human_coverage_gap": "Human scene-to-scene colour matching is not automated. Exact-file/filter-presence checks do not prove a good visible match. Retain this control until a validated match check exists."
+    },
+    {
+      "id": "ds20-countertop-colour-r3-approved-20261026",
+      "verdict": "approved",
+      "date": "2026-10-26",
+      "root": "repo",
+      "path": "Videos to Review/Five Levels Of Pushups SFC R3 - full short.mp4",
+      "sha256": "bb0ea68b835709bcdb61765b60ca6a4dcb139997017aaf7fbdba2e3bb4e0f467",
+      "bytes": 63671626,
+      "excerpt": [
+        3.5,
+        8
+      ],
+      "dan": "Okay the color looks good now.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Scoped human approval of R3countertopcolour matched to originalexerciseBroll. Does not approve fullfilm, originaljumps/audiopeak or newR4graphics.",
+      "notes": "Preserve exact R3colour inR4. Existing fullgateFAIL remains. No thresholds changed.",
+      "human_coverage_gap": "Human scene-to-scene colour approval is not an implemented automated predicate."
+    },
+    {
+      "id": "ds35-r3-off-cuff-approved-20261026",
+      "verdict": "approved",
+      "date": "2026-10-26",
+      "root": "repo",
+      "path": "Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "bytes": 83295310,
+      "excerpt": [
+        0,
+        61.094366666666666
+      ],
+      "dan": "I like the Off The Cuff version. Let's do the handoff setup with that version",
+      "scope": "Complete R3 Off The Cuff film selected and approved for setup. Scripted is an unselected alternate; no new edit authorized. Covers require a separate pick before upload/scheduling.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact final R3 gate2.6.1 PASS:39 passing rows,0 failed/unmeasured/pending,8 explicit applicability declarations. Fresh independent full-file review complete with0 open export defects. Every actual AAC packet and decoded stereo PCM identical to selected R2; normal reference-tone and mixed-source floor qualifications retained.",
+      "notes": "Human creative approval fixture. No new automated predicate, threshold, audio processing or gate change. Exact approval: Handoffs/video-editing/DS-35-R3-approval.json."
+    },
+    {
+      "id": "ds55-r5-approved-20261026",
+      "verdict": "approved",
+      "date": "2026-10-26",
+      "root": "repo",
+      "path": "Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "bytes": 84474520,
+      "excerpt": [
+        0,
+        54.8548
+      ],
+      "dan": "Okay this looks good. Give me the handoff for setup",
+      "scope": "Exact complete R5 film approved; prepare one Claude setup handoff. Covers require Dan pick before upload or scheduling. No new edit authorized.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Gate2.6.2 FAIL with30 applicablePASS5FAIL0NOTMEASURED4NA retained; independent sampled picture review found no new visible defect; Dan approved exact film.",
+      "notes": "Human creative approval fixture. Raw failed rows retained without a bypass, new predicate, threshold or gate change. Approval: Handoffs/video-editing/DS-55-R5-approval.json."
+    },
+    {
+      "id": "ro27-r4-a01-approved-20261026",
+      "verdict": "approved",
+      "date": "2026-10-26",
+      "root": "ssd",
+      "path": "ro27/round4/review/context/A01-retake-20261026-v2.mp4",
+      "sha256": "0739f9b64f4e1f1a7882eea71c9fd8426e7877ff7871b9f2ca93bb69fda9394a",
+      "bytes": 2179919,
+      "excerpt": [
+        2.1374666666666666,
+        8
+      ],
+      "dan": "Okay the neighbor clip looks good. The fridge, prepared meals: I don't like this. The guy looks like he's depressed. The meal prep containers, they're just open. Doesn't look realistic. Let's kill this clip. Just use the camera scene I also don't like that Heavier Dan's show's goal doesn't relate to what's being said at all. Eliminate those two clips, keep the \"never\" clip, and then finish the edit.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Exact v2 context; source native measured/fresh review PASS, narrated decode/joins/hair/audio-preservation PASS. Human creative ruling controls use.",
+      "notes": "Dan approved exact neighbour glance. Native picture/gate acceptance and measured narrow hinge margin do not imply a full tool-action approval."
+    },
+    {
+      "id": "ro27-r4-a03-rejected-20261026",
+      "verdict": "rejected",
+      "date": "2026-10-26",
+      "root": "ssd",
+      "path": "ro27/round4/review/context/A03-retake-20261026-v2.mp4",
+      "sha256": "5e8743531087d6f7983af641a5f388c135c2aa8d80869a2478687df06d19a052",
+      "bytes": 1929285,
+      "excerpt": [
+        1.5035000000000003,
+        8
+      ],
+      "dan": "Okay the neighbor clip looks good. The fridge, prepared meals: I don't like this. The guy looks like he's depressed. The meal prep containers, they're just open. Doesn't look realistic. Let's kill this clip. Just use the camera scene I also don't like that Heavier Dan's show's goal doesn't relate to what's being said at all. Eliminate those two clips, keep the \"never\" clip, and then finish the edit.",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Exact v2 context; source native measured/fresh review PASS, narrated decode/joins/hair/audio-preservation PASS. Human creative ruling controls use.",
+      "notes": "Dan rejected depressed-looking expression and unrealistic uncovered meal-prep containers, despite scoped native physical/hair checks passing. Remove for camera. Natural-appearance/prop-realism judgment is pending automated coverage; no threshold change."
+    },
+    {
+      "id": "ro27-r4-couch-rejected-20261026",
+      "verdict": "rejected",
+      "date": "2026-10-26",
+      "root": "ssd",
+      "path": "ro27/round4/review/context/COUCH-retake-20261026-v2.mp4",
+      "sha256": "a8f672c4b8b8d8ec7320c9eac4ca73e17b249e8c890d43c0739ad20dd9eb03ff",
+      "bytes": 1777095,
+      "excerpt": [
+        2.3043000000000005,
+        8
+      ],
+      "dan": "Okay the neighbor clip looks good. The fridge, prepared meals: I don't like this. The guy looks like he's depressed. The meal prep containers, they're just open. Doesn't look realistic. Let's kill this clip. Just use the camera scene I also don't like that Heavier Dan's show's goal doesn't relate to what's being said at all. Eliminate those two clips, keep the \"never\" clip, and then finish the edit.",
+      "must_trigger": [
+        "clip:ai_shows_the_line"
+      ],
+      "must_pass": [],
+      "measured": "Exact v2 context; source native measured/fresh review PASS, narrated decode/joins/hair/audio-preservation PASS. Human creative ruling controls use.",
+      "notes": "Dan rejected narrative relevance despite native anatomy/prop checks passing. Remove for camera. Existing clip:ai_shows_the_line is PENDING automated coverage."
     }
   ]
 }

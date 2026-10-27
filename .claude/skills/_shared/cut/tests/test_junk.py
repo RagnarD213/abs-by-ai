@@ -9,6 +9,9 @@ Cases, each one a shape Dan has judged:
   * ANAPHORA  "He's trying to avoid cancer. He's trying to avoid skin damage." (fluent, kept)
   * ANAPHORA  a list with a breath: "...better and[0.86 s] I was a little bit leaner" (kept)
   * REINTRO   the same sentence said again after other content (a listen, never a gate fail)
+  * ANAPHORA  a parallel example pair: "...lunch at 2 o'clock.[0.66 s] If you wake up at 7am..." (SL-16
+              short 1, kept), beside its restart look-alikes: an abandoned first copy, the same sentence
+              twice, a corrected later number, a hesitation inside the second copy (all junk)
   * PAUSE     0.60 s is breath (low), 0.80 s medium, 1.20 s high; a gap at a piece edge is not a pause
   * SWALLOWED a 0.95 s gap inside "you're" (Dan's "junk footage in the beginning at 0:01")
   * ORPHAN    speech-level energy no word covers, on a synthetic envelope
@@ -89,6 +92,55 @@ class Repeats(unittest.TestCase):
         self.assertIn("REINTRO", kinds(c), c)
         r = [x for x in c if x["measure"]["kind"] == "REINTRO"][0]
         self.assertEqual(r["confidence"], "low")
+
+    # SL-16 short 1 at 0:47 (2026-10-25), the delivered words and gaps: two complete parallel
+    # sentences with a 0.66 s full stop between them. It read RESTART on gate 2.6.1.
+    SL16 = [("So", 47.14, 47.24), ("if", 47.24, 47.38), ("you", 47.38, 47.44), ("wake", 47.44, 47.62),
+            ("up", 47.62, 47.74), ("at", 47.74, 47.82), ("9", 47.82, 48.00), ("a", 48.00, 48.16),
+            (".m.", 48.16, 48.30), ("like", 48.32, 48.46), ("me,", 48.46, 48.68), ("you", 48.98, 49.06),
+            ("eat", 49.06, 49.28), ("lunch", 49.28, 49.58), ("at", 49.58, 49.86), ("two", 49.86, 50.06),
+            ("o", 50.06, 50.14), ("'clock.", 50.14, 50.36), ("If", 51.06, 51.20), ("you", 51.20, 51.30),
+            ("wake", 51.30, 51.48), ("up", 51.48, 51.58), ("at", 51.58, 51.70), ("7", 51.70, 51.96),
+            ("a", 51.96, 52.16), (".m.,", 52.16, 52.36), ("that", 52.52, 52.66), ("means", 52.66, 52.88),
+            ("you", 52.88, 53.18), ("eat", 53.18, 53.34), ("lunch", 53.34, 53.62), ("at", 53.62, 53.92),
+            ("noon.", 53.92, 54.18), ("So", 54.52, 54.64), ("that", 55.08, 55.26), ("gives", 55.26, 55.60)]
+    SL16_GAPS = [(48.78, 48.98), (49.62, 49.78), (50.40, 51.06), (52.36, 52.52), (54.24, 54.52)]
+
+    def _words(self, rows):
+        return [dict(w=" " + w, t=t, e=e, p=0.9) for w, t, e in rows]
+
+    def test_parallel_example_pair_is_kept(self):
+        c = J.detect_repeats(self._words(self.SL16), gaps=self.SL16_GAPS)
+        self.assertTrue([x for x in c if "wake up" in x["measure"]["gram"]], "the repeat must be seen")
+        self.assertNotIn("RESTART", kinds(c), c)
+        p = [x for x in c if x["measure"].get("parallel")]
+        self.assertEqual(p[0]["measure"]["parallel"], "9 → 7")
+
+    def test_parallel_needs_the_first_sentence_finished(self):
+        # the same pair with the first copy abandoned after "like me" and a 0.9 s hesitation: a restart
+        rows = [r for r in self.SL16 if r[1] < 48.7] + [(w, t + 0.4, e + 0.4) for w, t, e in self.SL16 if t >= 51.0]
+        c = J.detect_repeats(self._words(rows), gaps=[(48.68, 51.46)])
+        self.assertIn("RESTART", kinds(c), c)
+
+    def test_same_sentence_twice_after_a_full_stop_is_junk(self):
+        # a re-take of a finished sentence: same item, near-identical continuation
+        a = W("so if you wake up at 9 am like me you eat lunch at 2 oclock.", 0.0)
+        b = W("so if you wake up at 9 am like me you eat lunch at 2 oclock and that is it", a[-1]["e"] + 0.9)
+        c = J.detect_repeats(a + b, gaps=[(a[-1]["e"], a[-1]["e"] + 0.9)])
+        self.assertIn("RESTART", kinds(c), c)
+
+    def test_correction_retake_is_junk(self):
+        # the item slot is the same (9) and a LATER number changes: a corrected re-take, not a pair
+        a = W("so if you wake up at 9 am like me you eat lunch at 2 oclock.", 0.0)
+        b = W("if you wake up at 9 am like me you eat lunch at 3 oclock", a[-1]["e"] + 0.9)
+        c = J.detect_repeats(a + b, gaps=[(a[-1]["e"], a[-1]["e"] + 0.9)])
+        self.assertIn("RESTART", kinds(c), c)
+
+    def test_parallel_with_a_hesitation_inside_the_second_copy_is_junk(self):
+        a = W("so if you wake up at 9 am like me you eat lunch at 2 oclock.", 0.0)
+        b = W("if you wake up at 7 am that means you eat lunch at noon", a[-1]["e"] + 0.7, stretch={1: 1.4})
+        c = J.detect_repeats(a + b, gaps=[(a[-1]["e"], a[-1]["e"] + 0.7)])
+        self.assertIn("RESTART", kinds(c), c)
 
     def test_no_repeat_no_row(self):
         self.assertEqual(J.detect_repeats(W("one two three four five six seven eight nine ten"), []), [])

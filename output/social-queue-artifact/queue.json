@@ -1,97 +1,7 @@
 {
-"generated": "2026-10-25T11:26:11+00:00",
+"generated": "2026-10-27T11:25:53+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5723694",
-"platform": "youtube",
-"when": "2026-10-25T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I'm 41, and there are four things I'm really glad I did to get here. I didn't do everything right. I made a lo",
-"batch": ""
-},
-{
-"id": "5909596",
-"platform": "facebook",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
-"batch": ""
-},
-{
-"id": "5909597",
-"platform": "instagram",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
-"batch": ""
-},
-{
-"id": "5909598",
-"platform": "tiktok",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
-"batch": ""
-},
-{
-"id": "5909600",
-"platform": "youtube",
-"when": "2026-10-26T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
-"batch": ""
-},
-{
-"id": "5723691",
-"platform": "facebook",
-"when": "2026-10-26T17:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
-"batch": ""
-},
-{
-"id": "5723692",
-"platform": "instagram",
-"when": "2026-10-26T17:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
-"batch": ""
-},
-{
-"id": "5723693",
-"platform": "tiktok",
-"when": "2026-10-26T17:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I'm 41, I have six-pack abs, I'm a multimillionaire and a Brazilian Jiu-Jitsu black belt, and in this video I'",
-"batch": ""
-},
-{
-"id": "5870971",
-"platform": "facebook",
-"when": "2026-10-26T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
-"batch": ""
-},
-{
-"id": "5870968",
-"platform": "instagram",
-"when": "2026-10-26T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "6 weeks of crunches. Zero belly fat lost. 7 ab exercises, 5 days a week.",
-"batch": ""
-},
 {
 "id": "5053520",
 "platform": "facebook",
@@ -1371,6 +1281,42 @@
 "batch": ""
 },
 {
+"id": "6101271",
+"platform": "facebook",
+"when": "2026-11-30T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I strongly believe that every man should train in some kind of martial art.",
+"batch": ""
+},
+{
+"id": "6101272",
+"platform": "instagram",
+"when": "2026-11-30T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I strongly believe that every man should train in some kind of martial art.",
+"batch": ""
+},
+{
+"id": "6101274",
+"platform": "tiktok",
+"when": "2026-11-30T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I strongly believe that every man should train in some kind of martial art.",
+"batch": ""
+},
+{
+"id": "6101275",
+"platform": "youtube",
+"when": "2026-11-30T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I strongly believe that every man should train in some kind of martial art.",
+"batch": ""
+},
+{
 "id": "5912341",
 "platform": "instagram",
 "when": "2026-11-30T23:00:00.000Z",
@@ -1665,6 +1611,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "6072714",
+"platform": "facebook",
+"when": "2026-12-19T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Women say they like the dad bod, but what do they mean by that?",
+"batch": ""
+},
+{
+"id": "6072716",
+"platform": "instagram",
+"when": "2026-12-19T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Women say they like the dad bod, but what do they mean by that?",
+"batch": ""
+},
+{
+"id": "6072718",
+"platform": "tiktok",
+"when": "2026-12-19T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Women say they like the dad bod, but what do they mean by that?",
+"batch": ""
+},
+{
+"id": "6072720",
+"platform": "youtube",
+"when": "2026-12-19T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do women like the dad bod? In this ManVsStreet street interview, she says she does. But then she sees a pictur",
 "batch": ""
 },
 {

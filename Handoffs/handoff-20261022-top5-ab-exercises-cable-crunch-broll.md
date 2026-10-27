@@ -1,6 +1,6 @@
 # Top 5 Ab Exercises SFC R4: swap in Dan's own cable crunch B-roll (DS-01)
 
-**CONTENT (SFC), dedicated Short. Fire after Dan films the cable crunch B-roll (planned 2026-10-23) and says so.**
+**CONTENT (SFC), dedicated Short. READY 2026-10-26: cable crunch footage (B0574, B0582, B0583) and Muhammad's HQ V4 are both in.**
 Recommended: Claude Opus 5.5, high effort (our in-house re-edit, started on Claude).
 
 ## Goal
@@ -15,7 +15,8 @@ gets replaced on our side with real footage of Dan doing cable crunches. One cli
   the closing tight shot is about 15-20% closer than the wide.
 
 ## Inputs
-- **Base cut:** prefer Muhammad's HQ export of Top 5 V4 (asked for on 2026-10-22; check his Upwork messages and Drive
+- **Base cut (HQ ARRIVED 2026-10-26):** `Short-form video content/Top 5 Ab Exercises - DS-01/Top 5 Ab Exercises | muhammad | 9x16 | V4 HD.mp4` (same path on Extreme; Drive `1pqSpRjOyBgnVu769CU1CZLEnRqFj5HOn`). Light check vs V4: `revision docs/shorts-revisions-muhammad-10-26-26.summary.md`. Build on it.
+- Earlier instruction, kept for reference: prefer Muhammad's HQ export of Top 5 V4 (asked for on 2026-10-22; check his Upwork messages and Drive
   owners `sharkimageryproduction@` / `wadeededitteam@`). If it has not arrived, build on the V4 review copy
   (Drive `1XPDgy1IzwHfSS-d1myAbRutwKW0T4k4O`, local `/Volumes/Extreme/_edit_work/revisions-20261022/muhammad/dl/ds01_v4.mp4`,
   1080x1920, 29.97 fps, 1,575 frames, 52.55 s, 3.3 Mbps) and keep the splice as a script so it re-runs on the HQ export
@@ -64,3 +65,14 @@ exists. Nothing built yet.
 
 ## Starter prompt
 > Read `Handoffs/handoff-20261022-top5-ab-exercises-cable-crunch-broll.md` and execute it. Top 5 Ab Exercises SFC R4: replace the stock cable crunch clip (0:18.79 - 0:25.99) in Muhammad's approved V4 with my cable crunch B-roll from today's shoot, matching his layout, captions and our graphic, everything else untouched. Review page, then stop for me.
+
+
+## October 23 library dependency resolved (2026-10-25)
+
+Dan finalized the exercise identities and Color C. The checked full-quality cable-crunch assets below are registered in the shared library and have verified copies on Extreme, Expansion and Drive. Use the final Color C editing masters, then fit them to the approved film as already required. The source range map and checked clip hashes are in `Media/footage-index/shoot-20261023/permanent-library-map.json`. Original recordings remain on Expansion.
+
+- **B0574**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+- **B0582**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+- **B0583**: checked native editing master. Resolve its path/link and exact source range through the private shared catalog.
+
+The longer side-angle second take is the first candidate for the 7.2-second replacement. Inspect its complete motion and keep the rope near the head, ribs curling toward the pelvis and hips steady. The short frontal close-ups provide alternatives. Teaching intent remains unknown where the source did not establish it; these are identified cable-crunch assets, not a blanket endorsement of every rep. The stock-footage dependency is resolved. The existing film revision has not been executed by this footage-preparation task. No editing chat was started.

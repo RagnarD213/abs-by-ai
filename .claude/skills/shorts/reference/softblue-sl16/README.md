@@ -24,3 +24,16 @@ Order: `snap.py` -> `batch.py audio, words` -> `chain_build.sh` (plan, track, gf
 - **The two-line bar cannot hold a long quote** in the vertical: Tyson's full line wraps to three; keep the short form, captions carry it.
 - **Gate false positive:** `junk:repeated_take` calls "if you wake up at nine ... if you wake up at seven" a restart. Reported, not tuned.
 - **Edit `plans.py` with care:** replacing `...)` inside `...),  # comment` moves the comma into the comment (it broke the file twice).
+
+## Round 2 (2026-10-25): Dan's new openings
+- Dan named each opener: S1 the film's workday time-lapse (his pick by name, though R1 frame reviewers had failed its frames 0-87: play it as in
+  the film and say so in one line on the page), B the donut clip from 0:00, C the bar-stool AI clip (only the frames a reviewer passed), D a
+  full-screen Mike Tyson quote card. When a removed opener drops the B-roll share under 30 %, add a real clip on a line that names a picture.
+- **A full-screen quote card in a Short = the approved before-card template at the 1080 x 1610 picture area** (`tyson_card.py`): its `head` list
+  takes any number of separately timed lines at any position, so a three-line quote needs no new template. Render it once and play it as a fill
+  cover (`clips` src = the .mov); drop that shot's captions under the card (`SHOTS[...][idx] = dict(cap=1650)`).
+- **End such a card BEFORE the next caption's first word**: a cue starting even 0.04 s before the cut takes the card's low caption height and
+  runs into the AbsByAI.com mark on the next shot.
+- Place each AI chip with `chipplace.py` on THIS clip at THIS crop; a chip spot copied from another Short touched the time-lapse man on 4 frames.
+- Every stock clip gets a real grade (curves with true blacks + saturation + warm balance; `plans.BED`, `plans.WALK`, `plans.LAPTOP`), measured
+  against a Dan frame (p2 / p50 / p98, black share, skin saturation). High-key white rooms read low on whole-frame saturation: judge the skin.

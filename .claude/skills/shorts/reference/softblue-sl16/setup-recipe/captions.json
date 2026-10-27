@@ -1,0 +1,30 @@
+{
+  "s1": {
+    "hook": "The easiest way to get started with intermittent fasting is to just skip your breakfast.",
+    "body": "Keep everything else you're eating throughout the day the same, and drink black coffee to help with the hunger. You can eat a little bit more later and it will still work, but if you eat all the calories you were going to eat at breakfast later, you're defeating the purpose. Say you normally eat lunch at noon: move it back to 12:30 until you're comfortable and not hungry, probably about 30 days, then move it back to one o'clock, and keep going until you're fasting five hours in the morning. If you wake up at 9 a.m. like me, you eat lunch at two.",
+    "close": "Leave a comment to let me know if you've tried skipping breakfast yet.",
+    "pinned_comment": "What time do you wake up, and what time do you eat your first meal?",
+    "tags": ["#IntermittentFasting", "#SkipBreakfast", "#FatLoss", "#SixPackAbs", "#AbsByAI"]
+  },
+  "s2": {
+    "hook": "A ton of carbs for breakfast or lunch will lower your productivity.",
+    "body": "A heavy breakfast makes your body spend energy digesting, which gives you that food coma, lethargic feeling. If you're just drinking black coffee, your energy is higher. You can keep that productivity all day if you do what I do and eat a salad or a very low carb meal for lunch. Nobody is grinding out insane productive 12 hour days eating donuts and pizza.",
+    "close": "Leave a comment to let me know what you usually eat for lunch on a work day.",
+    "pinned_comment": "Do you get that food coma feeling after lunch? What do you usually eat?",
+    "tags": ["#IntermittentFasting", "#LowCarb", "#Productivity", "#BlackCoffee", "#AbsByAI"]
+  },
+  "s3": {
+    "hook": "The number one mistake with fasting is breaking your fast with alcohol.",
+    "body": "Don't drink alcohol with your first meal, and don't drink before you eat anything at all. After fasting a while, alcohol absorbs faster, it does more damage to your fat loss and health, and it hits you faster so you feel more drunk. No alcohol until 30 minutes after you've broken your fast. And if you're working during the day, avoid alcohol while working.",
+    "close": "Leave a comment to let me know if you've ever broken a fast with a drink.",
+    "pinned_comment": "Have you ever broken a fast with alcohol? If so, what were you drinking?",
+    "tags": ["#IntermittentFasting", "#Alcohol", "#FatLoss", "#FastingTips", "#AbsByAI"]
+  },
+  "s4": {
+    "hook": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is going to punch you in the face.",
+    "body": "Emergencies, days you don't have time for your normal breakfast, family things, your girlfriend or wife, times you're sick. When people follow a complex plan to evenly reduce calories through the day, things come up and they overeat. Intermittent fasting is a plan you can execute when life punches you in the face. If you get in an argument with your girlfriend, you still fast your five hours a day.",
+    "close": "Leave a comment to let me know what usually knocks you off your diet.",
+    "pinned_comment": "What knocks you off your diet most: work, family, being sick, or something else?",
+    "tags": ["#IntermittentFasting", "#MikeTyson", "#DietTips", "#FatLoss", "#AbsByAI"]
+  }
+}

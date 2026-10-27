@@ -18,7 +18,9 @@ revision docs and EDLs. File name: `<ID>_<what-it-shows>_<shape>_<seconds>s.<ext
 
 **AI categories:** ai-dan, people, food-nutrition, gym-and-exercise, lifestyle, concepts-and-gags, exercise-demos.
 
-**Status:** `used-final` (in a finished video; `used_in` says which) or `usable-unused`. Rejected takes are never
+**Status:** `used-final` (in a finished video; `used_in` says which), `usable-unused`, or `unusable` for a registered
+asset later excluded by quality checks. `find` excludes unusable records; `show ID` retains their source history.
+Rejected takes are never
 filed. Files that sat loose in folders 03/04 before the 2026-09-29 sweep and were not catalogued (stick-figure gags,
 the robot story montages whose shots are catalogued, a lower-quality toe-touch copy, old `.roll` sidecars) were moved
 to `/Volumes/Extreme/_edit_work/_clip_library_set_aside/`. Old file names are kept in each clip's `legacy_name`.
@@ -59,3 +61,41 @@ and flags visible AI defects, about $0.0015 a clip), `drive-sync`, `thumbs`.
   1.30 LUT plus `colortemperature=temperature=8500:pl=1` or skin reads orange. Hard-sun rolls C1673-C1677 take 1.15-1.30,
   the patio rolls C1684-C1685 take 1.45. To re-grade a clip in place: overwrite the library file, `make_thumbs`,
   `drive_sync(cat, only={id})`, then `sheet`.
+
+## Source ranges, favorites and teaching intent
+
+`add FILE --metadata /private/path/clip.json` accepts exercise/aliases, equipment, angle,
+`favorite` (boolean), `intended_use`, source `{file,path,in,out,duration,content_key,sha256}`,
+`source_range_key`, grade, approval, candidate IDs, shoot and checks. These fields stay in
+`catalog.json`; the human sheet also displays favorites, equipment, intent and original ranges.
+Metadata cannot overwrite a permanent ID or a library path. `source_range_key` prevents a
+second ID for the same original range. Mutating commands take one catalog lock and read fresh
+state before allocating IDs. Python batch callers must use `with catalog_lock():` around their
+load/allocate/save transaction too.
+An owner-confirmed `approval.exercise` protects the search tags from automatic `describe` suggestions.
+The model's separate `vision` proposal is retained without changing the confirmed exercise or its tags.
+
+Both Codex and Claude use the same commands from the project root:
+
+```bash
+python3 .claude/skills/_shared/cliplib/clip_library.py find "cable crunch" --favorite
+python3 .claude/skills/_shared/cliplib/clip_library.py find "rope" --intended-use "correct demonstration"
+python3 .claude/skills/_shared/cliplib/clip_library.py find "rear delt" --equipment "machine" --exclude-mistakes
+python3 .claude/skills/_shared/cliplib/clip_library.py show B0001
+```
+
+A correct-demonstration query excludes unknown, deliberate-mistake and beginner clips.
+Do not silently convert unknown intent into correct form. `show` exposes the original source
+path, exact in/out and identity needed to reconstruct a range. Keep Dan's confirmed exercise
+names and source corrections; an automatic description never overrides them. Talking through
+what will be filmed, resets and accidental camera handling are not reusable exercise B-roll.
+Original recordings are always preserved, including excluded material.
+
+The Drive connection can be selected without changing library folders or sharing:
+`CLIPLIB_DRIVE_REMOTE=gdrive_backup: python3 .claude/skills/_shared/cliplib/clip_library.py sheet`.
+The default is the existing dedicated-client `gdrive_backup:` connection;
+the old shared Google client can return project-wide rate-limit errors. Confirm the existing
+library root is accessible first. This selects an existing connection; it grants no new access.
+
+
+October23 finished assets and Claude queue access: `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md`. Both editing workflows may use every usable catalogued take, not only the initial IDs suggested in a particular brief.

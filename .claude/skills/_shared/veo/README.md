@@ -31,6 +31,11 @@ Credits are not the limit on Ultra (about 1,000 Veo Fast clips a month), so when
 *"If you're in doubt as to which one is better, I prefer you generate with both, given that we have the subscription now
 and there aren't per-clip generation costs."*
 
+- **Veo 3.1 Quality only when Dan asks for it by name (Dan, 2026-10-25).** Never "just in case", never as a twin of a
+  Fast take, never in a bake-off he did not request. Why: 48 Quality clips (100 credits each on Pro rates, 10x Fast)
+  used two-thirds of the logged credits when the 10,000 Ultra allowance ran dry in three days (10-20 to 10-23), and Fast
+  won or tied every blind test. Dan: *"Okay, let's make that the standing rule."* `veo.py add --model quality` refuses
+  without `--dan-asked "<his words>"`.
 - **Default:** Veo 3.1 Fast (`--model fast`), one take. Won or tied every pair of the 2026-10-21 blind bake-off.
 - **Important clips** (a hook, an ad opener, the first few seconds of any video): **two Veo takes** (`--takes 2`); show
   Dan the better one, or both if they are close.

@@ -21,5 +21,13 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md`: cut "The 3 Exercises I'd Do If I Only Had 5 Minutes" from 10/15 roll C1765 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
 
-**Codex (GPT-6 Sol, high):**
+**Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## R5 approved and finalized (2026-10-26)
+
+Dan: "Okay this looks good. Give me the handoff for setup". Exact R5 master SHA-256 `36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a` is final. Four requested labels, appearance, voice B, crops, captions and timing are approved. No further edit is authorized.
+
+Verified master/SRT/report package: `Short-form video content/Five Minute Exercises - DS-55/`, with identical backup in `/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/`. Approval: `DS-55-R5-approval.json` beside this job doc. Finalization receipt: `Docs/DS55_FINALIZATION_RECEIPT_20261026.json`. Original round5 work and raw gate2.6.2 FAIL (30 applicablePASS,5 knownFAIL,0unmeasured,4NA) preserved. Fresh sampled independent picture review found no new visible defect. No threshold changed, no synthetic PASS claimed.
+
+**Setup handoff:** `Handoffs/handoff-20261026-ds55-five-minute-exercises-setup.md`. Start in Claude Opus5.5 high, use the Codex subscription for five cover designs and stop for Dan's pick before media-platform upload/scheduling. Drive backup and live release-date check remain for setup. DS-55 finalized, edit slot released, editing heartbeat paused, temporary VLC copies and owned review9176 service removed. No covers made or platform media uploaded/scheduled.

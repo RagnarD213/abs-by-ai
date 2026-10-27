@@ -1,6 +1,35 @@
 # CONTENT: Hormozi Fat Guy SFC Setup
 
-Updated: 2026-10-23. Job: DS-44. Status: scheduled on all four organic destinations (scripted version).
+Updated: 2026-10-27. Job: DS-44 (+ DS-44B). Status: scheduled on all four organic destinations, **off-the-cuff R2 version**.
+
+## 2026-10-27: off-the-cuff R2 swapped in (current)
+
+Dan picked the off-the-cuff take, approved round 2 and said: "This is finalized... replace what we have in the queue with this."
+- Film: `Short-form video content/Hormozi Fat Guy - DS-44/Hormozi Fat Guy Off-Cuff SFC R2 - complete Short.mp4`, 64.865 s,
+  67,283,653 bytes, SHA-256 starts `eb63aaecc8c09c21` (1.135x, Codex titled panel; independent review SHIP). No AI footage:
+  `ai_generated: false` (YouTube containsSyntheticMedia and TikTok isAiGenerated false), no AI line in any caption.
+- TikTok cover-first copy: `... Off-Cuff SFC R2 - tiktok cover-first.mp4`, SHA-256 starts `fa22fcbe4090dab6` (1944 to 1945
+  frames, 3041 audio packets unchanged, cover PSNR 49.3 dB).
+- Same title, same approved covers (round 4 option 1), same slot **Thu Dec 17, 2026, 9 AM Chicago**. New copy (dan-voice-writer,
+  matches what he says in this take), new pinned question: "When you eat, do you stop at the right point, or do you go a
+  little bit too far?" Config `scripts/blotato/configs/ds44-hormozi-fat-guy.json` (scripted config backed up in
+  `scripts/blotato/swap_backup/ds44-hormozi-fat-guy.scripted-r2.config.json`).
+- Old schedules 5948215-5948218 backed up (`scripts/blotato/swap_backup/59482xx.ds44-scripted.json`) and deleted; new:
+
+| Destination | Account | Saved schedule |
+|---|---|---|
+| facebook | 47105 | 6108255 (cover by installer; registry match updated to the new first line, repo + live copy) |
+| instagram @danrosefit | 67203 | 6108259 |
+| tiktok | 58181 | 6108260 (cover-first copy, timestamp 0) |
+| youtube | 46963 | 6108262 |
+
+- Read back: all four at 2026-12-17T15:00Z; each Blotato media copy downloaded and SHA-256 matched (master; TikTok copy);
+  AI flags false; YouTube title and thumbnail kept. `ad_guard.py --scan` clean before and after. Queue 192 of 200.
+- Backups: Extreme `/Volumes/Extreme/Short-form video content/Hormozi Fat Guy - DS-44/` (master hash matches, SRT, TikTok copy);
+  Google Drive folder above (master MD5 matches, SRT).
+- The scripted R2 stays filed, unqueued.
+
+## Earlier record (scripted R2, superseded 2026-10-27)
 
 **Version note (read first).** The setup handoff held installation until Dan chose between the scripted R2 and the
 off-the-cuff take (DS-44B, still being edited). On 2026-10-23 Dan picked the cover and said: "Let's go with one. Go ahead

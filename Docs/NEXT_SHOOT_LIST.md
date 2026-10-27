@@ -24,7 +24,9 @@ Keep this file current: when something is filmed, delete its row and note the ro
 
 ## 1. Quick pickups (about 15 minutes total)
 
-**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). Nothing left in this section.
+**SL-11, The Vacuum, Short B (updated 2026-10-26):** Dan approved the exact saved 50-second AI Natural mix containing his own voice generated from the same shoot: “Yes, use this version.” Approved line: “Here's a mistake I see with a lot of beginners when they first start doing stomach vacuums.” Original Yeti takes are preserved; no new shoot is required. Studio wording remains a fallback. Full-film review remains. The Yeti was addressed from the rear in cardioid; test the front logo/mute side before considering replacement. Detail: `Handoffs/video-editing/SL-11-SHORTLIST-R1.md`.
+
+**Filmed 10/15:** the three M100 moves (roll C1736) and the countertop pushups (C1732). SL-11 was subsequently recorded on Yeti; see the fallback note above.
 
 These are tiny. Shoot them at the start of the next session while the lights are already up.
 

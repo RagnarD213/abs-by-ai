@@ -39,6 +39,8 @@ def scene_cfg(s):
     a = s["a"]
     c = dict(id=s["id"], dur=round(s["b"] - a, 3), direction=s["direction"], title=s["title"], hue=s["hue"],
              boxes=s["boxes"], close=rel(s["close"], a), pulse=rel(s["pulse"], a), drift=s.get("drift", 0))
+    if s.get("place"):
+        c["place"] = s["place"]
     if s["kind"] == "build":
         c["reveal"] = {k: rel(v, a) for k, v in s["reveal"].items()}
     else:

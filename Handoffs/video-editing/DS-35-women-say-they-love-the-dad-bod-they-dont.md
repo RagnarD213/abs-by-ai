@@ -1,6 +1,6 @@
-**CONTENT SFC.** Task name: `Dad Bod SFC R3`.
+**CONTENT SFC.** Task name: `Dad Bod SFC Setup`.
 
-**Round 3 review delivered 2026-10-25, Codex.** [Paired review](http://127.0.0.1:9241/), Scripted 57.5s and Off The Cuff 61.1s. Check both 0:09–0:17 for larger Craig photo, exact label/arrow and repaired watching camera edge; Scripted 0:31–0:36 for the stronger real studio photo. Both exact full files have fresh independent reviews and maintained PASS delivery gates, with selected audio and diagnostic limits retained. Await Dan’s take choice and notes. Full copies are in `Short-form video content/Dad Bod - DS-35/` and `Videos to Review/`. Receipt: `/Volumes/Expansion/_edit_work/DS-35/round3/delivery-receipt.json`. Nothing is approved, uploaded or scheduled. Original first-cut context follows.
+**FINALIZED October 26, 2026:** Dan selected and approved the complete **Off The Cuff R3**. Exact master: `Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4`, SHA-256 `c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d`, 61.094367s. Project/Extreme/Drive copies verified. Approval: `Handoffs/video-editing/DS-35-R3-approval.json`. Continue with the single [Claude cover-pick/setup handoff](../handoff-20261026-ds35-dad-bod-off-cuff-setup.md), Opus 5.5 high. Scripted is an unselected alternate. Cover pick, upload and scheduling remain. Original first-cut context follows.
 
 # DS-35: "Women Say They Love The Dad Bod. They Don't.", first cut from raw footage
 

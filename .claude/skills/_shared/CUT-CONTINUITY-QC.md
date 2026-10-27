@@ -66,6 +66,14 @@ Keep a compact final evidence table: required scenes versus checked scenes; froz
 
 Use WV-01 Version B R4 as the real rejected control: its declared goal-lockscreen at approximately 4:35.21 - 4:38.21 is actually a frozen studio close-up, and its P6 entry at 14:08.35 resets the hands in the same wide composition. The procedure must leave both open, despite matching source pixels and declared metadata. Compare the first with the independent `round2/previews/P04-lock.mp4`; keep legitimate approved goal-photo holds elsewhere as static controls. Recheck R5 against the same independent references. Corpus records preserve Dan's rejection and explicitly identify automated coverage still pending; this procedure does not pretend those missing rows have been implemented.
 
+## Excerpt captions must follow heard edge words (DS-105, 2026-10-26)
+
+An intake-ASR word can stretch across a pause. A token-start filter omitted a fully audible first word, while another excerpt printed an unheard next word for one frame. A greater-than-half-overlap filter also dropped the complete closing Thank because its source timestamp included the preceding pause. Check the exact audio plus first/last native caption frames for every excerpt. Retain every complete heard word and exclude unheard neighboring words in that excerpt's captions; do not erase those words from the complete film transcript. When timestamps are stretched, time the actual complete excerpt audio with the shared speech helper, correct spelling against the source, then inspect its first/last captions again. ASR metadata alone never clears a word edge.
+
+## Excerpt endpoints need a native-frame check (DS-105, 2026-10-26)
+
+An opening review excerpt ended two frames into the next tight crop. Its seven watch strips and clean scan did not include that near-end boundary. The independent reviewer found the flash by extracting the final six native frames. Inspect the first and last native-frame sequences of each excerpt as well as interior joins. End before a new shot starts, after the complete spoken word, or include a complete following phrase. Re-render and bind fresh sound/watch/framing evidence to the shortened file; an old whole-file hash cannot certify a repaired endpoint. This is an existing review obligation, not a changed gate bound.
+
 ## Reference case
 
 WV-01 round13: 51 source splices, 141 visible boundaries and 16 separately approved cut repairs. The noise at the next take's start was distinguished from the genuine “I know.” A pause removal retained “there” and “That is what this did for me.” Complete source audio and native frame sequences resolved contradictory model findings around “instantly.” Recipes/evidence: `/Volumes/Extreme/_edit_work/wv01-edit/round13/recipe/` and `round13/review/jump-audit.json`, `audio-repairs.json`, `R04-final-disposition.json`. Those crops, frame counts and prices belong to that recording, not future videos.

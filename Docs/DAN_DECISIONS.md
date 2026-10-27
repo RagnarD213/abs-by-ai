@@ -1,16 +1,37 @@
 # Dan's decisions
 
+
 Open decisions only Dan can make. Moved verbatim from the DAN'S DECISIONS section of `AI_COORDINATION.md` on 2026-10-16 so the auto-loaded board holds only open coordination. Every date and `Decision since:` below is the original; moving a decision here does not make it younger.
 
 Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop at 14+ days), `/prioritize` and `/plantheday`. A session that raises a new decision for Dan adds one dated line here (≤80 words, `Decision since: YYYY-MM-DD`); when Dan rules, record the outcome where it belongs and delete the line.
 
 ---
 
-- **October 23 Footage Processing (2026-10-24; Decision since: 2026-10-24):** [Review identification gallery and six color/trim samples](http://127.0.0.1:9205/). Confirm exercise names and teaching intent, adjust 25 suggested favorites among 99 selections, and choose colors/trim. Recommend B and complete reps with short handles. Export Review, then tell Codex. All 115 originals preserved. Bulk finishing, shared library and Claude Edit Queue registration await these choices.
+- **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
 
-- **Dad Bod SFC R3 (2026-10-25; Decision since: 2026-10-25):** [Review both complete takes](http://127.0.0.1:9241/). Check 0:09–0:17 in both and 0:31–0:36 in Scripted, then choose Scripted or Off The Cuff and give any remaining notes. Both are independently checked; full-quality VLC copies are in Videos to Review.
+- **Boring Abs At 40 LFC R5 (2026-10-26; Decision since: 2026-10-26):** [Review the complete 8:01 film](http://127.0.0.1:9357/?r5=20261026#current), approve or give timestamped changes. Final scene choices applied: neighbour 0:37–0:44 kept; fridge 4:11–4:21 and phone-goal 6:32–6:38 use camera. Colour C, voice B and crops preserved; remaining numerical flags documented. Nothing uploaded or scheduled.
 
-- **Pushup Masterclass LFC R1 (2026-10-23; Decision since: 2026-10-23):** [Review first minute and all assets](http://127.0.0.1:9180/). Choose music-led demonstration or filmed spoken lesson, colour A/B/C, and keep/change framing. Recommendation: music-led, A balanced, recommended full-body crops. Full-quality VLC copy is in Videos to Review. Full film and its independent audit follow these choices; automated master-gate failures remain recorded.
+- **V-Taper Exercises SFC R4 (2026-10-26; Decision since: 2026-10-26):** [Review revised Photo D opening](http://127.0.0.1:9214/),0:00–0:10. Approve or name changes to larger photo, straight arrows, symmetrical V guides and title/background. A/B/original portrait locked; full Short unfinished.
+
+- **Mouthpiece SFC R1 (2026-10-26; Decision since: 2026-10-26):** [Review opening and all graphics](http://127.0.0.1:9274/), choose colour/voice/framing and approve or name changes. Recommend B/A/1 and real demonstration. Full64s Short unassembled; final sound/caption finishing remains.
+
+
+
+- **Five Levels Of Pushups design3 title (2026-10-26; Decision since: 2026-10-26):** Base3 selected. Choose title A/B/C at http://127.0.0.1:9180/ . Same real photos; middle text only. Nothing uploaded or scheduled. `Docs/DS20_DESIGN3_TITLE_R3_REVIEW_20261026.md`.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -19,7 +40,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **Review skill, two small questions (2026-10-20; Decision since: 2026-10-20):** (a) answered 2026-10-20: the eyebrow stays in capitals. (b) When a human editor sends AI start/end frames for a go-ahead, should Claude run our frame gate and a fresh frame-reviewer on them first (our own pipeline does since 2026-10-14)? Rec: yes to both.
 
-- **Arms Shoulders Workout LFC R4 (Updated: 2026-10-23; Decision since: 2026-10-20):** Approve the 20% closer overhead-triceps crop and 30-second moving completion card at http://127.0.0.1:9064/. Watch crop 0:04-0:31 and completion 0:00-0:34. Both checked; full-film rebuild waits for both approvals. R3 color B, original stereo mix and all approved hashes preserved. Receipt: `Media/video-edits/RO-04/round4/review-receipt.json`.
 
 
 
@@ -85,4 +105,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 - **Fat Millionaire SFC R4 (2026-10-16), Decision since: 2026-10-16:** Approve the exact corrected review copy with the original camera framing and caption timing retained, or request a broader pass on those parts. The strict preset still flags both; no exception or approval is assumed. F3 stays selected and posting stays held. `Handoffs/handoff-20261016-ds05-correct-version.md`
 
 
-- **Calories: The Reason You’re Not Losing Weight Shorts SFL R6 (2026-10-23; Decision since: 2026-10-23):** [Review fasting opening](http://127.0.0.1:9058/), 0:00–0:06.24 and return 0:05.8–0:08.2. Flow refused both approved protein-scene attempts; choose existing filmed opening (recommended) or new clothed comparison scene in the pending chat question. Original approved frames preserved. No full-film assembly, covers, uploads or publishing.
+
+
+
+

@@ -43,16 +43,22 @@ def main():
     global CAL
     os.environ.pop("CLAUDE_CODE_HOST_SESSION_ID", None)
     os.environ["CLAUDE_CODE_SESSION_ID"] = "selftest"
-    CAL = ec.Calendar(today=TODAY)
+    # Fixed calendar inputs keep scheduling assertions stable as production dates change.
+    CAL = ec.Calendar(longform="| Sun Oct 18 | RO-25 |\n| Sun Oct 25 | RO-26 |\n"
+                      "| Sun Dec 6 | RO-20C |\n**2027 tentative**\nRO-22\n",
+                      shorts="| Nov 9 | | | | Dedicated Short (SL-09) | |\n",
+                      jobs={"SL-18": {"title": "Wasted Life (RO-25)"}}, today=TODAY)
     print("editcap selftest")
 
     # 1. job codes
     cases = {"RO-27": "RO-27", "work:ro27": "RO-27", "DS-40-codex": "DS-40", "sl05-short1": "SL-05",
-             "work:RO-20C": "RO-20C", "ro20c": "RO-20C", "pg:12345": None, "work:cheapkey": None, "": None}
+             "work:RO-20C": "RO-20C", "ro20c": "RO-20C", "SHOOT-20261023": "SHOOT-20261023",
+             "work:shoot-20261023": "SHOOT-20261023", "SHOOT-202610230": None,
+             "pg:12345": None, "work:cheapkey": None, "": None}
     bad = {k: ec.job_code(k) for k, v in cases.items() if ec.job_code(k) != v}
     check("job codes from render-queue groups", not bad, bad)
 
-    # 2. release dates from the real calendars
+    # 2. release dates parsed from representative calendar fixtures
     want = {"RO-26": "2026-10-25", "SL-09": "2026-11-13", "SL-18": "2026-10-19", "RO-20C": "2026-12-06",
             "RO-22": ec.LATER, "DS-44": ec.UNDATED}
     got = {j: CAL.date(j)[0] for j in want}
@@ -97,6 +103,16 @@ def main():
     codes = [ec.acquire(j, ctx=ctx(rq))[0] for j in ("RO-27", "RA-09", "RO-14", "DS-44")]
     check("unregistered render-queue videos use slots", codes == [0, 0, 0, 3], codes)
     check("a video already running in the queue is admitted, not stopped", ec.acquire("SL-06", ctx=ctx(rq))[0] == 0)
+
+    fresh()
+    batch = ec.job_code("SHOOT-20261023")
+    t0 = time.time() - ec.LEASE_S - 120
+    ec.acquire(batch, ctx=ctx(now=t0))
+    rq = {batch: {"live": 2, "last": time.time()}}
+    ec.release("nobody", ctx=ctx(rq))
+    reg = json.loads((ec.DIR / "registry.json").read_text())
+    check("active footage batch keeps its lease and counts once", state(batch) == "active"
+          and ec.occupancy(reg, rq) == {batch})
 
     # 8. stale slots and unclaimed reservations are given back
     fresh()
