@@ -161,7 +161,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R3 - REVIEW 2026-10-22, Claude.** Full film, page :8930. Next: Dan; then setup handoff.
 
-**Make Time Exercise LFC R4 - REVIEW :8984 2026-10-26, Claude.** Delivered; gate 36 pass + 3 known rows; review SHIP with a listen note at 1:27-1:46. Next: Dan reviews. `RO-18/round4/NOTES-R4.md`.
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
