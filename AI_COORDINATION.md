@@ -56,6 +56,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-01:PUSH-BLOCKED:4ddb18f:2026-10-27:Claude**
 
+**DS-01 setup COVERS 2026-10-27, Claude.** Awaiting pick.
+
 **Muhammad HQ push BLOCKED 2026-10-26, Claude.** Commit 509607e local. Next: safe-push, delete.
 
 **Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
