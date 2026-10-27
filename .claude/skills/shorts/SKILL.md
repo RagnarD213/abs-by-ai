@@ -10,13 +10,14 @@ description: >
   use /youtube-packaging. For a fully AI-generated video ad use /make-ad.
 ---
 
-## Green-screen editing: Codex; reaction format: Bill Maher Codex R5 (Dan, 2026-10-25)
+## Green-screen reactions: Bill Maher Codex R5 format (Dan, 2026-10-25); no fixed editor (2026-10-27)
 
 For a green-screen reaction, read [the Codex R5 reference](reference/ds40-codex-r5-reaction-format/README.md)
 before planning: early full-screen clip with 0.40 lower-left Dan/laptop → titled horizontal clip still speaking →
 Dan's response with the clip silently moving behind his hair → moving Soft Blue Light field. Preserve R5's
-handover, title ABOVE the panel, and colour reference on Dan and the clip. Codex owns green-screen edits, overriding
-older Claude routing for those jobs; other video categories and setup keep their routing. See VIDEO-RULES,
+handover, title ABOVE the panel, and colour reference on Dan and the clip. No AI owns green-screen editing (Dan,
+2026-10-27: "let's not have any rule for which one"): a video stays with the AI it started on, and for a new
+reaction Short his lean is Codex (newest Sol, high). Other video categories and setup keep their routing. See VIDEO-RULES,
 "Reaction videos: the locked format, start to finish". Use the existing round/sole-owner transfer for an actual
 continuation; this format lock itself starts no production. The DS-33/DS-44 layout notes below are historical.
 

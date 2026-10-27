@@ -1,4 +1,4 @@
-- [Reaction format + green-screen owner](greenscreen-reaction-format.md): LOCKED 10-25: Codex owns green-screen edits; Bill Maher Codex R5 sequence, title and colour are standard
+- [Reaction format](greenscreen-reaction-format.md): LOCKED 10-25: Bill Maher Codex R5 sequence, title, colour; no fixed green-screen AI since 10-27 (lean: Claude long-form, Codex Shorts)
 - [Protect Codex + other AIs](protect-codex-and-other-ais.md): 10-24: test machine-level changes (paths, moves, config) on Codex too, never Claude-only
 - [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
