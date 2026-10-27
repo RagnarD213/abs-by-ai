@@ -321,7 +321,8 @@ class Soft(Background):
         super().__init__(seg, ctx)
         self.small = (480, 270)
         c = seg.get("clip")
-        self.src = ClipSource(ctx.path(c["src"]), c["windows"], self.small) if c else None
+        # the clip's zoom and focus keep a channel bug out of frame (README rule 9), as in the corner and side types
+        self.src = ClipSource(ctx.path(c["src"]), c["windows"], self.small, zoom=c.get("zoom", 1.0), focus=tuple(c.get("focus", (0.5, 0.45)))) if c else None
         if not self.src:
             im = person_crop(ctx.path(seg["photos"][0]), 16 / 9, k=seg.get("k", 7.0), top=1.2)
             self.photo = to_f32(im.resize((960, 540), Image.Resampling.LANCZOS))
