@@ -84,7 +84,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16 FINALIZED 2026-10-27, Claude.** Setup handoff OPEN in `Handoffs/README.md`; delete this once setup starts.
+**SL-16 FINALIZED 2026-10-27, Claude.** Setup handoff OPEN in `Handoffs/README.md`. Commit f43babe local (live edits block push); next safe-push carries it.
 
 **Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
