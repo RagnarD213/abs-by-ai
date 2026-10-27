@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
+
 **Alcohol And Abs SFC R1 (SL-10) - NEEDS DAN 2026-10-27, Claude.** Shortlist of 5 sent; waiting for 3 picks before any render. Work: `/Volumes/Extreme/_edit_work/SL-10/`.
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`

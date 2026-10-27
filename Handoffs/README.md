@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Make Time Exercise LFC Setup](handoff-20261027-ro18-thumbnails-and-video-setup.md): **Fire now. Claude Opus 5.5, high.** CONTENT LFC RO-18, R4 approved 2026-10-27: five Codex thumbnails (2026-10-25 mix), Dan's pick, then confirm the release date with Dan (no 2026 slot left) and schedule on Blotato.
 
 
 - [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
@@ -43,7 +42,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): interview Dan, verify experience and assets, build and publish the approved profile. Opus 5.5 high.
+- [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): IN PROGRESS 2026-10-27: interview done; draft `upwork-profile-draft.md` awaits Dan, then enter and publish. Opus 5.5 high.
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
 | Document | Fire when |
@@ -200,6 +199,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
 
+- [handoff-20261027-ro18-thumbnails-and-video-setup.md](handoff-20261027-ro18-thumbnails-and-video-setup.md): executed 2026-10-27 (Claude). RO-18 setup: Robot Mower thumbnail, waiting list for Wed Jan 13, 2027. Receipt `Docs/RO18_SETUP_RECEIPT_20261027.md`.
 - [handoff-20261021-ro18-round3-mower-wispr.md](handoff-20261021-ro18-round3-mower-wispr.md): executed 2026-10-24 (Claude). RO-18 R3 delivered; R4 (Wispr Flow take after the 1:28 card) done in the same task, approved 2026-10-27.
 - [handoff-20261015-ro18-round2-full-film.md](handoff-20261015-ro18-round2-full-film.md): executed 2026-10-21 (Claude). RO-18 R2 delivered.
 

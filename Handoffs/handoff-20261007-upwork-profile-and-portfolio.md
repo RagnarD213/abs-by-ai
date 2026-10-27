@@ -1,6 +1,6 @@
 # Upwork profile and portfolio
 
-Created: 2026-10-07. Status: ready to start. Task name: Upwork Profile and Portfolio.
+Created: 2026-10-07. Status: IN PROGRESS 2026-10-27 (Claude): interview done, draft awaiting Dan; see upwork-profile-draft.md. Task name: Upwork Profile and Portfolio.
 Recommended owner: Claude Opus 5.5, high effort, for the interview, positioning and portfolio storytelling. Codex GPT-6.1 Sol, high effort, is the practical single-task alternative for research, files and account setup. Use Codex Astra only if substantial GUI work warrants it.
 
 ## Goal and context
