@@ -391,5 +391,13 @@
   "added": "2026-10-25",
   "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
   "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json"
+ },
+ {
+  "config": "scripts/blotato/configs/ds13-the-1-change-i-made-to-get-abs-at-40.json",
+  "kind": "short",
+  "job": "DS-13",
+  "label": "The #1 Change I Made To Get Abs At 40",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A. Target Thu 2027-01-07, 9 AM America/Chicago. Four media uploads hash-checked."
  }
 ]

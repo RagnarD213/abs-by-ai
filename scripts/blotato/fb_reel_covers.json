@@ -952,5 +952,14 @@
     "h": 1920,
     "approved": "Dan approved design 2 R3 and Saturday Dec 19, 2026, 9AM Central; all four schedules verified.",
     "when": "2026-12-19T15:00:00.000Z"
+  },
+  {
+    "job": "DS-13",
+    "match": "The number one change I made to get six pack abs at 40 was not a workout.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds13-the-1-change-i-made-to-get-abs-at-40-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan picked cover A (2026-10-27); Thu 2027-01-07 9 AM Central, all four.",
+    "when": "2027-01-07T15:00:00.000Z"
   }
 ]
