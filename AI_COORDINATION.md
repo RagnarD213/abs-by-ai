@@ -52,6 +52,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
 
+**DS-01:PUSH-BLOCKED:4ddb18f:2026-10-27:Claude**
+
 **Muhammad HQ push BLOCKED 2026-10-26, Claude.** Commit 509607e local. Next: safe-push, delete.
 
 **Main folder push - BLOCKED 2026-10-25, Claude.** Local commit 90d7e71 (stale qc_corpus SL-08/DS-20 entries, adopted as-is) not pushed: live edits in DAN_DECISIONS, 00-MASTER, jobs.json. Gate 2.6.2 itself is on GitHub (8c51fb1). Next: any session's next safe-push carries it; delete this once pushed.
@@ -84,7 +86,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
 
-**SL-16 FINALIZED 2026-10-27, Claude.** Setup handoff OPEN in `Handoffs/README.md`. Commit f43babe local (live edits block push); next safe-push carries it.
+**SL-16 setup COVERS 2026-10-27, Claude.** Awaiting picks. Commit f43babe local.
 
 **Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
