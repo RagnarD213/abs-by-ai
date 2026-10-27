@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Alcohol And Abs SFC R1 (SL-10) - NEEDS DAN 2026-10-27, Claude.** Shortlist of 5 sent; waiting for 3 picks before any render. Work: `/Volumes/Extreme/_edit_work/SL-10/`.
+
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
 **DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
@@ -51,7 +53,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
 
-**Make Time Exercise LFC Setup (RO-18) COVERS 2026-10-27, Claude.** Five choices out; awaiting pick + Jan 13 2027 date OK. `social media graphics/youtube/thumbnails/Make Time For Exercise/THUMBNAIL-REVIEW.md`
+**RO-18 HOLD 2026-10-27, Claude.** Waitlist, YouTube Wed Jan 13 2027; FB/IG Jan 14 noon; TikTok direct upload Jan 14. `Docs/RO18_SETUP_RECEIPT_20261027.md`
 
 
 **Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
