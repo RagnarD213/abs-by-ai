@@ -1,6 +1,6 @@
 ---
 name: jump-rope-clip-rule
-description: "Jump rope footage: fast boxer skip (B0448) is the correct clip; the both-feet clip (B0430) is a mistake demo only"
+description: "Jump rope: ONLY the fast one-foot-at-a-time boxer skip (B0448, B0542); every both-feet clip (B0430, 10/15 roll C1742) is a mistake demo only. Repeated mistake (10-09, 10-27)"
 metadata:
   node_type: memory
   type: feedback
@@ -18,6 +18,8 @@ footage of me skipping quickly like a boxer would."
 - Correct clip: library `B0448` (roll C1674, high-knee stretch, about 155 steps a minute).
 - Mistake demo only: `B0430` (both feet, a pause on each landing).
 - Beginner demo only: `B0447` (slow, foot by foot). Not a correct-form clip.
+- **Also both-feet, mistake demo only: 10/15 shoot roll `C1742`** (pool, Dan in green shorts with a knee sleeve). RO-28 used it as plain
+  jump rope at 2:22 and Dan caught it again on 2026-10-27.
 
 **Why:** the both-feet jump is a form mistake in his teaching; showing it as normal jump rope teaches the wrong thing.
 
@@ -25,3 +27,9 @@ footage of me skipping quickly like a boxer would."
 rope twice, take a different part of the fast stretch of roll C1674 (my reading: do not repeat the same frames). The rule
 is also in `.claude/skills/_shared/VIDEO-RULES.md` (top section) and in the clip library descriptions. Related:
 [[cover-photo-selection]], [[clip-library]].
+
+**10-27 (RO-28 R4), second time this happened.** Dan: *"you're using the wrong clip of me jumping over with both feet. I want the clip of me
+rapidly skipping over the rope one foot at a time, the correct way. Save that to memory because this issue has happened a few times.
+Don't use that clip of me jumping with both feet. Use only the clip of me one foot at a time, unless we're specifically showing that
+mistake."* Before using ANY jump rope footage of Dan (library or raw roll), watch a few seconds at speed and confirm the feet
+alternate fast; a raw roll that is not in the library is unverified until you have looked. Default: B0448 / B0542.

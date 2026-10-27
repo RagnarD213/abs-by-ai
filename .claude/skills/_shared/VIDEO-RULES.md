@@ -617,6 +617,11 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
 - This binds every video, every editor brief and every revision doc. The clip library descriptions of all three carry
   the rule. When a film needs jump rope twice, take a different part of the fast stretch of roll C1674, not the same frames.
 - Why: RO-06's jump rope section (3:51) used the both-feet clip as plain "Dan jumping rope".
+- **Repeated 2026-10-27 (RO-28): the 10/15 shoot's pool roll `C1742` is also a both-feet jump** and went out as plain jump rope
+  at 2:22. Dan: *"Save that to memory because this issue has happened a few times. Don't use that clip of me jumping with both
+  feet. Use only the clip of me one foot at a time, unless we're specifically showing that mistake."* Before using any jump rope
+  footage of Dan, from the library or a raw roll, watch it at speed and confirm the feet alternate fast; a raw roll is unverified
+  until you have looked. Default to `B0448` / `B0542`, colour matched to the film.
 
 ## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
 
