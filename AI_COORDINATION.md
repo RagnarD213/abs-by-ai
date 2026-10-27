@@ -51,6 +51,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
 
+**Make Time Exercise LFC Setup (RO-18) COVERS 2026-10-27, Claude.** Five choices out; awaiting pick + Jan 13 2027 date OK. `social media graphics/youtube/thumbnails/Make Time For Exercise/THUMBNAIL-REVIEW.md`
+
 
 **Footage records sync - BLOCKED 2026-10-25, Codex.** August3 offload, October23 copy/routing and initial finished B-roll backups verified. Processing owner backs up later clips. Next: safe-push owned records after live shared edits clear. Receipts: `Docs/SHOOT_20260803_OFFLOAD_RECEIPT_20261025.md`, `Media/footage-index/shoot-20261023/finished-broll-backup-20261025/result.json`.
 **Wallpaper favorites - MAC APPROVAL PENDING 2026-10-25, Codex task-7.** Web save/remove/restore verified on 49b86329, correct October 21 original, private access preserved. Source recovery hashes match. Reader remains uninstalled; disable/restore safeguards tested. Next: Dan approves separate Keychain key, favorites-only server grant and LaunchAgent, then real three-screen rotation verification. `scripts/brief/wallpaper/README.md`.
