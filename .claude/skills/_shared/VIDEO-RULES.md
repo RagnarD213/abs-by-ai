@@ -63,6 +63,14 @@ this reaction layout. Existing approved exports and the existing setup handoff r
 Codex owns new green-screen work and the next authorized edit round; use the sole-owner round workflow for an
 actual transfer. Do not interrupt another active editor or launch a new job merely to install this standard.
 
+## Long-form green-screen backgrounds: the locked template (Dan, 2026-10-27, RO-24 R3)
+
+Every long-form green-screen commentary video uses the shared background template `_shared/greenscreen-bg/` (README: the
+seven types, placements, planner rules, plan format), Claude and Codex alike. Dan, on the RO-24 round 3 page: *"Let's lock
+this in as our standard background template for all these kinds of long-form green screen videos... I want to lock this as
+our permanent format."* The background is never plain and changes on cuts with what he is saying. Do not reopen the style;
+a new film supplies only its facts, photos and clip windows. Reaction SHORTS keep the Codex R5 format above.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.

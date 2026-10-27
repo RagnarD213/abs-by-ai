@@ -44,6 +44,8 @@ Every green-screen video is keyed with Claude's Bill Maher Fat 90-Year-Old R2 ke
 
 This replaces the Hormozi Fat Guy Claude R2 and earlier Bill Maher Claude format defaults, and older Claude routing for green-screen jobs. R5 uses the existing house Claude R2 key algorithm; source calibration and exact-file QA remain required. Codex handles new green-screen jobs and their next authorized edit rounds; an actual transfer uses the existing sole-owner round workflow without interrupting active work. Existing approved masters and the setup handoff are preserved; this lock does not launch production or upload. Other editing categories and setup keep their recorded routing.
 
+**Long-form green-screen backgrounds are locked (Dan, 2026-10-27).** Every long-form green-screen commentary video uses the shared template `.claude/skills/_shared/greenscreen-bg/` as built in RO-24 round 3: the background is never plain and changes on cuts with what Dan is saying. Dan: "I want to lock this as our permanent format." Do not reopen the style. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
+
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
 Real photographs remain labelled “Real photo(s) of me, not AI-generated” even if retouched or touched up. Do not label them “retouched photos.” Fundamentally AI-generated imagery still receives the AI label. Preserve internal provenance and existing thumbnail/real-moving-footage exceptions. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.

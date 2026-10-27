@@ -11,7 +11,11 @@ Binds every green-screen reaction or commentary video, Claude and Codex (memory 
 "Reacting To Celebrity Ozempic Transformations" (RO-24), round 3 (recipe: `longform-edit/reference/ro24/round3/`). Mockups Dan
 approved: `/Volumes/Expansion/_edit_work/RO-24/round3/mock/background_options.jpg` and `background_options_2.jpg`.
 
-Status: **built 2026-10-25, shown to Dan in RO-24 round 3; not yet locked by Dan.** Record his verdict here when it comes.
+Status: **LOCKED by Dan 2026-10-27 as the permanent standard for long-form green-screen videos** (RO-24 round 3 page,
+first 2:50, export sha256 70b4e83a...): *"Let's lock this in as our standard background template for all these kinds of
+long-form green screen videos. I love how you kept it interesting and kept it relevant... I love this format, and I want to
+lock this as our permanent format."* Use the types, placements, rules and look exactly as built here; do not reopen the
+style. A new film changes only its facts, plan, photos and clip windows (and a new set plate if the film needs one).
 
 **Scope (2026-10-25):** green-screen long-form commentary and reaction films with several backgrounds. Reaction SHORTS keep
 the locked Bill Maher Codex R5 format (VIDEO-RULES, "Reaction videos: the locked format"); this template does not replace it.
