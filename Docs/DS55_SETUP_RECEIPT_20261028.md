@@ -16,7 +16,7 @@ Title: **5-Minute Home Workout: 3 Exercises, No Equipment**. Pinned question: **
 
 YouTube will be created only by Blotato at release, with no direct holding upload or native schedule. No Google Ads action. Existing release monitors verify actual public tiles on all four platforms, apply Facebook's post-release cover and repair YouTube's public tile if necessary. Existing daily pinned-comment routine posts/pins the question. The shared article-gap routine handles the Short article after release. None of these post-release outcomes has happened yet.
 
-Configuration: `scripts/blotato/configs/ds55-five-minute-exercises.json`. Full metadata, proposed four post payloads, hashes, public URLs, backup proof and clean-writer receipt: `scripts/covers/ds55-20261026/install/`. Local working proof and live audits: `/Volumes/Expansion/_edit_work/ds55-publish/`. No schedule IDs exist.
+Configuration: `scripts/blotato/configs/ds55-five-minute-exercises.json`. Full metadata, proposed four post payloads, hashes, public URLs, backup proof and clean-writer receipt: `scripts/covers/ds55-20261026/install/`. Local working proof and live audits: `/Volumes/Expansion/_edit_work/ds55-publish/`. No schedule IDs exist. Shared cover audits before and after installation: zero issues across 188 scheduled posts. Ad-guard scans before and after: clean. Source, metadata, platform config, cover installer asset and receipts committed and pushed successfully.
 
 ## Verified public media URLs
 
