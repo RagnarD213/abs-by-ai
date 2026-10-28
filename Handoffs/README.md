@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Mouthpiece SFC Setup](handoff-20261028-ds105-mouthpiece-covers-and-setup-codex.md): **Start now. Codex GPT-6.1 Sol, high, explicitly requested by Dan.** Exact R4 approved/finalized October 28. Five Codex-subscription cover pairs, stop for his pick, then upload and organic setup under the current release phases. Not started; no date reserved.
 
 
 

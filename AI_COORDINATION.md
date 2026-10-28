@@ -25,7 +25,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO27:Setup:ACTIVE:2026-10-28:Codex:await-thumbnails.**
+**Mouthpiece SFC Setup ACTIVE 2026-10-28, Codex01a184cd.** Approved R4 and three backups hash-verified. Five subscription cover pairs in production; no upload or date reserved. Next: show five pairs and await Dan pick.
+
+**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Five-pairs](http://127.0.0.1:9297/);await-pick;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
+
+**RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
@@ -42,17 +46,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-20 HOLD 2026-10-28, Codex.** A installed; Dec10 9AM Central approved, waitlisted. DS05 corrected R4 approved and queued same day5PM. Daily top-up queues DS20. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
-**Mouthpiece SFC R3 ACTIVE 2026-10-28, Codex01a182b7.** Audio auditions: current/gentle/stronger. R2 preserved at [review](http://127.0.0.1:9275/). Next: QA, then Dan picks. `Docs/DS105_R2_REVIEW_20261028.md`.
 
 
 
 
+**SL-11 R3 REVIEW 2026-10-28, Codex01a183c0.** [Three complete films](http://127.0.0.1:9411/?round=3) with intro1. Exact audio/gates and independent review passed. Full-quality VLC copies opened. Awaiting Dan’s full-film approval; no upload. `Docs/SL11_R3_COMPLETE_FILMS_20261028.md`.
 
-**[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
+**Love Handles LFC R5 ACTIVE 2026-10-28, Codex01a184ca.** Sole owner verified. N01/N03 frames approved; N02 rejected, presenter retained. Two subscription Fast takes generating;127 locks verified. Next: motion gates and fresh reviewers, then narrated contexts for Dan. No full film yet. `/Volumes/Extreme/_edit_work/RO-30/round5/RESUME.md`.
 
-**Love Handles LFC R5 ACTIVE 2026-10-28, Codex01a184ca.** Dan approved N01/N03 frames and rejected N02. Owner transfer/start/pin verified. Next: two Flow subscription motion inserts and narrated context checks. Live credit observation56 before transfer. Preserve127 locks and normalized119framecut; full film waits for motion approval. `/Volumes/Extreme/_edit_work/RO-30/round5/RESUME.md`.
-
-**DS-47 R6 ACTIVE 2026-10-28, Codex:01a183b0.** Sole vacuum repair39s: left hand behind, abs visible during draw-in. Rest approved; conditional completion after repair/check. Newowner started/pinned and transfer verified; R5stopped/unpinned. `Handoffs/handoff-20261028-ds47-r6-vacuum-visibility.md`.
 
 **Brief overlap NEEDS DAN 2026-10-28, Codex.** Pause old cloud routine; keep local daily publisher.
 
