@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Five cover pairs](http://127.0.0.1:9298/); awaiting Dan pick. Approved R4 unchanged; three backups verified. Upload/setup pending, no date reserved. `Docs/DS105_COVER_REVIEW_20261028.md`
 
-**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Five-pairs](http://127.0.0.1:9297/);await-pick;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
+**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Three-real-pairs](http://127.0.0.1:9297/);R2-await-pick;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
@@ -52,7 +52,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**SL-11 R3 REVIEW 2026-10-28, Codex01a183c0.** [Three complete films](http://127.0.0.1:9411/?round=3) with intro1. Exact audio/gates and independent review passed. Full-quality VLC copies opened. Awaiting Dan’s full-film approval; no upload. `Docs/SL11_R3_COMPLETE_FILMS_20261028.md`.
 
 **Love Handles LFC R5 ACTIVE 2026-10-28, Codex01a184ca.** Sole owner verified. N01/N03 frames approved; N02 rejected, presenter retained. Two subscription Fast takes generating;127 locks verified. Next: motion gates and fresh reviewers, then narrated contexts for Dan. No full film yet. `/Volumes/Extreme/_edit_work/RO-30/round5/RESUME.md`.
 

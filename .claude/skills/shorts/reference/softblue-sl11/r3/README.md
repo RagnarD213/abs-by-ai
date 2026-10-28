@@ -1,5 +1,7 @@
 # SL-11 R3: complete films with selected intro1
 
+Finalization on2026-10-28: Dan explicitly approved all three full movies. `finalize.py` only copies the exact checked bytes, validates current stamps, matches sidecars to every full-R3 caption state and files project/Extreme copies. The native Drive upload and separate checksum readback are recorded in `Docs/SL11_FINALIZATION_RECEIPT_20261028.json`. Canonical FINAL folder: `Short-form video content/SL-11 The Vacuum/`; no re-encode. Historical delivery manifests retain their review-stage flags; the later `approval.json` / `Handoffs/video-editing/SL-11-R3-approval.json` is authoritative for full-film approval. Covers/setup continue only through the prepared20261028Codex handoff, not another edit round.
+
 Dan chose option1 for all three and authorized complete videos. Same-task controller key`SL-11:R3`, exact revision`01a183f2-c529-7812-9188-1334a686a97d`. Immutable decisions and35hashes at `/Volumes/Extreme/_edit_work/SL-11/round3/`. Read `Docs/SL11_R3_COMPLETE_FILMS_20261028.md`. This is a full-film review phase, not publishing or final-film approval.
 
 `build_full.py` combines first75nativeframesA/C or180B from the approved R2 option1 context with the same-index R1 remainder. It encodes the pictures and stream-copies the full original AAC track. Originals remain unchanged; current clear-hold picture is Dan's explicit pick. No raw-drive dependency or new generation.

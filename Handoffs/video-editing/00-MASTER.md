@@ -285,7 +285,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10, YouTube Sun Jan 17 2027 under the 2026-10-28 plan; Shorts Jan 18 to 25) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | IN PROGRESS | S |
-| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | DELIVERED: awaiting Dan | S |
+| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, public Oct 28; kitchen footage, so its Shorts wait for phase 2 or February) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |

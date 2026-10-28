@@ -1,5 +1,7 @@
 # The Vacuum SFC R3: complete videos with option1
 
+**Finalization update, 2026-10-28:** Dan approved all three complete R3 films and requested the Codex covers/setup handoff. The exact checked movie bytes are now FINAL under `Short-form video content/SL-11 The Vacuum/`, with matching captions and verified project/Extreme/Drive copies. See `Docs/SL11_FINALIZATION_RECEIPT_20261028.json` and `Handoffs/handoff-20261028-sl11-vacuum-covers-and-setup-codex.md`. Queue finalized. Temporary VLC copies and :9411 service retired. No cover picks, social uploads or schedules yet. The original delivery account below records the earlier review stage and remains historical.
+
 CONTENT/SFL, SL-11. Dan’s exact instruction: “Let's go with option 1 for all three. Go ahead and build the complete videos.” Revision `01a183f2-c529-7812-9188-1334a686a97d`; turn `01a183f2-c4f5-7013-98b2-318d3690bed1`. Same owner/task `01a183c0-a300-7f30-a67f-53dc4607d97c`. The supported round controller reserved `SL-11:R3`, renamed/pinned this existing chat and verified production ownership; no new task was created. Current supported catalog resolves Sol/high to `gpt-6.1-sol`; prior accepted creation configuration is unchanged.
 
 All three complete movies are rendered under `/Volumes/Extreme/_edit_work/SL-11/round3/review/films/`. Delivered review: http://127.0.0.1:9411/?round=3. All three complete exact files passed audio/delivery gates and a fresh independent full-film review. They await Dan’s full-film approval; nothing uploaded or scheduled.
