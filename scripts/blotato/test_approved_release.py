@@ -55,7 +55,7 @@ class ApprovedReleaseTests(unittest.TestCase):
     def test_earlier_fallback_skips_later_approved_day(self):
         code, output = self.plan(include_earlier=True)
         self.assertEqual(code, 0)
-        self.assertIn('earlier Earlier film: longform on Sun 2027-01-10', output)
+        self.assertIn('earlier Earlier film: longform on Fri 2027-01-08', output)
         self.assertIn('approved Approved film: longform on Wed 2027-01-06', output)
 
     def test_approved_day_clash_stops_instead_of_silent_move(self):

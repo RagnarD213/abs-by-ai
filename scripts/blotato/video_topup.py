@@ -10,16 +10,17 @@ A setup that cannot queue because the plan cap is full adds its entry here and s
 needs a finished config (media uploaded, thumbnail, captions) that the normal helper accepts.
 
 For each waiting entry, in order, while the queue has room for its 4 posts:
-  - long-form: keeps the config's Sunday or Wednesday if it is still free and at least 1 day away,
-    otherwise takes the first free Sunday or Wednesday after the last queued long-form. 9 AM
+  - long-form: keeps the config's date if it is a long-form day of its phase (release_phases.py), still free and
+    at least 1 day away, otherwise takes the first free long-form day after the last queued one. 9 AM
     America/Chicago. The other platforms follow the next day (longform_queue.py does that). One
-    long-form per day (Dan, 2026-10-17: two a week, Sunday and Wednesday; was Sunday only).
-    Release order and dates come from the approved calendar written into each config's "main".
-  - short: keeps the config's slot if it is still free, in the future and on its kind's day, otherwise
-    takes the next free such day at 9 AM America/Chicago with no other YouTube post that day. A dedicated
-    Short (job DS-...) goes on Thursday, one a week; a Short cut from a long-form goes on Monday, Tuesday,
-    Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
+    long-form per day. Release order and dates come from the approved calendar written into each config's "main".
+  - short: keeps the config's slot if it is a Short slot of its phase (release_phases.py: 9 AM, plus 6 PM in the
+    two-a-day phases), still free, in the future and allowed for its content, otherwise takes the next free
+    slot on a day with no long-form. Dedicated and cut Shorts share the same slots (Dan, 2026-10-28; was
+    Thursday-only for dedicated Shorts). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
     An explicitly approved Short timestamp is preserved; a conflict stops instead of silently moving it.
+    Waitlist flags: "kitchen": true (kitchen footage, never auto-slotted in phases 1 and 3 except the salad family),
+    "gym": true (Oct 23 gym Short, held for January unless "phase1_test": true).
     A Short whose entry names "after": "<parent config>" waits until that parent is queued and is always
     slotted after the parent's YouTube release day (no Short before its parent is public; added 2026-10-22).
     An entry with "parent_config" (the long-form's config) is never slotted on or before the parent's day.
@@ -44,19 +45,14 @@ from zoneinfo import ZoneInfo
 
 HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
 sys.path.insert(0, HERE)
+import release_phases as rp  # noqa: E402
 WAITLIST = os.path.join(HERE, "video_waitlist.json")
 CAP, NEED = 200, 4
 CT = ZoneInfo("America/Chicago")
 YOUTUBE, ACCOUNTS = "46963", ("47105", "67203", "58181", "46963")
 IG_MAX_BYTES = 300_000_000
 HELPER = {"longform": "longform_queue.py", "short": "organic_short_queue.py"}
-LONGFORM_DAYS = (6, 2)  # Sunday and Wednesday (Dan, 2026-10-17)
-DEDICATED_DAYS = (3,)  # Thursday: one dedicated Short a week (Dan, 2026-10-17)
-CUT_SHORT_DAYS = (0, 1, 4, 5)  # Mon, Tue, Fri, Sat: Shorts cut from long-forms
-
-
-def short_days(entry: dict) -> tuple:
-    return DEDICATED_DAYS if str(entry.get("job", "")).startswith("DS-") else CUT_SHORT_DAYS
+# Long-form weekdays, Short days and times now come from release_phases.py (dated phases, Dan 2026-10-28).
 
 
 def load() -> list:
@@ -67,13 +63,17 @@ def pending(entries: list) -> list:
     return [e for e in entries if not e.get("queued") and not e.get("release_hold")]
 
 
-def utc(day: date) -> str:
-    local = datetime(day.year, day.month, day.day, 9, 0, tzinfo=CT)
+def utc(day: date, hhmm: str = "09:00") -> str:
+    local = datetime(day.year, day.month, day.day, int(hhmm[:2]), int(hhmm[3:]), tzinfo=CT)
     return local.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
 
 
 def local_day(iso: str) -> date:
     return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(CT).date()
+
+
+def local_hhmm(iso: str) -> str:
+    return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(CT).strftime("%H:%M")
 
 
 def acct(i: dict) -> str:
@@ -108,12 +108,12 @@ def main() -> int:
         free = int(sys.argv[sys.argv.index("--assume-free") + 1])
     now = datetime.now(timezone.utc); today = now.astimezone(CT).date()
 
-    yt_days, longform_days, minutes = set(), set(), set()
+    yt_slots, longform_days, minutes = set(), set(), set()
     for i in items:
         when = i.get("scheduledAt") or ""
         minutes.add((acct(i), when[:16]))
         if acct(i) == YOUTUBE:
-            yt_days.add(local_day(when))
+            yt_slots.add((local_day(when), local_hhmm(when)))
             text = ((i.get("draft") or {}).get("content") or {}).get("text") or ""
             if "utm_campaign=longform" in text:
                 longform_days.add(local_day(when))
@@ -147,23 +147,24 @@ def main() -> int:
         if e["kind"] == "longform" and (head_bytes(v.get("instagram_video_url", v["video_url"])) or 0) > IG_MAX_BYTES:
             problem = f"{e['job']}: Instagram copy is over 300 MB, add instagram_video_url to the config"; break
 
-        want = local_day(v["main"])
+        want = local_day(v["main"]); slug = v["slug"]
         if e["kind"] == "longform":
             reserved = {day for day, owner in approved_days.items() if owner != e['config']}
-            ok = (want.weekday() in LONGFORM_DAYS and want >= today + timedelta(days=1)
-                  and want not in longform_days and want not in reserved)
+            ok = (rp.longform_allowed(want) and want >= today + timedelta(days=1)
+                  and want not in longform_days and want not in reserved
+                  and not rp.blocked_by_content(want, e, slug))
             if e.get('approved_release') and (not ok or v['main'] != e['approved_release']):
                 problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
                 break
             if not ok:
-                want = max(max(longform_days, default=today), today + timedelta(days=1)) + timedelta(days=1)
-                while want.weekday() not in LONGFORM_DAYS or want in longform_days or want in reserved:
-                    want += timedelta(days=1)
+                want = max(max(longform_days, default=today), today + timedelta(days=1))
+                want = rp.next_longform_day(want, longform_days, reserved)
+                while rp.blocked_by_content(want, e, slug):
+                    want = rp.next_longform_day(want, longform_days, reserved)
             main = utc(want)
         else:
-            main = v["main"]
+            main = v["main"]; hhmm = local_hhmm(main)
             clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
-            days = short_days(e)
             # A Short never airs before its parent long-form (Dan, 2026-10-17). "after" (2026-10-22) also waits
             # until the parent is on Blotato; "parent_config" (2026-10-17) only keeps it after the parent's day.
             earliest = today
@@ -173,17 +174,24 @@ def main() -> int:
                 if e.get("after") and not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
                     print(f"  waiting parent  {e['job']} {e['label']}: {pv['slug']} is not queued yet"); continue
                 earliest = max(today, local_day(pv["main"]) + timedelta(days=1))
+            # An explicit approval keeps its own clock time (e.g. 5 PM); any other Short must sit on a phase slot.
+            slot_ok = (bool(rp.short_times(want, want in longform_days)) if e.get('approved_release')
+                       else rp.is_short_slot(want, hhmm, want in longform_days))
             invalid_slot = (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2)
-                            or clash or want.weekday() not in days or want < earliest)
+                            or clash or not slot_ok or want < earliest or rp.blocked_by_content(want, e, slug)
+                            or (want, hhmm) in yt_slots)
             if e.get('approved_release') and (invalid_slot or main != e['approved_release']):
                 problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
                 break
             if invalid_slot:
-                want = max(want, today, earliest - timedelta(days=1)) + timedelta(days=1)
-                while (want.weekday() not in days or want in yt_days
-                       or any((a, utc(want)[:16]) in minutes for a in ACCOUNTS)):
-                    want += timedelta(days=1)
-                main = utc(want)
+                taken = set(yt_slots)
+                start = max(want, today, earliest - timedelta(days=1))
+                while True:
+                    want, hhmm = rp.next_short_slot(start, taken, e, slug)
+                    if not any((a, utc(want, hhmm)[:16]) in minutes for a in ACCOUNTS):
+                        break
+                    taken.add((want, hhmm))
+                main = utc(want, hhmm)
         moved = main != v["main"]
         print(f"  {'queue ' if apply else 'would queue'}  {e['job']} {e['label']}: {e['kind']} on "
               f"{datetime.fromisoformat(main.replace('Z', '+00:00')).astimezone(CT):%a %Y-%m-%d %I:%M %p} Central{' (re-slotted)' if moved else ''}")
@@ -199,7 +207,7 @@ def main() -> int:
             json.dump(entries, open(WAITLIST, "w"), indent=1)
         queued_now.append(e["job"]); queued_slugs.add(v["slug"])
         free -= need
-        day = local_day(main); yt_days.add(day)
+        day = local_day(main); yt_slots.add((day, local_hhmm(main)))
         if e["kind"] == "longform":
             longform_days.add(day)
         for a in ACCOUNTS:
