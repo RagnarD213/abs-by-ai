@@ -1,11 +1,11 @@
 {
   "content_type": "organic",
-  "source": "Short-form video content/ds-05_why-having-abs-beats-being-a-fat-millionaire.mp4",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Fat Millionaire - DS-05/Fat Millionaire SFC R4 - approved.mp4",
   "slug": "ds-05",
   "campaign": "abs-vs-millionaire",
   "title": "Why Having Abs Beats Being A Fat Millionaire",
-  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f37cb433-3693-4fd2-b740-1a23e7e42d6b.mp4",
-  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f197e22d-88f7-48d6-87df-3f71c8255209.mp4",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2844eec5-9518-4144-bdbd-b089c889a76f.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/75080915-6cfd-4108-a2c6-bfe01171de79.mp4",
   "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c8d94eb4-866d-47e9-a876-5c0a0626f33d.png",
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f6b434c1-e5f4-4afe-a820-226ee381ced6.jpg",
   "main": "2026-12-10T23:00:00.000Z",
@@ -17,11 +17,6 @@
   "tags": "#SixPackAbs #GetLean #Motivation #MensFitness #AbsByAI",
   "youtube_description": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I can tell you the abs matter far more.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=abs-vs-millionaire&utm_content=ds-05\n\n1. Abs are rarer than money.\n2. Everyone meets on dating apps now, and attraction is visual.\n3. Money is worthless if your health is gone.\nGet lean first, then chase the money.\n\nFix your nutrition first, get lean, and then go chase the money. Comment and let me know if you think six-pack abs are worth a million dollars.\n\n#SixPackAbs #GetLean #Motivation #Shorts",
   "pinned_comment": "Under 2% of American men under 50 have six pack abs, and about 8% are millionaires. If you had to pick one, a million dollars or six pack abs?",
-  "release_hold": {
-    "since": "2026-10-16",
-    "reason": "October 16 revisions remain open; October 14 V3 HD is superseded. Corrected exact-file QC and Daniel approval required. F3 cover approval does not approve video.",
-    "owner_task": "Fat Millionaire SFC R4"
-  },
   "release_date_approval": {
     "date": "2026-10-28",
     "approved_by": "Dan",
@@ -29,5 +24,21 @@
     "timezone": "America/Chicago",
     "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts",
     "release": "2026-12-10T23:00:00.000Z"
-  }
+  },
+  "source_sha256": "db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e",
+  "tiktok_sha256": "0c5fee8a858f140c650f1b66e5b866abbf733b1fdc5d51ee1494bb75a94ee381",
+  "film_approval": {
+    "job": "DS-05",
+    "approved_by": "Dan",
+    "date": "2026-10-28",
+    "words": "Fat Millionaire looks good. Approved. Go ahead and schedule the corrected version for December 10 at 5 PM.",
+    "master_sha256": "db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e",
+    "tiktok_sha256": "0c5fee8a858f140c650f1b66e5b866abbf733b1fdc5d51ee1494bb75a94ee381",
+    "retained_source_framing_caption_timing": "Explicit corrected R4 approval after review; historical gate results remain unchanged",
+    "main": "2026-12-10T23:00:00.000Z",
+    "cover": "F3 unchanged",
+    "review_url": "http://127.0.0.1:8765/"
+  },
+  "setup_status": "Corrected R4 approved 2026-10-28, corrected hosted bytes verified; December10 5PM Central; shared waitlist",
+  "cover_version": "F3, existing exact approved cover retained"
 }

@@ -178,8 +178,9 @@
     "main": "2026-12-10T23:00:00.000Z",
     "local": "December10,2026 5PM America/Chicago",
     "reason": "Noon already occupied by three live posts;9AM assigned DS20",
-    "release_hold": "Corrected R4 exact-file approval remains pending",
-    "review_url": "http://127.0.0.1:8765/"
+    "release_hold": false,
+    "review_url": "http://127.0.0.1:8765/",
+    "approved_corrected_r4": "Dan explicit approval2026-10-28; media replaced, shared waitlist"
   },
   "queue_checks": {
     "live_cover_audit": "PASS,188posts,0issues",

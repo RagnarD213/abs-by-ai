@@ -210,7 +210,6 @@
   "job": "DS-05",
   "label": "Why Having Abs Beats Being A Fat Millionaire",
   "added": "2026-10-16",
-  "release_hold": "October 16 corrections, exact-file QC and Daniel approval pending",
   "approved_release": "2026-12-10T23:00:00.000Z",
   "release_date_approval": {
    "date": "2026-10-28",
@@ -219,7 +218,8 @@
    "timezone": "America/Chicago",
    "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
   },
-  "note": "Dan approved sharing Dec10 with DS20; 5PM Central avoids live noon posts. Existing corrected-film approval hold remains; do not submit superseded hosted media."
+  "note": "Dan approved exact corrected R4 and Dec10 5PM Central. Corrected hosted master/TikTok hashes verified. F3 retained. Shared queue order and explicit approved release preserved.",
+  "film_approval_date": "2026-10-28"
  },
  {
   "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",

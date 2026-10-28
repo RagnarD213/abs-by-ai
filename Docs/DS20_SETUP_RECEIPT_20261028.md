@@ -34,3 +34,5 @@ Setup work: `/Volumes/Expansion/_edit_work/DS20-publish`. Full receipt `Docs/DS2
 Date-choice logs are in `/Volumes/Extreme/_edit_work/DS20-publish/`; original Expansion drive work is currently offline. No media rebuilt or reuploaded this phase.
 
 Source config, approved Facebook cover, both date records, waitlist entry, calendar and date-preservation checks committed and pushed to `origin/main`: `604b49e` (verified ahead0/behind0). Scheduling remains pending the shared queue turn; DS05 remains held for exact corrected-film approval.
+
+**DS05 approval resolved2026-10-28:** Dan approved corrected R4 and December10 5PM. Corrected hosted master/TikTok bytes replaced and verified, hold cleared. Current result: `Docs/DS05_SETUP_RECEIPT_20261028.md`. Older hold descriptions above are historical.
