@@ -12,10 +12,12 @@ Fresh offlineGemini3.8Flash full64s source/finished comparison confirms complete
 
 NewQA4775tokens, estimateunder$0.25; actualinvoiceunavailable. R3priorbatch6808tokens/under$0.25estimate remainsseparate; no newgeneration, media downloads or publicuploads. Fourunavailablehistoricalselftestfixtures fromR3 remainunresolved; allavailabletests passed. No sharedchain/settings/thresholdchanges.
 
-Fullgate, managedpage/browserdelivery and finalindependentbinding audit are being finished. Fullfilm approval stillpending.
+Final fullgate completed30PASS/3FAIL/6NOTMEASURED/4NA, overallFAIL. Three genuine reference/style failures retained; no thresholds relaxed. Managedpage, actualmuted browserplayback/forward-and-backwardseek and finalindependentbindings verified. Fullfilm approval stillpending.
 
 Canonical /Volumes/Extreme/_edit_work/DS-105/round4. Samechat01a182b7-eccb-7c82-aa31-9c48d25c0e76, R4controllercomplete soleowner, revisiononce. No setup, upload or scheduling.
 
 Initial completegate2.6.2 finished29PASS/4FAIL/6NOTMEASURED. ExtraFAILwas an inherited R2SHA in the manualscanrecord, not changedpicture. Independentreviewer explicitly assessed all64actualR4frames against thecriterion, wrote a newcurrentSHA record and preservedtheoldfailure. Planbinding nowcorrected; completegate rerunpending. Originalmalformed3sheetmetadata findings andtheirfailedfold were preserved; reviewerreopenedall3actualsheets beforecorrectingkeybindings, and sharedjudge now27/27,0opendefects. No media or thresholds changed.
 
 Managedreview remains on existingport9275/rootround2review with R4 stagedassets andpriorR2.html/R3auditionspreserved; an attemptednewrootregistration was refused bytheservice guard, so no servicewasremoved. CurrentfullVLC copy verified; oldR2VLCcopy replacedonlyafterhashcheck, originalR2mastersintact. Browserconnection recovered with one CUAreset; mutedactualplayerverifiedbeforeeveryplay/seek/sourceswitch. Fullvideo playback, forwardClosingseek andnativebackwardseek succeeded silently; finalstate paused/muted at0seconds. Actualspeaker playback not used or claimed.
+
+Finaldelivery: http://127.0.0.1:9275/ . CurrentR4master/540/VLC/deliverycopies verified. All29priorlocks stillmatch. R2.html andR3auditionspreserved; currentplayerleftpaused/muted afterfinalpagereload, manualUnmute remainsavailable. FinalUI screenshot evidence/review-page.png. QueueDS105deliveredrev7, Driveuploadconfirmed, nativeartifact-dbmirrorunavailable (nextsupportedClaude syncpending); dispatcherPAUSEretained. No publish/setup/schedule. Exact finalgate rerun276s,30passed/3failed/6unmeasured; overallFAIL, no pendingreviewrow. Finalrecord corrections didnotchange moviebytes.
