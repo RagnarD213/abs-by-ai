@@ -1,0 +1,33 @@
+{
+  "category": "CONTENT (LFC)",
+  "job": "RO-27",
+  "title": "Boring Abs At 40",
+  "scriptTitle": "It's Boring, But It Got Me Abs At 40",
+  "round": 5,
+  "date": "2026-10-28",
+  "recordedAt": "2026-10-28T13:52:25.698709+00:00",
+  "dan": "Okay this is approved. Give me the handoff or setup",
+  "scope": "Exact complete R5 film reviewed on :9357 approved. Editing finished; one Claude thumbnails/setup handoff requested. No film rebuild or new thumbnail approval implied.",
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.mp4",
+  "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+  "bytes": 216405614,
+  "frames": 14417,
+  "fps": "30000/1001",
+  "duration": 481.04723333333334,
+  "resolution": "1920x1080",
+  "locks": [
+    "Colour C",
+    "Voice B",
+    "safe fixed crops",
+    "exact approved AI source ranges",
+    "neighbour retained",
+    "fridge/prepared-meals and phone-goal removed for camera",
+    "finished October23 Colour C gym and preacher sources"
+  ],
+  "automaticGate": "Genuine2.6.1FAIL retained:34PASS5FAIL0NOTMEASURED. Creative approval is separate; no new synthetic PASS or threshold changes. Raw findings/adjudication remain adjacent.",
+  "realistic_ai_footage": true,
+  "uploaded": false,
+  "scheduled": false,
+  "thumbnail": "Not generated or approved",
+  "driveBackup": "Setup must upload and verify the final delivery folder"
+}
