@@ -210,7 +210,16 @@
   "job": "DS-05",
   "label": "Why Having Abs Beats Being A Fat Millionaire",
   "added": "2026-10-16",
-  "release_hold": "October 16 corrections, exact-file QC and Daniel approval pending"
+  "release_hold": "October 16 corrections, exact-file QC and Daniel approval pending",
+  "approved_release": "2026-12-10T23:00:00.000Z",
+  "release_date_approval": {
+   "date": "2026-10-28",
+   "approved_by": "Dan",
+   "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+   "timezone": "America/Chicago",
+   "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
+  },
+  "note": "Dan approved sharing Dec10 with DS20; 5PM Central avoids live noon posts. Existing corrected-film approval hold remains; do not submit superseded hosted media."
  },
  {
   "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
@@ -500,5 +509,21 @@
   "added": "2026-10-27",
   "note": "Dan approved Wed Jan 13, 2027 at 9 AM Chicago on Oct 27; Facebook/Instagram Thu Jan 14 noon. TikTok is a direct TikTok Studio upload Jan 14 noon (10:58, tiktok_direct; file /Volumes/Extreme/_edit_work/ro18-publish/ro18-tiktok-cover-first.mp4). Media, thumbnail and FB cover verified. Needs 3 slots.",
   "approved_release": "2027-01-13T15:00:00.000Z"
+ },
+ {
+  "config": "scripts/blotato/configs/ds20-five-levels-of-pushups.json",
+  "kind": "short",
+  "job": "DS-20",
+  "label": "Five Levels Of Pushups",
+  "added": "2026-10-28",
+  "approved_release": "2026-12-10T15:00:00.000Z",
+  "release_date_approval": {
+   "date": "2026-10-28",
+   "approved_by": "Dan",
+   "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+   "timezone": "America/Chicago",
+   "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
+  },
+  "note": "Dan approved same-day release with DS05. Keep 9AM Central and existing waiting-list order; cover A installed, all assets uploaded and verified."
  }
 ]

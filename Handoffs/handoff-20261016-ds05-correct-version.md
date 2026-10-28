@@ -1,3 +1,5 @@
+> **2026-10-28 release date:** Dan approved Dec10,2026 alongside DS20. DS05 reserved for5PM Central (noon occupied, DS20 at9AM). Corrected-film approval and media replacement remain pending; release hold is preserved. Review http://127.0.0.1:8765/ .
+
 # Fat Millionaire SFC R4: corrected review and release hold
 
 CONTENT, dedicated organic Short. Updated 2026-10-16.

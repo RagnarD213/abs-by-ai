@@ -8,7 +8,7 @@
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f197e22d-88f7-48d6-87df-3f71c8255209.mp4",
   "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c8d94eb4-866d-47e9-a876-5c0a0626f33d.png",
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f6b434c1-e5f4-4afe-a820-226ee381ced6.jpg",
-  "main": "2026-11-03T15:00:00.000Z",
+  "main": "2026-12-10T23:00:00.000Z",
   "keyword": "ABS",
   "ai_generated": true,
   "hook": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I can tell you the abs matter far more.",
@@ -21,5 +21,13 @@
     "since": "2026-10-16",
     "reason": "October 16 revisions remain open; October 14 V3 HD is superseded. Corrected exact-file QC and Daniel approval required. F3 cover approval does not approve video.",
     "owner_task": "Fat Millionaire SFC R4"
+  },
+  "release_date_approval": {
+    "date": "2026-10-28",
+    "approved_by": "Dan",
+    "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+    "timezone": "America/Chicago",
+    "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts",
+    "release": "2026-12-10T23:00:00.000Z"
   }
 }

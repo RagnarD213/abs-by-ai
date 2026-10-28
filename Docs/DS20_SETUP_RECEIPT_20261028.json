@@ -1,0 +1,192 @@
+{
+  "job": "DS-20",
+  "date": "2026-10-28",
+  "cover": "Real-photo design3 with middle-title A",
+  "approved_by": "Dan",
+  "dan_words": "Let's go with A. Go ahead and install A",
+  "cover_approval": {
+    "job": "DS-20",
+    "date": "2026-10-28",
+    "approved_by": "Dan",
+    "dan_words": "Let's go with A. Go ahead and install A",
+    "base_design": 3,
+    "variation": "A",
+    "design": "Real decline pushup photographs; oversized red5 with condensed black Levels/Of Pushups on warm white",
+    "headline": "5 Levels Of Pushups",
+    "files": {
+      "instagram_png": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-instagram-approved.png",
+        "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd",
+        "bytes": 2086562
+      },
+      "instagram_jpg": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-instagram-approved.jpg",
+        "sha256": "aa7f40f43a940dd5fb774b86c4c27fff802dcdde884fde0a99d51134847336fa",
+        "bytes": 594694
+      },
+      "youtube_png": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-youtube-approved.png",
+        "sha256": "21489172723d4200920b2c8395949793864bbee556cd663cf8f70907a993a2a2",
+        "bytes": 2301955
+      },
+      "youtube_jpg": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-youtube-approved.jpg",
+        "sha256": "5d85b52f716548a98a51444bed62793b1ba1fd12274a830aa452aebcd5309c30",
+        "bytes": 650842
+      }
+    },
+    "distribution_copies": [
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Levels Of Pushups - DS-20/five-levels-of-pushups-instagram-approved.png",
+        "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd"
+      },
+      {
+        "path": "/Volumes/Extreme/Short-form video content/Five Levels Of Pushups - DS-20/covers/five-levels-of-pushups-instagram-approved.png",
+        "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Levels Of Pushups - DS-20/five-levels-of-pushups-instagram-approved.jpg",
+        "sha256": "aa7f40f43a940dd5fb774b86c4c27fff802dcdde884fde0a99d51134847336fa"
+      },
+      {
+        "path": "/Volumes/Extreme/Short-form video content/Five Levels Of Pushups - DS-20/covers/five-levels-of-pushups-instagram-approved.jpg",
+        "sha256": "aa7f40f43a940dd5fb774b86c4c27fff802dcdde884fde0a99d51134847336fa"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/posted covers/ds20-five-levels-of-pushups_cover-A.png",
+        "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Levels Of Pushups - DS-20/five-levels-of-pushups-youtube-approved.png",
+        "sha256": "21489172723d4200920b2c8395949793864bbee556cd663cf8f70907a993a2a2"
+      },
+      {
+        "path": "/Volumes/Extreme/Short-form video content/Five Levels Of Pushups - DS-20/covers/five-levels-of-pushups-youtube-approved.png",
+        "sha256": "21489172723d4200920b2c8395949793864bbee556cd663cf8f70907a993a2a2"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Levels Of Pushups - DS-20/five-levels-of-pushups-youtube-approved.jpg",
+        "sha256": "5d85b52f716548a98a51444bed62793b1ba1fd12274a830aa452aebcd5309c30"
+      },
+      {
+        "path": "/Volumes/Extreme/Short-form video content/Five Levels Of Pushups - DS-20/covers/five-levels-of-pushups-youtube-approved.jpg",
+        "sha256": "5d85b52f716548a98a51444bed62793b1ba1fd12274a830aa452aebcd5309c30"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/posted covers/youtube/ds20-five-levels-of-pushups_cover-A.jpg",
+        "sha256": "5d85b52f716548a98a51444bed62793b1ba1fd12274a830aa452aebcd5309c30"
+      }
+    ],
+    "real_photographs": true,
+    "generated_images": 0,
+    "film_sha256": "2ec9cfa60203d38c0dee51bece03c72a7e38dcdf7b7b7e2f679eecae337f7a0d",
+    "installation": "Exact approved local platform assets installed; not a claim of public platform thumbnail installation",
+    "media_uploaded": false,
+    "scheduled": false
+  },
+  "cover_installed": true,
+  "source_sha256": "2ec9cfa60203d38c0dee51bece03c72a7e38dcdf7b7b7e2f679eecae337f7a0d",
+  "master_project_and_extreme_hash_verified": true,
+  "drive_backup": {
+    "folder_url": "https://drive.google.com/open?id=1yERrn3ivJBctf2_sVobVcWz4hvl4Ulv9",
+    "files": 7,
+    "comparison": "MD5",
+    "differences": 0
+  },
+  "media_uploads": {
+    "video": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cf6cabe1-88e2-4a80-9646-5b385f4d149d.mp4",
+      "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Levels Of Pushups - DS-20/Five Levels Of Pushups SFC R5 - complete Short.mp4",
+      "sha256": "2ec9cfa60203d38c0dee51bece03c72a7e38dcdf7b7b7e2f679eecae337f7a0d",
+      "bytes": 69054308
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c641039b-a074-4017-a0dd-8647c6c6f183.mp4",
+      "source": "/Volumes/Expansion/_edit_work/DS20-publish/Five Levels Of Pushups - TikTok cover A.mp4",
+      "sha256": "07edb4046900a042d8672f863582f040acdcee8e1ff5834e7df4a06bbec249d3",
+      "bytes": 69272068
+    },
+    "instagram_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/52f67dfd-a5e5-436b-a54f-6920da2256f1.png",
+      "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-instagram-approved.png",
+      "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd",
+      "bytes": 2086562
+    },
+    "youtube_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a4ec5050-8dde-48a1-aa9f-b48291b48939.jpg",
+      "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds20/five-levels-of-pushups-youtube-approved.jpg",
+      "sha256": "5d85b52f716548a98a51444bed62793b1ba1fd12274a830aa452aebcd5309c30",
+      "bytes": 650842
+    }
+  },
+  "tiktok_qc": {
+    "frames_src": 1541,
+    "frames_out": 1542,
+    "audio_pkts_src": 2411,
+    "audio_pkts_out": 2411,
+    "decode_errors": "",
+    "cover_psnr": 50.52940713326986,
+    "ok": true
+  },
+  "tiktok_audio_payload": {
+    "original": "dbc1e0d5b92a6be7b159ab42ea68512a0a37e60063512197da91689a5a3bda18",
+    "tiktok": "dbc1e0d5b92a6be7b159ab42ea68512a0a37e60063512197da91689a5a3bda18",
+    "equal": true
+  },
+  "cover_preflight": [
+    {
+      "platform": "facebook",
+      "cover_guard": "PASS",
+      "scheduled": false
+    },
+    {
+      "platform": "instagram",
+      "cover_guard": "PASS",
+      "scheduled": false
+    },
+    {
+      "platform": "tiktok",
+      "cover_guard": "PASS",
+      "scheduled": false
+    },
+    {
+      "platform": "youtube",
+      "cover_guard": "PASS",
+      "scheduled": false
+    }
+  ],
+  "config": "scripts/blotato/configs/ds20-five-levels-of-pushups.json",
+  "stage": "Cover A installed; Dec10 9AM Central approved and on shared waitlist, live scheduling pending capacity",
+  "scheduled": false,
+  "published": false,
+  "waitlisted": true,
+  "main": "2026-12-10T15:00:00.000Z",
+  "live_queue_count": 188,
+  "remaining_capacity_at_read": 12,
+  "copy_writer": "Documented clean-writer fallback: local Claude executable absent; clean delegated writer used only generated reference-passages prompt and Dan transcript. Hard-rule check passed. No claim of Opus execution.",
+  "next": "Existing daily top-up queues DS20 behind older waiting entries; DS05 retains corrected-film approval hold. No per-video automation.",
+  "public_tile_verification": "Pending release; no public post exists yet. Queued cover setting is not proof of public cover.",
+  "installed_cover_browser_verified": true,
+  "browser_proof": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds20-20261026/install-A-20261028/browser-proof.png",
+  "release_date_pending": false,
+  "release_date_approval": {
+    "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+    "date": "2026-10-28",
+    "same_day_exception": true
+  },
+  "fat_millionaire": {
+    "main": "2026-12-10T23:00:00.000Z",
+    "local": "December10,2026 5PM America/Chicago",
+    "reason": "Noon already occupied by three live posts;9AM assigned DS20",
+    "release_hold": "Corrected R4 exact-file approval remains pending",
+    "review_url": "http://127.0.0.1:8765/"
+  },
+  "queue_checks": {
+    "live_cover_audit": "PASS,188posts,0issues",
+    "live_ad_scan": "CLEAN,188posts",
+    "ds20_dry_run": "Four destinations, no date clash",
+    "approved_date_and_hold_regression": "10tests PASS"
+  },
+  "work_folder_current": "/Volumes/Extreme/_edit_work/DS20-publish",
+  "work_folder_note": "Original Expansion setup folder is offline; original verified evidence retained in receipt. Date-choice logs on attached Extreme."
+}

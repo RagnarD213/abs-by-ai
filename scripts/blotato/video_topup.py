@@ -19,6 +19,7 @@ For each waiting entry, in order, while the queue has room for its 4 posts:
     takes the next free such day at 9 AM America/Chicago with no other YouTube post that day. A dedicated
     Short (job DS-...) goes on Thursday, one a week; a Short cut from a long-form goes on Monday, Tuesday,
     Friday or Saturday (Dan, 2026-10-17; was Tue/Thu/Sat). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
+    An explicitly approved Short timestamp is preserved; a conflict stops instead of silently moving it.
     A Short whose entry names "after": "<parent config>" waits until that parent is queued and is always
     slotted after the parent's YouTube release day (no Short before its parent is public; added 2026-10-22).
     An entry with "parent_config" (the long-form's config) is never slotted on or before the parent's day.
@@ -172,8 +173,12 @@ def main() -> int:
                 if e.get("after") and not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
                     print(f"  waiting parent  {e['job']} {e['label']}: {pv['slug']} is not queued yet"); continue
                 earliest = max(today, local_day(pv["main"]) + timedelta(days=1))
-            if (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2) or clash
-                    or want.weekday() not in days or want < earliest):
+            invalid_slot = (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2)
+                            or clash or want.weekday() not in days or want < earliest)
+            if e.get('approved_release') and (invalid_slot or main != e['approved_release']):
+                problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
+                break
+            if invalid_slot:
                 want = max(want, today, earliest - timedelta(days=1)) + timedelta(days=1)
                 while (want.weekday() not in days or want in yt_days
                        or any((a, utc(want)[:16]) in minutes for a in ACCOUNTS)):
@@ -181,7 +186,7 @@ def main() -> int:
                 main = utc(want)
         moved = main != v["main"]
         print(f"  {'queue ' if apply else 'would queue'}  {e['job']} {e['label']}: {e['kind']} on "
-              f"{local_day(main):%a %Y-%m-%d} 9 AM Central{' (re-slotted)' if moved else ''}")
+              f"{datetime.fromisoformat(main.replace('Z', '+00:00')).astimezone(CT):%a %Y-%m-%d %I:%M %p} Central{' (re-slotted)' if moved else ''}")
         if apply:
             if moved:
                 v["main"] = main; open(path, "w").write(json.dumps(v, indent=2, ensure_ascii=False) + "\n")
