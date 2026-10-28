@@ -23,3 +23,10 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28)
+- **Release:** Wed Jan 20, 2027 (January blitz), 9 AM America/Chicago on YouTube; dated calendar `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Name a finish date by Dec 11; suggested finished and approved by Jan 6 so it can be set up before the slot.
+- **Footage:** Studio dark-green backdrop (Oct 15), not kitchen.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.

@@ -24,3 +24,10 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-22-how-losing-fat-changed-my-face.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28)
+- **Release:** Wed Nov 25, 2026 (conditional swap), 9 AM America/Chicago on YouTube; dated calendar `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Edited and approved by Sun Nov 22. If it misses, Home On A Budget (RO-06) keeps Nov 25 and this film takes the next free January blitz slot (Fri Jan 29 or Sun Jan 31).
+- **Footage:** Green screen: key with the house chroma key and use the locked long-form green-screen background template (`.claude/skills/_shared/greenscreen-bg/`). Not kitchen footage.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.
