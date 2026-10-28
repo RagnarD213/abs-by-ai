@@ -104,3 +104,12 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 ## Open questions
 
 - Upwork account state: the resume-import onboarding page was open in Chrome on 2026-10-07; inspect (read only) before drafting the account-specific fields.
+
+## Round 2 review answers (Dan, 2026-10-28)
+- Title: recommended one approved. Extra price tiers: approved. Agency dates 2019 to 2026: approved.
+- Work history: leave off Abs By AI and Dan Rose Fitness.
+- Education: Bachelor's degree, double major in Entrepreneurship and Marketing, Boston University.
+- "How AI Got Me Abs" caption: "my personal YouTube channel". Dan wants it replaced if possible: worried that showing himself shirtless costs credibility and that looking "so AI-pilled" loses clients who dislike AI.
+- Intro script: wants it in a Google Doc to edit: https://docs.google.com/document/d/1Dg8ISBBI41mx_cMarVquKRmkCerIogRxqLO0olYNbCA/edit
+- Asked whether to add Google Ads management ("my number one core skill set"), weighing it against his goal of automating the business.
+- New evidence: Dan's "SixPackAbs.com Channel YouTube Commercials" tracker (Drive 1Hot1_JQiKIAfvaqQ5t92YCK6IOV28GlFR5SRgE52rck; "Brand Manager: Dan Rose") links 1,047 ads still on YouTube with 262,056,508 views combined; top: "Burn Fat & Get Six Pack Abs With Fasting" 23.1M.
