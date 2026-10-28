@@ -124,6 +124,8 @@ Dan approved $100 on his best organic reel of October ("Why ADHD Meds Backfire L
 ad `120251791324930682`, in the auto campaign, $100 lifetime, profile visits, champion targeting, starts Oct 30 00:00 CT
 (after the follower test's OFF 2 week) and ends Nov 4 00:00 CT by itself. Name tag `BOOST::<media_id>`, so a resumed
 job counts the post as tested. Exclude Oct 30 to Nov 3 from any follower-test baseline.
+**DISAPPROVED 2026-10-28** ("Drugs and Pharmaceuticals": the reel itself is the problem, so no tamer-copy retry is
+possible). Ad set paused, $0 spent. Awaiting Dan: move the $100 to another post or drop it.
 
 ## Follower readings
 
