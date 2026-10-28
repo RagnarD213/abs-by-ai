@@ -11,6 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [How To Do Hamstring Curls SFC Setup](handoff-20261028-ds84-hamstring-curls-covers-and-setup.md): **Start now. Claude Opus 5.5, high.** R3 film approved October 28; project/Extreme copies verified. One setup task makes five Codex cover choices in both layouts, stops for Dan's pick, then completes Drive backup and organic setup.
+
+
 
 
 - [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.

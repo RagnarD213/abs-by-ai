@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-26",
+  "updated": "2026-10-28",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4051,6 +4051,24 @@
       "must_pass": [],
       "measured": "Exact v2 context; source native measured/fresh review PASS, narrated decode/joins/hair/audio-preservation PASS. Human creative ruling controls use.",
       "notes": "Dan rejected narrative relevance despite native anatomy/prop checks passing. Remove for camera. Existing clip:ai_shows_the_line is PENDING automated coverage."
+    },
+    {
+      "id": "ds84-hamstring-curls-r3-approved-20261028",
+      "verdict": "approved",
+      "date": "2026-10-28",
+      "root": "repo",
+      "path": "Short-form video content/DS-84 How To Do Hamstring Curls/How To Do Hamstring Curls SFC R3 - complete Short.mp4",
+      "excerpt": [
+        0,
+        55.4887666667
+      ],
+      "dan": "Okay this is approved. Go ahead and give me the handoff for setup",
+      "sha256": "5c235f7d2f32c0302002bd9bfdd320358cc7899518ee246e96cb0457b325b85e",
+      "bytes": 43160314,
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "1663 frames, 1080x1920, 30000/1001 fps, 55.489s. Raw delivery gate FAIL on framing:no_wide_level, framing:push_coverage, cut:jump_cut, captions:burned and captions:sync. Independent review ready/zero open editorial defects. Corrected cut metadata passes focused diagnostic. All49 caption states present; local caption pairing audit documented.",
+      "notes": "Dan full-film approval, not an all-row numerical PASS. Evidence and untouched stamps in Short-form video content/DS-84 How To Do Hamstring Curls/R3/. No gate/code/bound change. No new corpus run claimed."
     }
   ]
 }

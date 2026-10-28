@@ -1,0 +1,27 @@
+{
+  "type": "CONTENT (SFC)",
+  "job": "DS-84",
+  "title": "How To Do Hamstring Curls",
+  "round": 3,
+  "date": "2026-10-28",
+  "dan": "Okay this is approved. Go ahead and give me the handoff for setup",
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-84 How To Do Hamstring Curls/How To Do Hamstring Curls SFC R3 - complete Short.mp4",
+  "sha256": "5c235f7d2f32c0302002bd9bfdd320358cc7899518ee246e96cb0457b325b85e",
+  "duration": 55.4887666667,
+  "frames": 1663,
+  "fps": "30000/1001",
+  "resolution": "1080x1920",
+  "approval": "Full R3 film approved by Dan",
+  "locks": [
+    "F Deep And Vivid pool grade",
+    "Natural Warmth A",
+    "Original Portrait 1",
+    "large matching exercise title and safe tight side crops",
+    "filmed wording and all other approved graphics"
+  ],
+  "automatic_delivery_gate": "FAIL retained; five original diagnostic rows and independent adjudication are preserved in R3 evidence; approval does not rewrite a gate result",
+  "realistic_ai_footage": false,
+  "covers": "not made or approved",
+  "uploaded": false,
+  "scheduled": false
+}
