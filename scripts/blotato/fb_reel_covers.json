@@ -1079,5 +1079,23 @@
   "approved": "Dan approved Robot Mower R2 (6 Ways To Make Time To Work Out) 2026-10-27; YouTube Wed 2027-01-13 9 AM, Facebook Thu Jan 14 noon Central.",
   "sha256": "0eb63531a6c9aac51985e0432c2c071f52e0f5f41b9256fe86778e5fe2043b3e",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro18-make-time-for-exercise-approved.jpg"
+ },
+ {
+  "job": "DS-20",
+  "match": "Here are the five levels of pushups and how to figure out which one is right for you.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds20-five-levels-of-pushups-approved.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan chose real-photo design3, title A on 2026-10-28; exact approved cover installed; release date pending",
+  "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd"
+ },
+ {
+  "job": "DS-55",
+  "match": "If I only had five minutes to work out at home, these are the three exercises I would do.",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved revised A 2026-10-28; exact approved cover installed; release date pending",
+  "sha256": "6687dd204410c444119bb77da699af0b29eab2b51266b54232e96dd5362b4c83",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds55-five-minute-exercises-approved.png"
  }
 ]
