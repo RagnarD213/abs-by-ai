@@ -14,7 +14,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
 
-- [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **IN PROGRESS in Codex, October 28.** [Three split-screen designs R2](http://127.0.0.1:9487/) await Dan's pick; initial A-E rejected. Full R5 and verified three-copy backups preserved. Continue same setup chat after pick. Receipt: `Docs/RO27_THUMBNAIL_R2_REVIEW_20261028.md`. Three Shorts separately registered as SL-26.
+- [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **IN PROGRESS in Codex, October 28.** Dan chose design1 with title capitalization. [Exact revised R3](http://127.0.0.1:9487/) awaits approval before installation. Full R5/backups preserved. Continue same setup chat. Receipt: `Docs/RO27_THUMBNAIL_R3_REVIEW_20261028.md`. Shorts separately registered as SL-26.
 
 
 
