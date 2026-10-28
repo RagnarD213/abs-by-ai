@@ -62,7 +62,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-02](DS-02-how-getting-abs-looksmaxxes-your-face.md) | How Getting Abs Looksmaxxes Your Face | C1654 | FINALIZED | S |
 | [DS-03](DS-03-3-most-important-supplements-for-men.md) | The 3 Most Important Supplements For Men | C1655 | FINALIZED | S |
 | [DS-04](DS-04-only-ab-exercise-that-shrinks-belly-fat.md) | The Only Ab Exercise That Shrinks Your Belly Fat | C1656 | UPLOADED | S |
-| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | BLOCKED | S |
+| [DS-05](DS-05-abs-beat-being-a-fat-millionaire.md) | Why Having Abs Beats Being A Fat Millionaire | C1657 | FINALIZED | S |
 | [DS-06](DS-06-what-every-body-fat-percentage-looks-like.md) | What Every Body Fat Percentage Looks Like | C1657 | FINALIZED | S |
 | [DS-07](DS-07-top-3-ways-to-use-ai-to-get-abs.md) | Top 3 Ways To Use AI To Get Abs | C1657 + C1658 | FINALIZED | S |
 | [DS-08](DS-08-i-was-200-pounds-at-38.md) | I Was 200 Pounds At 38 | C1658 | UPLOADED | S |
@@ -164,7 +164,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
-| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | DRAFT: asset choices waiting for Dan | S |
+| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | IN PROGRESS | S |
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | READY | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
@@ -172,7 +172,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
-| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | FINALIZED | S |
+| [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | UPLOADED | S |
 | [DS-56](DS-56-the-only-ab-exercise-that-hits-all-4-ab-muscles.md) | The Only Ab Exercise That Hits All 4 Ab Muscles | 10/15 C1765-C1766 | READY | S |
 | [DS-57](DS-57-why-i-train-with-a-timer-instead-of-counting-reps.md) | Why I Train With A Timer Instead Of Counting Reps | 10/15 C1777 | READY | S |
 | [DS-58](DS-58-3-exercises-you-can-do-in-one-commercial-break.md) | 3 Exercises You Can Do In One Commercial Break | 10/15 C1777-C1778 | BLOCKED: home B-roll: the couch when the game cuts to a commercial, then the exercises in front of the projector | S |
@@ -200,10 +200,10 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | READY | L |
 | [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | READY | L |
-| [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | READY | L |
+| [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | IN PROGRESS | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | DELIVERED: awaiting Dan | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
-| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | IN PROGRESS | L |
+| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | FINALIZED | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | DELIVERED: awaiting Dan | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
@@ -228,7 +228,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
 | [DS-82](DS-82-the-only-3-leg-exercises-i-do-every-week.md) | The Only 3 Leg Exercises I Do Every Week | 10/23 C1885, C1886 | READY | S |
 | [DS-83](DS-83-how-to-use-the-leg-press-without-wrecking-your-knees.md) | How To Use The Leg Press Without Wrecking Your Knees | 10/23 C1886 | READY | S |
-| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | DELIVERED: awaiting Dan | S |
+| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | FINALIZED | S |
 | [DS-85](DS-85-how-to-use-the-glute-bridge-machine.md) | How To Use The Glute Bridge Machine | 10/23 C1887 | READY | S |
 | [DS-86](DS-86-how-to-do-lat-pulldowns.md) | How To Do Lat Pulldowns | 10/23 C1887 | READY | S |
 | [DS-87](DS-87-how-to-do-seated-cable-rows.md) | How To Do Seated Cable Rows | 10/23 C1887 | READY | S |
@@ -299,6 +299,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 | [SL-25](SL-25-make-time-for-exercise-shorts.md) | How To Make Time For Exercise & Nutrition (RO-18, YouTube Wed Jan 13, 2027; 3 Shorts, Short 1 next free slot after Jan 13) | READY: approved parent filed | S |
+| [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Nov 15 target, not booked) | READY: approved parent filed; segments need Dan’s picks | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
