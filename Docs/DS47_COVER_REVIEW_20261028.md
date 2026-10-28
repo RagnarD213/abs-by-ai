@@ -1,5 +1,18 @@
 # V-Taper Exercises SFC: cover review, October 28, 2026
 
+## Current: three real-photo designs, Round 2
+
+Dan rejected all five initial designs and requested three designs with real touched-up side laterals above, the title in the middle, and a real touched-up vacuum below. The same review URL now shows this revision: http://127.0.0.1:9297/ . Design 1 is navy/cyan, 2 cream/red framed, 3 yellow/charcoal with diagonal divider. Recommendation 3. Both Instagram and YouTube layouts are provided for each. Awaiting the exact new pick; no upload or setup.
+
+Real sources: C1676.MP4 at 22.35s and C1677.MP4 at 72.0085s, from the August 28 poolside shoot. The latter is the stomach-visible take used in R6. Native camera frames were decoded offline at 3072x1728 using the existing filmed look, then touched up locally: 0.12% autocontrast, contrast 1.075, color 1.035, 2px unsharp mask at 115%/threshold4. No image generation, generative retouch, anatomy/pose alteration or face reconstruction. Before/after comparisons are linked on the review page. Original person pixels and actual expression retained through normal image adjustments and resizing.
+
+All six exact outputs and served hashes checked, RGB 1080x1920, YouTube JPEGs below 2 MB, title between the photos and clear of both bodies/faces/hair. Inspected native source detail, final pairs and profile crops. Browser refreshed and current revision visually verified. No playback used. R6 hash rechecked unchanged: `4217f863f5890b1504231b0ff8ef3da1a2ebdf1f60503af210b412d30e6351e7`.
+
+New media/manifest/checks: `Short-form video content/covers/review/ds47-v-taper-20261028/ds47/round2/`. Native real source frames and comparisons: adjacent `sources-r2/`; build recipe: `recipe-r2/build.py`. The original five designs and page are preserved as rejected history, with old HTML `ds47/round1-index.html`. Continue only after Dan chooses Design 1, 2 or 3.
+
+## Superseded first review
+
+
 Status: five distinct cover choices, ten checked files, awaiting Dan's actual pick. No upload, setup configuration, release booking or schedule was created. Review: http://127.0.0.1:9297/ . This chat is the setup owner: `01a183fe-a59b-7770-a2d4-1c600189be69`.
 
 ## Approved film preserved
