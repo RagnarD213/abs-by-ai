@@ -7,7 +7,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Love Handles LFC R4 (2026-10-28; Decision since: 2026-10-28):** [Review six checked replacement frames](http://127.0.0.1:8834/). Approve or revise N01 Bench Side Bend, N02 Trainer Filming and N03 Same Meal Soda Versus Water. Motion waits for actual frame approval; R3 opening/G10/B05/G16 remain approved.
 
 
 
