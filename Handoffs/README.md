@@ -19,7 +19,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
 
 
 
@@ -52,7 +51,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [Fat Millionaire SFC R4](handoff-20261016-ds05-correct-version.md) | **Exact-file owner decision pending (2026-10-16), Codex. GPT-6 Sol / Medium.** Corrected review copy and F3 TikTok preparation verified. Full checks: 30 pass, 2 retained-source failures, 0 missing, 7 N/A; 43 independent images clear. No active worker. Posting held; no upload or booking. |
 | [Top 1 Percent LFC R5](handoff-20261017-ro26-round5-every-man-cut-hyperframes-recap.md) | **COMPLETE, approved and finalized 2026-10-17.** Exact approved film, subtitles and complete QA filed in Codex Content Videos/Top 1 Percent - RO-26 with verified Extreme backup. Historical gate FAIL remains 31 PASS/8 FAIL; whole-film approval recorded separately. Setup continues in the handoff above. |
 | [handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md](handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md) | **Executed 2026-10-18** (round 5 final delivered: A5 a 1 s raisin pour at 2:58.4, independent review SHIP, page port 8880; notes in the delivery folder 17). Setup continues in the OPEN handoff above. |
 | [handoff-20261015-ro17-round4-a10-motion-and-full-film.md](handoff-20261015-ro17-round4-a10-motion-and-full-film.md) | **Executed 2026-10-15** (round 4 full film delivered for Dan's review, page port 8880, independent review SHIP; notes in the delivery folder 17). |

@@ -2,7 +2,7 @@
 
 Dan approved revised A: “Okay the revised A looks good. Go ahead and install that.” Exact approved Round5 tightened Soft Blue Light header in Instagram and YouTube layouts is installed. No further cover approval is needed.
 
-**Status:** media uploaded and download-hash verified; four platform settings prepared; **not scheduled and not on the automatic waiting list**. Every remaining 2026 Thursday 9 AM Central is reserved. The handoff requires Dan to choose an exception rather than silently move to 2027, displace a finished film or double-book. Proposed one-time extra slot: **Saturday October 31, 2026, noon America/Chicago (17:00 UTC)**. Live queue checked after installation, zero conflicts on the four destination accounts. Another Short is already at 9 AM that day; this proposal adds a separate noon release. Date is unapproved and unreserved. Config main remains null to prevent accidental queuing. DS-55 stays finalized.
+**Status: scheduled and verified on all four platforms for Saturday October 31, 2026, noon America/Chicago (17:00 UTC).** Dan explicitly approved this extra dedicated-Short slot on October28: “Yes, go ahead and schedule it for Saturday, October 31 at noon Central on all four platforms.” No other video moved. The existing9 AM Short on October31 remains as scheduled. DS-55 is now uploaded in the edit queue; its Drive status readback upload succeeded.
 
 Approved master SHA-256: `36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a`, 84,474,520 bytes. SRT: `82d16c95c2c615d043a57e2dd5c5c245b429ad6cbaec56e75364a12c92066ae5`. Project and Extreme copies verified again; Drive download check October 28: zero differences, two matching files. [Drive delivery folder](https://drive.google.com/open?id=1NmRbR1VozjumdW9VhadxBxK9fIr0W0rh). Approved covers also copied to Extreme and Drive; download check zero differences, four matching files. Original film, audio, captions and labels unchanged.
 
@@ -16,7 +16,7 @@ Title: **5-Minute Home Workout: 3 Exercises, No Equipment**. Pinned question: **
 
 YouTube will be created only by Blotato at release, with no direct holding upload or native schedule. No Google Ads action. Existing release monitors verify actual public tiles on all four platforms, apply Facebook's post-release cover and repair YouTube's public tile if necessary. Existing daily pinned-comment routine posts/pins the question. The shared article-gap routine handles the Short article after release. None of these post-release outcomes has happened yet.
 
-Configuration: `scripts/blotato/configs/ds55-five-minute-exercises.json`. Full metadata, proposed four post payloads, hashes, public URLs, backup proof and clean-writer receipt: `scripts/covers/ds55-20261026/install/`. Local working proof and live audits: `/Volumes/Expansion/_edit_work/ds55-publish/`. No schedule IDs exist. Shared cover audits before and after installation: zero issues across 188 scheduled posts. Ad-guard scans before and after: clean. Source, metadata, platform config, cover installer asset and receipts committed and pushed successfully.
+Configuration: `scripts/blotato/configs/ds55-five-minute-exercises.json`. Full metadata, proposed four post payloads, hashes, public URLs, backup proof and clean-writer receipt: `scripts/covers/ds55-20261026/install/`. Local working proof and live audits: `/Volumes/Expansion/_edit_work/ds55-publish/`. Original installation audits found zero cover issues across188 posts. Scheduling audits:188 posts before,192 after; zero cover issues and clean ad-guard scans both times. Four schedules were created and re-read; title, captions, cover fields, accounts, flags and exact time match the approved setup. Blotato asynchronously rehosted the media; the actual saved URLs were downloaded on all four accounts and their SHA-256 values match the approved master for Facebook/Instagram/YouTube and the verified cover-first derivative for TikTok. No extra DS-55 schedules exist. Source/config/receipts are committed and pushed.
 
 ## Verified public media URLs
 
@@ -25,6 +25,17 @@ Configuration: `scripts/blotato/configs/ds55-five-minute-exercises.json`. Full m
 - master: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/00042ac6-ed26-4cbd-971b-5217ff31bb40.mp4
 - tiktok: https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ed66fb05-4f44-427f-9fcb-27f405730b16.mp4
 
+## Saved schedules
+
+| Platform | Schedule ID | Release time |
+|---|---|---|
+| facebook | 6161528 | October31,2026 noon Central |
+| instagram | 6161529 | October31,2026 noon Central |
+| tiktok | 6161531 | October31,2026 noon Central |
+| youtube | 6161533 | October31,2026 noon Central |
+
+Full actual saved payloads and downloaded media hashes: `scripts/covers/ds55-20261026/install/scheduling-20261028/schedules-readback.json`. Queue capacity192/200 at verification. No waiting-list entry or new automation was needed.
+
 ## Next action
 
-Await Dan's date choice, re-read live queue and reservations, then queue all four destinations with the existing organic Short helper and read back every field. If capacity has fewer than four places, use the existing shared waitlist with the expressly approved date; no per-video automation. Update this receipt, the calendar, status records and decision only after verified scheduling or honest capacity hold.
+No Dan action. Existing release routines check the actual public tiles after release, apply/repair approved covers, post and pin the saved question, and handle the Short article. These are future release checks; this receipt verifies scheduling, not publication.

@@ -25,9 +25,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO27:Setup:ACTIVE:2026-10-28:Codex:await-thumbnails.**
+
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-28.** `/Volumes/Extreme/_edit_work/RO-23/`
+**RO-23 ACTIVE 2026-10-28, Codex.** Opening key/graphics processing; automatic continuation armed. No review delivered. Next: finish R1 packet. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
@@ -38,11 +40,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
 
 
-**DS-20 Setup DATE CHOICE 2026-10-28, Codex.** A installed; media/Drive verified. Mar4,2027 or reassign Dec10 DS05 reservation. No schedule/waitlist. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
+**DS-20 HOLD 2026-10-28, Codex.** A installed; Dec10 9AM Central approved, waitlisted. DS05 corrected R4 approved and queued same day5PM. Daily top-up queues DS20. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
-**Mouthpiece SFC R2 ACTIVE 2026-10-28, Codex01a182b7.** B/A/1 approved; AI skipped. New sole owner started/pinned; old unpinned. Full Short/checks next; queue/Drive updated. `Handoffs/handoff-20261028-ds105-r2-full-short.md`.
+**Mouthpiece SFC R3 ACTIVE 2026-10-28, Codex01a182b7.** Audio auditions: current/gentle/stronger. R2 preserved at [review](http://127.0.0.1:9275/). Next: QA, then Dan picks. `Docs/DS105_R2_REVIEW_20261028.md`.
 
-**Five Minute Exercises SFC Setup DATE CHOICE 2026-10-28, Codex.** Revised A installed; master/cover/TikTok uploads and three-copy backups verified. Proposed extra Sat Oct31 noon Central, pending Dan. No schedules/waitlist; exact R5 preserved. `Docs/DS55_SETUP_RECEIPT_20261028.md`.
 
 
 
@@ -51,7 +52,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
 
-**DS-47 R5 ACTIVE 2026-10-28,Codex:01a182c1.** Intro approved; new owner started/pinned, transfer verified. Full Short assembly/checks next. A/B/portrait locked. `Handoffs/handoff-20261028-ds47-r5-full-short.md`.
+**DS-47 R6 ACTIVE 2026-10-28, Codex:01a183b0.** Sole vacuum repair39s: left hand behind, abs visible during draw-in. Rest approved; conditional completion after repair/check. Newowner started/pinned and transfer verified; R5stopped/unpinned. `Handoffs/handoff-20261028-ds47-r6-vacuum-visibility.md`.
 
 **Brief overlap NEEDS DAN 2026-10-28, Codex.** Pause old cloud routine; keep local daily publisher.
 

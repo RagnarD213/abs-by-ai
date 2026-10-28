@@ -1,0 +1,16 @@
+  create facebook  47105 2026-10-31T17:00:00.000Z
+  create instagram 67203 2026-10-31T17:00:00.000Z
+  create tiktok    58181 2026-10-31T17:00:00.000Z
+  create youtube   46963 2026-10-31T17:00:00.000Z
+
+queue now 188, to create 4, after 192 of 200
+  created facebook  2026-10-31T17:00:00.000Z -> 69ddbe6c-2caf-4a2a-8d25-aee67a6962c1
+  created instagram 2026-10-31T17:00:00.000Z -> cca32398-cb1a-41df-ad8e-77ea010b7a7f
+  created tiktok    2026-10-31T17:00:00.000Z -> 4c38dee3-1412-434a-9e5c-fad09bffed59
+  created youtube   2026-10-31T17:00:00.000Z -> ea2792cb-0083-48d1-9e41-cf54ab7e7e53
+  OK   facebook  2026-10-31T17:00:00.000Z  6161528
+  OK   instagram 2026-10-31T17:00:00.000Z  6161529
+  OK   tiktok    2026-10-31T17:00:00.000Z  6161531
+  OK   youtube   2026-10-31T17:00:00.000Z  6161533
+
+verified: queue 192 of 200, 0 problem(s)

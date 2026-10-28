@@ -7,6 +7,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+
 - **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
 
 - **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
@@ -16,7 +17,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Five Levels Of Pushups release date (2026-10-28; Decision since: 2026-10-28):** Cover A approved/installed, media/backups ready. Choose Thu Mar4,2027 at9AM Chicago, or use Dec10,2026 by reassigning FatMillionaire DS05 reservation. All2026 Thursdays reserved. Nothing scheduled/waitlisted. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
 
 
@@ -101,7 +101,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
 
-- **Fat Millionaire SFC R4 (2026-10-16), Decision since: 2026-10-16:** Approve the exact corrected review copy with the original camera framing and caption timing retained, or request a broader pass on those parts. The strict preset still flags both; no exception or approval is assumed. F3 stays selected and posting stays held. `Handoffs/handoff-20261016-ds05-correct-version.md`
 
 
 
@@ -109,4 +108,3 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Five Minute Exercises DS-55 release date, Decision since: 2026-10-28:** Revised A installed and all media uploaded. Every 2026 Thursday 9 AM is reserved. Approve one-time extra Saturday October31 noon Central, open on all four platforms, or hold for a later date. No other release moves; another Short is at9 AM that day. No schedules/waitlist created. `Docs/DS55_SETUP_RECEIPT_20261028.md`.
