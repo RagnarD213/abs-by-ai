@@ -32,3 +32,5 @@ The existing daily routine will create and re-read DS20's four schedules when it
 Setup work: `/Volumes/Expansion/_edit_work/DS20-publish`. Full receipt `Docs/DS20_SETUP_RECEIPT_20261028.json`; config snapshot, original live queue/waitlist snapshots, Drive logs, exact uploads, TikTok proof and clean writer plan/prompt/draft retained. Cover installation work: `/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds20-20261026/install-A-20261028`.
 
 Date-choice logs are in `/Volumes/Extreme/_edit_work/DS20-publish/`; original Expansion drive work is currently offline. No media rebuilt or reuploaded this phase.
+
+Source config, approved Facebook cover, both date records, waitlist entry, calendar and date-preservation checks committed and pushed to `origin/main`: `604b49e` (verified ahead0/behind0). Scheduling remains pending the shared queue turn; DS05 remains held for exact corrected-film approval.

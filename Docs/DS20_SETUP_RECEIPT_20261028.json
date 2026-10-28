@@ -188,5 +188,11 @@
     "approved_date_and_hold_regression": "10tests PASS"
   },
   "work_folder_current": "/Volumes/Extreme/_edit_work/DS20-publish",
-  "work_folder_note": "Original Expansion setup folder is offline; original verified evidence retained in receipt. Date-choice logs on attached Extreme."
+  "work_folder_note": "Original Expansion setup folder is offline; original verified evidence retained in receipt. Date-choice logs on attached Extreme.",
+  "source_delivery": {
+    "commit": "604b49e",
+    "pushed": true,
+    "remote": "origin/main",
+    "verified": "safe-push ahead0/behind0"
+  }
 }
