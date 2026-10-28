@@ -202,6 +202,13 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   in the first minute and at each take join; transcribe those windows with a disfluency prompt (for example `initial_prompt="Um, uh,
   pri- priority"`, `condition_on_previous_text=False`). Fix what is a stumble; leave his deliberate emphasis.
 
+## Vacuum clips show the stomach and abs (Dan, 2026-10-28)
+
+- For every stomach-vacuum demonstration, prioritize footage where Dan’s stomach and abs are visible during the actual draw-in. Use the full useful visible duration whenever possible; hands, arms, graphics and crops must not hide the teaching action.
+- An initially blocked lead-in is acceptable only when needed and when the edit then includes all of the useful visible duration. For a short insert, or when only limited room is available, use the stomach-visible portion alone. Prefer removing blocked footage; do not spend the available insert time on it while omitting visible action.
+- Inspect the actual source and delivered crop across the whole chosen span, record the visible/blocked ranges, and preserve natural speed and complete exercise action. This applies to all vacuum clips, real or AI, and future editor briefs. Dan set this rule while revising RO-30 B05.
+
+
 ## Never a shot of Dan just standing around (Dan, 2026-10-14)
 
 - **A cutaway of Dan standing, posing or waiting, doing nothing that illustrates the line, is never used.** Dan, removing
