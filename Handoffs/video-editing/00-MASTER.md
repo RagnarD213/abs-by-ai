@@ -1,5 +1,7 @@
 # Video editing — MASTER LIST
 
+**Release dates (Dan approved 2026-10-28):** dated phases in `Docs/LONGFORM_RELEASE_CALENDAR.md` and `Docs/SHORTS_RELEASE_CALENDAR.md`. No kitchen footage before Thanksgiving or in the January blitz (Dec 26 to Jan 31); kitchen Shorts not yet edited wait for February. Dates in the rows below follow that plan where they were updated on 2026-10-28.
+
 **The one list of every video-editing job still owed.** Built 2026-09-16 by checking every raw roll (full transcripts of the
 8/28 and 7/8 talking rolls), the script docs, Upwork (Muhammad, Zeeshan, Waleed), the Codex trial and every ad/content folder.
 Pinnable page with copy buttons (a 2026-09-16 snapshot; this file is the live status): https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs
@@ -164,7 +166,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
-| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | IN PROGRESS | S |
+| [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | FINALIZED | S |
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | READY | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
@@ -279,27 +281,27 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-04](SL-04-arms-shoulders-shorts.md) | Arms & Shoulders Home Workout (Zeeshan, 11:00) | UPLOADED | S |
 | [SL-05](SL-05-stop-deadlifting-shorts.md) | Stop Deadlifting (Zeeshan, 9:16, public Oct 11) | UPLOADED | S |
 | [SL-06](SL-06-top-5-zepbound-tips-shorts.md) | Top 5 Zepbound Tips (RO-12, public Oct 25) | UPLOADED | S |
-| [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Nov 1) | UPLOADED | S |
-| [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10 replacement pending; old YouTube copy Private) | FINALIZED | S |
+| [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Sun Dec 27 under the 2026-10-28 plan; Shorts Dec 28 to Jan 4) | UPLOADED | S |
+| [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10, YouTube Sun Jan 17 2027 under the 2026-10-28 plan; Shorts Jan 18 to 25) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
-| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Dec 30 target, waitlisted after Dan authorized queue displacement Oct 17) | IN PROGRESS | S |
-| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, public Nov 22) | DELIVERED: awaiting Dan | S |
-| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6) | READY; hold release until parent is public | S |
-| [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Dec 13) | READY; hold release until parent is public | S |
+| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | IN PROGRESS | S |
+| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | IN PROGRESS | S |
+| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, public Oct 28; kitchen footage, so its Shorts wait for phase 2 or February) | READY; hold release until parent is public | S |
+| [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
-| [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19; 2 Shorts, Dan picked A and C; Short 1 airs Fri Oct 30) | UPLOADED | S |
-| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, Wed Nov 18; Shorts Dec 4, Dec 7, Dec 15, Jan 12 2027 on the waiting list, setup done 10-27) | FINALIZED | S |
+| [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Fri Dec 4; 2 Shorts, Dan picked A and C; Dec 5 and Dec 8 6 PM) | UPLOADED | S |
+| [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, Fri Nov 27 under the 2026-10-28 plan; Shorts Nov 28, Dec 1, Dec 7, Dec 12 6 PM on the waiting list, setup done 10-27) | FINALIZED | S |
 
 | [SL-17](SL-17-top-1-percent-shorts.md) | Top 1 Percent (RO-26, finalized; release on hold) | UPLOADED | S |
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
-| [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts, Short 1 airs Mon Dec 14) | UPLOADED | S |
-| [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Sun Nov 22; 3 Shorts, Short 1 airs Mon Nov 23) | READY: approved parent filed; due Nov 22 | S |
-| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Sun Nov 29; 3 Shorts, Short 1 airs Mon Nov 30) | READY: approved parent filed; due Nov 29 | S |
-| [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Sun Dec 6; 3 Shorts, Short 1 airs Fri Jan 15, 2027) | READY: approved parent filed; due Jan 14, 2027 | S |
+| [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts Dec 14, 15, 19) | UPLOADED | S |
+| [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Wed Dec 9; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
+| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Fri Dec 11; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
+| [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Wed Dec 16; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 | [SL-25](SL-25-make-time-for-exercise-shorts.md) | How To Make Time For Exercise & Nutrition (RO-18, YouTube Wed Jan 13, 2027; 3 Shorts, Short 1 next free slot after Jan 13) | READY: approved parent filed | S |
-| [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Nov 15 target, not booked) | READY: approved parent filed; segments need Dan’s picks | S |
+| [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Wed Nov 4 target under the 2026-10-28 plan, not booked) | READY: approved parent filed; segments need Dan’s picks | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

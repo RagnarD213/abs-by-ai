@@ -7,8 +7,11 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Love Handles LFC R3 (2026-10-28; Decision since: 2026-10-28):** [Review the frame pairs and changed assets](http://127.0.0.1:8833/). Approve or revise N01/N02/N03 frames; check opening0:00–0:08, G10wording, visibleB05vacuum and real-photoG16. R2look/voice/firstminute preserved. Fullfilm waits for choices.
 
+
+
+
+- **Content schedule: three small calls (2026-10-28; Decision since: 2026-10-28):** (1) I treated cooking B-roll inside otherwise non-kitchen Shorts (Top 1% Short 1 Oct 30, #1 Change DS-13 Jan 7) as not kitchen; say if you want them moved. (2) Keep Your Muscle (RO-01) turned out to be kitchen; it is already public, so its Facebook/Instagram/TikTok copies stay Thu Oct 29 noon. (3) The Aug 28 Shorts are poolside, so edits of DS-15, 16, 19, 25 could fill the open December slots if you want them edited. Details: `Docs/LONGFORM_RELEASE_CALENDAR.md`.
 
 - **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
 
