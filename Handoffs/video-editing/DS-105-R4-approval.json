@@ -1,0 +1,23 @@
+{
+  "job": "DS-105",
+  "category": "CONTENT SFC",
+  "round": 4,
+  "date": "2026-10-28",
+  "approvedAt": "2026-10-28T19:37:13.076356+00:00",
+  "approvedBy": "Dan",
+  "words": "This looks good. Let's finalize it and write the Codex handoff for covers, upload, and setup.",
+  "status": "approved_and_finalized",
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+  "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+  "bytes": 67977674,
+  "captionSidecar": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/captions.srt",
+  "captionSha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1",
+  "captionCues": 88,
+  "voice": "B Gentle Cleanup",
+  "approvedFilmUnchanged": true,
+  "gateOverall": "FAIL,30PASS/3FAIL/6NOTMEASURED/4NA; retained exact-file evidence, no threshold or stamp change",
+  "covers": "not created or approved",
+  "platformUploads": "not started",
+  "scheduling": "not started",
+  "setupExecutor": "Codex, explicitly requested by Dan"
+}

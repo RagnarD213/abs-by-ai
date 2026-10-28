@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Mouthpiece SFC Setup](handoff-20261028-ds105-mouthpiece-covers-and-setup-codex.md): **Start now. Codex GPT-6.1 Sol, high, explicitly requested by Dan.** Exact R4 approved/finalized October 28. Five Codex-subscription cover pairs, stop for his pick, then upload and organic setup under the current release phases. Not started; no date reserved.
+
 
 
 - [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
