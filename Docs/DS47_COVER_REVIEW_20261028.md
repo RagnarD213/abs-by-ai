@@ -1,5 +1,18 @@
 # V-Taper Exercises SFC: cover review, October 28, 2026
 
+## Current: Design 3 selected, front-vacuum replacement, Round 3
+
+Dan chose Design 3 with a requested replacement of the bottom image: use the previously used real touched-up front-facing vacuum, which he finds more impressive. The exact revised files await his approval before installation, upload or scheduling. Review URL unchanged: http://127.0.0.1:9297/ .
+
+Source located from the earlier approved Stomach Vacuum cover: `next-five-redesign-20260922/revisions/vacuum-source/front-smile-10.2.png`, SHA256 `6d739b082acaa416bcfe22b70abf4937ab8deb1e1f7418c7b54f5931fdccee89`, real C1677.MP4 at 10.2s with DS04 grade. `selection-status.json` records Dan's approval of the smiling front frame. Reused it with local contrast/color/detail touch-up, no image generation, face/body reshaping or pose change. Tighter real crop `(1200,240,2800,1120)` retains hair, shoulders, drawn-in waist and hands in both layouts.
+
+Only the lower photo pixels were replaced. Exact pixel comparison proves the upper lateral photo, title and all other design pixels unchanged. Instagram replacement bounds `[16,1115,1064,1686]`, YouTube `[16,1115,1064,1871]`. Both RGB 1080x1920 files and under-2MB JPEGs checked. Native source, final pair and actual profile crop inspected; both served PNG hashes match. Exact files and hashes in `ds47/round3/manifest.json`; recipe `recipe-r2/front_vacuum_r3.py`. Prior R2 page preserved as `ds47/round2-index.html`.
+
+R6 master SHA256 rechecked unchanged at `4217f863f5890b1504231b0ff8ef3da1a2ebdf1f60503af210b412d30e6351e7`. No playback, generation, uploads or schedules. Continue setup only after Dan approves the exact R3 revised cover.
+
+## Superseded Round 2 review
+
+
 ## Current: three real-photo designs, Round 2
 
 Dan rejected all five initial designs and requested three designs with real touched-up side laterals above, the title in the middle, and a real touched-up vacuum below. The same review URL now shows this revision: http://127.0.0.1:9297/ . Design 1 is navy/cyan, 2 cream/red framed, 3 yellow/charcoal with diagonal divider. Recommendation 3. Both Instagram and YouTube layouts are provided for each. Awaiting the exact new pick; no upload or setup.
