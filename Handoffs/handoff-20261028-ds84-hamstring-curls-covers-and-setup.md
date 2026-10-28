@@ -2,6 +2,8 @@ CONTENT (SFC). How To Do Hamstring Curls SFC Setup.
 
 # DS-84: approved R3, covers and organic setup
 
+**Execution started 2026-10-28 in Codex at Dan's request.** Five paired covers now await Dan's pick: http://127.0.0.1:9285/ . Current state: `Docs/DS84_COVER_REVIEW_20261028.md`. No upload or release booked. The original handoff below is retained as the execution specification.
+
 **Ready to start now. One Claude setup task, Opus 5.5, high effort.** This handoff has not been executed. No new chat was started. **Use the Codex subscription to generate the images.** The supported image-helper baseline on this client is `gpt-6.1-sol`, high; verify the newest supported stable Sol in the execution client before generation. Keep all cover work inside this one setup task.
 
 ## Approval and exact files
