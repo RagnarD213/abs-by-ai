@@ -4108,6 +4108,24 @@
       "must_pass": [],
       "measured": "R5 reviewer passed obstructed take; existing gate retains 34 PASS and 5 FAIL. Requested abs visibility is not covered by existing automatic measurement.",
       "notes": "New semantic obstruction predicate remains PENDING. No gate or threshold change; R6 must verify left hand behind and actual visible draw-in."
+    },
+    {
+      "id": "ds05-corrected-r4-approved-20261028",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-28",
+      "root": "repo",
+      "path": "Short-form video content/Fat Millionaire - DS-05/Fat Millionaire SFC R4 - approved.mp4",
+      "sha256": "db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e",
+      "bytes": 50748660,
+      "excerpt": [
+        0,
+        50.083367
+      ],
+      "dan": "Okay this is approved. Proceed to setup",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Historical exact-file delivery gate 2.6.1:30 measured PASS,2 retained-source FAIL,0 NOT MEASURED,7 N/A. Retained framing:no_wide_level and captions:sync failures are unchanged. Reference-mix audio gate PASS.43/43 independent saved images have0 scored defects. Full perceptual motion/audio certification was not claimed.",
+      "notes": "Whole-film approval of the exact corrected R4 after disclosure of retained framing/caption timing. Owner approval is separate from numerical checks. Existing F3 cover retained. This entry records approval and adds no gate bypass, threshold change or automated certification."
     }
   ]
 }
