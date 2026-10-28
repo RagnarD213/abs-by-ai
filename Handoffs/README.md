@@ -11,9 +11,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Content Strategy Based on Organic Analytics](handoff-20261028-content-strategy-data-led.md): **After Dan selects this recommendation. GPT-6.1 Sol, high.** [Research and plan](../Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md). Blitz Dec 26–Jan 31: 3 long-forms + 8 Shorts weekly initially; February: 1 + 6. No ad-budget increase. Alternative to the adjacent Claude proposal; select one before implementation. Live schedules unchanged by this planning task.
+
 - [Content Schedule Overhaul](handoff-20261028-content-schedule-overhaul.md): **Fire after Dan approves the plan and answers its three decisions (ad budget, new shoot, Dec 26 kick-off). Codex gpt-6.1-sol, high.** Four phases: fresh studio films to Thanksgiving, kitchen clear-out to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 11 Shorts a week), then 1 long-form + 7 Shorts a week from Feb 1.
 
-- [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **IN PROGRESS in Codex, October 28.** [Five thumbnails](http://127.0.0.1:9487/) await Dan's pick; full R5 preserved and project/Extreme/Drive backups verified. Continue the same setup chat after his pick. Receipt: `Docs/RO27_THUMBNAIL_REVIEW_20261028.md`. Three Shorts separately registered as SL-26.
+- [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **IN PROGRESS in Codex, October 28.** [Three split-screen designs R2](http://127.0.0.1:9487/) await Dan's pick; initial A-E rejected. Full R5 and verified three-copy backups preserved. Continue same setup chat after pick. Receipt: `Docs/RO27_THUMBNAIL_R2_REVIEW_20261028.md`. Three Shorts separately registered as SL-26.
 
 
 
