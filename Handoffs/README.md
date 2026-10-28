@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [V-Taper Exercises SFC Setup](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): **Start now. Claude Opus5.5, high.** Exact R6 approved October28. Five Codex-subscription cover pairs, stop for Dan pick, then verified backups/compatible upload copy and organic setup under the new release plan. Not started; no date reserved.
+
 
 - [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
 
