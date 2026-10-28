@@ -205,7 +205,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | IN PROGRESS | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | DELIVERED: awaiting Dan | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
-| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | FINALIZED | L |
+| [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | UPLOADED | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | R3 choices: awaiting Dan | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
@@ -251,7 +251,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-102](DS-102-why-i-don-t-do-flat-bench-press.md) | Why I Don't Do Flat Bench Press | 10/23 C1892 | READY | S |
 | [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
 | [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
-| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | DELIVERED: awaiting Dan | S |
+| [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | FINALIZED | S |
 | [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | READY | L |
 | [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | READY | L |
 
@@ -285,7 +285,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10, YouTube Sun Jan 17 2027 under the 2026-10-28 plan; Shorts Jan 18 to 25) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | IN PROGRESS | S |
-| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | IN PROGRESS | S |
+| [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | DELIVERED: awaiting Dan | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, public Oct 28; kitchen footage, so its Shorts wait for phase 2 or February) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | READY; hold release until parent is public | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |

@@ -22,7 +22,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Date | Phase | Film | Status |
 |---|---|---|---|
 | Sun Nov 1 | 1 | How I Make My Daily Salad | Live |
-| Wed Nov 4 | 1 | RO-27 It's Boring, But It Got Me Abs At 40 (approved Oct 28; its setup books this date) | Not booked |
+| Wed Nov 4 | 1 | RO-27 This Boring Daily Routine Got Me Abs At 41 | Live: YouTube6164756, Nov4 9AM; FB6164753/IG6164754/TikTok6164755, Nov5noon Central. Receipt `Docs/RO27_SETUP_RECEIPT_20261028.md` |
 | Sun Nov 8 | 1 | Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle | Live |
 | Wed Nov 11 | 1 | No film (its kitchen film moved to phase 2); Short day: Does Cristiano Ronaldo's Electric Shock Ab Belt Work? | Waitlist |
 | Sun Nov 15 | 1 | RO-24 Reacting To Celebrity Ozempic Transformations if approved by Nov 12, else Short day | Not booked |
