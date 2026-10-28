@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [The Vacuum SFL Setup](handoff-20261028-sl11-vacuum-covers-and-setup-codex.md): **Start now. Codex GPT-6.1 Sol, high, explicitly requested by Dan.** All three complete R3 Shorts approved/finalized October 28; project, Extreme and Drive files verified. Five cover pairs per Short, stop for picks, then organic upload/setup after parent release under the current calendar. Prepared, not started; no dates reserved.
+
 
 
 
