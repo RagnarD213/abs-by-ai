@@ -25,6 +25,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Coconut Water SFC R1 ACTIVE 2026-10-28, Claude.** DS-49 scripted only. Next: build, gates, review. `/Volumes/Extreme/_edit_work/DS-49/`
+
+**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** RO-22 key calibration and voice checks running; automatic continuation armed. No review delivered. Next: finish R1 first-minute/context packet. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+
 **[Audi:Dan-review:2026-10-28:Codex](Docs/AUDI_S5_SALE_PLAN_20261028.md).**
 
 **Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Five cover pairs](http://127.0.0.1:9298/); awaiting Dan pick. Approved R4 unchanged; three backups verified. Upload/setup pending, no date reserved. `Docs/DS105_COVER_REVIEW_20261028.md`
@@ -35,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-28, Codex.** Opening key/graphics processing; automatic continuation armed. No review delivered. Next: finish R1 packet. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23 ACTIVE 2026-10-28, Codex.** Opening rendered; key checks running. Continuation ACTIVE. Review pending. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
@@ -53,7 +57,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R5 ACTIVE 2026-10-28, Codex01a184ca.** Sole owner verified. N01/N03 frames approved; N02 rejected, presenter retained. Two subscription Fast takes generating;127 locks verified. Next: motion gates and fresh reviewers, then narrated contexts for Dan. No full film yet. `/Volumes/Extreme/_edit_work/RO-30/round5/RESUME.md`.
+**Love Handles LFC R5 REVIEW 2026-10-28, Codex01a184ca.** [Two motion contexts](http://127.0.0.1:8835/). N01/N03 checked; N02 rejected, presenter retained. Fresh packetPASS;127 locks preserved;20 Flowcredits,$0paidgeneration. Full film pending. Slot released. Next: Dan motionapproval, then authorized final edit. `Docs/RO30_R5_MOTION_REVIEW_20261028.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-28, Codex.** Pause old cloud routine; keep local daily publisher.
