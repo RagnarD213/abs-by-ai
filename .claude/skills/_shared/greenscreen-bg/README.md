@@ -27,7 +27,7 @@ and Codex use this module as is, through the same plan format.
 
 | # | type | what is behind Dan | Dan | use it when |
 |---|---|---|---|---|
-| 1 | `soft` | their clip (muted) or a photo, blurred, darkened, navy-tinted | centre (W/T) | commentary; a left-third card is up; a stretch under 2.5 s |
+| 1 | `soft` | their clip (muted) or a photo, blurred, darkened, navy-tinted | centre (W/T); right while a left-third card is up (the planner sets it, 2026-10-27) | commentary; a left-third card is up; a stretch under 2.5 s |
 | 2 | `corner` | their clip full screen, muted, still rolling after it played with sound | lower-right corner, talking | right after their clip played |
 | 2b | `side` | their clip full screen behind (zoomed so they sit left), a little softer on his side | right (W/T) | "occasionally" while a clip exists (at most one in four segments) |
 | 3 | `wall` | a wall of photos scrolling slowly, alternate columns up and down, darkened | centre | right after the intro (after the cards) |

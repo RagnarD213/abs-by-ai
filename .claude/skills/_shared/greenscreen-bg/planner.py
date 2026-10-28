@@ -105,6 +105,8 @@ def plan(F):
             if typ == "side" and "side" in [o["type"] for o in out[-4:]]:     # side is occasional
                 typ = next((c for c in cand if c not in ("side", prev)), typ)
             seg = dict(id=f"BG{len(out) + 1:02d}", t0=round(s0, 4), t1=round(s1, 4), type=typ, person=p, why=why.get(typ, ""))
+            if card and typ == "soft":                          # the left-third card needs Dan to the side (the 3A card's fixed
+                seg["placement"] = "right"                       # presenter position), not centre under it (RO-24 R4 graphics check)
             if typ in ("corner", "side"):
                 seg["clip"] = clip_window(p, after=typ == "corner" and first_after)
             elif typ == "soft":
