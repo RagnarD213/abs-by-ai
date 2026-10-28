@@ -1,154 +1,161 @@
-# Handoff: content release schedule overhaul (Nov 2026 to Feb 2027)
+# Handoff: content release schedule overhaul (Nov 2026 to Feb 2027), MERGED PLAN
 
-**Category:** OPS (release scheduling). No editing, no uploads of new videos, no spend in this task.
-**Written:** 2026-10-28 by Claude Opus 5.5 (planning session). **Status:** waiting for Dan to approve the plan and answer
-the three decisions in section 6. Do not fire before he has.
-**Recommended model:** Codex newest Sol (`gpt-6.1-sol`), high effort (ops is Codex's lane). Fallback: Claude Sonnet 5, high.
+**Category:** OPS (release scheduling). No editing, no uploads of new videos, no ad changes in this task.
+**Written:** 2026-10-28 by Claude Opus 5.5; revised the same day to merge the better parts of Codex's alternative
+(`Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`, handoff `handoff-20261028-content-strategy-data-led.md`).
+**Status:** waiting for Dan to pick this merged plan and answer section 6. When he picks it, remove the data-led
+handoff's line from the OPEN list in `Handoffs/README.md` (leave its file and doc in place as the evidence record).
+**Recommended model:** Codex newest Sol (`gpt-6.1-sol`), high effort. Fallback: Claude Sonnet 5, high.
 
 ## 1. Goal
 
-Replace the Sunday + Wednesday long-form / five-Shorts-a-week calendar (approved 2026-10-17) with four phases:
-
-| phase | dates | long-forms | Shorts | content |
+| phase | dates | long-forms (9 AM) | Shorts | content |
 |---|---|---|---|---|
-| 1. Fresh studio | Oct 29 to Wed Nov 25 | Sun + Wed, 9 AM | 1 a day (all 7 days) | newest studio (10/15) films that are NOT January topics, plus already-live slots |
-| 2. Kitchen clear-out | Thu Nov 26 to Fri Dec 25 | Sun + Wed + Fri, 9 AM (none on Christmas Day) | 1 a day; 2 a day for the test week Dec 14-20 | the finished kitchen films and their Shorts |
-| 3. January blitz | Sat Dec 26 to Sun Jan 31 | Sun + Wed + Fri, 9 AM (first one Sun Dec 27) | 2 a day (9 AM + 6 PM) on non-long-form days, 1 (6 PM) on long-form days | fat-loss, beginner, gym and follow-along content; the 10/23 gym how-to Shorts |
-| 4. Steady state | from Mon Feb 1 | Sunday only, 9 AM | 1 a day, 7 a week (Sunday's at 6 PM) | best remaining; review after 6 weeks |
+| 1. Fresh studio | Oct 29 to Wed Nov 25 | Sun + Wed | Mon, Tue, Thu, Fri, Sat at 9 AM (one item every day) | newest 10/15 studio films that are NOT January topics, plus already-live slots; 3 or 4 gym how-to Shorts as tests |
+| 2. Kitchen clear-out | Thu Nov 26 to Fri Dec 25 | Sun + Wed (Friday extras only if kitchen stock needs them; none on Christmas Day) | 1 on non-long-form days; test week Dec 14-20 adds a 6 PM Short Mon/Tue/Thu/Sat | the films actually shot in the kitchen, plus holiday-fit topics |
+| 3. January blitz | Sat Dec 26 to Sun Jan 31 | Sun + Wed + Fri (first one Sun Dec 27) | 9 AM + 6 PM on Mon/Tue/Thu/Sat (Sat Dec 26 included) = 8 a week; a 6 PM Short on long-form days only under the rule in section 4 | fat-loss, beginner, gym and workout content, strongest first |
+| 4. Steady state | from Mon Feb 1 | Sunday only | Mon to Sat at 9 AM (6 a week) | review after 4 and 8 weeks |
 
-All times America/Chicago. Facebook, Instagram and TikTok copies of a long-form still go out at noon the next day, only
-after YouTube is verified public (so a Friday long-form's socials go Saturday noon). Shorts go to all four platforms at
-their slot time. Parent-first rule for SL Shorts is unchanged.
+America/Chicago. Long-form social copies still go out at noon the next day, only after YouTube is verified public (a
+Friday long-form's go Saturday noon). Shorts go to all four platforms at their slot. SL Shorts never before their parent.
+Every Short with a public parent gets YouTube's Related Video link to that parent; pinned question comments continue.
 
-## 2. Why (evidence gathered 2026-10-28)
+## 2. Evidence (YouTube Studio and Google Ads, Sep 30 to Oct 27, 2026)
 
-YouTube Studio, last 28 days (Sep 30 to Oct 27):
-- **Views 113.6K, of which 76.9% paid ads** (YouTube advertising 87.3K). Organic sources: Shorts feed 18.7K (16.4%),
-  external 2.3K, search 2.0K, browse 1.0K, suggested 0.6K.
-- **Shorts:** 74.2K views, 70.5% from ads, 25.2% from the Shorts feed. **Long-forms:** 39.6K views, 88.5% from ads;
-  organic long-form views total about 4.6K a month. Long-form thumbnail click-through 1.9%.
-- **Organic Shorts are a steady per-Short test:** every new Short got about 900 to 1,300 Shorts-feed views in its first
-  two days, then stopped (top: Stop Swinging Your Bicep Curls 1,293; How To Do Side Laterals 1,290; The Deadlift Trick
-  1,286). None broke out. So organic Shorts views grow roughly with the number of Shorts released.
-- **Subscribers: +5,627 in 28 days, but the best single video earned 10** (I'm 41. I Wasted My Life.). About 98% come
-  from the engagement ad campaigns (about $0.17 per subscriber per `Docs/ADS_DIGEST.md`, budgets about $30 a day).
-  January subscriber totals are therefore mostly a function of the ad budget, not of release count.
-- Winners by type: exercise how-to and form-fix Shorts lead both organic views and likes (side laterals, deadlift,
-  bicep curls, towel back move, kettlebell). The 10/23 gym shoot is ~30 of exactly these.
+- 76.9% of all 113.6K channel views were paid. Organic views on **public** content: Shorts 21.9K (10.4K engaged),
+  long-forms 1.7K (1.0K engaged). Use engaged views: YouTube changed the view definition on Aug 24, 2026.
+- Every new Short got a steady test of about 900 to 1,300 organic Shorts-feed views (median about 1,300 views, 615
+  engaged); none broke out. Exercise form-fix Shorts lead (Deadlift Trick, Towel Back Move, Bicep Curls, Side Laterals).
+  Organic "stayed to watch" is 49.4% (the 63.7% in the overview is inflated by ads).
+- Long-form still earns depth: I'm 41. I Wasted My Life. produced about 12.7 organic watch hours, more than double the
+  best Short. Its organic average viewed is 12.9% of 11:52 and thumbnail CTR about 1.8%: openings and packaging need work.
+- Subscribers +5,627 net, but the best single video earned 10. Ads attribute 7,161 subscriptions to the engagement
+  campaigns ($1,244 spend, $0.17 each) and only **108 follow-on views**. Tier 2 brings most of them at $0.03 each.
+  Only 11.8% of views are from the US. Cheap paid subscribers are not producing viewers.
+- Engagement budgets are **$40 (tier 1) + $5 (tier 2) + $15 (remarketing) = $60 a day**. The two trial campaigns
+  ($20 + $15 a day) spent about $1,200 in the window for 1 recorded conversion.
+- Outside research: January is the peak fitness month (gym sign-ups ~10.6% of the year; US fitness visits +21% Dec to
+  Jan), the lift is largest in the first 2-6 weeks, "Quitter's Day" is the second Friday (Jan 8, 2027), and "new year
+  new me" searches rise from Dec 26. Long-form views per video hold at 2-4 a week. More Shorts raise total views while
+  views per Short fall somewhat. Sign-ups continue through Q1, so February still serves beginners.
 
-Outside research (report saved in this session; key sources):
-- January is the peak: ~10.6% of yearly US gym sign-ups (GymMaster), Anytime Fitness ~13% vs 7-8% normal; Jan 2025
-  fitness-app spend an all-time high (Sensor Tower). "Weight loss" searches spike the first week of January; most of
-  the lift is in the first 2-6 weeks; activity drops ~17% on "Quitter's Day", the second Friday (Jan 8, 2027, Strava).
-- "New year new me" searches rise Dec 26-31; fitness interest bottoms mid-to-late December while total viewing peaks.
-- Black Friday to Christmas is the most expensive ad stretch. Whether January is cheaper is disputed (health brands
-  crowd in), so judge January on our own cost per subscriber.
-- Frequency (Metricool Jul 2026, 800K videos): long-form views per video peak at 2-4 a week, so 3 a week does not
-  cannibalize. Total Shorts views keep rising with volume, views per Short fall somewhat. YouTube says many low-quality
-  Shorts can get "dinged". Yoga With Adriene doubled January views with a daily January series (one case).
-- Best slots (Buffer Jul 2026): long-form Sunday morning; Shorts evenings, Friday/Saturday best.
+## 3. Shoot settings (confirm each from its approved master before placing it)
 
-## 3. Long-form calendar (proposal; verify every live slot before moving it)
+- **Kitchen:** July 8 shoot (RO-07 Why You MUST Work Out Every Day, RO-08 Intermittent Fasting), Aug 3 (RO-05 Daily
+  Salad, RO-19 My First Spray Tan in the kitchen doorway; RO-20/20B/20C Invest In Your Health, RO-06 Home On A Budget and
+  RO-04 Arms & Shoulders are Aug 3 too: check).
+- **Not kitchen:** Aug 14 poolside (RO-01, RO-02 Stomach Vacuum, RO-03 Vacuum Workout); Sept 23 tube-light set with a
+  backdrop (RO-10 to RO-18: Calories, Calories Don't Matter, Zepbound Tips, Alcohol, Not Losing Weight, Glycine, Belly
+  Fat 90 Days, 3 Healthy Foods, Make Time); Oct 15 studio (RO-21 to RO-32); Oct 23 gym (RO-37, RO-38, DS-76 to DS-105).
+  Unknown: Zeeshan's Video 4 (Oura) and Video 5 (Abs At 40 vs 25).
+- If Dan says he counts the Sept 23 set as kitchen, move RO-13 and RO-17 into phase 2 as planned anyway and keep the
+  January list unchanged (they are not in it).
 
-Status today per `Docs/LONGFORM_RELEASE_CALENDAR.md`. "Move" means re-date an existing Blotato schedule or waitlist entry.
+## 4. Calendar
 
-**Phase 1, Sun + Wed**
+**Phase 1, Sun + Wed long-forms.** If a slot's film is not approved in time, run a Short in that slot instead (do not
+pull a kitchen or January film forward).
 | date | film | action |
 |---|---|---|
-| Sun Nov 1 | How I Make My Daily Salad (RO-05) | keep (live; strong kitchen exception) |
-| Wed Nov 4 | It's Boring, But It Got Me Abs At 40 (RO-27) | its setup task books it here (was Nov 15 target); RO-07 moves to phase 2 |
-| Sun Nov 8 | Top 5 Zepbound Tips (RO-12) | keep (live; SL-06 Shorts dated from Nov 9) |
+| Sun Nov 1 | How I Make My Daily Salad (RO-05) | keep (live) |
+| Wed Nov 4 | It's Boring, But It Got Me Abs At 40 (RO-27) | its setup task books it here; RO-07 moves to phase 2 |
+| Sun Nov 8 | Top 5 Zepbound Tips (RO-12) | keep (live; SL-06 Shorts from Nov 9) |
 | Wed Nov 11 | My Honest Oura Ring Review (Video 4) | keep (live) |
-| Sun Nov 15 | Reacting To Celebrity Ozempic Transformations (RO-24) | if approved by Nov 12; else RO-08 keeps a slot |
-| Wed Nov 18 | Why Zepbound Improves Your Health Even If You're Ripped (RO-28) | if approved; else RO-08 (current) |
-| Sun Nov 22 | I Ranked Every Ab Exercise From Worst To Best (RO-23) | if finished; else RO-20 (current) |
-| Wed Nov 25 | How Losing Fat Changed My Face (RO-22) | needs editing now; else RO-06 stays (current) |
+| Sun Nov 15 | Reacting To Celebrity Ozempic Transformations (RO-24) | if approved by Nov 12 |
+| Wed Nov 18 | Why Zepbound Improves Your Health Even If You're Ripped (RO-28) | if approved; RO-08 moves to phase 2 |
+| Sun Nov 22 | I Ranked Every Ab Exercise From Worst To Best (RO-23) | if finished; RO-20 moves to phase 2 |
+| Wed Nov 25 | How Losing Fat Changed My Face (RO-22) | needs editing; RO-06 moves to January |
 
-**Phase 2, Sun + Wed + Fri, kitchen** (12 slots, Christmas Day empty): Fri Nov 27, Sun Nov 29, Wed Dec 2, Fri Dec 4,
-Sun Dec 6, Wed Dec 9, Fri Dec 11, Sun Dec 13, Wed Dec 16, Fri Dec 18, Sun Dec 20, Wed Dec 23. Fill with: Why You MUST
-Work Out Every Day (RO-07), Intermittent Fasting (RO-08), the three Invest In Your Health parts in order (RO-20, RO-20B,
-RO-20C, Sundays not required), Getting Abs At 40 vs 25 (Video 5), The Stomach Vacuum (RO-02), The Vacuum Workout
-(RO-03), 3 Healthy Foods That Made Me Fat (RO-17), Can You Drink Alcohol And Still Have Abs? (RO-13, holiday-drinking
-fit, put it near Dec 18-23), My First Spray Tan (RO-19), When Calories Don't Matter (RO-11). Order: keep each film's
-current date when it already falls in phase 2; place the rest strongest-first on Sundays (memory `longform-strength-ranking`).
+Shorts: keep everything already dated. Put 3 or 4 of the 10/23 gym how-to Shorts on Thursdays as tests of which
+openings work; hold the rest of that shoot for January.
 
-**Phase 3, January blitz, Sun + Wed + Fri** (16 slots). Front-load: the spike is biggest Dec 26 to about Jan 10.
-| date | film |
-|---|---|
-| Sun Dec 27 | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, moves from Dec 20) |
-| Wed Dec 30 | What Every Body Fat Percentage Looks Like, On Me (RO-21, needs editing) |
-| Fri Jan 1 | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (RO-37, needs editing) |
-| Sun Jan 3 | Why You're Not Losing Weight (RO-14, already booked) |
-| Wed Jan 6 | Arms & Shoulders Workout Only (RO-04, Dan-approved date) |
-| Fri Jan 8 | The 5 Muscles Women Notice First (RO-38, needs editing) |
-| Sun Jan 10 | The Fastest Way To Lose Stubborn Love Handles (RO-30, in review) |
-| Wed Jan 13 | How To Make Time For Exercise & Nutrition (RO-18, Dan-approved date) |
-| Fri Jan 15 | 5-Minute No-Equipment Workout (RO-33, not filmed) / fallback How To Work Out At Home On A Budget (RO-06) |
-| Sun Jan 17 | Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29, needs editing) |
-| Wed Jan 20 | How To Work Out At Home On A Budget (RO-06, moves from Nov 25) / or Pushup Masterclass (RO-09) |
-| Fri Jan 22 | 10-Minute Jump Rope And Kettlebell Workout (RO-34, not filmed) / fallback Pushup Masterclass (RO-09) |
-| Sun Jan 24 | How To Get Rid Of Man Boobs (RO-31, needs editing) |
-| Wed Jan 27 | Calories: The Reason You're Not Losing Weight (RO-10, moves from Dec 27) |
-| Fri Jan 29 | 15- or 20-Minute Jump Rope Workout (RO-35/36, not filmed) / fallback Sleep Better With Glycine (RO-15) |
-| Sun Jan 31 | I'm 41. Here Are The 10 Exercises I Do Every Week (RO-32, gym B-roll) / fallback strongest unreleased |
+**Phase 2, Sun + Wed long-forms** (8 slots: Nov 29, Dec 2, 6, 9, 13, 16, 20, 23): RO-07, RO-08, RO-20, RO-20B, RO-20C
+(in order), RO-19, Can You Drink Alcohol And Still Have Abs? (RO-13, near Dec 16-23) and 3 Healthy Foods That Made Me
+Fat (RO-17, keeps Dec 13). Add a Friday (Nov 27, Dec 4, 11, 18) only if more kitchen films turn up. Book the kitchen
+parents early in the phase so their strongest SL Shorts release before Dec 25. Video 5 goes to a February Sunday unless
+it proves to be kitchen.
 
-**Phase 4:** Sundays, strongest remaining first. Wednesday and Friday long-form slots end Jan 31.
+**Phase 3, Sun + Wed + Fri long-forms.** Strongest first, because the spike is biggest Dec 26 to about Jan 10.
+Weekly themes: Dec 26-Jan 3 starting and choosing a plan; Jan 4-10 technique and food; Jan 11-17 making time and
+sticking with it; Jan 18-24 plateaus and mistakes; Jan 25-31 carrying on into February.
+| date | film | status Oct 28 |
+|---|---|---|
+| Sun Dec 27 | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16) | live Dec 20, move |
+| Wed Dec 30 | What Every Body Fat Percentage Looks Like, On Me (RO-21) | needs editing; fallback RO-02 |
+| Fri Jan 1 | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (RO-37) | needs editing; fallback RO-03 |
+| Sun Jan 3 | Why You're Not Losing Weight (RO-14) | booked |
+| Wed Jan 6 | Arms & Shoulders Workout Only (RO-04) | booked, Dan-approved |
+| Fri Jan 8 | The 5 Muscles Women Notice First (RO-38) | needs editing |
+| Sun Jan 10 | The Fastest Way To Lose Stubborn Love Handles (RO-30) | in review |
+| Wed Jan 13 | How To Make Time For Exercise & Nutrition (RO-18) | booked, Dan-approved |
+| Fri Jan 15 | The Stomach Vacuum (RO-02) | live Dec 9, move |
+| Sun Jan 17 | Calories: The Reason You're Not Losing Weight (RO-10) | live Dec 27, move |
+| Wed Jan 20 | Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29) | needs editing |
+| Fri Jan 22 | The Vacuum Workout (RO-03) | live Dec 16, move |
+| Sun Jan 24 | How To Get Rid Of Man Boobs (RO-31) | needs editing |
+| Wed Jan 27 | When Calories Don't Matter (RO-11) | live Dec 23, move |
+| Fri Jan 29 | How To Work Out At Home On A Budget (RO-06) | live Nov 25, move |
+| Sun Jan 31 | Pushup Masterclass (RO-09) | needs editing (source check) |
 
-## 4. Shorts rules per phase
+If the optional new shoot happens (decision 6b), finished follow-along workouts (RO-33 to RO-36) replace the Friday
+films from Jan 15 on, and the replaced films move to February Sundays.
 
-- **Phase 1:** keep everything already dated in `Docs/SHORTS_RELEASE_CALENDAR.md`; add a Short on Sundays and
-  Wednesdays at 6 PM (studio 10/15 dedicated Shorts and reaction Shorts first). **Hold every 10/23 gym how-to Short
-  (DS-76 to DS-104) for phase 3**: January brings the new gym members they are made for.
-- **Phase 2:** one a day, kitchen-cut SL Shorts first (SL-03, SL-06, SL-10, SL-11, SL-16, SL-20/21/22 as their parents
-  go public). **Test week Mon Dec 14 to Sun Dec 20: two a day (9 AM + 6 PM).** Record Shorts-feed views per Short at
-  48 hours for that week vs the two weeks before. That number decides phase 3 (below).
-- **Phase 3:** 9 AM + 6 PM on Mon/Tue/Thu/Sat (Sat Dec 26 included); 6 PM only on Sun/Wed/Fri. That is 58 Shorts from Dec 26 to Jan 31.
-  Mix: about half gym how-to (DS-76 to DS-104), the rest SL Shorts from blitz long-forms (parent first) and the
-  strongest 10/15 dedicated Shorts. If the December test showed per-Short views falling more than 40%, drop the
-  6 PM Short on Mon and Tue (keep the rest).
-- **Phase 4:** 7 a week, 9 AM daily except Sunday at 6 PM. Re-check after six weeks: if per-Short views at 2 a day held
-  (test week and January), propose 10 a week to Dan.
+**Blitz Shorts rule:** start at 8 a week. Add a 6 PM Short on long-form days for a two-week test only when (1) at
+least 14 days of approved, set-up Shorts are ready and (2) the median 7-day organic engaged views per Short has not
+fallen more than 20% from the November baseline (at least 10 mature Shorts per comparison). Remove them if they add
+work without raising total organic engaged views. About half of blitz Shorts are 10/23 gym how-tos; the rest are SL
+Shorts from blitz parents and the strongest 10/15 dedicated Shorts.
 
-## 5. Production deadlines this plan creates (tell Dan; do not start edits from this task)
+**Phase 4:** Sunday long-form, strongest remaining first (Video 5, RO-15 Glycine, any unused blitz films). Shorts each
+week: up to 3 strong cuts from that long-form plus dedicated Shorts (two demonstrations or form fixes, one story or
+reaction). Never force a weak cut. Reviews Mar 1 and Mar 29.
 
-- Long-forms to finish: RO-24, RO-28, RO-23 by Nov 12-19; RO-22 by Nov 22; RO-21, RO-37, RO-38, RO-30, RO-29, RO-31
-  by mid-December (each needs its setup and 3 SL Shorts).
-- Shorts: about 58 for the blitz plus 7 a week before it. Roughly 8-10 Shorts must be edited and approved each week
-  from now to mid-January. Dan's review time is the bottleneck: batch Short reviews in fives.
-- Next shoot (decision 6b): RO-33 to RO-36 follow-along workouts and the RO-32 gym B-roll, filmed by about Dec 1.
+## 5. Production milestones (tell Dan; this task does not start edits)
+
+- Phase 1: RO-24, RO-28, RO-23 approved by Nov 12-19; RO-22 edited by Nov 22.
+- **Dec 11:** every blitz film named with owner, remaining work and approval date.
+- **Dec 18:** the first 14 blitz days fully finished and set up: 6 long-forms (Dec 27 to Jan 8) and 16 Shorts.
+  Remaining 10 long-forms and 26 Shorts have named completion dates. If the ready buffer drops under 7 days, drop
+  optional Shorts first, then use the best approved reserve; if three good long-forms a week cannot be held, run two
+  and fill the third day with a Short.
+- Dan reviews in two batches a week; Shorts in small batches with exact changed time ranges.
 
 ## 6. Decisions Dan must answer before this fires
 
-a. **Ad budget (his money):** recommendation: halve the three engagement campaigns ($10/$15/$5 a day) from Fri Nov 27
-   to Thu Dec 24 (costliest ad weeks, lowest fitness interest), then triple them (to about $90 a day) Sat Dec 26 to
-   Sun Jan 31, about $3,300 for the blitz, roughly 13,000 to 19,000 subscribers if cost per subscriber stays $0.17 to
-   $0.25. Stop raising if a week's cost per subscriber passes $0.35. Back to $30 a day Feb 1.
-b. **New shoot** for RO-32 to RO-36 by about Dec 1. Without it the blitz uses the fallbacks above (older films).
-c. **Kick-off:** Dan said the blitz starts Dec 26 (Saturday). This plan starts it with two Shorts that day and the
-   first blitz long-form Sunday Dec 27, the stronger day. If he wants a long-form on Sat Dec 26 too, add RO-16 there and
-   shift the rest one slot earlier.
+a. **January ads.** The engagement budget is already $60 a day, and its paid subscribers barely watch (108 follow-on
+   views from 7,161 subscriptions). Recommendation: raise spend Dec 26 to Jan 31 on the parts that buy viewers, not
+   raw subscriber counts: tier 1 engagement from $40 to $80 a day and remarketing from $15 to $25, tier 2 stays at $5
+   (total $110 a day, about $1,850 more over the blitz). The ads owner judges it weekly on follow-on views and engaged
+   watch time (and trials, separately), and steps back if they do not improve. No automatic holiday cut. Separate
+   issue for the ads owner: the trial campaigns spent about $1,200 for 1 conversion in four weeks.
+b. **Optional shoot by about Dec 1** for the RO-33 to RO-36 follow-along workouts and RO-32 gym B-roll (check first
+   whether the Oct 23 footage already covers RO-32). The blitz works without it.
+c. **Confirm** the blitz opens Sat Dec 26 with two Shorts and the first long-form Sun Dec 27, and that the Sept 23
+   set counts as non-kitchen.
 
 Record his answers at the top of this file before executing.
 
 ## 7. Execution steps
 
-1. Read `AGENTS.md` (long-form and Shorts cadence sections), `CLAUDE.md`, both calendars, `scripts/blotato/video_topup.py`,
-   `scripts/blotato/longform_queue.py`, `scripts/blotato/video_waitlist.json`, `/video-setup` SKILL. Read the live
-   Blotato queue (`blotato_list_schedules`), not just receipts. Note conflicts (e.g. My First Spray Tan RO-19 shows Oct 21
-   on the long-form calendar but Dec 30 in the Shorts calendar notes) and resolve from the live queue.
-2. Rewrite the standing rules: AGENTS.md "Long-form YouTube release cadence" and "Shorts release cadence", the two
-   CLAUDE.md summary paragraphs, memory `longform-strength-ranking` (then `scripts/sync-memory-to-repo.sh`). Quote Dan's
-   approval. safe-push each shared file the moment it is edited.
+1. Read `AGENTS.md` (long-form and Shorts cadence), `CLAUDE.md`, both calendars, `scripts/blotato/video_topup.py`,
+   `scripts/blotato/longform_queue.py`, `scripts/blotato/video_waitlist.json`, the `/video-setup` SKILL, and the live
+   Blotato queue (`blotato_list_schedules`), not just receipts. Confirm the shoot settings in section 3. Resolve
+   conflicts from the live queue (e.g. My First Spray Tan, RO-19, shows Oct 21 on one calendar and Dec 30 in Shorts notes;
+   confirm the Invest In Your Health parts are back on the schedule per the Oct 20 calendar record).
+2. Rewrite the standing rules (AGENTS.md cadence sections, the two CLAUDE.md summary paragraphs, memory
+   `longform-strength-ranking`, then `scripts/sync-memory-to-repo.sh`), quoting Dan's approval. safe-push each shared
+   file the moment it is edited.
 3. Rewrite `Docs/LONGFORM_RELEASE_CALENDAR.md` and `Docs/SHORTS_RELEASE_CALENDAR.md` as dated tables per phase.
-4. Update `video_topup.py` and `longform_queue.py` (and their tests) so allowed slots are date-ranged: phase 1/2/3/4
-   long-form weekdays, Shorts slot times (9 AM, 6 PM) and per-day counts, Friday long-form socials Saturday noon,
-   gym-Short hold until Dec 26. Run the tests.
-5. Move Blotato schedules and waitlist dates to the new calendar. Ask Dan once for the batch (count of moves) only if a
-   move deletes a schedule; re-dating is reversible. Respect the 200-post cap: the daily top-up queues the rest.
-   Re-read every moved schedule.
+4. Update `video_topup.py` and `longform_queue.py` (and tests): date-ranged long-form weekdays per phase, Shorts slots
+   (9 AM, 6 PM) and per-day counts, Friday long-form socials Saturday noon, gym-Short hold except the phase 1 tests.
+   Run the tests. Do not change the ad automation (it makes one engagement ad per new public video; more releases
+   spread the same budget wider: note this to Dan, do not redesign it).
+5. Re-date Blotato schedules and waitlist entries to the calendar with the rolling queue (200-post cap: the daily
+   top-up books the rest). Ask Dan once, with a count, only if a move deletes a schedule. Re-read every moved schedule.
 6. Update `Handoffs/video-editing/00-MASTER.md` target dates for the films and Shorts in section 5.
-7. Put the ad-budget dates (decision a) on the board as one entry for the ads owner only if Dan approved them.
-8. Report to Dan: the dated calendar, what moved, what still needs editing by when.
+7. Set up the measurement sheet: weekly organic engaged views and watch hours by format, median 7-day engaged views per
+   Short, ready-buffer days. Baseline from the last four weeks; refresh before Dec 26; reviews Jan 10, Jan 24, Feb 8.
+8. Report to Dan: the dated calendar, what moved, what must be edited by when.
 
-**Guardrails:** never upload Public; never schedule a long-form before its parent rules allow; SL Shorts never before
-their parent is public; ads never organic; no em dashes in titles/descriptions; video names by title, not code.
+**Guardrails:** never upload Public or use YouTube native scheduling; SL Shorts never before their parent is public;
+ads never organic; no em dashes in titles or descriptions; name videos by title, not code.
