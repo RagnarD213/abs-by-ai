@@ -159,7 +159,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R4 - REVIEW 2026-10-28, Claude.** RO-24 whole 8:36 film on the locked template + six AI frame pairs, page :9420; fifth independent review SHIP, watch pass 0 defects; gate fails only known template/clip/voice rows. Slot released. Next: Dan's reply, then motion for approved AI clips. `longform-edit/reference/ro24/round4/README.md`
+**Celebrity Ozempic LFC R5 - ACTIVE 2026-10-28, Claude.** Dan approved AI frames A1/A3/A4/A6/A8 (motion next), new A7 frames, Amy abs photo, G06 card, 5:46 pause. Round 5 task started and pinned; R4 unpinned. Expansion drive was unmounted at handoff. `Handoffs/handoff-20261028-ro24-celebrity-ozempic-round5.md`
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
