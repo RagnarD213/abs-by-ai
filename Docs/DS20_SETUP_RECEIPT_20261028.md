@@ -36,3 +36,5 @@ Date-choice logs are in `/Volumes/Extreme/_edit_work/DS20-publish/`; original Ex
 Source config, approved Facebook cover, both date records, waitlist entry, calendar and date-preservation checks committed and pushed to `origin/main`: `604b49e` (verified ahead0/behind0). Scheduling remains pending the shared queue turn; DS05 remains held for exact corrected-film approval.
 
 **DS05 approval resolved2026-10-28:** Dan approved corrected R4 and December10 5PM. Corrected hosted master/TikTok bytes replaced and verified, hold cleared. Current result: `Docs/DS05_SETUP_RECEIPT_20261028.md`. Older hold descriptions above are historical.
+
+**DS05 schedules verified2026-10-28:** Corrected R4 is queued Dec10 5PM on all four platforms (FB6161575,IG6161577,TT6161579,YT6161581). DS20 remains unchanged at9AM on the waiting list.

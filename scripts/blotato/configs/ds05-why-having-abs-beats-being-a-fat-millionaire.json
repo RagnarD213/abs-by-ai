@@ -39,6 +39,12 @@
     "cover": "F3 unchanged",
     "review_url": "http://127.0.0.1:8765/"
   },
-  "setup_status": "Corrected R4 approved 2026-10-28, corrected hosted bytes verified; December10 5PM Central; shared waitlist",
-  "cover_version": "F3, existing exact approved cover retained"
+  "setup_status": "Corrected R4 approved, media/backups verified, all four Blotato schedules verified December10 2026 5PM Central",
+  "cover_version": "F3, existing exact approved cover retained",
+  "schedule_ids": {
+    "facebook": "6161575",
+    "instagram": "6161577",
+    "tiktok": "6161579",
+    "youtube": "6161581"
+  }
 }

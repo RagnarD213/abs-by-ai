@@ -219,7 +219,18 @@
    "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
   },
   "note": "Dan approved exact corrected R4 and Dec10 5PM Central. Corrected hosted master/TikTok hashes verified. F3 retained. Shared queue order and explicit approved release preserved.",
-  "film_approval_date": "2026-10-28"
+  "film_approval_date": "2026-10-28",
+  "queued": {
+   "date": "2026-10-28",
+   "main": "2026-12-10T23:00:00.000Z",
+   "schedule_ids": {
+    "facebook": "6161575",
+    "instagram": "6161577",
+    "tiktok": "6161579",
+    "youtube": "6161581"
+   },
+   "verified": true
+  }
  },
  {
   "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",

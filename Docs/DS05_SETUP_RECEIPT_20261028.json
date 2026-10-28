@@ -1,0 +1,55 @@
+{
+  "job": "DS-05",
+  "approval": {
+    "job": "DS-05",
+    "approved_by": "Dan",
+    "date": "2026-10-28",
+    "words": "Fat Millionaire looks good. Approved. Go ahead and schedule the corrected version for December 10 at 5 PM.",
+    "master_sha256": "db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e",
+    "tiktok_sha256": "0c5fee8a858f140c650f1b66e5b866abbf733b1fdc5d51ee1494bb75a94ee381",
+    "retained_source_framing_caption_timing": "Explicit corrected R4 approval after review; historical gate results remain unchanged",
+    "main": "2026-12-10T23:00:00.000Z",
+    "cover": "F3 unchanged",
+    "review_url": "http://127.0.0.1:8765/"
+  },
+  "uploads": {
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2844eec5-9518-4144-bdbd-b089c889a76f.mp4",
+      "sha256": "db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e",
+      "bytes": 50748660,
+      "verified_download": true,
+      "source": "/Users/danielrose/Projects/Codex/2026-10-16/task/ds05-r4/revision7/Fat Millionaire SFC R4 - checked candidate.mp4"
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/75080915-6cfd-4108-a2c6-bfe01171de79.mp4",
+      "sha256": "0c5fee8a858f140c650f1b66e5b866abbf733b1fdc5d51ee1494bb75a94ee381",
+      "bytes": 50977888,
+      "verified_download": true,
+      "source": "/Users/danielrose/Projects/Codex/2026-10-16/task/ds05-r4/revision7/Fat Millionaire SFC R4 - F3 TikTok - pending approval.mp4"
+    }
+  },
+  "main": "2026-12-10T23:00:00.000Z",
+  "drive_folder": "https://drive.google.com/open?id=1M8MLgiTpkZ7GVnN87Rrj-q4xkWllX-l-",
+  "drive_check": {
+    "method": "MD5",
+    "files": 5,
+    "differences": 0
+  },
+  "source_commit": "428eaa7",
+  "source_pushed": true,
+  "master_edit_queue": "uploaded; Drive sync being checked",
+  "release_hold": false,
+  "scheduled": true,
+  "waiting_list_existing_entry": true,
+  "public_tile_checks": "After release",
+  "historical_gate": "30PASS,2retained-sourceFAIL,0missing,7N/A; exact film approved",
+  "published": false,
+  "schedule_ids": {
+    "facebook": "6161575",
+    "instagram": "6161577",
+    "tiktok": "6161579",
+    "youtube": "6161581"
+  },
+  "schedule_verification": "All four saved drafts match target, approved media URL, complete caption and exact timestamp; 0problems; queue196/200",
+  "queue_count_after": 196
+}
