@@ -1,0 +1,15 @@
+# SL-11 R3: complete films with selected intro1
+
+Dan chose option1 for all three and authorized complete videos. Same-task controller key`SL-11:R3`, exact revision`01a183f2-c529-7812-9188-1334a686a97d`. Immutable decisions and35hashes at `/Volumes/Extreme/_edit_work/SL-11/round3/`. Read `Docs/SL11_R3_COMPLETE_FILMS_20261028.md`. This is a full-film review phase, not publishing or final-film approval.
+
+`build_full.py` combines first75nativeframesA/C or180B from the approved R2 option1 context with the same-index R1 remainder. It encodes the pictures and stream-copies the full original AAC track. Originals remain unchanged; current clear-hold picture is Dan's explicit pick. No raw-drive dependency or new generation.
+
+`check_full.py` verifies every AAC packet/data/timestamp/duration, current verbatim sound gate, every-native-sequence-frame identity at reduced raster, native full-resolution dense hair masks at less than0.25s, every-frame edge measurements, title template and shared watch packet. Source intro metadata must start at C1625 nativef1256 (R1 A cachef660), not inherited R1 raw36. A/C intro raw41.9085333–44.4110333; B41.9085333–47.9145333. Correct C's intro crop to the chosen wider A-derived body picture. Old inherited source-metadata report is preserved separately; movie pixels/counts never changed for that correction.
+
+The fresh independent review judges all exact full films, native source/endings/cuts and EVERY shared watch image through public`watch.judge()`. `gate_full.py` requires judged logs and runs the current full-film gate. R2 excerpt-only applicability declarations do not carry over. `adjudicate.py` records only an original numericalFAIL supported by fresh exact-hash independent source/pause reports, preserves the original plan/result/log, and leaves actual editorial requirements/global thresholds unchanged. It never writes PASS stamps. New exact sources need new evidence, not an inherited exception.
+
+Judge caption grammar using the complete sentence. C's isolated chunk 'but your breathing' is correct because the next chunk says 'will be restricted during the sets.' The proposed you're correction was a false reviewer flag; it was disposed without editing the media.
+
+`package_full.py` requires matching current full-file audio/deliveryPASS and independent watch logs, verifies all35locks and copies exact full-quality films to new R3 delivery filenames and actual VLC copies in Videos to Review. `page.py --install` switches9411 to the complete films, preserving R2 intro and R1 full-film archives. Refresh with the managed review server, test HTTP200/range206 and actual muted playback/seek, then leave paused/muted and open the VLC folder. Preserve manual unmute controls and never call numerical/offline checks an audible listening pass.
+
+Hold SL-11 edit slot and queue every production/check script. Release`SL-11 --review` at delivery. Do not re-run a delivered revision or overwrite R1/R2. Dan's later full-film notes require the controller for the next round. No covers, uploads, schedules, new credentials or paid calls.
