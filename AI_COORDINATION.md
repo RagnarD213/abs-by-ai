@@ -156,9 +156,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
 
-**Zepbound Even If Ripped LFC R4 - REVIEW 2026-10-27, Claude.** Full film, page :8931. Next: Dan; then setup handoff.
+**Zepbound Even If Ripped LFC R5 - REVIEW 2026-10-27, Claude.** Jump rope swapped; page :8933. Next: Dan; then setup handoff.
 
-**How To Do Pull-Ups SFC R1 - IN PROGRESS 2026-10-27, Claude.** Whole-Short R1 building from C1882. Next: checks, review page, queue delivered. `/Volumes/Extreme/_edit_work/DS-76/round1/`
+**How To Do Pull-Ups SFC R1 - REVIEW 2026-10-27, Claude.** [Whole Short](http://127.0.0.1:9476/); final independent review SHIP, gate 35/39 (portrait framing, caption measurement). Next: Dan picks colour/voice/crop or gives notes. `Handoffs/video-editing/DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md`
 
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
