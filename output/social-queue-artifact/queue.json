@@ -1,70 +1,7 @@
 {
-"generated": "2026-10-27T11:25:53+00:00",
+"generated": "2026-10-28T11:25:45+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5053520",
-"platform": "facebook",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053522",
-"platform": "instagram",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053523",
-"platform": "tiktok",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053524",
-"platform": "youtube",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Why the safer lift builds more muscle over the long term, especially past 40.",
-"batch": ""
-},
-{
-"id": "4315877",
-"platform": "facebook",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "4315883",
-"platform": "instagram",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "4553230",
-"platform": "tiktok",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
 {
 "id": "5295786",
 "platform": "youtube",
@@ -1551,34 +1488,34 @@
 "batch": ""
 },
 {
-"id": "5948215",
+"id": "6108255",
 "platform": "facebook",
 "when": "2026-12-17T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5948216",
+"id": "6108259",
 "platform": "instagram",
 "when": "2026-12-17T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5948217",
+"id": "6108260",
 "platform": "tiktok",
 "when": "2026-12-17T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5948218",
+"id": "6108262",
 "platform": "youtube",
 "when": "2026-12-17T15:00:00.000Z",
 "kind": "Video",
