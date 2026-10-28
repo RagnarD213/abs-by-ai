@@ -4852,7 +4852,7 @@
    "list": "2",
    "group": "Shorts from long-forms",
    "sub": "",
-   "title": "Boring Abs At 40 (RO-27; 3 Shorts, parent target Nov 15)",
+   "title": "Boring Abs At 40 (RO-27; 3 Shorts; parent Nov 4 9AM Central)",
    "roll": "10/15 C1769-C1770",
    "size": "S",
    "file": "SL-26-boring-abs-at-40-shorts.md",
@@ -4861,14 +4861,14 @@
    "claude": "CONTENT (SFL). Name the task Boring Abs At 40 SFL R1. Read Handoffs/video-editing/00-RULES.md and SL-26-boring-abs-at-40-shorts.md. Propose three standalone segments with complete transcripts and stop for Dan picks before rendering. Reuse approved look/voice; no Short before parent is public.",
    "codex": "CONTENT (SFL). Name the task Boring Abs At 40 SFL R1. Read Handoffs/video-editing/00-RULES.md, Handoffs/video-editing/SL-26-boring-abs-at-40-shorts.md and .claude/skills/shorts/SKILL.md. Propose three standalone segments with complete transcripts and stop for Dan picks before rendering. Reuse approved look/voice; no Short before parent is public.",
    "state": "ready",
-   "note": "RO-27 full R5 approved Oct28,2026, verified project/Extreme master903b9913. Registered only; no editor/chat/render launched. Nov16 placeholder displaced by Oura; verify future live slots after parent.",
+   "note": "Registered only; no editor/render launched. Parent scheduled YouTube Nov4 9AM Central, ID6164756; no Short before actual public release. Pick segments then current phased calendar/live slots at Shorts setup.",
    "unattended": false,
    "unattended_why": "Dan chooses standalone segments before rendering.",
    "needs": "",
    "by": "Codex",
    "order": 211,
    "updated": "2026-10-28",
-   "rev": 1,
+   "rev": 2,
    "syncedRev": 0
   }
  ]

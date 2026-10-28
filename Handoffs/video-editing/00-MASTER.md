@@ -301,7 +301,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 | [SL-25](SL-25-make-time-for-exercise-shorts.md) | How To Make Time For Exercise & Nutrition (RO-18, YouTube Wed Jan 13, 2027; 3 Shorts, Short 1 next free slot after Jan 13) | READY: approved parent filed | S |
-| [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Wed Nov 4 target under the 2026-10-28 plan, not booked) | READY: approved parent filed; segments need Dan’s picks | S |
+| [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Wed Nov 4 target under the 2026-10-28 plan, not booked) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

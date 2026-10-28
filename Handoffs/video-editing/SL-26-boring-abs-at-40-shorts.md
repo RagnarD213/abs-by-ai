@@ -10,7 +10,7 @@ First propose three strong standalone lessons, showing EACH proposed title and i
 
 Reuse the approved ColourC/voiceB. Use current Soft Blue Light HyperFrames, timed captions and land-then-hold vertical framing. Preserve hair and complete real exercise actions. Reuse only exact cleared AI components/ranges with their disclosures; no expansion to original failed takes. Real gym/preacher footage comes from finished approved library sources. No full-film vertical, square or whole-video one-minute adaptation. Do not alter or reprocess the parent master to address its retained raw numerical gate flags.
 
-Parent calendar target is Sun Nov15,2026,9AM America/Chicago, not a verified booking. No Short releases before the parent is actually public. Current Shorts calendar says the old Boring Abs1 Nov16 slot was displaced by finished Oura Shorts. At Shorts setup, inspect live queue/calendar and choose actual free Mon/Tue/Fri/Sat9AM slots after the parent; never displace another video or assume a 2027 exception. Current standing target is three Shorts.
+Parent is now scheduled for Wednesday November 4, 2026 at 9AM America/Chicago through Blotato, schedule6164756, with socials November5noon. Verified in `Docs/RO27_SETUP_RECEIPT_20261028.md`; this supersedes the older November15 target. No Short releases before the parent is actually public. Follow the current phased Shorts calendar and live queue at setup; no old November16 placeholder is reserved. Three Shorts remain registered only; this setup does not launch editing.
 
 ## Starter prompt
 
