@@ -53,8 +53,8 @@ When the queue has no room for a video's 4 posts, finish everything else (thumbn
 config written, article, receipt), then add one entry to `scripts/blotato/video_waitlist.json` and stop:
 `{"config": "scripts/blotato/configs/<slug>.json", "kind": "longform" or "short", "job": "<ID>", "label": "<title>", "added": "<date>"}`.
 The daily routine `social-queue-daily-refresh` runs `scripts/blotato/video_topup.py`, which queues waiting videos in list
-order as room frees up: a long-form on its saved Sunday or Wednesday or the next free one (other platforms the next day), a Short on its
-saved slot or the next free Shorts day (dedicated DS Shorts Thursday; Shorts cut from long-forms Mon/Tue/Fri/Sat). Photo posts wait while any video is waiting. Trial run:
+order as room frees up: a long-form on its saved long-form day or the next free one (other platforms the next day), a Short on its
+saved slot or the next free Short slot of the dated phase (`scripts/blotato/release_phases.py`; dedicated and cut Shorts share slots; set `"kitchen": true` on the entry for a kitchen video, `"gym": true` for an Oct 23 gym Short). Photo posts wait while any video is waiting. Trial run:
 `python3 scripts/blotato/video_topup.py --assume-free 30`.
 - **Never create a scheduled task for one video.** Dan deleted three of them on 2026-10-11 because they would conflict.
 - **Instagram rejects files over about 300 MB.** For a long-form, upload a smaller copy (1.8 Mbps video, audio copied)
@@ -90,7 +90,7 @@ upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_ur
 write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
 `python3 scripts/blotato/organic_short_queue.py <config>` and `--apply`. It queues FB, IG @danrosefit, TikTok and the
 public YouTube release (Blotato account 46963) and verifies all four. The config also carries `"pinned_comment"`
-(Step 6c; the queue script ignores the field, the daily pinned-comment routine reads it). Shorts go out at 9 AM on the date in `Docs/SHORTS_RELEASE_CALENDAR.md` (dedicated: Thursday; cut from a long-form: Mon/Tue/Fri/Sat, after the parent is public); pick a slot with no
+(Step 6c; the queue script ignores the field, the daily pinned-comment routine reads it). Shorts go out at the date and time in `Docs/SHORTS_RELEASE_CALENDAR.md` (9 AM, plus 6 PM in the two-a-day phases; dedicated and cut Shorts share slots; after the parent is public; no kitchen footage in phases 1 and 3); pick a slot with no
 same-minute post on those accounts.
 
 **Fixing a wrong-path upload:** the upload token cannot change an existing video's visibility (no `youtube` scope).
@@ -173,7 +173,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   video's topic that a viewer can answer in a few words, and save it in the config as `"pinned_comment": "<text>"`.
   Rules for the question: `Docs/PINNED_COMMENTS.md` (through `dan-voice-writer`, under 180 characters, no link, no em
   dash). YouTube has no video to comment on until Blotato releases it, so nothing is posted now: see Step 6c.
-- **Schedule (Dan, 2026-10-17: two a week, replaces Sunday only):** Sunday or Wednesday at 9 AM America/Chicago, one long-form per day, two per week. A revised replacement uses one slot. The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`: use the date it gives this video. A video not on it goes on the next free Sunday or Wednesday after the last queued long-form; Sundays get the stronger films and Wednesdays the weaker ones (memory `longform-strength-ranking`), and anything already edited releases before anything not yet edited. Never use another weekday. Facebook, Instagram and TikTok follow the next day at noon (Monday after a Sunday release, Thursday after a Wednesday release; 9 AM is a Shorts slot); `longform_queue.py` sets both. Read back every saved time. Verify the YouTube video is public on release day; if it is not, postpone the other platform posts before they go out. @abs.by.ai retired 2026-09-24; never queue it.
+- **Schedule (Dan, 2026-10-28, replaces the 10-17 Sunday+Wednesday rule):** 9 AM America/Chicago, one long-form per day, on the long-form days of the dated phase (Sun+Wed to Nov 25; Sun+Wed+Fri Nov 26 to Jan 31, never Dec 25; Sunday from Feb 1; code `scripts/blotato/release_phases.py`). A revised replacement uses one slot. The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`: use the date it gives this video. **Kitchen footage (the fridge/cabinet kitchen set) never goes in phase 1 (before Nov 26) or phase 3 (Dec 26 to Jan 31)** except How I Make My Daily Salad and its Shorts: set `"kitchen": true` on its waitlist entry and book it in phase 2 or later. A video not on the calendar goes on the next free long-form day of an allowed phase; Sundays get the stronger films and Wednesdays the weaker ones (memory `longform-strength-ranking`). Facebook, Instagram and TikTok follow the next day at noon (Monday after Sunday, Thursday after Wednesday, Saturday after Friday; 9 AM is a Shorts slot); `longform_queue.py` sets both. Read back every saved time. Verify the YouTube video is public on release day; if it is not, postpone the other platform posts before they go out. @abs.by.ai retired 2026-09-24; never queue it.
 
 ## Step 4: RETIRED (2026-10-01), no YouTube holding upload
 
