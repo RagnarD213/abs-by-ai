@@ -50,7 +50,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
 
-**RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
+**Love Handles LFC R3 REVIEW 2026-10-28, Codex.** [Choices](http://127.0.0.1:8833/). Awaiting picks; full film pending.
 
 **DS-47 R6 ACTIVE 2026-10-28, Codex:01a183b0.** Sole vacuum repair39s: left hand behind, abs visible during draw-in. Rest approved; conditional completion after repair/check. Newowner started/pinned and transfer verified; R5stopped/unpinned. `Handoffs/handoff-20261028-ds47-r6-vacuum-visibility.md`.
 

@@ -7,10 +7,11 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Love Handles LFC R3 (2026-10-28; Decision since: 2026-10-28):** [Review the frame pairs and changed assets](http://127.0.0.1:8833/). Approve or revise N01/N02/N03 frames; check opening0:00–0:08, G10wording, visibleB05vacuum and real-photoG16. R2look/voice/firstminute preserved. Fullfilm waits for choices.
+
 
 - **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
 
-- **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
 
 
 

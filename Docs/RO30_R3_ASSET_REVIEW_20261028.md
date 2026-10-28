@@ -1,0 +1,17 @@
+# Love Handles LFC R3 · 2026-10-28
+
+CONTENT / LFC. [Review round 3](http://127.0.0.1:8833/). Rendered and checked asset-choice packet, awaiting Dan; not a full film, finalized master, upload or schedule.
+
+Current revision01a183bd-f9c3-75a0-9922-d07952a7187d processed once by sole owner01a183c2-c884-7401-a832-2fca1c604102. ControllerRO-30:R3 remains authoritative. R2first-minute, approvedO01/O02frames, RichBalancedA/WarmBass4 and other approvedfiles unchanged:67/67approval hashes verified.
+
+Review N01/N02/N03 START+END pairs. Newopening9.5095scontext: watch0:00–0:08; first5.2386susesquietrealisticmotion, directlean-to-heavycut. G10contextwatch0:03–0:08:exact “Talk to your doctor about weight loss medication.” B05contextwatch0:03.5–0:11:laterC1677vacuum, handbehind, visibleactiveholdandrelease atnaturalrate. G16contextwatch0:03–0:11:actualstudio-blue-187PhotoDcutout, straightthickwhitearrows andcyanV, originalpixelsuniformlyscaled, cleardisclosure, movingSoftBlueLight. Opaqueentrancesnapped4framesearliertoactualtakejoin, removingbriefintermediatetightshot.
+
+Independent completepacket review PASS_FOR_CHOICE_PACKET,65watchimages/29boundaries/84nativeendpointframes,0mustchanges. ThreeNpairs individuallynumeric+freshreviewerPASS. SelectedO01take2native144–190andO02take1native48–127numeric+freshreviewerPASS plus supportedGemini videoinspection. Failedearly/alternaterangesneverdisplayed. OriginalR2firstminuteSHA d65da608c831c7735be7f0ef6f7e510d19256bfa40e812aa1fb4a1af77c2965c unchanged; all128post-openingpresenterframesinlimitedcontextmatcholddecodedYUVexactly. Sixrevisedcontexts preserveexactR2AACpacketsequences;7matchingreferenceaudioPASSstamps. Densehairpass12contexts,min46px@1080. Chromeactualsilentplayback/recovery/back-forwardseeking verified,playersleftpaused/muted; HTTP200andbyterange206verified. No unaidedhumanfullplaybackorlisteningclaim. Supportedmodelsummaryisnotexacttranscriptproof; itsG10speechandG16durationmistakesarerecorded.
+
+All7automaticlongformdeliverygatesremainFAIL, withshort-contextmeasurement/missingfull-film-evidenceandlegacygraphic/caption/spliceflags. NosilentPASSorboundchange. Sidecarlinewrapfixedandsharedshape7/7PASSseparately. Detailedresultsinround3/qa-summary.txtandqa/delivery-gate-summary.json. OriginalR2FAIL32/7retained. Beforefullfilm, normalize mandatory raw217.250–221.221 abandonedlinecut and recalculatealllatertimes; nofullfilmwasrenderedhere.
+
+Costs:6Codexsubscriptionimages,140747CLIhelper tokens;4GoogleFlowVeoFast1080ptakesdownloadedfromproject10456609-269d-48c5-9772-cde8dae6c70c,40creditsused56→16,$0paidgeneration. OneGemini3.1ProPreviewqualitybatch9110input/1456output,estimatedunder$1.50,billedamountunavailable. Currenteditor/reviewerchatcountsnotexposed. Priorroundcosthistorypreserved. Nootherdownloads.
+
+Authoritativework: /Volumes/Extreme/_edit_work/RO-30/round3/. Currentdecisions: execution-decisions.json, immutabledecisions.json, approval-manifest.json. Sourcesandrecipes/evidenceonlocalworkdrive; raw/private media not inpublicGit. ApprovedR2VLCcopyremainsinVideos to Review. Newpreviewclipsallunder45s,onthepage.
+
+Next: Danapproves/revisesNframesandchangedassets. Thenautomaticnext-roundcontroller; Nmotiononlyafteractualframeapproval. Flowremaining16creditscannotcoverthreeFasttakesat10eachwithoutnewallowance; inspectlivebalancewhenresuming,neverpaywithoutDanexplicitauthorization. Fullfilm/upload/schedulingstillunauthorized.
