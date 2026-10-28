@@ -1,0 +1,97 @@
+Below are 5 pieces by Dan Rose. Every one is really his, word for word. Dan Rose is a 41-year-old fitness creator, the face of Abs By AI (absbyai.com). Earlier he co-built Six Pack Shortcuts and ran a YouTube ad agency, Social Response Marketing.
+
+Read them as a set before you write anything: how he starts a sentence, how he joins two thoughts, which plain words he reaches for, where he says the same thing twice, how uneven his sentences are.
+
+<piece n="1" what="a YouTube video, Dan talking to camera off the cuff (transcript)" source="The Supplements I Actually Take (And Why) (2026)" move="explanation">
+All that I pound post-workout, but we're just getting started. We are not done with the supplements yet. After that, I make a drink with some soluble supplements. The first thing I put in my supplement drink is the Thorne Aminos.
+
+Again, Thorne, because that was recommended by AI, the most trustworthy supplement brand. And I take Aminos after my workout for a couple of different reasons. This is one thing I'm doing that I recommend the average guy does not do. From my research, from what I've done, from my research that I've done with AI, it would actually be better if I took a protein supplement instead of Aminos post-workout.
+
+The reason why I don't do that is because I have a very sensitive stomach and when I take whey protein, I just uncontrollably shit myself. It's a disaster. So, I can't take whey protein no matter how good the health benefits are, just because of my unique type of stomach and digestive system. Most people, you can't take whey protein, so you should be doing that instead of the Aminos.
+
+If you have issues digesting, if you have issues digesting whey protein like I do though, then I recommend Aminos as a good substitute. Aminos are also good to get in some amino acid building blocks of your muscles if you don't want additional calories. Whey protein is caloric, Aminos have minimal calories, so it's a little bit better while you're cutting. Aminos also absorb right away versus a longer window to break down and absorb the protein.
+</piece>
+
+<piece n="2" what="a complete YouTube Short he wrote for himself" source="Short script: Top 5 Ab Exercises (Dan's own first draft) (2026)" move="instruction">
+Hey guys, here are the top five ab exercises you should concentrate on if you want to get six pack abs.
+
+Number one, the ab wheel. I love the ab wheel because it gives you constant tension on your abs, meaning you're working the whole time without giving your abs a break. It's very challenging, even if you have a strong core. And if you're a beginner, you can still do it - just roll the wheel our less far.
+
+Number two, the spiderman plank. I love these because they work your transverse abdominus - the ab muscle that stabilizes your core, and makes your waist look tight and small. They also give you a great workout for your entire upper body. And they're way less boring than just holding a regular plank
+
+Number three, the cable crunch. The cable crunch is the upgraded version of the ab wheel you can do if you have gym access. I love it because it's easy for beginners to do and very low risk, even if you're just getting started. But it can also be very difficult for advanced lifters as well if you do it with good form and increase the weight.
+
+Number four, the V-sit twist. I love this exercise because it works your obliques - the muscles on the sides of your abs. This doesn't make a huge difference if you still have belly fat. But once you're lean, building shredded obliques will make a huge visual difference.
+
+And number five, the toe touch. I love the toe touch because it's simple for beginners to do, you can do it at home, and it's a great ab workout if you use the right form. If you're a beginner, you can get a great ab workout without needing any weight. And if you're advanced, add a five pound weight or medicine ball to make it more challenging.
+
+Those are my top five ab exercises. Leave a comment to let me know which one is your favorite, and any others that you think guys should be doing.
+</piece>
+
+<piece n="3" what="a complete YouTube Short he wrote for himself" source="Short script: Does Jiu Jitsu Get You Abs? (2026)" move="explanation">
+Does jiu jitsu get you abs?
+
+I'm a Brazilian Jiu Jitsu black belt who's been training for 22 years. And I've had a lot of people asking me if jiu jitsu is a good way to get abs.
+
+Jiu jitsu does give you a great ab workout, both with the conditioning exercises we do and with wrestling live rounds. But it might be the hardest possible way to get abs. Ab training is a great bonus if you love jiu jitsu. But if you just want abs and you don't care about wrestling, gym ab exercises do the job faster.
+
+Also, remember that nutrition is 80% of getting abs whether you do jiu jitsu or not. You can't out-train a bad diet, not even with jiu jitsu training. So if you want to get abs, you should be mainly focused on how you're eating, not how you're training.
+
+So if just want abs, focus on your nutrition. But if you love jiu jitsu, burning extra calories and getting in a great ab workout is a good bonus to the sport.
+</piece>
+
+<piece n="4" what="a complete YouTube Short he wrote for himself" source="Short script: How To Jump Rope (2026)" move="instruction">
+Jump rope is the best cardio you can do at home, but most people are doing it wrong.
+
+Here's how to from tripping over the rope to skipping rope like a boxer in just a few minutes.
+
+First, don't hop over the rope with two feet. Skip over the rope one foot at a time. It's less impact on your joints, and it's easier to push your cardio without tripping on the rope.
+
+Skipping over the rope one foot at a time is hard to do at full speed when you first start. So your first time, move the rope slowly and skip over it one foot at a time.
+
+Accelerate it gradually bit by bit, until you're skipping over the rope one foot at a time at full speed.
+
+Once you're good at jump roping, do it for two minutes every morning when you wake up to get your blood pumping. Or do two minutes before your workout for a quick cardio warmup.
+
+Comment below to let me know how learning to jump rope this way worked for you.
+</piece>
+
+<piece n="5" what="a complete YouTube Short he wrote for himself" source="Short script: How To Lose The Last Ten Pounds Of Fat (2026)" move="instruction">
+Here's how to lose the last ten pounds of fat before you see your abs.
+
+This was me at 190 a few months ago - barely had abs.
+
+Here's how I lost that last ten pounds to get to where I'm at today.
+
+First, take Zepbound. Losing the last ten pounds was difficult for me, and I struggled at the 190 plateau for nearly a year. Zepbound got me to 180 in a matter of a few months.
+
+Second, fast until 2 PM every day. Then break your fast with a salad, or a low carb meal. That might sound hard to you now, but you can do it if you're on Zepbound. And if you're fasting until 2 daily, you have a lot more flexibility to eat the foods you want for dinner.
+
+And finally, start going to bed earlier. Going to bed earlier tremendously helped my sleep. And it also helped me to reduce late night eating and alcohol consumption.
+
+If you can barely see your abs right now, losing that last ten pounds to get them fully defined is so worth it. Try those three tips, and let me know how they work for you.
+</piece>
+
+---
+
+Now piece 6, the next piece in this set. Write it as Dan Rose.
+
+What it is: organic Short title, description, captions and pinned question as JSON
+Where in the piece: the whole piece.
+Length: about 260 words (stay within 10 percent).
+
+Dan's own words for this piece (his outline or notes). Keep his wording wherever it fits and build out from it:
+<his_own_words>
+If I only had 5 minutes to work out at home, these are the 3 exercises I do. Together, they hit almost every muscle that you have. Number 1, body weight squats. These work your legs and your glutes, the biggest muscles in your body. Sit back like there's a chair behind you, then stand up tall. Number two, push-ups. They work your chest, shoulders, and arms. Keep your body in a straight line. Bring your chest all the way down. If that's too hard, do it from your knees. Number three, Spider-Man Planks. They work your abs and the deep muscle that pulls your waist in. Get in a plank and then go to a push-up position on one side, then the other, and then switch sides for your next set. Do each one for thirty seconds, rest thirty seconds, then cycle through all three until five minutes are up. Five minutes every day, beats an hour once a week. Start with 5 minutes every morning. Once it's a habit, go to 10 and then 15. Subscribe to the channel and go to SixPackAbs.com for all my newest videos.
+</his_own_words>
+
+Content plan. Say all of it and add no new facts:
+Metadata for an organic dedicated Short teaching a five-minute home bodyweight workout.
+Return JSON only, with title, hook, body, close, youtube_description and pinned_comment.
+Title: 5-Minute Home Workout: 3 Exercises, No Equipment.
+Cover text is already approved: 5 Minute / Home Workout.
+The full transcript is supplied as Dan's own words. Use only that content. Exercises are bodyweight squats, push-ups (from the knees if needed), and Spiderman Planks. In this film Spiderman Planks means alternating from forearms to a push-up position, one side then the other, switching sides for the next set. Do not turn it into knee-to-elbow mountain climbers.
+Each exercise30 seconds, rest30 seconds, cycle through all three until five minutes. Start every morning, then build to10 and15 minutes after it becomes a habit. Bodyweight squats work legs/glutes; push-ups chest/shoulders/arms; Spiderman Planks abs/core.
+Hook is one sentence using the opening's idea. Body60-90words with the routine and instruction to build the habit. Close asks viewers to subscribe for practical workouts. YouTube description under150words, includes the three exercises as a simple numbered list and the30seconds work/rest/five minute instructions. Pinned comment is one easy question asking which is hardest: squats, push-ups or Spiderman Planks, under180characters, no links. No added personal facts, results promises, prices or free image offer. No source credit needed; all footage is ours. No URLs: the setup owner adds current organic links separately. No long dashes.
+
+Output only the piece itself: no title, no notes, no stage directions, no quotation marks around it.
