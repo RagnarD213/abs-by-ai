@@ -9,10 +9,12 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
+- **V-Taper Exercises covers (2026-10-28; Decision since: 2026-10-28):** [Review three real-photo designs](http://127.0.0.1:9297/) and choose 1, 2 or 3. Recommendation 3. Initial five rejected. Both photos touched up; title centered. R6 unchanged; uploads/setup await the pick. `Docs/DS47_COVER_REVIEW_20261028.md`.
 
 
 
-- **Content schedule: three small calls (2026-10-28; Decision since: 2026-10-28):** (1) I treated cooking B-roll inside otherwise non-kitchen Shorts (Top 1% Short 1 Oct 30, #1 Change DS-13 Jan 7) as not kitchen; say if you want them moved. (2) Keep Your Muscle (RO-01) turned out to be kitchen; it is already public, so its Facebook/Instagram/TikTok copies stay Thu Oct 29 noon. (3) The Aug 28 Shorts are poolside, so edits of DS-15, 16, 19, 25 could fill the open December slots if you want them edited. Details: `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+
+
 
 - **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
 
