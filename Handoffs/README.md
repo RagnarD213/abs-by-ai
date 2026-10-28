@@ -11,6 +11,10 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Content Schedule Overhaul](handoff-20261028-content-schedule-overhaul.md): **Fire after Dan approves the plan and answers its three decisions (ad budget, new shoot, Dec 26 kick-off). Codex gpt-6.1-sol, high.** Four phases: fresh studio films to Thanksgiving, kitchen clear-out to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 11 Shorts a week), then 1 long-form + 7 Shorts a week from Feb 1.
+
+- [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **Start now. Claude Opus 5.5, high.** Full R5 approved October 28; project and Extreme copies verified. One task makes five Codex thumbnails, stops for Dan’s pick, then completes Drive backup, packaging and /video-setup. Three Shorts separately registered as SL-26.
+
 
 
 
