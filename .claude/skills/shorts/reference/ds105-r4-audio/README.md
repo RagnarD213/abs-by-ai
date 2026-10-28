@@ -7,3 +7,5 @@ Master061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2; review91
 Canonical work `/Volumes/Extreme/_edit_work/DS-105/round4`. These scripts are archival source-specific recipes and expect that external working-tree layout, soleowner controller and immutabledecisions. Do not run the archival copies in place or rebuild delivered media. Source decisions/provenance and complete gates are in the canonical folder.
 
 Default reviewplayer muted; task-driven playback verifies muted state before each action and leavespaused/muted. Exported audio is intact.
+
+Review binding trap: ignore every `._*` AppleDouble metadata file when collecting images. Build findings from the exact `sheets`/`strips`/`pairs` names in the maintained watch JSON, not an unfiltered filesystem glob. A three-sheet metadata-name mistake left24/27 valid judgments until the reviewer reopened the actual JPGs and corrected the bindings; never just rename uninspected evidence.
