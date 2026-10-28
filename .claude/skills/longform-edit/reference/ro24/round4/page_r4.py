@@ -57,7 +57,8 @@ for cid, fold, pairs, t, line, idea, where in AI:
 NAME = 'RO24_R4_MASTER'; FIN = f'{R4}/final'; film = os.path.exists(f'{OUT}/final/{NAME} - REVIEW 540p.mp4')   # copied into review/ by the delivery step
 ctx = {c['id']: c for c in L(f'{OUT}/context/index.json') or []}
 hair = L(f'{C}/hair.json'); hc = L(f'{C}/hair_corner.json'); ag = L(f'{FIN}/{NAME}.mp4.audio_gate.json')
-rev = sorted(glob.glob(f'{OUT}/ROUND-4-REVIEW*.md'), key=os.path.getmtime); verdict = 'running' if film else 'after the film is built'
+rev = sorted(glob.glob(f'{OUT}/ROUND-4-REVIEW*.md'), key=os.path.getmtime)
+GATE = open(f'{R4}/final/logs/gate_summary.txt').read().strip() if os.path.exists(f'{R4}/final/logs/gate_summary.txt') else 'running'; verdict = 'running' if film else 'after the film is built'
 if rev:
     v = re.findall(r'VERDICT:\s*([A-Z ]+)', open(rev[-1]).read()); verdict = v[-1].strip() if v else verdict
 man = {m['id']: m for m in L(f'{R4}/film_manifest_r4.json')}
@@ -82,25 +83,31 @@ def bg_card(c):
 tracy = man['C_tracy']; b2 = man['B2']
 decisions = [f'<b>AI clip frames</b> ({len(ai_ready)} of 6 ready{", " + ", ".join(ai_wait) + " still in checking" if ai_wait else ""}): yes or no to each, and any change. Motion starts only after your yes.']
 if film:
-    decisions += [f'<b>The whole film</b> (8:38): approve, or give timestamped changes.',
+    decisions += [f'<b>The whole film</b> (8:36): approve, or give timestamped changes.',
                   f'<b>Tracy Morgan clip</b> at {mmss(tracy["a"])}: I kept it right before your line "And Tracy Morgan said it on The Tonight Show" (the clip plays first, then you quote him, the way the reaction videos open on the clip). Watch {mmss(tracy["a"] - 4)} to {mmss(tracy["b"] + 6)}. Keep, or move it after your line.',
                   f'<b>B-roll at {mmss(b2["a"])}</b>: the AI clip of you on the bench press (labelled AI-GENERATED) over "I\'m lifting significantly more weight now". Watch {mmss(b2["a"] - 4)} to {mmss(b2["b"] + 4)}. Keep, or stay on camera.']
 decided = [
- 'The locked background template now runs the whole film: 30 background changes, every one tied to what you are saying, each with its reason on its card. The first 2:50 is exactly the round 3 film you approved.',
- 'Behind you in the later sections: only clean, steady stretches of each person\'s own interview (Amy on Howard Stern, Meghan on ET, Oprah, Tracy on The Tonight Show), downloaded in full HD, scanned frame by frame for flashes, with channel logos zoomed out of frame.',
- 'My calls where the rules allowed two answers: "cut the carbs you overeat" keeps Fat Joe behind you (Amy is not introduced yet); "nearly everyone regains" gets the wall of all of them; your 1.5 mg dose gets the big number; the studio set\'s TV never repeats a photo pair the film just showed; the close sits on a calm background so the end-screen buttons stay clear of you.',
- 'A fix in the shared template: the softened-clip background now honours the logo zoom (ET\'s yellow logo showed through the blur at 5:55).',
+ 'The locked background template now runs the whole film: 30 background changes, each tied to what you are saying, each with its reason on its card. The first 2:50 is the round 3 film you approved.',
+ 'Tracy Morgan\'s clip now ends right after "I gained 40 pounds." (it used to cut into his next sentence), so the film is 8:36, 2 seconds shorter. It still plays right before your line "And Tracy Morgan said it on The Tonight Show": the clip lands first, then you quote him, the way the reaction videos open on the clip.',
+ 'Behind you in the later sections: only clean, steady stretches of each person\'s own interview (Amy on Howard Stern, Meghan on ET, Oprah, Tracy on The Tonight Show), in full HD, scanned frame by frame for flashes, channel logos zoomed out of frame. Where a person has too little clean footage, they get photos, floating cards or a big number instead of repeated footage.',
+ 'Fat Joe: his Page Six video has camera flashes or quote boxes on almost every frame, so after his clip his part uses his photos (floating cards across the years, the panel, a blurred photo) and big type ("HUGE DOSE / -20 LB / MICRODOSE"). He has only six photos, so the cards at 2:50 reuse photos you saw earlier; say if you want something else there.',
+ 'New numbers in big type, landing on your words: "7 DAYS A WEEK" at 5:36 and "1.5 MG A WEEK" at 7:15.',
+ 'Two fixes in the shared template (they apply to every future green-screen film): Dan moves to the side whenever a left-side list card is up, and the blurred-clip background keeps channel logos zoomed out.',
+ 'Audio: your approved voice A, unchanged. I removed five sharp clicks and two lip smacks (each a few thousandths of a second) and eased the Meghan and Tracy clip endings out instead of cutting them. One faint lip smack remains at 4:41.',
+ 'Subtitles (.srt) are built from the finished audio, with each interview clip\'s own words and all names and drug names spelled right.',
  'The AI clips are not in this film yet: their spots show you on camera. Once you approve frames, I make the motion on your Google Flow subscription, check every take, and cut them in.',
- 'Spend this round: $0 (frames on the Codex subscription, everything else on this Mac).']
+ 'Spend this round: $0 (frames on the Codex subscription, about 110 images; everything else on this Mac).']
 checks = []
 if hair: checks.append(f"Hair clearance: {hair['frames_checked']} rendered frames of you, closest hair {hair['min_top']} px from the top (needs 20): {hair['verdict']}." + (f" Corner layout: closest {hc['min_top']} px, {hc['verdict']}." if hc else ''))
 if ag:
     rr = ag.get('rows', []); bad = [r['key'] for r in rr if not r.get('ok')]
     checks.append(f"Audio gate on the whole film: {len(rr) - len(bad)} of {len(rr)} rows pass" + (f"; fails: {', '.join(bad)}. This is your approved voice A, unchanged since round 2: the tone row measures it against Muhammad's reference and has failed it every round; the interview clips carry their own music beds." if bad else '') + '.')
-checks.append(f'AI frames: every pair shown passed the frame gate (body, props, background measured) and a fresh reviewer who saw only the pictures.')
-checks.append(f'Independent review of the whole film: {verdict}.')
+checks.append('AI frames: every pair shown passed the frame gate (body, props, background measured) and a fresh independent reviewer who saw only the pictures. They needed 1 to 6 rounds each; the reviewers failed pasted-looking people, objects that move by themselves, AI textures and clothes that change between frames until each was fixed.')
+checks.append('Independent review of the whole film: five fresh reviewers, each on a new build. The first four found problems you would have noticed (Tracy\'s clip cut mid-sentence, camera flashes behind you, a stranger\'s face on a card, a short background stutter, subtitle gaps and misspellings, a few clicks); every one was fixed. The fifth: ready to show you.')
+checks.append(f'Watch pass and delivery gate on this exact file: {GATE}.')
+checks.append('Brightness: a partial re-render had darkened the picture slightly; this file is one full render, measured equal to the earlier full render.')
 reply = '1 AI frames (yes / no / change, per clip):\n  A1:\n  A3:\n  A4:\n  A6:\n  A7:\n  A8:\n' + ('2 Whole film: approve / changes:\n3 Tracy clip: keep / move\n4 Bench press B-roll: keep / drop\n' if film else '') + '5 Anything else: '
-filmsec = (f"""<section id="film"><h2>The whole film (8:38)</h2><video controls preload="none" playsinline poster="final/{NAME}.jpg" src="final/{NAME} - REVIEW 540p.mp4"></video>
+filmsec = (f"""<section id="film"><h2>The whole film (8:36)</h2><video controls preload="none" playsinline poster="final/{NAME}.jpg" src="final/{NAME} - REVIEW 540p.mp4"></video>
 <p class="small">540p in the player. Full-quality copy for VLC: <i>Celebrity Ozempic LFC R4 - full film</i> in your Videos to Review folder.</p></section>
 <section id="changes"><h2>What changed since round 3, with watch ranges</h2><p class="small">0:00 to 2:50 is the approved round 3 film, unchanged. Everything after 2:50 is new on the template; the cards below are the items that changed from round 2's versions.</p><div class="grid">{''.join(chg(*x) for x in CH)}</div></section>
 <section id="bgs"><h2>The backgrounds after 2:50 ({len(bgs)})</h2><div class="grid">{''.join(bg_card(c) for c in sorted(bgs, key=lambda c: c['a']))}</div></section>"""

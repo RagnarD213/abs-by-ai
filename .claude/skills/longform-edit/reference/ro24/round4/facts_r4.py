@@ -186,7 +186,7 @@ AT = [
                                                                    R2P('fatjoe/fatjoe_b_recent_2024.jpg'), R3P('fatjoe/fatjoe_after_2026_espy-awards.jpg')],
               why="'he lost the weight over years by cutting carbs and by training': four of his photos across the years as floating cards "
                   "(his Page Six video has camera flashes or quote boxes on almost every frame; the round 4 review caught flashes behind you here)")),
- (200.0, dict(type='bigtype', person='Fat Joe', clip=None, photos=None, lines=['HUGE DOSE', '-20 LB', 'MICRODOSE'], line_times=[198.87, 203.31, 204.15],
+ (200.0, dict(type='bigtype', person='Fat Joe', clip=None, photos=None, lines=['HUGE DOSE', '-20 LB', 'MICRODOSE'], line_times=[198.87, 203.31, 204.15], max_w=680,
               why="he says the numbers: 'HUGE DOSE' lands on 'a huge dose', '-20 LB' on 'losing 20 pounds', 'MICRODOSE' on 'on a microdose' (his photos are all used by "
                   "the cards and panel either side, and his footage flashes)")),
  (220.0, dict(type='soft', person='Fat Joe', clip=None, photos=[R2P('fatjoe/fatjoe_b_recent_2023.jpg')],
