@@ -42,7 +42,7 @@ def blocks(body, vid, cta_path="/start"):
             out.append('<!-- wp:heading -->\n<h2 class="wp-block-heading">%s</h2>\n<!-- /wp:heading -->' % inline(first[3:], vid, cta_path))
         elif first.startswith('- ') or re.match(r'\d+\. ', first):
             ordered = not first.startswith('- ')
-            items = ''.join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % inline(re.sub(r'^(- |\d+\. )', '', l), vid) for l in lines)
+            items = ''.join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % inline(re.sub(r'^(- |\d+\. )', '', l), vid, cta_path) for l in lines)
             tag = 'ol' if ordered else 'ul'
             attr = ' {"ordered":true}' if ordered else ''
             out.append('<!-- wp:list%s -->\n<%s class="wp-block-list">%s</%s>\n<!-- /wp:list -->' % (attr, tag, items, tag))
