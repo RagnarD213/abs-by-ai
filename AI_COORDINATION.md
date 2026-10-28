@@ -25,7 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Mouthpiece SFC Setup ACTIVE 2026-10-28, Codex01a184cd.** Approved R4 and three backups hash-verified. Five subscription cover pairs in production; no upload or date reserved. Next: show five pairs and await Dan pick.
+**[Audi:Dan-review:2026-10-28:Codex](Docs/AUDI_S5_SALE_PLAN_20261028.md).**
+
+**Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Five cover pairs](http://127.0.0.1:9298/); awaiting Dan pick. Approved R4 unchanged; three backups verified. Upload/setup pending, no date reserved. `Docs/DS105_COVER_REVIEW_20261028.md`
 
 **V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Five-pairs](http://127.0.0.1:9297/);await-pick;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
 
