@@ -33,7 +33,7 @@
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/83873b02-f789-4c79-8aaa-e469cd6fefd5.jpg",
   "cover_version": "Round5 tightened A, Dan approved 2026-10-28",
   "cover_approval_file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds55/APPROVAL.json",
-  "setup_status": "Date and covers approved; scheduling in progress",
+  "setup_status": "Scheduled and actual saved media download-verified on all four platforms for October31,2026 noon America/Chicago",
   "release_approval_required": false,
   "proposed_release": "2026-10-31T17:00:00.000Z",
   "main": "2026-10-31T17:00:00.000Z",
@@ -42,5 +42,12 @@
     "date": "2026-10-28",
     "words": "Yes, go ahead and schedule it for Saturday, October 31 at noon Central on all four platforms.",
     "exception": "One-time extra dedicated Short release on Saturday at noon Central; move no other post"
-  }
+  },
+  "schedule_ids": {
+    "facebook": "6161528",
+    "instagram": "6161529",
+    "tiktok": "6161531",
+    "youtube": "6161533"
+  },
+  "schedule_readback_file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/covers/ds55-20261026/install/scheduling-20261028/schedules-readback.json"
 }
