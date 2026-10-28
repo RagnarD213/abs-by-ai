@@ -1100,5 +1100,15 @@
   "sha256": "6687dd204410c444119bb77da699af0b29eab2b51266b54232e96dd5362b4c83",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds55-five-minute-exercises-approved.png",
   "when": "2026-10-31T17:00:00.000Z"
+ },
+ {
+  "job": "RO-27",
+  "when": "2026-11-05T18:00:00.000Z",
+  "match": "My daily routine is boring, and that's exactly why I have six pack abs at 41.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro27-boring-abs-at-40-approved.jpg",
+  "w": 1280,
+  "h": 720,
+  "sha256": "0aa533016c08de2e37ce6cc2f5a6c758e5eea99953d4ff90c4c2b92ba4836e3f",
+  "approved": "Dan approved exact R3 design1 title-capitalization revision 2026-10-28"
  }
 ]
