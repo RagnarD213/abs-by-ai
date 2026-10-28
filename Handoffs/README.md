@@ -11,9 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Content Strategy Based on Organic Analytics](handoff-20261028-content-strategy-data-led.md): **After Dan selects this recommendation. GPT-6.1 Sol, high.** [Research and plan](../Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md). Blitz Dec 26–Jan 31: 3 long-forms + 8 Shorts weekly initially; February: 1 + 6. No ad-budget increase. Alternative to the adjacent Claude proposal; select one before implementation. Live schedules unchanged by this planning task.
 
-- [Content Schedule Overhaul, merged plan](handoff-20261028-content-schedule-overhaul.md): **Recommended pick; fire after Dan answers its section 6 (January ads, optional shoot, kick-off). Codex gpt-6.1-sol, high.** Merges Claude's dated calendar with Codex's data-led rules: 2 long-forms + 5 Shorts to Thanksgiving, kitchen films to Christmas, blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week, more only if the buffer and numbers allow), then 1 + 6 from Feb 1. Picking it supersedes the data-led handoff above.
+- [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
 
 - [Boring Abs At 40 LFC Setup](handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md): **IN PROGRESS in Codex, October 28.** [Three split-screen designs R2](http://127.0.0.1:9487/) await Dan's pick; initial A-E rejected. Full R5 and verified three-copy backups preserved. Continue same setup chat after pick. Receipt: `Docs/RO27_THUMBNAIL_R2_REVIEW_20261028.md`. Three Shorts separately registered as SL-26.
 
