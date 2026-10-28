@@ -7,17 +7,16 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
+
 - **Love Handles LFC R2 (2026-10-26; Decision since: 2026-10-26):** [Review the first minute and opening frames](http://127.0.0.1:8832/). Choose O01/O02 matched frame pairs and any N01/N02/N03 text ideas. Rich Balanced A and Warm Bass are locked. Full film and motion wait for choices; nothing uploaded or scheduled.
 
-- **Boring Abs At 40 LFC R5 (2026-10-26; Decision since: 2026-10-26):** [Review the complete 8:01 film](http://127.0.0.1:9357/?r5=20261026#current), approve or give timestamped changes. Final scene choices applied: neighbour 0:37–0:44 kept; fridge 4:11–4:21 and phone-goal 6:32–6:38 use camera. Colour C, voice B and crops preserved; remaining numerical flags documented. Nothing uploaded or scheduled.
-
-- **V-Taper Exercises SFC R4 (2026-10-26; Decision since: 2026-10-26):** [Review revised Photo D opening](http://127.0.0.1:9214/),0:00–0:10. Approve or name changes to larger photo, straight arrows, symmetrical V guides and title/background. A/B/original portrait locked; full Short unfinished.
-
-- **Mouthpiece SFC R1 (2026-10-26; Decision since: 2026-10-26):** [Review opening and all graphics](http://127.0.0.1:9274/), choose colour/voice/framing and approve or name changes. Recommend B/A/1 and real demonstration. Full64s Short unassembled; final sound/caption finishing remains.
 
 
 
-- **Five Levels Of Pushups design3 title (2026-10-26; Decision since: 2026-10-26):** Base3 selected. Choose title A/B/C at http://127.0.0.1:9180/ . Same real photos; middle text only. Nothing uploaded or scheduled. `Docs/DS20_DESIGN3_TITLE_R3_REVIEW_20261026.md`.
+
+
+- **Five Levels Of Pushups release date (2026-10-28; Decision since: 2026-10-28):** Cover A approved/installed, media/backups ready. Choose Thu Mar4,2027 at9AM Chicago, or use Dec10,2026 by reassigning FatMillionaire DS05 reservation. All2026 Thursdays reserved. Nothing scheduled/waitlisted. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
 
 
@@ -109,3 +108,5 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
+
+- **Five Minute Exercises DS-55 release date, Decision since: 2026-10-28:** Revised A installed and all media uploaded. Every 2026 Thursday 9 AM is reserved. Approve one-time extra Saturday October31 noon Central, open on all four platforms, or hold for a later date. No other release moves; another Short is at9 AM that day. No schedules/waitlist created. `Docs/DS55_SETUP_RECEIPT_20261028.md`.

@@ -25,6 +25,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
+
+**RO-23 ACTIVE 2026-10-28.** `/Volumes/Extreme/_edit_work/RO-23/`
+
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
 **Alcohol And Abs SFC R1 (SL-10) - NEEDS DAN 2026-10-27, Claude.** Shortlist of 5 sent; waiting for 3 picks before any render. Work: `/Volumes/Extreme/_edit_work/SL-10/`.
@@ -34,23 +38,22 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
 
 
-**[DS20:DESIGN3-TITLE:REVIEW:2026-10-26:Codex:pickA-C](http://127.0.0.1:9180/)**
+**DS-20 Setup DATE CHOICE 2026-10-28, Codex.** A installed; media/Drive verified. Mar4,2027 or reassign Dec10 DS05 reservation. No schedule/waitlist. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
-**Mouthpiece SFC R1 REVIEW 2026-10-26, Codex.** [Look/assets](http://127.0.0.1:9274/). Full Short awaits Dan choices; sound/caption finishing flags retained. Queue/Drive updated. Local Git push blocked by live shared edits. `Docs/DS105_R1_CHECKPOINT_20261026.md`.
+**Mouthpiece SFC R2 ACTIVE 2026-10-28, Codex01a182b7.** B/A/1 approved; AI skipped. New sole owner started/pinned; old unpinned. Full Short/checks next; queue/Drive updated. `Handoffs/handoff-20261028-ds105-r2-full-short.md`.
 
-**Five Minute Exercises SFC Setup - REVIEW 2026-10-26, Codex.** [Tightened A pair](http://127.0.0.1:9270/). Next: Dan approves. Commit0b22c31 local.
+**Five Minute Exercises SFC Setup DATE CHOICE 2026-10-28, Codex.** Revised A installed; master/cover/TikTok uploads and three-copy backups verified. Proposed extra Sat Oct31 noon Central, pending Dan. No schedules/waitlist; exact R5 preserved. `Docs/DS55_SETUP_RECEIPT_20261028.md`.
 
 
-**DS-84 R3 REVIEW 2026-10-26, Codex.** [Full Short](http://127.0.0.1:9284/). F, tighter exercise crops and matching large titles rendered; independent review ready. Original automatic framing/caption flags retained with audit. Native VLC copy verified; queue/Drive delivered. Next: Dan approves or lists changes. Slot released; dispatcher/heartbeat paused. No setup. Git2811712 local; shared edits block push.
 
 
 **[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
 
 **RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
 
-**DS-47 R4 REVIEW 2026-10-26,Codex:01a179fe.** [Intro](http://127.0.0.1:9214/). D enlarged/arrows/title checked. A/B/portrait locked; full Short unfinished. Next: Dan. `Docs/DS47_R4_INTRO_REVIEW_20261026.md`.
+**DS-47 R5 ACTIVE 2026-10-28,Codex:01a182c1.** Intro approved; new owner started/pinned, transfer verified. Full Short assembly/checks next. A/B/portrait locked. `Handoffs/handoff-20261028-ds47-r5-full-short.md`.
 
-**Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
+**Brief overlap NEEDS DAN 2026-10-28, Codex.** Pause old cloud routine; keep local daily publisher.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -85,7 +88,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
-**Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
