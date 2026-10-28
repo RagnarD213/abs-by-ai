@@ -37,7 +37,7 @@
   },
   "source_commit": "428eaa7",
   "source_pushed": true,
-  "master_edit_queue": "uploaded; Drive sync being checked",
+  "master_edit_queue": "uploaded, Drive status file upload verified",
   "release_hold": false,
   "scheduled": true,
   "waiting_list_existing_entry": true,
@@ -51,5 +51,9 @@
     "youtube": "6161581"
   },
   "schedule_verification": "All four saved drafts match target, approved media URL, complete caption and exact timestamp; 0problems; queue196/200",
-  "queue_count_after": 196
+  "queue_count_after": 196,
+  "post_schedule_audits": {
+    "cover_audit": "196scheduledposts,0issues",
+    "organic_scan": "CLEAN196posts"
+  }
 }
