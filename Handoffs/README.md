@@ -10,8 +10,11 @@ dashboard's **Handoffs to fire** list with a copy-able starter prompt. A session
 Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
+- [Celebrity Ozempic LFC R5](handoff-20261028-ro24-celebrity-ozempic-round5.md): **Fired 2026-10-28** (Dan replied to R4). **Claude Opus 5.5, high**. RO-24: AI motion A1/A3/A4/A6/A8, new A7 frames, Amy abs photo, G06 card changes, remove the 5:46 pause, full render, gates, review.
 
 - [The Vacuum SFL Setup](handoff-20261028-sl11-vacuum-covers-and-setup-codex.md): **Start now. Codex GPT-6.1 Sol, high, explicitly requested by Dan.** All three complete R3 Shorts approved/finalized October 28; project, Extreme and Drive files verified. Five cover pairs per Short, stop for picks, then organic upload/setup after parent release under the current calendar. Prepared, not started; no dates reserved.
+
+- [Audi S5 fuel-filler door mobile mechanic](handoff-20261028-audi-s5-fuel-filler-door-mobile-mechanic.md): **Start now. Codex GPT-6.1 Sol, medium.** Find damage photos and capable Georgetown mobile repair providers; prepare shortlist and quote request. Await Dan's approval before outreach, booking or spending. Not started.
 
 
 
