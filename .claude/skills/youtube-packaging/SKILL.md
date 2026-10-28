@@ -56,6 +56,8 @@ handles them after release). Ads never get an article.
 
 ## Thumbnail rules
 
+**Capitalization (Dan, 2026-10-28): every new or revised YouTube thumbnail capitalizes the first letter of every word, including At, In, To, Me and And. Preserve proper names and acronyms. Example: "This Boring Daily Routine Got Me Abs At 41." This replaces older automatic ALL CAPS thumbnail recipes; preserve existing approved thumbnails unless Dan requests a revision. Full rule: `_shared/VIDEO-RULES.md`, "YouTube thumbnail text".
+
 ### Required five-choice review (Dan, 2026-10-25)
 
 Follow `_shared/VIDEO-RULES.md`, "Thumbnails: the five, each its own design, always made by Codex": two distinct AI images of Dan acting out the topic, one real pool OR studio photograph, and two concepts chosen by Codex from Dan's actual approved-cover history. Additional AI Dan choices are allowed; do not force object-only alternatives. Read the current pick history and selected images before planning, including the five Calories Shorts C picks. Keep five unique designs and consistent copy, use the Codex subscription with the newest supported stable GPT at high effort, show the five and stop for Dan's picks. Handoffs state this mix. It replaces the 2026-10-13 mix. An A/B test uses Dan's chosen contenders from those five.

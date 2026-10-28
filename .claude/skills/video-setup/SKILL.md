@@ -4,6 +4,10 @@ description: >
   Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, make five thumbnail choices with Codex in the command line (five unique designs: two AI images of Dan, one real pool or studio photo, two history-guided Codex choices; GPT-6.1 Sol high) and stop for Dan's pick, write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
+## Silent task-driven playback (Dan, 2026-10-28)
+
+Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`, "Review-panel testing stays silent". Mute every actual video/audio player before task-driven playback or auditions and after source/reload changes, then leave it paused and muted. Use offline decoding, audio measurements or supported non-speaker file/model inspection; never claim an audible listen from silent testing. Preserve actual narration, exported media audio and Dan's manual unmute controls. This is the normal workflow, not an added approval step.
+
 > **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
 
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
@@ -121,6 +125,8 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
   - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
 ## Step 2: five thumbnail variations, then STOP for Dan's pick (made here, with Codex on the subscription)
+
+**YouTube thumbnail capitalization (Dan, 2026-10-28): capitalize the first letter of every word, including short words such as At, In, To, Me and And; preserve proper names and acronyms. Example: "This Boring Daily Routine Got Me Abs At 41." This replaces the older all-caps recipe below.**
 
 This task makes the five itself with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` (Dan, 2026-10-02; one Claude handoff, no separate Codex task). The pick is saved as `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
 `social media graphics/youtube/thumbnails/<title>/` and used for Blotato's `youtube_cover_url`.
