@@ -1,3 +1,4 @@
+- [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
 - [Reaction format](greenscreen-reaction-format.md): LOCKED 10-25: Bill Maher Codex R5 sequence, title, colour; no fixed green-screen AI since 10-27 (lean: Claude long-form, Codex Shorts)
 - [Protect Codex + other AIs](protect-codex-and-other-ais.md): 10-24: test machine-level changes (paths, moves, config) on Codex too, never Claude-only
 - [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
@@ -162,7 +163,7 @@
 - [Round 1](round1-full-graphics-review.md): show all graphics
 - [Excuse voice](excuse-voice-ai-clips.md): lip-synced AI clip
 - [Workout edits](workout-videos-model-muhammad.md): model Muhammad
-- [Jump rope](jump-rope-clip-rule.md): B0448 is right
+- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only
 - [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 - [B-roll looks](broll-choose-where-dan-looks-best.md): best light
 - [One shoot](no-mixing-shoots-on-camera.md): no mixing days
