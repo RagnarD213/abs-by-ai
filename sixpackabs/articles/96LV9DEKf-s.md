@@ -1,7 +1,7 @@
 ---
-id: TBD
-post_id: TBD
-slug: TBD
+id: 96LV9DEKf-s
+post_id: 927
+slug: how-to-keep-your-muscle-while-you-lose-fat
 excerpt: Keep muscle while losing fat by prioritizing resistance training, protein-first meals, and tracking your strength as well as your weight.
 ---
 If you want to lose fat without losing the muscle you worked to build, you have to keep resistance training, prioritize protein, and track your strength as well as your body weight. A lower number on the scale is not the whole goal. You want to like the physique you have when the fat comes off.
@@ -64,6 +64,6 @@ I show how to record weight and sets in Abs By AI. You can also use the notes ap
 
 Put protein first at your next meal. Keep resistance training in your routine. Record your body weight, then write down the weight and reps from your next workout. Those are the habits I keep coming back to because they help me see whether I am losing fat while holding on to what I want to keep.
 
-If you want a place to record your progress, [try Abs By AI]({CTA}).
+If you want a place to record your weight, sets and reps, [try Abs By AI free for 7 days]({CTA}).
 
 _This is general fitness information, not medical advice. Talk with your doctor before making changes to your medication. Some clips in the video are AI-generated visualizations, and they are labeled._
