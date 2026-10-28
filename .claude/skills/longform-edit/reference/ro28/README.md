@@ -76,3 +76,10 @@ cut to 6:26. Starts from RO-18's round 1 recipe (`../ro18/`); only the files tha
     (C01/C05/C12: 10-17% black, saturation .27-.38, median 55-71); C07 passed at 11% / .39 / 61 (`POOL_SHADE`).
 23. **A "click" on an audio join can be a 0.2 s breath, not the next word's onset** (6:17.5: burst 377.51-377.71, "Thank" at 377.87).
     Read 5 ms levels across 0.5 s before deciding; fill a breath with room tone (`roomfill.py`), blend only a ~10 ms tick (`declick.py`).
+24. **An RGB grade on a YUV frame goes through ffmpeg's automatic conversion with the wrong colour math** (gfx.clip_vf applies the
+    grade before `format=rgb24`): curves/vibrance/colorchannelmixer pushed Dan's skin orange and crushed blue (R5a, skin
+    93/55/27). Start any RGB grade with `scale=in_color_matrix=bt709:in_range=tv,format=gbrp,` (R5b `JR_B0448`), then grade, and
+    judge skin RGB/saturation against an approved pool clip, not only the frame-wide numbers (an overcast grey scene cannot reach
+    a sunny scene's median saturation without dyeing the concrete).
+25. **Jump rope: only the fast one-foot boxer skip (library B0448/B0542).** The 10/15 pool roll C1742 is a both-feet jump; round 1
+    labelled it "fast boxer skip" in the plan note and it went out until Dan caught it in R4 (second time on record).
