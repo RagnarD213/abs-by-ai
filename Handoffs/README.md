@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [V-Taper Exercises SFC Setup](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): **Start now. Claude Opus5.5, high.** Exact R6 approved October28. Five Codex-subscription cover pairs, stop for Dan pick, then verified backups/compatible upload copy and organic setup under the new release plan. Not started; no date reserved.
 
 
 - [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
@@ -204,6 +203,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
+
+- [handoff-20261028-ds47-v-taper-thumbnails-and-setup.md](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): started October 28 in Codex chat `01a183fe-a59b-7770-a2d4-1c600189be69`. Five cover pairs at http://127.0.0.1:9297/ await Dan pick; R6 preserved. Upload/setup pending. `Docs/DS47_COVER_REVIEW_20261028.md`.
 
 - [handoff-20261027-ro18-thumbnails-and-video-setup.md](handoff-20261027-ro18-thumbnails-and-video-setup.md): executed 2026-10-27 (Claude). RO-18 setup: Robot Mower thumbnail, waiting list for Wed Jan 13, 2027. Receipt `Docs/RO18_SETUP_RECEIPT_20261027.md`.
 - [handoff-20261021-ro18-round3-mower-wispr.md](handoff-20261021-ro18-round3-mower-wispr.md): executed 2026-10-24 (Claude). RO-18 R3 delivered; R4 (Wispr Flow take after the 1:28 card) done in the same task, approved 2026-10-27.
