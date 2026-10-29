@@ -112,7 +112,7 @@ def posts(v: dict) -> list:
                "containsSyntheticMedia": bool(v["ai_generated"]),
                "thumbnailUrl": v["youtube_cover_url"]}
     out = [
-        (FACEBOOK, "facebook", social_when, {"targetType": "facebook", "pageId": FB_PAGE},
+        (FACEBOOK, "facebook", social_when, {"targetType": "facebook", "pageId": FB_PAGE, **({"mediaType": v["facebook_media_type"]} if v.get("facebook_media_type") else {})},
          lede + cta("facebook", "See what you'd look like with a six-pack. Free AI preview:\n{link}") + f"\n\n{v['tags']}",
          v["video_url"]),
         (IG_MAIN, "instagram", social_when, dict(ig),
