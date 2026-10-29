@@ -3,7 +3,7 @@
   "date": "2026-10-28",
   "owner": "Codex01a184f8",
   "phase": "cover-review",
-  "status": "awaiting Dan cover picks",
+  "status": "R1 rejected by Dan on 2026-10-29; superseded by real-screenshot R2",
   "review_url": "http://127.0.0.1:9301/",
   "review_folder": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl11-vacuum-20261028",
   "concepts": 15,
@@ -941,5 +941,6 @@
         "jpeg_bytes": 330850
       }
     ]
-  }
+  },
+  "replacement_receipt": "Docs/SL11_COVER_R2_REVIEW_20261029.json"
 }

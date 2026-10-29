@@ -1,0 +1,940 @@
+{
+  "job": "SL-11",
+  "round": 2,
+  "date": "2026-10-29",
+  "status": "R2 Design 1 direction picked, with header changes requested; see R3",
+  "review_url": "http://127.0.0.1:9301/",
+  "previous_round": "Rejected by Dan, October 29",
+  "request": "I don't like any of these and as a general rule I think these AI-generated vacuum images of me are not turning out. Give me three unique designs with a real screenshot of me doing a vacuum, touched up. At least one of them should be the previously used touched-up screenshot that we've used in other covers or thumbnails of me doing the vacuum from the front. The touched-up real photos, I think as a general rule, are better than these AI photos for the vacuum",
+  "choices_per_short": 3,
+  "concepts": 9,
+  "layout_files": 18,
+  "new_image_generation": false,
+  "new_generation_spend_usd": 0,
+  "source_provenance": "Reused prior enhanced REAL C1677 screenshots from the RO-02 thumbnail build. Source retouch was already applied in October; no new AI scene or retouch generation in this round.",
+  "source_reuse": "Designs 1 and 3 reuse codex-edit-A-front-smile.png; design 2 uses codex-edit-B-three-quarter.png. Existing enhanced real camera images, source files copied byte-for-byte.",
+  "rule_saved": [
+    ".claude/skills/coverimage/SKILL.md",
+    ".claude/skills/_shared/VIDEO-RULES.md",
+    "Docs/memory/vacuum-covers-real-screenshots.md"
+  ],
+  "checks": {
+    "size_rgb_text_face_hair": "PASS",
+    "text_person_overlap_pixels": 0,
+    "served_hashes_verified": 18,
+    "visual": "All three paired sheets, all nine profile crops and native source images inspected; actual vacuum, hair, face and abdomen visible. Design 2 crop/column repaired before review; retained measured results in quality report."
+  },
+  "master_videos_sha256_rechecked_unchanged": [
+    {
+      "file": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+      "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "project_and_extreme_match_cloud_receipt": true
+    },
+    {
+      "file": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+      "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "project_and_extreme_match_cloud_receipt": true
+    },
+    {
+      "file": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+      "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "project_and_extreme_match_cloud_receipt": true
+    }
+  ],
+  "approved_cover_picks": null,
+  "uploaded": false,
+  "scheduled": false,
+  "next_action": "Wait for one exact numbered pick per Short, then continue organic setup from original handoff, preserve master videos and sound.",
+  "git_sync": "Prior R2 rule-sync blocker cleared on R3; safe-push ea4d2bf verified October 29.",
+  "outputs": [
+    {
+      "short": "a",
+      "design": 1,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-1.png",
+      "sha256": "ea9d3dbf82a8af9220ca6090e34af5f7af4c6e5348b57cf60e8cc3833c7df0d8",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-1.jpg",
+      "jpeg_sha256": "b6d1b7f049f7e7ba5afb8ba2ffd2c284afecf64d3f9d0ec4adfd42a4db9fba36",
+      "jpeg_bytes": 402418,
+      "text_bounds": [
+        [
+          55,
+          285,
+          1025,
+          419
+        ],
+        [
+          79,
+          427,
+          1001,
+          550
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        600,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "a",
+      "design": 1,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-1.png",
+      "sha256": "1ed6b14b422c7cc58cdd80f353b59d07f60f8c30239d56435c1577c19b252b79",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-1.jpg",
+      "jpeg_sha256": "c9b966ef31f5a7e2b7e5f649bc1c8032d0f075dedbba18f13f20e66a5ee38d69",
+      "jpeg_bytes": 426490,
+      "text_bounds": [
+        [
+          55,
+          115,
+          1025,
+          249
+        ],
+        [
+          79,
+          257,
+          1001,
+          380
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        430,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "a",
+      "design": 2,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-2.png",
+      "sha256": "9d1c9452c8c49a5981aa89378207c83ff772de36cc6670f3ebde3d2fd0ac2f3e",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-2.jpg",
+      "jpeg_sha256": "a58d67728ccc92162a8106be9010cdc5318bc62e11ca5c0a5890726050d94835",
+      "jpeg_bytes": 240133,
+      "text_bounds": [
+        [
+          42,
+          390,
+          331,
+          470
+        ],
+        [
+          42,
+          538,
+          218,
+          618
+        ],
+        [
+          42,
+          686,
+          381,
+          770
+        ],
+        [
+          42,
+          834,
+          380,
+          910
+        ],
+        [
+          41,
+          982,
+          374,
+          1062
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        260,
+        1120,
+        1680
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "a",
+      "design": 2,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-2.png",
+      "sha256": "7be78adb51f0f4dd6c53644d2f378dff3b947bb9ede4b19ad0c9f0513571ed10",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-2.jpg",
+      "jpeg_sha256": "1dcad17bd331a9b6eb8845290c34c9acae5d38ef63a91d3f1786371cafad018f",
+      "jpeg_bytes": 245002,
+      "text_bounds": [
+        [
+          42,
+          250,
+          331,
+          330
+        ],
+        [
+          42,
+          398,
+          218,
+          478
+        ],
+        [
+          42,
+          546,
+          381,
+          630
+        ],
+        [
+          42,
+          694,
+          380,
+          770
+        ],
+        [
+          41,
+          842,
+          374,
+          922
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        250,
+        1120,
+        1670
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "a",
+      "design": 3,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-3.png",
+      "sha256": "6b9b8815c30b3c05c524b2c41aacbadab3eeb5429799fcdfe69dd7afb1e95c3b",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-3.jpg",
+      "jpeg_sha256": "fa6295e0d5d596cc1d41142d18a85b4934a0a3915a9c480c956fecc03e99f9d8",
+      "jpeg_bytes": 345116,
+      "text_bounds": [
+        [
+          84,
+          1180,
+          996,
+          1277
+        ],
+        [
+          238,
+          1296,
+          841,
+          1433
+        ],
+        [
+          207,
+          1452,
+          870,
+          1611
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        240,
+        1080,
+        1145
+      ]
+    },
+    {
+      "short": "a",
+      "design": 3,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-3.png",
+      "sha256": "e48127feed762c6a5b82494ab2386a8ed9e02b1cfe6495e1574b67559188c6f6",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-3.jpg",
+      "jpeg_sha256": "4e4b6f40f6f8046d27d528202afbf4f8b0b9593c3236d93ebc5b69d5b8f11f6c",
+      "jpeg_bytes": 397217,
+      "text_bounds": [
+        [
+          46,
+          1310,
+          1033,
+          1415
+        ],
+        [
+          213,
+          1434,
+          866,
+          1582
+        ],
+        [
+          179,
+          1601,
+          898,
+          1774
+        ]
+      ],
+      "title": "How To Do A Standing Stomach Vacuum",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        35,
+        1080,
+        1275
+      ]
+    },
+    {
+      "short": "b",
+      "design": 1,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-1.png",
+      "sha256": "42dd80ece267f5c4534b679acb523dd6a6a5a2db37219d0956a660d99b063993",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-1.jpg",
+      "jpeg_sha256": "cb34378f933bfb6e280eb1c99ec6228aab2bda7619dfe94afb01cff418b29200",
+      "jpeg_bytes": 403087,
+      "text_bounds": [
+        [
+          60,
+          285,
+          1020,
+          401
+        ],
+        [
+          55,
+          427,
+          1025,
+          540
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        600,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "b",
+      "design": 1,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-1.png",
+      "sha256": "be006290567b08aa1510c3612a99bba42704c0a9738b4e5ab92c9fce99a109f3",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-1.jpg",
+      "jpeg_sha256": "426063d2289a61d14564f63dba6f4be2ed450c35173a675f14d46016c2958d14",
+      "jpeg_bytes": 426166,
+      "text_bounds": [
+        [
+          60,
+          115,
+          1020,
+          231
+        ],
+        [
+          55,
+          257,
+          1025,
+          370
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        430,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "b",
+      "design": 2,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-2.png",
+      "sha256": "2cd6bb462187dfd777730c7dd21ec8ce2373b84b1bd5dc53f74a81a46e9342a4",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-2.jpg",
+      "jpeg_sha256": "6a8a2ddb54fad4bdb8226fe4c46dcf2ba19c81b6426c11c62c36312d2838d342",
+      "jpeg_bytes": 244401,
+      "text_bounds": [
+        [
+          42,
+          390,
+          381,
+          449
+        ],
+        [
+          41,
+          538,
+          378,
+          594
+        ],
+        [
+          42,
+          686,
+          316,
+          776
+        ],
+        [
+          42,
+          834,
+          380,
+          910
+        ],
+        [
+          41,
+          982,
+          377,
+          1053
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        260,
+        1120,
+        1680
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "b",
+      "design": 2,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-2.png",
+      "sha256": "fd6f0be972ab2e5ba6a556be36eb5c52b9e0ed28bdb5dd51485ee2a6a0d2f138",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-2.jpg",
+      "jpeg_sha256": "61d181daaca1baff23b8d86c813747849488764ae168e858a62d13a5c184db03",
+      "jpeg_bytes": 248510,
+      "text_bounds": [
+        [
+          42,
+          250,
+          381,
+          309
+        ],
+        [
+          41,
+          398,
+          378,
+          454
+        ],
+        [
+          42,
+          546,
+          316,
+          636
+        ],
+        [
+          42,
+          694,
+          380,
+          770
+        ],
+        [
+          41,
+          842,
+          377,
+          913
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        250,
+        1120,
+        1670
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "b",
+      "design": 3,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-3.png",
+      "sha256": "373425591a917107b6b75203f97d829b2f24e791f22e363c92431efeb00f02fa",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-3.jpg",
+      "jpeg_sha256": "aaea7ff40d9d142f60382fa818cfbd5f8cdafe68171122f451ac0b6b4acb05d2",
+      "jpeg_bytes": 360027,
+      "text_bounds": [
+        [
+          61,
+          1180,
+          1020,
+          1266
+        ],
+        [
+          54,
+          1285,
+          1025,
+          1421
+        ],
+        [
+          137,
+          1440,
+          941,
+          1609
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        240,
+        1080,
+        1145
+      ]
+    },
+    {
+      "short": "b",
+      "design": 3,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-3.png",
+      "sha256": "591dfcba28b2d4a91516b9b8e8145f2fcad03dbee2f08d421f08f13d7bfc06b9",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-3.jpg",
+      "jpeg_sha256": "a851a6e5511fcc720f923b2e8aea2084c397000665cb2a274858e94b419baa17",
+      "jpeg_bytes": 411705,
+      "text_bounds": [
+        [
+          53,
+          1310,
+          1027,
+          1398
+        ],
+        [
+          46,
+          1417,
+          1034,
+          1556
+        ],
+        [
+          129,
+          1575,
+          949,
+          1748
+        ]
+      ],
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        35,
+        1080,
+        1275
+      ]
+    },
+    {
+      "short": "c",
+      "design": 1,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-1.png",
+      "sha256": "a9446664182d74dfaff0b23c7f84291687c2c18fe285acc27008b83873556485",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-1.jpg",
+      "jpeg_sha256": "dde2f123853bd66588aafd2ab7cb9dc3e46e710420210d4494a0326399321aac",
+      "jpeg_bytes": 403714,
+      "text_bounds": [
+        [
+          55,
+          285,
+          1025,
+          373
+        ],
+        [
+          57,
+          427,
+          1023,
+          551
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        600,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "c",
+      "design": 1,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-1.png",
+      "sha256": "7459e8c736efba4609c82470bdd591de6dad8fd0e88c8fdc722b0355379a9b9d",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-1.jpg",
+      "jpeg_sha256": "99dcf1771decceccf45f9aa024500d392b55d8a4da90e8b49ccfeda601f979dc",
+      "jpeg_bytes": 428243,
+      "text_bounds": [
+        [
+          55,
+          115,
+          1025,
+          203
+        ],
+        [
+          57,
+          257,
+          1023,
+          381
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        680,
+        65,
+        1490,
+        930
+      ],
+      "photo_rect": [
+        0,
+        430,
+        1080,
+        1920
+      ]
+    },
+    {
+      "short": "c",
+      "design": 2,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-2.png",
+      "sha256": "a633ea13af0a752b8b910c2625aad2b97bb14c9852b50a4022e526a62134bbf0",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-2.jpg",
+      "jpeg_sha256": "00a4965cb73e9905be0610def0c865feb92726c10068b1205b72545482c6600b",
+      "jpeg_bytes": 243819,
+      "text_bounds": [
+        [
+          42,
+          390,
+          381,
+          458
+        ],
+        [
+          42,
+          538,
+          381,
+          583
+        ],
+        [
+          41,
+          686,
+          360,
+          762
+        ],
+        [
+          42,
+          834,
+          249,
+          918
+        ],
+        [
+          42,
+          982,
+          368,
+          1068
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        260,
+        1120,
+        1680
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "c",
+      "design": 2,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-2.png",
+      "sha256": "fb8527777c403bfc0c1096f8e04baa95b93d620c99ce1bf6ee8605ab125a177b",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-2.jpg",
+      "jpeg_sha256": "f2991e0d9844e6200ec6a37f7e3f00fc08ec9567c986620c01573b98de8422fb",
+      "jpeg_bytes": 249146,
+      "text_bounds": [
+        [
+          42,
+          250,
+          381,
+          318
+        ],
+        [
+          42,
+          398,
+          381,
+          443
+        ],
+        [
+          41,
+          546,
+          360,
+          622
+        ],
+        [
+          42,
+          694,
+          249,
+          778
+        ],
+        [
+          42,
+          842,
+          368,
+          928
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/quarter-previously-touched-up.png",
+      "source_sha256": "ac6bed07a988644d0c53d3f2e1ff052a3572c50584616e3465b57f38e01e0ae0",
+      "new_image_generation": false,
+      "source": "quarter",
+      "cutout_source_bbox": [
+        1014,
+        152,
+        1400,
+        941
+      ],
+      "person_rect": [
+        425,
+        250,
+        1120,
+        1670
+      ],
+      "person_scale": 1.799746514575412
+    },
+    {
+      "short": "c",
+      "design": 3,
+      "platform": "instagram",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-3.png",
+      "sha256": "5cbcdad3dc9186d57d682dee80605006c7950c95da9e5e1b8d1d5b2f889c8805",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-3.jpg",
+      "jpeg_sha256": "8eaa69a4b6406b68e691eed713a3a5403c3394cdee18c4855e5022f9a92c8a66",
+      "jpeg_bytes": 359839,
+      "text_bounds": [
+        [
+          159,
+          1180,
+          920,
+          1287
+        ],
+        [
+          45,
+          1306,
+          1035,
+          1409
+        ],
+        [
+          47,
+          1428,
+          1033,
+          1582
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        240,
+        1080,
+        1145
+      ]
+    },
+    {
+      "short": "c",
+      "design": 3,
+      "platform": "youtube",
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-3.png",
+      "sha256": "f785f16a2f6433cbe14404bf7a92551ebbdd9d05cf1a0db7062f3369966ae964",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-3.jpg",
+      "jpeg_sha256": "0191f973a7b065b6ff9b7be2f32b7b16039beffa39d34ab42879c21fa2ad6be4",
+      "jpeg_bytes": 406896,
+      "text_bounds": [
+        [
+          159,
+          1310,
+          920,
+          1417
+        ],
+        [
+          45,
+          1436,
+          1035,
+          1539
+        ],
+        [
+          47,
+          1558,
+          1033,
+          1712
+        ]
+      ],
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "source_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/sources/front-previously-touched-up.png",
+      "source_sha256": "1ffd376a23e0ec9839fa98b880bd443c4c51cbc046cd32bb8d8a8bfd19b903dc",
+      "new_image_generation": false,
+      "source": "front",
+      "source_crop": [
+        610,
+        45,
+        1580,
+        900
+      ],
+      "photo_rect": [
+        0,
+        35,
+        1080,
+        1275
+      ]
+    }
+  ],
+  "replacement_receipt": "Docs/SL11_COVER_R3_REVIEW_20261029.json"
+}

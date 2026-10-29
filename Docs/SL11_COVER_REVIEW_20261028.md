@@ -1,3 +1,33 @@
+# The Vacuum SFL Setup: top-text review R3, October 29, 2026
+
+[Three new header treatments per Short](http://127.0.0.1:9301/?revision=3).
+
+Dan chose R2 Design 1 as the direction and requested a more attention-getting, sophisticated header. Built three treatments for each Short, with separate Instagram/YouTube layouts: 1 midnight/champagne centered, 2 cobalt/yellow left aligned, 3 bone/scarlet with slab serif. Recommendation 2. The same exact original words are reflowed into a more deliberate hierarchy. These revised files await exact approval, no cover installed or queued.
+
+All 18 layouts checked: RGB 1080x1920, safe text, no face/hair/body overlap, JPEGs under 2 MB and served PNG hashes. A pixel comparison proves every photo pixel is identical to R2 Design 1, beginning at y600 on Instagram and y430 on YouTube. Inspected three complete paired sheets, all nine profile crops and the refreshed browser page. All approved videos and sound preserved; no generation or playback. Earlier review pages/outputs retained.
+
+Exact recipe: `scripts/covers/sl11-20261028/round3/`. Exact files, hashes, QA and continuation: `Docs/SL11_COVER_R3_REVIEW_20261029.json` and `Short-form video content/covers/review/sl11-vacuum-20261028/round3/`. R2 #1 is a direction pick with requested revisions, not permission to install its new header. Wait for one new numbered pick per Short, then resume organic setup in this chat.
+
+## Superseded R2 review and history
+
+# The Vacuum SFL Setup: real-screenshot covers R2, October 29, 2026
+
+[Review the three new designs per Short](http://127.0.0.1:9301/).
+
+Dan rejected every initial choice and asked for three distinct designs using touched-up real vacuum screenshots, including the previously used front view. All nine concepts and 18 Instagram/YouTube layouts are built and checked, awaiting his exact picks. Recommendation: Design 1 for each. No uploads or schedules.
+
+Design 1 uses a yellow top headline over the previously used smiling front vacuum. Design 2 uses cream/red editorial side type with the prior enhanced real three-quarter frame. Design 3 uses the smiling front screenshot above a large navy/cyan bottom title. Both existing source images come from the RO-02 thumbnail build, with byte-identical copies and source hashes retained. They are previously enhanced REAL camera screenshots, not newly fabricated scenes. No new image generation or retouch call was made in R2.
+
+All 18 exact files passed RGB 1080x1920, text safe area, expanded face/hair clearance and JPEG-size checks. Every text/person-mask intersection is zero. Visually inspected the complete paired sheets, all nine actual profile crops and native source images. All 18 served PNG hashes match. The managed service caches 31 linked assets; the browser was refreshed and the new R2 page visually verified. Static page has no video/audio players. All three approved R3 video hashes rechecked unchanged, preserving picture and sound.
+
+Dan's real-screenshot preference is recorded as the default for future vacuum covers/thumbnails in the shared rules, cover skill and `Docs/memory/vacuum-covers-real-screenshots.md`. Existing approved covers stay locked. This topic-specific preference overrides the two-AI-Dan mix; counts follow his request.
+
+Exact files/receipts: `Docs/SL11_COVER_R2_REVIEW_20261029.json` and `Short-form video content/covers/review/sl11-vacuum-20261028/round2/`. Recipes: `scripts/covers/sl11-20261028/round2/`. Source/prompt history and rejected R1 files retained, old page `round1-index.html`. No pick inferred. After exact new picks, continue upload/setup in this chat using the original handoff and live release records.
+
+Repository sync: shared-rule commit 4b861cd is saved locally; safe-push was blocked by live edits to `Handoffs/video-editing/00-MASTER.md` and `Handoffs/video-editing/jobs.json`. Their owners must clear/commit those live changes. R2 review files are saved locally and available now; do not alter or adopt those live files. Retry the existing rule push before committing additional task files.
+
+## Superseded first review, rejected by Dan October 29
+
 # The Vacuum SFL Setup: cover review, October 28, 2026
 
 [Review all five choices for each Short](http://127.0.0.1:9301/).
