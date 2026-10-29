@@ -1,0 +1,11 @@
+{
+  "frames_src": 11567,
+  "frames_out": 11568,
+  "audio_pkts_src": 18093,
+  "audio_pkts_out": 18093,
+  "decode_errors": "",
+  "cover_psnr": 50.21406765120658,
+  "ok": true,
+  "audio_sha256": "793566a8afab4a06ecab8b0ff257474ffc44e501db9868d55ba0dbca5cc13c84",
+  "audio_identical": true
+}
