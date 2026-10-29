@@ -142,3 +142,9 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
   - E2 "You will get a new version of your winning video ad": $150, 3 days, 1 revision, 60 s, 1 length variation, 1 orientation, Video Editing ticked; Video & Audio > Short Video Ads; requirements: footage link, product page, target format. https://www.upwork.com/services/product/video-audio-a-new-version-of-your-winning-video-ad-2115913230303169467
   - Public view (?viewMode=1) Project catalog now lists both ($150 / 3 days, $75 / 2 days) next to $750 audit and $450 new versions (page 1 of 2).
   - Traps: gallery image must be at least 1000x750 (1280x720 rejected; used 1280x800 cards in scratchpad/catalog/); revisions dropdown is a custom select, click it (form_input fails); title field text can append on re-type, use form_input; category modal search needs a second type after opening the dropdown.
+
+## Dan's two edits (2026-10-29, after submission)
+
+- Founder & CEO, Social Response Marketing: now "July 2019 - Present" (was ending Jan 2026). Description gained: "Still running today as a continuation of Social Response Marketing, writing and editing direct-response video ads for health, fitness and info-product brands."
+- Boston University education: area of study changed from Entrepreneurship to Marketing (Upwork shows only one). Public view reads "Bachelor of Science (BS), Marketing, 2004-2008". The description still says "Double major in Entrepreneurship and Marketing."
+- Profile still shows "ID: Unverified". Dan verifies his own identity in Settings > Identity Verification; Claude does not enter ID documents.
