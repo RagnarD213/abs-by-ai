@@ -36,3 +36,12 @@ RO-38 (same day, same set) can start from this.
    untreated lav (C 6.5 vs A 3.9) but swung 3-9 on the same clip; shown to Dan as A (his pick) vs C (listener).
 9. **review_server refuses a page whose linked file is outside the served folder**: copy option media into `review/`.
 10. **Internal full-length render for context clips** (`ctx_chain.sh`): never delivered; cuts every item +/- 4 s and its still.
+
+## Round 1 verdict (Dan, 2026-10-29): the boxed panel is rejected; the CUTOUT is approved
+Dan: "This looks weird with the boxed-in thing" ... then on the 20 s test: "Yes, this cutout works. I think we should edit the
+video this way." Method (`cutout_test.py`): graded 4K frame -> 1152x2048 JPEG -> BiRefNet (Replicate `851-labs/background-remover`,
+~$0.002 a frame, 8 threads) -> alpha back to 2160x3840 (LANCZOS) on the ORIGINAL pixels -> 3-frame temporal median on the alpha
+-> composite with a soft dark drop shadow. Wide: scale 0.394, body centre x 1400, hair top y 44. Corner over a gym clip:
+scale 0.20, centre x 1640, hair top y 560. Hair edge steady over consecutive frames; hands/watch solid. Apple Vision's
+mask works too but is softer. The full-frame close-up "is a little bit too close": use it rarely.
+Treat cut-out portrait footage like green screen: the locked long-form background template (`_shared/greenscreen-bg/`).

@@ -1,40 +1,52 @@
 CONTENT (LFC). Task name: `First Time At The Gym LFC R2`. Model: Claude Opus 5.5, high effort (the video started on Claude).
 
-# RO-37 "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time": round 2
+# RO-37 "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time": round 2 (cutout rebuild)
 
-**Fire only after Dan replies to the round 1 page** (http://127.0.0.1:9537/). Round 1 delivered 2026-10-29; nothing here is approved yet.
+## Dan's round 1 verdict (exact words; full record `/Volumes/Expansion/_edit_work/RO-37/round2-plan/decisions.json`, sha256 c5468b14...)
+- On the R1 page: "I feel like the crop looks awkward... This looks weird with the boxed-in thing. Maybe some kind of graphics next to me the whole time."
+- On the 20 s cutout test (http://127.0.0.1:9538/, `cutout_test/test-bim.mp4`): "Yes, this cutout works. I think we should edit the video this way.
+  I like what you did with the ending scene and with the 'how this looks' full-screen graphic. I think we should only rarely use that super
+  close-in shot, though, or only if we can generate some footage on the sides. I think it's just a little bit too close to be used, maybe rarely
+  for that. Go ahead and edit the video in this way. Focus more on the green screen shots and full-screen graphics with me and the scene behind me.
+  Try some scenes like that, and just use that super close-in shot sparingly."
+- "The ending scene" = test 0:13-0:20: his gym clip full screen, Dan cut out small in the lower right. "The how this looks full-screen graphic" =
+  test 0:00-0:08: Dan cut out on the right on the moving Soft Blue field, a list card on the left.
 
 ## Read first
-`Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `.claude/skills/_shared/PRE-RENDER-APPROVAL.md`,
-`.claude/skills/longform-edit/reference/ro37/README.md` (portrait presentation and the traps round 1 paid for). Work folder:
-`/Volumes/Expansion/_edit_work/RO-37/round1/` (recipe/ holds the live scripts). Build round 2 in a new `round2/` folder; never overwrite round1 media.
+`Handoffs/video-editing/00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md` (green-screen sections, round-1 rules, hair clearance, silent review),
+`.claude/skills/_shared/PRE-RENDER-APPROVAL.md`, `.claude/skills/_shared/greenscreen-bg/README.md` (THE layout system now: types soft, corner,
+side, wall, cards, bigtype, panel, set; planner rules), `.claude/skills/longform-edit/reference/ro37/README.md` (portrait traps + the approved
+cutout method), and RO-24's round 3 recipe it points to (`longform-edit/reference/ro24/round3/`).
 
-## State at the end of round 1
-- EDL: 35 pieces from C1894, C1895, C1897 (C1893 hook take not used), film 7:55.5. Take choices and cut ad-libs: `recipe/edl.py` (each row says why).
-  Every join re-transcribed (`recipe/asr_check.py`, `logs/asr2.log`): clean.
-- Presentation built as (a): W = upright panel on the moving Soft Blue field, T = full-frame close-up, T2 = tighter close-up at take joins under
-  lower thirds. Lower thirds always on close-ups (`build.lt_framing`); side lists push the panel right with an eased slide.
-- Colour F Deep And Vivid, voice A Natural Warmth (both the pool set's prior picks) used in the draft. Options shown: presentation a/b/c, colour F/E/B,
-  voice A/B/C/D. 10 blind listens preferred C (untreated) 6.5 vs A 3.9, noisy.
-- 24 HyperFrames graphics (`hf/manifest.json`), 13 gym B-roll clips with name chips (`broll/grade.json` lifts), all in context on the page.
-- AI frame pairs passing gate + fresh reviewer: A1 Frozen at the gym door, A2 Done at hour two, A3 Too sore for the stairs, A4 The gym bag under the desk,
-  A6 Two weeks of cobwebs, A7 Nobody is watching you (`ai/frames_report_page.json`). A5 "300 pounds on day one" failed 5 tries: off the page.
-- First minute hair check PASS (closest 36 px). Not run yet: delivery gate, audio gate stamp, full jump-cut/junk pass, ra-reviewer.
-- Spend: $0. Release Fri Jan 1, 2027; finished and set up by Dec 18.
+## What carries over unchanged (round 1, `/Volumes/Expansion/_edit_work/RO-37/round1/`)
+- EDL (35 pieces, 7:55.5, every join re-transcribed clean), `words_out.json`, colour F grade, voice A chain, 13 tuned gym B-roll clips
+  (`broll/grade.json`), 24 HyperFrames graphics (`hf/`), lav wavs, hair_roll.json. Hashes in decisions.json `locked_hashes`.
+- Six AI frame pairs passing gate + fresh reviewer (`ai/frames_report_page.json`): A1 Frozen at the gym door, A2 Done at hour two, A3 Too sore
+  for the stairs, A4 The gym bag under the desk, A6 Two weeks of cobwebs, A7 Nobody is watching you. NOT yet approved by Dan; no motion authorized.
 
-## Hashes (sha256)
-- first minute draft `review/first-minute/DRAFT - First Time At The Gym R1 - first minute.mp4`: 6c913a4bcec10f83fcdbbb0bcacf4a04d4ac325df469671d0651fa7fc2b4f6d9
-- edl.json 7f736942b78072bc97aac0a4688a787ccb70a67047bdfeeee376a0fd05237b4c · shots.json 30000c89e6a153280e053fb8a52c84674d986bf70a2599e42fbeb5eb76863191
-- plan_resolved.json 7b26436637c5044255dd17f4be7300cf2c089ca5b0383daa389ca58d704c30e0 · hf/manifest.json 5d7973342b3a554707c83d2c8139a50636f4fede1ca9c33a378ebf57cda96b72
-- AI frames report 709af3fb5468d57733eef90551f3c674ea08f5bd2186bd035e0f7dee929825b9
+## What changes in round 2
+1. Every presenter shot is the cutout (method in ro37 README / `cutout_test.py`: BiRefNet per frame, 3-frame median alpha, ~$0.002 a frame) placed
+   with the greenscreen-bg template: background changes on cuts with what he says (soft = his gym clip or the pool picture blurred/navy, corner
+   over a gym clip, side, cards, bigtype for his numbers like "15 minutes", the Soft Blue field with a list beside him). Keep W/T style size
+   changes at every cut by the template's own wide/tight placements, not the full-frame close-up.
+2. The full-frame pool close-up: rarely (a few moments at most). Dan's alternative "generate footage on the sides" is optional; do not spend on it
+   without showing him a sample.
+3. Lower thirds and side lists sit beside or below the cut-out Dan, never across his face or abs (measure with the person mask).
+4. Matting cost estimate: cut-out frames only (B-roll and full-screen cards excluded), about 9,000-12,000 frames = $18-24 on Replicate: inside the
+   $25 session cap but state the estimate before the batch; first minute alone is about $3. Apple Vision (free, softer) is the fallback.
+
+## Round 2 deliverable (round-1 style page, since the look changed)
+The first minute rebuilt this way, plus every graphic/clip in context with the new layouts, and still open from R1: colour (F recommended), voice
+(A recommended; blind listener preferred C), opener (A1 recommended), which AI pairs to animate, weeks 2-4 layout. Keep "What I decided" and
+the reply box; hair/face clearance check on the cutout; Videos to Review copy; silent checks then owner handoff. No full film until the
+choices and AI motion are locked.
 
 ## Next action
-1. `python3 .claude/skills/_shared/editcap/editcap.py acquire RO-37 --title "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" --type LFC`.
-2. Save Dan's exact words in `round2-plan/decisions.json` (per item: verdict, his words, scope), re-hash the files above.
-3. Apply his picks (presentation, colour, voice; `RO37_GRADE`/`RO37_VOICE` env or edit defaults), generate motion for the approved AI pairs on Google
-   Flow via the background `flow-veo` agent (subscription; never paid without his yes), motion gate + fresh frame-reviewer on every take.
-4. When nothing is pending: full film, exact-file gates (`deliver/gate.py --format longform`, audio gate), CUT-CONTINUITY-QC, independent `ra-reviewer`,
-   then the R2 page with revision timestamps, `Videos to Review/` copy, queue `delivered`, `editcap release --review`.
+1. `python3 .claude/skills/_shared/editcap/editcap.py acquire RO-37 --title "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" --type LFC --release 2027-01-01`
+   (exit 3 = wait with `editcap.py wait RO-37` in the background).
+2. Re-hash the locked files against decisions.json. Build in `/Volumes/Expansion/_edit_work/RO-37/round2/` (copy round1/recipe; never overwrite round1).
+3. Plan the backgrounds with the greenscreen-bg planner on the round-1 EDL and plan; matte the first minute; render; page; stop for Dan.
+Release Fri Jan 1, 2027; finished and set up by Dec 18. Spend so far: about $0.90 (cutout test).
 
 ## Starter prompt
-> Read Handoffs/handoff-20261029-ro37-first-time-at-the-gym-r2.md and continue "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (First Time At The Gym LFC R2) with Dan's round 1 reply: <paste Dan's reply>. Name the chat "First Time At The Gym LFC R2".
+> Read Handoffs/handoff-20261029-ro37-first-time-at-the-gym-r2.md and run round 2 of "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (First Time At The Gym LFC R2): rebuild it with Dan cut out of the pool footage in the green-screen background style he approved, the close-up used rarely, then deliver the round-2 page. Name the chat "First Time At The Gym LFC R2".
