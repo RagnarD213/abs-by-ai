@@ -4798,17 +4798,17 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/RO-37.json, then execute Handoffs/video-editing/RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md for \"I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/RO-37.json, then execute Handoffs/video-editing/RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md for \"I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
-   "state": "in_progress",
+   "state": "delivered",
    "note": "Verified October 23 footage on Extreme. Exact take/hook/mic map: Media/footage-index/shoot-20261023/queue-jobs/RO-37.json. Sources and exercise library are prepared. This job has not been edited, rendered, approved, uploaded or scheduled.",
    "unattended": false,
    "intakeKey": "SHOOT-20261023-31",
    "order": 208,
    "updated": "2026-10-29",
-   "rev": 2,
+   "rev": 3,
    "syncedRev": 0,
    "editor": "Claude",
    "needs": "",
-   "by": "Claude"
+   "by": ""
   },
   {
    "id": "RO-38",
