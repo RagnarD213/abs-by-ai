@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-43:WAIT-SLOT:2026-10-29:Claude.**
 
-**RO-38:WAIT-SLOT:2026-10-29:Claude.**
+**RO-38:R1-BUILDING:2026-10-29:Claude.** `/Volumes/Expansion/_edit_work/RO-38/round1/`
 
 **RO-29:WAIT-SLOT:2026-10-29:Claude.**
 
@@ -48,7 +48,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Corrected previews rendering; voice fixed; key audit open. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1, 2026-10-29, Codex01a184db.** Previews rendered; picture/audio/player/hair checks done. Key gate blocks delivery. Waiting for Dan’s early-review choice in chat; slot released. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -59,7 +59,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R2:WAIT-SLOT:2026-10-29:Codex01a18963.** Second-in-line;auto-resume-active;32-hashes-verified. `Handoffs/RO23_R2_REVISIONS_20261029.md`
+**RO-23:R2:ACTIVE:2026-10-29:Codex01a18963.** Internal-previews;crunch-source-question;auto-continuation. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
@@ -78,7 +78,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 NEEDS DAN 2026-10-29, Codex01a188fd.** [Full film](http://127.0.0.1:8836/) rendered/checked, awaiting review. Paused, sound-ready; actual1080p/SRT in Videos to Review. One independent review complete; gate mismatches documented. `Docs/RO30_R6_FULL_FILM_REVIEW_20261029.md`.
+**Love Handles SETUP NEEDS DAN 2026-10-29, Codex01a188fd.** Film approved; [five thumbnails](http://127.0.0.1:8837/) checked, recommendation A. Three matching backups complete. Pick precedes platform upload/queue; January10 planned. SL-28 registered only. `Docs/RO30_SETUP_THUMBNAIL_REVIEW_20261029.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
