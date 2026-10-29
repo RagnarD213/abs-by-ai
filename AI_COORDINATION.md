@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Building R1: presentation, colour, voice, first minute, B-roll, AI frames. Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
+**First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9537/): first minute, presentation/colour/voice, 6 AI pairs, all graphics. Slot released. Next: Dan's reply, then R2 handoff.
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** Dan chose A concept; [three revised designs](http://127.0.0.1:9497/?revision=2), 2 recommended. Small labeled vial, stronger expressions, more ripped physique, new headline. Awaiting exact revised pick before install/setup; film remains approved. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
-**Audi-sale:FB-LIVE/AT-$29-APPROVAL:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+**Audi-sale:FB-LIVE/AT-CARD-ENTRY:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
 **Vacuum:REVIEW-R3:2026-10-29:Codex01a184f8.** [Headers](http://127.0.0.1:9301/?revision=3);await-picks;push8547e00-blocked:board/jobs-live.
 
@@ -43,7 +43,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Keys/graphics rendered; context previews/QA queued. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Contexts rendered; sound/boundary QA repairs queued. Complete packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`

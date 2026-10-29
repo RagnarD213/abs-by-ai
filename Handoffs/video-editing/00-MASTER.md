@@ -252,7 +252,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
 | [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
 | [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | FINALIZED | S |
-| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | IN PROGRESS | L |
+| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | DELIVERED: awaiting Dan | L |
 | [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | IN PROGRESS | L |
 
 ### 1E · Website VSLs, 9/23 shoot (2)
