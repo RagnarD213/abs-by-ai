@@ -56,6 +56,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-23:R2:WAIT-SLOT:2026-10-29:Codex01a18963.** Second-in-line;auto-resume-active;32-hashes-verified. `Handoffs/RO23_R2_REVISIONS_20261029.md`
 
 
+**Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
+
 **Alcohol And Abs SFC R1 (SL-10) - BUILDING 2026-10-29, Claude.** Dan picked A, B, D, E (reordered); four Shorts in build, edit slot held. Work: `/Volumes/Expansion/_edit_work/SL-10/`.
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
