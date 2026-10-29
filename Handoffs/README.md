@@ -54,7 +54,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Upwork profile finish](handoff-20261029-upwork-profile-finish.md): availability, education, 15 skills, 5 portfolio pieces DONE 10-29; 4 Project Catalog packages built as drafts, only Submit for Review (tick Upwork Terms + Privacy, needs Dan's yes) left. Log: `upwork-profile-working-brief.md`.
 - [Upwork Clients](handoff-20261029-upwork-client-acquisition.md): **Fire after Dan verifies his Upwork ID. Claude Opus 5.5, high.** Executes the merged Claude + Codex plan `Docs/UPWORK_CLIENT_PLAN_MERGED_20261029.md`: $75/$150 trials, Upwork bids via the official connector (Dan confirms each), low-volume brand outreach to the trial listing, $500 ceiling in tranches, training loop toward 95% AI. Supersedes the 10-07 jobs-and-proposals handoff.
 
 | Document | Fire when |

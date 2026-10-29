@@ -55,7 +55,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-23:R2:WAIT-SLOT:2026-10-29:Codex01a18963.** Second-in-line;auto-resume-active;32-hashes-verified. `Handoffs/RO23_R2_REVISIONS_20261029.md`
 
-**Upwork profile NEEDS DAN 2026-10-29, Claude.** Live; hours, education, 15 skills, 5 portfolio done. 4 packages saved as drafts; Submit for Review needs Dan's yes to tick Upwork Terms + Privacy. Detail: `Handoffs/upwork-profile-working-brief.md`.
 
 **Alcohol And Abs SFC R1 (SL-10) - BUILDING 2026-10-29, Claude.** Dan picked A, B, D, E (reordered); four Shorts in build, edit slot held. Work: `/Volumes/Expansion/_edit_work/SL-10/`.
 
