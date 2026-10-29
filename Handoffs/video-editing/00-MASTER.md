@@ -168,7 +168,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
 | [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | FINALIZED | S |
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
-| [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | IN PROGRESS | S |
+| [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | DELIVERED: awaiting Dan | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
 | [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |

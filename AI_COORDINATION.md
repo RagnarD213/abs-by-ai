@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
-**Coconut Water SFC R1 ACTIVE 2026-10-28, Claude.** DS-49 scripted only. Next: build, gates, review. `/Volumes/Extreme/_edit_work/DS-49/`
+**Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
 
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
@@ -46,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-28, Codex.** Colour repair and corrected graphics queued; five AI pairs cleared. Continuation ACTIVE. Contexts/checks next. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23 ACTIVE 2026-10-29, Codex.** Clean preview rendered; independent review/regression check active. Gate failures unresolved; no delivery. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles LFC R5 REVIEW 2026-10-28, Codex01a184ca.** [Two motion contexts](http://127.0.0.1:8835/). N01/N03 checked; N02 rejected, presenter retained. Fresh packetPASS;127 locks preserved;20 Flowcredits,$0paidgeneration. Full film pending. Slot released. Next: Dan motionapproval, then authorized final edit. `Docs/RO30_R5_MOTION_REVIEW_20261028.md`.
 
 
-**Brief overlap NEEDS DAN 2026-10-28, Codex.** Pause old cloud routine; keep local daily publisher.
+**Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
