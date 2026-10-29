@@ -113,3 +113,8 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 - Intro script: wants it in a Google Doc to edit: https://docs.google.com/document/d/1Dg8ISBBI41mx_cMarVquKRmkCerIogRxqLO0olYNbCA/edit
 - Asked whether to add Google Ads management ("my number one core skill set"), weighing it against his goal of automating the business.
 - New evidence: Dan's "SixPackAbs.com Channel YouTube Commercials" tracker (Drive 1Hot1_JQiKIAfvaqQ5t92YCK6IOV28GlFR5SRgE52rck; "Brand Manager: Dan Rose") links 1,047 ads still on YouTube with 262,056,508 views combined; top: "Burn Fat & Get Six Pack Abs With Fasting" 23.1M.
+
+## Round 3 review answers (Dan, 2026-10-29)
+- Portfolio piece 5: SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" (https://www.youtube.com/watch?v=5i30KDjihrs, 23.1M views). Dan: "I wrote the script, directed the editing, and personally managed the ad spend for that ad."
+- HBI case study covers all four Social Response Marketing ads in HBI's top 11. Overview gains "ran over 1,000 YouTube ads for SixPackAbs.com".
+- Google Ads: yes to the $750 YouTube Ads Account Audit as a fixed-price package; ongoing management offered in proposals (monthly price not yet set).

@@ -1,6 +1,6 @@
 # Upwork profile: DRAFT for Dan's review
 
-Status: DRAFT round 2, 2026-10-28 (Dan's 10-28 answers applied). Nothing has been entered, saved or published on Upwork. Facts and sources: `Handoffs/upwork-profile-working-brief.md`.
+Status: DRAFT round 3, 2026-10-29: all choices settled except Dan's edits to the intro script. Nothing entered on Upwork. Nothing has been entered, saved or published on Upwork. Facts and sources: `Handoffs/upwork-profile-working-brief.md`.
 Items marked **[DAN]** need a yes, a change or a fact.
 
 ## 1. Title (70 characters max)
@@ -51,6 +51,13 @@ All tiers approved by Dan, 2026-10-28.
 | Standard | 6 new versions | $800 | 7 days |
 | Advanced | 12 new versions | $1,400 | 10 days |
 
+**Project D: YouTube Ads Account Audit** (added 2026-10-29, Dan approved)
+| Tier | What you get | Price | Delivery |
+|---|---|---|---|
+| Single | Full audit of your YouTube/Google Ads account: what's wasting money, what to scale, which ads to cut, and a written action plan | **$750** | 5 days |
+
+Ongoing account management is offered in proposals as a fixed monthly fee, not on the profile. Price to set in the applications task (Claude's default: $2,500 a month minimum).
+
 Delivery days are totals for the package; the first draft still arrives within 5 business days.
 
 ## 5. Skills (pick from Upwork's list in the live editor; up to 15)
@@ -75,32 +82,33 @@ Keep the existing Upwork photo (Dan, 2026-10-27).
 
 | # | Piece | Link(s) |
 |---|---|---|
-| 1 | Healthy Back Institute: #1 ad of all time + "Five Foods" | https://www.youtube.com/watch?v=yZ2MYWDgMbg , https://youtu.be/K0iACRzW4kU |
+| 1 | Healthy Back Institute: the 4 Social Response Marketing ads in HBI's all-time top 11 (incl. #1) | https://www.youtube.com/watch?v=yZ2MYWDgMbg , https://youtu.be/K0iACRzW4kU , https://youtu.be/eRJnsVrnaE8 , https://youtu.be/y3DEsod4Vv0 |
 | 2 | SixPackAbs.com superfoods ad | https://www.youtube.com/watch?v=k6KoLySNgfo |
 | 3 | Mind Movies manifestation ad | https://www.youtube.com/watch?v=ag67A1CngO0 |
 | 4 | Spy Briefing "The 3 Rules Of Fighting Criminals" | https://youtu.be/sruniCtkIo0 |
-| 5 | **[DAN] REPLACE "How AI Got Me Abs"** (Dan worried about shirtless + AI). Recommended: SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" (23,089,576 views, 2017) pending Dan's role; see section 10 | https://www.youtube.com/watch?v=5i30KDjihrs |
+| 5 | SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" (23.1M views, 2017; APPROVED by Dan 2026-10-29) | https://www.youtube.com/watch?v=5i30KDjihrs |
 
 All are Unlisted YouTube ads: anyone with the link can watch; they are not searchable. Upwork accepts YouTube links in portfolio items; each item also needs a cover image (a frame from the ad).
 
-Dan's role on 1, 3, 4: wrote the script, chose the testimonials, directed the edit, ran the ad spend; a human editor cut them. On 2: wrote it, directed the edit and revisions; his team cut it. On 5: wrote it, starred, produced start to finish.
+Dan's role on 1, 3, 4: wrote the script, chose the testimonials, directed the edit, ran the ad spend; a human editor cut them. On 2: wrote it, directed the edit and revisions; his team cut it. On 5 (Dan, 2026-10-29): wrote the script, directed the editing, personally managed the ad spend.
 
 ## 9. Copy in Dan's voice (overview, intro video script, captions)
 
 Drafted by the dan-voice-writer agent from the content plan (facts only from the brief). No dashes; AI appears only in the ad title.
 
 ### 1. Profile overview
-(1911 characters with spaces; first 200 characters end at "...or an agency that needs new")
+(2131 characters with spaces, limit 5,000; first 200 characters end at "...or an agency that needs new")
 
 Healthy Back Institute's #1 ad of all time was mine. One video, $5.96 million in ad spend, 82 million views. If you run a health, fitness, supplement or info-product brand, or an agency that needs new ads, I can help you.
 
-I founded SixPackAbs.com (Six Pack Shortcuts) in 2010. I grew it with YouTube ads into the #2 ranked brand channel on YouTube, an Inc. 5000 company, with over 5.7 million subscribers. My ads for SixPackAbs.com drove over $214 million in revenue, and then I sold the company.
+I founded SixPackAbs.com (Six Pack Shortcuts) in 2010 and ran over 1,000 YouTube ads for it. I grew it into the #2 ranked brand channel on YouTube, an Inc. 5000 company, with over 5.7 million subscribers. My ads for SixPackAbs.com drove over $214 million in revenue, and then I sold the company.
 
-After the sale, I ran my own YouTube ad agency, Social Response Marketing, for brands including Healthy Back Institute, Mind Movies and Spy Briefing. My agency made 4 of Healthy Back Institute's top 11 ads of all time. In total, ads I've written and run have driven over $238 million in revenue.
+After the sale, I ran my own YouTube ad agency, Social Response Marketing, for brands including Healthy Back Institute, Mind Movies and Spy Briefing. My agency made 4 of Healthy Back Institute's top 11 ads of all time, with $9.4 million in ad spend on those four alone. In total, ads I've written and run have driven over $238 million in revenue.
 
 Here's what you get:
 - You send me your product and your offer. I research your buyer, write the script, get it filmed (your footage, or presenters I cast and film), edit it, and deliver ready-to-run ad files in horizontal, vertical and square, with a thumbnail when you need one.
 - Or start smaller: a single ad script, or new versions of an ad that's already working (new hooks, shorter cuts, new formats) so it keeps running longer before it wears out.
+- Already running ads? I'll audit your YouTube ad account, or run it for you. I've managed the ad spend myself, up to $50,000 a day for one client.
 
 How I work: fixed price. First draft in 5 business days. 3 rounds of revisions included.
 
@@ -130,7 +138,7 @@ So send me a message. Tell me your product, and what your best ad is doing right
 #### 1.
 Title (35/40 characters): Healthy Back Institute's #1 Ad Ever
 
-Description (289/300 characters): Healthy Back Institute needed ads to sell their back and joint pain supplement. I wrote both of these arthritis ads, chose the testimonials, directed the edits and ran the spend. Their #1 ad of all time: $5.96M spend, 82M views, $66.66 cost per sale. "Five Foods": $1.69M spend, 20M views.
+Description: Healthy Back Institute needed ads to sell their joint pain supplement. My agency made 4 of their top 11 ads of all time, including #1: $5.96M spend, 82M views, $66.66 per sale. All four: $9.41M spend, 143M views. I wrote them, chose the testimonials, directed the edits and ran the spend.
 
 #### 2.
 Title (28/40 characters): SixPackAbs.com Superfoods Ad
@@ -148,9 +156,9 @@ Title (28/40 characters): Spy Briefing Self-Defense Ad
 Description (173/300 characters): Spy Briefing needed an ad to sell their self-defense and survival offer. I wrote "The 3 Rules Of Fighting Criminals," directed the edit and ran the spend. It got 4.8M views.
 
 #### 5.
-Title (17/40 characters): How AI Got Me Abs
+Title: SixPackAbs.com Fat Loss Ad
 
-Description (165/300 characters): This one is for my personal YouTube channel, in 2026. One 58-second ad, delivered in horizontal, vertical and square. I wrote it, starred in it and produced it start to finish.
+Description: My most-viewed ad for my own company, SixPackAbs.com: "Burn Fat & Get Six Pack Abs With Fasting," 23.1M views. I wrote the script, directed the edit and ran the ad spend. It's one of over 1,000 YouTube ads I ran for SixPackAbs.com.
 
 
 ## 10. Round 2 notes (2026-10-28)
@@ -164,4 +172,4 @@ Description (165/300 characters): This one is for my personal YouTube channel, i
 - HBI "The Five Foods You Should Avoid Eating If You Have Arthritis" (Mark) https://youtu.be/y3DEsod4Vv0 : 17,554,191 views; $854,862 spend; $48.14 CPA, the lowest CPA in HBI's top 11.
 Recommendation: slot 5 = the fasting ad (fitness buyers are the main target); case study 1 grows to all four Social Response Marketing ads in HBI's top 11 ($9.41M spend, 143.2M views combined). New proof line for the overview: "I ran over 1,000 YouTube ads for SixPackAbs.com" (tracker count; Dan listed as brand manager).
 
-**Google Ads management.** Claude's recommendation: add it as a second offer, not the headline. Entry product "YouTube Ads Account Audit", fixed price [DAN: $750 suggested], 5 business days; Claude pulls the account data through the Google Ads API and drafts the audit, Dan reviews. Ongoing management offered in proposals as a fixed monthly retainer [DAN: price]. Title stays on ads; overview gains one line. See chat 2026-10-28 for the reasoning.
+**Google Ads management.** Claude's recommendation: add it as a second offer, not the headline. Entry product "YouTube Ads Account Audit", fixed price $750 (approved 2026-10-29), 5 business days; Claude pulls the account data through the Google Ads API and drafts the audit, Dan reviews. Ongoing management offered in proposals as a fixed monthly retainer (price set in the applications task). Title stays on ads; overview gains one line. See chat 2026-10-28 for the reasoning.
