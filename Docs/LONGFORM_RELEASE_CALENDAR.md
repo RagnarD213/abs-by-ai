@@ -40,7 +40,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Dec 16 | 2 | What To Buy For Your Health At Every Income Level | Waitlist |
 | Fri Dec 18 | 2 | RO-09 Pushup Masterclass only if edited and approved by Dec 16, else two-Short day | Not booked |
 | Sun Dec 20 | 2 | Can You Drink Alcohol And Still Have Abs? (My 6 Rules) | Waitlist |
-| Wed Dec 23 | 2 | OPEN: a ready non-kitchen film, else two-Short day | Not booked |
+| Wed Dec 23 | 2 | RO-15 Sleep Better With Glycine (non-kitchen holiday-slot film; needs editing, approved by Dec 16, else two-Short day) | Not booked |
 | Sun Dec 27 | 3 | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | Live |
 | Wed Dec 30 | 3 | RO-21 What Every Body Fat Percentage Looks Like, On Me (needs editing; fallback: strongest ready non-kitchen film) | Not booked |
 | Fri Jan 1 | 3 | RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (needs editing; fallback: strongest ready non-kitchen film) | Not booked |
@@ -55,8 +55,8 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Fri Jan 22 | 3 | The Vacuum Workout | Live |
 | Sun Jan 24 | 3 | RO-31 How To Get Rid Of Man Boobs (needs editing) | Not booked |
 | Wed Jan 27 | 3 | When Calories Don't Matter For Fat Loss | Live |
-| Fri Jan 29 | 3 | OPEN: How To Work Out At Home On A Budget (RO-06) if RO-22 takes Nov 25, else the strongest unused non-kitchen film | Not booked |
-| Sun Jan 31 | 3 | OPEN: strongest unused non-kitchen film (RO-23 if it missed Nov 22, else Sleep Better With Glycine RO-15 or Abs At 40 vs 25) | Not booked |
+| Fri Jan 29 | 3 | RO-32 I'm 41. Here Are The 10 Exercises I Do Every Week (gym B-roll now exists from Oct 23; needs editing) | Not booked |
+| Sun Jan 31 | 3 | OPEN: How To Work Out At Home On A Budget (RO-06) if RO-22 takes Nov 25, else RO-23 if it missed Nov 22, else the strongest unused non-kitchen film | Not booked |
 
 TikTok is uploaded by hand in TikTok Studio at noon the day after YouTube for these films (over Blotato's 10 minute TikTok limit): Intermittent Fasting (RO-08) Sat Nov 28; My First Spray Tan (RO-19) Sat Dec 5; Why You Should Invest More In Your Health (RO-20) Thu Dec 10; What To Buy For Your Health (RO-20C) Thu Dec 17; How To Make Time For Exercise & Nutrition (RO-18) Thu Jan 14. Each only once YouTube reads public.
 
@@ -67,7 +67,7 @@ Re-dates only; nothing deleted.
 - January films moved into the blitz: Belly Fat 90 Days (RO-16) Dec 20 to Sun Dec 27; The Stomach Vacuum (RO-02) Dec 9 to Fri Jan 15; Calories: The Reason You're Not Losing Weight (RO-10) Dec 27 to Sun Jan 17; The Vacuum Workout (RO-03) Dec 16 to Fri Jan 22; When Calories Don't Matter (RO-11) Dec 23 to Wed Jan 27.
 - Unchanged: Daily Salad Nov 1, Zepbound Tips Nov 8, Home On A Budget Nov 25 (poolside, not kitchen), 3 Healthy Foods Dec 13, Why You're Not Losing Weight (RO-14) Jan 3, Arms & Shoulders (RO-04) Wed Jan 6 (poolside, so Dan's Oct 25 approval stands), How To Make Time (RO-18) Jan 13.
 - Can You Drink Alcohol And Still Have Abs? (RO-13) takes Sun Dec 20 (was Dec 30). Pushup Masterclass (RO-09) is out of January and only books Fri Dec 18 if edited and approved by Dec 16; otherwise it waits for February.
-- If Why Losing Fat Changed My Face (RO-22) is edited by Nov 22 it takes Wed Nov 25 and Home On A Budget moves to Fri Jan 29.
+- If Why Losing Fat Changed My Face (RO-22) is edited by Nov 22 it takes Wed Nov 25 and Home On A Budget moves to Sun Jan 31.
 
 ## Dates this plan depends on (no edits are started by this task)
 

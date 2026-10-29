@@ -18,3 +18,10 @@ Deliverable: 16:9 master + SRT to the approved organic standard (Zeeshan's ab wh
 
 **Codex (GPT-6 Astra, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-15-sleep-better-with-glycine.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28; slot assigned 2026-10-29)
+- **Release:** Wed Dec 23, 2026 (phase 2 spare slot; a sleep topic suits the holiday low point); dated calendars `Docs/LONGFORM_RELEASE_CALENDAR.md` and `Docs/SHORTS_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Name a finish date by Dec 4; edited and approved by Dec 16, else the slot becomes a two-Short day and the film moves to a phase 4 Sunday.
+- **Footage:** Tube-light studio (Sept 23), not kitchen.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.

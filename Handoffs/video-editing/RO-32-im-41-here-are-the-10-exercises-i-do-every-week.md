@@ -2,7 +2,7 @@
 
 # RO-32: "I'm 41. Here Are The 10 Exercises I Do Every Week", first cut from raw footage
 
-**Organic long-form · 10/15 shoot · BLOCKED: gym B-roll of the exercises (next gym shoot).** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
+**Organic long-form · 10/15 shoot · READY (unblocked 2026-10-29: Oct 23 gym B-roll exists).** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
 
 ## Source (10/15 shoot, called the 10/17 shoot in the planning docs)
 Folder: `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/`
@@ -17,7 +17,7 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: walking into the gym, cardio, the weight-stack pin, leg press, hamstring curls, glute bridge machine, pull-ups, lat pulldowns, T-bar rows (all gym).
 - Almost every point is a gym exercise with no footage yet, so it waits on the gym shoot.
-- **Blocked on:** gym B-roll of the exercises (next gym shoot). Do not start until it exists.
+- **Was blocked on gym B-roll; unblocked 2026-10-29.** The Oct 23 gym shoot supplies it (see the Release plan block). Start now.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**
@@ -25,3 +25,10 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28; slot assigned 2026-10-29)
+- **Release:** Fri Jan 29, 2027 (January blitz; Friday long-form, socials Sat Jan 30 noon); dated calendars `Docs/LONGFORM_RELEASE_CALENDAR.md` and `Docs/SHORTS_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Name a finish date by Dec 11; suggested finished and approved by Jan 15.
+- **Footage:** Studio talking footage (Oct 15 roll C1776) plus Oct 23 gym B-roll, not kitchen. **Unblocked 2026-10-29:** the Oct 23 shoot supplies the missing gym B-roll (pull-ups, hamstring curls, leg press, lat pulldown, T-bar rows and the rest). Find clips with `python3 .claude/skills/_shared/cliplib/clip_library.py find "<exercise>" --favorite`; read `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md` first. Anything still missing is listed back to Dan, not invented.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.

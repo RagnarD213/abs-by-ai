@@ -31,3 +31,10 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 **Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Edit BOTH versions (scripted and off the cuff) in the locked reaction format, every gate and an independent review on each, deliver both side by side, send Dan the review page, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28; slot assigned 2026-10-29)
+- **Release:** Tue Dec 22, 2026, 9 AM (phase 2 two-a-day slot); dated calendars `Docs/LONGFORM_RELEASE_CALENDAR.md` and `Docs/SHORTS_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Edited and approved by Dec 11.
+- **Footage:** Studio green screen reaction (Oct 15 roll C1730), locked reaction format, not kitchen. Reaction Shorts lean Codex (`gpt-6.1-sol`, high); Claude Opus 5.5 high also works.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.
