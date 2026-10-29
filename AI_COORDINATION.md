@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
-**How To Do Pull-Ups SFC Setup (DS-76) ACTIVE 2026-10-29, Claude.** R2 hash verified; five covers generating. Next: Dan's pick, then backups, upload, January-blitz slot.
+**How To Do Pull-Ups SFC Setup (DS-76) REVIEW 2026-10-29, Claude.** [Five covers](http://127.0.0.1:9478/); awaiting Dan's pick. R2 preserved; nothing uploaded. `Docs/DS76_COVER_REVIEW_20261029.md`
 
 **Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
 
