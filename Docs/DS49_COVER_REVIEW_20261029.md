@@ -11,3 +11,9 @@ Status: **awaiting Dan's pick.** Nothing uploaded or scheduled. Review page: htt
 - Planned slot: **Mon Dec 21, 6 PM Central** (next free Short slot; Nov 23 is held for DS-84; 7 days after SL-19 coconut water Short on Dec 14).
 
 Next after the pick: copy pick to `Short-form video content/covers/approved-ds49/` with picks.json + hashes, TikTok cover-first copy, Blotato media uploads, config `scripts/blotato/configs/ds49-coconut-water.json` (copy ds76), FB cover registry, cover_audit + ad_guard, then `organic_short_queue.py` or the shared waitlist if Blotato is full; receipt `Docs/DS49_SETUP_RECEIPT_<date>.md`.
+
+## Round 2 (Dan, 2026-10-29)
+
+Dan: "I like A, but it doesn't really make sense to pour this out in the trash. I want three new designs similar to A, but where I'm pouring out the coconut water into a sink. Make two of these designs in an outdoor kitchen and one in an indoor kitchen."
+- Built F (outdoor kitchen by the pool, bottle into a steel sink, glass of ice water; recommended), G (outdoor kitchen under a pergola at golden hour, carton into a black sink, thumbs up), H (indoor white kitchen, farmhouse sink). All use A's yellow band and copy. 3 more Codex images (gpt-6.1-sol high), `generate-r2.sh`. check.py all pass; faces inspected.
+- Review page (same link) now leads with F, G, H; round 1 kept below for reference. Still awaiting Dan's pick; nothing uploaded or scheduled.

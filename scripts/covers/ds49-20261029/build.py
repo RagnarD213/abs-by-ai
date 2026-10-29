@@ -31,8 +31,10 @@ SHORTS = {
     'ds49': dict(slug='ds-49_coconut-water', copy=['Why I Stopped Drinking', 'Coconut Water'],
                  cutout='studio-blue-222', waist=1.0),
 }
-LETTERS = 'ABCDE'
-YT_ZOOM = {'A': 1.15, 'B': 1.1, 'E': 1.15}
+LETTERS = 'ABCDEFGH'
+# F/G/H (Dan, 2026-10-29): "I like A" but pouring into a sink, F/G outdoor kitchen, H indoor. Same layout as A.
+STYLE = {'F': 'A', 'G': 'A', 'H': 'A'}
+YT_ZOOM = {'A': 1.15, 'B': 1.1, 'E': 1.15, 'F': 1.12, 'G': 1.12, 'H': 1.12}
 ZOOM = {}   # letter: (x0, y0, x1, y1) crop on the 941x1672 Codex plate when Codex frames him too small
 
 def sha(p):
@@ -62,6 +64,7 @@ def d_layout(platform):
     return fs, heights, limit-sum(heights)-28
 
 def title(im, mask, k, platform, copy):
+    k = STYLE.get(k, k)
     y = 260 if platform == 'instagram' else 90
     draw, md = ImageDraw.Draw(im), ImageDraw.Draw(mask)
     if k == 'D':
