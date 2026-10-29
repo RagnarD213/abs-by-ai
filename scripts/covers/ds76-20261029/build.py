@@ -34,6 +34,10 @@ SHORTS = {
 }
 
 # Source crop boxes (x0, y0, x1, y1) on the 941x1672 Codex plate.
+# F/G/H (Dan, 2026-10-29): touched-up real screenshots; each borrows a headline style from round 1.
+STYLE = {'F': 'A', 'G': 'B', 'H': 'C'}
+LETTERS = 'ABCDEFGH'
+
 ZOOM = {'A': (94, 300, 847, 1639)}   # A: Codex framed him small; zoom so face and abs read on a phone
 
 def sha(p):
@@ -52,6 +56,7 @@ def fit(k, word, size, width):
     raise ValueError(word)
 
 def title(im, mask, k, platform, copy):
+    k = STYLE.get(k, k)
     y = 260 if platform == 'instagram' else 90
     draw, md = ImageDraw.Draw(im), ImageDraw.Draw(mask)
     if k == 'D':
@@ -125,12 +130,13 @@ def picture(key, k, platform):
             shifted=Image.new('RGBA',(W,H),(34,42,49,255))
             shifted.alpha_composite(im.crop((0,0,W,H-sh)),(0,sh))
             im=shifted
-    if platform == 'youtube' and k not in 'CD':
+    if platform == 'youtube' and k not in 'CDF':   # F: keep the bar and his hands below the band
         # Drop the Instagram reserve while keeping the complete lower picture.
         im = im.crop((0, 145, W, H)).resize((W, H), Image.Resampling.LANCZOS)
-    if k in 'BE':
+    s = STYLE.get(k, k)
+    if s in 'BE':
         a = np.zeros((H, W, 4), np.uint8); a[:, :, :3] = [5, 13, 26]
-        fade = 850 if k == 'B' else 560   # E's zoomed face sits higher; keep it out of the fade
+        fade = 850 if s == 'B' else 560   # E's zoomed face sits higher; keep it out of the fade
         for y in range(fade):
             a[y, :, 3] = int(220*max(0, 1-y/fade))
         if k == 'E':
@@ -154,10 +160,12 @@ def picture(key, k, platform):
     else:
         # Keep the whole headline panel clear of actual hair, not just the glyphs.
         top = person_top(im)
-        target = (260 if platform == 'instagram' else 90)+{'D': 0, 'E': 340, 'B': 330}.get(k, 355)
+        target = (260 if platform == 'instagram' else 90)+({'D': 0, 'E': 340, 'B': 330}.get(s, 355) + (60 if k == 'F' else 0))   # F: the bar sits just above his hair
         shift = 0 if k=='D' else max(0, target-top)
         if shift:
             color = tuple(int(v) for v in np.array(im.convert('RGB'))[:40].reshape(-1, 3).mean(axis=0))
+            if k == 'F':
+                color = (10, 12, 16)   # F's top rows are the grey bar: a flat grey strip read as a mistake
             shifted = Image.new('RGBA', (W, H), color+(255,)); shifted.alpha_composite(im.crop((0, 0, W, H-shift)), (0, shift)); im = shifted
             # Feather the join so the moved picture has no hard top edge.
             f = np.zeros((H, W, 4), np.uint8); f[:, :, :3] = color
@@ -171,7 +179,7 @@ def picture(key, k, platform):
 def build(keys):
     for key in keys:
         spec = SHORTS[key]; rows = []
-        for k in 'ABCDE':
+        for k in LETTERS:
             if not (SRC/f'{k}.png').exists():
                 print('missing plate', key, k); continue
             for platform in ['instagram', 'youtube']:
@@ -192,10 +200,10 @@ def build(keys):
                 mask.save(d/f"{spec['slug']}_cover-{k}.text-mask.png")
                 rows.append(dict(letter=k, platform=platform, path=str(p.relative_to(ROOT)), sha256=sha(p), text_bounds=bounds, **info))
         (OUT/key/'manifest.json').write_text(json.dumps({'status': 'awaiting Dan pick', 'copy': spec['copy'], 'outputs': rows}, indent=2))
-        sheet = Image.new('RGB', (5*300, 2*565), '#101722'); dr = ImageDraw.Draw(sheet)
+        sheet = Image.new('RGB', (len(LETTERS)*300, 2*565), '#101722'); dr = ImageDraw.Draw(sheet)
         label = ImageFont.truetype(str(SUP/'Arial Bold.ttf'), 24)
         for row in rows:
-            x = 'ABCDE'.index(row['letter'])*300; y = 0 if row['platform'] == 'instagram' else 565
+            x = LETTERS.index(row['letter'])*300; y = 0 if row['platform'] == 'instagram' else 565
             dr.text((x+12, y+14), row['letter']+' / '+('Instagram' if y == 0 else 'YouTube'), font=label, fill='white')
             im = Image.open(ROOT/row['path']); im.thumbnail((280, 500)); sheet.paste(im, (x+10, y+52))
         sheet.save(OUT/key/'five-cover-choices.jpg', quality=95)

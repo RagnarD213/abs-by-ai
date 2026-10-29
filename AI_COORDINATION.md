@@ -25,15 +25,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Zepbound Even If Ripped LFC Setup ACTIVE 2026-10-29, Codex01a18808.** Dan approved exact R5 master; queue finalized and Drive updated. Five thumbnails building, then Dan picks before upload/scheduling. Calendar Nov18 9AM Central. Record push blocked by live master-list edits; retry after images. Approval: `Handoffs/ro28-setup-approval-20261029.json`.
+
 **Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:REVIEW:2026-10-28:Codex01a184f8.** [15 pairs](http://127.0.0.1:9301/);pick letters,then setup.
+**Vacuum:COVERS-R2:2026-10-29:Codex01a184f8.** Three real-screenshot designs/Short; no uploads.
 
 
 
 **Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
-**How To Do Pull-Ups SFC Setup (DS-76) REVIEW 2026-10-29, Claude.** [Five covers](http://127.0.0.1:9478/); awaiting Dan's pick. R2 preserved; nothing uploaded. `Docs/DS76_COVER_REVIEW_20261029.md`
+**How To Do Pull-Ups SFC Setup (DS-76) REVIEW 2026-10-29, Claude.** [Covers A-H](http://127.0.0.1:9478/); awaiting Dan's pick. R2 preserved; nothing uploaded. `Docs/DS76_COVER_REVIEW_20261029.md`
 
 **Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
 
@@ -48,7 +50,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-29, Codex.** B preview independently cleared; regression/final gates running. Page prepared, not delivered. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23 REVIEW 2026-10-29, Codex.** [Checked R1](http://127.0.0.1:9826/); choose colour/voice/AI frames. Full film pending. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-29, Claude.** All choices settled; Dan editing intro script Doc. Nothing on Upwork. Commit 5e5ba94 local (live 00-MASTER blocks push); next safe-push carries it. Next: Dan's go to enter and publish. `Handoffs/upwork-profile-draft.md`
 

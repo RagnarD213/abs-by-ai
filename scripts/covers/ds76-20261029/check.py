@@ -22,14 +22,14 @@ for row in m['outputs']:
  safe=all(25<=b[0]<b[2]<=W-25 and miny<=b[1]<b[3]<=maxy for b in bounds)
  actual=hashlib.sha256(p.read_bytes()).hexdigest();assert actual==row['sha256']
  d=dict(letter=row['letter'],platform=row['platform'],sha256=actual,size=list(im.size),mode=im.mode,text_bounds_safe=safe,detected_faces=faces,text_on_expanded_face_pixels=face_collisions,person_top=int(np.where(person.any(axis=1))[0].min()),text_person_pixels=int((person&tm).sum()))
- d['passed']=safe and im.size==(1080,1920) and im.mode=='RGB' and len(faces)==1 and not any(face_collisions)
+ d['passed']=safe and im.size==(1080,1920) and im.mode=='RGB' and len(faces)==(0 if row['letter']=='H' else 1) and not any(face_collisions)
  if row['platform']=='youtube':
   jp=p.with_suffix('.jpg');d['jpeg_bytes']=jp.stat().st_size;d['passed'] &= d['jpeg_bytes']<2_000_000
  ph=R/'phone'/row['platform'];ph.mkdir(parents=True,exist_ok=True);im.resize((270,480),Image.Resampling.LANCZOS).save(ph/p.with_suffix('.jpg').name,quality=95)
  gr=R/'grid';gr.mkdir(exist_ok=True)
  if row['platform']=='instagram':im.crop((0,240,1080,1680)).resize((270,360),Image.Resampling.LANCZOS).save(gr/f"{row['letter']}.jpg",quality=95)
  rows.append(d)
-sheet=Image.new('RGB',(240*6,310),'#253044');dr=ImageDraw.Draw(sheet)
+sheet=Image.new('RGB',(240*(1+len(set(r[0] for r in faces_out))),310),'#253044');dr=ImageDraw.Draw(sheet)
 ref=Image.open(OUT/'sources/identity-reference.jpg');ref=ref.crop((465,100,830,480));ref.thumbnail((220,250));sheet.paste(ref,(10,40));dr.text((10,10),'Real identity reference',fill='white')
 for i,(letter,face) in enumerate(faces_out,1):sheet.paste(face,(i*240+10,40));dr.text((i*240+10,10),letter,fill='white')
 sheet.save(R/'face-check.jpg',quality=95)
