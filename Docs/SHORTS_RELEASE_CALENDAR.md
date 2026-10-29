@@ -69,7 +69,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Dec 17 | 2 | 6 PM | Top 3 Ways To Use AI To Get Abs | Waitlist |
 | Sat Dec 19 | 2 | 9 AM | 3 Healthy Foods 3: My 4 Go-To High-Protein Snacks | Waitlist |
 | Sat Dec 19 | 2 | 6 PM | Why You Must Weigh Yourself Daily | Waitlist |
-| Mon Dec 21 | 2 | 9 AM | OPEN | Not booked |
+| Mon Dec 21 | 2 | 9 AM | How To Get A V-Taper Physique (DS-47) | Waitlist |
 | Mon Dec 21 | 2 | 6 PM | OPEN | Not booked |
 | Tue Dec 22 | 2 | 9 AM | OPEN | Not booked |
 | Tue Dec 22 | 2 | 6 PM | OPEN | Not booked |

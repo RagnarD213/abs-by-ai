@@ -443,6 +443,17 @@
   "note": "Four Dec 30-31 schedules removed at Dan request to secure RO-25 Sun Oct 18. Exact backup Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json. Restore on original 2026 date when capacity opens."
  },
  {
+  "config": "scripts/blotato/configs/ds47-v-taper.json",
+  "kind": "short",
+  "job": "DS-47",
+  "label": "How To Get A V-Taper Physique",
+  "added": "2026-10-28",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "note": "R6 and exact R3 cover approved; four uploaded media verified. Shared top-up when four places free."
+ },
+ {
   "config": "scripts/blotato/configs/sl07-short1-stop-trying-to-lose-1-pound-a-week.json",
   "kind": "short",
   "job": "SL-07",
