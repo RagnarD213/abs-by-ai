@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R2 ACTIVE 2026-10-29, Claude (gym-first-time-r2).** Dan approved the cutout; rebuilding in green-screen style. R1 task superseded. `Handoffs/handoff-20261029-ro37-first-time-at-the-gym-r2.md`
 
+**Terry Crews Fasting SFC R1 (DS-43) WAIT-SLOT 2026-10-29, Claude.** First in line for an edit slot; auto-start armed. Next: build scripted + off-the-cuff, one review page.
+
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
 **RO-29:WAIT-SLOT:2026-10-29:Claude.**
