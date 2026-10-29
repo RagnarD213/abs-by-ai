@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Queue one finished organic long-form video across all five Abs By AI destinations.
 
-The YouTube Data API holding copy remains Private. Blotato creates the public YouTube
-release at the scheduled time. Facebook gets no mediaType because its Reels route is
-limited to short videos. TikTok can initially use the shared upload; tiktok_cover.py
-then replaces that schedule with the cover-prefixed derivative.
+Blotato creates the public YouTube release at the scheduled time, with no holding upload.
+New Facebook video configs opt into facebook_media_type="reel" (current API supports
+long-form Reels); absent values retain legacy targets so existing schedules are not rewritten.
+TikTok uses the checked cover-prefixed derivative before scheduling.
 
 Config (JSON):
   {
@@ -24,6 +24,7 @@ Config (JSON):
     "instagram_video_url": "https://...mp4",   # optional smaller copy: Instagram rejects files over about 300 MB
     "tiktok_direct": true,                     # optional: TikTok is uploaded by hand in TikTok Studio (films over Blotato's
                                                # 10 minute TikTok limit, Dan 2026-10-14); no TikTok post is queued here
+    "facebook_media_type": "reel",             # new Facebook video posts; legacy configs may omit
     "source": "Zeeshan Content Videos/.../file.mp4"   # optional; checked against the ad folders
     "platform_ctas": {"facebook": "Try Abs By AI free for 7 days: {link}"},
     "release_hold": "Previous-video URL and release order not yet verified"  # optional; blocks --apply

@@ -203,7 +203,7 @@ incomplete organic setup. Confirm the schedule by reading it back before reporti
    The current helper covers the four non-YouTube accounts. Queue the connected YouTube account through Blotato too,
    using the same release time and media, and verify all five schedules on a fresh pull. Do not fall back to YouTube
    native scheduling if Blotato needs repair; leave the release unscheduled until the Blotato path works.
-   - Facebook gets no `mediaType` (FB Reels cap at 90 s). TikTok long-form over ~10 min may exceed the account cap.
+   - **Facebook (verified 2026-10-29):** new long-form configs set `"facebook_media_type": "reel"`. Current Blotato API requires the Reels route for video and supports 3 seconds to 4 hours; the older no-mediaType/90-second instruction is obsolete. `longform_queue.py` supports this per-video field without rewriting existing legacy schedules. Sources: https://help.blotato.com/rest-api-reference/publish-post.md and https://help.blotato.com/tips-and-tricks/social-platform-requirements.md#facebook . TikTok long-form over ~10 min may exceed the account cap.
    - **A film over Blotato's 10 minute TikTok limit goes to TikTok directly (Dan, 2026-10-14, RO-19: "Upload it directly on
      the day you think makes sense").** Put `"tiktok_direct": true` in the config: `longform_queue.py` then queues only YouTube,
      Facebook and Instagram, and `video_topup.py` counts three posts. Upload the TikTok cover-first copy in TikTok Studio
