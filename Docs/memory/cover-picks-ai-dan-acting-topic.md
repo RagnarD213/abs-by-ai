@@ -18,3 +18,7 @@ A (yellow band over AI Dan acting the topic) for all three, again beating the re
 - 2026-10-27, Top 5 Ab Exercises (DS-01): picked B, AI Dan mid kneeling cable crunch in a dark gym, white/cyan Impact on a dark fade, over the yellow-band pool option. For an exercise Short, Dan doing the exercise itself (abs crunched, dramatic light) beat the yellow-band look. Hashes: `Short-form video content/covers/approved-ds01/picks.json`.
 
 - 2026-10-29, Vacuum covers (SL-11): Dan rejected all initial AI vacuum concepts. For this topic he prefers touched-up real camera screenshots, including the previously used front-facing vacuum. This topic exception overrides the general AI Dan preference. See `vacuum-covers-real-screenshots.md`.
+
+## Why Zepbound Improves Your Health Even If You're Ripped (2026-10-29)
+
+Dan chose the original pharmacy A concept over doctor, real studio, pool and gym options. He requested a small recognizable actual Zepbound vial, a better facial expression, a more ripped physique, and the headline Why Ripped Men Should Take Zepbound. From three distinct revisions he approved design3: broad smile, surprised pharmacist, wide yellow headline band. Exact approved file SHA256 `60cb671556f9dce7fadc8d9b53fc9362439cf2b8b488a66b4f0237df96aa5799`. This is the actual approved selection, not a proposed sheet. Receipt: `Docs/RO28_SETUP_RECEIPT_20261029.md`.
