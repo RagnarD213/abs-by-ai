@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-29",
+  "status": "revisions requested, not approved",
+  "selected_original": "A",
+  "original_sha256": "e8d903dd0a60f6c61a5881436ab879811cc546fae6fb73a18ff51b5ea58f6635",
+  "dan_words": "Okay I like A the best but I want some modifications. I want the Zepbound to be a small vial like it comes in, but identifiable as what it is. I want a better facial expression and I want to look more ripped in the image. I want to change the text to Why Ripped Men Should Take Zepbound Give me three unique designs with that concept",
+  "copy": "Why Ripped Men Should Take Zepbound",
+  "designs": {
+    "A1": "Pharmacist double-take, lean ripped Dan with raised-eyebrow confident half-smile, pharmacy right and strong yellow/white headline left.",
+    "A2": "Reverse composition: animated smiling Dan on left holding the tiny vial, surprised pharmacist behind, bold white/cyan stack on navy right.",
+    "A3": "Closer pharmacy scene, playful confident wide-eye expression, tiny real vial at shoulder, large yellow headline across top in an editorial banner."
+  },
+  "next": "Generate exactly three on subscription, inspect actual vial, expression and physique; add local text, check and show. Nothing installed."
+}

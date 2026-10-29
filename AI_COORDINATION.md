@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Building R1: presentation, colour, voice, first minute, B-roll, AI frames. Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
 
-**DS-49:REVIEW:2026-10-29:Claude.** [Covers](http://127.0.0.1:9549/);await-pick. `Docs/DS49_COVER_REVIEW_20261029.md`
+**DS-49:REVIEW:2026-10-29:Claude.** `Docs/DS49_COVER_REVIEW_20261029.md`
 
 **Zepbound Even If Ripped LFC Setup REVISING 2026-10-29, Codex01a18808.** Dan chose A concept, requested small recognizable vial, stronger expression, more ripped physique and new headline. Three distinct revisions building; nothing installed or scheduled. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
