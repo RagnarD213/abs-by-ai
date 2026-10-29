@@ -25,15 +25,20 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Vacuum:ACTIVE:2026-10-28:Codex01a184f8.** Covers; then picks.
+
+
+
+**Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Requests sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
+
 **Coconut Water SFC R1 ACTIVE 2026-10-28, Claude.** DS-49 scripted only. Next: build, gates, review. `/Volumes/Extreme/_edit_work/DS-49/`
 
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** RO-22 key calibration and voice checks running; automatic continuation armed. No review delivered. Next: finish R1 first-minute/context packet. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
-**[Audi:Dan-review:2026-10-28:Codex](Docs/AUDI_S5_SALE_PLAN_20261028.md).**
 
-**Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Five cover pairs](http://127.0.0.1:9298/); awaiting Dan pick. Approved R4 unchanged; three backups verified. Upload/setup pending, no date reserved. `Docs/DS105_COVER_REVIEW_20261028.md`
+**Mouthpiece SFC Setup ACTIVE 2026-10-28, Codex01a184cd.** Dan requested revised B: pull-ups, big smile, American flag mouthguard; plus one new design. Two subscription sources generating. R4 preserved. Next: show both platform pairs for exact-file approval. `Docs/DS105_COVER_REVIEW_20261028.md`
 
-**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Three-real-pairs](http://127.0.0.1:9297/);R2-await-pick;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
+**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Design3-front-vacuum](http://127.0.0.1:9297/);R3-await-exact-approval;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
