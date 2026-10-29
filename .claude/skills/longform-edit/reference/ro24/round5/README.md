@@ -32,3 +32,12 @@ Traps met:
   retimed, copy that round's baseline beside the new master.
 - A gate plan built from a manifest edited after the render fails (`covering()` finds no item): build it from the manifest
   the render used, or re-render first.
+- A1 shot 2 (hand rises to a hollow cheek): Veo could not draw the hand's path from START to END in 7 takes (ear, temple,
+  eye, fist, hair, a turn to profile). Redesign as a HELD pose: START-only from the approved END frame, prompt "almost no
+  movement, like a held photograph", plus an "Avoid:" list naming each fault (Flow has no negative field: veo.py
+  `--negative-file`, the flow-veo agent appends it). Even then 3 of 4 takes rubbed the cheek or turned; take 1 was clean on
+  frames 0-59 only. Prescreen with a face+hand crop strip (every 10 frames) before clipcheck: clipcheck tracks only camera
+  and background, never hands or faces. `ai_r5.py` takes optional `cuts` (film seconds) so each shot is retimed to its own
+  slot: the shot cut sits in the pause before the line it illustrates.
+- `veo.py add <dir>` appends `veo/`: pass the folder ABOVE the job (`round5/ai`), or takes land in a nested `veo/veo/`.
+- The frame gate refuses START=END from one gated frame (no reviewed pair stamp); START-only is accepted.
