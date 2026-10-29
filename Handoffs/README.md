@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [How To Do Pull-Ups SFC Setup](handoff-20261029-ds76-pull-ups-cover-and-setup.md): **Fire now (Dan approved R2 2026-10-29). Claude Opus 5.5, high.** DS-76: five covers via the Codex subscription, stop for Dan's pick, then Drive backup, upload and a January-blitz Short slot.
 - [Celebrity Ozempic LFC R5](handoff-20261028-ro24-celebrity-ozempic-round5.md): **Fired 2026-10-28** (Dan replied to R4). **Claude Opus 5.5, high**. RO-24: AI motion A1/A3/A4/A6/A8, new A7 frames, Amy abs photo, G06 card changes, remove the 5:46 pause, full render, gates, review.
 
 
