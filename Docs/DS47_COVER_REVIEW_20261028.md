@@ -1,5 +1,7 @@
 # V-Taper Exercises SFC: cover review, October 28, 2026
 
+**APPROVED AND INSTALLED, October 28.** Dan approved the exact R3 front-vacuum pair and authorized installation. Both files are locked in the four-platform release package. Setup, backups and shared-waitlist status: `Docs/DS47_SETUP_RECEIPT_20261028.md`. Earlier review sections below are historical.
+
 ## Current: Design 3 selected, front-vacuum replacement, Round 3
 
 Dan chose Design 3 with a requested replacement of the bottom image: use the previously used real touched-up front-facing vacuum, which he finds more impressive. The exact revised files await his approval before installation, upload or scheduling. Review URL unchanged: http://127.0.0.1:9297/ .

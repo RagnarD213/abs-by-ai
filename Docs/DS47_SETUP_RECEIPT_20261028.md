@@ -22,7 +22,7 @@ Copy uses the film's actual words and preserves the spoken sixpackabs.com CTA, w
 
 Pinned comment: **Have you ever tried doing the stomach vacuum exercise before?** Prepared in config; existing daily routine posts/pins after release. The default isolated Claude writer could not refresh its expired OAuth session, so the workflow's clean-prompt fallback wrote this single question in an isolated writer agent. Other copy is assembled from Dan's filmed wording. No customer messages posted now.
 
-Article: dedicated Short, nothing to write at setup. Existing post-release routine writes a searchable article or records a skip. Actual public platform cover tiles and pinned comment remain unobserved until release; existing release-check routines handle these. No new automation created. Edit Queue stays finalized until all four schedules exist and read back; waiting-list top-up then advances it.
+Article: dedicated Short, nothing to write at setup. Existing post-release routine writes a searchable article or records a skip. Actual public platform cover tiles and pinned comment remain unobserved until release; existing release-check routines handle these. No new automation created. Edit Queue stays finalized while waiting. Advance it to uploaded only after all four schedules exist and have been read back; no premature uploaded status was set.
 
 All checks were offline/silent: file decode, native still inspection and compressed-audio comparison. No audible listening or browser/native playback claimed. The cover page has no video/audio player.
 
