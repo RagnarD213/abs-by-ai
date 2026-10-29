@@ -27,26 +27,26 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:COVERS:2026-10-28:Codex01a184f8.**
+**Vacuum:REVIEW:2026-10-28:Codex01a184f8.** [15 pairs](http://127.0.0.1:9301/);pick letters,then setup.
 
 
 
-**Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Requests sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
+**Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
 **Coconut Water SFC R1 ACTIVE 2026-10-28, Claude.** DS-49 scripted only. Next: build, gates, review. `/Volumes/Extreme/_edit_work/DS-49/`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Keying; automatic continuation. Next: repair restart, finish R1 packet. No review delivered. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Key build/QC running; R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Pull-up covers B2/F](http://127.0.0.1:9298/?revision=2); awaiting approval. R4 preserved; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
 
-**V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Design3-front-vacuum](http://127.0.0.1:9297/);R3-await-exact-approval;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
+**V-Taper:HOLD:2026-10-28:Codex.** Cover-installed;Dec21-9AM-Central;shared-waitlist198/200. `Docs/DS47_SETUP_RECEIPT_20261028.md`
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-28, Codex.** Opening rendered; key checks running. Continuation ACTIVE. Review pending. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23 ACTIVE 2026-10-28, Codex.** Key-colour calibration running; five AI pairs cleared. Continuation ACTIVE. Contexts and review checks next. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
@@ -174,7 +174,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R5 - REVIEW 2026-10-27, Claude.** Jump rope swapped; page :8933. Next: Dan; then setup handoff.
 
-**How To Do Pull-Ups SFC R1 - REVIEW 2026-10-27, Claude.** [Whole Short](http://127.0.0.1:9476/); final independent review SHIP, gate 35/39 (portrait framing, caption measurement). Next: Dan picks colour/voice/crop or gives notes. `Handoffs/video-editing/DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md`
+**How To Do Pull-Ups SFC R2 - REVIEW 2026-10-28, Claude.** [Whole Short](http://127.0.0.1:9477/); look/voice/crop approved; full-screen intro done; review SHIP, gate 35/39 (known rows). Next: Dan approves or notes. `Handoffs/video-editing/DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md`
 
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
