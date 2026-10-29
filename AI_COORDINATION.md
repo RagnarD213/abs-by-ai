@@ -31,6 +31,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
+**Cortisol Belly LFC R1 (RO-29) WAIT-SLOT 2026-10-29, Claude.** Claimed; edit cap full, auto-start armed (2nd in line). Next: round 1 (graphics, AI frames, first minute) once a slot frees.
+
 **DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 
 
@@ -74,7 +76,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 NEEDS DAN 2026-10-29, Codex01a188fd.** [Full film](http://127.0.0.1:8836/) rendered/checked, awaiting review; paused/sound-ready. Watch0:56–1:09,1:27–1:39,2:08–2:23. Actual full-quality film/SRT in Videos to Review. One independent review complete. Gate mismatches retained; no audible listen claimed. `Docs/RO30_R6_FULL_FILM_REVIEW_20261029.md`.
+**Love Handles LFC R6 NEEDS DAN 2026-10-29, Codex01a188fd.** [Full film](http://127.0.0.1:8836/) rendered/checked, awaiting review. Paused, sound-ready; actual1080p/SRT in Videos to Review. One independent review complete; gate mismatches documented. `Docs/RO30_R6_FULL_FILM_REVIEW_20261029.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
