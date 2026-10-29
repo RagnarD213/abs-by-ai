@@ -8,7 +8,7 @@
   contract_value, revenue, dan_minutes, next_action, batch.
 - Dan approves or edits on the page; `final_text` vs `draft_text` is the training signal (SKILL.md, Training loop).
 - Upwork profile: https://www.upwork.com/freelancers/~016109a7105ec3bf5d
-- Outreach domain: danroseads.com (registered at WordPress.com; mailbox Google Workspace), set up 2026-10.
+- Outreach domain: danroseads.com, Namecheap (Dan's account, order 218087537, bought 2026-10-29, auto-renew off). DNS edited in Namecheap Advanced DNS via Dan's Chrome. Mailbox: Google Workspace dan@danroseads.com (Dan creates the account).
 - Trial listings (Project Catalog, approved 2026-10-29):
   - $75 Ad Hook Fix: https://www.upwork.com/services/product/writing-translation-5-fresh-hooks-and-a-rewritten-opening-for-your-video-ad-2115911710890237840
   - $150 New Version: https://www.upwork.com/services/product/video-audio-a-new-version-of-your-winning-video-ad-2115913230303169467
