@@ -27,13 +27,15 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Building R1: presentation, colour, voice, first minute, B-roll, AI frames. Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
 
+**RO-38:WAIT-SLOT:2026-10-29:Claude.**
+
 **DS-49:REVIEW:2026-10-29:Claude.** `Docs/DS49_COVER_REVIEW_20261029.md`
 
 **Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** Dan chose A concept; [three revised designs](http://127.0.0.1:9497/?revision=2), 2 recommended. Small labeled vial, stronger expressions, more ripped physique, new headline. Awaiting exact revised pick before install/setup; film remains approved. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
 **Audi-sale:FB-LIVE/AT-$29-APPROVAL:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:COVERS-R3:2026-10-29:Codex01a184f8.** #1 photo locked; three header treatments/Short, then review.
+**Vacuum:REVIEW-R3:2026-10-29:Codex01a184f8.** [Headers](http://127.0.0.1:9301/?revision=3);await-picks;push8547e00-blocked:board/jobs-live.
 
 
 
@@ -44,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Keys/graphics rendered; context previews/QA queued. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
-**Mouthpiece:REVIEW:2026-10-29:Codex.** [Headline approval](http://127.0.0.1:9298/?revision=3). R4-preserved. Push-blocked:live-queue-files. `Docs/DS105_COVER_REVIEW_20261028.md`
+**Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
 
 **V-Taper:HOLD:2026-10-28:Codex.** Cover-installed;Dec21-9AM-Central;shared-waitlist198/200. `Docs/DS47_SETUP_RECEIPT_20261028.md`
 
