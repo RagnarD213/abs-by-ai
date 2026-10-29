@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: ceee13ec-8e0f-492d-9a6d-d7e71c250812
-  modified: 2026-10-28T19:10:59.178Z
+  modified: 2026-10-29T20:44:03.989Z
 ---
 
 Dan, 2026-10-28, on the content-schedule overhaul: "excellent job collaborating with Codex on this and combining the best ideas into one handoff. This is an excellent example of how, in the future, you can collaborate with Codex on important business decisions. Let's save this as a template."
@@ -19,5 +19,13 @@ Dan, 2026-10-28, on the content-schedule overhaul: "excellent job collaborating 
 6. **Hand off to a cheaper model** (Codex newest Sol, high, for ops) with a starter prompt. The executor's first step is to verify whatever is still unconfirmed.
 
 **Why:** the two models catch each other's mistakes and blind spots. The merged plan was better than either one alone.
+
+**Second reference case (2026-10-29, Upwork client plan).** Dan: "excellent job collaborating with Codex on this. I thought your unified plan was slightly better than Codex's, although you both made some important contributions. This is another good example." What made it work:
+- Claude checked live state Codex hadn't (the Upwork profile in Chrome; unverified ID was the blocker).
+- Claude verified a Codex correction on the primary source before conceding (Upwork testimonials retired) and said plainly that Claude was wrong.
+- Codex's concrete pieces were adopted: $75/$150 trials, a $500 ceiling spent in tranches, payment timing, checkpoints, measuring by Dan's minutes.
+- Claude kept its own points where its evidence was stronger (Freelancer Plus economics, off-Upwork outreach, all four source videos).
+- The merge added ideas neither plan had (outreach buyers purchase the trial on Upwork for a real review; trials as permanent tripwire products).
+- Files: `Docs/UPWORK_CLIENT_PLAN_MERGED_20261029.md`, which includes the comparison table in section 4.
 
 **How to apply:** for any major business decision, offer to run it this way (ask Codex for an independent plan, or compare against one Dan brings), and follow these steps. Reference case: `Handoffs/handoff-20261028-content-schedule-overhaul.md` vs `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`. Related: [[model-routing-plan]], [[codex-owns-non-core-work]], [[handoff-starter-prompt-rule]].
