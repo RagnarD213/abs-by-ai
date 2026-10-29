@@ -46,3 +46,20 @@ GSAP lint refuses left/top tweens: move the highlight with `x`.
   invented hair cuts and see-through patches; check every claim on full-resolution frames. It did catch the ghost.
 - The 10/15 green screen key with RO-24's settings (RIM 4, plate over 3000-10000) measured mc flicker 0.52, hair 0.49-0.58,
   rim 4-4.6 %, 1 speck in 200 frames: `key/CALIBRATION.md`. 9,900 frames took about 7 h of two heavy slots on a busy Mac.
+
+## Round 2 (2026-10-29): Dan's four changes, on round 1's files (scripts `*_r2.py` here)
+Work in `round2/`; round 1 stays untouched. `plan_files_r2.py` writes `round2/film_manifest.json` + `round2/bg_plan.json` (round 1's
+with the changed items repointed); `assemble_r1.py` takes them via `--plan/--manifest`. `ctx_r2.py` renders the first minute and
+the context windows in `--grade rich`; `page_r2.py` is the small change-only page (first minute in its own inline player on top).
+- **Lock hashes for keys are of the `K*.done` stamp, not the `.mkv`** (decisions.json). Hashing the mkv shows 22 false mismatches.
+- **B01 AI clip insert** (`broll_r2.py`): inserts are opaque in the manifest, so the AI-GENERATED chip is burned into the insert
+  itself (`gsbg.SB.disclosure` PNG overlaid in RGB). A 24 fps library clip still gets `fps=30000/1001` + 2 padded frames.
+- **A still on the studio set's TV** (`g10clip_r2.py`): the `set` type plays only a clip or a portrait PAIR; turn a 16:9 still
+  into an 11 s sub-pixel push-in mp4 and give the segment `clip: {src, windows}`. The set draws its own chip. Lift the still a
+  little: the TV multiplies by 0.86. ClipSource's "Broken pipe" in the log at a segment end is harmless.
+- **from_plan fit check:** a fact headline fits 766 px at 84 px (about 14-15 characters). "Upper Four Abs Show" (907 px) did not.
+- **Sleeping AI frames (B10):** Codex made him bodybuilder-bulky from L08 alone: refine against `id_white57` + `id_gray2` ("slimmer
+  arms, smaller shoulders") and ask for cool moonlight on his skin. A face-only edit pass removed a lopsided smirk.
+- **Codex END frames swing the head** (asked for "a few degrees", gave ~38 degrees side to side; reviewer FAIL: the face would
+  morph). Fix that passed gate + fresh reviewer: END = START above the collarbones, blended (rows 470-540) into Codex's breathing
+  chest (after `lockstill.py` on the room). Only the breath moves; nothing for the video model to morph.

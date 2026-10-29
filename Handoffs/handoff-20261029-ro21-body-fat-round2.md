@@ -79,3 +79,11 @@ expected: about 6-12 Codex images (frames + one still), Flow credits for one 4-5
 > Percentage Looks Like (On Me)" round 2 with /longform-edit, Opus 5.5 high. Acquire the edit slot first, re-hash the locks,
 > build the B10 sleeping-Dan frames (Nest thermostat at 63) and the G10 sleep-deprived man background, swap B01 to AI clip
 > A0207, fix the P12 headline, then send me the small round 2 page and stop for my frame approval.
+
+## Round 2 status (2026-10-29, Claude Opus 5.5)
+Delivered the small page http://127.0.0.1:9522/ (`round2/review/`), handed over paused with sound ready; edit slot released
+(--review); queue `draft_review`. Locks re-hashed: 77/77 match (`round2/rehash_r2.json`). Built: B01 = A0207 with chip
+(`round2/broll/B01.mp4`), P12 "Upper Four Abs" (`round2/hf/tpl/renders/P12.mov`), G10 tired man on the set TV
+(`round2/ai/G10_man.png` -> `round2/bgclips/G10_man.mp4`), B10 START/END `round2/ai/B10_start.png` / `B10_end.png` (gate PASS +
+fresh reviewer PASS; first END failed for a head swing). Hashes `round2/hashes_r2.txt`. **Next:** Dan's frame approval, then
+step 4 above (B10 motion on Flow via flow-veo from these frames, prompt: one slow breath, camera locked; then the full film).
