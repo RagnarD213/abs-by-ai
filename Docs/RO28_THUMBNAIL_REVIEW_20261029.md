@@ -1,31 +1,30 @@
 # CONTENT (LFC): Why Zepbound Improves Your Health Even If You're Ripped, thumbnail review
 
-Updated: 2026-10-29. Owner: Codex chat 01a18808-6723-7ba0-95f8-2f27aa2c9729.
+Updated 2026-10-29. Owner Codex chat 01a18808-6723-7ba0-95f8-2f27aa2c9729.
 
-## Approved film
+## Current: three revised pharmacy designs await Dan
 
-Dan: "Yes this is approved. Go ahead and set this up" (2026-10-29).
-Exact round 5 master SHA256 `c5886ad48ebc749be02d4ad3dca0a2e11331be09dc8b3abb638dcba9028c0783`, rehashed against handoff before setup. No change to the master.
-Queue RO-28 set to finalized, rev 9. Drive status file upload confirmed. Claude artifact mirror pending its native writer; Codex does not mark it synced.
-Final transcript ending: "If you enjoyed this video, subscribe for more videos like this and go to SixPackAbs.com to get all my newest videos as soon as they're published." CONTENT LFC, organic setup applies.
+Review: http://127.0.0.1:9497/?revision=2
+Sheet: http://127.0.0.1:9497/REVIEW-three-revised-thumbnails.jpg
 
-## Thumbnail review, waiting for Dan
+Dan chose the original A concept but requested modifications, NOT installation approval. Exact words are in `Handoffs/ro28-thumbnail-r2-request.json`.
+New exact copy on all three: **Why Ripped Men Should Take Zepbound**. This changes thumbnail text only; the video title is still the original title.
 
-Review: http://127.0.0.1:9497/ . Managed on-demand service, five images served byte-identical to checked originals, all five loaded in browser at 1280x720. Still images only, no playback QA needed. One-sheet link: http://127.0.0.1:9497/REVIEW-five-thumbnails.jpg .
+1 / A1: Confident half-smile, pharmacy right, yellow and white headline stack left.
+2 / A2: Playful open-mouth smile, reversed close pharmacy composition, white/cyan stack right. Recommended for engaging expression and legible vial branding.
+3 / A3: Broad smile, wide pharmacy scene, yellow headline banner across top.
 
-A: pharmacist double-take (recommended). B: doctor consultation. C: original studio-white-32 cutout, person pixels preserved by local composition. D: poolside vial. E: gym and vial. All same question copy, title capitalization. No logo/disclosure label on thumbnails. Four AI scenes use real identity refs, gpt-6.1-sol high through codex-image.sh, subscription; no paid still API. No spares. Inspected actual faces, hands, framing, text and full sheet; all five pass measured 20px person/text clearance and JPEG under 2MB. Recent approved SL-08 C and My First Spray Tan navy final inspected first.
+Exactly three new images generated, no spares or paid still API, through codex-image.sh on the Codex subscription, gpt-6.1-sol high. References were original A, real studio-white-32, real photo-71, and Lilly's official single-dose vial image. All three change pose/composition/expression; original five remain preserved. Vial shape/label reference and official URL: `scripts/covers/ro28-20261029/r2/vial-provenance.json`. Appearance checked against clear vial, silver crimp, purple cap, green Zepbound word; no injection or syringe. Generated vials are product depictions, not dosing instructions. More defined abs/obliques and lean physique requested by Dan.
 
-Assets: `social media graphics/youtube/thumbnails/Why Zepbound Improves Your Health Even If Youre Ripped/`. Prompts, QC, checksums, real-photo provenance and original generated plates in `_build-2026-10-29/`. Recipe: `scripts/covers/ro28-20261029/build.py`.
+Checks: each final JPEG 1280x720 and under 2MB; zero person/text overlap with at least 20px clearance; inspected actual faces, hands, vial, abs, headline and comparison sheet. All three loaded in browser and all served file hashes match local checked outputs. Still images only, no audio/playback checks applicable. Managed review refreshed, original page archived as index-round1.html. Recipe and exact prompts under `scripts/covers/ro28-20261029/r2/`. Media and measured masks remain in thumbnail folder `_build-2026-10-29/r2/`.
 
-Current five output hashes:
-- A: `e8d903dd0a60f6c61a5881436ab879811cc546fae6fb73a18ff51b5ea58f6635`, 279439 bytes, 43.42 px clearance.
-- B: `0c12e8da3efb19c9ffcfb3de2390a0f938956e31c71da3f1f4b1ce706e425deb`, 237951 bytes, 75.0 px clearance.
-- C: `624ed54def0f96dfb0f34cca8b75cfef43fd6a7fa44f74cf6dfbf0704d829a9c`, 173039 bytes, 88.0 px clearance.
-- D: `da0083eddcd8827e3fc38fa53b7f6d4a42015527e93ca5e03516775de5c93579`, 453579 bytes, 22.09 px clearance.
-- E: `54710bcb189b7d1cd9f65078b902e8dc1310ab32fef02430e573b1d5a3bb98b6`, 262951 bytes, 26.0 px clearance.
+Hashes:
+- A1: `9a7d1a035e903203055a70a829b390ef688013cef2b90a4ed4ebc1563b31b1b5`, 337575 bytes, 113.51px text clearance.
+- A2: `fdb0fc5937c4c169bb0bf52508f7090f2b90ce343680c3cc2d39ec481d62b5f3`, 325810 bytes, 28.64px text clearance.
+- A3: `60cb671556f9dce7fadc8d9b53fc9362439cf2b8b488a66b4f0237df96aa5799`, 377743 bytes, 55.0px text clearance.
 
-## Next, after Dan picks
+## Approved film and remaining setup
 
-Stop for his thumbnail pick per video-setup. No cover approved, nothing uploaded or scheduled. No Blotato config or article written yet. Calendar now assigns YouTube November 18, 2026 at 9AM America/Chicago, socials November 19 at noon (supersedes handoff tentative 2027). Recheck live queue before scheduling. Preserve exact film, make hardware-encoded upload derivatives with stream-copied audio as required by caps; backups, disclosure, title, description, chapters, tags, pinned comment, article and shared waitlist/scheduling still required by video-setup. Shorts are a separate job; do not build ad formats.
+Dan approved exact round 5 on October 29: "Yes this is approved. Go ahead and set this up". Master SHA256 `c5886ad48ebc749be02d4ad3dca0a2e11331be09dc8b3abb638dcba9028c0783`, unchanged. Queue RO-28 finalized rev9 and Drive uploaded. Native Claude artifact mirror remains pending its writer; Codex never marks it synced. Organic ending subscribe + SixPackAbs.com confirmed from final subtitles. The film's disposable VLC review copies and service 8933 were removed; original delivery retained.
 
-Removed only this finalized video's five disposable Videos to Review copies, total 2,923,187,345 bytes. Original delivery master and sidecars preserved. Film-review service 8933 removed after switching owner to thumbnail review. Thumbnail service 9497 remains on demand.
+No revised thumbnail is approved, installed, uploaded or scheduled. Wait for Dan's actual pick or notes. Per VIDEO-RULES revisions require approval of exact revised files. After pick, complete video-setup backups, hardware upload derivatives retaining audio, title/description/chapters/tags, AI disclosure, pinned question, article and live Blotato queue/waitlist. Calendar currently November 18, 2026 9AM America/Chicago for YouTube, November19 noon for other platforms, recheck before scheduling. No new recurring automation. Three Shorts separate job; no ad-format adaptation.
