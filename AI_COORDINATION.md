@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Portrait pool rolls; building R1 (presentation, colour, voice, first minute, gym B-roll, AI frames). Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
+**First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Building R1: presentation, colour, voice, first minute, B-roll, AI frames. Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
 
 **Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** R5 approved, queue finalized and Drive updated. [Five thumbnails](http://127.0.0.1:9497/), A recommended. Awaiting Dan pick before upload/scheduling; calendar Nov18 9AM Central. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
