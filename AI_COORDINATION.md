@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
-**DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM. `Docs/DS49_SETUP_RECEIPT_20261029.md`
+**DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 
 
 **Audi-sale:FB-LIVE/AT-SUPPORT-APPROVAL:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
