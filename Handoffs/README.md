@@ -53,7 +53,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Upwork profile and portfolio](handoff-20261007-upwork-profile-and-portfolio.md): IN PROGRESS 2026-10-27: interview done; draft `upwork-profile-draft.md` awaits Dan, then enter and publish. Opus 5.5 high.
+- [Upwork profile finish](handoff-20261029-upwork-profile-finish.md): profile is LIVE; add availability, education, skills, 5 portfolio pieces, 4 packages. Sonnet 5 high, Claude in Chrome. (Replaces the 10-07 profile handoff, now executed.)
 - [Upwork jobs and proposals](handoff-20261007-upwork-job-applications.md): interview for criteria and budgets, decide promotion, prepare custom proposals/samples, submit approved batches, assess Grok Bot scouting. GPT-6.1 Sol high.
 
 | Document | Fire when |
