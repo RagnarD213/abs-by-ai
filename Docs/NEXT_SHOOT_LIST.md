@@ -55,6 +55,8 @@ the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 
 **Gym (added 2026-10-27, DS-76 How To Do Pull-Ups):** a true slow negative on the pull-up bar (jump or step to chin over the bar, then a 3 to 5 second lowering), front close and side angles. The 10/23 library has only normal-speed reps, so DS-76 keeps Dan on camera for "do slow negatives"; a re-edit can drop it in.
 
+**Gym (added 2026-10-29, RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time):** the script's cues that the 10/23 library does not have: walking in through the gym door, the empty barbell area, walking around between sets, stretching on the mats after a workout, walking out. RO-37 keeps Dan on camera for those lines; a re-edit can drop them in.
+
 ## 3. Your call before filming
 
 | what | the decision |
