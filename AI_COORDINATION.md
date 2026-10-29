@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Boundary repairs rendering; voice fixed; key checks open. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Corrected previews rendering; voice fixed; key audit open. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -60,7 +60,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R1 (SL-10) - BUILDING 2026-10-29, Claude.** Dan picked A, B, D, E (reordered); four Shorts in build, edit slot held. Work: `/Volumes/Expansion/_edit_work/SL-10/`.
+**Alcohol And Abs SFC R1 (SL-10) - REVIEW 2026-10-29, Claude.** [Four Shorts](http://127.0.0.1:9431/), all gates PASS, independent SHIP. Slot released. Next: Dan's notes, then setup handoff (covers).
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
@@ -74,7 +74,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 CHECKING 2026-10-29, Codex01a188fd.** Fullfilm rendered; audio/hair/scene measurements done, editor visual checks clear. Supplementary speech check queued; one fresh full-film reviewer and final gates remain. Automatic continuation active. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
+**Love Handles LFC R6 CHECKING 2026-10-29, Codex01a188fd.** Complete film and one independent review done; sole subtitle spacing fix applied. Final delivery gates queued once, then managed review delivery. Automatic continuation active. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
