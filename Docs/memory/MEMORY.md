@@ -12,6 +12,7 @@
 - [Green-screen backgrounds](green-screen-background-cycle.md): LOCKED 10-27 for long-form: greenscreen-bg template; reaction Shorts keep Codex R5
 - [Key efficiency](chroma-key-efficiency.md): keys cheap like Codex; excerpts + key once (10-24)
 - [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
+- [Weigh-in clips](ai-weighing-clips-over-stock.md): 10-29: our AI scale clips (A0207/A0144/A0197) beat stock
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Security warnings](security-warning-calibration.md): keep brief
