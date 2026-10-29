@@ -118,3 +118,11 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 - Portfolio piece 5: SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" (https://www.youtube.com/watch?v=5i30KDjihrs, 23.1M views). Dan: "I wrote the script, directed the editing, and personally managed the ad spend for that ad."
 - HBI case study covers all four Social Response Marketing ads in HBI's top 11. Overview gains "ran over 1,000 YouTube ads for SixPackAbs.com".
 - Google Ads: yes to the $750 YouTube Ads Account Audit as a fixed-price package; ongoing management offered in proposals (monthly price not yet set).
+
+## Upwork entry log (2026-10-29, Claude in Dan's Chrome)
+- Account: Dan's existing freelancer account "Daniel Rose" (switched from client account SixPackAbs.com). Flow: create-profile glidepath, "Fill out manually".
+- Step 2: category Design & Creative > Video & Animation; skills entered: Video Ad, Video Advertising, Short Video Ad (Upwork's skill search then broke; add the rest in the profile editor).
+- Step 3 saved: title changed to "Direct-Response Video Ads | Scripts & Edits That Drove 238M+ in Sales" (Upwork bans "$" in titles); overview entered with "SixPackAbs.com" changed to "Six Pack Shortcuts (SixPackAbs)" (Upwork bans website addresses in the overview); rate $145; jobs Social Response Marketing (Founder & CEO, Austin, Jul 2019 to Jan 2026) and Six Pack Shortcuts (SixPackAbs) (Founder, Austin, Jan 2010 to Apr 2019; months are placeholders, Dan to correct); English native.
+- Education removed for now: Upwork requires attendance years (unknown). Degree to use: "Bachelor of Science (BS)" from Upwork's list (generic "Bachelor's" not accepted); field of study list pick failed, double major goes in the description.
+- Stopped at step 4 "personal info" (date of birth, street address, phone): Dan enters these himself.
+- Still to do after Dan: preview/submit profile, remaining skills, 5 portfolio items (captions must avoid ".com" if Upwork flags it), 4 Project Catalog packages, public-view check, profile URL.
