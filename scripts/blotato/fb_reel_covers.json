@@ -1131,5 +1131,15 @@
   "approved": "Dan picked F (touched-up real screenshot) on 2026-10-29: \"Go with F\"",
   "sha256": "dcc486982197345820df2f5ac4c871a97ab064336369b0f7f0db46ffee427163",
   "when": "2026-12-26T15:00:00.000Z"
+ },
+ {
+  "job": "DS-105",
+  "match": "Wear a mouthpiece when you guys work out.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds105-mouthpiece-approved.jpg",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved revised B3 headline and installation on 2026-10-29",
+  "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
+  "when": "2026-12-27T00:00:00.000Z"
  }
 ]
