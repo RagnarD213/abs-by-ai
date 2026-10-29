@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Vacuum:ACTIVE:2026-10-28:Codex01a184f8.** Covers; then picks.
+**Vacuum:COVERS:2026-10-28:Codex01a184f8.**
 
 
 
@@ -36,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** RO-22 key calibration and voice checks running; automatic continuation armed. No review delivered. Next: finish R1 first-minute/context packet. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
-**Mouthpiece SFC Setup ACTIVE 2026-10-28, Codex01a184cd.** Dan requested revised B: pull-ups, big smile, American flag mouthguard; plus one new design. Two subscription sources generating. R4 preserved. Next: show both platform pairs for exact-file approval. `Docs/DS105_COVER_REVIEW_20261028.md`
+**Mouthpiece SFC Setup ACTIVE 2026-10-28, Codex01a184cd.** Two pull-up cover revisions generating, big smile/American flag mouthguard. R4 unchanged. Next: exact-file approval. `Docs/DS105_COVER_REVIEW_20261028.md`
 
 **V-Taper:REVIEW:2026-10-28:Codex01a183fe.** [Design3-front-vacuum](http://127.0.0.1:9297/);R3-await-exact-approval;R6-preserved;upload/setup-pending. `Docs/DS47_COVER_REVIEW_20261028.md`
 
