@@ -100,11 +100,14 @@ def main():
             pr = G.Presenter(it['key'], it['src0'] - kf0 + (o - it['o0']), e - o, k, ox, oy)
             light = getattr(bg, 'light', None)
             ai = seg['type'] in AI_BG and seg.get('ai_label', True) and (seg['type'] != 'soft' or any('ai_images' in x for x in seg.get('photos', [])))
+            if seg.get('chip_xy'):                   # R3: a left-third card covers the set's top-left chip; the set's own chip is off
+                ai = True; xy = tuple(seg['chip_xy']); chips.setdefault(xy, chip_layer(xy))
             for q in range(o, e):
                 while bg._next < q: bg.frame(bg._next - seg['f0'], cam); bg._next += 1
                 img = bg.frame(q - seg['f0'], cam).copy(); bg._next = q + 1
                 if ai:
-                    chip = chips['panel' if seg['type'] == 'panel' else 'other']; img = img * (1 - chip[1]) + chip[0] * chip[1]
+                    chip = chips[tuple(seg['chip_xy'])] if seg.get('chip_xy') else chips['panel' if seg['type'] == 'panel' else 'other']
+                    img = img * (1 - chip[1]) + chip[0] * chip[1]
                 top_bg = img[:420].copy()
                 F, Al = pr.read()
                 img = G.compose(img, F, Al, pr.rect, k, A.grade, light)

@@ -63,3 +63,29 @@ the context windows in `--grade rich`; `page_r2.py` is the small change-only pag
 - **Codex END frames swing the head** (asked for "a few degrees", gave ~38 degrees side to side; reviewer FAIL: the face would
   morph). Fix that passed gate + fresh reviewer: END = START above the collarbones, blended (rows 470-540) into Codex's breathing
   chest (after `lockstill.py` on the room). Only the breath moves; nothing for the video model to morph.
+
+## Round 3 (2026-10-29): the full film; traps an independent reviewer caught (scripts `*_r3.*` here)
+- **⚠ LIP-SYNC DRIFT from round 1's `voice_r1.py`:** it joined pieces by overlapping the next piece onto the LAST 40 ms of the
+  previous one, so the track lost 40 ms per join (560 ms by the end of 14 joins) while the picture stayed on the EDL. The delivery
+  gate's `audio:lipsync` row PASSED because its `source_audio` was the same shifted track. `voice_r3.py` places every piece at its
+  film_in and centres the crossfade on the join with 20 ms of real lav past each edge; it prints each piece's lag against the lav
+  (must be 0). Prove sync against the CAMERA audio of the raw roll, never against your own intermediate.
+- **Side-by-side pairs read as before/after** (Dan, R2 note at 0:28). On the set TV use one picture (`stillclip_r3.py --pad`: a
+  portrait centred, the plain backdrop extended sideways, slow push-in, played as the set's `clip`). Do not add new pairs.
+- **Set chip under a left-third card:** the set's own chip is top left (56,48), exactly where l3 cards sit. On a set segment that
+  runs under an l3 card, set `ai_label: false` + `chip_xy: [56, 952]` (`assemble_r1.py` now honours it).
+- **Veo turns a shirtless sleeper into a snorer:** 6 Flow takes (3 prompts, with and without END) opened his mouth and rolled his
+  head within 1.5 s. `b10breath_r3.py` makes the motion from the approved START/END themselves (DIS flow of the chest only, one slow
+  breath, 4% push-in); clipcheck + fresh reviewer PASS. Use it when a still-subject clip keeps morphing.
+- **Patch, do not re-render:** render in chunks, then re-render only a changed range between existing IDR keyframes and splice
+  with stream copy (`splice_r3.sh`, `splice2_r3.sh`; x264 put keyframes on every background change). Check the joins frame-exact.
+- **A restart inside one EDL piece is invisible to `junk:repeated_take`** (medium.en merged both attempts into one stretched word).
+  Under a full-screen graphic, cut the audio in the pause and remove the same frame count from a HELD stretch of the graphic with a
+  10-frame dissolve (`cut_r3.py`); shift plan, words, EDL and build map after it.
+- **Whisper on the delivered audio skips stretches** (it stretched "of" over 4 s): `finish_r3.py` aligns Whisper to the intended
+  words (difflib) and inserts runs it skipped; it also merges "-boiled" tokens and drops a word re-said as the start of the next.
+- **Label references:** cards, ladders and the real-photo card draw their own chips; crop each reference from its own MOV.
+- **Watch pass reuse:** keep the judged pass, diff image sha256s after a patch, and send only changed images to a fresh judge.
+- **Gate declarations used** (plan `declare`): framing rows (the face detector fails on a composite with AI faces behind him; the
+  assembler's per-frame hair clearance is the evidence), static run (approved 50 s recap row), splice visibility (template
+  background swaps), burned captions / card collision (graphic text; speech over cards), as on RO-28.

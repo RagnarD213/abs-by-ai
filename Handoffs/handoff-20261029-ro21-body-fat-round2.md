@@ -87,3 +87,12 @@ Delivered the small page http://127.0.0.1:9522/ (`round2/review/`), handed over 
 (`round2/ai/G10_man.png` -> `round2/bgclips/G10_man.mp4`), B10 START/END `round2/ai/B10_start.png` / `B10_end.png` (gate PASS +
 fresh reviewer PASS; first END failed for a head swing). Hashes `round2/hashes_r2.txt`. **Next:** Dan's frame approval, then
 step 4 above (B10 motion on Flow via flow-veo from these frames, prompt: one slow breath, camera locked; then the full film).
+
+## Round 3 status (2026-10-29, Claude Opus 5.5): full film delivered
+Dan's R2 reply (B10/P12/G10 approved, "Proceed with the edit"; other man's pictures at 0:06, 0:28 single, 0:57 and through the
+film): `/Volumes/Expansion/_edit_work/RO-21/round3/decisions_r2.json`. Full film 7:27 (13,410 frames) at
+`round3/final/RO21_MASTER.mp4`, page http://127.0.0.1:9523/, delivered to `claude edited long form content/24 - What Every Body Fat
+Percentage Looks Like (On Me)/`, queue `delivered`, slot released. Independent review: SHIP on the third pass (first two caught a
+40 ms-per-join lip-sync drift from round 1, side-by-side pairs, a click and a recap restart; all fixed). Gate 38/39, the fail is
+the approved voice A tone row. Open question to Dan: switch the three remaining round-1 TV pairs of him to singles?
+**Next:** Dan's notes or approval; on approval `/video-setup` (Wed Dec 30) with `RO21.srt` and the chapters.
