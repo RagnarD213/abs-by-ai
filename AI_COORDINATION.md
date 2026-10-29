@@ -35,7 +35,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Coconut Water SFC R1 ACTIVE 2026-10-28, Claude.** DS-49 scripted only. Next: build, gates, review. `/Volumes/Extreme/_edit_work/DS-49/`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Key build/QC running; R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Pull-up covers B2/F](http://127.0.0.1:9298/?revision=2); awaiting approval. R4 preserved; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
@@ -46,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 ACTIVE 2026-10-28, Codex.** Key-colour calibration running; five AI pairs cleared. Continuation ACTIVE. Contexts and review checks next. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23 ACTIVE 2026-10-28, Codex.** Colour repair and corrected graphics queued; five AI pairs cleared. Continuation ACTIVE. Contexts/checks next. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
@@ -166,7 +166,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R5 - ACTIVE 2026-10-28, Claude.** Dan approved AI frames A1/A3/A4/A6/A8 (motion next), new A7 frames, Amy abs photo, G06 card, 5:46 pause. Round 5 task started and pinned; R4 unpinned. Expansion drive was unmounted at handoff. `Handoffs/handoff-20261028-ro24-celebrity-ozempic-round5.md`
+**Celebrity Ozempic LFC R5 - REVIEW 2026-10-28, Claude.** Page :9421: new A7 frames, G06 card, Amy abs photo, pause, A3 in. Flow credits out: A1s2/A6/A8 + A4 remake wait on Dan (pay ~$4 or free credits). Slot released. Next: Dan's reply, generate, full render, gates. `/Volumes/Expansion/_edit_work/RO-24/round5/`
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
