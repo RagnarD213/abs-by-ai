@@ -59,4 +59,4 @@ For me, the question is whether continuing makes sense for my weight and my heal
 
 If you want more of my experience, watch [my top five Zepbound tips](https://sixpackabs.com/?s=Top+5+Zepbound+Tips) or browse [my other videos](/videos/). And if you're working toward getting abs, [Try Abs By AI free for 7 days]({CTA}).
 
-*This is general fitness information, not medical advice. Some images in the video are AI-generated visualizations, and they're labeled.*
+_This is general fitness information, not medical advice. Some images in the video are AI-generated visualizations, and they're labeled._
