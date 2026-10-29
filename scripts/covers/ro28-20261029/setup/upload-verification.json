@@ -1,0 +1,86 @@
+{
+  "master": {
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "duration": "385.952233",
+          "nb_frames": "11567"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "385.962000",
+          "nb_frames": "18093"
+        }
+      ],
+      "format": {
+        "duration": "385.962000",
+        "size": "853713366"
+      }
+    },
+    "audio_sha256": "793566a8afab4a06ecab8b0ff257474ffc44e501db9868d55ba0dbca5cc13c84"
+  },
+  "main": {
+    "path": "/Volumes/Extreme/_edit_work/ro28-publish/ro28-upload-1080p.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "duration": "385.952233",
+          "nb_frames": "11567"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "385.962000",
+          "nb_frames": "18093"
+        }
+      ],
+      "format": {
+        "duration": "385.962000",
+        "size": "172070069"
+      }
+    },
+    "audio_sha256": "793566a8afab4a06ecab8b0ff257474ffc44e501db9868d55ba0dbca5cc13c84",
+    "audio_identical": true,
+    "ok": true
+  },
+  "instagram": {
+    "path": "/Volumes/Extreme/_edit_work/ro28-publish/ro28-instagram-1080p.mp4",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "codec_type": "video",
+          "width": 1920,
+          "height": 1080,
+          "r_frame_rate": "30000/1001",
+          "duration": "385.952233",
+          "nb_frames": "11567"
+        },
+        {
+          "codec_type": "audio",
+          "r_frame_rate": "0/0",
+          "duration": "385.962000",
+          "nb_frames": "18093"
+        }
+      ],
+      "format": {
+        "duration": "385.962000",
+        "size": "87678627"
+      }
+    },
+    "audio_sha256": "793566a8afab4a06ecab8b0ff257474ffc44e501db9868d55ba0dbca5cc13c84",
+    "audio_identical": true,
+    "ok": true
+  }
+}
