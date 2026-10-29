@@ -1,4 +1,18 @@
-# Mouthpiece SFC Setup: five covers ready for Dan
+# Mouthpiece SFC Setup: revised pull-up covers awaiting approval
+
+## Current review: revised B (B2) and alternative F
+
+Dan requested B with pull-ups, shirtless and ripped, a big smile, and the American flag Shock Doctor Trash Talker visibly in his mouth, plus one additional design. Two new subscription sources and four platform layouts were built and checked. **These exact revised files await Dan's approval. The earlier preference for B is not approval of B2 or F. No upload or scheduling has occurred.**
+
+Review: http://127.0.0.1:9298/?revision=2 . B2 preserves the white/cyan B family; F has a closer view and red/white lower headline. Copy remains **Why I Wear A Mouthpiece**. Both have correct title capitalization.
+
+Downloaded the official Shock Doctor product photo from `https://www.shockdoctor.com/cdn/shop/products/SD10640-60023_TrashTalker_StarsStripes_Front.jpg?v=1619335485&width=980`, sourced from https://www.shockdoctor.com/products/trash-talker-stars-stripes-mouthguard . The actual photo, original studio identity reference and prior B source guided both generations. No paid image API. Both stars/stripes guards sit visibly inside broad smiles. Full sources, faces/hair, hand/bar contacts, abs and Instagram grid crops were visually checked; all four exact layouts passed dimensions, RGB, headline bounds, face/hair clearance and YouTube size checks. F's Instagram picture was lowered 40 pixels to keep the fingers inside the profile crop.
+
+Revision evidence: `Short-form video content/covers/review/ds105-mouthpiece-20261028/revision2/revision-receipt.json`, with prompts, generation logs, product reference, exact output hashes, measured checks and browser proof beside it. Full review and revision are backed up under `/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/Cover review 20261028/`; four final file hashes were verified there. Approved R4 master SHA256 was rechecked unchanged. Existing film/caption/approval backups remain as below. Still images only, no media playback.
+
+Next: Dan approves **B2 or F**. Then proceed in this same setup chat with the original upload/setup handoff. Revisions require their own exact-file approval. Continue using October 28 release phases and check the live slot before scheduling. No date reserved.
+
+## Initial five-choice review (superseded by the revision above)
 
 2026-10-28. Owner: Codex chat 01a184cd-d196-7383-a785-f451c03076bd, Mouthpiece SFC Setup.
 
