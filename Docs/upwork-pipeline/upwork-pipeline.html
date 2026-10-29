@@ -122,7 +122,7 @@ function chipFor(it){
 
 function renderApprove(){
   const box=$("#v-approve");
-  const pending=items.filter(i=>i.status==="to_approve");
+  const pending=items.filter(i=>i.status==="to_approve").sort((a,b)=>(a.kind===b.kind?0:a.kind==="proposal"?-1:1)||(a.sort??99)-(b.sort??99));
   const recent=items.filter(i=>i.decided_at&&["approved","rejected"].includes(i.status)).sort((a,b)=>String(b.decided_at).localeCompare(String(a.decided_at))).slice(0,6);
   $("#n-approve").textContent=pending.length;
   if(!pending.length&&!recent.length){box.innerHTML=`<div class="empty">Nothing waiting. New Upwork proposals and outreach emails appear here when Claude drafts them.</div>`;return}
