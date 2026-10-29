@@ -302,6 +302,10 @@ Dan: "Let's make this a rule going forward that we always use title capitalizati
 - Example: **This Boring Daily Routine Got Me Abs At 41.** Sentence case and automatic ALL CAPS are no longer the default for thumbnail copy. This supersedes older thumbnail recipes that force uppercase text.
 - Apply prospectively; preserve existing approved thumbnails unless Dan asks to revise them. This thumbnail text rule does not change words or capitalization inside an approved film.
 
+## Vacuum covers use touched-up real screenshots (Dan, 2026-10-29)
+
+Dan rejected the SL-11 AI vacuum covers: "these AI-generated vacuum images of me are not turning out" and "The touched-up real photos ... are better than these AI photos for the vacuum." For stomach-vacuum covers and thumbnails, default to touched-up real camera screenshots of Dan actually holding a vacuum, including his previously used front-facing version when suitable. This is a topic-specific exception to the required AI-Dan mix below: do not manufacture new AI vacuum bodies by default. Preserve existing approved covers. Keep designs genuinely different; the standard count remains five unless Dan requests another count. For SL-11 he requested three designs per Short, both platform layouts, with at least one using the previously used front screenshot. Source/provenance: `Docs/memory/vacuum-covers-real-screenshots.md`.
+
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-25)
 
 Dan changed the standard after choosing C for all five Calories Shorts: he chooses AI images of himself most often and rarely picks covers without him. This replaces the 2026-10-13 pool + studio + one AI Dan + two discretionary mix for new cover and thumbnail sets. Existing approved files and picks stay locked.
