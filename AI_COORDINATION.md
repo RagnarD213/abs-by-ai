@@ -27,11 +27,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R1 ACTIVE 2026-10-29, Claude.** Building R1: presentation, colour, voice, first minute, B-roll, AI frames. Work: `/Volumes/Expansion/_edit_work/RO-37/round1/`.
 
-**Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** R5 approved, queue finalized and Drive updated. [Five thumbnails](http://127.0.0.1:9497/), A recommended. Awaiting Dan pick before upload/scheduling; calendar Nov18 9AM Central. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
+**DS-49:REVIEW:2026-10-29:Claude.** [Covers](http://127.0.0.1:9549/);await-pick. `Docs/DS49_COVER_REVIEW_20261029.md`
 
-**Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+**Zepbound Even If Ripped LFC Setup REVISING 2026-10-29, Codex01a18808.** Dan chose A concept, requested small recognizable vial, stronger expression, more ripped physique and new headline. Three distinct revisions building; nothing installed or scheduled. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
-**Vacuum:REVIEW-R2:2026-10-29:Codex01a184f8.** [Covers](http://127.0.0.1:9301/);await-picks;push-blocked-00-MASTER/jobs-live.
+**Audi-sale:FB-LIVE/AT-$29-APPROVAL:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+
+**Vacuum:COVERS-R3:2026-10-29:Codex01a184f8.** #1 photo locked; three header treatments/Short, then review.
 
 
 
@@ -39,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Keys/graphics rendered; context previews/QA queued. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:REVIEW:2026-10-29:Codex.** [Headline approval](http://127.0.0.1:9298/?revision=3). R4-preserved. Push-blocked:live-queue-files. `Docs/DS105_COVER_REVIEW_20261028.md`
@@ -68,7 +70,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R5 REVIEW 2026-10-28, Codex01a184ca.** [Two motion contexts](http://127.0.0.1:8835/). N01/N03 checked; N02 rejected, presenter retained. Fresh packetPASS;127 locks preserved;20 Flowcredits,$0paidgeneration. Full film pending. Slot released. Next: Dan motionapproval, then authorized final edit. `Docs/RO30_R5_MOTION_REVIEW_20261028.md`.
+**Love Handles LFC R6 WAITING 2026-10-29, Codex01a188fd.** N01/N03 approved; N02 rejected. Sole ownership verified;151 locks match. First in edit-slot line,5/5 occupied. Heartbeat `love-handles-r6-edit-slot` active every10min; resumes fullfilm/SRT/QA automatically. No production started. `Docs/RO30_R6_FULL_FILM_START_20261029.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
