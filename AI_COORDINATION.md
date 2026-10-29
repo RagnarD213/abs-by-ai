@@ -52,7 +52,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-23 REVIEW 2026-10-29, Codex.** [Checked R1](http://127.0.0.1:9826/); choose colour/voice/AI frames. Full film pending. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
 
-**Upwork profile LIVE 2026-10-29, Claude.** https://www.upwork.com/freelancers/~016109a7105ec3bf5d public. Portfolio, packages, education, extra skills pending: `Handoffs/handoff-20261029-upwork-profile-finish.md`.
+**Upwork profile NEEDS DAN 2026-10-29, Claude.** Live; hours, education, 15 skills, 5 portfolio done. 4 packages saved as drafts; Submit for Review needs Dan's yes to tick Upwork Terms + Privacy. Detail: `Handoffs/upwork-profile-working-brief.md`.
 
 **Alcohol And Abs SFC R1 (SL-10) - BUILDING 2026-10-29, Claude.** Dan picked A, B, D, E (reordered); four Shorts in build, edit slot held. Work: `/Volumes/Expansion/_edit_work/SL-10/`.
 

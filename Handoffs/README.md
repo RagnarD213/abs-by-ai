@@ -53,7 +53,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Upwork profile finish](handoff-20261029-upwork-profile-finish.md): profile is LIVE; add availability, education, skills, 5 portfolio pieces, 4 packages. Sonnet 5 high, Claude in Chrome. (Replaces the 10-07 profile handoff, now executed.)
+- [Upwork profile finish](handoff-20261029-upwork-profile-finish.md): availability, education, 15 skills, 5 portfolio pieces DONE 10-29; 4 Project Catalog packages built as drafts, only Submit for Review (tick Upwork Terms + Privacy, needs Dan's yes) left. Log: `upwork-profile-working-brief.md`.
 - [Upwork Clients](handoff-20261029-upwork-client-acquisition.md): **Fire after Dan verifies his Upwork ID. Claude Opus 5.5, high.** First paying clients: Upwork bids through the official connector (Dan confirms each) plus direct outreach to brands, personal-video method, paid-options table for Dan's yes, training loop toward 95% AI. Supersedes the 10-07 jobs-and-proposals handoff.
 
 | Document | Fire when |
