@@ -34,9 +34,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 
 
-**Audi-sale:FB-LIVE/AT-SUPPORT-APPROVAL:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+**Audi-sale:AT-REVIEW/CARD-CHECK:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:HOLD:2026-10-29:Codex01a184f8.** R4-approved;12uploads-verified;Jan16-9AM/6PM,Jan18-6PM-waitlist;200/200;sync-blocked:progress/jobs-live. `Docs/SL11_SETUP_RECEIPT_20261029.md`
+**Vacuum:HOLD:2026-10-29:Codex01a184f8.** R4-approved;12uploads-reverified;Jan16-9AM/6PM,Jan18-6PM-waitlist;200/200;sync-resolved. `Docs/SL11_SETUP_RECEIPT_20261029.md`
 
 
 

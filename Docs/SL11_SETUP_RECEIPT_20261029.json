@@ -341,13 +341,128 @@
     "ignored_mac_resource_forks": 13
   },
   "repository_sync": {
-    "status": "PENDING shared Git sync",
-    "last_attempt": "2026-10-29",
-    "blocking_files": [
-      "BLOTATO_QUEUE_PROGRESS.md",
-      "Handoffs/video-editing/jobs.json"
+    "status": "RESOLVED: setup records saved and pushed to main",
+    "verified_git_commit": "33824ffd003195f98a77be02e0e54776dac1a7b5",
+    "merge_commit": "cad5dd3f7b02d0611254193d6b28ddfe2fc2a1d7",
+    "method": "Verified backups of six shared metadata files, checkpointed completed setup records, merged GitHub history, retained all 156 FB cover records and both Markdown histories. No video or audio edits.",
+    "backup": "/Volumes/Expansion/_edit_work/sl11-publish/sync-backup-20261029-163520",
+    "waiting_list_verified": "2026-10-29T21:37:48.621008+00:00",
+    "remaining_sync_blockers": []
+  },
+  "latest_waiting_list_verification": {
+    "status": "PASS",
+    "checked_at": "2026-10-29T21:37:48.621008+00:00",
+    "shorts": [
+      {
+        "short": "A",
+        "slug": "sl11-a-standing-stomach-vacuum",
+        "config": "scripts/blotato/configs/sl11-a-standing-stomach-vacuum.json",
+        "planned_central": "2027-01-16 09:00",
+        "planned_utc": "2027-01-16T15:00:00.000Z",
+        "waiting_entries": 1,
+        "approved_cover_round": 4,
+        "instagram_sha256": "8bd559fae0353d9da92620b00df2cbb0c4b7a5163efcfbeab792e9fa960fa77f",
+        "youtube_sha256": "59fda56db86d9d1a783b1bcbe2e0c79d45c465cd7c8026e21e6bfb3aae4dfb75",
+        "master_sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+        "all_platform_preflights": "PASS",
+        "video_and_sound_unchanged": true
+      },
+      {
+        "short": "B",
+        "slug": "sl11-b-stop-holding-your-breath",
+        "config": "scripts/blotato/configs/sl11-b-stop-holding-your-breath.json",
+        "planned_central": "2027-01-16 18:00",
+        "planned_utc": "2027-01-17T00:00:00.000Z",
+        "waiting_entries": 1,
+        "approved_cover_round": 4,
+        "instagram_sha256": "fefd5d17782fed5a59e5af1850612e9e195c1dea080eb59c57e92e5447d31abb",
+        "youtube_sha256": "a230d823676196d902aaf71cf08ee7bce0e1167727e9e78d8e7ff0dbce8e2a0f",
+        "master_sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+        "all_platform_preflights": "PASS",
+        "video_and_sound_unchanged": true
+      },
+      {
+        "short": "C",
+        "slug": "sl11-c-one-20-second-vacuum-every-morning",
+        "config": "scripts/blotato/configs/sl11-c-one-20-second-vacuum-every-morning.json",
+        "planned_central": "2027-01-18 18:00",
+        "planned_utc": "2027-01-19T00:00:00.000Z",
+        "waiting_entries": 1,
+        "approved_cover_round": 4,
+        "instagram_sha256": "766c90d50e828e9aa5eae0229e0f6203e59230be3496e4cca46b674b7a6add21",
+        "youtube_sha256": "51e3f3e7af463ee8d62c66727a7ed0d2eb7738454ccd26cfea949d40dd91a226",
+        "master_sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+        "all_platform_preflights": "PASS",
+        "video_and_sound_unchanged": true
+      }
     ],
-    "reason": "safe-push refused merge because these files have live uncommitted changes. jobs.json includes another active setup owner RO-28/SL-27. No unrelated changes adopted; task files saved locally.",
-    "next": "After live shared-file owners commit, retry safe-push. Do not create duplicate schedules or upload media again. SL11 is fully media-ready on the existing waiting list."
+    "remote_assets": [
+      {
+        "asset": "a-master",
+        "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+        "bytes": 29330278
+      },
+      {
+        "asset": "a-tiktok",
+        "sha256": "9ecfb257e54fa677c56f85bc7db7b7da6ef691fc4f62fb886239d42b2cacda56",
+        "bytes": 29459085
+      },
+      {
+        "asset": "a-instagram",
+        "sha256": "8bd559fae0353d9da92620b00df2cbb0c4b7a5163efcfbeab792e9fa960fa77f",
+        "bytes": 1691735
+      },
+      {
+        "asset": "a-youtube",
+        "sha256": "59fda56db86d9d1a783b1bcbe2e0c79d45c465cd7c8026e21e6bfb3aae4dfb75",
+        "bytes": 410516
+      },
+      {
+        "asset": "b-master",
+        "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+        "bytes": 35972918
+      },
+      {
+        "asset": "b-tiktok",
+        "sha256": "0f260e9c57be7d1dbd5885e428a4437d5bc8abfe0f7e710137e052d2ae768970",
+        "bytes": 36105489
+      },
+      {
+        "asset": "b-instagram",
+        "sha256": "fefd5d17782fed5a59e5af1850612e9e195c1dea080eb59c57e92e5447d31abb",
+        "bytes": 1697187
+      },
+      {
+        "asset": "b-youtube",
+        "sha256": "a230d823676196d902aaf71cf08ee7bce0e1167727e9e78d8e7ff0dbce8e2a0f",
+        "bytes": 421099
+      },
+      {
+        "asset": "c-master",
+        "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+        "bytes": 33044916
+      },
+      {
+        "asset": "c-tiktok",
+        "sha256": "37aafda1ba683a8032989d6cc366eadf3d7fb8e24a6d0db4bd022e01e0e947e6",
+        "bytes": 33178444
+      },
+      {
+        "asset": "c-instagram",
+        "sha256": "766c90d50e828e9aa5eae0229e0f6203e59230be3496e4cca46b674b7a6add21",
+        "bytes": 1705217
+      },
+      {
+        "asset": "c-youtube",
+        "sha256": "51e3f3e7af463ee8d62c66727a7ed0d2eb7738454ccd26cfea949d40dd91a226",
+        "bytes": 421440
+      }
+    ],
+    "live_schedules": 200,
+    "sl11_schedules": 0,
+    "parent_schedule": "5211312",
+    "parent_main": "2027-01-15T15:00:00.000Z",
+    "queue_state": "waiting, not scheduled",
+    "git_head": "33824ffd003195f98a77be02e0e54776dac1a7b5"
   }
 }
