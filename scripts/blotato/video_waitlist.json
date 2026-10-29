@@ -549,6 +549,34 @@
     "planned": "2027-01-14 09:00"
   },
   {
+    "config": "scripts/blotato/configs/sl11-a-standing-stomach-vacuum.json",
+    "kind": "short",
+    "job": "SL-11",
+    "label": "How To Do A Standing Stomach Vacuum",
+    "added": "2026-10-29",
+    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "kitchen": false,
+    "gym": false,
+    "filming_set": "poolside",
+    "planned": "2027-01-16 09:00",
+    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
+  },
+  {
+    "config": "scripts/blotato/configs/sl11-b-stop-holding-your-breath.json",
+    "kind": "short",
+    "job": "SL-11",
+    "label": "Stop Holding Your Breath During Stomach Vacuums",
+    "added": "2026-10-29",
+    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "kitchen": false,
+    "gym": false,
+    "filming_set": "poolside",
+    "planned": "2027-01-16 18:00",
+    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
+  },
+  {
     "config": "scripts/blotato/configs/sl08-short1-why-i-fast-until-2-pm-every-day.json",
     "kind": "short",
     "job": "SL-08 short 1",
@@ -557,6 +585,20 @@
     "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
     "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
     "planned": "2027-01-18 09:00"
+  },
+  {
+    "config": "scripts/blotato/configs/sl11-c-one-20-second-vacuum-every-morning.json",
+    "kind": "short",
+    "job": "SL-11",
+    "label": "Start With One 20-Second Vacuum Every Morning",
+    "added": "2026-10-29",
+    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "kitchen": false,
+    "gym": false,
+    "filming_set": "poolside",
+    "planned": "2027-01-18 18:00",
+    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
   },
   {
     "config": "scripts/blotato/configs/sl08-short2-eat-a-salad-first-to-eat-less.json",
@@ -615,5 +657,16 @@
     "added": "2026-10-27",
     "note": "R4 master (Dan's own cable crunch footage). Cover B. Target Thu 2027-01-28, 9 AM America/Chicago. Four media uploads hash-checked.",
     "planned": "2027-01-28 09:00"
+  },
+  {
+    "config": "scripts/blotato/configs/ds49-coconut-water.json",
+    "kind": "short",
+    "job": "DS-49",
+    "label": "Why I Stopped Drinking Coconut Water",
+    "added": "2026-10-29",
+    "kitchen": false,
+    "gym": false,
+    "filming_set": "poolside",
+    "note": "R2 film and cover G approved; four uploaded media hash-verified. Saved slot Mon Dec 21 6 PM Central, one week after SL-19 coconut water Short (Dec 14)."
   }
 ]

@@ -29,13 +29,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
-**DS-49:REVIEW:2026-10-29:Claude.** `Docs/DS49_COVER_REVIEW_20261029.md`
+**DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 
-**Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** Dan chose A concept; [three revised designs](http://127.0.0.1:9497/?revision=2), 2 recommended. Small labeled vial, stronger expressions, more ripped physique, new headline. Awaiting exact revised pick before install/setup; film remains approved. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
+**Zepbound Even If Ripped LFC Setup ACTIVE 2026-10-29, Codex01a18808.** Dan approved R2 design3 and all-platform setup. Exact master/cover verified, backups complete, upload copies ready. Queue196/200; target Nov18 9AM YouTube, Nov19 noon socials. Uploads and final checks running.
 
-**Audi-sale:FB-LIVE/AT-CARD-ENTRY:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+**Audi-sale:FB-LIVE/AT-PAYMENT-CHECK:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:REVIEW-R4:2026-10-29:Codex01a184f8.** [Revised cover 1](http://127.0.0.1:9301/?revision=4);lines-removed,top-full-width,bottom+5%;await-exact-approval;then-setup.
+**Vacuum:SETUP:2026-10-29:Codex01a184f8.** R4-all-approved;install/upload;after-Jan15-parent;pushc12d125-blocked:board-live.
 
 
 
@@ -54,7 +54,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23 REVIEW 2026-10-29, Codex.** [Checked R1](http://127.0.0.1:9826/); choose colour/voice/AI frames. Full film pending. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+**RO-23:R2:WAIT-SLOT:2026-10-29:Codex01a18963.** Second-in-line;auto-resume-active;32-hashes-verified. `Handoffs/RO23_R2_REVISIONS_20261029.md`
 
 **Upwork profile NEEDS DAN 2026-10-29, Claude.** Live; hours, education, 15 skills, 5 portfolio done. 4 packages saved as drafts; Submit for Review needs Dan's yes to tick Upwork Terms + Privacy. Detail: `Handoffs/upwork-profile-working-brief.md`.
 
@@ -72,7 +72,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 WAITING 2026-10-29, Codex01a188fd.** N01/N03 approved; N02 rejected. Sole ownership verified;151 locks match. First in edit-slot line,5/5 occupied. Heartbeat `love-handles-r6-edit-slot` active every10min; resumes fullfilm/SRT/QA automatically. No production started. `Docs/RO30_R6_FULL_FILM_START_20261029.md`.
+**Love Handles LFC R6 BUILDING 2026-10-29, Codex01a188fd.** Slot acquired; full render and dependent QA chain active.151 approvals preserved; N01/N03 inserted, N02 excluded. Finish heartbeat active. Next: corrected SRT, editor checks and one fresh full-film reviewer. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.

@@ -17,3 +17,5 @@ Next after the pick: copy pick to `Short-form video content/covers/approved-ds49
 Dan: "I like A, but it doesn't really make sense to pour this out in the trash. I want three new designs similar to A, but where I'm pouring out the coconut water into a sink. Make two of these designs in an outdoor kitchen and one in an indoor kitchen."
 - Built F (outdoor kitchen by the pool, bottle into a steel sink, glass of ice water; recommended), G (outdoor kitchen under a pergola at golden hour, carton into a black sink, thumbs up), H (indoor white kitchen, farmhouse sink). All use A's yellow band and copy. 3 more Codex images (gpt-6.1-sol high), `generate-r2.sh`. check.py all pass; faces inspected.
 - Review page (same link) now leads with F, G, H; round 1 kept below for reference. Still awaiting Dan's pick; nothing uploaded or scheduled.
+
+**Picked 2026-10-29: G** ("Let's go with G. Install G on all platforms."). Setup: `Docs/DS49_SETUP_RECEIPT_20261029.md`.
