@@ -622,6 +622,9 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
   feet. Use only the clip of me one foot at a time, unless we're specifically showing that mistake."* Before using any jump rope
   footage of Dan, from the library or a raw roll, watch it at speed and confirm the feet alternate fast; a raw roll is unverified
   until you have looked. Default to `B0448` / `B0542`, colour matched to the film.
+- **Approved reference, 2026-10-29 (RO-28 R5, 2:22): `B0448` with its R5 grade.** Dan: *"Let's make sure that we're always using
+  this clip or a similar clip of me jumping rope correctly, one foot at a time and fast, in the future, unless I'm specifically
+  pointing out a mistake."* Use this clip or another fast one-foot skip; the grade is recorded on `B0448` in the clip library.
 
 ## The "excuse" voice gets a lip-synced AI clip, frames first (Dan, 2026-10-08)
 

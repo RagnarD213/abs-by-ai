@@ -33,3 +33,8 @@ rapidly skipping over the rope one foot at a time, the correct way. Save that to
 Don't use that clip of me jumping with both feet. Use only the clip of me one foot at a time, unless we're specifically showing that
 mistake."* Before using ANY jump rope footage of Dan (library or raw roll), watch a few seconds at speed and confirm the feet
 alternate fast; a raw roll that is not in the library is unverified until you have looked. Default: B0448 / B0542.
+
+**10-29 (RO-28 R5 approved).** Dan approved `B0448` at 2:22 with its R5 colour grade: *"Let's make sure that we're always using this
+clip or a similar clip of me jumping rope correctly, one foot at a time and fast, in the future, unless I'm specifically pointing out
+a mistake."* This is the reference clip. The approved grade (explicit BT.709 to RGB first, then the JR_B0448 curve) is noted on
+`B0448` in the clip library.
