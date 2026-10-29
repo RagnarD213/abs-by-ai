@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Zepbound Even If Ripped LFC Setup ACTIVE 2026-10-29, Codex01a18808.** Dan approved exact R5 master; queue finalized and Drive updated. Five thumbnails building, then Dan picks before upload/scheduling. Calendar Nov18 9AM Central. Approval: `Handoffs/ro28-setup-approval-20261029.json`.
+**Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** R5 approved, queue finalized and Drive updated. [Five thumbnails](http://127.0.0.1:9497/), A recommended. Awaiting Dan pick before upload/scheduling; calendar Nov18 9AM Central. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
 **Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
