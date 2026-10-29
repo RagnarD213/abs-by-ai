@@ -125,7 +125,9 @@ ad `120251791324930682`, in the auto campaign, $100 lifetime, profile visits, ch
 (after the follower test's OFF 2 week) and ends Nov 4 00:00 CT by itself. Name tag `BOOST::<media_id>`, so a resumed
 job counts the post as tested. Exclude Oct 30 to Nov 3 from any follower-test baseline.
 **DISAPPROVED 2026-10-28** ("Drugs and Pharmaceuticals": the reel itself is the problem, so no tamer-copy retry is
-possible). Ad set paused, $0 spent. Awaiting Dan: move the $100 to another post or drop it.
+possible). Ad set paused, $0 spent. **Replaced (Dan, 2026-10-28)** by a $40 boost on the Ab Wheel reel ("Your abs
+never get a break on the ab wheel", IG media `18027549377863384`): ad set `120251794313860682`, ad
+`120251794314610682`, same targeting and dates (Oct 30 00:00 CT to Nov 4 00:00 CT), $40 lifetime.
 
 ## Follower readings
 
