@@ -35,14 +35,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
-**How To Do Pull-Ups SFC Setup (DS-76) REVIEW 2026-10-29, Claude.** [Covers A-H](http://127.0.0.1:9478/); awaiting Dan's pick. R2 preserved; nothing uploaded. `Docs/DS76_COVER_REVIEW_20261029.md`
+**DS-76 Pull-Ups Setup REVIEW 2026-10-29, Claude.** [Covers](http://127.0.0.1:9478/) await pick. `Docs/DS76_COVER_REVIEW_20261029.md`
 
 **Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
 
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
-**Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Pull-up covers B2/F](http://127.0.0.1:9298/?revision=2); awaiting approval. R4 preserved; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
+**Mouthpiece SFC Setup REVIEW 2026-10-29, Codex01a184cd.** B chosen; [new headline pair](http://127.0.0.1:9298/?revision=3) awaits exact-file approval. R4 unchanged; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
 
 **V-Taper:HOLD:2026-10-28:Codex.** Cover-installed;Dec21-9AM-Central;shared-waitlist198/200. `Docs/DS47_SETUP_RECEIPT_20261028.md`
 

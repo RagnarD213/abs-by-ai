@@ -1,6 +1,14 @@
 # Mouthpiece SFC Setup: revised pull-up covers awaiting approval
 
-## Current review: revised B (B2) and alternative F
+## Current review, October 29: chosen B with revised headline (B3 files)
+
+Dan: "Let's go with revised B. Change the text on top to 'Wear a mouthpiece when you work out.' Title capitalization as always."
+
+Applied exact headline **Wear A Mouthpiece When You Work Out.** across two lines in both Instagram and YouTube layouts. The B2 picture layer is byte-identical in each platform layout; no new image generation or movie edit. Both exact-cover checks pass and the finished pair was visually inspected. R4 master hash rechecked unchanged. Revised files await Dan's exact-file approval before installation, upload or scheduling under his revised-cover rule.
+
+Review: http://127.0.0.1:9298/?revision=3 . Exact files, hashes, checks and text-only source proof: `Short-form video content/covers/review/ds105-mouthpiece-20261028/revision3/revision-receipt.json`. Revision and review copies backed up to Extreme, both exact cover hashes verified. No platform uploads or scheduling. Next: final cover approval, then continue the original setup handoff in this chat.
+
+## Previous review: revised B (B2) and alternative F
 
 Dan requested B with pull-ups, shirtless and ripped, a big smile, and the American flag Shock Doctor Trash Talker visibly in his mouth, plus one additional design. Two new subscription sources and four platform layouts were built and checked. **These exact revised files await Dan's approval. The earlier preference for B is not approval of B2 or F. No upload or scheduling has occurred.**
 
