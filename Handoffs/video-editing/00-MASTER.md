@@ -144,7 +144,7 @@ Roll map and editor warnings: `Docs/SHOOT_1015_FOOTAGE_REPORT.md`. BLOCKED rows 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-25](RO-25-im-41-i-wasted-my-life.md) | I'm 41. I Wasted My Life. | 10/15 C1767 | UPLOADED | L |
-| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | FINALIZED | L |
+| [RO-28](RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md) | Why Zepbound Improves Your Health Even If You're Ripped | 10/15 C1771 | UPLOADED | L |
 
 RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled for Sunday October 18 at 9 AM Chicago time, with Facebook and Instagram Monday at noon. The setup receipt is `Docs/RO25_SETUP_RECEIPT_20261017.md`. The separate SL-18 Shorts job can start from this approved master.
 
@@ -302,6 +302,8 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
 | [SL-25](SL-25-make-time-for-exercise-shorts.md) | How To Make Time For Exercise & Nutrition (RO-18, YouTube Wed Jan 13, 2027; 3 Shorts, Short 1 next free slot after Jan 13) | READY: approved parent filed | S |
 | [SL-26](SL-26-boring-abs-at-40-shorts.md) | Boring Abs At 40 (RO-27; 3 Shorts; parent Wed Nov 4 target under the 2026-10-28 plan, not booked) | READY | S |
+
+| [SL-27](SL-27-zepbound-even-if-ripped-shorts.md) | Why Zepbound Improves Your Health Even If You're Ripped (RO-28; 3 Shorts; parent Nov18 9AM Central, scheduled) | READY | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

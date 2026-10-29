@@ -1,3 +1,9 @@
+# Approved and setup ready, October29
+
+Dan approved all six exact R4 layouts. Covers installed; 12 media uploads hash-verified; three complete configs on the shared waiting list for January16 9AM/6PM and January18 6PM Central after RO-02. Blotato full at200/200, no SL-11 schedules yet. All approved film and sound preserved. Full receipt: `Docs/SL11_SETUP_RECEIPT_20261029.md`.
+
+## Historical cover review
+
 # The Vacuum SFL Setup: revised design 1 R4, October 29, 2026
 
 [Review the revised covers](http://127.0.0.1:9301/?revision=4).

@@ -11,4 +11,7 @@ for key in names:
  parts.append(f'<figure class="grid"><figcaption>Instagram profile crop</figcaption><img src="round4/{key}/grid/revised.jpg" alt="{names[key]}, revised profile crop"></figure></div></article></section>')
 parts.append('<p>Approve these revised covers in this chat, or give any final notes. Organic upload setup continues after approval.</p></main></body></html>')
 if not (B/'round3-index.html').exists():shutil.copy2(B/'index.html',B/'round3-index.html')
-(B/'index.html').write_text(''.join(parts));print('Updated Round 4 review page')
+html=''.join(parts)
+if (B/'picks.json').exists():
+ html=html.replace('The Vacuum: Revised Cover 1','The Vacuum: Approved Covers And Setup').replace('Review the revised text on all three Shorts.','All three revised covers approved October 29.').replace('These six revised layouts await your approval; nothing has been uploaded or scheduled.','All videos and covers are uploaded and verified. The three Shorts are on the shared waiting list because Blotato is full. Planned releases: January 16 at 9 AM and 6 PM, then January 18 at 6 PM Central, after the full Vacuum video on January 15. These are waiting-list plans, not confirmed schedules.').replace('Approve these revised covers in this chat, or give any final notes. Organic upload setup continues after approval.','Setup preparation is complete. The existing shared queue routine adds these posts when space opens. Public cover checks and pinned comments follow after release. No action needed from Dan.')
+(B/'index.html').write_text(html);print('Updated Round 4 review page')

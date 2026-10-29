@@ -1,0 +1,353 @@
+{
+  "job": "SL-11",
+  "date": "2026-10-29",
+  "status": "SETUP READY / HOLD: shared Blotato queue full, not scheduled",
+  "cover_approval": "Dan approved exact R4 design1 on all three Shorts and both platform layouts, 2026-10-29",
+  "review_url": "http://127.0.0.1:9301/?revision=4",
+  "approved_covers": "Short-form video content/covers/review/sl11-vacuum-20261028/picks.json",
+  "videos": [
+    {
+      "config": "scripts/blotato/configs/sl11-a-standing-stomach-vacuum.json",
+      "title": "How To Do A Standing Stomach Vacuum",
+      "planned_utc": "2027-01-16T15:00:00.000Z",
+      "planned_central": "2027-01-16 09:00",
+      "film_sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/71d40d7f-6382-4a92-a4a4-8db6f4acd56a.mp4",
+      "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6e5116d6-a850-469c-bc34-960e8a6d0eff.mp4",
+      "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dc1c6921-a2e9-440f-9004-c7538e357267.png",
+      "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4b5fa819-3c9f-4ce5-a57d-c988255765c8.jpg",
+      "pinned_comment": "Have you tried a stomach vacuum before?",
+      "schedule_ids": []
+    },
+    {
+      "config": "scripts/blotato/configs/sl11-b-stop-holding-your-breath.json",
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "planned_utc": "2027-01-17T00:00:00.000Z",
+      "planned_central": "2027-01-16 18:00",
+      "film_sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e1c4e5cb-0938-4955-9ab3-8216fb4c5592.mp4",
+      "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1d2d0d72-d6ff-4d92-b5a7-15577b5ee12a.mp4",
+      "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bcc7468b-004c-4b6d-8744-bc0f94de6ef6.png",
+      "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ed86eb27-7862-479d-8d31-138d15d1c3d2.jpg",
+      "pinned_comment": "Can you keep breathing while you hold your stomach vacuum?",
+      "schedule_ids": []
+    },
+    {
+      "config": "scripts/blotato/configs/sl11-c-one-20-second-vacuum-every-morning.json",
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "planned_utc": "2027-01-19T00:00:00.000Z",
+      "planned_central": "2027-01-18 18:00",
+      "film_sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/58c2f419-b02c-4b4c-987c-d7753556a445.mp4",
+      "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bc8e0df9-2564-4568-8aef-d5c50b946f6a.mp4",
+      "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/972da6c4-9c41-42ae-bce0-daf17242ca97.png",
+      "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5309ddb7-619c-4759-b993-614303b93db7.jpg",
+      "pinned_comment": "How many sets of stomach vacuums do you currently do each morning?",
+      "schedule_ids": []
+    }
+  ],
+  "uploaded_assets": {
+    "a-master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/71d40d7f-6382-4a92-a4a4-8db6f4acd56a.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+      "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "bytes": 29330278,
+      "verified": true
+    },
+    "a-tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6e5116d6-a850-469c-bc34-960e8a6d0eff.mp4",
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-a-tiktok-cover-first.mp4",
+      "sha256": "9ecfb257e54fa677c56f85bc7db7b7da6ef691fc4f62fb886239d42b2cacda56",
+      "bytes": 29459085,
+      "verified": true
+    },
+    "a-instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dc1c6921-a2e9-440f-9004-c7538e357267.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-a/sl11-a-instagram-approved.png",
+      "sha256": "8bd559fae0353d9da92620b00df2cbb0c4b7a5163efcfbeab792e9fa960fa77f",
+      "bytes": 1691735,
+      "verified": true
+    },
+    "a-youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4b5fa819-3c9f-4ce5-a57d-c988255765c8.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-a/sl11-a-youtube-approved.jpg",
+      "sha256": "59fda56db86d9d1a783b1bcbe2e0c79d45c465cd7c8026e21e6bfb3aae4dfb75",
+      "bytes": 410516,
+      "verified": true
+    },
+    "b-master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e1c4e5cb-0938-4955-9ab3-8216fb4c5592.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+      "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "bytes": 35972918,
+      "verified": true
+    },
+    "b-tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1d2d0d72-d6ff-4d92-b5a7-15577b5ee12a.mp4",
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-b-tiktok-cover-first.mp4",
+      "sha256": "0f260e9c57be7d1dbd5885e428a4437d5bc8abfe0f7e710137e052d2ae768970",
+      "bytes": 36105489,
+      "verified": true
+    },
+    "b-instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bcc7468b-004c-4b6d-8744-bc0f94de6ef6.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-b/sl11-b-instagram-approved.png",
+      "sha256": "fefd5d17782fed5a59e5af1850612e9e195c1dea080eb59c57e92e5447d31abb",
+      "bytes": 1697187,
+      "verified": true
+    },
+    "b-youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ed86eb27-7862-479d-8d31-138d15d1c3d2.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-b/sl11-b-youtube-approved.jpg",
+      "sha256": "a230d823676196d902aaf71cf08ee7bce0e1167727e9e78d8e7ff0dbce8e2a0f",
+      "bytes": 421099,
+      "verified": true
+    },
+    "c-master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/58c2f419-b02c-4b4c-987c-d7753556a445.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+      "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "bytes": 33044916,
+      "verified": true
+    },
+    "c-tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bc8e0df9-2564-4568-8aef-d5c50b946f6a.mp4",
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-c-tiktok-cover-first.mp4",
+      "sha256": "37aafda1ba683a8032989d6cc366eadf3d7fb8e24a6d0db4bd022e01e0e947e6",
+      "bytes": 33178444,
+      "verified": true
+    },
+    "c-instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/972da6c4-9c41-42ae-bce0-daf17242ca97.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-c/sl11-c-instagram-approved.png",
+      "sha256": "766c90d50e828e9aa5eae0229e0f6203e59230be3496e4cca46b674b7a6add21",
+      "bytes": 1705217,
+      "verified": true
+    },
+    "c-youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5309ddb7-619c-4759-b993-614303b93db7.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl11-c/sl11-c-youtube-approved.jpg",
+      "sha256": "51e3f3e7af463ee8d62c66727a7ed0d2eb7738454ccd26cfea949d40dd91a226",
+      "bytes": 421440,
+      "verified": true
+    }
+  },
+  "backups": {
+    "status": "PASS",
+    "files": [
+      {
+        "name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+        "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+        "bytes": 29330278,
+        "drive_id": "1lIW_jyVAhivXsCxUUVC6LSxEP5UIcqH5"
+      },
+      {
+        "name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.audio_gate.json",
+        "sha256": "10e699a0b53da9c80749588bcb6fd0b25ba32058ce63f3c249fb59b3226284e3",
+        "bytes": 5158,
+        "drive_id": "1N44qcgh0M6Q4gzVoC_yRqCJqcrmD8eFO"
+      },
+      {
+        "name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.deliver_gate.json",
+        "sha256": "1e06d8d6fc0d4471771726ca26845d6cdb087ffad9c2e8c720d09ae61afe8dd4",
+        "bytes": 10567,
+        "drive_id": "1Luh7qBCtYstaG3rPC446xWxJxPz202_x"
+      },
+      {
+        "name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.srt",
+        "sha256": "bb6c7fe937acd22fe99c384dfdf5b0a946c80e12e4b4b2fe4c91afe8b995c1b1",
+        "bytes": 2781,
+        "drive_id": "187U_pHSKEOadHx4LVBY2YunvODq0tLfe"
+      },
+      {
+        "name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.transcript.txt",
+        "sha256": "a151ca5b51d505c3324b32ace7a37ab93c2ed67c8a24539535f7eec831c3fbde",
+        "bytes": 819,
+        "drive_id": "1IGk9yM3iCmKmTCE40ZEQd45MBTpVVwYM"
+      },
+      {
+        "name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+        "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+        "bytes": 35972918,
+        "drive_id": "1G1kfq2USBoAE6WsAfnpFAnQ6c4velwxf"
+      },
+      {
+        "name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.audio_gate.json",
+        "sha256": "a2fa3aa1885fcaeaf32a5938621fb0691ce2c615d9d0b53817e55000c477d128",
+        "bytes": 5138,
+        "drive_id": "1f-upQHQ95sfPyYGYM8GCLIBy3IpnBOxg"
+      },
+      {
+        "name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.deliver_gate.json",
+        "sha256": "54f8d995b3948e8128cb5c6a13ae5b148ea5d00bd24fcb11584b26beda45eda5",
+        "bytes": 13316,
+        "drive_id": "1gulfHAc0VR2YEPsASgvrQShdPx5q0Mjj"
+      },
+      {
+        "name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.srt",
+        "sha256": "33043745782f9da9ff9b3a6f991f8b368a54e7fe99040c1cf6edce67560eb8a8",
+        "bytes": 3212,
+        "drive_id": "1K7ukSSE1Q33hLE2F24zO5QyvKAeuQKwV"
+      },
+      {
+        "name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.transcript.txt",
+        "sha256": "0552b6e5ce81c630565f629da15403d387571ecde9b76ae8c1c66eeec6c7bec2",
+        "bytes": 978,
+        "drive_id": "11O9KfKamtHZ58odlDLwa9Z1rYEQoENEv"
+      },
+      {
+        "name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+        "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+        "bytes": 33044916,
+        "drive_id": "1bbJxZafPfDt20j-R_MGP2QcG0lvaUTVP"
+      },
+      {
+        "name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.audio_gate.json",
+        "sha256": "226733491a94bbebe73175372829e5f89883560bfe5e536df411f58fafb018f1",
+        "bytes": 5150,
+        "drive_id": "1Oiwmjc6WJgegBtscOr2DNojdZ6tRBnXo"
+      },
+      {
+        "name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.deliver_gate.json",
+        "sha256": "f617b053408f84d83d3269e504ae081ecd01ef6d0be68c3128d8987f5bb37926",
+        "bytes": 12280,
+        "drive_id": "1w4FAL5DJ4YrM3UEkwW_h8jASPta7SoZ3"
+      },
+      {
+        "name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.srt",
+        "sha256": "f76fb5abb6824501008b1dc6fddd62baca6ffd2251b66711d63d3c6062739acd",
+        "bytes": 3419,
+        "drive_id": "1P5haVlqlSwHwhzzLcwAZwQub44zxMcSg"
+      },
+      {
+        "name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.transcript.txt",
+        "sha256": "e00eb8f8ad8ebce505c70ef4ab8f407bd33b140c32de09aa5f1f5c80dec58856",
+        "bytes": 981,
+        "drive_id": "1-ejQcfVIxpQJrRkHWOWbDtAVYlikFZBY"
+      },
+      {
+        "name": "approval.json",
+        "sha256": "d7356b402c1c8704a2874cf9fd3aa6646f6e51c1236de6119f931e86feeec13b",
+        "bytes": 5694,
+        "drive_id": "1BolSerso99oOOuAkluk8ibneTFaVcKHn"
+      }
+    ]
+  },
+  "tiktok": {
+    "a": {
+      "frames_src": 1359,
+      "frames_out": 1360,
+      "audio_pkts_src": 2127,
+      "audio_pkts_out": 2127,
+      "decode_errors": "",
+      "cover_psnr": 51.22100230693629,
+      "ok": true,
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-a-tiktok-cover-first.mp4",
+      "sha256": "9ecfb257e54fa677c56f85bc7db7b7da6ef691fc4f62fb886239d42b2cacda56",
+      "master_sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "audio_identical": true
+    },
+    "b": {
+      "frames_src": 1507,
+      "frames_out": 1508,
+      "audio_pkts_src": 2359,
+      "audio_pkts_out": 2359,
+      "decode_errors": "",
+      "cover_psnr": 51.311485213517244,
+      "ok": true,
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-b-tiktok-cover-first.mp4",
+      "sha256": "0f260e9c57be7d1dbd5885e428a4437d5bc8abfe0f7e710137e052d2ae768970",
+      "master_sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "audio_identical": true
+    },
+    "c": {
+      "frames_src": 1419,
+      "frames_out": 1420,
+      "audio_pkts_src": 2221,
+      "audio_pkts_out": 2221,
+      "decode_errors": "",
+      "cover_psnr": 51.19176399271836,
+      "ok": true,
+      "path": "/Volumes/Expansion/_edit_work/sl11-publish/sl11-c-tiktok-cover-first.mp4",
+      "sha256": "37aafda1ba683a8032989d6cc366eadf3d7fb8e24a6d0db4bd022e01e0e947e6",
+      "master_sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "audio_identical": true
+    }
+  },
+  "picture_preservation": {
+    "a": {
+      "all_original_picture_VCL_units_identical": true,
+      "source_picture_units": 1359,
+      "extra_cover_picture_units": 1,
+      "container_parameter_sets_added_at_keyframes": true,
+      "source_duration": 45.3453,
+      "tiktok_duration": 45.378333,
+      "duration_difference": 0.033033,
+      "audio_stream_hash_identical": true
+    },
+    "b": {
+      "all_original_picture_VCL_units_identical": true,
+      "source_picture_units": 1507,
+      "extra_cover_picture_units": 1,
+      "container_parameter_sets_added_at_keyframes": true,
+      "source_duration": 50.283567,
+      "tiktok_duration": 50.316333,
+      "duration_difference": 0.032766,
+      "audio_stream_hash_identical": true
+    },
+    "c": {
+      "all_original_picture_VCL_units_identical": true,
+      "source_picture_units": 1419,
+      "extra_cover_picture_units": 1,
+      "container_parameter_sets_added_at_keyframes": true,
+      "source_duration": 47.3473,
+      "tiktok_duration": 47.380333,
+      "duration_difference": 0.033033,
+      "audio_stream_hash_identical": true
+    }
+  },
+  "queue": {
+    "live_count": 200,
+    "cap": 200,
+    "sl11_schedules": 0,
+    "waitlist": "scripts/blotato/video_waitlist.json",
+    "parent_main": "2027-01-15T15:00:00.000Z",
+    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+    "waiting_routine": "social-queue-daily-refresh / scripts/blotato/video_topup.py",
+    "existing_queue_preflight_issues": []
+  },
+  "preflight": "PASS all12 proposed platform posts, downloadable/decoded YT and IG images, under2MB YT JPEGs, FB source/live exact hashes, TT frame0 actual image inspected, original audio identical. Existing live queue cover/ad audits clean.",
+  "article": "Shorts: no setup article. Existing sixpackabs-article-gap-daily writes a searchable article or records a skip after release.",
+  "pinned_comments": "Questions saved in configs; youtube-pinned-comment-daily posts and pins after public release. No comment sent now.",
+  "release_cover_checks": {
+    "youtube": "PENDING: actual channel Shorts tile after release; repair in Studio if needed",
+    "instagram": "PENDING: actual public profile tile after release",
+    "tiktok": "PENDING: actual static grid tile after release",
+    "facebook": "PENDING: preferred thumbnail after installer runs; source/live registry ready",
+    "routine": "Existing check-youtube-shorts-covers; no new automation created"
+  },
+  "edit_queue": "SL-11 remains finalized with HOLD note. Drive status upload verified. Never mark uploaded until all12 actual schedules read back. Native artifact mirror pending per normal Codex workflow.",
+  "writing": "Normal clean Claude writer failed OAuth refresh. Clean dan_voice_writer subagent used prepared five-passage/transcript prompt. No invented claims or free-image offer.",
+  "new_generation": false,
+  "new_api_spend_usd": 0,
+  "publicly_published": false,
+  "social_scheduled": false,
+  "approved_cover_backups": {
+    "status": "PASS",
+    "files": 13,
+    "drive": "gdrive_backup:Short-form video content/SL-11 The Vacuum/approved-covers-r4",
+    "extreme": "/Volumes/Extreme/Short-form video content/SL-11 The Vacuum/approved-covers-r4",
+    "sha256_verified": true,
+    "ignored_mac_resource_forks": 13
+  },
+  "repository_sync": {
+    "status": "PENDING shared Git sync",
+    "last_attempt": "2026-10-29",
+    "blocking_files": [
+      "BLOTATO_QUEUE_PROGRESS.md",
+      "Handoffs/video-editing/jobs.json"
+    ],
+    "reason": "safe-push refused merge because these files have live uncommitted changes. jobs.json includes another active setup owner RO-28/SL-27. No unrelated changes adopted; task files saved locally.",
+    "next": "After live shared-file owners commit, retry safe-push. Do not create duplicate schedules or upload media again. SL11 is fully media-ready on the existing waiting list."
+  }
+}
