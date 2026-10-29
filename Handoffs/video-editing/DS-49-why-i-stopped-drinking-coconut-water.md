@@ -23,3 +23,9 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-49-why-i-stopped-drinking-coconut-water.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## R2 finalized (2026-10-29)
+
+Dan: "Finalize it". Exact R2 master SHA-256 `40e0c4d5a2fd4f6daa8a31124b87da0e705120eff76045ef20eb30fc89d342b0` (50.617 s) is final: colour V, voice B, crop 1; 0:10 card with the 1 L bottle photo in the top third; replacement treadmill clip (Pexels 6454301). Scripted only: no off-the-cuff take was filmed.
+Package: `Short-form video content/Coconut Water - DS-49/` (identical backup on the Extreme drive). Approval: `DS-49-R2-approval.json`. Work: `/Volumes/Extreme/_edit_work/DS-49/round2/`. Independent review SHIP; gate 2.6.2 raw FAIL on four known rows only.
+Setup handoff: `Handoffs/handoff-20261029-ds49-coconut-water-setup.md`. Edit slot released, VLC copies and review pages removed. No further edit authorized.
