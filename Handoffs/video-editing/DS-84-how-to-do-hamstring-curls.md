@@ -2,7 +2,7 @@ CONTENT (SFC). Task name: `How To Do Hamstring Curls SFC R3`.
 
 # DS-84: How To Do Hamstring Curls
 
-**R3 delivered for full Short review.** http://127.0.0.1:9284/. Dan selected F Deep And Vivid and approved the R2 intro; all six exercise inserts now use the large title and tighter safe crops. Natural Warmth A, original portrait, filmed wording and other graphics remain locked. Full55.489s rendered and independently inspected; original automatic gate FAIL is retained with its focused audit. Awaiting Dan full-film approval. Queue/Drive delivered, edit slot released. No setup or publishing; dispatcher/heartbeat paused.
+**R3 approved and finalized October 28, 2026.** Dan: “Okay this is approved. Go ahead and give me the handoff for setup”. Exact master SHA256 `5c235f7d2f32c0302002bd9bfdd320358cc7899518ee246e96cb0457b325b85e`; project/Extreme final master and SRT verified. Approval in `DS-84-R3-approval.json`. Setup is ready to start from [the separate handoff](../handoff-20261028-ds84-hamstring-curls-covers-and-setup.md), not executed here. No covers, upload or schedules. Original gate failures/audits preserved; no all-row PASS claimed. Review services and disposable VLC copy retired. Dispatcher/heartbeat stay paused.
 
 ## Read first
 

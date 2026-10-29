@@ -1464,3 +1464,23 @@ Recipe: `/Volumes/Expansion/_edit_work/DS-44/r1/recipe/` (copy in `Short-form vi
 - **Room tone under a transition must be measured quiet first** (one choice carried a hiss/exhale); the gate's dead_air counts the clip's silences and the clip-to-Dan handover (keep each under 1 s, trim at camera changes and from the clip's energy end, not Whisper's word end).
 - **HyperFrames graphics can render one frame short of their slot:** ffprobe every mov/mask against its slot before assembling.
 - Known gate mismatches on this pipeline: audio tone (the untouched third-party clip fails it; the voice alone passes), artifacts HF swirl when the raw lav already reads near the bound (chain x1.01), captions:sync's energy onset (breaths). Report them; never tune them.
+
+## Dedicated-short lessons: DS-49 Coconut Water (2026-10-29)
+
+Five independent reviews before SHIP; each item below cost a full rebuild. Recipe: `/Volumes/Extreme/_edit_work/DS-49/round1/recipe/`.
+- **Restarts hide inside one take.** Whisper on the roll merged a restart ("coconut water, I drank...") into one word and printed a
+  restated "Now," once. Read the 0.05 s level map around every kept sentence start; an inserted word plus his own restart = "Now, now".
+- **Never cut a word's tail by ASR end time.** "electrolytes" lost its "s" (fricative 70-150 ms after the ASR end). End pieces in
+  measured room tone after the last fricative, and leave about 0.3 s at sentence joins.
+- **Stock cutaways fill 9:16** (no title window/box), and never show a stranger as "I" (look-alike man, a woman's POV hand both failed).
+  A plain camera open on Dan is acceptable when no stock passes. Conform stock frame for frame (no fps filter: it repeats frames and judders).
+  Check stock transfer (`color_transfer` arib-std-b67 = HDR HLG; tone-map with zscale+tonemap or skip it).
+- **A camera jolt in the source** (blur, then a sideways jump): detect it on the piece's own frames (phaseCorrelate dx peak, Laplacian
+  sharpness vs the pre-jolt baseline, not a median that includes the blur), cut to a tighter crop ON the jump frame plus 2, hold the
+  last sharp frame over the blurred ones (4 frames max), and move the crop per frame (crop x expression on `n`) to cancel the settling.
+  `build.py` `presenter_zoom` in the recipe does all of it.
+- **HyperFrames title strip:** line boxes are about 1.4x the font size and the drift animates them; three lines do not fit a 350 px strip.
+  Lint every new graphic config with `V.build(..., render=False)` before queueing the heavy build. Settle header tracks on frame 0
+  (`_Track(path, -offset, n+offset)`) so the first frame is not an empty band. Break a forced two-line headline with `\n`.
+- **pkill -f with an absolute path does not match** a script started as `python3 recipe/build.py`; check `pgrep -fl` after killing, or two
+  builds race into the same folder.

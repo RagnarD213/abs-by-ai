@@ -88,7 +88,7 @@ largest near-black rectangle, `SET` in the film's assembler).
   "name": "Sharon Osbourne", "stat": "42 lb, Ozempic", "mov": "bg/BG04.mov"},
  {"id": "BG05", "type": "side", "clip": {"src": "clips/src/sharon_full.mp4", "windows": [[52.0, 57.9], [66.0, 71.9]],
   "zoom": 1.22, "focus": [0.47, 0.42], "out_focus": [0.33, 0.44]}},
- {"id": "BG06", "type": "bigtype", "lines": ["2.5 MG", "OR LESS"]},
+ {"id": "BG06", "type": "bigtype", "lines": ["2.5 MG", "OR LESS"]},   // optional "max_w": 680 narrows the type when a long word would run behind Dan
  {"id": "BG07", "type": "set", "clip": {"src": "...", "windows": [[6.0, 7.9], [36.0, 37.8]]}},
  {"id": "BG01", "type": "cards", "photos": ["...6 photos..."]},
  {"id": "BG02", "type": "wall", "photos": ["...about 24..."]}]}

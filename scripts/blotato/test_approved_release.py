@@ -55,7 +55,7 @@ class ApprovedReleaseTests(unittest.TestCase):
     def test_earlier_fallback_skips_later_approved_day(self):
         code, output = self.plan(include_earlier=True)
         self.assertEqual(code, 0)
-        self.assertIn('earlier Earlier film: longform on Sun 2027-01-10', output)
+        self.assertIn('earlier Earlier film: longform on Fri 2027-01-08', output)
         self.assertIn('approved Approved film: longform on Wed 2027-01-06', output)
 
     def test_approved_day_clash_stops_instead_of_silent_move(self):
@@ -68,6 +68,50 @@ class ApprovedReleaseTests(unittest.TestCase):
         code, output = self.plan(changed=True)
         self.assertEqual(code, 1)
         self.assertIn('explicitly approved release date is unavailable or changed', output)
+
+
+class ApprovedShortReleaseTests(unittest.TestCase):
+    def plan(self, clash=False, changed=False, same_day_other_time=False):
+        with tempfile.TemporaryDirectory() as td:
+            path = Path(td) / 'short.json'
+            release = '2026-12-10T23:00:00.000Z'
+            data = {'slug': 'approved-short', 'main': '2026-12-17T23:00:00.000Z' if changed else release,
+                    'video_url': 'https://example.test/video.mp4'}
+            path.write_text(json.dumps(data))
+            entry = {'job': 'DS-test', 'label': 'Approved Short', 'kind': 'short',
+                     'config': str(path), 'approved_release': release}
+            items = []
+            if clash or same_day_other_time:
+                item = scheduled('2026-12-10')
+                item['scheduledAt'] = release if clash else '2026-12-10T15:00:00.000Z'
+                items.append(item)
+            output = io.StringIO()
+            with patch.object(video_topup, 'load', return_value=[entry]), \
+                 patch.object(video_topup, 'datetime', FixedTime), \
+                 patch.object(video_topup, 'head_bytes', return_value=1000), \
+                 patch.object(danrosefit_migration, 'api_key', return_value='test'), \
+                 patch.object(danrosefit_migration, 'fetch_schedules', return_value=items), \
+                 patch.object(video_topup.subprocess, 'run', side_effect=AssertionError('No writes in dry run')), \
+                 patch.object(sys, 'argv', ['video_topup.py']), contextlib.redirect_stdout(output):
+                code = video_topup.main()
+            self.assertEqual(json.loads(path.read_text()), data)
+            return code, output.getvalue()
+
+    def test_same_day_other_time_keeps_explicit_evening_release(self):
+        code, output = self.plan(same_day_other_time=True)
+        self.assertEqual(code, 0)
+        self.assertIn('would queue  DS-test', output)
+        self.assertNotIn('re-slotted', output)
+
+    def test_clash_stops_instead_of_moving_approved_short(self):
+        code, output = self.plan(clash=True)
+        self.assertEqual(code, 1)
+        self.assertIn('explicitly approved release date is unavailable', output)
+
+    def test_changed_short_date_does_not_override_approval(self):
+        code, output = self.plan(changed=True)
+        self.assertEqual(code, 1)
+        self.assertIn('explicitly approved release date is unavailable', output)
 
 
 if __name__ == '__main__':

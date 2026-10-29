@@ -1,0 +1,11 @@
+{
+  "scheduledPosts": 192,
+  "platforms": {
+    "instagram": 57,
+    "facebook": 56,
+    "tiktok": 41,
+    "youtube": 38
+  },
+  "issues": [],
+  "note": "Queue preflight only. Public tiles still need a visual release check; TikTok timestamp alone does not verify frame-zero pixels."
+}

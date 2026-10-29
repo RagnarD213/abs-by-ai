@@ -1,11 +1,11 @@
 # Upwork profile: DRAFT for Dan's review
 
-Status: DRAFT, 2026-10-27. Nothing has been entered, saved or published on Upwork. Facts and sources: `Handoffs/upwork-profile-working-brief.md`.
+Status: DRAFT round 2, 2026-10-28 (Dan's 10-28 answers applied). Nothing has been entered, saved or published on Upwork. Facts and sources: `Handoffs/upwork-profile-working-brief.md`.
 Items marked **[DAN]** need a yes, a change or a fact.
 
 ## 1. Title (70 characters max)
 
-Recommended:
+APPROVED (Dan, 2026-10-28):
 **Direct-Response Video Ads | Scripts & Edits That Sold $238M+** (60 characters)
 
 Alternatives:
@@ -28,28 +28,28 @@ See section 9.1.
 
 ## 4. Fixed-price packages (Upwork Project Catalog: three tiers per project)
 
-Prices Dan approved are in bold. Other tiers are Claude's extrapolations **[DAN]**.
+All tiers approved by Dan, 2026-10-28.
 
 **Project A: Direct-response video ads, from research to ready-to-run files**
 | Tier | What you get | Price | Delivery |
 |---|---|---|---|
-| Starter | 1 finished ad (research, script, filming or your footage, edit, 3 revisions; horizontal, vertical, square) | $950 [DAN] | 10 days |
+| Starter | 1 finished ad (research, script, filming or your footage, edit, 3 revisions; horizontal, vertical, square) | $950 | 10 days |
 | Standard | **3 finished ads** | **$2,500** | 15 days |
-| Advanced | 6 finished ads | $4,500 [DAN] | 25 days |
+| Advanced | 6 finished ads | $4,500 | 25 days |
 
 **Project B: Direct-response video ad scripts**
 | Tier | What you get | Price | Delivery |
 |---|---|---|---|
 | Starter | **1 ad script** with hook options and filming notes | **$350** | 5 days |
-| Standard | 3 ad scripts | $900 [DAN] | 7 days |
-| Advanced | 6 ad scripts | $1,600 [DAN] | 10 days |
+| Standard | 3 ad scripts | $900 | 7 days |
+| Advanced | 6 ad scripts | $1,600 | 10 days |
 
 **Project C: New versions of your winning ad (fresh hooks, shorter cuts, new formats)**
 | Tier | What you get | Price | Delivery |
 |---|---|---|---|
 | Starter | **3 new versions** of an ad you already have | **$450** | 5 days |
-| Standard | 6 new versions | $800 [DAN] | 7 days |
-| Advanced | 12 new versions | $1,400 [DAN] | 10 days |
+| Standard | 6 new versions | $800 | 7 days |
+| Advanced | 12 new versions | $1,400 | 10 days |
 
 Delivery days are totals for the package; the first draft still arrives within 5 business days.
 
@@ -59,13 +59,13 @@ Video Ad, YouTube Ad, Video Advertising, Direct Response Copywriting, Scriptwrit
 
 ## 6. Work history
 
-1. **Social Response Marketing** (Daniel Rose Marketing, LLC), Founder & CEO, 2019 to 2026 **[DAN: confirm end date; email shows work through January 2026]**.
+1. **Social Response Marketing** (Daniel Rose Marketing, LLC), Founder & CEO, 2019 to 2026 (approved 2026-10-28).
    YouTube ad agency for health and info-product brands, including Healthy Back Institute, Mind Movies and Spy Briefing. Wrote the scripts, chose the testimonials, directed the edits and ran the ad spend. Made Healthy Back Institute's #1 ad of all time ($5.96 million in ad spend) and 4 of its top 11. Peak client spend about $50,000 a day.
 2. **SixPackAbs.com (Six Pack Shortcuts)**, Founder, 2010 to 2019.
    Grew the company with YouTube ads into the #2 ranked brand channel on YouTube and an Inc. 5000 company, with over 5.7 million subscribers. Ads drove over $214 million in revenue. Sold the company in 2019.
-3. Optional **[DAN: include or leave off]**: **Abs By AI**, Founder, current. Leaving it off keeps the profile on client results; including it shows recent activity.
+Leave off: Abs By AI and Dan Rose Fitness (Dan, 2026-10-28).
 
-Education: leave blank (recommended). **[DAN]**
+Education: **Boston University**, Bachelor's degree, double major in Entrepreneurship and Marketing (Dan, 2026-10-28). Years: leave blank unless Dan gives them.
 
 ## 7. Photo
 
@@ -79,7 +79,7 @@ Keep the existing Upwork photo (Dan, 2026-10-27).
 | 2 | SixPackAbs.com superfoods ad | https://www.youtube.com/watch?v=k6KoLySNgfo |
 | 3 | Mind Movies manifestation ad | https://www.youtube.com/watch?v=ag67A1CngO0 |
 | 4 | Spy Briefing "The 3 Rules Of Fighting Criminals" | https://youtu.be/sruniCtkIo0 |
-| 5 | "How AI Got Me Abs" in three formats | https://www.youtube.com/watch?v=rfCsWNxuNV0 , https://www.youtube.com/watch?v=OUw788sF1KY |
+| 5 | **[DAN] REPLACE "How AI Got Me Abs"** (Dan worried about shirtless + AI). Recommended: SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" (23,089,576 views, 2017) pending Dan's role; see section 10 | https://www.youtube.com/watch?v=5i30KDjihrs |
 
 All are Unlisted YouTube ads: anyone with the link can watch; they are not searchable. Upwork accepts YouTube links in portfolio items; each item also needs a cover image (a frame from the ad).
 
@@ -150,5 +150,18 @@ Description (173/300 characters): Spy Briefing needed an ad to sell their self-d
 #### 5.
 Title (17/40 characters): How AI Got Me Abs
 
-Description (165/300 characters): This one is for my current brand, in 2026. One 58-second ad, delivered in horizontal, vertical and square. I wrote it, starred in it and produced it start to finish.
+Description (165/300 characters): This one is for my personal YouTube channel, in 2026. One 58-second ad, delivered in horizontal, vertical and square. I wrote it, starred in it and produced it start to finish.
 
+
+## 10. Round 2 notes (2026-10-28)
+
+**Intro video script:** Google Doc for Dan's edits: https://docs.google.com/document/d/1Dg8ISBBI41mx_cMarVquKRmkCerIogRxqLO0olYNbCA/edit (anyone with the link can view).
+
+**Replacing portfolio slot 5.** Dan: showing himself shirtless or "so AI-pilled" could cost hires. Claude agrees. Candidates (YouTube Data API, 2026-10-28):
+- SixPackAbs.com "Burn Fat & Get Six Pack Abs With Fasting" https://www.youtube.com/watch?v=5i30KDjihrs : 23,089,576 views (2017). Top-viewed of the 1,047 ads in Dan's "SixPackAbs.com Channel YouTube Commercials" tracker (262,056,508 views combined). Dan's role on it: unknown, ask.
+- SixPackAbs.com "How Men Over 40 Can Burn Belly Fat" https://www.youtube.com/watch?v=tq96OGXAJfA : 16,747,520 views (2017).
+- HBI "Avoid These Proteins If You Have Arthritis!" https://youtu.be/eRJnsVrnaE8 : 23,334,121 views; $904,578 spend; $48.70 CPA (HBI sheet; producer Social Response Marketing). Better folded into case study 1.
+- HBI "The Five Foods You Should Avoid Eating If You Have Arthritis" (Mark) https://youtu.be/y3DEsod4Vv0 : 17,554,191 views; $854,862 spend; $48.14 CPA, the lowest CPA in HBI's top 11.
+Recommendation: slot 5 = the fasting ad (fitness buyers are the main target); case study 1 grows to all four Social Response Marketing ads in HBI's top 11 ($9.41M spend, 143.2M views combined). New proof line for the overview: "I ran over 1,000 YouTube ads for SixPackAbs.com" (tracker count; Dan listed as brand manager).
+
+**Google Ads management.** Claude's recommendation: add it as a second offer, not the headline. Entry product "YouTube Ads Account Audit", fixed price [DAN: $750 suggested], 5 business days; Claude pulls the account data through the Google Ads API and drafts the audit, Dan reviews. Ongoing management offered in proposals as a fixed monthly retainer [DAN: price]. Title stays on ads; overview gains one line. See chat 2026-10-28 for the reasoning.

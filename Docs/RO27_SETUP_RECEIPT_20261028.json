@@ -1,0 +1,155 @@
+{
+  "job": "RO-27",
+  "category": "CONTENT (LFC)",
+  "title": "This Boring Daily Routine Got Me Abs At 41",
+  "slug": "ro27-boring-abs-at-40",
+  "finished_at": "2026-10-28T19:49:36.333057+00:00",
+  "status": "uploaded to Blotato; all four release schedules verified; not yet public",
+  "master_preserved": true,
+  "thumbnail_round": 3,
+  "thumbnail_design": 1,
+  "backups": [
+    {
+      "name": "Boring Abs At 40 - thumbnail FINAL.jpg",
+      "bytes": 450994,
+      "sha256": "0aa533016c08de2e37ce6cc2f5a6c758e5eea99953d4ff90c4c2b92ba4836e3f",
+      "drive_id": "1b3mo01gLM-Fd-piWyoD5uL9r_SMtbhbb",
+      "three_copies_verified": true
+    },
+    {
+      "name": "Boring Abs At 40 | codex | 16x9 | RO-27.mp4",
+      "bytes": 216405614,
+      "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "drive_id": "17a_vo1_E0eUytThFDfsL3ayIi1fcABBO",
+      "three_copies_verified": true
+    },
+    {
+      "name": "Boring Abs At 40 | codex | 16x9 | RO-27.srt",
+      "bytes": 15120,
+      "sha256": "07628c6201d33548357c5dcf89ded0725ea812f5920c8218aaad8988560eddc2",
+      "drive_id": "1Z_V1bdZK3L5jT_q0KoLP5xJPRZZTp-r7",
+      "three_copies_verified": true
+    }
+  ],
+  "drive_folder": "https://drive.google.com/drive/folders/1Mnv9NA8fxzsSWsqGPx4VUBUL2hd9nvno",
+  "config": "scripts/blotato/configs/ro27-boring-abs-at-40.json",
+  "article": {
+    "path": "sixpackabs/articles/TBD-ro27-boring-abs-at-40.md",
+    "words": 1005,
+    "check": "OK",
+    "title_matches_youtube": true,
+    "cta_path": "/",
+    "publication": "Existing daily article-gap routine after public YouTube release"
+  },
+  "pinned_comment": "What is one thing you do every day that helps you stay in shape?",
+  "pinned_comment_publication": "Existing youtube-pinned-comment-daily after release",
+  "schedules": [
+    {
+      "platform": "facebook",
+      "schedule_id": "6164753",
+      "scheduled_at": "2026-11-05T18:00:00.000Z",
+      "target": {
+        "targetType": "facebook",
+        "pageId": "1294282227094660"
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb8f9f37-3655-4bbf-97d2-3df2c08e6cbb.mp4",
+      "expected_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "caption_verified": true,
+      "target_verified": true,
+      "downloaded_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "downloaded_media_bytes": 216405614
+    },
+    {
+      "platform": "instagram",
+      "schedule_id": "6164754",
+      "scheduled_at": "2026-11-05T18:00:00.000Z",
+      "target": {
+        "targetType": "instagram",
+        "mediaType": "reel",
+        "shareToFeed": true,
+        "firstComment": "Try Abs By AI free for 7 days: https://absbyai.com/?utm_source=instagram&utm_medium=video&utm_campaign=longform&utm_content=ro27-boring-abs-at-40",
+        "coverImageUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f95db7e9-c54a-417c-b020-461be34ec0a7.jpg"
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/65e6c677-1167-40a9-b866-dc09de41a504.mp4",
+      "expected_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "caption_verified": true,
+      "target_verified": true,
+      "downloaded_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "downloaded_media_bytes": 216405614
+    },
+    {
+      "platform": "tiktok",
+      "schedule_id": "6164755",
+      "scheduled_at": "2026-11-05T18:00:00.000Z",
+      "target": {
+        "targetType": "tiktok",
+        "privacyLevel": "PUBLIC_TO_EVERYONE",
+        "disabledComments": false,
+        "disabledDuet": false,
+        "disabledStitch": false,
+        "isBrandedContent": false,
+        "isYourBrand": false,
+        "isAiGenerated": true,
+        "videoCoverTimestamp": 0
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/395020b2-eae8-4f27-be81-4c8b3909d273.mp4",
+      "expected_media_sha256": "85e89e9557d7baf86054e02b5e0ab069752193e7c30c46fba06ec03a9ca2f594",
+      "caption_verified": true,
+      "target_verified": true,
+      "downloaded_media_sha256": "85e89e9557d7baf86054e02b5e0ab069752193e7c30c46fba06ec03a9ca2f594",
+      "downloaded_media_bytes": 216492519
+    },
+    {
+      "platform": "youtube",
+      "schedule_id": "6164756",
+      "scheduled_at": "2026-11-04T15:00:00.000Z",
+      "target": {
+        "targetType": "youtube",
+        "title": "This Boring Daily Routine Got Me Abs At 41",
+        "privacyStatus": "public",
+        "shouldNotifySubscribers": true,
+        "isMadeForKids": false,
+        "containsSyntheticMedia": true,
+        "thumbnailUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f95db7e9-c54a-417c-b020-461be34ec0a7.jpg"
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a1e3ab9e-36bf-44bc-ae1f-30bd55cd0f6b.mp4",
+      "expected_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "caption_verified": true,
+      "target_verified": true,
+      "downloaded_media_sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+      "downloaded_media_bytes": 216405614
+    }
+  ],
+  "all_saved_media_downloads_hash_verified": true,
+  "youtube_and_tiktok_ai_flags": true,
+  "tiktok_verification": {
+    "frames_src": 14417,
+    "frames_out": 14418,
+    "audio_pkts_src": 22551,
+    "audio_pkts_out": 22551,
+    "decode_errors": "",
+    "cover_psnr": 51.26065713340088,
+    "ok": true,
+    "audio_payload_sha256_source": "SHA256=602ea22f1bdc232a235d397936b0efd894b4f3ac75336f28db644823edf4f886",
+    "audio_payload_sha256_tiktok": "SHA256=602ea22f1bdc232a235d397936b0efd894b4f3ac75336f28db644823edf4f886",
+    "audio_payload_identical": true,
+    "file": "/Volumes/Extreme/_edit_work/ro27-publish/Boring Abs At 40 - TikTok cover first.mp4",
+    "sha256": "85e89e9557d7baf86054e02b5e0ab069752193e7c30c46fba06ec03a9ca2f594",
+    "bytes": 216492519
+  },
+  "guard_before": "196 posts, clean; no cover issues",
+  "guard_after": "200 posts, clean; no cover issues",
+  "waitlist": false,
+  "edit_queue": "RO-27 uploaded rev6, live Drive status upload verified",
+  "shorts": "SL-26 remains registered/ready/unattended false; no editing launched; dependency updated to Nov4; actual parent must be public first",
+  "post_release_checks": [
+    "Verify actual YouTube is public before Nov5 noon socials; postpone socials if not public.",
+    "Verify actual public covers on four platforms; saved URLs are not public tile proof.",
+    "Upload English SRT and verify pinned question and article through existing release routines.",
+    "YouTube tags are prepared in config; no unsupported Blotato target tag field or live YouTube tag application is claimed before release."
+  ],
+  "delivery_gate_history": "Original approved-film numerical FAIL stamps preserved, no invented PASS; this phase ran setup/cover preflights and lossless-copy checks.",
+  "writing": "Claude CLI authentication failed before inference; supported clean GPT fallback from 5 real passages used. All factual and hard-rule checks passed. No new metered generation spend.",
+  "app_health": "https://absbyai.com HTTP200 verified; automatic Railway deployments are queued, not claimed complete. No app runtime or native code changes.",
+  "approval_words": "This is approved. Go ahead and finish the upload and scheduling for Boring Abs At 40 with this thumbnail."
+}

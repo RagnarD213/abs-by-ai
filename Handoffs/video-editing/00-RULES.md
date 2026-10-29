@@ -56,7 +56,8 @@ Name the editing chat `<Recognizable Video Title> <Type> R<round>` using the sha
 * **Banned screens.** No side-by-side before/after app screen, no "Meet the new you" screen, no email-capture screen.
   Gate `compliance:banned_screen` scans every frame.
 * **Claims.** No unbelievable claims in on-screen text (memory `ad-copy-no-unbelievable-claims`). No drug brand names in
-  on-screen graphics for Zepbound/GLP-1 material. Health disclaimers Dan says on camera stay in.
+  on-screen graphics for Zepbound/GLP-1 material, except in organic videos entirely about weight-loss drugs, where
+  graphics may name them (Dan, 2026-10-28; VIDEO-RULES). Health disclaimers Dan says on camera stay in.
 * **Photos.** Don't pick frowning photos by default (they live in `photos/finalized social media photos/Frowning Photos/`).
 * **AI clips.** Check every AI shot frame by frame for breath smoke, fogging mirrors, melting hands and morphing objects
   (memory `ai-clip-artifact-giveaways`). Show Dan the start/end frames and the intended action **before** generating

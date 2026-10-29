@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: cc8915b8-dcc9-4f08-92c6-7334ae3349d9
-  modified: 2026-10-16T17:33:35.228Z
+  modified: 2026-10-28T20:00:00.000Z
 ---
 
 Dan's rule of thumb for ranking long-forms for release (2026-10-16), when he moved to two long-forms a week:
@@ -18,8 +18,7 @@ Dan's rule of thumb for ranking long-forms for release (2026-10-16), when he mov
 - Weakest of all: "Invest In Your Health" (RO-20/B/C), split into three though it was never meant to be.
 - His top priorities: RO-25 "I'm 41. I Wasted My Life." and RO-26 "I'm 41. My Life Is Top 1%." take the next two Sundays.
 
-**Approved calendar (Dan, 2026-10-17):** Sunday + Wednesday 9 AM, one per day; every already-edited film releases in
-2026; RO-20/B/C off the schedule; dated list in `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+**Approved calendar (Dan, 2026-10-28, replaces the 10-17 Sunday+Wednesday calendar):** dated phases in `Docs/LONGFORM_RELEASE_CALENDAR.md` and `scripts/blotato/release_phases.py`. Phase 1 (to Nov 25) Sun+Wed, no kitchen footage except the daily salad and its Shorts; phase 2 (Nov 26 to Dec 25) Sun+Wed+Fri, kitchen films first; phase 3 (Dec 26 to Jan 31) Sun+Wed+Fri, the fat-loss/beginner/gym blitz, strongest first (Sundays strongest); phase 4 Sunday only. Dan's words: "everything released before Thanksgiving to be not in the kitchen". Kitchen is judged by frame (fridge/cabinet set), not topic: the Aug 28 talking Shorts are poolside, not kitchen. Related: [[claude-codex-major-decision-template]].
 
 **Why:** a ~33 long-form backlog at one a week would hold the best studio work until spring 2027.
 

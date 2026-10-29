@@ -39,6 +39,7 @@ thumbnail and length keep following YouTube.
   page on the same topic.
 - **CTA:** exactly one, `[...]({CTA})` → `absbyai.com/start` with `utm_source=sixpackabs&utm_medium=blog&
   utm_campaign=video-article&utm_content=<video-id>`.
+- **Per-article CTA destination (2026-10-28):** `cta_path: /` in front matter sends `{CTA}` to the app homepage with the same UTM fields. Use it when the setup handoff requires organic links to the root, as RO-27 does. Omit the field to preserve the existing `/start` default; existing articles are unchanged.
 - **CTA wording (2026-10-10):** the link goes to the /start sales page, so the ask is the 7-day free trial
   ("try Abs By AI free for 7 days"), not a free AI image. Older articles keep the wording they have.
 - **Links:** 1 to 3 internal links (`/videos/...` pages or old posts). `build.py` enforces this.

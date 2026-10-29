@@ -1,0 +1,945 @@
+{
+  "job": "SL-11",
+  "date": "2026-10-28",
+  "owner": "Codex01a184f8",
+  "phase": "cover-review",
+  "status": "awaiting Dan cover picks",
+  "review_url": "http://127.0.0.1:9301/",
+  "review_folder": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl11-vacuum-20261028",
+  "concepts": 15,
+  "platform_layouts": 30,
+  "mix_per_short": {
+    "A": "AI Dan, yellow headline",
+    "B": "AI Dan, white/cyan headline",
+    "C": "real studio photo composited locally on Codex background",
+    "D": "history-guided AI Dan, large bottom title",
+    "E": "history-guided AI Dan, gold serif design"
+  },
+  "real_photo_sources": {
+    "a": "photos/finalized social media photos/_cutouts/studio-blue-247_CUTOUT.png",
+    "b": "photos/finalized social media photos/_cutouts/studio-white-23_CUTOUT.png",
+    "c": "photos/finalized social media photos/_cutouts/studio-white-49_CUTOUT.png"
+  },
+  "recommendations": {
+    "standing": "A",
+    "breathing": "B",
+    "morning": "A"
+  },
+  "cover_picks": null,
+  "cover_approval": false,
+  "master_media_changed": false,
+  "backup_verification": "16 files match project and Extreme SHA256, plus fresh Drive lsjson readback matching finalized receipt",
+  "cloud_readback": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl11-vacuum-20261028/drive-readback.json",
+  "generation": {
+    "images": 15,
+    "model": "gpt-6.1-sol",
+    "effort": "high",
+    "route": ".claude/skills/_shared/codex-image.sh",
+    "subscription_tokens_reported": 512398,
+    "paid_image_api_spend_usd": 0
+  },
+  "checks": {
+    "layouts": 30,
+    "automated_pass": true,
+    "served_hashes_verified": 30,
+    "visual_review": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl11-vacuum-20261028/visual-review.json"
+  },
+  "social_uploads": false,
+  "scheduled": false,
+  "dates_reserved": false,
+  "parent": "RO-02, current calendar Jan 15 2027; reread actual parent/live queue after cover picks",
+  "next": "Wait for one exact cover letter per Short; save chosen PNG/JPEG hashes, then complete organic setup in this same chat per handoff.",
+  "outputs": {
+    "a": [
+      {
+        "letter": "A",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/instagram/sl11-a-standing-stomach-vacuum_cover-A.png",
+        "sha256": "18f1f461fc10d2d3e1b06c77df3645dc3eee7e50ffd534ff684109d24f47ad0e",
+        "text_bounds": [
+          [
+            66,
+            260,
+            1015,
+            391
+          ],
+          [
+            69,
+            412,
+            1011,
+            539
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-A.png",
+        "plate_sha256": "b7275adf60b81285612b1100845257bb201cd009034b2bfd401a746be1b4e788",
+        "source_person_top": 528,
+        "picture_shift": 87,
+        "minimum_subject_top": 615
+      },
+      {
+        "letter": "A",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-A.png",
+        "sha256": "7b4e5010c77213fe793e9d008eabd3c90e8694f6cfbf7402889149d1d788dc1f",
+        "text_bounds": [
+          [
+            66,
+            90,
+            1015,
+            221
+          ],
+          [
+            69,
+            242,
+            1011,
+            369
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-A.png",
+        "plate_sha256": "b7275adf60b81285612b1100845257bb201cd009034b2bfd401a746be1b4e788",
+        "source_person_top": 578,
+        "picture_shift": 0,
+        "minimum_subject_top": 445,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-A.jpg",
+        "jpeg_sha256": "b497b0bff36e885cc64a6bd0be119b21e13149f667fdc38ccfc50eb2017aeb4b",
+        "jpeg_bytes": 363451
+      },
+      {
+        "letter": "B",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/instagram/sl11-a-standing-stomach-vacuum_cover-B.png",
+        "sha256": "1b7dbcc1ea9f36525ad51f762d788e7066b91a5989d910136fd38d300e4ac031",
+        "text_bounds": [
+          [
+            63,
+            256,
+            1016,
+            364
+          ],
+          [
+            65,
+            411,
+            1015,
+            528
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-B.png",
+        "plate_sha256": "19e93b0092a2c202e9600880f8f1ed3d6d21e68150cb9c95741d5e28a7394da9",
+        "source_person_top": 700,
+        "picture_shift": 0,
+        "minimum_subject_top": 590
+      },
+      {
+        "letter": "B",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-B.png",
+        "sha256": "608ccdb27ef7bec1ff173cd1d6bd1ac5435a92368c3642c6736c02248079a6de",
+        "text_bounds": [
+          [
+            63,
+            86,
+            1016,
+            194
+          ],
+          [
+            65,
+            241,
+            1015,
+            358
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-B.png",
+        "plate_sha256": "19e93b0092a2c202e9600880f8f1ed3d6d21e68150cb9c95741d5e28a7394da9",
+        "source_person_top": 600,
+        "picture_shift": 0,
+        "minimum_subject_top": 420,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-B.jpg",
+        "jpeg_sha256": "2d52a1c598d645700cf5783ce5c87017ccf9c0b21ccddd2ea415585041e0996f",
+        "jpeg_bytes": 309602
+      },
+      {
+        "letter": "C",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/instagram/sl11-a-standing-stomach-vacuum_cover-C.png",
+        "sha256": "43db38c78151488215060b0190ba891b8f60ac53206d0eaa6ed72962a0e9d56e",
+        "text_bounds": [
+          [
+            82,
+            260,
+            998,
+            361
+          ],
+          [
+            80,
+            405,
+            1000,
+            510
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-C.png",
+        "plate_sha256": "68f70466a3558eb4bc2acde6da232d181f0b4680123cf3c238a4346d97ad385d",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-blue-247_CUTOUT.png",
+        "source_sha256": "b4895a6142e2c0ced868bb718d3fecb9a01d816cd9d2c67a612bd97a58f587d6",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          456,
+          279,
+          2707,
+          4298
+        ],
+        "scale": 0.3209753670067181,
+        "subject_top": 650
+      },
+      {
+        "letter": "C",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-C.png",
+        "sha256": "9cd0114a273d0a001e152c78c5225814d70f9fda3afe76185151adf89f0df5d7",
+        "text_bounds": [
+          [
+            82,
+            90,
+            998,
+            191
+          ],
+          [
+            80,
+            235,
+            1000,
+            340
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-C.png",
+        "plate_sha256": "68f70466a3558eb4bc2acde6da232d181f0b4680123cf3c238a4346d97ad385d",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-blue-247_CUTOUT.png",
+        "source_sha256": "b4895a6142e2c0ced868bb718d3fecb9a01d816cd9d2c67a612bd97a58f587d6",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          456,
+          279,
+          2707,
+          4298
+        ],
+        "scale": 0.36327444637969647,
+        "subject_top": 480,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-C.jpg",
+        "jpeg_sha256": "040bed524c1cc0bf1b3fa621c2542394ce0cdabd087b942f361125e6ed3ba4eb",
+        "jpeg_bytes": 477986
+      },
+      {
+        "letter": "D",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/instagram/sl11-a-standing-stomach-vacuum_cover-D.png",
+        "sha256": "b1df7b80c089973bb34e1f44be38e43342d423633933d7199708934a3f9ed7af",
+        "text_bounds": [
+          [
+            42,
+            1141,
+            1038,
+            1258
+          ],
+          [
+            173,
+            1268,
+            907,
+            1431
+          ],
+          [
+            130,
+            1441,
+            949,
+            1620
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-D.png",
+        "plate_sha256": "c2fee056e83d3f271160aa5b0675ae7aed89658e1e4fc9dc9e03f0dc492204e6",
+        "source_person_top": 260,
+        "picture_shift": 0,
+        "minimum_subject_top": 260
+      },
+      {
+        "letter": "D",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-D.png",
+        "sha256": "62a4929205b77251c0aec5cb28856925832b019d263a24a0c40dd5a53637c5fe",
+        "text_bounds": [
+          [
+            42,
+            1278,
+            1038,
+            1395
+          ],
+          [
+            146,
+            1405,
+            934,
+            1580
+          ],
+          [
+            104,
+            1590,
+            975,
+            1780
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-D.png",
+        "plate_sha256": "c2fee056e83d3f271160aa5b0675ae7aed89658e1e4fc9dc9e03f0dc492204e6",
+        "source_person_top": 214,
+        "picture_shift": 0,
+        "minimum_subject_top": 90,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-D.jpg",
+        "jpeg_sha256": "485a8c0f4a22f43434736dcda622b61a989541b17e354e8195ad7303a8a6086a",
+        "jpeg_bytes": 305932
+      },
+      {
+        "letter": "E",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/instagram/sl11-a-standing-stomach-vacuum_cover-E.png",
+        "sha256": "71fec6fa4baba37b69f9894c7e35c4a521188aa773015156325ad601946ed376",
+        "text_bounds": [
+          [
+            67,
+            260,
+            1016,
+            365
+          ],
+          [
+            100,
+            408,
+            979,
+            510
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-E.png",
+        "plate_sha256": "b1c32b5f7a0cb4aeab91f1f881f1aa252635ec2a1ae89257114d2d5d79ed3401",
+        "source_person_top": 716,
+        "picture_shift": 0,
+        "minimum_subject_top": 600
+      },
+      {
+        "letter": "E",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-E.png",
+        "sha256": "9a3c0a6ee11fb62bfcb2643fd0492625ccce71ae2e783e964ae4dea2b153109c",
+        "text_bounds": [
+          [
+            67,
+            90,
+            1016,
+            195
+          ],
+          [
+            100,
+            238,
+            979,
+            340
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/a-E.png",
+        "plate_sha256": "b1c32b5f7a0cb4aeab91f1f881f1aa252635ec2a1ae89257114d2d5d79ed3401",
+        "source_person_top": 616,
+        "picture_shift": 0,
+        "minimum_subject_top": 430,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/a/youtube/sl11-a-standing-stomach-vacuum_cover-E.jpg",
+        "jpeg_sha256": "ad2c088b86273a5025f1529530fb611079ce86e1b53efa568f0b6814f792ed14",
+        "jpeg_bytes": 336620
+      }
+    ],
+    "b": [
+      {
+        "letter": "A",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/instagram/sl11-b-stop-holding-your-breath_cover-A.png",
+        "sha256": "8049ffab5e1629ef15ab42299c5bb797e3570ac4e3c265e8f33eebff656b71d7",
+        "text_bounds": [
+          [
+            71,
+            260,
+            1010,
+            375
+          ],
+          [
+            66,
+            412,
+            1014,
+            523
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-A.png",
+        "plate_sha256": "5719e12279420e41d04299c8745be549b2ca194f21a05c36110f360405952c4a",
+        "source_person_top": 633,
+        "picture_shift": 0,
+        "minimum_subject_top": 615
+      },
+      {
+        "letter": "A",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-A.png",
+        "sha256": "2eaeb15b89b4bedbac4e999bf97e089a2eaecc5d1de489aa91d5fa4b6791a3f5",
+        "text_bounds": [
+          [
+            71,
+            90,
+            1010,
+            205
+          ],
+          [
+            66,
+            242,
+            1014,
+            353
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-A.png",
+        "plate_sha256": "5719e12279420e41d04299c8745be549b2ca194f21a05c36110f360405952c4a",
+        "source_person_top": 528,
+        "picture_shift": 0,
+        "minimum_subject_top": 445,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-A.jpg",
+        "jpeg_sha256": "96bc7d1765d3cfd3047dd5f4aca65652a59d482d438110e95f8b80ee3b485f75",
+        "jpeg_bytes": 344066
+      },
+      {
+        "letter": "B",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/instagram/sl11-b-stop-holding-your-breath_cover-B.png",
+        "sha256": "9ad34f42aa3d977504efce200425e1783682b80d49271e990e69f87e15f9e12b",
+        "text_bounds": [
+          [
+            64,
+            256,
+            1017,
+            350
+          ],
+          [
+            62,
+            411,
+            1018,
+            501
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-B.png",
+        "plate_sha256": "2fea0f8525bbcaef4590025ad7698f48806cc64b5f5ea3f8753837b15c9932e4",
+        "source_person_top": 633,
+        "picture_shift": 0,
+        "minimum_subject_top": 590
+      },
+      {
+        "letter": "B",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-B.png",
+        "sha256": "8ce4f00741b1966c9674a966835753bce29f18a13f29bf5ae162976f0625326a",
+        "text_bounds": [
+          [
+            64,
+            86,
+            1017,
+            180
+          ],
+          [
+            62,
+            241,
+            1018,
+            331
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-B.png",
+        "plate_sha256": "2fea0f8525bbcaef4590025ad7698f48806cc64b5f5ea3f8753837b15c9932e4",
+        "source_person_top": 528,
+        "picture_shift": 0,
+        "minimum_subject_top": 420,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-B.jpg",
+        "jpeg_sha256": "6da1fb079e893ecf4e599292a640e54a0281401086bea8c1f7e365fde2bb53ee",
+        "jpeg_bytes": 280283
+      },
+      {
+        "letter": "C",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/instagram/sl11-b-stop-holding-your-breath_cover-C.png",
+        "sha256": "50152e82e6457f42aa1b33546482bd8d1daaeb241a8b881233d2ca06fa6d7431",
+        "text_bounds": [
+          [
+            81,
+            260,
+            999,
+            348
+          ],
+          [
+            86,
+            405,
+            993,
+            492
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-C.png",
+        "plate_sha256": "b293937c1ad75763a8ea46da1070ec32b61d96d29a28668fe168b827a7184b1d",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-white-23_CUTOUT.png",
+        "source_sha256": "decff1a29b29986a5f79aa85ba5c4afec19b5cb33397a14085aaa6dc3050c464",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          162,
+          239,
+          2581,
+          4298
+        ],
+        "scale": 0.3178122690317812,
+        "subject_top": 650
+      },
+      {
+        "letter": "C",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-C.png",
+        "sha256": "a8638c8bb28800b2f61b103814fe0d9ab4e85c48d1927d41237a23e0efa86e9b",
+        "text_bounds": [
+          [
+            81,
+            90,
+            999,
+            178
+          ],
+          [
+            86,
+            235,
+            993,
+            322
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-C.png",
+        "plate_sha256": "b293937c1ad75763a8ea46da1070ec32b61d96d29a28668fe168b827a7184b1d",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-white-23_CUTOUT.png",
+        "source_sha256": "decff1a29b29986a5f79aa85ba5c4afec19b5cb33397a14085aaa6dc3050c464",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          162,
+          239,
+          2581,
+          4298
+        ],
+        "scale": 0.3596945060359695,
+        "subject_top": 480,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-C.jpg",
+        "jpeg_sha256": "1109af6dc0bfc0ea9e880f8c79c1cb6eb9116199d4c79ef57da542ef185b9975",
+        "jpeg_bytes": 362152
+      },
+      {
+        "letter": "D",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/instagram/sl11-b-stop-holding-your-breath_cover-D.png",
+        "sha256": "3c5972e5ea925d2223dfb62564fc334f08e639d6dc8a1073b3814673dd251cbf",
+        "text_bounds": [
+          [
+            41,
+            1160,
+            1039,
+            1263
+          ],
+          [
+            42,
+            1273,
+            1039,
+            1431
+          ],
+          [
+            79,
+            1441,
+            1000,
+            1620
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-D.png",
+        "plate_sha256": "54041f053c08827dc83cdc210697008a5641ec1a2160eef3a3d3066f4dbc3d6b",
+        "source_person_top": 262,
+        "picture_shift": 0,
+        "minimum_subject_top": 260
+      },
+      {
+        "letter": "D",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-D.png",
+        "sha256": "e10955113622a71b0362b68bec6416ee7e7c2f40bbe5754857bfe8abc439a50a",
+        "text_bounds": [
+          [
+            41,
+            1309,
+            1039,
+            1412
+          ],
+          [
+            42,
+            1422,
+            1039,
+            1580
+          ],
+          [
+            50,
+            1590,
+            1029,
+            1780
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-D.png",
+        "plate_sha256": "54041f053c08827dc83cdc210697008a5641ec1a2160eef3a3d3066f4dbc3d6b",
+        "source_person_top": 262,
+        "picture_shift": 0,
+        "minimum_subject_top": 90,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-D.jpg",
+        "jpeg_sha256": "97c6d25e853cb1a07e649ed144f4864551ca1d28f6c0486773ba7744342e0875",
+        "jpeg_bytes": 321337
+      },
+      {
+        "letter": "E",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/instagram/sl11-b-stop-holding-your-breath_cover-E.png",
+        "sha256": "06481784c736cb9e7e37c43c93a98e841c4291d5f9ac80d20010b82103648917",
+        "text_bounds": [
+          [
+            66,
+            260,
+            1014,
+            356
+          ],
+          [
+            64,
+            408,
+            1013,
+            504
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-E.png",
+        "plate_sha256": "c88cb5fd8f4807b234013c4a81aac05893e07f0c6db0435309818bc75a4c87f4",
+        "source_person_top": 684,
+        "picture_shift": 0,
+        "minimum_subject_top": 600
+      },
+      {
+        "letter": "E",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-E.png",
+        "sha256": "652752f44a39267adcb936fa320be583ab6d6a9dc6eeaf4cdf177be8e17cf3e6",
+        "text_bounds": [
+          [
+            66,
+            90,
+            1014,
+            186
+          ],
+          [
+            64,
+            238,
+            1013,
+            334
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/b-E.png",
+        "plate_sha256": "c88cb5fd8f4807b234013c4a81aac05893e07f0c6db0435309818bc75a4c87f4",
+        "source_person_top": 583,
+        "picture_shift": 0,
+        "minimum_subject_top": 430,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/b/youtube/sl11-b-stop-holding-your-breath_cover-E.jpg",
+        "jpeg_sha256": "de2060356cdf98cca09755ec453186005f207b9b0afcaaad80fabfc1367bc701",
+        "jpeg_bytes": 298499
+      }
+    ],
+    "c": [
+      {
+        "letter": "A",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/instagram/sl11-c-20-second-morning-vacuum_cover-A.png",
+        "sha256": "407cc00ccb3b0ec1e8d701e624102975128eb83ef8ccbb52ae62e2f72fa0f5e4",
+        "text_bounds": [
+          [
+            67,
+            260,
+            1012,
+            347
+          ],
+          [
+            66,
+            412,
+            1015,
+            534
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-A.png",
+        "plate_sha256": "75e0aa3ce1ac10e13dfcaea92f62b559e84eedb306eed07a70fa59dd914834cf",
+        "source_person_top": 619,
+        "picture_shift": 0,
+        "minimum_subject_top": 615
+      },
+      {
+        "letter": "A",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-A.png",
+        "sha256": "212aee4833758f7662718abcdc713fdf683aa93523b99c397769d46a0013a2fb",
+        "text_bounds": [
+          [
+            67,
+            90,
+            1012,
+            177
+          ],
+          [
+            66,
+            242,
+            1015,
+            364
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-A.png",
+        "plate_sha256": "75e0aa3ce1ac10e13dfcaea92f62b559e84eedb306eed07a70fa59dd914834cf",
+        "source_person_top": 512,
+        "picture_shift": 0,
+        "minimum_subject_top": 445,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-A.jpg",
+        "jpeg_sha256": "a7af73b82f0cbab924b07207ec7ec832d73299b9d12522f3258cb2cf42649ffc",
+        "jpeg_bytes": 334389
+      },
+      {
+        "letter": "B",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/instagram/sl11-c-20-second-morning-vacuum_cover-B.png",
+        "sha256": "2af7a7deed27c3e29be0544e532628f8184fea3ebb794eb3ea4bb2d469adef8d",
+        "text_bounds": [
+          [
+            67,
+            256,
+            1013,
+            337
+          ],
+          [
+            62,
+            411,
+            1017,
+            511
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-B.png",
+        "plate_sha256": "8bb6c7cdb9e3084b8dd0d94cffa29ec5348c1ba1c9859a9e950c0756c7cf130f",
+        "source_person_top": 680,
+        "picture_shift": 0,
+        "minimum_subject_top": 590
+      },
+      {
+        "letter": "B",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-B.png",
+        "sha256": "4ec6ad0d8b4e84cdb555352bd5ab8e906798ffefa3238a51f90b021de5d9ef8e",
+        "text_bounds": [
+          [
+            67,
+            86,
+            1013,
+            167
+          ],
+          [
+            62,
+            241,
+            1017,
+            341
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-B.png",
+        "plate_sha256": "8bb6c7cdb9e3084b8dd0d94cffa29ec5348c1ba1c9859a9e950c0756c7cf130f",
+        "source_person_top": 579,
+        "picture_shift": 0,
+        "minimum_subject_top": 420,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-B.jpg",
+        "jpeg_sha256": "fd750ec7d6e9d19bb1829d6e4599eb360b9aa2364a59b7bc75ba534bd710d7a3",
+        "jpeg_bytes": 301714
+      },
+      {
+        "letter": "C",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/instagram/sl11-c-20-second-morning-vacuum_cover-C.png",
+        "sha256": "785d588d5f002664fd2e5ac193e5cf52bb0792c864c4774a551f25c3a3843712",
+        "text_bounds": [
+          [
+            80,
+            260,
+            999,
+            329
+          ],
+          [
+            81,
+            405,
+            999,
+            500
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-C.png",
+        "plate_sha256": "e659efeb88b797404f0ba17cb43cb447e5406ed1b5dc6b84d51f7274a2bcaa40",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-white-49_CUTOUT.png",
+        "source_sha256": "5f4d160cb21fd64c80535f26511c4839fc9073b119b3b67513319a47c5f7092e",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          538,
+          580,
+          3191,
+          4298
+        ],
+        "scale": 0.3469607315761162,
+        "subject_top": 650
+      },
+      {
+        "letter": "C",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-C.png",
+        "sha256": "ca28c3fb7dccf7ba2ded0658101d42664949779c70e997106a90c52f17c988a9",
+        "text_bounds": [
+          [
+            80,
+            90,
+            999,
+            159
+          ],
+          [
+            81,
+            235,
+            999,
+            330
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-C.png",
+        "plate_sha256": "e659efeb88b797404f0ba17cb43cb447e5406ed1b5dc6b84d51f7274a2bcaa40",
+        "real_photo": true,
+        "source": "photos/finalized social media photos/_cutouts/studio-white-49_CUTOUT.png",
+        "source_sha256": "5f4d160cb21fd64c80535f26511c4839fc9073b119b3b67513319a47c5f7092e",
+        "source_person_pixels_preserved": true,
+        "source_crop": [
+          538,
+          580,
+          3191,
+          4298
+        ],
+        "scale": 0.392684238838085,
+        "subject_top": 480,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-C.jpg",
+        "jpeg_sha256": "4c51221518e6683b0619da2cc099a74f90c8e19aae025ebe83d1ff5a835923c2",
+        "jpeg_bytes": 391204
+      },
+      {
+        "letter": "D",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/instagram/sl11-c-20-second-morning-vacuum_cover-D.png",
+        "sha256": "342a6030f7b0c9755d4288671809884824c89104c5b76230256d901bd3f3bec9",
+        "text_bounds": [
+          [
+            41,
+            1190,
+            1038,
+            1327
+          ],
+          [
+            42,
+            1337,
+            1038,
+            1441
+          ],
+          [
+            44,
+            1451,
+            1036,
+            1620
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-D.png",
+        "plate_sha256": "12a50ea4e6eb4b185560c60285d9d41bb3a421219a212a57d458b0eed86f0181",
+        "source_person_top": 336,
+        "picture_shift": 0,
+        "minimum_subject_top": 260
+      },
+      {
+        "letter": "D",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-D.png",
+        "sha256": "220dde162865a72faae3c8e3fcdfb19df8cd4ad84348d06ade97d14f9f77700f",
+        "text_bounds": [
+          [
+            41,
+            1350,
+            1038,
+            1487
+          ],
+          [
+            42,
+            1497,
+            1038,
+            1601
+          ],
+          [
+            44,
+            1611,
+            1036,
+            1780
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-D.png",
+        "plate_sha256": "12a50ea4e6eb4b185560c60285d9d41bb3a421219a212a57d458b0eed86f0181",
+        "source_person_top": 336,
+        "picture_shift": 0,
+        "minimum_subject_top": 90,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-D.jpg",
+        "jpeg_sha256": "7c753e78ea52d94deef3c7f3e0786956793e6d8494f728ec276fd316930cc8cb",
+        "jpeg_bytes": 280964
+      },
+      {
+        "letter": "E",
+        "platform": "instagram",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/instagram/sl11-c-20-second-morning-vacuum_cover-E.png",
+        "sha256": "573533a47c1f33a6477427fada2fa5bf7c384a60de966dcf073f79b0becd6656",
+        "text_bounds": [
+          [
+            68,
+            260,
+            1018,
+            332
+          ],
+          [
+            70,
+            408,
+            1013,
+            512
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-E.png",
+        "plate_sha256": "7d5ca55064b8df70cf8a8366c2188a0a43c8c058f31160bb96fcd4b21cf242ee",
+        "source_person_top": 642,
+        "picture_shift": 0,
+        "minimum_subject_top": 600
+      },
+      {
+        "letter": "E",
+        "platform": "youtube",
+        "path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-E.png",
+        "sha256": "d33cc757fe66c0b5487dd7cf75a0f1fd0ad619d9b9438570a6062bb184c572f1",
+        "text_bounds": [
+          [
+            68,
+            90,
+            1018,
+            162
+          ],
+          [
+            70,
+            238,
+            1013,
+            342
+          ]
+        ],
+        "plate": "Short-form video content/covers/review/sl11-vacuum-20261028/sources/c-E.png",
+        "plate_sha256": "7d5ca55064b8df70cf8a8366c2188a0a43c8c058f31160bb96fcd4b21cf242ee",
+        "source_person_top": 537,
+        "picture_shift": 0,
+        "minimum_subject_top": 430,
+        "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/c/youtube/sl11-c-20-second-morning-vacuum_cover-E.jpg",
+        "jpeg_sha256": "438f9889ccc198412bf58ad563f087b25b02bb770139e8c10acea06a306c26a1",
+        "jpeg_bytes": 330850
+      }
+    ]
+  }
+}

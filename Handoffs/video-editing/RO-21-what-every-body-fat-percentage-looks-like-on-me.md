@@ -23,3 +23,10 @@ Deliverable: 16:9 long-form, 1920x1080 or 4K per /longform-edit; round method (g
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-21-what-every-body-fat-percentage-looks-like-on-me.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Release plan (Dan approved 2026-10-28)
+- **Release:** Wed Dec 30, 2026 (January blitz, Sat Dec 26 to Jan 31), 9 AM America/Chicago on YouTube; dated calendar `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Name a finish date by Dec 11; finished, approved and set up by Dec 18 (first 14 blitz days).
+- **Footage:** Green screen: house chroma key plus the locked long-form green-screen background template. Not kitchen footage. Fallback if it misses: the strongest ready non-kitchen film.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.

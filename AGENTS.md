@@ -1,3 +1,15 @@
+## Task-driven media review is silent (Dan, 2026-10-28)
+
+- Keep task-driven video and audio previews silent so they do not interrupt Dan or feed Wispr Flow. Verify the specific player is muted before every play, audition, seek, source/format switch, reload and recovery check; leave it paused and muted afterward. Do not let a page helper unmute it automatically.
+- Use offline audio decoding, waveforms, loudness/true-peak/clipping/silence measurements and supported non-speaker model/file inspection for audio checks. Say what actually ran. A numerical check or silent playback is not an audible listening pass; mark an unavailable perceptual check incomplete.
+- Keep media audio and Dan's native playback/volume controls intact. Dan can deliberately unmute his own player. This is the default task workflow, not a new permission or confirmation requirement.
+- Do not globally mute macOS, change Wispr Flow, microphone permissions, audio routing or exported/scheduled media. The shared local player covers managed review pages; it is not a system-wide app preference and cannot enforce every already-running independent task. External players must be muted separately by the task.
+- This governs older recipe wording such as "listen", "test sound" and "audible narration": use non-speaker inspection where supported, never start audible speaker playback to satisfy a checklist. Shared details: `.claude/skills/_shared/VIDEO-RULES.md`, review-panel section.
+
+## Claude and Codex on major business decisions (Dan, 2026-10-28)
+
+Use `Docs/MAJOR_DECISION_COLLABORATION_TEMPLATE.md` for consequential business decisions where independent review adds value. Start with independent proposals, compare actual evidence and tradeoffs, explicitly adopt the other AI's better ideas and correct your own, then merge into one final plan with one implementation owner. Dan approved the October 2026 content-schedule collaboration as the model. Keep routine tasks lightweight, honor existing approvals, and do not start or message other tasks without the required user authorization. Memory: `claude-codex-major-decisions`.
+
 ## Imported Claude Cowork project instructions
 
 You are an app developer and designer helping me to build my Abs By AI app. Your goal is to make the app produce output users love, and to make the app popular and profitable. When building the app, you should explain what you did in simple language a non-technical person can understand. You should also explain what you are doing when applicable to increase my knowledge of the app and how you are building it, to improve my future prompts. Speak in a direct, businesslike tone. Perform actions decisively and confidently with minimal asking for permission.
@@ -227,21 +239,27 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## Long-form YouTube release cadence (Dan, 2026-10-17, replaces 2026-10-07)
+## Long-form YouTube release cadence (Dan, 2026-10-28, replaces 2026-10-17)
 
-- Release organic long-form YouTube videos on Sunday and Wednesday at 9 AM America/Chicago through Blotato: two a week, one per day, started as a six-week test on Wed Oct 21, 2026. Never another weekday, never two long-forms on one day. A revised replacement upload uses one slot.
-- The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`. Sundays get the strongest available film, Wednesdays the weakest (memory `longform-strength-ranking`). Every already-edited film releases in 2026; a film finished before December takes the 2026 Sunday of the newest not-yet-edited studio film. RO-20/B/C are off the schedule until Dan says otherwise.
-- Before scheduling, inspect the live Blotato YouTube queue, not just a local receipt. A film not on the calendar goes after the last queued long-form on the next free Sunday or Wednesday.
-- YouTube goes first. Facebook, Instagram and TikTok follow the next day at noon (Monday after a Sunday release, Thursday after a Wednesday release); 9 AM those days is a Shorts slot. Never at the same time as YouTube. Verify the YouTube video is public before the other platforms release; if it is not, postpone those posts.
-- Re-read every saved schedule after a move. This binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions; `/video-setup`, `scripts/blotato/longform_queue.py` and `video_topup.py` enforce it.
+Dan, 2026-10-28: "Okay, let's do this schedule. Let's release Daily Salad on the planned release date coming up soon, and then the shorts right after that, as we planned. All other kitchen content: fit as much as you can into the Thanksgiving to Christmas period. After the Daily Salad release and the shorts coming out from that, I want everything released before Thanksgiving to be not in the kitchen. If we do have some leftover kitchen shorts to release later, that's okay." Approved the same day: two Shorts a day from Thanksgiving to Christmas; unedited kitchen Shorts wait for February; edited studio Shorts swap into November; Pushup Masterclass out of January; the January blitz opens Sat Dec 26 with Shorts and its first long-form Sun Dec 27. Evidence record: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`.
 
-## Shorts release cadence (Dan, 2026-10-17)
+- Organic long-forms release through Blotato at 9 AM America/Chicago, one per day, on the weekdays of the dated phase (single source: `scripts/blotato/release_phases.py`): **phase 1** Oct 29 to Nov 25: Sunday + Wednesday; **phase 2** Nov 26 to Dec 25: Sunday + Wednesday + Friday (never Christmas Day); **phase 3** Dec 26 to Jan 31: Sunday + Wednesday + Friday; **phase 4** from Feb 1: Sunday only. Never another weekday, never two long-forms on one day. A revised replacement upload uses one slot.
+- **Kitchen content (Dan on the fridge/cabinet kitchen set, checked by frame, not by topic) is held out of phases 1 and 3.** The only kitchen exceptions are How I Make My Daily Salad (RO-05, Sun Nov 1) and its six Shorts. Kitchen films go to phase 2 (Thanksgiving to Christmas); any that does not fit goes to phase 4. Phase 3 (the January blitz) takes fat-loss, beginner, gym and workout content, strongest first. January topics are held back from phases 1 and 2. If a film's slot is not approved in time, put an edited non-kitchen Short there; never fill it with kitchen or January films.
+- The dated calendar is `Docs/LONGFORM_RELEASE_CALENDAR.md` (use the date it gives the video; its table at the bottom records where each video was filmed). Within a phase Sundays get the strongest available film, Wednesdays the weakest (memory `longform-strength-ranking`). A film not on the calendar goes on the next free long-form day of an allowed phase.
+- Before scheduling, inspect the live Blotato YouTube queue, not just a local receipt.
+- YouTube goes first. Facebook, Instagram and TikTok follow the next day at noon (Monday after Sunday, Thursday after Wednesday, Saturday after Friday); 9 AM those days is a Shorts slot. Never at the same time as YouTube. Verify the YouTube video is public before the other platforms release; if it is not, postpone those posts.
+- Re-read every saved schedule after a move. This binds Claude and Codex for setup, queue edits, handoffs and direct Blotato actions; `/video-setup`, `scripts/blotato/longform_queue.py`, `video_topup.py` and `release_phases.py` enforce it.
 
-- Five Shorts a week at 9 AM America/Chicago: one dedicated Short on Thursday; Shorts cut from long-forms on Monday (from Sunday's film), Tuesday, Friday (from Wednesday's film) and Saturday. Never before the parent long-form is public. Every already-edited Short releases in 2026. Each new long-form gets 3 Shorts. Dated plan and editing deadlines: `Docs/SHORTS_RELEASE_CALENDAR.md`.
+## Shorts release cadence (Dan, 2026-10-28, replaces 2026-10-17)
+
+- Shorts post to all four platforms (YouTube, Facebook, Instagram @danrosefit, TikTok), America/Chicago, by phase: **phase 1** (Oct 29 to Nov 25) Mon, Tue, Thu, Fri, Sat at 9 AM, no kitchen footage except the salad family; **phase 2** (Nov 26 to Dec 25) 9 AM and 6 PM on every day without a long-form (two a day), kitchen Shorts first; **phase 3** (Dec 26 to Jan 31) 9 AM and 6 PM on Mon, Tue, Thu, Sat (8 a week, Sat Dec 26 included), no kitchen Shorts, Oct 23 gym how-tos held for here; **phase 4** (from Feb 1) Mon to Sat at 9 AM, leftover kitchen Shorts allowed. A long-form day whose film is not approved becomes a Short day (one 9 AM Short).
+- Dedicated and cut Shorts share the same slots (the old Thursday-only rule for dedicated Shorts is retired). Never before the parent long-form is public. Each new long-form gets 3 Shorts. Every Short with a public parent gets YouTube's Related Video link to it. Unedited kitchen Shorts are not scheduled for editing now; if they are edited later they go to February.
+- Adding a 6 PM Short on long-form days in January: only as a two-week test, and only when (1) at least 14 days of approved, set-up Shorts are ready and (2) the median 7-day organic engaged views per Short (December two-a-day month versus November, at least 10 mature Shorts per comparison) has not fallen more than 20%. Remove the extras if total organic engaged views do not rise.
+- Dated plan, open slots and editing deadlines: `Docs/SHORTS_RELEASE_CALENDAR.md`.
 
 ## One routine queues waiting videos (Dan, 2026-10-11)
 
-- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on Sundays and Wednesdays, dedicated Shorts on Thursday, Shorts cut from long-forms on Mon/Tue/Fri/Sat, videos before photo posts. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
+- When Blotato is full, a finished video goes on `scripts/blotato/video_waitlist.json`. The daily `social-queue-daily-refresh` routine (`scripts/blotato/video_topup.py`) queues waiting videos as room frees: long-forms on the long-form days and Shorts in the Short slots of the dated phase (`scripts/blotato/release_phases.py`), videos before photo posts. Waitlist entries carry `kitchen` / `gym` flags so no kitchen entry lands in phases 1 or 3. Never create a scheduled task or routine that queues a single video; they conflict. Claude and Codex both. Detail: `/video-setup`.
 
 ## Pinned question comment on every YouTube video (Dan, 2026-10-11)
 

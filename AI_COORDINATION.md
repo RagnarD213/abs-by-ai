@@ -25,6 +25,31 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
+
+**Vacuum:REVIEW:2026-10-28:Codex01a184f8.** [15 pairs](http://127.0.0.1:9301/);pick letters,then setup.
+
+
+
+**Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
+
+**How To Do Pull-Ups SFC Setup (DS-76) REVIEW 2026-10-29, Claude.** [Five covers](http://127.0.0.1:9478/); awaiting Dan's pick. R2 preserved; nothing uploaded. `Docs/DS76_COVER_REVIEW_20261029.md`
+
+**Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
+
+**Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+
+
+**Mouthpiece SFC Setup REVIEW 2026-10-28, Codex01a184cd.** [Pull-up covers B2/F](http://127.0.0.1:9298/?revision=2); awaiting approval. R4 preserved; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
+
+**V-Taper:HOLD:2026-10-28:Codex.** Cover-installed;Dec21-9AM-Central;shared-waitlist198/200. `Docs/DS47_SETUP_RECEIPT_20261028.md`
+
+**RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
+
+**DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
+
+**RO-23 ACTIVE 2026-10-29, Codex.** Clean preview rendered; independent review/regression check active. Gate failures unresolved; no delivery. `Docs/RO23_R1_PRODUCTION_STATE_20261028.md`
+
 **Upwork profile DRAFT REVIEW 2026-10-27, Claude.** Interview done; full draft awaits Dan. Nothing entered on Upwork. Next: Dan's edits, then enter and publish. `Handoffs/upwork-profile-draft.md`
 
 **Alcohol And Abs SFC R1 (SL-10) - NEEDS DAN 2026-10-27, Claude.** Shortlist of 5 sent; waiting for 3 picks before any render. Work: `/Volumes/Extreme/_edit_work/SL-10/`.
@@ -34,23 +59,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
 
 
-**[DS20:DESIGN3-TITLE:REVIEW:2026-10-26:Codex:pickA-C](http://127.0.0.1:9180/)**
-
-**Mouthpiece SFC R1 REVIEW 2026-10-26, Codex.** [Look/assets](http://127.0.0.1:9274/). Full Short awaits Dan choices; sound/caption finishing flags retained. Queue/Drive updated. Local Git push blocked by live shared edits. `Docs/DS105_R1_CHECKPOINT_20261026.md`.
-
-**Five Minute Exercises SFC Setup - REVIEW 2026-10-26, Codex.** [Tightened A pair](http://127.0.0.1:9270/). Next: Dan approves. Commit0b22c31 local.
+**DS-20 HOLD 2026-10-28, Codex.** A installed; Dec10 9AM Central approved, waitlisted. DS05 corrected R4 approved and queued same day5PM. Daily top-up queues DS20. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
 
 
-**DS-84 R3 REVIEW 2026-10-26, Codex.** [Full Short](http://127.0.0.1:9284/). F, tighter exercise crops and matching large titles rendered; independent review ready. Original automatic framing/caption flags retained with audit. Native VLC copy verified; queue/Drive delivered. Next: Dan approves or lists changes. Slot released; dispatcher/heartbeat paused. No setup. Git2811712 local; shared edits block push.
 
 
-**[SL-11 R1](http://127.0.0.1:9411/) REVIEW 2026-10-26, Codex.** A/B/C checked; full-film review awaits Dan. AI Natural approved; Git local.
 
-**RO-30:R2-REVIEW:8832:2026-10-26:Codex:01a17836;await-picks;push12e0e78-local**
 
-**DS-47 R4 REVIEW 2026-10-26,Codex:01a179fe.** [Intro](http://127.0.0.1:9214/). D enlarged/arrows/title checked. A/B/portrait locked; full Short unfinished. Next: Dan. `Docs/DS47_R4_INTRO_REVIEW_20261026.md`.
+**Love Handles LFC R5 REVIEW 2026-10-28, Codex01a184ca.** [Two motion contexts](http://127.0.0.1:8835/). N01/N03 checked; N02 rejected, presenter retained. Fresh packetPASS;127 locks preserved;20 Flowcredits,$0paidgeneration. Full film pending. Slot released. Next: Dan motionapproval, then authorized final edit. `Docs/RO30_R5_MOTION_REVIEW_20261028.md`.
 
-**Brief overlap NEEDS DAN 2026-10-27, Codex.** Pause old cloud routine; local publication verified.
+
+**Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -85,7 +104,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
-**Boring Abs At 40 LFC R5 - REVIEW 2026-10-26, Codex.** [Full 8:01 film](http://127.0.0.1:9357/?r5=20261026#current) checked, independent review complete; numerical flags preserved. Neighbour kept, fridge/phone-goal removed. Next: Dan approves or gives timestamped changes. No upload/scheduling. Heartbeat paused. Recovery: `Docs/RO27_R5_CHECKPOINT_20261026.md`, round5 state.
 
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
@@ -150,7 +168,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R4 - HANDOFF 2026-10-27, Claude.** Dan approved R3 and LOCKED the green-screen template as the long-form standard. Next: Opus 5.5 high fires the R4 handoff (whole film, AI frames A1/A3/A4/A6/A7/A8); R4 pins itself, unpins R3. `Handoffs/handoff-20261025-ro24-celebrity-ozempic-round4.md`.
+**Celebrity Ozempic LFC R5 - REVIEW 2026-10-28, Claude.** Page :9421: new A7 frames, G06 card, Amy abs photo, pause, A3 in. Flow credits out: A1s2/A6/A8 + A4 remake wait on Dan (pay ~$4 or free credits). Slot released. Next: Dan's reply, generate, full render, gates. `/Volumes/Expansion/_edit_work/RO-24/round5/`
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
@@ -158,7 +176,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R5 - REVIEW 2026-10-27, Claude.** Jump rope swapped; page :8933. Next: Dan; then setup handoff.
 
-**How To Do Pull-Ups SFC R1 - IN PROGRESS 2026-10-27, Claude.** Whole-Short R1 building from C1882. Next: checks, review page, queue delivered. `/Volumes/Extreme/_edit_work/DS-76/round1/`
 
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?

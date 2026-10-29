@@ -1,0 +1,361 @@
+{
+  "job": "SL-11",
+  "status": "finalized",
+  "date": "2026-10-28",
+  "time": "2026-10-28T18:24:46.972833-05:00",
+  "exact_approval": "All three look good. Finalize them and prepare the Codex handoff for cover images and upload setup.",
+  "approval_record": "Handoffs/video-editing/SL-11-R3-approval.json",
+  "project_folder": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum",
+  "extreme_folder": "/Volumes/Extreme/Short-form video content/SL-11 The Vacuum",
+  "drive_folder_id": "1Iw7Tu7Xh3k2N2kuzkBaTZmU4EuFXPyvO",
+  "drive_url": "https://drive.google.com/open?id=1Iw7Tu7Xh3k2N2kuzkBaTZmU4EuFXPyvO",
+  "drive_verification": {
+    "folder_id": "1Iw7Tu7Xh3k2N2kuzkBaTZmU4EuFXPyvO",
+    "remote": "gdrive_backup:Short-form video content/SL-11 The Vacuum",
+    "verified_files": 16,
+    "method": "Native upload and metadata readback; rclone Drive SHA256, MD5, ID and byte comparison",
+    "files": [
+      {
+        "Path": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+        "Name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+        "Size": 29330278,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-10-28T23:21:31.014Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "79bd135f5b3684aaa430a01da6ea74f6",
+          "sha1": "8782d35540aca39156543b18c74841c67ca8882e",
+          "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c"
+        },
+        "ID": "1lIW_jyVAhivXsCxUUVC6LSxEP5UIcqH5"
+      },
+      {
+        "Path": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.audio_gate.json",
+        "Name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.audio_gate.json",
+        "Size": 5158,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:21:33.506Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "286b0de82867e674dcf47c2ecc4c99b7",
+          "sha1": "e7ac4765ed7769888886c16d904253c8d1191b8e",
+          "sha256": "10e699a0b53da9c80749588bcb6fd0b25ba32058ce63f3c249fb59b3226284e3"
+        },
+        "ID": "1N44qcgh0M6Q4gzVoC_yRqCJqcrmD8eFO"
+      },
+      {
+        "Path": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.deliver_gate.json",
+        "Name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4.deliver_gate.json",
+        "Size": 10567,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:21:36.152Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "f1d98705d33852ede9840abd89a29e13",
+          "sha1": "d0626d7bf6a47036c784497f43064fc7cb9cb91c",
+          "sha256": "1e06d8d6fc0d4471771726ca26845d6cdb087ffad9c2e8c720d09ae61afe8dd4"
+        },
+        "ID": "1Luh7qBCtYstaG3rPC446xWxJxPz202_x"
+      },
+      {
+        "Path": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.srt",
+        "Name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.srt",
+        "Size": 2781,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:21:38.754Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "a98dd13c9c7aa0deef9657b30c6e579b",
+          "sha1": "092f5be380f3e0370411f519b1087b34dcb7cba6",
+          "sha256": "bb6c7fe937acd22fe99c384dfdf5b0a946c80e12e4b4b2fe4c91afe8b995c1b1"
+        },
+        "ID": "187U_pHSKEOadHx4LVBY2YunvODq0tLfe"
+      },
+      {
+        "Path": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.transcript.txt",
+        "Name": "The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.transcript.txt",
+        "Size": 819,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:21:40.729Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "78103483c43e8d132c9f223839a9144d",
+          "sha1": "e9461b8891ecb14c646dce8e1fa6cdc9ca17c0b9",
+          "sha256": "a151ca5b51d505c3324b32ace7a37ab93c2ed67c8a24539535f7eec831c3fbde"
+        },
+        "ID": "1IGk9yM3iCmKmTCE40ZEQd45MBTpVVwYM"
+      },
+      {
+        "Path": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+        "Name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+        "Size": 35972918,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-10-28T23:21:50.066Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "488081448c25c75e6c939902f8ca2418",
+          "sha1": "50c4a3827dcac9ff21fc51d9db9abaff7486c9ed",
+          "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747"
+        },
+        "ID": "1G1kfq2USBoAE6WsAfnpFAnQ6c4velwxf"
+      },
+      {
+        "Path": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.audio_gate.json",
+        "Name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.audio_gate.json",
+        "Size": 5138,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:21:52.137Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "312d2d6b7490c31e366a531f83e11d17",
+          "sha1": "1139ef63549c326eca67a802a0a50fc9e2a3e024",
+          "sha256": "a2fa3aa1885fcaeaf32a5938621fb0691ce2c615d9d0b53817e55000c477d128"
+        },
+        "ID": "1f-upQHQ95sfPyYGYM8GCLIBy3IpnBOxg"
+      },
+      {
+        "Path": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.deliver_gate.json",
+        "Name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4.deliver_gate.json",
+        "Size": 13316,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:21:53.840Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "3fe31229d42f068b4c3d99016fac0d16",
+          "sha1": "f53ea60cc5b9f0a49997fcdff609423e5582799f",
+          "sha256": "54f8d995b3948e8128cb5c6a13ae5b148ea5d00bd24fcb11584b26beda45eda5"
+        },
+        "ID": "1gulfHAc0VR2YEPsASgvrQShdPx5q0Mjj"
+      },
+      {
+        "Path": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.srt",
+        "Name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.srt",
+        "Size": 3212,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:21:55.825Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "0741318f028082051005bcb3bbe6b184",
+          "sha1": "78a830f4e34c16442d668d7f18acb044e9de1dae",
+          "sha256": "33043745782f9da9ff9b3a6f991f8b368a54e7fe99040c1cf6edce67560eb8a8"
+        },
+        "ID": "1K7ukSSE1Q33hLE2F24zO5QyvKAeuQKwV"
+      },
+      {
+        "Path": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.transcript.txt",
+        "Name": "The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.transcript.txt",
+        "Size": 978,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:21:58.080Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "baa7d124ea67fd49d9a1b2a0d38ccac4",
+          "sha1": "f32e58a8382a09c5a16bf894196066f4d3a132db",
+          "sha256": "0552b6e5ce81c630565f629da15403d387571ecde9b76ae8c1c66eeec6c7bec2"
+        },
+        "ID": "11O9KfKamtHZ58odlDLwa9Z1rYEQoENEv"
+      },
+      {
+        "Path": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+        "Name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+        "Size": 33044916,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-10-28T23:22:07.924Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "6dccb14321ecd835077ed443173dd2dc",
+          "sha1": "0b448da7f8db6973fc0b1b144c4f0fac2e7bbefb",
+          "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be"
+        },
+        "ID": "1bbJxZafPfDt20j-R_MGP2QcG0lvaUTVP"
+      },
+      {
+        "Path": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.audio_gate.json",
+        "Name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.audio_gate.json",
+        "Size": 5150,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:22:12.264Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "2e1c9f51696f99d01320ee583f9e1b7b",
+          "sha1": "365612404c8e868ace88176ea29b0a9ea86e5b9c",
+          "sha256": "226733491a94bbebe73175372829e5f89883560bfe5e536df411f58fafb018f1"
+        },
+        "ID": "1Oiwmjc6WJgegBtscOr2DNojdZ6tRBnXo"
+      },
+      {
+        "Path": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.deliver_gate.json",
+        "Name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4.deliver_gate.json",
+        "Size": 12280,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:22:14.157Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "c9efe353f1158c610a26ffe848231e2a",
+          "sha1": "640df36f2f35ce35198240b3894d8cb25c30a7d1",
+          "sha256": "f617b053408f84d83d3269e504ae081ecd01ef6d0be68c3128d8987f5bb37926"
+        },
+        "ID": "1w4FAL5DJ4YrM3UEkwW_h8jASPta7SoZ3"
+      },
+      {
+        "Path": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.srt",
+        "Name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.srt",
+        "Size": 3419,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:22:16.129Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "86db6d152a0221a030bb2022c62f24a0",
+          "sha1": "b2938595f196b7ee28f614a74f14d76d12a405ad",
+          "sha256": "f76fb5abb6824501008b1dc6fddd62baca6ffd2251b66711d63d3c6062739acd"
+        },
+        "ID": "1P5haVlqlSwHwhzzLcwAZwQub44zxMcSg"
+      },
+      {
+        "Path": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.transcript.txt",
+        "Name": "The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.transcript.txt",
+        "Size": 981,
+        "MimeType": "text/plain",
+        "ModTime": "2026-10-28T23:22:18.731Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "2f989b642a9057d5f5cc6f58373bbc58",
+          "sha1": "5dea4dc5adcfe112d90a0e57a85a55f58f783fc0",
+          "sha256": "e00eb8f8ad8ebce505c70ef4ab8f407bd33b140c32de09aa5f1f5c80dec58856"
+        },
+        "ID": "1-ejQcfVIxpQJrRkHWOWbDtAVYlikFZBY"
+      },
+      {
+        "Path": "approval.json",
+        "Name": "approval.json",
+        "Size": 5694,
+        "MimeType": "application/json",
+        "ModTime": "2026-10-28T23:21:06.057Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "eda08ee5e377af28ae9e04d461b36b68",
+          "sha1": "c4efbb345a1229807798dbe45bd30db2b1d2d72c",
+          "sha256": "d7356b402c1c8704a2874cf9fd3aa6646f6e51c1236de6119f931e86feeec13b"
+        },
+        "ID": "1BolSerso99oOOuAkluk8ibneTFaVcKHn"
+      }
+    ]
+  },
+  "files": [
+    {
+      "short": "A",
+      "title": "How To Do A Standing Stomach Vacuum",
+      "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+      "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "md5": "79bd135f5b3684aaa430a01da6ea74f6",
+      "bytes": 29330278,
+      "frames": 1359,
+      "seconds": 45.3453,
+      "srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.srt",
+      "srt_sha256": "bb6c7fe937acd22fe99c384dfdf5b0a946c80e12e4b4b2fe4c91afe8b995c1b1",
+      "caption_cues": 58,
+      "transcript": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.transcript.txt",
+      "extreme": "/Volumes/Extreme/Short-form video content/SL-11 The Vacuum/The Vacuum - Short A - How To Do A Standing Stomach Vacuum - R3 FINAL.mp4",
+      "source_review": "/Volumes/Extreme/_edit_work/SL-11/round3/review/films/Vacuum-A-R3-1080p.mp4",
+      "audio_gate": "PASS",
+      "delivery_gate": "PASS",
+      "caption_source": "/Volumes/Extreme/_edit_work/SL-11/round1/build/A/gate/captions.srt",
+      "caption_state_proof": "/Volumes/Extreme/_edit_work/SL-11/round1/build/A/cues.json",
+      "ending": "than it really has. So use a timer and just make sure you're getting that full 20 seconds for every set of your vacuums."
+    },
+    {
+      "short": "B",
+      "title": "Stop Holding Your Breath During Stomach Vacuums",
+      "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+      "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "md5": "488081448c25c75e6c939902f8ca2418",
+      "bytes": 35972918,
+      "frames": 1507,
+      "seconds": 50.283566666666665,
+      "srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.srt",
+      "srt_sha256": "33043745782f9da9ff9b3a6f991f8b368a54e7fe99040c1cf6edce67560eb8a8",
+      "caption_cues": 66,
+      "transcript": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.transcript.txt",
+      "extreme": "/Volumes/Extreme/Short-form video content/SL-11 The Vacuum/The Vacuum - Short B - Stop Holding Your Breath During Stomach Vacuums - R3 FINAL.mp4",
+      "source_review": "/Volumes/Extreme/_edit_work/SL-11/round3/review/films/Vacuum-B-R3-1080p.mp4",
+      "audio_gate": "PASS",
+      "delivery_gate": "PASS",
+      "caption_source": "/Volumes/Extreme/_edit_work/SL-11/round1/build/B/gate/captions.srt",
+      "caption_state_proof": "/Volumes/Extreme/_edit_work/SL-11/round1/build/B/cues.json",
+      "ending": "yourself before you take that next set. So it's important you recover that oxygen in between your sets."
+    },
+    {
+      "short": "C",
+      "title": "Start With One 20-Second Vacuum Every Morning",
+      "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+      "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "md5": "6dccb14321ecd835077ed443173dd2dc",
+      "bytes": 33044916,
+      "frames": 1419,
+      "seconds": 47.347300000000004,
+      "srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.srt",
+      "srt_sha256": "f76fb5abb6824501008b1dc6fddd62baca6ffd2251b66711d63d3c6062739acd",
+      "caption_cues": 72,
+      "transcript": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/SL-11 The Vacuum/The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.transcript.txt",
+      "extreme": "/Volumes/Extreme/Short-form video content/SL-11 The Vacuum/The Vacuum - Short C - Start With One 20-Second Vacuum Every Morning - R3 FINAL.mp4",
+      "source_review": "/Volumes/Extreme/_edit_work/SL-11/round3/review/films/Vacuum-C-R3-1080p.mp4",
+      "audio_gate": "PASS",
+      "delivery_gate": "PASS",
+      "caption_source": "/Volumes/Extreme/_edit_work/SL-11/round1/build/C/gate/captions.srt",
+      "caption_state_proof": "/Volumes/Extreme/_edit_work/SL-11/round1/build/C/cues.json",
+      "ending": "morning is my recommended time. That's the best time to do it because you're totally fasted, even if you don't do intermittent fasting."
+    }
+  ],
+  "media_changed": false,
+  "gate_versions": {
+    "delivery": "2.6.2",
+    "audio": "2.0.0"
+  },
+  "full_film_approval": true,
+  "covers_made": false,
+  "covers_approved": false,
+  "social_uploaded": false,
+  "scheduled": false,
+  "review_copies_deleted": [
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R3 - Short A - How To Do A Standing Stomach Vacuum.mp4",
+      "sha256": "daae9cd7b750d864fab2e9aa5c841a791d3e7dc9672640960714c47834257e3c",
+      "bytes": 29330278
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R1 - Short A - How To Do A Standing Stomach Vacuum.mp4",
+      "sha256": "ab22dc090b9ec7266c6f087f780e1df72a1a0930724c8129d2bfbcc65d86c616",
+      "bytes": 25485119
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R3 - Short B - Stop Holding Your Breath During Stomach Vacuums.mp4",
+      "sha256": "4dcd20e156b20a86458d72d14c3fe4473401597383f95f0c72cbd3073114a747",
+      "bytes": 35972918
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R1 - Short B - Stop Holding Your Breath During Stomach Vacuums.mp4",
+      "sha256": "d56ba212ebeda54042d1618d99989918d00cde39af95d0249568eee7649a0fdc",
+      "bytes": 32429593
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R3 - Short C - Start With One 20-Second Vacuum Every Morning.mp4",
+      "sha256": "47c9ae8b885712924b8305aa6e38704143389a84cc968451bb3d84148f5328be",
+      "bytes": 33044916
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/The Vacuum SFC R1 - Short C - Start With One 20-Second Vacuum Every Morning.mp4",
+      "sha256": "cd1ec4cf28817a4472506413fb24e7f2d2c6e21ae741a422cf798b1fae3bc4bb",
+      "bytes": 29001360
+    }
+  ],
+  "review_bytes_reclaimed": 185264184,
+  "review_service_removed": true,
+  "handoff": "Handoffs/handoff-20261028-sl11-vacuum-covers-and-setup-codex.md",
+  "handoff_launched": false,
+  "model_recommendation": "Newest supported stable GPT, current destination catalog gpt-6.1-sol, high",
+  "queue_state": "finalized",
+  "queue_rev": 16,
+  "queue_drive_upload_verified": true,
+  "verification_scope": "Finalization copied and hashed approved bytes; reused matching current exact-file gate stamps, no re-encode or audible listening pass.",
+  "review_service_removal_verification": "Managed review_server.py 9411 --remove succeeded; fresh HTTP request connection refused."
+}

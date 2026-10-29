@@ -33,3 +33,10 @@ One long-form content master. Shorts extraction is a later, separate task after 
 
 **Codex: GPT-6.1 Sol, high effort, verified newest supported workhorse on this client.**
 > Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/RO-38.json, then execute Handoffs/video-editing/RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md for "The 5 Muscles Women Notice First, And The Machine That Builds Each One". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.
+
+## Release plan (Dan approved 2026-10-28)
+- **Release:** Fri Jan 8, 2027 (January blitz; Quitter's Day), 9 AM America/Chicago on YouTube; dated calendar `Docs/LONGFORM_RELEASE_CALENDAR.md`.
+- **Edit deadline:** Name a finish date by Dec 11; finished, approved and set up by Dec 18. Friday long-form: socials Sat Jan 9 noon.
+- **Footage:** Gym footage (Oct 23), not kitchen.
+- **Model:** Claude Opus 5.5, high effort, or Codex `gpt-6.1-sol`, high effort (the newest Sol; ignore older "GPT-6 Sol" wording in the prompts above). A video stays with the AI it starts on.
+- **Edit cap:** run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before the first render; at most 5 edits at once.

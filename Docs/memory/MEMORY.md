@@ -1,3 +1,4 @@
+- [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
 - [Reaction format](greenscreen-reaction-format.md): LOCKED 10-25: Bill Maher Codex R5 sequence, title, colour; no fixed green-screen AI since 10-27 (lean: Claude long-form, Codex Shorts)
 - [Protect Codex + other AIs](protect-codex-and-other-ais.md): 10-24: test machine-level changes (paths, moves, config) on Codex too, never Claude-only
 - [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
@@ -11,6 +12,7 @@
 - [Green-screen backgrounds](green-screen-background-cycle.md): LOCKED 10-27 for long-form: greenscreen-bg template; reaction Shorts keep Codex R5
 - [Key efficiency](chroma-key-efficiency.md): keys cheap like Codex; excerpts + key once (10-24)
 - [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)
+- [Weigh-in clips](ai-weighing-clips-over-stock.md): 10-29: our AI scale clips (A0207/A0144/A0197) beat stock
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Security warnings](security-warning-calibration.md): keep brief
@@ -162,7 +164,7 @@
 - [Round 1](round1-full-graphics-review.md): show all graphics
 - [Excuse voice](excuse-voice-ai-clips.md): lip-synced AI clip
 - [Workout edits](workout-videos-model-muhammad.md): model Muhammad
-- [Jump rope](jump-rope-clip-rule.md): B0448 is right
+- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only
 - [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 - [B-roll looks](broll-choose-where-dan-looks-best.md): best light
 - [One shoot](no-mixing-shoots-on-camera.md): no mixing days
@@ -256,6 +258,7 @@
 - [Approve revised cover before install](approve-revised-cover-before-install.md) — a revised thumbnail/cover waits for Dan's OK on the final file
 - [Shorts shortlist: full transcripts](shorts-shortlist-full-transcripts.md) — every proposed Short shows its title and full word-for-word transcript
 - [Bottom-title cover rule](cover-bottom-title-layout-rule.md): 10-27: bigger picture, no pill, much larger bottom title
+- [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
 - [Assessment symmetry](assessment-symmetry.md): one standard, swap test, results

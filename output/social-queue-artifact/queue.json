@@ -1,97 +1,7 @@
 {
-"generated": "2026-10-27T11:25:53+00:00",
+"generated": "2026-10-29T11:25:49+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5053520",
-"platform": "facebook",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053522",
-"platform": "instagram",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053523",
-"platform": "tiktok",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Over the long term, the safer exercise builds more muscle.",
-"batch": ""
-},
-{
-"id": "5053524",
-"platform": "youtube",
-"when": "2026-10-27T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Why the safer lift builds more muscle over the long term, especially past 40.",
-"batch": ""
-},
-{
-"id": "4315877",
-"platform": "facebook",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "4315883",
-"platform": "instagram",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "4553230",
-"platform": "tiktok",
-"when": "2026-10-27T22:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Your abs never get a break on the ab wheel.",
-"batch": ""
-},
-{
-"id": "5295786",
-"platform": "youtube",
-"when": "2026-10-28T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Losing weight is not enough if you lose the muscle you worked to build. Here is how I approach resistance trai",
-"batch": ""
-},
-{
-"id": "5903799",
-"platform": "facebook",
-"when": "2026-10-28T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "3 ab moves. 10 reps each. 3 rounds. Jog in place 30 seconds between rounds.",
-"batch": ""
-},
-{
-"id": "5903798",
-"platform": "instagram",
-"when": "2026-10-28T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "3 ab moves. 10 reps each. 3 rounds. Jog in place 30 seconds between rounds.",
-"batch": ""
-},
 {
 "id": "5694638",
 "platform": "facebook",
@@ -228,39 +138,75 @@
 "batch": ""
 },
 {
-"id": "5053527",
+"id": "6072714",
 "platform": "facebook",
 "when": "2026-10-31T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
+"text": "Women say they like the dad bod, but what do they mean by that?",
 "batch": ""
 },
 {
-"id": "5053528",
+"id": "6072716",
 "platform": "instagram",
 "when": "2026-10-31T14:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
+"text": "Women say they like the dad bod, but what do they mean by that?",
 "batch": ""
 },
 {
-"id": "5053529",
+"id": "6072718",
 "platform": "tiktok",
 "when": "2026-10-31T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "You can train your legs hard without deadlifts.",
+"text": "Women say they like the dad bod, but what do they mean by that?",
 "batch": ""
 },
 {
-"id": "5053530",
+"id": "6072720",
 "platform": "youtube",
 "when": "2026-10-31T14:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
+"text": "Do women like the dad bod? In this ManVsStreet street interview, she says she does. But then she sees a pictur",
+"batch": ""
+},
+{
+"id": "6161528",
+"platform": "facebook",
+"when": "2026-10-31T17:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If I only had five minutes to work out at home, these are the three exercises I would do.",
+"batch": ""
+},
+{
+"id": "6161529",
+"platform": "instagram",
+"when": "2026-10-31T17:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If I only had five minutes to work out at home, these are the three exercises I would do.",
+"batch": ""
+},
+{
+"id": "6161531",
+"platform": "tiktok",
+"when": "2026-10-31T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If I only had five minutes to work out at home, these are the three exercises I would do.",
+"batch": ""
+},
+{
+"id": "6161533",
+"platform": "youtube",
+"when": "2026-10-31T17:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you only have five minutes to work out at home, start with these three exercises. Together, they hit almost",
 "batch": ""
 },
 {
@@ -381,39 +327,39 @@
 "batch": ""
 },
 {
-"id": "5053535",
+"id": "6108255",
 "platform": "facebook",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5053536",
+"id": "6108259",
 "platform": "instagram",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5053538",
+"id": "6108260",
 "platform": "tiktok",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"text": "Alex Hormozi asked a guy who says he can't stop eating why he isn't 200 pounds heavier, and he's right.",
 "batch": ""
 },
 {
-"id": "5053539",
+"id": "6108262",
 "platform": "youtube",
 "when": "2026-11-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Deadlifts build a thick powerlifter body, not the lean, aesthetic look most of us want.",
+"text": "A caller on The Iced Coffee Hour told Alex Hormozi he can't stop eating, and Hormozi asked him why he isn't 20",
 "batch": ""
 },
 {
@@ -444,6 +390,15 @@
 "batch": ""
 },
 {
+"id": "6164756",
+"platform": "youtube",
+"when": "2026-11-04T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "My daily routine is boring. I do the same thing every single day, weekends included, and that's exactly why I ",
+"batch": ""
+},
+{
 "id": "5903177",
 "platform": "facebook",
 "when": "2026-11-04T23:00:00.000Z",
@@ -459,6 +414,33 @@
 "kind": "Carousel",
 "slides": 5,
 "text": "Stop deadlifting like this. A rounded back is the biggest reason I see guys get hurt.",
+"batch": ""
+},
+{
+"id": "6164753",
+"platform": "facebook",
+"when": "2026-11-05T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "My daily routine is boring, and that's exactly why I have six pack abs at 41.",
+"batch": ""
+},
+{
+"id": "6164754",
+"platform": "instagram",
+"when": "2026-11-05T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "My daily routine is boring, and that's exactly why I have six pack abs at 41.",
+"batch": ""
+},
+{
+"id": "6164755",
+"platform": "tiktok",
+"when": "2026-11-05T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "My daily routine is boring, and that's exactly why I have six pack abs at 41.",
 "batch": ""
 },
 {
@@ -705,15 +687,6 @@
 "batch": ""
 },
 {
-"id": "5095442",
-"platform": "youtube",
-"when": "2026-11-11T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
-"batch": ""
-},
-{
 "id": "5912314",
 "platform": "facebook",
 "when": "2026-11-11T23:00:00.000Z",
@@ -729,69 +702,6 @@
 "kind": "Carousel",
 "slides": 5,
 "text": "Stop curling like this. If you have to swing your body to move the weight, it's too heavy.",
-"batch": ""
-},
-{
-"id": "5095439",
-"platform": "facebook",
-"when": "2026-11-12T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5095440",
-"platform": "instagram",
-"when": "2026-11-12T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5095441",
-"platform": "tiktok",
-"when": "2026-11-12T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
-"batch": ""
-},
-{
-"id": "5867678",
-"platform": "facebook",
-"when": "2026-11-13T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
-"batch": ""
-},
-{
-"id": "5867679",
-"platform": "instagram",
-"when": "2026-11-13T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
-"batch": ""
-},
-{
-"id": "5867680",
-"platform": "tiktok",
-"when": "2026-11-13T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
-"batch": ""
-},
-{
-"id": "5867682",
-"platform": "youtube",
-"when": "2026-11-13T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
 "batch": ""
 },
 {
@@ -849,39 +759,39 @@
 "batch": ""
 },
 {
-"id": "5867684",
+"id": "5822390",
 "platform": "facebook",
 "when": "2026-11-16T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
 "batch": ""
 },
 {
-"id": "5867685",
+"id": "5822391",
 "platform": "instagram",
 "when": "2026-11-16T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
 "batch": ""
 },
 {
-"id": "5867687",
+"id": "5822392",
 "platform": "tiktok",
 "when": "2026-11-16T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
 "batch": ""
 },
 {
-"id": "5867688",
+"id": "5822394",
 "platform": "youtube",
 "when": "2026-11-16T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you. You're wasting",
 "batch": ""
 },
 {
@@ -957,39 +867,39 @@
 "batch": ""
 },
 {
-"id": "5867691",
+"id": "5909603",
 "platform": "facebook",
 "when": "2026-11-20T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"text": "If you're in your 20s, stop chasing women and build your value.",
 "batch": ""
 },
 {
-"id": "5867694",
+"id": "5909604",
 "platform": "instagram",
 "when": "2026-11-20T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"text": "If you're in your 20s, stop chasing women and build your value.",
 "batch": ""
 },
 {
-"id": "5867698",
+"id": "5909605",
 "platform": "tiktok",
 "when": "2026-11-20T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"text": "If you're in your 20s, stop chasing women and build your value.",
 "batch": ""
 },
 {
-"id": "5867701",
+"id": "5909607",
 "platform": "youtube",
 "when": "2026-11-20T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"text": "If you're in your 20s, stop chasing women and build your value.",
 "batch": ""
 },
 {
@@ -1044,42 +954,6 @@
 "kind": "Video",
 "slides": 1,
 "text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
-"batch": ""
-},
-{
-"id": "5867702",
-"platform": "facebook",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
-"batch": ""
-},
-{
-"id": "5867703",
-"platform": "instagram",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
-"batch": ""
-},
-{
-"id": "5867704",
-"platform": "tiktok",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
-"batch": ""
-},
-{
-"id": "5867706",
-"platform": "youtube",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
 "batch": ""
 },
 {
@@ -1191,39 +1065,39 @@
 "batch": ""
 },
 {
-"id": "5867711",
+"id": "5053527",
 "platform": "facebook",
-"when": "2026-11-27T15:00:00.000Z",
+"when": "2026-11-27T00:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"text": "You can train your legs hard without deadlifts.",
 "batch": ""
 },
 {
-"id": "5867713",
+"id": "5053528",
 "platform": "instagram",
-"when": "2026-11-27T15:00:00.000Z",
+"when": "2026-11-27T00:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"text": "You can train your legs hard without deadlifts.",
 "batch": ""
 },
 {
-"id": "5867715",
+"id": "5053529",
 "platform": "tiktok",
-"when": "2026-11-27T15:00:00.000Z",
+"when": "2026-11-27T00:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"text": "You can train your legs hard without deadlifts.",
 "batch": ""
 },
 {
-"id": "5867716",
+"id": "5053530",
 "platform": "youtube",
-"when": "2026-11-27T15:00:00.000Z",
+"when": "2026-11-27T00:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
+"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
 "batch": ""
 },
 {
@@ -1281,6 +1155,15 @@
 "batch": ""
 },
 {
+"id": "5095442",
+"platform": "youtube",
+"when": "2026-11-29T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for about a year and a half. I bought it myself, this video is not sponsored, and here",
+"batch": ""
+},
+{
 "id": "6101271",
 "platform": "facebook",
 "when": "2026-11-30T15:00:00.000Z",
@@ -1317,12 +1200,75 @@
 "batch": ""
 },
 {
+"id": "5095439",
+"platform": "facebook",
+"when": "2026-11-30T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095440",
+"platform": "instagram",
+"when": "2026-11-30T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
+"id": "5095441",
+"platform": "tiktok",
+"when": "2026-11-30T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I've worn the Oura Ring for a year and a half, and I paid for it myself. Here's my honest review.",
+"batch": ""
+},
+{
 "id": "5912341",
 "platform": "instagram",
 "when": "2026-11-30T23:00:00.000Z",
 "kind": "Carousel",
 "slides": 4,
 "text": "Lower abs won't show? Do these 2, every day, at the end of your workout.",
+"batch": ""
+},
+{
+"id": "5867678",
+"platform": "facebook",
+"when": "2026-12-01T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867679",
+"platform": "instagram",
+"when": "2026-12-01T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867680",
+"platform": "tiktok",
+"when": "2026-12-01T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
+"batch": ""
+},
+{
+"id": "5867682",
+"platform": "youtube",
+"when": "2026-12-01T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "After a bad night of sleep, your Oura Ring tells you to take it easy. Don't listen to that shit.",
 "batch": ""
 },
 {
@@ -1362,39 +1308,75 @@
 "batch": ""
 },
 {
-"id": "5822390",
+"id": "5867684",
 "platform": "facebook",
 "when": "2026-12-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
 "batch": ""
 },
 {
-"id": "5822391",
+"id": "5867685",
 "platform": "instagram",
 "when": "2026-12-03T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
 "batch": ""
 },
 {
-"id": "5822392",
+"id": "5867687",
 "platform": "tiktok",
 "when": "2026-12-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you.",
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
 "batch": ""
 },
 {
-"id": "5822394",
+"id": "5867688",
 "platform": "youtube",
 "when": "2026-12-03T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you're in college and you have no time to work out, I'm about to solve that problem for you. You're wasting",
+"text": "The most valuable thing my Oura Ring did for me was the one I never expected. It showed me which people in my ",
+"batch": ""
+},
+{
+"id": "5053535",
+"platform": "facebook",
+"when": "2026-12-04T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053536",
+"platform": "instagram",
+"when": "2026-12-04T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053538",
+"platform": "tiktok",
+"when": "2026-12-04T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Want an aesthetic body? Deadlifts build a powerlifter body.",
+"batch": ""
+},
+{
+"id": "5053539",
+"platform": "youtube",
+"when": "2026-12-04T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Deadlifts build a thick powerlifter body, not the lean, aesthetic look most of us want.",
 "batch": ""
 },
 {
@@ -1434,6 +1416,42 @@
 "batch": ""
 },
 {
+"id": "5867691",
+"platform": "facebook",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867694",
+"platform": "instagram",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867698",
+"platform": "tiktok",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
+"id": "5867701",
+"platform": "youtube",
+"when": "2026-12-07T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Something you do near bedtime might be spiking your heart rate and adrenaline and hurting your sleep without y",
+"batch": ""
+},
+{
 "id": "5910026",
 "platform": "facebook",
 "when": "2026-12-08T15:00:00.000Z",
@@ -1470,189 +1488,117 @@
 "batch": ""
 },
 {
-"id": "5211312",
-"platform": "youtube",
-"when": "2026-12-09T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
-"batch": ""
-},
-{
-"id": "5211308",
+"id": "6161575",
 "platform": "facebook",
-"when": "2026-12-10T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
-"batch": ""
-},
-{
-"id": "5211309",
-"platform": "instagram",
-"when": "2026-12-10T18:00:00.000Z",
+"when": "2026-12-10T23:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"text": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I c",
 "batch": ""
 },
 {
-"id": "5211310",
+"id": "6161577",
+"platform": "instagram",
+"when": "2026-12-10T23:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I c",
+"batch": ""
+},
+{
+"id": "6161579",
 "platform": "tiktok",
-"when": "2026-12-10T18:00:00.000Z",
+"when": "2026-12-10T23:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"text": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I c",
 "batch": ""
 },
 {
-"id": "5909603",
+"id": "6161581",
+"platform": "youtube",
+"when": "2026-12-10T23:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I c",
+"batch": ""
+},
+{
+"id": "5867702",
 "platform": "facebook",
 "when": "2026-12-12T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
 "batch": ""
 },
 {
-"id": "5909604",
+"id": "5867703",
 "platform": "instagram",
 "when": "2026-12-12T15:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
 "batch": ""
 },
 {
-"id": "5909605",
+"id": "5867704",
 "platform": "tiktok",
 "when": "2026-12-12T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
 "batch": ""
 },
 {
-"id": "5909607",
+"id": "5867706",
 "platform": "youtube",
 "when": "2026-12-12T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
+"text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
 "batch": ""
 },
 {
-"id": "5415566",
-"platform": "youtube",
-"when": "2026-12-16T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
-"batch": ""
-},
-{
-"id": "5948215",
+"id": "5867711",
 "platform": "facebook",
-"when": "2026-12-17T15:00:00.000Z",
+"when": "2026-12-15T00:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
 "batch": ""
 },
 {
-"id": "5948216",
+"id": "5867713",
 "platform": "instagram",
-"when": "2026-12-17T15:00:00.000Z",
+"when": "2026-12-15T00:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
 "batch": ""
 },
 {
-"id": "5948217",
+"id": "5867715",
 "platform": "tiktok",
-"when": "2026-12-17T15:00:00.000Z",
+"when": "2026-12-15T00:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "Alex Hormozi asked a guy who can't stop eating why he isn't 200 pounds heavier, and he's right.",
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
 "batch": ""
 },
 {
-"id": "5948218",
+"id": "5867716",
 "platform": "youtube",
-"when": "2026-12-17T15:00:00.000Z",
+"when": "2026-12-15T00:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "A caller on The Iced Coffee Hour told Alex Hormozi he can't stop eating, and Hormozi asked him why he isn't 20",
-"batch": ""
-},
-{
-"id": "5415562",
-"platform": "facebook",
-"when": "2026-12-17T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
-"batch": ""
-},
-{
-"id": "5415563",
-"platform": "instagram",
-"when": "2026-12-17T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
-"batch": ""
-},
-{
-"id": "5415565",
-"platform": "tiktok",
-"when": "2026-12-17T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
-"batch": ""
-},
-{
-"id": "6072714",
-"platform": "facebook",
-"when": "2026-12-19T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Women say they like the dad bod, but what do they mean by that?",
-"batch": ""
-},
-{
-"id": "6072716",
-"platform": "instagram",
-"when": "2026-12-19T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Women say they like the dad bod, but what do they mean by that?",
-"batch": ""
-},
-{
-"id": "6072718",
-"platform": "tiktok",
-"when": "2026-12-19T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Women say they like the dad bod, but what do they mean by that?",
-"batch": ""
-},
-{
-"id": "6072720",
-"platform": "youtube",
-"when": "2026-12-19T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Do women like the dad bod? In this ManVsStreet street interview, she says she does. But then she sees a pictur",
+"text": "Should you buy the Oura Ring? In my opinion yes, for most people, and absolutely everybody needs a sleep track",
 "batch": ""
 },
 {
 "id": "5090110",
 "platform": "youtube",
-"when": "2026-12-20T15:00:00.000Z",
+"when": "2026-12-27T15:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, this is the exact 8-step plan I would follow to get my abs back in 90",
@@ -1661,7 +1607,7 @@
 {
 "id": "5090105",
 "platform": "facebook",
-"when": "2026-12-21T18:00:00.000Z",
+"when": "2026-12-28T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
@@ -1670,7 +1616,7 @@
 {
 "id": "5090106",
 "platform": "instagram",
-"when": "2026-12-21T18:00:00.000Z",
+"when": "2026-12-28T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
@@ -1679,55 +1625,10 @@
 {
 "id": "5090108",
 "platform": "tiktok",
-"when": "2026-12-21T18:00:00.000Z",
+"when": "2026-12-28T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "If I woke up 30 pounds heavier tomorrow, I'm confident I could lose it all and get my abs back in 3 months. He",
-"batch": ""
-},
-{
-"id": "5365814",
-"platform": "youtube",
-"when": "2026-12-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
-"batch": ""
-},
-{
-"id": "5365807",
-"platform": "facebook",
-"when": "2026-12-24T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
-},
-{
-"id": "5365809",
-"platform": "instagram",
-"when": "2026-12-24T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
-},
-{
-"id": "5365811",
-"platform": "tiktok",
-"when": "2026-12-24T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
-"batch": ""
-},
-{
-"id": "5287937",
-"platform": "youtube",
-"when": "2026-12-27T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
 "batch": ""
 },
 {
@@ -1764,6 +1665,123 @@
 "kind": "Video",
 "slides": 1,
 "text": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
+"batch": ""
+},
+{
+"id": "5211312",
+"platform": "youtube",
+"when": "2027-01-15T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that works on your waist is the standing stoma",
+"batch": ""
+},
+{
+"id": "5211308",
+"platform": "facebook",
+"when": "2027-01-16T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211309",
+"platform": "instagram",
+"when": "2027-01-16T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5211310",
+"platform": "tiktok",
+"when": "2027-01-16T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you have belly fat, stop doing crunches. The one ab exercise that can shrink your waist is the stomach vacu",
+"batch": ""
+},
+{
+"id": "5287937",
+"platform": "youtube",
+"when": "2027-01-17T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "If you're struggling to lose weight, there's usually one reason: you're eating too many calories. Here is the ",
+"batch": ""
+},
+{
+"id": "5415566",
+"platform": "youtube",
+"when": "2027-01-22T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Follow along with me: three standing stomach vacuums, 20 seconds each, with 30 seconds of rest in between. I s",
+"batch": ""
+},
+{
+"id": "5415562",
+"platform": "facebook",
+"when": "2027-01-23T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415563",
+"platform": "instagram",
+"when": "2027-01-23T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5415565",
+"platform": "tiktok",
+"when": "2027-01-23T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Do the stomach vacuum with me: three sets of 20 seconds.",
+"batch": ""
+},
+{
+"id": "5365814",
+"platform": "youtube",
+"when": "2027-01-27T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat in a calorie deficit. Here are the 7 factors outside of calories that decide",
+"batch": ""
+},
+{
+"id": "5365807",
+"platform": "facebook",
+"when": "2027-01-28T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365809",
+"platform": "instagram",
+"when": "2027-01-28T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
+"batch": ""
+},
+{
+"id": "5365811",
+"platform": "tiktok",
+"when": "2027-01-28T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You can still hold onto belly fat even if you're eating in a calorie deficit. Here are the 7 things outside of",
 "batch": ""
 }
 ],

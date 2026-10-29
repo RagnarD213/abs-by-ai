@@ -1,67 +1,132 @@
-# Shorts release calendar (approved by Dan 2026-10-17)
+# Shorts release calendar (Dan approved 2026-10-28, replaces the 2026-10-17 calendar)
 
-Five Shorts a week, 9 AM America/Chicago, on all four platforms (YouTube, Facebook, Instagram @danrosefit, TikTok):
-- **Thursday:** one dedicated Short (DS jobs).
-- **Monday** (from Sunday's long-form when ready), **Tuesday**, **Friday** (from Wednesday's long-form when ready),
-  **Saturday:** Shorts cut from long-forms. Never before the parent long-form is public.
-- Sunday and Wednesday are long-form days; long-form social copies go out at noon the next day.
+Rule: `AGENTS.md`, "Shorts release cadence". Code: `scripts/blotato/release_phases.py`. Long-forms: `Docs/LONGFORM_RELEASE_CALENDAR.md` (same phases, the filming table and the approval quote are there).
 
-Dan's rules: every already-edited Short releases in 2026; each new long-form gets 3 Shorts (best moments); a Short
-still to be edited gets at least 10 days of editing time. Rule: `AGENTS.md`, "Shorts release cadence". Long-forms:
-`Docs/LONGFORM_RELEASE_CALENDAR.md`. Queue scripts: `scripts/blotato/video_topup.py` (DS = Thursday, others Mon/Tue/Fri/Sat).
+All four platforms (YouTube, Facebook, Instagram @danrosefit, TikTok), America/Chicago.
 
-Key: plain = edited (in Blotato or on the waiting list). **\*** = still to be edited, due the day before it airs.
+| phase | dates | Shorts | content rule |
+|---|---|---|---|
+| 1 | Oct 29 to Nov 25 | Mon, Tue, Thu, Fri, Sat 9 AM | no kitchen except the salad Shorts |
+| 2 | Nov 26 to Dec 25 | 9 AM + 6 PM on every day without a long-form (two a day) | kitchen Shorts first, then Shorts cut from phase 2 films, then non-kitchen fill |
+| 3 | Dec 26 to Jan 31 | 9 AM + 6 PM Mon, Tue, Thu, Sat (8 a week) | gym how-tos (Oct 23) and Shorts from blitz parents; no kitchen |
+| 4 | from Feb 1 | Mon to Sat 9 AM | leftover kitchen Shorts allowed |
 
-| Week of | Mon | Tue | Thu (dedicated) | Fri | Sat |
-|---|---|---|---|---|---|
-| Oct 19 | Stop Deadlifting (sl05-short1) | Stop Swinging Your Curls (sl04-short4) | I Was 200 Pounds At 38 (DS-08) | How To Make Time To Work Out (DS-09) | Stop Deadlifting (sl05-short4) |
-| Oct 26 | Wasted My Life 1 (SL-18) | Stop Deadlifting (sl05-short2) | Use A Meal Prep Service (DS-28) | Top 1% 1 (SL-17, Nutrition Matters More Than Your Workouts) | Stop Deadlifting (sl05-short5) |
-| Nov 2 | Salad (sl03-short1) | Stop Deadlifting (sl05-short3) | How To Use The Ab Wheel (DS-22) | Top 1% 2 (SL-17, Start With 5 Minutes Every Morning) | Salad (sl03-short4) |
-| Nov 9 | Zepbound Tips 1 (sl06-short1, queued) | Salad (sl03-short5) | 3 Ways To Reduce Alcohol (DS-14) | Oura 1 (SL-09) | Salad (sl03-short2) |
-| Nov 16 | Oura 2 (SL-09) | Salad (sl03-short3) | How To Do Rear Delt Flys (DS-24) | Oura 3 (SL-09) | Zepbound Tips 2 (sl06-short2, queued) |
-| Nov 23 | Oura 4 (SL-09) | Salad (sl03-short6) | How To Do Hammer Curls (DS-21) | Oura 5 (SL-09) | Zepbound Tips 3 (sl06-short3, queued) |
-| Nov 30 | Top 1% 3 (SL-17, Every Man Should Train A Martial Art) | Zepbound Tips 4 (sl06-short4, queued) | AI Homework (DS-31, needs Dan's OK) | Fasting 2 (SL-16, Why Carbs Destroy Your Productivity) | Zepbound Tips 5 (sl06-short5, queued) |
-| Dec 7 | Fasting 3 (SL-16, Never Break Your Fast With Alcohol) | Zepbound Tips 6 (sl06-short6, queued) | Fat Millionaire (DS-05, corrections) | Vacuum 1\* (SL-11) | Wasted My Life 2 (SL-18) |
-| Dec 14 | 3 Healthy Foods 1 (SL-19) | Fasting 1 (SL-16, How To Start Fasting: Just Skip Breakfast) | Hormozi Fat Guy (DS-44, queued) | 3 Healthy Foods 2 (SL-19) | Dad Bod (DS-35, queued; approved Saturday exception) |
-| Dec 21 | Belly Fat 1 (SL-07, needs Dan's OK) | Belly Fat 2 | Ronaldo Ab Belt (DS-33, waiting list) | 3 Healthy Foods 3 (SL-19) | Belly Fat 3 |
-| Dec 28 | Belly Fat 4 | Belly Fat 5 | Bill Maher: Fat 90-Year-Old (DS-40, waiting list) | | |
+Dated rules: dedicated and cut Shorts share the same slots. A Short never airs before its parent long-form is public. Each new long-form gets 3 Shorts. A long-form day whose film is not approved becomes a one-Short day. Unedited kitchen Shorts (Invest In Your Health SL-20/21/22, Work Out Every Day cuts) are not scheduled for editing now; edited later they go to February. January test: a 6 PM Short on long-form days for two weeks only when 14 days of approved, set-up Shorts are ready and the median 7-day organic engaged views per Short (December versus November, at least 10 mature Shorts each) has not fallen more than 20%; drop the extras if total organic engaged views do not rise. A Short still to be edited needs at least 10 days of editing time before its slot.
 
-**Moved 2026-10-23 (DS-44 setup):** Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44) is edited, so it takes Thu Dec 17 (queued in Blotato, scripted version). The not-yet-edited DS-13 and DS-16 each move one Thursday later (Dec 24, Dec 31); Top 5 Ab Exercises (DS-01) moves to the first 2027 Thursday, Jan 7.
+Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on the shared waiting list with this slot; **Not booked** = open: needs an edited, approved, non-kitchen Short (any Short in phase 2).
 
-**2027 dated:** Spray Tan 1 (SL-15) Fri Jan 1 and Spray Tan 2 Sat Jan 2, after their parent RO-19 releases Wed Dec 30 (on the waiting list, 2026-10-22).
+## Dated Shorts, Oct 29 to Jan 31
 
-**Moved 2026-10-21 (SL-09 setup):** all five Oura shorts are edited, so they took Nov 13, 16, 20, 23 and 27 (edited Shorts release first). The four not-yet-edited Shorts that held Nov 16, 20, 23 and 27 (Boring Abs At 40 1, Fasting 1 (SL-16), Invest In Your Health 1 (SL-20), Home Budget 1) take the next free Mon/Tue/Fri/Sat when they are edited. The Zepbound Tips Saturdays are kept.
+| Date | Phase | Time | Short | Status |
+|---|---|---|---|---|
+| Thu Oct 29 | 1 | 9 AM | Stop Cooking Your Meals: Use A Meal Prep Service | Live |
+| Fri Oct 30 | 1 | 9 AM | Nutrition Matters More Than Your Workouts | Live |
+| Sat Oct 31 | 1 | 9 AM | Do Women Like The Dad Bod? | Live |
+| Sat Oct 31 | 1 | 12 PM | 5-Minute Home Workout: 3 Exercises, No Equipment | Live |
+| Mon Nov 2 | 1 | 9 AM | Break Your Fast With This | Live |
+| Tue Nov 3 | 1 | 9 AM | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | Live |
+| Thu Nov 5 | 1 | 9 AM | How To Use The Ab Wheel | Waitlist |
+| Fri Nov 6 | 1 | 9 AM | Start With 5 Minutes Every Morning | Live |
+| Sat Nov 7 | 1 | 9 AM | Stop Buying Salad Dressing | Live |
+| Mon Nov 9 | 1 | 9 AM | Reduce GLP-1 Side Effects | Live |
+| Tue Nov 10 | 1 | 9 AM | Track A Week Of Meals From 1 Photo | Live |
+| Wed Nov 11 | 1 | 9 AM | Does Cristiano Ronaldo's Electric Shock Ab Belt Work? | Waitlist |
+| Thu Nov 12 | 1 | 9 AM | 3 Ways To Reduce Alcohol | Waitlist |
+| Fri Nov 13 | 1 | 9 AM | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | Waitlist |
+| Sat Nov 14 | 1 | 9 AM | The $20 Salad You Can Make For $4 | Live |
+| Mon Nov 16 | 1 | 9 AM | Let AI Do Your Homework So You Have Time To Work Out | Live |
+| Tue Nov 17 | 1 | 9 AM | Keep Your Salads Fresh For 7 Days | Live |
+| Thu Nov 19 | 1 | 9 AM | How To Do Rear Delt Flys | Waitlist |
+| Fri Nov 20 | 1 | 9 AM | Build Your Value Before You Date | Live |
+| Sat Nov 21 | 1 | 9 AM | Why I Don't Use The KwikPen | Live |
+| Mon Nov 23 | 1 | 9 AM | OPEN: gym how-to test (DS-84 Hamstring Curls once Dan approves), else the next ready non-kitchen Short | Not booked |
+| Tue Nov 24 | 1 | 9 AM | Make AI Calorie Tracking Accurate | Live |
+| Thu Nov 26 | 2 | 9 AM | How To Do Hammer Curls | Waitlist |
+| Thu Nov 26 | 2 | 6 PM | Train Legs Without Deadlifts | Live |
+| Sat Nov 28 | 2 | 9 AM | How To Inject Zepbound | Live |
+| Sat Nov 28 | 2 | 6 PM | How To Start Fasting: Just Skip Breakfast | Waitlist |
+| Mon Nov 30 | 2 | 9 AM | Every Man Should Train A Martial Art | Live |
+| Mon Nov 30 | 2 | 6 PM | Train Harder After A Bad Night's Sleep | Live |
+| Tue Dec 1 | 2 | 9 AM | Take Weight Loss Meds Thursday Evening | Live |
+| Tue Dec 1 | 2 | 6 PM | Why Carbs Destroy Your Productivity | Waitlist |
+| Thu Dec 3 | 2 | 9 AM | Your Sleep Score Shows Who's Toxic In Your Life | Live |
+| Thu Dec 3 | 2 | 6 PM | Deadlifts Build A Powerlifter Body, Not An Aesthetic One | Live |
+| Sat Dec 5 | 2 | 9 AM | How To Avoid Rebound Weight Gain | Live |
+| Sat Dec 5 | 2 | 6 PM | Spray Tan 1: Why You Look Less Ripped In Photos | Waitlist |
+| Mon Dec 7 | 2 | 9 AM | Cut The Adrenaline Before Bed | Live |
+| Mon Dec 7 | 2 | 6 PM | Never Break Your Fast With Alcohol | Waitlist |
+| Tue Dec 8 | 2 | 9 AM | How Much Protein You Need On A GLP-1 | Live |
+| Tue Dec 8 | 2 | 6 PM | Spray Tan 2: Get A Tan Without Sun Damage | Waitlist |
+| Thu Dec 10 | 2 | 9 AM | Five Levels Of Pushups | Waitlist |
+| Thu Dec 10 | 2 | 5 PM | Why Having Abs Beats Being A Fat Millionaire | Live |
+| Sat Dec 12 | 2 | 9 AM | You're Not Sleeping As Well As You Think | Live |
+| Sat Dec 12 | 2 | 6 PM | Why You Need A Simple Nutrition Plan | Waitlist |
+| Mon Dec 14 | 2 | 9 AM | 3 Healthy Foods 1: Coconut Water Is Just Sugar Water | Waitlist |
+| Mon Dec 14 | 2 | 6 PM | Oura Ring Or WHOOP? Which One To Buy | Live |
+| Tue Dec 15 | 2 | 9 AM | 3 Healthy Foods 2: Trail Mix Has More Calories Than A Big Mac | Waitlist |
+| Tue Dec 15 | 2 | 6 PM | How Getting Abs Looksmaxxes Your Face | Waitlist |
+| Thu Dec 17 | 2 | 9 AM | The 3 Most Important Supplements For Men | Waitlist |
+| Thu Dec 17 | 2 | 6 PM | Top 3 Ways To Use AI To Get Abs | Waitlist |
+| Sat Dec 19 | 2 | 9 AM | 3 Healthy Foods 3: My 4 Go-To High-Protein Snacks | Waitlist |
+| Sat Dec 19 | 2 | 6 PM | Why You Must Weigh Yourself Daily | Waitlist |
+| Mon Dec 21 | 2 | 9 AM | How To Get A V-Taper Physique (DS-47) | Waitlist |
+| Mon Dec 21 | 2 | 6 PM | OPEN | Not booked |
+| Tue Dec 22 | 2 | 9 AM | OPEN | Not booked |
+| Tue Dec 22 | 2 | 6 PM | OPEN | Not booked |
+| Thu Dec 24 | 2 | 9 AM | OPEN | Not booked |
+| Thu Dec 24 | 2 | 6 PM | OPEN | Not booked |
+| Fri Dec 25 | 2 | 9 AM | OPEN | Not booked |
+| Fri Dec 25 | 2 | 6 PM | OPEN | Not booked |
+| Sat Dec 26 | 3 | 9 AM | OPEN | Not booked |
+| Sat Dec 26 | 3 | 6 PM | OPEN | Not booked |
+| Mon Dec 28 | 3 | 9 AM | Belly Fat 1: Stop Trying To Lose 1 Pound A Week | Waitlist |
+| Mon Dec 28 | 3 | 6 PM | OPEN | Not booked |
+| Tue Dec 29 | 3 | 9 AM | Belly Fat 2: Weigh Yourself Every Morning | Waitlist |
+| Tue Dec 29 | 3 | 6 PM | OPEN | Not booked |
+| Thu Dec 31 | 3 | 9 AM | Belly Fat 3: Work Out Every Morning, Not 3 Times A Week | Waitlist |
+| Thu Dec 31 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 2 | 3 | 9 AM | Belly Fat 4: The 3-Pound Rule That Keeps Belly Fat Off | Waitlist |
+| Sat Jan 2 | 3 | 6 PM | OPEN | Not booked |
+| Mon Jan 4 | 3 | 9 AM | Belly Fat 5: Track Your Calories With A Photo | Waitlist |
+| Mon Jan 4 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 5 | 3 | 9 AM | OPEN | Not booked |
+| Tue Jan 5 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 7 | 3 | 9 AM | The #1 Change I Made To Get Abs At 40 | Waitlist |
+| Thu Jan 7 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 9 | 3 | 9 AM | OPEN | Not booked |
+| Sat Jan 9 | 3 | 6 PM | OPEN | Not booked |
+| Mon Jan 11 | 3 | 9 AM | OPEN | Not booked |
+| Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 12 | 3 | 9 AM | OPEN | Not booked |
+| Tue Jan 12 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 14 | 3 | 9 AM | What Every Body Fat Percentage Looks Like | Waitlist |
+| Thu Jan 14 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 16 | 3 | 9 AM | OPEN | Not booked |
+| Sat Jan 16 | 3 | 6 PM | OPEN | Not booked |
+| Mon Jan 18 | 3 | 9 AM | Why I Fast Until 2 pm Every Day | Waitlist |
+| Mon Jan 18 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 19 | 3 | 9 AM | Eat a Salad First to Eat Less | Waitlist |
+| Tue Jan 19 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 21 | 3 | 9 AM | Top 3 Non-Weight Loss Benefits Of Zepbound | Waitlist |
+| Thu Jan 21 | 3 | 6 PM | Stop Drinking Your Calories | Waitlist |
+| Sat Jan 23 | 3 | 9 AM | Snack on Protein, Not Carbs | Waitlist |
+| Sat Jan 23 | 3 | 6 PM | OPEN | Not booked |
+| Mon Jan 25 | 3 | 9 AM | Make Fasting Easier With Black Coffee | Waitlist |
+| Mon Jan 25 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 26 | 3 | 9 AM | OPEN | Not booked |
+| Tue Jan 26 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 28 | 3 | 9 AM | Top 5 Ab Exercises For Six Pack Abs | Waitlist |
+| Thu Jan 28 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 30 | 3 | 9 AM | OPEN | Not booked |
+| Sat Jan 30 | 3 | 6 PM | OPEN | Not booked |
 
-**Moved 2026-10-21 (SL-19 setup):** all three 3 Healthy Foods shorts are edited, so they release in 2026 (edited Shorts first): Mon Dec 14, Fri Dec 18 (was Keep Your Muscle 1, SL-12) and Fri Dec 25 (was Calories Don't Matter 1, SL-13). SL-12 and SL-13 had not started editing; their first Shorts take the next free Mon/Tue/Fri/Sat when edited. The waiting list ties each SL-19 Short to RO-17 (`parent_config`), so none can air before it.
+Approved one-off exceptions kept: Sat Oct 31 noon Five Minute Exercises (DS-55), Thu Dec 10 5 PM Fat Millionaire (DS-05) beside Five Levels Of Pushups at 9 AM.
 
-**Moved 2026-10-22 (SL-18 finalized, Dan):** I'm 41. I Wasted My Life. gets two Shorts, not three (both edited: Mon Oct 26 and Sat Dec 12). Its Tue Dec 15 slot goes to Fasting 1 (SL-16), Dan's pick: "Just skip breakfast" (RO-08 9:04-11:08, how to start and the first month). RO-08 is public Wed Nov 18, so the parent-first rule holds. Due Mon Dec 14; it reaches Blotato at its setup.
+## What moved on 2026-10-28 (details: `Docs/CONTENT_SCHEDULE_MOVE_LOG_20261028.json`)
 
-**Moved 2026-10-23 (SL-17 setup):** all three I'm 41. I'm Top 1%. Shorts are edited, so they release in 2026 after RO-26 (queued for YouTube Sun Oct 25): Fri Oct 30 (was open), Fri Nov 6 (was Work Out Every Day 1) and Mon Nov 30 (was What To Cut 1, SL-21). Sat Dec 19 (was Top 1% 1) is open again. Work Out Every Day 1 and What To Cut 1 were not edited yet; they take the next free Mon/Tue/Fri/Sat when edited. The waiting list ties each SL-17 Short to RO-26 (`parent_config`).
-
-**2027:** about 40 long-form Shorts carry over (the 2nd and 3rd Short of most films, plus Vacuum Workout, Ab Wheel
-Workout, Calories and Alcohol), and the dedicated Thursdays continue from the ~40 dedicated Shorts filmed but not edited.
-
-**Moved 2026-10-25 (Ronaldo Ab Belt setup):** The approved "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?" (DS-33) takes Thu Dec 24, 9 AM America/Chicago, on the shared waiting list because Blotato has 197/200 posts and this video needs four. It follows the already edited dedicated Shorts. The not-yet-edited DS-13 moves to Dec 31; DS-16 moves to Jan 7, 2027, and DS-01 to Jan 14. The daily top-up routine rechecks the live slot before scheduling.
-
-**Moved 2026-10-25 (Bill Maher: Fat 90-Year-Old setup):** Dan selected the approved Codex R5 film and approved revised design 1 cover R3. This edited Short takes Thu Dec 31, 9 AM America/Chicago, on the shared waiting list. The not-yet-edited #1 Change For Abs At 40 (DS-13) moves to Jan 7, 2027; Lose The Last 10 Pounds (DS-16) moves to Jan 14 and Top 5 Ab Exercises (DS-01) to Jan 21. No existing live schedule was moved. The daily top-up routine rechecks the slot before queuing all four destinations.
-
-
-**Approved 2026-10-25 (Calories Not Losing Weight Shorts, SL-08):** Dan kept the parent on Sunday December 27 and explicitly approved these five 2027 slots, all at 9 AM America/Chicago on YouTube/Facebook/Instagram @danrosefit/TikTok. Covers C approved for all five. Setup is on the shared waiting list at 197/200 Blotato posts; the daily top-up routine rechecks live slots before scheduling. Parent dependency: RO-10.
-
-| 2027 date | Approved Short |
-|---|---|
-| January 4 | Why I Fast Until 2 pm Every Day |
-| January 5 | Eat a Salad First to Eat Less |
-| January 8 | Stop Drinking Your Calories |
-| January 9 | Snack on Protein, Not Carbs |
-| January 11 | Make Fasting Easier With Black Coffee |
-
-**Approved 2026-10-26 (Dad Bod, DS-35):** Dan explicitly chose Saturday December 19, 2026 at 9 AM America/Chicago on all four platforms. This is a one-time exception to dedicated Thursdays because all remaining 2026 Thursdays are reserved. The slot was open; no other video is displaced. Cover design 2 with title-case R3 text and Off The Cuff R3 film approved. All four Blotato schedules created and read back: Facebook 6072714, Instagram 6072716, TikTok 6072718, YouTube 6072720.
-
-**Set 2026-10-27 (Muhammad Shorts Batch B setup):** the three finished Muhammad dedicated Shorts take the next Thursdays, 9 AM America/Chicago, all four platforms, because every 2026 Thursday is reserved: The #1 Change I Made To Get Abs At 40 (DS-13) Jan 7, 2027 (its placeholder); What Every Body Fat Percentage Looks Like (DS-06) Jan 14; Top 3 Non-Weight Loss Benefits Of Zepbound (DS-10) Jan 21. The not-yet-edited Lose The Last 10 Pounds (DS-16) moves to Jan 28 and Top 5 Ab Exercises (DS-01) to Feb 4. All three wait on the shared waiting list; the daily top-up routine rechecks the live slot before queuing. Handoff: `Handoffs/handoff-20261026-muhammad-shorts-batch-b-sfc-setup.md`.
-
-**Set 2026-10-27 (Top 5 Ab Exercises setup):** the finished Top 5 Ab Exercises For Six Pack Abs (DS-01, R4 with Dan's own cable crunch footage) takes Thu Jan 28, 2027, 9 AM America/Chicago, all four platforms, the slot that held the not-yet-edited Lose The Last 10 Pounds (DS-16), which moves to Feb 4. Live Blotato 189/200 with nothing on Jan 28; DS-01 waits on the shared waiting list behind the earlier releases. Receipt: `Docs/DS01_SETUP_RECEIPT_20261027.md`.
-
-**Moved 2026-10-27 (SL-16 setup, Dan approved the dates):** all four Intermittent Fasting Shorts are edited, so they release in 2026 where possible, after RO-08 (Wed Nov 18): Fasting 2 Fri Dec 4 (was 40 vs 25 1, SL-14, whose parent only releases Jan 3, 2027), Fasting 3 Mon Dec 7 (was What To Buy 1, SL-22, not yet edited; it moves to Fri Jan 15, 2027), Fasting 1 Tue Dec 15 (Dan's pick) and Fasting 4 Tue Jan 12, 2027 (no 2026 slot left). Covers F, A, A and F approved. All four on the shared waiting list tied to RO-08. SL-14 Short 1 takes the next free Mon/Tue/Fri/Sat after Jan 3, 2027.
-
-**Set 2026-10-27 (Muhammad Shorts Batch A setup):** How Getting Abs Looksmaxxes Your Face (DS-02) Thu Feb 4, 2027; The 3 Most Important Supplements For Men (DS-03) Feb 11; Top 3 Ways To Use AI To Get Abs (DS-07) Feb 18; Why You Must Weigh Yourself Daily (DS-11) Feb 25; 9 AM America/Chicago, all four platforms, on the shared waiting list (Dan approved). Jan 7-28 were already taken by DS-13, DS-06, DS-10 and DS-01, so the not-yet-edited Lose The Last 10 Pounds (DS-16) moves to Mar 4. Receipt: `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`.
+- Kitchen Shorts out of phase 1 (re-dated): Stop Deadlifting Shorts 5 and 3 (SL-05) to Thu Nov 26 and Thu Dec 3, 6 PM; all five Oura Shorts (SL-09) to Nov 30, Dec 3, Dec 7, Dec 12 and Dec 14, after the Oura review on Nov 29; Fasting Shorts (SL-16) to Nov 28, Dec 1, Dec 7 and Dec 12 6 PM, after Intermittent Fasting on Nov 27 (the fourth was Jan 12); Spray Tan Shorts (SL-15) to Dec 5 and Dec 8 6 PM (were Jan 1 and 2), after My First Spray Tan on Dec 4.
+- Kept in phase 1 because they are poolside, not kitchen: How To Use The Ab Wheel (DS-22) Nov 5, 3 Ways To Reduce Alcohol (DS-14) Nov 12, How To Do Rear Delt Flys (DS-24) Nov 19; How To Do Hammer Curls (DS-21) Nov 26.
+- Non-kitchen Shorts brought forward into the freed November slots: Do Women Like The Dad Bod? (DS-35) Oct 31 (was Dec 19), Alex Hormozi Asks A Fat Guy (DS-44, off-the-cuff R2) Nov 3 (was Dec 17), Does Cristiano Ronaldo's Electric Shock Ab Belt Work? (DS-33) Nov 11 (was Dec 24), Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old (DS-40) Nov 13 (was Dec 31), Let AI Do Your Homework (DS-31) Nov 16 (was Dec 3), Build Your Value Before You Date (SL-18) Nov 20 (was Dec 12).
+- Muhammad Batch A moved from February into the December two-a-day slots, since February is the lowest-value month for them: How Getting Abs Looksmaxxes Your Face (DS-02) Dec 15, The 3 Most Important Supplements (DS-03) Dec 17, Top 3 Ways To Use AI To Get Abs (DS-07) Dec 17, Why You Must Weigh Yourself Daily (DS-11) Dec 19. They are the fallback for any phase 1 film-less day (Nov 15, 18, 22). Batch B (DS-13, 06, 10, 01) keeps its Thursdays Jan 7, 14, 21, 28.
+- Blitz parents: Belly Fat Shorts (SL-07) follow their parent on Dec 27: Dec 28, 29, 31, Jan 2, Jan 4. Calories Not Losing Weight Shorts (SL-08) follow RO-10 on Jan 17: Jan 18, 19, 21 6 PM, 23, 25 (all five were Jan 4 to 11 and would have aired before their parent).
+- Still unedited, no date: Lose The Last 10 Pounds (DS-16) and other Aug 28 Shorts (DS-15, 19, 25, probably poolside), Alcohol And Abs (SL-10), Vacuum (SL-11), Keep Your Muscle and Calories Don't Matter cuts (SL-12/13), Boring Abs At 40 (SL-26), Why You're Not Losing Weight (SL-23), Make Time (SL-25), Invest In Your Health (SL-20/21/22, February).

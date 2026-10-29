@@ -117,6 +117,18 @@ profile visit, best guess about $6 per extra follower with "no effect" still ins
   weeks off queues about 25 tests at $10 each at once. Decide with Dan first. The champion ad set must be unpaused by
   hand, and the `FOLLOWTEST::` ad set is not one of the job's own names.
 
+## One-off boost: ADHD Meds reel, Oct 30 to Nov 3 2026 (Dan's call, 2026-10-28)
+
+Dan approved $100 on his best organic reel of October ("Why ADHD Meds Backfire Long Term", SL-18 Short 1, IG media
+`18654733126039710`: 3,179 views, 26 comments, 15 shares, 43 saves in its first 2 days). Ad set `120251791322810682`,
+ad `120251791324930682`, in the auto campaign, $100 lifetime, profile visits, champion targeting, starts Oct 30 00:00 CT
+(after the follower test's OFF 2 week) and ends Nov 4 00:00 CT by itself. Name tag `BOOST::<media_id>`, so a resumed
+job counts the post as tested. Exclude Oct 30 to Nov 3 from any follower-test baseline.
+**DISAPPROVED 2026-10-28** ("Drugs and Pharmaceuticals": the reel itself is the problem, so no tamer-copy retry is
+possible). Ad set paused, $0 spent. **Replaced (Dan, 2026-10-28)** by a $40 boost on the Ab Wheel reel ("Your abs
+never get a break on the ab wheel", IG media `18027549377863384`): ad set `120251794313860682`, ad
+`120251794314610682`, same targeting and dates (Oct 30 00:00 CT to Nov 4 00:00 CT), $40 lifetime.
+
 ## Follower readings
 
 | reading (UTC) | followers | lifetime spend | visits | since previous |

@@ -49,6 +49,7 @@ from zoneinfo import ZoneInfo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from ad_guard import AdGuardError, assert_organic  # noqa: E402
 from danrosefit_migration import api_key, call, fetch_schedules  # noqa: E402
+import release_phases as rp  # noqa: E402
 
 QUEUE_CAP = 200
 FACEBOOK, FB_PAGE = "47105", "1294282227094660"
@@ -56,17 +57,15 @@ IG_MAIN, IG_MIRROR, TIKTOK, YOUTUBE = "67203", "65632", "58181", "46963"
 CHICAGO = ZoneInfo("America/Chicago")
 
 
-LONGFORM_DAYS = (6, 2)  # Sunday and Wednesday, 9 AM Chicago (Dan, 2026-10-17; was Sunday only)
-
-
 def check_longform_day(when: str, slug: str, items: list) -> None:
-    """Refuse a day other than Sunday or Wednesday, a wrong time, or a second long-form that day."""
+    """Refuse a day that is not a long-form day of its phase (release_phases.py), a wrong time, or a second long-form
+    that day. Sun+Wed through Nov 25 2026, Sun+Wed+Fri Nov 26 to Jan 31 (none Dec 25), Sunday from Feb 1 (Dan, 2026-10-28)."""
     try:
         local = datetime.fromisoformat(when.replace("Z", "+00:00")).astimezone(CHICAGO)
     except ValueError as exc:
         raise ValueError(f"invalid main release time: {when}") from exc
-    if local.weekday() not in LONGFORM_DAYS or (local.hour, local.minute, local.second) != (9, 0, 0):
-        raise ValueError(f"long-form release must be Sunday or Wednesday at 9 AM Chicago time: {when}")
+    if not rp.longform_allowed(local.date()) or (local.hour, local.minute, local.second) != (9, 0, 0):
+        raise ValueError(f"{local:%A %Y-%m-%d} is not a long-form day at 9 AM Chicago time (see release_phases.py): {when}")
     for item in items:
         draft = item.get("draft") or {}
         target = draft.get("target") or {}
@@ -82,7 +81,8 @@ def check_longform_day(when: str, slug: str, items: list) -> None:
 
 def social_time(main: str) -> str:
     """Facebook, Instagram and TikTok follow the next day at noon: Monday after a Sunday release, Thursday
-    after a Wednesday release. 9 AM on those days is a Shorts slot on the same accounts (Dan, 2026-10-17)."""
+    after a Wednesday release, Saturday after a Friday release. 9 AM on those days is a Shorts slot on the same
+    accounts (Dan, 2026-10-17; Friday added 2026-10-28)."""
     local = datetime.fromisoformat(main.replace("Z", "+00:00")).astimezone(CHICAGO) + timedelta(days=1)
     local = datetime(local.year, local.month, local.day, 12, 0, tzinfo=CHICAGO)
     return local.astimezone(ZoneInfo("UTC")).strftime("%Y-%m-%dT%H:%M:%S.000Z")

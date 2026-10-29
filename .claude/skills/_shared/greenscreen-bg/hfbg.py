@@ -66,7 +66,8 @@ BIG = dict(x=86, y0=110, max_w=1060, max_px=250, gap=50, color=(40, 92, 168), op
 
 
 def bigtype_cfg(seg, root, work):
-    B = BIG; lines = seg["lines"]
+    B = dict(BIG, **({"max_w": seg["max_w"]} if seg.get("max_w") else {})); lines = seg["lines"]   # max_w: a long word that would run
+    # behind Dan on a tight shot gets narrower type (RO-24 R4: "MICRODOSE" read "MICRODOS"); the default keeps every film unchanged
     px_ = min(B["max_px"], *[int(B["max_px"] * B["max_w"] / max(1, H.text_w(s, B["max_px"]))) for s in lines])
     out, y = [], B["y0"]
     for n, s in enumerate(lines):

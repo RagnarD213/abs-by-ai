@@ -531,7 +531,8 @@
   "match": "Having six-pack abs is way better than being a millionaire. I'm a multi-millionaire with six-pack abs, and I can tell you the abs matter far more.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-05_why-having-abs-beats-being-a-fat-millionaire-cover-F3.jpg",
   "w": 1080,
-  "h": 1920
+  "h": 1920,
+  "when": "2026-12-10T23:00:00.000Z"
  },
  {
   "match": "Stop cooking your own meals.",
@@ -1079,5 +1080,46 @@
   "approved": "Dan approved Robot Mower R2 (6 Ways To Make Time To Work Out) 2026-10-27; YouTube Wed 2027-01-13 9 AM, Facebook Thu Jan 14 noon Central.",
   "sha256": "0eb63531a6c9aac51985e0432c2c071f52e0f5f41b9256fe86778e5fe2043b3e",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro18-make-time-for-exercise-approved.jpg"
+ },
+ {
+  "job": "DS-20",
+  "match": "Here are the five levels of pushups and how to figure out which one is right for you.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds20-five-levels-of-pushups-approved.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan chose real-photo design3, title A on 2026-10-28; approved Dec10 9AM Central",
+  "sha256": "390ce3132fb43f97e5fd46cb12500b6f31df4ac84f4c00aa468e708e382226cd",
+  "when": "2026-12-10T15:00:00.000Z"
+ },
+ {
+  "job": "DS-55",
+  "match": "If I only had five minutes to work out at home, these are the three exercises I would do.",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved revised A 2026-10-28 and extra Saturday October31 noon Central release; exact approved file",
+  "sha256": "6687dd204410c444119bb77da699af0b29eab2b51266b54232e96dd5362b4c83",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds55-five-minute-exercises-approved.png",
+  "when": "2026-10-31T17:00:00.000Z"
+ },
+ {
+  "job": "RO-27",
+  "when": "2026-11-05T18:00:00.000Z",
+  "match": "My daily routine is boring, and that's exactly why I have six pack abs at 41.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro27-boring-abs-at-40-approved.jpg",
+  "w": 1280,
+  "h": 720,
+  "sha256": "0aa533016c08de2e37ce6cc2f5a6c758e5eea99953d4ff90c4c2b92ba4836e3f",
+  "approved": "Dan approved exact R3 design1 title-capitalization revision 2026-10-28",
+  "schedule": "6164753"
+ },
+ {
+  "job": "DS-47",
+  "match": "A V-taper is just two things: wide shoulders and a small waist.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds47/Instagram_ds47-v-taper_design3-front-final.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved exact R3 Design3 front-vacuum covers on 2026-10-28; current setup uses shared waitlist",
+  "sha256": "3d58353751f61ce89f9444877a2c54e2c44a36499bdbdf15c14f94cdb0f54012",
+  "when": "2026-12-21T15:00:00.000Z"
  }
 ]

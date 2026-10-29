@@ -11,9 +11,21 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [How To Do Pull-Ups SFC Setup](handoff-20261029-ds76-pull-ups-cover-and-setup.md): **Fire now (Dan approved R2 2026-10-29). Claude Opus 5.5, high.** DS-76: five covers via the Codex subscription, stop for Dan's pick, then Drive backup, upload and a January-blitz Short slot.
+- [Celebrity Ozempic LFC R5](handoff-20261028-ro24-celebrity-ozempic-round5.md): **Fired 2026-10-28** (Dan replied to R4). **Claude Opus 5.5, high**. RO-24: AI motion A1/A3/A4/A6/A8, new A7 frames, Amy abs photo, G06 card changes, remove the 5:46 pause, full render, gates, review.
 
 
-- [Five Minute Exercises SFC Setup](handoff-20261026-ds55-five-minute-exercises-setup.md): **Start now. Claude Opus 5.5, high.** Dan approved exact R5 on October 26. Project/Extreme copies verified. One setup task makes five Codex covers, stops for his pick, then completes Drive backup and /video-setup.
+
+
+
+
+- [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
+
+
+
+
+
+
 
 
 
@@ -27,7 +39,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Oura Ring Review SFL Setup](handoff-20261021-sl09-oura-shorts-covers-and-setup.md): SL-09, all five Oura shorts finalized 2026-10-21; five Codex covers each, stop for Dan's picks, then upload and Blotato on the shorts calendar (short 1 Fri Nov 13). Opus 5.5 high.
 - [Fat 90 Year Old SFC R6](handoff-20261022-ds40-r6-graphics-and-full-short.md): **Start now (Dan approved the R4 B opening 10-22). Claude Opus 5.5, high.** "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right." (DS-40): four Soft Blue HyperFrames graphics incl. a new BMI table, edit plan with silent Maher footage in the card, approval on :8940, then the full Short.
 - [Extreme Drive Cleanup](handoff-20261021-extreme-drive-cleanup.md): **Start now (2026-10-21): Extreme had 13 GB free. Codex GPT-6.1 Sol, high.** Ops. Move job folders untouched for 14+ days (about 94 folders, 681 GB) from `/Volumes/Extreme/_edit_work/` to `/Volumes/Expansion/_edit_work/`, verified before each removal; nothing outside `_edit_work`, nothing deleted without a verified copy.
-- [Celebrity Ozempic LFC R4](handoff-20261025-ro24-celebrity-ozempic-round4.md): **Fire now** (Dan replied 2026-10-27). **Claude Opus 5.5, high** (started on Claude; Dan 10-27: no green-screen owner rule). RO-24: whole film on the LOCKED green-screen background template, all six interview clips, before/after photos, AI frames for A1/A3/A4/A6/A7/A8 shown early, every gate, independent review.
 - [Zepbound Even If Ripped LFC Setup](handoff-20261022-ro28-zepbound-ripped-thumbnails-and-video-setup.md): **After Dan approves round 5 (http://127.0.0.1:8933/). Claude Opus 5.5, high.** CONTENT LFC RO-28: five thumbnails on the Codex subscription, stop for his pick, then /video-setup.
 - [What To Buy For Your Health LFC Setup](handoff-20261021-ro20c-thumbnails-and-video-setup.md): RO-20C finalized 10-21; five thumbnails, stop for the pick, then set up in the long-form slot right after part 2. Claude Opus 5.5 high.
 - [Fat 90 Year Old SFC R2](handoff-20261020-ds40-round2-key-polish.md): **Start now (2026-10-20). Claude Opus 5.5, high.** CONTENT SFC, green screen bake-off with Codex. Dan locked colour B and house voice + half bass; make the key beat R1 (hair flicker, dark rim, watch glass), independent review, R1 vs R2 page on 8940.
@@ -47,7 +58,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
-| [Fat Millionaire SFC R4](handoff-20261016-ds05-correct-version.md) | **Exact-file owner decision pending (2026-10-16), Codex. GPT-6 Sol / Medium.** Corrected review copy and F3 TikTok preparation verified. Full checks: 30 pass, 2 retained-source failures, 0 missing, 7 N/A; 43 independent images clear. No active worker. Posting held; no upload or booking. |
+| [Audi S5 fuel-filler door mobile mechanic](handoff-20261028-audi-s5-fuel-filler-door-mobile-mechanic.md) | **Started in repair chat; do not duplicate.** Three email and two Yelp mobile quote requests sent October 28; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`. No booking or spending. |
 | [Top 1 Percent LFC R5](handoff-20261017-ro26-round5-every-man-cut-hyperframes-recap.md) | **COMPLETE, approved and finalized 2026-10-17.** Exact approved film, subtitles and complete QA filed in Codex Content Videos/Top 1 Percent - RO-26 with verified Extreme backup. Historical gate FAIL remains 31 PASS/8 FAIL; whole-film approval recorded separately. Setup continues in the handoff above. |
 | [handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md](handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md) | **Executed 2026-10-18** (round 5 final delivered: A5 a 1 s raisin pour at 2:58.4, independent review SHIP, page port 8880; notes in the delivery folder 17). Setup continues in the OPEN handoff above. |
 | [handoff-20261015-ro17-round4-a10-motion-and-full-film.md](handoff-20261015-ro17-round4-a10-motion-and-full-film.md) | **Executed 2026-10-15** (round 4 full film delivered for Dan's review, page port 8880, independent review SHIP; notes in the delivery folder 17). |
@@ -198,6 +209,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
+
+- [handoff-20261028-ds47-v-taper-thumbnails-and-setup.md](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): started October 28 in Codex chat `01a183fe-a59b-7770-a2d4-1c600189be69`. Five cover pairs at http://127.0.0.1:9297/ await Dan pick; R6 preserved. Upload/setup pending. `Docs/DS47_COVER_REVIEW_20261028.md`.
 
 - [handoff-20261027-ro18-thumbnails-and-video-setup.md](handoff-20261027-ro18-thumbnails-and-video-setup.md): executed 2026-10-27 (Claude). RO-18 setup: Robot Mower thumbnail, waiting list for Wed Jan 13, 2027. Receipt `Docs/RO18_SETUP_RECEIPT_20261027.md`.
 - [handoff-20261021-ro18-round3-mower-wispr.md](handoff-20261021-ro18-round3-mower-wispr.md): executed 2026-10-24 (Claude). RO-18 R3 delivered; R4 (Wispr Flow take after the 1:28 card) done in the same task, approved 2026-10-27.

@@ -137,11 +137,13 @@ Dan: "The system that I want is one where I give my revisions and then the new t
 - Never put queue/job codes such as RO-25, ORO-25, RO-617, DS- or SL- numbers in the sidebar title, or lead with generic instructions such as `Prepare`, `Edit` or `Continue`. Keep internal IDs in job records, handoffs and filenames where needed. This changes task naming, not internal categories, IDs or schemas.
 - Apply the same title to proposed editing tasks and ready-to-paste handoff prompts. Preserve the actual round when resuming the same task; advance it for a new editing/review round, and always when work moves to a new task through a handoff (Dan, 2026-10-17: two tasks must never share a name). Use the available chat-title tool to apply the name. This supersedes older editor-first names such as `Muhammad revisions` and inconsistent SFC labels for shorts extracted from long-form.
 
-## Review-panel testing stays silent (Dan, 2026-10-16)
+## Review-panel testing stays silent (Dan, 2026-10-28, expands 2026-10-16)
 
-- Never play sound from a review panel while checking its player, controls, seeking, format switches or playback speed. It interrupts Dan's work.
-- Mute the testing video or browser before pressing play. Keep it muted throughout the checks, and leave playback paused when finished. Hearing audio through model/file analysis does not require audible browser playback.
-- Only play a review panel aloud when Dan explicitly asks to hear it. This rule concerns assistant testing; preserve Dan's ability to play his review copy normally.
+- Task-driven media review stays silent: video, audio auditions, source clips, platform previews, controls, seeking, speed/format switches and recovery. It must not interrupt Dan or feed Wispr Flow.
+- Verify the actual player is muted BEFORE playback, repeat that check after every source/reload/switch, keep it muted throughout, and leave it paused and muted. Do not rely on autoplay blocking, an old muted state or a page helper's previous volume setting. Never programmatically unmute during task checks.
+- Shared managed pages inject `_shared/review_player.js` before page scripts and give every video/audio element a muted default. Scripted `play()`, new media, source loads and recovery reset to muted. Native controls and media audio remain intact; Dan can deliberately unmute his own player. New templates include `muted` on both `<video>` and `<audio>` and do not set `.muted = false` in context, audition or recovery helpers.
+- Analyze audio without sending sound to the speakers: offline decode, waveform, loudness, true peak, clipping, silence, sync and supported non-speaker model/file inspection. Record the actual method and limits. Silent functional playback or numeric PASS does not prove an audible listening check; keep an unsupported perceptual check incomplete. Narrated previews still contain the actual narration for Dan to hear when he chooses.
+- This is the normal workflow, not a new permission rule. Preserve manual owner playback. Do not change Mac master volume, Wispr Flow, microphone permissions, audio routing, exported audio or approved/scheduled assets. There is no verified system-wide app setting controlling all independent tasks; external sites/native apps and already-open pages require their task to apply the mute rule. Reload managed pages to receive updated defaults.
 
 ## All new or revised video graphics move in Soft Blue Light HyperFrames (Dan, 2026-10-17)
 
@@ -201,6 +203,12 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   word clean. Listen-check, or measure, every word over about 0.5 s inside a kept phrase and every intra-phrase gap over about 0.4 s
   in the first minute and at each take join; transcribe those windows with a disfluency prompt (for example `initial_prompt="Um, uh,
   pri- priority"`, `condition_on_previous_text=False`). Fix what is a stumble; leave his deliberate emphasis.
+
+## Vacuum clips show the stomach and abs (Dan, 2026-10-28)
+
+- For every stomach-vacuum demonstration, prioritize footage where Dan’s stomach and abs are visible during the actual draw-in. Use the full useful visible duration whenever possible; hands, arms, graphics and crops must not hide the teaching action.
+- An initially blocked lead-in is acceptable only when needed and when the edit then includes all of the useful visible duration. For a short insert, or when only limited room is available, use the stomach-visible portion alone. Prefer removing blocked footage; do not spend the available insert time on it while omitting visible action.
+- Inspect the actual source and delivered crop across the whole chosen span, record the visible/blocked ranges, and preserve natural speed and complete exercise action. This applies to all vacuum clips, real or AI, and future editor briefs. Dan set this rule while revising RO-30 B05.
 
 ## Never a shot of Dan just standing around (Dan, 2026-10-14)
 
@@ -284,6 +292,14 @@ Dan: "The system that I want is one where I give my revisions and then the new t
   else in the setup (media backups, TikTok copies, captions, configs) may be prepared meanwhile, but nothing carrying the revised
   cover is queued or installed until his OK. If he named no letter for a short, that is a question, not a default.
 - Binds Claude and Codex, `/video-setup`, `/ad-setup`, `/coverimage`, `/youtube-packaging`, and any cover swap on a live queue.
+
+## YouTube thumbnail text: capitalize the first letter of every word (Dan, 2026-10-28)
+
+Dan: "Let's make this a rule going forward that we always use title capitalization with the first letter of each word capitalized in our YouTube thumbnails."
+
+- Every new or revised YouTube thumbnail uses the first letter of **every** word capitalized, including short words such as "At", "In", "To", "Me" and "And". Preserve proper names and genuine acronyms such as "YouTube" and "AI".
+- Example: **This Boring Daily Routine Got Me Abs At 41.** Sentence case and automatic ALL CAPS are no longer the default for thumbnail copy. This supersedes older thumbnail recipes that force uppercase text.
+- Apply prospectively; preserve existing approved thumbnails unless Dan asks to revise them. This thumbnail text rule does not change words or capitalization inside an approved film.
 
 ## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-25)
 
@@ -943,7 +959,7 @@ rule and spell out all five slots. Reference:
 ## Organic videos may name the drug (Dan, 2026-09-30)
 
 - **Organic content videos may say and subtitle Zepbound, tirzepatide, GLP-1 and any other drug name.** Dan: *"I plan to make a lot of organic videos where the entire topic of the video is Zepbound. Organic videos can say Zepbound, Tirzepatide, GLP-1, or any of those."* The never-a-brand-name rule is an AD rule (ad-edit Step 9.3) and stays for ads only.
-- The delivery gate still carries the ad rule on organic formats (`compliance:drug_names` and the `srt:shape` banned spelling "Zepbound"/"Ozempic" on `longform`); until that is changed with the regression corpus and a `GATE_VERSION` bump, those two rows failing on an organic video are the known mismatch, not a defect. Spoken and subtitled drug names are correct. Brand names in on-screen graphics on organic videos: not yet ruled; keep them out until Dan says otherwise.
+- The delivery gate still carries the ad rule on organic formats (`compliance:drug_names` and the `srt:shape` banned spelling "Zepbound"/"Ozempic" on `longform`); until that is changed with the regression corpus and a `GATE_VERSION` bump, those two rows failing on an organic video are the known mismatch, not a defect. Spoken and subtitled drug names are correct. **Drug names in on-screen graphics (Dan, 2026-10-28, RO-24 R4):** allowed in organic videos that are entirely about weight-loss drugs (graph labels, titles, cards: "Zepbound", "Ozempic", "Mounjaro"); in organic videos that are not entirely about them, keep drug names out of graphics. Dan: *"I want to eliminate the rule that we have to not mention weight loss drug names in graphics, because the whole video like this is about weight loss drugs. Let's just make that rule apply to videos that aren't entirely about weight loss drugs."* Ads keep their own rule.
 - Related, same day: do not tell viewers to "empty the entire vial" (Dan cut that ad-lib from RO-12: people on non-standard doses do not).
 
 ## Organic content approval budget (Dan, 2026-09-29)

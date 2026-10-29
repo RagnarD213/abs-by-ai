@@ -53,6 +53,8 @@ Doc above. The short version: daily-habit shots (scale, black coffee, supplement
 drink, checking the app, the lock-screen glance), workout cutaways that are not demonstrations,
 the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 
+**Gym (added 2026-10-27, DS-76 How To Do Pull-Ups):** a true slow negative on the pull-up bar (jump or step to chin over the bar, then a 3 to 5 second lowering), front close and side angles. The 10/23 library has only normal-speed reps, so DS-76 keeps Dan on camera for "do slow negatives"; a re-edit can drop it in.
+
 ## 3. Your call before filming
 
 | what | the decision |

@@ -4,6 +4,10 @@ description: >
   Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, make five thumbnail choices with Codex in the command line (five unique designs: two AI images of Dan, one real pool or studio photo, two history-guided Codex choices; GPT-6.1 Sol high) and stop for Dan's pick, write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
+## Silent task-driven playback (Dan, 2026-10-28)
+
+Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`, "Review-panel testing stays silent". Mute every actual video/audio player before task-driven playback or auditions and after source/reload changes, then leave it paused and muted. Use offline decoding, audio measurements or supported non-speaker file/model inspection; never claim an audible listen from silent testing. Preserve actual narration, exported media audio and Dan's manual unmute controls. This is the normal workflow, not an added approval step.
+
 > **Shared writing rules (2026-10-06):** before writing, read `.claude/skills/_shared/WRITING-RULES.md`. It holds the rules every writing skill follows and the list of memory entries (`Docs/memory/`) to read. Where it and this skill disagree, the newer dated line wins.
 
 > **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
@@ -49,8 +53,8 @@ When the queue has no room for a video's 4 posts, finish everything else (thumbn
 config written, article, receipt), then add one entry to `scripts/blotato/video_waitlist.json` and stop:
 `{"config": "scripts/blotato/configs/<slug>.json", "kind": "longform" or "short", "job": "<ID>", "label": "<title>", "added": "<date>"}`.
 The daily routine `social-queue-daily-refresh` runs `scripts/blotato/video_topup.py`, which queues waiting videos in list
-order as room frees up: a long-form on its saved Sunday or Wednesday or the next free one (other platforms the next day), a Short on its
-saved slot or the next free Shorts day (dedicated DS Shorts Thursday; Shorts cut from long-forms Mon/Tue/Fri/Sat). Photo posts wait while any video is waiting. Trial run:
+order as room frees up: a long-form on its saved long-form day or the next free one (other platforms the next day), a Short on its
+saved slot or the next free Short slot of the dated phase (`scripts/blotato/release_phases.py`; dedicated and cut Shorts share slots; set `"kitchen": true` on the entry for a kitchen video, `"gym": true` for an Oct 23 gym Short). Photo posts wait while any video is waiting. Trial run:
 `python3 scripts/blotato/video_topup.py --assume-free 30`.
 - **Never create a scheduled task for one video.** Dan deleted three of them on 2026-10-11 because they would conflict.
 - **Instagram rejects files over about 300 MB.** For a long-form, upload a smaller copy (1.8 Mbps video, audio copied)
@@ -86,7 +90,7 @@ upload master + TikTok copy + cover PNG with `blotato_create_presigned_upload_ur
 write `scripts/blotato/configs/<slug>.json` (copy `ds18-kettlebell-deadlift.json`), then
 `python3 scripts/blotato/organic_short_queue.py <config>` and `--apply`. It queues FB, IG @danrosefit, TikTok and the
 public YouTube release (Blotato account 46963) and verifies all four. The config also carries `"pinned_comment"`
-(Step 6c; the queue script ignores the field, the daily pinned-comment routine reads it). Shorts go out at 9 AM on the date in `Docs/SHORTS_RELEASE_CALENDAR.md` (dedicated: Thursday; cut from a long-form: Mon/Tue/Fri/Sat, after the parent is public); pick a slot with no
+(Step 6c; the queue script ignores the field, the daily pinned-comment routine reads it). Shorts go out at the date and time in `Docs/SHORTS_RELEASE_CALENDAR.md` (9 AM, plus 6 PM in the two-a-day phases; dedicated and cut Shorts share slots; after the parent is public; no kitchen footage in phases 1 and 3); pick a slot with no
 same-minute post on those accounts.
 
 **Fixing a wrong-path upload:** the upload token cannot change an existing video's visibility (no `youtube` scope).
@@ -121,6 +125,8 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
   - A dedicated Short gets the same two copies under `Short-form video content/` on each drive.
 
 ## Step 2: five thumbnail variations, then STOP for Dan's pick (made here, with Codex on the subscription)
+
+**YouTube thumbnail capitalization (Dan, 2026-10-28): capitalize the first letter of every word, including short words such as At, In, To, Me and And; preserve proper names and acronyms. Example: "This Boring Daily Routine Got Me Abs At 41." This replaces the older all-caps recipe below.**
 
 This task makes the five itself with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` (Dan, 2026-10-02; one Claude handoff, no separate Codex task). The pick is saved as `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
 `social media graphics/youtube/thumbnails/<title>/` and used for Blotato's `youtube_cover_url`.
@@ -167,7 +173,7 @@ It imports the Ad 5 `build_clean.py` for the studio looks and reuses assets, so 
   video's topic that a viewer can answer in a few words, and save it in the config as `"pinned_comment": "<text>"`.
   Rules for the question: `Docs/PINNED_COMMENTS.md` (through `dan-voice-writer`, under 180 characters, no link, no em
   dash). YouTube has no video to comment on until Blotato releases it, so nothing is posted now: see Step 6c.
-- **Schedule (Dan, 2026-10-17: two a week, replaces Sunday only):** Sunday or Wednesday at 9 AM America/Chicago, one long-form per day, two per week. A revised replacement uses one slot. The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`: use the date it gives this video. A video not on it goes on the next free Sunday or Wednesday after the last queued long-form; Sundays get the stronger films and Wednesdays the weaker ones (memory `longform-strength-ranking`), and anything already edited releases before anything not yet edited. Never use another weekday. Facebook, Instagram and TikTok follow the next day at noon (Monday after a Sunday release, Thursday after a Wednesday release; 9 AM is a Shorts slot); `longform_queue.py` sets both. Read back every saved time. Verify the YouTube video is public on release day; if it is not, postpone the other platform posts before they go out. @abs.by.ai retired 2026-09-24; never queue it.
+- **Schedule (Dan, 2026-10-28, replaces the 10-17 Sunday+Wednesday rule):** 9 AM America/Chicago, one long-form per day, on the long-form days of the dated phase (Sun+Wed to Nov 25; Sun+Wed+Fri Nov 26 to Jan 31, never Dec 25; Sunday from Feb 1; code `scripts/blotato/release_phases.py`). A revised replacement uses one slot. The dated calendar Dan approved is `Docs/LONGFORM_RELEASE_CALENDAR.md`: use the date it gives this video. **Kitchen footage (the fridge/cabinet kitchen set) never goes in phase 1 (before Nov 26) or phase 3 (Dec 26 to Jan 31)** except How I Make My Daily Salad and its Shorts: set `"kitchen": true` on its waitlist entry and book it in phase 2 or later. A video not on the calendar goes on the next free long-form day of an allowed phase; Sundays get the stronger films and Wednesdays the weaker ones (memory `longform-strength-ranking`). Facebook, Instagram and TikTok follow the next day at noon (Monday after Sunday, Thursday after Wednesday, Saturday after Friday; 9 AM is a Shorts slot); `longform_queue.py` sets both. Read back every saved time. Verify the YouTube video is public on release day; if it is not, postpone the other platform posts before they go out. @abs.by.ai retired 2026-09-24; never queue it.
 
 ## Step 4: RETIRED (2026-10-01), no YouTube holding upload
 

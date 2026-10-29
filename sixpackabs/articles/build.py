@@ -19,15 +19,17 @@ def parse(path):
     meta = dict(l.split(': ', 1) for l in m.group(1).strip().splitlines())
     return meta, m.group(2).strip()
 
-def inline(t, vid):
+def inline(t, vid, cta_path="/start"):
     t = html.escape(t, quote=False)
     t = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', t)
     def link(mm):
-        url = mm.group(2).replace('{CTA}', 'https://absbyai.com/start?' + CTA_UTM + vid)
+        url = mm.group(2).replace('{CTA}', 'https://absbyai.com' + cta_path + '?' + CTA_UTM + vid)
         return '<a href="%s">%s</a>' % (html.escape(url.replace('&amp;', '&')), mm.group(1))
     return re.sub(r'\[(.+?)\]\((.+?)\)', link, t)
 
-def blocks(body, vid):
+def blocks(body, vid, cta_path="/start"):
+    if cta_path not in ("/", "/start"):
+        raise ValueError("cta_path must be / or /start")
     out = []
     for chunk in re.split(r'\n\s*\n', body):
         lines = chunk.strip().splitlines()
@@ -35,19 +37,19 @@ def blocks(body, vid):
             continue
         first = lines[0]
         if first.startswith('### '):
-            out.append('<!-- wp:heading {"level":3} -->\n<h3 class="wp-block-heading">%s</h3>\n<!-- /wp:heading -->' % inline(first[4:], vid))
+            out.append('<!-- wp:heading {"level":3} -->\n<h3 class="wp-block-heading">%s</h3>\n<!-- /wp:heading -->' % inline(first[4:], vid, cta_path))
         elif first.startswith('## '):
-            out.append('<!-- wp:heading -->\n<h2 class="wp-block-heading">%s</h2>\n<!-- /wp:heading -->' % inline(first[3:], vid))
+            out.append('<!-- wp:heading -->\n<h2 class="wp-block-heading">%s</h2>\n<!-- /wp:heading -->' % inline(first[3:], vid, cta_path))
         elif first.startswith('- ') or re.match(r'\d+\. ', first):
             ordered = not first.startswith('- ')
-            items = ''.join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % inline(re.sub(r'^(- |\d+\. )', '', l), vid) for l in lines)
+            items = ''.join('<!-- wp:list-item -->\n<li>%s</li>\n<!-- /wp:list-item -->' % inline(re.sub(r'^(- |\d+\. )', '', l), vid, cta_path) for l in lines)
             tag = 'ol' if ordered else 'ul'
             attr = ' {"ordered":true}' if ordered else ''
             out.append('<!-- wp:list%s -->\n<%s class="wp-block-list">%s</%s>\n<!-- /wp:list -->' % (attr, tag, items, tag))
         elif first.startswith('_') and chunk.strip().endswith('_'):
-            out.append('<!-- wp:paragraph -->\n<p><em>%s</em></p>\n<!-- /wp:paragraph -->' % inline(' '.join(lines).strip('_'), vid))
+            out.append('<!-- wp:paragraph -->\n<p><em>%s</em></p>\n<!-- /wp:paragraph -->' % inline(' '.join(lines).strip('_'), vid, cta_path))
         else:
-            out.append('<!-- wp:paragraph -->\n<p>%s</p>\n<!-- /wp:paragraph -->' % inline(' '.join(lines), vid))
+            out.append('<!-- wp:paragraph -->\n<p>%s</p>\n<!-- /wp:paragraph -->' % inline(' '.join(lines), vid, cta_path))
     return '\n\n'.join(out)
 
 def check(path):
@@ -58,6 +60,7 @@ def check(path):
     if '\u2014' in raw: problems.append('EM DASH')
     if '\u2013' in raw: problems.append('EN DASH')
     if len(meta['excerpt']) > 155: problems.append('excerpt %d chars' % len(meta['excerpt']))
+    if meta.get("cta_path", "/start") not in ("/", "/start"): problems.append("invalid cta_path")
     if body.count('{CTA}') != 1: problems.append('%d CTA links (want 1)' % body.count('{CTA}'))
     internal = len(re.findall(r'\]\(/', body)) + len(re.findall(r'\]\(https://sixpackabs\.com', body))
     if not 1 <= internal <= 3: problems.append('%d internal links' % internal)
@@ -73,5 +76,5 @@ if __name__ == '__main__':
     meta, body, words, problems = check(sys.argv[1])
     if problems:
         sys.exit('refusing: ' + ', '.join(problems))
-    content = blocks(body.replace('](/', '](https://sixpackabs.com/'), meta['id'])
+    content = blocks(body.replace('](/', '](https://sixpackabs.com/'), meta['id'], meta.get('cta_path', '/start'))
     print(json.dumps({'post_type': 'spa_video', 'id': int(meta['post_id']), 'excerpt': meta['excerpt'], 'content': content, 'words': words}))

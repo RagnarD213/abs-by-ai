@@ -1,5 +1,7 @@
 # CONTENT SFC: Five Minute Exercises setup
 
+**EXECUTED October28,2026.** Approved R5 and revised A covers scheduled on all four platforms Saturday October31 noon Central, expressly approved by Dan. Receipt: `Docs/DS55_SETUP_RECEIPT_20261028.md`. Historical instructions below are preserved; do not relaunch setup.
+
 **Task name: Five Minute Exercises SFC Setup. Start now in Claude Opus 5.5, high effort.**
 **Use the Codex subscription to generate the images.**
 
