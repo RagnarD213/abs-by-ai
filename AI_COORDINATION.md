@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 
-**First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** Dan rejected the boxed portrait layout; [cutout test](http://127.0.0.1:9538/) awaits his go (R1 page :9537). RO-38 has the same portrait issue. Slot released.
+**First Time At The Gym LFC R2 ACTIVE 2026-10-29, Claude (gym-first-time-r2).** Dan approved the cutout; rebuilding in green-screen style. R1 task superseded. `Handoffs/handoff-20261029-ro37-first-time-at-the-gym-r2.md`
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
@@ -74,7 +74,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 CHECKING 2026-10-29, Codex01a188fd.** Complete film and one independent review done; sole subtitle spacing fix applied. Final delivery gates queued once, then managed review delivery. Automatic continuation active. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
+**Love Handles LFC R6 NEEDS DAN 2026-10-29, Codex01a188fd.** [Full film](http://127.0.0.1:8836/) rendered/checked, awaiting review; paused/sound-ready. Watch0:56–1:09,1:27–1:39,2:08–2:23. Actual full-quality film/SRT in Videos to Review. One independent review complete. Gate mismatches retained; no audible listen claimed. `Docs/RO30_R6_FULL_FILM_REVIEW_20261029.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.

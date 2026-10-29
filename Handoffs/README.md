@@ -10,7 +10,6 @@ dashboard's **Handoffs to fire** list with a copy-able starter prompt. A session
 Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
-- `handoff-20261029-ro37-first-time-at-the-gym-r2.md`: First Time At The Gym LFC R2, after Dan's R1 reply (Claude Opus 5.5 high).
 
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).
 - [Celebrity Ozempic LFC R5](handoff-20261028-ro24-celebrity-ozempic-round5.md): **Fired 2026-10-28** (Dan replied to R4). **Claude Opus 5.5, high**. RO-24: AI motion A1/A3/A4/A6/A8, new A7 frames, Amy abs photo, G06 card changes, remove the 5:46 pause, full render, gates, review.
