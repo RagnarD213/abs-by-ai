@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Upwork Clients ACTIVE 2026-10-29, Claude.** Plus + 1,050 Connects bought; trial listings and outreach research running. Next: Dan connects Upwork connector + buys danroseads.com, then 5 proposals and 20-brand list on the Upwork Pipeline page. `.claude/skills/upwork-pitch/`
+
 **First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9537/): first minute, presentation/colour/voice, 6 AI pairs, all graphics. Slot released. Next: Dan's reply, then R2 handoff.
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**

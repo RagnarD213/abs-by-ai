@@ -1,0 +1,225 @@
+<title>Upwork Pipeline</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one working column; a sticky tab bar; approval cards stacked, pipeline as a scrollable table, numbers as a compact ledger. */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --ink:#18221d; --muted:#5d6a63; --line:#d8dfdb;
+  --accent:#1d7a4c; --accent-soft:#e1f1e8; --warn:#a2620b; --warn-soft:#fbefd9; --bad:#a53a2f; --bad-soft:#f8e3e0;
+  --info:#2c5d8f; --info-soft:#e2ecf6;
+  --f-display:"Bricolage Grotesque",ui-sans-serif,system-ui,sans-serif;
+  --f-body:"Source Sans 3",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-data:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111714; --surface:#19211d; --ink:#e4ece7; --muted:#9aa9a1; --line:#2c3832;
+  --accent:#4cc287; --accent-soft:#183528; --warn:#e2a64a; --warn-soft:#3a2c15; --bad:#ef8a7e; --bad-soft:#3d1f1b;
+  --info:#7fb0e0; --info-soft:#1a2b3c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111714; --surface:#19211d; --ink:#e4ece7; --muted:#9aa9a1; --line:#2c3832;
+  --accent:#4cc287; --accent-soft:#183528; --warn:#e2a64a; --warn-soft:#3a2c15; --bad:#ef8a7e; --bad-soft:#3d1f1b;
+  --info:#7fb0e0; --info-soft:#1a2b3c; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 var(--f-body)}
+.wrap{max-width:880px;margin:0 auto;padding-block:28px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
+h1{font:700 clamp(28px,5vw,40px)/1.05 var(--f-display);margin:0;letter-spacing:-.01em;text-wrap:balance}
+.sub{color:var(--muted);margin:6px 0 0}
+.budget{display:grid;gap:6px}
+.budget .row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.budget .row b{color:var(--ink);font:500 14px var(--f-data)}
+.meter{height:10px;border-radius:5px;background:var(--line);overflow:hidden;position:relative}
+.meter i{position:absolute;inset:0 auto 0 0;background:var(--accent)}
+.meter u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--ink);opacity:.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);display:flex;gap:6px;padding-block:8px;border-bottom:1px solid var(--line);overflow-x:auto}
+nav button{font:600 15px var(--f-body);border:0;background:none;color:var(--muted);padding:8px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+nav button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:0 0 0 1px var(--line)}
+nav .n{font:500 12px var(--f-data);margin-left:6px;padding:1px 6px;border-radius:10px;background:var(--accent-soft);color:var(--accent)}
+.empty{padding:28px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);text-align:center}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:12px;min-width:0}
+.card.done{opacity:.72}
+.head{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.head h3{margin:0;font:600 19px/1.3 var(--f-display);text-wrap:balance;min-width:0}
+.head a{color:var(--info)}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font:500 12px var(--f-data);padding:3px 8px;border-radius:6px;background:var(--info-soft);color:var(--info);white-space:nowrap}
+.chip.good{background:var(--accent-soft);color:var(--accent)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+.why{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+label.lbl{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+textarea,input[type=text],select{width:100%;box-sizing:border-box;font:15px/1.5 var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+textarea{min-height:220px;resize:vertical}
+textarea:focus,input:focus,select:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.subject{font-weight:600}
+.actions{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.btn{font:600 15px var(--f-body);border-radius:8px;padding:9px 16px;cursor:pointer;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--surface)}
+.btn.danger{color:var(--bad)}
+.btn:disabled{opacity:.5;cursor:default}
+.note{font-size:14px;color:var(--muted)}
+.tablebox{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+td.num{font:500 14px var(--f-data);font-variant-numeric:tabular-nums;white-space:nowrap}
+td select{padding:4px 8px;font-size:14px;width:auto}
+.ledger{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.ledger div{background:var(--surface);padding:14px 16px;display:grid;gap:2px}
+.ledger span{font-size:13px;color:var(--muted)}
+.ledger b{font:500 22px var(--f-data);font-variant-numeric:tabular-nums}
+h2{font:600 20px var(--f-display);margin:8px 0 0}
+.status{font-size:14px;color:var(--muted);min-height:1.2em}
+@media (prefers-reduced-motion:no-preference){.card{transition:opacity .2s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Upwork Pipeline</h1>
+    <p class="sub">Every proposal and outreach email waits here for your OK. Edit the text before approving: Claude learns from every change you make.</p>
+  </header>
+
+  <section class="budget" aria-label="Spend against the $500 ceiling">
+    <div class="row"><span>Spent so far</span><span><b id="spent">$0</b> of <b>$500</b> ceiling, tranche 1 about <b>$180</b></span></div>
+    <div class="meter"><i id="spentbar" style="width:0%"></i><u style="left:36%" title="Tranche 1"></u></div>
+  </section>
+
+  <nav role="tablist">
+    <button role="tab" id="t-approve" aria-selected="true" data-view="approve">To approve<span class="n" id="n-approve">0</span></button>
+    <button role="tab" id="t-pipeline" aria-selected="false" data-view="pipeline">Pipeline<span class="n" id="n-pipeline">0</span></button>
+    <button role="tab" id="t-numbers" aria-selected="false" data-view="numbers">Numbers</button>
+  </nav>
+
+  <p class="status" id="status" aria-live="polite">Connecting to the tracker…</p>
+
+  <section id="v-approve" data-v="approve" style="display:grid;gap:16px"></section>
+  <section id="v-pipeline" data-v="pipeline" hidden></section>
+  <section id="v-numbers" data-v="numbers" hidden></section>
+</div>
+
+<script>
+const STATES=["to_approve","approved","rejected","sent","conversation","funded","submitted","accepted","released","available","withdrawn","no_reply"];
+const LABEL={to_approve:"To approve",approved:"Approved",rejected:"Rejected",sent:"Sent",conversation:"Conversation",funded:"Contract funded",submitted:"Work submitted",accepted:"Accepted",released:"Released",available:"Money available",withdrawn:"Withdrawn",no_reply:"No reply"};
+const KIND={proposal:"Upwork proposal",outreach:"Outreach email",video_card:"Video card",list:"Outreach list"};
+let db=null, items=[], spend=[], view="approve", canWrite=true;
+const $=s=>document.querySelector(s);
+const money=n=>"$"+(Math.round((n||0)*100)/100).toLocaleString("en-US",{minimumFractionDigits:0,maximumFractionDigits:2});
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function setView(v){view=v;
+  document.querySelectorAll("nav button").forEach(b=>b.setAttribute("aria-selected",b.dataset.view===v));
+  document.querySelectorAll("[data-v]").forEach(s=>s.hidden=s.dataset.v!==v);
+  try{localStorage.setItem("upw-view",v)}catch(e){}
+}
+document.querySelectorAll("nav button").forEach(b=>b.addEventListener("click",()=>setView(b.dataset.view)));
+try{const v=localStorage.getItem("upw-view"); if(v) setView(v)}catch(e){}
+
+function chipFor(it){
+  const s=it.status;
+  const cls=s==="rejected"||s==="withdrawn"?"bad":["approved","sent","funded","accepted","released","available"].includes(s)?"good":s==="to_approve"?"warn":"";
+  return `<span class="chip ${cls}">${esc(LABEL[s]||s)}</span>`;
+}
+
+function renderApprove(){
+  const box=$("#v-approve");
+  const pending=items.filter(i=>i.status==="to_approve");
+  const recent=items.filter(i=>i.decided_at&&["approved","rejected"].includes(i.status)).sort((a,b)=>String(b.decided_at).localeCompare(String(a.decided_at))).slice(0,6);
+  $("#n-approve").textContent=pending.length;
+  if(!pending.length&&!recent.length){box.innerHTML=`<div class="empty">Nothing waiting. New Upwork proposals and outreach emails appear here when Claude drafts them.</div>`;return}
+  const keep=new Set([...box.querySelectorAll("textarea")].filter(t=>document.activeElement===t).map(t=>t.id));
+  if(keep.size) return; // do not redraw under the cursor
+  box.innerHTML=[...pending,...recent].map(card).join("")||"";
+  box.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",onAct));
+}
+function card(it){
+  const done=it.status!=="to_approve";
+  const text=it.final_text??it.draft_text??"";
+  const meta=[
+    `<span class="chip">${esc(KIND[it.kind]||it.kind)}</span>`,
+    it.score!=null?`<span class="chip ${it.score>=75?"good":"warn"}">Score ${esc(it.score)}</span>`:"",
+    it.connects!=null?`<span class="chip">${esc(it.connects)} Connects</span>`:"",
+    it.offer?`<span class="chip">${esc(it.offer)}${it.price?" · "+money(it.price):""}</span>`:"",
+    chipFor(it)].join("");
+  return `<article class="card ${done?"done":""}" id="c-${esc(it.id)}">
+    <div class="head"><h3>${it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title)}</h3><div class="chips">${meta}</div></div>
+    ${it.org?`<div class="note">${esc(it.org)}</div>`:""}
+    ${(it.fit||[]).length?`<ul class="why">${it.fit.map(f=>`<li>${esc(f)}</li>`).join("")}</ul>`:""}
+    ${it.subject!=null?`<label class="lbl" for="s-${esc(it.id)}">Subject</label><input type="text" class="subject" id="s-${esc(it.id)}" value="${esc(it.final_subject??it.subject)}" ${done?"disabled":""}>`:""}
+    <label class="lbl" for="x-${esc(it.id)}">${it.kind==="proposal"?"Proposal text":it.kind==="outreach"?"Email text":"Text"}</label>
+    <textarea id="x-${esc(it.id)}" ${done?"disabled":""}>${esc(text)}</textarea>
+    <label class="lbl" for="m-${esc(it.id)}">Note to Claude (why you changed or rejected it)</label>
+    <input type="text" id="m-${esc(it.id)}" value="${esc(it.dan_note||"")}" ${done?"disabled":""} placeholder="Optional for approve, needed for reject">
+    <div class="actions">
+      ${done?`<button class="btn" data-act="undo" data-id="${esc(it.id)}">Undo</button><span class="note">${it.status==="approved"?(it.edited?"Approved with your edits.":"Approved as written."):"Rejected."} Claude submits approved Upwork proposals as drafts for you to confirm in Upwork.</span>`
+      :`<button class="btn primary" data-act="approve" data-id="${esc(it.id)}">Approve</button>
+        <button class="btn" data-act="reset" data-id="${esc(it.id)}">Reset to Claude's draft</button>
+        <button class="btn danger" data-act="reject" data-id="${esc(it.id)}">Reject</button>`}
+    </div></article>`;
+}
+async function onAct(e){
+  const id=e.currentTarget.dataset.id, act=e.currentTarget.dataset.act, it=items.find(i=>i.id===id);
+  if(!it||!db) return;
+  const ta=$("#x-"+CSS.escape(id)), note=$("#m-"+CSS.escape(id)), subj=$("#s-"+CSS.escape(id));
+  const ref=db.collection("items").doc(id);
+  try{
+    if(act==="reset"){ta.value=it.draft_text||""; if(subj) subj.value=it.subject||""; return}
+    if(act==="reject"&&!note.value.trim()){note.focus();status("Add a short reason so Claude can learn from it.");return}
+    e.currentTarget.disabled=true;
+    if(act==="undo"){await ref.update({status:"to_approve",decided_at:null}); status("Moved back to To approve.");return}
+    const final=ta.value, fs=subj?subj.value:undefined;
+    const edited=final.trim()!==String(it.draft_text||"").trim()||(subj&&fs.trim()!==String(it.subject||"").trim());
+    const body={status:act==="approve"?"approved":"rejected",final_text:final,dan_note:note.value.trim(),edited:!!edited,decided_at:new Date().toISOString()};
+    if(subj) body.final_subject=fs;
+    await ref.update(body);
+    status(act==="approve"?"Approved. Claude will pick it up.":"Rejected. Claude will learn from your note.");
+  }catch(err){status(err&&err.code==="invalid_argument"?"You can't change this tracker from this account.":"Couldn't save. Try again in a moment.")}
+}
+
+function renderPipeline(){
+  const rows=items.filter(i=>i.status!=="to_approve").sort((a,b)=>String(b.updated_at||b.decided_at||b.found_at||"").localeCompare(String(a.updated_at||a.decided_at||a.found_at||"")));
+  $("#n-pipeline").textContent=rows.length;
+  const box=$("#v-pipeline");
+  if(!rows.length){box.innerHTML=`<div class="empty">No proposals or emails have gone out yet. Approved items move here, and Claude keeps their state current.</div>`;return}
+  box.innerHTML=`<div class="tablebox"><table><thead><tr><th>Who</th><th>Type</th><th>State</th><th>Value</th><th>Next action</th></tr></thead><tbody>${rows.map(it=>`<tr>
+    <td>${it.url?`<a href="${esc(it.url)}" target="_blank" rel="noopener">${esc(it.title)}</a>`:esc(it.title)}${it.org?`<div class="note">${esc(it.org)}</div>`:""}</td>
+    <td>${esc(KIND[it.kind]||it.kind)}</td>
+    <td><select id="st-${esc(it.id)}" data-id="${esc(it.id)}" aria-label="State">${STATES.filter(s=>s!=="to_approve").map(s=>`<option value="${s}" ${s===it.status?"selected":""}>${LABEL[s]}</option>`).join("")}</select></td>
+    <td class="num">${it.revenue?money(it.revenue):it.contract_value?money(it.contract_value):it.price?money(it.price):"–"}</td>
+    <td>${esc(it.next_action||"")}</td></tr>`).join("")}</tbody></table></div>`;
+  box.querySelectorAll("select").forEach(s=>s.addEventListener("change",async ev=>{
+    try{await db.collection("items").doc(ev.target.dataset.id).update({status:ev.target.value,updated_at:new Date().toISOString()});status("State updated.")}
+    catch(err){status("Couldn't save. Try again in a moment.")}
+  }));
+}
+
+function renderNumbers(){
+  const count=f=>items.filter(f).length;
+  const sentStates=["sent","conversation","funded","submitted","accepted","released","available","no_reply","withdrawn"];
+  const props=count(i=>i.kind==="proposal"&&sentStates.includes(i.status));
+  const emails=count(i=>i.kind==="outreach"&&sentStates.includes(i.status));
+  const replies=count(i=>["conversation","funded","submitted","accepted","released","available"].includes(i.status));
+  const paid=count(i=>["funded","submitted","accepted","released","available"].includes(i.status));
+  const revenue=items.reduce((s,i)=>s+(+i.revenue||0),0);
+  const cost=spend.reduce((s,x)=>s+(+x.amount||0),0);
+  const mins=items.reduce((s,i)=>s+(+i.dan_minutes||0),0);
+  const decided=count(i=>["approved","rejected"].includes(i.status)||(i.decided_at&&i.status!=="to_approve"));
+  const unchanged=count(i=>i.decided_at&&i.status!=="rejected"&&i.status!=="to_approve"&&!i.edited);
+  const cells=[["Proposals sent",props],["Emails sent",emails],["Replies",replies+(props+emails?` (${Math.round(100*replies/(props+emails))}%)`:"")],["Paid contracts",paid],["Revenue",money(revenue)],["Spent",money(cost)],["Cost per paid contract",paid?money(cost/paid):"–"],["Your time logged",mins?`${Math.round(mins)} min`:"–"],["Drafts approved unchanged",decided?`${unchanged} of ${decided}`:"–"]];
+  $("#v-numbers").innerHTML=`<div class="ledger">${cells.map(([k,v])=>`<div><span>${k}</span><b>${v}</b></div>`).join("")}</div>
+   <h2>Spend</h2>${spend.length?`<div class="tablebox"><table><thead><tr><th>Date</th><th>What</th><th>Amount</th></tr></thead><tbody>${spend.slice().sort((a,b)=>String(a.date).localeCompare(String(b.date))).map(x=>`<tr><td class="num">${esc(x.date)}</td><td>${esc(x.item)}</td><td class="num">${money(x.amount)}</td></tr>`).join("")}</tbody></table></div>`:`<div class="empty">No spend logged yet.</div>`}
+   <p class="note">Benchmark to beat: about 7 replies per 100 proposals (vendor data, not a forecast).</p>`;
+  $("#spent").textContent=money(cost);
+  $("#spentbar").style.width=Math.min(100,cost/5)+"%";
+}
+function renderAll(){renderApprove();renderPipeline();renderNumbers()}
+let st; function status(m){$("#status").textContent=m; clearTimeout(st); st=setTimeout(()=>$("#status").textContent="",4000)}
+
+renderAll();
+(async()=>{
+  db=await window.claude?.use?.("db");
+  if(!db){$("#status").textContent="The tracker isn't available in this view. Open the page signed in to claude.ai.";return}
+  $("#status").textContent="";
+  db.collection("items").onSnapshot(s=>{items=s.docs.map(d=>({id:d.id,...d.data()}));renderAll()},()=>status("Lost the live connection. Reload the page."));
+  db.collection("spend").onSnapshot(s=>{spend=s.docs.map(d=>({id:d.id,...d.data()}));renderNumbers()},()=>{});
+})();
+</script>
