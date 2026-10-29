@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Upwork Clients ACTIVE 2026-10-29, Claude.** Plus + 1,050 Connects bought; trial listings and outreach research running. Next: Dan connects Upwork connector + buys danroseads.com, then 5 proposals and 20-brand list on the Upwork Pipeline page. `.claude/skills/upwork-pitch/`
+**Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 
 **First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9537/): first minute, presentation/colour/voice, 6 AI pairs, all graphics. Slot released. Next: Dan's reply, then R2 handoff.
 
@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Contexts rendered; sound/boundary QA repairs queued. Complete packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1 ACTIVE 2026-10-29, Codex01a184db.** Boundary repairs rendering; voice fixed; key checks open. Checked packet pending. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -74,7 +74,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles LFC R6 BUILDING 2026-10-29, Codex01a188fd.** Slot acquired; full render and dependent QA chain active.151 approvals preserved; N01/N03 inserted, N02 excluded. Finish heartbeat active. Next: corrected SRT, editor checks and one fresh full-film reviewer. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
+**Love Handles LFC R6 CHECKING 2026-10-29, Codex01a188fd.** Fullfilm rendered; audio/hair/scene measurements done, editor visual checks clear. Supplementary speech check queued; one fresh full-film reviewer and final gates remain. Automatic continuation active. `/Volumes/Extreme/_edit_work/RO-30/round6/RUN_STATE.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
