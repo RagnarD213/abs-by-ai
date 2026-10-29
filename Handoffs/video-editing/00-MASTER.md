@@ -168,7 +168,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-46](DS-46-the-only-2-exercises-you-need-for-lower-abs.md) | The Only 2 Exercises You Need For Lower Abs | 10/15 C1755-C1756 | READY | S |
 | [DS-47](DS-47-the-only-2-exercises-you-need-for-a-v-taper.md) | The Only 2 Exercises You Need For A V-Taper | 10/15 C1756 | FINALIZED | S |
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
-| [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | READY | S |
+| [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | IN PROGRESS | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
 | [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | READY | S |
@@ -200,14 +200,14 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | READY | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | READY | L |
+| [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | IN PROGRESS | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | IN PROGRESS | L |
-| [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | DELIVERED: awaiting Dan | L |
+| [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | IN PROGRESS | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | UPLOADED | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | READY | L |
-| [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | R4 frames: awaiting Dan | L |
+| [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | R5 motion: awaiting Dan | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
 | [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 | BLOCKED: gym B-roll of the exercises (next gym shoot) | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
@@ -222,7 +222,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 
 | job | video | roll | status | size |
 |---|---|---|---|---|
-| [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | DELIVERED: awaiting Dan | S |
+| [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | IN PROGRESS | S |
 | [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | READY | S |
 | [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | READY | S |
 | [DS-79](DS-79-how-to-do-chest-flies-with-dumbbells.md) | How To Do Chest Flies With Dumbbells | 10/23 C1882, C1883 | READY | S |
