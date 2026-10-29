@@ -50,7 +50,7 @@
  {
   "schedule": "3563151",
   "when": "2026-10-17T22:00:00.000Z",
-  "match": "You have 4 ab muscles \u2014 not just a six-pack.",
+  "match": "You have 4 ab muscles — not just a six-pack.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -58,7 +58,7 @@
  {
   "schedule": "3563159",
   "when": "2026-10-20T22:00:00.000Z",
-  "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
+  "match": "The toe touch — a killer six-pack move you can do at home.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
   "w": 1080,
   "h": 1920
@@ -390,7 +390,7 @@
   "h": 1920
  },
  {
-  "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
+  "match": "Most people jump rope with both feet — and that's why they keep tripping.",
   "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
   "w": 1080,
   "h": 1920
@@ -938,7 +938,7 @@
  {
   "job": "SL-08 short 5",
   "when": "2027-01-11T15:00:00.000Z",
-  "match": "Drink black coffee while you\u2019re fasting.",
+  "match": "Drink black coffee while you’re fasting.",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
   "w": 1080,
   "h": 1920,
@@ -1141,5 +1141,13 @@
   "approved": "Dan approved revised B3 headline and installation on 2026-10-29",
   "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
   "when": "2026-12-27T00:00:00.000Z"
+ },
+ {
+  "job": "RO-28",
+  "when": "2026-11-19T18:00:00.000Z",
+  "match": "I already have abs, and I still take Zepbound. Here's why.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro28-zepbound-ripped-approved.jpg",
+  "w": 1280,
+  "h": 720
  }
 ]
