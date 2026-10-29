@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:COVERS-R2:2026-10-29:Codex01a184f8.** Three real-screenshot designs/Short; no uploads.
+**Vacuum:REVIEW-R2:2026-10-29:Codex01a184f8.** [Covers](http://127.0.0.1:9301/);await-picks;push-blocked-00-MASTER/jobs-live.
 
 
 
@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:REVIEW:2026-10-29:Claude** `Docs/DS76_COVER_REVIEW_20261029.md`
 
-**Coconut Water SFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9491/); review SHIP. Next: Dan's picks or notes.
+**Coconut Water SFC R2 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9492/); review SHIP. Next: Dan's notes.
 
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
