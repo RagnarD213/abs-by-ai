@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 
-**First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9537/): first minute, presentation/colour/voice, 6 AI pairs, all graphics. Slot released. Next: Dan's reply, then R2 handoff.
+**First Time At The Gym LFC R1 REVIEW 2026-10-29, Claude.** Dan rejected the boxed portrait layout; [cutout test](http://127.0.0.1:9538/) awaits his go (R1 page :9537). RO-38 has the same portrait issue. Slot released.
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
