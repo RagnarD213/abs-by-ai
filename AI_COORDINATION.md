@@ -174,7 +174,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Zepbound Even If Ripped LFC R5 - REVIEW 2026-10-27, Claude.** Jump rope swapped; page :8933. Next: Dan; then setup handoff.
 
-**How To Do Pull-Ups SFC R2 - REVIEW 2026-10-28, Claude.** [Whole Short](http://127.0.0.1:9477/); look/voice/crop approved; full-screen intro done; review SHIP, gate 35/39 (known rows). Next: Dan approves or notes. `Handoffs/video-editing/DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md`
 
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?

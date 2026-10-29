@@ -10,11 +10,11 @@ dashboard's **Handoffs to fire** list with a copy-able starter prompt. A session
 Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
+
+- [How To Do Pull-Ups SFC Setup](handoff-20261029-ds76-pull-ups-cover-and-setup.md): **Fire now (Dan approved R2 2026-10-29). Claude Opus 5.5, high.** DS-76: five covers via the Codex subscription, stop for Dan's pick, then Drive backup, upload and a January-blitz Short slot.
 - [Celebrity Ozempic LFC R5](handoff-20261028-ro24-celebrity-ozempic-round5.md): **Fired 2026-10-28** (Dan replied to R4). **Claude Opus 5.5, high**. RO-24: AI motion A1/A3/A4/A6/A8, new A7 frames, Amy abs photo, G06 card changes, remove the 5:46 pause, full render, gates, review.
 
-- [The Vacuum SFL Setup](handoff-20261028-sl11-vacuum-covers-and-setup-codex.md): **Start now. Codex GPT-6.1 Sol, high, explicitly requested by Dan.** All three complete R3 Shorts approved/finalized October 28; project, Extreme and Drive files verified. Five cover pairs per Short, stop for picks, then organic upload/setup after parent release under the current calendar. Prepared, not started; no dates reserved.
 
-- [Audi S5 fuel-filler door mobile mechanic](handoff-20261028-audi-s5-fuel-filler-door-mobile-mechanic.md): **Start now. Codex GPT-6.1 Sol, medium.** Find damage photos and capable Georgetown mobile repair providers; prepare shortlist and quote request. Await Dan's approval before outreach, booking or spending. Not started.
 
 
 
@@ -58,6 +58,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 | Document | Fire when |
 |---|---|
+| [Audi S5 fuel-filler door mobile mechanic](handoff-20261028-audi-s5-fuel-filler-door-mobile-mechanic.md) | **Started in repair chat; do not duplicate.** Three email and two Yelp mobile quote requests sent October 28; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`. No booking or spending. |
 | [Top 1 Percent LFC R5](handoff-20261017-ro26-round5-every-man-cut-hyperframes-recap.md) | **COMPLETE, approved and finalized 2026-10-17.** Exact approved film, subtitles and complete QA filed in Codex Content Videos/Top 1 Percent - RO-26 with verified Extreme backup. Historical gate FAIL remains 31 PASS/8 FAIL; whole-film approval recorded separately. Setup continues in the handoff above. |
 | [handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md](handoff-20261017-ro17-round5-a5-brief-raisin-pour-final.md) | **Executed 2026-10-18** (round 5 final delivered: A5 a 1 s raisin pour at 2:58.4, independent review SHIP, page port 8880; notes in the delivery folder 17). Setup continues in the OPEN handoff above. |
 | [handoff-20261015-ro17-round4-a10-motion-and-full-film.md](handoff-20261015-ro17-round4-a10-motion-and-full-film.md) | **Executed 2026-10-15** (round 4 full film delivered for Dan's review, page port 8880, independent review SHIP; notes in the delivery folder 17). |
