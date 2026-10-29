@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Zepbound Even If Ripped LFC Setup ACTIVE 2026-10-29, Codex01a18808.** Dan approved exact R5 master; queue finalized and Drive updated. Five thumbnails building, then Dan picks before upload/scheduling. Calendar Nov18 9AM Central. Record push blocked by live master-list edits; retry after images. Approval: `Handoffs/ro28-setup-approval-20261029.json`.
+**Zepbound Even If Ripped LFC Setup REVIEW 2026-10-29, Codex01a18808.** R5 approved, queue finalized and Drive updated. [Five thumbnails](http://127.0.0.1:9497/), A recommended. Awaiting Dan pick before upload/scheduling; calendar Nov18 9AM Central. `Docs/RO28_THUMBNAIL_REVIEW_20261029.md`.
 
 **Audi-sale:WAIT:2026-10-28:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
@@ -54,7 +54,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork profile DRAFT REVIEW 2026-10-29, Claude.** All choices settled; Dan editing intro script Doc. Nothing on Upwork. Commit 5e5ba94 local (live 00-MASTER blocks push); next safe-push carries it. Next: Dan's go to enter and publish. `Handoffs/upwork-profile-draft.md`
 
-**Alcohol And Abs SFC R1 (SL-10) - NEEDS DAN 2026-10-27, Claude.** Shortlist of 5 sent; waiting for 3 picks before any render. Work: `/Volumes/Extreme/_edit_work/SL-10/`.
+**Alcohol And Abs SFC R1 (SL-10) - BUILDING 2026-10-29, Claude.** Dan picked A, B, D, E (reordered); four Shorts in build, edit slot held. Work: `/Volumes/Expansion/_edit_work/SL-10/`.
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
