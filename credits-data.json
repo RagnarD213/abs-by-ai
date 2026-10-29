@@ -189,7 +189,7 @@
     "dev-1792741028575-gdtt3nwl": 1,
     "dev-1792966693617-qd76nrsz": 2,
     "dev-1792067324025-2oywmr85": 2,
-    "dev-1793301251561-hszo7fr2": 2
+    "dev-1793301251561-hszo7fr2": 0
   },
   "fulfilled": {
     "cs_live_a1twQmW1btR3Kp9LKE30b4yeXLBlv2mF5p3RoGgYyxQQ6yY60dZUjsVdl1": true,
@@ -212,7 +212,8 @@
     "member_cs_live_a1YjwlDOhtiVOsrcxlnhZissbkhfCfY8MEAdiFXnnZ8vHTOd4QyPALHjy1": true,
     "member_cs_live_a1VVUoaVb5wxGiTJSzF5gDBywlAVXHwb664Q9woYngFeoDDD3abcQPTjkM": true,
     "member_cs_live_c1E0kHvA8W2mOeIo2Y7aXDDTZz6aiZqdpYzoMLLXGb3JY1NpZHdT3TVDBA": true,
-    "member_cs_live_a1TBiEgUXDnh4GgaNGQBHiJJXw8BNckIxGaw6na8yisoKAJil00m3SXlkF": true
+    "member_cs_live_a1TBiEgUXDnh4GgaNGQBHiJJXw8BNckIxGaw6na8yisoKAJil00m3SXlkF": true,
+    "member_cs_live_c1FQFe8BOYL2yjvFvhedZefVVpPzVkQpbhdJcXxK5lpT4OlEigj3qqpSte": true
   },
   "mealCounts": {
     "dev-1783798589023-wkcy6i0e": 3,
