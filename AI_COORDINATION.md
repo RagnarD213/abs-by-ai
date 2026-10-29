@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-38:WAIT-SLOT:2026-10-29:Claude.**
 
-**Cortisol Belly LFC R1 (RO-29) WAIT-SLOT 2026-10-29, Claude.** Claimed; edit cap full, auto-start armed (2nd in line). Next: round 1 (graphics, AI frames, first minute) once a slot frees.
+**RO-29:WAIT-SLOT:2026-10-29:Claude.**
 
 **DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 
