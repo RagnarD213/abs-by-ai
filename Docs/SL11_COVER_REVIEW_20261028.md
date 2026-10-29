@@ -1,3 +1,15 @@
+# The Vacuum SFL Setup: revised design 1 R4, October 29, 2026
+
+[Review the revised covers](http://127.0.0.1:9301/?revision=4).
+
+Dan selected R3 treatment 1 with requested revisions: remove every horizontal rule, maximize the top line across the full width, and enlarge the lower text very slightly. Six platform layouts are built and checked. Top line spans 1020 pixels, lower fonts are about 5% larger, and all real photograph pixels and wording remain unchanged. These exact R4 files await approval. No covers installed, uploaded or scheduled; approved films and sound preserved.
+
+All six passed dimensions/RGB, safe bands, face/hair/body clearance, text sizing, plain-gradient/no-rule verification, exact photograph comparison, JPEG size and served PNG hash checks. Visually inspected the three full paired sheets including profile crops and refreshed browser page. Static images only; no playback or generation. Managed review cache updated and verified after one transient launchd restart failure, resolved on retry.
+
+Recipes: `scripts/covers/sl11-20261028/round4/`. Files/receipts: `Docs/SL11_COVER_R4_REVIEW_20261029.json` and `Short-form video content/covers/review/sl11-vacuum-20261028/round4/`. Earlier review files/pages preserved. Next: exact R4 approval, then organic setup in this chat under the original handoff.
+
+## Superseded R3 review
+
 # The Vacuum SFL Setup: top-text review R3, October 29, 2026
 
 [Three new header treatments per Short](http://127.0.0.1:9301/?revision=3).

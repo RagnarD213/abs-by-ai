@@ -35,7 +35,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi-sale:FB-LIVE/AT-CARD-ENTRY:2026-10-29:Codex** `Docs/AUDI_S5_SALE_EXECUTION_20261028.md`
 
-**Vacuum:REVIEW-R3:2026-10-29:Codex01a184f8.** [Headers](http://127.0.0.1:9301/?revision=3);await-picks;push8547e00-blocked:board/jobs-live.
+**Vacuum:REVIEW-R4:2026-10-29:Codex01a184f8.** [Revised cover 1](http://127.0.0.1:9301/?revision=4);lines-removed,top-full-width,bottom+5%;await-exact-approval;then-setup.
 
 
 
