@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Losing Fat Face LFC R1 ACTIVE 2026-10-28, Codex01a184db.** Context keys/graphics building; checked R1 packet unfinished. Automatic continuation. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
-**Mouthpiece SFC Setup REVIEW 2026-10-29, Codex01a184cd.** B chosen; [new headline pair](http://127.0.0.1:9298/?revision=3) awaits exact-file approval. R4 unchanged; uploads pending. `Docs/DS105_COVER_REVIEW_20261028.md`
+**Mouthpiece:REVIEW:2026-10-29:Codex.** [Headline approval](http://127.0.0.1:9298/?revision=3). R4-preserved. Push-blocked:live-queue-files. `Docs/DS105_COVER_REVIEW_20261028.md`
 
 **V-Taper:HOLD:2026-10-28:Codex.** Cover-installed;Dec21-9AM-Central;shared-waitlist198/200. `Docs/DS47_SETUP_RECEIPT_20261028.md`
 
