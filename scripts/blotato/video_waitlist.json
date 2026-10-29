@@ -1,672 +1,672 @@
 [
-  {
-    "config": "scripts/blotato/configs/ro25-wasted-my-life.json",
-    "kind": "longform",
-    "job": "RO-25",
-    "label": "I'm 41. I Wasted My Life.",
-    "added": "2026-10-17",
-    "queued": {
-      "found": "2026-10-17",
-      "main": "2026-10-18T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ro26-top-1-percent.json",
-    "kind": "longform",
-    "job": "RO-26",
-    "label": "I'm 41. I'm Top 1%. How I Did It.",
-    "added": "2026-10-17",
-    "queued": {
-      "date": "2026-10-18",
-      "main": "2026-10-25T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl17-short1-nutrition-matters-more-than-your-workouts.json",
-    "kind": "short",
-    "job": "SL-17",
-    "label": "Top 1% 1: Nutrition Matters More Than Your Workouts",
-    "added": "2026-10-23",
-    "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
-    "queued": {
-      "date": "2026-10-25",
-      "main": "2026-10-30T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl17-short2-start-with-5-minutes-every-morning.json",
-    "kind": "short",
-    "job": "SL-17",
-    "label": "Top 1% 2: Start With 5 Minutes Every Morning",
-    "added": "2026-10-23",
-    "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
-    "queued": {
-      "date": "2026-10-25",
-      "main": "2026-11-06T15:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl17-short3-every-man-should-train-a-martial-art.json",
-    "kind": "short",
-    "job": "SL-17",
-    "label": "Top 1% 3: Every Man Should Train A Martial Art",
-    "added": "2026-10-23",
-    "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
-    "queued": {
-      "date": "2026-10-27",
-      "main": "2026-11-30T15:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl03-short2-the-20-dollar-salad-for-4.json",
-    "kind": "short",
-    "job": "SL-03 short 2",
-    "label": "The $20 Salad For 4",
-    "added": "2026-10-08",
-    "queued": {
-      "found": "2026-10-13",
-      "main": "2026-11-24T15:00:00.000Z",
-      "moved": "2026-10-13"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl03-short3-keep-salads-fresh-7-days.json",
-    "kind": "short",
-    "job": "SL-03 short 3",
-    "label": "Keep Salads Fresh 7 Days",
-    "added": "2026-10-08",
-    "queued": {
-      "found": "2026-10-13",
-      "main": "2026-11-26T15:00:00.000Z",
-      "moved": "2026-10-13"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/sl03-short6-make-ai-calorie-tracking-accurate.json",
-    "kind": "short",
-    "job": "SL-03 short 6",
-    "label": "Make AI Calorie Tracking Accurate",
-    "added": "2026-10-08",
-    "queued": {
-      "date": "2026-10-13",
-      "main": "2026-11-28T15:00:00.000Z",
-      "moved": "2026-10-13"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ro06-home-workout-budget.json",
-    "kind": "longform",
-    "job": "RO-06",
-    "label": "How To Work Out At Home On A Budget",
-    "added": "2026-10-10",
-    "queued": {
-      "date": "2026-10-13",
-      "main": "2026-12-27T15:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds12-top-3-ways-to-looksmax.json",
-    "kind": "short",
-    "job": "DS-12",
-    "label": "Top 3 Ways To Looksmax",
-    "added": "2026-10-13",
-    "queued": {
-      "date": "2026-10-13",
-      "main": "2026-10-15T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds23-how-to-do-side-laterals.json",
-    "kind": "short",
-    "job": "DS-23",
-    "label": "How To Do Side Laterals",
-    "added": "2026-10-13",
-    "queued": {
-      "date": "2026-10-15",
-      "main": "2026-10-17T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds08-i-was-200-pounds-at-38.json",
-    "kind": "short",
-    "job": "DS-08",
-    "label": "I Was 200 Pounds At 38",
-    "added": "2026-10-13",
-    "queued": {
-      "date": "2026-10-15",
-      "main": "2026-10-20T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds09-how-to-make-time-to-work-out.json",
-    "kind": "short",
-    "job": "DS-09",
-    "label": "How To Make Time To Work Out",
-    "added": "2026-10-13",
-    "queued": {
-      "date": "2026-10-17",
-      "main": "2026-10-22T14:00:00.000Z"
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds05-why-having-abs-beats-being-a-fat-millionaire.json",
-    "kind": "short",
-    "job": "DS-05",
-    "label": "Why Having Abs Beats Being A Fat Millionaire",
-    "added": "2026-10-16",
-    "approved_release": "2026-12-10T23:00:00.000Z",
-    "release_date_approval": {
-      "date": "2026-10-28",
-      "approved_by": "Dan",
-      "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
-      "timezone": "America/Chicago",
-      "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
-    },
-    "note": "Dan approved exact corrected R4 and Dec10 5PM Central. Corrected hosted master/TikTok hashes verified. F3 retained. Shared queue order and explicit approved release preserved.",
-    "film_approval_date": "2026-10-28",
-    "queued": {
-      "date": "2026-10-28",
-      "main": "2026-12-10T23:00:00.000Z",
-      "schedule_ids": {
-        "facebook": "6161575",
-        "instagram": "6161577",
-        "tiktok": "6161579",
-        "youtube": "6161581"
-      },
-      "verified": true
-    }
-  },
-  {
-    "config": "scripts/blotato/configs/ds22-how-to-use-the-ab-wheel.json",
-    "kind": "short",
-    "job": "DS-22",
-    "label": "How To Use The Ab Wheel",
-    "added": "2026-10-13",
-    "planned": "2026-11-05 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds33-ronaldo-ab-belt.json",
-    "kind": "short",
-    "job": "DS-33",
-    "label": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
-    "added": "2026-10-25",
-    "planned": "2026-11-11 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds14-3-ways-to-reduce-alcohol.json",
-    "kind": "short",
-    "job": "DS-14",
-    "label": "3 Ways To Reduce Alcohol",
-    "added": "2026-10-13",
-    "planned": "2026-11-12 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds40-bill-maher-fat-90-year-old.json",
-    "kind": "short",
-    "job": "DS-40",
-    "label": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
-    "added": "2026-10-25",
-    "note": "Dan approved exact Codex R5 film and design 1 cover R3. Target Thu Dec 31, 9 AM America/Chicago. All four media uploads verified; Blotato 197/200, needs four slots.",
-    "planned": "2026-11-13 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds24-how-to-do-rear-delt-flys.json",
-    "kind": "short",
-    "job": "DS-24",
-    "label": "How To Do Rear Delt Flys",
-    "added": "2026-10-13",
-    "planned": "2026-11-19 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds21-how-to-do-hammer-curls.json",
-    "kind": "short",
-    "job": "DS-21",
-    "label": "How To Do Hammer Curls",
-    "added": "2026-10-13",
-    "planned": "2026-11-26 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "kind": "longform",
-    "job": "RO-08",
-    "label": "Intermittent Fasting: The Best Way To Get Abs",
-    "added": "2026-10-14",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/sl16-short1-just-skip-breakfast.json",
-    "kind": "short",
-    "job": "SL-16 short 1",
-    "label": "How To Start Fasting: Just Skip Breakfast",
-    "added": "2026-10-27",
-    "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "kitchen": true,
-    "planned": "2026-11-28 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
-    "kind": "short",
-    "job": "SL-16 short 2",
-    "label": "Why Carbs Destroy Your Productivity",
-    "added": "2026-10-27",
-    "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "kitchen": true,
-    "planned": "2026-12-01 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
-    "kind": "longform",
-    "job": "RO-07",
-    "label": "Why You MUST Work Out Every Day",
-    "added": "2026-10-11",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
-    "kind": "longform",
-    "job": "RO-19",
-    "label": "My First Spray Tan",
-    "added": "2026-10-13",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json",
-    "kind": "short",
-    "job": "SL-15 short 1",
-    "label": "Spray Tan 1: Why You Look Less Ripped In Photos",
-    "added": "2026-10-22",
-    "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
-    "kitchen": true,
-    "planned": "2026-12-05 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
-    "kind": "longform",
-    "job": "Zeeshan Video 5",
-    "label": "Getting Abs At 40 vs 25",
-    "added": "2026-10-11",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/sl16-short3-never-break-your-fast-with-alcohol.json",
-    "kind": "short",
-    "job": "SL-16 short 3",
-    "label": "Never Break Your Fast With Alcohol",
-    "added": "2026-10-27",
-    "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "kitchen": true,
-    "planned": "2026-12-07 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl15-short2-get-a-tan-without-sun-damage.json",
-    "kind": "short",
-    "job": "SL-15 short 2",
-    "label": "Spray Tan 2: Get A Tan Without Sun Damage",
-    "added": "2026-10-22",
-    "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
-    "kitchen": true,
-    "planned": "2026-12-08 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
-    "kind": "longform",
-    "job": "RO-20",
-    "label": "Why You Should Invest More In Your Health",
-    "added": "2026-10-20",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/ds20-five-levels-of-pushups.json",
-    "kind": "short",
-    "job": "DS-20",
-    "label": "Five Levels Of Pushups",
-    "added": "2026-10-28",
-    "approved_release": "2026-12-10T15:00:00.000Z",
-    "release_date_approval": {
-      "date": "2026-10-28",
-      "approved_by": "Dan",
-      "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
-      "timezone": "America/Chicago",
-      "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
-    },
-    "note": "Dan approved same-day release with DS05. Keep 9AM Central and existing waiting-list order; cover A installed, all assets uploaded and verified."
-  },
-  {
-    "config": "scripts/blotato/configs/ro20b-what-to-cut.json",
-    "kind": "longform",
-    "job": "RO-20B",
-    "label": "What To Cut To Afford Getting In Shape",
-    "added": "2026-10-20",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/sl16-short4-why-you-need-a-simple-nutrition-plan.json",
-    "kind": "short",
-    "job": "SL-16 short 4",
-    "label": "Why You Need A Simple Nutrition Plan",
-    "added": "2026-10-27",
-    "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
-    "kitchen": true,
-    "planned": "2026-12-12 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "kind": "longform",
-    "job": "RO-17",
-    "label": "3 Healthy Foods That Made Me Fat",
-    "added": "2026-10-18"
-  },
-  {
-    "config": "scripts/blotato/configs/sl19-short1-coconut-water-is-just-sugar-water.json",
-    "kind": "short",
-    "job": "SL-19",
-    "label": "3 Healthy Foods 1: Coconut Water Is Just Sugar Water",
-    "added": "2026-10-21",
-    "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "planned": "2026-12-14 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl19-short2-trail-mix-more-calories-than-a-big-mac.json",
-    "kind": "short",
-    "job": "SL-19",
-    "label": "3 Healthy Foods 2: Trail Mix Has More Calories Than A Big Mac",
-    "added": "2026-10-21",
-    "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "planned": "2026-12-15 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds02-getting-abs-looksmaxxes-your-face.json",
-    "kind": "short",
-    "job": "DS-02",
-    "label": "How Getting Abs Looksmaxxes Your Face",
-    "added": "2026-10-27",
-    "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-04, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2026-12-15 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro20c-what-to-buy.json",
-    "kind": "longform",
-    "job": "RO-20C",
-    "label": "What To Buy For Your Health At Every Income Level",
-    "added": "2026-10-21",
-    "kitchen": true
-  },
-  {
-    "config": "scripts/blotato/configs/ds03-3-most-important-supplements-for-men.json",
-    "kind": "short",
-    "job": "DS-03",
-    "label": "The 3 Most Important Supplements For Men",
-    "added": "2026-10-27",
-    "note": "Muhammad final HD. Approved cover (round 2 blue (2)). Target Thu 2027-02-11, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2026-12-17 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds07-top-3-ways-to-use-ai-to-get-abs.json",
-    "kind": "short",
-    "job": "DS-07",
-    "label": "Top 3 Ways To Use AI To Get Abs",
-    "added": "2026-10-27",
-    "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-18, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2026-12-17 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl19-short3-my-4-high-protein-snacks.json",
-    "kind": "short",
-    "job": "SL-19",
-    "label": "3 Healthy Foods 3: My 4 Go-To High-Protein Snacks",
-    "added": "2026-10-21",
-    "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
-    "planned": "2026-12-19 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds11-why-you-must-weigh-yourself-daily.json",
-    "kind": "short",
-    "job": "DS-11",
-    "label": "Why You Must Weigh Yourself Daily",
-    "added": "2026-10-27",
-    "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-25, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2026-12-19 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
-    "kind": "longform",
-    "job": "RO-13",
-    "label": "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)",
-    "added": "2026-10-17",
-    "note": "Four Dec 30-31 schedules removed at Dan request to secure RO-25 Sun Oct 18. Exact backup Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json. Restore on original 2026 date when capacity opens."
-  },
-  {
-    "config": "scripts/blotato/configs/ds47-v-taper.json",
-    "kind": "short",
-    "job": "DS-47",
-    "label": "How To Get A V-Taper Physique",
-    "added": "2026-10-28",
-    "kitchen": false,
-    "gym": false,
-    "filming_set": "poolside",
-    "note": "R6 and exact R3 cover approved; four uploaded media verified. Shared top-up when four places free."
-  },
-  {
-    "config": "scripts/blotato/configs/ds105-mouthpiece.json",
-    "kind": "short",
-    "job": "DS-105",
-    "label": "Wear A Mouthpiece When You Work Out",
-    "added": "2026-10-29",
-    "gym": true,
-    "kitchen": false
-  },
-  {
-    "config": "scripts/blotato/configs/sl07-short1-stop-trying-to-lose-1-pound-a-week.json",
-    "kind": "short",
-    "job": "SL-07",
-    "label": "Belly Fat 1: Stop Trying To Lose 1 Pound A Week",
-    "added": "2026-10-18",
-    "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "planned": "2026-12-28 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl07-short2-weigh-yourself-every-morning.json",
-    "kind": "short",
-    "job": "SL-07",
-    "label": "Belly Fat 2: Weigh Yourself Every Morning",
-    "added": "2026-10-18",
-    "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "planned": "2026-12-29 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl07-short3-work-out-every-morning.json",
-    "kind": "short",
-    "job": "SL-07",
-    "label": "Belly Fat 3: Work Out Every Morning, Not 3 Times A Week",
-    "added": "2026-10-18",
-    "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "planned": "2026-12-31 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl07-short4-the-3-pound-rule.json",
-    "kind": "short",
-    "job": "SL-07",
-    "label": "Belly Fat 4: The 3-Pound Rule That Keeps Belly Fat Off",
-    "added": "2026-10-18",
-    "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "planned": "2027-01-02 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl07-short5-track-your-calories-with-a-photo.json",
-    "kind": "short",
-    "job": "SL-07",
-    "label": "Belly Fat 5: Track Your Calories With A Photo",
-    "added": "2026-10-18",
-    "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
-    "planned": "2027-01-04 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro04-arms-shoulders-workout-only.json",
-    "kind": "longform",
-    "job": "RO-04",
-    "label": "Arms & Shoulders Workout Only",
-    "added": "2026-10-25",
-    "note": "Dan approved Jan 6, 2027 at 9 AM Chicago on Oct 25; socials Jan 7 noon. All media/covers verified. Ready for existing daily top-up when four queue slots are available. No release hold.",
-    "approved_release": "2027-01-06T15:00:00.000Z"
-  },
-  {
-    "config": "scripts/blotato/configs/ds13-the-1-change-i-made-to-get-abs-at-40.json",
-    "kind": "short",
-    "job": "DS-13",
-    "label": "The #1 Change I Made To Get Abs At 40",
-    "added": "2026-10-27",
-    "note": "Muhammad HD = approved cut. Cover A. Target Thu 2027-01-07, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2027-01-07 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ro18-make-time-for-exercise.json",
-    "kind": "longform",
-    "job": "RO-18",
-    "label": "How To Make Time For Exercise & Nutrition",
-    "added": "2026-10-27",
-    "note": "Dan approved Wed Jan 13, 2027 at 9 AM Chicago on Oct 27; Facebook/Instagram Thu Jan 14 noon. TikTok is a direct TikTok Studio upload Jan 14 noon (10:58, tiktok_direct; file /Volumes/Extreme/_edit_work/ro18-publish/ro18-tiktok-cover-first.mp4). Media, thumbnail and FB cover verified. Needs 3 slots.",
-    "approved_release": "2027-01-13T15:00:00.000Z"
-  },
-  {
-    "config": "scripts/blotato/configs/ds06-what-every-body-fat-percentage-looks-like.json",
-    "kind": "short",
-    "job": "DS-06",
-    "label": "What Every Body Fat Percentage Looks Like",
-    "added": "2026-10-27",
-    "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-14, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2027-01-14 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl11-a-standing-stomach-vacuum.json",
-    "kind": "short",
-    "job": "SL-11",
-    "label": "How To Do A Standing Stomach Vacuum",
-    "added": "2026-10-29",
-    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "kitchen": false,
-    "gym": false,
-    "filming_set": "poolside",
-    "planned": "2027-01-16 09:00",
-    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
-  },
-  {
-    "config": "scripts/blotato/configs/sl11-b-stop-holding-your-breath.json",
-    "kind": "short",
-    "job": "SL-11",
-    "label": "Stop Holding Your Breath During Stomach Vacuums",
-    "added": "2026-10-29",
-    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "kitchen": false,
-    "gym": false,
-    "filming_set": "poolside",
-    "planned": "2027-01-16 18:00",
-    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
-  },
-  {
-    "config": "scripts/blotato/configs/sl08-short1-why-i-fast-until-2-pm-every-day.json",
-    "kind": "short",
-    "job": "SL-08 short 1",
-    "label": "Why I Fast Until 2 pm Every Day",
-    "added": "2026-10-25",
-    "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "planned": "2027-01-18 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl11-c-one-20-second-vacuum-every-morning.json",
-    "kind": "short",
-    "job": "SL-11",
-    "label": "Start With One 20-Second Vacuum Every Morning",
-    "added": "2026-10-29",
-    "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "after": "scripts/blotato/configs/ro02-the-vacuum.json",
-    "kitchen": false,
-    "gym": false,
-    "filming_set": "poolside",
-    "planned": "2027-01-18 18:00",
-    "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
-  },
-  {
-    "config": "scripts/blotato/configs/sl08-short2-eat-a-salad-first-to-eat-less.json",
-    "kind": "short",
-    "job": "SL-08 short 2",
-    "label": "Eat a Salad First to Eat Less",
-    "added": "2026-10-25",
-    "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "planned": "2027-01-19 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds10-top-3-non-weight-loss-benefits-of-zepbound.json",
-    "kind": "short",
-    "job": "DS-10",
-    "label": "Top 3 Non-Weight Loss Benefits Of Zepbound",
-    "added": "2026-10-27",
-    "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-21, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2027-01-21 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl08-short3-stop-drinking-your-calories.json",
-    "kind": "short",
-    "job": "SL-08 short 3",
-    "label": "Stop Drinking Your Calories",
-    "added": "2026-10-25",
-    "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "planned": "2027-01-21 18:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl08-short4-snack-on-protein-not-carbs.json",
-    "kind": "short",
-    "job": "SL-08 short 4",
-    "label": "Snack on Protein, Not Carbs",
-    "added": "2026-10-25",
-    "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "planned": "2027-01-23 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/sl08-short5-make-fasting-easier-with-black-coffee.json",
-    "kind": "short",
-    "job": "SL-08 short 5",
-    "label": "Make Fasting Easier With Black Coffee",
-    "added": "2026-10-25",
-    "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
-    "planned": "2027-01-25 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds01-top-5-ab-exercises.json",
-    "kind": "short",
-    "job": "DS-01",
-    "label": "Top 5 Ab Exercises For Six Pack Abs",
-    "added": "2026-10-27",
-    "note": "R4 master (Dan's own cable crunch footage). Cover B. Target Thu 2027-01-28, 9 AM America/Chicago. Four media uploads hash-checked.",
-    "planned": "2027-01-28 09:00"
-  },
-  {
-    "config": "scripts/blotato/configs/ds49-coconut-water.json",
-    "kind": "short",
-    "job": "DS-49",
-    "label": "Why I Stopped Drinking Coconut Water",
-    "added": "2026-10-29",
-    "kitchen": false,
-    "gym": false,
-    "filming_set": "poolside",
-    "note": "R2 film and cover G approved; four uploaded media hash-verified. Saved slot Mon Dec 21 6 PM Central, one week after SL-19 coconut water Short (Dec 14)."
+ {
+  "config": "scripts/blotato/configs/ro25-wasted-my-life.json",
+  "kind": "longform",
+  "job": "RO-25",
+  "label": "I'm 41. I Wasted My Life.",
+  "added": "2026-10-17",
+  "queued": {
+   "found": "2026-10-17",
+   "main": "2026-10-18T14:00:00.000Z"
   }
+ },
+ {
+  "config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "kind": "longform",
+  "job": "RO-26",
+  "label": "I'm 41. I'm Top 1%. How I Did It.",
+  "added": "2026-10-17",
+  "queued": {
+   "date": "2026-10-18",
+   "main": "2026-10-25T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl17-short1-nutrition-matters-more-than-your-workouts.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 1: Nutrition Matters More Than Your Workouts",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-25",
+   "main": "2026-10-30T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl17-short2-start-with-5-minutes-every-morning.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 2: Start With 5 Minutes Every Morning",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-25",
+   "main": "2026-11-06T15:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl17-short3-every-man-should-train-a-martial-art.json",
+  "kind": "short",
+  "job": "SL-17",
+  "label": "Top 1% 3: Every Man Should Train A Martial Art",
+  "added": "2026-10-23",
+  "parent_config": "scripts/blotato/configs/ro26-top-1-percent.json",
+  "queued": {
+   "date": "2026-10-27",
+   "main": "2026-11-30T15:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl03-short2-the-20-dollar-salad-for-4.json",
+  "kind": "short",
+  "job": "SL-03 short 2",
+  "label": "The $20 Salad For 4",
+  "added": "2026-10-08",
+  "queued": {
+   "found": "2026-10-13",
+   "main": "2026-11-24T15:00:00.000Z",
+   "moved": "2026-10-13"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl03-short3-keep-salads-fresh-7-days.json",
+  "kind": "short",
+  "job": "SL-03 short 3",
+  "label": "Keep Salads Fresh 7 Days",
+  "added": "2026-10-08",
+  "queued": {
+   "found": "2026-10-13",
+   "main": "2026-11-26T15:00:00.000Z",
+   "moved": "2026-10-13"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/sl03-short6-make-ai-calorie-tracking-accurate.json",
+  "kind": "short",
+  "job": "SL-03 short 6",
+  "label": "Make AI Calorie Tracking Accurate",
+  "added": "2026-10-08",
+  "queued": {
+   "date": "2026-10-13",
+   "main": "2026-11-28T15:00:00.000Z",
+   "moved": "2026-10-13"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ro06-home-workout-budget.json",
+  "kind": "longform",
+  "job": "RO-06",
+  "label": "How To Work Out At Home On A Budget",
+  "added": "2026-10-10",
+  "queued": {
+   "date": "2026-10-13",
+   "main": "2026-12-27T15:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds12-top-3-ways-to-looksmax.json",
+  "kind": "short",
+  "job": "DS-12",
+  "label": "Top 3 Ways To Looksmax",
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-13",
+   "main": "2026-10-15T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds23-how-to-do-side-laterals.json",
+  "kind": "short",
+  "job": "DS-23",
+  "label": "How To Do Side Laterals",
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-15",
+   "main": "2026-10-17T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds08-i-was-200-pounds-at-38.json",
+  "kind": "short",
+  "job": "DS-08",
+  "label": "I Was 200 Pounds At 38",
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-15",
+   "main": "2026-10-20T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds09-how-to-make-time-to-work-out.json",
+  "kind": "short",
+  "job": "DS-09",
+  "label": "How To Make Time To Work Out",
+  "added": "2026-10-13",
+  "queued": {
+   "date": "2026-10-17",
+   "main": "2026-10-22T14:00:00.000Z"
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds05-why-having-abs-beats-being-a-fat-millionaire.json",
+  "kind": "short",
+  "job": "DS-05",
+  "label": "Why Having Abs Beats Being A Fat Millionaire",
+  "added": "2026-10-16",
+  "approved_release": "2026-12-10T23:00:00.000Z",
+  "release_date_approval": {
+   "date": "2026-10-28",
+   "approved_by": "Dan",
+   "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+   "timezone": "America/Chicago",
+   "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
+  },
+  "note": "Dan approved exact corrected R4 and Dec10 5PM Central. Corrected hosted master/TikTok hashes verified. F3 retained. Shared queue order and explicit approved release preserved.",
+  "film_approval_date": "2026-10-28",
+  "queued": {
+   "date": "2026-10-28",
+   "main": "2026-12-10T23:00:00.000Z",
+   "schedule_ids": {
+    "facebook": "6161575",
+    "instagram": "6161577",
+    "tiktok": "6161579",
+    "youtube": "6161581"
+   },
+   "verified": true
+  }
+ },
+ {
+  "config": "scripts/blotato/configs/ds22-how-to-use-the-ab-wheel.json",
+  "kind": "short",
+  "job": "DS-22",
+  "label": "How To Use The Ab Wheel",
+  "added": "2026-10-13",
+  "planned": "2026-11-05 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds33-ronaldo-ab-belt.json",
+  "kind": "short",
+  "job": "DS-33",
+  "label": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
+  "added": "2026-10-25",
+  "planned": "2026-11-11 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds14-3-ways-to-reduce-alcohol.json",
+  "kind": "short",
+  "job": "DS-14",
+  "label": "3 Ways To Reduce Alcohol",
+  "added": "2026-10-13",
+  "planned": "2026-11-12 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds40-bill-maher-fat-90-year-old.json",
+  "kind": "short",
+  "job": "DS-40",
+  "label": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "added": "2026-10-25",
+  "note": "Dan approved exact Codex R5 film and design 1 cover R3. Target Thu Dec 31, 9 AM America/Chicago. All four media uploads verified; Blotato 197/200, needs four slots.",
+  "planned": "2026-11-13 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds24-how-to-do-rear-delt-flys.json",
+  "kind": "short",
+  "job": "DS-24",
+  "label": "How To Do Rear Delt Flys",
+  "added": "2026-10-13",
+  "planned": "2026-11-19 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds21-how-to-do-hammer-curls.json",
+  "kind": "short",
+  "job": "DS-21",
+  "label": "How To Do Hammer Curls",
+  "added": "2026-10-13",
+  "planned": "2026-11-26 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kind": "longform",
+  "job": "RO-08",
+  "label": "Intermittent Fasting: The Best Way To Get Abs",
+  "added": "2026-10-14",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short1-just-skip-breakfast.json",
+  "kind": "short",
+  "job": "SL-16 short 1",
+  "label": "How To Start Fasting: Just Skip Breakfast",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kitchen": true,
+  "planned": "2026-11-28 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
+  "kind": "short",
+  "job": "SL-16 short 2",
+  "label": "Why Carbs Destroy Your Productivity",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kitchen": true,
+  "planned": "2026-12-01 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
+  "kind": "longform",
+  "job": "RO-07",
+  "label": "Why You MUST Work Out Every Day",
+  "added": "2026-10-11",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "kind": "longform",
+  "job": "RO-19",
+  "label": "My First Spray Tan",
+  "added": "2026-10-13",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json",
+  "kind": "short",
+  "job": "SL-15 short 1",
+  "label": "Spray Tan 1: Why You Look Less Ripped In Photos",
+  "added": "2026-10-22",
+  "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "kitchen": true,
+  "planned": "2026-12-05 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
+  "kind": "longform",
+  "job": "Zeeshan Video 5",
+  "label": "Getting Abs At 40 vs 25",
+  "added": "2026-10-11",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short3-never-break-your-fast-with-alcohol.json",
+  "kind": "short",
+  "job": "SL-16 short 3",
+  "label": "Never Break Your Fast With Alcohol",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kitchen": true,
+  "planned": "2026-12-07 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl15-short2-get-a-tan-without-sun-damage.json",
+  "kind": "short",
+  "job": "SL-15 short 2",
+  "label": "Spray Tan 2: Get A Tan Without Sun Damage",
+  "added": "2026-10-22",
+  "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
+  "kitchen": true,
+  "planned": "2026-12-08 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "kind": "longform",
+  "job": "RO-20",
+  "label": "Why You Should Invest More In Your Health",
+  "added": "2026-10-20",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/ds20-five-levels-of-pushups.json",
+  "kind": "short",
+  "job": "DS-20",
+  "label": "Five Levels Of Pushups",
+  "added": "2026-10-28",
+  "approved_release": "2026-12-10T15:00:00.000Z",
+  "release_date_approval": {
+   "date": "2026-10-28",
+   "approved_by": "Dan",
+   "words": "Let's do December 10, 2026, and release Fat Millionaire on the same day anyway",
+   "timezone": "America/Chicago",
+   "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
+  },
+  "note": "Dan approved same-day release with DS05. Keep 9AM Central and existing waiting-list order; cover A installed, all assets uploaded and verified."
+ },
+ {
+  "config": "scripts/blotato/configs/ro20b-what-to-cut.json",
+  "kind": "longform",
+  "job": "RO-20B",
+  "label": "What To Cut To Afford Getting In Shape",
+  "added": "2026-10-20",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/sl16-short4-why-you-need-a-simple-nutrition-plan.json",
+  "kind": "short",
+  "job": "SL-16 short 4",
+  "label": "Why You Need A Simple Nutrition Plan",
+  "added": "2026-10-27",
+  "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
+  "kitchen": true,
+  "planned": "2026-12-12 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "kind": "longform",
+  "job": "RO-17",
+  "label": "3 Healthy Foods That Made Me Fat",
+  "added": "2026-10-18"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short1-coconut-water-is-just-sugar-water.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 1: Coconut Water Is Just Sugar Water",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "planned": "2026-12-14 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short2-trail-mix-more-calories-than-a-big-mac.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 2: Trail Mix Has More Calories Than A Big Mac",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "planned": "2026-12-15 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds02-getting-abs-looksmaxxes-your-face.json",
+  "kind": "short",
+  "job": "DS-02",
+  "label": "How Getting Abs Looksmaxxes Your Face",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-04, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2026-12-15 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro20c-what-to-buy.json",
+  "kind": "longform",
+  "job": "RO-20C",
+  "label": "What To Buy For Your Health At Every Income Level",
+  "added": "2026-10-21",
+  "kitchen": true
+ },
+ {
+  "config": "scripts/blotato/configs/ds03-3-most-important-supplements-for-men.json",
+  "kind": "short",
+  "job": "DS-03",
+  "label": "The 3 Most Important Supplements For Men",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (round 2 blue (2)). Target Thu 2027-02-11, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2026-12-17 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds07-top-3-ways-to-use-ai-to-get-abs.json",
+  "kind": "short",
+  "job": "DS-07",
+  "label": "Top 3 Ways To Use AI To Get Abs",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-18, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2026-12-17 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl19-short3-my-4-high-protein-snacks.json",
+  "kind": "short",
+  "job": "SL-19",
+  "label": "3 Healthy Foods 3: My 4 Go-To High-Protein Snacks",
+  "added": "2026-10-21",
+  "parent_config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "after": "scripts/blotato/configs/ro17-3-healthy-foods.json",
+  "planned": "2026-12-19 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds11-why-you-must-weigh-yourself-daily.json",
+  "kind": "short",
+  "job": "DS-11",
+  "label": "Why You Must Weigh Yourself Daily",
+  "added": "2026-10-27",
+  "note": "Muhammad final HD. Approved cover (B with larger title). Target Thu 2027-02-25, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2026-12-19 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "kind": "longform",
+  "job": "RO-13",
+  "label": "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)",
+  "added": "2026-10-17",
+  "note": "Four Dec 30-31 schedules removed at Dan request to secure RO-25 Sun Oct 18. Exact backup Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json. Restore on original 2026 date when capacity opens."
+ },
+ {
+  "config": "scripts/blotato/configs/ds47-v-taper.json",
+  "kind": "short",
+  "job": "DS-47",
+  "label": "How To Get A V-Taper Physique",
+  "added": "2026-10-28",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "note": "R6 and exact R3 cover approved; four uploaded media verified. Shared top-up when four places free."
+ },
+ {
+  "config": "scripts/blotato/configs/ds105-mouthpiece.json",
+  "kind": "short",
+  "job": "DS-105",
+  "label": "Wear A Mouthpiece When You Work Out",
+  "added": "2026-10-29",
+  "gym": true,
+  "kitchen": false
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short1-stop-trying-to-lose-1-pound-a-week.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 1: Stop Trying To Lose 1 Pound A Week",
+  "added": "2026-10-18",
+  "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "planned": "2026-12-28 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short2-weigh-yourself-every-morning.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 2: Weigh Yourself Every Morning",
+  "added": "2026-10-18",
+  "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "planned": "2026-12-29 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short3-work-out-every-morning.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 3: Work Out Every Morning, Not 3 Times A Week",
+  "added": "2026-10-18",
+  "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "planned": "2026-12-31 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short4-the-3-pound-rule.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 4: The 3-Pound Rule That Keeps Belly Fat Off",
+  "added": "2026-10-18",
+  "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "planned": "2027-01-02 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl07-short5-track-your-calories-with-a-photo.json",
+  "kind": "short",
+  "job": "SL-07",
+  "label": "Belly Fat 5: Track Your Calories With A Photo",
+  "added": "2026-10-18",
+  "parent_config": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "after": "scripts/blotato/configs/ro16-belly-fat-90-days.json",
+  "planned": "2027-01-04 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro04-arms-shoulders-workout-only.json",
+  "kind": "longform",
+  "job": "RO-04",
+  "label": "Arms & Shoulders Workout Only",
+  "added": "2026-10-25",
+  "note": "Dan approved Jan 6, 2027 at 9 AM Chicago on Oct 25; socials Jan 7 noon. All media/covers verified. Ready for existing daily top-up when four queue slots are available. No release hold.",
+  "approved_release": "2027-01-06T15:00:00.000Z"
+ },
+ {
+  "config": "scripts/blotato/configs/ds13-the-1-change-i-made-to-get-abs-at-40.json",
+  "kind": "short",
+  "job": "DS-13",
+  "label": "The #1 Change I Made To Get Abs At 40",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A. Target Thu 2027-01-07, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2027-01-07 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ro18-make-time-for-exercise.json",
+  "kind": "longform",
+  "job": "RO-18",
+  "label": "How To Make Time For Exercise & Nutrition",
+  "added": "2026-10-27",
+  "note": "Dan approved Wed Jan 13, 2027 at 9 AM Chicago on Oct 27; Facebook/Instagram Thu Jan 14 noon. TikTok is a direct TikTok Studio upload Jan 14 noon (10:58, tiktok_direct; file /Volumes/Extreme/_edit_work/ro18-publish/ro18-tiktok-cover-first.mp4). Media, thumbnail and FB cover verified. Needs 3 slots.",
+  "approved_release": "2027-01-13T15:00:00.000Z"
+ },
+ {
+  "config": "scripts/blotato/configs/ds06-what-every-body-fat-percentage-looks-like.json",
+  "kind": "short",
+  "job": "DS-06",
+  "label": "What Every Body Fat Percentage Looks Like",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-14, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2027-01-14 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl11-a-standing-stomach-vacuum.json",
+  "kind": "short",
+  "job": "SL-11",
+  "label": "How To Do A Standing Stomach Vacuum",
+  "added": "2026-10-29",
+  "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "planned": "2027-01-16 09:00",
+  "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
+ },
+ {
+  "config": "scripts/blotato/configs/sl11-b-stop-holding-your-breath.json",
+  "kind": "short",
+  "job": "SL-11",
+  "label": "Stop Holding Your Breath During Stomach Vacuums",
+  "added": "2026-10-29",
+  "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "planned": "2027-01-16 18:00",
+  "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
+ },
+ {
+  "config": "scripts/blotato/configs/sl08-short1-why-i-fast-until-2-pm-every-day.json",
+  "kind": "short",
+  "job": "SL-08 short 1",
+  "label": "Why I Fast Until 2 pm Every Day",
+  "added": "2026-10-25",
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "planned": "2027-01-18 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl11-c-one-20-second-vacuum-every-morning.json",
+  "kind": "short",
+  "job": "SL-11",
+  "label": "Start With One 20-Second Vacuum Every Morning",
+  "added": "2026-10-29",
+  "parent_config": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "after": "scripts/blotato/configs/ro02-the-vacuum.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "planned": "2027-01-18 18:00",
+  "note": "R3 film and exact R4 real-screenshot cover approved. Twelve uploaded assets for three Shorts hash-checked. Wait for four spaces in shared top-up; after RO-02 public release."
+ },
+ {
+  "config": "scripts/blotato/configs/sl08-short2-eat-a-salad-first-to-eat-less.json",
+  "kind": "short",
+  "job": "SL-08 short 2",
+  "label": "Eat a Salad First to Eat Less",
+  "added": "2026-10-25",
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "planned": "2027-01-19 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds10-top-3-non-weight-loss-benefits-of-zepbound.json",
+  "kind": "short",
+  "job": "DS-10",
+  "label": "Top 3 Non-Weight Loss Benefits Of Zepbound",
+  "added": "2026-10-27",
+  "note": "Muhammad HD = approved cut. Cover A-r2. Target Thu 2027-01-21, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2027-01-21 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl08-short3-stop-drinking-your-calories.json",
+  "kind": "short",
+  "job": "SL-08 short 3",
+  "label": "Stop Drinking Your Calories",
+  "added": "2026-10-25",
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "planned": "2027-01-21 18:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl08-short4-snack-on-protein-not-carbs.json",
+  "kind": "short",
+  "job": "SL-08 short 4",
+  "label": "Snack on Protein, Not Carbs",
+  "added": "2026-10-25",
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "planned": "2027-01-23 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/sl08-short5-make-fasting-easier-with-black-coffee.json",
+  "kind": "short",
+  "job": "SL-08 short 5",
+  "label": "Make Fasting Easier With Black Coffee",
+  "added": "2026-10-25",
+  "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "after": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
+  "planned": "2027-01-25 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds01-top-5-ab-exercises.json",
+  "kind": "short",
+  "job": "DS-01",
+  "label": "Top 5 Ab Exercises For Six Pack Abs",
+  "added": "2026-10-27",
+  "note": "R4 master (Dan's own cable crunch footage). Cover B. Target Thu 2027-01-28, 9 AM America/Chicago. Four media uploads hash-checked.",
+  "planned": "2027-01-28 09:00"
+ },
+ {
+  "config": "scripts/blotato/configs/ds49-coconut-water.json",
+  "kind": "short",
+  "job": "DS-49",
+  "label": "Why I Stopped Drinking Coconut Water",
+  "added": "2026-10-29",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "note": "R2 film and cover G approved; four uploaded media hash-verified. Saved slot Mon Dec 21 6 PM Central, one week after SL-19 coconut water Short (Dec 14)."
+ }
 ]
