@@ -1121,5 +1121,15 @@
   "approved": "Dan approved exact R3 Design3 front-vacuum covers on 2026-10-28; current setup uses shared waitlist",
   "sha256": "3d58353751f61ce89f9444877a2c54e2c44a36499bdbdf15c14f94cdb0f54012",
   "when": "2026-12-21T15:00:00.000Z"
+ },
+ {
+  "job": "DS-76",
+  "match": "Pull-ups are the king of back exercises. If you want a wide back and a V-taper physique, this is the exercise that builds it.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds76/Instagram_ds76-pull-ups_cover-F.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan picked F (touched-up real screenshot) on 2026-10-29: \"Go with F\"",
+  "sha256": "dcc486982197345820df2f5ac4c871a97ab064336369b0f7f0db46ffee427163",
+  "when": "2026-12-26T15:00:00.000Z"
  }
 ]

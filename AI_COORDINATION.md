@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Audi fuel door WAIT 2026-10-28, Codex01a184ec.** Email/Yelp sent; replies pending. `Docs/AUDI_S5_MOBILE_QUOTE_REQUESTS_20261028.md`
 
-**DS-76:REVIEW:2026-10-29:Claude** `Docs/DS76_COVER_REVIEW_20261029.md`
+**DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
 **Coconut Water SFC R2 REVIEW 2026-10-29, Claude.** [Page](http://127.0.0.1:9492/); review SHIP. Next: Dan's notes.
 

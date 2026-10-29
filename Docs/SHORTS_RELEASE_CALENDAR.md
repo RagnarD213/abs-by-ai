@@ -77,7 +77,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Dec 24 | 2 | 6 PM | OPEN | Not booked |
 | Fri Dec 25 | 2 | 9 AM | OPEN | Not booked |
 | Fri Dec 25 | 2 | 6 PM | OPEN | Not booked |
-| Sat Dec 26 | 3 | 9 AM | OPEN | Not booked |
+| Sat Dec 26 | 3 | 9 AM | How To Do Pull-Ups The Right Way (DS-76, gym) | Live |
 | Sat Dec 26 | 3 | 6 PM | OPEN | Not booked |
 | Mon Dec 28 | 3 | 9 AM | Belly Fat 1: Stop Trying To Lose 1 Pound A Week | Waitlist |
 | Mon Dec 28 | 3 | 6 PM | OPEN | Not booked |
