@@ -1111,5 +1111,15 @@
   "sha256": "0aa533016c08de2e37ce6cc2f5a6c758e5eea99953d4ff90c4c2b92ba4836e3f",
   "approved": "Dan approved exact R3 design1 title-capitalization revision 2026-10-28",
   "schedule": "6164753"
+ },
+ {
+  "job": "DS-47",
+  "match": "A V-taper is just two things: wide shoulders and a small waist.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds47/Instagram_ds47-v-taper_design3-front-final.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved exact R3 Design3 front-vacuum covers on 2026-10-28; current setup uses shared waitlist",
+  "sha256": "3d58353751f61ce89f9444877a2c54e2c44a36499bdbdf15c14f94cdb0f54012",
+  "when": "2026-12-21T15:00:00.000Z"
  }
 ]
