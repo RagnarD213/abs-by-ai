@@ -57,3 +57,9 @@ Traps met:
   now reads on from the last presenter run's start and skips frames instead of seeking. Check: decode both masters to
   192x108 grey and search the best offset per frame against the previous round; every run outside the changes must sit
   at the same offset as the sound.
+- Before placing an insert, list every framing (EDL punch) and background-segment switch within ~1 s of its edges. A switch
+  a few frames before the insert leaves a sliver that reads as a flash (render 3: 13 frames of W/BG09 before A3). Move the
+  switch onto the insert's first frame (same continuous take: shift `o1`/`o0` and `src0`, `retime_r5.py`; the matching
+  `bg_plan` boundary, `facts_r5.py`) so there is one cut, then confirm the picture after the insert is still in sync.
+- A regenerated SRT drifts from the approved round's wording (digits for spelled numbers, "the Tonight Show", split
+  compounds): diff the new SRT's text against the previous round's and pin the old wording in `srt_r5.py` FIX.
