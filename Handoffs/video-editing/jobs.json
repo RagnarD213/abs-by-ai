@@ -3663,7 +3663,7 @@
    "order": 159,
    "updated": "2026-10-30",
    "rev": 14,
-   "syncedRev": 11,
+   "syncedRev": 14,
    "editor": "Claude",
    "by": "Claude"
   },
@@ -4957,7 +4957,7 @@
    "order": 214,
    "updated": "2026-10-30",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   }
  ]
 }
