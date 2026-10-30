@@ -1743,3 +1743,15 @@ When a line says the app ANALYSES the picture and builds the plan, use the share
 `_shared/hyperframes/analysis-card/` (kind `analysis` in `from_plan.py`, `build.py` for 16:9) instead of inventing a graphic
 (VIDEO-RULES "The analysis card is Soft Blue Light, built with HyperFrames", 2026-10-14). The J2 `_shared/adkit/analysis_card.py`
 is only for re-exports of films approved with it (RA-01). Geometry and chip rules: `_shared/adkit/README.md`.
+
+## Landscape presenter films: traps from RO-38 R2 (2026-10-30)
+
+An independent review failed the first full render on these; recipe in `/Volumes/Expansion/_edit_work/RO-38/round2/recipe/`.
+
+- **Side card over a take join is a naked jump cut.** The card forces one framing on both sides of the join, so no size change hides it. Start or end the card on the join.
+- **Side card shift:** use the `softblue.shift_presenter` geometry (stretched wall, 50 px feather, fixed), never a blurred copy and never an on-screen slide. Set `c0` left of his widest reach under that card, measured from the person mask (arms reached 292 px on a card where the default 440 would have smeared them).
+- **Same-size alternation can undo a framing lock.** A pass that flips the later of two equal shots put two lower thirds back on the wide shot. Lock shots under a lower third and walk the change backward.
+- **`-ss` between source frames repeats the first frame** at about one cut in six. Seek to `(ceil(t * fps) - 0.25) / fps`.
+- **Words near a shot edge land in both shots** of a word map, doubling them in the SRT. Dedupe on roll, source time and word.
+- **Check clip length against the slot.** A library clip that runs out freezes its last frames; the scan's 8-frame minimum missed a 7-frame freeze.
+- **Lateral raise clips:** judge the arm height at the peak of the rep before using one under "no higher". The B0673 side view and poolside B0450 both read too high; B0676 and B0677 read level.
