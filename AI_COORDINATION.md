@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
-**RO-38:R3-BUILDING:2026-10-30:Claude.** `/Volumes/Expansion/_edit_work/RO-38/round3/`
+**RO-38:REVIEW:2026-10-30:Claude.** [R3 film](http://127.0.0.1:9546/) `/Volumes/Expansion/_edit_work/RO-38/round3/`
 
 **RO-29:REVIEW:2026-10-30:Claude.** [R3](http://127.0.0.1:9544/)
 
