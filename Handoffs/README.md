@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Body Fat % LFC Setup](handoff-20261030-ro21-body-fat-thumbnails-and-video-setup.md): **Ready 2026-10-30. Claude Opus 5.5, high.** "What Every Body Fat Percentage Looks Like (On Me)" (RO-21) R4 approved: five Codex plus three Google thumbnails (blind), stop for Dan's pick, then setup for Wed Dec 30.
 - [SRM Website](handoff-20261030-social-response-marketing-website.md): **Ready 2026-10-30. Claude Opus 5.5, high.** New socialresponsemarketing.com site for the outreach emails (the domain only forwards to sixpackabs.com now). Interviews Dan first; publishes only after his approval.
 - [Terry Crews Fasting SFC Setup](handoff-20261030-ds43-terry-crews-fasting-setup.md): **Ready 2026-10-30. Claude Opus 5.5, high.** DS-43 "Terry Crews Doesn't Eat Until 2 PM. He's Right." off-the-cuff R2 approved; five covers, Dan's pick, backups, upload, Tue Dec 22 6 PM.
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).

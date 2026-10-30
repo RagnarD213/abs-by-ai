@@ -113,6 +113,7 @@ def plan(F):
                 if P.get("clip"): seg["clip"] = clip_window(p)
                 else: seg["photos"] = next_photos(P.get("photos") or F["everyone"], 1)
             elif typ == "set":
+                seg["chip_on_tv"] = True                  # Dan 2026-10-30: the AI label goes on the TV, not on the whole scene
                 if P.get("clip") and (len(out) % 2 == 0 or not P.get("pairs")): seg["clip"] = clip_window(p)
                 else: seg["photos"] = next_photos([x for pr in P.get("pairs", []) for x in pr["photos"]] or F["everyone"], 2)
             elif typ in ("wall", "cards"):

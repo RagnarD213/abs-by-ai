@@ -1060,6 +1060,12 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 - Dan: *"the AI-generated label blocks one of my faces ... put that above the pair. Move the pair slightly down, if you need to, but avoid blocking faces with that AI-generated label. Avoid blocking faces or abs."* Applies to every on-screen disclosure chip in every video, Claude and Codex, across the whole film, not only the shot he noticed.
 - Before a page goes out, pull one frame of every labelled moment and look: moving pictures (floating cards drift) need the check at their highest drift. Fixes that keep the picture: on a `panel`, `panel_y` moves the pair down and `chip_xy` puts the label above it; on `cards`, `slots` shifts a card and `chip_xy` moves the label (`_shared/greenscreen-bg/`).
 
+## An AI picture inside a real scene carries its label ON that picture (Dan, 2026-10-30, RO-21 at 5:27)
+
+- Dan: *"when I have an AI-generated scene in the background within a non-AI-generated scene, I want the AI-generated label to be on the TV or specifically on the background image (just so that doesn't create confusion and make everybody think the entire scene is AI-generated)."* Applies to future videos, Claude and Codex; existing approved films stay as they are.
+- A label in the frame's corner says the whole scene is AI. The label sits inside the AI picture: on the TV, phone screen, card or inset, sized to it, and it moves with it. A fully AI full-screen clip keeps its normal corner label.
+- `greenscreen-bg`: new plans from `planner.py` set `chip_on_tv: true` on `set` segments (a smaller label inside the TV's top-left, drawn sharp over the depth of field). A hand-written plan sets it too. Keep the label clear of the picture's face and abs (rule above), and if a left-third card covers the TV's left side, place the picture and card so the label still shows.
+
 ## AI label on uploads: only for real AI footage (Dan, 2026-09-27)
 
 - YouTube's altered/synthetic flag (`--synthetic`, Blotato `containsSyntheticMedia`) and TikTok's `isAiGenerated` (Blotato config `ai_generated`) are set to **true ONLY when the video contains realistic AI-generated footage**: AI video clips or scenes, AI-Dan exercise demos, AI B-roll of people or places, AI-generated music, or an AI voice of someone other than Dan.

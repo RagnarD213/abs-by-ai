@@ -135,3 +135,6 @@ windows from ffmpeg scene detection (`select='gt(scene,0.25)',showinfo`) and che
 
 ## The AI label never on a face or abs (Dan, 2026-10-30)
 Optional segment keys: `panel_y` (panel: move the pair down, 126 leaves room for a label above it, text still ends above y 810), `slots` (cards: the six [cx, cy, w, angle] slots, shift the top-left card down), `chip_xy` with `ai_label: false` (assemble: where the label sits).
+
+## AI picture inside a real scene: label on the picture (Dan, 2026-10-30)
+`chip_on_tv: true` on a `set` segment puts a smaller AI-GENERATED label inside the TV (top left), not in the frame corner, so the viewer does not read the whole scene as AI. `planner.py` writes it on every new plan. Plans of films already mid-round keep their corner label unless the key is added; add it when a film rebuilds all its set segments, not in a patch, so one film never mixes both.

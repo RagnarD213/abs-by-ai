@@ -13,6 +13,7 @@
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
 - [Long-form green-screen standard](longform-greenscreen-standard.md): LOCKED 10-30: Celebrity Ozempic R5 is how every long-form green-screen film is built
 - [Recap row loved](recap-ladder-end-graphic-loved.md): 10-30: full-screen level recap that closes RO-21; reuse for level videos
+- [AI label on the picture](ai-label-on-the-picture-not-the-scene.md): 10-30: AI picture in a real scene gets its label on the TV/inset, never frame corner; never on face or abs
 - [Green-screen backgrounds](green-screen-background-cycle.md): LOCKED 10-27 for long-form: greenscreen-bg template; reaction Shorts keep Codex R5
 - [Key efficiency](chroma-key-efficiency.md): keys cheap like Codex; excerpts + key once (10-24)
 - [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)

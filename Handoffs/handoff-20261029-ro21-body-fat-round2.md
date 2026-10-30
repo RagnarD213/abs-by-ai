@@ -99,3 +99,5 @@ the approved voice A tone row. Open question to Dan: switch the three remaining 
 
 ## Round 4 status (2026-10-30)
 Dan's R3 notes done: third picture set (Hispanic man, 30s), three sets rotate, gym B-roll regraded, AI label off every face and abs. Picture-only patches; audio and SRT unchanged. Delivered in round4/final. Next: Dan's review, then /video-setup for Wed Dec 30.
+
+Approved by Dan 2026-10-30 (R4). Setup: handoff-20261030-ro21-body-fat-thumbnails-and-video-setup.md.

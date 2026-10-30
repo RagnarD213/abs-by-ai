@@ -477,8 +477,11 @@ class Set(Background):
             self.tvimg = pair_image(ctx, seg["photos"][:2], (w, h))
         yy, xx = np.mgrid[:h, :w].astype(np.float32)
         self.glare = (0.06 * np.clip(1 - np.abs((xx / w - 0.25) - (yy / h) * 0.5) * 4, 0, 1))[..., None]
-        self.chip = None
-        if seg.get("ai_label", True):                    # every AI image carries AI-GENERATED (00-RULES); top left, clear of Dan
+        self.chip = None; self.tvchip = None
+        if seg.get("ai_label", True) and seg.get("chip_on_tv"):   # Dan 2026-10-30: an AI picture inside a real scene carries its label ON that
+            im = Image.new("RGBA", (w, h), (0, 0, 0, 0)); SB.disclosure(im, "AI-GENERATED", xy=(10, 10), u=1.0, size=15)   # picture, so nobody reads the whole scene as AI;
+            a = np.asarray(im, np.float32) * (1 / 255); self.tvchip = (a[..., :3], a[..., 3:4])       # drawn into the TV, it moves and blurs with it
+        elif seg.get("ai_label", True):                  # every AI image carries AI-GENERATED (00-RULES); top left, clear of Dan
             im = Image.new("RGBA", (OW, OH), (0, 0, 0, 0)); SB.disclosure(im, "AI-GENERATED", xy=(56, 48))
             a = np.asarray(im, np.float32) * (1 / 255); self.chip = (a[..., :3], a[..., 3:4])
 
@@ -488,6 +491,8 @@ class Set(Background):
         tvc = np.clip(tvc * 0.86 + self.glare, 0, 1)
         out[y:y + h, x:x + w] = tvc
         out = cv2.GaussianBlur(out, (0, 0), 1.3)            # depth of field: the set sits behind him
+        if self.tvchip is not None:                          # sharp on top of the depth of field so the label stays readable
+            r = out[y:y + h, x:x + w]; out[y:y + h, x:x + w] = r * (1 - self.tvchip[1]) + self.tvchip[0] * self.tvchip[1]
         out = warp(out, cam)
         if self.chip is not None: out = out * (1 - self.chip[1]) + self.chip[0] * self.chip[1]
         return out
