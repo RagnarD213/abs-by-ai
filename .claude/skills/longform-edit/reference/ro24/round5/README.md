@@ -41,3 +41,10 @@ Traps met:
   slot: the shot cut sits in the pause before the line it illustrates.
 - `veo.py add <dir>` appends `veo/`: pass the folder ABOVE the job (`round5/ai`), or takes land in a nested `veo/veo/`.
 - The frame gate refuses START=END from one gated frame (no reviewed pair stamp); START-only is accepted.
+- Outcome: the held pose also failed (23 Flow takes in all: hand to eye, temple or chin, mouths opening, a sealed-lips
+  prompt did not stop it). Shot 2 ships as the gated, reviewed END still with a slow push-in (`ai_r5.py` shot
+  `['still', png, zoom_end, fx, fy]`, which checks the frame stamp and the review file). Stop at about 8 takes per shot and
+  fall back to the still rather than burning credits on the same pose.
+- The AI chip sits top-left; a side-list card (G12) over an AI insert (A8) covered it and the chip ghosted through the card's
+  91 % fill (caught as a `fill` row in the graphics checks). Before rendering, list every manifest item overlapping each AI
+  insert; move the chip with `chip_x` (1400 = top-right) in `clips_override.json`.
