@@ -66,7 +66,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R2 (SL-10) ACTIVE 2026-10-30, Claude.** Dan's R1 notes: three new AI intro clips (Shorts A, B, E); frames in review, Flow set running. Slot held. Next: frame page. `/Volumes/Expansion/_edit_work/SL-10/round2/`
+**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-30, Claude.** [AI intro frames](http://127.0.0.1:9432/) await picks; Short 3 approved. Slot released. Next: motion in Flow, swap in, gates. `/Volumes/Expansion/_edit_work/SL-10/round2/`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
