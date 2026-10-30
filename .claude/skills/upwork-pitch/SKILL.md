@@ -68,13 +68,9 @@ Short (about 120 to 180 words). Lead with money results. Plain, blunt, Dan's voi
 
 ## Outreach (engine 2)
 
-Who: fitness, supplement, health and info-product brands, and the agencies that buy their ads, that clearly spend on
-YouTube or Meta but whose live ads all make the same argument.
-Email: subject that names their product; a 2-line teardown of their current ads; 3 hooks built from their own
-customer review language; the ask: "Try it with a $75 hook fix or a $150 new version" linking the Upwork trial
-listing. Direct payment is invoiced outside Upwork; never a Direct Contract. 5 a day, building to 10.
-Top 2 or 3 prospects a week get a personal video: Claude writes a 3-line card (1: "Hi [name], I watched your [ad]"
-plus the one problem; 2: the 3 new angles; 3: one next step), Dan records about 60 s on the desk webcam, one take.
+**Use Dan's own email: `TEMPLATE-outreach-email.md` (2026-10-30). It replaces the teardown-and-hooks email and the Upwork trial ask.** The offer is one free complete ad plus a variation of their best ad, then a 15-minute call.
+Who: brands that run video ads on Google and YouTube, because the email leads with those. Check Google's Ads Transparency Center (YouTube, video, last 30 days) before adding a brand. Meta-only brands do not fit.
+Send from the outreach mailbox only, 5 a day building to 10, with one batch approval from Dan.
 
 ## Tracking
 

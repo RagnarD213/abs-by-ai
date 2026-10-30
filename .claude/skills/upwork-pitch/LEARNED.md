@@ -27,9 +27,10 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Approved examples
 
-(none yet)
+- Outreach email written by Dan himself, 2026-10-30: `TEMPLATE-outreach-email.md`. Lessons: the offer does the work (free complete ad plus a variation), credentials and ad links prove it, a short video and a calendar link carry the next step. No criticism of their ads and no sample hooks.
 
 ## Log
 
+- 2026-10-30: Dan wrote the outreach template. The email now leads with Google and YouTube, so prospects must be checked there.
 - 2026-10-30: outreach batch 1 (20 emails) rejected whole by Dan before sending. Merged plan section 7 (email teardown + 3 hooks) is on hold until Dan picks the new approach.
 - 2026-10-29: skill created from the merged plan.
