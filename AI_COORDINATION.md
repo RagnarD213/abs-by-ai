@@ -180,7 +180,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R5 - REVIEW 2026-10-28, Claude.** Page :9421: new A7 frames, G06 card, Amy abs photo, pause, A3 in. Flow credits out: A1s2/A6/A8 + A4 remake wait on Dan (pay ~$4 or free credits). Slot released. Next: Dan's reply, generate, full render, gates. `/Volumes/Expansion/_edit_work/RO-24/round5/`
+**Celebrity Ozempic LFC R5 REVIEW 2026-10-30, Claude.** [Full film](http://127.0.0.1:9421/); gates as R4, independent SHIP; slot released. Next: Dan's notes. `/Volumes/Expansion/_edit_work/RO-24/round5/`
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
