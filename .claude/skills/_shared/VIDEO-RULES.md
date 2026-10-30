@@ -1053,6 +1053,11 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 - Applies to every surface: Instagram, Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts are untouched. Instagram needs aspect 0.8 to 1.91.
 - Before queuing any photo post, check it for the Speedo. Crops, boxes and swap maps from 2026-09-27: `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
 
+## The AI label never covers a face or abs (Dan, 2026-10-30, RO-21 round 3 at 4:40)
+
+- Dan: *"the AI-generated label blocks one of my faces ... put that above the pair. Move the pair slightly down, if you need to, but avoid blocking faces with that AI-generated label. Avoid blocking faces or abs."* Applies to every on-screen disclosure chip in every video, Claude and Codex, across the whole film, not only the shot he noticed.
+- Before a page goes out, pull one frame of every labelled moment and look: moving pictures (floating cards drift) need the check at their highest drift. Fixes that keep the picture: on a `panel`, `panel_y` moves the pair down and `chip_xy` puts the label above it; on `cards`, `slots` shifts a card and `chip_xy` moves the label (`_shared/greenscreen-bg/`).
+
 ## AI label on uploads: only for real AI footage (Dan, 2026-09-27)
 
 - YouTube's altered/synthetic flag (`--synthetic`, Blotato `containsSyntheticMedia`) and TikTok's `isAiGenerated` (Blotato config `ai_generated`) are set to **true ONLY when the video contains realistic AI-generated footage**: AI video clips or scenes, AI-Dan exercise demos, AI B-roll of people or places, AI-generated music, or an AI voice of someone other than Dan.

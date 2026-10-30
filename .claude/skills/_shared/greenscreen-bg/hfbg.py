@@ -30,7 +30,7 @@ def year(s, x, y):
 
 
 def panel_cfg(seg, root, work):
-    P = PANEL; pr = seg["pair"]; photos, assets = [], []
+    P = dict(PANEL, y=seg.get("panel_y", PANEL["y"])); pr = seg["pair"]; photos, assets = [], []   # panel_y: room above the pair for the AI label (never on a face or abs)
     for n, (p, yr) in enumerate(zip(pr["photos"], pr["years"])):
         path = pathlib.Path(p if pathlib.Path(p).is_absolute() else root / p)
         im = G.person_crop(str(path), P["pw"] / P["ph"], k=pr.get("crop_k", 6.0), top=pr.get("top", 0.55))

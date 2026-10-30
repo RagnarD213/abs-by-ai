@@ -132,3 +132,6 @@ everything else is copied from the earlier render) at 5.7 frames a second. Looks
 Trap (2026-10-25): a 1-frame-per-2-s contact sheet made with the `fps` filter can show a frame up to a second later than its
 label, so muted-footage windows picked from it started on the wrong shot (an Ozempic box behind Dan instead of Sharon). Pick
 windows from ffmpeg scene detection (`select='gt(scene,0.25)',showinfo`) and check the first and last frame of each window.
+
+## The AI label never on a face or abs (Dan, 2026-10-30)
+Optional segment keys: `panel_y` (panel: move the pair down, 126 leaves room for a label above it, text still ends above y 810), `slots` (cards: the six [cx, cy, w, angle] slots, shift the top-left card down), `chip_xy` with `ai_label: false` (assemble: where the label sits).

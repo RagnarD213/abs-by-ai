@@ -431,8 +431,9 @@ class Cards(Background):
         super().__init__(seg, ctx)
         self.cards = []
         rng = np.random.default_rng(seg.get("seed", 3))
-        for n, p in enumerate(seg["photos"][:len(self.SLOTS)]):
-            cx, cy, w, ang = self.SLOTS[n]
+        slots = seg.get("slots") or self.SLOTS                  # slots: a film can shift a card so the AI label never sits on a face
+        for n, p in enumerate(seg["photos"][:len(slots)]):
+            cx, cy, w, ang = slots[n]
             im = person_crop(ctx.path(p), 4 / 5, k=seg.get("k", 5.5), top=0.7)
             h = int(round(w * 5 / 4)); b = max(8, w // 34)
             im = im.resize((w, h), Image.Resampling.LANCZOS)
