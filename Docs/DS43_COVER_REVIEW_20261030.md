@@ -12,3 +12,8 @@ Next after the pick: `blind.py pick`, install from `built/<letter>/` (letter fro
 
 Dan rejected all eight: "I don't like any of these. Give me six unique designs: three Google, three Codex, all of them. Terry Crews full screen in the background, looking ripped, three unique images, and then I'm in the corner reacting to my laptop, similar to X4 full screen. I'm cut out like this is the part of the green screen video."
 Built six at http://127.0.0.1:9562/ (labels X1 to X6, blind set `r2/`). Backgrounds are six different real frames from the film's Terry footage (Muscle & Fitness, America's Got Talent), never AI Terry. Corner Dan: three images per maker on a green backdrop, keyed, laptop on the frame bottom. Builder `scripts/covers/ds43-20261030/build_r2.py`. Install from `r2/built/<design>/` (design from `blind.py reveal`).
+
+## Round 3 (Dan, 2026-10-30)
+
+Dan: "Change the top text to 'Why Terry Crews Doesn't Eat Until 2 pm.' Let's use the X4 design. I like my expression there. I like the text style there. However, I want three more: three different images where he's looking ripped, like flexing, looking monstrously ripped to establish the point, not ones where he's just standing around like this."
+Three covers at http://127.0.0.1:9563/ (A, B, C): X4's yellow band, type and corner reaction; real flexing frames from the Muscle & Fitness behind-the-scenes source. "PM" kept capitalized per the 10-28 thumbnail rule, no period. Builder `scripts/covers/ds43-20261030/build_r3.py`; install from `r3/built/<letter>/`.
