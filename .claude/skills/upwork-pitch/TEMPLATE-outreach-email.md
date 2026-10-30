@@ -1,6 +1,6 @@
 # Outreach email: Dan's own template (written by Dan, 2026-10-30)
 
-This replaces the teardown-and-hooks email. Keep his wording. Change only [COMPANY NAME], the two links and the highlights.
+This replaces the teardown-and-hooks email. Keep his wording. Change only [COMPANY NAME] and the links.
 Only obvious typos were fixed ("complete at" to "complete ad", "Let's a" to "Let's do a"). No em dashes.
 
 ---
@@ -23,7 +23,16 @@ Here's the link to schedule your call
 
 Here's a short summary of my accomplishments, and why these free ads are worth your time to test:
 
-[HIGHLIGHTS]
+- Over $200 million in ad spend managed, and over $238 million in sales from my YouTube ads.
+- I founded SixPackAbs.com and grew it with $103 million in ad spend over 9 years, $87 million of it on Google Ads. Those ads drove over $214 million in revenue and made us the #2 ranked brand channel on YouTube, with 5.7 million subscribers and a spot on the Inc. 5000. Top ad, 23 million views: https://www.youtube.com/watch?v=5i30KDjihrs
+- For Healthy Back Institute, I've managed over $93 million in ad spend with a mix of our creative and others. I made their #1 ad of all time and 4 of their top 11. Here are my top 3:
+  1. $5.96 million in spend, 82 million views: https://www.youtube.com/watch?v=yZ2MYWDgMbg
+  2. $1.69 million in spend, 20 million views: https://youtu.be/K0iACRzW4kU
+  3. $905,000 in spend, 23 million views: https://youtu.be/eRJnsVrnaE8
+- For Spy Briefing, over $3 million in ad spend. Top ad: https://youtu.be/sruniCtkIo0
+- For Mind Movies, over $2 million in ad spend. Top ad: https://www.youtube.com/watch?v=ag67A1CngO0
+- You'd be working with the person who writes the ads. I personally write the scripts, direct the edits and run the ad spend.
+- These are direct-response ads. They're built to make sales, not win awards.
 
 To accept your free ads, just schedule a time to talk below.
 
@@ -34,16 +43,7 @@ CEO, Social Response Marketing
 
 ---
 
-## Highlights block (numbers official per Dan, 2026-10-30)
+## Notes
 
-Over $200 million in ad spend managed across these brands:
-
-- SixPackAbs.com: $103 million in total ad spend over 9 years, $87 million of it on Google Ads, driving over $214 million in revenue. Top ad, 23 million views: https://www.youtube.com/watch?v=5i30KDjihrs
-- Healthy Back Institute: over $93 million in ad spend managed, with a mix of our creative and others. Our top ads there:
-  - https://www.youtube.com/watch?v=yZ2MYWDgMbg (HBI's #1 ad of all time, $5.96 million in spend, 82 million views)
-  - https://youtu.be/K0iACRzW4kU ($1.69 million spend, 20 million views)
-  - https://youtu.be/eRJnsVrnaE8 ($905,000 spend, 23 million views)
-- Spy Briefing: over $3 million in ad spend. Top ad: https://youtu.be/sruniCtkIo0
-- Mind Movies: over $2 million in ad spend. Top ad: https://www.youtube.com/watch?v=ag67A1CngO0
-
+Free complete ad plus variation goes to every prospect, high and low value (Dan, 2026-10-30). He will change it only if he gets buried.
 Send from dan@socialresponsemarketing.com (Dan, 2026-10-30), not danroseads.com. Lifetime numbers: memory `official-ad-spend-numbers`. Per-ad HBI numbers are from HBI's own sheet. These are Dan's top HBI ads, not HBI's top 3: HBI's #2 ad was not his.

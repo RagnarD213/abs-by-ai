@@ -23,7 +23,7 @@ Build a new website for socialresponsemarketing.com that makes a cold prospect b
 
 - **Dan wants the site redone.** His words, 2026-10-30: "I need to redo that website."
 - **The job of the site is to support a cold email.** A prospect clicks through to check Dan out, then books a call. Everything else is secondary.
-- **The offer is Dan's own:** a complete free ad plus a variation of their best ad, then a 15-minute call. Do not put the Upwork $75 and $150 trials on this site unless Dan asks.
+- **The offer is Dan's own:** a complete free ad plus a variation of their best ad, then a 15-minute call. It goes to every prospect, high or low value (Dan, 2026-10-30). Do not put the Upwork $75 and $150 trials on this site unless Dan asks.
 - **Claude's recommendation, not yet approved by Dan:** one page only. Headline number, top ads, the free-ad offer, pitch video, Calendly link. Ask him; he decides.
 - **Lifetime ad spend numbers are official.** Read memory `official-ad-spend-numbers`. Use them exactly, and never say the whole Healthy Back Institute figure ran on Dan's own creative. Per-ad figures and ad links are in the template.
 - **Dan is the proof.** He wrote, directed and ran the spend on these ads; a human editor cut them.
@@ -35,7 +35,7 @@ Build a new website for socialresponsemarketing.com that makes a cold prospect b
 2. **Interview Dan.** Ask a few questions at a time in plain language, and use his answers to decide what to ask next. Most of his answers are dictated. Stop when you can write the page. Cover at least:
    - **Who it's for:** which buyers matter most (founder, head of growth, agency), and which brands he wants or doesn't want.
    - **The first impression:** what a prospect should feel in 10 seconds, and any agency or personal sites he admires or hates.
-   - **What he sells on the site:** done-for-you ads, Google Ads management, audits, or only the free-ad offer. Whether prices appear. Whether the old $100,000 a month minimum stays. Whether the free offer goes to everyone or is tiered (his call is still open: full free ad for high-value prospects, free variation only for lower-value ones).
+   - **What he sells on the site:** done-for-you ads, Google Ads management, audits, or only the free-ad offer. Whether prices appear. Whether the old $100,000 a month minimum stays.
    - **Scope:** one page or several. Whether the book, the course, the careers section or anything else from the old site comes back.
    - **Voice:** "we" (agency) or "I" (Dan). Is he comfortable with "CEO" and the agency being current? Does he mention AI in his process at all?
    - **Proof he can use:** which client names, ads and numbers can appear publicly. Are the three old testimonials real and still usable, and can he get new ones? Which press logos are true? Any case studies he wants told.
