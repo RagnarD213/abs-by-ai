@@ -5,7 +5,7 @@ crops Dan approved in RO-28), then the clip library, then Pexels. kind "ai" = a 
 until its motion is approved the presenter stays on screen. kind "phone" = the iPhone card beside Dan (the TikTok trend clip).
 Organic, not entirely about the drug: Zepbound is SAID, on-screen graphics say "Appetite Medication" (the script's own cue).
 Title case; eyebrows in capitals (VIDEO-RULES 2026-10-20)."""
-W = "/Volumes/Expansion/_edit_work/RO-29/round1"
+W = "/Volumes/Expansion/_edit_work/RO-29/round2"
 ST = f"{W}/stock"; PH = f"{W}/stock/photos"; TK = f"{W}/stock/tiktok"
 RD = "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop"
 POOL = "eq=contrast=1.04:brightness=-0.02:saturation=1.12"                         # RO-28 C01/C05/C12 (approved film)
@@ -13,8 +13,10 @@ POOL_SHADE2 = "curves=master='0/0 0.1/0.09 0.4/0.45 0.75/0.82 1/1',eq=saturation
 AI = "AI-GENERATED"
 PLAN = [
  # ---------------- opening
- dict(id="A1", kind="ai", start="Cortisol belly is real", end="off your waist", tail=0.2, name="The cocktail bartender",
-      note="AI opener: a heavyset man in a bathrobe shakes a cocktail shaker like a flashy bartender, then toasts the camera with his orange 'cortisol cocktail', pinky out"),
+ dict(id="A0", kind="ai", start="Cortisol belly is real", end="TikTok fixes", tail=0.0, name="The clickbait TikTok",
+      note="R2 (Dan): close on his fat hand holding the phone, a ridiculous clickbait cortisol belly cocktail TikTok playing; he sets the phone down, still visible"),
+ dict(id="A1", kind="ai", start="for it like the cortisol", end="off your waist", tail=0.45, name="The cocktail bartender",
+      note="R2 (Dan): same phone on the island; he shakes the cocktail he just watched and ends triumphant and stupid"),
  dict(id="G01", kind="lt", topic_case="preserve", start="In today's video", end="get rid of it", tail=0.8, topic="IN THIS VIDEO", over_full=True,
       point="What Cortisol Does + 6 Real Fixes", parts=[["What Cortisol Does", "what cortisol does"], ["+ 6 Real Fixes", "six things"]]),
  dict(id="C01", kind="clip", start="If you've been told", end="hear this", tail=0.3, src=["B0494@0.5"],
@@ -31,9 +33,9 @@ PLAN = [
       point="What TikTok Gets Wrong", parts=[["What TikTok Gets Wrong", "what TikTok"]]),
  dict(id="G04", kind="lt", topic_case="preserve", start="Stress makes you eat more", end="on your belly", tail=0.5, topic="KEY POINT",
       point="Stress Raises Your Appetite", parts=[["Stress Raises Your Appetite", "makes you eat more"]]),   # independent check: the old copy echoed the line
- dict(id="C02", kind="clip", start="Let's say you were in a calorie deficit", end="get leaner", tail=0.25, src=[f"{ST}/p7581377.mp4@0.5"],
-      note="Pexels 7581377: a lean office worker, swamped and stressed at his desk"),
- dict(id="A2", kind="ai", start="And let's say you were eating", end="gain weight", tail=0.25, name="Zen and mellow, still gaining",
+ dict(id="A1B", kind="ai", start="Let's say you were in a calorie deficit", end="get leaner", tail=0.5, name="Fasting and grinding at the desk",
+      note="R2 (Dan): AI Dan, wrecked at the computer, nothing but coffee, the clock spins from morning to night"),
+ dict(id="A2", kind="ai", start="let's say you were eating in a calorie surplus", end="gain weight", tail=0.25, name="Zen and mellow, still gaining",
       note="AI gag: a heavyset man meditating, eyes closed and blissful, surrounded by pizza boxes and donuts, calmly takes a slice"),
  dict(id="C03", kind="clip", start="The problem is that in real life", end="has been proven", tail=0.25, src=["A0182@0.3"], label=AI, max_len=4.8,
       note="library A0182 (AI, RO-17): a heavy man in a grey hoodie on the sofa at night, eating from a bag of snacks without looking (A0145 was shirtless, belly centred: independent check)"),
@@ -55,8 +57,6 @@ PLAN = [
       note="the script's 'THE CORTISOL COCKTAIL' ingredient graphic"),
  dict(id="P02", kind="phone", start="And sucking down a sugar drink", end="cortisol either", tail=0.25, src=[f"{TK}/jezebel511_7525072235103554846.mp4@44.5"], credit="@jezebel511 on TikTok",
       note="the backup TikTok from the script (@jezebel511, 'Cortisol Cocktail'): her counter of juice and powders"),
- dict(id="A4", kind="ai", start="So, skip the cortisol cocktail", end="waste of money", tail=0.3, name="The supplement receipt",
-      note="AI gag: a man buying a dozen supplement bottles watches the receipt pile up around his shoes"),
  dict(id="G06", kind="lt", topic_case="preserve", start="So skip the cortisol cocktail", end="waste of money", tail=0.6, topic="ACTION STEP", over_full=True,
       point="Skip The Cocktail And The Supplements", parts=[["Skip The Cocktail", "skip the cortisol"], ["And The Supplements", "adrenal supplements"]]),   # the script's ON SCREEN cue sits on this line (independent check: it had landed on "what actually fixes")
  # ---------------- fix 1: sleep
@@ -99,9 +99,9 @@ PLAN = [
  # ---------------- fix 5: stressful relationships
  dict(id="G13", kind="lt", topic_case="preserve", start="Number five is the one", end="stressful relationships", tail=0.8, topic="FIX 5 OF 6",
       point="Quit Your Stressful Relationships", parts=[["Quit Your Stressful Relationships", "quit your"]]),
- dict(id="A5", kind="ai", start="If your job stresses you out", end="quit", tail=0.6, name="Quitting the stressful job",
-      note="AI: a calm employee sets his badge on the frowning boss's desk, picks up his box and walks out; the boss is stunned"),
- dict(id="A6", kind="ai", start="oh Dan that's crazy", end="stresses me out", tail=0.3, name="The husband who can't",
+ dict(id="A5", kind="ai", start="stresses you out all the time quit", end="quit", tail=2.25, name="Quitting the stressful job",
+      note="R2 (Dan): badge already on the desk; box in his arms, he visibly mouths I quit to the boss, then walks out"),
+ dict(id="A6", kind="ai", start="oh Dan that's crazy", end="stresses me out", tail=0.03, name="The husband who can't",
       note="AI, excuse voice: a man on the couch protests to the camera while his wife glares at him (lip-synced to Dan's line if the sync passes; otherwise mouth closed)"),
  dict(id="G13B", kind="lt", topic_case="preserve", start="Is it worth killing yourself", end="regardless of what other value", tail=0.6, topic="ASK YOURSELF",
       point="Is It Worth Killing Yourself For This?", parts=[["Is It Worth Killing Yourself For This?", "worth killing"]]),
@@ -128,3 +128,13 @@ PLAN = [
  dict(id="G19", kind="lt", topic_case="preserve", start="If you enjoyed this video", end="published", tail=0.6, topic="SUBSCRIBE",
       point="New Videos First At SixPackAbs.com", parts=[["New Videos First", "subscribe"], ["At SixPackAbs.com", "go to"]]),
 ]
+from grades import GR     # RO-29 R2: Dan, every B-roll clip colour corrected
+for _it in PLAN:
+    if _it["id"] in GR: _it["grade"] = GR[_it["id"]]
+# RO-29 R2: the AI slots now hold their finished, retimed, colour-corrected takes (ai/final.py)
+_LEFT = {"A1B", "A5"}    # chip clear of the wall clock and of his hair
+for _it in PLAN:
+    if _it["kind"] == "ai":
+        _it["kind"] = "clip"; _it["src"] = [f"{W}/ai/final/{_it['id']}.mp4@0.0"]; _it["label"] = AI
+        if _it["id"] in _LEFT: _it["chip"] = ((54, 54), "lt")
+    if _it["id"] == "C13": _it["chip"] = ((54, 54), "lt")    # the top-right chip sat on the bartender's face

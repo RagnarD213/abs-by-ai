@@ -1,6 +1,6 @@
 """RO-18 builder (from RO-14/RO-17; segments read from their own roll via frames.roll_of). render_range(a, b, out): graded presenter (locked look) + every plan item, hard cuts, audio B chain.
 usage: build.py range <t0> <t1> <out.mp4> [--placeholder-ai]"""
-import sys, os, json, subprocess, hashlib, wave, glob
+import time, sys, os, json, subprocess, hashlib, wave, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import numpy as np
 from PIL import Image, ImageDraw
@@ -9,7 +9,7 @@ sys.path.insert(0, "/Users/danielrose/Projects/Claude/Projects/Abs By AI/.claude
 import composite as HC                      # HyperFrames compositor: lt, fact, l3, cycle (from_plan.py renders)
 HF_KINDS = ("lt", "l3", "cycle")            # + scene "fact"; every other kind stays gfx.paint (softblue)
 def hf_item(it): return it["kind"] in HF_KINDS or (it["kind"] == "scene" and it.get("scene") == "fact")
-W = "/Volumes/Expansion/_edit_work/RO-29/round1"; FPS = 30000/1001; FPSS = "30000/1001"; FF = F.FF; SR = 48000
+W = "/Volumes/Expansion/_edit_work/RO-29/round2"; FPS = 30000/1001; FPSS = "30000/1001"; FF = F.FF; SR = 48000
 S = json.load(open(f"{W}/shots.json")); R = json.load(open(f"{W}/plan_resolved.json"))
 MANIFEST = f"{W}/hf/manifest.json"
 VC = "/Users/danielrose/Projects/Claude/Projects/Abs By AI/.claude/skills/_shared/audio/voice_chain.py"
@@ -216,7 +216,10 @@ def render_range(a, b, out, placeholder_ai=False):
         sys.path.insert(0, "/Users/danielrose/Projects/Claude/Projects/Abs By AI/.claude/skills/_shared/audio"); import common as AC
         AC.stash_untreated(out, AC.pcm(raw), note="RO-29: untreated lav (FINISH path: rumble filter + loudness only)")   # finish-only never stashes one; the gate's do-no-harm row needs it
     else:
-        run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--no-dereverb", "--eq", EQ, "--work", out + ".work"])
+        for _k in range(3):     # RO-29 R2: the chain's ffprobe read a just-written lav.wav too soon on the external drive
+            if subprocess.run(["python3", VC, "--in", raw, "--video", out + ".v.mp4", "--frame-lock", out + ".v.mp4", "--out", out, "--no-dereverb", "--eq", EQ, "--work", out + ".work"]).returncode == 0: break
+            time.sleep(10)
+        else: raise RuntimeError("voice chain failed 3 times")
     json.dump(dict(range=[a, b], frames=f1-f0, segments=segs, items=[i["id"] for i in items]), open(out + ".build.json", "w"), indent=1)
     print("built", out, f1-f0, "frames", flush=True)
 

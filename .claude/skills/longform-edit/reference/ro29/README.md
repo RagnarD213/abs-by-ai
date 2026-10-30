@@ -47,3 +47,17 @@ Same 10/15 studio set as RO-28 (`../ro28/`, read it first); only the files that 
 15. **Lip-sync slots start on the excuse voice's first word** ("oh Dan"), not on Dan's narration before it.
 16. **Arm-clear row:** the check wants 60 px; a 52 px near miss with nothing touching is shown on the page as PASS with a note
     (`page.py`), not a red FAIL Dan would read as a fault.
+
+## Round 2 (2026-10-30): Dan's notes, new AI scenes, full film
+Picks: colour A, warm bass plus (`fit/eq.txt` = RO27B + `equalizer=f=120:t=q:w=0.8:g=+3.0`), so the tone row fails by design. Work dir `round2/`: recipes copied with paths swapped, heavy inputs symlinked to `round1/`.
+17. **Dan's clip numbers may not match the page's names.** He wrote "Kill A4: quitting the stressful job" when A4 was the supplement receipt and then revised A5, the quitting clip. Read the whole note, pick the reading that fits it, flag it on the page.
+18. **Frame reviewers return real faults on nearly every first pass** (arm from opposite sides, sixth finger, two-handled mug, scale with no display, seam on the arm). Budget two or three rounds per pair. `gate.py` passes anything inside a `may_change` box, so a whole-frame box means the reviewer is the only check.
+19. **Image moderation blocks on a low-cut top inside a phone screen.** Give the on-phone person a high neckline in every frame.
+20. **Copy-pasting START pixels into END needs a person mask, not a box:** a box left a squared-off bite out of the robe and a strip of the old robe. Paste only where END is not the person; `A1-start` phone pinned onto END keeps it pixel identical.
+21. **Reading-size faces:** "mouth I quit" needs the face at about a quarter of the frame height, turned under 30 degrees, and a prompt with exaggerated lips and START only. An END frame where he has left forces a walk out and back.
+22. **Veo frames mode is 8 s; Omni at 4 s fits a 4 s gag.** `veo.py add --model omni --seconds 4`. Text on a screen garbles in motion: pin the approved phone over the take when it does not move (`ai_final.py`).
+23. **Mouth stays shut only so far:** a sealed-lips prompt still flashes teeth. Trim, or lip sync with Dan's OK.
+24. **A take's AI clips land short after 24 to 29.97 conversion:** render 0.15 s of padding, and probe every clip against its slot before a full render. Never fill a slot by slowing; shift the neighbour's start instead.
+25. **Grading all stock:** measure median luma, p90, saturation, black share beside the presenter, then look. Curves that pull highlights overcook skin; C01, C08, C12 needed a softer second pass. `grades.py`.
+26. **`voice_chain` can trip on a just-written lav.wav on the external drive:** `build.py` retries it. `negscan.py` needs `plan.json`, so run finish, scan, record, finish.
+27. **A chip default sits on a face in some clips (C13):** read every chip against its clip, not just the AI slots.

@@ -295,7 +295,7 @@ def scene(it, t):
         im = B.field(t)
         pw, ph = 526, 730; gap = 50; x0 = (1920 - (3 * pw + 2 * gap)) / 2; y0 = 110
         for i, n in enumerate(it["photos"]):
-            B.photo_card(im, f"/Volumes/Expansion/_edit_work/RO-29/round1/assets/g03/{n}_panel.png", (x0 + i * (pw + gap), y0, pw, ph), t, i * .22, fit=True, u=U)
+            B.photo_card(im, f"/Volumes/Expansion/_edit_work/RO-29/round2/assets/g03/{n}_panel.png", (x0 + i * (pw + gap), y0, pw, ph), t, i * .22, fit=True, u=U)
         if it.get("label") and t > 0: B.disclosure(im, it["label"], (960, y0 + ph + 34), U, anchor="mt")
         return im
     if k == "photo":
