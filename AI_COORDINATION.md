@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template (`.claude/skills/upwork-pitch/TEMPLATE-outreach-email.md`); first send Built With Science. Blocked on Dan: pitch video, Calendly, spend numbers, Workspace mailbox. Five proposals await him in Pipeline page.
+**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Five proposals await him. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
 
 **First Time At The Gym LFC R3 ACTIVE 2026-10-30, Claude.** Full-film key running (~9 h), auto-renders after. AI clips in review. Slot held. Next: audit, gates, page. `/Volumes/Expansion/_edit_work/RO-37/round3/`
 

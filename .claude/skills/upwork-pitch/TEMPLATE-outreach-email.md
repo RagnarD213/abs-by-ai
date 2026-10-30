@@ -41,9 +41,12 @@ To accept your free ads, just schedule a time to talk below.
 Dan Rose
 CEO, Social Response Marketing
 
+This is a one-time business offer from Social Response Marketing, [BUSINESS MAILING ADDRESS]. If you'd rather not hear from me again, just reply and let me know.
+
 ---
 
 ## Notes
 
+The footer line is required on every send: a mailing address, an opt-out, and a clear statement that this is an offer (FTC CAN-SPAM guide). Log every opt-out and never email that person again. Do not commit Dan's mailing address to this public repo.
 Free complete ad plus variation goes to every prospect, high and low value (Dan, 2026-10-30). He will change it only if he gets buried.
 Send from dan@socialresponsemarketing.com (Dan, 2026-10-30), not danroseads.com. Lifetime numbers: memory `official-ad-spend-numbers`. Per-ad HBI numbers are from HBI's own sheet. These are Dan's top HBI ads, not HBI's top 3: HBI's #2 ad was not his.
