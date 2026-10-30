@@ -1,3 +1,4 @@
+- [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
 - [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
 - [Reaction laptop + clips](reaction-laptop-and-matching-clips.md): 10-30: laptop visible while Dan watches; panel behind his reply shows what he claims
 - [Reaction format](greenscreen-reaction-format.md): LOCKED 10-25: Bill Maher Codex R5 sequence, title, colour; no fixed green-screen AI since 10-27 (lean: Claude long-form, Codex Shorts)

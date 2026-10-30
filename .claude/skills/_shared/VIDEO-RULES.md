@@ -332,6 +332,8 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
 - **The real-photo choice stays real:** preserve the original face and body pixels, generate only its background, then composite the real cutout and type locally. Any AI Dan choice gets a real identity reference, the prompt "lean and shredded, not bulky, same size as the reference", and an actual face check before review. This explicit permission covers the two required AI Dan choices and any additional discretionary AI Dan choices.
 - **Review and installation:** show all five, then stop for Dan's actual picks before uploading or scheduling. Shorts still get separate Instagram and YouTube layouts per choice. Keep text off face/hair; no frowning default, visible standing swim-brief shape, website mark or real-photo label. A requested revision to a picked cover needs approval of the exact revised files before installation. The full quality and disclosure rules keep their existing scopes.
 
+- **Plus three unlabeled Google options (Dan, 2026-10-30):** after the five Codex designs, add three Google-made designs and show all eight shuffled with neutral labels, no source named. Rule and tool: `_shared/IMAGE-GENERATION.md`, "Blind Google test".
+
 ## Pickups are recorded on the studio set at a shoot, not on the desk mic (Dan, 2026-10-13)
 
 - **A pickup line for any video goes on the next shoot's list and is recorded on the studio set with the shoot's clip-on mic.** Dan,
