@@ -1754,4 +1754,5 @@ An independent review failed the first full render on these; recipe in `/Volumes
 - **`-ss` between source frames repeats the first frame** at about one cut in six. Seek to `(ceil(t * fps) - 0.25) / fps`.
 - **Words near a shot edge land in both shots** of a word map, doubling them in the SRT. Dedupe on roll, source time and word.
 - **Check clip length against the slot.** A library clip that runs out freezes its last frames; the scan's 8-frame minimum missed a 7-frame freeze.
+- **A picture cut inside one take must keep the audio continuous.** Rounded shot times slipped the lav 3.9 ms at two zoom cuts, a one-sample step of 0.7 full scale in the middle of a word that no gate row saw. Carry the sample offset across reframes; crossfade only at real take joins. Same film: a clip that covers a take join starts on that join, or the card before it runs over the clip.
 - **Lateral raise clips:** judge the arm height at the peak of the rep before using one under "no higher". The B0673 side view and poolside B0450 both read too high; B0676 and B0677 read level.
