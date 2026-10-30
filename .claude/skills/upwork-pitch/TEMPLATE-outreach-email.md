@@ -34,14 +34,16 @@ CEO, Social Response Marketing
 
 ---
 
-## Highlights block (draft for Dan; [DAN] items are not confirmed)
+## Highlights block (numbers official per Dan, 2026-10-30)
 
-- SixPackAbs.com: [DAN: total ad spend] on YouTube ads, driving over $214 million in revenue. Top ad, 23 million views: https://www.youtube.com/watch?v=5i30KDjihrs
-- Healthy Back Institute: [DAN: confirm about $50 million] in total ad spend. I made their #1 ad of all time ($5.96 million in spend) and 4 of their top 11:
-  - https://www.youtube.com/watch?v=yZ2MYWDgMbg ($5.96 million spend, 82 million views)
+Over $200 million in ad spend managed across these brands:
+
+- SixPackAbs.com: $103 million in total ad spend over 9 years, $87 million of it on Google Ads, driving over $214 million in revenue. Top ad, 23 million views: https://www.youtube.com/watch?v=5i30KDjihrs
+- Healthy Back Institute: over $93 million in ad spend managed, with a mix of our creative and others. Our top ads there:
+  - https://www.youtube.com/watch?v=yZ2MYWDgMbg (HBI's #1 ad of all time, $5.96 million in spend, 82 million views)
   - https://youtu.be/K0iACRzW4kU ($1.69 million spend, 20 million views)
   - https://youtu.be/eRJnsVrnaE8 ($905,000 spend, 23 million views)
-- Spy Briefing: [DAN: confirm about $20 million] in total ad spend. Top ad: https://youtu.be/sruniCtkIo0
-- Mind Movies: [DAN: confirm $2 to $3 million] in total ad spend. Top ad: https://www.youtube.com/watch?v=ag67A1CngO0
+- Spy Briefing: over $3 million in ad spend. Top ad: https://youtu.be/sruniCtkIo0
+- Mind Movies: over $2 million in ad spend. Top ad: https://www.youtube.com/watch?v=ag67A1CngO0
 
-Sources: `Handoffs/upwork-profile-working-brief.md`. The three HBI spend-per-ad figures come from HBI's own sheet; the lifetime totals are Dan's estimates. These are Dan's top HBI ads, not HBI's top 3: HBI's #2 ad was not his.
+Send from dan@socialresponsemarketing.com (Dan, 2026-10-30), not danroseads.com. Lifetime numbers: memory `official-ad-spend-numbers`. Per-ad HBI numbers are from HBI's own sheet. These are Dan's top HBI ads, not HBI's top 3: HBI's #2 ad was not his.

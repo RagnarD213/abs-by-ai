@@ -19,7 +19,7 @@ this file where they disagree.
 - No free or discounted work for Upwork reviews; no friends hiring for reviews. A real paid trial is fine.
 - Never claim no AI is used. Never invent an observation about a prospect's ad.
 - No em dashes in anything a client reads. Fixed price only, never hourly.
-- Outreach email never goes from absbyai.com or Dan's main Gmail; only the outreach mailbox. First batch: Dan approves
+- Outreach email never goes from absbyai.com or Dan's main Gmail address; only dan@socialresponsemarketing.com. First batch: Dan approves
   list and text once; later batches: one batch approval with a count.
 - Every client video is categorised as AD before any editing.
 
@@ -70,7 +70,7 @@ Short (about 120 to 180 words). Lead with money results. Plain, blunt, Dan's voi
 
 **Use Dan's own email: `TEMPLATE-outreach-email.md` (2026-10-30). It replaces the teardown-and-hooks email and the Upwork trial ask.** The offer is one free complete ad plus a variation of their best ad, then a 15-minute call.
 Who: brands that run video ads on Google and YouTube, because the email leads with those, or brands with a big organic YouTube presence that could expand into YouTube ads (Dan's call on Built With Science, 2026-10-30). Check Google's Ads Transparency Center (YouTube, video, last 30 days) before adding a brand.
-Send from the outreach mailbox only, 5 a day building to 10, with one batch approval from Dan.
+Send from dan@socialresponsemarketing.com only (Dan, 2026-10-30), 5 a day building to 10, with one batch approval from Dan.
 
 ## Tracking
 

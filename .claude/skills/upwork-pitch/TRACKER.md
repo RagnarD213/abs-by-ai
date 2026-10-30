@@ -15,3 +15,4 @@
   - Outreach emails link the profile (shows all 6 listings): https://www.upwork.com/freelancers/~016109a7105ec3bf5d
 - Outreach batch 1 (20 prospects) is in `items` as `out-<slug>` (teardown and hooks in its `research` field). Full research JSON with contacts stays off the public repo.
 - Upwork connector: added to Dan's claude.ai account 2026-10-29; a session only sees it if it started after that.
+- Sender changed 2026-10-30: dan@socialresponsemarketing.com. danroseads.com stays unused.
