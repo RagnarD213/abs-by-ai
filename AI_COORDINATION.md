@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R3 ACTIVE 2026-10-30, Claude.** Full-film key running (~9 h), auto-renders after. AI clips in review. Slot held. Next: audit, gates, page. `/Volumes/Expansion/_edit_work/RO-37/round3/`
 
-**Terry Crews Fasting SFC R2 (DS-43) REVIEW 2026-10-30, Claude.** Off the cuff, [R2 page](http://127.0.0.1:9442/), independent SHIP; slot released. Next: Dan approves, then setup handoff.
+**Terry Crews Fasting (DS-43) FINALIZED 2026-10-30, Claude.** Off-cuff R2 approved. Setup handoff OPEN in `Handoffs/README.md`.
 
 **RO-38:REVIEW:2026-10-30:Claude.** [R2 film](http://127.0.0.1:9542/) `/Volumes/Expansion/_edit_work/RO-38/round2/`
 
@@ -80,7 +80,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles R2 NEEDS DAN 2026-10-30, Codex01a188fd.** [Three fat-gain thumbnails](http://127.0.0.1:8837/?revision=2) checked; recommendation2. Same headline. Film approved; setup waits for exact thumbnail pick. `Docs/RO30_THUMBNAIL_R2_REVIEW_20261030.md`.
+**Love Handles R3 NEEDS DAN 2026-10-30, Codex01a188fd.** [Three slimmer gym variations](http://127.0.0.1:8837/?revision=3) checked, lightest to fullest. Face/headline unchanged. Exact pick precedes installation/setup. Film approved. `Docs/RO30_THUMBNAIL_R3_REVIEW_20261030.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-30, Codex.** Pause old cloud routine; retain local.
