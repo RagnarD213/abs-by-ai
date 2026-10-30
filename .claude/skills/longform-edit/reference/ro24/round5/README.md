@@ -63,3 +63,7 @@ Traps met:
   `bg_plan` boundary, `facts_r5.py`) so there is one cut, then confirm the picture after the insert is still in sync.
 - A regenerated SRT drifts from the approved round's wording (digits for spelled numbers, "the Tonight Show", split
   compounds): diff the new SRT's text against the previous round's and pin the old wording in `srt_r5.py` FIX.
+- Lengthening a background segment: its clip `windows` must add up to at least the new length, or `gsbg` loops back to
+  the first window (render 4: 6 frames of Sharon's first window before A3). Extend a window only up to the source's next
+  shot change (frame-diff the source), and place each window change at least 0.3 s from any picture cut, graphic exit or
+  full-screen insert; a window change under an insert is free.
