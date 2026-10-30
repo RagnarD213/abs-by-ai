@@ -126,3 +126,9 @@ session cap.
 4. **(2026-08-31)** Brass-plaque text ("HUMAN NUTRITIONIST 1985–2025") survived t2i, the edit,
    AND the video legibly — put the joke in set-dressing text with the string quoted in every
    prompt of the chain.
+- **(2026-10-29, RO-38)** Ideas whose whole point is a subtle look (a barista's eyes dropping to a man's arm) failed the
+  fresh frame reviewer three times on GPT-6.1 Sol image edits: eyes rendered shut, then level at his face. A small
+  background walker also moved one or two steps (a 3-4 s clip needs about 650-850 px at 1672 wide), and a beach START
+  carried a carved, maze-like sand texture. A full-scene drop (a duvet over a trophy) re-composed the room on all three
+  END tries. Prefer ideas carried by a big, unmistakable action or prop (a coat hanger in a t-shirt, cobwebs on a
+  barbell); budget at most three tries per pair, then drop it and leave the presenter on screen.
