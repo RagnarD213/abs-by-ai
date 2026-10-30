@@ -23,7 +23,7 @@ B = H.B
 W, Hh = 1920, 1080
 
 
-def layout(heading, items):
+def layout(heading, items, first=1):
     g = B._lt_geom(W, Hh)
     x0, y0, x1, y1 = (round(v) for v in B.left_third_box(W, Hh, heading, items))
     k = g["k"]; fh, fb = B.font(60 * k), B.font(38 * k)
@@ -34,7 +34,7 @@ def layout(heading, items):
     y = div + 32 * k; its = []
     for i, s in enumerate(items):
         lines = B.wrap(s, fb, g["body_w"])
-        its.append(dict(n=f"{i + 1}.", y=round(y0 + y), lines=lines))
+        its.append(dict(n=f"{i + first}.", y=round(y0 + y), lines=lines))
         y += (len(lines) * 49 + 30) * k
     return dict(card=[x0, y0, x1 - x0 + 1, y1 - y0 + 1], head=[dict(x=64, y=y0 + (22 + i * 75), s=ln) for i, ln in enumerate(hl)],
                 divider=[x0 + 29, y0 + div, (x1 - 30) - (x0 + 29), 3], items=its, num_x=68, body_x=113, lh=49)
@@ -44,7 +44,7 @@ def scene_cfg(s):
     a = s["a"]
     assert len(s["reveal"]) == len(s["items"]), "one reveal word per item"
     return dict(id=s["id"], dur=round(s["b"] - a, 3), drift=s.get("drift", 0),
-                reveal=[H.rel(t, a) for t in s["reveal"]], **layout(s["heading"], s["items"]))
+                reveal=[H.rel(t, a) for t in s["reveal"]], **layout(s["heading"], s["items"], s.get("first", 1)))
 
 
 def main():

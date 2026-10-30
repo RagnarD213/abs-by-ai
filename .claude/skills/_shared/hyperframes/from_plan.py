@@ -109,6 +109,7 @@ def lt_cfg(it, W, beats):
     assert all(x[1] <= y[1] for x, y in zip(ps, ps[1:])), f"{it['id']}: parts out of speech order {ps}"
     cfg = dict(id=it["id"], a=a, b=b, topic=it["topic"], parts=ps, drift=it.get("drift", -4))
     if it.get("topic_case") == "preserve": cfg["topic_case"] = "preserve"
+    if it.get("strip_right") is not None: cfg["strip_right"] = it["strip_right"]
     beats += [(a, "", "strip fades and rises, accent draws, topic " + it["topic"])]
     beats += [(t, W.text(t, t + 0.4), f"\"{p}\" rises") for p, t in ps]
     if it.get("bar"):
@@ -153,7 +154,7 @@ def l3_cfg(it, W, beats):
     beats += [(a, "", "card rises, divider wipes, heading " + (it["heading"] if isinstance(it["heading"], str) else " / ".join(it["heading"])))]
     beats += [(t, W.text(t, t + 0.4), f"item {k + 1} lands: {p}") for k, (p, t) in enumerate(zip(it["points"], rv))]
     beats += [(b - 0.33, "", "card fades and drops, gone on the cut")]
-    return dict(id=it["id"], a=a, b=b, heading=it["heading"], items=it["points"], reveal=rv, drift=it.get("drift", 0))
+    return dict(id=it["id"], a=a, b=b, heading=it["heading"], items=it["points"], reveal=rv, drift=it.get("drift", 0), first=it.get("first", 1))   # first: a list continued on a second card numbers on (RO-29 recap 3, 4, 5)
 
 
 def cycle_cfg(it, W, beats):
