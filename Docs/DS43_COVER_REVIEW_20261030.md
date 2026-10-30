@@ -17,3 +17,8 @@ Built six at http://127.0.0.1:9562/ (labels X1 to X6, blind set `r2/`). Backgrou
 
 Dan: "Change the top text to 'Why Terry Crews Doesn't Eat Until 2 pm.' Let's use the X4 design. I like my expression there. I like the text style there. However, I want three more: three different images where he's looking ripped, like flexing, looking monstrously ripped to establish the point, not ones where he's just standing around like this."
 Three covers at http://127.0.0.1:9563/ (A, B, C): X4's yellow band, type and corner reaction; real flexing frames from the Muscle & Fitness behind-the-scenes source. "PM" kept capitalized per the 10-28 thumbnail rule, no period. Builder `scripts/covers/ds43-20261030/build_r3.py`; install from `r3/built/<letter>/`.
+
+## Round 4 (Dan, 2026-10-30)
+
+Dan: "I like C, but put me in the left-hand corner so I don't block his abs. Also put me in a tank top."
+Revised C at http://127.0.0.1:9564/, awaiting approval of this exact file (show-before-install rule). Corner image edited to a black tank top; Terry moved to a clean frame at 74.4 s of the same shot, because the round 3 frame has a hand pointing at the monitor over his lower abs. Builder `scripts/covers/ds43-20261030/build_r4.py`; files `r4/built/c/`.

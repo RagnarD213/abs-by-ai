@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R3 ACTIVE 2026-10-30, Claude.** Full-film key running (~9 h), auto-renders after. AI clips in review. Slot held. Next: audit, gates, page. `/Volumes/Expansion/_edit_work/RO-37/round3/`
 
-**Terry Crews Fasting SFC Setup REVIEW 2026-10-30, Claude.** Rounds 1-2 rejected; [three R3 covers](http://127.0.0.1:9563/) await Dan's pick; backups verified (Drive `1Tf1sUu2KWvFKT7WLGCakLJBZ4jHOzjq8`). Nothing queued. Next: install pick, schedule Dec 22 6 PM. `Docs/DS43_COVER_REVIEW_20261030.md`
+**Terry Crews Fasting SFC Setup REVIEW 2026-10-30, Claude.** [Revised cover C](http://127.0.0.1:9564/) awaits Dan's approval; backups verified (Drive `1Tf1sUu2KWvFKT7WLGCakLJBZ4jHOzjq8`). Nothing queued. Next: install pick, schedule Dec 22 6 PM. `Docs/DS43_COVER_REVIEW_20261030.md`
 
 **RO-38:R3-BUILDING:2026-10-30:Claude.** `/Volumes/Expansion/_edit_work/RO-38/round3/`
 
