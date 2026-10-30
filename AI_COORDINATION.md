@@ -27,7 +27,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 
-**First Time At The Gym LFC R2 REVIEW 2026-10-29, Claude.** Cutout rebuild: [R2 page](http://127.0.0.1:9540/), first minute, 47 scenes, 44 context clips; hair 23 px, no lower-third overlap. Slot released. Next: Dan's picks, then full-film mattes (~$8.83) and build. `/Volumes/Expansion/_edit_work/RO-37/round2/`
+**First Time At The Gym LFC R2 REVIEW 2026-10-29, Claude.** [R2 page](http://127.0.0.1:9540/); slot released. Next: Dan's picks, full-film mattes, build.
 
 **DS-43:WAIT-SLOT:2026-10-29:Claude.**
 
