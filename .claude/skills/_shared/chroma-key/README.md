@@ -28,6 +28,15 @@ reflective glass seen edge-on; then composite (`stage2_comp.py`). Recalibrate pe
 watch or glasses boxes, hair box for the measure. Reset temporal neighbours at every cut (never average across a cut).
 Grade and audio stay per video.
 
+## Frame trap: `-ss` plus sequential reading can run one frame late (2026-10-30, RO-37 R3)
+
+`ffmpeg -ss (k-0.5)/fps -i ROLL -frames:v N ... -f rawvideo -` doubles the first frame after some seek points (not others, it
+depends on rounding), so every later frame of that run is one frame late. A matte and a picture decoded from different start
+points then sit one frame apart: on a moving arm that is about 6 px, which prints as a white or dark line on some shots and
+none on others. Add `-fps_mode passthrough` as an output option on every sequential decode of a roll (picture and matte alike),
+then check by matching a seek decode against a plain decode from frame 0. Symptom: a key that looks fine in stills or still
+moments and sloppy in spots when he moves. A one-frame `--frame` still will not show it reliably.
+
 ## Run it cheaply: calibrate on excerpts, key each piece once (2026-10-21, every recipe, Claude and Codex)
 
 The key was half of all render time on 10-21, and two thirds of that was re-keying whole clips to try a setting
