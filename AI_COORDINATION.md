@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Celebrity Ozempic LFC Setup REVIEW 2026-10-30, Claude.** Five thumbnails awaiting Dan's pick; nothing uploaded. YouTube Nov 15 planned. Next: packaging and queue after pick. `scripts/covers/ro24-20261030/`
+**RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
 **Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 

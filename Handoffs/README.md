@@ -12,7 +12,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## OPEN — not yet executed
 
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).
-- [Celebrity Ozempic LFC Setup](handoff-20261030-ro24-celebrity-ozempic-thumbnails-and-video-setup.md): **Ready 2026-10-30, fire any time. Claude Opus 5.5, high.** RO-24 R5 finalized and locked as the long-form green-screen standard: five thumbnails (Codex subscription), stop for Dan's pick, then setup for Sun Nov 15.
 
 
 

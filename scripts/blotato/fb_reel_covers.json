@@ -1193,5 +1193,16 @@
   "approved": "Dan approved exact Round4 design1 for all three Shorts on 2026-10-29",
   "sha256": "51e3f3e7af463ee8d62c66727a7ed0d2eb7738454ccd26cfea949d40dd91a226",
   "when": "2027-01-19T00:00:00.000Z"
+ },
+ {
+  "job": "RO-24",
+  "slug": "ro24-celebrity-ozempic",
+  "match": "Weight loss medication gets some people ripped and totally destroys other people's lives.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Reacting To Celebrity Ozempic Transformations/Reacting To Celebrity Ozempic Transformations - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan picked A on 2026-10-30",
+  "sha256": "26d58b33fac257ea719de69fe3a6bf4f2c7403e3b0cd15cfd2123b5608d4bb32",
+  "when": "2026-11-16T18:00:00.000Z"
  }
 ]
