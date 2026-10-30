@@ -47,7 +47,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Sun Jan 3 | 3 | Why You're Not Losing Weight | Live |
 | Wed Jan 6 | 3 | Arms & Shoulders Workout Only | Waitlist |
 | Fri Jan 8 | 3 | RO-38 The 5 Muscles Women Notice First (needs editing; Quitter's Day) | Not booked |
-| Sun Jan 10 | 3 | RO-30 The Fastest Way To Lose Stubborn Love Handles (film approved Oct 29) | Not booked; thumbnail choice pending |
+| Sun Jan 10 | 3 | RO-30 The Fastest Way To Lose Stubborn Love Handles (film and R3 middle thumbnail approved) | Waitlist; Jan 10 reserved, four queue slots needed |
 | Wed Jan 13 | 3 | How To Make Time For Exercise & Nutrition | Waitlist |
 | Fri Jan 15 | 3 | The Stomach Vacuum | Live |
 | Sun Jan 17 | 3 | Calories | Live |

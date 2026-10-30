@@ -1,0 +1,29 @@
+{
+  "job": "RO-30",
+  "film_approval": {
+    "words": "Okay this looks good. This is approved. Go ahead and proceed to set up",
+    "date": "2026-10-29",
+    "sha256": "bc6a8da6031d1e70ee8737b702532eb358199450020d931c91295abb6cb7b0ee"
+  },
+  "headline": "Lose Stubborn Love Handles",
+  "designs": {
+    "A": "Yellow two-line top band; AI Dan chooses water over cola on a poolside patio.",
+    "B": "White/cyan condensed type left; AI Dan between lateral-raise reps in a dark gym.",
+    "C": "Real studio-blue-222 photo, original person pixels; clean navy/teal backdrop and Manrope type right.",
+    "D": "AI Dan photographing a full meal; cream/coral editorial type on the right.",
+    "E": "Approved opening lean/heavier comparison, two panels beneath a white headline band."
+  },
+  "image_generations": 4,
+  "new_AI_Dan": 3,
+  "real_photo": 1,
+  "reused_approved_AI_comparison": 1,
+  "paid_provider_cost_usd": 0,
+  "release_plan": {
+    "youtube": "2027-01-10T09:00:00-06:00",
+    "others": "2027-01-11T12:00:00-06:00"
+  },
+  "output": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/The Fastest Way To Lose Stubborn Love Handles",
+  "thumbnail_approved": false,
+  "uploaded": false,
+  "scheduled": false
+}

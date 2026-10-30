@@ -1204,5 +1204,16 @@
   "approved": "Dan picked A on 2026-10-30",
   "sha256": "26d58b33fac257ea719de69fe3a6bf4f2c7403e3b0cd15cfd2123b5608d4bb32",
   "when": "2026-11-16T18:00:00.000Z"
+ },
+ {
+  "job": "RO-30",
+  "slug": "ro30-love-handles",
+  "match": "You can lose 20 pounds, see a thinner face in the mirror, and still have love handles. They're some of the last fat to go.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/The Fastest Way To Lose Stubborn Love Handles/The Fastest Way To Lose Stubborn Love Handles - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan picked R3 middle variation 2 on 2026-10-30",
+  "sha256": "c6c1b45f15ba64fd5f66be295779502e7d7788be12253ceb132cd546a0aaa2e1",
+  "when": "2027-01-11T18:00:00.000Z"
  }
 ]

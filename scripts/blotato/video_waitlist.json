@@ -531,6 +531,17 @@
   "planned": "2027-01-07 09:00"
  },
  {
+  "config": "scripts/blotato/configs/ro30-love-handles.json",
+  "kind": "longform",
+  "job": "RO-30",
+  "label": "The Fastest Way To Lose Stubborn Love Handles",
+  "added": "2026-10-30",
+  "approved_release": "2027-01-10T15:00:00.000Z",
+  "planned": "2027-01-10 09:00",
+  "kitchen": false,
+  "note": "Film R6 and thumbnail R3 middle approved. All four uploaded assets downloaded/hash-verified. Full setup complete; queue needs four free slots. Keep approved Jan 10 9 AM Central; other platforms Jan 11 noon. Receipt Docs/RO30_SETUP_RECEIPT_20261030.md."
+ },
+ {
   "config": "scripts/blotato/configs/ro18-make-time-for-exercise.json",
   "kind": "longform",
   "job": "RO-18",

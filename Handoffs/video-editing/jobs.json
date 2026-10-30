@@ -3750,11 +3750,11 @@
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-30-the-fastest-way-to-lose-stubborn-love-handles.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "R6 film approved unchanged. R3 thumbnail: user likes R2 gym2 but requested less body fat. Three checked variations, lightest to fullest, all slimmer than previous. Same face/headline/layout: http://127.0.0.1:8837/?revision=3 . Await exact pick1/2/3 before installation and platform setup. Docs/RO30_THUMBNAIL_R3_REVIEW_20261030.md",
+   "note": "Dan approved R6 film Oct29 and R3 middle thumbnail Oct30. Setup complete: all four Blotato assets uploaded/hash-verified; automatic waitlist needs four free slots (197/200). Jan10 9AM YouTube, Jan11 noon socials reserved; no saved schedules yet. Docs/RO30_SETUP_RECEIPT_20261030.md.",
    "needs": "",
    "order": 163,
    "updated": "2026-10-30",
-   "rev": 15,
+   "rev": 16,
    "syncedRev": 1,
    "editor": "Codex",
    "by": "Codex"
