@@ -160,7 +160,7 @@ def locate(ref_png, t):
     import cv2
     ref = Image.open(ref_png).convert('RGBA'); flat = Image.alpha_composite(Image.new('RGBA', ref.size, (80, 80, 80, 255)), ref)
     r = np.asarray(flat.convert('L'), np.float32); g = grab(t)
-    res = cv2.matchTemplate(g[:300, :900], r, cv2.TM_CCOEFF_NORMED); _, mx, _, loc = cv2.minMaxLoc(res)
+    res = cv2.matchTemplate(g[:300, :], r, cv2.TM_CCOEFF_NORMED); _, mx, _, loc = cv2.minMaxLoc(res)
     return [int(loc[0]), int(loc[1])], round(float(mx), 3)
 
 

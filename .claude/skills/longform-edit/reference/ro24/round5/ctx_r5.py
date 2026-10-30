@@ -8,7 +8,7 @@ F = R4 / 'final/RO24_R5_MASTER.mp4'; O = R4 / 'review/context'; O.mkdir(parents=
 plan = json.load(open(R4 / 'bg_plan.json'))['segments']; man = {m['id']: m for m in json.load(open(R4 / 'film_manifest_r5.json'))}
 END = max(m['b'] for m in man.values())
 items = [(s['id'], s['t0'], s['t1'], 'bg') for s in plan if s['id'] in ('BG20', 'BG21')]   # round 5: the tightened cut
-items += [(i, man[i]['a'], man[i]['b'], 'item') for i in ('G06', 'P8', 'A3', 'A4') if i in man]   # round 5 changes
+items += [(i, man[i]['a'], man[i]['b'], 'item') for i in ('A1', 'A3', 'P8', 'G06', 'A8') if i in man]   # round 5 changes
 out = []
 for i, a, b, kind in items:
     a0, b0 = max(0.0, a - 4.0), min(END, b + 4.0)

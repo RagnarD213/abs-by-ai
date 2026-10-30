@@ -80,7 +80,7 @@ def main():
         k_item0 = it['src0'] - kf0                          # plate frame of the item's first film frame
         sk0, sk1 = k_item0, k_item0 + it['n']
         top, cx = G.shot_head(geo, sk0, sk1)                # head over the WHOLE shot piece (static framing per shot)
-        o = lo
+        o = lo; anchor = None; after_cover = False         # anchor: plate frame of this item's last presenter run start
         while o < hi:
             covered = C.opaque(o); seg = None if covered else seg_at(o)
             # run: same coverage and same background segment
@@ -90,7 +90,7 @@ def main():
                 for q in range(o, e):
                     f = old_frame(q) if old is not None else C.apply(None, q); wr.stdin.write(np.ascontiguousarray(f).tobytes()); done += 1
                     if q in stills: cv2.imwrite(A.out[:-4] + f'-{q:05d}.jpg', f[:, :, ::-1], [cv2.IMWRITE_JPEG_QUALITY, 95])
-                runs.append(dict(o0=o, o1=e, kind='covered', piece=it['piece']))
+                runs.append(dict(o0=o, o1=e, kind='covered', piece=it['piece'])); after_cover = True
                 o = e; continue
             assert seg is not None, f'film frame {o} has Dan on screen but no background segment'
             if old is not None and seg['id'] not in redo:
@@ -108,7 +108,14 @@ def main():
             mode = bg.placement
             k, ox, oy = G.affine(mode, framing, top, cx)
             cam = G.camera(mode, framing, top, cx) if seg['type'] in G.CAMERA_LOCKED else (1.0, 0.0, 0.0)
-            pr = G.Presenter(it['key'], k_item0 + (o - it['o0']), e - o, k, ox, oy)
+            kq = k_item0 + (o - it['o0'])
+            # after an insert inside the same piece, read on from the last run's start instead of seeking to the new frame:
+            # round 5's A8 split showed a fresh seek there landing one frame from round 4's continuous read (ROUND-5-REVIEW S2)
+            skip = kq - anchor if (after_cover and anchor is not None) else 0
+            pr = G.Presenter(it['key'], kq - skip, e - o + skip, k, ox, oy)
+            for _ in range(skip): pr.read()
+            if not skip: anchor = kq
+            after_cover = False
             light = getattr(bg, 'light', None)
             for q in range(o, e):
                 while bg._next < q:                         # keep the background's clock on film time (a render that starts mid-segment)

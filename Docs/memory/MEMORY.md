@@ -9,6 +9,7 @@
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
+- [Long-form green-screen standard](longform-greenscreen-standard.md): LOCKED 10-30: Celebrity Ozempic R5 is how every long-form green-screen film is built
 - [Green-screen backgrounds](green-screen-background-cycle.md): LOCKED 10-27 for long-form: greenscreen-bg template; reaction Shorts keep Codex R5
 - [Key efficiency](chroma-key-efficiency.md): keys cheap like Codex; excerpts + key once (10-24)
 - [Downloads allowed](downloads-always-allowed.md): never ask to download photos, videos, files (10-21)

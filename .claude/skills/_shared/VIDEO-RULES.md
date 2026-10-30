@@ -76,6 +76,17 @@ this in as our standard background template for all these kinds of long-form gre
 our permanent format."* The background is never plain and changes on cuts with what he is saying. Do not reopen the style;
 a new film supplies only its facts, photos and clip windows. Reaction SHORTS keep the Codex R5 format above.
 
+## The long-form green-screen standard (Dan, 2026-10-30, RO-24 R5)
+
+**"Reacting To Celebrity Ozempic Transformations" round 5 is the standard way to make every long-form green-screen video,
+Claude and Codex alike.** Dan, on the finished film: *"I'm real happy with how this turned out. Let's lock this in as our
+standard way to do the long-form green screen videos."* This widens the 10-27 background lock to the whole film: AI hook,
+person-by-person structure (their clip full screen with sound, then rolling muted with Dan in the corner, then panels, big
+type, set and soft backgrounds matched to his words), full-screen real photos on the exact line, study cards to scale, list
+cards beside Dan, recap, close. Exact master, hash, rhythm and build order:
+`longform-edit/reference/longform-greenscreen-standard/README.md`. A new film changes facts, script, photos and clip windows,
+not the build; do not reopen the format. Reaction SHORTS keep the Codex R5 format. The lock waives no gate on a future film.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.

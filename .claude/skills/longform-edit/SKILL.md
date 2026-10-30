@@ -49,6 +49,7 @@ Older text further down that disagrees with these loses. Each rule lives in `_sh
 - Reviews: a fresh `frame-reviewer` on every AI frame pair and motion take; the full candidate goes to `ra-reviewer` (Opus 5.5), not Fable (AGENTS.md model routing, 2026-10-02).
 - Voice: start from the +3 dB lift at 120 Hz ("A subtle bass lift on his voice is the standard", 2026-10-12).
 - Review copies of 45 s or longer also go in `Videos to Review/`; pages are served with `review_server.py` ("Review videos also go in `Videos to Review/`", 2026-10-08).
+- Green screen: a long-form green-screen film is built the way Reacting To Celebrity Ozempic Transformations R5 was built; read `reference/longform-greenscreen-standard/README.md` first (Dan, 2026-10-30).
 - After Dan finalizes: write the one `/video-setup` handoff with five Codex thumbnails, not /youtube-packaging ("Thumbnails: the five, each its own design", 2026-10-13).
 
 ## Scene-content and freeze review (Dan, 2026-10-09)

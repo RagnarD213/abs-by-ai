@@ -23,6 +23,8 @@ AI = R5 / 'ai_inserts.json'
 if AI.exists():
     for x in json.load(open(AI)):
         MAN = [m for m in MAN if m['id'] not in x.get('replaces', [])]
+        for m in MAN:                                             # an item the insert cuts short (A6 takes over from P7)
+            if m['id'] in x.get('trims', {}): m.update(x['trims'][m['id']], note=(m.get('note', '') + f" | round 5: ends where {x['id']} starts").strip(' |'))
         MAN.append(dict(id=x['id'], template='broll', kind='opaque', a=x['a'], b=x['b'], mov=x['mov'], round=5, note=x['note']))
 MAN.sort(key=lambda m: m['a'])
 op = [m for m in MAN if m['kind'] == 'opaque']
@@ -33,6 +35,11 @@ P = json.load(open(R4 / 'bg_plan.json'))
 for s in P['segments']:
     s['t0'], s['t1'] = round(r5_t(s['t0']), 4), round(r5_t(s['t1']), 4)
     if s.get('line_times'): s['line_times'] = [round(r5_t(t), 3) for t in s['line_times']]
+    if s['id'] == 'BG08': s['t1'] = 3998 * 1001 / 30000; s['why'] += ' | round 5: runs on to A3 (review M-A)'
+    if s['id'] == 'BG09': s['t0'] = 3998 * 1001 / 30000
+    if s['id'] == 'BG08': s['clip']['windows'][2][1] = 13.5        # render 4 review: windows must outlast the longer segment (no loop back)
+    if s['id'] == 'BG15': s['clip']['windows'][0][1] = 25.73       # render 4 review: the Amy interview runs on so its next shot starts 0.3 s after G05
+                                                                  # leaves (4:11.10) and the third window falls under P8; source cut at 25.87
     if s['id'] == 'BG20': s['why'] += ' | round 5: ends 19 frames earlier, at the tightened cut (pause removed)'
 json.dump(P, open(R5 / 'bg_plan.json', 'w'), indent=1)
 print(len(MAN), 'manifest items,', len(P['segments']), 'segments; film', round(json.load(open(R5 / 'edl_r5.json'))['items'][-1]['o1'] / FPS, 3), 's')

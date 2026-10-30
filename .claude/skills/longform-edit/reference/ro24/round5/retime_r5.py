@@ -21,6 +21,9 @@ if __name__ == '__main__':
     for x in it[k + 1:]: x['o0'] -= CUT; x['o1'] -= CUT
     E['note'] = (E.get('note', '') + f' | round 5: pause after "why you should too." trimmed ({CUT} silent frames off the end of piece '
                  f'{it[k]["piece"]}; later items {CUT} frames earlier)').strip()
+    A3F = 3998                                   # review M-A: the T->W punch in P04b moves from 3985 to A3's first frame,
+    j = next(i for i, x in enumerate(it) if x['o1'] == 3985 and x['piece'] == 'P04b')   # so no 13-frame W sliver shows before A3
+    d = A3F - 3985; it[j] = dict(it[j], n=it[j]['n'] + d, o1=A3F); it[j + 1] = dict(it[j + 1], src0=it[j + 1]['src0'] + d, n=it[j + 1]['n'] - d, o0=A3F)
     json.dump(E, open(R5 / 'edl_r5.json', 'w'), indent=1)
     W = json.load(open(R4 / 'film_words_r4.json'))
     assert not any(AT / FPS <= w['t0'] < (AT + CUT) / FPS for w in W), 'a word inside the removed span'

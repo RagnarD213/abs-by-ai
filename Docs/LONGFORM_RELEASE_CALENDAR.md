@@ -25,7 +25,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Nov 4 | 1 | RO-27 This Boring Daily Routine Got Me Abs At 41 | Live: YouTube6164756, Nov4 9AM; FB6164753/IG6164754/TikTok6164755, Nov5noon Central. Receipt `Docs/RO27_SETUP_RECEIPT_20261028.md` |
 | Sun Nov 8 | 1 | Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle | Live |
 | Wed Nov 11 | 1 | No film (its kitchen film moved to phase 2); Short day: Does Cristiano Ronaldo's Electric Shock Ab Belt Work? | Waitlist |
-| Sun Nov 15 | 1 | RO-24 Reacting To Celebrity Ozempic Transformations if approved by Nov 12, else Short day | Not booked |
+| Sun Nov 15 | 1 | RO-24 Reacting To Celebrity Ozempic Transformations (film approved 2026-10-30; setup handoff open) | Not booked |
 | Wed Nov 18 | 1 | RO-28 Why Zepbound Improves Your Health Even If You're Ripped | Live: YouTube6213010 Nov18 9AM; FB6213006/IG6213007/TikTok6213008 Nov19 noon Central. Receipt Docs/RO28_SETUP_RECEIPT_20261029.md |
 | Sun Nov 22 | 1 | RO-23 I Ranked Every Ab Exercise From Worst To Best if finished, else Short day | Not booked |
 | Wed Nov 25 | 1 | How To Work Out At Home On A Budget | Live |
@@ -47,7 +47,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Sun Jan 3 | 3 | Why You're Not Losing Weight | Live |
 | Wed Jan 6 | 3 | Arms & Shoulders Workout Only | Waitlist |
 | Fri Jan 8 | 3 | RO-38 The 5 Muscles Women Notice First (needs editing; Quitter's Day) | Not booked |
-| Sun Jan 10 | 3 | RO-30 The Fastest Way To Lose Stubborn Love Handles (in review) | Not booked |
+| Sun Jan 10 | 3 | RO-30 The Fastest Way To Lose Stubborn Love Handles (film approved Oct 29) | Not booked; thumbnail choice pending |
 | Wed Jan 13 | 3 | How To Make Time For Exercise & Nutrition | Waitlist |
 | Fri Jan 15 | 3 | The Stomach Vacuum | Live |
 | Sun Jan 17 | 3 | Calories | Live |
@@ -71,7 +71,7 @@ Re-dates only; nothing deleted.
 
 ## Dates this plan depends on (no edits are started by this task)
 
-- Nov 12: Reacting To Celebrity Ozempic Transformations (RO-24) approved, or Sun Nov 15 becomes a Short day. Nov 15 for Why Zepbound Improves Your Health (RO-28), Nov 19 for I Ranked Every Ab Exercise (RO-23), Nov 22 for Why Losing Fat Changed My Face (RO-22) edited.
+- Nov 15 for Why Zepbound Improves Your Health (RO-28), Nov 19 for I Ranked Every Ab Exercise (RO-23), Nov 22 for Why Losing Fat Changed My Face (RO-22) edited.
 - Dec 11: every blitz film named with its finish date (RO-21, RO-37, RO-38, RO-29, RO-31, RO-30). Dec 18: the first 14 blitz days (6 long-forms, 16 Shorts, Dec 26 to Jan 8) finished and set up.
 - Follow-along workouts (RO-33 to RO-36), if ever filmed and finished, replace the Friday films from Jan 15 on.
 

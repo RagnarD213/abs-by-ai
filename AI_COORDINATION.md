@@ -81,7 +81,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles SETUP NEEDS DAN 2026-10-29, Codex01a188fd.** Film approved; [five thumbnails](http://127.0.0.1:8837/) checked, recommendation A. Three matching backups complete. Pick precedes platform upload/queue; January10 planned. SL-28 registered only. `Docs/RO30_SETUP_THUMBNAIL_REVIEW_20261029.md`.
 
 
-**Brief overlap NEEDS DAN 2026-10-29, Codex.** Pause old cloud routine; keep local daily publisher.
+**Brief overlap NEEDS DAN 2026-10-30, Codex.** Pause old cloud routine; retain local.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -180,7 +180,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RA-06:POLICY-RECHECK:2026-10-16:Claude.** Ads `828274063389`, `828320387740` in review. Next 10-17: `node scripts/ads/api/client.js policy 24316364155`; clean, delete this.
 
-**Celebrity Ozempic LFC R5 REVIEW 2026-10-30, Claude.** [Full film](http://127.0.0.1:9421/); gates as R4, independent SHIP; slot released. Next: Dan's notes. `/Volumes/Expansion/_edit_work/RO-24/round5/`
 
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
