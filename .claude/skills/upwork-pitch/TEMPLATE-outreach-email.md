@@ -5,7 +5,7 @@ Only obvious typos were fixed ("complete at" to "complete ad", "Let's a" to "Let
 
 ---
 
-I can help [COMPANY NAME] make your ad campaigns on Google and YouTube significantly more profitable. To prove it to you, I'd like to make you a complete ad for FREE, along with a variation of your most successful ad.
+I can help [COMPANY NAME] make your ad campaigns on Google and YouTube way more profitable. To prove it to you, I'd like to make you a complete ad for FREE, along with a FREE variation of your most successful ad.
 
 This way you can test my creative at no risk or cost, and see for yourself if it works before deciding if we should work together.
 
