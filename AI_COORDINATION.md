@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-43:WAIT-SLOT:2026-10-29:Claude.**
 
-**RO-38:R1-BUILDING:2026-10-29:Claude.** `/Volumes/Expansion/_edit_work/RO-38/round1/`
+**RO-38:REVIEW:2026-10-29:Claude.** [R1](http://127.0.0.1:9539/) `/Volumes/Expansion/_edit_work/RO-38/round1/`
 
 **RO-29:WAIT-SLOT:2026-10-29:Claude.**
 
@@ -59,7 +59,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R2:ACTIVE:2026-10-29:Codex01a18963.** Internal-previews;crunch-source-question;auto-continuation. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
+**RO-23:R2:WAIT-SOURCE:2026-10-29:Codex01a18963.** Regular-crunch recording needed; slot released. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
