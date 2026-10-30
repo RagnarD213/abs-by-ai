@@ -10,7 +10,8 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for proposals
 
-(none yet: first batch drafted 2026-10-29)
+- Upwork proposals use Dan's outreach template (`TEMPLATE-outreach-email.md`), lightly customized per client (Dan, 2026-10-30, batch upwork-1). Keep his wording, keep any screening answers and the price in a block at the end.
+- On Upwork, swap Calendly and "respond to this email" for a reply and an Upwork video call. Contact outside Upwork before a contract is against its Terms of Service. No mailing address footer.
 
 ## Rules for outreach emails
 
