@@ -11,9 +11,9 @@ Same 10/15 studio set as RO-28 (`../ro28/`, read it first); only the files that 
   says so in plain words (`page_extra.py`, checks list) so Dan does not read a red row as a fault.
 - Colour: A = RO-28's pick (Rich Balanced, warmer skin), recommended; B = I'm 41 grade; C = Richer Colour.
 - TikTok phone cards (P01, P02): the chip credits the creator (`credit=` on the plan item, `@handle on TikTok`), drawn in the phone's
-  empty white band under the video (`gfx.py`, anchor `mt` at 326, 918, size 17). The old top-left chip at (600, 54) touched Dan's hair.
+  empty white band under the video (`gfx.py`, anchor `mt` at 326, 930, size 11; size 17 overflowed the phone). The old top-left chip at (600, 54) touched Dan's hair.
 - New lower third G13B "Is It Worth Killing Yourself For This?" (eyebrow ASK YOURSELF) on the cortisol-vs-stressor line.
-- No Fahrenheit thermostat clip exists in the library; the Celsius one (22 to 21) stands in, flagged on the page.
+- Thermostat: stock `p39857556.mp4@6.3`, cropped (2560x1440 at 700, 520), Fahrenheit 73 to 68 with no logo (the first Celsius pick showed a brand).
 
 ## Traps this round paid for
 1. **Whisper on the assembled audio needs the bundled ffmpeg on PATH** (`asr_assembled.sh` exports `Media/video_edit/bin`), or it dies
@@ -33,3 +33,17 @@ Same 10/15 studio set as RO-28 (`../ro28/`, read it first); only the files that 
    small `.sh` instead.
 9. **The render queue was busy: the context step waited 74 min for a heavy slot.** Start the reviewer on finished items while a re-render
    of a few items runs, and tell it which files to check last.
+
+## Independent check before Dan saw it (15 fixes, 2026-10-30)
+10. **Lower-third hold:** readable time = t1 - 0.33 s fade - last part's land time; must be 1.5 s or more. When a full-screen item
+    follows, set `over_full=True` so the card rides over the clip instead of being cut at its start; otherwise lengthen `tail`.
+11. **Recap split over two cards:** `first=4` on the second side list numbers it 4 to 6 (`side-list/build.py` and `from_plan.py` take it now).
+    One six-item card held too long over its first three lines.
+12. **A phone card's tail can overlap the next lower third** (P01 sat under G03): shorten the phone `tail` until they clear.
+13. **Check every stock pick moving, not from the still:** the first belly clip, the sleep photo and the thermostat (brand logo) all failed
+    on the context clip. A library clip graded colder than the presenter needs its own `grade` (C06).
+14. **AI pair that does not read with the sound off gets redrawn**, never captioned around (A7: the argument had to be visible in START,
+    her storming off in END). New gate + fresh frame-reviewer for every redraw.
+15. **Lip-sync slots start on the excuse voice's first word** ("oh Dan"), not on Dan's narration before it.
+16. **Arm-clear row:** the check wants 60 px; a 52 px near miss with nothing touching is shown on the page as PASS with a note
+    (`page.py`), not a red FAIL Dan would read as a fault.

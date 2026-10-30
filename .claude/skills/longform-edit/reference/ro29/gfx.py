@@ -386,7 +386,7 @@ def paint(frame, t, items, framing="W2", clip_img=None):
         elif it["kind"] == "phone":
             im = B.shift_presenter(im, **SHIFT[framing])
             im = iphone(im, clip_img if clip_img is not None else Image.new("RGB", (574, 1080), "white"))
-            B.disclosure(im, it.get("credit", "AbsByAI.com"), (326, 918), U, anchor="mt", size=17)   # RO-29: the TikTok creator's credit, in the phone's empty band under the video (top-left chip touched his hair)
+            B.disclosure(im, it.get("credit", "AbsByAI.com"), (326, 930), U, anchor="mt", size=11)   # RO-29: the TikTok creator's credit, in the phone's empty band under the video (top-left chip touched his hair)
     for it in act:
         if it["kind"] == "lt":
             im = B.lower_third(im, t - it["t0"], it["topic"], it["point"], dur=it["t1"] - it["t0"])
