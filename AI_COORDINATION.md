@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Terry Crews Fasting SFC R1 (DS-43) REVIEW 2026-10-30, Claude.** [Both versions](http://127.0.0.1:9441/), independent SHIP on each; slot released. Next: Dan picks scripted or off the cuff, then setup handoff.
 
-**RO-38:REVIEW:2026-10-29:Claude.** [R1](http://127.0.0.1:9539/) `/Volumes/Expansion/_edit_work/RO-38/round1/`
+**RO-38:REVIEW:2026-10-30:Claude.** [R2 film](http://127.0.0.1:9542/) `/Volumes/Expansion/_edit_work/RO-38/round2/`
 
 **RO-29:REVIEW:2026-10-30:Claude.** [R1](http://127.0.0.1:9541/)
 
@@ -80,7 +80,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Love Handles SETUP NEEDS DAN 2026-10-29, Codex01a188fd.** Film approved; [five thumbnails](http://127.0.0.1:8837/) checked, recommendation A. Three matching backups complete. Pick precedes platform upload/queue; January10 planned. SL-28 registered only. `Docs/RO30_SETUP_THUMBNAIL_REVIEW_20261029.md`.
+**Love Handles R2 NEEDS DAN 2026-10-30, Codex01a188fd.** [Three fat-gain thumbnails](http://127.0.0.1:8837/?revision=2) checked; recommendation2. Same headline. Film approved; setup waits for exact thumbnail pick. `Docs/RO30_THUMBNAIL_R2_REVIEW_20261030.md`.
 
 
 **Brief overlap NEEDS DAN 2026-10-30, Codex.** Pause old cloud routine; retain local.
