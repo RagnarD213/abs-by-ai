@@ -22,7 +22,8 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for picking jobs and prospects
 
-(none yet)
+- Never judge a brand's ads from Meta Ad Library captions. The same caption can sit on 50 different videos. Download or watch the videos and transcribe the openings first. Built With Science: 52 ads shared one caption, all different videos. (2026-10-30)
+- "Started running" dates are not how long a creative has lived: brands relaunch winners in new ads. The video link's `asset_age_days` shows the file's real age. Old files kept in rotation are the likely winners, and two with the same body and different openings show a hook test. (2026-10-30)
 
 ## Approved examples
 
