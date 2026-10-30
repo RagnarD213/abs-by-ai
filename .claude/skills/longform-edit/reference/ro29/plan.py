@@ -99,6 +99,8 @@ PLAN = [
  # ---------------- fix 5: stressful relationships
  dict(id="G13", kind="lt", topic_case="preserve", start="Number five is the one", end="stressful relationships", tail=0.8, topic="FIX 5 OF 6",
       point="Quit Your Stressful Relationships", parts=[["Quit Your Stressful Relationships", "quit your"]]),
+ dict(id="A4D", kind="ai", start="If your wife stresses you out", end="Divorce her", tail=0.95, name="The divorce papers",
+      note="R3 (Dan): a ripped husband presents his average-looking wife with divorce papers"),
  dict(id="A5", kind="ai", start="stresses you out all the time quit", end="quit", tail=2.25, name="Quitting the stressful job",
       note="R2 (Dan): badge already on the desk; box in his arms, he visibly mouths I quit to the boss, then walks out"),
  dict(id="A6", kind="ai", start="oh Dan that's crazy", end="stresses me out", tail=0.03, name="The husband who can't",
@@ -132,7 +134,7 @@ from grades import GR     # RO-29 R2: Dan, every B-roll clip colour corrected
 for _it in PLAN:
     if _it["id"] in GR: _it["grade"] = GR[_it["id"]]
 # RO-29 R2: the AI slots now hold their finished, retimed, colour-corrected takes (ai/final.py)
-_LEFT = {"A1B", "A5"}    # chip clear of the wall clock and of his hair
+_LEFT = {"A1B", "A5", "A4D"}    # chip clear of the wall clock and of his hair
 for _it in PLAN:
     if _it["kind"] == "ai":
         _it["kind"] = "clip"; _it["src"] = [f"{W}/ai/final/{_it['id']}.mp4@0.0"]; _it["label"] = AI

@@ -61,3 +61,11 @@ Picks: colour A, warm bass plus (`fit/eq.txt` = RO27B + `equalizer=f=120:t=q:w=0
 25. **Grading all stock:** measure median luma, p90, saturation, black share beside the presenter, then look. Curves that pull highlights overcook skin; C01, C08, C12 needed a softer second pass. `grades.py`.
 26. **`voice_chain` can trip on a just-written lav.wav on the external drive:** `build.py` retries it. `negscan.py` needs `plan.json`, so run finish, scan, record, finish.
 27. **A chip default sits on a face in some clips (C13):** read every chip against its clip, not just the AI slots.
+
+## Round 3 (2026-10-30): four notes
+Work stays in `round2/` (W), outputs in `round3/final` and `round3/review`.
+28. **"Vibrating" prop: measure frame to frame on a box round it, not phase correlation.** The pitcher in A0 flickered 5 to 8 levels a frame against 0.1 in the next shot. `still_pitcher()` holds it on the clip's first frame, excluding the phone's path.
+29. **Start-only takes drift:** A7d moved the whole picture about 19 px. Track on a lit, textured wall; a dark area reads as static and hides it (`steady_a7()`, unused in the end).
+30. **Wide mouth on a bite reads as a wince or a shout.** Pick the take by frame strips of the face at every second, and cut the range around the bite (A7e 1.0 to 5.43). Prompt "calm, relaxed, brow smooth" helped.
+31. **Readable text survives a handoff only if the prompt keeps the page flat and facing camera** (A4Db kept it, A4D melted it).
+32. **Dan's "m-frames" is a mis-transcription of start and end frames.**
