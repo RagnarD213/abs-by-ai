@@ -7,3 +7,8 @@ Status: **awaiting Dan's pick.** Nothing uploaded or scheduled. Review page: htt
 - Eight covers, labels X1 to X8, blind set per IMAGE-GENERATION.md. Same headline. Automated checks pass in both layouts; faces inspected. Builder: `scripts/covers/ds43-20261030/`. Set folder: `Short-form video content/covers/review/ds43-terry-crews-20261030/`.
 
 Next after the pick: `blind.py pick`, install from `built/<letter>/` (letter from `blind.py reveal`), approved folder with picks.json and hashes, TikTok cover-first copy, Blotato uploads, config (copy ds49-coconut-water.json), FB cover registry, cover_audit and ad_guard, then `organic_short_queue.py` or one waitlist entry with kitchen false for Tue Dec 22 6 PM Central; receipt `Docs/DS43_SETUP_RECEIPT_<date>.md`. Film runs 77.31 s: check each platform's limit. Credit the third-party clips as DS-40 and DS-44 did.
+
+## Round 2 (Dan, 2026-10-30)
+
+Dan rejected all eight: "I don't like any of these. Give me six unique designs: three Google, three Codex, all of them. Terry Crews full screen in the background, looking ripped, three unique images, and then I'm in the corner reacting to my laptop, similar to X4 full screen. I'm cut out like this is the part of the green screen video."
+Built six at http://127.0.0.1:9562/ (labels X1 to X6, blind set `r2/`). Backgrounds are six different real frames from the film's Terry footage (Muscle & Fitness, America's Got Talent), never AI Terry. Corner Dan: three images per maker on a green backdrop, keyed, laptop on the frame bottom. Builder `scripts/covers/ds43-20261030/build_r2.py`. Install from `r2/built/<design>/` (design from `blind.py reveal`).
