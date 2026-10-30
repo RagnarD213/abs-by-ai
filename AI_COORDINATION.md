@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R2 REVIEW 2026-10-29, Claude.** [R2 page](http://127.0.0.1:9540/); slot released. Next: Dan's picks, full-film mattes, build.
 
-**DS-43:WAIT-SLOT:2026-10-29:Claude.**
+**Terry Crews Fasting SFC R1 (DS-43) REVIEW 2026-10-30, Claude.** [Both versions](http://127.0.0.1:9441/), independent SHIP on each; slot released. Next: Dan picks scripted or off the cuff, then setup handoff.
 
 **RO-38:REVIEW:2026-10-29:Claude.** [R1](http://127.0.0.1:9539/) `/Volumes/Expansion/_edit_work/RO-38/round1/`
 
