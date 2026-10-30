@@ -1,0 +1,31 @@
+{
+ "_note": "DS-43 R1 B-roll grade (VIDEO-RULES 2026-10-11). Measured on 1-in-20 frames: A0210 mean Y .482, sat .346, RGB .556/.457/.415 (bright, slightly warm); A0086 mean Y .445, sat .466, RGB .575/.406/.326 (orange, saturated). Pull both toward Dan's R5 warm grade on the blue field: a touch of contrast in the mids, A0086's orange and saturation brought down.",
+ "A0210": {
+  "gamma": 1.03,
+  "sat": 1.0,
+  "rgb": [
+   0.99,
+   1.0,
+   1.02
+  ]
+ },
+ "A0086": {
+  "gamma": 1.04,
+  "sat": 0.9,
+  "rgb": [
+   0.96,
+   1.0,
+   1.05
+  ]
+ },
+ "B0317": {
+  "gamma": 1.02,
+  "sat": 0.92,
+  "rgb": [
+   0.98,
+   1,
+   1.03
+  ],
+  "note": "warm tungsten restaurant stock pulled slightly cooler and less saturated to sit with the Soft Blue field and Dan (R5 warm grade)"
+ }
+}

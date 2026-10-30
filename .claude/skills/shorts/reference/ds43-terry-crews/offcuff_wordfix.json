@@ -1,0 +1,5 @@
+{
+ "drop": [2162.06, 2162.1, 2162.2, 2162.4],
+ "add": [["If", 2163.07, 2163.22], ["you", 2163.22, 2163.34], ["want", 2163.34, 2163.48], ["to", 2163.48, 2163.54]],
+ "note": "the restart 'If you want, ... if you want to learn' (2161.96-2163.02) is cut; P8 starts on the second attempt (medium.en on 2162.9-2164.7)"
+}
