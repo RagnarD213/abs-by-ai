@@ -50,7 +50,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1, 2026-10-29, Codex01a184db.** Previews rendered; picture/audio/player/hair checks done. Key gate blocks delivery. Waiting for Dan’s early-review choice in chat; slot released. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R1, 2026-10-30, Codex01a184db.** Limited review delivered with Dan’s permission: http://127.0.0.1:9282/. Green-screen QA remains unresolved; not fully checked. Awaiting colour/voice/frame and asset choices; slot released. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -66,7 +66,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R1 (SL-10) - REVIEW 2026-10-29, Claude.** [Four Shorts](http://127.0.0.1:9431/), all gates PASS, independent SHIP. Slot released. Next: Dan's notes, then setup handoff (covers).
+**Alcohol And Abs SFC R2 (SL-10) ACTIVE 2026-10-30, Claude.** Dan's R1 notes: three new AI intro clips (Shorts A, B, E); frames in review, Flow set running. Slot held. Next: frame page. `/Volumes/Expansion/_edit_work/SL-10/round2/`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 

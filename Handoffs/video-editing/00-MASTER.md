@@ -201,12 +201,12 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | DELIVERED: awaiting Dan | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | DRAFT: asset choices waiting for Dan | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | BLOCKED | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | UPLOADED | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | UPLOADED | L |
-| [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | DELIVERED: awaiting Dan | L |
+| [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | IN PROGRESS | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | FINALIZED | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | READY | L |
 | [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | READY (unblocked 2026-10-29; Fri Jan 29 slot) | L |
@@ -284,7 +284,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-07](SL-07-if-i-had-belly-fat-shorts.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days (RO-16, public Sun Dec 27 under the 2026-10-28 plan; Shorts Dec 28 to Jan 4) | UPLOADED | S |
 | [SL-08](SL-08-calories-not-losing-weight-shorts.md) | Calories: The Reason You're Not Losing Weight (RO-10, YouTube Sun Jan 17 2027 under the 2026-10-28 plan; Shorts Jan 18 to 25) | FINALIZED | S |
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
-| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | DELIVERED: awaiting Dan | S |
+| [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | IN PROGRESS | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, public Oct 28; kitchen footage, so its Shorts wait for phase 2 or February) | READY; hold release until parent is public | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | READY; hold release until parent is public | S |
