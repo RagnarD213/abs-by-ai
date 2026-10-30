@@ -96,3 +96,6 @@ Percentage Looks Like (On Me)/`, queue `delivered`, slot released. Independent r
 40 ms-per-join lip-sync drift from round 1, side-by-side pairs, a click and a recap restart; all fixed). Gate 38/39, the fail is
 the approved voice A tone row. Open question to Dan: switch the three remaining round-1 TV pairs of him to singles?
 **Next:** Dan's notes or approval; on approval `/video-setup` (Wed Dec 30) with `RO21.srt` and the chapters.
+
+## Round 4 status (2026-10-30)
+Dan's R3 notes done: third picture set (Hispanic man, 30s), three sets rotate, gym B-roll regraded, AI label off every face and abs. Picture-only patches; audio and SRT unchanged. Delivered in round4/final. Next: Dan's review, then /video-setup for Wed Dec 30.

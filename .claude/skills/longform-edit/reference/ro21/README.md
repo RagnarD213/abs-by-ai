@@ -89,3 +89,10 @@ the context windows in `--grade rich`; `page_r2.py` is the small change-only pag
 - **Gate declarations used** (plan `declare`): framing rows (the face detector fails on a composite with AI faces behind him; the
   assembler's per-frame hair clearance is the evidence), static run (approved 50 s recap row), splice visibility (template
   background swaps), burned captions / card collision (graphic text; speech over cards), as on RO-28.
+
+## Round 4 (2026-10-30): picture-only revisions as hash-proved patches (scripts `*_r4.*` here)
+- **Picture-only round = ten range patches, not a re-render.** `splice_r4.sh` re-rendered 4,699 of 13,410 frames (10 ranges, 20 min) and stream-copied the rest, so audio, SRT and everything else stay bit-identical. Prove it with `ffmpeg -c copy -f framemd5` on both masters: that diff is the exact change list, it scopes the reviewer, and it lets watch verdicts carry by TIME (image numbering shifts by one, so matching file names carries too few).
+- **AI label audit (Dan's rule, VIDEO-RULES):** a frame from every labelled moment before any page. Panels: `panel_y: 126` + `chip_xy: [84, 26]` + `ai_label: false`. Floating cards: `slots` moves the top-left card down 45 and the bottom-left 35, `chip_xy: [56, 20]`; check the highest drift.
+- **Gym colour on Color C masters** (`broll_r4.py`): the Oct 23 masters read grey and dark in a film. White balance (R 0.90, G 0.93) + midtone curve, per clip by brightness: median 34-48 clips take the strong curve, 65-80 the gentle one. Grade the blurred gym stills the same.
+- **Third picture set:** same recipe as round 3 by string-replacing the prompts. The image tool refused the 35% edit once; plain wording without body-part slang passed.
+- **Never put `cat > file` with no heredoc in a chained command:** it waits on stdin and stalls the whole call.
