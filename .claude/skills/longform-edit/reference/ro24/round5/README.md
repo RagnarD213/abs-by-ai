@@ -48,3 +48,12 @@ Traps met:
 - The AI chip sits top-left; a side-list card (G12) over an AI insert (A8) covered it and the chip ghosted through the card's
   91 % fill (caught as a `fill` row in the graphics checks). Before rendering, list every manifest item overlapping each AI
   insert; move the chip with `chip_x` (1400 = top-right) in `clips_override.json`.
+- Never ship a frame altered only to get it through Flow (the A1 face swap): once motion is abandoned, the still is Dan's
+  approved frame, byte for byte. A different face is a new frame and needs his approval again (review M1, render 2).
+- AI inserts play at real speed: size the slot to the take (A8: 40 source frames = 50 film frames), never stretch the
+  take to the slot (0.925x was caught as a repeated frame every 4 frames).
+- Presenter seek after an insert: `gsbg.Presenter` seeks with `-ss (k0-0.5)/FPS`, which can land one frame late after an
+  insert splits a presenter run (render 2: picture one frame ahead of the voice for 184 frames after A8). `assemble_r5.py`
+  now reads on from the last presenter run's start and skips frames instead of seeking. Check: decode both masters to
+  192x108 grey and search the best offset per frame against the previous round; every run outside the changes must sit
+  at the same offset as the sound.
