@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Celebrity Ozempic LFC Setup REVIEW 2026-10-30, Claude.** Five thumbnails awaiting Dan's pick; nothing uploaded. YouTube Nov 15 planned. Next: packaging and queue after pick. `scripts/covers/ro24-20261030/`
+
 **Upwork Clients ACTIVE 2026-10-29, Claude.** Plus, 1,050 Connects, trials live, danroseads.com bought. 20 outreach emails on Upwork Pipeline page for Dan. Next: Dan's Workspace mailbox, then DNS; proposals card. Commits local (push blocked). `.claude/skills/upwork-pitch/`
 
 **First Time At The Gym LFC R2 REVIEW 2026-10-29, Claude.** [R2 page](http://127.0.0.1:9540/); slot released. Next: Dan's picks, full-film mattes, build.
