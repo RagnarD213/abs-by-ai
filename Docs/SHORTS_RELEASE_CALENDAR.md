@@ -72,7 +72,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Mon Dec 21 | 2 | 9 AM | How To Get A V-Taper Physique (DS-47) | Waitlist |
 | Mon Dec 21 | 2 | 6 PM | Why I Stopped Drinking Coconut Water (DS-49) | Waitlist |
 | Tue Dec 22 | 2 | 9 AM | Bill Maher Says Fat Shaming Should Come Back (DS-36, needs editing, approved by Dec 11) | Not booked |
-| Tue Dec 22 | 2 | 6 PM | Terry Crews Doesn't Eat Until 2 PM (DS-43, needs editing, approved by Dec 11) | Not booked |
+| Tue Dec 22 | 2 | 6 PM | Terry Crews Doesn't Eat Until 2 PM (DS-43) | Waitlist |
 | Thu Dec 24 | 2 | 9 AM | OPEN | Not booked |
 | Thu Dec 24 | 2 | 6 PM | OPEN | Not booked |
 | Fri Dec 25 | 2 | 9 AM | OPEN | Not booked |

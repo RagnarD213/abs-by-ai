@@ -1215,5 +1215,15 @@
   "approved": "Dan picked R3 middle variation 2 on 2026-10-30",
   "sha256": "c6c1b45f15ba64fd5f66be295779502e7d7788be12253ceb132cd546a0aaa2e1",
   "when": "2027-01-11T18:00:00.000Z"
+ },
+ {
+  "job": "DS-43",
+  "match": "Terry Crews doesn't eat until 2 PM, and he's right.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds43/Instagram_ds-43_terry-crews_cover.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved revised C on 2026-10-30: \"That looks great. Go ahead and install it.\"",
+  "sha256": "44850b1b2b8bb12dfd2658dd4e189916907711a943507eea9d7aea0a001f9349",
+  "when": "2026-12-23T00:00:00.000Z"
  }
 ]

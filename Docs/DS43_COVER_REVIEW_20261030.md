@@ -1,6 +1,6 @@
 # Terry Crews Doesn't Eat Until 2 PM (DS-43): cover review (2026-10-30)
 
-Status: **awaiting Dan's pick.** Nothing uploaded or scheduled. Review page: http://127.0.0.1:9561/ (managed review service). DS-43 stays `finalized`.
+Status: **done.** Dan approved round 4 revised C on 2026-10-30. Setup: `Docs/DS43_SETUP_RECEIPT_20261030.md`.
 
 - Film: approved off-the-cuff R2, SHA-256 b689924b939651379d3c991f9a3541002ceb1b77f725920a181d3d3dcc7ebda5, MD5 1ee19cd7073f96180fe7b5cbe1a1ee53; SRT SHA-256 bb4011b6b1cbf9052a1e31e9ad89dd812667441a4f770bf8dea98e2fdb1d7684, MD5 a55694b1c8efcd3283461f1dd3abb655.
 - Backups done: Extreme SHA match; Drive MD5 match, anyone with the link: https://drive.google.com/open?id=1Tf1sUu2KWvFKT7WLGCakLJBZ4jHOzjq8

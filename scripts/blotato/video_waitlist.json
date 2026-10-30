@@ -679,5 +679,16 @@
   "gym": false,
   "filming_set": "poolside",
   "note": "R2 film and cover G approved; four uploaded media hash-verified. Saved slot Mon Dec 21 6 PM Central, one week after SL-19 coconut water Short (Dec 14)."
+ },
+ {
+  "config": "scripts/blotato/configs/ds43-terry-crews-fasting.json",
+  "kind": "short",
+  "job": "DS-43",
+  "label": "Terry Crews Doesn't Eat Until 2 PM. He's Right.",
+  "added": "2026-10-30",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "green screen",
+  "note": "Off-the-cuff R2 and revised cover C approved; four uploaded media hash-verified. Saved slot Tue Dec 22 6 PM Central."
  }
 ]
