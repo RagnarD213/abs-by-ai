@@ -27,3 +27,13 @@ re-burns captions on the existing picture; `gates.sh VERSION` reruns the gate ta
 Gate rows that stay failing on this format (reviewed, same as the approved DS-44B): audio tone (the clip's sound is in the measured window;
 check the voice alone with `audio_gate.py <voice wav> --video <master> --no-stamp --reference-rows-only`), hair_top on the panel (planned
 overlap), splice visibility on zoom cuts, and captions:sync (a handful of cues; compare cue starts to delivered ASR words instead).
+
+## Round 2 (Dan picked off the cuff; work folder `r2/`, reuses r1's key, audio and source caches by symlink)
+
+Dan's three notes: the laptop must show while he watches, shirtless jacked Terry above him right after the intro, more flexing behind the physique line.
+
+- **Laptop lid layer:** `key/laptop_layer.npy` is the median of the lid across the watching piece, masked below a fitted line along its top edge. It sits at the watch scale flush to the frame bottom, in front of his hands, so Dan keeps his R5 size and hair overlap. Shrinking Dan to fit the real laptop in frame would expose the camera's left and right edges.
+- **Panel reel:** `prep_reel.py` builds a silent 1080x608 reel; `reel_bg` plays it behind Dan from the reply on. `S1`/`S2` became `panelresp` shots at two scales, so the zoom cuts survive. A second plate carries the plain title, since the footage is no longer Business Insider's.
+- **Reel clips are found footage, so check them hard.** Every failure this round came from them: a shot that was really a phone recording of a monitor, an ad sign in frame the whole time, a readable product, a shot running one frame past its source cut (a flash), and a shot opening mid-dissolve. Before rendering: view the first and last frame of every shot, and scan the built reel for frame-difference spikes against the intended cut list. A contact sheet does not show any of this.
+- Land reel cuts exactly on Dan's cuts or well clear of them; two cuts two frames apart read as a stutter.
+- Do not re-render until the reel passes. Each full render plus re-judging took about an hour on a loaded machine.

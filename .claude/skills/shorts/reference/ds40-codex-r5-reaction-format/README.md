@@ -16,6 +16,10 @@ The authority is the exact approved [R5 master](/Volumes/Extreme/_edit_work/DS-4
 
 The 4.004 s opening and ~30.23 s panel exit are the reference rhythm, not compulsory timecodes on every new source. Match clip length, word boundaries and the first response; preserve this three-stage sequence. Do not substitute the old format that stays portrait for the whole quote and only then shrinks/grows for half a second. R5's changes at 4.004 and 19.6196 s are clean picture cuts, not an invented animated move. Both scripted and off-the-cuff versions, when filmed, use this shared format and are compared as required by VIDEO-RULES.
 
+## Added by Dan on Terry Crews Fasting R2 (2026-10-30)
+
+Keep the laptop visible through the watching layer (a still lid layer in front of his hands, flush to the frame bottom), and fill the silent panel behind the reply with footage that proves what Dan is saying rather than whatever the source clip plays next. The panel may stay up through the lines that need it. Recipe: `../ds43-terry-crews/README.md`.
+
 ## Geometry, title, key and colour
 
 - Panel on the 1080x1920 canvas: x=0, y=92, width=1080, height=608; preserve the complete 16:9 picture height (rounding to pixels), no decorative crop that chops it shorter. Title/source label is above it at x=36, y=24, 32 px, using the moving Soft Blue Light HyperFrames media-card family. Replace Bill's name/show with the new speaker/source. Clear the title, faces and captions against the actual footage.

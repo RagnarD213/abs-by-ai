@@ -6,7 +6,7 @@ import subprocess, json, hashlib, os, sys
 import numpy as np
 R = Path('/Users/danielrose/Documents/Claude/Projects/Abs By AI'); RW = Path(__file__).resolve().parents[1]
 VERSION = sys.argv[1]; W = RW/VERSION; Q = W/'review'
-F = str(R/'Media/video_edit/bin/ffmpeg'); FPS = 30000/1001; NAME = {'scripted': 'Terry Crews Fasting SFC R1 - scripted', 'offcuff': 'Terry Crews Fasting SFC R1 - off the cuff'}[VERSION]
+F = str(R/'Media/video_edit/bin/ffmpeg'); FPS = 30000/1001; NAME = {'scripted': 'Terry Crews Fasting SFC R2 - scripted', 'offcuff': 'Terry Crews Fasting SFC R2 - off the cuff'}[VERSION]
 os.environ['PATH'] = str(R/'Media/video_edit/bin') + ':' + os.environ['PATH']
 sys.path.insert(0, str(R/'.claude/skills/_shared')); import softblue as B
 from PIL import Image
@@ -40,7 +40,7 @@ talk = [s for s in shots if s['kind'] == 'talk']
 clip_joins = [s['film0'] for s in edl['clip']['segs'][1:]]
 corner = shots[0]['corner']; CH_Y = int(fr['S0']['corner_hair_y'])
 plan = dict(
-    scope=f'CONTENT SFC R1 (DS-43 {VERSION}). The Terry Crews clip (Business Insider) first, full screen, Dan keyed small in the corner watching it; then the titled panel (Bill Maher Codex R5 reaction format) with Dan large watching, his response in front of the silent panel, then Soft Blue field with zoom cuts, cutaways (AI A0210 with its chip, stock B0317, the clip photo of Terry) and lower thirds. House key.',
+    scope=f'CONTENT SFC R2 (DS-43 {VERSION}). The Terry Crews clip (Business Insider) first, full screen, Dan keyed small in the corner watching it; then the titled panel (Bill Maher Codex R5 reaction format) with Dan large watching, his response in front of the silent panel, then Soft Blue field with zoom cuts, cutaways (AI A0210 with its chip, stock B0317, the clip photo of Terry) and lower thirds. House key.',
     target_seconds=edl['total_frames']/FPS, target_frames=edl['total_frames'],
     joins=sorted(set(clip_joins + [s['a'] for s in shots[1:]])), audio_joins=sorted(set(clip_joins + [p['film0'] for p in edl['pieces']])),
     punch=[[s['a'], s['b'], s['id'] + ('-' + s.get('size', s['kind']))] for s in shots], punch_covered=[s['kind'] != 'talk' for s in shots],

@@ -70,8 +70,9 @@ if VERSION == 'scripted':
 else:
     c_but = cut_before("but he's got", piece='P2'); c_look = cut_before('look at how', piece='P4'); c_many = cut_before("and there's many", piece='P4')
     c_fast = cut_before('fasting does not', piece='P4'); c_ifnot = cut_before("if you're not", piece='P6')
-    SH += [talk('S1', 'W', 'P2', ps('P2'), c_but),
-           talk('S2', 'T', 'P2', c_but, pe('P2')),
+    # R2 (Dan): the physique lines keep the panel, now with Terry flexing in it, Dan in front at two sizes
+    SH += [dict(id='S1', kind='panelresp', piece='P2', size='R1', a=ps('P2'), b=c_but),
+           dict(id='S2', kind='panelresp', piece='P2', size='R2', a=c_but, b=pe('P2')),
            talk('S3', 'W', 'P3', ps('P3'), pe('P3')),
            talk('S4', 'T', 'P4', ps('P4'), c_look),
            dict(id='K1', kind='still', clip='NYSE', a=c_look, b=c_many),                                 # "Look at how muscular Terry Crews is..."
@@ -123,7 +124,14 @@ resp = dict(scale=RESP_SCALE, x0=round(540 - cxr*RESP_SCALE), y0=round(PANEL_BOT
 assert resp['x0'] <= 0 and resp['x0'] + KW*RESP_SCALE >= 1080 and resp['y0'] + KH*RESP_SCALE >= 1920, resp
 assert watch['y0'] + KHF*WATCH_SCALE >= 1920, watch
 SH[0].update(corner=corner); SH[1].update(place=watch, panel=PANEL); SH[2].update(place=resp, panel=PANEL)
-for nm, m, pl in (('PW', mw[1], watch), ('PR', mr, resp)):
+extra = []
+for sid, sc in (('S1', 0.98), ('S2', RESP_SCALE)):
+    sh = next(x for x in SH if x['id'] == sid); pc = P[sh['piece']]
+    mm = measure(KP, pc['start'] + (sh['n0'] - pc['n0'])/FPS, sh['n1'] - sh['n0'])
+    pl = dict(scale=sc, x0=round(540 - float(np.nanmedian(mm[:, 1]))*sc), y0=round(PANEL_BOTTOM - OVERLAP - float(np.nanmax(mm[:, 0]))*sc))
+    assert pl['x0'] <= 0 and pl['x0'] + KW*sc >= 1080 and pl['y0'] + KH*sc >= 1920, (sid, pl)
+    sh.update(place=pl, panel=PANEL); extra.append((sid, mm, pl))
+for nm, m, pl in [('PW', mw[1], watch), ('PR', mr, resp)] + extra:
     tops = pl['y0'] + m[:, 0]*pl['scale']
     report.append(dict(id=nm, scale=round(pl['scale'], 4), x0=pl['x0'], y0=pl['y0'], hair_y_min=round(float(np.nanmin(tops)), 1),
                        hair_y_max=round(float(np.nanmax(tops)), 1), overlap_min_px=round(PANEL_BOTTOM - float(np.nanmax(tops)), 1),

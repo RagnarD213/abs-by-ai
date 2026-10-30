@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R3 ACTIVE 2026-10-30, Claude.** Full-film key running (~9 h), auto-renders after. AI clips in review. Slot held. Next: audit, gates, page. `/Volumes/Expansion/_edit_work/RO-37/round3/`
 
-**Terry Crews Fasting SFC R1 (DS-43) REVIEW 2026-10-30, Claude.** [Both versions](http://127.0.0.1:9441/), independent SHIP on each; slot released. Next: Dan picks scripted or off the cuff, then setup handoff.
+**Terry Crews Fasting SFC R2 (DS-43) REVIEW 2026-10-30, Claude.** Off the cuff, [R2 page](http://127.0.0.1:9442/), independent SHIP; slot released. Next: Dan approves, then setup handoff.
 
 **RO-38:REVIEW:2026-10-30:Claude.** [R2 film](http://127.0.0.1:9542/) `/Volumes/Expansion/_edit_work/RO-38/round2/`
 

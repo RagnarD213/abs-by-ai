@@ -17,7 +17,7 @@ import composite as CM, softblue as B
 from grade import grade_r5_warm
 F = str(R/'Media/video_edit/bin/ffmpeg'); FPS = 30000/1001
 VERSION = sys.argv[1]; O = W/VERSION
-NAME = {'scripted': 'Terry Crews Fasting SFC R1 - scripted', 'offcuff': 'Terry Crews Fasting SFC R1 - off the cuff'}[VERSION]
+NAME = {'scripted': 'Terry Crews Fasting SFC R2 - scripted', 'offcuff': 'Terry Crews Fasting SFC R2 - off the cuff'}[VERSION]
 Q = O/'review'; Q.mkdir(exist_ok=True)
 args = sys.argv[2:]
 VOICE = args[args.index('--voice') + 1] if '--voice' in args else 'house_bass15'
@@ -98,7 +98,7 @@ def field(t):
     return np.asarray(B.field(t, CW, CH).convert('RGB')).astype(np.float32)/255
 
 # ---------- the clip
-_clip = None
+_clip = None; _lid = None
 CLIP_FPS = 24000/1001
 def clip_frame(t):
     global _clip
@@ -120,6 +120,16 @@ def panel_bg(tc, g):
     """the plate with the clip (clip time tc) full width in its hole, 1080 x 608 (full 16:9 height)"""
     base = np.zeros((CH, CW, 3), np.float32); x_, y_, w_, h_ = HOLE
     base[y_:y_ + h_, x_:x_ + w_] = cv2.resize(clip_frame(tc), (w_, h_), interpolation=cv2.INTER_AREA)
+    return plate_under(base, g) if PLATE else base
+
+_reel = None
+REEL0 = next(x['n0'] for x in shots if x['id'] == 'PR')
+def reel_bg(g):
+    """R2: the plate with the Terry flex reel in its hole (src/flex_reel.npy, one frame per film frame from PR on)"""
+    global _reel
+    if _reel is None: _reel = np.load(W/'src/flex_reel.npy', mmap_mode='r')
+    base = np.zeros((CH, CW, 3), np.float32); x_, y_, w_, h_ = HOLE
+    base[y_:y_ + h_, x_:x_ + w_] = _reel[min(g - REEL0, _reel.shape[0] - 1)].astype(np.float32)/255
     return plate_under(base, g) if PLATE else base
 
 # ---------- B-roll and the still
@@ -164,11 +174,18 @@ def render(g):
             out = np.ones((CH, CW, 3), np.float32)*np.array([0.95, 0.25, 0.62], np.float32) if PINK else clip_view(tc)
             Fp, a = feather(Fp, a, fw=corner_fw(Fp, a)); c = s['corner']
             return place(out, Fp, a, c['scale'], c['x0'], c['y0'])
-        out = panel_bg(tc, g) if not PINK else field(t); c = s['place']
-        return place(out, Fp, a, c['scale'], c['x0'], c['y0'])
+        # the last two panel frames would show the clip's next subtitle card ('My first meal...', the repeat of the hook): hold the frame before it
+        hold = seg['clip_in'] + (min(g, s['n1'] - 3) - seg['n0'])/FPS
+        out = panel_bg(hold, g) if not PINK else field(t); c = s['place']
+        out = place(out, Fp, a, c['scale'], c['x0'], c['y0'])
+        # R2 (Dan): the laptop stays visible while he watches, so he reads as watching his screen, not looking at the ground. The real lid
+        # (still, median of the watching piece, key/laptop_layer.npy) sits at its true scale flush to the frame bottom, in front of his hands.
+        global _lid
+        if _lid is None: _lid = np.load(W/'key/laptop_layer.npy')
+        return place(out, _lid[..., :3], _lid[..., 3], c['scale'], 0, CH - _lid.shape[0]*c['scale'], wrap=0)
     if s['kind'] == 'panelresp':
-        pc = edl['pieces'][0]; t_roll = pc['start'] + (g - pc['n0'])/FPS
-        out = panel_bg(SILENT0 + (g - s['n0'])/FPS, g) if not PINK else field(t); c = s['place']
+        pc = next(p for p in edl['pieces'] if p['id'] == s['piece']); t_roll = pc['start'] + (g - pc['n0'])/FPS
+        out = reel_bg(g) if not PINK else field(t); c = s['place']
         Fp, a = key_frame('T', t_roll)
         return place(out, Fp, a, c['scale'], c['x0'], c['y0'])
     if s['kind'] == 'talk':

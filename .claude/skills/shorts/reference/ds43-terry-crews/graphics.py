@@ -57,11 +57,13 @@ if __name__ == '__main__':
                         band=meta['band'], box=meta['box'], lines=meta['lines'], words=topic + ': ' + ' '.join(s for s, _ in parts),
                         lands=[[s, t] for s, t in ps]))
     (O/'graphics-manifest.json').write_text(json.dumps(sorted(man, key=lambda x: x['a']), indent=1))
-    pa = shots['PW']['a']; pb = shots['PR']['b']
-    scene, _ = V.media_card_scene('P01', pb - pa, 16/9, kicker=KICKER, caps=False)
-    tpl, cfg, assets = scene; cfg['hole'] = [0, 92, 1080, 608]; cfg['radius'] = 0
-    cfg['kicker'] = {'x': 36, 'y': 24, 'px': 32, 's': KICKER}
-    V.build([(tpl, cfg, assets)], out, render=True, snap=1)
-    (O/'plate-manifest.json').write_text(json.dumps([dict(id='P01', a=pa, b=pb, kind='overlay', mov=str(out/'renders'/'P01.mov'),
-        hole=[0, 92, 1080, 608], words=KICKER)], indent=1))
+    plates = []
+    # R2: the Business Insider title stays on his interview; the jacked-Terry reel behind the reply and the physique lines gets a plain title
+    for pid, pa, pb, kick in (('P01', shots['PW']['a'], shots['PW']['b'], KICKER), ('P02', shots['PR']['a'], shots['S2']['b'], 'Terry Crews')):
+        scene, _ = V.media_card_scene(pid, pb - pa, 16/9, kicker=kick, caps=False)
+        tpl, cfg, assets = scene; cfg['hole'] = [0, 92, 1080, 608]; cfg['radius'] = 0
+        cfg['kicker'] = {'x': 36, 'y': 24, 'px': 32, 's': kick}
+        V.build([(tpl, cfg, assets)], out, render=True, snap=1)
+        plates.append(dict(id=pid, a=pa, b=pb, kind='overlay', mov=str(out/'renders'/f'{pid}.mov'), hole=[0, 92, 1080, 608], words=kick))
+    (O/'plate-manifest.json').write_text(json.dumps(plates, indent=1))
     print('GRAPHICS COMPLETE', VERSION, [(m['id'], round(m['a'], 2), round(m['b'], 2), m['box']) for m in man], flush=True)
