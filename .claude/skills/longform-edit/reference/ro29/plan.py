@@ -1,0 +1,132 @@
+"""RO-29 visual plan ("Cortisol Belly Is Real, But TikTok Has It Wrong", 10/15 rolls C1772 + recap retake C1773). Every item is
+anchored to the words Dan says (phrase -> output time via words_out.json). Graphics are HyperFrames only (VIDEO-RULES 2026-10-17):
+lt (Motivation lower third), scene "fact" (before-card), l3 (the 3A left card). Clips: Dan's real 10/15 pool B-roll first (grades and
+crops Dan approved in RO-28), then the clip library, then Pexels. kind "ai" = a new AI clip whose START/END frames go to Dan in round 1;
+until its motion is approved the presenter stays on screen. kind "phone" = the iPhone card beside Dan (the TikTok trend clip).
+Organic, not entirely about the drug: Zepbound is SAID, on-screen graphics say "Appetite Medication" (the script's own cue).
+Title case; eyebrows in capitals (VIDEO-RULES 2026-10-20)."""
+W = "/Volumes/Expansion/_edit_work/RO-29/round1"
+ST = f"{W}/stock"; PH = f"{W}/stock/photos"; TK = f"{W}/stock/tiktok"
+RD = "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop"
+POOL = "eq=contrast=1.04:brightness=-0.02:saturation=1.12"                         # RO-28 C01/C05/C12 (approved film)
+POOL_SHADE2 = "curves=master='0/0 0.1/0.09 0.4/0.45 0.75/0.82 1/1',eq=saturation=0.90,colorbalance=rs=.015:bs=-.015"   # RO-28 C16
+AI = "AI-GENERATED"
+PLAN = [
+ # ---------------- opening
+ dict(id="A1", kind="ai", start="Cortisol belly is real", end="off your waist", tail=0.2, name="The cocktail bartender",
+      note="AI opener: a heavyset man in a bathrobe shakes a cocktail shaker like a flashy bartender, then toasts the camera with his orange 'cortisol cocktail', pinky out"),
+ dict(id="G01", kind="lt", topic_case="preserve", start="In today's video", end="get rid of it", tail=0.5, topic="IN THIS VIDEO",
+      point="What Cortisol Does + 6 Real Fixes", parts=[["What Cortisol Does", "what cortisol does"], ["+ 6 Real Fixes", "six things"]]),
+ dict(id="C01", kind="clip", start="If you've been told", end="hear this", tail=0.3, src=["B0494@0.5"],
+      note="library B0494: a stressed office man rubs his face at his desk"),
+ dict(id="G02", kind="lt", topic_case="preserve", start="So let's start with what TikTok", end="gets right", tail=0.8, topic="PART 1",
+      point="What TikTok Gets Right", parts=[["What TikTok Gets Right", "what TikTok"]]),
+ dict(id="F01", kind="scene", scene="fact", start="In a Yale study, women", end="without it", tail=0.6, photo=f"{PH}/p5717262.jpg",
+      eyebrow=["Yale Study, 2000", "Yale study"], headline=[["More Cortisol", "release more cortisol"]],
+      detail=["Women With More Belly Fat", "more belly fat"], note="Pexels 5717262: a woman stressed at her office desk. Epel et al., Yale, 2000 (script cue)"),
+ dict(id="P01", kind="phone", start="But then TikTok tells you", end="is a drink", tail=0.9, src=[f"{TK}/ebbymoyer_7260977070203931950.mp4@4.0"], credit="@ebbymoyer on TikTok",
+      note="The viral 'adrenal cocktail' TikTok from the script (@ebbymoyer, 3.5M views): she makes the drink. Muted under Dan's line"),
+ # ---------------- what TikTok gets wrong
+ dict(id="G03", kind="lt", topic_case="preserve", start="Here's what TikTok gets wrong", end="gets wrong", tail=0.8, topic="PART 2",
+      point="What TikTok Gets Wrong", parts=[["What TikTok Gets Wrong", "what TikTok"]]),
+ dict(id="G04", kind="lt", topic_case="preserve", start="Stress makes you eat more", end="on your belly", tail=0.5, topic="KEY POINT",
+      point="Stress Makes You Eat More", parts=[["Stress Makes You Eat More", "makes you eat more"]]),
+ dict(id="C02", kind="clip", start="Let's say you were in a calorie deficit", end="get leaner", tail=0.25, src=[f"{ST}/p7581377.mp4@0.5"],
+      note="Pexels 7581377: a lean office worker, swamped and stressed at his desk"),
+ dict(id="A2", kind="ai", start="And let's say you were eating", end="gain weight", tail=0.25, name="Zen and mellow, still gaining",
+      note="AI gag: a heavyset man meditating, eyes closed and blissful, surrounded by pizza boxes and donuts, calmly takes a slice"),
+ dict(id="C03", kind="clip", start="The problem is that in real life", end="has been proven", tail=0.25, src=["A0145@0.5"], label=AI, max_len=4.5,
+      note="library A0145 (AI): an overweight man at a kitchen table eating snack cakes, chips and cookies"),
+ dict(id="F02", kind="scene", scene="fact", start="In another Yale study", end="stayed calm", tail=0.5, photo=f"{PH}/p6633205.jpg",
+      eyebrow=["Yale Study, 2001", "another Yale study"], headline=[["More Calories", "ate more calories"]],
+      detail=["After A Stressful Day", "stressful day"], note="Pexels 6633205: a woman eating chocolate cake on her couch. Epel et al., Yale, 2001 (script cue)"),
+ dict(id="A3", kind="ai", start="On a calm day", end="more sweets", tail=0.3, name="Straight to the candy jar",
+      note="AI: a frazzled office worker leaves a tense meeting and plunges his hand into the office candy jar"),
+ dict(id="G05", kind="lt", topic_case="preserve", start="So the stress isn't putting fat", end="because you're stressed", tail=0.5, topic="KEY POINT",
+      point="It's The Extra Food, Not The Stress", parts=[["It's The Extra Food,", "extra food"], ["Not The Stress", "because you're stressed"]]),
+ dict(id="L01", kind="l3", start="If you're under massive stress", end="will gain fat", tail=0.4, heading="The Real Rule",
+      points=["Stressed + Deficit: Leaner", "Calm + Surplus: Fatter"], reveal=["under massive stress", "zero stress"],
+      note="the script's 'STRESSED + CALORIE DEFICIT = LEANER / CALM + CALORIE SURPLUS = FATTER' graphic, on the line that sums it up"),
+ # ---------------- the cocktail
+ dict(id="C04", kind="clip", start="Now, let's look at what's actually", end="cortisol cocktail", tail=0.15, src=[f"{ST}/p6739355.mp4@1.0"],
+      note="Pexels 6739355: orange juice poured into a glass"),
+ dict(id="L02", kind="l3", start="It's orange juice", end="most of that is sugar", tail=0.4, heading="The Cocktail",
+      points=["Orange Juice", "Coconut Water", "Salt", "About 80 Calories"], reveal=["orange juice", "coconut water", "salt", "80 calories"],
+      note="the script's 'THE CORTISOL COCKTAIL' ingredient graphic"),
+ dict(id="P02", kind="phone", start="And sucking down a sugar drink", end="cortisol either", tail=0.25, src=[f"{TK}/jezebel511_7525072235103554846.mp4@40.0"], credit="@jezebel511 on TikTok",
+      note="the backup TikTok from the script (@jezebel511, 'Cortisol Cocktail'): her counter of juice and powders"),
+ dict(id="A4", kind="ai", start="So, skip the cortisol cocktail", end="waste of money", tail=0.3, name="The supplement receipt",
+      note="AI gag: a man buying a dozen supplement bottles watches the receipt pile up around his shoes"),
+ dict(id="G06", kind="lt", topic_case="preserve", start="So here's what actually fixes", end="stress-related eating", tail=0.6, topic="ACTION STEP",
+      point="Skip The Cocktail And The Supplements", parts=[["Skip The Cocktail", "what actually fixes"], ["And The Supplements", "stress"]]),
+ # ---------------- fix 1: sleep
+ dict(id="G07", kind="lt", topic_case="preserve", start="There are six things", end="is sleep", tail=1.0, topic="FIX 1 OF 6",
+      point="Sleep", parts=[["Sleep", "sleep"]]),
+ dict(id="C06", kind="clip", start="When you don't sleep", end="worse food choices", tail=0.25, src=[f"{ST}/p6944070.mp4@3.0"],
+      note="Pexels 6944070: a young man tossing and turning in bed at night"),
+ dict(id="F03", kind="scene", scene="fact", start="In a University of Chicago study", end="same diet", tail=0.6, photo=f"{PH}/p7556587.jpg",
+      eyebrow=["Sleep Study, 2010", "University of Chicago"], headline=[["55% Less Fat Lost", "55"]], count={"value": "55", "from": 0, "dur": 0.6},
+      detail=["Short Sleep, Same Diet", "exact same diet"], note="Pexels 7556587: a man sleeping. Nedeltcheva et al., Annals of Internal Medicine, 2010 (5.5 h vs 8.5 h; Dan says '5 hours', so the card names no hours)"),
+ dict(id="C07", kind="clip", start="So get at least seven hours", end="cold room", tail=0.3, src=[f"{ST}/p11503031.mp4@0.0"],
+      note="Pexels 11503031: a finger turns a wall thermostat down (the 63-degree thermostat was not filmed)"),
+ dict(id="G08", kind="lt", topic_case="preserve", start="So get at least seven hours", end="cold room", tail=1.2, topic="ACTION STEP",
+      point="7+ Hours A Night, In A Cold Room", parts=[["7+ Hours A Night,", "seven hours"], ["In A Cold Room", "cold room"]], over_full=True),
+ dict(id="C08", kind="clip", start="When you sleep well", end="the next day", tail=0.3, src=[f"{ST}/p5983694.mp4@1.0"],
+      note="Pexels 5983694: a man sleeping soundly"),
+ # ---------------- fix 2: train
+ dict(id="G09", kind="lt", topic_case="preserve", start="The second thing is to train", end="every day", tail=0.8, topic="FIX 2 OF 6",
+      point="Train Every Day", parts=[["Train Every Day", "train every day"]]),
+ dict(id="C09", kind="clip", start="Training is one of the best ways there is", end="burn off stress", tail=0.25, src=[f"{RD}/C1746.MP4@2.5"], grade=POOL, crop=(2880, 1620, 320, 0),
+      note="Dan's real B-roll (10/15 pool, roll C1746): dumbbell curls"),
+ dict(id="G10", kind="lt", topic_case="preserve", start="I work out first thing", end="seven days a week", tail=0.6, topic="WHAT I DO",
+      point="First Thing Every Morning, 7 Days A Week", parts=[["First Thing Every Morning,", "first thing"], ["7 Days A Week", "seven days"]]),
+ dict(id="C10", kind="clip", start="Because of that, I ate less junk", end="fewer calories", tail=0.25, src=[f"{RD}/C1744.MP4@2.5"], grade=POOL, crop=(2880, 1620, 612, 500),
+      note="Dan's real B-roll (roll C1744): push-ups on handles"),
+ dict(id="C11", kind="clip", start="That's why I train first thing", end="you should too", tail=0.25, src=[f"{RD}/C1750.MP4@6.5"], grade=POOL, crop=(3456, 1944, 72, 60),
+      note="Dan's real B-roll (roll C1750): kettlebell deadlift into goblet squats"),
+ # ---------------- fix 3: alcohol
+ dict(id="G11", kind="lt", topic_case="preserve", start="Here's the third one", end="on alcohol", tail=0.8, topic="FIX 3 OF 6",
+      point="Cut Way Back On Alcohol", parts=[["Cut Way Back On Alcohol", "cut way back"]]),
+ dict(id="C12", kind="clip", start="A lot of guys drink", end="deal with stress", tail=0.25, src=[f"{ST}/p8057697.mp4@1.0"],
+      note="Pexels 8057697: a man drinking alone in his bedroom"),
+ dict(id="C13", kind="clip", start="but alcohol wrecks your sleep", end="two different ways", tail=0.25, src=["A0174@0.6"], label=AI, max_len=5.3,
+      note="library A0174 (AI, RO-08): one sip of beer and a man slides off his bar stool"),
+ # ---------------- fix 4: Zepbound
+ dict(id="G12", kind="lt", topic_case="preserve", start="The fourth thing is", end="stress eating too", tail=0.6, topic="FIX 4 OF 6",
+      point="Appetite Medication (Talk To Your Doctor)", parts=[["Appetite Medication", "fourth thing"], ["(Talk To Your Doctor)", "turns down your appetite"]]),
+ dict(id="C14", kind="clip", start="made eating less far easier", end="every week", tail=0.25, src=[f"{ST}/p5998399.mp4@1.0"],
+      note="Pexels 5998399: a syringe and vials on a table (used in RO-28)"),
+ # ---------------- fix 5: stressful relationships
+ dict(id="G13", kind="lt", topic_case="preserve", start="Number five is the one", end="stressful relationships", tail=0.8, topic="FIX 5 OF 6",
+      point="Quit Your Stressful Relationships", parts=[["Quit Your Stressful Relationships", "quit your"]]),
+ dict(id="A5", kind="ai", start="If your job stresses you out", end="quit", tail=0.6, name="Quitting the stressful job",
+      note="AI: a calm employee sets his badge on the frowning boss's desk, picks up his box and walks out; the boss is stunned"),
+ dict(id="A6", kind="ai", start="I can't divorce my wife", end="stresses me out", tail=0.3, name="The husband who can't",
+      note="AI, excuse voice: a man on the couch protests to the camera while his wife glares at him (lip-synced to Dan's line if the sync passes; otherwise mouth closed)"),
+ dict(id="G13B", kind="lt", topic_case="preserve", start="Is it worth killing yourself", end="regardless of what other value", tail=0.6, topic="ASK YOURSELF",
+      point="Is It Worth Killing Yourself For This?", parts=[["Is It Worth Killing Yourself For This?", "worth killing"]]),
+ dict(id="G14", kind="lt", topic_case="preserve", start="You'll find that if you have zero tolerance", end="refuse to change", tail=0.6, topic="KEY POINT",
+      point="Zero Tolerance For Stress", parts=[["Zero Tolerance For Stress", "zero tolerance"]]),
+ # ---------------- fix 6: no stress eating
+ dict(id="G15", kind="lt", topic_case="preserve", start="And here's the sixth thing", end="excuse to overeat", tail=0.6, topic="FIX 6 OF 6",
+      point="Don't Use Stress As An Excuse To Overeat", parts=[["Don't Use Stress", "Don't use"], ["As An Excuse To Overeat", "excuse"]]),
+ dict(id="A7", kind="ai", start="Even if you had a bad day", end="hit your calories", tail=0.3, name="Weighing the chicken after a fight",
+      note="AI: after a fight (his girlfriend storms off down the hall) a man calmly weighs his chicken breast"),
+ dict(id="C15", kind="clip", start="You should have a routine", end="feel great or terrible", tail=0.25, src=["A0082@0.5"], label=AI,
+      note="library A0082 (AI): a man portions chicken, rice and vegetables into five meal-prep containers"),
+ dict(id="G16", kind="lt", topic_case="preserve", start="you also need the discipline", end="can't avoid it", tail=0.6, topic="KEY POINT",
+      point="Perform Despite Stress", parts=[["Perform Despite Stress", "discipline"]]),
+ # ---------------- recap (C1773)
+ dict(id="L03", kind="l3", start="One, sleep", end="first thing in the morning", tail=0.3, heading="The 6 Fixes",
+      points=["Sleep 7+ Hours, Cold Room", "Train First Thing Daily"], reveal=["sleep", "train every day"]),
+ dict(id="L04", kind="l3", start="Three, cut way back", end="out of your life", tail=0.3, heading="The 6 Fixes",
+      points=["Cut Way Back On Alcohol", "Appetite Meds (Ask A Doctor)", "Cut Out Stressful People"], reveal=["cut way back", "talk to your doctor", "get the chronically"]),
+ dict(id="G17", kind="lt", topic_case="preserve", start="Six, hit your calories", end="how you feel", tail=0.4, topic="FIX 6",
+      point="Hit Your Calories And Protein Daily", parts=[["Hit Your Calories And Protein Daily", "hit your calories"]]),
+ dict(id="G18", kind="lt", topic_case="preserve", start="Pick the one", end="this week", tail=0.6, topic="ACTION STEP",
+      point="Fix Your Worst One This Week", parts=[["Fix Your Worst One This Week", "pick the one"]]),
+ dict(id="C16", kind="clip", start="Thank you for watching", end="subscribe for more", tail=0.25, src=[f"{RD}/C1743.MP4@2.5"], grade=POOL_SHADE2, crop=(3200, 1800, 0, 200),
+      note="Dan's real B-roll (roll C1743): kettlebell deadlifts"),
+ dict(id="G19", kind="lt", topic_case="preserve", start="If you enjoyed this video", end="published", tail=0.6, topic="SUBSCRIBE",
+      point="New Videos First At SixPackAbs.com", parts=[["New Videos First", "subscribe"], ["At SixPackAbs.com", "go to"]]),
+]
