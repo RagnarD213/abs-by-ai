@@ -31,7 +31,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Five proposals await him. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
 
-**First Time At The Gym LFC R3 REVIEW 2026-10-31, Claude.** [Full film](http://127.0.0.1:9545/); slot released. Delivery gate not stamped: tone, arm-edge items await Dan. Final srt not re-read by a reviewer. Next: Dan's notes. `/Volumes/Expansion/_edit_work/RO-37/round3/`
+**RO-31:R1:2026-10-31:Claude.**
+
+**First Time At The Gym LFC R4 REVIEW 2026-10-31, Claude.** [Film](http://127.0.0.1:9547/); slot released. Picture passed; no gate stamp (tone, build rows); no person heard the mix. Next: Dan's check, then fire setup handoff. `/Volumes/Expansion/_edit_work/RO-37/round4/`
 
 **Bodyweight Squats SFC R1 REVIEW 2026-10-31, Claude.** [Page](http://127.0.0.1:9633/). Next: Dan's notes. `/Volumes/Expansion/_edit_work/DS-61/round1/`
 
@@ -63,7 +65,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R2:REVIEW:2026-10-31:Codex01a18963.** [R2](http://127.0.0.1:9827/): choose ranking; approve opening/motion. Slot released. Full film awaits approval.
+**RO-23:R3:ACTIVE:2026-10-31:Codex01a19322.** Sources/proofs complete; full film rendering. Measurements observer armed; continuation active. Sole owner. `/Volumes/Extreme/_edit_work/RO-23/round3/RESUME.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
