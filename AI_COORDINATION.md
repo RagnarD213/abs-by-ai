@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Five proposals await him. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
 
-**RO-31:R1:2026-10-31:Claude.**
+**RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
 **First Time At The Gym LFC R4 REVIEW 2026-10-31, Claude.** [Film](http://127.0.0.1:9547/); slot released. Picture passed; no gate stamp (tone, build rows); no person heard the mix. Next: Dan's check, then fire setup handoff. `/Volumes/Expansion/_edit_work/RO-37/round4/`
 
@@ -65,7 +65,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R3:ACTIVE:2026-10-31:Codex01a19322.** Full film rendered; exact-file checks running. Editor still review started; continuation active. Sole owner. `/Volumes/Extreme/_edit_work/RO-23/round3/RESUME.md`
+**RO-23:R3:ACTIVE:2026-10-31:Codex01a19322.** Full film rendered; editor checks complete. Independent review running; continuation active. Sole owner. `/Volumes/Extreme/_edit_work/RO-23/round3/RESUME.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
