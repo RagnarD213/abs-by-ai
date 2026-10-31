@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO-21:SETUP:2026-10-31:Claude.** [Thumbnails](http://127.0.0.1:9571/) await pick.
+
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
 **Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Five proposals await him. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
