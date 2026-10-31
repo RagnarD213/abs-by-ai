@@ -19,7 +19,8 @@
 const C=__CFG__,D=C.dur,root=document.getElementById('root');if(C.mode==='corner')root.classList.add('corner');
 document.getElementById('title').textContent=C.title||'Ab Exercises: Worst To Best';
 if(C.title_box)Object.assign(document.getElementById('title').style,{left:C.title_box[0]+'px',top:C.title_box[1]+'px',fontSize:C.title_box[2]+'px'});
-if(C.mode==='images')document.querySelector('.note').textContent='Real Photos Of Me, Not AI-Generated';
+if(C.note){document.querySelector('.note').textContent=C.note;document.querySelector('.note').style.fontSize='28px';}
+else if(C.mode==='images')document.querySelector('.note').textContent='Real Photos Of Me, Not AI-Generated';
 const ctx=document.getElementById('field').getContext('2d');
 function field(t){ctx.fillStyle='#050d1c';ctx.fillRect(0,0,1920,1080);const x=800+360*Math.sin(t*.18),y=650+170*Math.cos(t*.23);const g=ctx.createRadialGradient(x,y,0,x,y,1100);g.addColorStop(0,'#214f80');g.addColorStop(1,'#050d1c');ctx.fillStyle=g;ctx.fillRect(0,0,1920,1080);const h=ctx.createRadialGradient(1700-160*Math.sin(t*.31),100,0,1700,100,820);h.addColorStop(0,'rgba(56,125,180,.22)');h.addColorStop(1,'rgba(5,13,28,0)');ctx.fillStyle=h;ctx.fillRect(0,0,1920,1080)}
 const tl=gsap.timeline({paused:true});window.__timelines=window.__timelines||{};window.__timelines['__ID__']=tl;

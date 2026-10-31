@@ -6,6 +6,7 @@ The complete ranking has 11 entries. Corner mode shows the current spoken tier.
 Optional geometry {rows,media} supplies measured 1920x1080 pixel coordinates
 for close moving clips. Rows accept x/w; item and text coordinates are absolute.
 title_box [left,top,fontSize] and hide_tier_labels support focused tier pages.
+Optional note adds a persistent 28px footer for source naming clarification.
 Omitting these fields preserves the original layout and existing renders.
 """
 import json
