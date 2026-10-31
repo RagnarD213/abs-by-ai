@@ -1465,6 +1465,16 @@ Recipe: `/Volumes/Expansion/_edit_work/DS-44/r1/recipe/` (copy in `Short-form vi
 - **HyperFrames graphics can render one frame short of their slot:** ffprobe every mov/mask against its slot before assembling.
 - Known gate mismatches on this pipeline: audio tone (the untouched third-party clip fails it; the voice alone passes), artifacts HF swirl when the raw lav already reads near the bound (chain x1.01), captions:sync's energy onset (breaths). Report them; never tune them.
 
+## Dedicated-short lessons: DS-61 Bodyweight Squats, 16:9 studio roll plus exercise B-roll (2026-10-31)
+
+Three independent reviews before SHIP; two rebuilds came from the demo. Recipe: `/Volumes/Expansion/_edit_work/DS-61/round1/recipe/`.
+- **Map every rep to the words before building.** Real reps run about 2 s; his cues run slower. A rep cannot hold under a long phrase, and neither a closer crop at the bottom nor a splice between two bottoms rescues it: both read as a bob (the camera shifts a few px between reps and the body is never in the same phase). Split the phrase: two whole reps with him on camera between, the second timed so the bottom lands on the key word.
+- **Check B-roll hair too.** The hair check in the recipes covers presenter frames only; a closer B-roll crop hid his head under the title strip on a rising rep.
+- **A studio 16:9 roll has only about 92 px of 4K headroom:** a title strip over a full-height crop covers his hair. Put the picture under the strip (1215x2059 to 1080x1830 at y 90).
+- **Watch the gaps between clips:** a 0.35 s return to Dan between two cutaways is a flash; run the clips together.
+- **The frame gate's `person.compare` is not an escape hatch.** A shin that gets longer is a real fault; thigh and torso foreshorten in a three-quarter squat, shins do not. Say why before dropping a measure.
+- **`captions:sync` can read 51% on first-word caption states** while an in-order match pairs every cue within 20 ms: its sequence match aligns a sparse word list poorly. Measure in order and report it; never tune it.
+
 ## Dedicated-short lessons: DS-49 Coconut Water (2026-10-29)
 
 Five independent reviews before SHIP; each item below cost a full rebuild. Recipe: `/Volumes/Extreme/_edit_work/DS-49/round1/recipe/`.

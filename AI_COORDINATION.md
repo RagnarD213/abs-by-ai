@@ -33,6 +33,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC R3 REVIEW 2026-10-31, Claude.** [Full film](http://127.0.0.1:9545/); slot released. Delivery gate not stamped: tone, arm-edge items await Dan. Final srt not re-read by a reviewer. Next: Dan's notes. `/Volumes/Expansion/_edit_work/RO-37/round3/`
 
+**Bodyweight Squats SFC R1 REVIEW 2026-10-31, Claude.** [Page](http://127.0.0.1:9633/). Next: Dan's notes. `/Volumes/Expansion/_edit_work/DS-61/round1/`
+
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
 **RO-29:REVIEW:2026-10-30:Claude.** [R3](http://127.0.0.1:9544/)
@@ -50,7 +52,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R2, 2026-10-31, Codex01a1926a.** Owns authorized Oct31 revisions. Warm + D selected; approved assets/hash locks preserved. Building revised opening/new frames; N03/N05/N06-r8 in subscription motion workflow. Key QA remains OPEN, no waiver. Journal: `/Volumes/Extreme/_edit_work/RO-22/round2/round-controller.json`; handoff `Handoffs/video-editing/RO-22-R2-20261031.md`.
+**Losing Fat Face LFC R2, 2026-10-31, Codex01a1926a.** [Limited review](http://127.0.0.1:9284/): Dan chooses N02/N07 starts. Warm+D locked; keyQA OPEN. Heartbeat waits quietly. Sole owner; checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round2/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -61,7 +63,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R2:FINISHING:2026-10-31:Codex01a18963.** Dan confirmed pool C1751. Source insertion/rendering, then final packet QA and review delivery. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
+**RO-23:R2:REVIEW:2026-10-31:Codex01a18963.** [R2](http://127.0.0.1:9827/): choose ranking; approve opening/motion. Slot released. Full film awaits approval.
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
