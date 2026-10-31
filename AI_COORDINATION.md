@@ -48,7 +48,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R1, 2026-10-30, Codex01a184db.** Limited review delivered with Dan’s permission: http://127.0.0.1:9282/. Green-screen QA remains unresolved; not fully checked. Awaiting colour/voice/frame and asset choices; slot released. `Docs/RO22_R1_PRODUCTION_STATE_20261028.md`
+**Losing Fat Face LFC R2, 2026-10-31, Codex01a1926a.** Owns authorized Oct31 revisions. Warm + D selected; approved assets/hash locks preserved. Building revised opening/new frames; N03/N05/N06-r8 in subscription motion workflow. Key QA remains OPEN, no waiver. Journal: `/Volumes/Extreme/_edit_work/RO-22/round2/round-controller.json`; handoff `Handoffs/video-editing/RO-22-R2-20261031.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -59,12 +59,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R2:WAIT-SOURCE:2026-10-29:Codex01a18963.** Regular-crunch recording needed; slot released. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
+**RO-23:R2:FINISHING:2026-10-31:Codex01a18963.** Dan confirmed pool C1751. Source insertion/rendering, then final packet QA and review delivery. `Docs/RO23_R2_PRODUCTION_STATE_20261029.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-30, Claude.** [AI intro frames](http://127.0.0.1:9432/) await picks; Short 3 approved. Slot released. Next: motion in Flow, swap in, gates. `/Volumes/Expansion/_edit_work/SL-10/round2/`
+**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-31, Claude.** [Clips + new wine frames](http://127.0.0.1:9432/) await picks; Short 3 approved. Slot released. Next: Short 2 motion, swap in, gates, audits. `/Volumes/Expansion/_edit_work/SL-10/round2/`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
