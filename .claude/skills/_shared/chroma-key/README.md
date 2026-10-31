@@ -44,6 +44,7 @@ gap between arm, hand and body, so the pool inside the gap stays solid and no ed
 the cut-out that is clearly not him by colour, in the compositor, before decontamination: skin has red well above green, stone is neutral, tile is
 blue. `longform-edit/reference/ro37/round3/gapfix.py` protects the face, leaves very small specks and feathers the mask. It also cleared the outer
 pale outline on bright walls. A clean-plate difference did not work: the body covers about 80% of the plate and dark hair matches dark trees.
+Blurred fingers need the opposite fix: both matte models thin them into claws, so moving warm skin goes back in (`skinfill`) and the matte edge softens where the picture moves fast (`softmotion`). Check moving-hand frames, not only the worst edge frame: the brightness audit misses finger faults.
 Then audit the delivered film per shot (`audit_key.py`, `audit_sheets.py`: worst frame plus a 3x zoom, graded by a fresh reviewer). Blue and dark plates
 expose faults that busy scenes hide. On RO-37 the first full render graded 80 clean, 24 minor and 7 sloppy before this pass.
 
