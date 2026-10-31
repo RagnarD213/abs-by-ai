@@ -9,6 +9,11 @@ import plans as P, batch as Bt
 ROOT = "/Users/danielrose/Projects/Claude/Projects/Abs By AI"
 OUT = f"{ROOT}/Short-form video content"; REV = f"{OUT}/alcohol REVIEW"; PRE = "alcohol-"
 FF = Bt.lib.FF; FPS = Bt.FPS
+NEG = {"A": "the footage is one AI clip of Dan at a bar (sip, wince, thumbs-up, AI-GENERATED chip), Dan talking in his studio (9/23 shoot) and the film's Pexels drink clips (cocktail, soda and lime, margarita)",
+       "B": "the footage is one AI clip of a sad overweight woman sipping wine (AI-GENERATED chip), the film's wine fact card, Dan talking in his studio (9/23 shoot) and the film's Pexels drink clips (beers, bartender, whiskey)",
+       "F": "the footage is one AI clip of a sad overweight woman sipping wine (AI-GENERATED chip), the film's wine fact card, Dan talking in his studio (9/23 shoot) and the film's Pexels drink clips (beers, bartender, whiskey)",
+       "D": "the footage is the film's Pexels nightstand clip, one library AI clip of a hand wearing a smart ring (AI-GENERATED chip), library stock of a man asleep and friends toasting beers, and Dan talking in his studio (9/23 shoot)",
+       "E": "the footage is one AI clip of Dan drinking beer with friends (AI-GENERATED chip), library stock of a dinner toast and friends toasting beers, the film's Pexels club and wine clips, and Dan talking in his studio (9/23 shoot)"}
 def dname(S):
     """a short whose opening line is still the desk-mic recording is NOT a delivery: its name says so (VIDEO-RULES 2026-10-13)"""
     return f"{OUT}/{PRE}{P.NAME[S]}" + (" PLACEHOLDER PICKUP" if P.PICKUP.get(S, {}).get("placeholder") else "") + ".mp4"
@@ -146,10 +151,7 @@ def plan(S):
     import datetime                                          # the negative-events look, bound to THIS render
     pl["negative_events_scan"] = dict(sha256=h, when=datetime.datetime.now().isoformat(timespec="seconds"), frames_checked=int(dur) + 1,
         method="one frame per second (watch-pass contact sheets; " + (lambda w: f"judged image by image by {w['judged_by']}, {w.get('open_defects')} open defect(s)" if w.get("judged_by") and w.get("sha256") == h else "scanned by the builder only, the independent judge has not run on this file yet")(json.load(open(f"{G}/logs/watch_pass.json")) if os.path.exists(f"{G}/logs/watch_pass.json") else {}) + ") plus every shot's first, "
-               "middle and last frame on the build's proof sheets; the footage is Dan talking in his studio (9/23 shoot), the film's approved Pexels drink and "
-               "bar clips (cocktails, soda and lime, a margarita, beers, a bartender, whiskey, a man awake in bed, a club crowd), library stock (friends "
-               "toasting beers, a couple's dinner toast, a man asleep, hands preparing an injector pen), the film's wine fact card, and one library AI "
-               "clip of a hand wearing a smart ring (AI-GENERATED chip)",
+               "middle and last frame on the build's proof sheets; " + NEG[S],
         findings=[])
     json.dump(pl, open(f"{G}/plan.json", "w"), indent=1)
     print(S, "plan", f"{G}/plan.json", "joins", len(joins), "covered", len(covered), "cues", len(states))

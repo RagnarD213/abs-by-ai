@@ -65,12 +65,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R3:ACTIVE:2026-10-31:Codex01a19322.** Sources/proofs complete; full film rendering. Measurements observer armed; continuation active. Sole owner. `/Volumes/Extreme/_edit_work/RO-23/round3/RESUME.md`
+**RO-23:R3:ACTIVE:2026-10-31:Codex01a19322.** Full film rendered; exact-file checks running. Editor still review started; continuation active. Sole owner. `/Volumes/Extreme/_edit_work/RO-23/round3/RESUME.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-31, Claude.** [Clips + new wine frames](http://127.0.0.1:9432/) await picks; Short 3 approved. Slot released. Next: Short 2 motion, swap in, gates, audits. `/Volumes/Expansion/_edit_work/SL-10/round2/`
+**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-31, Claude.** [Finished edits](http://127.0.0.1:9433/): gates PASS, independent SHIP; Short 2 Y1 vs Y2 awaits Dan. Slot released. Next: his pick, then setup handoff (covers).
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 

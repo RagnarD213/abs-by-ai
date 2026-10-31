@@ -23,3 +23,12 @@ hair, cut scan, fresh watch pass, junk) -> fresh `ra-reviewer` per Short (`REVIE
 - **Cut a cover on the next caption's start**, never between a word's end and its cue's minimum hold (D: "protection rule." ran 0.4 s
   into the insert).
 - A line that names "the list" or "this one" of the film is a reference back: cut it, and tell Dan on the page.
+
+## Round 2 (2026-10-31): AI intro clips over the opening line
+- **Veo redraws the whole picture at frame 128 of an 8 s Frames take (every take here).** Use frames 0-126 at 1.0x (5.29 s) for a 5 s opener. Clipcheck tracks points and misses it; check a static-area frame diff.
+- **Check each take for repeated frames:** some takes are 20 fps inside a 24 fps file (every n mod 6 = 3 repeats). Drop them before retiming. Others have none: never dedup blind.
+- **A retime to 29.97 uses `framerate` blending** so the clip does not judder at 1.2x or 0.9x.
+- **A bar over an opening clip can hide the payoff:** A's thumbs-up sat behind bar G1, so G1 came out.
+- **Lips-closed in a Veo prompt does not hold when the end frame is a big wince:** two rounds of takes opened into a toothy grin on one set. The take from the other set held; pick the set, do not fight the prompt.
+- Reviewers fail the whole take; cut to the range they name and get a fresh stamp on the cut (`clipcheck` on the trimmed file).
+- Library cards are not proof: check a clip's frames before planning on it (B0348 again).
