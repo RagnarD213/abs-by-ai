@@ -1,61 +1,7 @@
 {
-"generated": "2026-10-30T11:25:38+00:00",
+"generated": "2026-10-31T11:25:57+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "6007655",
-"platform": "facebook",
-"when": "2026-10-30T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Believe it or not, nutrition made an even bigger impact than working out.",
-"batch": ""
-},
-{
-"id": "6007657",
-"platform": "instagram",
-"when": "2026-10-30T14:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Believe it or not, nutrition made an even bigger impact than working out.",
-"batch": ""
-},
-{
-"id": "6007659",
-"platform": "tiktok",
-"when": "2026-10-30T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Believe it or not, nutrition made an even bigger impact than working out.",
-"batch": ""
-},
-{
-"id": "6007660",
-"platform": "youtube",
-"when": "2026-10-30T14:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Believe it or not, nutrition made an even bigger impact than working out.",
-"batch": ""
-},
-{
-"id": "5903174",
-"platform": "facebook",
-"when": "2026-10-30T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing towel rows like this. Hold the towel loose and you're just waving your arms.",
-"batch": ""
-},
-{
-"id": "5903172",
-"platform": "instagram",
-"when": "2026-10-30T22:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing towel rows like this. Hold the towel loose and you're just waving your arms.",
-"batch": ""
-},
 {
 "id": "6072714",
 "platform": "facebook",
@@ -333,6 +279,42 @@
 "kind": "Carousel",
 "slides": 5,
 "text": "Stop deadlifting like this. A rounded back is the biggest reason I see guys get hurt.",
+"batch": ""
+},
+{
+"id": "6282253",
+"platform": "facebook",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
+"batch": ""
+},
+{
+"id": "6282254",
+"platform": "instagram",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
+"batch": ""
+},
+{
+"id": "6282256",
+"platform": "tiktok",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
+"batch": ""
+},
+{
+"id": "6282257",
+"platform": "youtube",
+"when": "2026-11-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "This is the best ab exercise you can do at home. Here's how to use the ab wheel the right way.",
 "batch": ""
 },
 {
@@ -678,6 +660,15 @@
 "batch": ""
 },
 {
+"id": "6253113",
+"platform": "youtube",
+"when": "2026-11-15T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Why do some people get ripped from taking weight loss medication, while for other people it totally destroys t",
+"batch": ""
+},
+{
 "id": "5822390",
 "platform": "facebook",
 "when": "2026-11-16T15:00:00.000Z",
@@ -711,6 +702,33 @@
 "kind": "Video",
 "slides": 1,
 "text": "If you're in college and you have no time to work out, I'm about to solve that problem for you. You're wasting",
+"batch": ""
+},
+{
+"id": "6253110",
+"platform": "facebook",
+"when": "2026-11-16T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Weight loss medication gets some people ripped and totally destroys other people's lives.",
+"batch": ""
+},
+{
+"id": "6253111",
+"platform": "instagram",
+"when": "2026-11-16T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Weight loss medication gets some people ripped and totally destroys other people's lives.",
+"batch": ""
+},
+{
+"id": "6253112",
+"platform": "tiktok",
+"when": "2026-11-16T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Weight loss medication gets some people ripped and totally destroys other people's lives.",
 "batch": ""
 },
 {

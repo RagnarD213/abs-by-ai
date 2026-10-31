@@ -182,7 +182,11 @@
   "job": "DS-22",
   "label": "How To Use The Ab Wheel",
   "added": "2026-10-13",
-  "planned": "2026-11-05 09:00"
+  "planned": "2026-11-05 09:00",
+  "queued": {
+   "date": "2026-10-31",
+   "main": "2026-11-05T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds33-ronaldo-ab-belt.json",
