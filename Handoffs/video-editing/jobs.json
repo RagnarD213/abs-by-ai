@@ -4807,12 +4807,12 @@
    "unattended": false,
    "intakeKey": "SHOOT-20261023-31",
    "order": 208,
-   "updated": "2026-10-29",
-   "rev": 4,
-   "syncedRev": 0,
+   "updated": "2026-10-31",
+   "rev": 5,
+   "syncedRev": 5,
    "editor": "Claude",
    "needs": "",
-   "by": ""
+   "by": "Claude"
   },
   {
    "id": "RO-38",
