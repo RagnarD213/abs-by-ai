@@ -3,7 +3,10 @@
 Config: id, dur, mode (images/text/corner), rows [{label,items:[{id,name}]}].
 Media is composited into the returned pixel boxes by the normal RGB compositor.
 The complete ranking has 11 entries. Corner mode shows the current spoken tier.
-No existing tier-list template or approved render is changed.
+Optional geometry {rows,media} supplies measured 1920x1080 pixel coordinates
+for close moving clips. Rows accept x/w; item and text coordinates are absolute.
+title_box [left,top,fontSize] and hide_tier_labels support focused tier pages.
+Omitting these fields preserves the original layout and existing renders.
 """
 import json
 import pathlib
@@ -16,6 +19,12 @@ import hfbuild as H
 
 def prepare(config):
     c = dict(config)
+    # Source-calibrated close layouts may supply explicit geometry. Keep the
+    # historical layout reproducible; the same maintained template draws both.
+    if c.get('geometry'):
+        c['rows'] = c['geometry']['rows']
+        c['media'] = c['geometry']['media']
+        return c
     media = []
     if c['mode'] == 'corner':
         assert len(c['rows']) == 1

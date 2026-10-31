@@ -18,6 +18,7 @@
 <script>
 const C=__CFG__,D=C.dur,root=document.getElementById('root');if(C.mode==='corner')root.classList.add('corner');
 document.getElementById('title').textContent=C.title||'Ab Exercises: Worst To Best';
+if(C.title_box)Object.assign(document.getElementById('title').style,{left:C.title_box[0]+'px',top:C.title_box[1]+'px',fontSize:C.title_box[2]+'px'});
 if(C.mode==='images')document.querySelector('.note').textContent='Real Photos Of Me, Not AI-Generated';
 const ctx=document.getElementById('field').getContext('2d');
 function field(t){ctx.fillStyle='#050d1c';ctx.fillRect(0,0,1920,1080);const x=800+360*Math.sin(t*.18),y=650+170*Math.cos(t*.23);const g=ctx.createRadialGradient(x,y,0,x,y,1100);g.addColorStop(0,'#214f80');g.addColorStop(1,'#050d1c');ctx.fillStyle=g;ctx.fillRect(0,0,1920,1080);const h=ctx.createRadialGradient(1700-160*Math.sin(t*.31),100,0,1700,100,820);h.addColorStop(0,'rgba(56,125,180,.22)');h.addColorStop(1,'rgba(5,13,28,0)');ctx.fillStyle=h;ctx.fillRect(0,0,1920,1080)}
@@ -25,7 +26,7 @@ const tl=gsap.timeline({paused:true});window.__timelines=window.__timelines||{};
 const clock={t:0};tl.fromTo(clock,{t:0},{t:D,duration:D,ease:'none',onUpdate:()=>field(clock.t)},0);
 tl.fromTo('#title',{opacity:0,y:12},{opacity:1,y:0,duration:.3,ease:'power2.out'},0);
 tl.fromTo('#accent',{scaleX:.1},{scaleX:1,duration:.5,ease:'power2.out'},0);
-C.rows.forEach((r,i)=>{const e=document.createElement('div');e.className='tier';e.style.top=r.y+'px';e.style.height=r.h+'px';const lab=document.createElement('div');lab.className='label';lab.textContent=r.label;e.append(lab);const sp=document.createElement('div');sp.className='sweep';e.append(sp);document.getElementById('tiers').append(e);tl.fromTo(e,{opacity:0,y:12},{opacity:1,y:0,duration:.32,ease:'power2.out'},i*.05);tl.fromTo(sp,{x:-200},{x:1900,duration:D,ease:'none'},0);
-r.items.forEach(item=>{const box=document.createElement('div');box.className='item';Object.assign(box.style,{left:(item.x-58)+'px',top:(item.y-r.y)+'px',width:item.w+'px',height:item.h+'px'});const name=document.createElement('div');name.className='name';name.textContent=item.name;Object.assign(name.style,{left:(item.tx-item.x)+'px',top:(item.ty-item.y)+'px',width:item.tw+'px',fontSize:item.px+'px'});box.append(name);e.append(box)});
+C.rows.forEach((r,i)=>{const e=document.createElement('div');e.className='tier';e.style.top=r.y+'px';e.style.height=r.h+'px';if(r.x!==undefined)e.style.left=r.x+'px';if(r.w!==undefined)e.style.width=r.w+'px';const lab=document.createElement('div');lab.className='label';lab.textContent=r.label;if(C.hide_tier_labels)lab.style.display='none';e.append(lab);const sp=document.createElement('div');sp.className='sweep';e.append(sp);document.getElementById('tiers').append(e);tl.fromTo(e,{opacity:0,y:12},{opacity:1,y:0,duration:.32,ease:'power2.out'},i*.05);tl.fromTo(sp,{x:-200},{x:1900,duration:D,ease:'none'},0);
+r.items.forEach(item=>{const box=document.createElement('div');box.className='item';Object.assign(box.style,{left:(item.x-(r.x===undefined?58:r.x))+'px',top:(item.y-r.y)+'px',width:item.w+'px',height:item.h+'px'});const name=document.createElement('div');name.className='name';name.textContent=item.name;Object.assign(name.style,{left:(item.tx-item.x)+'px',top:(item.ty-item.y)+'px',width:item.tw+'px',fontSize:item.px+'px'});box.append(name);e.append(box)});
 });field(0);
 </script></body></html>

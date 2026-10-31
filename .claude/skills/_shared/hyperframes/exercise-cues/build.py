@@ -1,6 +1,8 @@
 """Shared red exercise warnings and an accurate accelerated analog second hand.
 Proposed RO-23 R2; targets must be measured from the actual cropped moving source.
 No automatic anatomical tracking or approval is claimed by this renderer.
+Arrow direction='horizontal' draws a left-pointing shaft at the target's y;
+length defaults to 270 pixels. Omit direction for the original diagonal arrow.
 Clock pivot: animate SVG rotate(angle 150 150) through a numeric GSAP object,
 not CSS/GSAP rotation on the path. RO23 R2 native QA found that CSS origins
 let the hand leave its circle. Check hand presence and actual hub angles across
