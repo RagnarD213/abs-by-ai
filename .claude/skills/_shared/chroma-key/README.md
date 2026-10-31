@@ -37,6 +37,16 @@ none on others. Add `-fps_mode passthrough` as an output option on every sequent
 then check by matching a seek decode against a plain decode from frame 0. Symptom: a key that looks fine in stills or still
 moments and sloppy in spots when he moves. A one-frame `--frame` still will not show it reliably.
 
+## Natural-background cut-outs: audit shot by shot, and gaps need their own pass (2026-10-30, RO-37 R3)
+
+For a cut-out from real footage (no green screen; RO-37's pool), ViTMatte only re-solves a band along BiRefNet's edge. BiRefNet often closes the
+gap between arm, hand and body, so the pool inside the gap stays solid and no edge band reaches it. After the trimap pass, take back anything inside
+the cut-out that is clearly not him by colour, in the compositor, before decontamination: skin has red well above green, stone is neutral, tile is
+blue. `longform-edit/reference/ro37/round3/gapfix.py` protects the face, leaves very small specks and feathers the mask. It also cleared the outer
+pale outline on bright walls. A clean-plate difference did not work: the body covers about 80% of the plate and dark hair matches dark trees.
+Then audit the delivered film per shot (`audit_key.py`, `audit_sheets.py`: worst frame plus a 3x zoom, graded by a fresh reviewer). Blue and dark plates
+expose faults that busy scenes hide. On RO-37 the first full render graded 80 clean, 24 minor and 7 sloppy before this pass.
+
 ## Run it cheaply: calibrate on excerpts, key each piece once (2026-10-21, every recipe, Claude and Codex)
 
 The key was half of all render time on 10-21, and two thirds of that was re-keying whole clips to try a setting
