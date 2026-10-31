@@ -33,8 +33,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
-**RO-38:REVIEW:2026-10-30:Claude.** [R3 film](http://127.0.0.1:9546/) `/Volumes/Expansion/_edit_work/RO-38/round3/`
-
 **RO-29:REVIEW:2026-10-30:Claude.** [R3](http://127.0.0.1:9544/)
 
 **DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
@@ -83,7 +81,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief overlap NEEDS DAN 2026-10-30, Codex.** Pause old cloud routine; retain local.
+**Brief overlap NEEDS DAN 2026-10-31, Codex.** Pause old cloud routine; retain local.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`

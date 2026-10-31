@@ -4827,17 +4827,17 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/RO-38.json, then execute Handoffs/video-editing/RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md for \"The 5 Muscles Women Notice First, And The Machine That Builds Each One\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/RO-38.json, then execute Handoffs/video-editing/RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md for \"The 5 Muscles Women Notice First, And The Machine That Builds Each One\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
-   "state": "delivered",
+   "state": "finalized",
    "note": "Verified October 23 footage on Extreme. Exact take/hook/mic map: Media/footage-index/shoot-20261023/queue-jobs/RO-38.json. Sources and exercise library are prepared. This job has not been edited, rendered, approved, uploaded or scheduled.",
    "unattended": false,
    "intakeKey": "SHOOT-20261023-32",
    "order": 209,
-   "updated": "2026-10-30",
-   "rev": 5,
+   "updated": "2026-10-31",
+   "rev": 6,
    "syncedRev": 0,
    "editor": "Claude",
    "needs": "",
-   "by": "Claude"
+   "by": "Dan"
   },
   {
    "id": "SL-25",
