@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-52 REVIEW 2026-11-01, Codex01a198f9.** [Look choices](http://127.0.0.1:9290/). Push blocked: live salad article.
 
-**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Scripted reviewed. Offcuff reviewed, now correcting slightly loose headroom; new stills running before rebuild. Warm/House Bass locked. Auto-continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article.
+**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Scripted reviewed. Offcuff headroom rebuild/checks running; final proofs follow. Key scans complete. Auto-continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
@@ -73,7 +73,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Corrected film rendered; editor checks complete, final gate and one independent reviewer running. Format/audio protected. Queue in_progress. Push blocked by another live staged article deletion. `Handoffs/RO23_R4_REVISIONS_20261101.md`
+**RO-23:R4:REVIEW:2026-11-01:Codex01a1989e.** [R4](http://127.0.0.1:9873/) awaits Dan. Wheel/vacuum corrected; known B tone warning retained. Queue delivered. Push blocked by live staged article deletion.
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.

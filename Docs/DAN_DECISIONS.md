@@ -7,9 +7,21 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Ab Exercise Ranking LFC R4 (2026-11-01; Decision since: 2026-11-01):** [Review corrected film](http://127.0.0.1:9873/), then approve or give timestamps. Check 0:05–0:23, 2:08–2:36, 4:26–4:34 and 4:40–4:55 for controlled full-extension ab wheel and unobstructed vacuum. Approved format, narration and timing preserved. Independent limited picture review found no open defects; existing B-voice tone warning remains. No upload or scheduling. RO-23.
+
+- **Zepbound Free SFC R1 (2026-11-01; Decision since: 2026-11-01):** [Review outdoor choices](http://127.0.0.1:9290/). Choose colour, voice, crop and compact 63.4 seconds versus the longer complete script. Recommend colour B, voice B, crop 1 and 63.4 seconds. Full Short not yet built. DS-52.
 
 
-- **V-Taper Exercises covers (2026-10-28; Decision since: 2026-10-28):** [Review three real-photo designs](http://127.0.0.1:9297/) and choose 1, 2 or 3. Recommendation 3. Initial five rejected. Both photos touched up; title centered. R6 unchanged; uploads/setup await the pick. `Docs/DS47_COVER_REVIEW_20261028.md`.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -107,6 +119,9 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
+
+
+
 
 
 
