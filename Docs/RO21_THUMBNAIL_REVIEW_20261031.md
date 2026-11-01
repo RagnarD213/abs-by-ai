@@ -9,3 +9,11 @@ CONTENT (LFC). Status: **awaiting Dan's pick** at http://127.0.0.1:9571/ . Nothi
 - Recommendation on the page: X7. Set folder: `social media graphics/youtube/thumbnails/What Every Body Fat Percentage Looks Like/_blind-set/`. Recipe: `scripts/covers/ro21-20261031/`.
 
 Next after the pick: `blind.py pick`, install from `built/<design>/` (design from `blind.py reveal`), thumbnail FINAL, TikTok cover-first copy, Blotato uploads, config, FB cover registry, cover_audit and ad_guard, article, pinned comment, then `longform_queue.py` or one waitlist entry with kitchen false for YouTube Wed Dec 30 9 AM, socials Dec 31 noon. Register the Shorts job. Receipt `Docs/RO21_SETUP_RECEIPT_<date>.md`.
+
+## Round 2 (Dan, 2026-11-01)
+
+Dan: "Okay, I like X7, but I want to modify that. Make the title 'Body Fat Percentage: Which One Are You?' and give me four figures at the bottom: 35%, 25%, 15%, and 8%. Also, I want to see a few variations of the background behind the people. Give me a few different designs of that concept overall."
+
+Six designs, labels X1 to X6, at http://127.0.0.1:9572/ (blind set `_blind-set/r2/`, recipe `scripts/covers/ro21-20261031/r2/`). Page recommendation X1. All 1280x720 under 2 MB, headline clears every head by at least 23 px, level tags sit on the shorts on purpose. This is a revised pick: install only after Dan approves the exact file, then `blind.py pick`, install from `built/<design>/`, and finish setup.
+
+Prepared and waiting: title, description, tags, pinned question, draft config `scripts/blotato/configs/ro21-body-fat-percentage.json`, article `sixpackabs/articles/TBD-ro21-body-fat-percentage.md` (1,307 words, build.py --check OK; written through the writer's fallback after an expired login, so not a clean-call draft). Not done: thumbnail upload, TikTok cover-first copy, Blotato uploads, queue or waitlist, Facebook cover registry, Edit Queue, Shorts job.

@@ -30,7 +30,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
 
-**RO-21:SETUP:2026-10-31:Claude.** [Thumbnails](http://127.0.0.1:9571/) await pick.
+**RO-21:SETUP:2026-11-01:Claude.** [Six thumbnails](http://127.0.0.1:9572/) await pick.
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
