@@ -148,3 +148,11 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 - Founder & CEO, Social Response Marketing: now "July 2019 - Present" (was ending Jan 2026). Description gained: "Still running today as a continuation of Social Response Marketing, writing and editing direct-response video ads for health, fitness and info-product brands."
 - Boston University education: area of study changed from Entrepreneurship to Marketing (Upwork shows only one). Public view reads "Bachelor of Science (BS), Marketing, 2004-2008". The description still says "Double major in Entrepreneurship and Marketing."
 - Profile still shows "ID: Unverified". Dan verifies his own identity in Settings > Identity Verification; Claude does not enter ID documents.
+
+## Catalog covers uploaded (2026-11-01)
+- Dan approved five-concept covers (files in `Media/upwork-catalog-covers/`, not tracked). New covers saved on the four Project Catalog projects (Finished Ads 2115866195911529205, Ad Scripts 2115867214162711285, New Versions 2115867788295080891, Audit 2115868514378378632); old text cards removed; dashboard stays Approved (6), Under Review (0).
+- Upwork blocks links in project descriptions ("Links to external websites are not allowed"); each description now ends "Watch the ads in the portfolio on my profile." Covers say "Watch all 4 ads on my profile".
+- Added four portfolio items with YouTube links so every ad on the covers is on the profile: Mind Movies Financial Abundance 3.7M (izZ0Apr-yM8), HBI Avoid These Proteins 23M (eRJnsVrnaE8), HBI Five Foods 17M (y3DEsod4Vv0), HBI Five Foods 19M (K0iACRzW4kU). Portfolio is now 9 items.
+- Trap: the public Finished Ads page kept serving the old text-card cover after two saves while the dashboard showed the new one (B, C, D updated). Re-check; if still old, toggle the project off and on or re-upload.
+- The two cheaper catalog items ($75 hooks, $150 new version) still have text-card images.
+- Trap: never run `git add -N .` in the main folder (it staged 9,149 untracked files as intent-to-add; undone with `git reset` on only those paths).
