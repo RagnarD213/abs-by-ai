@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Dr Mike Dial SFC R2 ACTIVE 2026-11-01, Codex01a198a1.** Warm/House Bass approved for both versions; ownership/hashes verified, slot held. Next: shared reaction opening, both complete cuts, exact-file checks and independent reviews. Private work: `/Volumes/Expansion/_edit_work/DS-37/round2/`. No publishing.
+**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Warm/House Bass locked. Both keys running; final graphics queued. Automatic same-chat continuation active. Next: real-frame proofs, full assembly, checks and independent reviews. Checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article. No publishing.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
@@ -34,7 +34,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Five proposals await him. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
+**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Proposals: 2 sent 11-01, tax awaits Dan; routine `upwork-proposals-daily` drafts 5 a day. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
 
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Replacing wheel/vacuum throughout; format locked. Owner started/pinned. Sources and context previews in R4. Queue remotely verified in_progress. Push blocked by live staged sixpackabs/articles/TBD-daily-salad.md; retry at delivery. `Handoffs/RO23_R4_REVISIONS_20261101.md`
+**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Wheel/vacuum replacements underway; format locked. Queue verified in_progress. Push blocked: live staged sixpackabs/articles/TBD-daily-salad.md. Retry at delivery. `Handoffs/RO23_R4_REVISIONS_20261101.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
