@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Source corrections throughout; format locked. Owner started/pinned. `Handoffs/RO23_R4_REVISIONS_20261101.md`
+**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Replacing wheel/vacuum throughout; format locked. Owner started/pinned. Sources and context previews in R4. Queue remotely verified in_progress. Push blocked by live staged sixpackabs/articles/TBD-daily-salad.md; retry at delivery. `Handoffs/RO23_R4_REVISIONS_20261101.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
