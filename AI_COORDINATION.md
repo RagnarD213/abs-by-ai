@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief overlap NEEDS DAN 2026-10-31, Codex.** Pause old cloud routine; retain local.
+**Brief overlap NEEDS DAN 2026-11-01, Codex.** Pause old cloud routine; retain local.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -146,7 +146,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Waist-cover 2026-10-08.** TikTok phone upload pending.
 
-**Meta follower test - RUNNING 2026-10-08, Claude.** Auto-boost OFF; one $40/day ad self-runs Oct 16-22. Nov 1 report: `Docs/AUTO_BOOST.md`.
+**Meta follower test - NEEDS DAN 2026-11-01, Claude.** Report delivered in chat. Auto-boost stays OFF until Dan rules. `Docs/AUTO_BOOST.md`.
 
 **RO-01 - QUEUED 2026-10-07, Codex.** Dec6/7. TikTok direct Dec7. Next: release check. `Docs/RO01_SETUP_RECEIPT_20261007.md`.
 
