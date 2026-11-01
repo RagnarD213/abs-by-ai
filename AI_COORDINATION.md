@@ -27,9 +27,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SRM Website REVIEW 2026-11-01, Claude.** Nothing published. Next: Dan's notes. `sites/srm/PLAN.md`
 
+**Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
+
 **DS-52 REVIEW 2026-11-01, Codex01a198f9.** [Look choices](http://127.0.0.1:9290/). Push blocked: live salad article.
 
-**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Warm/House Bass locked. Scripted key complete; offcuff key and final graphics running. Automatic continuation active. Next: proofs, assembly and reviews. Checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article. No publishing.
+**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Scripted reviewed. Offcuff reviewed, now correcting slightly loose headroom; new stills running before rebuild. Warm/House Bass locked. Auto-continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
@@ -71,7 +73,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Wheel/vacuum replacements underway; format locked. Queue verified in_progress. Push blocked: live staged sixpackabs/articles/TBD-daily-salad.md. Retry at delivery. `Handoffs/RO23_R4_REVISIONS_20261101.md`
+**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Corrected film rendered; editor checks complete, final gate and one independent reviewer running. Format/audio protected. Queue in_progress. Push blocked by another live staged article deletion. `Handoffs/RO23_R4_REVISIONS_20261101.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
