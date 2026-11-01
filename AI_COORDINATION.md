@@ -25,6 +25,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SRM Website REVIEW 2026-11-01, Claude.** [Draft](https://claude.ai/artifact/PLdr99pEjRUh1aePA7waei) and [logos](https://claude.ai/artifact/AZ3KFBfqNcxq4exGGud15q) await Dan. Nothing published; old redirect stays. Next: his notes and logo pick, Calendly, forms. Plan: `sites/srm/PLAN.md` (local until approved).
+
+**Zepbound Free SFC R1 ACTIVE 2026-11-01, Codex01a198f9.** DS-52: options next. `/Volumes/Expansion/_edit_work/DS-52/`.
+
 **Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Warm/House Bass locked. Both keys running; final graphics queued. Automatic same-chat continuation active. Next: real-frame proofs, full assembly, checks and independent reviews. Checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article. No publishing.
 
 
@@ -56,7 +60,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** http://127.0.0.1:9286/ . N02/N07 motions with narration checked and independently reviewed; await Dan before full assembly. Prior approvals/46locks preserved. Key/audio findings retained. Next: actual motion reply; `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
+**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** http://127.0.0.1:9286/ . N02/N07 narrated motions reviewed; awaiting Dan. Full film unbuilt. Next: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`

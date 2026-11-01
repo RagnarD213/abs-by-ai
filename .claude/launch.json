@@ -34,12 +34,32 @@
         "server",
         "--port=9400",
         "--php=8.3",
-        "--define-bool", "WP_DEBUG", "true",
-        "--mount-dir", "sixpackabs/theme/sixpackabs-child", "/wordpress/wp-content/themes/sixpackabs-child",
-        "--mount-dir", "sixpackabs/playground", "/spa-playground",
+        "--define-bool",
+        "WP_DEBUG",
+        "true",
+        "--mount-dir",
+        "sixpackabs/theme/sixpackabs-child",
+        "/wordpress/wp-content/themes/sixpackabs-child",
+        "--mount-dir",
+        "sixpackabs/playground",
+        "/spa-playground",
         "--blueprint=sixpackabs/playground/blueprint.json"
       ],
       "port": 9400
+    },
+    {
+      "name": "srm-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "4178",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "sites/srm/public"
+      ],
+      "port": 4178
     }
   ]
 }
