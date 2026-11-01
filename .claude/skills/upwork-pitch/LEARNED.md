@@ -40,6 +40,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Log
 
+- 2026-11-01: first two proposals submitted (supplement, skincare). The connector holds one pending preview at a time: prepare and confirm each proposal before starting the next.
 - 2026-10-30: Dan wrote the outreach template. The email now leads with Google and YouTube, so prospects must be checked there.
 - 2026-10-30: outreach batch 1 (20 emails) rejected whole by Dan before sending. Merged plan section 7 (email teardown + 3 hooks) is on hold until Dan picks the new approach.
 - 2026-10-29: skill created from the merged plan.
