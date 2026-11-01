@@ -1473,6 +1473,7 @@ Three independent reviews before SHIP; two rebuilds came from the demo. Recipe: 
 - **A studio 16:9 roll has only about 92 px of 4K headroom:** a title strip over a full-height crop covers his hair. Put the picture under the strip (1215x2059 to 1080x1830 at y 90).
 - **Watch the gaps between clips:** a 0.35 s return to Dan between two cutaways is a flash; run the clips together.
 - **The frame gate's `person.compare` is not an escape hatch.** A shin that gets longer is a real fault; thigh and torso foreshorten in a three-quarter squat, shins do not. Say why before dropping a measure.
+- **Codex END frames from a standing START run the shin 10 to 17% long and drift the room.** One whole-image correction ("bring knees and hips down N px, everything else pixel for pixel") usually fixes the shin; each extra edit loses the build or the room. A plain room is no protection. Pasting pixels back left marks reviewers caught every time: regenerate instead.
 - **`captions:sync` can read 51% on first-word caption states** while an in-order match pairs every cue within 20 ms: its sequence match aligns a sparse word list poorly. Measure in order and report it; never tune it.
 
 ## Dedicated-short lessons: DS-49 Coconut Water (2026-10-29)

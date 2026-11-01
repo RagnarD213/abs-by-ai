@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Dr Mike Dial SFC R1 (DS-37) ACTIVE 2026-11-01, Codex.** Owns both scripted and off-the-cuff cuts. Next: source/take audit, shared look/voice and contextual R1 approval packet, then both exact-file gates and independent reviews. No upload.
+**Dr Mike Dial SFC R1 (DS-37) REVIEW 2026-11-01, Codex.** Sole owner of both versions; shared look/voice choices at http://127.0.0.1:9187/ . Next: record picks, finish contextual assets and both edits, then exact-file gates and independent reviews. State: `Media/codex-video-trial/DS-37/STATE.md`. No final candidates or uploads.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
 
-**Bodyweight Squats SFC R1 REVIEW 2026-10-31, Claude.** [Page](http://127.0.0.1:9633/). Next: Dan's notes. `/Volumes/Expansion/_edit_work/DS-61/round1/`
+**Bodyweight Squats SFC R2 REVIEW 2026-11-01, Claude.** [Chair frames](http://127.0.0.1:9638/). Next: Dan's pick. `/Volumes/Expansion/_edit_work/DS-61/round2/`
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
@@ -56,7 +56,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R2, 2026-10-31, Codex01a1926a.** [Limited review](http://127.0.0.1:9284/): Dan chooses N02/N07 starts. Warm+D locked; keyQA OPEN. Heartbeat waits quietly. Sole owner; checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round2/RESUME.md`.
+**Losing Fat Face LFC R3 ACTIVE 2026-11-01, Codex01a197ed.** Sole owner; N02 X1/N07 X2 chosen, face comparisons and3motions approved. Next: four-photo collage, matching ENDs and N07 healthy meal, then frame review. Parent stopped. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/round-controller.json`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
