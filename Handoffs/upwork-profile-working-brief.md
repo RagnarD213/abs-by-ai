@@ -156,3 +156,6 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 - Trap: the public Finished Ads page kept serving the old text-card cover after two saves while the dashboard showed the new one (B, C, D updated). Re-check; if still old, toggle the project off and on or re-upload.
 - The two cheaper catalog items ($75 hooks, $150 new version) still have text-card images.
 - Trap: never run `git add -N .` in the main folder (it staged 9,149 untracked files as intent-to-add; undone with `git reset` on only those paths).
+
+### Cheaper two covers done (2026-11-01 evening)
+$75 hooks and $150 new-version projects now have the same-style covers; all six catalog items verified on the public profile (Finished Ads cache cleared itself). Files: `Media/upwork-catalog-covers/round2-other-three/` (gitignored).
