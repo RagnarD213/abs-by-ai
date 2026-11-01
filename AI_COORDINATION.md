@@ -25,7 +25,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**First Time At The Gym LFC Setup:THUMBNAILS:2026-11-01:Claude.** Making covers; then YouTube Jan 1, socials Jan 2. RO-37.
+**Dr Mike Dial SFC R1 (DS-37) ACTIVE 2026-11-01, Codex.** Owns both scripted and off-the-cuff cuts. Next: source/take audit, shared look/voice and contextual R1 approval packet, then both exact-file gates and independent reviews. No upload.
+
+
+**First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
 
 **RO-21:SETUP:2026-10-31:Claude.** [Thumbnails](http://127.0.0.1:9571/) await pick.
 
