@@ -3616,11 +3616,11 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-22-how-losing-fat-changed-my-face.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "draft_review",
-   "note": "R3 limited review http://127.0.0.1:9286/ : four-photo opening 10.61-15.58s, N02 matching END and N07 healthy-meal START/water END. Exact pairs gated and freshly reviewed; await Dan frame approval before motion. Warm+D, approved face pairs and3motion clips preserved. Key QA OPEN; no full film or publication.",
+   "note": "R3 actual N02/N07 motions with narration ready at http://127.0.0.1:9286/ . Exact motions gated and freshly reviewed; context picture checks and independent review passed after N07 excerpt-boundary repair. Await Dan motion review before full assembly. Opening, collage, frames, Warm+D and46older locks preserved. Key QA OPEN; audio findings retained; full film unbuilt.9motiontakes72subscriptioncredits0paidAPI.",
    "needs": "",
    "order": 157,
    "updated": "2026-11-01",
-   "rev": 7,
+   "rev": 9,
    "syncedRev": 1,
    "editor": "Codex",
    "by": "Codex"
