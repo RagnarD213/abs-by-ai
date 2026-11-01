@@ -7,9 +7,12 @@ Read before drafting. Newest first within each section. Each rule names the item
 | Batch | Date | Decided | Approved unchanged | Edited | Rejected |
 |---|---|---|---|---|---|
 | outreach-1 | 2026-10-30 | 20 | 0 | 0 | 20 |
+| upwork-2 | 2026-11-01 | 5 | 5 | 0 | 0 |
 
 ## Rules for proposals
 
+- Hourly and full-time jobs stay out of the routine (fixed price only); `upw-2115223539913193711` was Dan's own one-off pick (2026-11-01), not a change to the rule. He sent it knowing it scored 62.
+- Formal screening questions go in the connector's `answers` field, never in the cover letter. A preview lists them under `screening_questions`. (upwork-2, 2026-11-01)
 - Never repeat: anything in the "what you asked for" section stays out of the summary of accomplishments (Dan, 2026-11-01, `upw-2114626913586266410`). A VSL job's summary links the ads instead, so the client sees Dan makes both.
 - VSL proof (Dan, 2026-11-01): any VSL job gets these three in the "what you asked for" section; other proposals carry a short version in the accomplishments: MEN OVER 40: Stop Doing Any Cardio ($29M revenue, https://youtu.be/L0GF85b0HoY), How I Used This Intro To Intermittent Fasting ($11M, https://youtu.be/fQr6myFlCDc), MEN OVER 40: How To Get Rid Of Belly Fat Naturally ($18M, https://youtu.be/MSRqcXjX5y0). Keep the fasting one in the middle so two "men over 40" titles are not back to back.
 - Boost: Dan's standing yes, 2026-11-01: boost any job Claude recommends boosting, at its discretion.
@@ -40,6 +43,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Log
 
+- 2026-11-01: eight proposals live (upwork-1 three, upwork-2 five). The upwork-2 John proposal was opened within minutes of its boost. Cheapest boost flow: submit, read `current_top_bids` from the preview, then `edit` with `boost_connects`, instead of re-creating with the whole letter. Top bid plus one for good clients; no boost when the bids run far above Upwork's suggested range (65 to 69 on the hourly job).
 - 2026-11-01: first two proposals submitted (supplement, skincare). The connector holds one pending preview at a time: prepare and confirm each proposal before starting the next.
 - 2026-10-30: Dan wrote the outreach template. The email now leads with Google and YouTube, so prospects must be checked there.
 - 2026-10-30: outreach batch 1 (20 emails) rejected whole by Dan before sending. Merged plan section 7 (email teardown + 3 hooks) is on hold until Dan picks the new approach.
