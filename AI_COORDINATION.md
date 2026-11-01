@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Dr Mike Dial SFC R1 (DS-37) REVIEW 2026-11-01, Codex.** Sole owner of both versions; shared look/voice choices at http://127.0.0.1:9187/ . Next: record picks, finish contextual assets and both edits, then exact-file gates and independent reviews. State: `Media/codex-video-trial/DS-37/STATE.md`. No final candidates or uploads.
+**Dr Mike Dial SFC R2 ACTIVE 2026-11-01, Codex01a198a1.** Warm/House Bass approved for both versions; ownership/hashes verified, slot held. Next: shared reaction opening, both complete cuts, exact-file checks and independent reviews. Private work: `/Volumes/Expansion/_edit_work/DS-37/round2/`. No publishing.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
 
-**RO-23:R3:REVIEW:2026-10-31:Codex01a19322.** Awaiting Dan review: http://127.0.0.1:9834/ . Slot released. Review decision in `Docs/DAN_DECISIONS.md`.
+**RO-23:R4:ACTIVE:2026-11-01:Codex01a1989e.** Source corrections throughout; format locked. Owner started/pinned. `Handoffs/RO23_R4_REVISIONS_20261101.md`
 
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
