@@ -10,6 +10,9 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for proposals
 
+- VSL proof (Dan, 2026-11-01): any VSL job gets these three in the "what you asked for" section, and a short version goes in the accomplishments of every proposal: MEN OVER 40: Stop Doing Any Cardio ($29M revenue, https://youtu.be/L0GF85b0HoY), How I Used This Intro To Intermittent Fasting ($11M, https://youtu.be/fQr6myFlCDc), MEN OVER 40: How To Get Rid Of Belly Fat Naturally ($18M, https://youtu.be/MSRqcXjX5y0). Keep the fasting one in the middle so two "men over 40" titles are not back to back.
+- Boost: Dan's standing yes, 2026-11-01: boost any job Claude recommends boosting, at its discretion.
+- Volume: 5 proposals a day until the first accepted job, then pause until that job is complete (Dan, 2026-11-01). The routine drafts only; Dan's approval and a send still go through a session.
 - Approved proposal format (Dan, 2026-11-01, batch upwork-1): job-specific opening with details only from the post; one $5 trial (Upwork minimum) inside a full-price bid, steps adding up to the bid; why $5 (new to Upwork, first ten clients only); who Dan is; a 15 minute Upwork video call; "Here's what you asked for" answering each item in the post; then "Here's a summary of my accomplishments and why this trial ad is worth your time", most relevant proof first. Approved examples: `upw-2107180952645930829`, `upw-2114834950612066141` on the pipeline page.
 - Job with a required first word: use it alone, as "Funnel. I'm confident..." (Dan, 2026-11-01). Timelines run from "after we've filmed it or I have your footage". Unknown spend: quote views only.
 - Proofread every proposal before Dan sees it, starting with the first line: read it as the client would. A word a client requires (such as a set first word) must sit inside a natural sentence, never alone, and is flagged to Dan with the line from the post. (upwork-1, 2026-11-01)
