@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
 
-**Bodyweight Squats SFC R2 REVIEW 2026-11-01, Claude.** [Chair frames](http://127.0.0.1:9638/). Next: Dan's pick. `/Volumes/Expansion/_edit_work/DS-61/round2/`
+**Bodyweight Squats SFC R2 REVIEW 2026-11-01, Claude.** [Chair frames](http://127.0.0.1:9638/). Next: Dan's pick. Commit d2744ba local; next safe-push carries it. `/Volumes/Expansion/_edit_work/DS-61/round2/`
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
