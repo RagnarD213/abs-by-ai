@@ -4,7 +4,7 @@ Written 2026-10-31 by Claude (Opus 5.5) at the end of round 4. Sidebar name: **F
 **Recommended model:** Claude Opus 5.5, high effort (the film started on Claude). **Use the Codex subscription to generate the images.**
 Every Codex still uses `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`.
 
-"I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37), 10/23 pool rolls C1894, C1895, C1897. Dan on round 3: "Fix that, then the video is done." **Fire after Dan has looked at the five round 4 spots** (http://127.0.0.1:9547/). If he has notes, a round 5 replaces this file; update the path and hash here.
+"I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37), 10/23 pool rolls C1894, C1895, C1897. **Dan approved round 4 on 2026-11-01: "Approved, fire setup".** Edit Queue: `finalized`.
 
 ## Exact file (never edit it; re-hash before setup)
 - `claude edited long form content/27 - I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time/I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | claude round 4 | 16x9 | RO-37.mp4`
