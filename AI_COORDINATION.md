@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**SRM Website REVIEW 2026-11-01, Claude.** [Draft](https://claude.ai/artifact/PLdr99pEjRUh1aePA7waei) and [logos](https://claude.ai/artifact/AZ3KFBfqNcxq4exGGud15q) await Dan. Nothing published; old redirect stays. Next: his notes and logo pick, Calendly, forms. Plan: `sites/srm/PLAN.md` (local until approved).
+**SRM Website REVIEW 2026-11-01, Claude.** Nothing published. Next: Dan's notes. `sites/srm/PLAN.md`
 
 **Zepbound Free SFC R1 ACTIVE 2026-11-01, Codex01a198f9.** DS-52: options next. `/Volumes/Expansion/_edit_work/DS-52/`.
 
