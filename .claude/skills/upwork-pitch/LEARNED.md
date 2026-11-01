@@ -10,6 +10,8 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for proposals
 
+- Approved proposal format (Dan, 2026-11-01, batch upwork-1): job-specific opening with details only from the post; one $5 trial (Upwork minimum) inside a full-price bid, steps adding up to the bid; why $5 (new to Upwork, first ten clients only); who Dan is; a 15 minute Upwork video call; "Here's what you asked for" answering each item in the post; then "Here's a summary of my accomplishments and why this trial ad is worth your time", most relevant proof first. Approved examples: `upw-2107180952645930829`, `upw-2114834950612066141` on the pipeline page.
+- Job with a required first word: use it alone, as "Funnel. I'm confident..." (Dan, 2026-11-01). Timelines run from "after we've filmed it or I have your footage". Unknown spend: quote views only.
 - Proofread every proposal before Dan sees it, starting with the first line: read it as the client would. A word a client requires (such as a set first word) must sit inside a natural sentence, never alone, and is flagged to Dan with the line from the post. (upwork-1, 2026-11-01)
 - A $5 first step is only a suggestion in the proposal: Upwork says clients set the milestones when they send the offer. Check the offer shows $5 first before Dan accepts it. (upwork-1, 2026-11-01)
 - Upwork proposals use Dan's outreach template (`TEMPLATE-outreach-email.md`), lightly customized per client (Dan, 2026-10-30, batch upwork-1). Keep his wording, keep any screening answers and the price in a block at the end.
