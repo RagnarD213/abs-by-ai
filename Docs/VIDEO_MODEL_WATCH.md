@@ -47,12 +47,16 @@ better quality, even if they're more expensive, and which could generate the sam
 | 2026-10-21 | Gemini Omni 1.1 Flash (Flow) | Blind, 5 pairs: 2 ties, Veo preferred 3, Omni 0. Refused the shirtless P6 pair. 12 credits vs 10. Used only alongside Veo for >8 s, 4/6 s, one-detail fixes and multi-reference shots (`_shared/veo/README.md`). |
 | 2026-10-20 | Kling 3.0 | Not blind-tested. Below Veo Fast on the blind board; already used pay-per-clip on Replicate for planted-feet exercise moves where Veo shifts the feet. Subscription not worth it at our Kling volume. |
 | 2026-10-21 | Seedance 2.5 (Replicate `bytedance/seedance-2.5`) | **Disqualified.** Refused 5 of 6 standard pairs as "sensitive" (E005) within seconds, twice; only P3 (dark gym, small face) rendered. Its filter blocks realistic people in the input frames, which is nearly all our clips. Also 720p max on Replicate. Cost: one 8 s take. Re-test only if ByteDance or Replicate changes the face policy. |
-| 2026-10-20 | MiniMax H3 | 1st on the blind board; pay per second only, no confirmed start/end frame support. Re-check each month. |
+| 2026-10-20 | MiniMax H3 | Start/end frames confirmed 2026-11-01, Replicate `minimax/h3`, 2K $1.04 per 8 s. Generated all 6 standard pairs incl. shirtless P6. **Blind test awaiting Dan's picks:** http://127.0.0.1:9073/ (key in `/Volumes/Extreme/_edit_work/model-bakeoff-minimaxh3-20261101/blind-key.json`). |
+| 2026-11-01 | Kling 4.0 (Replicate `kwaivgi/kling-v4.0`) | Start/end frames, 720p $1.26 per 8 s, 1080p $1.88. Generated all 6 standard pairs at 720p incl. shirtless P6. **Blind test awaiting Dan's picks:** http://127.0.0.1:9074/ (key in `/Volumes/Extreme/_edit_work/model-bakeoff-kling40-20261101/blind-key.json`). |
+| 2026-11-01 | FLUX 3, P-Video-2-Pro (Replicate) | Not tested this run (one-month cap). Both take start + end frames and rank above Veo Fast on the board; FLUX 3 at 11th, P-Video-2-Pro at 7th and built on MiniMax H3. Test next if H3 or Kling wins. |
+| 2026-11-01 | Wan 3.0 (Replicate `alibaba/wan-3`) | Skipped: start frame only on Replicate. |
 | 2026-10-20 | Sora | Consumer app reportedly closed April 2026; no start/end frames; blocks real-person photos. Skip unless it returns. |
 
 ## Monthly log
 
 Newest first, one short entry per run: what changed, what was tested or recommended, and why.
 
+- 2026-11-01: Kling 4.0 and MiniMax H3 both bake-off tested on Replicate, $13.80, no refusals; two blind pages await Dan. No Veo 4, Omni update or Flow price change found.
 - 2026-10-21: Seedance 2.5 tested on Replicate: refuses realistic people (5 of 6 pairs, retried), disqualified. No other candidate pending; MiniMax H3 re-checked monthly for start/end frames.
 - 2026-10-21: watch set up. Baseline Veo 3.1 Fast on Ultra.
