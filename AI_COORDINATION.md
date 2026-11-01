@@ -34,7 +34,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. Proposals: 2 sent 11-01, tax awaits Dan; routine `upwork-proposals-daily` drafts 5 a day. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
+**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Calendly, Workspace, pitch videos. 2 proposals sent; routine drafts. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
 
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
@@ -56,7 +56,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** http://127.0.0.1:9286/ . Four-photo opening and new N02/N07 frame pairs checked; await Dan frame approval before motion. Warm+D, approved faces/motions and46locks preserved. Key/audio findings remain open; full film unbuilt. Next: actual Dan reply, then resume once from `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
+**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** http://127.0.0.1:9286/ . N02/N07 motions with narration checked and independently reviewed; await Dan before full assembly. Prior approvals/46locks preserved. Key/audio findings retained. Next: actual motion reply; `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
