@@ -194,7 +194,11 @@
   "job": "DS-33",
   "label": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
   "added": "2026-10-25",
-  "planned": "2026-11-11 09:00"
+  "planned": "2026-11-11 09:00",
+  "queued": {
+   "date": "2026-11-01",
+   "main": "2026-11-11T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds14-3-ways-to-reduce-alcohol.json",
@@ -202,7 +206,11 @@
   "job": "DS-14",
   "label": "3 Ways To Reduce Alcohol",
   "added": "2026-10-13",
-  "planned": "2026-11-12 09:00"
+  "planned": "2026-11-12 09:00",
+  "queued": {
+   "date": "2026-11-01",
+   "main": "2026-11-12T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds40-bill-maher-fat-90-year-old.json",
@@ -211,7 +219,11 @@
   "label": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
   "added": "2026-10-25",
   "note": "Dan approved exact Codex R5 film and design 1 cover R3. Target Thu Dec 31, 9 AM America/Chicago. All four media uploads verified; Blotato 197/200, needs four slots.",
-  "planned": "2026-11-13 09:00"
+  "planned": "2026-11-13 09:00",
+  "queued": {
+   "date": "2026-11-01",
+   "main": "2026-11-13T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds24-how-to-do-rear-delt-flys.json",
