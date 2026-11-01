@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**First Time At The Gym LFC Setup:THUMBNAILS:2026-11-01:Claude.** Making covers; then YouTube Jan 1, socials Jan 2. RO-37.
+
 **RO-21:SETUP:2026-10-31:Claude.** [Thumbnails](http://127.0.0.1:9571/) await pick.
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
@@ -37,8 +39,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Bodyweight Squats SFC R1 REVIEW 2026-10-31, Claude.** [Page](http://127.0.0.1:9633/). Next: Dan's notes. `/Volumes/Expansion/_edit_work/DS-61/round1/`
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
-
-**RO-29:REVIEW:2026-10-30:Claude.** [R3](http://127.0.0.1:9544/)
 
 **DS-49:HOLD:2026-10-29:Claude.** Cover G; waitlist Dec21 6PM; push-blocked:live-files. `Docs/DS49_SETUP_RECEIPT_20261029.md`
 

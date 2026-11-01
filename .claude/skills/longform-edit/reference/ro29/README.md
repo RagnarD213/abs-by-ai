@@ -69,3 +69,5 @@ Work stays in `round2/` (W), outputs in `round3/final` and `round3/review`.
 30. **Wide mouth on a bite reads as a wince or a shout.** Pick the take by frame strips of the face at every second, and cut the range around the bite (A7e 1.0 to 5.43). Prompt "calm, relaxed, brow smooth" helped.
 31. **Readable text survives a handoff only if the prompt keeps the page flat and facing camera** (A4Db kept it, A4D melted it).
 32. **Dan's "m-frames" is a mis-transcription of start and end frames.**
+
+Dan approved round 3 as final on 2026-11-01. Final in `claude edited long form content/28 - Cortisol Belly Is Real, But TikTok Has It Wrong/`.

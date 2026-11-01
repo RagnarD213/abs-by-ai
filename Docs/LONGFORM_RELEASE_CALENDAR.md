@@ -51,7 +51,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Jan 13 | 3 | How To Make Time For Exercise & Nutrition | Waitlist |
 | Fri Jan 15 | 3 | The Stomach Vacuum | Live |
 | Sun Jan 17 | 3 | Calories | Live |
-| Wed Jan 20 | 3 | RO-29 Cortisol Belly Is Real, But TikTok Has It Wrong (needs editing) | Not booked |
+| Wed Jan 20 | 3 | RO-29 Cortisol Belly Is Real, But TikTok Has It Wrong (film approved 11-01, setup handoff ready) | Not booked |
 | Fri Jan 22 | 3 | The Vacuum Workout | Live |
 | Sun Jan 24 | 3 | RO-31 How To Get Rid Of Man Boobs (needs editing) | Not booked |
 | Wed Jan 27 | 3 | When Calories Don't Matter For Fat Loss | Live |
