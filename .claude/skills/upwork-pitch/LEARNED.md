@@ -10,6 +10,8 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for proposals
 
+- Proofread every proposal before Dan sees it, starting with the first line: read it as the client would. A word a client requires (such as a set first word) must sit inside a natural sentence, never alone, and is flagged to Dan with the line from the post. (upwork-1, 2026-11-01)
+- A $5 first step is only a suggestion in the proposal: Upwork says clients set the milestones when they send the offer. Check the offer shows $5 first before Dan accepts it. (upwork-1, 2026-11-01)
 - Upwork proposals use Dan's outreach template (`TEMPLATE-outreach-email.md`), lightly customized per client (Dan, 2026-10-30, batch upwork-1). Keep his wording, keep any screening answers and the price in a block at the end.
 - On Upwork, swap Calendly and "respond to this email" for a reply and an Upwork video call. Contact outside Upwork before a contract is against its Terms of Service. No mailing address footer.
 
