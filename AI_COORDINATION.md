@@ -27,9 +27,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SRM Website REVIEW 2026-11-01, Claude.** Nothing published. Next: Dan's notes. `sites/srm/PLAN.md`
 
-**Zepbound Free SFC R1 ACTIVE 2026-11-01, Codex01a198f9.** DS-52: options next. `/Volumes/Expansion/_edit_work/DS-52/`.
+**DS-52 REVIEW 2026-11-01, Codex01a198f9.** [Look choices](http://127.0.0.1:9290/). Push blocked: live salad article.
 
-**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Warm/House Bass locked. Both keys running; final graphics queued. Automatic same-chat continuation active. Next: real-frame proofs, full assembly, checks and independent reviews. Checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article. No publishing.
+**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Warm/House Bass locked. Scripted key complete; offcuff key and final graphics running. Automatic continuation active. Next: proofs, assembly and reviews. Checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked by live staged salad article. No publishing.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
