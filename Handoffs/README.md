@@ -10,6 +10,7 @@ dashboard's **Handoffs to fire** list with a copy-able starter prompt. A session
 Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
+- `handoff-20261101-sl10-alcohol-shorts-covers-and-setup.md`: Alcohol And Abs SFL Setup, four approved Shorts, fired 2026-11-01 (Opus 5.5 high). Covers, Dan's picks, then upload and setup.
 
 - [First Time At The Gym LFC Setup](handoff-20261031-ro37-first-time-gym-thumbnails-and-video-setup.md): **Fired 2026-11-01, Dan approved round 4. Claude Opus 5.5, high.** "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37): thumbnails, stop for his pick, then setup for Fri Jan 1, 2027.
 - [Five Muscles Women Notice LFC Setup](handoff-20261031-ro38-five-muscles-thumbnails-and-video-setup.md): **Ready 2026-10-31. Claude Opus 5.5, high.** "The 5 Muscles Women Notice First, And The Machine That Builds Each One" (RO-38) R3 approved. Thumbnails, stop for Dan's pick, then setup for Fri Jan 8, 2027. Use the Codex subscription to generate the images.

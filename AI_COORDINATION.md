@@ -69,7 +69,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFC R2 (SL-10) REVIEW 2026-10-31, Claude.** [Finished edits](http://127.0.0.1:9433/): gates PASS, independent SHIP; Short 2 Y1 vs Y2 awaits Dan. Slot released. Next: his pick, then setup handoff (covers).
+**Alcohol And Abs SFL Setup (SL-10) ACTIVE 2026-11-01, Claude.** All four approved; setup session started. `Handoffs/handoff-20261101-sl10-alcohol-shorts-covers-and-setup.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
