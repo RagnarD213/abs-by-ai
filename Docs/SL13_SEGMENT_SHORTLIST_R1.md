@@ -2,7 +2,7 @@
 
 CONTENT · Shorts from the approved RO-11 R4 long-form · 2026-11-02 · Codex
 
-Status: awaiting Dan's picks. Recommend A, B and C. Four options are proposed; the current standard is three Shorts per new long-form. No Short has been cut, rendered, gated, approved, uploaded or scheduled.
+Status: Dan picked A, B and C on 2026-11-02: “Let's go with A, B, and C.” A is rendered for the first-Short crop/graphics review; B and C remain selected and unbuilt. Four options are proposed; the current standard is three Shorts per new long-form. A has been cut and rendered as an approval draft. Its QA receipts are in the work folder. No Short has been approved, uploaded or scheduled.
 
 Task name: Calories Dont Matter SFC R1, exactly as Dan requested (internal category SFL).
 
