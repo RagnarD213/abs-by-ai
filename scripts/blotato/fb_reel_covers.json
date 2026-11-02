@@ -1256,5 +1256,35 @@
   "approved": "Dan picked on 2026-11-01: For \"Your drinks taste bad,\" let's go with X5.",
   "sha256": "657dc5ec29b69ee20eb0c4e0fb108f62ca0f1c447af7f20b27bdfbf539762534",
   "when": "2026-12-25T00:00:00.000Z"
+ },
+ {
+  "job": "RO-23",
+  "match": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups are the two worst on my list.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro23-ab-exercise-ranking-approved.jpg",
+  "w": 1280,
+  "h": 720,
+  "approved": "2026-11-01 X2",
+  "when": "2026-11-23T18:00:00.000Z",
+  "sha256": "528664948b0890e474fe5913d94d5acf025e4f68da3a785192d55587e8cebb37"
+ },
+ {
+  "job": "SL-10 short 4",
+  "match": "I used to drink 5 to 10 drinks a week, and most weeks it was closer to 10.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl10/Instagram_alcohol-short4_what-killed-my-urge-to-drink_cover.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved the revised cover on 2026-11-02: U2 for \"What Killed My Urge to Drink\" (round 1 X6 with the pen from X7, hand raised). Go ahead and install those.",
+  "sha256": "8c08305edd0da821e830da23ba968e616a23d1ab82d10a59547d8fb47c3640ab",
+  "when": "2026-12-25T15:00:00.000Z"
+ },
+ {
+  "job": "SL-10 short 3",
+  "match": "Your last drink should be at least three hours before you go to bed.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl10/Instagram_alcohol-short3_stop-drinking-3-hours-before-bed_cover.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved the revised cover on 2026-11-02: Okay, let's go with T4 for \"Stop Drinking 3 Hours Before Bed\" (round 2, tank top slapping the beer, pointing at the clock, pub). Go ahead and install those.",
+  "sha256": "a0c0a40191de2403272558d9cc08c96d259717b86d86567a5bf65bb56d182ec0",
+  "when": "2026-12-26T00:00:00.000Z"
  }
 ]

@@ -92,7 +92,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork pitch PUSH-PENDING 2026-11-02, Claude.** Commits 20c982d, 7963f6d, 51b6903 (LEARNED.md) are local; a live staged salad-article deletion blocks safe-push. Next: rerun safe-push when clear, then delete this entry.
 
-**SL-10 Setup REVIEW 2026-11-01, Claude.** Two waitlisted; [two covers](http://127.0.0.1:9653/) await Dan. fef21aa push-pending. `Docs/SL10_COVER_REVIEW_20261101.md`
+**SL-10 HOLD 2026-11-02, Claude.** Waitlist Dec 24-25 after RO-13. `Docs/SL10_SETUP_RECEIPT_20261102.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
