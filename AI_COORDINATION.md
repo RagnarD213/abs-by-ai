@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Overhead Tricep Extensions R2 REVIEW 2026-11-02, Codex01a19c75.** [42s review](http://127.0.0.1:9294/). Await full-film approval; sound/caption flags documented. Metadata push blocked by live shared edits.
 
-**SRM Website REVIEW 2026-11-02, Claude.** Option C R2 on canvas; unpublished. New-project handoff open. `sites/srm/PLAN.md`
+**SRM Website REVIEW 2026-11-02, Claude.** Option C R2 awaits Dan. `sites/srm/PLAN.md`
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
