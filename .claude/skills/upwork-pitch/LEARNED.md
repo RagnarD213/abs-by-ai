@@ -9,6 +9,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 | outreach-1 | 2026-10-30 | 20 | 0 | 0 | 20 |
 | upwork-2 | 2026-11-01 | 5 | 5 | 0 | 0 |
 | upwork-20261102 | 2026-11-02 | 2 | 2 | 0 | 0 |
+| upwork-20261102b | 2026-11-02 | 5 | 0 | 5 (first sentence only) | 0 |
 
 ## Rules for proposals
 
@@ -49,6 +50,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Log
 
+- 2026-11-02: five more sent after the first-sentence change (ad plan $1,125, fitness series $605, Skoon $150, hair clinic $400, She Thrives $100); boosts 32, 28 and 4, none on the clinic (top bids 26 to 35 on a $400 job) or She Thrives. 15 proposals live in total.
 - 2026-11-02: two proposals sent unchanged (agency $500, beading $200; boosts 22 and 9). Some clients allow only payment by project: then submit `payment_mode by_project` at the full bid and keep the $5 step as a suggestion in the letter.
 - 2026-11-01: eight proposals live (upwork-1 three, upwork-2 five). The upwork-2 John proposal was opened within minutes of its boost. Cheapest boost flow: submit, read `current_top_bids` from the preview, then `edit` with `boost_connects`, instead of re-creating with the whole letter. Top bid plus one for good clients; no boost when the bids run far above Upwork's suggested range (65 to 69 on the hourly job).
 - 2026-11-01: first two proposals submitted (supplement, skincare). The connector holds one pending preview at a time: prepare and confirm each proposal before starting the next.
