@@ -36,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
-**DS-52:R3:BUILD:2026-11-01:Codex01a198f9.** Pace/V/B/1 locked. Graphics/captions underway; no publishing.
+**DS-52:R3:REVIEW:2026-11-01:Codex01a198f9.** [Review](http://127.0.0.1:9290/). Graphics/captions ready; awaiting Dan.
 
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
@@ -69,7 +69,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R3 BUILD 2026-11-01, Codex01a197ed.** Motions approved; full assembly running. Sole owner/next checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
+**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** Full film [4:29 review](http://127.0.0.1:9286/) awaiting Dan. Technical QA open. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`

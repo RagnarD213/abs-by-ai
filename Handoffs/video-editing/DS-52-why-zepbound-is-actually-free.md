@@ -34,3 +34,9 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 ## R3 approved finishing, 2026-11-01
 
 Dan approved the 59.49-second pace, colour V, voice B, crop 1, then requested graphics and captions. These choices replace the pending-look checkpoint above. No approval or publishing inferred beyond that scope. Saved exact approval/hashes and next action in `/Volumes/Expansion/_edit_work/DS-52/round3/RESUME.md` and `records/`. Edit cap acquire returned waiting #1; production has not started. Auto-resume heartbeat `resume-zepbound-free-r3` is ACTIVE every 10 minutes in the same chat, pauses itself once a slot is acquired. Keep R2 review immutable.
+
+## R3 full graphics/captions review delivered, 2026-11-01
+
+[Watch R3](http://127.0.0.1:9290/). Full 59.49 seconds, colour V/voice B/crop 1 and approved pace. New moving Soft Blue Light graphics and 75 burned caption cues; all 185 words aligned with CTC, no speech edits. Exact approved R2 AAC is stream-copied into native/phone. Independent final reviewer: ship for Dan review with disclosed numeric mismatches, no confirmed remaining visual or timing defect. All 27 watch images/12 boundaries judged; every presenter frame in native and phone passes the separate hair/title check. Full automatic certificate remains FAIL, including chosen tone/native-wide framing and legacy card/caption checks; no full PASS claimed.
+
+Native SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`. Full-quality copy `Videos to Review/Zepbound Free SFC R3 - full Short.mp4`; records/recipes in `Short-form video content/Zepbound Free - DS-52/R3 Review/`. Source work `/Volumes/Expansion/_edit_work/DS-52/round3/`. Review graphics 0:12–0:24,0:33–0:37,0:38–0:45, captions throughout. Await Dan's review; do not treat this as approval/upload/scheduling.

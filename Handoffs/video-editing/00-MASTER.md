@@ -171,7 +171,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | FINALIZED | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
 | [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
-| [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | IN PROGRESS | S |
+| [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | DELIVERED: awaiting Dan | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
 | [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | UPLOADED | S |
@@ -201,7 +201,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | FINALIZED | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | R3 FULL FILM REVIEW (QA OPEN) | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | FINALIZED | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | UPLOADED | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
