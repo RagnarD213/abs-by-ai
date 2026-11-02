@@ -1,6 +1,6 @@
 ---
 name: shorts-production-style
-description: "SUPERSEDED for new batches 10-01: J2/olive short-form system (2026-08-06); new Shorts are Soft Blue Light HyperFrames. Title formula still holds."
+description: "SUPERSEDED for new batches 10-01: J2/olive system, only for re-exports of J2 shorts. New Shorts are Soft Blue Light HyperFrames. Title formula still holds: sell the click to a stranger, one idea per short"
 metadata: 
   node_type: memory
   type: feedback

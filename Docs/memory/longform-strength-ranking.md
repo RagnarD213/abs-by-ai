@@ -24,3 +24,5 @@ Dan's rule of thumb for ranking long-forms for release (2026-10-16), when he mov
 
 **How to apply:** any release-queue planning ranks every long-form with these criteria and shows Dan the proposed
 calendar in chat before changing the schedule. Related: [[video-task-sidebar-naming]].
+
+**Shorts evidence (10-17, carried over 2026-11-01 from the retired Shorts week entry; slots now follow AGENTS.md):** three of the top four channel Shorts were cut from long-forms; Thursday had the best median views (1,369), Saturday the worst (876). Each new long-form gets 3 Shorts.

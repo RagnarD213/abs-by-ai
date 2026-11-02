@@ -25,3 +25,5 @@ Shipped July 16 2026 from HANDOFF_supplement_audit.md. Replaces the [[decision-c
 **Verified locally:** validation paths (retired-type 400, incomplete-intake 400, label missing-photo 400), full frontend flow (photo loop, reactive panel prompt, intake gates, report rendering incl. keep/drop + new stack + brand buttons + savings banner). **NOT yet verified on prod:** live vision/seat calls — local .env has an invalid Anthropic key (see [[load-time-optimizations]]), so full end-to-end + the 8 evals (esp. cases 1/4/5) must run against absbyai.com after deploy.
 
 **Pending / for Dan:** review Coach philosophy bullets (5b) + eval outputs (cases 1/4/5) before prompts called done; decide whether free label-scanning stays uncapped; MailerLite broadcast (copy in EMAIL_MARKETING_PLAN.md §7 — Dan sends). Out of scope: affiliate links, barcode/DB lookup, the old "before-you-buy" mini-check.
+
+**Original plan (2026-07-16), merged 2026-11-01:** the eval canaries were St. John's Wort + SSRI and fish oil + warfarin, both must rate RED. Spec: repo `HANDOFF_supplement_audit.md`, which replaced the July 11 text-only version.

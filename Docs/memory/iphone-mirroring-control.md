@@ -1,6 +1,6 @@
 ---
 name: iphone-mirroring-control
-description: "Claude can see and control Dan's iPhone through the macOS iPhone Mirroring app via computer-use; Dan wants this offered instead of him doing phone steps manually (2026-09-01)"
+description: "Claude can see and drive Dan's iPhone through iPhone Mirroring via computer-use; always authorized, never ask in chat (2026-09-01, 09-25)"
 metadata: 
   node_type: memory
   type: feedback
@@ -28,3 +28,5 @@ suggest and use this approach rather than asking him to do it by hand.
 - Normal safety rules still apply: confirm before sending messages, posting, or irreversible
   actions on the phone. See [[autonomy-credentials-framing]] and [[computer-takeover-frustration]]
   (warn before taking over the desktop).
+
+**Standing authorization (Dan, 2026-09-25, merged 2026-11-01):** always authorized to use iPhone Mirroring; never ask in chat. The tool's own request_access dialog still appears; that is the harness, not a question to Dan. Trap: the Wispr Flow overlay blocks display-scope drags near the bottom of the phone; use scroll (right, amount 50) on the share sheet row instead.
