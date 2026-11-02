@@ -2483,15 +2483,17 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-13-calories-dont-matter-shorts.md`: propose the shorts segments from \"When Calories Don't Matter For Fat Loss\" (RO-11) and wait for my picks, then cut them with /shorts in Soft Blue Light, with gates and an independent audit (no covers). Deliver, send me the review copies, update the master list. Name this session \"Calories Dont Matter SFC R1\".",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-13-calories-dont-matter-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-11 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task \"Calories Dont Matter SFC R1\".",
-   "state": "ready",
-   "note": "Added 10-09 at RO-11 setup; Soft Blue Light shorts; parent public Dec 13",
+   "state": "in_progress",
+   "note": "Codex 2026-11-02: preparing full-transcript shortlist; wait for Dan to pick three. Parent release Jan 27 2027 per current master list; no uploads.",
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 105,
-   "updated": "2026-10-09",
-   "rev": 1,
+   "updated": "2026-11-02",
+   "rev": 2,
    "syncedRev": 1,
-   "by": "Claude"
+   "by": "Codex",
+   "editor": "Codex",
+   "needs": ""
   },
   {
    "id": "SL-14",

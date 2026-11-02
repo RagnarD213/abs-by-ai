@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SL-13:PICKS:2026-11-02:Codex01a19cd4.** Await Dan’s three picks.
+
 **ZepboundFree:COVERS:2026-11-02:Codex01a19cb2.** [Review](http://127.0.0.1:9295/);6f4b249-push-blocked.
 
 
