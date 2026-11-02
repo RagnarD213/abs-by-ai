@@ -1,8 +1,8 @@
 # Jiu Jitsu And Battle Ropes SFC Setup receipt
 
-Updated: 2026-11-02 05:03 PM Central
+Updated: 2026-11-02 evening Central
 
-Status: PARTLY DONE. Cover choices are checked and awaiting Dan. Muhammad's two HQ exports are still awaited. Neither Short has been uploaded, queued, waitlisted or scheduled. DS-15 and DS-19 remain finalized, not uploaded.
+Status: PARTLY DONE. Jiu Jitsu cover picked (X3). Battle Ropes picked X8 with a text redo; three text options await Dan. Muhammad's two HQ exports are still awaited. Neither Short has been uploaded, queued, waitlisted or scheduled. DS-15 and DS-19 remain finalized, not uploaded.
 
 Review: http://127.0.0.1:8994/
 
@@ -36,6 +36,13 @@ Prompts, design plan, source images, private blind keys and original final asset
 Checks: all 32 finished covers are RGB 1080x1920, text bounds safe, one detected face, zero text overlap with expanded face/hair regions and zero text/person-mask overlap. All YouTube JPEGs are below 2 MB. Inspected the finished sheets and native face crops. Corrected the oversized real-photo crop before delivery. See each job's `cover-checks.json` and `face-check.jpg`.
 
 Managed review service installed on port 8994, with 53 linked files cached locally. Browser opened and inspected; no horizontal overflow. All 52 image responses matched the local image bytes; range request returned 206. No video/audio player on this cover-only page, no playback. Screenshot: `Short-form video content/covers/review/jiu-jitsu-battle-ropes-20261102/review-page-screenshot.png`.
+
+
+## Picks (2026-11-02)
+
+- Jiu Jitsu: Dan, "Okay, for Jiu Jitsu, let's go with X3." X3 is design A. Final files: Instagram `ds15/instagram/ds-15_jiu-jitsu_cover-A.png` sha256 `a3955cbc91c34ac9147dbb9f5e2d9696401a9e6d43308ecd5983c761cfa480d3`; YouTube `ds15/youtube/ds-15_jiu-jitsu_cover-A.png` sha256 `b00ed65826c67e06ba486479047a73088f38c5ca47de58b59148dfe3a5b83da6` (plus its `.jpg`). Recorded with `blind.py pick`.
+- Battle Ropes: Dan, "let's go with X8, but I want you to redo that text. It looks kind of weird how it's half in the black area, half not. Give me three variations with better-looking text on top." X8 is design H. Recorded with `blind.py pick`.
+- Battle Ropes text options V1/V2/V3, same X8 picture moved down so the whole title sits inside the dark ceiling with 45 px or more of clear dark above the wall: V1 X8 look bigger, V2 small green kicker over large white line, V3 green block with dark type. One face, zero text-on-person pixels, Instagram grid-safe. Files: `ds19/x8-text-r2/` (manifest with hashes), builder `scripts/covers/ds15-ds19-20261102/x8_text_r2.py`. Review: http://127.0.0.1:8994/battle-ropes-x8/ . Install only the exact V file Dan picks.
 
 ## Remaining work
 
