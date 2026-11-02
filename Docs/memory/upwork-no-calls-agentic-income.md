@@ -5,13 +5,13 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: 5d2442ba-b776-4972-83d4-33a01b40935b
-  modified: 2026-11-02T00:12:00.988Z
+  modified: 2026-11-02T00:40:49.814Z
 ---
 
-Upwork proposals never offer a call, a meeting or a time to talk. Clients accept by replying and send what the job needs by Upwork message.
+Client work never offers a call, a meeting or a time to talk: Upwork proposals, outreach emails and the SRM website alike. Clients accept by replying and send what the job needs in writing.
 
-Dan, 2026-11-01: "My goal is to make this agentic income where eventually I'm not involved in this at all, so no call offers going forward."
+Dan, 2026-11-01: "My goal is to make this agentic income where eventually I'm not involved in this at all, so no call offers going forward." Asked whether emails and the website should drop calls too: "Yes, drop calls".
 
 **Why:** the client business is meant to run without Dan, and a call in every proposal commits his time to every lead.
 
-**How to apply:** when designing any client-facing step for this business, default to the path that does not need Dan. The eight proposals sent on 2026-11-01 still offer the call, and the outreach email template and SRM website still run on a call, so check their current state before assuming the rule reached them. Exact replacement wording: `.claude/skills/upwork-pitch/LEARNED.md`.
+**How to apply:** when designing any client-facing step for this business, default to the path that does not need Dan. The eight proposals sent on 2026-11-01 still offer the call; those stay as sent. Exact replacement wording: `.claude/skills/upwork-pitch/LEARNED.md`.

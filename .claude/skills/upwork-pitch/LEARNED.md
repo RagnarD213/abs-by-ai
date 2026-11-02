@@ -27,6 +27,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for outreach emails
 
+- No calls and no Calendly in outreach emails (Dan, 2026-11-01), for the same reason as proposals: this has to run without him. The prospect accepts by replying and tells us their goals and how they want to film.
 - Never open by faulting the company's ads. Say something true and complimentary first, then frame an opportunity to improve. A teardown reads as an insult from a stranger. (outreach-1, 2026-10-30)
 - Copy alone will not sell. Dan: "I don't think people are just going to pay for copy only." Lead with video the prospect can watch. (outreach-1, 2026-10-30)
 - Review-derived lines are not automatically hooks. They read like testimonials. Hooks must clear Dan's bar before they go on a page. (outreach-1, 2026-10-30)

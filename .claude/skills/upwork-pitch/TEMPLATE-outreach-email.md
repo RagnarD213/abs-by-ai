@@ -15,11 +15,7 @@ I put together this short video that goes into more detail about what I can do f
 
 [LINK TO VIDEO]
 
-If you'd like to accept the free ads, just respond to this email to let me know. To get the most out of your free ads, Let's do a 15 minute call where we go over your goals for your free ad and free ad variation, and the details of how we'll be filming. I can either film your sample with myself as the on-camera talent, or I can write the script for your talent and have my team edit the raw footage you send me.
-
-Here's the link to schedule your call
-
-[LINK TO CALENDLY]
+If you'd like to accept the free ads, just respond to this email to let me know. To get the most out of your free ads, tell me your goals for your free ad and free ad variation, and how you'd like to film it. I can either film your sample with myself as the on-camera talent, or I can write the script for your talent and have my team edit the raw footage you send me.
 
 Here's a short summary of my accomplishments, and why these free ads are worth your time to test:
 
@@ -34,9 +30,7 @@ Here's a short summary of my accomplishments, and why these free ads are worth y
 - You'd be working with the person who writes the ads. I personally write the scripts, direct the edits and run the ad spend.
 - These are direct-response ads. They're built to make sales, not win awards.
 
-To accept your free ads, just schedule a time to talk below.
-
-[LINK TO CALENDLY]
+To accept your free ads, just respond to this email.
 
 Dan Rose
 CEO, Social Response Marketing
@@ -47,6 +41,7 @@ This is a one-time business offer from Social Response Marketing, [BUSINESS MAIL
 
 ## Notes
 
+No calls (Dan, 2026-11-01): the 15 minute call and the Calendly links were removed so this runs without him. A prospect accepts by replying. Never add a call back.
 The footer line is required on every send: a mailing address, an opt-out, and a clear statement that this is an offer (FTC CAN-SPAM guide). Log every opt-out and never email that person again. Do not commit Dan's mailing address to this public repo.
 Free complete ad plus variation goes to every prospect, high and low value (Dan, 2026-10-30). He will change it only if he gets buried.
 Send from dan@socialresponsemarketing.com (Dan, 2026-10-30), not danroseads.com. Lifetime numbers: memory `official-ad-spend-numbers`. Per-ad HBI numbers are from HBI's own sheet. These are Dan's top HBI ads, not HBI's top 3: HBI's #2 ad was not his.

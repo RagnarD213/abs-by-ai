@@ -68,7 +68,7 @@ Short (about 120 to 180 words). Lead with money results. Plain, blunt, Dan's voi
 
 ## Outreach (engine 2)
 
-**Use Dan's own email: `TEMPLATE-outreach-email.md` (2026-10-30). It replaces the teardown-and-hooks email and the Upwork trial ask.** The offer is one free complete ad plus a variation of their best ad, then a 15-minute call.
+**Use Dan's own email: `TEMPLATE-outreach-email.md` (2026-10-30). It replaces the teardown-and-hooks email and the Upwork trial ask.** The offer is one free complete ad plus a variation of their best ad. The prospect accepts by replying; no calls (Dan, 2026-11-01).
 Who: brands that run video ads on Google and YouTube, because the email leads with those, or brands with a big organic YouTube presence that could expand into YouTube ads (Dan's call on Built With Science, 2026-10-30). Check Google's Ads Transparency Center (YouTube, video, last 30 days) before adding a brand.
 Send from dan@socialresponsemarketing.com only (Dan, 2026-10-30), 5 a day building to 10, with one batch approval from Dan.
 
