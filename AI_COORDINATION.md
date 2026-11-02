@@ -25,6 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**ZepboundFree:COVERS:2026-11-02:Codex01a19cb2.** [Review](http://127.0.0.1:9295/);6f4b249-push-blocked.
+
+
 **SL-12:REVIEW+PUSH-PENDING:2026-11-02:Codex01a19c6e.** `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
@@ -36,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Overhead Tricep Extensions R2 REVIEW 2026-11-02, Codex01a19c75.** [42s review](http://127.0.0.1:9294/). Await full-film approval; sound/caption flags documented. Metadata push blocked by live shared edits.
 
-**SRM Website REVIEW 2026-11-01, Claude.** Three mockups await pick; unpublished. `sites/srm/PLAN.md`
+**SRM Website REVIEW 2026-11-02, Claude.** Option C R2 on canvas; unpublished. New-project handoff open. `sites/srm/PLAN.md`
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
@@ -87,7 +90,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Upwork pitch PUSH-PENDING 2026-11-02, Claude.** Commits 20c982d and 7963f6d (LEARNED.md) are local; a live staged salad-article deletion blocks safe-push. Next: rerun safe-push when clear, then delete this entry.
+**Upwork pitch PUSH-PENDING 2026-11-02, Claude.** Commits 20c982d, 7963f6d, 51b6903 (LEARNED.md) are local; a live staged salad-article deletion blocks safe-push. Next: rerun safe-push when clear, then delete this entry.
 
 **SL-10 Setup REVIEW 2026-11-01, Claude.** Two waitlisted; [two covers](http://127.0.0.1:9653/) await Dan. fef21aa push-pending. `Docs/SL10_COVER_REVIEW_20261101.md`
 

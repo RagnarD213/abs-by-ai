@@ -11,9 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [SRM Project Setup](handoff-20261102-srm-new-project-setup.md): **Ready 2026-11-02. Claude Opus 5.5, high.** Separate project and private repo for Social Response Marketing: logos, website designs, proposal method, skills, videos list, memory; switches the Upwork routine between runs; asks Dan once before removing anything from Abs By AI.
 - [Zepbound Free SFC Setup](handoff-20261102-ds52-zepbound-free-cover-and-setup.md): **Ready 2026-11-02. Start now. Claude Opus 5.5, high.** “Why Zepbound Is Actually Free” R3 finalized. Cover choices, Dan’s pick, backups, metadata and verified four-platform queue/waitlist placement. Use the Codex subscription to generate the images.
 
-- [Ab Exercise Ranking LFC Setup](handoff-20261101-ro23-ab-exercise-ranking-thumbnails-and-video-setup.md): **Ready 2026-11-01. Claude Opus 5.5, high.** RO-23 R4 approved; exact master/SRT filed with verified Extreme backup. Blind thumbnail choices, stop for Dan’s pick, then organic setup. Calendar target Sun Nov 22, verify live queue. Not started.
 
 - [First Time At The Gym Gemini LFC R1](handoff-20261101-ro37-gemini-argon-test-edit.md): **Ready 2026-11-01. Gemini 4 Argon.** Test edit of "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37) from raw footage: pool footage cut out on the green-screen format, kept apart from the finalized film. Touches no queue, files or schedule. Matting capped at $25.
 - [How To Do Hamstring Curls Gemini SFC R1](handoff-20261101-ds84-gemini-argon-test-edit.md): **Ready 2026-11-01. Gemini 4 Argon.** Blind test edit of "How To Do Hamstring Curls" (DS-84) from raw footage, kept apart from the finalized film. Touches no queue, files or schedule.
