@@ -31,3 +31,12 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 **Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Edit BOTH versions (scripted and off the cuff) in the locked reaction format, every gate and an independent review on each, deliver both side by side, send Dan the review page, update `00-MASTER.md`.
+
+
+## R2 full-candidate delivery, 2026-11-01
+
+[Compare both complete versions](http://127.0.0.1:9187/): scripted 63.8 seconds and off-the-cuff 84.0 seconds. Both independently reviewed on their exact final files, with no confirmed edit repair left open. Awaiting Dan’s choice, not final approval or publication. Warm colour, House Bass and R5 remain locked.
+
+Both full 1080p masters, 540p copies, SRT, audio A/B, notes, raw check stamps and recipe snapshot: `Short-form video content/Dr Mike Dial SFC R2/`. Full masters also copied and hash-verified in `Videos to Review/`. Managed page is paused with sound ready.
+
+Automated checks ran on exact masters. Five raw failure categories remain on each: approved-voice/reference audio rows, composite panel hair detector, intentional size-cut visibility, generic caption-onset timing and natural source pauses. All retained honestly in the page and reports; no all-gate PASS, audible human listening or public publishing claimed. Full evidence and immutable approval hashes: `/Volumes/Expansion/_edit_work/DS-37/round2/`.
