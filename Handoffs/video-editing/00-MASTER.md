@@ -269,6 +269,20 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 |---|---|---|---|
 | [RX-01](RX-01-unmapped-footage-audit.md) | Map the rolls nobody has identified (welcome-video shoot, stray 7/8, 8/3 and 8/28 clips, unchecked b-roll). Adds any video it finds to this list. | FINALIZED 2026-09-18, approved. No unlisted videos found. `Docs/RAW_FOOTAGE_MAP.md` | S |
 
+### 1F · SRM portfolio re-edits (8 top ads from socialresponsemarketing.com, added 2026-11-02)
+Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copies before the old channels take them down. Source: YouTube downloads in `Media/srm-portfolio-ads/`. Fire each one by hand; the overnight queue never launches `SP` jobs. Each job stops after its re-edit plan for Dan's OK.
+
+| job | ad | source | status | size |
+|---|---|---|---|---|
+| [SP-01](SP-01-hbi-avoid-proteins-arthritis-pain.md) | Healthy Back Institute: Avoid These Proteins That Can Make Your Arthritis Pain Worse! | 3:50, 1080p | READY | M |
+| [SP-02](SP-02-hbi-avoid-proteins-arthritis.md) | Healthy Back Institute: Avoid These Proteins If You Have Arthritis! | 3:36, 1080p | READY | M |
+| [SP-03](SP-03-spa-fasting-six-pack.md) | SixPackAbs.com: Burn Fat & Get Six Pack Abs With Fasting | 4:51, 1080p | READY | M |
+| [SP-04](SP-04-hbi-five-foods-arthritis.md) | Healthy Back Institute: The Five Foods You Should Avoid Eating If You Have Arthritis | 2:59, 1080p | READY | M |
+| [SP-05](SP-05-spa-men-over-40-belly-fat.md) | SixPackAbs.com: How Men Over 40 Can Burn Belly Fat | 4:59, 1080p | READY | M |
+| [SP-06](SP-06-spa-5-key-superfoods.md) | SixPackAbs.com: The 5 Key Superfoods You Need To Be Eating | 5:24, 1080p | READY | M |
+| [SP-07](SP-07-mindmovies-manifestation.md) | Mind Movies: How To Unlock The Full Power Of Manifestation | 6:33, 1080p | READY | M |
+| [SP-08](SP-08-spybriefing-3-rules-fighting-criminals.md) | Spy Briefing: The 3 Rules Of Fighting Criminals | 5:16, 1080p | READY | M |
+
 ---
 
 ## LIST 2 — Organic long-forms that need shorts
