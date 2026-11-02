@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-10-28",
+  "updated": "2026-11-01",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4126,6 +4126,159 @@
       "must_pass": [],
       "measured": "Historical exact-file delivery gate 2.6.1:30 measured PASS,2 retained-source FAIL,0 NOT MEASURED,7 N/A. Retained framing:no_wide_level and captions:sync failures are unchanged. Reference-mix audio gate PASS.43/43 independent saved images have0 scored defects. Full perceptual motion/audio certification was not claimed.",
       "notes": "Whole-film approval of the exact corrected R4 after disclosure of retained framing/caption timing. Owner approval is separate from numerical checks. Existing F3 cover retained. This entry records approval and adds no gate bypass, threshold change or automated certification."
+    },
+    {
+      "id": "sl11-r1-a-intro-hand-block-20261028",
+      "verdict": "rejected",
+      "date": "2026-10-28",
+      "root": "ssd",
+      "path": "SL-11/round1/build/A/Vacuum-A-R1.mp4",
+      "sha256": "ab22dc090b9ec7266c6f087f780e1df72a1a0930724c8129d2bfbcc65d86c616",
+      "excerpt": [
+        0,
+        2.5
+      ],
+      "dan": "For the intro for all of them I want you to use a clip of the vacuum that starts without me blocking my abs. The problem with this is that I hold my left hand in front of my abs and you can't see what I'm doing. I want you to use a part of this clip or another clip where I have my hand behind me or out of the way so you can see my stomach and my abs in all of these openings.\n\nWith all vacuum clips throughout the video, unless you're using a longer clip and you have no choice, try to use only the clips where my stomach and my abs are visible (so the viewer can see what's happening as I do these vacuums)\n\nFor the first one, \"How to Do a Standing Stomach Vacuum,\" the full clip that is used here is good because I eventually move my hand. But in the intros I want to make sure that the hand blocking is not included in the intro clips I want to see two options for the intros:\n\n1. You do the best you can with this clip, just cutting it so that the hand blocking is removed.\n2. You use a clip from our B-roll or another video where I'm doing the vacuum and I'm not blocking my abs.\n\nShow me a couple options for that intro next round",
+      "must_trigger": [
+        "framing:teaching_visibility"
+      ],
+      "must_pass": [],
+      "measured": "Owner reports left hand obstructs the abdomen in the opening. Exact occlusion onset/offset not yet measured. R1 general framing/watch gates passed and missed this teaching-visibility fault.",
+      "notes": "REJECTION IS INTRO ONLY. New semantic visibility check is PENDING, not implemented or claimed PASS. R2 must remove hand blocking from all intro options. Longer complete exercise exception applies; A full demonstration retained by Dan. Do not weaken numeric gates."
+    },
+    {
+      "id": "sl11-r1-b-intro-hand-block-20261028",
+      "verdict": "rejected",
+      "date": "2026-10-28",
+      "root": "ssd",
+      "path": "SL-11/round1/build/B/Vacuum-B-R1.mp4",
+      "sha256": "d56ba212ebeda54042d1618d99989918d00cde39af95d0249568eee7649a0fdc",
+      "excerpt": [
+        0,
+        6.006
+      ],
+      "dan": "For the intro for all of them I want you to use a clip of the vacuum that starts without me blocking my abs. The problem with this is that I hold my left hand in front of my abs and you can't see what I'm doing. I want you to use a part of this clip or another clip where I have my hand behind me or out of the way so you can see my stomach and my abs in all of these openings.\n\nWith all vacuum clips throughout the video, unless you're using a longer clip and you have no choice, try to use only the clips where my stomach and my abs are visible (so the viewer can see what's happening as I do these vacuums)\n\nFor the first one, \"How to Do a Standing Stomach Vacuum,\" the full clip that is used here is good because I eventually move my hand. But in the intros I want to make sure that the hand blocking is not included in the intro clips I want to see two options for the intros:\n\n1. You do the best you can with this clip, just cutting it so that the hand blocking is removed.\n2. You use a clip from our B-roll or another video where I'm doing the vacuum and I'm not blocking my abs.\n\nShow me a couple options for that intro next round",
+      "must_trigger": [
+        "framing:teaching_visibility"
+      ],
+      "must_pass": [],
+      "measured": "Owner reports left hand obstructs the abdomen in the opening. Exact occlusion onset/offset not yet measured. R1 general framing/watch gates passed and missed this teaching-visibility fault.",
+      "notes": "REJECTION IS INTRO ONLY. New semantic visibility check is PENDING, not implemented or claimed PASS. R2 must remove hand blocking from all intro options. Longer complete exercise exception applies; A full demonstration retained by Dan. Do not weaken numeric gates."
+    },
+    {
+      "id": "sl11-r1-c-intro-hand-block-20261028",
+      "verdict": "rejected",
+      "date": "2026-10-28",
+      "root": "ssd",
+      "path": "SL-11/round1/build/C/Vacuum-C-R1.mp4",
+      "sha256": "cd1ec4cf28817a4472506413fb24e7f2d2c6e21ae741a422cf798b1fae3bc4bb",
+      "excerpt": [
+        0,
+        2.5
+      ],
+      "dan": "For the intro for all of them I want you to use a clip of the vacuum that starts without me blocking my abs. The problem with this is that I hold my left hand in front of my abs and you can't see what I'm doing. I want you to use a part of this clip or another clip where I have my hand behind me or out of the way so you can see my stomach and my abs in all of these openings.\n\nWith all vacuum clips throughout the video, unless you're using a longer clip and you have no choice, try to use only the clips where my stomach and my abs are visible (so the viewer can see what's happening as I do these vacuums)\n\nFor the first one, \"How to Do a Standing Stomach Vacuum,\" the full clip that is used here is good because I eventually move my hand. But in the intros I want to make sure that the hand blocking is not included in the intro clips I want to see two options for the intros:\n\n1. You do the best you can with this clip, just cutting it so that the hand blocking is removed.\n2. You use a clip from our B-roll or another video where I'm doing the vacuum and I'm not blocking my abs.\n\nShow me a couple options for that intro next round",
+      "must_trigger": [
+        "framing:teaching_visibility"
+      ],
+      "must_pass": [],
+      "measured": "Owner reports left hand obstructs the abdomen in the opening. Exact occlusion onset/offset not yet measured. R1 general framing/watch gates passed and missed this teaching-visibility fault.",
+      "notes": "REJECTION IS INTRO ONLY. New semantic visibility check is PENDING, not implemented or claimed PASS. R2 must remove hand blocking from all intro options. Longer complete exercise exception applies; A full demonstration retained by Dan. Do not weaken numeric gates."
+    },
+    {
+      "id": "sl11-r1-a-full-demonstration-scoped-approval-20261028",
+      "verdict": "approved-with-notes",
+      "date": "2026-10-28",
+      "root": "ssd",
+      "path": "SL-11/round1/build/A/Vacuum-A-R1.mp4",
+      "sha256": "ab22dc090b9ec7266c6f087f780e1df72a1a0930724c8129d2bfbcc65d86c616",
+      "excerpt": [
+        13.5135,
+        22.7227
+      ],
+      "dan": "For the first one, \"How to Do a Standing Stomach Vacuum,\" the full clip that is used here is good because I eventually move my hand. But in the intros I want to make sure that the hand blocking is not included in the intro clips I want to see two options for the intros:\n\n1. You do the best you can with this clip, just cutting it so that the hand blocking is removed.\n2. You use a clip from our B-roll or another video where I'm doing the vacuum and I'm not blocking my abs.\n\nShow me a couple options for that intro next round",
+      "must_trigger": [],
+      "must_pass": [],
+      "measured": "Scoped approval of A full demonstration only: hand eventually moves, preserve complete draw-in/hold/release. Opening remains rejected and full film remains unapproved.",
+      "notes": "Never interpret this excerpt-only scene approval as whole-film approval; paired intro rejection entries preserve the distinction."
+    },
+    {
+      "id": "ro23-r1-opening-ranking-rejected-20261029",
+      "verdict": "rejected",
+      "date": "2026-10-29",
+      "root": "ssd",
+      "path": "RO-23/round1/review/checked-r1b/Ab Exercise Ranking LFC R1 - first minute.mp4",
+      "sha256": "c28bb00c530eea138be9d9c139c6c384ed791219c358b621f969df0a615c7268",
+      "excerpt": [
+        0,
+        64.53113333333333
+      ],
+      "dan": "I want to start it off in the first few seconds with a clip of me doing crunches and sit-ups. Then when I say, \"They're the two worst exercises,\" put an X over me or something to get across that this is what you should not do. Also I want you to crop in closer on this. There's a lot of excess space to my sides and on top of me Right after that, where the toe touch clip appears at 8 seconds, I want you to use the ab wheel clip instead For the clip at 41 seconds I want an arrow pointing to my lower back or something to establish that this is what you should not do. Also crop it. I just don't. This seems like it is because of Rip Guys doing the exercise, which is what you should do. I want to more clearly establish this is a demonstration of what to not do At about 59 seconds, right before I say \"Marines,\" there's a very slight pause. Remove that so it's smoothFor the ab exercise \"is worse than best,\" I feel like this text is too small. I want to redo this all together. &#x20;\n\n- Rename the tiers: Best, Good, Okay, and Terrible.\n- Let's try this: for each item I want an image of me doing the exercise that's identifiably that exercise and the name of the exercise.\n- See if you can make that work: a full-screen graphic with that smaller in the corner, larger text, and an image next to everything.For the color correction let's go with rich For the voice let's go with B, balanced with bass For the crunch counter make this a sped-up video of someone doing crunches. The second hand of the clock should be visibly moving fast so you get the idea this is a sped-up video of tons of crunches. &#x20;\n\n  3. Exercise relay. Kill that one.\n  4. Muscle team. Kill that one.\n- Everything else looks good. Let's proceed to the next step. In the next step I want to make sure to see that fully built-out full-screen graphic with all the exercises. Let's see how it works two ways: &#x20;\n  1. With an image of me doing an exercise next to the title\n  2. With a moving clip of me doing the exercise next to the title\n  3. With just the full-screen graphic with much larger text",
+      "must_trigger": [
+        "style:exercise_ranking_readability",
+        "cut:teaching_negative_cue"
+      ],
+      "must_pass": [],
+      "measured": "R1 gate2.6.3 passed39rows; owner rejects ranking readability, wide exercise framing and unclear negative demonstration cues. Semantic checks not yet implemented; PENDING, not claimed automated detection.",
+      "notes": "Scoped rejection of opening/tier design, not the approved Rich/B choices or unchanged other visuals. Rename tier labels and build three complete alternatives. No gate limits changed."
+    },
+    {
+      "id": "ro30-r6-full-film-approved-20261029",
+      "verdict": "approved",
+      "date": "2026-10-29",
+      "root": "repo",
+      "path": "Codex Content Videos/Love Handles - RO-30/Love Handles | codex | 16x9 | RO-30.mp4",
+      "sha256": "bc6a8da6031d1e70ee8737b702532eb358199450020d931c91295abb6cb7b0ee",
+      "bytes": 404028119,
+      "excerpt": [
+        0,
+        283.75013333333334
+      ],
+      "dan": "Okay this looks good. This is approved. Go ahead and proceed to set up",
+      "scope": "Exact R6 complete film approved; proceed with video setup. Thumbnail picks still required before platform upload or scheduling.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Full gate2.6.3 has36PASS3FAIL; phone35PASS4FAIL. No NOTMEASURED. Covered5frame bookkeeping split, deliberate splice-magnitude flags and optionalSRT/card overlap documented. Hair/audio/watch/source-scene tests and ONEfresh complete-film independent review completed. No audible listening claim.",
+      "notes": "Preserve truthful gate FAILs and immutable approved master. No gate changes requested. Full review receipt Docs/RO30_R6_FULL_FILM_REVIEW_20261029.md."
+    },
+    {
+      "id": "ro23-r3-format-approved-source-corrections",
+      "verdict": "approved-with-notes",
+      "date": "2026-11-01",
+      "root": "ssd",
+      "path": "RO-23/round3/review/Ab Exercise Ranking LFC R3 - full film.mp4",
+      "sha256": "ea05f6185da60d4ab0cd49988f7e0c3a4ad4896fe4f12c8ffc4bd14104bacb45",
+      "bytes": 237799344,
+      "excerpt": [
+        130,
+        24
+      ],
+      "dan": "At 2:12 for the ab wheel footage, I want you to replace this with the footage of me doing it correctly with the arms extended. This was footage of a mistake: rolling out too quickly. Don't use this footage unless I'm specifically showing that mistake.\n\nThroughout the video I believe this appears in a few other places. When I mention the ab wheel I want to use the footage of my arms all the way locked out, doing it slowly and getting to full extension throughout the video \n\nFor the vacuum at 2:25 and throughout the video, don't use this footage where I'm blocking my stomach. As a general rule don't ever use the footage where I'm blocking my stomach unless you can show the full clip and it later goes into the footage where I'm not blocking. Usually you should just go right into the not-blocking footage. Change this out for footage where I don't block my stomach and you can clearly see what my stomach is doing \n\nOverall this is looking excellent. I want to lock this in. It's our standard format for tierless videos. I love the way you did the B-roll here, the B-roll altogether, and handled this very complex edit. Lock this in as our standard format for this kind of video.\n\nThe remaining revisions would be for the vacuum footage throughout the video. Use footage where I'm not blocking my stomach for all vacuum clips. For the ab well use clips where I'm extending my arms fully and getting the full extension, doing it slowly and correctly. Go ahead and review the video and then just make sure that those two exercises were using the correct clips",
+      "must_pass": [],
+      "must_trigger": [
+        "scene:exercise_form",
+        "scene:vacuum_visibility"
+      ],
+      "measured": "Format approved; manual source defects: too-fast ab-wheel mistake around132s and stomach-obstructed vacuum around145s. Existing numerical gate did not detect these source-intent/visibility errors; manual checks pending R4.",
+      "notes": "Not whole-film finalization. Source defects must be repaired everywhere. Manual scene rows are PENDING detector coverage, not a claim of existing automated detection. No gate threshold/reference changed. Prior selected B audio tone failure retained."
+    },
+    {
+      "id": "ro23-r4-full-film-approved-20261101",
+      "verdict": "approved",
+      "date": "2026-11-01",
+      "root": "repo",
+      "path": "Codex Content Videos/I Ranked Every Ab Exercise From Worst To Best/Finalized R4/I Ranked Every Ab Exercise From Worst To Best | codex round 4 | 16x9 | RO-23.mp4",
+      "sha256": "0d32f278b08d5c56eee207b2d130e86040c945e13b34833adbe0d5234344be6d",
+      "bytes": 235790226,
+      "excerpt": [
+        0,
+        320.286633
+      ],
+      "dan": "Everything looks good. This is approved. Give me the handoff for setup",
+      "scope": "Exact complete R4 approved after all wheel/vacuum replacements; separate thumbnail pick and organic setup remain.",
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "9599frames1080,tenexerciseplacements. Independent PASS_WITH_LIMITATIONS zeroopenpicturedefects,54requiredscenes/53joins. Gate2.6.3:38/39activePASS; soleaudio:stamp FAIL selectedB tone unchanged, approval recorded separately. AAC payload exact R3 copy.",
+      "notes": "Whole-film approval supersedes prior pending R4 source-correction status, not historical R3 judgments. No audible listen or uninterrupted perceptual full-film watch by agents claimed. Preserve known warning and all thresholds. Approval receipt and checks in finalized folder."
     }
   ]
 }
