@@ -2,7 +2,7 @@ CONTENT | Keep Your Muscle SFC R1 | SL-12
 
 # Segment shortlist, November 2, 2026
 
-Status: waiting for Dan's picks. Recommend A, B and C. No Shorts built, rendered, approved, uploaded or scheduled.
+Status: Dan selected A and B only on November 2, 2026. A's opening is approved as: "Here's why lifting weights is mandatory if you're taking weight loss medication." Recording pending. Checked graphics/footage excerpts await Dan at http://127.0.0.1:9954/. No final Shorts rendered, approved, uploaded or scheduled.
 
 Read: Handoffs/video-editing/00-RULES.md; SL-12-keep-your-muscle-shorts.md; shared VIDEO-RULES.md in full; /shorts SKILL.md in full.
 
@@ -24,17 +24,13 @@ First five seconds: Open on a complete resistance-training movement from the par
 
 Exercise footage: Parent 06:07-06:14.724 contains moving decline push-ups; inspect complete-rep boundaries and preserve the whole body. Training is generic, not a named exercise how-to. Confirm beginner-appropriate library alternatives during asset planning.
 
-New opening required because the parent opens with a list reference. Record selected line on the studio set, not desk mic; do not synthesize it. Proposed line 1 is recommended. Alternatives:
+Dan approved this exact new opening on November 2. Record it twice on the studio set with the clip-on mic. No replacement voice is authorized.
 
-1. If you're taking weight loss medication, you need to lift weights to keep your muscle.
-2. When you're using weight loss medication, you need resistance training to help keep your muscle.
-3. To keep your muscle while you're on weight loss medication, you've got to lift weights.
+Full selected transcript:
 
-Full proposed transcript (recommended new pickup first, source then uninterrupted):
+**[NEW STUDIO PICKUP, NOT RECORDED]** Here's why lifting weights is mandatory if you're taking weight loss medication.
 
-**[NEW STUDIO PICKUP, NOT RECORDED]** If you're taking weight loss medication, you need to lift weights to keep your muscle.
-
-**[SOURCE STARTS]** Now you don't need to be doing a full hour of weightlifting every day in the gym like me. What I would recommend if you're first starting off is just to do five minutes of home body weight. Resistance training. If you're a beginner and you're untrained right now, just that five minutes a day, every day will be enough to prevent muscle loss. As you progress, you're to have to step it up to 10 minutes, 15 minutes, 20 minutes, etc. In order to keep your muscle.
+**[SOURCE STARTS]** Now you don't need to be doing a full hour of weightlifting every day in the gym like me. What I would recommend if you're first starting off is just to do five minutes of home body weight. Resistance training. If you're a beginner and you're untrained right now, just that five minutes a day, every day will be enough to prevent muscle loss. As you progress, you're gonna have to step it up to 10 minutes, 15 minutes, 20 minutes, etc. In order to keep your muscle.
 
 ## B. How Much Protein Do You Need Each Day?
 
@@ -46,7 +42,7 @@ First five seconds: Question on Dan, with a moving Soft Blue Light calculation c
 
 Full proposed transcript (one uninterrupted source range):
 
-how much protein should you be aiming for? Studies have shown the optimal amount of protein to eat is about 0.8 grams of protein per pound of body weight. So let's say you're 200 pounds. That means aim for 160 grams of protein per day. So that basically means you're to be having three meals each with a larger than average serving of protein where you're making effort to get more protein in. And you're having a protein shake or protein heavy snack like chicken throughout the day. So I would say err on the side of eating more protein rather than less.
+how much protein should you be aiming for? Studies have shown the optimal amount of protein to eat is about 0.8 grams of protein per pound of body weight. So let's say you're 200 pounds. That means aim for 160 grams of protein per day. So that basically means you're going to be having three meals each with a larger than average serving of protein where you're making effort to get more protein in. And you're having a protein shake or protein heavy snack like chicken throughout the day. So I would say err on the side of eating more protein rather than less.
 
 ## C. Eat Your Protein Before Your Appetite Runs Out
 
@@ -74,6 +70,12 @@ Make sure every meal has a large portion of protein with it. Big amount of chick
 
 ## Next execution
 
-Wait for Dan to choose letters and, if A is chosen, the opening line. Then acquire SL-12 edit slot and execute /shorts. Do not auto-advance to a new round merely for segment picks. A new studio pickup is the only proposed new speech; B/C/D need none. Do not include medication-dosing passages that duplicate SL-06 or software/app segments. Use the approved source at the locked hash and preserve its sound except actual cut seams.
+Dan selected A and B; C and D are not being built. The approved A pickup replaces all earlier proposed openings. Prepare the asset review packet; obtain the recorded pickup before finishing A. Then acquire SL-12 edit slot and execute /shorts. Do not auto-advance to a new round merely for segment picks. A new studio pickup is the only proposed new speech; B/C/D need none. Do not include medication-dosing passages that duplicate SL-06 or software/app segments. Use the approved source at the locked hash and preserve its sound except actual cut seams.
 
 The queue was claimed by Codex and its Drive status read back successfully. Artifact-native mirror is left to the documented Claude sync. No other job was claimed. Current proposal record: `/Volumes/Extreme/_edit_work/SL-12/round1/segment-proposals.json`.
+
+## Asset review delivered November 2
+
+Review: http://127.0.0.1:9954/. Four native portrait context excerpts were rendered, technically checked, and independently inspected with no remaining visible defects. A opening is a silent visual sample because the approved sentence still needs a studio recording. Source audio in the other previews measures correlation above 0.99996 against the approved mix; no audible listen is claimed. Full delivery gates remain pending on the future assembled Shorts.
+
+Next: Dan reviews the proposed graphics and footage and records the exact A opening twice using `Docs/SL12_PICKUP.txt`. The shared video workflow says, "Render the complete film only after the opening treatment, graphics and clips are locked." The parent-public hold and no-upload boundary remain active.
