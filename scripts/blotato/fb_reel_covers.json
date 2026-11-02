@@ -1225,5 +1225,16 @@
   "approved": "Dan approved revised C on 2026-10-30: \"That looks great. Go ahead and install it.\"",
   "sha256": "44850b1b2b8bb12dfd2658dd4e189916907711a943507eea9d7aea0a001f9349",
   "when": "2026-12-23T00:00:00.000Z"
+ },
+ {
+  "job": "RO-21",
+  "slug": "ro21-body-fat-percentage",
+  "match": "Here's what every body fat percentage looks like on the same guy, and exactly what to do at each level to get to the next one.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/What Every Body Fat Percentage Looks Like/What Every Body Fat Percentage Looks Like - thumbnail FINAL.jpg",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan approved X5 on 2026-11-01",
+  "sha256": "299dd06717d7b345086c1eff77ddd673495cb435bf5d6d6a9a915bb83519ef6d",
+  "when": "2026-12-31T18:00:00.000Z"
  }
 ]

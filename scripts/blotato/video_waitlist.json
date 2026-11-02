@@ -706,5 +706,16 @@
   "gym": false,
   "filming_set": "green screen",
   "note": "Off-the-cuff R2 and revised cover C approved; four uploaded media hash-verified. Saved slot Tue Dec 22 6 PM Central."
+ },
+ {
+  "config": "scripts/blotato/configs/ro21-body-fat-percentage.json",
+  "kind": "longform",
+  "job": "RO-21",
+  "label": "What Every Body Fat Percentage Looks Like (On Me)",
+  "added": "2026-11-01",
+  "approved_release": "2026-12-30T15:00:00.000Z",
+  "planned": "2026-12-30 09:00",
+  "kitchen": false,
+  "note": "Film R4 and round 2 thumbnail X5 approved. All four uploaded assets downloaded and hash-verified. Queue needs four free slots. Keep Wed Dec 30 9 AM Central; other platforms Thu Dec 31 noon. Receipt Docs/RO21_SETUP_RECEIPT_20261101.md."
  }
 ]

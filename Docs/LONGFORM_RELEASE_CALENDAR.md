@@ -42,7 +42,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Sun Dec 20 | 2 | Can You Drink Alcohol And Still Have Abs? (My 6 Rules) | Waitlist |
 | Wed Dec 23 | 2 | RO-15 Sleep Better With Glycine (non-kitchen holiday-slot film; needs editing, approved by Dec 16, else two-Short day) | Not booked |
 | Sun Dec 27 | 3 | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | Live |
-| Wed Dec 30 | 3 | RO-21 What Every Body Fat Percentage Looks Like, On Me (needs editing; fallback: strongest ready non-kitchen film) | Not booked |
+| Wed Dec 30 | 3 | RO-21 What Every Body Fat Percentage Looks Like, On Me (film and round 2 thumbnail X5 approved) | Waitlist; Dec 30 reserved, four queue slots needed |
 | Fri Jan 1 | 3 | RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (needs editing; fallback: strongest ready non-kitchen film) | Not booked |
 | Sun Jan 3 | 3 | Why You're Not Losing Weight | Live |
 | Wed Jan 6 | 3 | Arms & Shoulders Workout Only | Waitlist |

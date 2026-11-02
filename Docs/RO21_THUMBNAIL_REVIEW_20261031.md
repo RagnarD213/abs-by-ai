@@ -1,6 +1,6 @@
 # What Every Body Fat Percentage Looks Like (On Me) (RO-21): thumbnail review (2026-10-31)
 
-CONTENT (LFC). Status: **awaiting Dan's pick** at http://127.0.0.1:9571/ . Nothing uploaded or scheduled.
+CONTENT (LFC). Status: **done.** Dan approved round 2 X5 on 2026-11-01. Setup: `Docs/RO21_SETUP_RECEIPT_20261101.md`.
 
 - Film: exact round 4, SHA-256 81d2c035c87580dcc3cffcb79d463f30c763b90f83d5ddbb43f7ec8f6afbee6b, re-hashed before setup.
 - Backups: Extreme `/Volumes/Extreme/Claude Content Videos/What Every Body Fat Percentage Looks Like (On Me) - RO-21/` (film and SRT hashes match); Drive https://drive.google.com/open?id=1u7lAWTGq80mxgfm_bwQObvyk2b2rDEH_ (byte counts match, anyone with the link).

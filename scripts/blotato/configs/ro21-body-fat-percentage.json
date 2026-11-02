@@ -33,5 +33,27 @@
     "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
+  },
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ac27aa68-4601-4412-aa8a-92eb20facf3c.mp4",
+  "instagram_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/63517743-2d61-46bd-b86e-16a4d6f598a2.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1367682a-2e88-4ae0-bd63-08c36f2dd903.mp4",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a27c1fa1-415c-4c3a-b97f-54ec8a6bceba.jpg",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a27c1fa1-415c-4c3a-b97f-54ec8a6bceba.jpg",
+  "thumbnail_approval": {
+    "by": "Dan",
+    "date": "2026-11-01",
+    "words": "I'd like X5 to go ahead and install and finalize X5.",
+    "round": 2,
+    "design": "X5",
+    "sha256": "299dd06717d7b345086c1eff77ddd673495cb435bf5d6d6a9a915bb83519ef6d"
+  },
+  "release_approval": {
+    "by": "Dan",
+    "date": "2026-11-01",
+    "words": "I'd like X5 to go ahead and install and finalize X5.",
+    "calendar": "Docs/LONGFORM_RELEASE_CALENDAR.md",
+    "youtube": "2026-12-30T15:00:00.000Z",
+    "socials": "2026-12-31T18:00:00.000Z",
+    "timezone": "America/Chicago"
   }
 }

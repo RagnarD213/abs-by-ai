@@ -156,7 +156,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | READY | S |
-| [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | IN PROGRESS | S |
+| [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | READY | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
@@ -201,7 +201,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | FINALIZED | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | DRAFT: asset choices waiting for Dan | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | FINALIZED | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | UPLOADED | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
@@ -307,6 +307,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 
 | [SL-28](SL-28-love-handles-shorts.md) | Love Handles (RO-30; 3 Shorts; parent Jan10,2027 planned, not booked) | READY: propose segments before rendering | S |
 | [SL-29](SL-29-celebrity-ozempic-shorts.md) | Reacting To Celebrity Ozempic Transformations (RO-24; 3 Shorts; parent Nov15 9AM Central, scheduled) | READY: propose segments before rendering | S |
+| [SL-30](SL-30-body-fat-percentage-shorts.md) | What Every Body Fat Percentage Looks Like (On Me) (RO-21; 3 Shorts; parent Dec 30 9AM Central planned, waitlist) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

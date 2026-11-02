@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RO23:SETUP:2026-11-01:Codex.** Thumbnails-building;pick-pending;push-blocked:live-salad.
+**RO23:REVIEW:2026-11-01:Codex.** [Four-split-thumbnails](http://127.0.0.1:9881/) await-pick;push-blocked:live-salad.
 
 
 **DS-63 WAITING 2026-11-01, Codex01a1998f.** First in line. Auto-resume armed. No production. Next: acquire slot.
@@ -36,12 +36,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-52:R2:BUILD:2026-11-01:Codex01a198f9.** Approved acceleration; next review.
 
-**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Both reviewed; final gate running. Continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked: live salad article.
+**Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
 
-**RO-21:SETUP:2026-11-01:Claude.** [Six thumbnails](http://127.0.0.1:9572/) await pick.
+**RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
@@ -67,7 +67,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** http://127.0.0.1:9286/ . N02/N07 narrated motions reviewed; awaiting Dan. Full film unbuilt. Next: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
+**Losing Fat Face LFC R3 BUILD 2026-11-01, Codex01a197ed.** Motions approved; full assembly running. Sole owner/next checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
