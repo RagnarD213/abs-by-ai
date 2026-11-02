@@ -25,8 +25,8 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-52-why-zepbound-is-actually-free.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.
 
 
-## Execution checkpoint, 2026-11-01, Codex
+## Execution checkpoint, 2026-11-01, Codex, R2
 
-R1 outdoor look checkpoint: [review choices](http://127.0.0.1:9290/). Three colour options, four matched-volume voice samples and three crop options are rendered and checked. Recommend B colour, B voice, crop 1. Proposed compact cut is 63.3633 seconds; the complete filmed script exceeds the handoff duration. Dan must select compact or longer, and the outdoor look.
+[Watch the 59.49-second timing cut](http://127.0.0.1:9290/). Dan approved the three transcript removals and pitch-preserving acceleration under60seconds. Clean edit61.49seconds; final59.49seconds at1.03365x. Independent timing review found no confirmed cut/speed defect. Browser playback, seeking, pace comparisons and paused/sound-ready owner handoff verified silently. Full-quality copy is in `Videos to Review/Zepbound Free SFC R2 - timing cut.mp4`.
 
-The full Short is not built or delivered. Final captions, graphics/clip contexts, exact-file gates and independent complete-candidate review remain pending. No upload or scheduling. Continue in this chat from `/Volumes/Expansion/_edit_work/DS-52/round1/RESUME.md`; recipe and clearly labelled look copies also in `Short-form video content/Zepbound Free - DS-52/R1 Look Review/`.
+[Colour, voice and crop choices remain open](http://127.0.0.1:9290/look-r1.html), recommend B/B/1. Those are provisional in the timing cut. Exact-file audio gate fails tone only; no full-master pass claimed. Graphics, B-roll, J2 burned captions, their contextual previews and final delivery gates remain pending. No upload or scheduling. Queue is draft_review; Drive update verified. Continue in this chat from `/Volumes/Expansion/_edit_work/DS-52/round2/RESUME.md`. Recipes, review copies and notes are also in `Short-form video content/Zepbound Free - DS-52/R2 Timing Review/`.
