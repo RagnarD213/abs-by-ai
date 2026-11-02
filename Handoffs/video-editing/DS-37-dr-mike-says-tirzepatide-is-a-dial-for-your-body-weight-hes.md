@@ -40,3 +40,10 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 Both full 1080p masters, 540p copies, SRT, audio A/B, notes, raw check stamps and recipe snapshot: `Short-form video content/Dr Mike Dial SFC R2/`. Full masters also copied and hash-verified in `Videos to Review/`. Managed page is paused with sound ready.
 
 Automated checks ran on exact masters. Five raw failure categories remain on each: approved-voice/reference audio rows, composite panel hair detector, intentional size-cut visibility, generic caption-onset timing and natural source pauses. All retained honestly in the page and reports; no all-gate PASS, audible human listening or public publishing claimed. Full evidence and immutable approval hashes: `/Volumes/Expansion/_edit_work/DS-37/round2/`.
+
+
+## R3 proposed shorter cut, 2026-11-02
+
+Dan requested a proposed off-the-cuff cut under 66seconds before deciding speed/version. One normal-speed 1080p 62.2956-second candidate is rendered from the preserved R2 master, with two new edits at 23.3900 and 36.4698. It removes the repeated introduction and generic dosage explanation while retaining the full personal dose/protein/maintenance example and close. A later 5% acceleration would be59.3seconds; no acceleration is applied yet.
+
+Editor self-QA finished. Fresh independent review and exact-file checks are finishing; the new proposal page is not delivered yet. Current ownership/checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round3/RESUME.md`. Existing full R2 masters/approved hashes remain unchanged.
