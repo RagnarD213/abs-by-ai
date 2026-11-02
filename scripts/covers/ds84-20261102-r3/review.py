@@ -1,0 +1,15 @@
+from pathlib import Path
+from build import OUT,ROOT,STYLES
+import json,shutil
+m=json.loads((OUT/'manifest.json').read_text())
+p=['''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hamstring Curls: Design 1 Variations</title><style>*{box-sizing:border-box}body{margin:0;background:#101821;color:#f2f5f8;font:17px/1.5 -apple-system,BlinkMacSystemFont,Arial,sans-serif}main{max-width:1400px;margin:auto;padding:28px 20px}h1{font-size:34px;line-height:1.2}p{max-width:920px;color:#c8d4e1}.notice{padding:18px 22px;background:#1b2a3c;border:1px solid #456174;border-radius:12px}.nav{display:flex;gap:14px;flex-wrap:wrap;margin:24px 0}.nav a{padding:8px 18px;border:1px solid #466075;border-radius:7px}a{color:#68ddea;text-decoration:none}.sheet{width:100%;height:auto}.pair{display:grid;grid-template-columns:1fr 1fr .75fr;gap:20px}figure{margin:0}.pair img{width:100%;height:auto}figcaption{margin-bottom:10px;color:#c8d4e1}section{margin:28px 0;padding:22px;background:#192635;border:1px solid #354a5e;border-radius:12px}@media(max-width:700px){main{padding:20px 12px}.pair{grid-template-columns:1fr 1fr;gap:10px}.grid{grid-column:1/3;max-width:250px}section{padding:14px}h1{font-size:28px}}</style></head><body><main><h1>How To Do Hamstring Curls</h1><div class="notice"><strong>Four Bolder Variations Of Design 1</strong><p>Same real screenshot. Same photo crop. Richer colors, stronger type and more polished borders. The photograph itself is unchanged from the version you liked.</p><p>Choose <strong>A, B, C or D</strong> in this chat. Each version includes separate Instagram and YouTube layouts, with the actual Instagram profile crop beside them. These are awaiting your review; nothing has been installed.</p></div><div class="nav">''']
+for k,st in STYLES.items():p.append(f'<a href="#variation-{k}">{k}. {st["name"]}</a>')
+p.append('</div><a href="four-variations.jpg"><img class="sheet" src="four-variations.jpg" alt="Four bolder design-1 variations, Instagram above and YouTube below"></a>')
+for k,st in STYLES.items():
+ p.append(f'<section id="variation-{k}"><h2>{k}. {st["name"]}</h2><div class="pair">')
+ for platform in ['instagram','youtube']:
+  row=next(x for x in m['outputs'] if x['variation']==k and x['platform']==platform);rel=Path(row['path']).relative_to(OUT.relative_to(ROOT)).as_posix()
+  p.append(f'<figure><figcaption>{"Instagram" if platform=="instagram" else "YouTube Shorts"}</figcaption><a href="{rel}"><img src="{rel}" alt="Variation {k}, {platform}"></a></figure>')
+ p.append(f'<figure class="grid"><figcaption>Instagram Profile Crop</figcaption><img src="grid/{k}.jpg" alt="Variation {k}, actual profile crop"></figure></div></section>')
+p.append('<p>Your approved Gemini R3 film and backups are unchanged. After your final cover pick, setup continues with the platform uploads and release queue.</p></main></body></html>')
+(OUT/'index.html').write_text(''.join(p));print(OUT/'index.html')

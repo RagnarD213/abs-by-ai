@@ -29,3 +29,14 @@ Dan rejected all five A-E covers: “I don't like any of these. Give me four uni
 - Files: `Short-form video content/covers/review/ds84-hamstring-curls-20261102-real/`. Exact eight output hashes, source records, prompts and JPEG sizes: manifest.json. Code/prompts: `scripts/covers/ds84-20261102-real/`. New page reuses http://127.0.0.1:9285/?revision=2; managed review service recached at the new review root. Old source/output files retained as rejected history.
 - Verified all eight 1080x1920 RGB covers, text safe bounds and face/hair clearance with conservative manually checked image rectangles, four YouTube JPEGs <2 MB, actual profile crops and full layouts visually, served image hashes, page HTTP200 and image range HTTP206. Browser page visually checked; browser-review.png saved. No playback or audible audio checks involved.
 - Film/master and backups unchanged. No new media upload, cover installation, waiting-list entry or schedule. Next: Dan picks 1-4; lock exact chosen files/hashes, then resume the remaining setup steps above.
+
+
+## Cover revision 3, November 2
+
+Dan selected revision-2 Design 1 as the base, then requested four bolder, more sophisticated versions with that exact image. This is a variation request, not approval to install Design 1 or any revised cover.
+
+- Four paired variations: A Midnight And Ice (navy/cyan); B Racing Red And Ivory; C Charcoal And Gold; D Electric Lime And Graphite. Each retains the selected title-above-photo arrangement, with richer header treatments, heavier type, accent rules and detailed borders.
+- The actual photographic patch is byte-for-byte identical in pixel values to the selected revision-2 Design 1 PNG, using the same crop per platform: Instagram [52,665,1028,1672], YouTube [24,530,1056,1800]. All eight PNG photo patches compared directly with the selected output using array equality and pixel SHA-256. No generation or further retouch; no metered call, no download, no change to face/body/pose/equipment.
+- Source/build/plan: `scripts/covers/ds84-20261102-r3/`. Outputs/manifest/exact checks: `Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/`. Managed review: http://127.0.0.1:9285/?revision=3 . Service retains same port and caches 14 linked files at the new root; previous rounds remain on disk.
+- Checked all eight 1080x1920 RGB PNGs, title safe bounds outside the entire photograph, exact served hashes, four YouTube JPEGs below 2 MB, HTTP200 and image range206. Both full layouts and actual Instagram 3:4 profile crops visually inspected, then the browser page and paired sheet. Browser screenshot evidence saved. No media playback.
+- Awaiting final A-D pick. No cover installed, no upload/waitlist/schedule, approved Gemini R3 and verified backups remain unchanged. Once Dan approves one exact variation, lock both layout hashes and continue platform setup without reopening the selected photo.

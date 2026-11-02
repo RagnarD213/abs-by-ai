@@ -26,7 +26,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Choose 1-4 from the real-screenshot designs](http://127.0.0.1:9285/?revision=2), both layouts shown with original-versus-touched-up screenshots. A-E rejected. Gemini R3 and all backups verified; cover pick required before remaining setup. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
+- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Choose A-D from Design 1’s bolder variations](http://127.0.0.1:9285/?revision=3). Same real screenshot and crop; both platform layouts shown. Dan selected Design 1 as the base, pending final variation approval. Gemini R3 backups verified. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 

@@ -1,3 +1,5 @@
+Current cover round 3, 2026-11-02: Dan selected real-screenshot Design 1 as the base and requested four bolder treatments with the exact image. [Review A-D, both layouts](http://127.0.0.1:9285/?revision=3). No final installation approval yet. `Docs/DS84_SETUP_RECEIPT_20261102.md` records the current exact files and checks. Prior review states below are historical.
+
 Current update 2026-11-02: Dan rejected A-E. Four replacement designs use touched-up REAL exercise screenshots and now await pick 1-4. [Review both layouts and originals](http://127.0.0.1:9285/?revision=2). Current receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`; new manifest: `Short-form video content/covers/review/ds84-hamstring-curls-20261102-real/manifest.json`. Historical A-E records below are superseded; no pick inferred.
 
 CONTENT (SFC). DS-84 How To Do Hamstring Curls. Cover review and setup in progress.
