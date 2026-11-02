@@ -78,4 +78,4 @@ Both complete live-queue cover audits: zero issues. Both ad-guard live scans: CL
 - Edit Queue DS-52 remains `finalized` until the shared top-up creates and reads back the four publisher schedules. No false `uploaded` status. The existing setup handoff is executed, with no new unexecuted upload handoff.
 - Existing shared release checks must inspect actual public tiles on YouTube Shorts, Facebook, Instagram and TikTok. Repair the YouTube portrait tile in Studio if necessary; Facebook live installer follows its existing routine. Verify pinned question and article/skip within the established post-release checks.
 - No Dan action remains for this setup.
-- Repository synchronization: final source-record synchronization is being verified separately; operational records and media are already present in the shared live waiting list and archives.
+- Repository synchronization: setup commit `240972d2fe824f5857722e5ccc0302fe726b95fd` pushed to `main` and read back from the remote. A clean isolated checkout carried only this task's files and rows, leaving the main project's other active edits untouched. Final receipt/check readback follows that setup commit.
