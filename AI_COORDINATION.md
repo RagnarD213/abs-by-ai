@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Dan picked C; [three text versions](http://127.0.0.1:9884/) await pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37. Push pending.
 
-**RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9875/).**
+**RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9876/).**
 
 **RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
