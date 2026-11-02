@@ -2,7 +2,7 @@
 
 Updated: 2026-11-02 evening Central
 
-Status: PARTLY DONE. Jiu Jitsu cover picked (X3). Battle Ropes picked X8 with a text redo; three text options await Dan. Muhammad's two HQ exports are still awaited. Neither Short has been uploaded, queued, waitlisted or scheduled. DS-15 and DS-19 remain finalized, not uploaded.
+Status: PARTLY DONE. Both covers picked: Jiu Jitsu X3, Battle Ropes X8 text V3. Waiting only on Muhammad's HQ exports (rechecked 2026-11-02 evening: no reply in Upwork room, nothing new in HD folder). Muhammad's two HQ exports are still awaited. Neither Short has been uploaded, queued, waitlisted or scheduled. DS-15 and DS-19 remain finalized, not uploaded.
 
 Review: http://127.0.0.1:8994/
 
@@ -43,10 +43,11 @@ Managed review service installed on port 8994, with 53 linked files cached local
 - Jiu Jitsu: Dan, "Okay, for Jiu Jitsu, let's go with X3." X3 is design A. Final files: Instagram `ds15/instagram/ds-15_jiu-jitsu_cover-A.png` sha256 `a3955cbc91c34ac9147dbb9f5e2d9696401a9e6d43308ecd5983c761cfa480d3`; YouTube `ds15/youtube/ds-15_jiu-jitsu_cover-A.png` sha256 `b00ed65826c67e06ba486479047a73088f38c5ca47de58b59148dfe3a5b83da6` (plus its `.jpg`). Recorded with `blind.py pick`.
 - Battle Ropes: Dan, "let's go with X8, but I want you to redo that text. It looks kind of weird how it's half in the black area, half not. Give me three variations with better-looking text on top." X8 is design H. Recorded with `blind.py pick`.
 - Battle Ropes text options V1/V2/V3, same X8 picture moved down so the whole title sits inside the dark ceiling with 45 px or more of clear dark above the wall: V1 X8 look bigger, V2 small green kicker over large white line, V3 green block with dark type. One face, zero text-on-person pixels, Instagram grid-safe. Files: `ds19/x8-text-r2/` (manifest with hashes), builder `scripts/covers/ds15-ds19-20261102/x8_text_r2.py`. Review: http://127.0.0.1:8994/battle-ropes-x8/ . Install only the exact V file Dan picks.
+- Battle Ropes final: Dan, "v3". Instagram `ds19/x8-text-r2/instagram/ds-19_battle-ropes_cover-X8-V3.png` sha256 `402685b09b74dfd337ff22446ee7294d9e1155b499734032ce52c45427547c3b`; YouTube `.../youtube/ds-19_battle-ropes_cover-X8-V3.png` sha256 `61002e7aa82e7a6d3a796f96ab55da832f216b979ade0551047badcf557ee01d`, JPEG `46a273e2106ae67b1318a6e17835737e8a05a9754c80dc2ed1a35be24c08aeed`.
 
 ## Remaining work
 
-1. Record Dan's X pick for each Short with his words and the actual final asset hashes. Use `.claude/skills/_shared/blind-image/blind.py pick` for generated choices; the private key maps the chosen X to its original paired layouts. Requested revisions require showing the changed exact files before installation.
+1. DONE: picks recorded (above). Was: record Dan's X pick for each Short with his words and the actual final asset hashes. Use `.claude/skills/_shared/blind-image/blind.py pick` for generated choices; the private key maps the chosen X to its original paired layouts. Requested revisions require showing the changed exact files before installation.
 2. Recheck Muhammad's Upwork room and shared HD folder. Once finals arrive, download exact HQ bytes, compare duration/frame count and sampled frames against the approved baselines. A content difference stops setup for Dan. Keep the editor's audio untouched.
 3. File verified masters per the original handoff, project + Extreme + anyone-with-link Google Drive. Finish metadata, pinned question, platform media and cover upload/readback.
 4. Use the dated release-phase/calendar rules. Both films are pool/patio, not kitchen. Battle Ropes fits the January home-cardio phase. Only reserve a real slot once full setup is ready, then Blotato or shared waitlist with readback. Do not claim a date now. Do not create a per-video automation.

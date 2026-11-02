@@ -1,3 +1,5 @@
+**DS15/19 2026-11-02:** covers-picked;HQ-awaited.
+
 # Abs By AI — Coordination / Status Board
 
 Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`. Dan's open decisions: `Docs/DAN_DECISIONS.md`.
@@ -28,16 +30,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Overhead Tricep Extensions HOLD 2026-11-02, Codex01a19df9.** X3 installed; uploads verified; Dec29 6PM Central shared waitlist,200/200. Daily top-up owns scheduling. Push pending, live shared edits. `Docs/DS63_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-13:R1-REVIEW:2026-11-02:Codex01a19cd4.** [A](http://127.0.0.1:9296/) awaits treatment approval; B/C unbuilt. `Docs/SL13_R1_REVIEW_RECEIPT.md`;push-pending.
+**SL-13:R2:BUILD:2026-11-02:Codex01a19e60.** A study revision; selected B/C building. R1 preserved. Next: proofs, renders, checks. `Handoffs/handoff-20261102-sl13-r2-abc.md`;push-pending.
 
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:REVIEW:2026-11-02:Codex01a19c6e.** [Visuals](http://127.0.0.1:9954/); A-pickup-needed;push556fb08-pending. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+**SL-12:R2:BUILD:2026-11-02:Codex01a19c6e.** B-final;A-AI-ownvoice/B-roll. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
-**DS-27:COVERS-R2:2026-11-02:Codex01a19c79.** Four-real-workout-designs-building;film-approved;push-pending.
+**DS-27:HOLD:2026-11-02:Codex01a19c79.** Cover2;Dec31-6PM-waitlist;push-pending; `Docs/DS27_SETUP_RECEIPT_20261102.md`.
 
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
@@ -46,10 +48,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SRM cutover PUSH-PENDING 2026-11-02, Claude.** Agency work and website moved to `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Local commits 9f43c2d, 4807606, c0f40b4 and the website removal. Next: safe-push when clear, then delete this entry.
 
-**Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
+**Muhammad:PUSH-PENDING:2026-11-02:Claude.** f752376, 5a37ec9 local; delete after push.
 
 
-**Dr Mike Dial SFC R3 REVIEW 2026-11-02, Codex01a198a1.** [Proposed62.3s cut](http://127.0.0.1:9188/). Choose shortened offcuff or scripted, then speed. Push blocked: live concurrent edits.
+**Dr Mike Dial SFC R4 REVIEW 2026-11-02, Codex01a198a1.** [Final59.3s film](http://127.0.0.1:9189/). Dan chose shortened offcuff;5% faster/pitchpreserved1080p checked+independentlyreviewed. Await final pace/sound approval. SameVLCcopy; pausedsoundready. No publishing. Gitpushblockedbyliveconcurrentfiles.
 
 
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`
@@ -80,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R4, 2026-11-02, Codex 01a197ed.** [1080p review](http://127.0.0.1:9286/) delivered; Dan checks 3:05–3:15 and 3:41–4:00. Three picture revisions complete; technical QA open. Queue rev13 draft_review; no edit slot. Production heartbeat deleted to stop idle prompts. Await actual Dan response. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round4/RESUME.md`.
+**Losing Fat Face LFC R4, 2026-11-02, Codex 01a197ed.** Film approved; [eight thumbnail choices](http://127.0.0.1:9286/thumbnail-choices.html) await Dan pick. Exact project/Extreme/Drive backups verified. Technical QA open; nothing scheduled. RO-22 finalized, SL-33 registered only. No slot or heartbeat. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/setup/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
