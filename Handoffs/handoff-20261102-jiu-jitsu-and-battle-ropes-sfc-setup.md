@@ -3,6 +3,10 @@
 **CONTENT (SFC), two dedicated Shorts edited by Muhammad. No ads, no Google Ads work, no unlisted upload.**
 **READY 2026-11-02, step 1 waits on Muhammad's HQ exports.** Recommended: Claude Opus 5.5, high. **Use the Codex subscription to generate the images.**
 
+## Setup progress, November 2, 2026
+
+Cover choices are ready for Dan at http://127.0.0.1:8994/ (X1 to X8 per Short, Instagram and YouTube layouts). HQ exports are still awaited: latest Upwork message is Dan’s HQ request; actual shared HD-folder listing has neither film. Both local V2 baseline hashes match. No upload, waitlist placement or scheduling. Continue in the current setup chat after picks and HQ arrival. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
+
 ## Approval
 Dan finalized both on 2026-11-02 in the live revision doc `1O4wKkCN0ZtNTRd3Q4tfgC2ipqCnDjGjzauyFIDUiuxk`
 ("APPROVED - FINALIZED - READY FOR HQ EXPORT" / "FINALIZED - APPROVED - READY FOR HQ EXPORT"), accepting the V2 cuts as they are.
