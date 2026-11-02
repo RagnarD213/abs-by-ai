@@ -46,7 +46,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
 
-**RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9874/).**
+**RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9875/).**
 
 **RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
+**Upwork pitch PUSH-PENDING 2026-11-02, Claude.** Commits 20c982d and 7963f6d (LEARNED.md) are local; a live staged salad-article deletion blocks safe-push. Next: rerun safe-push when clear, then delete this entry.
 
 **SL-10 Setup REVIEW 2026-11-01, Claude.** Two waitlisted; [two covers](http://127.0.0.1:9653/) await Dan. fef21aa push-pending. `Docs/SL10_COVER_REVIEW_20261101.md`
 
