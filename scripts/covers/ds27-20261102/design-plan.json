@@ -1,0 +1,18 @@
+{
+  "copy": [
+    "Home Workouts",
+    "Skip The Commute"
+  ],
+  "concepts": {
+    "A": "Dan is doing one controlled standing dumbbell curl at home, looking confidently at the camera, torso tall and abs clearly visible. A small yoga mat and kettlebell sit behind him beside a normal living-room sofa. Bright warm window light. Medium full body, the equipment and house clearly read. This is a real home, not a commercial gym.",
+    "B": "Dan stands at his open front door, wearing workout shorts and holding a packed gym bag out at arms length with an amused \"why would I do this\" expression. He points with his other hand down toward a pair of dumbbells already sitting on the floor just inside the house. His torso is upright and abs visible. Through the doorway a car is parked outside, warm afternoon. The joke is staying home instead of wasting time driving.",
+    "C": "BACKGROUND ONLY. Do not depict any people or any body parts. A tidy realistic small home gym in a garage, blue wall, yoga mat, a kettlebell, pair of light dumbbells, an ab wheel and jump rope on a rack. Window daylight, attractive real room, perspective and gym kit read clearly. Centre lower two thirds is open for a real studio portrait to be composited there later. No words or logos.",
+    "D": "Dan stands tall shirtless in a comfortable bright bedroom just after waking up, one hand pulling open the curtain and the other holding a single small dumbbell at his side. His face is awake and relaxed, slight natural closed-mouth smile. Bed behind him, mat on floor by the bed. This instantly shows rolling out of bed and working out at home, without commuting. He is large in the frame, upright and visibly ripped, no hunched torso.",
+    "E": "Dan stands at a work-from-home desk in a compact living room, confidently lifting a single kettlebell from the floor with a straight upright torso at the end of the deadlift, both hands grasping its handle. Laptop open on desk behind him, a simple mat beneath him. Large face and clearly lit ripped abs. Clean energetic magazine photography, navy and warm orange palette. Entire head and hands visible.",
+    "F": "Dan sits upright on the edge of a living-room sofa holding two compact dumbbells, ready to begin a workout. He looks directly at camera with a broad amused confident grin, defined abs clearly visible with a long upright torso. No slumping. Yoga mat and small kettlebell at his feet. Bright airy home, large clear face, warm sunlight. The picture says your living room is your gym.",
+    "G": "Dan has just walked out of his bedroom and is stepping naturally onto a workout mat in his home hallway, carrying one compact dumbbell in each hand at his sides. He looks confident with relaxed closed-mouth smile, face and abs clearly visible. Behind him is a bed; ahead is his simple home setup. A grounded believable moment with no impossible poses. Cool blue morning light with warm skin.",
+    "H": "Dan in black workout shorts stands shirtless with a defined upright torso in a modest home gym, palms up and smiling confidently as he presents the small simple equipment array at his feet: mat, push-up handles, light dumbbells, kettlebell, ab wheel and jump rope. Ordinary uncluttered home, no giant gym machines. Direct cheerful eye contact, large readable equipment and highly defined natural abs."
+  },
+  "user_facing_labels": "randomized X labels; source key private",
+  "mix": "two AI Dan + real studio photo + two history-guided choices, plus three blind subscription alternatives"
+}

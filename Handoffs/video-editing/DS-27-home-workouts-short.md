@@ -1,6 +1,10 @@
 # DS-27: "Home Workouts (short)", first cut from raw footage
 
-**Dedicated shorts · 9/23 shoot · R2 FULL SHORT REVIEW, 2026-11-02.** Added 2026-09-24 at Dan's request. Read `00-RULES.md` first.
+**Dedicated shorts · 9/23 shoot · R2 APPROVED, SETUP COVER REVIEW, 2026-11-02.** Added 2026-09-24 at Dan's request. Read `00-RULES.md` first.
+
+## Setup phase, November2,2026
+
+Dan approved the exact full R2 film and authorized setup. Eight cover pairs await selection at http://127.0.0.1:9958/. Final master/subtitles backed up locally, Extreme and canonical Drive with hashes verified. Metadata draft and pinned question prepared. No publishing upload or release schedule yet. Continue in this chat after the X-number pick. Receipt:`Docs/DS27_SETUP_RECEIPT_20261102.md`.
 
 ## Source (9/23 shoot)
 Folder: `/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/`
@@ -19,7 +23,7 @@ Deliverable: 1080x1920, 45-66 s, J2 captions. No cover image (a separate Codex t
 **Codex (newest available stable GPT, high; current supported catalog: GPT-6.1 Sol):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-27-home-workouts-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
 
-## Current review phase, November2,2026
+## Historical R2 review phase, November2,2026
 
 Owner: Codex chat01a19c79-c752-7650-93fe-698ca23fdc69. Dan approved Colour B, Gentle Bass, opening and inserts. Full61.428s R2 is rendered with framing/client-tail/caption repairs. [Review](http://127.0.0.1:9957/) and [private copies](https://drive.google.com/drive/folders/18_oWFPNVd1UgPm9kcNggrSCWd_QCcw42). Await Dan’s full-film review; not approved or published. Independent bounded visual/source audit found no confirmed defect. Remaining automated flags and unsupported audible/full-speed perceptual checks are explicit on the page. Sole working record:`/Volumes/Expansion/_edit_work/DS-27/round2/execution.json`; recipe code locally committed, safe push pending live shared edits. Next: Dan reviews0:16–0:26 and0:50–end, then approves or gives revisions. Queue/master:delivered.
 

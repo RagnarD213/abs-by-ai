@@ -1,0 +1,22 @@
+{
+  "status": "draft metadata only; no uploaded media, cover choice or release date yet",
+  "job": "DS-27",
+  "slug": "ds27-home-workouts",
+  "title": "Too Busy To Work Out? Cancel Your Gym Membership",
+  "content_type": "organic",
+  "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Home Workouts - DS-27/Final/Home Workouts SFC R2 - 1080p.mp4",
+  "master_sha256": "2b67b02fb7eb2bf4f911dcb7c3cbf7dce1dd5cc55317dc859357becb5ed130a6",
+  "ai_generated": true,
+  "kitchen": false,
+  "gym": false,
+  "captions_burned_in": true,
+  "duplicate_captions": false,
+  "hook": "If you're too busy to work out, cancel your gym membership.",
+  "body": "Listen, the workout isn't what's eating your time. The commute is. You pack a bag, drive, park, change, workout, and drive back.\n\nAt home, there's no commute. You roll out of bed and start.\n\nOnce working out every day is a habit, you can always join a gym later.",
+  "close": "Subscribe for more ways to make time to get in shape.",
+  "tags": "#HomeWorkouts #Fitness #WorkoutAtHome #Shorts",
+  "article": "Post-release shared Short article/skip routine",
+  "ai_note": "Contains the approved realistic AI client scene; still covers do not determine the footage disclosure flag.",
+  "pinned_comment": "Which takes you more time, driving to the gym or doing the actual workout?",
+  "writing_method": "Title/description assembled from the recorded words; pinned question from a clean five-passage prompt, with a clean fallback writer after primary authentication failed."
+}
