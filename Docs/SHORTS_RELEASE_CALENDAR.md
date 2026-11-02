@@ -39,7 +39,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Nov 19 | 1 | 9 AM | How To Do Rear Delt Flys | Waitlist |
 | Fri Nov 20 | 1 | 9 AM | Build Your Value Before You Date | Live |
 | Sat Nov 21 | 1 | 9 AM | Why I Don't Use The KwikPen | Live |
-| Mon Nov 23 | 1 | 9 AM | OPEN: gym how-to test (DS-84 Hamstring Curls once Dan approves), else the next ready non-kitchen Short | Not booked |
+| Mon Nov 23 | 1 | 9 AM | How To Do Hamstring Curls (DS-84, gym how-to test) | Live |
 | Tue Nov 24 | 1 | 9 AM | Make AI Calorie Tracking Accurate | Live |
 | Thu Nov 26 | 2 | 9 AM | How To Do Hammer Curls | Waitlist |
 | Thu Nov 26 | 2 | 6 PM | Train Legs Without Deadlifts | Live |
@@ -80,9 +80,9 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Sat Dec 26 | 3 | 9 AM | How To Do Pull-Ups The Right Way (DS-76, gym) | Live |
 | Sat Dec 26 | 3 | 6 PM | Wear A Mouthpiece When You Work Out (DS-105) | Waitlist |
 | Mon Dec 28 | 3 | 9 AM | Belly Fat 1: Stop Trying To Lose 1 Pound A Week | Waitlist |
-| Mon Dec 28 | 3 | 6 PM | OPEN | Not booked |
+| Mon Dec 28 | 3 | 6 PM | Why Zepbound Is Actually Free (DS-52) | Waitlist |
 | Tue Dec 29 | 3 | 9 AM | Belly Fat 2: Weigh Yourself Every Morning | Waitlist |
-| Tue Dec 29 | 3 | 6 PM | OPEN | Not booked |
+| Tue Dec 29 | 3 | 6 PM | How To Do Overhead Tricep Extensions (DS-63) | Waitlist |
 | Thu Dec 31 | 3 | 9 AM | Belly Fat 3: Work Out Every Morning, Not 3 Times A Week | Waitlist |
 | Thu Dec 31 | 3 | 6 PM | OPEN | Not booked |
 | Sat Jan 2 | 3 | 9 AM | Belly Fat 4: The 3-Pound Rule That Keeps Belly Fat Off | Waitlist |

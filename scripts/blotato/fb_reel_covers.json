@@ -1297,5 +1297,36 @@
   "sha256": "a17822696976879f619b1c2c65428b9962506820954b5db54196428b3f66f296",
   "when": "2027-01-02T18:00:00.000Z",
   "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/First Time At The Gym/I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time - thumbnail FINAL.jpg"
+ },
+ {
+  "job": "DS-52",
+  "match": "Here's why taking Zepbound is actually free.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds52-zepbound-free-approved.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved design 3, text B, 2026-11-02",
+  "when": "2026-12-29T00:00:00.000Z"
+ },
+ {
+  "job": "DS-84",
+  "match": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds84-hamstring-curls-approved.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "2026-11-02",
+  "cover_sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+  "variation": "D, cover R3",
+  "schedule": "6390173",
+  "when": "2026-11-23T15:00:00.000Z"
+ },
+ {
+  "match": "Most guys train their biceps and forget about their triceps, but your triceps are the bigger muscle in your arm.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds63/overhead-tricep-extensions-instagram.png",
+  "w": 1080,
+  "h": 1920,
+  "job": "DS-63",
+  "when": "2026-12-30T00:00:00.000Z",
+  "cover_pick": "X3",
+  "cover_sha256": "27b1406410d364211016dec0d31cc4688f143cef13da9c3aac2802c9c888699f"
  }
 ]

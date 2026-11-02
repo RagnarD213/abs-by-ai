@@ -783,5 +783,27 @@
   "filming_set": "studio",
   "planned": "2026-12-25 18:00",
   "note": "Revised cover approved, four uploads hash-verified. Saved slot after RO-13 Dec 20."
+ },
+ {
+  "config": "scripts/blotato/configs/ds52-zepbound-free.json",
+  "kind": "short",
+  "job": "DS-52",
+  "label": "Why Zepbound Is Actually Free",
+  "added": "2026-11-02",
+  "kitchen": false,
+  "gym": false,
+  "note": "Exact approved R3 master unchanged; Dan approved cover design 3/text B. All backups and four upload hashes verified. Target Dec28 6PM America/Chicago, next eligible open slot; shared top-up preserves slot if still free. No parent. All four targets ready."
+ },
+ {
+  "config": "scripts/blotato/configs/ds63-overhead-tricep-extensions.json",
+  "kind": "short",
+  "job": "DS-63",
+  "label": "How To Do Overhead Tricep Extensions",
+  "added": "2026-11-02",
+  "planned": "2026-12-29 18:00",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio narration and pool demonstrations",
+  "note": "R2 film and exact X3 cover pair approved; four uploads downloaded and hash-verified. Target Tue Dec29 6PM Central, next eligible unreserved slot. Shared daily top-up schedules all four when capacity opens; no parent."
  }
 ]
