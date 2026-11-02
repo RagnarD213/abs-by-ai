@@ -1,0 +1,16 @@
+from pathlib import Path
+import subprocess,json,sys,hashlib,os
+R=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');W=Path(__file__).resolve().parents[1];Q=W/'review';name=sys.argv[1];F=str(R/'Media/video_edit/bin/ffmpeg');FPS=30000/1001;os.environ['GATE_GROUP']='DS-27';os.environ['PATH']=str(R/'Media/video_edit/bin')+':'+os.environ['PATH'];E=W/'evidence'/name;E.mkdir(exist_ok=True)
+S=json.load(open(W/'shots.json'));P=json.load(open(W/'edl.json'));EV=json.load(open(W/'asset-events.json'));n0,n1={'Opening':(0,round(27.46*FPS)),'Equipment-context':(round(24.20*FPS),P[1]['n1']),'Daily-workouts-context':(next(s['n0'] for s in S if s['id']=='T09'),1841)}[name];a=n0/FPS;b=n1/FPS
+video=Q/(name+' - 1080p.mp4');sha=hashlib.sha256(video.read_bytes()).hexdigest();plan=dict(target_frames=n1-n0,target_seconds=(n1-n0)/FPS,captions_ass=str(W/'build'/(name+'.ass')),source_audio=str(W/'build'/(name+'.wav')),joins=sorted(set([0.,(n1-n0)/FPS]+[(s[k]-n0)/FPS for s in S for k in ['n0','n1'] if n0<s[k]<n1]+[(s[k]-n0)/FPS for s in EV for k in ['a','b'] if n0<s[k]<n1])),audio_joins=[p['out']-a for p in P[1:] if a<p['out']<b],covered=[[max(a,e['a']/FPS)-a,min(b,e['b']/FPS)-a] for e in EV if e['a']<n1 and e['b']>n0],punch=[[max(a,s['n0']/FPS)-a,min(b,s['n1']/FPS)-a,'NEAR' if s['kind']=='tight' else 'FAR'] for s in S if s['kind']!='equipment' and s['n0']<n1 and s['n1']>n0],graphics=[],words=[dict(w=w['w'],t=w['t0']-a,e=min(w['t1'],b)-a) for w in json.load(open(W/'words_out.json')) if a<=w['t0']<b],watch_log=str(E/'watch.json'))
+for g in json.load(open(W/'hf/manifest.json')):
+ if g['a']>=a-.001 and g['b']<=b+.001:plan['graphics'].append(dict(name=g['id'],beat=[g['a']-a,g['b']-a],mov=g['mov']))
+(E/'plan.json').write_text(json.dumps(plan,indent=2));sys.path.insert(0,str(R/'.claude/skills/_shared/audio'));import common as C
+base=C.pcm(str(W/'untreated-cut.wav'),ss=a,dur=b-a,ac=1);C.stash_untreated(str(video),base,note='Exact excerpt from measured C1719 dual-mono lav, before shared gain/limiter. No camera-mic sum.')
+subprocess.run([sys.executable,str(R/'.claude/skills/_shared/audio/audio_gate.py'),str(video),'--ab',str(Q/(name+' - reference A-B.mp4'))],stdout=open(E/'audio-gate.txt','w'),stderr=subprocess.STDOUT)
+subprocess.run([sys.executable,str(R/'.claude/skills/_shared/deliver/watch.py'),str(video),'--plan',str(E/'plan.json'),'--out',str(E/'watch'),'--log',str(E/'watch.json')],stdout=open(E/'watch.txt','w'),stderr=subprocess.STDOUT)
+# Retain honest unjudged watch status until native frames and narrated playback are assessed.
+sys.path.insert(0,str(R/'.claude/skills/_shared/cut'));import speech
+ws,method=speech.transcribe(str(video),model='small.en');(E/'delivered-words.json').write_text(json.dumps(dict(sha256=sha,words=ws,method=method),indent=2));plan.update(evidence_contract=dict(version=2,video_sha256=sha),speech_words=ws,speech_words_evidence=dict(method='delivered_asr',video_sha256=sha),transcript_words=[dict(w=w['w']) for w in ws]);(E/'plan.json').write_text(json.dumps(plan,indent=2))
+subprocess.run([sys.executable,str(R/'.claude/skills/_shared/deliver/gate.py'),str(video),'--format','short','--plan',str(E/'plan.json')],stdout=open(E/'delivery-gate.txt','w'),stderr=subprocess.STDOUT)
+print('QA GENERATED',name,sha,flush=True)
