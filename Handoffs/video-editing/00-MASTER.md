@@ -110,7 +110,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
-| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | READY | S |
+| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | IN PROGRESS | S |
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
@@ -171,7 +171,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | FINALIZED | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
 | [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
-| [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | DRAFT: asset choices waiting for Dan | S |
+| [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | IN PROGRESS | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
 | [DS-55](DS-55-the-3-exercises-id-do-if-i-only-had-5-minutes.md) | The 3 Exercises I'd Do If I Only Had 5 Minutes | 10/15 C1765 | UPLOADED | S |
