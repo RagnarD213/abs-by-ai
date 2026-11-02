@@ -8,6 +8,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 |---|---|---|---|---|---|
 | outreach-1 | 2026-10-30 | 20 | 0 | 0 | 20 |
 | upwork-2 | 2026-11-01 | 5 | 5 | 0 | 0 |
+| upwork-20261102 | 2026-11-02 | 2 | 2 | 0 | 0 |
 
 ## Rules for proposals
 
@@ -36,6 +37,8 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Rules for picking jobs and prospects
 
+- Widen the search (Dan, 2026-11-02): include fitness and health video editing jobs outside direct-response ads (YouTube long-form, Shorts, Reels for coaches and clinics), start with the Best Matches feed (`find_jobs smart_search mode=best_match`, never the browser), and check US-only jobs (`preferred_locations.location_required` true), where competition is lower. Volume that day: Dan asked for 5 more on top of the daily 5.
+- Long-form editing examples from Dan's own channel (public, checked 2026-11-02): My Top 10 Tips For Getting Six Pack Abs (At 40 Years Old) 21 min https://www.youtube.com/watch?v=2T4LrQrmz9s; How To Keep Your Muscle While You Lose Fat 12 min https://www.youtube.com/watch?v=96LV9DEKf-s; Your Belly Fat Is an Emergency 11 min https://www.youtube.com/watch?v=v2R4QpnURqA; How I Make My Daily Salad 15 min https://www.youtube.com/watch?v=d2gksIHPMEM. Shorts: Stop Swinging Your Bicep Curls https://www.youtube.com/watch?v=FLamzXGwSCM; You Have 4 Ab Muscles https://www.youtube.com/watch?v=A8_uiK0D8nc; I Was 200 Pounds At 38 https://www.youtube.com/watch?v=DVGiyMtOeHI.
 - Never judge a brand's ads from Meta Ad Library captions. The same caption can sit on 50 different videos. Download or watch the videos and transcribe the openings first. Built With Science: 52 ads shared one caption, all different videos. (2026-10-30)
 - "Started running" dates are not how long a creative has lived: brands relaunch winners in new ads. The video link's `asset_age_days` shows the file's real age. Old files kept in rotation are the likely winners, and two with the same body and different openings show a hook test. (2026-10-30)
 
@@ -45,6 +48,7 @@ Read before drafting. Newest first within each section. Each rule names the item
 
 ## Log
 
+- 2026-11-02: two proposals sent unchanged (agency $500, beading $200; boosts 22 and 9). Some clients allow only payment by project: then submit `payment_mode by_project` at the full bid and keep the $5 step as a suggestion in the letter.
 - 2026-11-01: eight proposals live (upwork-1 three, upwork-2 five). The upwork-2 John proposal was opened within minutes of its boost. Cheapest boost flow: submit, read `current_top_bids` from the preview, then `edit` with `boost_connects`, instead of re-creating with the whole letter. Top bid plus one for good clients; no boost when the bids run far above Upwork's suggested range (65 to 69 on the hourly job).
 - 2026-11-01: first two proposals submitted (supplement, skincare). The connector holds one pending preview at a time: prepare and confirm each proposal before starting the next.
 - 2026-10-30: Dan wrote the outreach template. The email now leads with Google and YouTube, so prospects must be checked there.
