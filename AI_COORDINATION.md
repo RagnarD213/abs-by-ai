@@ -34,7 +34,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
 
-**Overhead Tricep Extensions R2 ACTIVE 2026-11-02, Codex01a19c75.** Corrected full build running; automatic10-minute continuation finishes checks/delivery. `/Volumes/Expansion/_edit_work/DS-63/round2/RESUME.md`. Push blocked by live daily-salad deletion.
+**Overhead Tricep Extensions R2 REVIEW 2026-11-02, Codex01a19c75.** [42s review](http://127.0.0.1:9294/). Await full-film approval; sound/caption flags documented. Metadata push blocked by live shared edits.
 
 **SRM Website REVIEW 2026-11-01, Claude.** Three mockups await pick; unpublished. `sites/srm/PLAN.md`
 
@@ -44,7 +44,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
 
-**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Round 1 rejected; [six R2 thumbnails](http://127.0.0.1:9883/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
+**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Round 1 rejected; [six R2 thumbnails](http://127.0.0.1:9883/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37. b0e3eb4 local.
 
 **RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9875/).**
 
