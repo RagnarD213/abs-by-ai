@@ -25,6 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO23:SETUP:2026-11-01:Codex.** Thumbnails-building;pick-pending;push-blocked:live-salad.
+
+
 **DS-63 WAITING 2026-11-01, Codex01a1998f.** First in line. Auto-resume armed. No production. Next: acquire slot.
 
 **SRM Website REVIEW 2026-11-01, Claude.** Nothing published. Next: Dan's notes. `sites/srm/PLAN.md`
@@ -33,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-52:R2:BUILD:2026-11-01:Codex01a198f9.** Approved acceleration; next review.
 
-**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Rendered; repaired offcuff review running. Final gate/status follow. Continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked: live salad article.
+**Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Both reviewed; final gate running. Continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked: live salad article.
 
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
