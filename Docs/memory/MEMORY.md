@@ -16,6 +16,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Relationship](dan-relationship-status.md): girlfriend, not wife
 - [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
 ## Machine, repo and models
+- [Review pages retire](review-pages-retire-idle.md): 11-02: idle 3 days → retired so the Mac cannot freeze; `review_retire.py --restore PORT`
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
 - [Repo is public](repo-is-public.md): ask before personal data
 - [Memory mirror](memory-repo-copy.md): sync script, .repo-private
