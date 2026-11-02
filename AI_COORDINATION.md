@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
-**DS-52 BUILDING R2 2026-11-01, Codex01a198f9.** Approved cuts; pitch-preserving acceleration under 60s. Next: review.
+**DS-52:R2:BUILD:2026-11-01:Codex01a198f9.** Approved acceleration; next review.
 
 **Dr Mike Dial SFC R2 BUILDING 2026-11-01, Codex01a198a1.** Rendered; repaired offcuff review running. Final gate/status follow. Continuation active. `/Volumes/Expansion/_edit_work/DS-37/round2/RESUME.md`. Push blocked: live salad article.
 
@@ -281,3 +281,5 @@ Memory `google-ads-ui-automation`.
 # HANDOFFS WRITTEN, NOT EXECUTED
 
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
+
+**RO-23:SETUP-HANDOFF:2026-11-01:Codex01a1989e.** Metadata push blocked by live staged article deletion. Retry when clear; setup pointer in `Handoffs/README.md`.

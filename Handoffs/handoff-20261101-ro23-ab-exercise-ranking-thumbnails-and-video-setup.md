@@ -59,6 +59,8 @@ Exact delivery gate v2.6.3 has **38/39 active rows PASS; overall FAIL solely on 
 
 The one independent R4 review is `PASS_WITH_LIMITATIONS`, zero open picture defects: all ten exercise placements, 54 required scenes and 53 joins/pairs inspected using original-source/approved-component and native temporal evidence. Native whole-file decode, hair checks in both sizes, unchanged-picture comparison and exact AAC payload equality are recorded. Silent native playback/seek/source/recovery tests passed; players were handed over paused with normal sound ready. Agents did not perform an audible listen or uninterrupted perceptual full-film moving watch; do not claim one retroactively.
 
+Local reusable sources B0030/B0436 are marked used-final for RO-23. The longer approved clear-vacuum crop is now local keeper B0736 (9.476 seconds); no library media/Sheet upload was made. Source/range restrictions remain recorded.
+
 R4 provider spend $0; no new downloads. Model/token-cost telemetry unavailable. Approval, finalized queue state and handoff are recorded in this chat. Shared Git pushes have been blocked by another live staged `sixpackabs/articles/TBD-daily-salad.md` deletion; leave other sessions' work untouched and retry maintained safe-push for these owned metadata paths when safe. This does not block the verified local master or setup planning.
 
 ## Starter prompt
