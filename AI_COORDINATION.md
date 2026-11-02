@@ -57,8 +57,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**Upwork Clients ACTIVE 2026-10-30, Claude.** Dan wrote outreach template; first send Built With Science. Blocked on Dan: SRM Website task, Workspace, pitch videos. 8 proposals sent; no calls; routine drafts. Checklist: `.claude/skills/upwork-pitch/LAUNCH-CHECKLIST.md`
-
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
 
@@ -92,7 +90,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**Upwork pitch PUSH-PENDING 2026-11-02, Claude.** Commits 20c982d, 7963f6d, 51b6903 (LEARNED.md) are local; a live staged salad-article deletion blocks safe-push. Next: rerun safe-push when clear, then delete this entry.
 
 **SL-10 HOLD 2026-11-02, Claude.** Waitlist Dec 24-25. e74cfcb push-pending. `Docs/SL10_SETUP_RECEIPT_20261102.md`
 

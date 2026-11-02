@@ -26,6 +26,6 @@ Dan, 2026-10-28, on the content-schedule overhaul: "excellent job collaborating 
 - Codex's concrete pieces were adopted: $75/$150 trials, a $500 ceiling spent in tranches, payment timing, checkpoints, measuring by Dan's minutes.
 - Claude kept its own points where its evidence was stronger (Freelancer Plus economics, off-Upwork outreach, all four source videos).
 - The merge added ideas neither plan had (outreach buyers purchase the trial on Upwork for a real review; trials as permanent tripwire products).
-- Files: `Docs/UPWORK_CLIENT_PLAN_MERGED_20261029.md`, which includes the comparison table in section 4.
+- Files: `plans/UPWORK_CLIENT_PLAN_MERGED_20261029.md` in the private Social Response Marketing repo (moved 2026-11-02), which includes the comparison table in section 4.
 
 **How to apply:** for any major business decision, offer to run it this way (ask Codex for an independent plan, or compare against one Dan brings), and follow these steps. Reference case: `Handoffs/handoff-20261028-content-schedule-overhaul.md` vs `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`. Related: [[model-routing-plan]], [[codex-owns-non-core-work]], [[handoff-starter-prompt-rule]].

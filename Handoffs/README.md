@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [SRM Project Setup](handoff-20261102-srm-new-project-setup.md): **Executed 2026-11-02 except the last step: removing the SRM originals here waits on Dan's yes (SRM Project Setup task). New home: `~/Projects/Claude/Projects/Social Response Marketing`, private repo.** Separate project and private repo for Social Response Marketing: logos, website designs, proposal method, skills, videos list, memory; switches the Upwork routine between runs; asks Dan once before removing anything from Abs By AI.
+- Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs live there; only the SRM Website line below stays until that task moves.
 - [Zepbound Free SFC Setup](handoff-20261102-ds52-zepbound-free-cover-and-setup.md): **Ready 2026-11-02. Start now. Claude Opus 5.5, high.** “Why Zepbound Is Actually Free” R3 finalized. Cover choices, Dan’s pick, backups, metadata and verified four-platform queue/waitlist placement. Use the Codex subscription to generate the images.
 
 
@@ -63,7 +63,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Upwork Clients](handoff-20261029-upwork-client-acquisition.md): **Fire after Dan verifies his Upwork ID. Claude Opus 5.5, high.** Executes the merged Claude + Codex plan `Docs/UPWORK_CLIENT_PLAN_MERGED_20261029.md`: $75/$150 trials, Upwork bids via the official connector (Dan confirms each), low-volume brand outreach to the trial listing, $500 ceiling in tranches, training loop toward 95% AI. Supersedes the 10-07 jobs-and-proposals handoff.
 
 | Document | Fire when |
 |---|---|

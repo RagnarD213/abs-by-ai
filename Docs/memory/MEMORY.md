@@ -1,7 +1,7 @@
 Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the hub files at the bottom.
 
 ## Working with Dan
-- [Upwork: no calls](upwork-no-calls-agentic-income.md): 11-01: proposals never offer a call; goal is agentic income without Dan
+- Agency (SRM) work: 11-02: Upwork, outreach, no-calls rule and SRM email memory live in the Social Response Marketing project (`~/Projects/Claude/Projects/Social Response Marketing`)
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Explain simply](explain-simply.md): plain language, stepwise
 - [Pasted text](pasted-text-is-dans.md): Dan's, act on it
