@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs live there; only the SRM Website line below stays until that task moves.
+- Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
 - [Zepbound Free SFC Setup](handoff-20261102-ds52-zepbound-free-cover-and-setup.md): **Ready 2026-11-02. Start now. Claude Opus 5.5, high.** “Why Zepbound Is Actually Free” R3 finalized. Cover choices, Dan’s pick, backups, metadata and verified four-platform queue/waitlist placement. Use the Codex subscription to generate the images.
 
 
@@ -22,7 +22,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [First Time At The Gym LFC Setup](handoff-20261031-ro37-first-time-gym-thumbnails-and-video-setup.md): **Fired 2026-11-01, Dan approved round 4. Claude Opus 5.5, high.** "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37): thumbnails, stop for his pick, then setup for Fri Jan 1, 2027.
 - [Five Muscles Women Notice LFC Setup](handoff-20261031-ro38-five-muscles-thumbnails-and-video-setup.md): **Ready 2026-10-31. Claude Opus 5.5, high.** "The 5 Muscles Women Notice First, And The Machine That Builds Each One" (RO-38) R3 approved. Thumbnails, stop for Dan's pick, then setup for Fri Jan 8, 2027. Use the Codex subscription to generate the images.
-- [SRM Website](handoff-20261030-social-response-marketing-website.md): **Ready 2026-10-30. Claude Opus 5.5, high.** New socialresponsemarketing.com site for the outreach emails (the domain only forwards to sixpackabs.com now). Interviews Dan first; publishes only after his approval.
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).
 
 
