@@ -1,3 +1,4 @@
+- [Upwork: no calls](upwork-no-calls-agentic-income.md): 11-01: proposals never offer a call; goal is agentic income without Dan
 - [Cut-out traps](cutout-frame-and-gap-traps.md): 10-30: one-frame decode lag + closed arm gaps; audit every shot
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
 - [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
