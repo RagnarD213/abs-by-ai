@@ -29,7 +29,7 @@ Exact-file delivery gate:{d['verdict']}, version{d['gate_version']}. Failed rows
 
 {fail}
 
-Watch scan and independent judgments are bound to this master hash. Read independent-audit.md for actual inspected coverage, defects and limitations. No audible speaker listening is claimed. Numerical decode, ASR, native still/sequence inspection and silent functional playback are not full-speed human picture/audio perception; unavailable perceptual checks remain incomplete. No gate threshold or corpus was changed.
+Watch scan and independent judgments are bound to this master hash. Read independent-audit.md for actual inspected coverage, defects and limitations. Later limited metadata diagnostics passed completed watch judgments, the62-sample scan and script fidelity; they do not replace the full FAIL. The single invalid framing detection at52.75s was reconciled by extracting the same fps=4 sample: it shows the AI insert, not presenter T09. Native boundary frames1580/1581 were inspected; no actual presenter hair miss remains at that boundary. Original172/173 measurements stay unchanged. No audible speaker listening is claimed. Numerical decode, ASR, native still/sequence inspection and silent functional playback are not full-speed human picture/audio perception; unavailable perceptual checks remain incomplete. No gate threshold or corpus was changed.
 
 Shared audio self-test ran before production. Four fixture-dependent cases failed because both historical Ad1 files named by the suite are missing. Available microphone selection, approved chain, wet/dry handling and rejected-processing damage tests passed. The original suite outcome/log is preserved, rather than stamped PASS. Fresh audio/delivery checks on this file are separate.
 
@@ -42,6 +42,8 @@ Round2:/Volumes/Expansion/_edit_work/DS-27/round2. Full-quality delivery and VLC
 R2 AI generation and paid review spend:$0. R1 file/model review usage was approximately$0.50; its receipts are preserved. Editor/reviewer runtime token usage is unavailable. No new files were downloaded; this round uses the existing raw rolls, approved library media and R1 graphics. No covers, publishing, scheduling, credentials, unrelated deletions or account changes.
 
 Rebuild: use recipe/repair_build_r2.sh and the source/data packet. The original camera, library assets and immutable R1 HyperFrames renders are required at their recorded paths/hashes. The original R1 folder is preserved. Final approval and setup are separate owner decisions.
+
+Git delivery: R2 recipe is locally committed; safe push is pending because unrelated shared files have live edits. No other owner’s changes were adopted or altered.
 '''
 (Q/'notes.md').write_text(text)
 print('NOTES_WRITTEN',flush=True)

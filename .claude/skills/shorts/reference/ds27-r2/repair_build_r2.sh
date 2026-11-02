@@ -7,4 +7,4 @@ python3 "$W/recipe/render.py" 'Home Workouts SFC R2'
 python3 "$W/recipe/qa_full.py" prep asr audio watch > "$W/evidence/full-qa.log" 2>&1
 
 python3 "$W/recipe/self_check.py" > "$W/evidence/self-check.log" 2>&1
-python3 "$W/recipe/qa_full.py" gate >> "$W/evidence/full-qa.log" 2>&1
+echo "Independent review checkpoint: import real watch findings and scan evidence, then run qa_full.py gate. Never deliver from this build step alone."

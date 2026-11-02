@@ -21,3 +21,5 @@ Verify round-controller.json productionOwner matches the active chat and phase i
 - Shared audio selftest currently names two missing historical Ad1 fixtures; preserve the four suite failures and distinguish available chain tests from fresh candidate gates. Do not change a shared gate/bound to hide it.
 
 All automated listening/playback stays silent. Native/source images and numerical results are not an audible listen or full-speed perceptual watch. Independent complete-candidate review is mandatory before delivery. No covers or publishing in this task.
+
+- Run the complete gate only after real watch judgments and scan evidence are present. The initial full R2 run took about12minutes and correctly failed unjudged watch/missing scan metadata; focused diagnostics on later metadata cannot turn that full FAIL into an overall PASS. Keep the exact-file full stamp and supplemental diagnostics distinct.
