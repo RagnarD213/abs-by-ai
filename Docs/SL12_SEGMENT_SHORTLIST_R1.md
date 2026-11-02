@@ -16,11 +16,11 @@ The vertical Soft Blue Light look is already locked by SL-03 (October 2), so no 
 
 ## A. Keep Your Muscle On Weight Loss Medication
 
-Exercise rule; source 05:29.944-06:14.724; 44.78 seconds of source plus about 5 seconds for a studio pickup.
+Exercise rule; source 05:47.864-06:14.724; 26.86 seconds of source plus about 5 seconds for a studio pickup.
 
-Viewer gets: Gives a beginner a starting routine and explains why walking/cardio alone is not the same as resistance training.
+Viewer gets: Gives beginners a five-minute starting routine and tells them to increase it as they progress.
 
-First five seconds: Open with complete resistance-training movement from the approved parent; cover the whole new pickup, then return to Dan. Cover the parent numbered graphic at 5:30 rather than slice it.
+First five seconds: Open on a complete resistance-training movement from the parent, covering the new studio pickup, then return to Dan. The list-number opening and its burned title stay outside the selected spoken range.
 
 Exercise footage: Parent 06:07-06:14.724 contains moving decline push-ups; inspect complete-rep boundaries and preserve the whole body. Training is generic, not a named exercise how-to. Confirm beginner-appropriate library alternatives during asset planning.
 
@@ -34,7 +34,7 @@ Full proposed transcript (recommended new pickup first, source then uninterrupte
 
 **[NEW STUDIO PICKUP, NOT RECORDED]** If you're taking weight loss medication, you need to lift weights to keep your muscle.
 
-**[SOURCE STARTS]** In fact, if you're not lifting weights, I wouldn't even recommend using the medication at all. Oh, I would say cardio is good. Playing sports is good. Taking a walk is good. It's not good enough. If you're on this medication, you got to have the weights. That is the only way you're to reliably prevent the muscle loss. Now you don't need to be doing a full hour of weightlifting every day in the gym like me. What I would recommend if you're first starting off is just to do five minutes of home body weight. Resistance training. If you're a beginner and you're untrained right now, just that five minutes a day, every day will be enough to prevent muscle loss. As you progress, you're to have to step it up to 10 minutes, 15 minutes, 20 minutes, etc. In order to keep your muscle.
+**[SOURCE STARTS]** Now you don't need to be doing a full hour of weightlifting every day in the gym like me. What I would recommend if you're first starting off is just to do five minutes of home body weight. Resistance training. If you're a beginner and you're untrained right now, just that five minutes a day, every day will be enough to prevent muscle loss. As you progress, you're to have to step it up to 10 minutes, 15 minutes, 20 minutes, etc. In order to keep your muscle.
 
 ## B. How Much Protein Do You Need Each Day?
 
