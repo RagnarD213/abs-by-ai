@@ -27,7 +27,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Nov 11 | 1 | No film (its kitchen film moved to phase 2); Short day: Does Cristiano Ronaldo's Electric Shock Ab Belt Work? | Waitlist |
 | Sun Nov 15 | 1 | RO-24 Reacting To Celebrity Ozempic Transformations | Booked (Blotato 6253113) |
 | Wed Nov 18 | 1 | RO-28 Why Zepbound Improves Your Health Even If You're Ripped | Live: YouTube6213010 Nov18 9AM; FB6213006/IG6213007/TikTok6213008 Nov19 noon Central. Receipt Docs/RO28_SETUP_RECEIPT_20261029.md |
-| Sun Nov 22 | 1 | RO-23 I Ranked Every Ab Exercise From Worst To Best if finished, else Short day | Not booked |
+| Sun Nov 22 | 1 | RO-23 I Ranked Every Ab Exercise From Worst To Best | Waitlist; exact R4 + X2 approved Nov1; Nov22 9AM protected, socials Nov23 noon. Receipt `Docs/RO23_SETUP_RECEIPT_20261101.md` |
 | Wed Nov 25 | 1 | How To Work Out At Home On A Budget | Live |
 | Fri Nov 27 | 2 | Intermittent Fasting: The Best Way To Get Abs | Waitlist |
 | Sun Nov 29 | 2 | My Honest Oura Ring Review After 1.5 Years | Live |
@@ -43,7 +43,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Dec 23 | 2 | RO-15 Sleep Better With Glycine (non-kitchen holiday-slot film; needs editing, approved by Dec 16, else two-Short day) | Not booked |
 | Sun Dec 27 | 3 | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | Live |
 | Wed Dec 30 | 3 | RO-21 What Every Body Fat Percentage Looks Like, On Me (film and round 2 thumbnail X5 approved) | Waitlist; Dec 30 reserved, four queue slots needed |
-| Fri Jan 1 | 3 | RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (needs editing; fallback: strongest ready non-kitchen film) | Not booked |
+| Fri Jan 1 | 3 | RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | Queued 11-02 (Blotato 6389292; socials Jan 2) |
 | Sun Jan 3 | 3 | Why You're Not Losing Weight | Live |
 | Wed Jan 6 | 3 | Arms & Shoulders Workout Only | Waitlist |
 | Fri Jan 8 | 3 | RO-38 The 5 Muscles Women Notice First (needs editing; Quitter's Day) | Not booked |

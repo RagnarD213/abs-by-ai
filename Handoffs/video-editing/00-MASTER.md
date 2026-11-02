@@ -110,7 +110,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
-| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | IN PROGRESS | S |
+| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | DELIVERED: awaiting Dan | S |
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
@@ -201,7 +201,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | FINALIZED | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | R3 FULL FILM REVIEW (QA OPEN) | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | FINALIZED | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | UPLOADED | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
@@ -252,7 +252,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-103](DS-103-why-you-should-walk-between-your-sets.md) | Why You Should Walk Between Your Sets | 10/23 C1892 | READY | S |
 | [DS-104](DS-104-why-you-must-stretch-after-every-workout.md) | Why You Must Stretch After Every Workout | 10/23 C1892 | READY | S |
 | [DS-105](DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md) | Why I Wear A Mouthpiece For Cardio And Weightlifting | 10/23 C1790 | FINALIZED | S |
-| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | FINALIZED | L |
+| [RO-37](RO-37-i-m-41-here-s-what-i-d-do-if-i-walked-into-a-gym-for-the-first-t.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | 10/23 C1893, C1894, C1895, C1897 | UPLOADED | L |
 | [RO-38](RO-38-the-5-muscles-women-notice-first-and-the-machine-that-builds-eac.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One | 10/23 C1898, C1899 | FINALIZED | L |
 
 ### 1E · Website VSLs, 9/23 shoot (2)
@@ -309,6 +309,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-29](SL-29-celebrity-ozempic-shorts.md) | Reacting To Celebrity Ozempic Transformations (RO-24; 3 Shorts; parent Nov15 9AM Central, scheduled) | READY: propose segments before rendering | S |
 | [SL-30](SL-30-body-fat-percentage-shorts.md) | What Every Body Fat Percentage Looks Like (On Me) (RO-21; 3 Shorts; parent Dec 30 9AM Central planned, waitlist) | READY: propose segments before rendering | S |
 | [SL-31](SL-31-ab-exercise-ranking-shorts.md) | Ab Exercise Ranking (RO-23; 3 Shorts; parent Nov22 9AM Central planned, waitlist) | READY: propose segments before rendering | S |
+| [SL-32](SL-32-first-time-at-the-gym-shorts.md) | I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (RO-37; 3 Shorts; parent Jan 1 9AM Central planned) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

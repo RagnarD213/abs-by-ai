@@ -1286,5 +1286,16 @@
   "approved": "Dan approved the revised cover on 2026-11-02: Okay, let's go with T4 for \"Stop Drinking 3 Hours Before Bed\" (round 2, tank top slapping the beer, pointing at the clock, pub). Go ahead and install those.",
   "sha256": "a0c0a40191de2403272558d9cc08c96d259717b86d86567a5bf65bb56d182ec0",
   "when": "2026-12-26T00:00:00.000Z"
+ },
+ {
+  "job": "RO-37",
+  "slug": "ro37-first-time-at-the-gym",
+  "match": "If I walked into a gym for the first time today, I wouldn't bench press, I wouldn't squat, and I wouldn't do a two hour workout.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan approved revised C1 on 2026-11-02: \"Approve C1\"",
+  "sha256": "a17822696976879f619b1c2c65428b9962506820954b5db54196428b3f66f296",
+  "when": "2027-01-02T18:00:00.000Z",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/First Time At The Gym/I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time - thumbnail FINAL.jpg"
  }
 ]
