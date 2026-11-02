@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-11-01",
+  "updated": "2026-11-02",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4279,6 +4279,37 @@
       "must_trigger": [],
       "measured": "9599frames1080,tenexerciseplacements. Independent PASS_WITH_LIMITATIONS zeroopenpicturedefects,54requiredscenes/53joins. Gate2.6.3:38/39activePASS; soleaudio:stamp FAIL selectedB tone unchanged, approval recorded separately. AAC payload exact R3 copy.",
       "notes": "Whole-film approval supersedes prior pending R4 source-correction status, not historical R3 judgments. No audible listen or uninterrupted perceptual full-film watch by agents claimed. Preserve known warning and all thresholds. Approval receipt and checks in finalized folder."
+    },
+    {
+      "id": "ds52-r3-approved-20261102",
+      "verdict": "approved",
+      "date": "2026-11-02",
+      "root": "repo",
+      "path": "Short-form video content/Zepbound Free - DS-52/Final/Why Zepbound Is Actually Free - FINAL.mp4",
+      "excerpt": [
+        0,
+        59.4927666667
+      ],
+      "dan": "Looks good. Let's finalize this version.",
+      "sha256": "21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60",
+      "bytes": 59049828,
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate:tone",
+        "framing:headroom",
+        "framing:centering",
+        "framing:no_wide_level",
+        "framing:push_coverage",
+        "cut:splice_visibility",
+        "captions:graphic_clearance",
+        "captions:card_collision"
+      ],
+      "deliver": {
+        "format": "short",
+        "plan": "/Volumes/Expansion/_edit_work/DS-52/round3/records/delivery-plan.json"
+      },
+      "measured": "Dan-approved full R3; automatic delivery30pass/8fail/1notmeasured/5NA. Exact chosen voice tone differs from reference; approved native portrait and intentional W/T changes trip narrow reference bounds. Actual75cue ink gap>=133px, CTC grid<=5ms,1252/1252presenterframes safe in native/phone, title gap>=28px;27watchimages/12boundaries independently clear.",
+      "notes": "No known_gap or bypass is added. Existing TIGHT mismatches remain calibration findings; no gate or media changed. Final creative approval, not upload/scheduling. Approval receipt beside master."
     }
   ]
 }

@@ -1,8 +1,8 @@
-**SFC.** Task name: `Zepbound Free SFC R1`.
+**SFC. FINALIZED 2026-11-02.** Exact approved version: `Zepbound Free SFC R3`.
 
 # DS-52: "Why Zepbound Is Actually Free", first cut from raw footage
 
-**Dedicated short · 10/15 shoot · READY.** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
+**Dedicated short · 10/15 shoot · FINALIZED 2026-11-02.** Added 2026-10-16 at Dan's request. Read `00-RULES.md` first.
 
 ## Source (10/15 shoot, called the 10/17 shoot in the planning docs)
 Folder: `/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/`
@@ -40,3 +40,7 @@ Dan approved the 59.49-second pace, colour V, voice B, crop 1, then requested gr
 [Watch R3](http://127.0.0.1:9290/). Full 59.49 seconds, colour V/voice B/crop 1 and approved pace. New moving Soft Blue Light graphics and 75 burned caption cues; all 185 words aligned with CTC, no speech edits. Exact approved R2 AAC is stream-copied into native/phone. Independent final reviewer: ship for Dan review with disclosed numeric mismatches, no confirmed remaining visual or timing defect. All 27 watch images/12 boundaries judged; every presenter frame in native and phone passes the separate hair/title check. Full automatic certificate remains FAIL, including chosen tone/native-wide framing and legacy card/caption checks; no full PASS claimed.
 
 Native SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`. Full-quality copy `Videos to Review/Zepbound Free SFC R3 - full Short.mp4`; records/recipes in `Short-form video content/Zepbound Free - DS-52/R3 Review/`. Source work `/Volumes/Expansion/_edit_work/DS-52/round3/`. Review graphics 0:12–0:24,0:33–0:37,0:38–0:45, captions throughout. Await Dan's review; do not treat this as approval/upload/scheduling.
+
+## Final approval, 2026-11-02
+
+Dan: “Looks good. Let's finalize this version.” Exact R3 finalized without re-rendering: 59.4927667seconds, SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`. Canonical master: `Short-form video content/Zepbound Free - DS-52/Final/Why Zepbound Is Actually Free - FINAL.mp4`. Approval receipt, captions, approved edit sheet and original QA records retained beside it. Existing machine FAIL/NOTMEASURED evidence remains unchanged; creative approval is not a new numerical PASS. Recorded in the shared approval corpus. Temporary Videos to Review copies removed and managed review service 9290 removed; original delivery and work files retained. No upload or scheduling. Editing task is complete.

@@ -25,7 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Extreme cleanup:PUSH-PENDING:2026-11-01:Claude.** 257643d local; retry safe-push with Docs/EXTREME_CLEANUP_20261101.md, then delete.
+**SL-12:REVIEW:2026-11-02:Codex01a19c6e.** `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+
+**Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
 **DS-27:REVIEW+PUSH-BLOCKED:2026-11-01:Codex01a199b9:9947:choose-look/voice/assets.**
 
@@ -38,7 +40,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
-**DS-52:R3:REVIEW:2026-11-01:Codex01a198f9.** [Review](http://127.0.0.1:9290/). Awaiting Dan; push blocked.
 
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
@@ -103,7 +104,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief overlap NEEDS DAN 2026-11-01, Codex.** Pause old cloud routine; retain local.
+**Brief overlap NEEDS DAN 2026-11-02, Codex.** Pause cloud; retain local.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
