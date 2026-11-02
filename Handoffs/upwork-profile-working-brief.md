@@ -159,3 +159,6 @@ Title 70 characters; overview 5,000 (first ~200 show before "more"); portfolio t
 
 ### Cheaper two covers done (2026-11-01 evening)
 $75 hooks and $150 new-version projects now have the same-style covers; all six catalog items verified on the public profile (Finished Ads cache cleared itself). Files: `Media/upwork-catalog-covers/round2-other-three/` (gitignored).
+
+### Catalog retitle (2026-11-01 night)
+Upwork locks the "You will get" prefix on Project Catalog titles (disabled input, 75 characters after it, minimum 7 words), so it cannot be removed. Five projects retitled as noun phrases that read after the prefix: New Version Of Your Winning Video Ad ($150); New Variations To Improve Your Existing Successful Ad ($450); Direct Response Video Ad Script With Hook Options ($360); 5 Fresh Hooks And Rewritten Opening For Your Video Ad ($75); Full YouTube Ads Account Audit With An Action Plan ($750). Retitle path: `?step=Overview`, set `#project-title-input`, click "Save & exit" (no re-review, stays Approved). Catalog order is creation date, newest first, with no reorder control: new projects land on top. Finished Ads ($950) left as is, pending Dan's call on splitting into four (short/long x film/no film).
