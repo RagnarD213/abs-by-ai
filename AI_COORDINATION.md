@@ -28,12 +28,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Overhead Tricep Extensions SFC Setup: REVIEW 2026-11-02, Codex01a19df9.** [Eight cover pairs](http://127.0.0.1:9963/); await X pick, then upload/queue. Receipt: `Docs/DS63_SETUP_RECEIPT_20261102.md`. Commit831cbf9 push blocked by live shared files.
 
 
-**SL-13:R1-REVIEW:2026-11-02:Codex01a19cd4.** A/B/C picked; [A treatment](http://127.0.0.1:9296/) awaits crop/graphics approval before B/C. `Docs/SL13_R1_REVIEW_RECEIPT.md`. Push pending.
+**SL-13:R1-REVIEW:2026-11-02:Codex01a19cd4.** [A](http://127.0.0.1:9296/) awaits treatment approval; B/C unbuilt. `Docs/SL13_R1_REVIEW_RECEIPT.md`;push-pending.
 
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:REVIEW:2026-11-02:Codex01a19c6e.** [Visuals](http://127.0.0.1:9954/); A-pickup-needed. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+**SL-12:REVIEW:2026-11-02:Codex01a19c6e.** [Visuals](http://127.0.0.1:9954/); A-pickup-needed;push556fb08-pending. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
