@@ -44,3 +44,7 @@ Native SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`
 ## Final approval, 2026-11-02
 
 Dan: “Looks good. Let's finalize this version.” Exact R3 finalized without re-rendering: 59.4927667seconds, SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`. Canonical master: `Short-form video content/Zepbound Free - DS-52/Final/Why Zepbound Is Actually Free - FINAL.mp4`. Approval receipt, captions, approved edit sheet and original QA records retained beside it. Existing machine FAIL/NOTMEASURED evidence remains unchanged; creative approval is not a new numerical PASS. Recorded in the shared approval corpus. Temporary Videos to Review copies removed and managed review service 9290 removed; original delivery and work files retained. No upload or scheduling. Editing task is complete.
+
+## Setup handoff,2026-11-02
+
+Ready to start: [Zepbound Free SFC Setup](../handoff-20261102-ds52-zepbound-free-cover-and-setup.md), Claude Opus5.5high. Covers, pick, backups, metadata and verified four-platform queue/waitlist placement in one setup task. Film stays finalized; setup has not yet run.

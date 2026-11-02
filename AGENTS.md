@@ -271,6 +271,10 @@ Dan, 2026-10-28: "Okay, let's do this schedule. Let's release Daily Salad on the
   The daily Claude routine `youtube-pinned-comment-daily` posts and pins it in Chrome after release (the YouTube API
   cannot pin). Claude and Codex both. Ads get none. Detail: `Docs/PINNED_COMMENTS.md`.
 
+## Finalizing a video always includes its setup handoff (Dan, 2026-11-02)
+
+Every video finalization automatically includes a complete setup handoff in the same reply: approved master/hash and approval, thumbnail or cover choices and Dan's pick, backup, metadata, platform setup, queue or shared waiting-list placement, verification and a setup receipt. Add it to `Handoffs/README.md` OPEN, and give the ready-to-paste starter prompt, recommended model/effort and “start now” instruction directly in chat. Never wait for Dan to ask. An edit being finalized is not a video being set up, uploaded or scheduled. Reuse an existing setup task/handoff instead of duplicating it; include any remaining approved revision in that handoff. Follow the full rule in `.claude/skills/_shared/VIDEO-RULES.md`, “Final approval always hands off to setup.” Existing cover-pick and publication approvals still apply; a handoff request alone does not create or message a task.
+
 ## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
 
 - Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes

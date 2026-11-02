@@ -679,6 +679,16 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
 - Method that Dan approved (motion from the frame pair, lip sync on the speaking character only, the checks):
   `longform-edit/reference/ro06/README.md`, round 4. Scripts: `gen_motion.py`, `lipsync.py`, `syncfix.py` beside it.
 
+## Final approval always hands off to setup (Dan, 2026-11-02)
+
+Dan: “Remember to always do this whenever we finalize a video because if we finalize a video but don't set it up with a thumbnail and everything in the queue, then it just falls through the cracks. There's no point ever making it”.
+
+- In the same turn that records Dan's final approval, write or update one complete setup handoff. Include exact approved files/hash, his approval words/date, preserved edit choices and honest QA limits, existing covers/configs/uploads, and the exact next action. Reuse an existing setup task/handoff; never duplicate an active setup owner.
+- The handoff owns thumbnail/cover generation, Dan's pick, verified media backups, title/description/captions/pinned-comment metadata, platform-specific media and cover preparation, then scheduling through the correct category workflow. If capacity is full, use the existing shared waiting list/top-up routine and record its actual slot/state. A local finished film alone is not setup completion.
+- For organic video, use one Claude setup handoff under `/video-setup`, with the live cover rules and “Use the Codex subscription to generate the images.” Ads retain `/ad-setup`, Unlisted YouTube and their ad-campaign path. Do not send ads to organic queues.
+- Register unexecuted setup work in `Handoffs/README.md` OPEN. The finalization reply gives the linked handoff, a ready-to-paste starter prompt, recommended model plus effort, and says to start now. Do this automatically, never only offer to prepare it. Creating or messaging a task still follows the user's authorization requirements.
+- The setup handoff stops for required cover picks, then continues through verified queue/waitlist placement and a saved setup receipt. Report finalized, cover-approved, uploaded, queued/waitlisted and scheduled as distinct states. Mark `uploaded` only under the existing verified setup-completion rule; finalization or handing off never implies scheduling. Keep post-release cover and pinned-comment checks with their existing shared monitors, never invent a per-video automation.
+
 ## Review videos also go in `Videos to Review/`, for VLC (Dan, 2026-10-08)
 
 - **Every video shown to Dan for review that is 45 seconds or longer is also copied to the project folder
