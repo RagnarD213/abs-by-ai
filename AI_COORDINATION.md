@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **First Time At The Gym LFC Setup:REVIEW:2026-11-01:Claude.** [Eight thumbnails](http://127.0.0.1:9872/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37.
 
-**RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. `Docs/RO21_SETUP_RECEIPT_20261101.md`
+**RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
