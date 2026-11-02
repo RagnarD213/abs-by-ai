@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **Ready 2026-11-02. Claude Opus 5.5, high.** Muhammad's finalized "Does Jiu Jitsu Get You Abs?" (DS-15) and "How To Use Battle Ropes" (DS-19). Waits on his HQ exports, then covers, Dan's picks and queue.
+
 
 - Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
 

@@ -51,6 +51,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Zero-edit goal](revisions-zero-edit-goal.md): diff Dan's edits
 - [Revision voice](revision-docs-in-dans-voice.md): always as Dan
 - [Editor messages](editor-message-voice.md): Dan's voice, praise first
+- [Human editor tolerance](human-editor-end-of-job-tolerance.md): 11-02: late rounds from Muhammad/Zeeshan send back only missing/broken things; polish goes to "For Dan's call"
 ## Clips and photos
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed

@@ -3,6 +3,10 @@ name: revisions
 description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". Also use it for STATUS CHECKS on an editor's batch ("did he make the revisions?", "what's still outstanding?", "he says he sent everything — is anything left?") and whenever Dan needs a paste-ready message written to an editor in his voice. For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
 ---
 
+## Silent checks and owner handoff (Dan, 2026-10-28)
+
+Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`: use **Start silent checks** before managed-player tests (or `?review_mode=automation`), verify muted playback/source changes/recovery, then use **Finish checks for owner**. Cancel pending playback/recovery, pause every player and verify paused BEFORE enabling normal audio, without starting playback or changing the chosen volume. A failure stays muted. Dan's next deliberate Play must include sound without another unmute click; later automated checks re-enter silent mode. Preserve narration, exported media and native controls. Use non-speaker inspection and report limits honestly; silent/numerical tests are not an audible listen. This supersedes permanent muted owner defaults and adds no permission step.
+
 ## Video editing task names (Dan, 2026-10-16)
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
@@ -34,6 +38,21 @@ line, junk footage between takes): those are items on any round. When a round 4 
 finalized line, no item, and list the leftovers in the summary under "For Dan's call". A minor item rides along only
 when something that truly needs a round is also in the doc. A standing rule missed for under a second counts as minor.
 Full rule and the worked case: calibration pass 12 (long-form round 4, rules 71-75).
+
+**Human editors near the end of a job: tolerate small things, from round 2 on (Dan, 2026-11-02).** *"Some of your
+revisions were a little bit too nitpicky... we should be a little bit less nitpicky, especially as we're going towards
+the end of a job... If this was AI, I would do another round because there's no cost. That way, he doesn't give us a
+low rating... if this was something we were editing, then I would change his stuff. But because it's... a human
+editing it, we want to be a little more tolerant of very small things at the end of a job."* Muhammad round 2
+(Jiu Jitsu, Last Ten Pounds, Battle Ropes): Dan deleted a label-wording swap that was the only item on Jiu Jitsu, a
+thinner-than-ideal pen and turned-away abs on an AI start frame, an opener crop that was 20% wider than asked, and
+two 0.3 s fades that showed a brief double image; he finalized two of the three. He kept a missing key point graphic,
+a last word still cut off, an AI opener not yet generated, panels short of the screen edges, and (riding along on that
+needed round) the label swap and three caption commas. The test for a human editor's late round: write an item only
+when something is missing, broken, cut off or clearly wrong to a viewer at normal speed, or a rule-76 class. Crop
+percentages, transition polish, label wording, frame tweaks and anything a viewer would not notice go under "For Dan's
+call" with a paste-ready line, never in the doc, and ride along only when the video already needs a round. A video
+whose only items are of that kind gets the finalized line. Our own pipeline edits keep the full standard: fix them.
 
 **The first 5 seconds get their own pass (Dan, 2026-10-08).** *"For the shorts and for content generally, I want to pay
 more attention to the first 5 seconds. I want to get more ideas for AI-generated clips in the first 5 seconds... request

@@ -66,3 +66,18 @@ Hey Muhammad, got all three, thank you! The black belt picture on Jiu Jitsu is g
 Jiu Jitsu is FINALIZED, just one label swap and then send me the high quality export. Last Ten Pounds and Battle Ropes have short lists. On Last Ten Pounds your opener frames came through, so the notes tell you which to generate: https://docs.google.com/document/d/1O4wKkCN0ZtNTRd3Q4tfgC2ipqCnDjGjzauyFIDUiuxk/edit
 
 Really appreciate the work on these!
+
+## Dan's decision (2026-11-02)
+Dan edited the doc and sent it. Jiu Jitsu (DS-15) and Battle Ropes (DS-19) are FINALIZED as delivered; he deleted the
+Jiu Jitsu label swap, the pen and abs fixes on the opener's top frame, the Battle Ropes opener crop and both fades.
+Last Ten Pounds (DS-16) goes back for one round with all three frames approved for generation. His note: too nitpicky
+for the end of a job with a human editor (new rule at the top of the revisions skill). Setup handoff for DS-15 and
+DS-19: `Handoffs/handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md`.
+
+## Message to Muhammad, as sent version (replaces the draft above)
+
+Hey Muhammad, thanks for these! The black belt picture on Jiu Jitsu is great, and the rope footage filling the frame on Battle Ropes looks so much better.
+
+Jiu Jitsu and Battle Ropes are both FINALIZED, so please send me the high quality exports of those two. Last Ten Pounds is really close. Your opener frames are all approved, so go ahead and generate those, and there are just a few small fixes in the notes: https://docs.google.com/document/d/1O4wKkCN0ZtNTRd3Q4tfgC2ipqCnDjGjzauyFIDUiuxk/edit
+
+Really appreciate the work on these!
