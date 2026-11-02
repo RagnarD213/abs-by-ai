@@ -51,3 +51,12 @@ New edits at 23.3900 seconds and 36.4698 seconds; watch 0:20–0:27 and 0:33–0
 The actual 1080p 62.295567-second file is rendered, exact-file checked and independently reviewed, with 0 confirmed editing repairs. 31 PASS/4FAIL/4N/A raw gate rows; composite hair detector, intended cut visibility, caption heuristic and original source pauses are documented, not erased or waived. Exact audio adaptation source-match gatePASS. No all-gatePASS, owner approval, upload or scheduling claimed.
 
 Both R2 masters remain unchanged; R2 review service/cache 9187 was preserved. New R3 review service 9188, all actual 1080p playback/seek/context checks silent, then all players paused at 0 with sound ready. Same checked master copied for VLC and to `Short-form video content/Dr Mike Dial SFC R3/`, with captions, notes, stamps, report, receipts and recipe. SHA256 `ac62279e0dea1f23ca61f2146a41ab6e1fe97c06291e38ac33348cd33b8e3623`. Private checkpoint:`/Volumes/Expansion/_edit_work/DS-37/round3/RESUME.md`.
+
+
+## R4 final accelerated off-the-cuff, delivered for review 2026-11-02
+
+[Review the final59.3-second film](http://127.0.0.1:9189/). Dan chose and approved the shortened R3 off-the-cuff cut, then requested5% acceleration. This one1080p derivative preserves pitch, Warm/HouseBass/R5 and the complete closing; no additional content cut. R2 and R3 masters remain unchanged.
+
+The exact1778-frame master is59.325933s of picture and59.339s AAC, SHA256 `92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41`. Editor and fresh independent complete-candidate review found0confirmedrepairs: all39currentQA/nativeimages, wholeactual1080p/AAC and13nativeA/V boundarycontexts. Rawgate35PASS/4FAIL/4N/A/0pending remainsFAIL; compositewindowhair, expectedsizecuts, captiononsetheuristic andsourcepauses adjudicated withcurrentevidence withoutchangingthresholds. Densehair1110framesmin54px0invalid; exacttempo-referenceaudioPASS.
+
+Managedpage includes fulltranscript andnormal-speedcomparisonlink. Actual1080psilentplay/seek/closing verified; finalplayerpausedat0, soundreadywithoutplay. Samechecked1080pmaster copiedto `Videos to Review/` and `Short-form video content/Dr Mike Dial SFC R4/`, withSRT/rawstamps/reports/recipe/costs. Qualityreviewknownusageestimate$.098978 plusuncertain$.05reserve=$.148978; invoiceunknown. No new downloads/generation. AwaitingDan's final pace/sound approval; no upload/scheduling.
