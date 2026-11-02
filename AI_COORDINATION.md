@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
 
-**Overhead Tricep Extensions R2 REVIEW 2026-11-02, Codex01a19c75.** [42s review](http://127.0.0.1:9294/). Await full-film approval; sound/caption flags documented. Metadata push blocked by live shared edits.
+**DS63:PUSH-PENDING:2026-11-02:Codex01a19c75.** Finalization metadata sync only; setup indexed in Handoffs/README.md.
 
 **SRM cutover PUSH-PENDING 2026-11-02, Claude.** Agency work and website moved to `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Local commits 9f43c2d, 4807606, c0f40b4 and the website removal. Next: safe-push when clear, then delete this entry.
 
@@ -86,7 +86,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
-**DS-84:COVERS-R2:REVIEW:2026-11-02:Codex.** [Four real-screenshot pairs](http://127.0.0.1:9285/?revision=2) await pick1-4;A-E rejected. Gemini R3 backups verified. Next:pick,finish setup. `Docs/DS84_SETUP_RECEIPT_20261102.md`. 2fb68e5 local;push-blocked.
+**DS-84:COVERS-R3:2026-11-02:Codex.** Dan selected design1 base;building four bolder color/type variations with identical photo. Next:show pairs,await final pick. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 

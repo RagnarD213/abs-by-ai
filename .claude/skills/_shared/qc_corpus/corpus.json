@@ -4310,6 +4310,32 @@
       },
       "measured": "Dan-approved full R3; automatic delivery30pass/8fail/1notmeasured/5NA. Exact chosen voice tone differs from reference; approved native portrait and intentional W/T changes trip narrow reference bounds. Actual75cue ink gap>=133px, CTC grid<=5ms,1252/1252presenterframes safe in native/phone, title gap>=28px;27watchimages/12boundaries independently clear.",
       "notes": "No known_gap or bypass is added. Existing TIGHT mismatches remain calibration findings; no gate or media changed. Final creative approval, not upload/scheduling. Approval receipt beside master."
+    },
+    {
+      "id": "ds63-r2-approved-20261102",
+      "verdict": "approved",
+      "date": "2026-11-02",
+      "root": "repo",
+      "path": "Short-form video content/Overhead Tricep Extensions - DS-63/Final/How To Do Overhead Tricep Extensions - FINAL.mp4",
+      "sha256": "79eb9bb59d97584693a85b99dc36f76164bf9540f01712abe01b2e97760d7bda",
+      "bytes": 41263222,
+      "excerpt": [
+        0,
+        42.175466666666665
+      ],
+      "dan": "This looks good. Let's finalize the video and get it ready for upload.",
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate:tone",
+        "audio_gate:dryness",
+        "captions:sync"
+      ],
+      "deliver": {
+        "format": "short",
+        "plan": "/Volumes/Expansion/_edit_work/DS-63/round2/records/gate-plan.json"
+      },
+      "measured": "Dan approved exact fullR2. Genuine39-row gateFAIL only audio:stamp(selectedB tone/dryness) and captions:sync(three raw-verified ASR onset errors); other37rowsPASS/N/A. Native/phone129densecrowns plus843presenterframes safe;12boundaries independently inspected,0confirmedvisualdefects.",
+      "notes": "Creative approval recorded separately from technical results. Existing mismatches remain calibration findings, not waived. No gate/reference/threshold or media change. No audible listening or continuous subjective watch claimed. Cover picks/platform setup still outstanding."
     }
   ]
 }
