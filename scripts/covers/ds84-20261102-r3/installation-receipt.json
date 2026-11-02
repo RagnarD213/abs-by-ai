@@ -1,0 +1,157 @@
+{
+  "job": "DS-84",
+  "date": "2026-11-02",
+  "status": "scheduled",
+  "cover": {
+    "job": "DS-84",
+    "date": "2026-11-02",
+    "cover_round": 3,
+    "variation": "D",
+    "name": "Electric Lime And Graphite",
+    "dan": "Let\u2019s go with D. Go ahead and install it and finish setting up the video.",
+    "files": [
+      {
+        "platform": "instagram",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-instagram-approved.png",
+        "sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+        "bytes": 1569705,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/instagram/ds84-design1-D.png"
+      },
+      {
+        "platform": "youtube",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.png",
+        "sha256": "3b0158632d488179ddb01c851bd553729e73538716268c0b9497e1c249f84e03",
+        "bytes": 2055573,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.png"
+      },
+      {
+        "platform": "youtube",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.jpg",
+        "sha256": "a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39",
+        "bytes": 539989,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.jpg"
+      }
+    ],
+    "master_sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+    "source": "Real hamstring-curl screenshot, touched up, same photographic pixels/crop as selected Design 1. Only layout/color/type varied."
+  },
+  "scheduled": {
+    "job": "DS-84",
+    "verified": "2026-11-02",
+    "status": "scheduled",
+    "when": "2026-11-23T15:00:00.000Z",
+    "timezone": "America/Chicago",
+    "local": "Monday November 23, 2026, 9:00 AM Central",
+    "queue_total": 200,
+    "schedule_ids": {
+      "facebook": "6390173",
+      "instagram": "6390174",
+      "tiktok": "6390175",
+      "youtube": "6390178"
+    },
+    "scheduled_media_hash_checks": [
+      {
+        "platform": "facebook",
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5f8f370f-6ce5-404d-ba0d-21b8e09d4cd9.mp4",
+        "bytes": 44597969,
+        "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+        "matches_approved_upload": true
+      },
+      {
+        "platform": "instagram",
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7c2c1e9c-d7a9-46ba-acad-5ce89032435d.mp4",
+        "bytes": 44597969,
+        "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+        "matches_approved_upload": true
+      },
+      {
+        "platform": "tiktok",
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a0be78c5-4481-4858-867f-60ca1de1ea8b.mp4",
+        "bytes": 44771034,
+        "sha256": "eb37451be62b09e0567fadf509bcb2045ee75d8b3f82a4a0f85b31c46414b6fa",
+        "matches_approved_upload": true
+      },
+      {
+        "platform": "youtube",
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/396c7a7e-d867-452b-99f9-92daf78cab65.mp4",
+        "bytes": 44597969,
+        "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+        "matches_approved_upload": true
+      }
+    ],
+    "readback_note": "Blotato assigned a new media UUID to each scheduled post after its asynchronous copy. Captions, targets and date match exactly; full bytes from all four saved URLs match the approved master or TikTok derivative."
+  },
+  "uploads": {
+    "instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d0c93864-4521-4b9c-b556-e7191c077bfb.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-instagram-approved.png",
+      "sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+      "bytes": 1569705,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/420b3ef8-319f-4bac-87e6-a2472bdeffcb.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.jpg",
+      "sha256": "a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39",
+      "bytes": 539989,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/433dffa1-d594-484e-a79d-8c4b21d5e0fd.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-84 How To Do Hamstring Curls/How To Do Hamstring Curls SFC R3 - complete Short.mp4",
+      "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+      "bytes": 44597969,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7935bc0f-50c6-4b31-b0f2-fc0a7131584f.mp4",
+      "path": "/Volumes/Expansion/_edit_work/ds84-publish/ds84-gemini-r3-D-tiktok-cover-first.mp4",
+      "sha256": "eb37451be62b09e0567fadf509bcb2045ee75d8b3f82a4a0f85b31c46414b6fa",
+      "bytes": 44771034,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    }
+  },
+  "facebook_registry_entry": {
+    "job": "DS-84",
+    "match": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds84-hamstring-curls-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "2026-11-02",
+    "cover_sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+    "variation": "D, cover R3",
+    "schedule": "6390173",
+    "when": "2026-11-23T15:00:00.000Z"
+  },
+  "calendar_row": "| Mon Nov 23 | 1 | 9 AM | How To Do Hamstring Curls (DS-84, gym how-to test) | Live |",
+  "edit_queue_job": {
+    "id": "DS-84",
+    "list": "1",
+    "group": "Dedicated shorts",
+    "sub": "Talking",
+    "title": "How To Do Hamstring Curls",
+    "roll": "10/23 C1887",
+    "size": "S",
+    "file": "DS-84-how-to-do-hamstring-curls.md",
+    "claudeModel": "Opus 5.5, high",
+    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-84.json, then execute Handoffs/video-editing/DS-84-how-to-do-hamstring-curls.md for \"How To Do Hamstring Curls\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
+    "codexModel": "GPT-6.1 Sol, high",
+    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-84.json, then execute Handoffs/video-editing/DS-84-how-to-do-hamstring-curls.md for \"How To Do Hamstring Curls\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
+    "state": "uploaded",
+    "note": "Dan approved Gemini R3 Best of Both master de0e83f5 and cover R3 D. Project/Extreme/Drive master/SRT verified; D covers installed/backed up; all four hosted uploads SHA256-verified. TikTok1664 frames, original2602 audio packets/payload identical, correct frame0, zero decode errors. All four Blotato schedules read back: Nov23 2026 9AM America/Chicago, FB6390173 IG6390174 TT6390175 YT6390178. No direct YouTube holding upload. Receipt Docs/DS84_SETUP_RECEIPT_20261102.md.",
+    "unattended": false,
+    "intakeKey": "SHOOT-20261023-9",
+    "order": 186,
+    "updated": "2026-11-02",
+    "rev": 11,
+    "syncedRev": 0,
+    "by": "Codex",
+    "needs": "",
+    "editor": "Codex"
+  },
+  "data_files_note": "Current shared calendar, registry and edit-queue files include other sessions\u2019 pending changes. This receipt preserves only DS84 owned records without committing their work."
+}

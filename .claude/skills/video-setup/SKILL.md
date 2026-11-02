@@ -280,6 +280,10 @@ videos had no article because publishing was left to "someone remembers after re
    reason (brag or teaser, or the same topic as a page that already has an article).
 6. Content videos only. Ads are never organic and never get a page (the feed excludes unlisted videos).
 
+## Blotato copies scheduled media to a new URL (verified 2026-11-02)
+
+After a new schedule initially reads back with the uploaded media URL, Blotato may asynchronously replace it with a unique per-post URL. A later URL inequality alone is not a wrong-master finding. Re-read the saved post, verify date/caption/target, then download its actual saved media URL and compare full byte count and SHA-256 with the approved master or TikTok derivative. Never recreate a correct schedule just to restore the original URL. DS-84: all four saved post URLs changed UUID; all four full downloads matched their approved source hashes. Original upload verification and durable saved-post verification are separate receipts.
+
 ## Step 7 — record and close
 
 - `BLOTATO_QUEUE_PROGRESS.md`: a `## DONE — <title>` section (source file + md5, YouTube id + time + thumbnail(s),

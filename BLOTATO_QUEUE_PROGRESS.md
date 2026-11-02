@@ -1,3 +1,7 @@
+## DONE - DS-84 How To Do Hamstring Curls, Gemini R3, 2026-11-02
+
+Cover D installed. All four schedules verified for Nov23 2026 9AM Central: Facebook6390173, Instagram6390174, TikTok6390175, YouTube6390178. Master de0e83f5; original and post-hosted bytes hash-verified. No waiting list. TRAIN keyword; pinned question saved for shared release routine. Public tiles/captions after release. Full receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`.
+
 ## Released: Stop Deadlifting, approved thumbnail 3 (2026-10-11)
 
 YouTube public `9nfvwfo52Z0`, approved thumbnail 3 installed and verified. Instagram 4976700 and TikTok 4976709 now use thumbnail 3; Facebook 4976695 cover installer prepared. Socials remain Monday Oct 12, 9 AM Central. Three in-feed engagement ads created: tier 2 827748286523, tier 1 827748286526, paused remarketing 827748286529. Google review pending, budgets unchanged. Article draft 1,140 words checked, daily publishing routine due 10:30 AM Central. Details: `Docs/STOP_DEADLIFTING_RELEASE_20261011.md`.
@@ -580,3 +584,8 @@ Dan approved exact R4 and replacement X2. Exact master/SRT/thumbnail backed up t
 ## DONE: I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (RO-37), 2026-11-02
 
 Exact R4 and round 3 C1 revised thumbnail. YouTube 6389292 Fri Jan 1 2027, 9 AM Central. Facebook 6389286, Instagram 6389290, TikTok 6389291 Sat Jan 2 at noon. Queue 196/200. Master SHA256 `5310603b118c74cb`. Keyword ABS, utm_content ro37-first-time-at-the-gym. SL-32 registered. Receipt: `Docs/RO37_SETUP_RECEIPT_20261102.md`.
+
+
+## WAITLIST: Why Zepbound Is Actually Free (DS-52), 2026-11-02
+
+Dan approved design 3/text B. Exact R3 master SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`, MD5 `c8aa958a61de2760b447b1beba1fa656`. All four uploads hash-checked; project/Extreme/public Drive backups verified. Planned Dec28 6PM Central, one shared waiting-list entry for YouTube46963, Facebook47105, Instagram67203, TikTok58181; no publisher schedule IDs yet. Queue196/200, existing videos retain priority. Keyword FOOD; per-platform SixPackAbs.com UTMs, campaign zepbound-free/content ds52-zepbound-free. Captions already burned; no duplicate layer. Receipt: `Docs/DS52_SETUP_RECEIPT_20261102.md`.

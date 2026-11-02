@@ -27,9 +27,9 @@
     ],
     "automatic_delivery_gate": "No Gemini R3 full delivery-gate stamp found or run in this setup phase. Prior Codex R3 FAIL/adjudication applies only to superseded hash 5c235f7d, preserved in prior_approval and historical R3 evidence.",
     "realistic_ai_footage": false,
-    "covers": "Five existing pairs made; awaiting confirmed Dan pick",
-    "uploaded": false,
-    "scheduled": false,
+    "covers": "D, Electric Lime And Graphite, cover revision 3, approved and installed 2026-11-02",
+    "uploaded": true,
+    "scheduled": true,
     "version": "Gemini R3 (Best of Both)",
     "bytes": 44597969,
     "content_type": "organic",
@@ -62,7 +62,49 @@
       "covers": "not made or approved",
       "uploaded": false,
       "scheduled": false
-    }
+    },
+    "cover_approval": {
+      "job": "DS-84",
+      "date": "2026-11-02",
+      "cover_round": 3,
+      "variation": "D",
+      "name": "Electric Lime And Graphite",
+      "dan": "Let\u2019s go with D. Go ahead and install it and finish setting up the video.",
+      "files": [
+        {
+          "platform": "instagram",
+          "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-instagram-approved.png",
+          "sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+          "bytes": 1569705,
+          "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/instagram/ds84-design1-D.png"
+        },
+        {
+          "platform": "youtube",
+          "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.png",
+          "sha256": "3b0158632d488179ddb01c851bd553729e73538716268c0b9497e1c249f84e03",
+          "bytes": 2055573,
+          "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.png"
+        },
+        {
+          "platform": "youtube",
+          "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.jpg",
+          "sha256": "a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39",
+          "bytes": 539989,
+          "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.jpg"
+        }
+      ],
+      "master_sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+      "source": "Real hamstring-curl screenshot, touched up, same photographic pixels/crop as selected Design 1. Only layout/color/type varied."
+    },
+    "setup_status": "All four Blotato schedules verified, November 23, 2026, 9 AM America/Chicago",
+    "blotato_schedule_ids": {
+      "facebook": "6390173",
+      "instagram": "6390174",
+      "tiktok": "6390175",
+      "youtube": "6390178"
+    },
+    "blotato_scheduled_utc": "2026-11-23T15:00:00.000Z",
+    "upload_scope": "Media uploaded to Blotato; no direct YouTube holding upload; public YouTube video is created at release."
   },
   "copies_verified": [
     {
@@ -116,14 +158,14 @@
     "public_link_enabled": true
   },
   "review_services": "9267, 9268 and 9284 removal completed successfully; round source/delivery files retained",
-  "setup": "Replacement master filed and Drive verified. Awaiting cover pick; no Blotato media uploads or schedules.",
+  "setup": "COMPLETE: D approved/installed, all four media uploads verified, all four Blotato schedules read back for Nov23 9AM Central.",
   "corpus_entry": "Historical Codex R3 entry only, not a Gemini R3 gate or review",
   "queue": {
     "id": "DS-84",
-    "state": "finalized",
-    "rev": 10,
-    "updated": "2026-10-28",
-    "drive_readback_verified": true
+    "state": "uploaded",
+    "rev": 11,
+    "updated": "2026-11-02",
+    "drive_status_upload_verified": true
   },
   "dispatcher": "PAUSED verified",
   "capacity_heartbeat": "PAUSED verified",
@@ -200,5 +242,88 @@
     },
     "dispatcher": "PAUSED verified",
     "capacity_heartbeat": "PAUSED verified"
+  },
+  "setup_receipt": "Docs/DS84_SETUP_RECEIPT_20261102.md",
+  "blotato_schedule_ids": {
+    "facebook": "6390173",
+    "instagram": "6390174",
+    "tiktok": "6390175",
+    "youtube": "6390178"
+  },
+  "blotato_scheduled_utc": "2026-11-23T15:00:00.000Z",
+  "hosted_uploads": {
+    "instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d0c93864-4521-4b9c-b556-e7191c077bfb.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-instagram-approved.png",
+      "sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+      "bytes": 1569705,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "youtube": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/420b3ef8-319f-4bac-87e6-a2472bdeffcb.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.jpg",
+      "sha256": "a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39",
+      "bytes": 539989,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/433dffa1-d594-484e-a79d-8c4b21d5e0fd.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-84 How To Do Hamstring Curls/How To Do Hamstring Curls SFC R3 - complete Short.mp4",
+      "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+      "bytes": 44597969,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7935bc0f-50c6-4b31-b0f2-fc0a7131584f.mp4",
+      "path": "/Volumes/Expansion/_edit_work/ds84-publish/ds84-gemini-r3-D-tiktok-cover-first.mp4",
+      "sha256": "eb37451be62b09e0567fadf509bcb2045ee75d8b3f82a4a0f85b31c46414b6fa",
+      "bytes": 44771034,
+      "verified": true,
+      "verification": "Full hosted file downloaded and SHA-256 compared with exact local approved asset"
+    }
+  },
+  "temporary_review_cleanup": {
+    "deleted": [
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls Gemini SFC R1 - Full Short.mp4",
+        "bytes": 41954470,
+        "sha256": "1e54755264830b68211521c518b56bf0127dc827012edcbb99cf125ca9edcdab",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round1/review/How To Do Hamstring Curls - GEMINI-HAMSTRING R1 - 1080p.mp4"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls - Side by Side (Gemini R2 vs Codex DS-84 R3).mp4",
+        "bytes": 21964778,
+        "sha256": "e06ff0565b108a5895b7c0edd3062bc1f9897ba480155d3e6622fc37d0901ad3",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round2/review/How To Do Hamstring Curls - Side by Side (Gemini R2 vs Codex DS-84 R3).mp4"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls Gemini SFC R2 - Full Short.mp4",
+        "bytes": 40443905,
+        "sha256": "6fb76c2d61efadafee14aaeeaea8009fd3af35e168c84a2261c938e9f9dcf4c9",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round2/review/How To Do Hamstring Curls - GEMINI-HAMSTRING R2 - 1080p.mp4"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls - GEMINI-HAMSTRING R3 - 1080p.mp4",
+        "bytes": 44597969,
+        "sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round3/review/How To Do Hamstring Curls - GEMINI-HAMSTRING R3 - 1080p.mp4"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls - GEMINI-HAMSTRING R3.srt",
+        "bytes": 2848,
+        "sha256": "822b8ff2fdb43a8864265cd80fbbd63cfa93e5fdcef90959ba6e695ff7e62c76",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round2/review/Codex-DS-84-R3.srt"
+      },
+      {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/How To Do Hamstring Curls - GEMINI R3 vs CODEX DS-84 R3 - Side-by-Side.mp4",
+        "bytes": 23136261,
+        "sha256": "856cb4fb7c13af55074c5a8fe5a481d63cfe21ac2d126bea562b593ed8db5156",
+        "retained_identical_archive": "/Volumes/Expansion/_edit_work/GEMINI-HAMSTRING/round3/review/How To Do Hamstring Curls - GEMINI R3 vs CODEX DS-84 R3 - Side-by-Side.mp4"
+      }
+    ],
+    "retained": []
   }
 }

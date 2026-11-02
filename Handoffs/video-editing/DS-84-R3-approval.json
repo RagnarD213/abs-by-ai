@@ -24,9 +24,9 @@
   ],
   "automatic_delivery_gate": "No Gemini R3 full delivery-gate stamp found or run in this setup phase. Prior Codex R3 FAIL/adjudication applies only to superseded hash 5c235f7d, preserved in prior_approval and historical R3 evidence.",
   "realistic_ai_footage": false,
-  "covers": "Five existing pairs made; awaiting confirmed Dan pick",
-  "uploaded": false,
-  "scheduled": false,
+  "covers": "D, Electric Lime And Graphite, cover revision 3, approved and installed 2026-11-02",
+  "uploaded": true,
+  "scheduled": true,
   "version": "Gemini R3 (Best of Both)",
   "bytes": 44597969,
   "content_type": "organic",
@@ -59,5 +59,47 @@
     "covers": "not made or approved",
     "uploaded": false,
     "scheduled": false
-  }
+  },
+  "cover_approval": {
+    "job": "DS-84",
+    "date": "2026-11-02",
+    "cover_round": 3,
+    "variation": "D",
+    "name": "Electric Lime And Graphite",
+    "dan": "Let\u2019s go with D. Go ahead and install it and finish setting up the video.",
+    "files": [
+      {
+        "platform": "instagram",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-instagram-approved.png",
+        "sha256": "1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe",
+        "bytes": 1569705,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/instagram/ds84-design1-D.png"
+      },
+      {
+        "platform": "youtube",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.png",
+        "sha256": "3b0158632d488179ddb01c851bd553729e73538716268c0b9497e1c249f84e03",
+        "bytes": 2055573,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.png"
+      },
+      {
+        "platform": "youtube",
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds84/ds84-hamstring-curls-youtube-approved.jpg",
+        "sha256": "a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39",
+        "bytes": 539989,
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/ds84-hamstring-curls-20261102-r3/youtube/ds84-design1-D.jpg"
+      }
+    ],
+    "master_sha256": "de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9",
+    "source": "Real hamstring-curl screenshot, touched up, same photographic pixels/crop as selected Design 1. Only layout/color/type varied."
+  },
+  "setup_status": "All four Blotato schedules verified, November 23, 2026, 9 AM America/Chicago",
+  "blotato_schedule_ids": {
+    "facebook": "6390173",
+    "instagram": "6390174",
+    "tiktok": "6390175",
+    "youtube": "6390178"
+  },
+  "blotato_scheduled_utc": "2026-11-23T15:00:00.000Z",
+  "upload_scope": "Media uploaded to Blotato; no direct YouTube holding upload; public YouTube video is created at release."
 }

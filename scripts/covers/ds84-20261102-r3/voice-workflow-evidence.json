@@ -1,0 +1,33 @@
+{
+  "job": "DS-84 How To Do Hamstring Curls R3 organic setup packaging",
+  "workflow": "dan-voice-writer print-prompt fallback; clean subagent inherited no prior conversation and read only voice-clean-prompt.txt",
+  "claude_cli_available": false,
+  "writer_type": "content",
+  "writer_format": "short",
+  "seed": "ds84-20261102-r3",
+  "requested_words": 220,
+  "draft_check_words": 210,
+  "check_score": 6.0,
+  "format_line": 19.8,
+  "hard_failures": 0,
+  "bank_passages": [
+    "The Supplements I Actually Take (And Why) (2026)",
+    "Short script: Top 5 Ab Exercises (Dan's own first draft) (2026)",
+    "Short script: Does Jiu Jitsu Get You Abs? (2026)",
+    "Short script: How To Jump Rope (2026)",
+    "Short script: How To Lose The Last Ten Pounds Of Fat (2026)"
+  ],
+  "source_srt": "Short-form video content/DS-84 How To Do Hamstring Curls/How To Do Hamstring Curls SFC R3 - complete Short.srt",
+  "source_srt_sha256": "822b8ff2fdb43a8864265cd80fbbd63cfa93e5fdcef90959ba6e695ff7e62c76",
+  "film_facts_check": "All teaching details and numbers match the supplied actual R3 SRT. CTA copied exactly. No new stories or claims added.",
+  "classification": "Organic dedicated Short. Filmed ending asks to subscribe and visit sixpackabs.com.",
+  "pinned_comment_characters": 46,
+  "lengths": {
+    "facebook": 943,
+    "instagram": 986,
+    "tiktok": 941
+  },
+  "changes_after_clean_draft": "No prose edits. Added exact requested title, topic hashtags/tags, deterministic website UTM links and platform concatenation. Instagram alone receives the clean-drafted TRAIN app-link CTA.",
+  "media_scope": "No media, covers, masters, config, queue, board or other project records changed.",
+  "fb_registry_first_caption_line": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them."
+}

@@ -26,7 +26,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Choose A-D from Design 1’s bolder variations](http://127.0.0.1:9285/?revision=3). Same real screenshot and crop; both platform layouts shown. Dan selected Design 1 as the base, pending final variation approval. Gemini R3 backups verified. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 
@@ -117,16 +116,3 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
-
-
-
-
-
-
-
-
-
-
-
-
-- **Dr Mike Dial SFC R2 (2026-11-01; Decision since: 2026-11-01):** [Compare both full cuts](http://127.0.0.1:9187/) and choose scripted (63.8 seconds) or off the cuff (84.0 seconds), with any changes. Recommend scripted for tighter delivery. Both rendered and independently reviewed; raw automated flags documented. Warm colour, House Bass and R5 retained. Full masters in `Videos to Review/`. Neither approved, uploaded nor scheduled. DS-37.

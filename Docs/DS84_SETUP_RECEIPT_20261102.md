@@ -1,3 +1,34 @@
+CONTENT (SFC). **SETUP COMPLETE: scheduled on all four platforms.**
+
+Dan approved cover **D, Electric Lime And Graphite**, cover revision 3, on November 2: “Let's go with D. Go ahead and install it and finish setting up the video.” The exact selected files are installed, backed up and uploaded. The approved Gemini R3 film is unchanged.
+
+**Release: Monday November 23, 2026, 9:00 AM America/Chicago (15:00 UTC).** The approved calendar's phase-1 gym how-to test slot is booked. No DS84 waiting-list entry or new automation.
+
+| Platform | Account | Verified Blotato schedule |
+|---|---|---|
+| Facebook Reel | 47105 / page1294282227094660 | 6390173 |
+| Instagram @danrosefit | 67203 | 6390174 |
+| TikTok @absbyai | 58181 | 6390175 |
+| YouTube | 46963 | 6390178 |
+
+All four dates, captions and targets read back exactly. Blotato later copied each post's media to a different UUID: all four saved media URLs were downloaded in full and SHA-256 verified against the approved Gemini master (Facebook/Instagram/YouTube) or verified TikTok copy. This is scheduled media, not a public-release or public-tile check. YouTube's actual watch ID exists only after release. Live queue after booking: 200/200; ad guard CLEAN and shared cover audit zero issues.
+
+- Master: Gemini R3 (Best of Both), SHA256 `de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9`, 44,597,969 bytes, 1,663 frames, 55.488767 seconds. Project/Extreme/SRT hashes rechecked; earlier full Google Drive hash verification remains valid. [Public Drive backup](https://drive.google.com/open?id=1mk8YUexMVihFG_FgP6iCPttEyE7nN195).
+- Cover D Instagram PNG: `1df16b92b8a90c717b423ec942a6301f4cb45ae67e28871c1df3f110dff388fe`, 1,569,705 bytes. YouTube JPEG: `a05ec47003a0274e473e10e9783977aa3d39619501c5420c4ea5410534f01a39`, 539,989 bytes. Exact cover files and hashes are authoritative in `Short-form video content/covers/approved-ds84/APPROVAL.json`; no revised image after Dan's pick. All three approved PNG/JPEG files verified on Extreme and Drive (exact bytes and remote MD5); source-photo patch preserves selected Design1 pixels.
+- TikTok copy: `eb37451be62b09e0567fadf509bcb2045ee75d8b3f82a4a0f85b31c46414b6fa`, 44,771,034 bytes. 1,664 frames versus 1,663 source, 2,602 audio packets in both, identical AAC payload SHA256 `9de5a71633ad32d9fbee8d717bbe3fd6eebdc2d68beadd61bf0f643c86afa007`, zero full-decode errors, frame-zero cover PSNR 51.50dB and visual inspection correct. `videoCoverTimestamp=0`. No audible listening pass claimed or new film QA stamp manufactured.
+- Original four uploaded assets and all four post-hosted movie URLs fully downloaded/hash verified. `uploads.json`, `schedules-verified.json` and `tiktok-verification.json` in the approved cover folder hold exact URLs/measurements. Blotato presigned upload used the maintained project's `/media/uploads` client because its connected upload tool is unavailable; no hand-written scheduling bypass. Media downloaded here came only from the task's own Blotato URLs for verification; no external assets or paid generation.
+- Facebook approved cover is registered under the exact first caption line in both repository and live installer, identical image bytes, schedule6390173/Nov23. Actual public cover remains a post-release check by the shared installer/cover monitor.
+- Config: `scripts/blotato/configs/ds84-how-to-do-hamstring-curls.json`. Organic, filed source path and exact master hash, no realistic AI video (`ai_generated=false`), TRAIN keyword, title/description/platform captions/tags, both cover URLs, TikTok derivative, actual close. Caption drafting evidence and clean-writer prompt retained in the build folder. No free AI-preview offer added.
+- Pinned comment: **“What rep range do you use for hamstring curls?”** Saved in config, 46 characters. Posts and pins after release through existing `youtube-pinned-comment-daily`; not posted or pinned yet.
+- Article: dedicated Short, nothing to write at setup. Existing post-release searchable-Short article/skip routine handles it. English SRT and public platform covers remain post-release work under shared routines; no private holding upload or per-video automation.
+- Calendar Nov23 row now Live. Local Social Queue data refreshed to 200 schedules. Edit Queue DS84 now uploaded, rev11, Google Drive status upload succeeded and was read back separately. Native artifact database mirror remains the existing Claude mirror workflow; no mirror pass claimed here.
+- Temporary `Videos to Review` copies removed only after full setup verification and exact matching archive copies were found. `review-cleanup.json` is the deletion/hash/retained-source record. Original archives and filed masters retained. Cover review remains as the approved-design reference.
+- Current setup/approval/master-verification pointers updated; historical Codex R3 QA remains tied only to its old hash. Exact current installation records are also versioned in `scripts/covers/ds84-20261102-r3/installation-receipt.json`.
+
+## Earlier setup and cover-round history
+
+Current execution 2026-11-02: Dan approved D (Electric Lime And Graphite) and requested installation and complete setup. Exact covers are installed; all backups verified. TikTok cover-first copy passes frame-count, full decoding, frame-zero and identical-audio checks. Final hosted upload and queue verification are in progress. Earlier waiting-for-pick states below are historical.
+
 CONTENT (SFC). DS-84 How To Do Hamstring Curls.
 
 Updated 2026-11-02, America/Chicago. Status: approved replacement filed; waiting for cover selection. Setup is partly complete, not uploaded/scheduled.

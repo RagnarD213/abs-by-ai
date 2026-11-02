@@ -12,4 +12,7 @@ for k,st in STYLES.items():
   p.append(f'<figure><figcaption>{"Instagram" if platform=="instagram" else "YouTube Shorts"}</figcaption><a href="{rel}"><img src="{rel}" alt="Variation {k}, {platform}"></a></figure>')
  p.append(f'<figure class="grid"><figcaption>Instagram Profile Crop</figcaption><img src="grid/{k}.jpg" alt="Variation {k}, actual profile crop"></figure></div></section>')
 p.append('<p>Your approved Gemini R3 film and backups are unchanged. After your final cover pick, setup continues with the platform uploads and release queue.</p></main></body></html>')
-(OUT/'index.html').write_text(''.join(p));print(OUT/'index.html')
+page=''.join(p)
+if m.get('approved_variation')=='D':
+ page=page.replace('Four Bolder Variations Of Design 1','D Approved: Electric Lime And Graphite').replace('Choose <strong>A, B, C or D</strong> in this chat.','You approved <strong>D</strong>.').replace('These are awaiting your review; nothing has been installed.','Your exact D cover has been installed in the approved cover folder. All four platforms are scheduled for Monday, November 23, 2026 at 9 AM Central.').replace('After your final cover pick, setup continues with the platform uploads and release queue.','The selected cover is D. The finished setup status is recorded in the setup receipt.')
+(OUT/'index.html').write_text(page);print(OUT/'index.html')

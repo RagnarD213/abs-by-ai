@@ -1,3 +1,5 @@
+**SETUP COMPLETED 2026-11-02 in Codex.** Approved Gemini R3 and cover D are uploaded/hash-verified and scheduled on all four platforms for Nov23 2026 9AM Central. No setup handoff remains to execute. Current receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`. Historical instructions below are retained as history.
+
 CONTENT (SFC). How To Do Hamstring Curls SFC Setup.
 
 # DS-84: approved R3, covers and organic setup
