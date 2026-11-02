@@ -716,5 +716,15 @@
   "gym": false,
   "filming_set": "green screen",
   "note": "Off-the-cuff R2 and revised cover C approved; four uploaded media hash-verified. Saved slot Tue Dec 22 6 PM Central."
+ },
+ {
+  "config": "scripts/blotato/configs/ds52-zepbound-free.json",
+  "kind": "short",
+  "job": "DS-52",
+  "label": "Why Zepbound Is Actually Free",
+  "added": "2026-11-02",
+  "kitchen": false,
+  "gym": false,
+  "note": "Exact approved R3 master unchanged; Dan approved cover design 3/text B. All backups and four upload hashes verified. Target Dec28 6PM America/Chicago, next eligible open slot; shared top-up preserves slot if still free. No parent. All four targets ready."
  }
 ]

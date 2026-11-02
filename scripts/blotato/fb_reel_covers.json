@@ -1235,5 +1235,14 @@
   "approved": "2026-11-01 X2",
   "when": "2026-11-23T18:00:00.000Z",
   "sha256": "528664948b0890e474fe5913d94d5acf025e4f68da3a785192d55587e8cebb37"
+ },
+ {
+  "job": "DS-52",
+  "match": "Here's why taking Zepbound is actually free.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds52-zepbound-free-approved.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan approved design 3, text B, 2026-11-02",
+  "when": "2026-12-29T00:00:00.000Z"
  }
 ]

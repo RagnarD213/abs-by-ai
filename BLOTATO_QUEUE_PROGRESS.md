@@ -576,3 +576,8 @@ Queue 197/200; four posts need 201, so no schedules were created. Existing autom
 ## SETUP COMPLETE, WAITLIST: Ab Exercise Ranking (RO-23), November 1, 2026
 
 Dan approved exact R4 and replacement X2. Exact master/SRT/thumbnail backed up to Extreme and shared Drive; main MP4, TikTok-only lossless cover-first copy and X2 image uploaded/download-hash verified. Main film unchanged. Complete four-platform config and protected Nov22 9AM Central target; FB/IG/TikTok Nov23 noon after public YouTube. Live queue199/200, four slots needed; shared video_waitlist top-up only, no partial set or per-video automation. Covers/guards, pinned question, 1036-word article, SRT/YouTube tags prepared. Captions/tags and actual public tiles checked after release. SL-31 registered only. Receipt `Docs/RO23_SETUP_RECEIPT_20261101.md`.
+
+
+## WAITLIST: Why Zepbound Is Actually Free (DS-52), 2026-11-02
+
+Dan approved design 3/text B. Exact R3 master SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`, MD5 `c8aa958a61de2760b447b1beba1fa656`. All four uploads hash-checked; project/Extreme/public Drive backups verified. Planned Dec28 6PM Central, one shared waiting-list entry for YouTube46963, Facebook47105, Instagram67203, TikTok58181; no publisher schedule IDs yet. Queue196/200, existing videos retain priority. Keyword FOOD; per-platform SixPackAbs.com UTMs, campaign zepbound-free/content ds52-zepbound-free. Captions already burned; no duplicate layer. Receipt: `Docs/DS52_SETUP_RECEIPT_20261102.md`.

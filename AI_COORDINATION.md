@@ -25,6 +25,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
+
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
 **Dr Mike Dial SFC R1 (DS-37) ACTIVE 2026-11-01, Codex.** Owns both scripted and off-the-cuff cuts. Next: source/take audit, shared look/voice and contextual R1 approval packet, then both exact-file gates and independent reviews. No upload.

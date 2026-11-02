@@ -80,7 +80,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Sat Dec 26 | 3 | 9 AM | How To Do Pull-Ups The Right Way (DS-76, gym) | Live |
 | Sat Dec 26 | 3 | 6 PM | Wear A Mouthpiece When You Work Out (DS-105) | Waitlist |
 | Mon Dec 28 | 3 | 9 AM | Belly Fat 1: Stop Trying To Lose 1 Pound A Week | Waitlist |
-| Mon Dec 28 | 3 | 6 PM | OPEN | Not booked |
+| Mon Dec 28 | 3 | 6 PM | Why Zepbound Is Actually Free (DS-52) | Waitlist |
 | Tue Dec 29 | 3 | 9 AM | Belly Fat 2: Weigh Yourself Every Morning | Waitlist |
 | Tue Dec 29 | 3 | 6 PM | OPEN | Not booked |
 | Thu Dec 31 | 3 | 9 AM | Belly Fat 3: Work Out Every Morning, Not 3 Times A Week | Waitlist |
