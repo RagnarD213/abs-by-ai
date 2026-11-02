@@ -1,6 +1,6 @@
 # Extreme drive cleanup, 2026-11-01
 
-Dan asked to move RO-20 and the old finished job folders to the Seagate. 20 folders, about 548 GB by disk use, went from `/Volumes/Extreme/_edit_work` to `/Volumes/Expansion/_edit_work`. Extreme free space: 15 GB before, 598 GB after. Each copy passed an rsync dry run, file count and bytes, and sha256 of the largest file plus two random files, with a last recheck that nothing changed or was open before removal. Method: `Handoffs/handoff-20261021-extreme-drive-cleanup.md`, with `nice -n 10`.
+Dan asked to move RO-20 and the old finished job folders to the Seagate. 20 folders, about 590 GB by disk use, went from `/Volumes/Extreme/_edit_work` to `/Volumes/Expansion/_edit_work`. Extreme free space: 15 GB before, 598 GB after. Each copy passed an rsync dry run, file count and bytes, and sha256 of the largest file plus two random files, with a last recheck that nothing changed or was open before removal. Method: `Handoffs/handoff-20261021-extreme-drive-cleanup.md`, with `nice -n 10`.
 
 | folder | status | size | files and bytes | new path |
 |---|---|---|---|---|
