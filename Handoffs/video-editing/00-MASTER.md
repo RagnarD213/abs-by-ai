@@ -182,7 +182,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-60](DS-60-how-to-do-reverse-lunges.md) | How To Do Reverse Lunges | 10/15 C1779 | READY | S |
 | [DS-61](DS-61-how-to-do-bodyweight-squats.md) | How To Do Bodyweight Squats | 10/15 C1780 | DELIVERED: awaiting Dan | S |
 | [DS-62](DS-62-how-to-do-goblet-squats.md) | How To Do Goblet Squats | 10/15 C1781 | READY | S |
-| [DS-63](DS-63-how-to-do-overhead-tricep-extensions.md) | How To Do Overhead Tricep Extensions | 10/15 C1782 | DRAFT: asset choices waiting for Dan | S |
+| [DS-63](DS-63-how-to-do-overhead-tricep-extensions.md) | How To Do Overhead Tricep Extensions | 10/15 C1782 | IN PROGRESS | S |
 | [DS-64](DS-64-3-rules-for-every-rep.md) | 3 Rules For Every Rep | 10/15 C1783 | READY | S |
 | [DS-65](DS-65-theres-now-a-card-that-tells-your-doctor-not-to-weigh-you-bi.md) | There's Now A Card That Tells Your Doctor Not To Weigh You. Bill Maher Is Right. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
 | [DS-66](DS-66-bert-kreischer-thought-his-billboard-was-photoshopped-it-was.md) | Bert Kreischer Thought His Billboard Was Photoshopped. It Wasn't. | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document | S |
