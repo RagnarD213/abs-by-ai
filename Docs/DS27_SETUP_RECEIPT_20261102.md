@@ -1,40 +1,58 @@
-# DS-27 Home Workouts setup, November2,2026
+# DS-27 Home Workouts setup receipt, November2,2026
 
-Status: film approved; cover choices awaiting Dan. No publishing upload or schedule exists for this setup yet.
+**Setup complete, shared waiting list. Planned release: Thursday December31,2026 at6PM America/Chicago on YouTube,Facebook,Instagram @danrosefit andTikTok. Blotato currently has200/200 scheduled posts. This video has no live publisher schedules yet.**
 
-## Approval
+## Approvals and exact files
 
-Dan: "Okay this is approved. Proceed to setup". Exact R2 master SHA256: `2b67b02fb7eb2bf4f911dcb7c3cbf7dce1dd5cc55317dc859357becb5ed130a6`. Duration61.428s,1080x1920,Colour B,Gentle Bass. The historical full delivery gate remains FAIL, preserved; owner approval is recorded separately and is not a fabricated gate pass. Original film and approved assets unchanged.
+Dan approved the R2 full film: "Okay this is approved. Proceed to setup". He then picked the real-photo cover: "Let's go with2. Go ahead and finish setup." The initial eight were rejected; the second set used four distinct real workout photos. Selected2 is the real jump-rope photo, orange stacked title and navy footer.
 
-## Cover revision, November2,2026
+- Film:61.428s,1080x1920,30000/1001,Colour B,Gentle Bass. Exact approved SHA256:`2b67b02fb7eb2bf4f911dcb7c3cbf7dce1dd5cc55317dc859357becb5ed130a6`.
+- Instagram cover PNG SHA256:`d3fd5490cd7104ed6fa6633c86143e53539c2457d99d44a76d2bff2937199df1`.
+- YouTube cover JPEG SHA256:`b83ec08e52fcd36a3d6299ae5282fe149c950b7c583abb1a38e791d9c240cea0`, 536610bytes, under2MB.
+- Original person pixels preserved from `photos/finalized social media photos/photo-74_FINAL_PRIMARY-A.jpg`; no new image generation.
+- Prior full delivery gate remains FAIL in its historical report. Dan’s exact-file approval is recorded separately; no fabricated PASS, new re-edit or audible listening claim.
 
-Dan rejected the initial eight and requested exactly four unique designs using four unique real home-workout photos or touched-up screenshots. This replaces the initial mix for this job. R2 uses four original finalized photographs from his real pool shoot: kettlebell deadlift, jump rope, decline push-up and overhead medicine ball. All face/body pixels remain original, with crop/resize and graphics only. No image generation, no screenshot substitution and no new spend. Review stays at http://127.0.0.1:9958/, now labelled1-4, with separate Instagram/YouTube layouts and profile crops. Earlier choices and their private provenance are preserved as rejected. No cover approval or publishing schedule yet.
+## Installed and backed up
 
-## Historical initial cover review
+- Approved cover pair and pick hashes: `Short-form video content/covers/approved-ds27/`.
+- Final film,SRT and cover pair are filed in the project and `/Volumes/Extreme/Short-form video content/Home Workouts - DS-27/`; exact local hashes verified.
+- Canonical Drive film/SRT: `Short-form video content/Home Workouts - DS-27/Final/`; master ID`1buUopQZjs_kZWbAuAV8g-3dQrIQ-Qsq3`. Earlier full-byte SHA256 readback retained.
+- Canonical Drive covers: `Short-form video content/Home Workouts - DS-27/Cover/`; both live Drive SHA256 and byte counts match the approved originals. Sharing unchanged.
+- [Approved film](http://127.0.0.1:9957/) and [setup page](http://127.0.0.1:9958/?setup=complete).
 
-[Eight paired cover choices](http://127.0.0.1:9958/),X1 throughX8. Each has Instagram,YouTube Shorts and profile-grid views. All16 exported layouts are1080x1920RGB, text clears the expanded face/hair regions, no text/person overlap, safe bounds; every YouTube JPEG is under2MB. All source faces, paired finals and profile crops were visually inspected. One background seam was covered fully by its headline panel before delivery. Real-photo choice retains original face/body pixels. Cover provenance and shuffled source key remain private in the ignored review folder. No cover is approved yet.
+## Four release assets, uploaded and downloaded back
 
-The next action is Dan’s X-number pick. The same chat then installs the exact selected originals, builds/verifies the TikTok frame-zero derivative, uploads/verifies all release assets, registers Facebook’s cover, selects the next eligible unoccupied release slot and queues four platforms or joins the shared waiting list. Do not create a per-video automation. No second film approval is needed.
+| Asset | Bytes | SHA256 | Public media |
+|---|---:|---|---|
+| master | 132616297 | `2b67b02fb7eb2bf4f911dcb7c3cbf7dce1dd5cc55317dc859357becb5ed130a6` | [Verified media](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c91db686-4c6b-4a8f-8378-1fbf5a871674.mp4) |
+| tiktok | 132822778 | `2c45de5ce10bca18e495fbfa2723f31f879cce75d250ec6c5299a1f17b01b72e` | [Verified media](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/28ed564b-e77c-4f34-b717-232ec0074fa0.mp4) |
+| instagram | 1946806 | `d3fd5490cd7104ed6fa6633c86143e53539c2457d99d44a76d2bff2937199df1` | [Verified media](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/442f2c07-9133-49d8-85f5-fb2187ec4363.png) |
+| youtube | 536610 | `b83ec08e52fcd36a3d6299ae5282fe149c950b7c583abb1a38e791d9c240cea0` | [Verified media](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/39f12084-bae2-4ecc-8f56-3ac0147836d7.jpg) |
 
-## Verified backups
+The connected upload tool is absent; maintained project `/media/uploads` client used. Every public upload was fully downloaded and SHA256/byte-count checked. No handwritten scheduling bypass.
 
-- Project final: `Short-form video content/Home Workouts - DS-27/Final/`.
-- External final: `/Volumes/Extreme/Short-form video content/Home Workouts - DS-27/`.
-- Canonical Drive final: `Short-form video content/Home Workouts - DS-27/Final/`,master ID`1buUopQZjs_kZWbAuAV8g-3dQrIQ-Qsq3`,SRT ID`1Ddr0LVqDdhYPCc-iOVKv7UE-2xlCmT_0`. Live Drive size,MD5 andSHA256 match the local master and subtitles. Sharing unchanged.
-- Earlier private review master is preserved: [Drive copy](https://drive.google.com/file/d/1xJgOf0FzJBKSuClkjR0iGbhOxWV8b-mM/view).
+## TikTok and cover installation
 
-Detailed hashes: ignored review folder `backup-receipt.json`. No video re-encode or audio change for setup.
+- TikTok derivative:1841 to1842frames; exactly one cover frame prepended. Audio packets2881/2881; original AAC payload hashes identical. Full decode:zero errors. First-frame cover PSNR51.00dB, visually inspected against the selected image. The approved main master remains unchanged.
+- Facebook’s first caption line and selected cover are registered in both repository and live installer, with matching image hashes. Existing20-minute installer applies the public cover after release.
+- Instagram and YouTube target plans use the exact downloaded-and-verified selected cover URLs. TikTok target uses its verified derivative and`videoCoverTimestamp:0`.
+- Public platform tiles are not yet available. Existing shared release checks must inspect actual YouTube Shorts,Facebook,Instagram andTikTok tiles after release. Queued URLs alone are not proof of a correct public tile.
 
-## Prepared packaging
+## Publishing package and waiting list
 
-Draft title: **Too Busy To Work Out? Cancel Your Gym Membership**. Description assembled from the film’s actual words; metadata at`scripts/covers/ds27-20261102/packaging/draft-metadata.json`. This is deliberately outside the auto-queue config folder while the cover is unselected. Realistic AI footage exists in the approved client scene, so the publishing disclosure flag is true. Burned captions preserved; no duplicate visible captions planned. This is organic content: its ending asks viewers to subscribe, with no button CTA.
+- Config:`scripts/blotato/configs/ds27-home-workouts.json`. All four target plans passed the shared cover guard. Ad guard and complete live queue cover audits ran before/after and were clean.
+- Title:**Too Busy To Work Out? Cancel Your Gym Membership**. Description/captions use the approved film’s own words, subscribe close, SixPackAbs.com links with platform UTMs and four topic hashtags. No obsolete free-preview CTA.
+- `content_type:organic`, actual source path recorded, `ai_generated:true` for the approved realistic client scene. Selected real-photo cover does not change that footage flag. Burned captions retained; no duplicated visible captions.
+- Saved timestamp:`2027-01-01T00:00:00.000Z`, December31,2026 at6PM Central. Live platform timestamps,pending configs and the dated calendar were checked. The exceptional December10 5PM release consumes that date’s evening capacity, avoiding an unintended third Short. No parent release dependency.
+- One complete DS-27 entry exists in`scripts/blotato/video_waitlist.json`; its calendar cell is marked Waitlist. No other posts were moved/deleted and no per-video automation was created. The existing daily`social-queue-daily-refresh`/`video_topup.py`queues it when capacity frees, preserving this slot while available.
+- Direct queue dry run validated four planned targets and refused only the200-post cap, showing200+4=204. No schedule IDs exist. Edit Queue stays`finalized` until actual schedules exist and read back.
 
-Pinned comment: "Which takes you more time, driving to the gym or doing the actual workout?" Posts and pins after release through the existing routine. The primary writer session’s authentication expired; a clean fallback wrote the question from the same prepared real-passage prompt. No credential changes or repeated login attempts.
+Pinned comment: "Which takes you more time, driving to the gym or doing the actual workout?". Posts and pins automatically after release through`youtube-pinned-comment-daily`.
 
-Article: no article needed at Short setup; existing post-release routine writes300-500words for a searchable question or records a justified skip. Public cover tiles and final platform release still require the existing release checks.
+Article: dedicated Short, nothing to write at setup. Existing post-release searchable-Short article/skip routine handles it. Captions and actual public covers remain shared post-release checks.
 
-## Queue and cost
+## Verification, spend and implementation
 
-Blotato preflight:196/200 scheduled posts, no cover preflight issues observed. Capacity and slot availability will be checked again after the cover pick. Calendar is phase-based; no date is reserved yet and no unrelated post was moved.
+Working evidence:`/Volumes/Expansion/_edit_work/ds27-publish/`, including uploads,full-file hashes,cover/frame checks,before/after queue audits,slot plan,post targets and waiting-list receipt. Media downloaded this phase came only from the task’s own Blotato URLs for exact-byte verification. No new outside source media or paid generation. New paid/API spend:$0.
 
-Paid generation/API spend:$0. Existing subscription usage only. Approval,backups,cover checks and browser receipt live in the ignored review folder. Edit Queue:DS-27 finalized, setup awaiting cover choice. Recipe and record safe-push pending live shared edits unless a later receipt confirms success.
+Local recipe/config/receipt saved. GitHub push remains pending live shared edits; no other-owner changes adopted. Local Facebook installer and shared waiting list are already updated; Git sync is not required for their current operation.
