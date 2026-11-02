@@ -32,7 +32,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
-**DS-27:IN-PROGRESS:2026-11-02:Codex01a19c79:R2.** Full-Short assembly.
+**DS-27:REVIEW+PUSH-PENDING:2026-11-02:Codex01a19c79:R2.** [Full Short](http://127.0.0.1:9957/);QA-flags-documented;await-Dan.
 
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
@@ -47,7 +47,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
 
-**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Round 1 rejected; [six R2 thumbnails](http://127.0.0.1:9883/) await Dan's pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37. b0e3eb4 local.
+**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Dan picked C; [three text versions](http://127.0.0.1:9884/) await pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37. Push pending.
 
 **RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9875/).**
 
