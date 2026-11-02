@@ -36,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
-**DS-52:R3:REVIEW:2026-11-01:Codex01a198f9.** [Review](http://127.0.0.1:9290/). Graphics/captions ready; awaiting Dan.
+**DS-52:R3:REVIEW:2026-11-01:Codex01a198f9.** [Review](http://127.0.0.1:9290/). Awaiting Dan; push blocked.
 
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
