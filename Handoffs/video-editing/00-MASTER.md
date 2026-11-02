@@ -110,7 +110,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | short | roll | status | size |
 |---|---|---|---|---|
 | [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
-| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | DELIVERED: awaiting Dan | S |
+| [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | FINALIZED | S |
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
 | [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | READY | S |
@@ -201,7 +201,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [RO-21](RO-21-what-every-body-fat-percentage-looks-like-on-me.md) | What Every Body Fat Percentage Looks Like (On Me) | 10/15 C1723-C1724 | FINALIZED | L |
-| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | IN PROGRESS | L |
+| [RO-22](RO-22-how-losing-fat-changed-my-face.md) | How Losing Fat Changed My Face | 10/15 C1725-C1730 | R4 REVIEW (QA OPEN) | L |
 | [RO-23](RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md) | I Ranked Every Ab Exercise From Worst To Best | 10/15 C1726 | FINALIZED | L |
 | [RO-24](RO-24-reacting-to-celebrity-ozempic-transformations.md) | Reacting To Celebrity Ozempic Transformations | 10/15 C1726 | UPLOADED | L |
 | [RO-26](RO-26-im-41-my-life-is-top-1-how-i-did-it.md) | I'm 41. My Life Is Top 1%. How I Did It. | 10/15 C1768 | UPLOADED | L |
@@ -230,7 +230,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
 | [DS-82](DS-82-the-only-3-leg-exercises-i-do-every-week.md) | The Only 3 Leg Exercises I Do Every Week | 10/23 C1885, C1886 | READY | S |
 | [DS-83](DS-83-how-to-use-the-leg-press-without-wrecking-your-knees.md) | How To Use The Leg Press Without Wrecking Your Knees | 10/23 C1886 | READY | S |
-| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | FINALIZED | S |
+| [DS-84](DS-84-how-to-do-hamstring-curls.md) | How To Do Hamstring Curls | 10/23 C1887 | UPLOADED | S |
 | [DS-85](DS-85-how-to-use-the-glute-bridge-machine.md) | How To Use The Glute Bridge Machine | 10/23 C1887 | READY | S |
 | [DS-86](DS-86-how-to-do-lat-pulldowns.md) | How To Do Lat Pulldowns | 10/23 C1887 | READY | S |
 | [DS-87](DS-87-how-to-do-seated-cable-rows.md) | How To Do Seated Cable Rows | 10/23 C1887 | READY | S |
@@ -286,7 +286,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | FINALIZED | S |
-| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, public Oct 28; kitchen footage, so its Shorts wait for phase 2 or February) | IN PROGRESS | S |
+| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6; Shorts held until parent is public) | **NEEDS DAN** | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | IN PROGRESS | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Fri Dec 4; 2 Shorts, Dan picked A and C; Dec 5 and Dec 8 6 PM) | UPLOADED | S |

@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Overhead Tricep Extensions SFC Setup: REVIEW 2026-11-02, Codex01a19df9.** [Eight cover pairs](http://127.0.0.1:9963/); await X pick, then upload/queue. Receipt: `Docs/DS63_SETUP_RECEIPT_20261102.md`. Commit831cbf9 push blocked by live shared files.
+**Overhead Tricep Extensions HOLD 2026-11-02, Codex01a19df9.** X3 installed; uploads verified; Dec29 6PM Central shared waitlist,200/200. Daily top-up owns scheduling. Push pending, live shared edits. `Docs/DS63_SETUP_RECEIPT_20261102.md`.
 
 
 **SL-13:R1-REVIEW:2026-11-02:Codex01a19cd4.** [A](http://127.0.0.1:9296/) awaits treatment approval; B/C unbuilt. `Docs/SL13_R1_REVIEW_RECEIPT.md`;push-pending.
@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
-**DS-27:COVERS:2026-11-02:Codex01a19c79.** [Pick](http://127.0.0.1:9958/);R2-approved;push-pending.
+**DS-27:COVERS-R2:2026-11-02:Codex01a19c79.** Four-real-workout-designs-building;film-approved;push-pending.
 
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
 
-**Dr Mike Dial SFC R3 BUILDING 2026-11-02, Codex01a198a1.** Normal-speed 62.3s offcuff proposal rendered; final checks running. Originals preserved. `/Volumes/Expansion/_edit_work/DS-37/round3/RESUME.md`. Push blocked by live concurrent edits.
+**Dr Mike Dial SFC R3 REVIEW 2026-11-02, Codex01a198a1.** [Proposed62.3s cut](http://127.0.0.1:9188/). Choose shortened offcuff or scripted, then speed. Push blocked: live concurrent edits.
 
 
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`

@@ -589,3 +589,8 @@ Exact R4 and round 3 C1 revised thumbnail. YouTube 6389292 Fri Jan 1 2027, 9 AM 
 ## WAITLIST: Why Zepbound Is Actually Free (DS-52), 2026-11-02
 
 Dan approved design 3/text B. Exact R3 master SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`, MD5 `c8aa958a61de2760b447b1beba1fa656`. All four uploads hash-checked; project/Extreme/public Drive backups verified. Planned Dec28 6PM Central, one shared waiting-list entry for YouTube46963, Facebook47105, Instagram67203, TikTok58181; no publisher schedule IDs yet. Queue196/200, existing videos retain priority. Keyword FOOD; per-platform SixPackAbs.com UTMs, campaign zepbound-free/content ds52-zepbound-free. Captions already burned; no duplicate layer. Receipt: `Docs/DS52_SETUP_RECEIPT_20261102.md`.
+
+
+## SETUP READY, WAITLIST: How To Do Overhead Tricep Extensions (DS-63), 2026-11-02
+
+Dan approved X3. Exact R2 master, cover-first TikTok copy and both covers uploaded/download-hash-verified. All four platform configs pass guards. Planned Tuesday December29, 6PM Central; shared waitlist, live200/200, zero DS63 schedules. No per-video automation or YouTube holding upload. Master SHA25679eb9bb59d97584693a85b99dc36f76164bf9540f01712abe01b2e97760d7bda. Config `scripts/blotato/configs/ds63-overhead-tricep-extensions.json`; receipt `Docs/DS63_SETUP_RECEIPT_20261102.md`. Captions/tags, pinned question and actual cover tiles follow shared release routines.

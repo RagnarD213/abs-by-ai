@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Overhead Tricep Extensions SFC Setup](handoff-20261102-ds63-overhead-tricep-extensions-cover-and-setup.md): **Ready 2026-11-02. Start now. Claude Opus 5.5, high.** DS-63 R2 finalized; three media copies verified. Covers, Dan's pick, metadata and verified four-platform queue/waitlist placement. Use the Codex subscription to generate the images.
 
 - Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
 
