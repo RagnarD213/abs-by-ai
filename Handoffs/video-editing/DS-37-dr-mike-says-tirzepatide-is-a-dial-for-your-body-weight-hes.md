@@ -42,8 +42,12 @@ Both full 1080p masters, 540p copies, SRT, audio A/B, notes, raw check stamps an
 Automated checks ran on exact masters. Five raw failure categories remain on each: approved-voice/reference audio rows, composite panel hair detector, intentional size-cut visibility, generic caption-onset timing and natural source pauses. All retained honestly in the page and reports; no all-gate PASS, audible human listening or public publishing claimed. Full evidence and immutable approval hashes: `/Volumes/Expansion/_edit_work/DS-37/round2/`.
 
 
-## R3 proposed shorter cut, 2026-11-02
+## R3 proposed shorter cut, delivered for review 2026-11-02
 
-Dan requested a proposed off-the-cuff cut under 66seconds before deciding speed/version. One normal-speed 1080p 62.2956-second candidate is rendered from the preserved R2 master, with two new edits at 23.3900 and 36.4698. It removes the repeated introduction and generic dosage explanation while retaining the full personal dose/protein/maintenance example and close. A later 5% acceleration would be59.3seconds; no acceleration is applied yet.
+[Watch the proposed 62.3-second normal-speed off-the-cuff cut](http://127.0.0.1:9188/) beside the original scripted 63.8-second film. Prefer this shortened off-the-cuff for the personal dose/protein story. No acceleration applied; a later 5% increase would make 59.3 seconds, after Dan chooses the cut.
 
-Editor self-QA finished. Fresh independent review and exact-file checks are finishing; the new proposal page is not delivered yet. Current ownership/checkpoint: `/Volumes/Expansion/_edit_work/DS-37/round3/RESUME.md`. Existing full R2 masters/approved hashes remain unchanged.
+New edits at 23.3900 seconds and 36.4698 seconds; watch 0:20–0:27 and 0:33–0:40 in the new film. Removed original 84s ranges 0:23.39–0:35.47 and0:48.55–0:58.12. Full Dr Mike quote, appetite/foodnoise explanation, personal dose/protein/maintenance story and close retained. Full word-for-word transcript with cut markers is on the review page.
+
+The actual 1080p 62.295567-second file is rendered, exact-file checked and independently reviewed, with 0 confirmed editing repairs. 31 PASS/4FAIL/4N/A raw gate rows; composite hair detector, intended cut visibility, caption heuristic and original source pauses are documented, not erased or waived. Exact audio adaptation source-match gatePASS. No all-gatePASS, owner approval, upload or scheduling claimed.
+
+Both R2 masters remain unchanged; R2 review service/cache 9187 was preserved. New R3 review service 9188, all actual 1080p playback/seek/context checks silent, then all players paused at 0 with sound ready. Same checked master copied for VLC and to `Short-form video content/Dr Mike Dial SFC R3/`, with captions, notes, stamps, report, receipts and recipe. SHA256 `ac62279e0dea1f23ca61f2146a41ab6e1fe97c06291e38ac33348cd33b8e3623`. Private checkpoint:`/Volumes/Expansion/_edit_work/DS-37/round3/RESUME.md`.
