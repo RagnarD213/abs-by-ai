@@ -25,18 +25,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-27:ACTIVE:2026-11-01:Codex01a199b9.**
+**DS-27:REVIEW+PUSH-BLOCKED:2026-11-01:Codex01a199b9:9947:choose-look/voice/assets.**
 
-**RO23:REVIEW:2026-11-01:Codex.** [Four-split-thumbnails](http://127.0.0.1:9881/) await-pick;push-blocked:live-salad.
+**RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
 
-**DS-63 ACTIVE 2026-11-01, Codex01a1998f.** Slot acquired; resume timer removed. Next: source checks and first-round look/voice/asset packet.
+**DS-63 REVIEW 2026-11-01, Codex01a1998f.** http://127.0.0.1:9293/ . Opening30s rendered; full42s unbuilt. Await Dan’s colour/voice/assets picks. Sound warnings retained; timer removed.
 
 **SRM Website REVIEW 2026-11-01, Claude.** Three mockups await pick; unpublished. `sites/srm/PLAN.md`
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
-**DS-52:R3:WAIT:2026-11-01:Codex01a198f9.** Slot line #1; auto-resume armed. Pace/V/B/1 approved; graphics/captions next.
+**DS-52:R3:BUILD:2026-11-01:Codex01a198f9.** Pace/V/B/1 locked. Graphics/captions underway; no publishing.
 
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
