@@ -1,5 +1,7 @@
 # Ab Exercise Ranking: thumbnail review (November 1, 2026)
 
+**Selected November 1:** Dan chose replacement **X2** and authorized complete setup while preserving exact R4. The review rounds below are historical. Current release state: `Docs/RO23_SETUP_RECEIPT_20261101.md`.
+
 ## Current review: split-screen replacements
 
 Dan rejected the initial eight and requested two- or three-way exercise comparisons, with a couple of AI images and a couple of real screenshots. Four replacements are now checked and served at the same review URL, X1 to X4. Two have generated exercise imagery; two use untouched real demonstration frame content from the approved film's graded components. Red/gold/green Bad/Mid/Good labels follow the film's actual exercise rankings. Final files are 1280x720 JPEG below 2 MB, all four browser-loaded with no overflow. No thumbnail selected, no media uploaded or scheduled. Exact approved R4 hash reverified unchanged.

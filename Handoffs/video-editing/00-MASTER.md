@@ -307,6 +307,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 
 | [SL-28](SL-28-love-handles-shorts.md) | Love Handles (RO-30; 3 Shorts; parent Jan10,2027 planned, not booked) | READY: propose segments before rendering | S |
 | [SL-29](SL-29-celebrity-ozempic-shorts.md) | Reacting To Celebrity Ozempic Transformations (RO-24; 3 Shorts; parent Nov15 9AM Central, scheduled) | READY: propose segments before rendering | S |
+| [SL-31](SL-31-ab-exercise-ranking-shorts.md) | Ab Exercise Ranking (RO-23; 3 Shorts; parent Nov22 9AM Central planned, waitlist) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

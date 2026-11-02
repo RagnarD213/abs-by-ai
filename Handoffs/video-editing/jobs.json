@@ -3638,12 +3638,12 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md`: cut \"I Ranked Every Ab Exercise From Worst To Best\" from 10/15 roll C1726 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "R3 full film ready for review: http://127.0.0.1:9834/ . Closer, richer moving clips; horizontal arrow; rejected gags removed. Vacuum action and plank naming repaired. Independent picture review passed with limits; silent checks only, chosen B tone warning retained. Awaiting Dan review; no upload.",
+   "state": "finalized",
+   "note": "Dan approved exact R4 and X2; setup complete, protected shared waitlist for Nov22 9AM Central, socials Nov23 noon. All assets/backups verified. Not marked uploaded until four Blotato schedules read back. Receipt Docs/RO23_SETUP_RECEIPT_20261101.md.",
    "needs": "",
    "order": 158,
-   "updated": "2026-10-31",
-   "rev": 9,
+   "updated": "2026-11-01",
+   "rev": 13,
    "syncedRev": 1,
    "editor": "Codex",
    "by": "Codex"
@@ -4964,6 +4964,30 @@
    "updated": "2026-10-30",
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "SL-31",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Ab Exercise Ranking (RO-23; 3 Shorts; parent Nov22 9AM Central planned, waitlist)",
+   "roll": "10/15 C1726",
+   "size": "S",
+   "file": "SL-31-ab-exercise-ranking-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "codexModel": "GPT-6.1 Sol, high",
+   "claude": "CONTENT (SFL). Name this task Ab Exercise Ranking SFL R1. Read Handoffs/video-editing/SL-31-ab-exercise-ranking-shorts.md. Propose three standalone segments with full transcripts and stop for Dan picks before rendering. Reuse approved parent look/voice.",
+   "codex": "CONTENT (SFL). Name this task Ab Exercise Ranking SFL R1. Read Handoffs/video-editing/SL-31-ab-exercise-ranking-shorts.md. Propose three standalone segments with full transcripts and stop for Dan picks before rendering. Reuse approved parent look/voice.",
+   "state": "ready",
+   "note": "Registered only, no edit launched. Parent exact R4 and X2 thumbnail approved. Parent setup complete on protected Nov22 shared waitlist. Propose standalone segments with complete transcripts and wait for Dan picks. No Short before parent is actually public.",
+   "unattended": false,
+   "unattended_why": "Dan chooses standalone segments and any needed pickups before rendering.",
+   "needs": "",
+   "by": "Codex",
+   "order": 216,
+   "updated": "2026-11-01",
+   "rev": 1,
+   "syncedRev": 0
   }
  ]
 }
