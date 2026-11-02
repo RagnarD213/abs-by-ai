@@ -32,7 +32,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-63 ACTIVE 2026-11-01, Codex01a1998f.** Slot acquired; resume timer removed. Next: source checks and first-round look/voice/asset packet.
 
-**SRM Website REVIEW 2026-11-01, Claude.** Three mockups await Dan's pick; unpublished. `sites/srm/PLAN.md`
+**SRM Website REVIEW 2026-11-01, Claude.** Three mockups await pick; unpublished. `sites/srm/PLAN.md`
 
 **Muhammad:PUSH-PENDING:2026-11-01:Claude.** f752376 local; delete after push.
 
