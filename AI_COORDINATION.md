@@ -25,9 +25,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**SL-13:PICKS:2026-11-02:Codex01a19cd4.** Await Dan’s three picks.
+**SL-13:PICKS+PUSH-PENDING:2026-11-02:Codex01a19cd4.** 503ef0d; shortlist `Docs/SL13_SEGMENT_SHORTLIST_R1.md`.
 
-**ZepboundFree:COVERS:2026-11-02:Codex01a19cb2.** [Review](http://127.0.0.1:9295/);6f4b249-push-blocked.
+**ZepboundFree:R3-TEXT:2026-11-02:Codex01a19cb2.** [PickA-C](http://127.0.0.1:9295/);push-blocked.
 
 
 **SL-12:REVIEW+PUSH-PENDING:2026-11-02:Codex01a19c6e.** `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Dr Mike Dial SFC R2 REVIEW 2026-11-01, Codex01a198a1.** [Compare both](http://127.0.0.1:9187/); choose which ships. Push blocked: live salad article.
 
 
-**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** Dan picked C; [three text versions](http://127.0.0.1:9884/) await pick. Then setup: YouTube Jan 1, socials Jan 2. RO-37. Push pending.
+**First Time At The Gym LFC Setup:REVIEW:2026-11-02:Claude.** [Revised C1](http://127.0.0.1:9885/) awaits Dan's OK. Then setup: YouTube Jan 1, socials Jan 2. RO-37. Push pending.
 
 **RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9876/).**
 
@@ -79,7 +79,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R3 REVIEW 2026-11-01, Codex01a197ed.** Full film [4:29 review](http://127.0.0.1:9286/) awaiting Dan. Technical QA open. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
+**Losing Fat Face LFC R3 HOLD 2026-11-02, Codex01a197ed.** [Full film](http://127.0.0.1:9286/). Await Dan's export-workflow choice before three requested revisions. Technical QA open. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/round3/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`
@@ -88,7 +88,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
-**DS-84 Hamstring Curls SFC Setup REVIEW 2026-10-28, Codex.** [Five cover pairs](http://127.0.0.1:9285/); awaiting Dan's pick. R3 unchanged. Next: backup/upload, resolve date, schedule. No date reserved. `Docs/DS84_COVER_REVIEW_20261028.md`
+**DS-84:REVIEW:2026-11-02:Codex.** Gemini R3 replaced;project/Extreme/Drive hashes verified. [A-E covers](http://127.0.0.1:9285/):prior chat has no pick. Next:pick,uploads,Nov23-9AM queue/waitlist. `Docs/DS84_SETUP_RECEIPT_20261102.md`. 6f2e8ad local;push blocked live shared edits.
 
 
 

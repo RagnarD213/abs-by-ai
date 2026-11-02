@@ -107,6 +107,27 @@ def v1():
     return im, boxes
 
 
+def v1b(size=int(sys.argv[2]) if len(sys.argv) > 2 else 92, ty=int(sys.argv[3]) if len(sys.argv) > 3 else 130):
+    """Dan's C1 revision (2026-11-02): the yellow highlight sits straight, the payoff line is bigger."""
+    im = top_dark(base(), 340, 225)
+    boxes = []
+    t1, r1 = text_layer(ANTON, L1, 112, 1180, 68, '#FFFFFF', stroke=3, stroke_fill='#0B0B0B')
+    im = Image.alpha_composite(im, shadow(t1, 10, alpha=230))
+    im = Image.alpha_composite(im, t1)
+    boxes.append(r1)
+    f, b = fit(ANTON, L2, size, 900)
+    w, h = b[2] - b[0], b[3] - b[1]
+    padx, pady = 36, 16
+    T = layer()
+    tx = W // 2 - (w + 2 * padx) // 2
+    ImageDraw.Draw(T).rectangle((tx, ty, tx + w + 2 * padx, ty + h + 2 * pady), fill='#FFD400')
+    ImageDraw.Draw(T).text((tx + padx - b[0], ty + pady - b[1]), L2, font=f, fill='#0A0A0A')
+    im = Image.alpha_composite(im, shadow(T, 8, alpha=200))
+    im = Image.alpha_composite(im, T)
+    boxes.append((tx, ty, tx + w + 2 * padx, ty + h + 2 * pady))
+    return im, boxes
+
+
 def v2():
     """Small red label for the question, huge yellow 3D payoff line underneath."""
     im = top_dark(base(), 340, 230)
@@ -155,7 +176,7 @@ def v3():
 
 
 def build(k):
-    im, boxes = {'V1': v1, 'V2': v2, 'V3': v3}[k]()
+    im, boxes = {'V1': v1, 'V1b': v1b, 'V2': v2, 'V3': v3}[k]()
     out = OUT / f'RO37-C-{k}.jpg'
     im.convert('RGB').save(out, quality=95, subsampling=0)
     pp = B / f'picture-{k}.jpg'
@@ -175,5 +196,8 @@ def build(k):
 
 
 if __name__ == '__main__':
-    res = [build(k) for k in (sys.argv[1:] or ['V1', 'V2', 'V3'])]
-    (B / 'qc.json').write_text(json.dumps(res, indent=2) + '\n')
+    if sys.argv[1:2] == ['V1b']:  # build.py V1b [size] [top]
+        (B / 'qc-V1b.json').write_text(json.dumps([build('V1b')], indent=2) + '\n')
+    else:
+        res = [build(k) for k in (sys.argv[1:] or ['V1', 'V2', 'V3'])]
+        (B / 'qc.json').write_text(json.dumps(res, indent=2) + '\n')
