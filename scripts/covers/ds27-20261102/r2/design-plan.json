@@ -1,0 +1,31 @@
+{
+  "count": 4,
+  "copy": [
+    "Home Workouts",
+    "Skip The Commute"
+  ],
+  "real_photos_only": true,
+  "source_folder": "photos/finalized social media photos",
+  "designs": {
+    "1": {
+      "photo": "photo-38_FINAL_PRIMARY.jpg",
+      "action": "Kettlebell Deadlift",
+      "design": "White editorial header with oversized navy type and red underline; tall natural photograph."
+    },
+    "2": {
+      "photo": "photo-74_FINAL_PRIMARY-A.jpg",
+      "action": "Jump Rope",
+      "design": "Full-height poolside photograph, warm orange title slab and offset white type."
+    },
+    "3": {
+      "photo": "photo-63_FINAL_PRIMARY.jpg",
+      "action": "Decline Push-Up",
+      "design": "Navy poster, wide exercise hero preserving the entire movement, large stacked white/cyan headline."
+    },
+    "4": {
+      "photo": "photo-49_FINAL_PRIMARY.jpg",
+      "action": "Medicine Ball",
+      "design": "Bright yellow header, black condensed headline, white subtitle ribbon and large natural photograph."
+    }
+  }
+}

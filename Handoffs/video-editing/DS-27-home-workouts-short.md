@@ -4,7 +4,7 @@
 
 ## Setup phase, November2,2026
 
-Dan approved the exact full R2 film and authorized setup. Eight cover pairs await selection at http://127.0.0.1:9958/. Final master/subtitles backed up locally, Extreme and canonical Drive with hashes verified. Metadata draft and pinned question prepared. No publishing upload or release schedule yet. Continue in this chat after the X-number pick. Receipt:`Docs/DS27_SETUP_RECEIPT_20261102.md`.
+Dan approved the exact full R2 film and authorized setup. Initial covers rejected. Four real exercise-photo designs now await selection at http://127.0.0.1:9958/?cover_round=2. Final master/subtitles backed up locally, Extreme and canonical Drive with hashes verified. Metadata draft and pinned question prepared. No publishing upload or release schedule yet. Continue in this chat after the X-number pick. Receipt:`Docs/DS27_SETUP_RECEIPT_20261102.md`.
 
 ## Source (9/23 shoot)
 Folder: `/Volumes/Extreme/dan rose fitness 9:23 shoot - vsls, long form content, short form content/`

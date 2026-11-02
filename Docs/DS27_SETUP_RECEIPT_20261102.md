@@ -6,7 +6,11 @@ Status: film approved; cover choices awaiting Dan. No publishing upload or sched
 
 Dan: "Okay this is approved. Proceed to setup". Exact R2 master SHA256: `2b67b02fb7eb2bf4f911dcb7c3cbf7dce1dd5cc55317dc859357becb5ed130a6`. Duration61.428s,1080x1920,Colour B,Gentle Bass. The historical full delivery gate remains FAIL, preserved; owner approval is recorded separately and is not a fabricated gate pass. Original film and approved assets unchanged.
 
-## Cover review
+## Cover revision, November2,2026
+
+Dan rejected the initial eight and requested exactly four unique designs using four unique real home-workout photos or touched-up screenshots. This replaces the initial mix for this job. R2 uses four original finalized photographs from his real pool shoot: kettlebell deadlift, jump rope, decline push-up and overhead medicine ball. All face/body pixels remain original, with crop/resize and graphics only. No image generation, no screenshot substitution and no new spend. Review stays at http://127.0.0.1:9958/, now labelled1-4, with separate Instagram/YouTube layouts and profile crops. Earlier choices and their private provenance are preserved as rejected. No cover approval or publishing schedule yet.
+
+## Historical initial cover review
 
 [Eight paired cover choices](http://127.0.0.1:9958/),X1 throughX8. Each has Instagram,YouTube Shorts and profile-grid views. All16 exported layouts are1080x1920RGB, text clears the expanded face/hair regions, no text/person overlap, safe bounds; every YouTube JPEG is under2MB. All source faces, paired finals and profile crops were visually inspected. One background seam was covered fully by its headline panel before delivery. Real-photo choice retains original face/body pixels. Cover provenance and shuffled source key remain private in the ignored review folder. No cover is approved yet.
 
