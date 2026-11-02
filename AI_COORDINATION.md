@@ -28,7 +28,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO23:REVIEW:2026-11-01:Codex.** [Four-split-thumbnails](http://127.0.0.1:9881/) await-pick;push-blocked:live-salad.
 
 
-**DS-63 WAITING 2026-11-01, Codex01a1998f.** First in line. Auto-resume armed. No production. Next: acquire slot.
+**DS-63 ACTIVE 2026-11-01, Codex01a1998f.** Slot acquired; resume timer removed. Next: source checks and first-round look/voice/asset packet.
 
 **SRM Website REVIEW 2026-11-01, Claude.** Nothing published. Next: Dan's notes. `sites/srm/PLAN.md`
 
@@ -82,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFL Setup (SL-10) REVIEW 2026-11-01, Claude.** [Covers](http://127.0.0.1:9652/) await Dan's four picks; nothing uploaded. Dec 24 and 25 planned. `Docs/SL10_COVER_REVIEW_20261101.md`
+**Alcohol And Abs SFL Setup (SL-10) REVIEW 2026-11-01, Claude.** Wine, Taste Bad waitlisted Dec 24. [Two revised covers](http://127.0.0.1:9653/) await Dan; Urge, 3 Hours held for Dec 25. `Docs/SL10_COVER_REVIEW_20261101.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 

@@ -1,6 +1,8 @@
 # Alcohol And Abs SFL Setup (SL-10): cover review, 2026-11-01
 
-Status: **awaiting Dan's four picks.** Nothing uploaded or scheduled. Review page: http://127.0.0.1:9652/ (managed review service).
+Status: **two covers approved, two revisions await Dan.** Round 1 page: http://127.0.0.1:9652/ . Round 2 page: http://127.0.0.1:9653/ .
+
+Dan's picks 2026-11-01: Your Nightly Wine X2 and Your Drinks Should Taste Bad X5 (media uploaded and hash-checked, configs written, on the shared waitlist). His pen note named Drinks Taste Bad but X6 and X7 are the What Killed My Urge To Drink pictures, and his clock note named What Killed My Urge but fits Stop Drinking 3 Hours Before Bed, whose eight he therefore treated as rejected. Read that way and said so in chat. Revisions are a stop point: nothing carrying them is installed until he approves the exact file.
 
 - Films: the four approved masters, hashes re-checked against the handoff. Copies: Extreme `Short-form video content/Alcohol And Abs - SL-10/` (SHA-256 match) and [Google Drive](https://drive.google.com/open?id=1t0OUdc4jHBG9grA1vunikZALgqjuaCEZ) (MD5 match, anyone with the link).
 - Covers: eight per Short, shuffled, neutral X labels. One real studio photo per Short with original person pixels. Blind sets and keys: `Short-form video content/covers/review/sl10-alcohol-20261101/s1..s4/`. Never show the key.

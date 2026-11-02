@@ -6,9 +6,10 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageOps
 from build import BUILT, OUT, PM, W, H, SHORTS, LETTERS
 rows = []; sheet_faces = []
-for s in SHORTS:
+for s in ('s3', 's4'):
     m = json.loads((BUILT/s/'manifest.json').read_text())
     for row in m['outputs']:
+        if row['letter'] not in ('IJKL' if s == 's3' else 'PQ' if s == 's4' else ''): continue
         d = BUILT/s/row['letter']; pf = row['platform']; p = d/f'{pf}.png'; pic = d/f'{pf}.picture.png'; mask = d/f'{pf}.person-mask.png'
         r = subprocess.run([str(PM), str(pic), str(mask)], capture_output=True, text=True, check=True); faces = json.loads(r.stdout)['faces']
         tm = np.array(Image.open(d/f'{pf}.text-mask.png')) > 0; im = Image.open(p)
@@ -24,9 +25,9 @@ for s in SHORTS:
         if pf == 'youtube': ok = ok and p.with_suffix('.jpg').stat().st_size < 2_000_000
         rows.append(dict(s=s, letter=row['letter'], platform=pf, safe=safe, faces=len(faces), hits=hits, passed=ok))
 bad = [r for r in rows if not r['passed']]
-(OUT/'cover-checks.json').write_text(json.dumps(dict(all_passed=not bad, rows=rows), indent=1))
+(OUT/'cover-checks-r2.json').write_text(json.dumps(dict(all_passed=not bad, rows=rows), indent=1))
 print(len(rows), 'checked;', len(bad), 'failed'); print(*bad, sep='\n')
 n = len(sheet_faces); cols = 10; sh = Image.new('RGB', (cols*180, (n//cols+1)*230), '#253044'); dr = ImageDraw.Draw(sh)
 for i, (t, f) in enumerate(sheet_faces):
     x, y = (i % cols)*180, (i//cols)*230; sh.paste(f, (x+5, y+22)); dr.text((x+5, y+5), t, fill='white')
-sh.save(OUT/'face-check.jpg', quality=92)
+sh.save(OUT/'face-check-r2.jpg', quality=92)

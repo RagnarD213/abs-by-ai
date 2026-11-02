@@ -717,5 +717,33 @@
   "planned": "2026-12-30 09:00",
   "kitchen": false,
   "note": "Film R4 and round 2 thumbnail X5 approved. All four uploaded assets downloaded and hash-verified. Queue needs four free slots. Keep Wed Dec 30 9 AM Central; other platforms Thu Dec 31 noon. Receipt Docs/RO21_SETUP_RECEIPT_20261101.md."
+ },
+ {
+  "config": "scripts/blotato/configs/sl10-short2-your-nightly-wine-is-killing-your-abs.json",
+  "kind": "short",
+  "job": "SL-10 short 2",
+  "label": "Your Nightly Wine Is Killing Your Abs",
+  "added": "2026-11-01",
+  "parent_config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "after": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio",
+  "planned": "2026-12-24 09:00",
+  "note": "Cover approved, four uploads hash-verified. Saved slot after RO-13 Dec 20."
+ },
+ {
+  "config": "scripts/blotato/configs/sl10-short1-your-drinks-should-taste-bad.json",
+  "kind": "short",
+  "job": "SL-10 short 1",
+  "label": "Your Drinks Should Taste Bad",
+  "added": "2026-11-01",
+  "parent_config": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "after": "scripts/blotato/configs/ro13-alcohol-and-abs.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio",
+  "planned": "2026-12-24 18:00",
+  "note": "Cover approved, four uploads hash-verified. Saved slot after RO-13 Dec 20."
  }
 ]

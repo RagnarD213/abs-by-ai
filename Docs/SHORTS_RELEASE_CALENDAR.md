@@ -73,10 +73,10 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Mon Dec 21 | 2 | 6 PM | Why I Stopped Drinking Coconut Water (DS-49) | Waitlist |
 | Tue Dec 22 | 2 | 9 AM | Bill Maher Says Fat Shaming Should Come Back (DS-36, needs editing, approved by Dec 11) | Not booked |
 | Tue Dec 22 | 2 | 6 PM | Terry Crews Doesn't Eat Until 2 PM (DS-43) | Waitlist |
-| Thu Dec 24 | 2 | 9 AM | OPEN | Not booked |
-| Thu Dec 24 | 2 | 6 PM | OPEN | Not booked |
-| Fri Dec 25 | 2 | 9 AM | OPEN | Not booked |
-| Fri Dec 25 | 2 | 6 PM | OPEN | Not booked |
+| Thu Dec 24 | 2 | 9 AM | Your Nightly Wine Is Killing Your Abs (SL-10) | Waitlist |
+| Thu Dec 24 | 2 | 6 PM | Your Drinks Should Taste Bad (SL-10) | Waitlist |
+| Fri Dec 25 | 2 | 9 AM | What Killed My Urge To Drink (SL-10, cover revision awaiting Dan) | Not booked |
+| Fri Dec 25 | 2 | 6 PM | Stop Drinking 3 Hours Before Bed (SL-10, cover revision awaiting Dan) | Not booked |
 | Sat Dec 26 | 3 | 9 AM | How To Do Pull-Ups The Right Way (DS-76, gym) | Live |
 | Sat Dec 26 | 3 | 6 PM | Wear A Mouthpiece When You Work Out (DS-105) | Waitlist |
 | Mon Dec 28 | 3 | 9 AM | Belly Fat 1: Stop Trying To Lose 1 Pound A Week | Waitlist |

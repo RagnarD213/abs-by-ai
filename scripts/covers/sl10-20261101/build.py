@@ -34,11 +34,12 @@ SHORTS = {
                copy=['What Killed My', 'Urge To Drink'], bottom=['What Killed', 'My Urge', 'To Drink'], cutout='studio-blue-169',
                layouts=dict(F='yellow', G='white', H='gold')),
 }
-LETTERS = 'ABCDEFGH'
-BASE = dict(A='yellow', B='white', C='navy', D='bottom', E='gold')
+# I to L: round 2, Dan's four clock images. P: his pick with the pen swapped in.
+LETTERS = 'ABCDEFGHIJKLPQ'
+BASE = dict(A='yellow', B='white', C='navy', D='bottom', E='gold', I='yellow', J='yellow', K='yellow', L='yellow', P='yellow', Q='yellow')
 D_BG = (4, 10, 18)
-# (short, letter): person_top override as a row on the 1080-wide picture, for party plates whose friends stand taller than Dan.
-HAIR_ROW = {}
+# (short, letter): person_top override as a row on the 1080-wide picture.
+HAIR_ROW = {('s3', 'J'): 520, ('s3', 'K'): 490, ('s3', 'L'): 540}   # the clock's top row: the band must clear the clock, not just his hair
 # (short, letter): picture zoom for the bottom layout.
 BOTTOM_ZOOM = {('s2', 'D'): 0.92, ('s3', 'D'): 0.86}
 # Short: where the real cutout's head starts (Instagram, YouTube), so it clears the props on the plate.
@@ -135,7 +136,7 @@ def picture(s, k, layout, platform):
             for row in range(0, min(H, y0+120)): a[row, :, 3] = max(a[row, 0, 3], round(255*max(0, 1-(row-y0)/120)) if row >= y0 else 255)
         out.alpha_composite(Image.fromarray(a))
         return out, info
-    if platform == 'youtube' and k != 'C':
+    if platform == 'youtube' and k not in 'CIJKL':   # the clock images keep their full width
         f = 1.12; top0 = HAIR_ROW.get((s, k)) or person_top(im); target = 90+(350 if layout in ('white', 'gold') else 355)
         off = min(H*(1-1/f), max(0, top0-target/f)); cw = W/f
         im = im.crop((round(W/2-cw/2), round(off), round(W/2+cw/2), round(off+H/f))).resize((W, H), Image.Resampling.LANCZOS)

@@ -1236,5 +1236,25 @@
   "approved": "Dan approved X5 on 2026-11-01",
   "sha256": "299dd06717d7b345086c1eff77ddd673495cb435bf5d6d6a9a915bb83519ef6d",
   "when": "2026-12-31T18:00:00.000Z"
+ },
+ {
+  "job": "SL-10 short 2",
+  "match": "The nightly glass of wine is the one people defend the hardest.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl10/Instagram_alcohol-short2_your-nightly-wine-is-killing-your-abs_cover.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan picked on 2026-11-01: For \"Your nightly wine is killing your abs,\" let's go with X2.",
+  "sha256": "5311e1595205086008fc585cb8feeb0f231d0b9c85503ddf7b43fecfb258e0bf",
+  "when": "2026-12-24T15:00:00.000Z"
+ },
+ {
+  "job": "SL-10 short 1",
+  "match": "When you drink alcohol, it should taste bad.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl10/Instagram_alcohol-short1_your-drinks-should-taste-bad_cover.png",
+  "w": 1080,
+  "h": 1920,
+  "approved": "Dan picked on 2026-11-01: For \"Your drinks taste bad,\" let's go with X5.",
+  "sha256": "657dc5ec29b69ee20eb0c4e0fb108f62ca0f1c447af7f20b27bdfbf539762534",
+  "when": "2026-12-25T00:00:00.000Z"
  }
 ]
