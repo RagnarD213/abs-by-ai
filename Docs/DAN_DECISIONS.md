@@ -26,7 +26,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Original setup chat checked November 2: no pick recorded. Gemini R3 replacement verified on project, Extreme and Drive. Cover pick is the only Dan decision before remaining setup; proposed Nov23 9AM Central slot from current request. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
+- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Choose 1-4 from the real-screenshot designs](http://127.0.0.1:9285/?revision=2), both layouts shown with original-versus-touched-up screenshots. A-E rejected. Gemini R3 and all backups verified; cover pick required before remaining setup. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 
