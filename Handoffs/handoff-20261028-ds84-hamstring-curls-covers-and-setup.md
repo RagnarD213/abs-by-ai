@@ -2,6 +2,10 @@ CONTENT (SFC). How To Do Hamstring Curls SFC Setup.
 
 # DS-84: approved R3, covers and organic setup
 
+**Current execution update, 2026-11-02:** Dan superseded the Codex R3 with Gemini R3 (Best of Both), SHA256 `de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9`, 44,597,969 bytes, same 1,663 frames and SRT. Project, Extreme and public Drive copies are fully hash-verified. Approval/receipts now point to Gemini; historical Codex QA below applies only to the superseded hash. Existing five cover pairs still await an actual selection. Original setup chat checked: no pick recorded. Proposed slot authorized in current request: Mon Nov23 2026 9AM Central; re-read live queue after pick and use shared waitlist if fewer than four slots. Current receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`. Do not restart cover generation or use the old master.
+
+**Historical specification below, superseded where noted above.**
+
 **Execution started 2026-10-28 in Codex at Dan's request.** Five paired covers now await Dan's pick: http://127.0.0.1:9285/ . Current state: `Docs/DS84_COVER_REVIEW_20261028.md`. No upload or release booked. The original handoff below is retained as the execution specification.
 
 **Ready to start now. One Claude setup task, Opus 5.5, high effort.** This handoff has not been executed. No new chat was started. **Use the Codex subscription to generate the images.** The supported image-helper baseline on this client is `gpt-6.1-sol`, high; verify the newest supported stable Sol in the execution client before generation. Keep all cover work inside this one setup task.

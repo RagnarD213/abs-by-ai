@@ -8,7 +8,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 ---
 
 
-- **Zepbound Free SFC R1 (2026-11-01; Decision since: 2026-11-01):** [Review outdoor choices](http://127.0.0.1:9290/). Choose colour, voice, crop and compact 63.4 seconds versus the longer complete script. Recommend colour B, voice B, crop 1 and 63.4 seconds. Full Short not yet built. DS-52.
 
 
 
@@ -27,7 +26,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
-- **Hamstring Curls covers (2026-10-28; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Recommendation A. R3 remains unchanged. Backup, uploads and scheduling follow the pick; release date still needs resolution. `Docs/DS84_COVER_REVIEW_20261028.md`.
+- **Hamstring Curls covers (updated 2026-11-02; Decision since: 2026-10-28):** [Review A-E in both layouts](http://127.0.0.1:9285/) and choose one. Original setup chat checked November 2: no pick recorded. Gemini R3 replacement verified on project, Extreme and Drive. Cover pick is the only Dan decision before remaining setup; proposed Nov23 9AM Central slot from current request. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 
@@ -129,3 +128,5 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
+
+- **Dr Mike Dial SFC R2 (2026-11-01; Decision since: 2026-11-01):** [Compare both full cuts](http://127.0.0.1:9187/) and choose scripted (63.8 seconds) or off the cuff (84.0 seconds), with any changes. Recommend scripted for tighter delivery. Both rendered and independently reviewed; raw automated flags documented. Warm colour, House Bass and R5 retained. Full masters in `Videos to Review/`. Neither approved, uploaded nor scheduled. DS-37.

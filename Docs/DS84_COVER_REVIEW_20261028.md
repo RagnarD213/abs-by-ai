@@ -1,14 +1,14 @@
 CONTENT (SFC). DS-84 How To Do Hamstring Curls. Cover review and setup in progress.
 
-Updated: 2026-10-28T08:57:34.513204-05:00
+Updated: 2026-11-02, America/Chicago
 
 Review: http://127.0.0.1:9285/
-Status: awaiting Dan's A/B/C/D/E pick. No pick inferred. No backup upload, media/cover platform upload, waitlist entry or release booking made by this task.
+Status: awaiting Dan's A/B/C/D/E pick. Original setup chat 01a182c1-fd4f-7360-9aa5-f54901335fba was checked on November 2: its only turn ends awaiting a pick; no later selection found in saved cover/approval records. No pick inferred. Project, Extreme and Google Drive replacement master/SRT are verified. No Blotato media/cover upload, waitlist entry or release booking made.
 
 Approved film preserved
-- Master SHA256 5c235f7d2f32c0302002bd9bfdd320358cc7899518ee246e96cb0457b325b85e, 43,160,314 bytes. Project and Extreme master/SRT hashes reverified; exact evidence in cover review master-verification.json.
+- Gemini R3 (Best of Both) master SHA256 de0e83f5e69bd000d83beb1f22ed0593510b670fe5db2bfe85e5983bca73d0c9, 44,597,969 bytes. Project, Extreme and Google Drive master/SRT hashes verified; exact evidence in cover review master-verification.json and replacement-20261102.json. Google Drive full remote bytes were streamed through SHA-256; MP4 44,597,969 bytes and SRT 2,848 bytes match. Public backup folder: https://drive.google.com/open?id=1mk8YUexMVihFG_FgP6iCPttEyE7nN195 .
 - SRT SHA256 822b8ff2fdb43a8864265cd80fbbd63cfa93e5fdcef90959ba6e695ff7e62c76.
-- Original delivery gate remains FAIL (2.6.1), with the recorded independent adjudication. No stamp, threshold, audio, crop or approved film changed. Dan's full-film approval remains separate from numerical gate status.
+- Historical Codex R3 gate remains FAIL (2.6.1) on the superseded 5c235f7d hash and is retained with its adjudication. It is not evidence for the newly approved Gemini R3. No Gemini R3 full delivery-gate stamp was found or run in this setup phase. Setup verified identity, duration/frame count, captions and copies; no new audible or creative review claimed.
 - Ending from exact R3 SRT: "Subscribe to my channel and go to sixpackabs.com for all my newest videos." Organic dedicated Short; realistic AI video footage false. AI cover alone does not change this flag.
 
 Five concepts, ten exact layouts
@@ -26,9 +26,9 @@ Files: Short-form video content/covers/review/ds84-hamstring-curls-20261028/ds84
 Review verified: managed service on port 9285, actual browser screenshot browser-review.png, all ten served output hashes match, page HTTP200 and image range HTTP206. Service starts on demand and caches its 17 linked page files. No film review or new film approval requested.
 
 Release status
-Live Blotato fetched read-only in this task: 189 schedules. Snapshot: cover review live-schedules-readonly.json. Current calendar and shared waiting list reserve all remaining 2026 dedicated Thursdays, and finished DS jobs occupy Jan7-Feb25 2027. DS-20 separately awaits a March4/Dec10 choice; its pending proposal is not a DS-84 reservation. No date is approved for DS-84. After the cover pick, re-read live schedules, current calendar, waitlist and DS-20 resolution, then present one concrete compliant date/order choice before booking. Never displace another film silently.
+Live Blotato fetched read-only November 2: 199 schedules at first check, 195 by guard scan as releases occurred; no DS-84/Hamstring Curls schedule. Shared video_waitlist.json contains no matching entry. Snapshot: live-schedules-readonly-20261102.json. Current calendar proposes Monday November 23, 2026, 9 AM America/Chicago (15:00Z), with no live same-minute booking at the first check. The user's November 2 setup request authorizes that slot or next compliant non-kitchen Short slot; the October 28 Thursday-only conflict is superseded. Re-read capacity and slots after pick; use shared waitlist if fewer than four slots. No booking claimed.
 
 Next action
-Record Dan's exact pick and hashes, then complete Drive master/SRT backup under Short-form video content/DS-84 How To Do Hamstring Curls/, verify bytes and folder link, prepare approved cover/media/TikTok cover-first copy, write packaging with pinned topic question through maintained voice workflow, then use maintained organic_short_queue.py/client and shared cover audits. Resolve date before booking and read all saved schedules back. Queue job remains finalized. Do not resume dispatcher/capacity heartbeat. No Victory Dashboard access.
+Record Dan's exact pick and hashes, then prepare approved cover/media/TikTok cover-first copy using Gemini R3 de0e83f5, write packaging with pinned topic question through maintained voice workflow, register Facebook cover in repository and installer, upload/hash-verify all four assets, then use maintained organic_short_queue.py/client and shared cover audits. Re-read the November 23 slot and queue/waitlist state before scheduling. Drive master/SRT backup is already complete. Remove this video's temporary Videos to Review copies once filing and setup are verified. Queue job remains finalized. Do not resume dispatcher/capacity heartbeat. No Victory Dashboard access.
 
 Implementation: scripts/covers/ds84-20261028/ (prompts, design plan, generation, adapted paired builder, exact-file checker and review-page builder).
