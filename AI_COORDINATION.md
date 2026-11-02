@@ -30,7 +30,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
 
 
-**DS-63 REVIEW 2026-11-01, Codex01a1998f.** http://127.0.0.1:9293/ . Await colour/voice/assets picks; full42s unbuilt. Sound warnings retained. Git push bba4584 blocked by live edits; retry after owners finish.
+**DS-63 REVIEW 2026-11-01, Codex01a1998f.** http://127.0.0.1:9293/ . Await colour/voice/assets picks; full42s unbuilt. Sound warnings retained. Git push blocked by live edits.
 
 **SRM Website REVIEW 2026-11-01, Claude.** Three mockups await pick; unpublished. `sites/srm/PLAN.md`
 
