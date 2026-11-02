@@ -82,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Upwork client plan PUSH-PENDING 2026-10-29, Claude.** Merged plan and handoff pushed. Commit 20c982d (decision-template example plus memory) is local; live BLOTATO_QUEUE_PROGRESS.md and jobs.json blocked the push, and the next safe-push carries it. Then delete this entry.
 
-**Alcohol And Abs SFL Setup (SL-10) REVIEW 2026-11-01, Claude.** Wine, Taste Bad waitlisted Dec 24. [Two revised covers](http://127.0.0.1:9653/) await Dan; Urge, 3 Hours held for Dec 25. `Docs/SL10_COVER_REVIEW_20261101.md`
+**SL-10 Setup REVIEW 2026-11-01, Claude.** Two waitlisted; [two covers](http://127.0.0.1:9653/) await Dan. fef21aa push-pending. `Docs/SL10_COVER_REVIEW_20261101.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
