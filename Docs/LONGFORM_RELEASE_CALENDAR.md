@@ -46,7 +46,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Fri Jan 1 | 3 | RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time | Queued 11-02 (Blotato 6389292; socials Jan 2) |
 | Sun Jan 3 | 3 | Why You're Not Losing Weight | Live |
 | Wed Jan 6 | 3 | Arms & Shoulders Workout Only | Waitlist |
-| Fri Jan 8 | 3 | RO-38 The 5 Muscles Women Notice First (needs editing; Quitter's Day) | Not booked |
+| Fri Jan 8 | 3 | RO-38 The 5 Muscles Women Notice First (Quitter's Day) | Queued 11-03 (Blotato 6424362; socials Jan 9) |
 | Sun Jan 10 | 3 | RO-30 The Fastest Way To Lose Stubborn Love Handles (film and R3 middle thumbnail approved) | Waitlist; Jan 10 reserved, four queue slots needed |
 | Wed Jan 13 | 3 | How To Make Time For Exercise & Nutrition | Waitlist |
 | Fri Jan 15 | 3 | The Stomach Vacuum | Live |

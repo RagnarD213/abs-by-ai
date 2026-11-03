@@ -1328,5 +1328,26 @@
   "when": "2026-12-30T00:00:00.000Z",
   "cover_pick": "X3",
   "cover_sha256": "27b1406410d364211016dec0d31cc4688f143cef13da9c3aac2802c9c888699f"
+ },
+ {
+  "match": "If you're too busy to work out, cancel your gym membership.",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds27/home-workouts-instagram.png",
+  "w": 1080,
+  "h": 1920,
+  "job": "DS-27",
+  "when": "2027-01-01T00:00:00.000Z",
+  "cover_pick": "R2 design2",
+  "cover_sha256": "d3fd5490cd7104ed6fa6633c86143e53539c2457d99d44a76d2bff2937199df1"
+ },
+ {
+  "job": "RO-38",
+  "slug": "ro38-five-muscles-women-notice",
+  "match": "These are the five muscles that are the most important for attracting women, and how to build each one.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan picked V5 on 2026-11-03: \"Let's go with V5.\"",
+  "sha256": "f9637f7a27adef31d0051d45e8d70b9290dbbb2a3d73a963d77a6238d7d58063",
+  "when": "2027-01-09T18:00:00.000Z",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Five Muscles Women Notice/Five Muscles Women Notice - thumbnail FINAL.jpg"
  }
 ]
