@@ -7,6 +7,14 @@
 
 Cover choices are ready for Dan at http://127.0.0.1:8994/ (X1 to X8 per Short, Instagram and YouTube layouts). HQ exports are still awaited: latest Upwork message is Dan’s HQ request; actual shared HD-folder listing has neither film. Both local V2 baseline hashes match. No upload, waitlist placement or scheduling. Continue in the current setup chat after picks and HQ arrival. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
+## HQ exports arrived, November 3, 2026
+Muhammad sent both HD files on 2026-11-03 7:51 AM. Verified against the approved V2 copies: same frame count (1346 / 1343) and duration to the microsecond, frame subtraction at 540x960 averages 1.6 (DS-15) and 2.2 (DS-19) of 255 with no sustained change, so encoding noise only.
+| Short | HD file | Drive id | md5 | Bitrate | Audio |
+|---|---|---|---|---|---|
+| DS-15 | `/Volumes/Extreme/_edit_work/revisions-20261103/muhammad/dl/ds15_hd.mp4` | `1AS1IAA-Php3CpBKOpcI3abQWKX1_kcZv` | aa5d5a216c1ddf34c288978f1645a1fc | 21.5 Mbps | -13.0 LUFS, sample peak +1.8 dBFS (V2 was +0.2 dBTP) |
+| DS-19 | `/Volumes/Extreme/_edit_work/revisions-20261103/muhammad/dl/ds19_hd.mp4` | `1EeJgPr4n8o_P5r-3-UCDyDdH80_LG5Fd` | 572d9a53f05293afd6f36483ba40e354 | 11.0 Mbps | -14.4 LUFS, -0.9 dBFS |
+Step 1 can go: file these, then continue with Dan's cover picks.
+
 ## Approval
 Dan finalized both on 2026-11-02 in the live revision doc `1O4wKkCN0ZtNTRd3Q4tfgC2ipqCnDjGjzauyFIDUiuxk`
 ("APPROVED - FINALIZED - READY FOR HQ EXPORT" / "FINALIZED - APPROVED - READY FOR HQ EXPORT"), accepting the V2 cuts as they are.
@@ -33,7 +41,7 @@ The HQ export must match these cuts frame for frame (compare duration and sample
 4. Edit queue: DS-15 and DS-19 `uploaded` only after the queue read-back. Save a setup receipt in `Docs/`.
 
 ## Not in this handoff
-How To Lose The Last Ten Pounds Of Fat (DS-16) still has a round with Muhammad (AI opener, missing key point, last word, label, captions).
+How To Lose The Last Ten Pounds Of Fat (DS-16): V3 drafted FINALIZED 2026-11-03; its own setup handoff is `handoff-20261103-last-ten-pounds-sfc-setup.md`.
 
 ## Starter prompt
 > Jiu Jitsu And Battle Ropes SFC Setup. Read `Handoffs/handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md` and execute it: Muhammad's two finalized Shorts (Does Jiu Jitsu Get You Abs?, How To Use Battle Ropes). Check for his HQ exports first and verify them against the approved V2 cuts, five covers each (use the Codex subscription to generate the images), stop for my picks, then queue both in Blotato or the waiting list.
