@@ -1,0 +1,91 @@
+[
+  {
+    "id": "protein-study-r2",
+    "dur": 11.7,
+    "drift": -3,
+    "canvas": [
+      1080,
+      1610
+    ],
+    "line_px": 62,
+    "accent": [
+      80,
+      85,
+      78
+    ],
+    "eyebrow": {
+      "x": 80,
+      "y": 118,
+      "px": 30,
+      "s": "MCMASTER, 2016"
+    },
+    "lines": [
+      {
+        "x": 76,
+        "y": 210,
+        "s": "Same Calories.",
+        "at": 0.1
+      },
+      {
+        "x": 76,
+        "y": 290,
+        "s": "Different Results.",
+        "at": 0.1
+      },
+      {
+        "x": 80,
+        "y": 390,
+        "s": "High Protein",
+        "at": 0.35,
+        "px": 48
+      },
+      {
+        "x": 80,
+        "y": 760,
+        "s": "Low Protein",
+        "at": 5.7,
+        "px": 48
+      }
+    ],
+    "rows": [
+      {
+        "x": 80,
+        "y": 485,
+        "w": 920,
+        "h": 100,
+        "s": "10.5 lbs. Fat Loss",
+        "t": 1.64,
+        "marker": "\u2022"
+      },
+      {
+        "x": 80,
+        "y": 610,
+        "w": 920,
+        "h": 100,
+        "s": "2.5 lbs. Muscle Gain",
+        "t": 3.94,
+        "marker": "\u2022"
+      },
+      {
+        "x": 80,
+        "y": 845,
+        "w": 920,
+        "h": 100,
+        "s": "8 lbs. Fat Loss",
+        "t": 7.44,
+        "marker": "\u2022"
+      },
+      {
+        "x": 80,
+        "y": 970,
+        "w": 920,
+        "h": 100,
+        "s": "No Muscle Gain",
+        "t": 8.84,
+        "marker": "\u2022"
+      }
+    ],
+    "row_px": 42,
+    "row_ty": 23
+  }
+]

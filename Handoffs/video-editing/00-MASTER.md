@@ -301,7 +301,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6; Shorts held until parent is public) | **NEEDS DAN** | S |
-| [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | IN PROGRESS | S |
+| [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | DELIVERED: awaiting Dan | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Fri Dec 4; 2 Shorts, Dan picked A and C; Dec 5 and Dec 8 6 PM) | UPLOADED | S |
 | [SL-16](SL-16-intermittent-fasting-shorts.md) | Intermittent Fasting: The Best Way To Get Abs (RO-08, Fri Nov 27 under the 2026-10-28 plan; Shorts Nov 28, Dec 1, Dec 7, Dec 12 6 PM on the waiting list, setup done 10-27) | FINALIZED | S |
