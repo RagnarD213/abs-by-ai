@@ -116,3 +116,5 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   member screens; lock-in → sliders → trial CTA and locked result → analysis → unlock; iOS sandbox Restore purchases
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
+
+- **SL-12 Keep Your Muscle R2 (2026-11-03; Decision since: 2026-11-02):** [Review B and A voice auditions](http://127.0.0.1:9954/round2/). B complete and checked, awaiting approval. Choose A voice1(recommended) or2 and approve/revise the new AI B-roll endpoint frames before motion. A is not fully assembled; no upload/schedule; parent-public Dec6 hold.

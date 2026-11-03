@@ -2,7 +2,7 @@ CONTENT | Keep Your Muscle SFC R1 | SL-12
 
 # Segment shortlist, November 2, 2026
 
-Status: Dan selected A and B only on November 2, 2026. A's opening is approved as: "Here's why lifting weights is mandatory if you're taking weight loss medication." Recording pending. Checked graphics/footage excerpts await Dan at http://127.0.0.1:9954/. No final Shorts rendered, approved, uploaded or scheduled.
+Status: R2 delivered for review November 3. B complete and checked,39-check delivery gatePASS; A AI voice auditions ready. New AI B-roll frames checked, Dan frame approval pending before motion. Review: http://127.0.0.1:9954/round2/ No full A, uploads or scheduling.
 
 Read: Handoffs/video-editing/00-RULES.md; SL-12-keep-your-muscle-shorts.md; shared VIDEO-RULES.md in full; /shorts SKILL.md in full.
 
@@ -79,3 +79,13 @@ The queue was claimed by Codex and its Drive status read back successfully. Arti
 Review: http://127.0.0.1:9954/. Four native portrait context excerpts were rendered, technically checked, and independently inspected with no remaining visible defects. A opening is a silent visual sample because the approved sentence still needs a studio recording. Source audio in the other previews measures correlation above 0.99996 against the approved mix; no audible listen is claimed. Full delivery gates remain pending on the future assembled Shorts.
 
 Next: Dan reviews the proposed graphics and footage and records the exact A opening twice using `Docs/SL12_PICKUP.txt`. The shared video workflow says, "Render the complete film only after the opening treatment, graphics and clips are locked." The parent-public hold and no-upload boundary remain active.
+
+## November 2: R2 approval and AI voice override
+
+Dan: “These look good. Go ahead and finish B. Make an AI-generated clip imitating my voice. Put extra effort into that so that it turns out sounding as similar to me as possible.” He confirmed: “Yes, use it for A’s opening.” This explicitly overrides the R1 studio-recording requirement for this attempt; the exact opening words remain unchanged.
+
+R2 ownership journal and immutable approval hashes: `/Volumes/Extreme/_edit_work/SL-12/round2/round-controller.json` and `decisions.json`. Prior approved R1 media preserved. Six voice takes: fresh parent-reference MiniMax clone variants, prior clone, direct-reference Qwen, and two focused retries. Natural parent-reference take recommended; resemblance remains imperfect and needs Dan’s ear. Eight of ten model comparisons support qualitative judgment; two self-described simulated responses retained and excluded. Exact AAC opening-audition words and source correlations independently verified. New AI object-only start/end frames passed maintained gate and independent review; motion is not generated or authorized before Dan’s frame pick.
+
+B source455.20–489.1 keeps complete first/last words. Native independent checks corrected actual opening centering and crop steps at underlying picture boundaries. All rejected candidates and reports are preserved. Final full-file delivery check and review checkpoint recorded in R2 production notes.
+
+R2 delivered November3: http://127.0.0.1:9954/round2/ . B33.9005s/1016frames,39checksPASS and independent exact-file review clean. A voices1/2 are checked auditions over real approved footage, not complete A; recommended1. New AI motion is not generated. Owner player paused at0/sound-ready. Project copies in `Short-form video content/Keep Your Muscle - SL-12/`. Immutable R1 locks and R2 decisions reverified.

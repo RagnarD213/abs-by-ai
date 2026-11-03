@@ -113,7 +113,7 @@ def preview(q,cardpaths):
  if words:captions(words,d/'captions.ass')
  c=cfg_header(S,dur);hp=OUT/'hf'/'renders'/(c['id']+'.mov')
  # Per excerpt header files avoid a shorter reused header ending early.
- c['id']='header-'+ident;hp=OUT/'hf'/'renders'/(c['id']+'.mov')
+ c['id']='header-'+q.get('header_id',ident);hp=OUT/'hf'/'renders'/(c['id']+'.mov');header_ss=q.get('header_ss',1.5)
  if not hp.exists():
   # The shared 1.4 line boxes overlap inside a 310px header. Keep the same glyph positions with 1.0 boxes plus half-leading offsets.
   ht=OUT/'header.template.htm';ht.write_text((HF/'title-card/title-card.template.htm').read_text().replace('line-height: 1.4','line-height: 1.0').replace('id="lines"','id="lines" data-layout-allow-overlap="true"').replace('id="eyebrow"','id="eyebrow" data-layout-allow-overlap="true"').replace('height: 8px; border-radius: 3px','height: 36px; border-radius: 3px').replace('sp.textContent = w +', 'sp.setAttribute("data-layout-allow-overlap","true"); sp.textContent = w +'))
@@ -125,12 +125,12 @@ def preview(q,cardpaths):
  if q.get('picture_src'):args+=['-ss',str(q['picture_ss']),'-i',q['picture_src']]
  picture=("crop=724:1080:644:0,scale=1080:1610:flags=lanczos,eq=gamma=1.2:saturation=1.05" if q.get('intro') else "crop=1440:1080:480:0,scale=1080:810:flags=lanczos" if q.get('movement') else f"crop=724:1080:x='{cx_expr(a,a+dur)}':y=0:exact=1,scale=1080:1610:flags=lanczos")
  pi=2 if q.get('picture_src') else 0
- graph=f"[{pi}:v]setpts=PTS-STARTPTS,scale=in_color_matrix=bt709:in_range=tv,format=rgb24,{picture}[pic];[1:v]trim=start=1.5,setpts=PTS-STARTPTS,scale=in_color_matrix=bt601:in_range=tv,format=rgb24[bg];[bg][pic]overlay=0:310:eof_action=pass:shortest=1:format=rgb[base];"
+ graph=f"[{pi}:v]setpts=PTS-STARTPTS,scale=in_color_matrix=bt709:in_range=tv,format=rgb24,{picture}[pic];[1:v]trim=start={header_ss},setpts=PTS-STARTPTS,scale=in_color_matrix=bt601:in_range=tv,format=rgb24[bg];[bg][pic]overlay=0:310:eof_action=pass:shortest=1:format=rgb[base];"
  if q.get('card'):
   ca,cb=q['card'];ofs=ca-a
   graph+=f"[2:v]setpts=PTS-STARTPTS+{ofs}/TB,scale=in_color_matrix=bt601:in_range=tv,format=rgb24[card];[base][card]overlay=0:0:eof_action=pass:format=rgb:enable='between(t,{ofs:.6f},{cb-a:.6f})'[withcard];"
   # Cover the card's top with this Short's persistent header, keeping its identity throughout.
-  graph+="[1:v]trim=start=1.5,setpts=PTS-STARTPTS,crop=1080:310:0:0,scale=in_color_matrix=bt601:in_range=tv,format=rgb24[header];[withcard][header]overlay=0:0:shortest=1:format=rgb[composed];"
+  graph+=f"[1:v]trim=start={header_ss},setpts=PTS-STARTPTS,crop=1080:310:0:0,scale=in_color_matrix=bt601:in_range=tv,format=rgb24[header];[withcard][header]overlay=0:0:shortest=1:format=rgb[composed];"
   tag='composed'
  else:tag='base'
  graph+=f"[{tag}]ass='{d/'captions.ass'}',scale=out_color_matrix=bt709:out_range=tv,format=yuv420p[v]" if words else f'[{tag}]scale=out_color_matrix=bt709:out_range=tv,format=yuv420p[v]'
