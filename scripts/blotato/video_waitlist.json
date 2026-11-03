@@ -805,5 +805,17 @@
   "gym": false,
   "filming_set": "studio narration and pool demonstrations",
   "note": "R2 film and exact X3 cover pair approved; four uploads downloaded and hash-verified. Target Tue Dec29 6PM Central, next eligible unreserved slot. Shared daily top-up schedules all four when capacity opens; no parent."
+ },
+ {
+  "config": "scripts/blotato/configs/ds27-home-workouts.json",
+  "kind": "short",
+  "job": "DS-27",
+  "label": "Too Busy To Work Out? Cancel Your Gym Membership",
+  "added": "2026-11-02",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "poolside",
+  "planned": "2026-12-31 18:00",
+  "note": "Exact approved R2 full61.428s film; real-photo jump-rope cover2 approved. All4 media uploads downloaded and SHA256 verified. Planned Dec31 6PM America/Chicago, next eligible unreserved slot. No parent. Four platforms ready; shared daily top-up queues when room opens."
  }
 ]
