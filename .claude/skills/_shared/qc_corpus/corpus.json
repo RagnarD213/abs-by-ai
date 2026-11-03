@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4336,6 +4336,39 @@
       },
       "measured": "Dan approved exact fullR2. Genuine39-row gateFAIL only audio:stamp(selectedB tone/dryness) and captions:sync(three raw-verified ASR onset errors); other37rowsPASS/N/A. Native/phone129densecrowns plus843presenterframes safe;12boundaries independently inspected,0confirmedvisualdefects.",
       "notes": "Creative approval recorded separately from technical results. Existing mismatches remain calibration findings, not waived. No gate/reference/threshold or media change. No audible listening or continuous subjective watch claimed. Cover picks/platform setup still outstanding."
+    },
+    {
+      "id": "ds37-r4-approved-20261103",
+      "verdict": "approved",
+      "date": "2026-11-03",
+      "root": "repo",
+      "path": "Short-form video content/Dr Mike Dial SFC R4/Dr Mike Dial SFC R4 - final off the cuff.mp4",
+      "excerpt": [
+        0,
+        59.339
+      ],
+      "dan": "Okay this looks good. Proceed to setup",
+      "sha256": "92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41",
+      "bytes": 76144088,
+      "must_trigger": [],
+      "must_pass": [
+        "audio_gate:verbatim_level",
+        "framing:hair_top",
+        "cut:splice_visibility",
+        "captions:sync",
+        "junk:dead_air"
+      ],
+      "deliver": {
+        "format": "short",
+        "plan": "/Volumes/Expansion/_edit_work/DS-37/round4/gate-plan.json"
+      },
+      "measured": "35PASS4FAIL4NA0pending rawoverallFAIL preserved; all4flags adjudicated; freshcompleteindependentreview0confirmedrepairs;1110/1110currentfieldhairframesmin54px0invalid;nativecaptionaudit5flagfirstwordswithin0-60ms;expectedsizecutsandoriginalquotepauses. Audioauthorizedtempo-referencegatePASS.39actualQAimages+whole1080p/AAC+13nativeAVcontexts reviewed.",
+      "notes": "Creativeapprovalexplicit. RawfourTIGHTcalibrationfindings retained; no known_gap,bypass,gate/threshold/settings change. No new heavygate runs requested. No platformupload/scheduling yet.",
+      "gate_args": [
+        "--reference-mix",
+        "/Volumes/Expansion/_edit_work/DS-37/round4/source-finished-tempo.wav",
+        "--verbatim"
+      ]
     }
   ]
 }

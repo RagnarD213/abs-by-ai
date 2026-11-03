@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Dr Mike Dial SFC Setup](handoff-20261103-ds37-dr-mike-dial-sfc-setup.md): **Ready 2026-11-03. Claude Opus 5.5, high.** Exact59.3sR4 shortened offcuff approved; three backups verified, exact Drive link in handoff. Eight blind cover choices, stop for Dan’s pick, then packaging and Blotato queue/waitlist. Use the Codex subscription to generate the images. Setup not started.
+
 - [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Waiting 2026-11-03. Claude Opus 5.5, high.** "How To Lose The Last Ten Pounds Of Fat" (DS-16) V3 drafted finalized; needs Dan's OK and Muhammad's HQ export, then covers and queue.
 - [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Both cover sets checked and shown; awaits Dan’s X picks and Muhammad’s HQ exports, then verified backups and queue. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
@@ -23,7 +25,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Cortisol Belly LFC Setup](handoff-20261101-ro29-cortisol-belly-thumbnails-and-video-setup.md): **Ready 2026-11-01. Claude Opus 5.5, high.** "Cortisol Belly Is Real, But TikTok Has It Wrong" (RO-29) R3 approved. Thumbnails, Dan's pick, then upload and setup for Wed Jan 20 2027.
 - `handoff-20261101-sl10-alcohol-shorts-covers-and-setup.md`: Alcohol And Abs SFL Setup, four approved Shorts, fired 2026-11-01 (Opus 5.5 high). Covers, Dan's picks, then upload and setup.
 
-- [Five Muscles Women Notice LFC Setup](handoff-20261031-ro38-five-muscles-thumbnails-and-video-setup.md): **Ready 2026-10-31. Claude Opus 5.5, high.** "The 5 Muscles Women Notice First, And The Machine That Builds Each One" (RO-38) R3 approved. Thumbnails, stop for Dan's pick, then setup for Fri Jan 8, 2027. Use the Codex subscription to generate the images.
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).
 
 
@@ -219,6 +220,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
 
+- `handoff-20261031-ro38-five-muscles-thumbnails-and-video-setup.md`: Five Muscles Women Notice LFC Setup, executed 2026-11-03 (Opus 5.5 high). Thumbnail V5 after five rounds; queued YouTube Fri Jan 8 2027, socials Jan 9. Receipt `Docs/RO38_SETUP_RECEIPT_20261103.md`.
 - [handoff-20261028-ds47-v-taper-thumbnails-and-setup.md](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): started October 28 in Codex chat `01a183fe-a59b-7770-a2d4-1c600189be69`. Five cover pairs at http://127.0.0.1:9297/ await Dan pick; R6 preserved. Upload/setup pending. `Docs/DS47_COVER_REVIEW_20261028.md`.
 
 - [handoff-20261027-ro18-thumbnails-and-video-setup.md](handoff-20261027-ro18-thumbnails-and-video-setup.md): executed 2026-10-27 (Claude). RO-18 setup: Robot Mower thumbnail, waiting list for Wed Jan 13, 2027. Receipt `Docs/RO18_SETUP_RECEIPT_20261027.md`.
