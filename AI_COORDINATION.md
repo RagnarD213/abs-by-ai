@@ -58,7 +58,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`
 
-**RO-38:REVIEW:2026-11-03:Claude:[Thumbs](http://127.0.0.1:9878/).**
+**RO-38:REVIEW:2026-11-03:Claude:[Thumbs](http://127.0.0.1:9879/).**
 
 **RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
