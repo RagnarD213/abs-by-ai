@@ -1244,5 +1244,16 @@
   "h": 1920,
   "approved": "Dan approved design 3, text B, 2026-11-02",
   "when": "2026-12-29T00:00:00.000Z"
+ },
+ {
+  "job": "RO-22",
+  "slug": "ro22-fat-loss-looksmaxxes-your-face",
+  "match": "At 200 pounds, my face was puffy and bloated with a sloppy double chin, and in this video I'm showing you what changed when I lost the fat.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan,2026-11-03: Approved. Go ahead and install that. Exact revisedX1headline How Fat Loss Looksmaxxes Your Face.",
+  "sha256": "f5e00b4545f2c8831f0710e9cf3e97dbfbeea8df77cce6f913eefdbb9398aa68",
+  "when": "2026-11-26T18:00:00.000Z",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Codex Content Videos/How Losing Fat Changed My Face - RO-22/How Losing Fat Changed My Face - thumbnail FINAL.jpg"
  }
 ]
