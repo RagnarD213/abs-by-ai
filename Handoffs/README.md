@@ -13,7 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Dr Mike Dial SFC Setup](handoff-20261103-ds37-dr-mike-dial-sfc-setup.md): **Ready 2026-11-03. Claude Opus 5.5, high.** Exact59.3sR4 shortened offcuff approved; three backups verified, exact Drive link in handoff. Eight blind cover choices, stop for Dan’s pick, then packaging and Blotato queue/waitlist. Use the Codex subscription to generate the images. Setup not started.
 
-- [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Waiting 2026-11-03. Claude Opus 5.5, high.** "How To Lose The Last Ten Pounds Of Fat" (DS-16) V3 drafted finalized; needs Dan's OK and Muhammad's HQ export, then covers and queue.
+- [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Active in Codex, 2026-11-03.** Dan finalized V3 in Upwork; HQ export pending. Checked X1-X8 covers await Dan at http://127.0.0.1:9646/ in the existing setup chat. Receipt: `Docs/DS16_SETUP_RECEIPT_20261103.md`.
 - [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Both cover sets checked and shown; awaits Dan’s X picks and Muhammad’s HQ exports, then verified backups and queue. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 

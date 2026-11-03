@@ -1,7 +1,9 @@
 # Last Ten Pounds SFC Setup: How To Lose The Last Ten Pounds Of Fat (DS-16)
 
 **CONTENT (SFC), a dedicated Short edited by Muhammad. No ads, no Google Ads work, no unlisted upload.**
-**WAITING 2026-11-03: step 1 needs Dan's OK on the finalized line and Muhammad's HQ export.** Recommended: Claude Opus 5.5, high. **Use the Codex subscription to generate the images.**
+**ACTIVE SETUP 2026-11-03: Dan finalized V3 in Upwork at 1:22 PM Central. Muhammad's HQ export is still pending. Checked X1-X8 cover choices await Dan at http://127.0.0.1:9646/ in this chat; do not start a duplicate setup.** **Use the Codex subscription to generate the images.**
+
+Current setup receipt: `Docs/DS16_SETUP_RECEIPT_20261103.md`. Latest Upwork messages and the directly listed HD folder contained no DS-16 HQ export. The review copy remains the comparison reference only.
 
 ## Approval
 V3 reviewed 2026-11-03 and written FINALIZED in the live revision doc `1O4wKkCN0ZtNTRd3Q4tfgC2ipqCnDjGjzauyFIDUiuxk`
