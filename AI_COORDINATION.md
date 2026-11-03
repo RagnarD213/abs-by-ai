@@ -58,7 +58,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`
 
-**RO-38:REVIEW:2026-11-02:Claude:[Thumbs](http://127.0.0.1:9877/).**
+**RO-38:REVIEW:2026-11-03:Claude:[Thumbs](http://127.0.0.1:9878/).**
 
 **RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
@@ -115,7 +115,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief overlap NEEDS DAN 2026-11-02, Codex.** Pause cloud; retain local.
+**Brief/JAM 2026-11-03, Codex.** Cloud duplicate; live salad article blocks sync.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
