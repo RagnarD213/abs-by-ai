@@ -7194,7 +7194,7 @@ async function fulfillMembershipSessionInner(session, sid, meta) {
       if (stripe && typeof subId === 'string') {
         const sub = await stripe.subscriptions.retrieve(subId);
         if (sub.status) subStatus = sub.status;
-        const endTs = sub.current_period_end || sub.trial_end;
+        const endTs = subscriptionPeriodEnd(sub);
         if (endTs) periodEnd = new Date(endTs * 1000).toISOString();
       }
     } catch (e) { console.warn('subscription retrieve failed:', e.message); }
@@ -7365,10 +7365,25 @@ function paidConversionPayload(row) {
   };
 }
 
+// The end of the subscription's current billing period, in Unix seconds.
+// Stripe's 2025-03-31 API (our webhook runs a 2026 version) moved
+// current_period_end off the subscription onto each subscription item, so the
+// top-level field reads undefined there. Reading only that field stored NULL
+// for every Stripe member, which hid their membership card in the hub and cut
+// off canceled members' paid-through days (2026-11-04).
+function subscriptionPeriodEnd(sub) {
+  if (!sub) return null;
+  if (sub.current_period_end) return sub.current_period_end;
+  const ends = ((sub.items && sub.items.data) || []).map((i) => i && i.current_period_end).filter(Boolean);
+  if (ends.length) return Math.max(...ends);
+  return sub.trial_end || null;
+}
+
 // Keep users.membership_* in sync with subscription lifecycle events.
 async function syncSubscriptionState(sub) {
   if (!db || !sub?.id) return;
-  const periodEnd = sub.current_period_end ? new Date(sub.current_period_end * 1000).toISOString() : null;
+  const endTs = subscriptionPeriodEnd(sub);
+  const periodEnd = endTs ? new Date(endTs * 1000).toISOString() : null;
   const nextStatus = sub.status || 'canceled';
 
   // Read the PREVIOUS status before overwriting it — trial→paid is only visible
