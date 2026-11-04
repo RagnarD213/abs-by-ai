@@ -27,6 +27,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-36:BUILDING:2026-11-04:Claude.**
+
+**DS-61:PICK:2026-11-04:Codex.** Next: cover choice, schedule. `Short-form video content/covers/review/ds61-bodyweight-squats-20261104/review.html`
+
 **RO-29:COVERS:2026-11-04:Claude.**
 
 **SPA-web-Claude:REVIEW:2026-11-03:Claude.** Five concepts [gallery](https://claude.ai/artifact/4nWAsB7WP4Jch82F66t3QU); local-only `Contest/claude/website-round1/`. 411b147 push-blocked:live-files.
@@ -73,6 +77,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-31:R2:2026-11-04:Claude.** Frames.
 
+
+**DS-61:PUSH-PENDING:2026-11-04:Claude.** 9bf1287 local (finalized, setup handoff); staged salad article blocks. Delete after push.
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
