@@ -594,3 +594,12 @@ Dan approved design 3/text B. Exact R3 master SHA256 `21aa8ee5cc7007d8e8b0120d8b
 ## SETUP READY, WAITLIST: How To Do Overhead Tricep Extensions (DS-63), 2026-11-02
 
 Dan approved X3. Exact R2 master, cover-first TikTok copy and both covers uploaded/download-hash-verified. All four platform configs pass guards. Planned Tuesday December29, 6PM Central; shared waitlist, live200/200, zero DS63 schedules. No per-video automation or YouTube holding upload. Master SHA25679eb9bb59d97584693a85b99dc36f76164bf9540f01712abe01b2e97760d7bda. Config `scripts/blotato/configs/ds63-overhead-tricep-extensions.json`; receipt `Docs/DS63_SETUP_RECEIPT_20261102.md`. Captions/tags, pinned question and actual cover tiles follow shared release routines.
+
+
+## READY ON WAITLIST: Home Workouts (DS-27), 2026-11-02
+
+Exact approved R2 1080p master and real-photo jump-rope cover 2 installed. Four media uploads fully downloaded and hash-verified; TikTok first cover frame checked, original audio payload identical. One shared waiting-list entry targets Thu Dec 31, 2026 at 6 PM Central on all four platforms. Blotato 200/200; no publisher schedules or YouTube ID exist yet. Existing daily top-up queues automatically. TRAIN keyword field; captions use SixPackAbs.com platform UTMs and no obsolete free-preview promise. Pinned question and post-release article/cover checks recorded. Receipt: `Docs/DS27_SETUP_RECEIPT_20261102.md`.
+
+## DONE: Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29), 2026-11-04
+
+Master SHA256 `9dfeec01...` (R3). YouTube 6489209 Wed Jan 20 2027 9 AM CT; Facebook 6489205, Instagram 6489206, TikTok 6489207 Thu Jan 21 noon. Thumbnail `c257c4ab...` (round 3 X1 with @marta.khl TikTok frame). Keyword FOOD, UTM `ro29-cortisol-belly`. Queue 200/200 after. Receipt `Docs/RO29_SETUP_RECEIPT_20261104.md`.

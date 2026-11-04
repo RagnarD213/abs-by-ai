@@ -11,7 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- SixPackAbs.com locked packaging and next-stage design tasks (2026-11-03): [handoff pack](sixpackabs-production-20261103/README.md). Four AIs × five Shopify concepts; Gemini and Claude × one six-product production-label set. Shared verified Supliful templates included. Ready for Dan to paste into new tasks; not launched. Claude website set delivered 2026-11-03 for Dan's review (`Contest/claude/website-round1/`, gallery https://claude.ai/artifact/4nWAsB7WP4Jch82F66t3QU); other entrants and both label sets not launched.
+- SixPackAbs shop copy: [new Claude task](sixpackabs-shop-winner/COPY.md). Wait for Dan's approval of the detailed Claude A mockups and the approved-board list. Then start one fresh interview-first copy chat.
+- SixPackAbs design contest: four website sets delivered; Claude A won. [Detailed design scope](sixpackabs-shop-winner/DESIGN.md) is active in the existing Claude website chat. [Label file handoffs and supplier specs](sixpackabs-production-20261103/README.md): Gemini proofs delivered pending public distributor details; a separate Claude production set was not located during collection.
 
 - [Dr Mike Dial SFC Setup](handoff-20261103-ds37-dr-mike-dial-sfc-setup.md): **Cover round 2, 2026-11-03, Codex01a1a3d0.** Initial eight rejected. Four source-video/reaction designs A-D, both layouts: http://127.0.0.1:9647/?covers=2. Await Dan’s pick, then finish setup in this owner. No platform upload, release slot or schedule. Receipt `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
@@ -24,7 +25,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [First Time At The Gym Gemini LFC R1](handoff-20261101-ro37-gemini-argon-test-edit.md): **Ready 2026-11-01. Gemini 4 Argon.** Test edit of "I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time" (RO-37) from raw footage: pool footage cut out on the green-screen format, kept apart from the finalized film. Touches no queue, files or schedule. Matting capped at $25.
 - [How To Do Hamstring Curls Gemini SFC R1](handoff-20261101-ds84-gemini-argon-test-edit.md): **Ready 2026-11-01. Gemini 4 Argon.** Blind test edit of "How To Do Hamstring Curls" (DS-84) from raw footage, kept apart from the finalized film. Touches no queue, files or schedule.
-- [Cortisol Belly LFC Setup](handoff-20261101-ro29-cortisol-belly-thumbnails-and-video-setup.md): **Ready 2026-11-01. Claude Opus 5.5, high.** "Cortisol Belly Is Real, But TikTok Has It Wrong" (RO-29) R3 approved. Thumbnails, Dan's pick, then upload and setup for Wed Jan 20 2027.
 - `handoff-20261101-sl10-alcohol-shorts-covers-and-setup.md`: Alcohol And Abs SFL Setup, four approved Shorts, fired 2026-11-01 (Opus 5.5 high). Covers, Dan's picks, then upload and setup.
 
 - [Bodyweight Squats SFC Setup](handoff-20261104-ds61-bodyweight-squats-setup.md): **Ready 2026-11-04. Claude Opus 5.5, high.** DS-61 "How To Do Bodyweight Squats" R2 finalized: covers (Codex subscription plus blind Google options), stop for Dan's pick, Drive backup, AI flags on, upload and schedule in the next free Short slot.
