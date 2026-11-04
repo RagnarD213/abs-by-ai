@@ -35,8 +35,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
-**SPA-labels-Claude:REVIEW:2026-11-04:Claude.**[Review](https://claude.ai/artifact/XGvfMaYS4evWM1dvAWwXEo);addr-needed.
-
 **SPA-shop-design:REVIEW:2026-11-04:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); local `Contest/claude/shop-final-design/`.
 
 **DrMikeDial:COVER-R2-PICK:2026-11-03:Codex01a1a3d0.** [A-D](http://127.0.0.1:9647/?covers=2);source+reaction;not-uploaded. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
