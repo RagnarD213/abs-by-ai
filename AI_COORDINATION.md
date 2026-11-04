@@ -27,6 +27,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DrMikeDial:COVER-R2-PICK:2026-11-03:Codex01a1a3d0.** [A-D](http://127.0.0.1:9647/?covers=2);source+reaction;not-uploaded. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
+
+**LastTen:HQ-HOLD:2026-11-03:Codex.** X2-approved;covers-installed;not-queued. Next: Muhammad HQ, V3 comparison, setup. `Docs/DS16_SETUP_RECEIPT_20261103.md`.
+
 **Mac-freeze:PUSH-PENDING:2026-11-02:Claude.**b330c7c
 
 **Overhead Tricep Extensions HOLD 2026-11-02, Codex01a19df9.** X3 installed; uploads verified; Dec29 6PM Central shared waitlist,200/200. Daily top-up owns scheduling. Push pending, live shared edits. `Docs/DS63_SETUP_RECEIPT_20261102.md`.
@@ -66,7 +70,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
 
 
-**Bodyweight Squats SFC R2 REVIEW 2026-11-01, Claude.** [Chair frames](http://127.0.0.1:9638/). Next: Dan's pick. Commit d2744ba local; next safe-push carries it. `/Volumes/Expansion/_edit_work/DS-61/round2/`
+**Bodyweight Squats SFC R2 REVIEW 2026-11-03, Claude.** [Full Short with chair clip](http://127.0.0.1:9633/). Next: Dan's notes. `/Volumes/Expansion/_edit_work/DS-61/round2/`
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
@@ -83,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-76:QUEUED:2026-10-29:Claude** Dec26 `Docs/DS76_SETUP_RECEIPT_20261029.md`
 
-**Losing Fat Face LFC R4, 2026-11-03, Codex 01a197ed.** Film approved. Revised X1 headline built; awaiting exact-thumbnail approval. Backups verified; technical QA open, nothing scheduled. No slot/heartbeat. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/setup/RESUME.md`.
+**Losing Fat Face LFC R4, 2026-11-03, Codex 01a197ed.** Approved thumbnail installed and verified. Release package prepared; technical hold remains. Dan’s as-is/repair decision is in `Docs/DAN_DECISIONS.md`. Nothing scheduled; no slot/heartbeat. Checkpoint: `/Volumes/Extreme/_edit_work/RO-22/setup/RESUME.md`.
 
 
 **Mouthpiece:HOLD:2026-10-29:Codex.** Covers-installed;Dec26,6PM-waitlist. `Docs/DS105_SETUP_RECEIPT_20261029.md`

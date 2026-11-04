@@ -1474,6 +1474,7 @@ Three independent reviews before SHIP; two rebuilds came from the demo. Recipe: 
 - **Watch the gaps between clips:** a 0.35 s return to Dan between two cutaways is a flash; run the clips together.
 - **The frame gate's `person.compare` is not an escape hatch.** A shin that gets longer is a real fault; thigh and torso foreshorten in a three-quarter squat, shins do not. Say why before dropping a measure.
 - **Codex END frames from a standing START run the shin 10 to 17% long and drift the room.** One whole-image correction ("bring knees and hips down N px, everything else pixel for pixel") usually fixes the shin; each extra edit loses the build or the room. A plain room is no protection. Pasting pixels back left marks reviewers caught every time: regenerate instead.
+- **Down-then-reverse AI clip for an up-and-down move (DS-61 chair squat):** one Veo take of the way down, then the same frames reversed for the way up. Turn around only after he is at rest (a turn while he still settles reads as a rock and snap), and play the reverse frame for frame: resampling it to fit a slot makes a hitch every few frames. Give the slot the time instead. Scale the frame spec to the video size before `clipcheck.py` (941-wide frames, 1080-wide take).
 - **`captions:sync` can read 51% on first-word caption states** while an in-order match pairs every cue within 20 ms: its sequence match aligns a sparse word list poorly. Measure in order and report it; never tune it.
 
 ## Dedicated-short lessons: DS-49 Coconut Water (2026-10-29)
