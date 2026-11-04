@@ -272,6 +272,14 @@ event for the video first (the last `headlines` event wins).
 the first live run on 09-08 — not by this system. Dan's call: re-enable if accidental
 (`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), otherwise leave it.
 
+## 2026-11-03: feed backup (YouTube RSS outage)
+
+YouTube's RSS feed returned 404/500 for hours on 2026-11-03, so `instant.js` made no ads (the Short "How Fast To Roll
+Out With The Ab Wheel" went public with none). `feed.js` `fetchVideos()` now falls back to the server's own
+`/api/sixpackabs/channel.json` (YouTube Data API via the channel OAuth token, public videos only, cached 5 minutes, no
+extra quota). Railway log: "YTADS feed: RSS failed (...), using the YouTube API backup" once, then "RSS feed is back"
+when it recovers. Covers `instant.js`, `sunday.js` and the routes. Tests: `node scripts/ads/ytads/feed.test.js`.
+
 ## 2026-11-03: US-only engagement campaign (campaign `24422704023`)
 
 Dan: supplements can only be sold in the US, so US subscribers now matter most. Last 30 days inside tier 1, Google spent
