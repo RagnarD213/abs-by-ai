@@ -51,3 +51,11 @@ Read AGENTS.md, full `.claude/skills/_shared/VIDEO-RULES.md`, `/video-setup`, `/
 ## Starter prompt
 
 Dr Mike Dial SFC Setup. Read `Handoffs/handoff-20261103-ds37-dr-mike-dial-sfc-setup.md` and execute it with `/video-setup`. Use the Codex subscription to generate the images. Set up only my approved59.3-second R4 shortened off-the-cuff master, already5% faster with pitch preserved. Make eight distinct blind cover choices in both Instagram and YouTube layouts, stop for my pick, then complete verified backups, packaging and Blotato upload/scheduling or the shared waiting list. Reuse any existing setup owner; do not duplicate the transfer, setup or edit.
+
+## Execution checkpoint, November 3
+
+Executing in Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77` at Dan’s explicit request. Eight shuffled covers in both layouts delivered at http://127.0.0.1:9647/; awaiting Dan’s X1-X8 pick. Preserve existing labels. Three backups freshly rechecked, all master/SRT hashes match. No platform upload, queue/waitlist placement or release slot created. Continue this setup owner after the pick. Checkpoint: `Docs/DS37_SETUP_RECEIPT_20261103.md`.
+
+## Current checkpoint: cover round 2
+
+Dan rejected X1-X8 and requested a Hormozi-style source-video/reaction design. Four new real-frame designs A-D are at http://127.0.0.1:9647/?covers=2, both platform layouts and grid previews. Await A-D, then install the exact round2 platform files. Old blind key stays as rejected history, not a current pick path. No film changes, AI generation, upload, schedule or date reservation in this round. Receipt has source provenance, exact cover manifests and remaining setup work. Same setup owner continues after the pick.

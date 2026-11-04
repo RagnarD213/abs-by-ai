@@ -2,9 +2,19 @@
 
 Updated: 2026-11-03. Owner: Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77`.
 
-Status: **Film finalized. Eight cover choices delivered. Awaiting Dan’s cover pick. Setup partly complete. No publishing-platform media uploaded, no Blotato schedules and no waiting-list entry created by this setup.**
+Status: **Film finalized. Four revised reaction cover choices delivered. Awaiting Dan’s cover pick. Setup partly complete. No publishing-platform media uploaded, no Blotato schedules and no waiting-list entry created by this setup.**
 
-Review: [Eight cover choices, both layouts](http://127.0.0.1:9647/). Neutral labels X1 through X8; each has Instagram, YouTube Shorts and Instagram profile-grid previews. No cover is approved yet.
+Current review: [Four reaction cover choices, both layouts](http://127.0.0.1:9647/?covers=2). Choose A, B, C or D. No cover is approved yet.
+
+## Current cover round 2
+
+Dan rejected the entire initial X1-X8 set and requested the published Hormozi reaction-cover approach: original Dr. Mike video paired with Dan reacting, above or below. The original set and private key are retained as history and are not eligible for installation.
+
+**Current review: [four reaction covers A-D, both layouts](http://127.0.0.1:9647/?covers=2).** Four designs, eight finished platform layouts and four Instagram grid crops. A/C put the source above Dan; B/D reverse the order. C preserves the complete original video frame. Same headline copy retained. Actual Dr. Mike frames at source 665, 668 and 679 seconds, plus Dan frames from the existing approved R2 key cache, reused with the same key cleanup and Warm grade. No new key, film render or AI generation. Source provenance and full hashes are in `round2/source-provenance.json`; final asset hashes and measured face/text boxes are in `round2/manifest.json`.
+
+All eight layout checks passed: 1080x1920 RGB, two detected faces, full scalp/hair inside the relevant panels and Instagram profile area, headline clear of measured head boxes, JPEG under 2 MB. Native source-selection and finished platform sheets visually inspected; all 13 displayed review images downloaded from the local review service, decoded and matched their intended bytes. Browser control of the existing IAB tab was unavailable; a new versioned review URL was queued to open by the supported app tool. No updated browser screenshot is claimed.
+
+**Awaiting A, B, C or D. Nothing installed, uploaded to publishing platforms, queued or waitlisted.** After his exact pick, install from `round2/<platform>/<letter>.jpg` and record approval hashes; do not run the initial blind-key pick command for this all-real replacement set. Requested revisions still need both final layouts approved before installation.
 
 ## Approved film and backups
 
@@ -16,17 +26,17 @@ All three copies freshly rechecked on November 3: project and Extreme full local
 
 Organic dedicated Short, SFC, DS-37. Actual closing words: “So that’s how you dial your appetite in with Tirzepatide. Subscribe to my channel and go to SixPackAbs.com for all my newest videos.” No button CTA. Use the existing Blotato organic Short helper. Video synthetic flags remain false from actual approved-film evidence. Covers do not change that classification.
 
-## Cover review
+## Initial cover round 1, rejected
 
 Copy: **Tirzepatide Is An Appetite Dial**. Eight distinct designs; 16 finished 1080x1920 RGB platform covers, plus eight Instagram profile crops. First letter of every headline word capitalized. All 16 automated checks passed: geometry, platform text safe area, exactly one detected face, no text intersecting expanded face/hair boxes, exact manifest hashes and YouTube JPEG under 2 MB. Native face-reference sheet, hands/action detail sheet and final two-layout sheet visually inspected. Real-photo option preserves original studio subject pixels through local compositing. Identity, hair, abs, hands and dial props checked. No paid image API used.
 
 The managed review returns HTTP 200. All 26 linked displayed images downloaded locally from the review service, decoded and matched their intended local bytes. Browser screenshot saved and review tab retained for Dan. No video or audio was played in this setup. This is cover/layout QA, not an audible film review.
 
-Work folder: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/`. Build/check/review scripts: `scripts/covers/ds37-20261103/`. Private comparison key stays in the ignored work folder. Preserve X1-X8 labels on continuation; do not reshuffle.
+Work folder: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/`. Build/check/review scripts: `scripts/covers/ds37-20261103/`. Private comparison key stays in the ignored work folder. Preserve X1-X8 as rejected history. Current choices are round 2 A-D.
 
 ## Continue immediately after Dan picks
 
-1. Record his exact words with `blind.py pick`; resolve selected original privately and install exact approved platform files. If he requests a revision, show every revised layout and wait for approval before installing.
+1. Record his exact words and selected round 2 A-D hashes in an approval receipt, then install exact platform files from `round2/<platform>/<letter>.jpg`. The earlier eight-choice blind set was rejected; do not log an invented pick there. If he requests a revision, show every revised layout and wait for approval before installing.
 2. Finish title, descriptions, tags, captions metadata and short pinned question from the actual approved transcript. Pinned comment: **Not written yet**. Nothing posted or pinned before public release. Article: dedicated Short, handled after release by existing shared routine; no long-form article at setup.
 3. Build and verify only the necessary TikTok cover-first derivative. Upload exact master and derivative plus approved covers, download and hash-check actual public URLs. Register Facebook cover/caption in repository and live installer. Run cover/ad guards; use supported queue helpers.
 4. Re-read live queue, waiting list, release phases and dated Shorts calendar. No date reserved. Pick a free eligible slot without conflict, then queue four platforms or use one existing shared waiting-list/top-up entry if capacity is full. Do not create a per-video automation. Verify actual saved post media by downloaded bytes/hash after any URL rewrites.
