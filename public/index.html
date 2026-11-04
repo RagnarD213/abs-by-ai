@@ -3311,10 +3311,21 @@ let STATEMENT_NAME = ''; // how a charge reads on the buyer's card statement (fr
 if ((document.referrer || '').indexOf('android-app://com.absbyai.app') === 0) {
   try { sessionStorage.setItem('absbyai_twa', '1'); } catch (e) {}
 }
+// ANDROID (2026-11-04): the Android app is the mobile website and is NOT
+// treated as a native app any more. It used to be, which hid the cart and
+// showed "Start 7-day free trial → opens absbyai.com in your browser". That
+// button could never work: the app claims every absbyai.com link
+// (autoVerify intent filter in android/app/src/main/AndroidManifest.xml), so
+// "the browser" was the app itself, which reopened the same screen. Buyers
+// tapped it in a loop (one member 41 times over three weeks, already paying).
+// Google lets US apps take payment without Play Billing, so the app now gets
+// the same Stripe cart and Manage-membership portal as mobile web.
+// IS_NATIVE_APP therefore means the iOS app only.
+const IS_ANDROID_APP = (function () { try { return sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) { return false; } })();
 const IS_NATIVE_APP =
-  !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform())
-  || (function () { try { return sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) { return false; } })();
+  !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 if (IS_NATIVE_APP) document.documentElement.classList.add('native-app');
+try { if (IS_ANDROID_APP && window.posthog && typeof posthog.register === 'function') posthog.register({ android_app: true }); } catch (e) {}
 
 // ── SixPackAbs brand skin (hostname-gated second brand) ──
 // try.sixpackabs.com serves this same app skinned as SixPackAbs. Strictly
@@ -7119,17 +7130,22 @@ function renderHubMembership() {
     if (memberFaq) memberFaq.style.display = '';
     return;
   }
-  if (memberState.active && memberState.plan && memberState.periodEnd) {
+  // No periodEnd test here: a paying member whose renewal date had not been
+  // recorded (Stripe moved it in its 2025+ API, 2026-11-04) was shown
+  // "Become a member" instead of their membership.
+  if (memberState.active) {
     // Show membership card
     $('hubMembershipManageBtn').style.display = ''; // reset in case a comp state hid it
     setManageAppBtnVisible(true);
-    const planLabel = memberState.plan.charAt(0).toUpperCase() + memberState.plan.slice(1) + ' Membership';
+    const plan = memberState.plan || 'monthly';
+    const planLabel = plan.charAt(0).toUpperCase() + plan.slice(1) + ' Membership';
     $('hubMembershipPlan').textContent = planLabel;
 
-    const periodDate = new Date(memberState.periodEnd).toLocaleDateString('en-US', {
+    const periodDate = memberState.periodEnd ? new Date(memberState.periodEnd).toLocaleDateString('en-US', {
       month: 'short', day: 'numeric', year: 'numeric'
-    });
-    const dateLabel = memberState.status === 'canceled' ? `Ends ${periodDate}` : `Renews ${periodDate}`;
+    }) : '';
+    const dateLabel = !periodDate ? 'Active'
+      : (memberState.status === 'canceled' ? `Ends ${periodDate}` : `Renews ${periodDate}`);
     $('hubMembershipDate').textContent = dateLabel;
 
     // Show past_due warning
@@ -8391,6 +8407,15 @@ function applyPurchaseDeepLink() {
   let path = '';
   try { path = window.location.pathname.replace(/\/+$/, ''); } catch (e) {}
 
+  // A member who lands on a buy link (an old bookmark, the app reopening on
+  // the last URL it showed) belongs in the hub, not in front of a cart that
+  // reads like they still have to pay. Drop the query so a reload stays put.
+  const buyLink = params.get('join') === '1' || path === '/cart' || params.get('buy') === 'credits';
+  if (buyLink && isLoggedIn() && hasMemberAccess()) {
+    try { history.replaceState(history.state, '', '/'); } catch (e) {}
+    showHub();
+    return true;
+  }
   if (params.get('join') === '1' || path === '/cart') {
     // absbyai.com/cart is the cart's own address (Dan, 2026-10-03); /?join=1 is
     // what /start's buy buttons and the apps' external links use. On the web
