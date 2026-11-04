@@ -1,3 +1,7 @@
+## Mobile-first website design (Dan, 2026-11-04)
+
+For every website concept, page and shopping flow, design the phone version first. Dan expects more than 80% of visitors to use phones. At phone width, settle the first screen, content order, product imagery, navigation and primary action. Then adapt that design to desktop. Every review opens with the phone design, or shows phone and desktop together with the phone first and readable. Apply this to all entrants, future briefs and revisions.
+
 ## Review export default (Dan, 2026-11-02)
 
 Use 1080p by default for every video review. Make a smaller copy only if actual 1080p playback struggles. Do not routinely build both 540p and 1080p or defer 1080p until approval. See `.claude/skills/_shared/VIDEO-RULES.md` for the shared rule. Preserve exact-file checks and sound-ready handoff.
@@ -33,6 +37,10 @@ I am a non-technical user. Explain all tasks in simple terms that a non-technica
 ## Model routing (Dan, 2026-10-02, replaces 2026-09-30)
 
 - Opus 5.5 (high effort, never max) is the Claude default for everything editorial: writing, scripts including ship-critical copy (VSL, /start page, ad scripts), edit plans, reviews, photo work, design including design-system locks, and routine first cuts (RO long-forms, DS shorts). Sonnet 5 runs mechanical checklist work. Fable 5.1 is escalation only: an edit or review Opus has failed twice, or a one-off second opinion on copy where a rewrite costs a filming day; never a category default. Codex Astra owns flagship first cuts (VSL, website video), image and thumbnail generation, and GUI-driven work; Codex Sol is the cheap fallback for routine cuts and owns all ops. Every handoff recommends model + effort from memory `model-routing-plan`.
+
+## Website design: phone first (Dan, 2026-11-04)
+
+Dan expects over 80% of visitors on mobile. For every website brief and design, every AI designs each page on the phone first: settle the first screen, product image, order of information, navigation and main action at phone width (390px for SixPackAbs), then adapt that design to desktop (1440px). Review galleries, exports and copy maps open on the phone design, or show phone and desktop together with phone first and large enough to read. A board composed desktop first is revisited at phone width before delivery. Memory: `website-phone-first`.
 
 ## Cart and page design quality (Dan, 2026-10-02)
 
@@ -352,3 +360,7 @@ Dan, on the Google AI Ultra upgrade: "two sets of starting frames for all clips 
 - **Check before delivering outward-facing text.** `grep -c '—' <file>` must be 0.
 - **Forward-looking only (Dan, 2026-09-18).** Do not retrofit existing copy or run a cleanup sweep.
 
+
+## Multi-AI design process and SixPackAbs lock (Dan, 2026-11-03)
+
+For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
