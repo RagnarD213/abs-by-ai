@@ -11,10 +11,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Dr Mike Dial SFC Setup](handoff-20261103-ds37-dr-mike-dial-sfc-setup.md): **Ready 2026-11-03. Claude Opus 5.5, high.** Exact59.3sR4 shortened offcuff approved; three backups verified, exact Drive link in handoff. Eight blind cover choices, stop for Dan’s pick, then packaging and Blotato queue/waitlist. Use the Codex subscription to generate the images. Setup not started.
+- SixPackAbs.com supplement design contest (2026-11-03), ready for independent naming: [Claude](sixpackabs-design-contest/claude.md), [Codex](sixpackabs-design-contest/codex.md), [Gemini](sixpackabs-design-contest/gemini.md), [Grokbot](sixpackabs-design-contest/grokbot.md). Dan selects one set of six names before visuals.
 
-- [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Active in Codex, 2026-11-03.** Dan finalized V3 in Upwork; HQ export pending. Checked X1-X8 covers await Dan at http://127.0.0.1:9646/ in the existing setup chat. Receipt: `Docs/DS16_SETUP_RECEIPT_20261103.md`.
-- [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Both cover sets checked and shown; awaits Dan’s X picks and Muhammad’s HQ exports, then verified backups and queue. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
+- [Dr Mike Dial SFC Setup](handoff-20261103-ds37-dr-mike-dial-sfc-setup.md): **In progress 2026-11-03, Codex01a1a3d0.** Eight blind covers, both layouts, await Dan’s pick at http://127.0.0.1:9647/. Three backups freshly verified; no platform upload, slot or schedule yet. Continue this same owner after the pick; receipt `Docs/DS37_SETUP_RECEIPT_20261103.md`.
+
+- [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Active in Codex, 2026-11-03.** Dan finalized V3 in Upwork; HQ export pending. X2 approved and installed; Muhammad HQ export is the remaining blocker. Continue in the existing setup chat. Receipt: `Docs/DS16_SETUP_RECEIPT_20261103.md`.
+- [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Covers approved (Jiu Jitsu X3, Battle Ropes X8-V3); HQ exports checked by Claude November 3. Remaining: filing, backups, packaging and queue. Do not regenerate covers or ask for picks again. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 
 - Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
