@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-61:PICK:2026-11-04:Codex.** Next: cover choice, schedule. `Short-form video content/covers/review/ds61-bodyweight-squats-20261104/review.html`
 
-**RO-29:QUEUED:2026-11-04:Claude.** Jan20 9AM. `Docs/RO29_SETUP_RECEIPT_20261104.md`
+**RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
 **SPA-shop-design:REVIEW:2026-11-04:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); local `Contest/claude/shop-final-design/`.
 
