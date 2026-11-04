@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:COVERS:2026-11-04:Claude.**
 
-**SPA-web-Claude:REVIEW:2026-11-03:Claude.** Five concepts [gallery](https://claude.ai/artifact/4nWAsB7WP4Jch82F66t3QU); local-only `Contest/claude/website-round1/`. 411b147 push-blocked:live-files.
+**SPA-shop-design:REVIEW:2026-11-04:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); local `Contest/claude/shop-final-design/`.
 
 **DrMikeDial:COVER-R2-PICK:2026-11-03:Codex01a1a3d0.** [A-D](http://127.0.0.1:9647/?covers=2);source+reaction;not-uploaded. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 

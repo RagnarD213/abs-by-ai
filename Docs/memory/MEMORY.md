@@ -76,6 +76,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
 - [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers
+- [Shop design direction](sixpackabs-shop-design-direction.md): 11-04: Claude A won; light pages not black; center product on phone; gold logo, existing symbol + Archivo
 - [Thumbnail five](thumbnail-standard-codex-in-setup.md): Codex makes five unique designs; 2 AI Dan, 1 real photo, 2 history-guided
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [Bottom-title cover rule](cover-bottom-title-layout-rule.md): 10-27: bigger picture, no pill, much larger bottom title
