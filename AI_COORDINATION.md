@@ -27,6 +27,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO-29:COVERS:2026-11-04:Claude.**
+
 **SPA-web-Claude:REVIEW:2026-11-03:Claude.** Five concepts [gallery](https://claude.ai/artifact/4nWAsB7WP4Jch82F66t3QU); local-only `Contest/claude/website-round1/`. 411b147 push-blocked:live-files.
 
 **DrMikeDial:COVER-R2-PICK:2026-11-03:Codex01a1a3d0.** [A-D](http://127.0.0.1:9647/?covers=2);source+reaction;not-uploaded. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
@@ -120,7 +122,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief/JAM 2026-11-03, Codex.** Cloud duplicate; live salad article blocks sync.
+**Brief/JAM 2026-11-04, Codex.** Cloud duplicate; live salad article blocks sync.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
