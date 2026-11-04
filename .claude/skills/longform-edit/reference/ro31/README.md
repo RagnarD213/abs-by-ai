@@ -24,3 +24,10 @@ Same 10/15 studio set as RO-28 and RO-29. Start from `../ro29/` (round 2 recipe)
 12. **Side card over a take join:** cover the part before the join with a clip and start the card on the join (C08 then P01).
 13. **Lower third hold:** measure 1.5 s after the LAST part lands, not after the first. `over_full=True` lets one ride onto the next clip.
 14. **The board can be full of other sessions' entries.** It stood at 2,498 of 2,500 words; a three-word entry is what fit.
+
+## Round 2 (2026-11-04): AI frames only
+15. **Codex's image tool refuses man boobs** as "sexual content" (opener, bodybuilder gynecomastia). Do not reword; Google Flow drew them.
+16. **Google cannot draw a bodybuilder with gynecomastia:** five tries gave hard pecs, a puffy nipple at most, or a logo tank instead of bare chest.
+17. **A prop that leaves the hand changes shape between START and END** (the juice jug, six tries across both models, even building START backward from END). Use stock for that kind of line.
+18. **Reviewers' common catches:** a mirror reflection looking the other way, fake embossed fabric (Codex), letter-like marks on a wet shirt, a hanger through the shirt, a shirt from nowhere, a belly-centred END.
+19. **Specs with `may_change` everything make the gate a formality** (RO-29 trap 18): the fresh reviewer is the check. `require_pass` raises SystemExit, so catch BaseException when building a page that skips failed pairs (`page_r2.py`).

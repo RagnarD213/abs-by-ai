@@ -75,7 +75,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**RO-31:R2:2026-11-04:Claude.** Frames.
+**RO-31:R2:2026-11-04:Claude.** [Frames](http://127.0.0.1:9642/)
 
 
 **DS-61:PUSH-PENDING:2026-11-04:Claude.** 9bf1287 local (finalized, setup handoff); staged salad article blocks. Delete after push.
