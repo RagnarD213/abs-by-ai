@@ -180,7 +180,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-58](DS-58-3-exercises-you-can-do-in-one-commercial-break.md) | 3 Exercises You Can Do In One Commercial Break | 10/15 C1777-C1778 | BLOCKED: home B-roll: the couch when the game cuts to a commercial, then the exercises in front of the projector | S |
 | [DS-59](DS-59-how-to-do-towel-rows-a-back-exercise-with-no-equipment.md) | How To Do Towel Rows (A Back Exercise With No Equipment) | 10/15 C1778 | BLOCKED: towel rows demo B-roll (not filmed 10-15) | S |
 | [DS-60](DS-60-how-to-do-reverse-lunges.md) | How To Do Reverse Lunges | 10/15 C1779 | READY | S |
-| [DS-61](DS-61-how-to-do-bodyweight-squats.md) | How To Do Bodyweight Squats | 10/15 C1780 | DELIVERED: awaiting Dan | S |
+| [DS-61](DS-61-how-to-do-bodyweight-squats.md) | How To Do Bodyweight Squats | 10/15 C1780 | FINALIZED | S |
 | [DS-62](DS-62-how-to-do-goblet-squats.md) | How To Do Goblet Squats | 10/15 C1781 | READY | S |
 | [DS-63](DS-63-how-to-do-overhead-tricep-extensions.md) | How To Do Overhead Tricep Extensions | 10/15 C1782 | FINALIZED | S |
 | [DS-64](DS-64-3-rules-for-every-rep.md) | 3 Rules For Every Rep | 10/15 C1783 | READY | S |
@@ -208,7 +208,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | UPLOADED | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | FINALIZED | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | FINALIZED | L |
-| [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | DELIVERED: awaiting Dan | L |
+| [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | IN PROGRESS | L |
 | [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | READY (unblocked 2026-10-29; Fri Jan 29 slot) | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-34](RO-34-10-minute-jump-rope-and-kettlebell-fat-burning-workout.md) | 10-Minute Jump Rope And Kettlebell Fat Burning Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |

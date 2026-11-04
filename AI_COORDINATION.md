@@ -71,10 +71,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**RO-31:R1:REVIEW:2026-10-31:Claude.** [Page](http://127.0.0.1:9641/)
+**RO-31:R2:2026-11-04:Claude.** Frames.
 
-
-**Bodyweight Squats SFC R2 REVIEW 2026-11-03, Claude.** [Full Short with chair clip](http://127.0.0.1:9633/). Next: Dan's notes. a70deea push-pending (staged salad article blocks). `/Volumes/Expansion/_edit_work/DS-61/round2/`
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
