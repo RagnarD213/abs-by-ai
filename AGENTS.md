@@ -1,3 +1,7 @@
+## Review export default (Dan, 2026-11-02)
+
+Use 1080p by default for every video review. Make a smaller copy only if actual 1080p playback struggles. Do not routinely build both 540p and 1080p or defer 1080p until approval. See `.claude/skills/_shared/VIDEO-RULES.md` for the shared rule. Preserve exact-file checks and sound-ready handoff.
+
 ## Silent checks, sound-ready owner handoff (Dan, 2026-10-28)
 
 - Automated video/audio checks stay silent. On managed review pages, use **Start silent checks** before any play, audition, seek, source switch or recovery test (or open with `?review_mode=automation`). Verify the actual media is muted. Browser input cannot distinguish a task's trusted click from Dan's, so tasks must explicitly enter check mode.
@@ -62,6 +66,10 @@ This replaces the Hormozi Fat Guy Claude R2 and earlier Bill Maher Claude format
 **Long-form green-screen backgrounds are locked (Dan, 2026-10-27).** Every long-form green-screen commentary video uses the shared template `.claude/skills/_shared/greenscreen-bg/` as built in RO-24 round 3: the background is never plain and changes on cuts with what Dan is saying. Dan: "I want to lock this as our permanent format." Do not reopen the style. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
 
 **Reacting To Celebrity Ozempic Transformations R5 is the long-form green-screen standard (Dan, 2026-10-30).** Dan: "Let's lock this in as our standard way to do the long-form green screen videos." It widens the background lock to the whole film, Claude and Codex: AI hook, person-by-person clips with Dan reacting in the corner, backgrounds matched to his words, full-screen real photos on the exact line, study cards to scale, recap, close. A new film changes facts, script, photos and clip windows, not the build. Exact master, hash and build order: `.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`. Reaction Shorts keep Codex R5.
+
+## Tier-list long-form standard (Dan, 2026-11-01)
+
+Ab Exercise Ranking R3 is the approved format for tier-list/ranking instructional films, with its close, vivid real moving B-roll, enlarged readable ranking panels, Soft Blue Light motion and teaching/recap structure. Exact master/hash and method: `.claude/skills/longform-edit/reference/tier-list-standard/README.md`. Two source corrections remain: ab wheel must show slow controlled full extension with arms locked; the too-fast example is mistake-only. Vacuum clips must show the stomach unobstructed, usually starting on the clear portion; a blocked lead-in is allowed only when the full useful clear action follows. Audit all reuses, including tiny panels/backgrounds. Format approval is not final-film or upload approval.
 
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
@@ -227,9 +235,9 @@ sessions (and any other assistant, if one is in use).
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## New engagement ads go in all three engagement campaigns, every ad group (Dan, 2026-10-18)
+## New engagement ads go in all four engagement campaigns, every ad group (Dan, 2026-10-18; US campaign 2026-11-03)
 
-- Every new engagement ("AT ·") ad is created in all three campaigns: tier 1 `24163535721`, tier 2 `24122099676`, and remarketing `24316408288`, which has two ad groups (Website visitors `200887799219`, YouTube viewers `209156230708`), so four ads in all. Same video, headlines, long headlines, descriptions. Name suffixes: `tier1`, `tier2`, `rmktg-site`, `rmktg-yt`. A headline or copy change to an existing engagement ad is applied to every instance of it across all three. Check the live account for missing instances before saying it is done. Detail: `Docs/YTADS.md`.
+- Every new engagement ("AT ·") ad is created in all four campaigns: tier 1 `24163535721` (no longer targets the US), tier 2 `24122099676`, US only `24422704023` (ad group `201123318425`), and remarketing `24316408288`, which has two ad groups (Website visitors `200887799219`, YouTube viewers `209156230708`), so five ads in all. Same video, headlines, long headlines, descriptions. Name suffixes: `tier1`, `tier2`, `us`, `rmktg-site`, `rmktg-yt`. A headline or copy change to an existing engagement ad is applied to every instance of it across all four. Check the live account for missing instances before saying it is done. Budgets (Dan, 2026-11-03): tier 1 $20/day, US $10/day. Why the US campaign: supplements sell only in the US, and inside tier 1 Google spent 60-70% on Ireland and under 4% on the US. Detail: `Docs/YTADS.md`.
 
 ## Google Ads final URLs within ad groups (Dan, 2026-10-05)
 

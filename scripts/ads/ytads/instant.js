@@ -1,8 +1,8 @@
 'use strict';
 //
-// YTADS INSTANT: a new public video gets an ENABLED ad in each of the three engagement
-// campaigns, and both remarketing ad groups, within about a minute of going live
-// (Dan 2026-09-27; remarketing groups Dan 2026-10-18). Replaces the hourly
+// YTADS INSTANT: a new public video gets an ENABLED ad in each of the four engagement
+// campaigns (tier 2, tier 1, US only, remarketing), both remarketing ad groups included, within
+// about a minute of going live (Dan 2026-09-27; remarketing groups 2026-10-18; US 2026-11-03). Replaces the hourly
 // Ads Script, which is disabled. This path NEVER pauses, enables or removes an existing
 // ad: Dan does all pausing by hand. It only creates.
 //
@@ -22,6 +22,7 @@ const { fetchVideos } = require('./feed.js');
 const TARGETS = {
   tier2: { campaign: '24122099676' },
   tier1: { campaign: '24163535721' },
+  us: { campaign: '24422704023' },   // US only (Dan 2026-11-03): tier 1 no longer targets the US
   'rmktg-site': { campaign: '24316408288', adGroup: '200887799219' },
   'rmktg-yt': { campaign: '24316408288', adGroup: '209156230708' },
 };

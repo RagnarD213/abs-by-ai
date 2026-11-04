@@ -1,6 +1,6 @@
 ---
 name: ytads-retired-manual-management
-description: "2026-09-27 engagement ads: new videos auto-get ENABLED ads within a minute; automation never pauses except the Sunday routine (09-29); Dan re-enables Tuesday"
+description: "2026-09-27 engagement ads (US-only campaign added 11-03): new videos auto-get ENABLED ads within a minute; automation never pauses except the Sunday routine (09-29); Dan re-enables Tuesday"
 metadata:
   node_type: memory
   type: project
@@ -15,5 +15,7 @@ Built as `scripts/ads/ytads/instant.js` (server polls the RSS feed every 60 s, c
 **Update 2026-09-29 (Dan):** one exception. The Sunday routine (`scripts/ads/ytads/sunday.js`, `YTADS_SUNDAY=1`, detail in `Docs/YTADS.md` "SUNDAY PAUSE") pauses every long-form ad in tier1 + tier2 except the newest long-form at 10 AM CT each Sunday, leaves Shorts alone, labels the pauses "Sunday pause", and 6 hours later adds a tamer-copy ad if the newest is not fully approved (in review, disapproved or approved-limited). Dan re-enables by hand on Tuesday. instant.js itself still never pauses.
 
 **Why:** the old script ran hourly (missed a 9:01 upload by an hour) and its stale live copy ignored the paused/in-feed rules; Dan wants speed and full manual control of status.
+
+**Update 2026-11-03 (Dan):** a fourth campaign, US only `24422704023` ($10/day), gets every new video too (instant.js key `us`) and is in the Sunday pause; tier 1 ($20/day) no longer targets the US. Detail: `Docs/YTADS.md`.
 
 **How to apply:** never add pause/enable/remove logic to this path. If an ad is missing, check `created`/`error` events with `via: "instant"` and the Railway log line "YTADS instant". Detail: `Docs/YTADS.md` "CURRENT BEHAVIOR".

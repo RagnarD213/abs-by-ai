@@ -1,0 +1,280 @@
+{
+ "at": "2026-11-04T00:00:17.504Z",
+ "campaignId": "24422704023",
+ "campaign": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "status": "ENABLED",
+    "biddingStrategyType": "MAXIMIZE_CONVERSIONS",
+    "geoTargetTypeSetting": {
+     "positiveGeoTargetType": "PRESENCE"
+    },
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+ | in-feed & shorts | US ONLY | ALL CONTENT",
+    "id": "24422704023"
+   },
+   "campaignBudget": {
+    "resourceName": "customers/3427170837/campaignBudgets/15997965338",
+    "amountMicros": "10000000"
+   }
+  }
+ ],
+ "goals": [
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24422704023~ENGAGEMENT~YOUTUBE_HOSTED",
+    "category": "ENGAGEMENT",
+    "origin": "YOUTUBE_HOSTED",
+    "biddable": true
+   }
+  }
+ ],
+ "groups": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "status": "ENABLED",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT",
+    "targetCpaMicros": "7000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "selectedChannels": {
+       "youtubeInFeed": true,
+       "youtubeShorts": true
+      }
+     }
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201123318425~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201123318425~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201123318425~2498036949250",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/356696681"
+    }
+   }
+  }
+ ],
+ "ads": [
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376442",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376442",
+     "id": "830511376442",
+     "name": "AT · Your Belly Fat Is an Emergency: 7 Reasons to Take It Seriously · yt:v2R4QpnURqA · us · 2026-10-04"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376445",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376445",
+     "id": "830511376445",
+     "name": "AT · Try To Knee Yourself In The Face · yt:bi_fpkW-3eE · us · 2026-10-06"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376448",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376448",
+     "id": "830511376448",
+     "name": "AT · The Deadlift Trick That Saves Your Back · yt:D9v9POAKe_Q · us · 2026-10-08"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376451",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376451",
+     "id": "830511376451",
+     "name": "AT · The Back Move You Can Do With A Towel · yt:qH9YRoH2PpM · us · 2026-10-10"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376454",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376454",
+     "id": "830511376454",
+     "name": "AT · Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead) · yt:9nfvwfo52Z0 · us · 2026-10-11"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376457",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376457",
+     "id": "830511376457",
+     "name": "AT · You Always Have Three Minutes · yt:1k518M3EKps · us · 2026-10-13"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376460",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376460",
+     "id": "830511376460",
+     "name": "AT · How To Do Side Laterals · yt:distZH0Jv2Y · us · 2026-10-17"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376463",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376463",
+     "id": "830511376463",
+     "name": "AT · I'm 41. I Wasted My Life. · yt:xyi-B_5tccw · us · 2026-10-18"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376466",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376466",
+     "id": "830511376466",
+     "name": "AT · How To Make Time To Work Out · yt:MWp0qSmYEyM · us · 2026-10-23"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376469",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376469",
+     "id": "830511376469",
+     "name": "AT · How To Keep Your Muscle While You Lose Fat · yt:96LV9DEKf-s · us · 2026-10-28"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376472",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376472",
+     "id": "830511376472",
+     "name": "AT · Stop Cooking Your Meals: Use A Meal Prep Service · yt:Inp5SSPxZjs · us · 2026-10-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376475",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376475",
+     "id": "830511376475",
+     "name": "AT · 5-Minute Home Workout: 3 Exercises, No Equipment · yt:7HGkYwrcwNk · us · 2026-10-31"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376478",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376478",
+     "id": "830511376478",
+     "name": "AT · Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Rig… · yt:Zt8zD6cuYAQ · us · 2026-11-03"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ]
+}
