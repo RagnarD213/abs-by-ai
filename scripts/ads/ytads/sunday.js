@@ -1,7 +1,7 @@
 'use strict';
 //
-// YTADS SUNDAY PAUSE (Dan 2026-09-29). Every Sunday at 10 AM Central, in the two engagement
-// campaigns geo tier 1 and geo tier 2 (NOT remarketing):
+// YTADS SUNDAY PAUSE (Dan 2026-09-29). Every Sunday at 10 AM Central, in the engagement
+// campaigns geo tier 1, geo tier 2 and US only (NOT remarketing):
 //   - every Short's ad is left exactly as it is (never enabled, never paused);
 //   - every ENABLED long-form ad is PAUSED, except the ads for the newest public long-form;
 //   - if every ad for the newest long-form in a campaign is paused, the best one is ENABLED
@@ -28,7 +28,7 @@ const engine = require('./engine.js');
 const { fetchVideos } = require('./feed.js');
 const { createOp } = require('./instant.js');
 
-const CAMPAIGNS = { tier2: '24122099676', tier1: '24163535721' };
+const CAMPAIGNS = { tier2: '24122099676', tier1: '24163535721', us: '24422704023' };   // US only added 2026-11-03
 const TZ = 'America/Chicago';
 const RUN_HOUR = 10, LAST_HOUR = 21;
 const POLL_MS = 60 * 1000;
@@ -232,7 +232,7 @@ function start({ pool, db, writeTameCopy, ads = require('../api/client.js') }) {
     }
   }
   setInterval(tick, POLL_MS).unref?.();
-  console.log(`YTADS sunday: Sundays 10 AM CT, pause long-form ads except the newest (tier1 + tier2); tamer-copy check ${TAME_DELAY_HOURS} h later`);
+  console.log(`YTADS sunday: Sundays 10 AM CT, pause long-form ads except the newest (tier1 + tier2 + us); tamer-copy check ${TAME_DELAY_HOURS} h later`);
   return { tick };
 }
 

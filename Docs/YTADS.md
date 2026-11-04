@@ -1,6 +1,6 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
-**Standing rule (Dan, 2026-10-18):** new engagement ads go in all three campaigns and both remarketing ad groups (4 ads); copy changes apply to every instance. See `AGENTS.md`.
+**Standing rule (Dan, 2026-10-18; US campaign 2026-11-03):** new engagement ads go in all four campaigns (tier 2, tier 1, US only, remarketing) and both remarketing ad groups (5 ads); copy changes apply to every instance. See `AGENTS.md`.
 
 ## SUNDAY PAUSE (Dan 2026-09-29): newest long-form gets the traffic
 
@@ -271,6 +271,25 @@ event for the video first (the last `headlines` event wins).
 "1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was paused in the UI between the dry run and
 the first live run on 09-08 — not by this system. Dan's call: re-enable if accidental
 (`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), otherwise leave it.
+
+## 2026-11-03: US-only engagement campaign (campaign `24422704023`)
+
+Dan: supplements can only be sold in the US, so US subscribers now matter most. Last 30 days inside tier 1, Google spent
+59% on Ireland ($0.23/sub) and 12% on the US ($0.37/sub); the last 7 days the US got 3.6%. So the US got its own
+campaign and tier 1 dropped it. Built by `scripts/ads/api/dgen-us-engagement.js --apply`; tier 1 change by the same
+script with `--tier1 --apply`; read-back in `scripts/ads/api/dgen-ads/us-engagement-campaign.result.json`.
+
+- Name `[DAN] [DGEN] [ENGAGEMENT] MU 18-65+ | in-feed & shorts | US ONLY | ALL CONTENT`, **$10/day**, ENABLED,
+  Maximize Conversions with the ad group's **$7** target (as tier 1), goal YouTube channel subscriptions only.
+- Ad group `201123318425`: United States only with **PRESENCE** (people in the US; tier 1 uses presence-or-interest),
+  English, audience `356696681` (men + unknown, all ages, same as tier 1), in-feed + Shorts, optimized targeting off.
+- 13 ads cloned from every ENABLED tier 1 ad on build day (`830511376442` to `830511376478`, every third id), names
+  with `tier1` → `us`.
+- **Tier 1 `24163535721`:** US removed as a target AND added as an excluded location (with presence-or-interest a
+  US resident "interested in" the UK could otherwise still see tier 1). Now targets Australia, Canada, Ireland,
+  New Zealand, UK. Budget **$20/day** (Dan, 2026-11-03).
+- `instant.js` TARGETS gained `us`, so every new video gets five ads. `sunday.js` CAMPAIGNS gained `us`, so the
+  Sunday pause covers it like tier 1 and tier 2 (Dan's Tuesday re-enable by the "Sunday pause" label covers it too).
 
 ## 2026-10-01: subscriber REMARKETING campaign (campaign `24316408288`)
 
