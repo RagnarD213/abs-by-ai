@@ -13,11 +13,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
 
+- [IRS 147C call (Grokbot, Dan on the line)](handoff-20261104-irs-147c-call-grokbot.md): **Written 2026-11-04, not started.** Needed only if neither Drive EIN file is an accepted IRS notice. Dan sets up an online fax number first.
+
 - SixPackAbs shop copy: [new Claude task](sixpackabs-shop-winner/COPY.md). Wait for Dan's approval of the detailed Claude A mockups and the approved-board list. Then start one fresh interview-first copy chat.
 - SixPackAbs design contest: four website sets delivered; Claude A won. [Detailed design scope](sixpackabs-shop-winner/DESIGN.md) is active in the existing Claude website chat. [Label file handoffs and supplier specs](sixpackabs-production-20261103/README.md): Gemini proofs delivered pending public distributor details; a separate Claude production set was not located during collection.
 
 
-- [Last Ten Pounds SFC Setup](handoff-20261103-last-ten-pounds-sfc-setup.md): **Active in Codex, 2026-11-03.** Dan finalized V3 in Upwork; HQ export pending. X2 approved and installed; Muhammad HQ export is the remaining blocker. Continue in the existing setup chat. Receipt: `Docs/DS16_SETUP_RECEIPT_20261103.md`.
 - [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Covers approved (Jiu Jitsu X3, Battle Ropes X8-V3); HQ exports checked by Claude November 3. Remaining: filing, backups, packaging and queue. Do not regenerate covers or ask for picks again. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 
