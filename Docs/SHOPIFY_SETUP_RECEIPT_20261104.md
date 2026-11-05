@@ -69,3 +69,4 @@ Use **Shopify's built-in Subscriptions app** (free, no extra monthly fee; Shopif
 - **Alaska and Hawaii are not shippable by Supliful.** The Shopify US market still includes them; exclude AK and HI before launch.
 - Subscriptions app (Shopify) installed; no plan created yet (no creatine product).
 - Shopify support: category change escalated, ticket #71877476, Payments team follows up by email to the store account.
+- **Decision (Dan, 2026-11-05):** Standard shipping is now **$9.99 flat, free at $70 and up** (saved and reloaded in Markets > United States). Express stays $15.00. Alaska and Hawaii still need excluding before launch.
