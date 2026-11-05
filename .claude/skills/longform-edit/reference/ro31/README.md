@@ -31,3 +31,13 @@ Same 10/15 studio set as RO-28 and RO-29. Start from `../ro29/` (round 2 recipe)
 17. **A prop that leaves the hand changes shape between START and END** (the juice jug, six tries across both models, even building START backward from END). Use stock for that kind of line.
 18. **Reviewers' common catches:** a mirror reflection looking the other way, fake embossed fabric (Codex), letter-like marks on a wet shirt, a hanger through the shirt, a shirt from nowhere, a belly-centred END.
 19. **Specs with `may_change` everything make the gate a formality** (RO-29 trap 18): the fresh reviewer is the check. `require_pass` raises SystemExit, so catch BaseException when building a page that skips failed pairs (`page_r2.py`).
+
+## Round 3 (2026-11-04): motion, stock, full film
+Work dir `round3/` (recipe copied from round1 with paths swapped; heavy inputs symlinked; `hf/` cloned with `cp -c`). Plan: the R3 block at the bottom of `recipe/plan.py`.
+20. **Fresh reviewers failed 9 of 12 motion takes that passed `clipcheck.py`.** The gate only tracks things vanishing; faces, mirrors and acting are the reviewer's. Budget three Flow rounds for any clip with a person reacting, and screen every take yourself first with face/hand strips every 0.25 s (`ai/strip.py`): only send a reviewer the take you would ship.
+21. **Mirror scenes break once a hand reaches for something** (A5, A7): the reflection moves an arm the foreground man does not, or the face changes identity while the head is down. Use the clean part before the reach and shorten the slot (A7 now ends on "they cause"; the lower third keeps running).
+22. **A seated reaction with a shirt tug always ends on the belly** (A2: 13 takes): the shirt lifts, hands pinch, or a prop vanishes from a waving hand. Do not write "tugs his shirt down" for a heavy man; pick an action with no hands on the stomach.
+23. **"Small closed-mouth smile" still gives toothy grins and eyes-shut savoring** (A5, 13 takes). Veo and Omni both. Mild reactions of strangers are the hardest kind of AI clip; offer fewer of them.
+24. **Pexels has no "juice poured down a sink" clip** (about 25 searches). Liquid-calorie lines: one drink per spoken word (`stock/build_j1.py`, cuts on the word times, per-clip grades in `stock/grades.json`), crop away brand text (the whipped-cream can).
+25. **Omni twins fit 4 s slots whole but failed review more often than Veo windows here** (faces and hands); keep queueing both.
+26. **Voice without the between-words expander:** `build.py` passes `--no-expander-because` (the round 1 first minute failed the artifacts row on gap pumping).
