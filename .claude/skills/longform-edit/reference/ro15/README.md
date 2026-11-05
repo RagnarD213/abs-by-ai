@@ -59,3 +59,10 @@ reviews); page `round2/recipe/frames_page.py` (refuses any pair without `gate.py
 6. **Codex redraws hair on a head turn** (wet waves became tight curls in 4 of 4 takes); an END where the head stays put held it.
 7. **Google refused the Thermostat START 8 of 8** this round (2 of 4 the first time): the second set is a second Codex take.
    Google's END from the X2 Night Sweats start failed review twice (duvet would not move), so that pair uses round 1's X1 start.
+8. **Thermal-camera ENDs: never ask for "cooling toward green/blue".** That is a second palette a real camera cannot show; both models
+   failed twice. Build the END in code instead (`round2/aiframes/pairs/A3/thermal_end2.py`): brightness = temperature on START's own
+   iron palette, a smooth heat field (hands/feet up, core down, small soft warm patch on the sheet), START's residual kept.
+9. **Edit chains breed texture.** Each Codex edit of an edit adds swirl fabric and grid skin (reviewers caught it 3 times on A6).
+   Start a revision from a fresh text generation, make the END one edit from it, and keep START's pixels everywhere except the parts
+   that act (`pairs/A6-r3/a6_composite.py`); keep the blend edge on background, never across a limb (a see-through elbow failed).
+   Codex also aged the woman's face on every edit of her: she stays as START, he acts.

@@ -69,3 +69,7 @@ Release slot: Wed Dec 23, 2026; edited and approved by Dec 16 (`Docs/LONGFORM_RE
 - Recipe lessons: `.claude/skills/longform-edit/reference/ro15/README.md` "Round 2 frames"; commit 224f152 local, push blocked by a
   live shared file: next safe-push carries it.
 - Next after Dan answers: motion on Flow (`flow-veo`), then handoff steps 3 to 6.
+- 2026-11-05 later: Dan approved A2, A4, A7, A8 pairs; kept A3; picked A6 X1 with a leaner man and slimmer woman
+  (`round2/decisions-r2-frames.json`). Follow-up page on 9716 (first page kept as `review/index-pairs-v1.html`): A6 (`pairs/A6-r3`,
+  fresh start, END composited so only he acts) and A3 (`pairs/A3`, END built in code), both gate + reviewer PASS. Oura and the
+  "thick build" ad-lib still unanswered.
