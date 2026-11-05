@@ -8,7 +8,10 @@ review_server.py PORT --on-demand     switch an older always-running service to 
 The same URL survives chat completion, process crashes and the next Mac login.
 Published page assets are cached locally. No media is uploaded.
 
-Since 2026-10-21 a managed review STARTS ON DEMAND: launchd holds the port and starts the worker when the page is
+Since 2026-11-05 new pages share one stable local review-hub job, preserving each page's URL without a new
+background-item registration. Existing per-page jobs retain their on-demand sockets and keep working.
+
+Since 2026-10-21 a legacy managed review STARTS ON DEMAND: launchd holds the port and starts the worker when the page is
 opened; the worker exits after ABS_REVIEW_IDLE_H hours (24) without a request and the next visit starts it again in
 a fraction of a second. Before this, every review ever made kept a Python process running (70 on 10-21, some 20 days
 old). `renderq.py prune` switches older always-running services over and stops hand-started servers older than 48 h.
@@ -17,6 +20,7 @@ import argparse
 import io
 import functools
 import html
+import importlib.util
 from html.parser import HTMLParser
 import shutil
 from urllib.parse import unquote, urlsplit
@@ -296,11 +300,41 @@ def snapshot(root, destination):
     return records
 
 
+def register_review_service(plist, config, domain, worker_changed=False):
+    """Reuse an unchanged loaded job; page refreshes do not register new activity."""
+    target = f"{domain}/{config['Label']}"
+    previous = plistlib.loads(plist.read_bytes()) if plist.exists() else None
+    config_changed = previous != config
+    loaded = subprocess.run(['launchctl', 'print', target], capture_output=True).returncode == 0
+    if loaded and not config_changed and not worker_changed:
+        return False
+    if config_changed:
+        plist.parent.mkdir(parents=True, exist_ok=True)
+        temporary = plist.with_name(f'.{plist.name}.{os.getpid()}.tmp')
+        temporary.write_bytes(plistlib.dumps(config))
+        temporary.replace(plist)
+    if loaded:
+        subprocess.run(['launchctl', 'bootout', target], capture_output=True)
+    # An existing registration's permission is preserved on refresh/recovery.
+    if previous is None:
+        subprocess.run(['launchctl', 'enable', target], check=True, capture_output=True)
+    subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], check=True, capture_output=True)
+    return True
+
+
 def managed(port, root, remove=False):
     label = f'com.absbyai.review.{port}'
     domain = f'gui/{os.getuid()}'
     target = f'{domain}/{label}'
     plist = Path.home() / 'Library/LaunchAgents' / f'{label}.plist'
+    # New pages share one stable job. Existing per-port jobs keep their URLs and
+    # launchd sockets; a refresh must not migrate or interrupt another page.
+    hub_path = Path(__file__).with_name('review_hub.py')
+    if not plist.exists() and hub_path.is_file():
+        spec = importlib.util.spec_from_file_location('abs_review_hub', hub_path)
+        hub = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(hub)
+        return hub.managed(port, root, Path(__file__), snapshot, health, remove=remove)
     runtime = Path.home() / 'Library/Application Support/AbsByAI Reviews' / str(port)
     if remove:
         subprocess.run(['launchctl', 'bootout', target], capture_output=True)
@@ -324,7 +358,8 @@ def managed(port, root, remove=False):
     runtime.mkdir(parents=True, exist_ok=True)
     worker = runtime / 'review_server.py'
     content = Path(__file__).read_bytes()
-    if not worker.exists() or worker.read_bytes() != content:
+    worker_changed = not worker.exists() or worker.read_bytes() != content
+    if worker_changed:
         temporary = runtime / 'review_server.py.tmp'
         temporary.write_bytes(content)
         temporary.replace(worker)
@@ -335,11 +370,7 @@ def managed(port, root, remove=False):
     (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
     log = runtime / 'server.log'
     config = on_demand_plist(label, sys.executable, worker, port, cache, root, log)
-    plist.parent.mkdir(parents=True, exist_ok=True)
-    plist.write_bytes(plistlib.dumps(config))
-    subprocess.run(['launchctl', 'bootout', target], capture_output=True)
-    subprocess.run(['launchctl', 'enable', target], check=True, capture_output=True)
-    subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], check=True, capture_output=True)
+    register_review_service(plist, config, domain, worker_changed=worker_changed)
     deadline = time.monotonic() + 15
     while time.monotonic() < deadline:
         state = health(port)
