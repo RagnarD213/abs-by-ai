@@ -4,11 +4,13 @@ Date: November 5, 2026. Organic dedicated Short, DS-36.
 
 ## Current state
 
-**Covers ready, awaiting Dan's pick.** No cover is approved yet. No publishing-media upload, metadata config, TikTok derivative, queue/waitlist entry or schedule has been created by this setup. DS-36 remains `finalized`. Continue in this chat after the pick.
+**Four revised mirror covers are ready, awaiting Dan's exact-file pick: M1 to M4.** No cover is approved yet. No publishing-media upload, metadata config, TikTok derivative, queue/waitlist entry or schedule has been created by this setup. DS-36 remains `finalized`. Continue in this chat after the pick.
 
 Review: http://127.0.0.1:10336/
 
-Eight neutrally labelled choices, X1 to X8, each with separate Instagram and YouTube Shorts layouts and an Instagram profile-grid crop. All have the exact copy **Why Fat Shaming Is Good**. The required source mix was followed. Subscriptions were used; no paid still-image API was used. The source key and prompt/provenance files remain private to preserve the blind test.
+On November 5 Dan rejected all eight first covers and requested four new designs, all with an AI-modified heavier version of himself looking in a mirror with deep shame. His explicit count and physique direction override the initial five-plus-three mix and lean-body default for this revision only. The previous set and its source key are preserved unchanged as rejected evidence; no pick was logged for it.
+
+All four new designs use the exact copy **Why Fat Shaming Is Good**, with separate Instagram and YouTube Shorts layouts and a profile-grid preview. The user-requested heavier body is simulated imagery, not a real before photograph. Generation used the Codex subscription, with no paid still-image API. Prompt/provenance files are retained privately.
 
 ## Approved master and classification
 
@@ -31,15 +33,15 @@ Only `Short-form video content/Fat Shaming - DS-36/Fat Shaming SFC R2 - off the 
 
 ## Cover verification
 
-Sixteen 1080 x 1920 RGB covers passed safe-area, identity-face detection, expanded face/hair clearance and hash checks. No title pixels overlapped the expanded face/hair regions. Every YouTube JPEG is below 2 MB. The real photograph uses its original cutout pixels, composited locally. Faces, important props and all eight Instagram profile crops were visually inspected; weak first takes were replaced before delivery.
+Eight revised 1080 x 1920 RGB covers passed text safe-area, face detection, expanded face/hair clearance and hash checks. No title pixels overlap expanded face/hair regions. All four YouTube JPEGs are under 2 MB (largest 301,496 bytes). Faces were compared to Dan's real reference; all four heavier physiques, shame expressions, mirror scenes, paired layouts and Instagram profile crops were visually inspected. YouTube layouts enlarge the picture where useful.
 
-The managed review returned HTTP 200. All 26 image assets downloaded and decoded. The browser displayed eight sections with both layouts, no horizontal overflow at the observed 633 px viewport, and zero audio/video players. The page remains open for Dan. Media audio checks are not applicable to this still-image gallery.
+The refreshed managed review returned HTTP 200; all 13 unique image assets downloaded and decoded. The browser showed four sections, paired layouts, no horizontal overflow at the observed narrow viewport and zero media players. The new review is open for Dan. No audio playback or processing was needed.
 
-Private evidence under `Short-form video content/covers/review/ds36-20261105/`: `backup-verification.json`, `review-verification.json`, `neutral-delivery-manifest.json`, `ds36/cover-checks.json`, prompt/provenance records and the hidden blind key. Install a pick from the originals, never a normalized blind-test copy.
+Current private evidence is under `Short-form video content/covers/review/ds36-20261105/round2/`: `revision-request.json` (his exact words), prompts and generation logs, `cover-checks.json`, `face-check.jpg`, `profile-grid-check.jpg`, `neutral-delivery-manifest.json`, `review-verification.json` and `.blind-key.json`. Install a pick from the new original layout files, never an old X cover or normalized comparison image. Rejected first-set review files remain in `round1-review-preserved/` beside the new round folder.
 
 ## After Dan picks
 
-1. Record his exact X label with `.claude/skills/_shared/blind-image/blind.py pick`. Install the corresponding original Instagram PNG and YouTube JPEG. Any requested revision must be shown again for exact-file approval.
+1. Record his actual M1, M2, M3 or M4 pick with `.claude/skills/_shared/blind-image/blind.py pick "Short-form video content/covers/review/ds36-20261105/round2" --chose M<N> --words "<his exact words>"`. This is a requested single-provider revision, recorded separately from the earlier blind comparison. Install `round2/instagram/M<N>.png` and `round2/youtube/M<N>.jpg`. Any new requested revision must be shown again for exact-file approval.
 2. Write the metadata from this approved film: exact title, descriptions/captions, tags, organic root URLs/UTMs, one easy question in `pinned_comment`, and the approved cover URLs. Set `ai_generated: true`: the realistic scale AI footage requires YouTube `containsSyntheticMedia: true` and TikTok `isAiGenerated: true`. These flags are required but have not yet been written to a config.
 3. Build the TikTok cover-first derivative from the exact approved original, preserve its audio, verify frame zero against the selected cover, upload the media/covers and verify full downloads. Run cover and ad-guard audits and register Facebook's approved cover in both registries.
 4. Freshly read the LIVE queue and shared waitlist. Target all four platforms for **Tuesday, December 22, 2026, 9 AM America/Chicago**, `2026-12-22T09:00:00-06:00` / `2026-12-22T15:00:00Z`. Use Blotato only; no native YouTube upload. If capacity prevents all four posts, add one entry for this slot to the existing shared waitlist. Never create a per-video routine.
@@ -49,25 +51,17 @@ Pre-pick live read at 18:28 UTC November 5: 193 queued posts, no post at the req
 
 ## Source preservation
 
-Task scripts: `scripts/covers/ds36-20261105/`. The shared main checkout could not push because other tasks have live shared-file edits. Task scripts and this phase receipt were pushed to GitHub main in `200dda5` through a separate clean checkout, without changing those live files. Publication setup remains pending the cover pick.
+Current task scripts: `scripts/covers/ds36-20261105/build_r2.py` and `review_r2.py`. Previous builders remain for the rejected initial set. The shared main checkout has unrelated live edits, so this task continues saving only its own verified builders and receipt through the existing clean checkout. The first setup phase is preserved in GitHub commits `200dda5` and `3f1ac0c`. Publication remains pending the revised cover pick.
 
-## Cover files shown for selection
+## Current cover files shown for selection
 
 | Choice | Layout | Bytes | SHA-256 |
 |---|---|---:|---|
-| X1 | instagram | 1455871 | `0135a045770b4b8581d5d91757c4ef275669eb0d7303cb17f0c492bc60d95089` |
-| X1 | youtube | 297214 | `1f5b38cce2f54cb952258900241a315283467371cc87934db298523703eb63d8` |
-| X2 | instagram | 2116435 | `ae70577b7f9333e2d2d34b302709d82112054ed4a851b035ee3a0ead3711cc6d` |
-| X2 | youtube | 328240 | `9333ac2273e081b21f587c73b72eab51105b3d03c77357b92f769be28e15971b` |
-| X3 | instagram | 2084058 | `86df78ae3286a52f261f75cbfa3c039b276852d23bb15220ee901a1f2609f6c6` |
-| X3 | youtube | 340966 | `040080061d56e569d35c9bd77920aeac88befbcfd2ebec877bc007d0ccc5a150` |
-| X4 | instagram | 1907351 | `e82d886d0d1ef58efe45f93f9e7594d0e4ffe331ab29ac43ea300411d86d1a47` |
-| X4 | youtube | 353586 | `54239561434053358a03615a9273876fdc7b45b7b69fab7ca6c5d6618aa5466c` |
-| X5 | instagram | 1674224 | `75dae59b463ee3a70f4b633e780685d5697c585c9db5357ba8d3bdfc7e045f5f` |
-| X5 | youtube | 303595 | `45810e526d5d68aed5beb6a49183ae0b7030b18ffc6b31ca78ce8be9f8bc6f13` |
-| X6 | instagram | 1916482 | `8252b541ea9121d80a98a41fda09008de4ea2848ece53995dad6f63bec5c8928` |
-| X6 | youtube | 267077 | `069d914ada65e99105c5485dbb4b7f933b756809d9a771f2fee338b894cfd0ee` |
-| X7 | instagram | 1819980 | `86b1ba360222ff9af3934e75282857e66e26a43ac51952d86714247399139252` |
-| X7 | youtube | 269152 | `bcd85c2a62cabd35de3040399d2996e08066868d45ed2803e61b0f8e41f79bed` |
-| X8 | instagram | 1651238 | `434b1e9b09e590625fe570485edd2529f7e982fe6408ea9fdb92c53ced47a937` |
-| X8 | youtube | 301450 | `fd7172ca3b2d96dacf244021c377a3356384cd56ac779424a5867829d0286ee4` |
+| M1 | instagram | 2047374 | `976713874b4ad8c03556f763718925ee373c50497650307efbbfc4f79d81e4f9` |
+| M1 | youtube | 301496 | `0e1dfa9449ab6838dc2d9ffb11c3ea04da8da80bd3c85420d00a65a4d48f6b2b` |
+| M2 | instagram | 1612757 | `050fb278053f02de4aa998e70eaa32684b63714d5c6a3ddd6fa65b8b6071bf8e` |
+| M2 | youtube | 250148 | `be90cd00ba52763e81dd870958e8db9279c6ab320b8166130211df20760f5c02` |
+| M3 | instagram | 1458604 | `2fca84bfe21184bfe6e4e8b1aa6e8f041a265ecd78de42f56b36241ecffbc20d` |
+| M3 | youtube | 258318 | `574635781c25ba62f215fb3bfa36ece71a35de3a7369629dde4c3065aa81aada` |
+| M4 | instagram | 1509303 | `6beb06eb6e6581e7e70e6527452573fec71e14426a4ffa69e144e0c1931f71c0` |
+| M4 | youtube | 238948 | `b0582d365a9466f32857b352189b3938cab7ed8888beff3ec05a7322db486623` |
