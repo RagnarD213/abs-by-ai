@@ -1,3 +1,7 @@
+## Mobile-first website design (Dan, 2026-11-04)
+
+For every website concept, page and shopping flow, design the phone version first. Dan expects more than 80% of visitors to use phones. At phone width, settle the first screen, content order, product imagery, navigation and primary action. Then adapt that design to desktop. Every review opens with the phone design, or shows phone and desktop together with the phone first and readable. Apply this to all entrants, future briefs and revisions.
+
 # Claude Code Instructions
 
 @AGENTS.md
@@ -16,6 +20,7 @@ Do not ask permission for anything reversible. Dan explicitly prefers aggressive
 
 - The test is **reversibility**, not confidence. Code changes, deploys, config edits, dashboard writes, test batches within the $10/session spend cap, and anything under a standing authorization in `AGENTS.md`: do it, verify it, then report what was done. Never end a turn with "Shall I…?" for work in this category.
 - Ambiguous detail mid-task? Pick the sensible default, note the choice, keep moving.
+- A handoff or skill that says "ask Dan" never adds a stop for reversible work or for anything a standing rule covers (Dan, 2026-11-05). "Your next steps" holds only what Claude truly cannot do: payment or password entry, Dan's review, irreversible or over-cap actions. A Stop hook enforces this.
 - Give one recommendation and execute it — not a menu of options.
 - Still ask first ONLY for: irreversible/destructive actions (deleting user data, DNS record deletions, canceling subscriptions), spend beyond the standing caps, sending email to customers or the list, formal Apple/Google certifications (Dan's personal declarations), and credentials (a hard platform restriction on Claude, not Dan's preference — Claude cannot type passwords/payment details, so Dan has to enter them; do not frame this as Dan's rule).
 
@@ -73,3 +78,7 @@ Get them yourself: `~/.npm-global/bin/railway variables --service abs-by-ai --kv
 ## Voice input (Wispr Flow)
 
 Most of Dan's prompts are dictated through Wispr Flow, not typed. If an instruction contains a word or phrase that doesn't quite make sense in context, consider whether it's a mis-transcription of a phonetically similar word or product/technical term before acting on it literally. If a misheard reading would change what you do in a meaningful or risky way, ask for clarification rather than guessing.
+
+## Multi-AI design process and SixPackAbs lock (Dan, 2026-11-03)
+
+For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
