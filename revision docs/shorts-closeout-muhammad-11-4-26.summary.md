@@ -23,6 +23,14 @@ DS-16 HD: `/Volumes/Extreme/_edit_work/revisions-20261104/muhammad/dl/Daniel Ads
 - Ending the contract before the $440 is released can send the escrow back to the client, so the order is: Dan releases
   payment on upwork.com, then the contract is ended with the review below.
 
+## Bonus check against the 09-22 terms (deadline extended to 10-16 on 09-27)
+- Content quality equal to the ab wheel video: MET. Most shorts finalized in 2 to 3 rounds; Dan called the 10-01 and 10-05 batches "a real step up".
+- Reusable templates and styles: MET. He made the blue top graphic Dan locked as the standard on 09-28, and the frames-first AI opener and three-way split opener formats.
+- First 10 seconds engaging: MET in the finished videos (AI openers on most), though the opener ideas were mostly written into Dan's notes.
+- Revisions prompt and all videos done by 10-16: NOT MET. At 10-16, 9 of 22 were open. Theirs: the 10-02 notes for 5 videos came back 10-15 (13 days); the 10-05 notes for Jiu Jitsu, Last Ten Pounds, Battle Ropes and Pushups came back 10-29 (24 days, after reminders on 10-13, 10-19, 10-22, 10-27). Ours: Top 5, Getting Abs and Supplements waited on our graphics kit until 10-13, and Fat Millionaire was reopened by us after it had been finalized.
+- Excellent ads: nothing to judge. All 22 were organic content, no ads in this batch.
+- Recommendation: by the letter neither bonus is earned. Pay the $50 content bonus as goodwill (strong quality, part of the delay was ours, he is the primary editor), not the ads bonus.
+
 ## Paste-ready message to Muhammad
 
 Hey Muhammad, got both, thank you! The Last Ten Pounds HQ is perfect, so that one's done.
