@@ -1,0 +1,43 @@
+#!/usr/bin/env python3
+"""RO-31 Man Boobs: neutral review page for the eight thumbnails (X labels only, no source named), phone sizes first."""
+from pathlib import Path
+import json, re
+from PIL import Image
+T = Path(__file__).resolve().parents[3]/'social media graphics/youtube/thumbnails/Man Boobs Or Chest Fat'
+R = T/'_blind-set'
+P = R/'blind-review'; P.mkdir(exist_ok=True)
+key = json.loads((R/'.blind-key.json').read_text())['labels']
+TEXT = {'A': 'Two of you side by side: a softer you with chest fat, arms crossed and embarrassed, next to lean, ripped you. Big one-line title in the yellow band.',
+        'B': 'You on a beach pulling off a baggy t-shirt, big grin, ripped chest. Large white and yellow title in a black bottom band.',
+        'C': 'Your real studio photo (studio-blue-14, pixels untouched), chest forward, big smile, in a dark gym. Yellow and white title with a red box.',
+        'D': 'You at the doctor\'s office, shirtless on the exam table, thumbs up, the doctor smiling with a clipboard. Stacked yellow, white and red boxes on the left.',
+        'E': 'You doing a cable chest fly in a dark gym with blue neon, chest squeezed. White and blue title on the right with a blue line.',
+        'G1': 'You in a bright bedroom laughing at a huge, baggy XXL t-shirt you used to wear. White and yellow title with a heavy outline on the left.',
+        'G2': 'You doing a push-up on a pool deck at sunrise, smiling. Big one-line title in a white top band.',
+        'G3': 'You in a bright bathroom doing a light chest flex, t-shirt over your shoulder. Dark title with a red line on the light wall.'}
+items = []
+for x in sorted(key, key=lambda k: int(k[1:])):
+    k = re.search(r'design (\w+)', key[x]['note']).group(1)
+    im = Image.open(R/'blind'/f'{x}.jpg').convert('RGB').resize((1280, 720), Image.Resampling.LANCZOS)
+    im.save(P/f'{x}.jpg', quality=93)
+    im.resize((320, 180), Image.Resampling.LANCZOS).save(P/f'{x}-phone.jpg', quality=93)
+    items.append((x, TEXT[k], k))
+rec = next(x for x, _, k in items if k == 'A')
+css = ':root{--bg:#101823;--card:#182230;--ink:#f1f5f9;--dim:#cbd5e1}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.5 -apple-system,BlinkMacSystemFont,Arial,sans-serif}main{max-width:1180px;margin:auto;padding:24px 16px}.g{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}section{background:var(--card);border-radius:12px;padding:14px}img{width:100%;display:block;border-radius:6px}h2{margin:0 0 4px}p{color:var(--dim);margin:0 0 10px}.s{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin:10px 0 28px}.s figure{margin:0}.s figcaption{font-size:14px;text-align:center}'
+h = [f'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Man Boobs Thumbnails</title><style>{css}</style></head><body><main><h1>How To Get Rid Of Man Boobs (RO-31): eight thumbnails</h1><p>Same words on all eight: "Man Boobs Or Chest Fat?" My pick is {rec}: the same-person side by side won the Ozempic and Body Fat films, it shows the whole video in one glance, and the yellow band is your most-picked layout. Pick one, or two for a test.</p><h2>Phone size (how most people will see it)</h2><div class="s">']
+for x, t, k in items:
+    h.append(f'<figure><a href="#{x}"><img src="{x}-phone.jpg" alt="{x} at phone size"></a><figcaption>{x}</figcaption></figure>')
+h.append('</div><div class="g">')
+for x, t, k in items:
+    h.append(f'<section id="{x}"><h2>{x}</h2><p>{t}</p><a href="{x}.jpg"><img src="{x}.jpg" alt="{x}"></a></section>')
+h.append('</div></main></body></html>')
+(P/'index.html').write_text(''.join(h))
+# review sheet
+sheet = Image.new('RGB', (2 * 640 + 30, 4 * 400 + 10), (16, 24, 35))
+from PIL import ImageDraw, ImageFont
+d = ImageDraw.Draw(sheet); f = ImageFont.truetype('/System/Library/Fonts/Supplemental/Arial Bold.ttf', 30)
+for i, (x, t, k) in enumerate(items):
+    px, py = 10 + (i % 2) * 650, 10 + (i // 2) * 400
+    sheet.paste(Image.open(P/f'{x}.jpg').resize((640, 360)), (px, py + 36)); d.text((px, py), x, font=f, fill=(255, 214, 0))
+sheet.save(T/'REVIEW_CHOICES.jpg', quality=88)
+print('recommend', rec)
