@@ -6,6 +6,8 @@ Candidates (Supliful samples, order SPL1238058): Great Again T (Men's Vitality),
 
 ## Recommendation
 
+**Working default (2026-11-05): Great Again T is the flagship for the VSL and ads. Dan can override; VSL and ad work should assume it unless he does.**
+
 1. **Flagship: Great Again T (Men's Vitality).**
 2. **Runner-up: Eternal Burn AM + PM as a day/night fat-loss stack.** Also the natural first upsell on the Great Again T VSL.
 3. Not flagship: Z Shred Support (GLP-1), Carb Curber (berberine).
