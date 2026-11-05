@@ -92,7 +92,7 @@ voice_html = "<ul>" + "".join(f"""<li><b>({LET[k]}) {E(k.split('-', 1)[1].replac
     """<li><b>Reference</b>: 30 s of the approved 3 Healthy Foods film (same set and microphone).<br><audio controls muted preload="none" src="options/voice/_reference.mp3"></audio></li></ul>"""
 
 fm = X["first_minute"]
-page = f"""<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glycine Sleep LFC R1</title>
+page = f"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Glycine Sleep LFC R1</title>
 <style>:root{{--bg:#071221;--panel:#101f32;--line:#29425b;--ink:#edf5ff;--mute:#bdd0e4;--acc:#8cd6ff}}
 body{{margin:0;background:var(--bg);color:var(--ink);font:17px system-ui;line-height:1.55}}main{{max-width:1240px;margin:0 auto;padding:28px 16px}}
 @media(min-width:1500px){{main{{margin:0 0 0 2vw;max-width:calc(62vw)}}#dock{{position:fixed;right:1.5vw;top:16px;width:33vw;z-index:9}}}}
@@ -105,7 +105,7 @@ table{{font-size:14px;color:#cfe0f0;border-collapse:collapse}}td{{padding:3px 10
 textarea{{width:100%;box-sizing:border-box;min-height:220px;background:var(--bg);color:white;padding:14px;font:16px system-ui;border:1px solid #47607b;border-radius:10px}}
 #dock{{background:#0b1a2c;padding:10px;border-radius:12px;border:1px solid var(--line);margin-bottom:16px}}#dock video{{max-height:60vh}}
 button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9px;padding:8px 12px;cursor:pointer;font-size:14px;margin-top:8px}}nav{{display:flex;gap:14px;flex-wrap:wrap}}
-@media(max-width:900px){{.grid{{grid-template-columns:1fr}}.two{{grid-template-columns:1fr}}h1{{font-size:28px}}}}</style>
+@media(max-width:900px){{.grid{{grid-template-columns:1fr}}.two{{grid-template-columns:1fr}}h1{{font-size:28px}}}}</style></head><body>
 <div id="dock"><div class="small" id="nowp">Pick any graphic or clip below to play it here, with 3 seconds of your speech either side.</div><video id="pv" controls muted preload="none" playsinline></video></div>
 <main><h1>Sleep Better With Glycine <span class="small">LFC, round 1</span></h1>
 <p>Cut from 9/23 roll C1709 (the tube-light studio). The film will run {X['film_len']}. This round: the first minute, colour and voice options, the AI clip frames and every graphic and clip playing in place. No full film until you have picked. Release slot: Wed Dec 23, 2026 (edit approved by Dec 16).</p>
@@ -120,5 +120,5 @@ button{{background:#1b4b72;color:white;border:1px solid #66acd9;border-radius:9p
 <section id="all"><h2>All graphics and clips, in order ({len(rows)})</h2><p class="small">Each still is the real graded frame at its real time, taken after every part has landed. Every item has a "Play it moving, in context" button.</p><div class="grid">{''.join(cards)}</div></section>
 <section id="checks"><h2>Checks</h2><ul>{''.join('<li>' + d + '</li>' for d in X['checks'])}</ul></section>
 <section id="reply"><h2>One reply</h2><textarea id="r">{E(X['reply'])}</textarea><p><button onclick="navigator.clipboard.writeText(document.getElementById('r').value)">Copy reply</button></p></section></main>
-<script>function play(src,id){{const v=document.getElementById('pv');v.src=src;document.getElementById('nowp').textContent=id;v.play();if(window.innerWidth<1500)document.getElementById('dock').scrollIntoView({{behavior:'smooth'}});}}</script></html>"""
+<script>function play(src,id){{const v=document.getElementById('pv');v.src=src;document.getElementById('nowp').textContent=id;v.play();if(window.innerWidth<1500)document.getElementById('dock').scrollIntoView({{behavior:'smooth'}});}}</script></body></html>"""
 open(f"{OUT}/index.html", "w").write(page); print("page ok", len(rows), "items")

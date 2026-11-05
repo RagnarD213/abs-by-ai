@@ -38,3 +38,7 @@ start frames, page). Work dir `/Volumes/Extreme/_edit_work/RO-15/round1/` (recip
 5. **`checks.py` side-card clearance measures sideways only:** L02 flagged "-5 px" where the hand is 300 px below the card. Look at the frame,
    then say so on the page (`page.py` `LOOKED`).
 6. **The status board can sit at exactly 2,500 words;** the claim then lives in the Edit Queue and the edit slot.
+7. **A second fresh re-check found 6 more** (three lower thirds still too quick, a list line, a join that cut into a lip smack and dropped his
+   breath, an ungraded replacement clip). The join fix: keep the breath, end in the quiet after it, start the next piece after the smack
+   (a 5 to 10 ms level profile shows both). Bright stock graded down with a curve, not to the studio's median (a white bedroom must stay white).
+   Budget one re-check after any page fix pass. Both reports: `INDEPENDENT-CHECK-r1.md`, `INDEPENDENT-RECHECK-r1.md`.

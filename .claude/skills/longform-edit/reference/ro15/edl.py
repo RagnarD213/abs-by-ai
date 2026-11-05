@@ -10,8 +10,8 @@ PIECES = [
  ("cold",  294.20, 366.44, "If you rarely get hot at night ... that's worth it in my opinion.", "second 'If you rarely' (281.9 stopped, then a throat clear and a drink of water); onset from the level strip", None, 294.12),
  ("score", 373.20, 390.82, "My average sleep score before glycine ... it's not a cure-all.", "second copy (366.9 copy stopped at 'and now I'm usually in the se-'); onset from the level strip", None, 373.12),
  ("factors", 410.84, 435.44, "I've found that factors like what time I go to bed ... about 5% of your results.", "third copy (391.4 stopped at 'factors', 393.9 stopped before 'than glycine', then 'Roll that back a little bit'); out at 436.10 (independent check: 0.17 s between sentences ran 'results' into 'Once')", 436.10, 410.76),
- ("major", 439.54, 470.18, "Once you have the major things handled ... stop taking it.", "second 'Once you have the major' (436.4 stopped at 'thing-'); onset from the level strip; in at 439.30 for a sentence pause", None, 439.30),
- ("numbers", 472.92, 494.04, "But if your numbers go up ... go to absbyai.com.", "second 'But if your numbers go up' (470.4 stopped at 'you've-'); onset from the level strip; runs on into the close", None, 472.84),
+ ("major", 439.54, 470.18, "Once you have the major things handled ... stop taking it.", "second 'Once you have the major' (436.4 stopped at 'thing-'); onset from the level strip; in at 439.30 for a sentence pause; out at 470.36 keeps his breath and ends in the quiet after it (re-check: 0.18 s pause at the join, raw 0.40)", 470.36, 439.30),
+ ("numbers", 472.92, 494.04, "But if your numbers go up ... go to absbyai.com.", "second 'But if your numbers go up' (470.4 stopped at 'you've-'); in at 472.865, after a lip smack at 472.81-472.86 (re-check), 15 ms before the onset; runs on into the close", None, 472.865),
  ("member", 545.70, 559.92, "When you become a member ... see you in the next video.", "third and last run of the AI supplement audit lines (520.9 run re-said 'And it designs you', then 'One more time'); the last clean run", None, 545.62),
 ]
 FPS = 30000/1001
