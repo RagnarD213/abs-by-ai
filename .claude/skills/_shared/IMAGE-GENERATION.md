@@ -59,8 +59,9 @@ API: `_shared/blind-image/FLOW-IMAGE-RUNBOOK.md`.
   `_shared/blind-image/blind.py` (`add`, `build`, `pick`): it writes neutral same-size copies named X1..Xn with no metadata, keeps
   the key hidden, logs picks to `~/.absbyai-image-picks.jsonl`, and installs the winner from the original, never the normalized copy.
   If a Google image carries a visible mark or other tell, report it to the main agent instead of showing it.
-- **Clip start frames:** every AI clip gets two start frames, one Codex and one Google, same prompt and references, shown as a
-  blind pair. The end frame is then made with the model whose start frame Dan picked, for identity continuity. Both frames still pass
+- **Clip frames (Dan, 2026-11-05: START and END together from the first step):** every AI clip gets two complete START and END pairs,
+  one Codex and one Google, same prompts and references, each END made on the same model as its START, shown as two unlabeled pairs.
+  Dan picks a whole pair (VIDEO-RULES, "AI clip frames: show START and END together"). Both frames still pass
   the frame gate and reviewer; a Google frame that fails twice is dropped and the Codex frame goes forward unlabeled.
 - **Thumbnails and covers:** the five Codex designs stay as the rule requires, plus **three Google options** (extra designs
   following the same mix and pick-history guidance, not copies of the five), all eight shuffled together unlabeled. Dan's pick is

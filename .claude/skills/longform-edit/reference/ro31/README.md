@@ -14,7 +14,7 @@ Same 10/15 studio set as RO-28 and RO-29. Start from `../ro29/` (round 2 recipe)
 4. **A side view of a chest alone reads as a woman's breast**, twice, even shallow. Draw the whole man in profile (head, neck, stomach running on past the
    chest with no fold under it). An independent reviewer caught the second version; the eye of the person who drew it did not.
 5. **`stills.py` opens `aiframes/<id>-start.png` for kind "ai"** through `ai_placeholder`; a blind-test round has no such files. Point stills at `review/aiframes/<id>/X1.jpg`.
-6. **Blind pairs, START only:** `blind.py build` refuses a set with one source. An idea whose other frame was refused or failed twice goes on the page as a plain
+6. **(Superseded 2026-11-05: Dan now sees START and END together from the first step, VIDEO-RULES top.) Blind pairs, START only:** `blind.py build` refuses a set with one source. An idea whose other frame was refused or failed twice goes on the page as a plain
    X1 copy. End frames wait for the pick, so the frame gate cannot run in round 1: one fresh frame-reviewer over all the start frames instead.
 7. **`review/options/` must exist** before `colour_options.py`; its failure is silent inside the chain and the page breaks later.
 8. **Probe a library clip against its slot before the chain** (A0050 is 3.06 s; the assert killed the context pass at item 15). `chain_r1.sh` reported CONTEXT done with only 15 of 39.

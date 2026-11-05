@@ -14,6 +14,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Security warnings](security-warning-calibration.md): keep brief
 - [New skills](skill-creation-no-auto-execute.md): build, then stop
 - [Relationship](dan-relationship-status.md): girlfriend, not wife
+- [LLC EIN location](llc-ein-drive-location.md): 11-04: EIN letters are in Drive (pointer only, number never stored); Dan types it himself
 - [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
 ## Machine, repo and models
 - [Review pages retire](review-pages-retire-idle.md): 11-02: idle 3 days → retired so the Mac cannot freeze; `review_retire.py --restore PORT`
@@ -60,6 +61,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [AI clip ideas](ai-clip-ideas-more-and-funnier.md): more, funnier; abstract lines get an unreal gag
 - [AI label on the picture](ai-label-on-the-picture-not-the-scene.md): 10-30: AI picture in a real scene gets its label on the TV/inset, never frame corner; never on face or abs
 - [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
+- [AI frames start+end first](ai-frames-start-and-end-first.md): 11-05: Dan sees START and END together from the first step, two full pairs for the blind test
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
 - [Clip library](clip-library.md): find first, add after
 - [B-roll first](broll-library-first.md): scan the library

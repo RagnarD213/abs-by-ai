@@ -1,3 +1,22 @@
+## AI clip frames: show START and END together from the first step (Dan, 2026-11-05, RO-15)
+
+Dan: *"It's hard for me to judge which start frame to use from the start frame alone. I want the start and end frames made, two sets of
+start and end frames when you're making two sets. I want you to go back to making start and end frames as the first step, not just the
+start frame. Sometimes I would choose the start frame, but the end frame doesn't turn out good, so I need to see start and end frames for
+all these images you're generating going forward in the first step, not just a start frame."*
+
+- The first time Dan sees any AI clip idea, he sees a complete START and END pair, never a start frame alone. Where two versions are made
+  (the blind Codex and Google test), make two complete pairs, each END from its own START on the same model, and show them as two
+  unlabeled pairs (X1 = one START + END, X2 = the other).
+- Every pair runs the full routine before the page: frame spec, `framecheck/gate.py START END`, a fresh `frame-reviewer`, `--verify`. A pair
+  whose END fails twice is dropped like any failed frame. Motion still waits for Dan's pick of a whole pair.
+- This replaces the RO-31 round-1 shortcut ("blind pairs, START only; END frames wait for the pick"). Plan the time: two frames and two
+  reviews per version.
+
+## Review exports: 1080p by default (Dan, 2026-11-02)
+
+Dan: "Yes, let's do 1080p by default and only make a smaller copy if playback struggles. Make that the rule going forward." Applies to all video editing workflows, Claude and Codex. Render and present one full-quality 1080p review file by default; use that same checked file for the page and the Videos to Review copy. Do not routinely generate a 540p or other smaller review duplicate, and do not defer 1080p until after creative approval. Make a smaller copy only when actual playback of the 1080p file struggles, recording the observed problem and checking the smaller file too. A busy render queue alone is not a reason to produce both versions. Reuse approved assets and unchanged sections in revisions; rebuild only the affected work where practical. Existing approved or delivered files stay preserved. This supersedes older recipes that automatically create both a smooth review copy and an original version; all quality and sound-ready handoff requirements remain.
+
 ## Shorts shortlists show each Short's full transcript under its title (Dan, 2026-10-22)
 
 - **Every proposed Short on a shortlist (extracted from a long-form, or a recut) is shown with its title and the complete
@@ -87,13 +106,20 @@ cards beside Dan, recap, close. Exact master, hash, rhythm and build order:
 `longform-edit/reference/longform-greenscreen-standard/README.md`. A new film changes facts, script, photos and clip windows,
 not the build; do not reopen the format. Reaction SHORTS keep the Codex R5 format. The lock waives no gate on a future film.
 
+## Tier-list long-form format is locked (Dan, 2026-11-01, RO-23 R3)
+
+**Ab Exercise Ranking R3 is the format standard for tier-list and exercise-ranking long-form videos, Claude and Codex alike.** Dan: "I love the way you did the B-roll here, the B-roll altogether, and handled this very complex edit. Lock this in as our standard format for this kind of video." Preserve its close, vivid real moving demonstrations, enlarged readable overview/corner/tier panels, Soft Blue Light HyperFrames motion, teaching graphics and final ranking recap. A new film changes facts, clips, words and ranking membership, not the approved build. Exact reviewed master/hash, scope and build: `../longform-edit/reference/tier-list-standard/README.md`. This is format approval, with the two source corrections below; R3 itself is not finalized or authorized for upload.
+
+- **Ab wheel correct form:** use Dan's slow controlled rollout with arms fully extended/locked and full extension, throughout every video. The too-fast rollout identified at RO-23 R3 2:12 is a mistake demonstration; use it only when the narration explicitly teaches that mistake. Verify actual selected movement, not source names or prior use of the parent film. Never slow a mistake rep to impersonate correct form.
+- **Vacuum visibility, reaffirmed November 1:** usually cut straight to the unobstructed stomach/abs during the actual draw-in. Hands, forearms, crop and graphics must not hide it. A blocked lead-in is permitted only when the full useful clear action follows in that same clip. Every short vacuum insert and miniature ranking clip must show the stomach clearly; genuine motion alone is insufficient. Audit every occurrence, including background screens, overview/corner media, dedicated demos and recap.
+
 ## Head and hair clearance blocks review delivery (Dan, 2026-10-20, RO-27)
 
 Dan rejected the RO-27 opening's clipped hair, including at about 0:22 and 0:29: "we need to always make sure that we don't cut off my head or my hair in these shots." Both the wider and tighter presenter shots must leave slight visible headroom. This applies before any review preview, not only final delivery.
 
 - Measure the actual top of the hair across every presenter hold, including the tallest posture and the frames at every cut. Do not use forehead/face boxes as a substitute. Anchor a fixed crop above the minimum hair row with approximately 4% of crop height as headroom; adjust to the actual source and verify the rendered result. Keep horizontal shots static.
 - Use the maintained Claude methods: `longform-edit/reference/ro10/hair_first.py` and `haircheck.py` for dense rendered-picture sampling, and `website-video/reference/recipe/hairdet.py` / `hairgate.py` for the hair-top proof and independent every-frame top-edge check. The older `ad-edit/reference/website-video/` path in historical prose is stale. Do not copy the website video's door-background thresholds or coordinates to a different set.
-- Calibrate against native-resolution raw and rendered proof frames on this set. Check the exact review export, including its lower-resolution copy: at least every 0.25 seconds of presenter picture, every join's adjacent native frames, and an independently calibrated every-frame edge check. Inspect native-scale proof images of the tightest margins and watch the affected shots in motion.
+- Calibrate against native-resolution raw and rendered proof frames on this set. Check the exact review export, including any smaller fallback actually made for playback trouble: at least every 0.25 seconds of presenter picture, every join's adjacent native frames, and an independently calibrated every-frame edge check. Inspect native-scale proof images of the tightest margins and watch the affected shots in motion.
 - Require at least 20 pixels of verified clearance at 1080p scale on every valid measurement, with slight visible room in both sizes. A missed/invalid detection is unresolved, never an automatic pass. If the source itself lacks hair, flag it and choose a complete alternative; moving a crop cannot restore missing hair.
 - **Defective source (Dan, 2026-10-20, evening):** where the camera already framed his hair at or past the top edge and no complete alternative take exists, crop as high as the source allows (window from row 0, the SL-03 shorts note), say so on the review page, and do not block the preview on the 20 px figure. The 20 px rule binds whenever the footage gives the option.
 - A clipped head/hair frame or unresolved check blocks presenting the candidate. Record the exact export hash, measurements, coverage, worst timestamps and visual verdict. Link/media checks, graphic face-clearance checks and sparse contact sheets do not establish safe presenter framing.
@@ -151,6 +177,7 @@ Dan: "The system that I want is one where I give my revisions and then the new t
 ## Review-panel testing stays silent; owner handoff enables sound (Dan, 2026-10-28)
 
 - Automated video/audio checks stay muted during playback, auditions, seeking, source/format changes, reloads and recovery. They must not interrupt Dan or feed Wispr Flow. On managed pages, click **Start silent checks** before testing; `?review_mode=automation` also starts in check mode. Verify actual `muted` state before playing. Task-generated trusted input is indistinguishable from owner input, so entering check mode is required.
+- During automated checks, use the page's explicit playback and context buttons. Do not use native media keyboard shortcuts to navigate: ArrowUp/ArrowDown or M can change volume or unmute a focused player, and Home can seek it. RO-22 R4 exposed a brief unmuted temporary-player episode after these keys despite earlier check mode. Preserve and report any such failure, pause and verify mute immediately, then close the temporary player safely; never treat it as an audible listening pass. This does not restrict Dan's deliberate owner controls.
 - After checks, click **Finish checks for owner**. The shared helper cancels stale callbacks, pauses every media element, verifies all are paused and no recovery failure remains, THEN enables normal audio without calling `play()`. Never unmute playing media and never autoplay audible media. Preserve each player's chosen volume, including zero. Failed/incomplete handoffs stay muted and are reported, not called owner-ready.
 - Dan receives a paused, sound-ready player. His next deliberate native Play or context/audition Play includes sound, with no extra unmute click. Owner mode must survive play/source hooks; late background play calls are suppressed instead of playing or re-muting his player. Owner recovery returns to paused/sound-ready without autoplay. Any later task checks must start silent mode again. Native owner controls remain available, including his deliberate mute choice.
 - `_shared/review_player.js` supplies the two workflow buttons and `window.AbsReviewAudio.beginChecks()`, `.handoff()` and `.state()`. Templates keep initial `muted` attributes and load the helper early for safe startup, not permanent owner mute. Normal owner URLs perform a pause-verified startup handoff; automation URLs remain muted until explicit handoff, which removes the automation query. These states describe playback, never QA completion or content approval.
@@ -701,7 +728,7 @@ Dan: “Remember to always do this whenever we finalize a video because if we fi
   first said Downloads, then the same day: *"Make a new folder within the AbsByAI project folder called 'Videos to
   Review'. Add the files into that folder. Once the video is finalized, though, delete the files from that folder to
   stop wasting hard drive space. Do that for this and every video going forward."*
-- How to apply: copy the full-quality delivered file (not the 540p review copy), named so he can tell which video and
+- How to apply: copy the full-quality delivered file (not an optional smaller playback fallback), named so he can tell which video and
   round it is from the name alone, starting with the task name: `<task name> - <what it is>.mp4`, for example
   `Daily Salad SFL R3 - short 4 - Stop Buying Salad Dressing.mp4`. After a re-render he will review, replace the copy.
   Then open the folder for him (`open "Videos to Review"`) and list the file names in the chat message beside the page
