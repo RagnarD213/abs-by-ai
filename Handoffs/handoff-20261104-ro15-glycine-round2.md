@@ -23,15 +23,30 @@ Release slot: Wed Dec 23, 2026; edited and approved by Dec 16 (`Docs/LONGFORM_RE
 - Spend: about $1 of Gemini listening. Frames on Codex and Google subscriptions. No motion generated. Long-form cap $15 (paid only with
   Dan's yes; default is the Flow subscription via the `flow-veo` agent).
 
-## Dan's decisions on the page (record his exact words in `round2-plan/decisions.json`)
-1. Colour (a) look C / (b) more colour / (c) brighter. 2. Voice (a) option 5 / (b) gated. 3. Opener: Supplement Graveyard AI or camera.
-4. AI clips to drop, and X1/X2 picks for Night Sweats, Thermal Camera, Beanie, Out Like A Light. 5. Oura screenshots: he sends them or
-keep stock + lower thirds (G11, G14, C06). 6. Ad-lib "thick build" at 2:03.7: keep or cut.
+## Dan's decisions (2026-11-05), recorded with hashes in `/Volumes/Extreme/_edit_work/RO-15/round2-plan/decisions.json`
+- First minute: approved ("Okay, first minute looks good."). Colour: **C-rich** ("Let's go with color C rich"): `frames.GRADE = "C-rich"`.
+- Voice: **A**, option 5, studio B + bass lift, no gate ("Let's go with A for the voice."): `fit/eq.txt` FINISH path unchanged.
+- AI clips, his words in the decisions file:
+  - A1 Supplement Graveyard: **killed** ("lame, kill that"). The opener stays on camera.
+  - A2 Night Sweats: **keep, start frame X2** (pick logged with `blind.py pick`).
+  - A3 Thermal Camera: **not mentioned. Ask Dan in one line;** do not drop or make it without his answer.
+  - A4 Kicking The Covers Off: **keep** (one Codex frame).
+  - A5 Three Blankets: **killed**.
+  - A6 Thermostat War: **redo with new START and END frames, two sets** (Codex and Google): the man sweating, larger and more muscular;
+    the woman wrapped in a blanket and cold. Old A6 frame retired.
+  - A7 Handful Of Capsules: **keep** (one Codex frame). A8 Out Like A Light: **keep, X1** (pick logged).
+- Still open on the page: decision 5, his real Oura screenshots (send or keep stock), and decision 6, the "thick build" ad-lib at 2:03.7.
+  Ask both in one line with the frames page.
+- **New standing rule (Dan, 2026-11-05, VIDEO-RULES top):** every AI idea is first shown as a complete START and END pair; two versions =
+  two complete pairs, each END on its own START's model. So A6 comes back as two full pairs; A2, A4, A7, A8 get their END frames.
 
 ## Next actions
-1. Log picks: `blind.py pick aiframes/blind2/<ID> --chose X? --words "<Dan's words>"`. Install from originals (`blind.py reveal`).
-2. END frames for every kept idea, from the picked START, on the same model that made the START; frame spec, `framecheck/gate.py START END`,
-   a fresh `frame-reviewer` per pair, `--verify` before any page. Show Dan the END frames (small page), then motion only after his OK.
+1. Picks are logged. Install each kept START from its original (`blind.py reveal round1/aiframes/blind2/<ID> --label X?`; tell Dan the
+   source only if he asks).
+2. END frames for A2, A4, A7, A8 from the kept START on the same model (Codex: `codex-image.sh --image START`; Google: a background Flow
+   helper briefed with RO-15 README trap 2 on ~/Downloads). A6: two new full pairs. Every pair: frame spec, `framecheck/gate.py START END`,
+   a fresh `frame-reviewer`, `--verify`. Then a small frames page (port 9715 or a new one) showing whole pairs, plus the A3, Oura and
+   ad-lib questions. Motion only after Dan picks.
 3. Motion on Flow (`flow-veo` agent, background), `clipcheck.py --verify` + fresh reviewer per take; regenerate slop.
 4. Apply decisions 1, 2, 5, 6 (a cut changes the EDL: rerun shots, assemble_audio, words, resolve, from_plan, and check every lower third's
    first and last part timing before rendering, README trap 4).
@@ -41,6 +56,7 @@ keep stock + lower thirds (G11, G14, C06). 6. Ad-lib "thick build" at 2:03.7: ke
 6. Edit Queue: `queue.py set RO-15 delivered` when the full film goes to Dan; `finalized` only on his word; then the `/video-setup` handoff.
 
 ## Starter prompt
-> Sleep Better With Glycine LFC R2. Read `Handoffs/handoff-20261104-ro15-glycine-round2.md` and do round 2 of RO-15 with /longform-edit:
-> record my round 1 decisions (pasted below), make the END frames and motion for the AI clips I kept, then build, gate, independently
-> review and deliver the full film. My decisions: <paste the reply box>
+> Sleep Better With Glycine LFC R2. Read `Handoffs/handoff-20261104-ro15-glycine-round2.md` and continue RO-15 with /longform-edit: my
+> round 1 decisions are already recorded there. Make the START and END frame pairs (END frames for Night Sweats, Covers, Capsules and
+> Out Like A Light; two new full pairs for the Thermostat War), run the frame gate and a fresh reviewer on every pair, and show me the
+> pairs with the open questions. Run `editcap.py acquire RO-15` before production.
