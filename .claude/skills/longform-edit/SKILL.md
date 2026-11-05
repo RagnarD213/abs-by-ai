@@ -21,6 +21,10 @@ in one line, end the turn, and continue when it exits. Review page up or stoppin
 --review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
 Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
 
+## Locked tier-list format (Dan, 2026-11-01)
+
+For tier-list/ranking long-forms, read [the RO-23 R3 standard](reference/tier-list-standard/README.md): its full layout and B-roll treatment are approved, with slow locked-arm full-extension ab-wheel action and unobstructed-stomach vacuum corrections mandatory. Audit every reused panel/background.
+
 ## Video editing task names (Dan, 2026-10-16)
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
@@ -104,6 +108,8 @@ For long-form: full-screen cards, lists and photo displays come from the HyperFr
 > crop lift, a context clip for every item, named AI pairs with their context on the page, two-at-a-time Codex frames). Read its README.
 > Then `reference/ro14/` (RO-14, 2026-10-14): restarts that medium.en folds into one stretched word (level strip + word patch), the
 > frame gate and reviewer on waist-up AI frames (people as may_change boxes), and the week, study and picture-list cards.
+> The 9/23 set's last film, RO-15 (2026-11-04), is the newest single-roll recipe there: `reference/ro15/` (one roll back on RO-18's
+> code, RO-31's round-1 options and blind frames, Pexels CDN downloads, the 17 page faults an independent check caught). Read its README.
 > A 9/23 film cut from TWO rolls starts from `reference/ro18/` (RO-18, 2026-10-15): one virtual source timeline for both rolls,
 > room tone per roll, the word-map traps after `patch_words.py`, and the AI frame traps (lockstill masks instead of boxes across
 > a touched surface, Codex redrawing hair and gloves, people walking toward the camera).

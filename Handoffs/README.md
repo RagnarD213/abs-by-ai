@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
+
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
 
 - [IRS 147C call (Grokbot, Dan on the line)](handoff-20261104-irs-147c-call-grokbot.md): **Written 2026-11-04, not started.** Needed only if neither Drive EIN file is an accepted IRS notice. Dan sets up an online fax number first.

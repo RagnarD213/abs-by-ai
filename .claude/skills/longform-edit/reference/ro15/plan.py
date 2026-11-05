@@ -1,0 +1,100 @@
+"""RO-15 visual plan ("Sleep Better With Glycine", 9/23 roll C1709). Every item is anchored to the words Dan says (phrase -> output
+time via words_out.json). Graphics: HyperFrames only (lt Motivation lower third, l3 side card, fact study card). Clips: Dan's own
+B-roll and app recordings first (clip library), then Pexels. kind "ai" = a new AI clip: blind start frames go to Dan in round 1;
+until its motion is approved the presenter stays on screen (RO-31 method). Title case; eyebrows in capitals (VIDEO-RULES 2026-10-20).
+No music, no AbsByAI.com end mark."""
+W = "/Volumes/Extreme/_edit_work/RO-15/round1"
+ST = f"{W}/stock"; PH = f"{W}/assets/photos"
+AI = "AI-GENERATED"
+PLAN = [
+ # ---------------- opening (0:00 - 0:25)
+ dict(id="A1", kind="ai", start="This amino acid helped me sleep", end="I've ever taken", tail=0.25, name="The Supplement Graveyard",
+      note="AI opener: 3 AM, a worn-out man sits up in bed wide awake beside a nightstand crowded with about fifteen sleep supplement bottles"),
+ dict(id="C01", kind="clip", start="I've tried dozens of sleep supplements", end="didn't make a big difference", tail=0.2, src=[f"{ST}/p4492624.mp4@0.5"], people="none", physique=False,
+      note="Pexels 4492624: capsules tipped into an open palm (independent check: your own stack clip B0002 showed brand labels and cut your head off)"),
+ dict(id="A2", kind="ai", start="wakes up at night because", end="or you're sweating", tail=0.25, name="The Night Sweats",
+      note="AI: a man jolts awake at night, forehead beaded with sweat, collar soaked, and pushes the duvet off his chest"),
+ # ---------------- what it is (0:25 - 0:50)
+ dict(id="L01", kind="l3", start="Glycine isn't a sedative", end="drug like that", tail=0.3, heading="What Glycine Is",
+      points=["An Amino Acid", "A Third Of Your Collagen", "Grams Of It In Your Food Daily", "Not A Sleeping Pill"],
+      reveal=["amino acid", "third of the collagen", "couple of grams", "not a sleeping pill"]),
+ dict(id="C02", kind="clip", start="It's just a little white powder", end="drink it before bed", tail=0.2, src=[f"{ST}/p13107036.mp4@0.2"], people="none", physique=False, grade="eq=saturation=0.78:brightness=-0.03",
+      note="Pexels 13107036: a spoon of white powder goes into a glass of water and is stirred in"),
+ # ---------------- how it works (0:50 - 1:17)
+ dict(id="G01", kind="lt", start="In order to fall asleep", end="core temperature", tail=0.6, topic="HOW IT WORKS",
+      point="To Fall Asleep, Your Core Has To Cool Down", parts=[["To Fall Asleep,", "In order to fall"], ["Your Core Has To Cool Down", "lower its core"]]),
+ dict(id="C03", kind="clip", start="That's why it's so hard to sleep", end="hot room", tail=0.25, src=[f"{ST}/p3130436.mp4@1.0"], people="other", physique=False,
+      note="Pexels 3130436: a man tosses in bed, trying to get comfortable (independent check: the first pick shared its actor and bedroom with C05)"),
+ dict(id="A3", kind="ai", start="When you take it before bed", end="your hands and your feet", tail=0.2, name="The Thermal Camera",
+      note="AI: a thermal-camera view of a man asleep on his bed; his hands and feet glow the hottest, then his body cools from red to blue"),
+ dict(id="L02", kind="l3", start="what that does is", end="fall asleep faster", tail=0.3, heading="How Glycine Cools You",
+      points=["More Blood Flows To Your Skin", "The Heat Leaves Your Body", "Your Core Cools Faster", "You Fall Asleep Faster"],
+      reveal=["more blood flow", "heat gets out", "core temperature comes down", "fall asleep faster"]),
+ # ---------------- the research (1:17 - 1:50)
+ dict(id="G02", kind="scene", scene="fact", start="And there is real research", end="fell asleep faster", end_at_start=True, photo=f"{PH}/lab.jpg",
+      eyebrow=["STUDIES IN JAPAN", "real research"], headline=[["3 g Before Bed", "studies that were done"]],
+      detail=["Yamadera 2007 and Bannai 2012", "3 grams"], people="none", physique=False,
+      note="the script's cue: the two Japanese glycine sleep studies (Yamadera 2007, Bannai 2012); Pexels 8852631 lab still behind the glass card"),
+ dict(id="L05", kind="l3", start="fell asleep faster", end="the next day", tail=0.3, heading="What They Found",
+      points=["Fell Asleep Faster", "Rated Their Sleep Higher", "Less Sleepy The Next Day"], reveal=["fell asleep faster", "rated their sleep", "they were less"]),
+ dict(id="G03", kind="lt", start="These were small studies", end="sells glycine", tail=0.6, topic="KEEP IT IN PERSPECTIVE",
+      point="Small Studies, Paid For By A Seller", parts=[["Small Studies,", "small studies"], ["Paid For By A Seller", "paid for"]]),
+ dict(id="C04", kind="clip", start="the way fish oil is proven", end="100 % sure about fish oil", tail=0.25, src=[f"{ST}/p3752512.mp4@1.0"], people="none", physique=False,
+      note="Pexels 3752512: golden fish oil softgels, close up"),
+ dict(id="G04", kind="lt", start="it's cheap as dirt", end="worth trying", tail=1.6, topic="MY TAKE",
+      point="Cheap, Very Safe, Worth Trying", parts=[["Cheap,", "cheap as dirt"], ["Very Safe,", "very safe"], ["Worth Trying", "worth trying"]]),
+ # ---------------- who it's for (1:50 - 2:34)
+ dict(id="G06", kind="lt", start="I would say it's good for you", end="hot at night", tail=0.6, topic="GOOD FOR YOU IF",
+      point="You Run Hot At Night", parts=[["You Run Hot At Night", "good for you"]]),
+ dict(id="A4", kind="ai", start="Let's say you're always kicking", end="This is for you", tail=0.25, name="Kicking The Covers Off",
+      note="AI: a man asleep on a warm night kicks his heavy duvet clean off the bed and sighs with relief"),
+ dict(id="G07", kind="lt", start="you're gonna run hotter", end="lean guy", tail=2.4, topic="GOOD FOR YOU IF",
+      point="You're Heavier: Bigger Guys Run Hotter", parts=[["You're Heavier: Bigger Guys Run Hotter", "run hotter"]]),
+ dict(id="G08", kind="lt", start="It's also good for you if you have trouble", end="falling asleep", tail=0.6, topic="GOOD FOR YOU IF",
+      point="You Lie Awake For 30+ Minutes", parts=[["You Lie Awake For 30+ Minutes", "trouble falling"]]),
+ dict(id="C05", kind="clip", start="Let's say you lay there", end="Glycine could help with that", tail=0.25, src=[f"{ST}/p6944070.mp4@2.0"], people="other", physique=False,
+      grade="eq=gamma=1.12:contrast=1.06:saturation=1.02", note="Pexels 6944070: a man lies awake at night, the bedside clock glowing, then rolls over"),
+ dict(id="A5", kind="ai", start="you find yourself waking up", end="isn't for you", tail=0.25, name="Three Blankets And A Beanie",
+      note="AI gag: the cold sleeper, buried under three blankets in a knit beanie, shivering and clutching the covers"),
+ # ---------------- my experience (2:34 - 3:44)
+ dict(id="G10", kind="lt", start="I took three grams", end="use in the studies", tail=0.5, topic="WHAT I TOOK",
+      point="3 Grams, An Hour Before Bed", parts=[["3 Grams,", "three grams"], ["An Hour Before Bed", "hour before bed"]]),
+ dict(id="C06", kind="clip", start="I wear an aura ring", end="what it was doing", tail=0.25, src=[f"{ST}/p7240995.mp4@0.5"], people="other", physique=False,
+      note="Pexels 7240995: a man asleep with his phone and watch on the nightstand (placeholder for your own Oura screenshots, decision 3)"),
+ dict(id="G11", kind="lt", start="The first thing I noticed", end="started taking glycine", tail=0.6, topic="MY OURA RING",
+      point="My Body Temperature Came Down", parts=[["My Body Temperature", "my temperature"], ["Came Down", "came down"]]),
+ dict(id="G12", kind="lt", start="will only get down", end="that was a problem", tail=0.6, topic="MY BEDROOM",
+      point="AC Bottoms Out At 67°. I Sleep Best At 63°.", parts=[["AC Bottoms Out At 67°.", "67"], ["I Sleep Best At 63°.", "63"]]),
+ dict(id="A6", kind="ai", start="on nights I have someone sleeping", end="end up compromising", tail=0.3, max_len=7.0, name="The Thermostat War",
+      note="AI gag: he reaches to turn the thermostat down; his girlfriend, wrapped in a fleece blanket, stares him down until he backs off"),
+ dict(id="C07", kind="clip", start="I'll frequently wake up due to sweating", end="being too hot", tail=0.2, src=[f"{ST}/p4804848.mp4@0.5"], people="other", physique=False,
+      note="Pexels 4804848: sweat running down a man's face, close up"),
+ dict(id="C08", kind="clip", start="When I take glycine that doesn't happen", end="anymore", tail=0.4, src=[f"{ST}/p7131626.mp4@1.0"], people="other", physique=False, grade="eq=brightness=-0.05:contrast=1.05:saturation=0.95",
+      note="Pexels 7131626: a man sleeping peacefully in a bright white bedroom"),
+ dict(id="G13", kind="lt", start="but had some effect", end="worth it in my opinion", tail=0.0, topic="THE COST",
+      point="About 10 Cents A Night", parts=[["About 10 Cents A Night", "10 cents"]]),
+ dict(id="G14", kind="lt", start="My average sleep score", end="75 to 80 range", tail=0.6, topic="MY OURA SLEEP SCORE",
+      point="70 To 75 Before. 75 To 80 Now.", parts=[["70 To 75 Before.", "70 to 75"], ["75 To 80 Now.", "every night"]]),
+ # ---------------- the bigger point (3:44 - 4:22)
+ dict(id="L03", kind="l3", start="I've found that factors", end="for that matter", tail=0.3, heading="What Matters More",
+      points=["When You Go To Bed", "How Much Alcohol You Drink", "Your Bedtime Routine"], reveal=["what time", "alcohol", "pre"]),
+ dict(id="G16", kind="lt", start="But glycine is super easy", end="positive difference", tail=0.5, topic="WHY I STILL TAKE IT",
+      point="Easy, Almost No Risk, A Real Difference", parts=[["Easy,", "super easy"], ["Almost No Risk,", "virtually no risk"], ["A Real Difference", "significant positive"]]),
+ dict(id="G17", kind="lt", start="supplements are only about 5", end="of your results", tail=0.6, topic="KEY POINT",
+      point="Supplements Are About 5% Of Your Results", parts=[["Supplements Are About 5% Of Your Results", "supplements"]]),
+ # ---------------- how to take it (4:22 - 4:52)
+ dict(id="G18", kind="lt", start="So here's how to take it", end="instead of the capsules", tail=0.3, topic="HOW TO TAKE IT",
+      point="Powder, Not Capsules", parts=[["Powder, Not Capsules", "powder"]]),
+ dict(id="A7", kind="ai", start="capsules are only 1 gram", end="every night", tail=0.25, name="A Handful Of Capsules",
+      note="AI gag: a man at his bathroom sink stares at a heaping palmful of about thirty capsules, glass of water in his other hand"),
+ dict(id="L04", kind="l3", start="Take 3 grams", end="stop taking it", tail=0.3, heading="How To Take It",
+      points=["3 Grams, Under A Teaspoon", "In Water, An Hour Before Bed", "Electrolytes For Flavor", "Every Night For 2 Weeks"],
+      reveal=["3 grams", "an hour before bed", "electrolyte", "two weeks"]),
+ dict(id="A8", kind="ai", start="if your numbers go up", end="deeper sleep", tail=0.3, name="Out Like A Light",
+      note="AI: a man in bed switches off his bedside lamp, settles into the pillow and is asleep with a calm face"),
+ # ---------------- wrap and call to action (4:52 - 5:24)
+ dict(id="C09", kind="clip", start="Run it by Claude or ChatGPT", end="makes sense for you", tail=0.25, src=[f"{ST}/p30718280.mp4@0.5"], people="none", physique=False,
+      note="Pexels 30718280: a phone on a desk open to an AI chat asking 'What can I help with?'"),
+ dict(id="P01", kind="phone", site_chip=False, start="When you become a member", end="fits your budget", tail=0.3, src=["B0009@3.0", "B0010@8.0"],
+      note="library B0009 then B0010: the real AI Supplement Audit in the phone beside you, its start screen, then the keep / drop results list"),
+]
