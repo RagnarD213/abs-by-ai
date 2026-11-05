@@ -182,8 +182,10 @@ def framecheck(c, out):
     only warns: Veo drifts off the END frame in its last frames (RO-20's good API take closed 24.2 from END, 25.2 from START)."""
     s0, e1 = framediff(out, 0, c["start"]), (framediff(out, -0.25, c["end"]) if c["end"] else None)
     s1 = framediff(out, -0.25, c["start"]); e0 = framediff(out, 0, c["end"]) if c["end"] else None
-    ok = s0 < 25 and (e0 is None or s0 < e0)
-    warn = e1 is not None and e1 >= s1
+    same = bool(c.get("end")) and c.get("end_sha256") and c.get("end_sha256") == c.get("start_sha256")
+    # A loop clip (START and END the same picture, 2026-11-05 exercise-demo pilot) can never open nearer START than END.
+    ok = s0 < 25 and (e0 is None or s0 < e0 or same)
+    warn = e1 is not None and e1 >= s1 and not same
     return {"open_vs_start": s0, "open_vs_end": e0, "close_vs_end": e1, "close_vs_start": s1, "ok": ok,
             **({"warn": "closes no nearer END than START: look at the ending"} if warn else {})}
 
