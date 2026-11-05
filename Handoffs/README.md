@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
+
 - [Texas sales tax permit (Codex + Grokbot)](handoff-20261105-texas-sales-tax-permit-codex-grokbot.md): **Written 2026-11-05, fire now.** Dan authorized it; apply in Texas eSystems for Rose Digital Holdings LLC (taxpayer 32105235058). Codex/Grokbot do every step including SSN/EIN and signing. Then enter the permit in Shopify Taxes. Codex newest Sol medium; Grokbot same prompt.
 
 - [Man Boobs LFC Setup (RO-31)](handoff-20261105-ro31-man-boobs-lfc-setup.md): **Written 2026-11-05, start now.** Dan approved R4 as final. Thumbnails (Codex subscription), metadata, queue Sun Jan 24 2027 9 AM. Opus 5.5 high.
