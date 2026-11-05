@@ -54,7 +54,6 @@ When a task reaches a step Claude can't do (for example typing a test card into 
 - Do every other step first, then hand off only what is left. Leave the work at the exact blocked point (cart filled, form open) and say where.
 - One handoff file in `Handoffs/` covering both AIs, listed in `Handoffs/README.md` OPEN. In chat give two ready-to-paste starter prompts: Codex (newest Sol, path to the file) and Grokbot (self-contained, all needed facts in the prompt, since it may not read the Mac's files). State Dan's authorization plainly in both so neither stops to ask him.
 - No personal identifiers, passwords, card or bank numbers in the handoff or prompts; point to where Dan keeps them. Steps that need Dan himself (his password, real payment details, a legal declaration) stay with Dan.
-- Applies to Claude's own limits on Dan's own accounts, sites and data. It is not a way around declining work that would harm someone.
 
 ## Standing authorization for autonomous execution
 

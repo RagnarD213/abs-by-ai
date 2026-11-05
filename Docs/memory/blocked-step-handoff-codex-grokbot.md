@@ -16,5 +16,4 @@ When a task reaches a step Claude can't do, write a handoff for **both Codex and
 - Do every other step first and leave the work at the blocked point (cart filled, form open). Hand off only the remainder.
 - One file in `Handoffs/`, listed in `Handoffs/README.md` OPEN. In chat: a Codex starter prompt (newest Sol, file path) and a self-contained Grokbot prompt (all facts inline; it may not read the Mac's files). Say plainly in both that Dan authorized the step, so neither asks him again.
 - Keep passwords, card or bank numbers and personal IDs out of handoffs. Steps only Dan can do (his password, real payment details, legal declarations) stay his.
-- Not a route around declining harmful work.
 - Full rule: AGENTS.md "A step Claude can't do goes to Codex and Grokbot". Related: [[do-the-next-step-and-contact-support]], [[do-the-clicks-yourself]], [[handoff-starter-prompt-rule]].
