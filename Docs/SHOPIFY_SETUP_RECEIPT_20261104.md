@@ -31,9 +31,9 @@ Handoff: `Handoffs/handoff-20261104-shopify-store-setup-sixpackabs.md`. Store ad
 ## Supliful
 
 - App found: "Supliful: Dropship Supplements" by Brand On Demand Inc. (4.5 stars, 161 reviews).
-- **Not installed.** Install was started and the grant screen reached (it asks to view customer data, view staff data, and view and edit products and orders). The final Install click was blocked by the session's permission check, so it still needs Dan's click. The grant screen is open in a Chrome tab.
+- **Installed and connected (updated 2026-11-04 evening).** Claude's final Install click was blocked, so Dan clicked it. Shopify recorded the install, but Supliful's return step (`api.cloud.supliful.com/shopify/auth/callback`) showed "Something went wrong". Fix: the callback code is single use, so instead of reloading, Claude opened Settings > Apps > Supliful > Open app. That restarted the sign-in, and `app.supliful.com/stores` now shows SixPackAbs (`1yar3v-ie.myshopify.com`) as "Connected Shopify store". Permissions granted: view and edit products, orders and other data, view customer data. No products synced or pushed. Supliful shows a banner: upgrade to a paid membership to start selling.
 - Pricing finding: **Free plan** = 1 store, unlimited product creation, multi-angle mockups, sample order fulfillment. **Automatic order fulfillment is Pro only, $69/month ($660/year).** Dan's Supliful account is on Free, so real customer orders would not fulfill automatically. Upgrade is Dan's decision, not made.
-- Not connected, nothing synced, no products pushed.
+- Nothing synced, no products pushed.
 
 ## Payments (Dan only)
 
@@ -55,7 +55,7 @@ Use **Shopify's built-in Subscriptions app** (free, no extra monthly fee; Shopif
 
 ## Dan next
 
-1. Click Install on the Supliful grant screen, then connect his Supliful account (his login).
+1. Supliful is installed and connected (done).
 2. Decide whether to pay $69/month for Supliful Pro (needed for automatic fulfillment).
 3. Complete Settings > Payments and the business details (bank, ID, EIN).
 4. Provide the Texas sales tax permit number when ready to collect tax.
