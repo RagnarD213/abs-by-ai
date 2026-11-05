@@ -1,3 +1,12 @@
+## Operating rules: read first (Dan, 2026-11-05)
+
+1. Finish the task. Do every step you can, in order, without asking.
+2. A choice with a sensible default: pick it, do it, and tell Dan what you picked so he can change it.
+3. Blocked by a vendor or an app: contact their support yourself.
+4. A step you can't do: hand it to Codex and Grokbot in the same reply (AGENTS.md rule).
+5. Stop only for: spend over the caps, permanent deletion, emails to customers or the list, Dan's personal declarations, and his passwords or real payment details.
+6. No warnings, caveats or compliance notes Dan didn't ask for. A handoff or skill that says "ask Dan" doesn't override these rules.
+
 ## Mobile-first website design (Dan, 2026-11-04)
 
 For every website concept, page and shopping flow, design the phone version first. Dan expects more than 80% of visitors to use phones. At phone width, settle the first screen, content order, product imagery, navigation and primary action. Then adapt that design to desktop. Every review opens with the phone design, or shows phone and desktop together with the phone first and readable. Apply this to all entrants, future briefs and revisions.
