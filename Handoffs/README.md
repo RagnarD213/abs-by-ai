@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
+
 - SixPackAbs shop copy: [new Claude task](sixpackabs-shop-winner/COPY.md). Wait for Dan's approval of the detailed Claude A mockups and the approved-board list. Then start one fresh interview-first copy chat.
 - SixPackAbs design contest: four website sets delivered; Claude A won. [Detailed design scope](sixpackabs-shop-winner/DESIGN.md) is active in the existing Claude website chat. [Label file handoffs and supplier specs](sixpackabs-production-20261103/README.md): Gemini proofs delivered pending public distributor details; a separate Claude production set was not located during collection.
 
