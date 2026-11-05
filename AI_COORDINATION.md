@@ -27,8 +27,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**ShopifySetup:PUSH-PENDING:2026-11-04:Claude.** Receipt e7055f3 local (push blocked by live files). Supliful install click needs Dan. Next: safe-push, then delete. `Docs/SHOPIFY_SETUP_RECEIPT_20261104.md`
-
 **DS-36:BUILDING:2026-11-04:Claude.**
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
