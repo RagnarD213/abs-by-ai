@@ -48,3 +48,5 @@ Dan: "For the fat, make the man boob smaller and give him a small belly beneath 
 28. **`recipe/chest/*.py` carries its own W path:** copying a recipe and swapping paths in `recipe/*.py` missed the subfolder, so the first render wrote round 1's folder.
 29. **Each fresh watch-pass judge found one new AI-clip fault the last one missed** (library A0077: shirt slides off without passing the head, then the head passes back through the shirt; A0166: a pen appears in an empty hand). Decode every AI clip in full at playback order before the first judge, and tell the judge to block only on what shows at normal speed and list frame-only items as BORDERLINE; otherwise every pass costs an hour's rebuild.
 30. **A clip boundary can land on a tongue-on-lip frame** (0:56 after D02): extend the card's tail a few frames.
+
+Dan approved round 4 as final on 2026-11-05 ("Approve as final"). Final: `claude edited long form content/29 - How To Get Rid Of Man Boobs/` (on the Expansion offload, sha256 bce049d0...). Setup: `Handoffs/handoff-20261105-ro31-man-boobs-lfc-setup.md`.

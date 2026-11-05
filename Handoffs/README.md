@@ -12,6 +12,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## OPEN — not yet executed
 
 
+- [Man Boobs LFC Setup (RO-31)](handoff-20261105-ro31-man-boobs-lfc-setup.md): **Written 2026-11-05, start now.** Dan approved R4 as final. Thumbnails (Codex subscription), metadata, queue Sun Jan 24 2027 9 AM. Opus 5.5 high.
+
 - [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
 
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
@@ -31,7 +33,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [How To Do Hamstring Curls Gemini SFC R1](handoff-20261101-ds84-gemini-argon-test-edit.md): **Ready 2026-11-01. Gemini 4 Argon.** Blind test edit of "How To Do Hamstring Curls" (DS-84) from raw footage, kept apart from the finalized film. Touches no queue, files or schedule.
 - `handoff-20261101-sl10-alcohol-shorts-covers-and-setup.md`: Alcohol And Abs SFL Setup, four approved Shorts, fired 2026-11-01 (Opus 5.5 high). Covers, Dan's picks, then upload and setup.
 
-- [Why Fat Shaming Is Good SFC Setup](handoff-20261105-ds36-why-fat-shaming-is-good-setup.md): **Ready 2026-11-05. Claude Opus 5.5, high.** DS-36 "Why Fat Shaming Is Good" (Bill Maher reaction, off the cuff) R2 finalized: covers (Codex subscription plus blind Google options), stop for Dan's pick, Drive backup, AI flags on, schedule Tue Dec 22 9 AM or waitlist.
 - [Bodyweight Squats SFC Setup](handoff-20261104-ds61-bodyweight-squats-setup.md): **Ready 2026-11-04. Claude Opus 5.5, high.** DS-61 "How To Do Bodyweight Squats" R2 finalized: covers (Codex subscription plus blind Google options), stop for Dan's pick, Drive backup, AI flags on, upload and schedule in the next free Short slot.
 - [Coconut Water SFC Setup](handoff-20261029-ds49-coconut-water-setup.md): **Ready 2026-10-29. Claude Opus 5.5, high.** DS-49 "Why I Stopped Drinking Coconut Water" R2 finalized: five covers (Codex subscription), stop for Dan's pick, Drive backup, upload and schedule in the next free Short slot (apart from the Dec 14 coconut water Short).
 
