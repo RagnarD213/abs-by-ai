@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [SixPackAbs brand supplement: new logo + black stripe sitewide](handoff-20261105-sixpackabs-brand-header-supplement.md): **Written 2026-11-05, supplements Dan's shop/homepage coding handoff.** Dan approved the look (mockup https://claude.ai/artifact/JeDUY6MkwUxrXfgZHLFTKS). Black header/footer stripe, gold logo kit, Archivo, sitewide.
+
 
 - [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
 
