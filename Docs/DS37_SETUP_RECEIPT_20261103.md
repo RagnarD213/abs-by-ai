@@ -71,4 +71,4 @@ Evidence: `/Volumes/Expansion/_edit_work/DS-37-publish/` (`uploads.json`, indivi
 
 Edit Queue stays **finalized** until all four actual schedules exist and read back. Its new setup/waitlist note was pushed successfully to the Drive status file. Native ArtifactDB mirror is unavailable to Codex; no mirror success is claimed and syncedRev remains pending. The setup handoff is executed and removed from OPEN.
 
-Repository changes are being committed by owned records only. Final push outcome is recorded below.
+Repository: owned records committed locally in `e7ba24a`; every unrelated staged item was preserved. Safe-push stopped before merge/push on six live shared files, including the separately staged salad article deletion. No unrelated changes were adopted or pushed. Local setup, uploads, calendar and waiting list remain saved and operational. Final formatting/receipt follow-up also stays local until this same shared-workspace blocker clears.
