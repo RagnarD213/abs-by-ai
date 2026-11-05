@@ -65,3 +65,7 @@ Managedpage includes fulltranscript andnormal-speedcomparisonlink. Actual1080psi
 ## R4 approved, setup handoff 2026-11-03
 
 Dan: "Okay this looks good. Proceed to setup". Exact59.3sR4 shortened off-the-cuff master finalized, SHA256 `92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41`. Approval: `DS-37-R4-approval.json`. Three permanent copies verified, including the Drive master/SRT server hashes; receipt and link in [one Claude setup handoff](../handoff-20261103-ds37-dr-mike-dial-sfc-setup.md), registered OPEN. Start now with Claude Opus5.5high; use Codex subscription images and current eight blind cover choices, stop for Dan’s pick, then verified organic setup. No setup chat has been started from Codex; covers/platform uploads/schedules remain outstanding. Own redundant VLC copies and review services9187/9188/9189 retired after approval; all delivery masters/evidence retained. Rawgate35PASS4FAIL4NA0pending remains unchanged and honestly adjudicated; approval never rewrites it.
+
+## Setup complete, shared waitlist November 4
+
+Exact R4 and revised B approved. Four assets uploaded and full-hash-verified, one four-platform shared waiting-list entry for January4,2027 at6PM America/Chicago. Queuefull200/200, no actual DS-37 schedules yet. Existing shared top-up owns release scheduling; no new edit/setup needed. `Docs/DS37_SETUP_RECEIPT_20261103.md`. State staysFINALIZED until all four schedules exist and read back.

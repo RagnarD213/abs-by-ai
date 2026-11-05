@@ -1,0 +1,7 @@
+{
+  "hook": "I'm reacting to Dr. Mike Israetel's video about tirzepatide, and he's completely right about it being an appetite dial.",
+  "body": "For me, having less hunger and less food noise made hitting my calories easier. But I also found that I could dial my appetite down too far. I wasn't eating enough protein. So just having no appetite wasn't the ideal level for me. Finding that right level is what let me maintain my abs without gaining weight, but also without losing muscle. That's the part of this I talk about from my own experience.",
+  "close": "Subscribe to my channel for exercise and nutrition videos and go to SixPackAbs.com for all my newest videos.",
+  "description_paragraph": "Dr. Mike Israetel calls tirzepatide an appetite dial, and I agree with him. In this video I react to what he's saying and talk about my own experience with it. Having less hunger and less food noise made it easier for me to hit my calories. But there was also a point where my appetite was too low and I wasn't hitting my protein. So for me, finding the right level mattered. I wanted to maintain my abs without gaining weight, but also without losing muscle. That's what I mean when I talk about dialing in my appetite.",
+  "pinned_comment": "When you're losing weight, which is harder for you to deal with, hunger or food noise?"
+}

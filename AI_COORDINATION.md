@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SPA-shop-design:REVIEW:2026-11-04:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); local `Contest/claude/shop-final-design/`.
 
-**DrMikeDial:COVER-R2-PICK:2026-11-03:Codex01a1a3d0.** [A-D](http://127.0.0.1:9647/?covers=2);source+reaction;not-uploaded. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
+**DrMikeDial:HOLD:2026-11-04:Codex.** B-approved;Jan4-6PM-shared-waitlist;queue200/200. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
 **LastTen:HQ-HOLD:2026-11-03:Codex.** X2-approved;covers-installed;not-queued. Next: Muhammad HQ, V3 comparison, setup. `Docs/DS16_SETUP_RECEIPT_20261103.md`.
 

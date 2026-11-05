@@ -821,5 +821,14 @@
   "filming_set": "poolside",
   "planned": "2026-12-31 18:00",
   "note": "Exact approved R2 full61.428s film; real-photo jump-rope cover2 approved. All4 media uploads downloaded and SHA256 verified. Planned Dec31 6PM America/Chicago, next eligible unreserved slot. No parent. Four platforms ready; shared daily top-up queues when room opens."
+ },
+ {
+  "config": "scripts/blotato/configs/ds37-dr-mike-dial.json",
+  "kind": "short",
+  "job": "DS-37",
+  "label": "Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right.",
+  "added": "2026-11-04",
+  "kitchen": false,
+  "note": "Exact R4 and revised B approved; four staging assets fully hash-verified. Target Jan 04 2027, 6 PM America/Chicago. Queue 200/200; existing shared top-up schedules all four destinations when room opens."
  }
 ]

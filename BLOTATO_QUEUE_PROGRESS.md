@@ -603,3 +603,7 @@ Exact approved R2 1080p master and real-photo jump-rope cover 2 installed. Four 
 ## DONE: Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29), 2026-11-04
 
 Master SHA256 `9dfeec01...` (R3). YouTube 6489209 Wed Jan 20 2027 9 AM CT; Facebook 6489205, Instagram 6489206, TikTok 6489207 Thu Jan 21 noon. Thumbnail `c257c4ab...` (round 3 X1 with @marta.khl TikTok frame). Keyword FOOD, UTM `ro29-cortisol-belly`. Queue 200/200 after. Receipt `Docs/RO29_SETUP_RECEIPT_20261104.md`.
+
+## SETUP COMPLETE, WAITLIST: Dr Mike Dial (DS-37), 2026-11-04
+
+Exact approved59.3sR4, revisedB approved and installed; four staged uploads downloaded/hash-verified, TikTok1778→1779frames and all2783AACpayloads unchanged, actual uploadedcoverframe checked. Queue200/200, zeroDS37schedules. One shared waiting-list entry targets Jan4,2027 at6PM America/Chicago acrossYouTube/Facebook/Instagram@danrosefit/TikTok. No nativeYouTube holding upload or per-videoautomation. Config:`scripts/blotato/configs/ds37-dr-mike-dial.json`. Receipt:`Docs/DS37_SETUP_RECEIPT_20261103.md`. Existingdaily top-up queues it; actualpublic covers andpinnedcomment followexistingmonitors.

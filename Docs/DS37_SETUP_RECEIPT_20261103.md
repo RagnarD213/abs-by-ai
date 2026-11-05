@@ -1,55 +1,74 @@
 # Dr Mike Dial SFC setup receipt
 
-Updated: 2026-11-03. Owner: Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77`.
+Updated: 2026-11-04. Owner: Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77`.
 
-Status: **Film finalized. B picked with a revision. Revised B delivered; awaiting exact-file approval. Setup partly complete. No publishing-platform media uploaded, no Blotato schedules and no waiting-list entry created by this setup.**
+**Setup complete, uploaded and shared-waitlisted. Not yet scheduled or released.** The exact approved R4 film and revised B covers are installed and verified. The live queue is full at 200/200; one existing shared waiting-list entry covers YouTube, Facebook, Instagram @danrosefit and TikTok. Target **Monday, January 4, 2027, 6 PM America/Chicago** (`2027-01-05T00:00:00.000Z`). No actual publisher schedule IDs exist. The existing `social-queue-daily-refresh` / `scripts/blotato/video_topup.py` schedules the four destinations when capacity opens, keeping this slot while available. No per-video automation, native YouTube holding upload, post removal or unrelated schedule change.
 
-Current review: [B revised, both layouts](http://127.0.0.1:9647/?covers=3). Final approval of the revised files is pending.
+## Exact approvals
 
-## Current cover round 3, November 4
+Film: Dan approved R4 on November 3: “Okay this looks good. Proceed to setup”. Exact shortened off-the-cuff film, already 5% faster with pitch preserved. Do not apply speed again.
 
-Dan selected B subject to this revision: “Let's go with B but I want to change it where you're using the image of Dr. Mike in C. That way you show less space above my head and a little bit more of my body”.
+Cover: Dan approved the exact round3 revised B files on November 4: “Looks good. Approve revised B and finish setup on all platforms.” B’s real pointing reaction above C’s full original Dr. Mike image, with tighter headroom and more body. Headline: **Tirzepatide Is An Appetite Dial**. Initial X1-X8 rejected; round2 B was selected with a revision. No invented blind-model pick was logged for this all-real replacement.
 
-**[Review revised B in both layouts](http://127.0.0.1:9647/?covers=3).** B’s top-Dan, middle-headline, bottom-Mike structure, with C’s complete original 668-second source frame below. Same real pointing reaction O0430 and same headline. Dan’s measured hair clearance is 24 pixels inside the platform/profile composition, reduced from 35; subject scale reduced from .72 to .64 on Instagram and 1.12 to 1.0 on YouTube. The wider 540-pixel source panel leaves more space for his body; both upper-body and pointing-hand framing visually checked. Instagram’s required profile reserve remains outside the 3:4 tile.
+Approval record: `Short-form video content/covers/approved-ds37/picks.json`, with identical project-delivery and Extreme approved-cover copies. Native source provenance and review hashes remain in the cover work folder.
 
-Exact reviewed files and full hashes: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/round3/manifest.json`; files `B-revised-instagram.jpg`, `B-revised-youtube.jpg`. Both 1080x1920 RGB JPEGs under 2 MB; two faces detected, full heads and headline clearance checked, entire original Mike image preserved. Served files and profile crop downloaded from the managed review, decoded and byte-matched. Evidence `round3/review-checks.json`. No AI generation, film change or playback.
+## Four uploaded assets, fully downloaded and verified
 
-**Waiting for Dan’s approval of these exact revised layouts before installation.** B was picked with a revision, not approval of the newly built files. Nothing uploaded, scheduled or waitlisted. Next after approval: save his exact words and these hashes, install the two round3 platform files, then finish packaging, TikTok cover-first media, upload verification and shared queue/waitlist setup. Older round1/round2 files remain history.
+| Asset | Bytes | SHA-256 |
+|---|---:|---|
+| video | 76,144,088 | `92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41` |
+| tiktok | 76,253,268 | `e806ac174599a4cb0656da0dd41efe9dc8124ac98093bc2c53193c5d48a98306` |
+| instagram | 383,790 | `341853a32ceb4ddc8d4141c229c9be30163a204f8f6effc561530043579f7420` |
+| youtube | 466,230 | `be1a4a00952d3689ad1d2fe398e705cb2ca317ead9e6c4abc68183ef7be275d6` |
 
-## Cover round 2, B selected with a revision
+All four Blotato staging uploads were downloaded in full and matched local bytes and SHA-256. Both cover downloads decoded as 1080x1920 RGB; the YouTube JPEG is 466,230 bytes, under 2 MB. Staging uploads are not public platform releases.
 
-Dan rejected the entire initial X1-X8 set and requested the published Hormozi reaction-cover approach: original Dr. Mike video paired with Dan reacting, above or below. The original set and private key are retained as history and are not eligible for installation.
+- [video verified staging asset](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/342447ae-ec1e-45da-b473-f44f0762716e.mp4)
+- [tiktok verified staging asset](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cfa535e1-4f10-458b-970c-255ca2589c17.mp4)
+- [instagram verified staging asset](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bcc4b497-bf08-4a62-bba8-b4a893c56153.jpg)
+- [youtube verified staging asset](https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb0402de-d5b0-41fa-8275-c457b71fb029.jpg)
 
-**Current review: [four reaction covers A-D, both layouts](http://127.0.0.1:9647/?covers=2).** Four designs, eight finished platform layouts and four Instagram grid crops. A/C put the source above Dan; B/D reverse the order. C preserves the complete original video frame. Same headline copy retained. Actual Dr. Mike frames at source 665, 668 and 679 seconds, plus Dan frames from the existing approved R2 key cache, reused with the same key cleanup and Warm grade. No new key, film render or AI generation. Source provenance and full hashes are in `round2/source-provenance.json`; final asset hashes and measured face/text boxes are in `round2/manifest.json`.
+TikTok: one approved Instagram-cover frame prepended, 1778 to 1779 frames; 2783 original AAC packet payloads compared and identical, zero decode errors, frame-zero cover PSNR 50.30 dB. The actual uploaded derivative was downloaded, its actual first frame extracted and visually checked against revised B. `videoCoverTimestamp: 0` is in its saved target. No re-encoding or processing of the original audio or approved film.
 
-All eight layout checks passed: 1080x1920 RGB, two detected faces, full scalp/hair inside the relevant panels and Instagram profile area, headline clear of measured head boxes, JPEG under 2 MB. Native source-selection and finished platform sheets visually inspected; all 13 displayed review images downloaded from the local review service, decoded and matched their intended bytes. Browser control of the existing IAB tab was unavailable; a new versioned review URL was queued to open by the supported app tool. No updated browser screenshot is claimed.
+## Platform package and actual queue state
 
-**Awaiting A, B, C or D. Nothing installed, uploaded to publishing platforms, queued or waitlisted.** After his exact pick, install from `round3/B-revised-<platform>.jpg` and record approval hashes; do not run the initial blind-key pick command for this all-real replacement set. Requested revisions still need both final layouts approved before installation.
+| Destination | Account | Media | Cover | State |
+|---|---|---|---|---|
+| YouTube | 46963 | Exact R4 master | Approved YouTube layout | Shared waitlist |
+| Facebook | 47105 / page1294282227094660 | Exact R4 master | Approved Instagram layout, repo and live installer registered | Shared waitlist |
+| Instagram @danrosefit | 67203 | Exact R4 master | Approved Instagram layout | Shared waitlist |
+| TikTok | 58181 | Verified cover-first derivative | Actual approved first frame, timestamp0 | Shared waitlist |
 
-## Approved film and backups
+Config: `scripts/blotato/configs/ds37-dr-mike-dial.json`. Exactly one DS-37 entry in `scripts/blotato/video_waitlist.json`; current list index78, active waiting entries59. Dated Shorts calendar cell January4 at6PM is marked Waitlist. Latest live read:200 posts,0 DS-37 schedules. Four saved targets independently passed the shared cover/ad guards. Direct queue dry run refused only the full cap (200+4=204). Shared top-up dry run confirmed no capacity and created nothing.
 
-Exact upload source: `Short-form video content/Dr Mike Dial SFC R4/Dr Mike Dial SFC R4 - final off the cuff.mp4`, 76,144,088 bytes, SHA-256 `92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41`. Picture 59.325933 seconds, container 59.339 seconds, 1080x1920, 30000/1001 fps. The 5% speed change is already included. Do not apply it again.
+The last collision check found DS-16 had reserved January2 at6PM during this setup’s uploads; DS-37 then took the next eligible unoccupied slot, January4 at6PM. The December10 approved5PM exception was counted as that day’s evening Short, preventing an unintended third Short. No other reservation was overwritten.
 
-SRT: same folder and basename, SHA-256 `c41d0a4ea9837baf2d79e70ffa77920e18d1de6ffbba2dc0bec2bfdabdc8ff0e`. Captions are burned in; no new burn needed.
+Facebook: `scripts/blotato/fb_reel_covers.json` and `~/.absbyai/fb-reel-covers/fb_reel_covers.json` both contain the exact first caption line and identical approved image hashes. Repository image: `scripts/blotato/fb_covers/ds37-dr-mike-dial-approved-B-revised.jpg`. The existing installer handles application and verification after release.
 
-All three copies freshly rechecked on November 3: project and Extreme full local SHA-256 matches; [Drive backup](https://drive.google.com/open?id=1nczhx7nkGY01ThHWi5ANg149r5W_tBYI) fresh server-side bytes, MD5 and SHA-256 matches for master and SRT. This was a cloud metadata verification, not a new full cloud download. No duplicate backup upload. Evidence: review work folder `backup-verification.json`.
+## Metadata and release follow-through
 
-Organic dedicated Short, SFC, DS-37. Actual closing words: “So that’s how you dial your appetite in with Tirzepatide. Subscribe to my channel and go to SixPackAbs.com for all my newest videos.” No button CTA. Use the existing Blotato organic Short helper. Video synthetic flags remain false from actual approved-film evidence. Covers do not change that classification.
+Title: **Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right.**
 
-## Initial cover round 1, rejected
+Pinned comment: “When you're losing weight, which is harder for you to deal with, hunger or food noise?” Written in config; existing `youtube-pinned-comment-daily` posts and pins after release. No comment posted before a public video exists.
 
-Copy: **Tirzepatide Is An Appetite Dial**. Eight distinct designs; 16 finished 1080x1920 RGB platform covers, plus eight Instagram profile crops. First letter of every headline word capitalized. All 16 automated checks passed: geometry, platform text safe area, exactly one detected face, no text intersecting expanded face/hair boxes, exact manifest hashes and YouTube JPEG under 2 MB. Native face-reference sheet, hands/action detail sheet and final two-layout sheet visually inspected. Real-photo option preserves original studio subject pixels through local compositing. Identity, hair, abs, hands and dial props checked. No paid image API used.
+Title, description, social captions, topic tags, pinned question, keywordFOOD and platform targets are saved. Organic links use the AbsByAI.com root with platform/short/campaign/content UTM values, never /start. Captions preserve the filmed SixPackAbs.com close. No free AI-preview offer was added. Real source-video/real camera footage: synthetic flags false; burned captions preserved with their exact SRT sidecar. YouTube post-release tags/captions and actual public covers remain with existing shared release checks.
 
-The managed review returns HTTP 200. All 26 linked displayed images downloaded locally from the review service, decoded and matched their intended local bytes. Browser screenshot saved and review tab retained for Dan. No video or audio was played in this setup. This is cover/layout QA, not an audible film review.
+Copy method: clean writer call with five real Dan passages and the actual filmed transcript. Existing Claude CLI authentication failed; the documented clean-prompt fallback produced the copy. Hard rules passed, no polish pass, no paid API. Receipt: `scripts/covers/ds37-20261103/setup/writer-receipt.json`.
 
-Work folder: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/`. Build/check/review scripts: `scripts/covers/ds37-20261103/`. Private comparison key stays in the ignored work folder. Preserve X1-X8 as rejected history. Current choices are round 2 A-D.
+Article: dedicated Short. No long-form article is required at setup; existing `sixpackabs-article-gap-daily` handles a suitable Short article or recorded skip after release.
 
-## Continue immediately after Dan picks
+After the shared routine creates schedules, read actual saved times, captions, targets and media. Blotato may rewrite media URLs: compare actual downloaded bytes/hashes, not URL strings, before reporting a wrong master or recreating anything. Public tile checks remain with the existing four-platform cover monitor; supplied URLs alone do not prove public cover success.
 
-1. Record his exact words and selected round 3 revised B hashes in an approval receipt, then install exact platform files from `round3/B-revised-<platform>.jpg`. The earlier eight-choice blind set was rejected; do not log an invented pick there. If he requests a revision, show every revised layout and wait for approval before installing.
-2. Finish title, descriptions, tags, captions metadata and short pinned question from the actual approved transcript. Pinned comment: **Not written yet**. Nothing posted or pinned before public release. Article: dedicated Short, handled after release by existing shared routine; no long-form article at setup.
-3. Build and verify only the necessary TikTok cover-first derivative. Upload exact master and derivative plus approved covers, download and hash-check actual public URLs. Register Facebook cover/caption in repository and live installer. Run cover/ad guards; use supported queue helpers.
-4. Re-read live queue, waiting list, release phases and dated Shorts calendar. No date reserved. Pick a free eligible slot without conflict, then queue four platforms or use one existing shared waiting-list/top-up entry if capacity is full. Do not create a per-video automation. Verify actual saved post media by downloaded bytes/hash after any URL rewrites.
-5. Save final schedule IDs and read-back times or actual waiting-list placement here. Update uploaded status only when verified setup completion permits it; job currently stays FINALIZED. Finish owned Git changes safely, close the OPEN handoff only after execution, and leave release checks to shared monitors.
+## Backups and quality limits
 
-Approved-film QA is unchanged: raw gate 35 PASS / 4 FAIL / 4 N/A / 0 pending, with the four mismatches independently adjudicated; Dan’s exact final approval is separate. Do not repair or re-render the approved film to satisfy a detector. Full evidence remains in the original handoff and round4.
+Project master/SRT and Extreme copies freshly full-hash-checked November4; existing [Drive master/SRT backup](https://drive.google.com/open?id=1nczhx7nkGY01ThHWi5ANg149r5W_tBYI) independently read for current server bytes/MD5/SHA-256, all matching. This is fresh cloud metadata verification, not a new full Drive-media download. No duplicate backup upload. Shared Drive folder remains master/SRT only. Exact covers, setup metadata and the TikTok derivative also have verified project/Extreme copies.
+
+Master:76,144,088bytes; picture59.325933s, container59.339s,1080x1920,1778frames,30000/1001fps. SRT SHA-256 `c41d0a4ea9837baf2d79e70ffa77920e18d1de6ffbba2dc0bec2bfdabdc8ff0e`. Approved-film raw gate remains35PASS/4FAIL/4N/A/0pending with four independently adjudicated detector mismatches. Approval does not rewrite that evidence. No film repair or new film render. Setup checks used silent offline decoding and images; no audible human listening pass claimed.
+
+Final checks: ad-guard clean across200 schedules before/after; cover audit zero issues before/after; all four new saved targets pass their own guards; actual uploaded TikTok first frame inspected. Source master and all approvals preserved. No image generation or paid generation in the approved-cover/setup phase.
+
+Evidence: `/Volumes/Expansion/_edit_work/DS-37-publish/` (`uploads.json`, individual upload receipts, TikTok/audio verification, actual uploaded-frame image, planned targets, preflight, waitlist receipt, live before/after queue snapshots and final backup receipt).
+
+Edit Queue stays **finalized** until all four actual schedules exist and read back. Its new setup/waitlist note was pushed successfully to the Drive status file. Native ArtifactDB mirror is unavailable to Codex; no mirror success is claimed and syncedRev remains pending. The setup handoff is executed and removed from OPEN.
+
+Repository changes are being committed by owned records only. Final push outcome is recorded below.

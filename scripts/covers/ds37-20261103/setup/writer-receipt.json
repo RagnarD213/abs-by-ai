@@ -1,0 +1,41 @@
+{
+  "method": "Claude CLI attempted through scripts/voice/write.py; it failed because its OAuth session expired and could not be refreshed. Used the same command with --print-prompt, then drafted only from that prompt in the clean writer subagent. No paid API calls, new credentials, voice guide or type notes. No polish pass.",
+  "command": "python3 scripts/voice/write.py --type content --format short --plan scripts/covers/ds37-20261103/setup/content-plan.md --his-words scripts/covers/ds37-20261103/setup/his-words.txt --words 230 --out scripts/covers/ds37-20261103/setup/writer-draft.txt",
+  "fallback": "Same command with --print-prompt",
+  "type": "content",
+  "format": "short",
+  "seed": "1",
+  "passage_ids": [
+    "content/tier1/absbyai/2026-the-supplements-i-actually-take.txt",
+    "content/tier1/absbyai-shorts/2026-top-5-ab-exercises-own-draft.txt",
+    "content/tier1/absbyai-shorts/2026-does-jiu-jitsu-get-you-abs.txt",
+    "content/tier1/absbyai-shorts/2026-how-to-jump-rope.txt",
+    "content/tier1/absbyai-shorts/2026-how-to-lose-the-last-ten-pounds-of-fat.txt"
+  ],
+  "passage_sources": [
+    "The Supplements I Actually Take (And Why)",
+    "Short script: Top 5 Ab Exercises (Dan's own first draft)",
+    "Short script: Does Jiu Jitsu Get You Abs?",
+    "Short script: How To Jump Rope",
+    "Short script: How To Lose The Last Ten Pounds Of Fat"
+  ],
+  "hard_rule_result": "PASS",
+  "checker_report": "SCORE 3.7 (inside his range; the line for content/short is 19.8, Claude's cold drafts sit around 34.1). 226 words.\nOUTSIDE HIS BAND (heaviest first):\n  formal or neat words per 1,000: 13.27 is above his band 0.0 to 8.99 (his typical 3.04). OVERSHOOT, performing the voice: pull back\nLINES TO LOOK AT:\n  [formal or neat word (completely): what is the plain word?] Mike Israetel's video about tirzepatide, and he's completely right about it being an appetite dial.\n  [three-item list: does he need all three, or does it only sound nice?] For me, having less hunger and less food noise made hitting my calories easier.\n  [formal or neat word (maintain): what is the plain word?] Finding that right level is what let me maintain my abs without gaining weight, but also without losing muscle.\n  [formal or neat word (maintain): what is the plain word?] I wanted to maintain my abs without gaining weight, but also without losing muscle.\n  [three-item list: does he need all three, or does it only sound nice?] When you're losing weight, which is harder for you to deal with, hunger or food noise?",
+  "word_counts": {
+    "hook": 19,
+    "body": 74,
+    "close": 18,
+    "description_paragraph": 98,
+    "pinned_comment": 16
+  },
+  "word_count_total": 225,
+  "checks": {
+    "body_60_to_90_words": true,
+    "description_90_to_130_words": true,
+    "pinned_comment_under_180_characters": true,
+    "no_added_dosages": true,
+    "no_medication_change_instructions": true,
+    "no_new_claims": true
+  },
+  "passage_id_note": "The bank returned file paths rather than separate passage IDs; those exact bank identifiers are recorded."
+}
