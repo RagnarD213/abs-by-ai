@@ -87,3 +87,31 @@ Dan approved "rebuild it". Why: Supliful support said Shopify-made products cann
 - **Flavors:** Supliful makes one creatine flavor for this line (Lemon). Creatine Monohydrate is the only other creatine and is unflavored with no approved label. New flavors would each be a separate Supliful product plus label. Adding one later: publish it from Supliful, add `Flavor` value on its product, and have the theme link the flavor and pack products together.
 - **One page for 1/3/6 tubs:** Shopify Combined Listings is Plus-only, so the three packs are three products. The pack and flavor picker must be built in the theme as links between the three product pages (handles above). Theme build owns this.
 - Not verified: a real test order reaching Supliful (Supliful and Shopify both recommend one before launch).
+
+## Update 2026-11-05 (other five products rebuilt through Supliful)
+
+Dan: "rebuild the other five products the same way so the bundles work and the subscriptions too." Done for Great Again T, Eternal Burn AM, Eternal Burn PM, Carb Curber and Z Shred Support.
+
+- **Supliful:** each of the five renamed to its approved name, retail price $47, description = the approved short copy (same text as the old Shopify product). Ten Single SKU bundles created: `<Name> 3 Bottles` at $129 (3 units) and `<Name> 6 Bottles` at $234 (6 units). All 15 published to SixPackAbs (one click each, Published).
+- **Shopify, new Supliful-linked products (Active, location Supliful Fulfillment, inventory not tracked):**
+
+| Product | Single (handle) | 3-pack | 6-pack |
+|---|---|---|---|
+| Great Again T | great-again-t (15503050178882) | great-again-t-3-bottles (15503053390146) | great-again-t-6-bottles (15503053750594) |
+| Eternal Burn AM | eternal-burn-am (15503051161922) | eternal-burn-am-3-bottles (15503055847746) | eternal-burn-am-6-bottles (15503056109890) |
+| Eternal Burn PM | eternal-burn-pm (15503050834242) | eternal-burn-pm-3-bottles (15503054963010) | eternal-burn-pm-6-bottles (15503055257922) |
+| Carb Curber | carb-curber (15503049621826) | carb-curber-3-bottles (15503052177730) | carb-curber-6-bottles (15503052833090) |
+| Z Shred Support | z-shred-support (15503050506562) | z-shred-support-3-bottles (15503054045506) | z-shred-support-6-bottles (15503054635330) |
+
+  Prices $47 / $129 / $234. Handles confirmed in the admin product URLs/SEO panels for the singles; packs follow the bundle names (check the live URL when the password is off).
+- **Subscriptions:** the existing "$42 every 30 days" plan (monthly, 10.64% off) is attached to all five singles (plan reused, not recreated). Packs have none.
+- **Images:** the three lifestyle photos from the old product (`pm-<name>-2/3/4` in Shopify Files) added to each single, after Supliful's own mockup and supplement-facts image. Eternal Burn PM's hero mockup was missing after publishing, so a Supliful PM bottle mockup was added and moved first. Bundle (pack) pages keep Supliful's mockup and supplement facts.
+- **Descriptions:** Supliful's text on the 10 pack products was long generic label copy, so each was replaced in Shopify with the approved short copy. Great Again T's single had inherited bold text from Supliful's editor; fixed in Shopify. If anyone presses "Update" from Supliful later it may overwrite these.
+- **Old hand-made products:** all five set to Draft and handle renamed `<handle>-old-draft` (not deleted). Shopify's auto-created URL redirects from the old handles were deleted so the new products own the clean handles.
+- **Not done / not verified:**
+  - **No real test order has reached Supliful.** Supliful and Shopify both recommend one before launch.
+  - Dan's earlier "all flavors" request: only Lemon exists for creatine; the other five have one formulation each.
+  - The theme session saw the creatine variants as `available=false` on the storefront; inventory is "not tracked" in the admin, so this should read available. Needs a storefront retest.
+  - Product type on the new products now comes from Supliful's categories (e.g. "Weight Management", "Sleep & Relaxation") instead of the old hand-set labels ("Daytime fat burner", "Sleep", "Vitality, men 40+"). Only matters if the theme reads product type.
+  - SEO page title on the new products is just the product name (no "| SixPackAbs.com" suffix).
+  - Safe-push is blocked by other sessions' live files; commits are local only.
