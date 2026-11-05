@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [SixPackAbs Supliful label upload](handoff-20261105-sixpackabs-supliful-label-upload.md): **Written 2026-11-05, fire only after Dan's look at the 2D labels.** Upload the six locked label PDFs and product images in the Supliful Label Editor; no orders. Sonnet 5.5 medium.
 
 - [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
 
