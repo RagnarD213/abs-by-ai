@@ -60,3 +60,12 @@ Use **Shopify's built-in Subscriptions app** (free, no extra monthly fee; Shopif
 3. Complete Settings > Payments and the business details (bank, ID, EIN).
 4. Provide the Texas sales tax permit number when ready to collect tax.
 5. Not needed until launch: DNS for `shop.sixpackabs.com`. Exact records will be prepared and asked for then.
+
+## Update 2026-11-05
+
+- **Supliful Pro active** ($69/month, Dan subscribed himself). Supliful dashboard: 6 of 8 setup steps done; left are step 7 (set shipping rates, which is only a help article, rates are set in Shopify) and step 8 (publish first product, not done: labels and approvals pending).
+- **Shipping policy restored by Dan's call:** Standard $8.00, free at $70 and up; Express $15.00.
+- **Cost check against Supliful's USPS rates** (Ground Advantage): up to 0.5 lb $5.29, to 0.75 lb $6.19, to 1 lb $7.49, 1.01 to 2 lb $9.99, 2.01 to 3 lb $12.49, each extra lb +$1.99. Express: $9.99 / $11.99 / $12.49 / $17.99 / $21.99, +$4.49 per lb. **So $8 flat only covers parcels up to about 1 lb; a creatine tub likely ships at $9.99 or more, and free shipping at $70+ (two tubs) means absorbing roughly $12 to $15.** Decision for Dan: keep, or switch to weight-based rates and a higher free-shipping line.
+- **Alaska and Hawaii are not shippable by Supliful.** The Shopify US market still includes them; exclude AK and HI before launch.
+- Subscriptions app (Shopify) installed; no plan created yet (no creatine product).
+- Shopify support: category change escalated, ticket #71877476, Payments team follows up by email to the store account.
