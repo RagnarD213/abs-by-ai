@@ -78,6 +78,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Before/after](before-after-same-person.md): same person
+- [No before+after on one screen](no-before-after-same-screen.md): 11-05: before full screen, then after full screen; never a side-by-side pair
 - [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
 - [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers

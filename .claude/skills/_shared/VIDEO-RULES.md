@@ -1208,6 +1208,11 @@ something that we can publish."* Every point below is a standing rule for every 
   transitions) is proven in small rounds (look options, each graphic as a screenshot, the finished first minute) BEFORE the full
   video is built (the round method above). Ten rounds of reactive defect-fixing on a cut whose style was never right is the waste he means.
 
+## A before and an after never share one screen in a video (Dan, 2026-11-05)
+
+- Dan, on the round 1 opening of I'm 41. Here Are The 10 Exercises I Do Every Week (RO-32), a two-card before/after pair: *"just remember our rule going forward of avoiding a before-and-after on the same screen."*
+- In videos, show the before photos as one full-screen graphic, then cut to the after photos as their own full-screen graphic. No side-by-side pair cards. Reuse the existing three-photo before and after graphics where they fit. Claude and Codex, every format. Already approved exports stay as they are. Memory `no-before-after-same-screen`.
+
 ## A before and after picture are the SAME PERSON (Dan, 2026-09-12)
 
 - **Never mix people across a before/after pair.** Dan, on the Ad 5 vertical's app demo, which uploaded one man's photo and
