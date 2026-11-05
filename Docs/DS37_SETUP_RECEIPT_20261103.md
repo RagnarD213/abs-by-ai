@@ -2,11 +2,21 @@
 
 Updated: 2026-11-03. Owner: Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77`.
 
-Status: **Film finalized. Four revised reaction cover choices delivered. Awaiting Dan’s cover pick. Setup partly complete. No publishing-platform media uploaded, no Blotato schedules and no waiting-list entry created by this setup.**
+Status: **Film finalized. B picked with a revision. Revised B delivered; awaiting exact-file approval. Setup partly complete. No publishing-platform media uploaded, no Blotato schedules and no waiting-list entry created by this setup.**
 
-Current review: [Four reaction cover choices, both layouts](http://127.0.0.1:9647/?covers=2). Choose A, B, C or D. No cover is approved yet.
+Current review: [B revised, both layouts](http://127.0.0.1:9647/?covers=3). Final approval of the revised files is pending.
 
-## Current cover round 2
+## Current cover round 3, November 4
+
+Dan selected B subject to this revision: “Let's go with B but I want to change it where you're using the image of Dr. Mike in C. That way you show less space above my head and a little bit more of my body”.
+
+**[Review revised B in both layouts](http://127.0.0.1:9647/?covers=3).** B’s top-Dan, middle-headline, bottom-Mike structure, with C’s complete original 668-second source frame below. Same real pointing reaction O0430 and same headline. Dan’s measured hair clearance is 24 pixels inside the platform/profile composition, reduced from 35; subject scale reduced from .72 to .64 on Instagram and 1.12 to 1.0 on YouTube. The wider 540-pixel source panel leaves more space for his body; both upper-body and pointing-hand framing visually checked. Instagram’s required profile reserve remains outside the 3:4 tile.
+
+Exact reviewed files and full hashes: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/round3/manifest.json`; files `B-revised-instagram.jpg`, `B-revised-youtube.jpg`. Both 1080x1920 RGB JPEGs under 2 MB; two faces detected, full heads and headline clearance checked, entire original Mike image preserved. Served files and profile crop downloaded from the managed review, decoded and byte-matched. Evidence `round3/review-checks.json`. No AI generation, film change or playback.
+
+**Waiting for Dan’s approval of these exact revised layouts before installation.** B was picked with a revision, not approval of the newly built files. Nothing uploaded, scheduled or waitlisted. Next after approval: save his exact words and these hashes, install the two round3 platform files, then finish packaging, TikTok cover-first media, upload verification and shared queue/waitlist setup. Older round1/round2 files remain history.
+
+## Cover round 2, B selected with a revision
 
 Dan rejected the entire initial X1-X8 set and requested the published Hormozi reaction-cover approach: original Dr. Mike video paired with Dan reacting, above or below. The original set and private key are retained as history and are not eligible for installation.
 
@@ -14,7 +24,7 @@ Dan rejected the entire initial X1-X8 set and requested the published Hormozi re
 
 All eight layout checks passed: 1080x1920 RGB, two detected faces, full scalp/hair inside the relevant panels and Instagram profile area, headline clear of measured head boxes, JPEG under 2 MB. Native source-selection and finished platform sheets visually inspected; all 13 displayed review images downloaded from the local review service, decoded and matched their intended bytes. Browser control of the existing IAB tab was unavailable; a new versioned review URL was queued to open by the supported app tool. No updated browser screenshot is claimed.
 
-**Awaiting A, B, C or D. Nothing installed, uploaded to publishing platforms, queued or waitlisted.** After his exact pick, install from `round2/<platform>/<letter>.jpg` and record approval hashes; do not run the initial blind-key pick command for this all-real replacement set. Requested revisions still need both final layouts approved before installation.
+**Awaiting A, B, C or D. Nothing installed, uploaded to publishing platforms, queued or waitlisted.** After his exact pick, install from `round3/B-revised-<platform>.jpg` and record approval hashes; do not run the initial blind-key pick command for this all-real replacement set. Requested revisions still need both final layouts approved before installation.
 
 ## Approved film and backups
 
@@ -36,7 +46,7 @@ Work folder: `Short-form video content/covers/review/ds37-dr-mike-dial-20261103/
 
 ## Continue immediately after Dan picks
 
-1. Record his exact words and selected round 2 A-D hashes in an approval receipt, then install exact platform files from `round2/<platform>/<letter>.jpg`. The earlier eight-choice blind set was rejected; do not log an invented pick there. If he requests a revision, show every revised layout and wait for approval before installing.
+1. Record his exact words and selected round 3 revised B hashes in an approval receipt, then install exact platform files from `round3/B-revised-<platform>.jpg`. The earlier eight-choice blind set was rejected; do not log an invented pick there. If he requests a revision, show every revised layout and wait for approval before installing.
 2. Finish title, descriptions, tags, captions metadata and short pinned question from the actual approved transcript. Pinned comment: **Not written yet**. Nothing posted or pinned before public release. Article: dedicated Short, handled after release by existing shared routine; no long-form article at setup.
 3. Build and verify only the necessary TikTok cover-first derivative. Upload exact master and derivative plus approved covers, download and hash-check actual public URLs. Register Facebook cover/caption in repository and live installer. Run cover/ad guards; use supported queue helpers.
 4. Re-read live queue, waiting list, release phases and dated Shorts calendar. No date reserved. Pick a free eligible slot without conflict, then queue four platforms or use one existing shared waiting-list/top-up entry if capacity is full. Do not create a per-video automation. Verify actual saved post media by downloaded bytes/hash after any URL rewrites.

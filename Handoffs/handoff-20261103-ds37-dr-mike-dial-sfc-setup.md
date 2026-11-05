@@ -59,3 +59,7 @@ Executing in Codex chat `01a1a3d0-06e8-7cb3-9174-4cc21117cf77` at Dan’s explic
 ## Current checkpoint: cover round 2
 
 Dan rejected X1-X8 and requested a Hormozi-style source-video/reaction design. Four new real-frame designs A-D are at http://127.0.0.1:9647/?covers=2, both platform layouts and grid previews. Await A-D, then install the exact round2 platform files. Old blind key stays as rejected history, not a current pick path. No film changes, AI generation, upload, schedule or date reservation in this round. Receipt has source provenance, exact cover manifests and remaining setup work. Same setup owner continues after the pick.
+
+## November 4: B selected with revision, exact files await approval
+
+Dan chose B with C’s wider original Dr. Mike image, less headroom and more of his body. Revised both layouts delivered at http://127.0.0.1:9647/?covers=3. Current candidate files are `round3/B-revised-instagram.jpg` and `round3/B-revised-youtube.jpg`, hashes in round3 manifest. Wait for approval of these exact revised layouts, then install and continue setup here. Nothing uploaded or scheduled. Full current receipt is `Docs/DS37_SETUP_RECEIPT_20261103.md`.
