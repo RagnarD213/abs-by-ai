@@ -55,6 +55,18 @@ When a task reaches a step Claude can't do (for example typing a test card into 
 - One handoff file in `Handoffs/` covering both AIs, listed in `Handoffs/README.md` OPEN. In chat give two ready-to-paste starter prompts: Codex (newest Sol, path to the file) and Grokbot (self-contained, all needed facts in the prompt, since it may not read the Mac's files). State Dan's authorization plainly in both so neither stops to ask him.
 - Never pass Claude's own limits on to Codex or Grokbot (Dan, 2026-11-05). No "Dan types the SSN/EIN/password himself", no "stop before payment", no "leave it for Dan to sign": tell them to do the whole step, including IDs, passwords (Grokbot has Dan's password vault), payment and signatures. Only rule: don't write secret values into repo files (the repo is public); point to where Dan keeps them.
 
+## Codex can call Claude as a subagent (Dan, 2026-11-05)
+
+For a task that mixes Claude's strengths (design, theme or site code, writing, video editing) with steps Claude can't do (payments, sign-ups, ID numbers, government forms), Codex may own the task and call Claude for its part. Claude Code runs on this Mac (`claude`, kept updated with `claude update`):
+
+```bash
+cd "/Users/danielrose/Projects/Claude/Projects/Abs By AI" && claude -p "$(cat path/to/brief.md)" --model claude-opus-5-5 --permission-mode bypassPermissions --output-format text > tmp/claude-run-<name>.log 2>&1
+```
+
+- Give Claude a full brief (goal, files, what done looks like). It reads CLAUDE.md and AGENTS.md itself. Run long jobs in the background and read the log when it exits.
+- Claude does its part and reports any step it can't do; Codex then does that step itself.
+- If Claude reports a sign-in error, Dan runs `claude` once in Terminal and types `/login`.
+
 ## Standing authorization for autonomous execution
 
 - Execute all routine, reversible actions needed to complete Dan's request without asking. Treat the request as authorization for file edits, commands, tests, browser navigation, data entry, commits, pushes, deployments, and routine configuration within the stated task.
