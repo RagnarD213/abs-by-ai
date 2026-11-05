@@ -1496,3 +1496,12 @@ Five independent reviews before SHIP; each item below cost a full rebuild. Recip
   (`_Track(path, -offset, n+offset)`) so the first frame is not an empty band. Break a forced two-line headline with `\n`.
 - **pkill -f with an absolute path does not match** a script started as `python3 recipe/build.py`; check `pgrep -fl` after killing, or two
   builds race into the same folder.
+
+## Dedicated-short lessons: DS-77 T-Bar Rows, October 23 gym B-roll (2026-11-05)
+
+Same roll and build as DS-76 Pull-Ups (recipe: `/Volumes/Extreme/_edit_work/DS-77/round1/recipe/`). Three independent reviews failed it before the fourth passed; all three faults were measurable before the first review:
+- **Head room on B-roll is the camera's, not the crop's.** B0723 (side angle) frames Dan's hair at the top of its picture at every rep peak; B0724 cuts his head off in its first 2 s. Full height is always kept, so measure every frame of every clip at its exact window scale first (`recipe/broll_headroom.py`, person mask) and use only stretches with 20 px or more. A window shrinks the room (scale 1056/cw); full screen keeps more.
+- **Handheld library clips lurch at their edges.** Run per-frame phase correlation (`recipe/motion_scan.py`) and trim off anything over about 2 px per frame at output scale: B0724 moves before 1.95 s and after 4.42 s, B0644 before 0.17 s and after 3.33 s, B0725 before 1.5 s and after 8.5 s.
+- **Match the rep phase to the words.** A squeeze line needs the top of a rep under "at the top"; map the rep cycle on a 0.2 s strip before choosing the start.
+- **Captions print the heard word.** Teleprompter wording is not proof: a listener check (Gemini 3.1 Pro; 2.5 Pro is retired for new users) plus formants settled "handle", "row machine" and "this way in your".
+- A later voice-only pick: mix the new voice from the same cut and stream-copy the reviewed picture; prove the video stream is byte-identical before carrying reviews and the watch judge to the new hash.

@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [How To Do T-Bar Rows SFC Setup (DS-77)](handoff-20261105-ds77-t-bar-rows-cover-and-setup.md): **Written 2026-11-05, start now.** Dan finalized R1 (F, Fuller Bass, Original Portrait). Covers (Codex subscription), stop for pick, backups, metadata, January-blitz Short slot. Opus 5.5 high.
+
 - [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
 
 - [Texas sales tax permit (Codex + Grokbot)](handoff-20261105-texas-sales-tax-permit-codex-grokbot.md): **Written 2026-11-05, fire now.** Dan authorized it; apply in Texas eSystems for Rose Digital Holdings LLC (taxpayer 32105235058). Codex/Grokbot do every step including SSN/EIN and signing. Then enter the permit in Shopify Taxes. Codex newest Sol medium; Grokbot same prompt.
