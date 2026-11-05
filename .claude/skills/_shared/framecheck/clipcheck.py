@@ -340,9 +340,19 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
         return np.median(Pf[k, ok] - pred, 0)
     cam = sp.get("camera")
     locked = cam == "locked" or (isinstance(cam, dict) and cam.get("locked"))
+    # "camera": {"locked": true, "measure": "frame"} (added 2026-11-05, RO-15 R2): judge the camera and every still box against the
+    # FRAME, with no fitted camera. On a locked shot that is mostly plain wall with moving people, the RANSAC similarity fit picks
+    # up a fraction of a percent of false zoom, which reads as 5-12 px "against the camera" at the frame edges (RO-15 A6: the
+    # thermostat measured 7.7 px against the fit, <= 2 px against the frame by direct template match). Stricter, not looser: any
+    # real camera drift or object drift moves points against the frame. Opt-in per spec; the default path is unchanged.
+    if isinstance(cam, dict) and cam.get("measure") == "frame":
+        cams = [ident.copy() for _ in range(K)]
+        bg = [float(np.median(np.linalg.norm(Pf[k, :nG][use_f[:nG] & Vf[k, :nG] & Vf[0, :nG]] - Pf[0, :nG][use_f[:nG] & Vf[k, :nG] & Vf[0, :nG]], axis=1)))
+              if (use_f[:nG] & Vf[k, :nG] & Vf[0, :nG]).sum() >= 6 else 0.0 for k in range(K)]
+        cam_px = bg
     worst_cam = max(cam_px); kc = int(np.argmax(cam_px))
     rows.add("camera", (not locked) or worst_cam <= D["camera_max_px"],
-             f"camera moved the picture by up to {worst_cam:.0f} px (frame {idx[kc]}; corners and centre, fitted to the background)"
+             f"camera moved the picture by up to {worst_cam:.0f} px (frame {idx[kc]}; " + ("median background point against the frame)" if isinstance(cam, dict) and cam.get("measure") == "frame" else "corners and centre, fitted to the background)")
              + (f"; spec says locked, max {D['camera_max_px']:g}" if locked else "; not declared locked, information only"),
              px=round(worst_cam, 1))
     scale = [math.sqrt(abs(np.linalg.det(M[:, :2]))) for M in cams]
@@ -476,7 +486,7 @@ def run(clip, spec, frames, outdir, cache=True, tracker="cotracker"):
             m = own(k, ids(f"still:{n}"))
             if m is not None and float(np.hypot(*m)) > worst:
                 worst, kk = float(np.hypot(*m)), k
-        rows.add(f"still:{n}", worst <= D["still_px"], f"{n} moved up to {worst:.1f} px against the camera (frame {idx[kk]}; max {D['still_px']:g})")
+        rows.add(f"still:{n}", worst <= D["still_px"], f"{n} moved up to {worst:.1f} px against the {'frame' if isinstance(cam, dict) and cam.get('measure') == 'frame' else 'camera'} (frame {idx[kk]}; max {D['still_px']:g})")
     for pr in sp.get("props", []):
         if pr.get("may_leave"):
             continue
