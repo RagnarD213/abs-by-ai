@@ -229,7 +229,7 @@ and the V4 short1 rebuild (2026-08-10) that produced the band layout.
 **Cutting from an editor's FINISHED master (Zeeshan, Muhammad, Waleed)? For a Soft Blue batch start from `reference/softblue-sl09/` (it joins `softblue-sl07/` to `zeeshan-master/`), and read `reference/zeeshan-master/README.md` first** (SL-04, 2026-09-24: audio verbatim at 320k, pill fades outlast the scan, CTC caption timing, framing steps that must be real size changes).
 
 **Which recipe to copy (audit 2026-10-20):** a new Soft Blue batch from a 4K film of ours starts from `reference/softblue-sl07/`,
-from a 1080p film of ours `reference/softblue-sl15/`, from an editor's master `reference/softblue-sl09/`. Historical (superseded
+from a 1080p film of ours `reference/softblue-sl15/`, from an editor's master `reference/softblue-sl09/`. From an APPROVED Claude long-form that has a graphics-free `base.mp4` (films_r4-style builds): `reference/softblue-sl20/` (verify the film's cut list with a frame-difference scan first; 2026-11-05). Historical (superseded
 2026-10-01 by VIDEO-RULES.md, "New shorts batches"): the J2-era pipelines in the next paragraph serve legacy re-cuts only.
 
 **Working pipelines are preserved in `reference/`.** Copy one and adapt, do NOT rewrite
