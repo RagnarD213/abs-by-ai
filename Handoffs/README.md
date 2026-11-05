@@ -11,8 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [SixPackAbs test orders (Codex)](handoff-20261105-sixpackabs-test-orders-codex.md): **Written 2026-11-05, fire now.** Dan authorized the test orders; Codex places them with the 4242 test card without asking: singles + monthly subs ($534), 3/6 packs ($2,178), one lone sub ($51.99). Verify, cancel test contracts, report. Codex newest Sol, medium.
-
 
 - [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
 
