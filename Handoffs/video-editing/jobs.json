@@ -3994,14 +3994,17 @@
    "claude": "CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-20-invest-in-your-health-shorts.md`: confirm the approved RO-20 master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Mon Nov 23. Name this session \"Invest In Your Health SFL R1\".",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-20-invest-in-your-health-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: confirm the approved RO-20 master, propose segments, wait for Dan's picks, cut three Shorts, gate, deliver, update `00-MASTER.md`. Name this task \"Invest In Your Health SFL R1\".",
-   "state": "ready",
-   "note": "Approved RO-20 parent filed Oct 20. Propose segments and wait for Dan picks; Short 1 airs Mon Nov 23, due Nov 22.",
+   "state": "in_progress",
+   "note": "Invest In Your Health SFL R1: shortlist sent 11-05, waiting for Dan's picks; airs February (kitchen)",
    "unattended": false,
    "unattended_why": "Dan selects standalone Shorts segments before rendering.",
    "order": 173,
-   "updated": "2026-10-20",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-11-05",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "needs": "",
+   "by": "Claude"
   },
   {
    "id": "SL-21",
