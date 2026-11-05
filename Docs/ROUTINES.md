@@ -1,5 +1,11 @@
 # Routines
 
+## Silent checks and owner handoff in local routines (Dan, 2026-10-28)
+
+Local routines and continuations follow `AGENTS.md` and `.claude/skills/_shared/VIDEO-RULES.md`: enter **Start silent checks** (or `?review_mode=automation`) before testing managed players, verify mute throughout playback/source changes/recovery, then use **Finish checks for owner**. That handoff cancels stale callbacks, pauses and verifies every player before enabling audio, and never starts playback. Preserve the chosen volume and normal controls. A failure stays muted and is reported. Dan's next deliberate Play includes sound; later automated testing must re-enter silent mode. The global local-Codex `~/.codex/AGENTS.md` records the same workflow, and Claude project tasks import project `AGENTS.md` through `CLAUDE.md`.
+
+Use offline decoding, measurements or supported non-speaker model/file inspection; never call a silent/numerical check an audible listen. Playback readiness is not QA or content approval. Do not change Mac/Wispr Flow/microphone/routing/media settings. Existing independent tasks must read/apply the update and open pages must reload; no app-wide preference or automatic prompt update is claimed. External/native players use the same pause-verified handoff where supported.
+
 ## Abs By AI morning brief
 
 Status: **local chat schedule enabled October 25, 2026**. Daily at 07:00 America/Chicago, ready target 07:30, using the existing full-access local chat. This replaces cloud execution after its private-folder permission failure. The Mac must be online with the Codex app running. The first automatic publication is unproven until a scheduled run passes independent storage and live-page checks.
@@ -25,3 +31,15 @@ Current video cadence is Sunday/Wednesday 9 AM Central, at most one long-form pe
 | Rules | `sixpackabs/articles/README.md`. Receipt: `Docs/SIXPACKABS_ARTICLE_AUTOMATION_RECEIPT_20261010.md` |
 
 A Codex release-check automation that also publishes a long-form's article (for example the December 6 Keep Your Muscle check) does not conflict: whichever runs first publishes, and the other finds `gap.py` clean and the draft already renamed.
+
+## Edit stall watchdog
+
+| Item | Current state |
+| --- | --- |
+| Routine | `edit-stall-watchdog`, a Claude scheduled task (Claude app, Routines), created 2026-11-05 |
+| Schedule | Every 15 minutes. The Mac and the Claude app must be open; runs start in the app's default permission mode |
+| Detector | `python3 .claude/skills/_shared/stallwatch/stallwatch.py scan --claim --json` (no AI, no login) |
+| Cost when idle | One script call and a one-line answer |
+| Does | Finds edit jobs with no live process, logs quiet 20+ min and no DONE marker; messages the Claude session holding the edit slot (2 nudges, 30 min apart), then notifies Dan. Codex-owned stalls go to Dan |
+| Prompt | `~/.claude/scheduled-tasks/edit-stall-watchdog/SKILL.md` |
+| Rules | `.claude/skills/_shared/stallwatch/README.md`; VIDEO-RULES.md, render queue section, "Chains are watched by their EXIT" |

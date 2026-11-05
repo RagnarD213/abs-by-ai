@@ -1454,6 +1454,16 @@ something that we can publish."* Every point below is a standing rule for every 
   automatically): a video already running goes ahead of videos not yet started. `--priority` only when Dan is waiting
   on that exact output. Drop old `wait_slot`/`pipeline_slot` loops; they double-wait behind the queue.
 - `GATE_OFF=1` skips the queue for debugging only, never for a real build.
+- **Chains are watched by their EXIT, never by log text (2026-11-05).** Every chain script starts with
+  `set -Eeuo pipefail` and `trap 'echo "CHAIN_FAILED at line $LINENO: $BASH_COMMAND"' ERR` and ends with
+  `echo CHAIN_DONE`, run from its job folder. Start it with `run_in_background` as
+  `python3 .claude/skills/_shared/stallwatch/stallwatch.py run <JOB> -- bash chain.sh` (wrapping `renderq.py run` if
+  used): the background task ends on ANY exit, so the session wakes, and the wrapper prints CHAIN_DONE or CHAIN_FAILED
+  with the newest log's tail. Never arm a watcher that greps one log for DONE/error. Backstop: the
+  `edit-stall-watchdog` routine runs `stallwatch.py scan --claim` every 15 min and messages the session holding the
+  edit slot when its job has no live process, logs quiet 20+ min and no DONE (2 nudges, then Dan). Fine but flagged:
+  `stallwatch.py ok <JOB>`. Why: on 2026-11-04 the RO-31 R3 chain died on a SyntaxError logged to `finish.log`; the
+  watcher grepped `chain.log` and the job sat dead 11 hours. README: `.claude/skills/_shared/stallwatch/README.md`.
 - **Why, measured 2026-08-27:** four ungated builds drove the Mac mini (10 cores) to load 242 at 0% idle and made
   `finish_audio.py` take 126 s against 13.6 s quiet (9.3x), with no throughput gain. Load average misleads on macOS
   (130 at 15% idle on 2026-10-20); the queue reads real CPU idle from the kernel. Full 08-27 numbers:
