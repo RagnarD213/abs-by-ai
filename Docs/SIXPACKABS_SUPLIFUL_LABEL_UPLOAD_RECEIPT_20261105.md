@@ -25,6 +25,10 @@ The editor's four guides (bleed, safe, trim, matrix code) were on for each previ
 
 No product published to a store, no sample or proof ordered, no payment, membership untouched (the account still shows "Upgrade now"). Product names were not changed (the editor never asked) and no descriptions were written. All seven products in the account read "Not published". The seventh, Greens Superfood, was not touched.
 
+## Proof order placed (Dan, same day)
+
+Dan checked out the six-product sample order himself after Claude stopped at the payment page. Supliful order SPL1250987, Nov 5, 8:41 AM, total $81.59, status New, shipped to Rose Digital Holdings LLC. Supliful put it **on hold** while it verifies the labels ("usually 1 business day"). Supliful may email about any label problem. The earlier $124.98 sample order SPL1238058 (Oct 21) is Completed.
+
 ## What is still open
 
 - Supplier verification: Supliful says the label must pass its verification before fulfillment. Whether it passes is only known once an order or proof goes in.
