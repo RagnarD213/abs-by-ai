@@ -1,47 +1,51 @@
-# Last Ten Pounds SFC setup receipt, November 3, 2026
+# Last Ten Pounds SFC setup receipt
 
-Status: **partly prepared, X2 cover approved, installed in the setup package and uploaded. HQ video export pending. No video uploaded, scheduled or waitlisted.**
+**Setup completed November 4, 2026. Shared waiting list, planned Saturday January 2, 2027 at 6 PM America/Chicago on YouTube, Facebook, Instagram @danrosefit and TikTok. No live schedules yet: Blotato is full at 200/200.**
 
-- Category: organic dedicated Short (SFC), Muhammad, DS-16.
-- Dan finalized V3 in Upwork on November 3 at 1:22 PM Central: “Last Ten Pounds: FINALIZED, so please send me the high quality export of that one.” Live revision document also reads “FINALIZED - APPROVED - READY FOR HQ EXPORT”.
-- Delivery check: newest 15 Upwork messages read, through Dan’s finalization. Muhammad’s latest three-file message includes the V3 review copy and the two other Shorts’ HD exports. His HD folder was directly listed and contains 18 files, no DS-16 export. No new final master was found in either positive listing. No message was sent.
-- Approved V3: `/Volumes/Extreme/_edit_work/revisions-20261103/muhammad/dl/ds16_v3.mp4`; Drive `1oJ7wnDBcm5_sJv0dlu93dAhFTlLcd6Rf`; 20,910,723 bytes; 1080×1920; 30000/1001 fps; 1,540 frames; 51.384667 seconds.
-- Approved V3 MD5: `800ea1d6568fba9935416db3117707ab`.
-- Approved V3 SHA-256: `15ab1f9897ca47937aa8132755cb72f6f6e2c26745ffd6c158ed10c3860e2492`.
-- Actual ending from V3 ASR: “Try those three tips and let me know how they work for you.” Organic classification confirmed from the ending, with no button CTA.
-- HQ comparison: **not run, no HQ file**. On arrival require frame count, dimensions, frame rate, duration, every-frame aligned subtraction and audio comparison against V3. Encoding differences are permitted; editorial differences stop setup for Dan.
-- Audio: previous V3 measurement only, -14.4 LUFS / -0.2 dBTP. No audible listening pass was performed or claimed. Preserve Muhammad’s mix.
-- Backups: final-master project, Extreme and public-link Drive backups **pending HQ**. Review copy is not promoted to final.
-- Set and timing: poolside, kitchen=false. Salad is a cutaway. No explicit GLP-1 hold appears in the current dated calendar, shared waitlist or release-phase code. Current calendar has no DS-16 slot; recheck live occupancy and dated phase at scheduling after both blockers clear. No slot reserved.
-- Edit Queue: DS-16 changed to `finalized` rev 5; command confirmed Drive status file upload. Native Claude mirror remains pending, as expected for Codex. `uploaded` is not claimed.
-- Article: dedicated Short, no article due at setup; existing shared post-release routine decides searchable-question article or skip.
-- Publishing: no YouTube holding upload, no Blotato upload or write, no TikTok derivative, no waitlist entry, no per-video automation. These follow the exact cover pick and verified HQ file.
+DS-16 is an organic dedicated Short by Muhammad. Dan approved V3 November 3 and explicitly approved the HQ export in Upwork November 4 at 6:06 PM Central: “The Last Ten Pounds HQ is perfect, so that one’s done.” Dan selected X2 unchanged: “I like X2. Go ahead and install X2”.
 
-## Cover review
+## Exact final master and checks
 
-- Review: http://127.0.0.1:9646/ . Eight neutral options X1 to X8, each with Instagram and YouTube Shorts layouts and the actual Instagram profile crop. **Dan approved X2 unchanged: “I like X2. Go ahead and install X2”.**
-- All 16 rendered files are RGB 1080×1920. Each has one detected face, no text overlapping the expanded face/hair region, safe title bounds, and YouTube JPEG below 2 MB. Actual source plates, a face comparison strip, both layouts and all eight grid crops were visually inspected. Original real portrait person pixels were preserved.
-- One sideways bedside image was rejected and regenerated before delivery. Three layouts were fitted to keep the scale or salad visible. No outside stock was downloaded and no paid image API was used.
-- All 26 images on the live review page loaded in the browser. Independent HTTP downloads decode and match local SHA-256 hashes. The managed review service is installed on port 9646. The page has no video/audio players, so no playback or sound setting was changed.
-- Original sources and source provenance are private in the ignored cover review folder. Source-neutral finished choices are under `blind-review/`; final full-resolution platform outputs and hashes are under `ds16/manifest.json`. Preserve current X labels on resume. The real-photo source is its own category, excluded from AI model comparison.
-- Evidence: `Short-form video content/covers/review/ds16-last-ten-pounds-20261103/visual-review.json` and `setup-checkpoint.json`.
+- Project master: `/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/How To Lose The Last Ten Pounds Of Fat - DS-16/how to lose the last ten pounds of fat | muhammad | 9x16 | V3 HD.mp4`.
+- Existing downloaded HQ used: `/Volumes/Extreme/_edit_work/revisions-20261104/muhammad/dl/Daniel Ads DS-16 How To Lose The Last Ten Pounds Of Fat V3 HD.mp4`. Muhammad’s source: https://drive.google.com/file/d/1-GGtoEbTEtjn433cZbpc7N4TAP_-9goh/view . No new source video download was needed.
+- 69,460,867 bytes; 1080×1920; 30000/1001 fps; 1,540 frames; 51.384667 seconds. SHA-256 `6d9b56d89d70f5cf7e1c035079ec8e5e426a74bb580ad1daa2698ef946994c5d`, MD5 `a45afcdf61912aadea9245930e6f7403`.
+- Every native1080p frame subtracted against approved V3. Average luma difference 1.3475/255; worst-frame average 2.5824/255; zero frames over5. Same frame count, frame rate and duration. Encoding noise only, matching the independent close-out check in `revision docs/shorts-closeout-muhammad-11-4-26.summary.md`.
+- Offline aligned stereo PCM correlation 0.999067. Muhammad’s HQ mix retained intact. The close-out session measured -14.4 LUFS / -0.9 dB peak. This setup did not perform or claim audible listening, perceptual audio review or a new full editorial gate pass.
+- Actual close: “Try those three tips and let me know how they work for you.” Organic classification confirmed. Dedicated Short, no parent or derivative editing job.
 
-## Resume in this chat
+## Backups
 
-1. Cover choice complete: X2 recorded with the blind tool; exact original platform files installed and verified. No further approval is needed for these unchanged files.
-2. Re-read Muhammad’s newest Upwork messages and positively list his HD folder. Download only an actual final HQ export. Require all 1,540 aligned frames and audio to match V3 apart from encoding differences; differences beyond encoding go to Dan.
-3. Once both gates clear, file and hash-verify project/Extreme/anyone-with-link Drive backups, prepare metadata and pinned question, set synthetic-media flags true for the actual AI opener, make and check TikTok cover-first media, upload/hash-verify media and approved covers, register Facebook cover locally/live, run platform preflight, then queue four destinations or the shared waiting list in an eligible dated slot.
-4. Save verified schedule/waitlist readback and current dates. Set `uploaded` only after verified queue completion under the current setup rule. Use the existing shared release/cover/pinned-comment monitors; no per-video automation.
+- Exact project and Extreme master copies match SHA-256. External master: `/Volumes/Extreme/Short-form video content/How To Lose The Last Ten Pounds Of Fat - DS-16/how to lose the last ten pounds of fat | muhammad | 9x16 | V3 HD.mp4`.
+- [Google Drive backup folder](https://drive.google.com/open?id=12hSvxlvnx9sjX58RYL470pcLBbpNfu2Q), anyone with link. Remote master byte count and SHA-256 match. Anonymous folder listing positively returned the master and English SRT.
+- English SRT saved beside the master on project, Extreme and Drive. Based on approved V3’s unchanged ASR timeline; Zepbound spelling corrected. The film already has burned captions; no second burned caption layer was added.
+- Selected covers and setup records are saved with the local delivery and its Extreme/Drive copies.
 
+## Approved X2 and media uploads
 
-Repository checkpoint: cover scripts, setup receipt and handoff updates committed locally as `ae3bedd`. Safe push stopped before merge because concurrent live shared board/queue edits and an independently staged article deletion overlap upstream. No other session files were adopted or overwritten. DS-16 finalized status is already uploaded to Drive; shared queue source files remain in the active shared workspace. Retry source sync when shared edits are clear.
+- X2 exact full-resolution paired originals installed in `Short-form video content/covers/approved-ds16/` and the delivery folders. Approval/hashes in `picks.json`. No revisions were made after Dan’s pick.
+- Instagram cover SHA-256 `22a5943e66b46f5dc009087b6a99e5ac910ba9b09a70ed011c863e51817605f1`; YouTube JPEG SHA-256 `0dab0fc973d77a6f50bf33336f7560e993c896adefef0ff0eadd68bab5463eb5`, 320,905 bytes, below2MB.
+- Facebook’s source registry and live installer contain the exact selected cover, hash-verified, matched to the precise opening caption line.
+- TikTok has one X2 frame prepended: 1540→1541 frames, 2409→2409 audio packets, identical copied AAC payload, zero decode errors, first-frame cover PSNR 49.87dB. SHA-256 `1b86a2ecb7da0b401cfae2fb29ed03698126d2a158c9a6112433b89695446150`. This preserves all original video frames and the editor’s audio.
+- All four uploaded assets were downloaded in full and SHA-256 verified:
+  - master: 69,460,867 bytes, https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3563e6cf-a24d-4116-b746-17224c9dcd00.mp4
+  - tiktok: 69,544,579 bytes, https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/69713419-91a2-455c-af15-b8671ca8e391.mp4
+  - instagram_cover: 1,590,013 bytes, https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d3b098a1-76f4-45d5-8a11-a63a7147193f.png
+  - youtube_cover: 320,905 bytes, https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f39b2c6a-710b-40fc-9992-75e16a02e3e1.jpg
 
-## X2 installation completed November 3
+## Release package and waiting list
 
-- Exact Instagram PNG and YouTube JPEG installed in central `covers/approved-ds16`, the DS-16 delivery folder and its Extreme copy. All three copies match the reviewed original bytes. Approval and hashes: `Short-form video content/covers/approved-ds16/picks.json`.
-- Instagram cover SHA-256: `22a5943e66b46f5dc009087b6a99e5ac910ba9b09a70ed011c863e51817605f1`, 1,590,013 bytes.
-- YouTube cover SHA-256: `0dab0fc973d77a6f50bf33336f7560e993c896adefef0ff0eadd68bab5463eb5`, 320,905 bytes.
-- Both selected covers uploaded to Blotato media storage and full downloads SHA-256 verified. URLs are in `covers/approved-ds16/uploads.json`. These are cover uploads, not posts or video uploads.
-- Facebook source and live cover registries contain the DS-16 row, matching the exact spoken opening “Here's how to lose the last 10 pounds of fat before you see your abs.” Live JPEG hash verified. TikTok’s selected cover is ready; the frame-zero video derivative awaits the HQ master.
-- Latest five Upwork messages and a fresh positive HD-folder listing checked after the pick. Still no DS-16 HQ export; Dan’s request remains the newest message. No editor message sent. HQ comparison, final video backups, TikTok derivative and queue/waitlist placement remain pending Muhammad’s delivery.
-- Cover work is finished for this phase. The review URL now shows approved X2 and the HQ hold, with no media playback.
+- Config: `scripts/blotato/configs/ds16-last-ten-pounds.json`. Exact YouTube title: **How To Lose The Last Ten Pounds Of Fat**. Description/social copy assembled from Dan’s recorded words, tracked AbsByAI root links, no free-preview offer. Four account targets only, retired @abs.by.ai mirror excluded.
+- Synthetic footage flags true for the approved realistic AI opener. Poolside, kitchen=false, gym=false. Salad is a cutaway. No current dated-calendar GLP-1 hold was found.
+- January2 at6PM is the next available allowed Short slot after all live posts, shared-waitlist configurations and named dated-calendar reservations. December10’s approved Fat Millionaire5PM exception uses that day’s evening slot, so no third Short was added there.
+- Standard helper dry run found no account/time clash and correctly refused204/200 posts. No post creation was attempted. A single DS-16 entry was added to `scripts/blotato/video_waitlist.json`, read back, and all other entries were verified unchanged. The dated calendar now reserves January2 at6PM for DS-16.
+- Four new payloads pass organic and cover guards. Full existing queue cover audit:200 posts, zero issues. Ad scan clean. Existing shared daily `video_topup.py` routine owns later scheduling as four spaces open. No per-video automation was created.
+- Pinned comment: “Which is hardest for you: fasting until 2 PM, going to bed earlier, or controlling your appetite?”. Saved in config; existing shared daily routine posts/pins it after release. Clean five-passage writer fallback used after Claude CLI authentication expired. No paid writer API used.
+- Article: dedicated Short, no article due at setup. Existing shared post-release routine writes a searchable-question article or records a skip.
+- Post-release actual cover tiles and pinned status remain future checks with the existing shared routines. Saved cover URLs alone do not prove public tiles.
+- Edit Queue remains `finalized`, rev6 with completed setup/waitlist note; Drive status upload confirmed. It is not marked `uploaded` because the four live schedule records do not exist yet. Native Claude mirror remains pending the normal mirror writer.
+
+## Durable evidence and source sync
+
+`/Volumes/Expansion/_edit_work/ds16-publish/` contains HQ comparison, source/derivative hashes, full upload checks, queue snapshots, phase/slot justification, shared-waitlist readback, Drive readbacks and preflight reports. Copies of relevant setup records are beside the master.
+
+Source/config changes are committed locally when possible. Shared live edits and an independently staged article deletion previously blocked the safe GitHub merge; no other owner’s files were adopted, removed or overwritten. A source-sync delay does not mean the media or waiting-list write failed. No further Dan approval is needed for this setup.
