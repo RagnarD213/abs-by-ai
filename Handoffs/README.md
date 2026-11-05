@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [SixPackAbs brand supplement: new logo + black stripe sitewide](handoff-20261105-sixpackabs-brand-header-supplement.md): **Written 2026-11-05, supplements Dan's shop/homepage coding handoff.** Dan approved the look (mockup https://claude.ai/artifact/JeDUY6MkwUxrXfgZHLFTKS). Black header/footer stripe, gold logo kit, Archivo, sitewide.
 
 
 - [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
@@ -20,7 +19,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [IRS 147C call (Grokbot, Dan on the line)](handoff-20261104-irs-147c-call-grokbot.md): **Written 2026-11-04, not started.** Needed only if neither Drive EIN file is an accepted IRS notice. Dan sets up an online fax number first.
 
-- [SixPackAbs shop build](sixpackabs-shop-winner/BUILD.md): **Written 2026-11-05, fire now.** Dan approved all boards (canvas 1793888276-ce2e); board text is the final copy, no copy chat. Shopify theme phone first, store stays locked; sixpackabs.com homepage changes staged for launch. Opus 5.5 high, local Mac only.
 - SixPackAbs design contest: Claude A won; detailed design APPROVED 2026-11-05 (`Contest/claude/shop-final-design/COPY-READY.md`). Labels: Claude's set won and is locked (`Contest/approved/LABELS-FINAL-LOCK-20261105.md`); Gemini's set is not used.
 
 
@@ -425,3 +423,4 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - `handoff-20261010-amazon-associates-account-and-ro06-links.md`: Associates sign-up (Dan enters credentials), eight RO-06 product links, then finish RO-06 Blotato queue (Dec 20). Sonnet 5.5, medium, Chrome.
 - `handoff-20261016-ra15-setup.md` (10-16): EXECUTED 10-17 (both uploaded Unlisted, trial ad group `204288183347`, policy in review).
 - `handoff-20261016-ra15-round4-cutout-to-camera.md` (10-16): EXECUTED 10-16 (round 4 delivered for Dan's review, page port 8978; both independent reviews SHIP).
+

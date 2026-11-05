@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
-**SPA-shop-design:APPROVED:2026-11-05:Claude.** Build handoff out; push-pending.
+**SPA-shop-build:REVIEW:2026-11-05:Claude.** Awaiting Dan, test orders. `Docs/SIXPACKABS_SHOP_BUILD_RECEIPT_20261105.md`.
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
