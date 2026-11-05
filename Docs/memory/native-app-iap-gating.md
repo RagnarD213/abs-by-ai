@@ -28,3 +28,5 @@ digital goods. Physical print checkout (Printify, Stripe) is untouched and stays
   ([[pay-for-generations]], [[ai-trainer-membership]]) sell digital goods on the web.
 - The TWA loads the LIVE site, so gating reaches the apps on Railway deploy of index.html,
   NOT via a new AAB build. See [[android-twa-build-setup]] / [[railway-deploy-workflow]].
+
+**UPDATE 2026-11-04: Android is no longer gated.** `IS_NATIVE_APP` now means the iOS app only; the Android TWA (`IS_ANDROID_APP`) gets the mobile-web Stripe cart and Manage portal. Why: the Android "open absbyai.com in your browser" link could never leave the app, because the app claims every absbyai.com link (autoVerify intent filter), so the button reopened the same screen in a loop. A paying member tapped it 31 times and emailed support; another visitor 10 times. Never route an Android purchase through a link to absbyai.com. Related: Stripe's 2025+ API moved `current_period_end` onto subscription items; `subscriptionPeriodEnd()` in server.js reads it there.
