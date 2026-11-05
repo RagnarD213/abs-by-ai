@@ -9,8 +9,8 @@ Working folder: `Media/exercise-demos/_flowpilot/` (job `veo/job.json`, prompts,
 
 | exercise | takes (Veo / Omni) | outcome |
 |---|---|---|
-| chair-squat | 1 / 1 | Both takes moved cleanly (motion review PASS). Both garbled the chest print; Omni take repaired with `logofix2.py` (see below) and rebuilt at native speed. |
-| bicycle-crunch | 3 / 2 | Veo pedalled the legs but the torso did not twist; Omni first take straightened both legs. Omni retry (6 s, twist-first prompt) gave one native pedal cycle with a visible twist and a readable print; looped with a 0.3 s seam cross-fade. |
+| chair-squat | 1 / 1 | NO PASS. Both takes moved cleanly (motion PASS on both), but both garbled the chest print. Three tracked logo repairs each failed review (skin wedge, logo sliding up to 35 px, leftover strokes, a notch cut into the elbow). |
+| bicycle-crunch | 3 / 2 | NO PASS. Veo pedalled the legs but the torso never twisted (plus slow-down block artifacts). Omni straightened both legs. The Omni retry twisted, but elbow to the SAME-side knee, its print garbled mid-turn and its cycle ends did not match (seam diff 11). |
 | db-lunge | 6 / 3 | NO PASS. Codex could not anchor the rear foot in a bottom keyframe (61 px slide), so the clip used START = END standing. Every model stepped BACK (reverse lunge) and none reached depth: best rear-knee gap 0.36 shin (about 5 in), 12-20 degree lean, a bob at the bottom. |
 
 ## Credits and other cost
@@ -19,7 +19,7 @@ Working folder: `Media/exercise-demos/_flowpilot/` (job `veo/job.json`, prompts,
   Downloads at 1080p Upscaled are free. About 6 minutes from first submit to last file per batch.
 - Paid API: voice-overs only (3 MiniMax clips, about $0.03). No Replicate video.
 - Codex images: 13 stills on the ChatGPT subscription.
-- Claude allowance is the real cost: the Flow runner (Sonnet) used about 60,000 tokens a clip, and each fresh
+- Claude allowance is the real cost (about 2 million Opus reviewer tokens in this pilot): the Flow runner (Sonnet) used about 60,000 tokens a clip, and each fresh
   frame or motion reviewer (Opus) about 150,000 to 180,000 tokens. This pilot ran 11 reviews.
 
 ## What broke, and the fixes now in place
@@ -37,10 +37,19 @@ Working folder: `Media/exercise-demos/_flowpilot/` (job `veo/job.json`, prompts,
    cross). Pose landmarks settled it; the reviewer confirmed.
 5. **External drive writes `._` files** that break `mono.py qcunit`; run it on an internal copy (`build.sh` does).
 
-## Go / no-go for the remaining 49
+## Verdict: NO-GO on Flow as it stands
 
-- **GO for in-place and static moves** (about 40 of the 49: presses, curls, rows, flys, machine moves, squats,
-  hip thrusts, crunches, holds), on Flow with an Omni twin for every Veo take and the logo repair pass.
+0 of 3 demos passed. Credits are not the obstacle (136 for 14 takes). Two problems are:
+the 720p print garble on every full-body take, which tracked repair could not clean to the reviewer's bar, and
+movement accuracy on anything that is not a single symmetric in-place move.
+
+## What a re-test would need (before the remaining 49)
+
+- **The print problem first.** Options: frame the demos so the chest faces the camera and the print is large (the
+  bicycle Omni retry kept it readable while the chest faced the lens), or a plain tank for app demos (Dan's call on the
+  look), or native 1080p Veo on the paid API (batch 5 kept the print readable; Dan's call on paying).
+- **In-place symmetric moves** (about 40 of the 49: presses, curls, rows, flys, machine moves, squats, hip thrusts,
+  crunches, holds): the motion side worked first try on chair-squat for both models; these become a GO once the print is solved.
 - **NO-GO on Flow for step and travelling moves** (walking-lunge, inchworm, sled-push, db-farmer-carry, burpee):
   same failure as db-lunge. They need real footage or a keyframed bottom pair the image model can anchor.
 - **Alternating or fast cyclic moves** (mountain-climber, jumping-jack, battle-ropes, march-in-place,
