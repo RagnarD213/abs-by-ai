@@ -38,3 +38,22 @@ DS-44 plate reused: this part of the roll measured screen/plate 0.998-1.018). Pa
 
 Gate rows that stay failing on this format (same as DS-43 / DS-44B): full-mix tone (the clip's sound is in the measured window; the
 voice alone passes), hair_top on the panel (planned overlap), splice visibility on zoom cuts.
+
+## Round 2 (Dan picked off the cuff; cut under 60 s; look B). Work folder `r2/` (links r1's key, src, audio, framing cache); recipe in `r2/` here.
+
+- **Speed-up:** `SPEED` in prep.py stretches each lav piece with ffmpeg `atempo` (pitch kept) and maps picture frames at `start + n*speed`
+  (`framing.measure_sp`, `assemble` t_roll). 1.12x on the reply only; Bill's clip stays 1x. Lip sync measured within one frame.
+- **The audio gate's HF "swirl" rises with speech rate itself.** Praat PSOLA (parselmouth, an artifact-free speech stretch) raised it
+  the same 10-11 %; the reviewer measured about 40 % of the rise as rate alone and the rest as a stretch residue PSOLA shares. Judge a
+  sped voice against a rate-matched baseline, not the unsped take. No Homebrew or Rubber Band on this Mac.
+- **Hiding a cut inside a one-camera clip on the panel:** a dissolve ghosts two faces. Cut away to the reactor watching, full camera frame
+  (`watchfull`, 28 frames) across the join, with the reactor's own footage playing on continuously (re-sync at the next layout change).
+- **Know what each sound is before you cut it.** A 70 ms burst read as a drawn-out "and" was the final "s" of "pounds"; the real "and"
+  came 0.35 s later. Check sibilants (high-pass, centroid above 5 kHz) at every pause cut.
+- **Cutting removes breaths; speeding up removes more.** Keep 0.2-0.3 s of breath or room at every sentence join of a sped-up reply,
+  or it reads breathless (4.2 words/s measured).
+- **Colour options:** `colour_options.py` renders looks on four matching frames through the real compositor (only Dan's grade swapped).
+  Look B needed a soft highlight shoulder (knee 0.86) to stop forehead sheen clipping.
+- **Every audio-only pass changes the sha:** the reviewer must re-judge the watch pass and the body scan, then run `gate_only.sh` (not
+  `gates.sh`, which regenerates qa/ and drops the judging). The body scan's disposition must be exactly cleared / needs_review /
+  confirmed_violation.

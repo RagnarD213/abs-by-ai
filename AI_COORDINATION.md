@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Stallwatch:PUSH-PENDING:2026-11-05:Claude.** c8e34c2 local; delete after push.
 
-**DS-36:R2-PLAN:2026-11-05:Claude.**
+**DS-36:R2-REVIEW:2026-11-05:Claude.**
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
 
