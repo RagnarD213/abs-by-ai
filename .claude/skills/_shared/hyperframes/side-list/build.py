@@ -37,7 +37,8 @@ def layout(heading, items, first=1):
         its.append(dict(n=f"{i + first}.", y=round(y0 + y), lines=lines))
         y += (len(lines) * 49 + 30) * k
     return dict(card=[x0, y0, x1 - x0 + 1, y1 - y0 + 1], head=[dict(x=64, y=y0 + (22 + i * 75), s=ln) for i, ln in enumerate(hl)],
-                divider=[x0 + 29, y0 + div, (x1 - 30) - (x0 + 29), 3], items=its, num_x=68, body_x=113, lh=49)
+                divider=[x0 + 29, y0 + div, (x1 - 30) - (x0 + 29), 3], items=its, num_x=68,
+                body_x=113 if first + len(items) - 1 < 10 else 136, lh=49)   # RO-32: a two-digit number ("10.") needs a wider number column; cards numbered 1-9 are unchanged
 
 
 def scene_cfg(s):
