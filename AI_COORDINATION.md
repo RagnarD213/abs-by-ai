@@ -33,6 +33,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
+**DS-77 T-Bar Rows Setup:COVER-PICK:2026-11-05:Claude.** [Covers](http://127.0.0.1:9477/) X1-X8; Drive done. `Docs/DS77_COVER_REVIEW_20261105.md`
+
+
 
 **SL-20:PUSH-PENDING:2026-11-05:Claude.**9198350
 
