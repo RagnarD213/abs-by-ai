@@ -25,7 +25,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Why Fat Shaming Is Good:PICK:2026-11-05:Codex.** http://127.0.0.1:10336/; `Docs/DS36_SETUP_RECEIPT_20261105.md`.
+**WhyFatShamingIsGood:PICK:2026-11-05:Codex.**[Covers](http://127.0.0.1:10336/)
 
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 

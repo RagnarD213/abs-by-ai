@@ -49,7 +49,7 @@ Pre-pick live read at 18:28 UTC November 5: 193 queued posts, no post at the req
 
 ## Source preservation
 
-Task scripts: `scripts/covers/ds36-20261105/`. The shared main checkout could not push because other tasks have live shared-file edits. This task uses a separate clean checkout to save only its scripts and receipt without changing those live files. Publication setup remains pending the cover pick.
+Task scripts: `scripts/covers/ds36-20261105/`. The shared main checkout could not push because other tasks have live shared-file edits. Task scripts and this phase receipt were pushed to GitHub main in `200dda5` through a separate clean checkout, without changing those live files. Publication setup remains pending the cover pick.
 
 ## Cover files shown for selection
 
