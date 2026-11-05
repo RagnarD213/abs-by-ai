@@ -136,6 +136,10 @@ sessions (and any other assistant, if one is in use).
   in Git, unexecuted work in `Handoffs/` + `Handoffs/README.md`, Dan's open decisions in
   `Docs/DAN_DECISIONS.md`, lasting facts in memory, standing rules here.
 
+## Checkout and purchases: do every step up to payment (Dan, 2026-11-05)
+
+When Dan asks to check out or buy something, do every step available before payment: pick order types, add to cart, click Continue, fill shipping and contact details from his saved defaults, choose shipping options, and stop on the payment page. Do not stall at the cart or list clicks for him. Hand over only entering payment details or passwords and the final pay/Complete order click, and say where you stopped and the total. Dan: "I want you to do every step that you can... no need to slow things down by not clicking a Continue button or not filling in my shipping address." Memory: `do-the-clicks-yourself`.
+
 ## Standing authorization for downloads (Dan, 2026-10-21)
 
 - Download any photos, videos or other files a task needs (news photos, clips, references, assets) without asking. Dan: "You always have permission to download any photos or whatever you need in the future. Never ask me for permission to download photos or videos or anything again."

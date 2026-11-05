@@ -1,15 +1,15 @@
 ---
 name: do-the-clicks-yourself
-description: "Dan wants Claude to do every browser/UI step it can (open pages, click, add to cart) and hand over only payment/credentials; never list \"click X\" steps for him"
+description: "Standing rule: when Dan asks to buy or check out, do every step up to the payment entry (Continue, shipping address, selections); never stall or list clicks for him"
 metadata:
   node_type: memory
   type: feedback
   originSessionId: 2434df47-7609-49b1-9b9b-031d9def6158
-  modified: 2026-11-05T14:37:42.910Z
+  modified: 2026-11-05T14:42:13.668Z
 ---
 
-When a task ends at a web page Dan has to act on, drive it as far as the safety rules allow (navigate, click Sample order, tick products, add to cart, fill non-secret fields). Hand over only the last step that truly needs him: entering payment or passwords, and the final pay/submit click.
+When Dan asks me to check out or buy something, do every step I can up to the payment step: choose order types, tick products, add to cart, click Continue, fill shipping with his saved default address (see [[dan-contact-info]], local only), pick shipping options, and land on the payment page. Hand over only entering payment details or passwords and the final pay/Complete order click. This also applies to any web task that ends at a page he must act on: drive it as far as the safety rules allow, never hand him a click I can make.
 
-**Why:** 2026-11-05, SixPackAbs Supliful proof order. I told him to click "Sample order" himself and pick the six products. He replied: "Stop asking me to do things that you can do yourself. I need you to be more like ChatGPT, where you can handle things like this."
+**Why:** 2026-11-05, SixPackAbs Supliful proof order. I stopped at the cart and told him to click Sample order and Continue himself. He said: "Stop asking me to do things that you can do yourself. I need you to be more like ChatGPT," then made it a standing rule: "There isn't any need to slow things down by not clicking a Continue button or not filling in my shipping address." His stated reading: "I know you can't enter payment, but I want you to do every step before that."
 
-**How to apply:** Never write a next step that is a click or selection I can make. Next-step boxes list only what needs Dan: payment, a decision, a review. Stop before payment and before any irreversible submit; say plainly where I stopped and what is in the cart. Related: [[bias-toward-action]], [[autonomy-credentials-framing]], [[personal-info-form-entry-ok]].
+**How to apply:** Do not wait for permission on non-payment steps; this rule is the permission to enter his saved shipping and contact details. Stop before payment entry and before the final pay click, say where I stopped and the total. Never list a click I can make as his next step. Next-step boxes carry only payment, a decision or a review. Related: [[bias-toward-action]], [[autonomy-credentials-framing]], [[personal-info-form-entry-ok]].
