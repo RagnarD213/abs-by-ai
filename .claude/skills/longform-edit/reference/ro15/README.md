@@ -42,3 +42,20 @@ start frames, page). Work dir `/Volumes/Extreme/_edit_work/RO-15/round1/` (recip
    breath, an ungraded replacement clip). The join fix: keep the breath, end in the quiet after it, start the next piece after the smack
    (a 5 to 10 ms level profile shows both). Bright stock graded down with a curve, not to the studio's median (a white bedroom must stay white).
    Budget one re-check after any page fix pass. Both reports: `INDEPENDENT-CHECK-r1.md`, `INDEPENDENT-RECHECK-r1.md`.
+
+## Round 2 frames (2026-11-05): START+END pairs, page port 9716
+Work dir `/Volumes/Extreme/_edit_work/RO-15/round2/aiframes/pairs/<ID>/` (START, END, spec.json with `spec_history`, gate stamps,
+reviews); page `round2/recipe/frames_page.py` (refuses any pair without `gate.py --verify`). Six pairs passed after 9 reviewer FAILs:
+1. **Codex flags a handful of capsules as self-harm** on some edits (one retry passed); a full-frame outpaint with the capsules in it
+   was refused twice. Outpaint only the parts without capsules (top band, then side strips), composite, keep every original pixel.
+2. **Widening a frame for headroom:** fill the side strips with the already-filled top in view (separate fills leave tone seams),
+   colour-match the new band to the original per column (`a7fix/`), and check light fixtures at the seam (one came out doubled).
+3. **Spec anchors must match the intent.** A nose anchor fails a planned sit-up or head turn; with two people MediaPipe tracks at
+   visibility 0.01-0.02, so drop the person block and declare both people as moving regions. Record every change in `spec_history`.
+4. **lockstill's person mask finds one person:** it pasted the woman back from START. Pass a box for the second person, kept off the
+   background between them.
+5. **A lamp switching off** defeats the brightness templates (scores 0.2-0.8 with nothing moving). Measure on CLAHE copies
+   (`A8/relit_still_measure.json`). I misread a side-by-side crop panel as a 100 px move once; measure, don't eyeball panels.
+6. **Codex redraws hair on a head turn** (wet waves became tight curls in 4 of 4 takes); an END where the head stays put held it.
+7. **Google refused the Thermostat START 8 of 8** this round (2 of 4 the first time): the second set is a second Codex take.
+   Google's END from the X2 Night Sweats start failed review twice (duvet would not move), so that pair uses round 1's X1 start.
