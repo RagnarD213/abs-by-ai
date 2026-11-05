@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
-**DS-77:BUILDING:2026-11-05:Claude.**
+**DS-77:R1-REVIEW:2026-11-05:Claude.**
 
 
 **SL-20:REVIEW:2026-11-05:Claude.** [Page](http://127.0.0.1:9471/);push-pending
