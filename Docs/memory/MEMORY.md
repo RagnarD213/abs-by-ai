@@ -5,6 +5,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Do the clicks yourself](do-the-clicks-yourself.md): 11-05 standing rule: checkout/buy = do every step up to payment (Continue, shipping address); hand Dan only payment
 - [Do the next step, contact support](do-the-next-step-and-contact-support.md): 11-05: do it yourself, open vendor support chat/tickets proactively (like ChatGPT); only hard limits stay Dan's
+- [Blocked step → Codex + Grokbot](blocked-step-handoff-codex-grokbot.md): 11-05: any step Claude can't do gets an automatic handoff for both, same reply, with both starter prompts
 - [Explain simply](explain-simply.md): plain language, stepwise
 - [Pasted text](pasted-text-is-dans.md): Dan's, act on it
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line

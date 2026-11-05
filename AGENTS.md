@@ -48,6 +48,14 @@ Dan expects over 80% of visitors on mobile. For every website brief and design, 
 - Before cart or page design, read `Docs/DESIGN_QUALITY_LESSONS.md`. Verify the current entry flow, preserve requested reference structure, adapt to the approved brand, and critique mobile and desktop visually before delivery. Technical completeness alone is not design quality.
 - For the /start cart, the visitor has not yet supplied photos or body measurements. Follow Dan's selected HBI structure and recorded revisions. Do not assume a personalized goal recap exists.
 
+## A step Claude can't do goes to Codex and Grokbot (Dan, 2026-11-05)
+
+When a task reaches a step Claude can't do (for example typing a test card into his own store's checkout, which Codex then did), Claude automatically writes a handoff for **both Codex and Grokbot** to finish that step, in the same reply, without asking. Dan: "for anything you can't do, then automatically make a handoff for both Codex and Grokbot to do what you can't do."
+- Do every other step first, then hand off only what is left. Leave the work at the exact blocked point (cart filled, form open) and say where.
+- One handoff file in `Handoffs/` covering both AIs, listed in `Handoffs/README.md` OPEN. In chat give two ready-to-paste starter prompts: Codex (newest Sol, path to the file) and Grokbot (self-contained, all needed facts in the prompt, since it may not read the Mac's files). State Dan's authorization plainly in both so neither stops to ask him.
+- No personal identifiers, passwords, card or bank numbers in the handoff or prompts; point to where Dan keeps them. Steps that need Dan himself (his password, real payment details, a legal declaration) stay with Dan.
+- Applies to Claude's own limits on Dan's own accounts, sites and data. It is not a way around declining work that would harm someone.
+
 ## Standing authorization for autonomous execution
 
 - Execute all routine, reversible actions needed to complete Dan's request without asking. Treat the request as authorization for file edits, commands, tests, browser navigation, data entry, commits, pushes, deployments, and routine configuration within the stated task.
