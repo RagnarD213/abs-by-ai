@@ -15,5 +15,7 @@ Dan chose Claude's six-product SixPackAbs label set over Gemini's on 2026-11-04.
 - Use the existing SixPackAbs.com logo symbol (the abs-grid shield with the swoosh, `public/img/sixpackabs-icon-192.png`, traced to vector). Do not use a newly drawn or AI-render shield.
 - Never write "in blend" where a number exists. Show the percentage, such as an extract's standardization (Olive Leaf 20% oleuropein), so the label reads as transparent.
 
+**LOCKED 2026-11-05:** Dan approved the six final labels (round 3, no ribbon). The lock record and file hashes are in `Contest/approved/LABELS-FINAL-LOCK-20261105.md`. Do not reopen the design.
+
 **Why:** heavy type reads masculine and premium to him, and vague blend wording reads as hiding something.
 **How to apply:** use these for any SixPackAbs packaging, label, mockup or product-image work. The working set is `Contest/claude/labels-final-round1/`, which is local-only because it holds his address. Related: [[claude-codex-major-decision-template]].
