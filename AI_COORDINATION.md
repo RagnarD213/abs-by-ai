@@ -34,8 +34,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
 
-**SL-20:REVIEW:2026-11-05:Claude.** [Page](http://127.0.0.1:9471/);push-pending
-
 **Stallwatch:PUSH-PENDING:2026-11-05:Claude.** c8e34c2 local; delete after push.
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414

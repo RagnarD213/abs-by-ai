@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Invest In Your Health SFL Setup (SL-20)](handoff-20261105-sl20-invest-shorts-covers-and-setup.md): **Written 2026-11-05, start now.** Dan approved all three Shorts (dating, relationship, money). Covers (Codex subscription), stop for picks, backups, metadata, February Short slots after RO-20 is public. Opus 5.5 high.
+
 - [How To Do T-Bar Rows SFC Setup (DS-77)](handoff-20261105-ds77-t-bar-rows-cover-and-setup.md): **Written 2026-11-05, start now.** Dan finalized R1 (F, Fuller Bass, Original Portrait). Covers (Codex subscription), stop for pick, backups, metadata, January-blitz Short slot. Opus 5.5 high.
 
 - [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
