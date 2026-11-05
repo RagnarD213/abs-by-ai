@@ -27,6 +27,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Stallwatch:PUSH-PENDING:2026-11-05:Claude.** c8e34c2 local; delete after push.
+
 **DS-36:R2-PLAN:2026-11-05:Claude.**
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
@@ -35,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
-**SPA-shop-design:REVIEW:2026-11-04:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); local `Contest/claude/shop-final-design/`.
+**SPA-shop-design:REVIEW:2026-11-05:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); final labels in.
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
