@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
-**SPA-shop-design:REVIEW:2026-11-05:Claude.** [Canvas](https://claude.ai/artifact/B5a3ooH254JfKdt8abBQAu); 73ab9a4 push-pending.
+**SPA-shop-design:APPROVED:2026-11-05:Claude.** Build handoff out; push-pending.
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 

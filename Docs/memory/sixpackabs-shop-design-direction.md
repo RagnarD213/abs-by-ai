@@ -19,4 +19,4 @@ Dan's standing design direction for the shop:
 - **No product numbers on the site; one offer for every product (Nov 5):** 1 for $47, 3 for $129, 6 for $234, or $42 every 30 days.
 
 **Why:** his feedback on the four-entrant website contest and the mobile review gallery.
-**How to apply:** use this for any shop, label-adjacent or SixPackAbs web design. Design and copy are separate tasks: don't start copy until `COPY-READY.md` in the package says APPROVED. On approval, the copy goes to ONE new Opus 5.5 High chat using `Handoffs/sixpackabs-shop-winner/COPY.md`; its first action is interviewing Dan.
+**How to apply:** use this for any shop, label-adjacent or SixPackAbs web design. **Approved 2026-11-05** (canvas version 1793888276-ce2e, `Contest/claude/shop-final-design/COPY-READY.md`). Dan skipped the copy chat: the board text is the final copy. The build handoff is `Handoffs/sixpackabs-shop-winner/BUILD.md`.
