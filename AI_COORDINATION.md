@@ -27,6 +27,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**ExDemoFlow:PUSH-PENDING:2026-11-05:Claude.** dd7f4e1 (veo.py loop-clip fix), fb02cee/6133423 (pilot report) local; safe-push stops on a 12-file merge conflict not mine. Delete after push. `Docs/EXERCISE_DEMO_FLOW_PILOT_20261105.md`
+
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
 **DS-77:REVIEW;b548ad1-push-pending:2026-11-05:Claude.**
