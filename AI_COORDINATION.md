@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
 
-**DS-61:PICK:2026-11-04:Codex.** Next: cover choice, schedule. `Short-form video content/covers/review/ds61-bodyweight-squats-20261104/review.html`
+**DS-61:PICK:2026-11-04:Codex.** Four real-squat covers: http://127.0.0.1:10231/. Next: pick, schedule.
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
-**LastTen:HQ-HOLD:2026-11-03:Codex.** X2-approved;covers-installed;not-queued. Next: Muhammad HQ, V3 comparison, setup. `Docs/DS16_SETUP_RECEIPT_20261103.md`.
+**LastTen:WAITLIST:2026-11-04:Codex.** Jan2-6PM;X2;push-pending-e4bc753;`Docs/DS16_SETUP_RECEIPT_20261103.md`.
 
 **Mac-freeze:PUSH-PENDING:2026-11-02:Claude.**b330c7c
 
