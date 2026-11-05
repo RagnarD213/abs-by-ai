@@ -66,3 +66,11 @@ reviews); page `round2/recipe/frames_page.py` (refuses any pair without `gate.py
    Start a revision from a fresh text generation, make the END one edit from it, and keep START's pixels everywhere except the parts
    that act (`pairs/A6-r3/a6_composite.py`); keep the blend edge on background, never across a limb (a see-through elbow failed).
    Codex also aged the woman's face on every edit of her: she stays as START, he acts.
+10. **Scale the frame spec to the take before `clipcheck.py`.** Flow returns 1920x1080 takes from 1672x941 (Codex) or 1376x768 (Google)
+    frames, and clipcheck reads the spec's boxes in the take's own pixels. Unscaled, every box sat 15-40% off target and 20 takes
+    from two models "drifted" 5-12 px (door knobs "moved" 260 px); scaled (`round2/motion/specs/`), the same takes passed. I first
+    blamed the camera fit and changed the shared tool; reverted (net zero). Check the box overlay on frame 0 before trusting a FAIL.
+11. **Veo 3.1 Fast fills its fixed 8 s with extra acting** (crying grimaces, open mouths, eye-rolls, head lifts, second grabs): 0 of 12
+    reviewed takes passed. "Do it in the first two seconds, then hold still" helped little. Omni 1.1 Flash at 4 s held the action best
+    (A6 motion passed) but Flow's 1080p upscale added worm texture to fabric; get the 720p original and upscale it yourself.
+    Only a code-built clip (A3, a pure colour change) passed. Budget ~3 review rounds per AI clip, and cut ideas that need a face act.
