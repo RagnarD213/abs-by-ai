@@ -189,11 +189,3 @@ found by a reviewer, not by this); anything a tracker follows smoothly while it 
    keeps lengthening the legs, generate START from END instead (the bent pose from the straight one) and make several
    variants at once; keep one that passes every row. Lifts are measured in true side profile: a front or 45-degree hinge
    foreshortens torso and thigh so the bone rows compare nothing.
-
-### Locked shots: measure against the frame (2026-11-05, RO-15 R2)
-`"camera": {"locked": true, "measure": "frame"}` judges the camera row and every `still` box against the frame itself, with no
-fitted camera. On a locked shot that is mostly plain wall with people moving, the default RANSAC similarity fit picks up a fraction
-of a percent of false zoom, which reads as 5-12 px "against the camera" at the frame edges: RO-15 A6's thermostat measured 7.7 px
-against the fit and at most 2 px against the frame (direct template match), across 9 takes from two models. Controls on that take
-(`RO-15/round2/motion/controls/`): clean PASS (3 px); a 10 px synthetic camera drift FAIL (camera 11 px, 5 still boxes); the
-thermostat alone shifted 8 px FAIL. Use it only for a shot that is meant to be locked; the default path is unchanged.
