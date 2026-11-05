@@ -52,3 +52,19 @@ Dan explicitly authorized submitting all three test payments. Shopify Payments d
 - **Supliful verified after the orders:** All orders showed only the two pre-existing sample orders, SPL1250987 and SPL1238058. None of these Shopify tests appeared or queued for fulfillment. No Supliful test-order cancellation was necessary.
 - **Store kept locked:** admin showed **Storefront visibility: Private**; Horizon remained the current theme and **SixPackAbs (review)** remained under Draft themes. Products, theme, shipping and payments were not changed. Test orders remain in Shopify for review.
 - **Human support reply received:** Karl confirmed that multipacks must be configured with Supliful's own single-SKU bundle feature. Products created directly in Shopify cannot be linked by matching SKUs or changing fulfillment locations; they must be published from Supliful. This confirms the existing fulfillment blocker, not a successful fulfillment test. References: https://help.supliful.com/en/articles/12095019-create-single-sku-bundles-in-supliful and https://help.supliful.com/en/articles/5519581-manual-and-automated-order-fulfilment. No product rebuild was performed in this test-order task.
+
+## Go-live audit, 2026-11-05 evening (Claude)
+
+Done and verified:
+- **Products:** all six are Supliful-linked (rebuilt by the setup session) with packs as Supliful single-SKU bundles `<handle>-3-/-6-tubs|bottles`. Theme updated: the 1/3/6 picker links the pack products, pack URLs open the main page with that pack chosen, packs are hidden from the grid and search, cart shows "3 tubs · one-time · $43 per tub". 3/6 packs turned back on (`show_bundles`), since Supliful confirmed bundles work.
+- **Unavailable-product fix:** every new product read sold out because the General shipping profile did not ship from the "Supliful Fulfillment" location. Added it with the same rates (US 60 of 62 states, Standard $9.99 free at $70+, Express $15). All 18 now available.
+- **Full cart test:** all 24 choices (6 products x 1/3/6 + monthly) added, $2,712 exactly; checkout shows Standard $9.99 / Express $15 on a $47 order.
+- **Policies published:** refund (365-day guarantee), shipping (rates, no unconfirmed processing claim), subscription cancellation (required by Shopify for subscriptions). Privacy and terms stay Shopify's automated text.
+- **Subscriptions:** customer-account management page added (customers can skip, pause, cancel).
+- **Emails:** black logo and ink accent on Shopify notification templates.
+- **Business facts set** in theme settings: processing 2 to 5 business days (Supliful help center), reply 1 to 2 business days, footer line "SixPackAbs.com is operated by Rose Digital Holdings LLC, Georgetown, Texas."
+- **Domain:** shop.sixpackabs.com added in Shopify; DNS on WordPress.com: CNAME `shop` -> `shops.myshopify.com`, TXT `shopify_verification_shop` = `5HUSCLBY`. Shopify's "I updated DNS records" click was blocked by Dan's auto-mode safety setting (domain changes).
+- **Supliful:** proof order SPL1250987 now Accepted (labels passed). Store connected, Pro.
+- Payments: Shopify Payments, bank connected, still in test mode.
+
+Left before launch: Dan clicks "I updated DNS records" (Settings > Domains > shop.sixpackabs.com); Texas sales tax permit (Settings > Taxes); then launch steps.
