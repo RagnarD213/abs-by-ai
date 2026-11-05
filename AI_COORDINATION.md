@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
-**DS-77:R1-REVIEW:2026-11-05:Claude.**
+**DS-77:REVIEW;b548ad1-push-pending:2026-11-05:Claude.**
 
 
 **SL-20:REVIEW:2026-11-05:Claude.** [Page](http://127.0.0.1:9471/);push-pending
@@ -42,7 +42,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
-**SPA-shop-build:REVIEW:2026-11-05:Claude.** Awaiting Dan, test orders. `Docs/SIXPACKABS_SHOP_BUILD_RECEIPT_20261105.md`.
+**SPA-shop:LIVE:2026-11-05:Claude.** shop.sixpackabs.com launched. `Docs/SIXPACKABS_SHOP_BUILD_RECEIPT_20261105.md`.
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 

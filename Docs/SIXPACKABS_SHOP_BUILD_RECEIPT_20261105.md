@@ -68,3 +68,12 @@ Done and verified:
 - Payments: Shopify Payments, bank connected, still in test mode.
 
 Left before launch: Dan clicks "I updated DNS records" (Settings > Domains > shop.sixpackabs.com); Texas sales tax permit (Settings > Taxes); then launch steps.
+
+## LAUNCHED 2026-11-05 ~4:50 PM Central (Dan: "Launch")
+
+- Theme "SixPackAbs (review)" 195457614146 published (live). Shopify Payments test mode OFF. Private mode (password) OFF: "Online store is open to everyone". Primary domain **shop.sixpackabs.com** (Connected, Shopify set it primary on verification); myshopify.com and http redirect to it. Home SEO title/description set.
+- sixpackabs.com: `spa_shop_live` switch ON (wp-admin Reading), WordPress.com caches cleared; Shop link + Supplements row live, cards open the live product pages (phone and desktop verified).
+- Live checks (real Chrome via Playwright, logged out): phone 390, small phone 360, tablet 768/820/1024, desktop 1440. All pages 200 (404 page 404), no sideways scroll after the tablet fix; 3-tub pick, add to cart, toast, drawer, checkout reached at $129 on every device; menu and mega menu open. Only console errors are Shopify's own Shop Pay frames.
+- Fixes during launch: search count excluded packs; tablet header too wide and contact block buttons overflowed (fixed 750-1099 px).
+- Note: command-line requests to product pages get HTTP 429 (Shopify bot protection); browsers are unaffected.
+- Texas: supplements with a Supplement Facts panel are exempt (Comptroller Pub. 94-155), so no tax is collected. Permit application handed to Codex + Grokbot (`Handoffs/handoff-20261105-texas-sales-tax-permit-codex-grokbot.md`). Rose Digital Holdings LLC Comptroller taxpayer no. 32105235058 (public record).
