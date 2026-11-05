@@ -110,6 +110,28 @@ WordPress.com accepts a theme ZIP in wp-admin, so SSH is optional:
    requests carrying a query string. This is why a check with `?shot=1` can pass while the page
    Dan actually loads is stale.
 
+## Shop switch (shop.sixpackabs.com)
+
+Everything that points at the Shopify shop is built and deployed but hidden behind one option,
+`spa_shop_live` (off by default): the "Shop" link in the desktop nav, the phone menu and the footer,
+and the six-card "Supplements" row between the long-form videos and the Shorts on the homepage
+(approved boards C00 to C02, Dan 2026-11-05; code `spa_shop_live()` in `inc/render.php`,
+`spa_render_supplements()` in `inc/blocks.php`).
+
+- **Turn it on (launch day):** wp-admin → Settings → Reading → tick **Shop (shop.sixpackabs.com)** →
+  Save Changes, then Settings → Caching → **Clear all**. Over SSH instead: `wp option update spa_shop_live 1`.
+- **Turn it off:** untick and save (or `wp option delete spa_shop_live`), then clear the cache.
+- **Preview locally with it on:** `preview_start` → `sixpackabs-playground-shop` (port 9401, defines `SPA_SHOP_LIVE`).
+- Product card images are the approved web front renders in `assets/img/shop/` (front labels only).
+
+## Brand layer (Dan, 2026-11-05)
+
+Black header and footer stripe `#1C1A17`, 2 px gold `#C9A766` line under the header, gold horizontal logo
+(`assets/img/sixpackabs-logo-horizontal-gold.svg`), gold nav links, Archivo self-hosted
+(`assets/fonts/`, declared in `theme.json`; the parent's `manrope` slug points at Archivo), site icons
+and the default Open Graph image from `assets/img/`. Gold appears only on dark grounds.
+Spec: `Handoffs/handoff-20261105-sixpackabs-brand-header-supplement.md`.
+
 ## Traps
 
 - **Activating a child theme abandons the parent's database template overrides.** Everything the

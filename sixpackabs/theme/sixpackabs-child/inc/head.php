@@ -20,14 +20,55 @@ posthog.init('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', {
 	<?php
 }, 1 );
 
-// Favicon from the design bundle — only when no Site Icon is set in Settings
-// (the live site has one already; WordPress prints that itself).
+// Site icon = the gold-on-black SixPackAbs.com symbol (brand layer, Dan 2026-11-05).
+// The theme files win over whatever image is stored in Settings → Site Icon, so the
+// icon ships and rolls back with the theme. get_site_icon_url() also feeds
+// /favicon.ico, the Apple touch icon and the msapplication tile.
+add_filter( 'get_site_icon_url', function ( $url, $size ) {
+	$size = (int) $size;
+	if ( $size <= 32 ) {
+		$file = 'sixpackabs-icon-32.png';
+	} elseif ( $size <= 180 ) {
+		$file = 'sixpackabs-icon-180.png';
+	} elseif ( $size <= 192 ) {
+		$file = 'sixpackabs-icon-192.png';
+	} else {
+		$file = 'sixpackabs-icon-512.png';
+	}
+	return spa_img_uri( $file );
+}, 99, 2 );
+
+add_filter( 'site_icon_meta_tags', function () {
+	return array(
+		sprintf( '<link rel="icon" href="%s" sizes="any">', esc_url( spa_img_uri( 'favicon.ico' ) ) ),
+		sprintf( '<link rel="icon" href="%s" sizes="32x32" type="image/png">', esc_url( spa_img_uri( 'sixpackabs-icon-32.png' ) ) ),
+		sprintf( '<link rel="icon" href="%s" sizes="192x192" type="image/png">', esc_url( spa_img_uri( 'sixpackabs-icon-192.png' ) ) ),
+		sprintf( '<link rel="icon" href="%s" sizes="512x512" type="image/png">', esc_url( spa_img_uri( 'sixpackabs-icon-512.png' ) ) ),
+		sprintf( '<link rel="apple-touch-icon" href="%s">', esc_url( spa_img_uri( 'sixpackabs-icon-180.png' ) ) ),
+		sprintf( '<meta name="msapplication-TileImage" content="%s">', esc_url( spa_img_uri( 'sixpackabs-icon-512.png' ) ) ),
+	);
+}, 99 );
+
+// No Site Icon saved (Playground, a fresh staging copy): WordPress prints nothing,
+// so print the same tags here.
 add_action( 'wp_head', function () {
 	if ( has_site_icon() ) {
 		return;
 	}
-	printf( '<link rel="icon" href="%1$s" sizes="192x192">' . "\n" . '<link rel="apple-touch-icon" href="%1$s">' . "\n", esc_url( spa_img_uri( 'sixpackabs-icon-192.png' ) ) );
+	echo implode( "\n", apply_filters( 'site_icon_meta_tags', array() ) ) . "\n"; // phpcs:ignore WordPress.Security.EscapeOutput
 }, 5 );
+
+// Default Open Graph image (Twitter falls back to it) for any page without one of its own (Yoast).
+add_action( 'wpseo_add_opengraph_additional_images', function ( $images ) {
+	if ( is_object( $images ) && method_exists( $images, 'has_images' ) && ! $images->has_images() ) {
+		$images->add_image( array(
+			'url'    => spa_img_uri( 'sixpackabs-og-1200x630.jpg' ),
+			'width'  => 1200,
+			'height' => 630,
+			'type'   => 'image/jpeg',
+		) );
+	}
+} );
 
 // Video pages: structured data and og:video.
 add_action( 'wp_head', function () {

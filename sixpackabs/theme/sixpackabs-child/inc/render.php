@@ -41,8 +41,60 @@ function spa_url( $key, $campaign = '' ) {
 			return home_url( '/blog/' );
 		case 'disclaimer':
 			return 'https://absbyai.com/disclaimer';
+		case 'shop':
+			return SPA_SHOP_URL;
+		case 'shop_all':
+			return SPA_SHOP_URL . '/collections/all';
 	}
 	return home_url( '/' );
+}
+
+/* ------------------------------------------------------------------ shop (shop.sixpackabs.com) */
+
+const SPA_SHOP_URL = 'https://shop.sixpackabs.com';
+
+/**
+ * ONE switch for everything that points at the Shopify shop: the "Shop" link in
+ * the desktop nav, the phone menu and the footer, and the homepage "Supplements"
+ * row. OFF by default, because the shop is still password-locked. Launch day:
+ * wp-admin → Settings → Reading → tick "Show the shop" → Save, then clear the
+ * WordPress.com edge cache. See sixpackabs/README.md, "Shop switch".
+ */
+function spa_shop_live() {
+	// SPA_SHOP_LIVE is for local previews only (the `sixpackabs-playground-shop` launch config).
+	$live = defined( 'SPA_SHOP_LIVE' ) ? (bool) SPA_SHOP_LIVE : (bool) get_option( 'spa_shop_live', false );
+	return (bool) apply_filters( 'spa_shop_live', $live );
+}
+
+// The switch's checkbox: Settings → Reading → "Shop (shop.sixpackabs.com)". Also in the REST settings.
+add_action( 'init', function () {
+	register_setting( 'reading', 'spa_shop_live', array(
+		'type'              => 'boolean',
+		'description'       => 'Show the Shop link and the homepage Supplements row (shop.sixpackabs.com).',
+		'sanitize_callback' => 'rest_sanitize_boolean',
+		'default'           => false,
+		'show_in_rest'      => true,
+	) );
+} );
+add_action( 'admin_init', function () {
+	add_settings_field( 'spa_shop_live', 'Shop (shop.sixpackabs.com)', function () {
+		printf(
+			'<label><input type="checkbox" name="spa_shop_live" value="1"%s> Show the shop: the Shop link in the menu and footer, and the Supplements row on the homepage</label><p class="description">Leave off until the shop is unlocked. After changing it, clear the cache (Settings → Caching → Clear all).</p>',
+			checked( (bool) get_option( 'spa_shop_live', false ), true, false )
+		);
+	}, 'reading' );
+} );
+
+/** The six products, in the order of the approved board (C01, Dan 2026-11-05). Copy is final. */
+function spa_shop_products() {
+	return array(
+		array( 'handle' => 'electro-creatine', 'goal' => 'Strength & hydration', 'name' => 'Electro Creatine', 'price' => '$47' ),
+		array( 'handle' => 'great-again-t', 'goal' => 'Vitality, men 40+', 'name' => 'Great Again T', 'price' => '$47' ),
+		array( 'handle' => 'eternal-burn-am', 'goal' => 'Daytime fat burner', 'name' => 'Eternal Burn AM', 'price' => '$47' ),
+		array( 'handle' => 'eternal-burn-pm', 'goal' => 'Sleep', 'name' => 'Eternal Burn PM', 'price' => '$47' ),
+		array( 'handle' => 'carb-curber', 'goal' => 'Metabolic health', 'name' => 'Carb Curber', 'price' => '$47' ),
+		array( 'handle' => 'z-shred-support', 'goal' => 'GLP-1 support', 'name' => 'Z Shred Support', 'price' => '$47' ),
+	);
 }
 
 /** data-* attributes site.js turns into a PostHog `outbound_click`. */

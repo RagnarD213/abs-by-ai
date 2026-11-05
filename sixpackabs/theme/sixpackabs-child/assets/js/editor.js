@@ -5,7 +5,8 @@
 ( function ( blocks, element, ServerSideRender ) {
 	var names = [
 		'site-header', 'site-footer', 'featured-video', 'video-list', 'shorts-rail', 'instagram-grid',
-		'bio', 'newsletter', 'subscribe-button', 'subscribe-cta', 'video-hero', 'video-grid', 'more-videos'
+		'bio', 'newsletter', 'subscribe-button', 'subscribe-cta', 'video-hero', 'video-grid', 'more-videos',
+		'supplements'
 	];
 	names.forEach( function ( slug ) {
 		var name = 'spa/' + slug;

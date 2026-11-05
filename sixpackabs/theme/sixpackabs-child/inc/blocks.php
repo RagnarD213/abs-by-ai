@@ -15,6 +15,7 @@ defined( 'ABSPATH' ) || exit;
 const SPA_BLOCKS = array(
 	'site-header', 'site-footer', 'featured-video', 'video-list', 'shorts-rail', 'instagram-grid',
 	'bio', 'newsletter', 'subscribe-button', 'subscribe-cta', 'video-hero', 'video-grid', 'more-videos',
+	'supplements',
 );
 
 add_action( 'init', function () {
@@ -24,7 +25,7 @@ add_action( 'init', function () {
 } );
 
 function spa_nav_items() {
-	return array(
+	$items = array(
 		array( 'label' => 'Videos', 'url' => spa_url( 'videos' ) ),
 		array( 'label' => 'Shorts', 'url' => spa_url( 'shorts' ) ),
 		array( 'label' => 'About Dan', 'url' => spa_url( 'about' ) ),
@@ -32,15 +33,29 @@ function spa_nav_items() {
 		array( 'label' => 'Collab', 'url' => spa_url( 'collab' ) ),
 		array( 'label' => 'Contact', 'url' => spa_url( 'contact' ) ),
 	);
+	if ( spa_shop_live() ) {
+		$items[] = array( 'label' => 'Shop', 'url' => spa_url( 'shop' ), 'shop' => true );
+	}
+	return $items;
 }
 
+/** One nav link; the Shop link carries its class, its tracking and (phone menu) its address hint. */
+function spa_nav_link( $item, $placement ) {
+	if ( empty( $item['shop'] ) ) {
+		return '<a href="' . esc_url( $item['url'] ) . '">' . esc_html( $item['label'] ) . '</a>';
+	}
+	$hint = 'menu' === $placement ? '<span class="spa-menu__hint" aria-hidden="true">shop.sixpackabs.com →</span>' : '';
+	return '<a class="spa-nav__shop" href="' . esc_url( $item['url'] ) . '"' . spa_track( 'shop', $placement ) . '>' . esc_html( $item['label'] ) . $hint . '</a>';
+}
+
+/** The gold horizontal logo (brand layer, Dan 2026-11-05). Lives on the black header, menu and footer only. */
 function spa_logo( $height_class, $loading = 'eager' ) {
 	return sprintf(
 		// fetchpriority="auto" stops WordPress promoting the logo; the featured thumbnail is the LCP image.
-		'<a class="spa-logo %1$s" href="%2$s" aria-label="SixPackAbs.com home"><img src="%3$s" alt="SixPackAbs.com" width="1189" height="147" loading="%4$s" fetchpriority="auto" decoding="async"></a>',
+		'<a class="spa-logo %1$s" href="%2$s" aria-label="SixPackAbs.com home"><img src="%3$s" alt="SixPackAbs.com" width="1914" height="233" loading="%4$s" fetchpriority="auto" decoding="async"></a>',
 		esc_attr( $height_class ),
 		esc_url( home_url( '/' ) ),
-		esc_url( spa_img_uri( 'sixpackabs-logo.webp' ) ),
+		esc_url( spa_img_uri( 'sixpackabs-logo-horizontal-gold.svg' ) ),
 		esc_attr( $loading )
 	);
 }
@@ -56,7 +71,7 @@ function spa_render_site_header() {
 		<?php echo spa_logo( 'spa-logo--header' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 		<nav class="spa-nav" aria-label="Main">
 			<?php foreach ( $nav as $item ) : ?>
-				<a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a>
+				<?php echo spa_nav_link( $item, 'header' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<?php endforeach; ?>
 		</nav>
 		<div class="spa-header__actions">
@@ -75,7 +90,7 @@ function spa_render_site_header() {
 		</div>
 		<nav class="spa-menu__nav" aria-label="Menu">
 			<?php foreach ( $nav as $item ) : ?>
-				<a href="<?php echo esc_url( $item['url'] ); ?>"><?php echo esc_html( $item['label'] ); ?></a>
+				<?php echo spa_nav_link( $item, 'menu' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<?php endforeach; ?>
 		</nav>
 		<div class="spa-menu__actions">
@@ -98,9 +113,11 @@ function spa_render_site_footer() {
 	$con = '<a href="' . esc_url( spa_url( 'contact' ) ) . '">Contact</a>';
 	$arc = '<a href="' . esc_url( spa_url( 'archive' ) ) . '">Blog</a>';
 	$dis = '<a href="' . esc_url( spa_url( 'disclaimer' ) ) . '">Disclaimer</a>';
+	$shp = spa_shop_live() ? '<a href="' . esc_url( spa_url( 'shop' ) ) . '"' . spa_track( 'shop', 'footer' ) . '>Shop</a>' : '';
 	return '<div class="spa-footer"><div class="spa-wrap spa-footer__inner">'
-		. '<nav class="spa-footer__m" aria-label="Footer">' . $yt . $ig . $app . $cal . $con . $arc . '</nav>'
-		. '<nav class="spa-footer__d" aria-label="Footer"><div class="spa-footer__group">' . $yt . $ig . $con . $app . '</div><div class="spa-footer__group">' . $arc . $cal . $dis . '</div></nav>'
+		. spa_logo( 'spa-logo--footer', 'lazy' )
+		. '<nav class="spa-footer__m" aria-label="Footer">' . $yt . $ig . $app . $cal . $con . $arc . $shp . '</nav>'
+		. '<nav class="spa-footer__d" aria-label="Footer"><div class="spa-footer__group">' . $yt . $ig . $con . $app . $shp . '</div><div class="spa-footer__group">' . $arc . $cal . $dis . '</div></nav>'
 		. '<p class="spa-footer__copy">© ' . esc_html( wp_date( 'Y' ) ) . ' SixPackAbs.com · Georgetown, TX</p>'
 		. '</div></div>';
 }
@@ -175,6 +192,38 @@ function spa_render_shorts_rail( $attrs ) {
 	return '<section class="spa-band spa-shorts" aria-labelledby="spa-shorts-h"><div class="spa-wrap spa-shorts__inner">'
 		. spa_section_head( 'Shorts', 'spa-shorts-h', spa_url( 'shorts' ), 'All<span class="spa-d-only"> shorts</span> →' )
 		. '<div class="spa-shorts__rail">' . $cards . '<span class="spa-shorts__end" aria-hidden="true"></span></div>'
+		. '</div></section>';
+}
+
+/**
+ * "Supplements": six product cards linking to shop.sixpackabs.com, between the
+ * long-form videos and the Shorts (approved board C01, Dan 2026-11-05). A swipe
+ * rail on phones, six across on desktop. Renders NOTHING until spa_shop_live().
+ * Images are the approved web product renders (front labels only).
+ */
+function spa_render_supplements() {
+	if ( ! spa_shop_live() ) {
+		return '';
+	}
+	$cards = '';
+	foreach ( spa_shop_products() as $p ) {
+		$base   = 'shop/' . $p['handle'];
+		$cards .= '<a class="spa-supp__card" href="' . esc_url( spa_url( 'shop' ) . '/products/' . $p['handle'] ) . '"' . spa_track( 'shop', 'supplements' ) . '>'
+			. '<span class="spa-supp__media">'
+			. sprintf(
+				'<img class="spa-supp__img" src="%1$s" srcset="%1$s 420w, %2$s 840w" sizes="(min-width: 1280px) 183px, (min-width: 1024px) calc((100vw - 188px) / 6), (min-width: 768px) 23vw, 42vw" width="420" height="345" alt="" loading="lazy" decoding="async">',
+				esc_url( spa_img_uri( $base . '-420.jpg' ) ),
+				esc_url( spa_img_uri( $base . '-840.jpg' ) )
+			)
+			. '</span><span class="spa-supp__body">'
+			. '<span class="spa-supp__goal">' . esc_html( $p['goal'] ) . '</span>'
+			. '<span class="spa-supp__name">' . esc_html( $p['name'] ) . '</span>'
+			. '<span class="spa-supp__buy"><span>' . esc_html( $p['price'] ) . '</span><span class="spa-supp__btn">Shop</span></span>'
+			. '</span></a>';
+	}
+	return '<section class="spa-supp" aria-labelledby="spa-supp-h"><div class="spa-wrap spa-supp__inner">'
+		. '<div class="spa-sec__head"><h2 class="spa-h2" id="spa-supp-h">Supplements</h2><a class="spa-all" href="' . esc_url( spa_url( 'shop_all' ) ) . '"' . spa_track( 'shop', 'supplements_all' ) . '>Shop all →</a></div>'
+		. '<div class="spa-supp__rail">' . $cards . '<span class="spa-supp__end" aria-hidden="true"></span></div>'
 		. '</div></section>';
 }
 

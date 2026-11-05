@@ -23,6 +23,38 @@
 				{ "slug": "spa-red", "name": "Accent red", "color": "#e5322d" },
 				{ "slug": "spa-blue", "name": "Accent blue", "color": "#2f5fe0" }
 			]
+		},
+		"typography": {
+			"fontFamilies": [
+				{
+					"name": "Archivo",
+					"slug": "archivo",
+					"fontFamily": "Archivo, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Archivo",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"fontStretch": "62% 125%",
+							"fontDisplay": "swap",
+							"src": [
+								"file:./assets/fonts/Archivo-latin.woff2",
+								"file:./assets/fonts/Archivo[wdth,wght].ttf"
+							]
+						}
+					]
+				},
+				{
+					"name": "Archivo (parent theme slot)",
+					"slug": "manrope",
+					"fontFamily": "Archivo, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+				},
+				{
+					"name": "Fira Code",
+					"slug": "fira-code",
+					"fontFamily": "\"Fira Code\", monospace"
+				}
+			]
 		}
 	},
 	"styles": {
@@ -31,13 +63,15 @@
 			"text": "var:preset|color|spa-ink"
 		},
 		"typography": {
+			"fontFamily": "var:preset|font-family|archivo",
 			"fontWeight": "400"
 		},
 		"elements": {
 			"heading": {
 				"typography": {
-					"fontWeight": "700",
-					"letterSpacing": "-0.015em",
+					"fontFamily": "var:preset|font-family|archivo",
+					"fontWeight": "850",
+					"letterSpacing": "-0.01em",
 					"lineHeight": "1.15"
 				}
 			}
