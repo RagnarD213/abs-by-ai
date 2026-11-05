@@ -70,3 +70,9 @@ Use **Shopify's built-in Subscriptions app** (free, no extra monthly fee; Shopif
 - Subscriptions app (Shopify) installed; no plan created yet (no creatine product).
 - Shopify support: category change escalated, ticket #71877476, Payments team follows up by email to the store account.
 - **Decision (Dan, 2026-11-05):** Standard shipping is now **$9.99 flat, free at $70 and up** (saved and reloaded in Markets > United States). Express stays $15.00. Alaska and Hawaii still need excluding before launch.
+
+## Update 2026-11-05 (later)
+
+- **Alaska and Hawaii excluded.** Markets cannot exclude states, so shipping was switched back to shipping profiles (Shopify reset the Markets rates). General profile > Domestic zone is now United States, 60 of 62 states (Alaska and Hawaii off). Standard re-set to $9.99, free at $70 and up; Express $15.00. Verified after reload. Shipping moves to Markets again on July 1, 2027.
+- **Electro Creatine (Shopify product 15499014504770)** already existed (made by the shop-build session): Supply option 1/3/6 tubs at $47 / $129 / $234, SKUs SPA-01-1/3/6, and a selling plan "$42 every 30 days" (monthly, 10.64% off, attached). Added a **Flavor** option with **Lemon** (the only flavor Supliful makes for Creatine Hydration Powder; flavors are separate Supliful products). Saved and verified; SKUs, prices and the subscription plan intact. The product shows Active but the store is password-locked.
+- **Fulfillment link (blocker found):** Supliful support (Karl) answered the shop-build session's chat: products created directly in Shopify cannot be linked to Supliful by SKU; automatic fulfillment requires publishing the product from Supliful to Shopify, and 3-pack/6-pack bundles must be built in Supliful (Create Bundle, same product x quantity). So the hand-made Electro Creatine and its 3/6-tub variants will not fulfill automatically as they are. Not changed yet; replacing them touches the shop-build session's work.
