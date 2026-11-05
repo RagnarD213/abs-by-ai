@@ -1265,6 +1265,7 @@
   "approved": "Dan: Let's go with M1, November5 2026",
   "variation": "M1 mirror cover round2",
   "when": "2026-12-22T15:00:00.000Z",
-  "cover_sha256": "976713874b4ad8c03556f763718925ee373c50497650307efbbfc4f79d81e4f9"
+  "cover_sha256": "976713874b4ad8c03556f763718925ee373c50497650307efbbfc4f79d81e4f9",
+  "schedule": "6530261"
  }
 ]
