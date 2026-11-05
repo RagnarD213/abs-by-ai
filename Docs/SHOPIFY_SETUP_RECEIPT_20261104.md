@@ -115,3 +115,8 @@ Dan: "rebuild the other five products the same way so the bundles work and the s
   - Product type on the new products now comes from Supliful's categories (e.g. "Weight Management", "Sleep & Relaxation") instead of the old hand-set labels ("Daytime fat burner", "Sleep", "Vitality, men 40+"). Only matters if the theme reads product type.
   - SEO page title on the new products is just the product name (no "| SixPackAbs.com" suffix).
   - Safe-push is blocked by other sessions' live files; commits are local only.
+
+## Update 2026-11-05 (reported by the theme session)
+
+- **Availability fix:** the new Supliful products read `available=false` on the storefront because the General shipping profile only shipped from "Shop location". The theme session added the "Supliful Fulfillment" location to it (US 60 of 62 states, Standard $9.99 free at $70+, Express $15) and verified after reload. All 18 products (6 singles, 12 packs) now read available=true. This corrects my earlier guess in this receipt that it was an inventory setting.
+- Also reported done by the theme session: shop.sixpackabs.com connected in Shopify with DNS on WordPress.com (CNAME shop to shops.myshopify.com, TXT verification), refund, shipping and subscription-cancellation policies published, subscription management page added to customer accounts, email template logo and accent, theme handles the new pack products. Not verified by me.
