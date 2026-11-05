@@ -60,3 +60,12 @@ Release slot: Wed Dec 23, 2026; edited and approved by Dec 16 (`Docs/LONGFORM_RE
 > round 1 decisions are already recorded there. Make the START and END frame pairs (END frames for Night Sweats, Covers, Capsules and
 > Out Like A Light; two new full pairs for the Thermostat War), run the frame gate and a fresh reviewer on every pair, and show me the
 > pairs with the open questions. Run `editcap.py acquire RO-15` before production.
+
+## Round 2 progress (2026-11-05, Claude)
+- Frame pairs done: page http://127.0.0.1:9716/ (`review_server.py 9716 /Volumes/Extreme/_edit_work/RO-15/round2/review`), six pairs, each
+  gate + fresh reviewer PASS (`round2/aiframes/pairs/*`): A2 (round-1 X1 start; the X2 END failed review twice), A4, A6 X1/X2 (both
+  Codex; Google refused the START 8 of 8; key in `pairs/A6-blind.json`, never shown), A7 (START widened for headroom), A8.
+- Waiting on Dan: pairs OK / changes, A6 X1 or X2, A3 keep or drop, Oura screenshots, "thick build" ad-lib. Edit slot released (`--review`).
+- Recipe lessons: `.claude/skills/longform-edit/reference/ro15/README.md` "Round 2 frames"; commit 224f152 local, push blocked by a
+  live shared file: next safe-push carries it.
+- Next after Dan answers: motion on Flow (`flow-veo`), then handoff steps 3 to 6.
