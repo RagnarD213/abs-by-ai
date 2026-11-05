@@ -41,3 +41,10 @@ Work dir `round3/` (recipe copied from round1 with paths swapped; heavy inputs s
 24. **Pexels has no "juice poured down a sink" clip** (about 25 searches). Liquid-calorie lines: one drink per spoken word (`stock/build_j1.py`, cuts on the word times, per-clip grades in `stock/grades.json`), crop away brand text (the whipped-cream can).
 25. **Omni twins fit 4 s slots whole but failed review more often than Veo windows here** (faces and hands); keep queueing both.
 26. **Voice without the between-words expander:** `build.py` passes `--no-expander-because` (the round 1 first minute failed the artifacts row on gap pumping).
+
+## Round 4 (2026-11-05): Dan's note on the chest diagram, then judge passes
+Dan: "For the fat, make the man boob smaller and give him a small belly beneath that... everything just bulges out evenly." Words: `round4-plan/decisions-r3.json`.
+27. **Anatomy of the fat figure:** a thin layer at the collarbone, a small rounded chest mound with the nipple at its front, a soft crease, then a modest belly about level with the chest (`round3/recipe/chest/chest-diagram.template.htm`, BODY.fat and FATIN). A first redraw still read as a breast (straight slope from the neck to the nipple) and the gland disc poked out of the body: a fresh reviewer caught both. Keep the gland disc inside the outline, behind the nipple; labels sit on the part they name.
+28. **`recipe/chest/*.py` carries its own W path:** copying a recipe and swapping paths in `recipe/*.py` missed the subfolder, so the first render wrote round 1's folder.
+29. **Each fresh watch-pass judge found one new AI-clip fault the last one missed** (library A0077: shirt slides off without passing the head, then the head passes back through the shirt; A0166: a pen appears in an empty hand). Decode every AI clip in full at playback order before the first judge, and tell the judge to block only on what shows at normal speed and list frame-only items as BORDERLINE; otherwise every pass costs an hour's rebuild.
+30. **A clip boundary can land on a tongue-on-lip frame** (0:56 after D02): extend the card's tail a few frames.

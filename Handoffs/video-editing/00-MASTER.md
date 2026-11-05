@@ -155,7 +155,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | FINALIZED | S |
 | [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | READY | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
-| [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | FINALIZED | S |
+| [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | READY | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | READY | S |
@@ -209,7 +209,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | UPLOADED | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | FINALIZED | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | DELIVERED: awaiting Dan | L |
-| [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | READY (unblocked 2026-10-29; Fri Jan 29 slot) | L |
+| [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | IN PROGRESS | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-34](RO-34-10-minute-jump-rope-and-kettlebell-fat-burning-workout.md) | 10-Minute Jump Rope And Kettlebell Fat Burning Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-35](RO-35-20-minute-jump-rope-and-dumbbell-full-body-workout.md) | 20-Minute Jump Rope And Dumbbell Full Body Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
@@ -223,7 +223,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | job | video | roll | status | size |
 |---|---|---|---|---|
 | [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | UPLOADED | S |
-| [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | READY | S |
+| [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | IN PROGRESS | S |
 | [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | READY | S |
 | [DS-79](DS-79-how-to-do-chest-flies-with-dumbbells.md) | How To Do Chest Flies With Dumbbells | 10/23 C1882, C1883 | READY | S |
 | [DS-80](DS-80-how-to-do-cable-crunches.md) | How To Do Cable Crunches | 10/23 C1884 | READY | S |

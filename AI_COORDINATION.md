@@ -27,13 +27,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
+
+**DS-77:BUILDING:2026-11-05:Claude.**
+
+
 **SL-20:PICKS:2026-11-05:Claude.**
 
 **Stallwatch:PUSH-PENDING:2026-11-05:Claude.** c8e34c2 local; delete after push.
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
 
-**DS-61:PICK:2026-11-04:Codex.** Four real-squat covers: http://127.0.0.1:10231/. Next: pick, schedule.
+**DS-61:REVIEW:2026-11-05:Codex.** http://127.0.0.1:10232/. Next: approval, schedule.
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 
@@ -79,7 +84,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**RO-31:R3:REVIEW:2026-11-05:Claude.** [Film](http://127.0.0.1:9643/);push-pending
+**RO-31:R4:REVIEW:2026-11-05:Claude.** [Film](http://127.0.0.1:9644/);push-pending
 
 
 **DS-61:PUSH-PENDING:2026-11-04:Claude.** 9bf1287 local (finalized, setup handoff); staged salad article blocks. Delete after push.
