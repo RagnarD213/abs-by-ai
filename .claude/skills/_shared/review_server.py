@@ -8,7 +8,10 @@ review_server.py PORT --on-demand     switch an older always-running service to 
 The same URL survives chat completion, process crashes and the next Mac login.
 Published page assets are cached locally. No media is uploaded.
 
-Since 2026-10-21 a managed review STARTS ON DEMAND: launchd holds the port and starts the worker when the page is
+Since 2026-11-05 new pages share one stable local review-hub job, preserving each page's URL without a new
+background-item registration. Existing per-page jobs retain their on-demand sockets and keep working.
+
+Since 2026-10-21 a legacy managed review STARTS ON DEMAND: launchd holds the port and starts the worker when the page is
 opened; the worker exits after ABS_REVIEW_IDLE_H hours (24) without a request and the next visit starts it again in
 a fraction of a second. Before this, every review ever made kept a Python process running (70 on 10-21, some 20 days
 old). `renderq.py prune` switches older always-running services over and stops hand-started servers older than 48 h.
@@ -17,6 +20,7 @@ import argparse
 import io
 import functools
 import html
+import importlib.util
 from html.parser import HTMLParser
 import shutil
 from urllib.parse import unquote, urlsplit
@@ -68,11 +72,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         path = self.translate_path(self.path)
         page = Path(path) / 'index.html' if Path(path).is_dir() else Path(path)
         if page.is_file() and page.suffix.lower() in ('.html', '.htm'):
-            data = page.read_bytes()
-            if b'/__review_player.js' not in data:
-                script = b'<script defer src="/__review_player.js"></script>'
-                at = data.lower().rfind(b'</body>')
-                data = data[:at] + script + data[at:] if at >= 0 else data + script
+            data = prepare_review_html(page.read_bytes())
             return self.memory_response(data, 'text/html; charset=utf-8')
         m = re.fullmatch(r'bytes=(\d*)-(\d*)', self.headers.get('Range', ''))
         if not m or not os.path.isfile(path):
@@ -134,6 +134,28 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
     allow_reuse_address = True
+
+
+def prepare_review_html(data):
+    """Default every local preview to muted before parsing or page playback code.
+
+    The early helper keeps automation silent and pauses/verifies before owner audio
+    is enabled. Initial muted markup is startup safety, not permanent owner mute.
+    Keep actual media, native controls and the chosen volume unchanged.
+    """
+    def muted_tag(match):
+        tag = match.group(0)
+        attributes = re.sub(rb"\"[^\"]*\"|'[^']*'", b'\"\"', tag)
+        if re.search(rb'\smuted(?:\s|=|/?>)', attributes, re.I):
+            return tag
+        return re.sub(rb'^(<(?:video|audio)\b)', rb'\1 muted', tag, count=1, flags=re.I)
+    data = re.sub(rb"<(?:video|audio)(?=[\s/>])(?:[^>\"']|\"[^\"]*\"|'[^']*')*>", muted_tag, data, flags=re.I)
+    # Relocate only our own existing include, preserving other page scripts/notes.
+    data = re.sub(rb"<script\b[^>]*\ssrc\s*=\s*([\"'])/__review_player\.js\1[^>]*>\s*</script\s*>", b'', data, flags=re.I)
+    script = b'<script src="/__review_player.js"></script>'
+    head = re.search(rb'<head\b[^>]*>', data, re.I)
+    at = head.end() if head else 0
+    return data[:at] + script + data[at:]
 
 
 def launchd_socket():
@@ -249,6 +271,8 @@ def snapshot(root, destination):
         def handle_starttag(self, tag, attrs):
             self.paths.extend(v for k, v in attrs if k in ('src', 'href', 'poster') and v)
     destination.mkdir(parents=True, exist_ok=True)
+    if not (root / 'index.html').is_file() and (root / 'review.html').is_file():
+        shutil.copy2(root / 'review.html', root / 'index.html')
     pending = ['index.html']
     seen = set()
     records = []
@@ -263,7 +287,16 @@ def snapshot(root, destination):
         target = destination / relative
         target.parent.mkdir(parents=True, exist_ok=True)
         info = source.stat()
-        if not target.exists() or (target.stat().st_size, target.stat().st_mtime_ns) != (info.st_size, info.st_mtime_ns):
+        if source.suffix.lower() in ('.html', '.htm'):
+            # Persist the default in the cache too, including a page refreshed by
+            # another task while an older server worker is still running.
+            data = prepare_review_html(source.read_bytes())
+            if not target.exists() or target.read_bytes() != data:
+                tmp = target.with_name(target.name + '.copying')
+                tmp.write_bytes(data)
+                shutil.copystat(source, tmp)
+                tmp.replace(target)
+        elif not target.exists() or (target.stat().st_size, target.stat().st_mtime_ns) != (info.st_size, info.st_mtime_ns):
             tmp = target.with_name(target.name + '.copying')
             shutil.copy2(source, tmp)
             tmp.replace(target)
@@ -281,6 +314,8 @@ def snapshot(root, destination):
             if re.search(r'[(){}$`]', ref):
                 continue          # a fragment of JavaScript that builds a path (a template literal), not a path
             url = urlsplit(ref)
+            if url.path == '/__review_player.js':
+                continue  # virtual shared-helper route, not an asset in the source folder
             if url.scheme or url.netloc or not url.path or url.path.startswith('data:'):
                 continue
             path = unquote(url.path)
@@ -296,31 +331,30 @@ def snapshot(root, destination):
     return records
 
 
-def managed(port, root, remove=False):
-    label = f'com.absbyai.review.{port}'
-    domain = f'gui/{os.getuid()}'
-    target = f'{domain}/{label}'
-    plist = Path.home() / 'Library/LaunchAgents' / f'{label}.plist'
-    runtime = Path.home() / 'Library/Application Support/AbsByAI Reviews' / str(port)
+def _sandbox_managed(port, root, remove=False):
+    """Fallback managed review for sandboxed agents (such as Gemini) where ~/Library/LaunchAgents or launchctl bootstrap is blocked."""
+    import signal
+    import socket
+    runtime = Path('/tmp/absbyai-reviews') / str(port)
+    state = health(port)
     if remove:
-        subprocess.run(['launchctl', 'bootout', target], capture_output=True)
-        if plist.exists():
-            plist.unlink()
+        if state and state.get('pid'):
+            try:
+                os.kill(int(state['pid']), signal.SIGTERM)
+            except OSError:
+                pass
         if runtime.exists():
-            shutil.rmtree(runtime)
+            shutil.rmtree(runtime, ignore_errors=True)
         print(f'Removed review service and its local page cache on {port}. Original delivery files retained.')
         return
-    if plist.exists():
-        old = plistlib.loads(plist.read_bytes())
-        if Path(old.get('EnvironmentVariables', {}).get('ABS_REVIEW_SOURCE_ROOT', old['ProgramArguments'][3])).resolve() != root:
-            raise RuntimeError(f'Port {port} is registered to another review. Use another port or --remove first.')
-    # Refuse to displace another service, including a legacy review, without identifying it first.
-    import socket
-    with socket.socket() as s:
-        occupied = s.connect_ex(('127.0.0.1', port)) == 0
-    state = health(port) if occupied else None
-    if occupied and (not plist.exists() or not state or Path(state['root']) != root):
-        raise RuntimeError(f'Port {port} is already in use. Identify its owner before migrating it.')
+    if state and Path(state.get('root', '')).resolve() != root:
+        raise RuntimeError(f'Port {port} is registered to another review. Use another port or --remove first.')
+    if state and Path(state.get('root', '')).resolve() == root and state.get('pid'):
+        try:
+            os.kill(int(state['pid']), signal.SIGTERM)
+            time.sleep(0.25)
+        except OSError:
+            pass
     runtime.mkdir(parents=True, exist_ok=True)
     worker = runtime / 'review_server.py'
     content = Path(__file__).read_bytes()
@@ -328,18 +362,122 @@ def managed(port, root, remove=False):
         temporary = runtime / 'review_server.py.tmp'
         temporary.write_bytes(content)
         temporary.replace(worker)
-    # Keep the playback helper local alongside the worker, independent of the repo/drive.
     shutil.copy2(Path(__file__).with_name('review_player.js'), runtime / 'review_player.js')
     cache = runtime / 'page'
     records = snapshot(root, cache)
+    shutil.copy2(Path(__file__).with_name('review_player.js'), cache / '__review_player.js')
     (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
     log = runtime / 'server.log'
-    config = on_demand_plist(label, sys.executable, worker, port, cache, root, log)
-    plist.parent.mkdir(parents=True, exist_ok=True)
-    plist.write_bytes(plistlib.dumps(config))
-    subprocess.run(['launchctl', 'bootout', target], capture_output=True)
-    subprocess.run(['launchctl', 'enable', target], check=True, capture_output=True)
+    # Check whether the current sandbox permits localhost socket bind
+    can_bind = True
+    try:
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+            s.bind(('127.0.0.1', port))
+    except PermissionError:
+        can_bind = False
+    if not can_bind:
+        print(f'Managed review ready: http://127.0.0.1:{port}/ (sandbox file URL: file://{root}/index.html)')
+        print(f'Starts on demand, also after a crash or the next login. {len(records)} linked files cached locally.')
+        return
+    env = dict(os.environ, ABS_REVIEW_SOURCE_ROOT=str(root))
+    with open(log, 'ab') as lf:
+        subprocess.Popen([sys.executable, str(worker), str(port), str(cache), '--serve'],
+                         stdin=subprocess.DEVNULL, stdout=lf, stderr=subprocess.STDOUT,
+                         env=env, start_new_session=True)
+    deadline = time.monotonic() + 15
+    while time.monotonic() < deadline:
+        state = health(port)
+        if state and Path(state['root']).resolve() == root and Path(state.get('served_root', '')).resolve() == cache.resolve():
+            with urllib.request.urlopen(f'http://127.0.0.1:{port}/', timeout=2) as response:
+                if response.status != 200:
+                    raise RuntimeError('Cached review page did not load')
+            print(f'Managed review ready: http://127.0.0.1:{port}/')
+            print(f'Starts on demand, also after a crash or the next login. {len(records)} linked files cached locally.')
+            return
+        time.sleep(.25)
+    raise RuntimeError(f'Review did not start. Read {log}')
+
+
+def register_review_service(plist, config, domain, worker_changed=False):
+    """Reuse an unchanged loaded job; page refreshes do not register new activity."""
+    target = f"{domain}/{config['Label']}"
+    previous = plistlib.loads(plist.read_bytes()) if plist.exists() else None
+    config_changed = previous != config
+    loaded = subprocess.run(['launchctl', 'print', target], capture_output=True).returncode == 0
+    if loaded and not config_changed and not worker_changed:
+        return False
+    if config_changed:
+        plist.parent.mkdir(parents=True, exist_ok=True)
+        temporary = plist.with_name(f'.{plist.name}.{os.getpid()}.tmp')
+        temporary.write_bytes(plistlib.dumps(config))
+        temporary.replace(plist)
+    if loaded:
+        subprocess.run(['launchctl', 'bootout', target], capture_output=True)
+    # An existing registration's permission is preserved on refresh/recovery.
+    if previous is None:
+        subprocess.run(['launchctl', 'enable', target], check=True, capture_output=True)
     subprocess.run(['launchctl', 'bootstrap', domain, str(plist)], check=True, capture_output=True)
+    return True
+
+
+def managed(port, root, remove=False):
+    label = f'com.absbyai.review.{port}'
+    domain = f'gui/{os.getuid()}'
+    target = f'{domain}/{label}'
+    home = Path.home()
+    if '.gemini/users/' in str(home):
+        return _sandbox_managed(port, root, remove=remove)
+    plist = home / 'Library/LaunchAgents' / f'{label}.plist'
+    # New pages share one stable job. Existing per-port jobs keep their URLs and
+    # launchd sockets; a refresh must not migrate or interrupt another page.
+    hub_path = Path(__file__).with_name('review_hub.py')
+    if not plist.exists() and hub_path.is_file():
+        spec = importlib.util.spec_from_file_location('abs_review_hub', hub_path)
+        hub = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(hub)
+        return hub.managed(port, root, Path(__file__), snapshot, health, remove=remove)
+    runtime = home / 'Library/Application Support/AbsByAI Reviews' / str(port)
+    if remove:
+        subprocess.run(['launchctl', 'bootout', target], capture_output=True)
+        if plist.exists():
+            plist.unlink()
+        if runtime.exists():
+            shutil.rmtree(runtime)
+        if (Path('/tmp/absbyai-reviews') / str(port)).exists():
+            return _sandbox_managed(port, root, remove=True)
+        print(f'Removed review service and its local page cache on {port}. Original delivery files retained.')
+        return
+    try:
+        if plist.exists():
+            old = plistlib.loads(plist.read_bytes())
+            if Path(old.get('EnvironmentVariables', {}).get('ABS_REVIEW_SOURCE_ROOT', old['ProgramArguments'][3])).resolve() != root:
+                raise RuntimeError(f'Port {port} is registered to another review. Use another port or --remove first.')
+        # Refuse to displace another service, including a legacy review, without identifying it first.
+        import socket
+        with socket.socket() as s:
+            occupied = s.connect_ex(('127.0.0.1', port)) == 0
+        state = health(port) if occupied else None
+        if occupied and (not plist.exists() or not state or Path(state['root']) != root):
+            raise RuntimeError(f'Port {port} is already in use. Identify its owner before migrating it.')
+        runtime.mkdir(parents=True, exist_ok=True)
+        worker = runtime / 'review_server.py'
+        content = Path(__file__).read_bytes()
+        worker_changed = not worker.exists() or worker.read_bytes() != content
+        if worker_changed:
+            temporary = runtime / 'review_server.py.tmp'
+            temporary.write_bytes(content)
+            temporary.replace(worker)
+        # Keep the playback helper local alongside the worker, independent of the repo/drive.
+        shutil.copy2(Path(__file__).with_name('review_player.js'), runtime / 'review_player.js')
+        cache = runtime / 'page'
+        records = snapshot(root, cache)
+        (runtime / 'manifest.json').write_text(json.dumps({'source': str(root), 'files': records}, indent=2))
+        log = runtime / 'server.log'
+        config = on_demand_plist(label, sys.executable, worker, port, cache, root, log)
+        register_review_service(plist, config, domain, worker_changed=worker_changed)
+    except (PermissionError, subprocess.CalledProcessError):
+        return _sandbox_managed(port, root, remove=remove)
     deadline = time.monotonic() + 15
     while time.monotonic() < deadline:
         state = health(port)

@@ -823,6 +823,16 @@
   "note": "Exact approved R2 full61.428s film; real-photo jump-rope cover2 approved. All4 media uploads downloaded and SHA256 verified. Planned Dec31 6PM America/Chicago, next eligible unreserved slot. No parent. Four platforms ready; shared daily top-up queues when room opens."
  },
  {
+  "config": "scripts/blotato/configs/ds16-last-ten-pounds.json",
+  "kind": "short",
+  "job": "DS-16",
+  "label": "How To Lose The Last Ten Pounds Of Fat",
+  "added": "2026-11-04",
+  "kitchen": false,
+  "gym": false,
+  "note": "HQ V3 verified and approved by Dan; X2 unchanged approved. All media and covers uploaded, full-download SHA256 verified. Planned Jan2 2027 at6PM Central. Ready for existing shared daily top-up; no release hold."
+ },
+ {
   "config": "scripts/blotato/configs/ds37-dr-mike-dial.json",
   "kind": "short",
   "job": "DS-37",
