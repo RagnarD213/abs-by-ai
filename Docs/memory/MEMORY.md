@@ -78,7 +78,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
 - [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers
-- [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, blank ribbons, existing logo symbol, % not "in blend"
+- [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, no ribbon (11-05), existing logo symbol, % not "in blend"
 - [Website phone first](website-phone-first.md): 11-04: every AI designs at 390 first, then 1440; reviews open phone first
 - [Shop design direction](sixpackabs-shop-design-direction.md): 11-04: Claude A won; light pages not black; center product on phone; gold logo, existing symbol + Archivo
 - [Thumbnail five](thumbnail-standard-codex-in-setup.md): Codex makes five unique designs; 2 AI Dan, 1 real photo, 2 history-guided
