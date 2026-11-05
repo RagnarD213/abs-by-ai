@@ -85,6 +85,8 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, no ribbon (11-05), existing logo symbol, % not "in blend"
 - [Website phone first](website-phone-first.md): 11-04: every AI designs at 390 first, then 1440; reviews open phone first
 - [Shop design direction](sixpackabs-shop-design-direction.md): 11-04: Claude A won; light pages not black; center product on phone; gold logo, existing symbol + Archivo
+- [Supliful to Shopify linking](supliful-shopify-linking.md): 11-05: publish from Supliful to fulfill; multipacks = Supliful bundles; Combined Listings Plus-only; other 5 products still hand-made
+
 - [Thumbnail five](thumbnail-standard-codex-in-setup.md): Codex makes five unique designs; 2 AI Dan, 1 real photo, 2 history-guided
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [Bottom-title cover rule](cover-bottom-title-layout-rule.md): 10-27: bigger picture, no pill, much larger bottom title
