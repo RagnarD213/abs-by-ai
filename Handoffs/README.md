@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Seagate health scan](handoff-20261106-seagate-health-scan.md): **Written 2026-11-06, fire now.** Needs admin rights to read the drive's SMART report; Codex and Grokbot both. Claude's full file-read scan is already running.
+
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
 
 
@@ -19,7 +21,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Texas sales tax permit (Codex + Grokbot)](handoff-20261105-texas-sales-tax-permit-codex-grokbot.md): **Written 2026-11-05, fire now.** Dan authorized it; apply in Texas eSystems for Rose Digital Holdings LLC (taxpayer 32105235058). Codex/Grokbot do every step including SSN/EIN and signing. Then enter the permit in Shopify Taxes. Codex newest Sol medium; Grokbot same prompt.
 
 
-- [Glycine LFC Setup: Sleep Better With Glycine (RO-15)](handoff-20261106-ro15-glycine-lfc-setup.md): **In progress 2026-11-06, Codex; awaiting thumbnail pick.** [Eight choices](https://drive.google.com/open?id=1NorXq66ow5GlRB4FPl0DaXv6XIAibzOD). After pick: release setup and Shorts registration.
+- [Glycine LFC Setup: Sleep Better With Glycine (RO-15)](handoff-20261106-ro15-glycine-lfc-setup.md): **In progress 2026-11-06, Codex; awaiting thumbnail pick.** [Four new mixing designs and X2](https://drive.google.com/open?id=11I27gSdB131dsbkxSSnvrrJQi8KQZzl6). After pick: release setup and Shorts registration.
 
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
 
