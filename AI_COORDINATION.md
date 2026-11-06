@@ -27,13 +27,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**RO15:THUMBNAIL-PICK:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
+
+**WorkDriveOrder:PUSH-PENDING:2026-11-06:Claude.** d51e3e8 local.
+
 **ExDemoFlow:PUSH-PENDING:2026-11-05:Claude.** dd7f4e1,6133423
 
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
-**DS77-setup:PICK:2026-11-05:Claude.**`Docs/DS77_COVER_REVIEW_20261105.md`
+**DS-77:QUEUED-Jan5:2026-11-06:Claude.**`Docs/DS77_SETUP_RECEIPT_20261106.md`
 
 
 
@@ -172,7 +176,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
 
-**Edit cap LIVE 2026-10-21, Claude.** Pushed; main folder mid-merge (not mine), so its skills lack it until merged. Next: delete after that merge.
+**Edit cap LIVE 2026-10-21, Claude.** Pushed; delete after main merge.
 
 **SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
