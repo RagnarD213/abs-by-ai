@@ -37,7 +37,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
-**DS-77:QUEUED-Jan5:2026-11-06:Claude.**`Docs/DS77_SETUP_RECEIPT_20261106.md`
+**DS-77:QUEUED-Jan5;push-pending:2026-11-06:Claude.**`Docs/DS77_SETUP_RECEIPT_20261106.md`
 
 
 
