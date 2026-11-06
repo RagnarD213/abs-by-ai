@@ -20,12 +20,17 @@ cards = ''.join(f'''<section id="{x}"><h2>{x}</h2><div class="pair">
 <figure><figcaption>Instagram</figcaption><a href="img/{x}-instagram.jpg"><img loading="lazy" src="img/{x}-instagram.jpg" alt="{x} Instagram"></a></figure>
 <figure><figcaption>YouTube Shorts</figcaption><a href="img/{x}-youtube.jpg"><img loading="lazy" src="img/{x}-youtube.jpg" alt="{x} YouTube"></a></figure>
 <figure class="grid"><figcaption>Instagram profile crop</figcaption><img loading="lazy" src="img/{x}-grid.jpg" alt="{x} profile crop"></figure></div></section>''' for x in labels)
-# Round 2 (Dan, 2026-11-06): four new touched-up real frames, labelled N1..N4 (all from the same maker; not part of the blind set).
-R2 = {'N1': 'I', 'N2': 'J', 'N3': 'K', 'N4': 'L'}
-for n, letter in R2.items():
-    Image.open(BASE/'ds77/instagram'/f'ds-77_t-bar-rows_cover-{letter}.png').convert('RGB').save(PAGE/'img'/f'{n}-instagram.jpg', quality=93)
-    Image.open(BASE/'ds77/youtube'/f'ds-77_t-bar-rows_cover-{letter}.png').convert('RGB').save(PAGE/'img'/f'{n}-youtube.jpg', quality=93)
-    Image.open(BASE/'ds77/grid'/f'{letter}.jpg').convert('RGB').save(PAGE/'img'/f'{n}-grid.jpg', quality=93)
+# Round 3 (Dan, 2026-11-06): four REAL touched-up screenshots (real_build.py), labelled R1..R4. Round 2's
+# AI retouches (N1..N4) were rejected: "These are AI-generated images... real images, not AI-generated."
+R2 = {'R1': 'R1', 'R2': 'R2', 'R3': 'R3', 'R4': 'R4'}
+for n, lab in R2.items():
+    Image.open(BASE/'ds77-real/instagram'/f'ds-77_t-bar-rows_real-{lab}.png').convert('RGB').save(PAGE/'img'/f'{n}-instagram.jpg', quality=93)
+    Image.open(BASE/'ds77-real/youtube'/f'ds-77_t-bar-rows_real-{lab}.png').convert('RGB').save(PAGE/'img'/f'{n}-youtube.jpg', quality=93)
+    Image.open(BASE/'ds77-real/instagram'/f'ds-77_t-bar-rows_real-{lab}.png').crop((0, 240, 1080, 1680)).resize((270, 360)).convert('RGB').save(PAGE/'img'/f'{n}-grid.jpg', quality=93)
+for old in ['N1', 'N2', 'N3', 'N4']:
+    for kind in ['instagram', 'youtube', 'grid']:
+        f = PAGE/'img'/f'{old}-{kind}.jpg'
+        if f.exists(): f.unlink()   # our own rejected review copies; masters stay in ds77/
 def card(x):
     return f'''<section id="{x}"><h2>{x}</h2><div class="pair">
 <figure><figcaption>Instagram</figcaption><a href="img/{x}-instagram.jpg"><img loading="lazy" src="img/{x}-instagram.jpg" alt="{x} Instagram"></a></figure>
@@ -39,5 +44,5 @@ html = f'''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport
 section{{margin:18px 0;padding:14px;background:#182230;border:1px solid #344156;border-radius:12px}}h2{{margin:0 0 10px}}
 .pair{{display:grid;grid-template-columns:1fr 1fr;gap:10px}}.grid{{grid-column:1/3;max-width:220px}}img{{width:100%;height:auto;border-radius:6px;display:block}}figure{{margin:0}}figcaption{{font-size:14px;color:#cbd5e1;margin-bottom:6px}}
 @media(min-width:900px){{main{{padding:28px}}h1{{font-size:34px}}.pair{{grid-template-columns:1fr 1fr .7fr;gap:20px}}.grid{{grid-column:auto;max-width:none}}}}
-</style></head><body><main><h1>How To Do T-Bar Rows</h1><p>Eight cover choices, shown in random order. Each has its Instagram layout, its YouTube Shorts layout and how it looks on your Instagram profile grid. Tap any picture for the full-size file.</p><p><strong>New: N1 to N4.</strong> Four new touched-up screenshots from your real T-bar row footage, each a different moment and a different design. Your favorite from the first set, X4, is right below them for comparison.</p><p><strong>Reply in chat with one label</strong> (N1 to N4, or any X), or two for a YouTube A/B test.</p><p>Your finalized film is untouched and backed up. Nothing is uploaded or scheduled until you pick.</p><div class="nav">{nav}</div>{r2cards}<h2 style="margin-top:28px">Your favorite from the first set</h2>{card('X4')}<h2 style="margin-top:28px">First set: all eight</h2>{cards}</main></body></html>'''
+</style></head><body><main><h1>How To Do T-Bar Rows</h1><p>Eight cover choices, shown in random order. Each has its Instagram layout, its YouTube Shorts layout and how it looks on your Instagram profile grid. Tap any picture for the full-size file.</p><p><strong>New: R1 to R4, real photos.</strong> Four real frames from your T-bar row footage. No AI touched them: only photo edits (brighter exposure, contrast, a little color and sharpening). Each is a different moment and a different design. X4, your favorite from the first set, is below for comparison; note that X4's picture was AI-retouched.</p><p><strong>Reply in chat with one label</strong> (R1 to R4, or any X), or two for a YouTube A/B test.</p><p>Your finalized film is untouched and backed up. Nothing is uploaded or scheduled until you pick.</p><div class="nav">{nav}</div>{r2cards}<h2 style="margin-top:28px">Your favorite from the first set</h2>{card('X4')}<h2 style="margin-top:28px">First set: all eight</h2>{cards}</main></body></html>'''
 (PAGE/'index.html').write_text(html); print(PAGE/'index.html')

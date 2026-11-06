@@ -22,3 +22,12 @@ Four new real 4K frames, retouched by Codex (gpt-6.1-sol high, subscription) wit
 - N3 = plate K: B0725 13.5 s, close side, shoulder and arm at the top of the pull; large bottom title.
 - N4 = plate L: B0725 5.0 s, rear view, back squeeze (no face); navy plaque.
 check.py (manifest-r2.json, cover-checks-r2.json): no text on faces, bounds safe, YouTube JPEGs 316-355 KB. Faces inspected. Review page reorders: N1-N4 first, X4 for comparison, then the first eight.
+
+## Round 3 (Dan, 2026-11-06): real photos only
+Dan on N1-N4: "this isn't what I asked for. These are AI-generated images. I want four touch-up screenshots, real images, not AI-generated." N1-N4 removed from the page (masters kept in ds77/ as plates I-L).
+R1-R4 built by `scripts/covers/ds77-20261105/real_build.py`: real 16-bit frames from the finished Color C library masters, 9:16 crop (1215x2160) downscaled to 1080x1920, photo edits only (gamma 0.86, gentle S-curve, saturation 1.08, wide clarity 0.30, light sharpen 0.40, dither). No generative step; title space is flat colour blocks (R1, R2, R4) or a gradient (R3). Frames chosen for a focused, non-grimacing face.
+- R1: B0723 5.0 s, front-side with mural; yellow band.
+- R2: B0724 1.75 s, flags behind, face clear; white/cyan Impact.
+- R3: B0725 12.25 s, close side profile, shoulder and arm; large bottom title.
+- R4: B0725 5.0 s, rear back view; navy plaque.
+Manifest and hashes: `Short-form video content/covers/review/ds77-t-bar-rows-20261105/ds77-real/manifest.json`. Page notes X4 itself was AI-retouched (no maker named).

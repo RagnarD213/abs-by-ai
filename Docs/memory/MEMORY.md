@@ -92,6 +92,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [Bottom-title cover rule](cover-bottom-title-layout-rule.md): 10-27: bigger picture, no pill, much larger bottom title
 - [Cover photos](cover-photo-selection.md): shoot photos, sharp abs
+- [Touched-up = real](touched-up-screenshot-means-real.md): 11-06: "touched-up screenshot" = real frame + photo edits only, never AI
 - [Thumbnail system](thumbnail-design-system.md): Manrope/red bar look; five unique designs since 10-13
 - [Thumbnail colours](thumbnail-masculine-colours.md): masculine palettes, no pink or plum
 - [Thumbnail claims](thumbnail-no-claims.md): none; waist crop
