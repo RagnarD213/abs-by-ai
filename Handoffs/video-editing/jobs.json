@@ -3814,15 +3814,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md`: cut \"I'm 41. Here Are The 10 Exercises I Do Every Week\" from 10/15 roll C1776 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
+   "state": "delivered",
    "note": "Almost every point is a gym exercise with no footage yet, so it waits on the gym shoot.",
    "needs": "",
    "order": 165,
    "updated": "2026-11-05",
-   "rev": 4,
+   "rev": 5,
    "syncedRev": 1,
    "editor": "Claude",
-   "by": "Claude"
+   "by": ""
   },
   {
    "id": "RO-33",
