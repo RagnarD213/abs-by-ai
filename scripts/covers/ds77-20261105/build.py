@@ -36,11 +36,14 @@ SHORTS = {
 # Source crop boxes (x0, y0, x1, y1) on the 941x1672 Codex plate.
 # F/G/H (Dan, 2026-10-29): touched-up real screenshots; each borrows a headline style from round 1.
 # A-E Codex, F-H Google (internal only; Dan sees blind X labels). Plate letter -> headline style.
-STYLE = {'A': 'D', 'B': 'B', 'C': 'C', 'D': 'A', 'E': 'E', 'F': 'A', 'G': 'D', 'H': 'B'}
+STYLE = {'A': 'D', 'B': 'B', 'C': 'C', 'D': 'A', 'E': 'E', 'F': 'A', 'G': 'D', 'H': 'B',
+         # Round 2 (Dan, 2026-11-06): four new touched-up real frames, each its own style.
+         'I': 'A', 'J': 'B', 'K': 'D', 'L': 'C'}
 PLATE = {'F': 'G1', 'G': 'G2', 'H': 'G3'}
-LETTERS = 'ABCDEFGH'
+import os
+LETTERS = os.environ.get('DS77_LETTERS', 'ABCDEFGH')
 
-ZOOM = {}   # per-plate source crop (x0, y0, x1, y1), set after inspecting the plates
+ZOOM = {'I': (280, 380, 941, 1555)}   # I: wide frame, zoom so he reads on a phone
 
 def sha(p):
     return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -202,14 +205,14 @@ def build(keys):
                     info.update(jpeg_path=str(j.relative_to(ROOT)), jpeg_sha256=sha(j), jpeg_bytes=j.stat().st_size)
                 mask.save(d/f"{spec['slug']}_cover-{k}.text-mask.png")
                 rows.append(dict(letter=k, platform=platform, path=str(p.relative_to(ROOT)), sha256=sha(p), text_bounds=bounds, **info))
-        (OUT/key/'manifest.json').write_text(json.dumps({'status': 'awaiting Dan pick', 'copy': spec['copy'], 'outputs': rows}, indent=2))
+        (OUT/key/os.environ.get('DS77_MANIFEST', 'manifest.json')).write_text(json.dumps({'status': 'awaiting Dan pick', 'copy': spec['copy'], 'outputs': rows}, indent=2))
         sheet = Image.new('RGB', (len(LETTERS)*300, 2*565), '#101722'); dr = ImageDraw.Draw(sheet)
         label = ImageFont.truetype(str(SUP/'Arial Bold.ttf'), 24)
         for row in rows:
             x = LETTERS.index(row['letter'])*300; y = 0 if row['platform'] == 'instagram' else 565
             dr.text((x+12, y+14), row['letter']+' / '+('Instagram' if y == 0 else 'YouTube'), font=label, fill='white')
             im = Image.open(ROOT/row['path']); im.thumbnail((280, 500)); sheet.paste(im, (x+10, y+52))
-        sheet.save(OUT/key/'five-cover-choices.jpg', quality=95)
+        sheet.save(OUT/key/os.environ.get('DS77_SHEET', 'five-cover-choices.jpg'), quality=95)
         print(f'{key}: built {len(rows)} covers and review sheet')
 
 if __name__ == '__main__':

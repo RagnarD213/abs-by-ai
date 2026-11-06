@@ -5,7 +5,7 @@ import json,subprocess,hashlib
 import numpy as np
 from PIL import Image,ImageDraw,ImageOps
 from build import OUT,ROOT,PM,W,H
-R=OUT/'ds77';m=json.loads((R/'manifest.json').read_text());rows=[];faces_out=[]
+R=OUT/'ds77';import os;m=json.loads((R/os.environ.get('DS77_MANIFEST','manifest.json')).read_text());rows=[];faces_out=[]
 for row in m['outputs']:
  p=ROOT/row['path'];pic=p.with_name(p.stem+'.picture.png');mask=p.with_name(p.stem+'.person-mask.png')
  r=subprocess.run([str(PM),str(pic),str(mask)],capture_output=True,text=True,check=True);data=json.loads(r.stdout);faces=data['faces']
@@ -32,6 +32,6 @@ for row in m['outputs']:
 sheet=Image.new('RGB',(240*(1+len(set(r[0] for r in faces_out))),310),'#253044');dr=ImageDraw.Draw(sheet)
 ref=Image.open(OUT/'sources/identity-reference.jpg');ref=ref.crop((465,100,830,480));ref.thumbnail((220,250));sheet.paste(ref,(10,40));dr.text((10,10),'Real identity reference',fill='white')
 for i,(letter,face) in enumerate(faces_out,1):sheet.paste(face,(i*240+10,40));dr.text((i*240+10,10),letter,fill='white')
-sheet.save(R/'face-check.jpg',quality=95)
+sheet.save(R/os.environ.get('DS77_FACES','face-check.jpg'),quality=95)
 report=dict(all_automated_checks_passed=all(r['passed'] for r in rows),checks=rows,visual_inspection_required=True)
-(R/'cover-checks.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
+(R/os.environ.get('DS77_CHECKS','cover-checks.json')).write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
