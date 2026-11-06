@@ -82,3 +82,7 @@ Release slot: Wed Dec 23, 2026; edited and approved by Dec 16 (`Docs/LONGFORM_RE
 - Delivered to `claude edited long form content/30 - Sleep Better With Glycine/` (29 was taken by Man Boobs) and `Videos to Review/`.
   Review page http://127.0.0.1:9718/ (`round2/recipe/film_page.py`). Edit Queue `delivered`; edit slot released with --review.
 - Next: Dan's calls from the 9718 page and the rejected-clips decision; then finalize and write the /video-setup handoff.
+
+## Done 2026-11-06
+Dan approved R2 as final ("This is approved. Give me the handoff or setup."). Edit Queue finalized, Videos to Review copy deleted,
+review pages 9715 to 9718 removed. Setup: `Handoffs/handoff-20261106-ro15-glycine-lfc-setup.md`.

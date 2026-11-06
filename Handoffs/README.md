@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
+
 - [Invest In Your Health SFL Setup (SL-20)](handoff-20261105-sl20-invest-shorts-covers-and-setup.md): **Written 2026-11-05, start now.** Dan approved all three Shorts (dating, relationship, money). Covers (Codex subscription), stop for picks, backups, metadata, February Short slots after RO-20 is public. Opus 5.5 high.
 
 - [How To Do T-Bar Rows SFC Setup (DS-77)](handoff-20261105-ds77-t-bar-rows-cover-and-setup.md): **Written 2026-11-05, start now.** Dan finalized R1 (F, Fuller Bass, Original Portrait). Covers (Codex subscription), stop for pick, backups, metadata, January-blitz Short slot. Opus 5.5 high.
@@ -20,7 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Texas sales tax permit (Codex + Grokbot)](handoff-20261105-texas-sales-tax-permit-codex-grokbot.md): **Written 2026-11-05, fire now.** Dan authorized it; apply in Texas eSystems for Rose Digital Holdings LLC (taxpayer 32105235058). Codex/Grokbot do every step including SSN/EIN and signing. Then enter the permit in Shopify Taxes. Codex newest Sol medium; Grokbot same prompt.
 
 
-- [Sleep Better With Glycine LFC R2 (RO-15)](handoff-20261104-ro15-glycine-round2.md): **Written 2026-11-04, waits for Dan's round 1 picks** (page port 9715). END frames, motion, full film, gates, independent review, delivery. Opus 5.5 high.
+- [Glycine LFC Setup: Sleep Better With Glycine (RO-15)](handoff-20261106-ro15-glycine-lfc-setup.md): **Written 2026-11-06, start now.** Dan approved R2 as final. Thumbnails (Codex subscription), stop for pick, backups, metadata, YouTube Wed Dec 23 9 AM, socials Dec 24 noon, register the Shorts job. Opus 5.5 high.
 
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
 
