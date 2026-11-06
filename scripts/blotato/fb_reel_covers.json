@@ -1267,5 +1267,16 @@
   "when": "2026-12-22T15:00:00.000Z",
   "cover_sha256": "976713874b4ad8c03556f763718925ee373c50497650307efbbfc4f79d81e4f9",
   "schedule": "6530261"
+ },
+ {
+  "job": "RO-15",
+  "slug": "ro15-glycine",
+  "match": "I used to wake up sweating even with the AC at 67. Glycine helped me sleep better than any other supplement I've tried.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan selected round 2 A, November 6, 2026.",
+  "sha256": "655ccdeeeb4d8bf12dcd14159b7259b166ea3379e3bb15b0a785468f870caef9",
+  "when": "2026-12-24T18:00:00.000Z",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro15-glycine.jpg"
  }
 ]

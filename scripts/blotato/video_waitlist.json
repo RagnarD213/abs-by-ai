@@ -726,5 +726,14 @@
   "kitchen": false,
   "gym": false,
   "note": "Exact approved R3 master unchanged; Dan approved cover design 3/text B. All backups and four upload hashes verified. Target Dec28 6PM America/Chicago, next eligible open slot; shared top-up preserves slot if still free. No parent. All four targets ready."
+ },
+ {
+  "config": "scripts/blotato/configs/ro15-glycine.json",
+  "kind": "longform",
+  "job": "RO-15",
+  "label": "Sleep Better With Glycine",
+  "added": "2026-11-06",
+  "approved_release": "2026-12-23T15:00:00.000Z",
+  "kitchen": false
  }
 ]

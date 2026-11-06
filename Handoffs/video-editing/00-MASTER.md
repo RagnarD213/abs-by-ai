@@ -126,7 +126,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-12](RO-12-top-5-zepbound-tips.md) | Top 5 Zepbound Tips | 9/23 C1706 | UPLOADED | L |
 | [RO-13](RO-13-can-you-drink-alcohol-and-still-have-abs.md) | Can You Drink Alcohol And Still Have Abs? | 9/23 C1707 | FINALIZED | L |
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | UPLOADED | L |
-| [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | READY | L |
+| [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | FINALIZED | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
 | [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | FINALIZED | L |
@@ -308,6 +308,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [SL-28](SL-28-love-handles-shorts.md) | Love Handles (RO-30; 3 Shorts; parent Jan10,2027 planned, not booked) | READY: propose segments before rendering | S |
 | [SL-29](SL-29-celebrity-ozempic-shorts.md) | Reacting To Celebrity Ozempic Transformations (RO-24; 3 Shorts; parent Nov15 9AM Central, scheduled) | READY: propose segments before rendering | S |
 | [SL-31](SL-31-ab-exercise-ranking-shorts.md) | Ab Exercise Ranking (RO-23; 3 Shorts; parent Nov22 9AM Central planned, waitlist) | READY: propose segments before rendering | S |
+| [SL-37](SL-37-glycine-shorts.md) | Sleep Better With Glycine (RO-15; 3 Shorts; parent Dec 23 9AM Central planned) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)
