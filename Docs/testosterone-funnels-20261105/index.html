@@ -1,0 +1,212 @@
+<title>Testosterone Booster Funnels</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one reading column, phone first; each funnel is a dossier card with its entry screenshot, then the facts. */
+:root{
+  --bg:#f6f5f2; --surface:#ffffff; --fg:#17191c; --muted:#5d6268; --line:#dedbd4;
+  --gold:#a8771f; --gold-soft:#f3e7cf; --ok:#2f7a4a; --ok-soft:#e3f1e8; --warn:#9a5b10; --warn-soft:#f7ead6; --bad:#a3352b; --bad-soft:#f6e1de;
+  --display:"Archivo",system-ui,sans-serif; --body:"Source Serif 4",Georgia,serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#121315; --surface:#1b1d20; --fg:#ecebe7; --muted:#a2a6ab; --line:#2f3236;
+  --gold:#d8a64c; --gold-soft:#33291a; --ok:#6cc08c; --ok-soft:#1b2b21; --warn:#e0a35a; --warn-soft:#2f2617; --bad:#e58579; --bad-soft:#331e1c; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121315; --surface:#1b1d20; --fg:#ecebe7; --muted:#a2a6ab; --line:#2f3236;
+  --gold:#d8a64c; --gold-soft:#33291a; --ok:#6cc08c; --ok-soft:#1b2b21; --warn:#e0a35a; --warn-soft:#2f2617; --bad:#e58579; --bad-soft:#331e1c; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+main{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:40px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;line-height:1.12;margin:0}
+h1{font-size:clamp(30px,7vw,46px);font-weight:800;letter-spacing:-.02em}
+h2{font-size:24px;font-weight:800;letter-spacing:-.01em}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+.lede{font-size:19px;color:var(--muted);max-width:62ch}
+section{display:flex;flex-direction:column;gap:16px}
+.verdict{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--ok);border-radius:6px;padding:18px 18px;display:flex;flex-direction:column;gap:10px}
+.verdict ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:560px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--display);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700}
+tr:last-child td{border-bottom:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.funnel{background:var(--surface);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+.funnel figure{margin:0;background:var(--bg);border-bottom:1px solid var(--line)}
+.funnel figure img{display:block;width:100%;height:auto}
+.funnel figcaption{font-family:var(--mono);font-size:12px;color:var(--muted);padding:8px 14px}
+.fbody{padding:16px 16px 18px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.fhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 12px}
+.rank{font-family:var(--mono);font-size:13px;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.03em;padding:3px 8px;border-radius:99px;background:var(--gold-soft);color:var(--gold)}
+.chip.ok{background:var(--ok-soft);color:var(--ok)}
+.chip.warn{background:var(--warn-soft);color:var(--warn)}
+.chip.bad{background:var(--bad-soft);color:var(--bad)}
+dl{display:grid;grid-template-columns:minmax(96px,30%) 1fr;gap:6px 14px;margin:0;font-size:15.5px}
+dt{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.steal{border-top:1px dashed var(--line);padding-top:10px;font-size:15.5px}
+.steal b{font-family:var(--display)}
+.small{font-size:14px;color:var(--muted)}
+a{color:var(--gold)}
+a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.pattern{display:grid;grid-template-columns:1fr;gap:12px}
+@media (min-width:640px){.pattern{grid-template-columns:1fr 1fr}}
+.pcard{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pcard h3{font-size:16px}
+blockquote{margin:0;padding:10px 14px;border-left:3px solid var(--gold);background:var(--gold-soft);font-style:italic}
+@media (max-width:420px){dl{grid-template-columns:1fr}dt{padding-top:6px}}
+</style>
+
+<main>
+<header style="display:flex;flex-direction:column;gap:12px">
+  <span class="eyebrow">SixPackAbs research · November 5, 2026</span>
+  <h1>Testosterone Booster Funnels</h1>
+  <p class="lede">Every testosterone funnel I could find that is buying YouTube traffic right now, ranked by VidTao ad spend, with the entry page, the hook, the offer and what to take for Great Again T.</p>
+</header>
+
+<section id="tongkat">
+  <span class="eyebrow">Your question first</span>
+  <h2>Is tongkat ali a problem on Google?</h2>
+  <div class="verdict">
+    <p><b>No.</b> The ingredient is fine. The wording is the risk.</p>
+    <ul>
+      <li>Google's banned supplement list doesn't name tongkat ali (also called Eurycoma longifolia or longjack). It also doesn't name tribulus, orchic, maca, ginseng, boron or arginine. The list is mostly spiked sex pills and prohormones by brand name.</li>
+      <li><b>V Shred's Test Boost Max contains 200 mg of tongkat ali</b>, per the NIH label database. V Shred has spent about $6M on YouTube ads for it and still runs them. Nugenix Ultimate (150 mg), Gorilla Mind Sigma (200 mg) and Prime Labs Prime Test also contain tongkat.</li>
+      <li>What gets ads rejected is the claim. Avoid sexual enhancement, libido, "like TRT," "steroid-like," and anything comparing it to a prescription drug. Keep the ads to energy, strength, belly fat and "supports healthy testosterone levels."</li>
+      <li>Two things to watch with the supplier. Some imported tongkat products have been recalled for hidden ED drugs or heavy metals, so ask Supliful for a certificate of analysis on the tongkat lot. Your 400 mg dose is also double the 200 mg that the main safety review covered.</li>
+    </ul>
+  </div>
+</section>
+
+<section id="spend">
+  <span class="eyebrow">VidTao, YouTube ad spend</span>
+  <h2>Who is buying testosterone traffic</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Advertiser</th><th>Last 30 days</th><th>Lifetime</th><th>Funnel type</th></tr></thead>
+    <tbody>
+      <tr><td><b>TestoGreens Max</b> (Live Anabolic)</td><td class="num">$1.79M</td><td class="num">$6.44M</td><td>Long VSL, "foods that spike estrogen"</td></tr>
+      <tr><td><b>Nugenix Total-T</b></td><td class="num">$400K</td><td class="num">$1.21M</td><td>Advertorial, then quiz, then free 14-day sample</td></tr>
+      <tr><td>Male Excel <span class="small">(prescription TRT clinic)</span></td><td class="num">$394K</td><td class="num">$0.91M</td><td>Clinic landing page</td></tr>
+      <tr><td><b>V Shred Test Boost Max</b></td><td class="num">small now</td><td class="num">~$6.2M</td><td>2-question quiz, then vertical VSL</td></tr>
+      <tr><td>Prime Labs Prime Test Pro</td><td class="num">$17K</td><td class="num">$17K</td><td>New. Ads send traffic to YouTube itself</td></tr>
+      <tr><td>Menerals</td><td class="num">$0</td><td class="num">~$1M</td><td>"3 missing minerals" UGC ads. Paused</td></tr>
+      <tr><td>Hone Health, hims <span class="small">(clinics)</span></td><td class="num">$0 to low</td><td class="num">$3.7M+</td><td>Test-your-T and prescription offers</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">The figures are VidTao's estimates. V Shred's lifetime figure is its share of spend on the two Test Boost Max landing pages. No US tongkat-only brand is advertising at scale on YouTube.</p>
+</section>
+
+<section id="funnels">
+  <span class="eyebrow">The funnels, best first</span>
+  <h2>Funnel teardowns</h2>
+  <article class="funnel">
+    <figure><img src="img/testogreens-vsl.jpg" alt="TestoGreens Max VSL page: 5 Surprising Foods That Can Plummet T-Levels and Spike Estrogen in Guys Over 50, doctor in white coat behind five plates"><figcaption>testogreensmax.com/gdra · entry page</figcaption></figure>
+    <div class="fbody">
+      <div class="fhead"><span class="rank">#1</span><h3>TestoGreens Max</h3></div>
+      <div class="chips"><span class="chip ok">$1.79M last 30 days</span><span class="chip">Long VSL</span><span class="chip">Men over 50</span></div>
+      <dl>
+        <dt>Ad hook</dt><dd>"Your dad was fat, now he's jacked. What did he change?" "He stopped eating the feminizing foods." It runs 3:43, ends on "get canola oil out of your kitchen immediately," and has been live for 26 days.</dd>
+        <dt>Entry page</dt><dd>A bare VSL page with no buy button until the video reveals it. Headline: "5 Surprising Foods That Can Plummet T-Levels &amp; Spike Estrogen In Guys Over 50." The video uses Vidalytics.</dd>
+        <dt>Authority</dt><dd>"Dr. Andreas Boettcher, 30+ years in functional medicine." There is a list of PubMed references under the video.</dd>
+        <dt>Big idea</dt><dd>"It's not T-levels holding men back, it's estrogen overload," which it blames for stubborn fat, low energy and fading drive.</dd>
+        <dt>Product</dt><dd>A greens powder positioned as a testosterone product. The company is Live Anabolic.</dd>
+        <dt>Offer</dt><dd class="num" style="white-space:normal">1 bottle $64.95 + $7.95 shipping · 3 bottles $59 each · 6 bottles $49 each, free shipping · subscription $49.95/mo. 365-day guarantee on the product price, not shipping.</dd>
+        <dt>Ingredients</dt><dd>Greens (broccoli, kale, spinach, wheatgrass), DIM, cocoa, pomegranate, BioPerine. <b>No tongkat.</b></dd>
+        <dt>Warning sign</dt><dd>Trustpilot scores it 2.8/5 and 36% of reviews are one-star. Buyers report extra bottles they didn't order, double charges and subscriptions they didn't sign up for. Copy the front end, not the billing.</dd>
+      </dl>
+      <p class="steal"><b>Take:</b> the estrogen and "feminizing foods" mechanism, the ad written as a story about a dad, and the food-list format, which promises a free, useful reveal.</p>
+    </div>
+  </article>
+
+  <article class="funnel">
+    <figure><img src="img/sculpt-quiz.jpg" alt="Sculpt Nation quiz first screen: Are you over 18 and want to build muscle? Yes / No"><figcaption>sculptnation.com/sp/test-boost-max/fbk-cpc-v1 · step 1, quiz</figcaption></figure>
+    <figure><img src="img/sculpt-vsl.jpg" alt="Sculpt Nation VSL: 1 Everyday Food Killing Your Testosterone, vertical video of Vince in a V Shred tank top"><figcaption>sculptnation.com/sp/test-boost-max/quiz-vsl · step 2, vertical VSL</figcaption></figure>
+    <div class="fbody">
+      <div class="fhead"><span class="rank">#2</span><h3>V Shred · Test Boost Max</h3></div>
+      <div class="chips"><span class="chip ok">~$6.2M lifetime</span><span class="chip">Quiz → VSL</span><span class="chip ok">Has 200 mg tongkat</span></div>
+      <dl>
+        <dt>Ad hook</dt><dd>Quiz ads built around "testosterone-killing foods." The filenames include testokillingfoods, bread and eggs. One version has run for 149 days.</dd>
+        <dt>Quiz</dt><dd>Two taps: "Are you over 18 and want to build muscle?" then "If there were certain foods you could add to your diet that will skyrocket your testosterone, would you add them?" Each answer is a small yes.</dd>
+        <dt>VSL</dt><dd>"1 'Everyday' Food Killing Your Testosterone." Vince Sant talks to camera in a vertical video and opens with "Are 'healthy foods'…". It remembers where you stopped watching.</dd>
+        <dt>Ingredients</dt><dd>Tribulus 500 mg, tongkat 200 mg, horny goat weed 160 mg, DIM 100 mg, eleuthero, cordyceps, ginseng and zinc. Two capsules, 60 per bottle.</dd>
+        <dt>Offer</dt><dd class="num" style="white-space:normal">1 bottle $49 + shipping ("normally $67") · 3 bottles $132, free shipping · 6 bottles $195, free shipping. Lifetime money-back guarantee. The button reads "Skyrocket My Manhood."</dd>
+      </dl>
+      <p class="steal"><b>Take:</b> the two-question quiz that warms people up, a short vertical VSL by a fit founder (this is your format), the 1/3/6 bottle ladder, and the lifetime guarantee. Change the button text: "Manhood" is the kind of wording Google rejects.</p>
+    </div>
+  </article>
+
+  <article class="funnel">
+    <figure><img src="img/nugenix-advertorial.jpg" alt="Nugenix advertorial styled as a news site called Healthy Directions: Easy and Effective Way Midwestern Men Over 50 Are Boosting Their Testosterone"><figcaption>nugenixsamples.com/reports/total-t/trial · advertorial</figcaption></figure>
+    <div class="fbody">
+      <div class="fhead"><span class="rank">#3</span><h3>Nugenix Total-T</h3></div>
+      <div class="chips"><span class="chip ok">$400K last 30 days</span><span class="chip">Advertorial → quiz → sample</span><span class="chip">Men over 50</span></div>
+      <dl>
+        <dt>Ad hook</dt><dd>"Claim Your 14-Day Sample."</dd>
+        <dt>Entry page</dt><dd>A fake news site ("Healthy Directions," marked Sponsored). Headline: "Easy and Effective Way Midwestern Men Over 50 Are Boosting Their Testosterone and Getting Their Energy Back." The tone is "it's not your fault."</dd>
+        <dt>Big idea</dt><dd>One branded ingredient, Testofen fenugreek, and "the top-selling men's brand at GNC."</dd>
+        <dt>Conversion</dt><dd>A four-question "see if you qualify" quiz that ends at a free 14-day sample. The sample is the way into a subscription.</dd>
+        <dt>Offer</dt><dd>$4.99 for the 14-day sample. It turns into $69.99 + $4.99 a month on auto-ship unless cancelled within 18 days. That price is shown only in the terms. Cancelling takes a phone call or email. There's a 30-day guarantee. The spokespeople are Frank Thomas and Doug Flutie.</dd>
+        <dt>Ingredients</dt><dd>Testofen fenugreek, citrulline and tribulus in a 2,103 mg blend, plus zinc and B vitamins. <b>No tongkat.</b></dd>
+      </dl>
+      <p class="steal"><b>Take:</b> the "see if you qualify" quiz and a low-risk first step. This is the free-trial structure you already know from the Healthy Back Institute.</p>
+    </div>
+  </article>
+  <h3 style="margin-top:8px">The rest, with no real YouTube spend right now</h3>
+  <p class="small">These are worth knowing for their offer structure. The first column notes when a product is mainly an Amazon/retail listing, a store page or a clinic rather than a funnel.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Brand</th><th>Entry</th><th>Hook</th><th>Offer</th><th>Tongkat</th></tr></thead>
+    <tbody>
+      <tr><td><b>TestoPrime</b></td><td>Long sales page</td><td>"Tired and worn-out?"</td><td class="num" style="white-space:normal">$64.99 · 3 for $129.99 (2+1 free) · 5 for $194.99 (3+2 free) · 2 free e-books · 60 days</td><td>No</td></tr>
+      <tr><td><b>Menerals</b></td><td>Store page plus membership</td><td>"Become Hard to Kill"</td><td class="num" style="white-space:normal">$44/mo membership vs $75 one-time · "40% off for life" · free coaching call · HSA/FSA · 90 days</td><td>No</td></tr>
+      <tr><td>PrimeGENIX Testodren</td><td>Sales page</td><td>One clinical fenugreek ingredient</td><td class="num" style="white-space:normal">$59.95 · 6 months $199.95 · 67 days · stack upsells (DIM, cortisol)</td><td>No</td></tr>
+      <tr><td>Alpha Tonic <span class="small">(ClickBank-style)</span></td><td>VSL</td><td>"Himalayan tonic"</td><td class="num" style="white-space:normal">$69 · 3 at $59 each with 2 e-books · 6 at $49 each · 180 days</td><td>Varies</td></tr>
+      <tr><td>EndoPeak <span class="small">(ClickBank-style)</span></td><td>VSL</td><td>Performance and testosterone</td><td class="num" style="white-space:normal">$69 · 3 for $177 · 6 for $294 · 60 to 90 days</td><td>Varies</td></tr>
+      <tr><td>Heart &amp; Soil Whole Package</td><td>Store page</td><td>"Reinforce Your Manhood," ancestral organs</td><td class="num" style="white-space:normal">$74.99 or $56.24 on subscription</td><td>No</td></tr>
+      <tr><td>Gorilla Mind Sigma</td><td>Store page / retail</td><td>Tongkat plus fadogia</td><td class="num">$49.99</td><td>200 mg</td></tr>
+      <tr><td>Prime Labs Prime Test</td><td>Amazon listing</td><td>Testosterone booster</td><td class="num">from $39.99</td><td>In a blend</td></tr>
+      <tr><td>Ageless Male</td><td>TV ads, retail</td><td>Auto-ship plan</td><td class="num">$79.90 every 2 months</td><td>Not found</td></tr>
+      <tr><td>Hone Health, Male Excel</td><td>Clinic</td><td>"Test your T," TRT</td><td class="num" style="white-space:normal">$99 to $155/mo plus medication</td><td>N/A</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small"><b>The opening:</b> none of the big funnels leads with a full-dose tongkat formula. TestoGreens, Nugenix and TestoPrime contain none. V Shred's label lists 200 mg (some reviews say 20 mg). Great Again T's 400 mg can be the hook.</p>
+</section>
+
+<section id="patterns">
+  <span class="eyebrow">What they all do</span>
+  <h2>Patterns to copy</h2>
+  <div class="pattern">
+    <div class="pcard"><h3>Lead with food, not the pill</h3><p>The two biggest spenders both open with foods that kill testosterone. The product is the "and here's the shortcut" at the end.</p></div>
+    <div class="pcard"><h3>Estrogen is the villain</h3><p>Stubborn belly and chest fat get blamed on estrogen. That ties testosterone to fat loss, which is your lane.</p></div>
+    <div class="pcard"><h3>Men over 40 or 50</h3><p>Every winner names an age. TestoGreens and Nugenix both target over 50.</p></div>
+    <div class="pcard"><h3>A small yes before the pitch</h3><p>A quiz or "see if you qualify" step comes before the video or the offer.</p></div>
+    <div class="pcard"><h3>1/3/6 bottle ladder</h3><p>$49 for one, then a lower price per bottle and free shipping at 3 and 6, plus a long guarantee.</p></div>
+    <div class="pcard"><h3>Bonuses and guarantees</h3><p>Two free e-books on the 3 and 6 packs. Guarantees run from 60 days to a lifetime and usually refund the product price only, not shipping.</p></div>
+    <div class="pcard"><h3>Billing is where they get hurt</h3><p>Every brand's complaints are about auto-ship, extra shipments and hard cancellation. A clear subscription with easy cancelling sets you apart.</p></div>
+    <div class="pcard"><h3>An authority on camera</h3><p>A doctor (TestoGreens) or a fit founder (V Shred). You fit the founder role: 41, with abs.</p></div>
+  </div>
+</section>
+
+<section id="ours">
+  <span class="eyebrow">Recommendation</span>
+  <h2>What Great Again T's funnel should be</h2>
+  <div class="verdict">
+    <p><b>Model V Shred's structure and use TestoGreens' angle.</b></p>
+    <ul>
+      <li><b>Ad:</b> you on camera, "the foods quietly lowering testosterone in men over 40 and parking fat on your belly."</li>
+      <li><b>Step 1:</b> a two-to-four-question quiz (age, belly fat, energy).</li>
+      <li><b>Step 2:</b> your VSL. Cover the foods, the estrogen and belly-fat link, what you do at 41, then Great Again T.</li>
+      <li><b>Offer:</b> 1/3/6 bottles at about $59 / $147 / $234 (the market range), two bonus guides on the bundles, a subscription with Menerals-style perks, and a long guarantee. The Eternal Burn AM + PM stack is the upsell.</li>
+      <li><b>Hook only you can use:</b> "400 mg of tongkat. Most boosters have none." Back it with your own body at 41.</li>
+      <li><b>Wording:</b> energy, strength, belly fat, "supports healthy testosterone." No libido, ED, TRT or steroid claims.</li>
+    </ul>
+  </div>
+</section>
+
+<p class="small">Sources: VidTao brand pages (TestoGreens Max 1409520, V Shred 227406, Nugenix 178459, Male Excel 120893, Prime Labs 4147819), live funnel pages visited November 5, 2026, the NIH Dietary Supplement Label Database, and Google Ads policy pages <a href="https://support.google.com/adspolicy/answer/176031">176031</a>, <a href="https://support.google.com/adspolicy/answer/2423645">2423645</a> and <a href="https://support.google.com/adspolicy/answer/15275138">15275138</a>.</p>
+</main>

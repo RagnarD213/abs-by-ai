@@ -54,3 +54,7 @@ Candidates (Supliful samples, order SPL1238058): Great Again T (Men's Vitality),
 - The money that works in this space sells gut health (Gundry Total Restore $937K/30d, Grüns), mostly to women 45+, not Dan's audience.
 
 Sources: VidTao brand pages and ad search (IDs above); [Google Ads healthcare and medicines policy](https://support.google.com/adspolicy/answer/176031); [FDA warning letters to 30 GLP-1 telehealth firms, 2026](https://www.benefitspro.com/amp/2026/03/05/fda-issues-warning-letters-to-30-telehealth-firms-over-glp-1-marketing/).
+
+## Follow-up (2026-11-05): tongkat and funnels
+
+Tongkat ali is not on Google's unapproved list; Test Boost Max label (NIH DSLD 328020) has 200 mg. Funnel brief: https://claude.ai/artifact/6biiRLYh4vZxH4n9qGxkhT (source in `Docs/testosterone-funnels-20261105/`). Top funnel now: TestoGreens Max, $1.79M/30d, estrogen/feminizing-foods VSL.
