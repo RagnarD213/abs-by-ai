@@ -4,6 +4,8 @@ Updated: 2026-11-05
 
 Review: http://127.0.0.1:9488/ (managed, starts on demand). Blind labels per Short: Short 1 X1-X8, Short 2 X1-X7, Short 3 X1-X8 (five Codex each, three Google for Shorts 1 and 3, two for Short 2). Keys hidden in `Short-form video content/covers/review/sl20-invest-20261105/<s1|s2|s3>/blind-set/`; `.letter-map.json` maps X to build letter for installing. Log picks with `blind.py pick`; install from the build outputs, never the review JPEGs.
 
+Drive backup done (anyone with the link): https://drive.google.com/open?id=1YloGfjjV5UbYv7PGq9DTpHf8aQdmcDN3 (three finals, MD5 match; manifest, notes, review copies). Approved covers get added after the picks.
+
 Films preserved: all three finals re-hashed against `Short-form video content/invest-SHORTS-final-manifest.json` (project folder and Extreme `Short-form video content/invest SL-20/`).
 
 ## Designs (internal; same approved title on every design per Short)
