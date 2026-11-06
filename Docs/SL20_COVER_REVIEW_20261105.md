@@ -28,3 +28,18 @@ Checks (`build.py` manifests): 1080x1920 RGB; Instagram type inside y 240-1680; 
 ## Next after picks
 
 `covers/approved-sl20/picks.json` with hashes, `blind.py pick` per Short, TikTok cover-first copies, Blotato uploads with hash checks, three configs (`kitchen: true`, `ai_generated` true/true/false, pinned questions), FB cover registry, cover_audit and ad_guard, February Short slots after RO-20 (Dec 9) is public or the shared waitlist, receipt `Docs/SL20_SETUP_RECEIPT_<date>.md`.
+
+## Round 2 (Dan, 2026-11-06)
+
+Dan rejected every round 1 choice: "I don't like any of these. I want four new designs with four new, unique, AI-generated images. The image should be of me, ripped, holding hands with a hot girl, looking happy and alpha, and like we're in love. Then a fat version of me sits on the side, looking miserable, jealous, and pathetic."
+
+Four Codex plates (gpt-6.1-sol high; prompts `scripts/covers/sl20-20261105/prompts/r2A-r2D.txt`), every face of both Dans checked against the identity reference. No Google twins: Dan named the count. Built under the Short 1 and Short 2 titles (the scene fits both; Short 3's money topic does not, its round 1 set stands until Dan says otherwise). Review: http://127.0.0.1:9488/round2/ , labels N1-N4 = same picture in both Shorts.
+
+| label | build letter | picture | layout |
+|---|---|---|---|
+| N1 | A | beach boardwalk at golden hour; fat Dan on a bench with melting ice cream | yellow band |
+| N2 | B | rooftop bar at night, foreheads together; fat Dan alone at the bar with a beer | dark fade, white/cyan Impact |
+| N3 | C | sunny park, she leans on his shoulder; fat Dan on a bench with fries | top-left stack, yellow highlight |
+| N4 | D | resort pool party; fat Dan on a lounger with a sad cocktail | black bar, white/yellow Impact |
+
+Checks: zero type pixels on any face or hair box, Instagram type inside y 240-1680, YouTube JPEGs 322-429 KB.

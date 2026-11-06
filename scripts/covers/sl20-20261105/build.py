@@ -137,7 +137,7 @@ def picture(key, letter, platform):
         src = ImageOps.mirror(src)
     im = ImageOps.fit(src, (W, H), method=Image.Resampling.LANCZOS, centering=t.get('centering', (0.5, 0.5))).convert('RGBA')
     info = {'plate': str(plate.relative_to(ROOT)), 'plate_sha256': sha(plate)}
-    if letter == 'C':
+    if letter == 'C' and not key.endswith('r2'):
         p = CUT / f"{spec['cutout']}_CUTOUT.png"
         raw = Image.open(p).convert('RGBA')
         b = raw.getchannel('A').getbbox()
