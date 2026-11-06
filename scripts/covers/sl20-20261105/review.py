@@ -50,7 +50,7 @@ section{{display:grid;grid-template-columns:1fr;gap:14px}} section h2,section .n
 figcaption{{color:var(--mut);font-size:13px;margin-top:4px}} .grid{{width:50%;margin-top:8px}}
 @media(min-width:900px){{section{{grid-template-columns:repeat(4,1fr)}}}}
 </style></head><body><main><h1>Invest In Your Health Shorts: cover choices</h1>
-<p class="lead"><a href="round2/" style="color:#FFD400;font-weight:700">New: round 2 covers (four new pictures) &rarr;</a></p><p class="lead">Pick one label per Short (for example "Short 1 X3"). Each choice shows the Instagram cover, the YouTube cover and how the Instagram profile tile crops it.</p>
+<p class="lead"><a href="round3/" style="color:#FFD400;font-weight:700">Newest: round 3, Short 2 date scene &rarr;</a></p><p class="lead"><a href="round2/" style="color:#FFD400;font-weight:700">New: round 2 covers (four new pictures) &rarr;</a></p><p class="lead">Pick one label per Short (for example "Short 1 X3"). Each choice shows the Instagram cover, the YouTube cover and how the Instagram profile tile crops it.</p>
 {"".join(sections)}</main></body></html>'''
 (REV / 'index.html').write_text(page)
 print('review page', REV / 'index.html')

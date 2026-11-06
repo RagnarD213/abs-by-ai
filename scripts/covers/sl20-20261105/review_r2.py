@@ -41,7 +41,7 @@ section{{display:grid;grid-template-columns:1fr;gap:14px}} section h2,section .n
 figcaption{{color:var(--mut);font-size:13px;margin-top:4px}} .grid{{width:50%;margin-top:8px}}
 @media(min-width:900px){{section{{grid-template-columns:repeat(4,1fr)}}}}
 </style></head><body><main><h1>Invest In Your Health covers: round 2</h1>
-<p class="lead">Four new pictures, each its own design: ripped you holding hands with her, fat you watching, jealous. N1 to N4 are the same pictures under each Short's title. Pick one per Short (for example "Short 1 N2"). <a href="../">Round 1 choices</a></p>
+<p class="lead">Four new pictures, each its own design: ripped you holding hands with her, fat you watching, jealous. N1 to N4 are the same pictures under each Short's title. Pick one per Short (for example "Short 1 N2"). <a href="../">Round 1 choices</a> | <a href="../round3/">Round 3: Short 2 date scene</a></p>
 {"".join(sections)}</main></body></html>'''
 (REV / 'index.html').write_text(page)
 print('round 2 page', REV / 'index.html')

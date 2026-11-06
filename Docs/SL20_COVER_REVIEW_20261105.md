@@ -43,3 +43,11 @@ Four Codex plates (gpt-6.1-sol high; prompts `scripts/covers/sl20-20261105/promp
 | N4 | D | resort pool party; fat Dan on a lounger with a sad cocktail | black bar, white/yellow Impact |
 
 Checks: zero type pixels on any face or hair box, Instagram type inside y 240-1680, YouTube JPEGs 322-429 KB.
+
+## Short 1 picked: N1 (Dan, 2026-11-06, "All right, I like N1 for short one")
+
+Approved files and hashes: `Short-form video content/covers/approved-sl20/picks.json` (Instagram fb41dbd4...dcf6a, YouTube JPEG in picks). Setup done for Short 1: TikTok cover-first copy (1737 frames, audio packets identical, frame-0 PSNR 47.9 dB, frame inspected), four Blotato uploads full-download SHA256 verified, config `scripts/blotato/configs/sl20-short1-dont-bother-dating-unless-youre-ripped.json` (organic, kitchen, ai_generated true, keyword COACH, pinned question), Facebook cover row in the repo and live registries, ad_guard CLEAN. Organic dry run fit (194 + 4 of 200), but 60+ earlier-dated videos are waiting and the parent RO-20 (Dec 9) is itself waitlisted, so Short 1 is on the shared waitlist for Mon Feb 1 2027, 9 AM Central, with RO-20 as `after`/`parent_config`.
+
+## Round 3, Short 2 only (Dan, 2026-11-06)
+
+Dan: fat Dan on a date with an average or slightly above average (not stunning) woman; ripped Dan walks past; she stares at him, very attracted; fat Dan jealous and pathetic; same four settings, some shirtless. Four Codex plates r3A-r3D, faces checked. Review http://127.0.0.1:9488/round3/ labels N5-N8 (A-D: beach cafe yellow band, rooftop bar dark fade, park picnic highlighted stack, pool cafe black bar). Short 3 still awaits a pick from round 1. Planned slots: Short 2 Wed Feb 3, Short 3 Fri Feb 5, 9 AM.

@@ -64,6 +64,11 @@ SHORTS['s2r2'] = dict(SHORTS['s2'])
 R2_STYLE = {'A': 'Y', 'B': 'F', 'C': 'P', 'D': 'T'}
 STYLE['s1r2'] = dict(R2_STYLE)
 STYLE['s2r2'] = dict(R2_STYLE)
+
+# Round 3, Short 2 only (Dan, 2026-11-06, after picking N1 for Short 1): fat Dan on a date with an attractive but not
+# stunning woman; ripped Dan walks past; she stares at him, wanting him; fat Dan jealous and pathetic. Same four settings.
+SHORTS['s2r3'] = dict(SHORTS['s2'])
+STYLE['s2r3'] = dict(R2_STYLE)
 GOOGLE = {'F': 'G-g{n}F', 'G': 'G-g{n}G', 'H': 'G-g{n}H'}
 
 # Per-plate source crop (x0, y0, x1, y1) on the generated plate, and a downward picture shift
@@ -117,8 +122,8 @@ DROPPED = {('s2', 'F')}
 
 
 def plate_path(key, letter):
-    if key.endswith('r2'):
-        return SRC / f'r2{letter}.png'
+    if key.endswith(('r2', 'r3')):
+        return SRC / f'{key[-2:]}{letter}.png'
     if (key, letter) in PLATE_OVERRIDE:
         return SRC / f'{PLATE_OVERRIDE[(key, letter)]}.png'
     n = key[1]
@@ -137,7 +142,7 @@ def picture(key, letter, platform):
         src = ImageOps.mirror(src)
     im = ImageOps.fit(src, (W, H), method=Image.Resampling.LANCZOS, centering=t.get('centering', (0.5, 0.5))).convert('RGBA')
     info = {'plate': str(plate.relative_to(ROOT)), 'plate_sha256': sha(plate)}
-    if letter == 'C' and not key.endswith('r2'):
+    if letter == 'C' and not key.endswith(('r2', 'r3')):
         p = CUT / f"{spec['cutout']}_CUTOUT.png"
         raw = Image.open(p).convert('RGBA')
         b = raw.getchannel('A').getbbox()
@@ -304,7 +309,7 @@ def build(keys):
     for key in keys:
         spec = SHORTS[key]
         rows = []
-        for letter in ('ABCD' if key.endswith('r2') else LETTERS):
+        for letter in ('ABCD' if key.endswith(('r2', 'r3')) else LETTERS):
             if (key, letter) in DROPPED:
                 continue
             if not plate_path(key, letter).exists():
