@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
-**DS-77 T-Bar Rows Setup:COVER-PICK:2026-11-05:Claude.** [Covers](http://127.0.0.1:9477/) X1-X8; Drive done. `Docs/DS77_COVER_REVIEW_20261105.md`
+**DS77-setup:PICK:2026-11-05:Claude.**`Docs/DS77_COVER_REVIEW_20261105.md`
 
 
 
@@ -89,7 +89,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
-**RO-31:SETUP-PICK:2026-11-05:Claude.** push-pending
+**RO-31:QUEUED-Jan24:2026-11-05:Claude.** push-pending
 
 
 
