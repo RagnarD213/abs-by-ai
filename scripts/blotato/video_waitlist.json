@@ -840,5 +840,19 @@
   "added": "2026-11-04",
   "kitchen": false,
   "note": "Exact R4 and revised B approved; four staging assets fully hash-verified. Target Jan 04 2027, 6 PM America/Chicago. Queue 200/200; existing shared top-up schedules all four destinations when room opens."
+ },
+ {
+  "config": "scripts/blotato/configs/sl20-short1-dont-bother-dating-unless-youre-ripped.json",
+  "kind": "short",
+  "job": "SL-20 short 1",
+  "label": "Don't Bother Dating Unless You're Ripped",
+  "added": "2026-11-06",
+  "parent_config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "after": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "kitchen": true,
+  "gym": false,
+  "filming_set": "kitchen (Aug 3)",
+  "planned": "2027-02-01 09:00",
+  "note": "Dan picked round-2 N1 2026-11-06. Exact approved master; four uploads full-download SHA256 verified; TikTok cover-first frame0 checked. Phase 4 kitchen Short, after RO-20 (Dec 9). Shorts 2 and 3 Feb 3 and Feb 5 once their covers are picked."
  }
 ]
