@@ -1,6 +1,6 @@
 # Test Reload creative evidence
 
-November 6, 2026 · Supporting evidence for creative-brief.md version 1.0
+November 6, 2026 · Supporting evidence for creative-brief.md version 1.1
 
 ## Dan's interpretation of his history
 
@@ -10,7 +10,8 @@ Dan reviewed the interview and pool references in this chat on November 6. He co
 - Dan trusts the pool ad's marketing message and script because he worked with multiple talents. He considers the intro impactful and attention-getting, Toby's physique in his 60s a strength, and the delivery/editing improvable. This does not authorize recreating its expensive scene.
 - Dan explicitly wants a cheap test with himself and perhaps one or two low-cost talents. Exclude high-production pool or “Have a Seat” openings.
 - The biggest remembered buyer objection was difficulty taking the tablets. Current tablets are similar. Dan would prefer capsules if a suitable product can be obtained.
-- Most sales came from older men, spanning their 40s–70s; multiple talents over 40 sold the product. Some younger sales occurred, but under-40 marketing received little testing. Dan proposes 50–70 as the ideal prospect and describes the desire as making their body great again. This history explains the name Great Again T.
+- Most sales came from older men, spanning their 40s–70s; multiple talents over 40 sold the product. Some younger sales occurred, but under-40 marketing received little testing. Dan describes the desire as making their body great again; this history explains the name Great Again T. He initially proposed 50–70 as the ideal prospect, then clarified later on November 6 that the new business's demographics are uncertain because spokesperson fit may change who buys. Men 40–60 are a possible working audience, not a settled target. Retain 50–70 as a comparison, especially with suitable talent.
+- Dan wants to test one or two inexpensive talents similar to the successful men and woman from the old ads. Do not reduce this to an older male customer asking Dan questions: credible male presenters and a female interviewer are both relevant roles. Dan's ability to attract the old demographic remains untested.
 - Dan has no old campaign figures. He instructs us to use green labels and the most-viewed ads as the best creative references. Treat this as the selection rule; it does not supply missing purchase economics.
 
 These are dated owner recollections and preferences. No numerical talent lift, demographic sales split or controlled script test was provided.

@@ -1,11 +1,11 @@
 # Great Again T: from historic ads to a paid demand test
 November 5, 2026. Current execution plan. Product chosen for development: Great Again T, the SixPackAbs men's vitality tablets. Keep the greens sample work running independently. No ad budget, shoot date or production changes are implied by this planning package.
 
-**November 6 update: step 1 is ready.** Read [creative-brief.md v1.0](creative-brief.md) and its [supporting evidence](research-evidence.md), including Dan's current interpretation. Start step 2 with men 50–70, a cheap presenter/whiteboard test and the hard-to-take-tablet objection. Compare suitable capsule options before committing to this SKU. Do not recreate a pool skit. The old VSL is unavailable, so its content has not been mapped. When a step finishes, put its named output next to this index, mark it ready and pass the exact file version forward. One owner per deliverable. Do not start other chats automatically.
+**November 6 update: creative brief revised to v1.1.** Read [creative-brief.md v1.1](creative-brief.md) and its [supporting evidence](research-evidence.md). Demographics remain uncertain: 40–60 is a working hypothesis, while historical 50–70 buyers remain a comparison to test with suitable spokespeople. Test Dan and one or two inexpensive talents similar to the successful men and woman. Any offer draft still treating 50–70 as settled needs its audience assumption reconciled with this update. Keep production cheap and resolve the hard-to-take-tablet objection by comparing suitable capsules before committing to this SKU. No pool skit. The unavailable old VSL remains unmapped. When a step finishes, put its named output next to this index, mark it ready and pass the exact file version forward. One owner per deliverable. Do not start other chats automatically.
 
 | Step | Owner | When to start |
 |---|---|---|
-| [1. Compare Test Reload winners and losers with current offers](01-research.md) | Codex GPT-6.1 Sol high | READY November 6: [creative brief v1.0](creative-brief.md); access gaps recorded |
+| [1. Compare Test Reload winners and losers with current offers](01-research.md) | Codex GPT-6.1 Sol high | REVISED November 6: [creative brief v1.1](creative-brief.md); audience and talent fit are test hypotheses |
 | [2. Lock the offer, proof and acquisition ceiling](02-offer.md) | Codex GPT-6.1 Sol high + Dan | After research; cost collection can start now |
 | [3. Write and rehearse the VSL](03-vsl.md) | Dan + Claude Opus 5.5 high | After Dan accepts step 2 |
 | [4. Adapt it into the phone-first text page](04-text-page.md) | Claude Opus 5.5 high | After the VSL words are agreed |
@@ -18,7 +18,7 @@ Run in the Abs By AI project. Read AGENTS.md, this index and the named brief. Ea
 
 **1. Codex GPT-6.1 Sol high:** “Read Handoffs/great-again-t-20261105/01-research.md. Use the extracted green and red rows and actual funnel evidence to finish the one-page creative brief; give me the three decisions I can help with.”
 
-**2. Codex GPT-6.1 Sol high + Dan:** “Read Handoffs/great-again-t-20261105/creative-brief.md v1.0, research-evidence.md and 02-offer.md. Start with men 50–70 and a cheap presenter/whiteboard test. Compare suitable capsule options because hard-to-take tablets were the biggest old buyer objection. Then deliver the one-page offer and actual break-even and target acquisition cost by pack. Identify what still needs my decision. Do not change the product, hire talent or activate spend.”
+**2. Codex GPT-6.1 Sol high + Dan:** “Read Handoffs/great-again-t-20261105/creative-brief.md v1.1, research-evidence.md and 02-offer.md. Treat men 40–60 as a working hypothesis, not a settled demographic. Compare age and spokesperson fit, retaining 50–70 as a historical comparison. Plan a cheap test of Dan and one or two inexpensive talents similar to the successful male presenters and female interviewer. Compare suitable capsules first, then deliver the one-page offer and actual break-even and target acquisition cost by pack. Reconcile any older audience assumptions in an existing offer draft. Identify what still needs my decision. Do not change the product, hire talent or activate spend.”
 
 **3. Dan + Claude Opus 5.5 high:** “Read Handoffs/great-again-t-20261105/03-vsl.md. Use the approved offer and my own wording. Workshop two leads with me, then give me one speakable VSL and a shooting outline.”
 

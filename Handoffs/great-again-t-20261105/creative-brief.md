@@ -1,18 +1,20 @@
 # Great Again T creative brief
 
-November 6, 2026 · Version 1.0 · Step 1 ready for step 2
+November 6, 2026 · Version 1.1 · Audience and spokesperson fit remain to be tested
 
 ## Audience and direction
 
-**Sell to men 50–70 who want their body back.** Strength, energy and pride in their body are the emotional territory, not promised results from this bottle. Dan recalls most Test Reload sales coming from men in their 40s–70s, with several over-40 talents succeeding. Start with 50–70; men in their 40s are secondary. Under-40 demand was barely tested.
+**Working hypothesis: men 40–60 who want their body back. The age range is uncertain.** The old business's older buyers may reflect its successful spokespeople; Dan may attract different buyers. Keep 50–70 as a comparison to test with suitable talent. Neither range is proven for this business. Strength, energy and pride in their body are the emotional territory, not promised bottle results. Under-40 demand was barely tested historically.
 
-**Build one inexpensive, presenter-led VSL: recognition → useful explanation → evidence for this product → practical objections → clear offer.** Borrow the pool ad's hopeful message and recognizable older spokesman, and the interview's whiteboard explanation. Use Dan as trainer/founder and audition one or two inexpensive talents appropriate to the audience. Dan's age is 41; an older talent supplies customer identification without pretending Dan is their age. Do not script an actor's invented product experience.
+**Build one inexpensive VSL: recognition → explanation → product evidence → objections → offer.** Borrow the pool ad's hopeful message and the interview's whiteboard. Test Dan and one or two inexpensive talents similar in credibility and delivery to the successful male presenters and female interviewer. Shortlist an over-40 male presenter and a confident female interviewer in the Mark/Toby and Amy roles; choose one or both within budget. Dan is the 41-year-old trainer/founder. Do not invent actors' product experience.
+
+**Compare buyer response by age and spokesperson**, keeping message, offer and destination consistent. Dan performing poorly with men 50–70 would not by itself reject that audience. Auditions assess delivery; purchases establish who buys.
 
 ## Two leads to film after the offer is settled
 
 **Lead A, recommended: the desire to get your body back.** First five seconds: the presenter turns a simple whiteboard from “Getting Older” to “Giving Up,” crosses out the latter, and addresses the camera. Proposed opening thought: “Getting older doesn't mean you've stopped wanting to feel strong and be proud of your body.” By 15 seconds, pose one specific question about choosing a men's supplement; by 45, deliver a useful answer with the actual bottle and readable label. Carry the pool script's empathy and possibility into a direct, cheap delivery. Avoid implying the bottle created the presenter's physique.
 
-**Lead B: the skeptical buyer's question.** One older questioner asks Dan what makes this worth buying instead of another supplement. Dan answers at a whiteboard with the product in hand. Show the tablets and serving, then the exact evidence step 2 establishes. Use the same offer and body as A. The molecule guessing game is optional future material, not the opening default.
+**Lead B: the skeptical buyer's question.** A questioner, including a female interviewer in the Amy role, asks Dan or the selected male presenter what makes this worth buying instead of another supplement. Answer at a whiteboard with the product in hand. Show the actual serving, then the evidence step 2 establishes. Use the same offer and body as A. The molecule guessing game is optional future material, not the opening default.
 
 **Historical comparisons:** green interview 95 versus red question-based 91; green pool 124 versus red valet/pool 84. Questions, impressive physiques and pool settings appear among both strong and weak references. Dan trusts Mark/Amy's casting and the whiteboard; he trusts the pool script across multiple talents, while seeing room to improve delivery/editing. These are his operating judgments, not isolated causal tests. [Comparison and timestamps](research-evidence.md).
 

@@ -1,10 +1,10 @@
 {
   "observed_date": "2026-11-06",
   "timezone": "America/Chicago",
-  "brief_version": "1.0",
+  "brief_version": "1.1",
   "status": "research_ready_for_offer_work",
-  "primary_audience": "Men 50\u201370; men in their 40s secondary; under-40 lightly tested historically",
-  "production_constraint": "Dan and perhaps one or two inexpensive talents; presenter/whiteboard/simple props; no pool or elaborate Have a Seat opening",
+  "primary_audience": "Uncertain: men 40\u201360 are a working hypothesis; historical 50\u201370 buyers remain a comparison, particularly with suitable talent. Spokesperson fit may change who buys.",
+  "production_constraint": "Dan and one or two inexpensive talents similar to the successful male presenters and female interviewer; presenter/whiteboard/simple props; no pool or elaborate Have a Seat opening",
   "confirmed_objection": "Dan recalls hard-to-take tablets as biggest historical buyer objection; current tablets similar",
   "ranking_rule": "Dan requests green and higher-view ads as best creative references; no profitability inferred",
   "youtube_metadata": [
@@ -165,13 +165,19 @@
     },
     {
       "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/great-again-t-20261105/creative-brief.md",
-      "bytes": 4419,
-      "sha256": "5d218064cd420aec67a90ece2b15e948ae8565653f706839d6736d43c8a44aa6"
+      "bytes": 4838,
+      "sha256": "404a8308da405c3f71dcc1f9da0fa7c2216faa01a819f7a4d60c9340e451dbc8"
     },
     {
       "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/great-again-t-20261105/research-evidence.md",
-      "bytes": 14409,
-      "sha256": "7590c4ca66784cf3e4a38f77876840195ec4dfdb5fc22037535fae00bf00d01a"
+      "bytes": 14997,
+      "sha256": "43e8f6d9846cc3de21404ab728ca151c300cbb695241de6b03c0b584d6d67286"
     }
-  ]
+  ],
+  "audience_revision": {
+    "date": "2026-11-06",
+    "supersedes": "v1.0 fixed primary 50\u201370 audience",
+    "basis": "Dan is unsure his own presentation will attract the old demographic and wants inexpensive male/female talent tests",
+    "test_interpretation": "Compare response by age and spokesperson; a weak Dan-only result does not reject demand among older men"
+  }
 }
