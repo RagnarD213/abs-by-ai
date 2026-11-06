@@ -1,3 +1,7 @@
+## Sales videos: outline first (Dan, 2026-11-06)
+
+For every new original sales video or VSL, Claude and Codex first develop a persuasive outline with Dan: the audience, hook, sales argument, proof, objections, offer and close. Show the outline and incorporate his direction before writing a full script. Build the script from the agreed outline in collaboration with Dan, using his voice and approved source material. Do not independently write a complete original sales video script first. An explicit request for a script does not waive this order unless Dan explicitly asks to skip the outline. Apply this to Great Again T and future sales videos; existing approved scripts are unaffected.
+
 ## Meeting hours (Dan, 2026-11-06)
 
 Prefer messages when a meeting is unnecessary. Offer or schedule meetings only entirely within noon to 7 p.m. Central (America/Chicago), except Tuesdays: noon to 6 p.m. Always check Google Calendar and avoid existing commitments. Gerben Dimmendaal's Monday, November 9, 2026 at 10 a.m. Central call is an approved exception; keep it.
