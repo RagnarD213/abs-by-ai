@@ -60,12 +60,12 @@ When a task reaches a step Claude can't do (for example typing a test card into 
 For a task that mixes Claude's strengths (design, theme or site code, writing, video editing) with steps Claude can't do (payments, sign-ups, ID numbers, government forms), Codex may own the task and call Claude for its part. Claude Code runs on this Mac (`claude`, kept updated with `claude update`):
 
 ```bash
-cd "/Users/danielrose/Projects/Claude/Projects/Abs By AI" && claude -p "$(cat path/to/brief.md)" --model claude-opus-5-5 --permission-mode bypassPermissions --output-format text > tmp/claude-run-<name>.log 2>&1
+cd "/Users/danielrose/Projects/Claude/Projects/Abs By AI" && claude -p "$(cat path/to/brief.md)" --model claude-opus-5-5 --permission-mode bypassPermissions --output-format text < /dev/null > tmp/claude-run-<name>.log 2>&1
 ```
 
 - Give Claude a full brief (goal, files, what done looks like). It reads CLAUDE.md and AGENTS.md itself. Run long jobs in the background and read the log when it exits.
 - Claude does its part and reports any step it can't do; Codex then does that step itself.
-- If Claude reports a sign-in error, Dan runs `claude` once in Terminal and types `/login`.
+- Signed in and tested 2026-11-06 (project folder trusted). If Claude reports a sign-in error, run `claude auth login` in Terminal; Dan approves in the browser and pastes the code.
 
 ## Standing authorization for autonomous execution
 
