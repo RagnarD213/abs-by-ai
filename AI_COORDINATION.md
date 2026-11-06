@@ -27,6 +27,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SL-20Setup:HOLD:2026-11-06:Claude.** Feb1/3/5-waitlist;push-pending. `Docs/SL20_SETUP_RECEIPT_20261106.md`
+
 **RO15:THUMBNAIL-PICK:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
 
 **WorkDriveOrder:PUSH-PENDING:2026-11-06:Claude.** d51e3e8 local.
