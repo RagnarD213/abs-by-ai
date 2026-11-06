@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
 
-- [Invest In Your Health SFL Setup (SL-20)](handoff-20261105-sl20-invest-shorts-covers-and-setup.md): **Written 2026-11-05, start now.** Dan approved all three Shorts (dating, relationship, money). Covers (Codex subscription), stop for picks, backups, metadata, February Short slots after RO-20 is public. Opus 5.5 high.
 
 - [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
 

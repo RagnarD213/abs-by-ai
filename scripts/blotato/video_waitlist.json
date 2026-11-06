@@ -856,6 +856,20 @@
   "note": "Dan picked round-2 N1 2026-11-06. Exact approved master; four uploads full-download SHA256 verified; TikTok cover-first frame0 checked. Phase 4 kitchen Short, after RO-20 (Dec 9). Shorts 2 and 3 Feb 3 and Feb 5 once their covers are picked."
  },
  {
+  "config": "scripts/blotato/configs/sl20-short2-why-being-fat-destroys-your-relationship.json",
+  "kind": "short",
+  "job": "SL-20 short 2",
+  "label": "Why Being Fat Destroys Your Relationship",
+  "added": "2026-11-06",
+  "parent_config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "after": "scripts/blotato/configs/ro20-invest-in-your-health.json",
+  "kitchen": true,
+  "gym": false,
+  "filming_set": "kitchen (Aug 3)",
+  "planned": "2027-02-03 09:00",
+  "note": "Dan picked round-3 N5 2026-11-06 (\"install N5\"). Exact approved master; four uploads full-download SHA256 verified; TikTok cover-first frame0 checked. Phase 4 kitchen Short, after RO-20 (Dec 9)."
+ },
+ {
   "config": "scripts/blotato/configs/sl20-short3-you-cant-afford-to-not-work-out.json",
   "kind": "short",
   "job": "SL-20 short 3",
