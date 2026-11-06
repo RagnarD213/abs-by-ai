@@ -208,7 +208,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-27](RO-27-its-boring-but-it-got-me-abs-at-40.md) | It's Boring, But It Got Me Abs At 40 | 10/15 C1769-C1770 | UPLOADED | L |
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | UPLOADED | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | FINALIZED | L |
-| [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | FINALIZED | L |
+| [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | UPLOADED | L |
 | [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | IN PROGRESS | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-34](RO-34-10-minute-jump-rope-and-kettlebell-fat-burning-workout.md) | 10-Minute Jump Rope And Kettlebell Fat Burning Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
@@ -328,6 +328,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SL-33](SL-33-losing-fat-face-shorts.md) | How Losing Fat Changed My Face (RO-22; 3 Shorts; parent Nov25 planned, not booked) | REGISTERED: parent technical QA open, no production launched | S |
 | [SL-34](SL-34-five-muscles-women-notice-shorts.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One (RO-38; 3 Shorts; parent Jan 8 9AM Central planned) | READY: propose segments before rendering | S |
 | [SL-35](SL-35-cortisol-belly-shorts.md) | Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29; 3 Shorts; parent Jan 20 9AM Central planned) | READY: propose segments before rendering | S |
+| [SL-36](SL-36-man-boobs-shorts.md) | How To Get Rid Of Man Boobs (RO-31; 3 Shorts; parent Jan24 9AM Central planned) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

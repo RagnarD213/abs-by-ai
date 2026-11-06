@@ -1402,5 +1402,16 @@
   "when": "2026-12-22T15:00:00.000Z",
   "cover_sha256": "976713874b4ad8c03556f763718925ee373c50497650307efbbfc4f79d81e4f9",
   "schedule": "6530261"
+ },
+ {
+  "job": "RO-31",
+  "slug": "ro31-man-boobs",
+  "match": "You think you have man boobs, but you probably just have chest fat, and it comes off the same way your belly fat does.",
+  "w": 1280,
+  "h": 720,
+  "approved": "Dan approved the revised X4 on 2026-11-05: \"Approve, set up\"",
+  "sha256": "5054788099444367b67c8415224a8d186e26712511f39c38c49045227d5cb996",
+  "when": "2027-01-25T18:00:00.000Z",
+  "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Man Boobs Or Chest Fat/How To Get Rid Of Man Boobs - thumbnail FINAL.jpg"
  }
 ]

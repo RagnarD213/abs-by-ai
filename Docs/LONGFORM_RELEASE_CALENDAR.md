@@ -53,7 +53,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Sun Jan 17 | 3 | Calories | Live |
 | Wed Jan 20 | 3 | RO-29 Cortisol Belly Is Real, But TikTok Has It Wrong | Booked 11-04: YouTube 6489209; FB/IG/TikTok Thu Jan 21 noon |
 | Fri Jan 22 | 3 | The Vacuum Workout | Live |
-| Sun Jan 24 | 3 | RO-31 How To Get Rid Of Man Boobs (needs editing) | Not booked |
+| Sun Jan 24 | 3 | RO-31 How To Get Rid Of Man Boobs | Booked 11-05: YouTube 6535767; FB/IG/TikTok Mon Jan 25 noon |
 | Wed Jan 27 | 3 | When Calories Don't Matter For Fat Loss | Live |
 | Fri Jan 29 | 3 | RO-32 I'm 41. Here Are The 10 Exercises I Do Every Week (gym B-roll now exists from Oct 23; needs editing) | Not booked |
 | Sun Jan 31 | 3 | OPEN: How To Work Out At Home On A Budget (RO-06) if RO-22 takes Nov 25, else RO-23 if it missed Nov 22, else the strongest unused non-kitchen film | Not booked |
