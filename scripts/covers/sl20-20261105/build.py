@@ -55,6 +55,15 @@ STYLE = {
     's3': {'A': 'Y', 'B': 'P', 'C': 'N', 'D': 'F', 'E': 'S', 'F': 'N', 'G': 'Y', 'H': 'T'},
 }
 LETTERS = 'ABCDEFGH'
+
+# Round 2 (Dan, 2026-11-06): "I don't like any of these. I want four new designs with four new, unique, AI-generated
+# images ... me, ripped, holding hands with a hot girl ... a fat version of me sits on the side, looking miserable,
+# jealous, and pathetic." Four Codex plates r2A-r2D, each its own design; built under the Short 1 and Short 2 titles.
+SHORTS['s1r2'] = dict(SHORTS['s1'])
+SHORTS['s2r2'] = dict(SHORTS['s2'])
+R2_STYLE = {'A': 'Y', 'B': 'F', 'C': 'P', 'D': 'T'}
+STYLE['s1r2'] = dict(R2_STYLE)
+STYLE['s2r2'] = dict(R2_STYLE)
 GOOGLE = {'F': 'G-g{n}F', 'G': 'G-g{n}G', 'H': 'G-g{n}H'}
 
 # Per-plate source crop (x0, y0, x1, y1) on the generated plate, and a downward picture shift
@@ -108,6 +117,8 @@ DROPPED = {('s2', 'F')}
 
 
 def plate_path(key, letter):
+    if key.endswith('r2'):
+        return SRC / f'r2{letter}.png'
     if (key, letter) in PLATE_OVERRIDE:
         return SRC / f'{PLATE_OVERRIDE[(key, letter)]}.png'
     n = key[1]
@@ -293,7 +304,7 @@ def build(keys):
     for key in keys:
         spec = SHORTS[key]
         rows = []
-        for letter in LETTERS:
+        for letter in ('ABCD' if key.endswith('r2') else LETTERS):
             if (key, letter) in DROPPED:
                 continue
             if not plate_path(key, letter).exists():
@@ -346,4 +357,4 @@ def build(keys):
 
 
 if __name__ == '__main__':
-    build(sys.argv[1:] or list(SHORTS))
+    build(sys.argv[1:] or ['s1', 's2', 's3'])
