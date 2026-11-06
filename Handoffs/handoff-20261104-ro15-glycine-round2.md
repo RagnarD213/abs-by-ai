@@ -73,3 +73,12 @@ Release slot: Wed Dec 23, 2026; edited and approved by Dec 16 (`Docs/LONGFORM_RE
   (`round2/decisions-r2-frames.json`). Follow-up page on 9716 (first page kept as `review/index-pairs-v1.html`): A6 (`pairs/A6-r3`,
   fresh start, END composited so only he acts) and A3 (`pairs/A3`, END built in code), both gate + reviewer PASS. Oura and the
   "thick build" ad-lib still unanswered.
+
+## Progress 2026-11-05 (evening): full film delivered
+- Dan: build the film with only A3 and A6 as AI clips; the other six lines stay on camera. Rejected takes page: http://127.0.0.1:9717/.
+- Master `round2/final/RO15_R2_MASTER.mp4`, 5:23.99, sha256 `46dfc424...e290e`. Gate 34/39 (tone, headroom +2 px, splice
+  visibility, SRT over G02, burned-caption false positive). Watch judge 0 defects. Independent ra-reviewer: SHIP
+  (`round2/ROUND-2-REVIEW.md`); asks for a listen at 1:29.7, 3:52.4, 4:48.5.
+- Delivered to `claude edited long form content/30 - Sleep Better With Glycine/` (29 was taken by Man Boobs) and `Videos to Review/`.
+  Review page http://127.0.0.1:9718/ (`round2/recipe/film_page.py`). Edit Queue `delivered`; edit slot released with --review.
+- Next: Dan's calls from the 9718 page and the rejected-clips decision; then finalize and write the /video-setup handoff.
