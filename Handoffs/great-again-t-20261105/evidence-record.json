@@ -1,0 +1,177 @@
+{
+  "observed_date": "2026-11-06",
+  "timezone": "America/Chicago",
+  "brief_version": "1.0",
+  "status": "research_ready_for_offer_work",
+  "primary_audience": "Men 50\u201370; men in their 40s secondary; under-40 lightly tested historically",
+  "production_constraint": "Dan and perhaps one or two inexpensive talents; presenter/whiteboard/simple props; no pool or elaborate Have a Seat opening",
+  "confirmed_objection": "Dan recalls hard-to-take tablets as biggest historical buyer objection; current tablets similar",
+  "ranking_rule": "Dan requests green and higher-view ads as best creative references; no profitability inferred",
+  "youtube_metadata": [
+    {
+      "id": "8EkjkBcixns",
+      "title": "How Older Men Regain Glory -- Lamborghinis & Bikinis Remix (Reloaded Edition)",
+      "view_count": 146501,
+      "upload_date": "20170428",
+      "duration": 106,
+      "channel": "SixPackAbs.com",
+      "webpage_url": "https://www.youtube.com/watch?v=8EkjkBcixns"
+    },
+    {
+      "id": "HJhTXmNGjG8",
+      "title": "MEN OVER 40: Is Your 401k As Valuable As Your Health?",
+      "view_count": 12,
+      "upload_date": "20170720",
+      "duration": 472,
+      "channel": "SixPackAbs.com",
+      "webpage_url": "https://www.youtube.com/watch?v=HJhTXmNGjG8"
+    },
+    {
+      "id": "X1fi2ScpCQc",
+      "title": "How Men Over 40 Can Fix Their #1 Master Male Hormone",
+      "view_count": 1619422,
+      "upload_date": "20170320",
+      "duration": 438,
+      "channel": "SixPackAbs.com",
+      "webpage_url": "https://www.youtube.com/watch?v=X1fi2ScpCQc"
+    },
+    {
+      "id": "XfWY3DAXC0o",
+      "title": "The Best Way For Men Over 40 To Burn Fat",
+      "view_count": 671592,
+      "upload_date": "20170317",
+      "duration": 286,
+      "channel": "SixPackAbs.com",
+      "webpage_url": "https://www.youtube.com/watch?v=XfWY3DAXC0o"
+    },
+    {
+      "id": "n3JaN1QA3JM",
+      "title": "How Men Over 40 Fix Their #1 Master Male Hormone",
+      "view_count": 95690,
+      "upload_date": "20170413",
+      "duration": 135,
+      "channel": "SixPackAbs.com",
+      "webpage_url": "https://www.youtube.com/watch?v=n3JaN1QA3JM"
+    }
+  ],
+  "financials": {
+    "own_historical_spend": null,
+    "orders": null,
+    "cpa": null,
+    "revenue": null,
+    "delayed_refunds": null
+  },
+  "availability": {
+    "JdqQPqpCEAE": "private; Dan independently confirms",
+    "9StZYf30O6I": "private; absent from specified preserved folder",
+    "AHrdpv5svgc": "private; absent from specified preserved folder",
+    "Aztq6OxZ6ws": "associated account terminated; no preserved copy found in specified folder",
+    "vsyYq2klYjk": "private"
+  },
+  "sheet": {
+    "spreadsheet_id": "1Hot1_JQiKIAfvaqQ5t92YCK6IOV28GlFR5SRgE52rck",
+    "sheet_id": 572667400,
+    "sheet_name": "Test Reload",
+    "ranges": [
+      "A1:AE11",
+      "A12:AE193"
+    ],
+    "result": "production log/status columns; no campaign financial fields in inspected rectangle"
+  },
+  "live_competitor": {
+    "entry": "https://sculptnation.com/sp/test-boost-max/fbk-cpc-v1",
+    "destination": "https://sculptnation.com/sp/test-boost-max/quiz-vsl",
+    "questions_observed": 4,
+    "observation": "Followed four affirmative questions; food-headline founder presentation; muted autoplay verified; closed without unmuting",
+    "fresh_offer_price_verified": false
+  },
+  "supplier_candidates": [
+    {
+      "url": "https://supliful.com/catalog/mens-vitality-tablets",
+      "form": "tablets",
+      "count": 60,
+      "per_serving": 2,
+      "note": "capsule wording elsewhere does not establish capsule SKU availability"
+    },
+    {
+      "url": "https://supliful.com/catalog/alpha-energy-capsules",
+      "form": "vegetable capsules",
+      "count": 90,
+      "per_serving": 3,
+      "note": "different formula; candidate only; dimensions/costs/sample suitability unresolved"
+    }
+  ],
+  "review_method": "Silent archived shot-sheet and caption inspection; fresh sampled frames for red84/91. No audible listen or continuous motion review. No final-film QC claimed.",
+  "source_files": [
+    {
+      "path": "/Volumes/Extreme/ad-edit-research/vids/X1fi2ScpCQc.mp4",
+      "bytes": 22850863,
+      "sha256": "288a0083ba4e120b64d7910da876a5ceca2683df0c96de79a21d8d3258958834"
+    },
+    {
+      "path": "/Volumes/Extreme/ad-edit-research/vids/X1fi2ScpCQc.en.vtt",
+      "bytes": 64653,
+      "sha256": "38cedb13f5f93b7cf91e8a637e04d30e068137fbbada7a4e7219d1acbb1828bd"
+    },
+    {
+      "path": "/Volumes/Extreme/ad-edit-research/vids/XfWY3DAXC0o.mp4",
+      "bytes": 16130373,
+      "sha256": "f7b0c9e10e0fb2e3b05717988ed9a9a159ecea835d32f7d8a9cff1b9c8921e5f"
+    },
+    {
+      "path": "/Volumes/Extreme/ad-edit-research/vids/XfWY3DAXC0o.en.vtt",
+      "bytes": 37878,
+      "sha256": "1ccb95643f5ecd2f705d6abfc85ddb8b891045ddea02c3f2f2097294ca51958a"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/8EkjkBcixns.mp4",
+      "bytes": 6629833,
+      "sha256": "731e31406c96e469d776114346c79c6e4ee07fde62fe0ab5f98513de0a50cd0d"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/n3JaN1QA3JM.mp4",
+      "bytes": 7755329,
+      "sha256": "ce11782ed556e85c96b687d70df635396d545485ece2e486a7f1521a86323f3d"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/8EkjkBcixns.en.vtt",
+      "bytes": 8728,
+      "sha256": "35a632bad86989ce24ea0c91a6b5343c88e1fafd68b71d75df82d146787a63b3"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/HJhTXmNGjG8.en.vtt",
+      "bytes": 66844,
+      "sha256": "96625fa71302a1a7f9352ebdc4ddc2211a4c0e76cbde256b115309c608e7bbca"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/n3JaN1QA3JM.en.vtt",
+      "bytes": 16264,
+      "sha256": "b4f19eb1ebbcc42e909858fc94e8ef6621c9b67ac1702d21379c7497931f84cb"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/sheet-values.json",
+      "bytes": 22960,
+      "sha256": "b1c23a47abc16ed84ae40393eda76b96641c7bcb033ed6c30d259e8752761823"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/red84-contact.jpg",
+      "bytes": 168436,
+      "sha256": "3585bd50ece620dd613639cd507ac9afd5df4f6e31c2629323e4faf185a1fd00"
+    },
+    {
+      "path": "/Users/danielrose/Projects/_edit_work/GAT-evidence-20261106/red91-contact.jpg",
+      "bytes": 117121,
+      "sha256": "e038433a268b017c5dd6adf727dcc666419947e2d1a37615be2b7895e91e3620"
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/great-again-t-20261105/creative-brief.md",
+      "bytes": 4419,
+      "sha256": "5d218064cd420aec67a90ece2b15e948ae8565653f706839d6736d43c8a44aa6"
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/great-again-t-20261105/research-evidence.md",
+      "bytes": 14409,
+      "sha256": "7590c4ca66784cf3e4a38f77876840195ec4dfdb5fc22037535fae00bf00d01a"
+    }
+  ]
+}
