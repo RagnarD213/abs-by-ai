@@ -51,3 +51,7 @@ Approved files and hashes: `Short-form video content/covers/approved-sl20/picks.
 ## Round 3, Short 2 only (Dan, 2026-11-06)
 
 Dan: fat Dan on a date with an average or slightly above average (not stunning) woman; ripped Dan walks past; she stares at him, very attracted; fat Dan jealous and pathetic; same four settings, some shirtless. Four Codex plates r3A-r3D, faces checked. Review http://127.0.0.1:9488/round3/ labels N5-N8 (A-D: beach cafe yellow band, rooftop bar dark fade, park picnic highlighted stack, pool cafe black bar). Short 3 still awaits a pick from round 1. Planned slots: Short 2 Wed Feb 3, Short 3 Fri Feb 5, 9 AM.
+
+## Short 3 default cover (2026-11-06)
+
+Dan had not picked for You Can't Afford To NOT Work Out; under his standing rule to pick sensible defaults, Claude chose round 1 A (review label X7: yellow band over AI Dan in a suit tossing a cash briefcase and grabbing a dumbbell), his most-picked style. Recorded as `picked_by: Claude default` in picks.json; not logged with `blind.py pick` (not Dan's pick). Setup done like Short 1: TikTok cover-first (1706 frames, audio identical, PSNR 48.1 dB, frame inspected), four uploads hash-verified, config `scripts/blotato/configs/sl20-short3-you-cant-afford-to-not-work-out.json` (ai_generated false, pinned "Are you trading your health for money right now?"), FB cover rows, ad_guard CLEAN, cover_audit zero issues, waitlist Fri Feb 5 2027 9 AM after RO-20. Dan can swap the cover before release (re-run setup_media.py s3 after updating picks.json).

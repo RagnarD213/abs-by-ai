@@ -78,7 +78,7 @@ def one(s):
     fbimg = fbdir/f'{stem}-cover.png'; shutil.copy2(ig, fbimg)
     live = Path.home()/'.absbyai/fb-reel-covers'; (live/'covers').mkdir(parents=True, exist_ok=True)
     liveimg = live/'covers'/ig.name; shutil.copy2(ig, liveimg)
-    row = dict(job=f'SL-20 short {n}', match=c['hook'], w=1080, h=1920, approved=f"Dan picked on {pk['date']}: \"{pk['words']}\"",
+    row = dict(job=f'SL-20 short {n}', match=c['hook'], w=1080, h=1920, approved=(f"Dan picked on {pk['date']}: \"{pk['words']}\"" if pk.get("picked_by", "Dan") == "Dan" else f"{pk['date']}: {pk['words']}"),
                sha256=sha(ig), when=c['main'])
     for regp, img in [(P/'scripts/blotato/fb_reel_covers.json', fbimg), (live/'fb_reel_covers.json', liveimg)]:
         reg = json.loads(regp.read_text()); reg = [r for r in reg if r.get('match') != c['hook']]
