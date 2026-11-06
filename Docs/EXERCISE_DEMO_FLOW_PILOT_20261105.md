@@ -37,6 +37,21 @@ Working folder: `Media/exercise-demos/_flowpilot/` (job `veo/job.json`, prompts,
    cross). Pose landmarks settled it; the reviewer confirmed.
 5. **External drive writes `._` files** that break `mono.py qcunit`; run it on an internal copy (`build.sh` does).
 
+
+## Round 2 (same day): front-facing frames and paid native 1080p (Dan picked "Try paid 1080p")
+
+| test | takes | outcome |
+|---|---|---|
+| chair-squat, three-quarter front view on Flow (START only; Codex could not hold the feet in an END frame, 3 tries, 20 to 35 px slide) | 2 Veo + 2 Omni | NO PASS. The print is large and readable in most frames, but the shield redraws itself mid-stand (grid, then fishbone) and letters smear; Omni closed his eyes and pursed the mouth through the stand; Veo opened the mouth, squinted and grew stubble at the top. |
+| chair-squat side view, paid Replicate `veo-3.1-fast` 1080p | 2 | Print reads "Abs by A" through the rise (Flow 720p read "Kim by t"). Not built: same frames as round 1. |
+| bicycle-crunch, paid 1080p | 2 | NO PASS by eye: rolls onto his side with his back to the camera; hands leave the head and arms flail. |
+
+Round 2 cost: Flow 23,113 -> 23,076 (37 credits); paid API 4 x 6 s = about $2.40; 6 Codex stills; 4 more reviews.
+
+**Final count: 0 of 3 demos pass after 23 video takes** (Flow 18, paid 4, plus 1 Omni lunge 8 s). Native 1080p fixes the print legibility; it
+does not fix face drift (eyes, mouth, stubble) or logo-shape morphing, which the stricter motion reviews now catch on every take.
+Gemini is running the same brief on three other exercises (`Handoffs/handoff-20261105-gemini-exercise-demo-test.md`); Claude gates its output.
+
 ## Verdict: NO-GO on Flow as it stands
 
 0 of 3 demos passed. Credits are not the obstacle (136 for 14 takes). Two problems are:
