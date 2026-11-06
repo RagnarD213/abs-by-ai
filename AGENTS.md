@@ -1,6 +1,14 @@
+## Meeting hours (Dan, 2026-11-06)
+
+Prefer messages when a meeting is unnecessary. Offer or schedule meetings only entirely within noon to 7 p.m. Central (America/Chicago), except Tuesdays: noon to 6 p.m. Always check Google Calendar and avoid existing commitments. Gerben Dimmendaal's Monday, November 9, 2026 at 10 a.m. Central call is an approved exception; keep it.
+
 ## Mobile-first website design (Dan, 2026-11-04)
 
 For every website concept, page and shopping flow, design the phone version first. Dan expects more than 80% of visitors to use phones. At phone width, settle the first screen, content order, product imagery, navigation and primary action. Then adapt that design to desktop. Every review opens with the phone design, or shows phone and desktop together with the phone first and readable. Apply this to all entrants, future briefs and revisions.
+
+## Where work happens: internal drive, then Extreme, then Seagate (Dan, 2026-11-06)
+
+Do work on the Mac's internal drive when the job fits, then on the Extreme, and use the Seagate (Expansion) only when neither has room. Dan: "do things on the internal drive when possible, then the Extreme, and then the Seagate only if it's not possible to do it on the internal and the Extreme." `renderq.py workdir JOB --need GB` now picks in that order (new jobs only; a job's existing folder stays where it is): internal `~/Projects/_edit_work/<JOB>` while it keeps 80 GB free, else the Extreme, else the Seagate. Pass an honest `--need`. The Seagate is storage for finished work and backups, always checksummed; it silently corrupted copies on 2026-11-01 to 11-03, so never trust it as the only copy. Finished jobs move off the internal drive and the Extreme to the Seagate (verified first). Memory: `work-drive-order`.
 
 ## Review export default (Dan, 2026-11-02)
 

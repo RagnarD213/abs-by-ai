@@ -110,6 +110,11 @@ SCRATCH_RESERVE_GB = 50.0               # the internal SSD keeps this much free 
 SCRATCH_PRUNE_H = 48                    # a scratch folder nobody touched for this long is deleted
 WORK_RESERVE_GB = {"Extreme": 30.0}     # a work drive keeps this much free (default below)
 WORK_RESERVE_DEFAULT_GB = 100.0
+# Dan, 2026-11-06: work happens on the internal drive when it fits, then the Extreme, then the Seagate (Expansion)
+# only when neither has room. The internal drive keeps INTERNAL_WORK_RESERVE_GB free (macOS swap grows into it).
+INTERNAL_WORK = Path(os.environ.get("GATE_INTERNAL_WORK") or (Path.home() / "Projects" / "_edit_work"))
+INTERNAL_WORK_RESERVE_GB = 80.0
+DRIVE_TIER = {"Extreme": 1}             # everything else on the list (Expansion/Seagate) is tier 2
 WORK_DRIVES = ("Extreme", "Expansion", "Seagate")
 # Job folders live in <drive>/_edit_work/<job>; Codex rounds also used <drive>/Abs By AI Edit Work/<job> (Expansion).
 # Both are found and counted; new folders go in _edit_work.
@@ -1602,6 +1607,10 @@ def _recent_jobs(root, hours=3.0):
 def find_workdir(job):
     """The job's existing work folder on a plugged-in drive, or None (newest if it is on more than one)."""
     hits = []
+    if not os.environ.get("GATE_DRIVE_MAP"):
+        p = INTERNAL_WORK / job
+        if p.is_dir():
+            hits.append((p.stat().st_mtime, str(p)))
     for _name, root in mounted_work_drives():
         for folder in WORK_FOLDERS:
             try:
@@ -1648,6 +1657,16 @@ def workdir(job, need_gb=20.0, source=None, create=True, why=None):
         if why is not None:
             why.append("existing work folder")
         return hit
+    if not os.environ.get("GATE_DRIVE_MAP"):                # tier 0: the internal drive, when the job fits
+        reserve = float(os.environ.get("GATE_INTERNAL_RESERVE_GB") or INTERNAL_WORK_RESERVE_GB)
+        room = _free_gb(INTERNAL_WORK.parent if INTERNAL_WORK.parent.exists() else "/tmp") - need_gb - reserve
+        if why is not None:
+            why.append("internal: {:.0f} GB free after {} GB + {} GB reserve{}".format(
+                room, need_gb, reserve, "" if room >= 0 else ", NO ROOM"))
+        if room >= 0:
+            if create:
+                (INTERNAL_WORK / job).mkdir(parents=True, exist_ok=True)
+            return INTERNAL_WORK / job
     src = drive_of(source) if source else None
     best = []
     for r in drive_report():
@@ -1661,13 +1680,14 @@ def workdir(job, need_gb=20.0, source=None, create=True, why=None):
             why.append("{}: score {:.2f} ({} running, {} waiting, cap {}, {} active jobs), {} GB free{}".format(
                 r["drive"], score, r["running"], r["waiting"], r["cap"], r["active_jobs"], r["free_gb"],
                 "" if room >= 0 else ", NO ROOM for {} GB + {} GB reserve".format(need_gb, reserve)))
-        best.append((room < 0, score, r["kind"] != "ssd", -r["free_gb"], r["drive"], Path(r["root"])))
+        best.append((room < 0, DRIVE_TIER.get(r["drive"], 2), score, r["kind"] != "ssd", -r["free_gb"], r["drive"],
+                     Path(r["root"])))
     if not best:
         raise RuntimeError("no work drive is plugged in (Extreme, Expansion or Seagate)")
     best.sort()
     if best[0][0]:                                          # nowhere has room: the most free space
-        best.sort(key=lambda b: b[3])
-    path = best[0][5] / "_edit_work" / job
+        best.sort(key=lambda b: b[4])
+    path = best[0][6] / "_edit_work" / job
     if create:
         path.mkdir(parents=True, exist_ok=True)
     return path

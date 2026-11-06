@@ -20,6 +20,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [LLC EIN location](llc-ein-drive-location.md): 11-04: EIN letters are in Drive (pointer only, number never stored); Dan types it himself
 - [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
 ## Machine, repo and models
+- [Work drive order](work-drive-order.md): 11-06: internal first, then Extreme, Seagate last; Seagate corrupts copies, checksum always
 - [Review pages retire](review-pages-retire-idle.md): 11-02: idle 3 days → retired so the Mac cannot freeze; `review_retire.py --restore PORT`
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
 - [Repo is public](repo-is-public.md): ask before personal data
