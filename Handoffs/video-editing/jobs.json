@@ -4157,14 +4157,14 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-77.json, then execute Handoffs/video-editing/DS-77-how-to-do-t-bar-rows.md for \"How To Do T-Bar Rows\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-77.json, then execute Handoffs/video-editing/DS-77-how-to-do-t-bar-rows.md for \"How To Do T-Bar Rows\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
-   "state": "finalized",
-   "note": "Verified October 23 footage on Extreme. Exact take/hook/mic map: Media/footage-index/shoot-20261023/queue-jobs/DS-77.json. Sources and exercise library are prepared. This job has not been edited, rendered, approved, uploaded or scheduled.",
+   "state": "uploaded",
+   "note": "Dan picked cover R1 (real frame) 11-06; queued all four Tue Jan 5 2027 9 AM Central, Blotato 6569388-91",
    "unattended": false,
    "intakeKey": "SHOOT-20261023-2",
    "order": 179,
-   "updated": "2026-11-05",
-   "rev": 5,
-   "syncedRev": 0,
+   "updated": "2026-11-06",
+   "rev": 6,
+   "syncedRev": 6,
    "by": "Claude",
    "editor": "Claude",
    "needs": ""
@@ -5290,6 +5290,26 @@
    "order": 229,
    "rev": 1,
    "syncedRev": 1
+  },
+  {
+   "id": "SL-37",
+   "list": "2",
+   "group": "Shorts from long-forms",
+   "sub": "",
+   "title": "Sleep Better With Glycine (RO-15; 3 Shorts; parent Dec 23 9AM Central planned)",
+   "roll": "9/23 C1709",
+   "size": "S",
+   "file": "SL-37-glycine-shorts.md",
+   "claudeModel": "Opus 5.5, high",
+   "claude": "CONTENT (SFL). Read Handoffs/video-editing/SL-37-glycine-shorts.md. Propose three standalone Shorts with full transcripts and timestamps for Dan to choose before rendering.",
+   "codexModel": "GPT-6.1 Sol, high",
+   "codex": "CONTENT (SFL). Read Handoffs/video-editing/SL-37-glycine-shorts.md. Propose three standalone Shorts with full transcripts and timestamps for Dan to choose before rendering.",
+   "state": "ready",
+   "note": "Registration only. Release after RO-15 is public.",
+   "order": 230,
+   "updated": "2026-11-06",
+   "rev": 1,
+   "syncedRev": 0
   }
  ]
 }

@@ -1,3 +1,7 @@
+## RO-15 waiting for four slots | November 6, 2026
+
+Glycine: YouTube December 23 at 9 a.m. Central, socials December 24 at noon. Round 2 A approved. Blotato 198/200; saved the dated shared waiting-list entry and verified the media. See `Docs/RO15_SETUP_RECEIPT_20261106.md`.
+
 ## DONE - DS-84 How To Do Hamstring Curls, Gemini R3, 2026-11-02
 
 Cover D installed. All four schedules verified for Nov23 2026 9AM Central: Facebook6390173, Instagram6390174, TikTok6390175, YouTube6390178. Master de0e83f5; original and post-hosted bytes hash-verified. No waiting list. TRAIN keyword; pinned question saved for shared release routine. Public tiles/captions after release. Full receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`.

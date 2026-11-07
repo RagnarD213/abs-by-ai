@@ -882,5 +882,23 @@
   "filming_set": "kitchen (Aug 3)",
   "planned": "2027-02-05 09:00",
   "note": "Cover: Claude's default (round-1 yellow band, label X7), Dan may swap before release. Exact approved master; four uploads full-download SHA256 verified; TikTok cover-first frame0 checked. Phase 4 kitchen Short, after RO-20 (Dec 9)."
+ },
+ {
+  "config": "scripts/blotato/configs/ds61-bodyweight-squats.json",
+  "kind": "short",
+  "job": "DS-61",
+  "label": "How To Do Bodyweight Squats",
+  "added": "2026-11-06",
+  "kitchen": false,
+  "gym": false
+ },
+ {
+  "config": "scripts/blotato/configs/ro15-glycine.json",
+  "kind": "longform",
+  "job": "RO-15",
+  "label": "Sleep Better With Glycine",
+  "added": "2026-11-06",
+  "approved_release": "2026-12-23T15:00:00.000Z",
+  "kitchen": false
  }
 ]

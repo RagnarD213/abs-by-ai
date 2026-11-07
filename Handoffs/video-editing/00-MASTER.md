@@ -329,6 +329,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SL-34](SL-34-five-muscles-women-notice-shorts.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One (RO-38; 3 Shorts; parent Jan 8 9AM Central planned) | READY: propose segments before rendering | S |
 | [SL-35](SL-35-cortisol-belly-shorts.md) | Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29; 3 Shorts; parent Jan 20 9AM Central planned) | READY: propose segments before rendering | S |
 | [SL-36](SL-36-man-boobs-shorts.md) | How To Get Rid Of Man Boobs (RO-31; 3 Shorts; parent Jan24 9AM Central planned) | READY: propose segments before rendering | S |
+| [SL-37](SL-37-glycine-shorts.md) | Sleep Better With Glycine (RO-15; 3 Shorts; parent Dec 23 9AM Central planned) | READY: propose segments before rendering | S |
 
 **Will need shorts once final (no handoff yet; add one when the long-form is approved):**
 * Your Belly Fat Is An Emergency (Codex, revision in progress)

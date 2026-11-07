@@ -27,13 +27,19 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+
+**GAT-evidence:PUSH-PENDING:2026-11-06:Codex:28444bb.**
+
+
+**TeslaEstimates:WAITING:2026-11-06:Codex:Await-shops/Core-photos.**
+
 **SL-20Setup:HOLD:2026-11-06:Claude.** Feb1/3/5-waitlist;push-pending. `Docs/SL20_SETUP_RECEIPT_20261106.md`
 
-**RO15:THUMBNAIL-PICK:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
+**RO15:HOLD:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
 
 **WorkDriveOrder:PUSH-PENDING:2026-11-06:Claude.** d51e3e8 local.
 
-**ExDemoFlow:PUSH-PENDING:2026-11-05:Claude.** dd7f4e1,6133423
+**ExDemoFlow:PUSH-PENDING:2026-11-06:Claude.**3172c7e
 
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
@@ -49,7 +55,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
 
-**DS-61:REVIEW:2026-11-05:Codex.** http://127.0.0.1:10232/. Next: approval, schedule.
+**DS-61:HOLD:2026-11-06:Codex.** Jan5 6PM waitlist; top-up dry run passed. `Docs/DS61_SETUP_RECEIPT_20261106.md`.
 
 **RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
 

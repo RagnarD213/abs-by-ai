@@ -90,7 +90,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Mon Jan 4 | 3 | 9 AM | Belly Fat 5: Track Your Calories With A Photo | Waitlist |
 | Mon Jan 4 | 3 | 6 PM | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. (DS-37) | Waitlist |
 | Tue Jan 5 | 3 | 9 AM | How To Do T-Bar Rows The Right Way (DS-77, gym) | Live |
-| Tue Jan 5 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 5 | 3 | 6 PM | How To Do Bodyweight Squats (DS-61) | Waitlist |
 | Thu Jan 7 | 3 | 9 AM | The #1 Change I Made To Get Abs At 40 | Waitlist |
 | Thu Jan 7 | 3 | 6 PM | OPEN | Not booked |
 | Sat Jan 9 | 3 | 9 AM | OPEN | Not booked |
