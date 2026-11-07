@@ -1,0 +1,32 @@
+# Flow Music brief (2026-11-07)
+
+Source handoff: `Handoffs/handoff-20261107-flow-music-theme-and-beds.md`.
+
+## Dan's answers
+
+Asked: theme length (sting / intro / full song), vocals (instrumental / "Abs By AI" sung / spoken / full lyrics), feel (confident modern / gym hype / cinematic epic / fun and playful), and where AI music may go given the YouTube/TikTok AI-music flag.
+
+Dan: **"Generate all of them."**
+
+Dan, second message: **"For everything, I want something that's fast-paced, energetic, and fits the workout theme of the channel. Maybe hip hop, rock, or electronic. Stay away from country and anything slow. Basically, high energy, getting people hyped up to work out"**
+
+Dan, third message (linked Joyner Lucas, "Version 2.0", official video `cCG9uVxI6tM`): **"If we could do something similar to this hook, where it's basically talking about becoming a new version of yourself, or if we could reproduce this hook or remix this hook, that would be great too."** It is a commercial release, so copying or remixing its hook would draw Content ID claims on any video using it. Made instead: an original song on the same idea, "New Me Loading" (lyrics in `Media/flow-music/20261107/catalog-raw.json`).
+
+## What that means (defaults Claude picked; Dan can change)
+
+- **Theme:** four high-energy directions: Hip hop (hard trap/boom-bap gym beat), Rock (driving hard rock riff), Electronic (big EDM/drum-and-bass drive), Hybrid (trap drums plus distorted rock guitar). No country, nothing slow. Each gets a full-length take, cut to a 3-5 s sting and a 10-15 s intro.
+- **Vocals:** each direction gets an instrumental version; the sung "Abs By AI" hook and the spoken/chanted tag are made as variants of the best directions; one full-lyrics song.
+- **Beds (instrumental, sit under speech, all fast and hype):** talking-drive (energetic but sparse mids so speech stays clear), workout montage, hype build, reveal/payoff, funny punchy (for gags). Genres spread across hip hop, rock and electronic. Calm and emotional moods dropped per Dan. 2-3 tracks each, aiming for loopable 2-3 minute beds.
+- **Motif:** separate tracks for now; a motif-matched set can follow once Dan picks a theme.
+- **AI-music flag:** not decided. Generating does not depend on it. Default until Dan rules: Flow tracks are free to use in ads, the website, the VSL and the channel trailer; a content video using one gets the AI flag per `VIDEO-RULES.md`.
+
+## App limits and terms
+
+- Compose offers lyrics or instrumental, a sound prompt, BPM, length (set in the lyrics as `[End - m:ss]`), seed, model (Lyria 3.5 default, Lyria 3 Pro legacy), title and cover image. Track menu: Remix, Download (M4A, MP3, WAV, stems, video), Split stems.
+- No credit or limit counter is shown; 32 generations on 2026-11-07 hit no limit. Each track took about 20-35 s.
+- Commercial use: Google's paid AI plans list commercial use; Dan is on Ultra. Outputs carry a SynthID watermark. Google's terms are the primary source; not re-read in full here.
+- The player autoplays a new track out loud: mute the Flow player before generating (silent-checks rule).
+
+## Round 1 (2026-11-07)
+
+30 tracks in `Media/flow-music/20261107/` (`raw/` WAVs, `catalog.json` with prompt, lyrics, loudness, peaks, loop match). Review page: http://127.0.0.1:8796/ . Waiting for Dan's picks.
