@@ -33,6 +33,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-78:R1:2026-11-07:Claude.**
 
+**ClipLib-Flow:GAPS:2026-11-07:Claude.** Reusable library clips, ≤7,000 Flow credits by Nov 28; batch-1 pairs next. `Handoffs/handoff-20261107-flow-credits-clip-library.md`
+
 **Exercise-demos-Codex-R1:RUNNING:2026-11-07:Codex:db-shrug/ez-bar-curl/machine-chest-press:$10:review-only.** `Media/exercise-demos/_codex3/`.
 
 
