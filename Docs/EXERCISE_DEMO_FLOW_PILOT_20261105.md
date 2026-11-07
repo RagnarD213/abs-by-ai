@@ -82,3 +82,7 @@ Round 3 paid spend about $3.60 (9 paid 4 s takes), 1 Flow take. Next three: `Han
 ## Round 4 (2026-11-07): Google-made start/end frames (Dan via side session)
 
 Nano Banana Pro in Flow, 0 credits, 14 images. Bicycle crunch: Google never switched the legs in an END made from its START (4 tries, 2 prompts). Lunge: with a strict "keep framing identical, no mat" clause the gym held; the front foot slid ~120 px (fixed with a Google empty-gym plate and a shift), but the gate still failed the leg proportions (shin +15%). No Google pair passed, so no paid video was made and the shipped versions stay. Detail: `Media/exercise-demos/_googleframes/google-results.txt`. Lesson: Nano Banana Pro holds a locked camera only when the prompt says so explicitly, and redraws limb proportions in big pose changes.
+
+## Three more (2026-11-07, Claude): triceps extension, dumbbell fly, weighted crunch
+
+Paid 1080p `veo-3.1-fast` 4 s, 9 takes, $3.80. Crunch passed every gate and reviewer first try on motion (2 takes). Fly (4 takes) and triceps (3 takes) hit the stop rule: fly's near dumbbell sweeps across the face because the END frame placed it head-side of the shoulder; triceps flares the elbows wide at the bottom in a front view every time. Detail and next fixes: `Handoffs/handoff-20261106-exercise-demos-three-more.md`.

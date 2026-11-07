@@ -54,3 +54,11 @@ Dan's bar for app demos is "better than a stick figure." Run every gate and revi
 
 - Shipped in the app and committed locally: chair-squat (944ef64), db-lunge and bicycle-crunch (68cdd00). The push is blocked by the main folder's 12-file merge jam (see the board). The next safe-push carries all three.
 - Gemini is testing hammer curl, floor press and hip thrust separately (`handoff-20261105-gemini-exercise-demo-test.md`). Do not touch those three.
+
+## Executed 2026-11-07 (Claude, R1): at Dan's review, nothing installed
+
+Review page: http://127.0.0.1:9317/ (files in `~/Projects/_edit_work/EXDEMO-3MORE/review/`; work folders `Media/exercise-demos/<id>` are symlinks to `~/Projects/_edit_work/EXDEMO-3MORE/<id>`). Paid Veo spend $3.80 (9 paid takes; one free Replicate failure), VO about $0.03.
+- **db-crunch:** CR2 frames 6-38 + 0.17 s top hold, `db-crunch-AIDAN-narrated-FINAL-CANDIDATE-v2.mp4`, app file `_flowpilot/app-staging/db-crunch-v2.mp4`. Frames and motion reviewer PASS.
+- **db-fly:** FL2 frames 0-36 + hold, `...-v1.mp4` / `app-staging/db-fly-v1.mp4`. Motion FAIL: near dumbbell crosses the face ~0.3 s each way, far arm lags 8 frames. Same in all 4 takes (stop rule). Cause: `fp-end.png` puts the near dumbbell head-side of the shoulder (x 300-500 vs shoulder ~600). Fix: re-edit END with that dumbbell directly beside the shoulder, re-gate, 1-2 takes.
+- **db-tricep-extension:** TE2 frames 0-30 + 0.21 s bottom hold, `...-v2.mp4` / `app-staging/db-tricep-extension-v2.mp4`. Motion FAIL: elbows flare ~26 deg per side at the bottom, shallow (dumbbell to top of head). All 3 takes (stop rule). Likely fix: side or three-quarter camera.
+On "ship": install per "Deliver" step 3 using the app-staging files above.

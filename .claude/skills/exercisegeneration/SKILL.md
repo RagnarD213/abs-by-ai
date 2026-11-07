@@ -736,3 +736,10 @@ V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos
   now sets `"audio:stamp": dict(synthetic_ok=True)` (no other format does), so a demo stamped with `audio_gate.py
   --synthetic --profile in-app-demo` passes. All four batch-5 app encodes in `_batch5/app-staging/` now print
   DELIVERY GATE PASS. A demo that still fails this row has no stamp, or a stamp for a different render.
+
+## Three more (2026-11-07): frame-stage traps
+- **`lockstill.py` copies START's contact shadow into the spot a body part leaves.** Crunch: the head's dark shadow on the mat came back as a stain in END. Pass a `--box` over the vacated patch (and declare it in `may_change` with a reason), so the cleaned END pixels stay.
+- **A `--box` that cuts through a moved prop leaves it see-through** (fly dumbbell end showed floor). Size boxes around the prop's END position with margin.
+- **Plan the END prop position against the path Veo will take.** Fly END put the near dumbbell head-side of the shoulder; every take swept it across the face. Put it directly beside the shoulder.
+- **Front-view overhead triceps extension: Veo flares the elbows at the bottom in every take** (3 of 3, prompt fixes and an upward leg did not help). Try a side or three-quarter camera.
+- **Same frames + near-identical prompt gives a near-identical take**; change the prompt or frame between takes.
