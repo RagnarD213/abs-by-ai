@@ -34,9 +34,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
-**DS-78:R1:2026-11-07:Claude.**
+**DS-78:REVIEW:2026-11-07:Claude.** :9708
 
-**Exercise-demos-Codex-R1:RUNNING:2026-11-07:Codex:db-shrug/ez-bar-curl/machine-chest-press:$10:review-only.** `Media/exercise-demos/_codex3/`.
+**Exercise-demos-Codex-R1:REVIEW:2026-11-07:Codex:await-ship.** [Review](http://127.0.0.1:10967/).
 
 
 

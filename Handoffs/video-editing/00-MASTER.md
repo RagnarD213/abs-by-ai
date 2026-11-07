@@ -224,7 +224,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 |---|---|---|---|---|
 | [DS-76](DS-76-how-to-do-pull-ups-and-what-to-do-if-you-can-t-do-one.md) | How To Do Pull-Ups (And What To Do If You Can't Do One) | 10/23 C1882 | UPLOADED | S |
 | [DS-77](DS-77-how-to-do-t-bar-rows.md) | How To Do T-Bar Rows | 10/23 C1882 | UPLOADED | S |
-| [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | IN PROGRESS | S |
+| [DS-78](DS-78-how-to-do-chest-flies-on-the-machine.md) | How To Do Chest Flies On The Machine | 10/23 C1882 | DELIVERED: awaiting Dan | S |
 | [DS-79](DS-79-how-to-do-chest-flies-with-dumbbells.md) | How To Do Chest Flies With Dumbbells | 10/23 C1882, C1883 | READY | S |
 | [DS-80](DS-80-how-to-do-cable-crunches.md) | How To Do Cable Crunches | 10/23 C1884 | READY | S |
 | [DS-81](DS-81-how-to-do-leg-raises.md) | How To Do Leg Raises | 10/23 C1884 | READY | S |
@@ -300,7 +300,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SL-09](SL-09-oura-ring-review-shorts.md) | My Honest Oura Ring Review (Zeeshan Video 4, public Nov 8) | UPLOADED | S |
 | [SL-10](SL-10-alcohol-and-abs-shorts.md) | Can You Drink Alcohol And Still Have Abs? (RO-13, Sun Dec 20 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-11](SL-11-the-vacuum-shorts.md) | The Stomach Vacuum: The Best Ab Exercise For Belly Fat (RO-02, YouTube Fri Jan 15 2027 under the 2026-10-28 plan) | FINALIZED | S |
-| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6; Shorts held until parent is public) | **NEEDS DAN** | S |
+| [SL-12](SL-12-keep-your-muscle-shorts.md) | How To Keep Your Muscle While You Lose Fat (RO-01, YouTube Dec 6; Shorts held until parent is public) | DELIVERED: awaiting Dan | S |
 | [SL-13](SL-13-calories-dont-matter-shorts.md) | When Calories Don't Matter For Fat Loss (RO-11, YouTube Wed Jan 27 2027 under the 2026-10-28 plan) | FINALIZED | S |
 | [SL-14](SL-14-abs-at-40-vs-25-shorts.md) | Getting Abs At 40 vs 25 (Zeeshan Video 5, YouTube Jan 3 2027) | READY; hold release until parent is public | S |
 | [SL-15](SL-15-my-first-spray-tan-shorts.md) | My First Spray Tan (RO-19, YouTube Fri Dec 4; 2 Shorts, Dan picked A and C; Dec 5 and Dec 8 6 PM) | UPLOADED | S |
