@@ -81,3 +81,13 @@ Rules:
   - the blind-test pick counts by batch (labels only; never reveal sources unless Dan asks for the scorecard);
   - anything left half done, with the exact next step.
 - **Board:** keep one board entry under 80 words for this work while it is running.
+
+## Progress (2026-11-07, Claude session "Clip library: reusable AI clips (Flow credits)")
+
+- Gap list written: `Media/clip-library/gap-list-20261107.md` (52 recurring needs, ranked; main gap: almost no AI Dan versions, few verticals).
+- Batch 1: 28 ideas drawn as Codex and Google START/END pairs, every pair gated and independently reviewed; each failed version got one corrected redraw, a second failure dropped it. Result: **18 ideas on the page, 4 with two blind versions (X1/X2), 14 with one.** 9 ideas dropped (both versions failed: snooze, salad vs burger, chips, fridge stare, old shirt mirror, plate photo, wide gym, stairs, buffet) plus the jeans idea (belly focus).
+- Review page (phone first, picks save to the page's store): https://claude.ai/artifact/Emyh9ByuYemSPfo5fRrWtd . Read picks with ArtifactData `list` collection `picks` on that URL.
+- Work folder: `~/Projects/_edit_work/CLIPLIB-FLOW/` (b1/ ideas, tools/, page/, review-fails.txt, motion-notes.txt, google-redo-notes.txt). Blind keys in `b1/<ID>/blind/.blind-key.json` (two-version ideas only; never show).
+- Credits: 22,226 before and after (no video generated yet).
+- Lessons: lockstill with tight boxes leaves ghosts and seams, so gate the raw END first and box each person's whole path including shadows and reflections; Google failed far more reviews than Codex on these gag frames (scale digits, food/hands continuity, faces changing).
+- **Next:** read Dan's picks; log two-version picks with `blind.py pick b1/<ID>/blind --chose X?`; `veo.py add` each picked pair (Veo 3.1 Fast, 16:9, prompt from `idea.json` motion_prompt plus `motion-notes.txt`), up to 3 `flow-veo` agents; clipcheck + fresh reviewer per take; file keepers with `clip_library.py add --kind ai --status usable-unused`; then `sheet`. Then 9:16 versions of the best, and batch 2 from the gap list.
