@@ -27,3 +27,16 @@ two 10/15 pool rolls. Starts from RO-31's round 1 recipe (`../ro31/`, same set):
    consecutive cuts from one static take, a clip whose rep went too high under "shoulder height", the lockout cue shown at the top of the
    rep, the SixPackAbs lower third landing out of spoken order. Change the page title and release line first when copying a recipe.
 6. **All six first AI ideas failed both image models twice.** Simpler single-action ideas (one person, one move, plain room) passed.
+
+## Round 3 (2026-11-06): one-graphic opening and background-face blur
+
+7. **Before then after as ONE graphic** (Dan: "look like one graphic"): `gfx.py` scene `slate_swap` draws the three before photos on
+   the Soft Blue field, fades them out fully over 0.22 s at `switch`, then lets the three after panels rise in; one label throughout.
+   Never crossfade a before into an after: the ripped body shows through the fat photo (rule: never a before and an after on one screen).
+8. **Blurring a bystander's face** (Dan approved for two prominent gym members; small far-off people stay as filmed). Apple Vision
+   missed both faces (side-on, small), so: seed a box by hand on an exact-frame grid (a 1 fps extraction frame is NOT the frame at t),
+   track with OpenCV CSRT at 1920x1080 (0 lost over 16 s), smooth +-7 frames, scale x2 to 4K, pixelate /24 then Gaussian sigma 18 in a
+   soft ellipse. Grow the ellipse 0.75 and shift it 0.22 box-widths toward the crown for a head seen from the side (0.45 left his bald
+   crown showing). Write a new copy (x264 CRF 12, BT.709 tags) on the source timeline and point the plan at the copy with a
+   "/path@start" src; never alter the library original. Scripts: /Volumes/Extreme/_edit_work/RO-32/round1/blur/ (track.py, blur.py).
+   The copy ends 0.5 s after the last tracked frame; check every plan use fits inside it.
