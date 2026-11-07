@@ -740,6 +740,6 @@ V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos
 ## Three more (2026-11-07): frame-stage traps
 - **`lockstill.py` copies START's contact shadow into the spot a body part leaves.** Crunch: the head's dark shadow on the mat came back as a stain in END. Pass a `--box` over the vacated patch (and declare it in `may_change` with a reason), so the cleaned END pixels stay.
 - **A `--box` that cuts through a moved prop leaves it see-through** (fly dumbbell end showed floor). Size boxes around the prop's END position with margin.
-- **Plan the END prop position against the path Veo will take.** Fly END put the near dumbbell head-side of the shoulder; every take swept it across the face. Put it directly beside the shoulder.
-- **Front-view overhead triceps extension: Veo flares the elbows at the bottom in every take** (3 of 3, prompt fixes and an upward leg did not help). Try a side or three-quarter camera.
+- **Plan the END prop position against the path Veo will take.** Fly END put the near dumbbell head-side of the shoulder; every take swept it across the face. Put it directly below the shoulder in the picture: that cut the face pass from 7 to 3 frames and fixed the late far arm (fly R2).
+- **Overhead triceps extension: shoot three-quarter side (camera ~60 deg off), not front.** Front view flared the elbows in 3 of 3 takes; three-quarter kept the upper arms vertical. Veo still does an extra rep first: cut the SECOND lowering.
 - **Same frames + near-identical prompt gives a near-identical take**; change the prompt or frame between takes.

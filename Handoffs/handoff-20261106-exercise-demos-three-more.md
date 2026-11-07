@@ -62,3 +62,11 @@ Review page: http://127.0.0.1:9317/ (files in `~/Projects/_edit_work/EXDEMO-3MOR
 - **db-fly:** FL2 frames 0-36 + hold, `...-v1.mp4` / `app-staging/db-fly-v1.mp4`. Motion FAIL: near dumbbell crosses the face ~0.3 s each way, far arm lags 8 frames. Same in all 4 takes (stop rule). Cause: `fp-end.png` puts the near dumbbell head-side of the shoulder (x 300-500 vs shoulder ~600). Fix: re-edit END with that dumbbell directly beside the shoulder, re-gate, 1-2 takes.
 - **db-tricep-extension:** TE2 frames 0-30 + 0.21 s bottom hold, `...-v2.mp4` / `app-staging/db-tricep-extension-v2.mp4`. Motion FAIL: elbows flare ~26 deg per side at the bottom, shallow (dumbbell to top of head). All 3 takes (stop rule). Likely fix: side or three-quarter camera.
 On "ship": install per "Deliver" step 3 using the app-staging files above.
+
+## R2 same day (Claude): fly and triceps redone; all three at Dan's review, nothing installed
+
+Total paid Veo $5.00 (12 paid takes). Page http://127.0.0.1:9317/ now shows:
+- **db-crunch:** unchanged, `-v2` / `app-staging/db-crunch-v2.mp4` (reviewer PASS).
+- **db-fly:** new END (near dumbbell directly below the shoulder, knurled handles matched), FL5 frames 0-39 + hold, `db-fly-AIDAN-narrated-FINAL-CANDIDATE-v2.mp4` / `app-staging/db-fly-v2.mp4`. Frames and motion reviewer PASS (face pass 0.125 s, arms in step).
+- **db-tricep-extension:** new three-quarter frames `fq-start/fq-end.png` (reviewer PASS), TQ2 frames 48-80 + 0.21 s hold, `...-v4.mp4` / `app-staging/db-tricep-extension-v4.mp4`. Form fixed; motion FAIL only on a 0.17 s faint double of the dumbbell's lower end behind the forearm. All 5 takes used.
+On "ship": install those three app-staging files per "Deliver" step 3.
