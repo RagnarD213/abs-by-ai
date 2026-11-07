@@ -4,6 +4,10 @@ description: >
   Take a FINISHED organic/content video, long-form or a dedicated Short (usually an editor's final shared as a Google Drive link) all the way to scheduled on every platform: download and file it (project folder, Extreme drive and Google Drive), add it to the Edit Queue, make five thumbnail choices with Codex in the command line (five unique designs: two AI images of Dan, one real pool or studio photo, two history-guided Codex choices; GPT-6.1 Sol high) and stop for Dan's pick, write the title, description with chapters and tags, and queue YouTube, Facebook, Instagram @danrosefit, and TikTok for release through Blotato. Use whenever Dan says a content video is "finished", "done", "final", sends a Drive link and asks to "queue it up", "set it up on all platforms", "put it in Blotato", "schedule it", or "get it on YouTube and everything else", even if he doesn't say "/video-setup". Paid ads go through /ad-setup; reviewing a cut is /revisions; thumbnails alone are /youtube-packaging; cutting Shorts is /shorts.
 ---
 
+## Setup owner (Dan, 2026-11-07)
+
+Codex owns the complete setup for videos edited by either Claude or Codex, including images and setup files. Claude is used only when Dan explicitly requests it, for example because his Codex allowance is low; never switch automatically or infer the exception. This overrides older one-Claude handoffs and executor recommendations below. Reuse the existing setup package and preserve approvals, cover picks and publishing rules.
+
 ## Silent task-driven playback (Dan, 2026-10-28)
 
 Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`, "Review-panel testing stays silent". Mute every actual video/audio player before task-driven playback or auditions and after source/reload changes, then leave it paused and muted. Use offline decoding, audio measurements or supported non-speaker file/model inspection; never claim an audible listen from silent testing. Preserve actual narration, exported media audio and Dan's manual unmute controls. This is the normal workflow, not an added approval step.
@@ -128,7 +132,7 @@ Switch it in Studio (`studio.youtube.com/video/<id>/edit` → Visibility → Pri
 
 **YouTube thumbnail capitalization (Dan, 2026-10-28): capitalize the first letter of every word, including short words such as At, In, To, Me and And; preserve proper names and acronyms. Example: "This Boring Daily Routine Got Me Abs At 41." This replaces the older all-caps recipe below.**
 
-This task makes the five itself with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` (Dan, 2026-10-02; one Claude handoff, no separate Codex task). The pick is saved as `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
+This task makes the five itself with `_shared/codex-image.sh --model gpt-6.1-sol --effort high` (Dan, 2026-10-02; one Codex setup owner, Claude only at Dan’s explicit request). The pick is saved as `<title> - thumbnail FINAL.jpg` (1280x720 JPEG, under 2 MB) in
 `social media graphics/youtube/thumbnails/<title>/` and used for Blotato's `youtube_cover_url`.
 
 Dan's standing mix (updated 2026-10-25): **two distinct AI images of Dan in the topic, one real pool OR studio photograph, and two history-guided Codex choices.** The discretionary choices may also be AI Dan; do not fill them mechanically with no-Dan concepts. All five must be different designs. Review actual recent picks and selected images first; the five Calories Shorts C picks are a current reference. Read `/coverimage` and `/youtube-packaging` for the full quality and source rules. The older recipe below is an asset reference, not the current required source count or mix.

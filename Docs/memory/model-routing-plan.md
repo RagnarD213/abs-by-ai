@@ -8,6 +8,9 @@ metadata:
   modified: 2026-10-20
 ---
 
+**Setup ownership, November 7, 2026:** Codex handles the complete setup for videos from either editor. Claude is used only if Dan explicitly requests it, for example when Codex allowance is low. This supersedes older setup-owner recommendations below. See [[setup-owner-codex]].
+
+
 **Green-screen routing (Dan, 2026-10-27, replaces the 10-25 "Codex owns green-screen" rule):** no fixed AI; a video stays with the AI it started on. For a NEW green-screen job recommend Claude (Opus 5.5 high) for long-form and Codex (newest Sol high) for reaction Shorts: his lean, not a rule. Dan: "Claude is our likely champion for long-form green screen, probably Codex for the short form." Detail: [[video-editing-executor-routing]], [[greenscreen-reaction-format]].
 
 

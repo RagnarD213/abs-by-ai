@@ -3,6 +3,10 @@ name: ad-setup
 description: Take a FINISHED ad video (usually an editor's HD final shared as a Google Drive link) all the way to running — file it in the project folder, upload it to YouTube unlisted with a description, chapters, tags, the AI-content disclosure and a clean thumbnail, then add it to the Google Ads Demand Gen conversion campaign (one ad group per landing page, its own audience, compliant copy) and record the ids. Use whenever Dan says an ad is "complete", "final", "approved", sends an HD link and asks to "upload it", "set it up", "add it to the campaign", "put it in Google Ads", or adds a new version (a vertical) of an ad already running — even if he doesn't say "/ad-setup". Reviewing a cut is /revisions; filing alone is /editor-deliveries; thumbnails alone are /youtube-packaging.
 ---
 
+## Setup owner (Dan, 2026-11-07)
+
+Codex owns the complete setup for videos edited by either Claude or Codex, including images and setup files. Claude is used only when Dan explicitly requests it, for example because his Codex allowance is low; never switch automatically or infer the exception. This overrides older one-Claude handoffs and executor recommendations below. Reuse the existing setup package and preserve approvals, cover picks and publishing rules.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 # /ad-setup — finished ad → YouTube → Google Ads

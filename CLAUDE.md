@@ -1,3 +1,10 @@
+## Setup owner: Codex by default (Dan, 2026-11-07)
+
+- **Codex handles setup for both Claude-edited and Codex-edited videos**, including covers/thumbnails, setup files, backups, metadata, uploads and verified scheduling or shared waitlist placement. Keep images and setup with one Codex owner to avoid unnecessary AI coordination.
+- **Claude handles setup only when Dan explicitly requests it**, for example when his Codex allowance is low. Do not infer the exception, ask routinely, or switch automatically because of usage. Unless Dan requests Claude, use Codex.
+- This supersedes the October 1 one-Claude-setup rule, older setup routing and unexecuted handoff model/owner recommendations. Reuse an existing setup package; do not duplicate active work or interrupt another owner. Preserve required cover picks, existing approvals and category-specific publishing rules.
+
+
 ## Operating rules: read first (Dan, 2026-11-05)
 
 1. Finish the task. Do every step you can, in order, without asking.

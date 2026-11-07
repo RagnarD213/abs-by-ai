@@ -326,13 +326,11 @@ Dan, 2026-10-28: "Okay, let's do this schedule. Let's release Daily Salad on the
 
 Every video finalization automatically includes a complete setup handoff in the same reply: approved master/hash and approval, thumbnail or cover choices and Dan's pick, backup, metadata, platform setup, queue or shared waiting-list placement, verification and a setup receipt. Add it to `Handoffs/README.md` OPEN, and give the ready-to-paste starter prompt, recommended model/effort and “start now” instruction directly in chat. Never wait for Dan to ask. An edit being finalized is not a video being set up, uploaded or scheduled. Reuse an existing setup task/handoff instead of duplicating it; include any remaining approved revision in that handoff. Follow the full rule in `.claude/skills/_shared/VIDEO-RULES.md`, “Final approval always hands off to setup.” Existing cover-pick and publication approvals still apply; a handoff request alone does not create or message a task.
 
-## Thumbnails, covers and setup: one Claude handoff (Dan, 2026-10-01)
+## Setup owner: Codex by default (Dan, 2026-11-07)
 
-- Claude can now generate Codex images on Dan's subscription. For a finished video, write **one Claude handoff** that makes
-  the thumbnail or cover options, stops for Dan's picks, then does the upload and setup. No separate Codex handoff.
-- The handoff and its starter prompt must say: **"Use the Codex subscription to generate the images."**
-- This replaces the 2026-09-30 Codex-thumbnail / Claude-upload split. Handoffs already written under the old split
-  (SL-05) finish as written. The five-choice mix and `/video-setup` rules are unchanged.
+- **Codex handles setup for both Claude-edited and Codex-edited videos**, including covers/thumbnails, setup files, backups, metadata, uploads and verified scheduling or shared waitlist placement. Keep images and setup with one Codex owner to avoid unnecessary AI coordination.
+- **Claude handles setup only when Dan explicitly requests it**, for example when his Codex allowance is low. Do not infer the exception, ask routinely, or switch automatically because of usage. Unless Dan requests Claude, use Codex.
+- This supersedes the October 1 one-Claude-setup rule, older setup routing and unexecuted handoff model/owner recommendations. Reuse an existing setup package; do not duplicate active work or interrupt another owner. Preserve required cover picks, existing approvals and category-specific publishing rules.
 
 ## Categorize every video before editing it (Dan, 2026-10-04)
 

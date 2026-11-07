@@ -1,6 +1,8 @@
 # CONTENT (SFL): Calories Dont Matter SFL Setup
 
-Prepared November 7, 2026. **Start now in Claude Opus 5.5, high effort.** One Claude `/video-setup` handoff for the three approved Shorts. **Use the Codex subscription to generate the images.** No separate thumbnail task.
+Prepared November 7, 2026. **Start now in Codex, newest available stable GPT at high effort.** One Codex `/video-setup` handoff for the three approved Shorts. **Use the Codex subscription to generate the images.** No separate thumbnail task.
+
+Setup routing updated November 7 per Dan: Codex handles setup unless he explicitly requests Claude. The earlier Claude recommendation is superseded. No setup task has been started by this handoff.
 
 ## Approval and scope
 
@@ -62,4 +64,4 @@ Shared checkout has unrelated work. Stage/commit only owned changes and owned hu
 
 ## Starter prompt
 
-> CONTENT (SFL). Name this chat `Calories Dont Matter SFL Setup`. Start now with `/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/handoff-20261107-sl13-calories-dont-matter-setup.md`. Dan approved all three exact R2 Shorts and authorized setup. Use the Codex subscription to generate the images. Make the required blind cover choices in both platform layouts, stop for my picks, then finish `/video-setup` through verified backups, metadata and Blotato scheduling or the shared waitlist. Preserve the approved masters and QA limits. Use Claude Opus 5.5, high effort.
+> CONTENT (SFL). Name this chat `Calories Dont Matter SFL Setup`. Start now with `/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/handoff-20261107-sl13-calories-dont-matter-setup.md`. Dan approved all three exact R2 Shorts and authorized setup. Use the Codex subscription to generate the images. Make the required blind cover choices in both platform layouts, stop for my picks, then finish `/video-setup` through verified backups, metadata and Blotato scheduling or the shared waitlist. Preserve the approved masters and QA limits. Use Codex with the newest available stable GPT at high effort.

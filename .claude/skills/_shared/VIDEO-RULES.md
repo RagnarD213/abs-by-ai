@@ -1,3 +1,9 @@
+## Setup owner: Codex by default (Dan, 2026-11-07)
+
+- **Codex handles setup for both Claude-edited and Codex-edited videos**, including covers/thumbnails, setup files, backups, metadata, uploads and verified scheduling or shared waitlist placement. Keep images and setup with one Codex owner to avoid unnecessary AI coordination.
+- **Claude handles setup only when Dan explicitly requests it**, for example when his Codex allowance is low. Do not infer the exception, ask routinely, or switch automatically because of usage. Unless Dan requests Claude, use Codex.
+- This supersedes the October 1 one-Claude-setup rule, older setup routing and unexecuted handoff model/owner recommendations. Reuse an existing setup package; do not duplicate active work or interrupt another owner. Preserve required cover picks, existing approvals and category-specific publishing rules.
+
 ## AI clip frames: show START and END together from the first step (Dan, 2026-11-05, RO-15)
 
 Dan: *"It's hard for me to judge which start frame to use from the start frame alone. I want the start and end frames made, two sets of
@@ -355,7 +361,7 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
   4. and 5. Two concepts at Codex's discretion, chosen for how likely Dan is to pick them based on his actual approved-cover history. They may show Dan, including more AI Dan, or omit him when there is a strong visual reason. Do not fill these slots automatically with object-only or no-Dan designs just for variety.
 - **Learn from the picks before planning:** inspect recent `covers/approved-*/picks.json` and the corresponding selected images, not only proposed sheets. Use `Docs/memory/cover-picks-ai-dan-acting-topic.md` as a guide to earlier evidence. Calories Shorts (SL-08, 2026-10-25) adds five more C picks: recognisable lean Dan, naturally acting out the exact topic, clear abs and readable type. Record the new pick with its actual final asset hashes. Carry forward winning qualities while keeping five genuinely different designs; do not force every design into the yellow-band layout.
 - **Five unique designs:** vary layout, typography, colour and composition, and write one design line per option before building. Same approved copy across the five unless Dan asks for copy options.
-- **Codex always makes them on Dan's subscription:** `_shared/codex-image.sh` with the newest supported stable GPT at high effort, currently `gpt-6.1-sol`. No outside image model or paid still-image API by default. Claude setup tasks call that helper; Codex tasks use it directly.
+- **Codex always makes them on Dan's subscription:** `_shared/codex-image.sh` with the newest supported stable GPT at high effort, currently `gpt-6.1-sol`. No outside image model or paid still-image API by default. Codex owns setup and uses the helper directly; Claude calls it only when Dan explicitly assigns the setup exception.
 - **The real-photo choice stays real:** preserve the original face and body pixels, generate only its background, then composite the real cutout and type locally. Any AI Dan choice gets a real identity reference, the prompt "lean and shredded, not bulky, same size as the reference", and an actual face check before review. This explicit permission covers the two required AI Dan choices and any additional discretionary AI Dan choices.
 - **Review and installation:** show all five, then stop for Dan's actual picks before uploading or scheduling. Shorts still get separate Instagram and YouTube layouts per choice. Keep text off face/hair; no frowning default, visible standing swim-brief shape, website mark or real-photo label. A requested revision to a picked cover needs approval of the exact revised files before installation. The full quality and disclosure rules keep their existing scopes.
 
@@ -712,7 +718,7 @@ Dan: “Remember to always do this whenever we finalize a video because if we fi
 
 - In the same turn that records Dan's final approval, write or update one complete setup handoff. Include exact approved files/hash, his approval words/date, preserved edit choices and honest QA limits, existing covers/configs/uploads, and the exact next action. Reuse an existing setup task/handoff; never duplicate an active setup owner.
 - The handoff owns thumbnail/cover generation, Dan's pick, verified media backups, title/description/captions/pinned-comment metadata, platform-specific media and cover preparation, then scheduling through the correct category workflow. If capacity is full, use the existing shared waiting list/top-up routine and record its actual slot/state. A local finished film alone is not setup completion.
-- For organic video, use one Claude setup handoff under `/video-setup`, with the live cover rules and “Use the Codex subscription to generate the images.” Ads retain `/ad-setup`, Unlisted YouTube and their ad-campaign path. Do not send ads to organic queues.
+- Use one Codex setup owner for either editor’s finalized videos: organic under `/video-setup`, ads under `/ad-setup` with Unlisted YouTube and their ad-campaign path. Use the Codex subscription to generate the images. Claude is the exception only when Dan explicitly requests it, such as when Codex allowance is low. Do not send ads to organic queues.
 - Register unexecuted setup work in `Handoffs/README.md` OPEN. The finalization reply gives the linked handoff, a ready-to-paste starter prompt, recommended model plus effort, and says to start now. Do this automatically, never only offer to prepare it. Creating or messaging a task still follows the user's authorization requirements.
 - The setup handoff stops for required cover picks, then continues through verified queue/waitlist placement and a saved setup receipt. Report finalized, cover-approved, uploaded, queued/waitlisted and scheduled as distinct states. Mark `uploaded` only under the existing verified setup-completion rule; finalization or handing off never implies scheduling. Keep post-release cover and pinned-comment checks with their existing shared monitors, never invent a per-video automation.
 
@@ -862,9 +868,9 @@ Dan: “Remember to always do this whenever we finalize a video because if we fi
   item on the review page. "The label was easier to place" is not a reason: try a smaller chip or a corner first.
 - This extends the 2026-10-01 rule below (a horizontal clip in a vertical) to squares and to photos.
 
-## Superseded mix (2026-10-13, section at the top of this file); who and how still hold: five choices, made by Codex inside the Claude setup task (Dan, 2026-10-02)
+## Historical October 2 setup rule (owner superseded 2026-11-07; mix superseded 2026-10-25)
 
-Dan, finalizing RO-16: *"the standardized way is we do the upload and setup with Claude. Claude calls Codex within the
+Historical quote, superseded for setup ownership on November 7. Dan, finalizing RO-16: *"the standardized way is we do the upload and setup with Claude. Claude calls Codex within the
 command-line interface and uses my subscription to make the images. We don't use external models like Gemini to make any
 images. We make five variations: one from the pool shoot, one from the studio shoot, three AI-generated images of Codex's
 choice, unless I request something different."*
@@ -872,7 +878,7 @@ choice, unless I request something different."*
 - **The five:** (1) one real pool-shoot photo, (2) one real studio-shoot photo, (3 to 5) three AI-generated images, each a
   unique design of Codex's choice that sells the video's topic. Five different images and designs; same copy unless Dan asks
   for copy alternatives.
-- **Who and how:** the Claude upload and setup task (`/video-setup`, `/ad-setup`) makes them itself with
+- **Who and how, updated November 7:** the Codex setup task (`/video-setup`, `/ad-setup`) makes them itself with
   `.claude/skills/_shared/codex-image.sh --model gpt-6.1-sol --effort high`. No separate Codex task or handoff. **GPT-6.1 Sol
   at high effort is the default for every thumbnail and cover task** unless Dan names another model.
 - **No outside image models** (Gemini, Nano Banana, Seedream, FLUX). [IMAGE-GENERATION.md](IMAGE-GENERATION.md) still binds:

@@ -83,6 +83,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
 - [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers
+- [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [SixPackAbs logo kit](sixpackabs-logo-kit.md): 11-05: all logo files in sixpackabs/brand/logo/ (svg, pdf, png, jpg, favicons); gold on dark only
 - [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, no ribbon (11-05), existing logo symbol, % not "in blend"
 - [Website phone first](website-phone-first.md): 11-04: every AI designs at 390 first, then 1440; reviews open phone first
