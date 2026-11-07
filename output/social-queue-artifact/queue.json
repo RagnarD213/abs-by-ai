@@ -1,61 +1,7 @@
 {
-"generated": "2026-11-06T12:25:49+00:00",
+"generated": "2026-11-07T12:25:40+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "6007663",
-"platform": "facebook",
-"when": "2026-11-06T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
-"batch": ""
-},
-{
-"id": "6007665",
-"platform": "instagram",
-"when": "2026-11-06T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
-"batch": ""
-},
-{
-"id": "6007666",
-"platform": "tiktok",
-"when": "2026-11-06T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
-"batch": ""
-},
-{
-"id": "6007667",
-"platform": "youtube",
-"when": "2026-11-06T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
-"batch": ""
-},
-{
-"id": "5912306",
-"platform": "facebook",
-"when": "2026-11-06T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing side laterals like this. If your elbow isn't high, your delt isn't really being worked.",
-"batch": ""
-},
-{
-"id": "5912304",
-"platform": "instagram",
-"when": "2026-11-06T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing side laterals like this. If your elbow isn't high, your delt isn't really being worked.",
-"batch": ""
-},
 {
 "id": "5329625",
 "platform": "facebook",
@@ -1557,6 +1503,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "You eat healthy. You work out. The scale won't move. And it's not your metabolism.",
+"batch": ""
+},
+{
+"id": "6569388",
+"platform": "facebook",
+"when": "2027-01-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "T-bar rows are one of my favorite back exercises. Here's how to do them the right way.",
+"batch": ""
+},
+{
+"id": "6569389",
+"platform": "instagram",
+"when": "2027-01-05T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "T-bar rows are one of my favorite back exercises. Here's how to do them the right way.",
+"batch": ""
+},
+{
+"id": "6569390",
+"platform": "tiktok",
+"when": "2027-01-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "T-bar rows are one of my favorite back exercises. Here's how to do them the right way.",
+"batch": ""
+},
+{
+"id": "6569391",
+"platform": "youtube",
+"when": "2027-01-05T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "T-bar rows are one of my favorite back exercises. Here's how to do them the right way.",
 "batch": ""
 },
 {
