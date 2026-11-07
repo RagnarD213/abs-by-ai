@@ -48,8 +48,17 @@ def cmd_add(a):
 def cmd_build(a):
     reg = load(reg_path(a.setdir), [])
     imgs = [r for r in reg if os.path.exists(r["file"]) and not r.get("refused")]
-    if len(imgs) < 2 or len({r["source"] for r in imgs}) < 2:
-        raise SystemExit("need at least one codex and one google image")
+    sources = {r["source"] for r in imgs}
+    unavailable = getattr(a, "comparison_unavailable", None)
+    note = ""
+    if unavailable:
+        if not os.path.isfile(unavailable):
+            raise SystemExit("comparison-unavailable evidence file does not exist")
+        note = open(unavailable, encoding="utf-8").read().strip()
+        if not note:
+            raise SystemExit("comparison-unavailable evidence file is empty")
+    if len(imgs) < 2 or (len(sources) < 2 and not (sources == {"codex"} and note)):
+        raise SystemExit("need both sources, or Codex choices plus --comparison-unavailable evidence")
     random.shuffle(imgs)
     out = os.path.join(a.setdir, "blind"); shutil.rmtree(out, ignore_errors=True); os.makedirs(out)
     ims = [Image.open(r["file"]).convert("RGB") for r in imgs]
@@ -62,7 +71,8 @@ def cmd_build(a):
         label = f"X{i}"
         im.resize((W, H), Image.LANCZOS).save(os.path.join(out, f"{label}.jpg"), quality=93)  # no metadata carried over
         key[label] = {"source": r["source"], "original": r["file"], "sha": r["sha"], "note": r["note"]}
-    json.dump({"video": a.video, "shot": a.shot, "kind": a.kind, "built": now(), "labels": key},
+    json.dump({"video": a.video, "shot": a.shot, "kind": a.kind, "built": now(), "labels": key,
+               **({"comparison_unavailable": note} if len(sources) < 2 else {})},
               open(os.path.join(a.setdir, ".blind-key.json"), "w"), indent=1)
     print(f"{len(imgs)} neutral copies in {out}: {', '.join(sorted(key, key=lambda k: int(k[1:])))} (key hidden)")
 
@@ -110,6 +120,7 @@ p = argparse.ArgumentParser(); S = p.add_subparsers(dest="c", required=True)
 s = S.add_parser("add"); s.add_argument("setdir"); s.add_argument("--source", choices=["codex", "google"], required=True)
 s.add_argument("--file", required=True); s.add_argument("--note")
 s = S.add_parser("build"); s.add_argument("setdir"); s.add_argument("--kind", required=True); s.add_argument("--video", required=True); s.add_argument("--shot", required=True)
+s.add_argument("--comparison-unavailable", metavar="EVIDENCE_FILE", help="Allow Codex-only neutral choices when a logged comparison-provider failure prevents the normal blind test")
 s = S.add_parser("pick"); s.add_argument("setdir"); s.add_argument("--chose", required=True); s.add_argument("--words", default="")
 s = S.add_parser("scorecard"); s.add_argument("--since"); s.add_argument("--kind")
 s = S.add_parser("reveal"); s.add_argument("setdir"); s.add_argument("--label", required=True)

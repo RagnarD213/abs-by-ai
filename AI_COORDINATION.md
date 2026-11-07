@@ -1,4 +1,4 @@
-**SL13:SETUP:2026-11-07:Codex01a1b65a.** Covers underway; awaiting picks.
+**SL13:SETUP:2026-11-07:Codex01a1b65a.** Covers;sync-blocked-live-queue-files.
 
 **DS15/19 2026-11-02:** covers-picked;HQ-awaited.
 
