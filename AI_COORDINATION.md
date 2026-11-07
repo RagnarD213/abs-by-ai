@@ -29,7 +29,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**ExDemo3More:REVIEW:2026-11-07:Claude:a2f0a0f.**
 
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
