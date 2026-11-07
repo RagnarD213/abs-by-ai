@@ -21,3 +21,7 @@ New AI object-only endpoints and prompts were generated with the standing Codex 
 - New launchd worker activation hit EMFILE. Existing owned9954server was healthy; `publish_existing.py` uses the shared snapshot() implementation to publish a separate round2 subpath, preserving R1. It verifies source identity and caches all linked assets, retaining normal byte-range and player-helper behavior without restarting the service.
 
 Publish with `page_r2.py` then `publish_existing.py`, after current complete-file checks and independent report exist. Recheck links, exact served hashes, range206, native seek, silent source switches and paused/sound-ready owner handoff. No smaller review copy by default; none needed.
+
+## Original review URL repaired, November 7
+
+The original `http://127.0.0.1:9954/` still opened the R1 page with an empty video source, which the browser displayed as unable to play. The publisher now preserves that historical HTML as `index-r1.html`, caches the current R2 packet under the original source tree, and forwards the root URL to `round2/`, preserving the silent-check query. This survives later normal cache refreshes. B and both auditions played silently in the browser, their served hashes matched the checked movies, all three returned HTTP206 ranges, and native seeking worked at 0.339 and 33.562 seconds. Final handoff was paused at zero, readyState4, muted=false, no media error. No video exports changed.
