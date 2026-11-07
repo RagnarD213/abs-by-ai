@@ -1,3 +1,5 @@
+**SL13:SETUP:2026-11-07:Codex01a1b65a.** Covers underway; awaiting picks.
+
 **DS15/19 2026-11-02:** covers-picked;HQ-awaited.
 
 # Abs By AI — Coordination / Status Board
@@ -80,7 +82,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:R2:REVIEW:2026-11-07:Codex01a19c6e.** [B/A](http://127.0.0.1:9954/);player-fixed;A-picks;push463a288-pending. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+**SL-12:R3:ACTIVE:2026-11-07:Codex01a19c6e.** B-approved;Voice2/A1-frames-approved;Flow-motion/finish-A. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
