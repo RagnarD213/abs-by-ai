@@ -78,3 +78,7 @@ Dan: "better than a stick figure", so the bar for app demos is the best take, no
 - db-lunge (reverse lunge): keyframed deep bottom (Codex) plus paid 1080p down and up legs, joined at the bottom, hard cut onto the exact START match. Fixed depth, foot plant and loop ghost; still about 17 degree lean on the step and about 2 s standing between reps. Installed 68cdd00.
 - bicycle-crunch: paid 1080p side-view mirror pair, palindrome at native speed. Correct opposite elbow to knee, sharp print; hand still crosses the face at each switch, twist comes late (all 5 takes). Installed 68cdd00.
 Round 3 paid spend about $3.60 (9 paid 4 s takes), 1 Flow take. Next three: `Handoffs/handoff-20261106-exercise-demos-three-more.md`.
+
+## Round 4 (2026-11-07): Google-made start/end frames (Dan via side session)
+
+Nano Banana Pro in Flow, 0 credits, 14 images. Bicycle crunch: Google never switched the legs in an END made from its START (4 tries, 2 prompts). Lunge: with a strict "keep framing identical, no mat" clause the gym held; the front foot slid ~120 px (fixed with a Google empty-gym plate and a shift), but the gate still failed the leg proportions (shin +15%). No Google pair passed, so no paid video was made and the shipped versions stay. Detail: `Media/exercise-demos/_googleframes/google-results.txt`. Lesson: Nano Banana Pro holds a locked camera only when the prompt says so explicitly, and redraws limb proportions in big pose changes.
