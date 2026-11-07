@@ -1,0 +1,66 @@
+== diskutil ==
+   Device Identifier:         disk7s2
+   Device Node:               /dev/disk7s2
+   Whole:                     No
+   Part of Whole:             disk7
+
+   Volume Name:               Expansion
+   Mounted:                   Yes
+   Mount Point:               /Volumes/Expansion
+
+   Partition Type:            Microsoft Basic Data
+   File System Personality:   ExFAT
+   Type (Bundle):             exfat
+   Name (User Visible):       ExFAT
+
+   OS Can Be Installed:       No
+   Media Type:                Generic
+   Protocol:                  USB
+   SMART Status:              Not Supported
+   Volume UUID:               FC2FD1F3-E7ED-36EC-BC10-A067A731E9C0
+   Disk / Partition UUID:     A9AD9471-CFD2-11F0-AFE5-B07B2518731C
+   Partition Offset:          210763776 Bytes (411648 512-Byte-Device-Blocks)
+
+   Disk Size:                 24.0 TB (24000065437696 Bytes) (exactly 46875127808 512-Byte-Units)
+   Device Block Size:         512 Bytes
+
+   Volume Total Space:        24.0 TB (23999679823872 Bytes) (exactly 46874374656 512-Byte-Units)
+   Volume Used Space:         7.3 TB (7345278025728 Bytes) (exactly 14346246144 512-Byte-Units) (30.6%)
+   Volume Free Space:         16.7 TB (16654401798144 Bytes) (exactly 32528128512 512-Byte-Units) (69.4%)
+   Allocation Block Size:     262144 Bytes
+
+   Media OS Use Only:         No
+   Media Read-Only:           No
+   Volume Read-Only:          No
+
+   Device Location:           External
+   Removable Media:           Fixed
+
+   Solid State:               Info not available
+
+
+== smartctl -a -d sat ==
+smartctl 7.5 2025-04-30 r5714 [Darwin 25.5.0 arm64] (local build)
+Copyright (C) 2002-25, Bruce Allen, Christian Franke, www.smartmontools.org
+
+/dev/disk7: Type 'sat+...': Not a device of type 'scsi'
+=======> VALID ARGUMENTS ARE: ata, scsi[+TYPE], nvme[,NSID], sat[,auto][,N][+TYPE], usbasm1352r,N, usbcypress[,X], usbjmicron[,p][,x][,N], usbprolific, usbsunplus[/sat], sntasmedia[/sat], sntjmicron[,NSID][/sat], sntrealtek[/sat], jmb39x[-q[2]],N[,sLBA][,force][+TYPE], jms56x,N[,sLBA][,force][+TYPE], auto, test <=======
+
+Use smartctl -h to get a usage summary
+
+
+== smartctl -a (auto) ==
+smartctl 7.5 2025-04-30 r5714 [Darwin 25.5.0 arm64] (local build)
+Copyright (C) 2002-25, Bruce Allen, Christian Franke, www.smartmontools.org
+
+Smartctl open device: /dev/disk7 failed: Operation not supported by device
+
+== start long self-test ==
+smartctl 7.5 2025-04-30 r5714 [Darwin 25.5.0 arm64] (local build)
+Copyright (C) 2002-25, Bruce Allen, Christian Franke, www.smartmontools.org
+
+/dev/disk7: Type 'sat+...': Not a device of type 'scsi'
+=======> VALID ARGUMENTS ARE: ata, scsi[+TYPE], nvme[,NSID], sat[,auto][,N][+TYPE], usbasm1352r,N, usbcypress[,X], usbjmicron[,p][,x][,N], usbprolific, usbsunplus[/sat], sntasmedia[/sat], sntjmicron[,NSID][/sat], sntrealtek[/sat], jmb39x[-q[2]],N[,sLBA][,force][+TYPE], jms56x,N[,sLBA][,force][+TYPE], auto, test <=======
+
+Use smartctl -h to get a usage summary
+

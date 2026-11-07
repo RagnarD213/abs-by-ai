@@ -1,3 +1,4 @@
+> SUPERSEDED 2026-11-07: Dan ran scripts/seagate-health.sh himself; SMART is not readable through this USB bridge. Verdict in Docs/SEAGATE_HEALTH_20261106.md. Do not fire.
 # Seagate Expansion 22 TB health scan (Codex and Grokbot)
 
 Goal: find out whether the Seagate Expansion drive (`/Volumes/Expansion`, serial NT1H3BA5, exFAT, USB 5 Gb/s) is failing. Between 2026-11-01 and 11-03 about 400 files copied to it came out with a bad stretch near the end (same size and date, wrong bytes). Mac originals were fine. One file (`_edit_work/ro01-publish/RO01_BLOTATO.mp4`) went bad after it had passed a checksum. No kernel disk or USB errors are logged; a 24 GB write/read test passed.
