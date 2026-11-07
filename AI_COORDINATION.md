@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**ExDemo3More:REVIEW;PUSH-PENDING:2026-11-07:Claude.** a2f0a0f local. Review http://127.0.0.1:9317/; install on ship.
+
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
 **DS-78:R1:2026-11-07:Claude.**
