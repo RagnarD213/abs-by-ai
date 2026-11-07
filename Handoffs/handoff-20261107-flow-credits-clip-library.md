@@ -91,3 +91,11 @@ Rules:
 - Credits: 22,226 before and after (no video generated yet).
 - Lessons: lockstill with tight boxes leaves ghosts and seams, so gate the raw END first and box each person's whole path including shadows and reflections; Google failed far more reviews than Codex on these gag frames (scale digits, food/hands continuity, faces changing).
 - **Next:** read Dan's picks; log two-version picks with `blind.py pick b1/<ID>/blind --chose X?`; `veo.py add` each picked pair (Veo 3.1 Fast, 16:9, prompt from `idea.json` motion_prompt plus `motion-notes.txt`), up to 3 `flow-veo` agents; clipcheck + fresh reviewer per take; file keepers with `clip_library.py add --kind ai --status usable-unused`; then `sheet`. Then 9:16 versions of the best, and batch 2 from the gap list.
+
+## Progress 2 (2026-11-07, same session)
+
+- Dan approved all 18 batch-1 ideas. Video done: 17 clips filed as **A0229 to A0245** (`clip_library.py sheet` refreshed). Receipt: `Docs/FLOW_CREDITS_CLIP_LIBRARY_RECEIPT_20261128.md`.
+- Credits used: 450 of 7,000 (balance 21,776).
+- Dropped after three takes: both scale clips (garbled numbers), gym-door (morphing in a busy scene). Genetics Codex version: Flow rejects its END upload.
+- Tools for the next batch are in `~/Projects/_edit_work/CLIPLIB-FLOW/tools/` (gen_codex, prep_google, mkspec, lockgate raw-first, build_page, gen_page, take_spec, motion_gate2, mbrief2, file_keeper, file_queue). Trap: a `while pgrep -f X` wait loop matches its own command line and never ends; run chains directly with nohup.
+- **Next:** batch 2 ideas from the gap list (see receipt "Open / next"), then 9:16 versions of the best clips.
