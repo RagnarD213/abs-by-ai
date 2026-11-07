@@ -40,7 +40,8 @@ def cmd_add(a):
     ext = os.path.splitext(a.file)[1].lower() or ".png"
     dest = os.path.join(a.setdir, "originals", f"{a.source}-{h}{ext}")
     shutil.copy2(a.file, dest)
-    reg.append({"source": a.source, "file": dest, "sha": h, "note": a.note or ""})
+    reg.append({"source": a.source, "file": dest, "sha": h, "note": a.note or "",
+                **({"comparison_eligible": False} if getattr(a, "not_comparison", False) else {})})
     json.dump(reg, open(reg_path(a.setdir), "w"), indent=1)
     print(f"registered {a.source} {h} ({len(reg)} total)")
 
@@ -48,7 +49,7 @@ def cmd_add(a):
 def cmd_build(a):
     reg = load(reg_path(a.setdir), [])
     imgs = [r for r in reg if os.path.exists(r["file"]) and not r.get("refused")]
-    sources = {r["source"] for r in imgs}
+    sources = {r["source"] for r in imgs if r.get("comparison_eligible", True)}
     unavailable = getattr(a, "comparison_unavailable", None)
     note = ""
     if unavailable:
@@ -70,7 +71,8 @@ def cmd_build(a):
     for i, (r, im) in enumerate(zip(imgs, ims), 1):
         label = f"X{i}"
         im.resize((W, H), Image.LANCZOS).save(os.path.join(out, f"{label}.jpg"), quality=93)  # no metadata carried over
-        key[label] = {"source": r["source"], "original": r["file"], "sha": r["sha"], "note": r["note"]}
+        key[label] = {"source": r["source"], "original": r["file"], "sha": r["sha"], "note": r["note"],
+                      **({"comparison_eligible": False} if not r.get("comparison_eligible", True) else {})}
     json.dump({"video": a.video, "shot": a.shot, "kind": a.kind, "built": now(), "labels": key,
                **({"comparison_unavailable": note} if len(sources) < 2 else {})},
               open(os.path.join(a.setdir, ".blind-key.json"), "w"), indent=1)
@@ -83,10 +85,13 @@ def cmd_pick(a):
     chose = [c.strip() for c in a.chose.split(",") if c.strip()]
     for c in chose:
         if c not in k["labels"]: raise SystemExit(f"unknown label {c}")
-    srcs = [v["source"] for v in k["labels"].values()]
+    srcs = [v["source"] for v in k["labels"].values() if v.get("comparison_eligible", True)]
     e = {"when": now(), "video": k["video"], "shot": k["shot"], "kind": k["kind"],
          "offered": {s: srcs.count(s) for s in set(srcs)},
-         "chose": [{"label": c, "source": k["labels"][c]["source"], "sha": k["labels"][c]["sha"]} for c in chose],
+         "chose": [{"label": c, "source": k["labels"][c]["source"], "sha": k["labels"][c]["sha"]}
+                   for c in chose if k["labels"][c].get("comparison_eligible", True)],
+         "chose_non_comparison": [{"label": c, "sha": k["labels"][c]["sha"]}
+                                  for c in chose if not k["labels"][c].get("comparison_eligible", True)],
          "dan_words": a.words}
     with open(PICKS, "a") as f: f.write(json.dumps(e) + "\n")
     print(f"recorded pick {','.join(chose)} for {k['shot']} (sources not shown)")
@@ -119,6 +124,7 @@ def cmd_reveal(a):
 p = argparse.ArgumentParser(); S = p.add_subparsers(dest="c", required=True)
 s = S.add_parser("add"); s.add_argument("setdir"); s.add_argument("--source", choices=["codex", "google"], required=True)
 s.add_argument("--file", required=True); s.add_argument("--note")
+s.add_argument("--not-comparison", action="store_true", help="Include a real-photo choice in the neutral review without counting it as an AI-model offer or pick")
 s = S.add_parser("build"); s.add_argument("setdir"); s.add_argument("--kind", required=True); s.add_argument("--video", required=True); s.add_argument("--shot", required=True)
 s.add_argument("--comparison-unavailable", metavar="EVIDENCE_FILE", help="Allow Codex-only neutral choices when a logged comparison-provider failure prevents the normal blind test")
 s = S.add_parser("pick"); s.add_argument("setdir"); s.add_argument("--chose", required=True); s.add_argument("--words", default="")
