@@ -15,6 +15,15 @@ Steps (viewport about 1543x784; find controls by label if coordinates drift):
 
 Cost: Ultra showed "0 credits" for Nano Banana Pro x1 and the balance did not move across three images (24,162 before and after). No agreement or payment screens appeared. No visible mark was on the saved images with Visible watermarking OFF (the invisible SynthID mark is not visible).
 
+Lessons from the 2026-11-07 clip-library run (three agents in parallel, 30+ images, 0 credits):
+- **Never type a multi-paragraph prompt with the type action**: the first blank line submits a truncated prompt. Focus the
+  `.ProseMirror` prompt box and insert the whole text with `document.execCommand('insertText', false, TEXT)`, then click the arrow.
+- Viewport is now about 1568x741. A project can switch to a list layout (tiles left, prompts right); the newest tile is top left.
+- Two agents creating projects at the same moment collide: check the tab title shows YOUR project name before submitting.
+- The download menu needs about a 1 s wait after it opens before clicking **1K Original size**.
+- Clicking near a just-finished tile can attach it as a reference chip: check the chips before every submit.
+- ~/Downloads is shared by every session: list it before each download, copy only the one new file, delete only that file.
+
 Rules that hold from the start:
 - Same prompt text and same reference photos as the Codex twin, so the test compares models, not prompts.
 - Visible watermarking switch OFF (as for video). If a visible mark still lands on an image, report it: it would give the model away.
