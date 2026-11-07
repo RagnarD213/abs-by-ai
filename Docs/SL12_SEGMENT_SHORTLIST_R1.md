@@ -2,7 +2,7 @@ CONTENT | Keep Your Muscle SFC R1 | SL-12
 
 # Segment shortlist, November 2, 2026
 
-Status: R2 delivered for review November 3. B complete and checked,39-check delivery gatePASS; A AI voice auditions ready. New AI B-roll frames checked, Dan frame approval pending before motion. Review: http://127.0.0.1:9954/round2/ No full A, uploads or scheduling.
+Status: R3 delivered November7. B exact R2 approved. A complete30.6s1080p, selectedVoice2, checkedAI focus excerpt plus complete realcurls;39deliverychecksPASS and independentfull-filmreviewSHIP. A awaits finalapproval. Review: http://127.0.0.1:9954/ . B setup handoff prepared; no uploads/schedules. Parent-public December6 hold.
 
 Read: Handoffs/video-editing/00-RULES.md; SL-12-keep-your-muscle-shorts.md; shared VIDEO-RULES.md in full; /shorts SKILL.md in full.
 
@@ -89,3 +89,12 @@ R2 ownership journal and immutable approval hashes: `/Volumes/Extreme/_edit_work
 B source455.20–489.1 keeps complete first/last words. Native independent checks corrected actual opening centering and crop steps at underlying picture boundaries. All rejected candidates and reports are preserved. Final full-file delivery check and review checkpoint recorded in R2 production notes.
 
 R2 delivered November3: http://127.0.0.1:9954/round2/ . B33.9005s/1016frames,39checksPASS and independent exact-file review clean. A voices1/2 are checked auditions over real approved footage, not complete A; recommended1. New AI motion is not generated. Owner player paused at0/sound-ready. Project copies in `Short-form video content/Keep Your Muscle - SL-12/`. Immutable R1 locks and R2 decisions reverified.
+
+
+## November7: R3 A complete review
+
+Dan approved B, Voice2 and A1 endpoints. R3 exactA hash17286ab36fdc19c69986d217396debbdd8b816ebdc3d6de4bc7a2e3607154ae0,917frames,30.597233s. AI focus excerpt0–2.035s then complete original curls to4.071s; original voice resumes3.43677under curls. Trainingcard9.009–22.122; wholepushups22.122–30.597. All39current deliveryrowsPASS,0failed/missing/human,4declaredN/A. Freshindependent917frameauditSHIP,14/14watchimages,6/6boundariesclean. Actualbrowserplayback/seekverifiedsilent, paused0/sound-readyhandoff.
+
+Flow subscription40observedcredits, fourFastsuccesses; rejectedhand/ghost/vignette/focushunt/overshootretained. Selectedsource is PASS ONLYframes0:49; no paused/stretchedfill. Narrowerusefollowedbyrealfootagekeepsnaturalaction. FullunusedAIrange0:83remainsFAIL. No paidvideoAPI. Originalaudio/textpreserved withfull losstailand finalmuscle. Oneframecardtailfixedviaend-exclusiveoverlays. RawASR/CTCretained,onlyintendedscriptnumber/compoundnotationcanonicalized; fullcomparison97.25%. No thresholdschanged, noaudiblehumanlistenclaimed.
+
+B setuphandoff: Handoffs/handoff-20261107-sl12-approved-B-setup.md; preparednotstarted. A notapprovedascompletefilm. ParentRO01publicverificationDec6orlaterremainsrequired; dispatcherpaused.
