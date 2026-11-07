@@ -3653,15 +3653,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md`: cut \"I Ranked Every Ab Exercise From Worst To Best\" from 10/15 roll C1726 with /longform-edit. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-23-i-ranked-every-ab-exercise-from-worst-to-best.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Dan approved exact R4 and X2; setup complete, protected shared waitlist for Nov22 9AM Central, socials Nov23 noon. All assets/backups verified. Not marked uploaded until four Blotato schedules read back. Receipt Docs/RO23_SETUP_RECEIPT_20261101.md.",
+   "state": "uploaded",
+   "note": "Queued in Blotato 11-07: YouTube Sun Nov 22 9AM, socials Nov 23 noon",
    "needs": "",
    "order": 158,
-   "updated": "2026-11-01",
-   "rev": 13,
-   "syncedRev": 1,
+   "updated": "2026-11-07",
+   "rev": 14,
+   "syncedRev": 14,
    "editor": "Codex",
-   "by": "Codex"
+   "by": "Claude"
   },
   {
    "id": "RO-24",
@@ -4182,15 +4182,17 @@
    "claude": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-78.json, then execute Handoffs/video-editing/DS-78-how-to-do-chest-flies-on-the-machine.md for \"How To Do Chest Flies On The Machine\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-78.json, then execute Handoffs/video-editing/DS-78-how-to-do-chest-flies-on-the-machine.md for \"How To Do Chest Flies On The Machine\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "Verified October 23 footage on Extreme. Exact take/hook/mic map: Media/footage-index/shoot-20261023/queue-jobs/DS-78.json. Sources and exercise library are prepared. This job has not been edited, rendered, approved, uploaded or scheduled.",
    "unattended": false,
    "intakeKey": "SHOOT-20261023-3",
    "order": 180,
-   "updated": "2026-10-26T08:52:45",
-   "rev": 2,
+   "updated": "2026-11-07",
+   "rev": 3,
    "syncedRev": 0,
-   "by": "Codex"
+   "by": "Claude",
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "DS-79",

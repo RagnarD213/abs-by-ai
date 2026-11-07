@@ -27,6 +27,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-78:R1:2026-11-07:Claude.**
+
+**Exercise-demos-Codex-R1:RUNNING:2026-11-07:Codex:db-shrug/ez-bar-curl/machine-chest-press:$10:review-only.** `Media/exercise-demos/_codex3/`.
+
+
 
 **GAT-evidence:PUSH-PENDING:2026-11-06:Codex:28444bb.**
 
@@ -153,7 +158,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief/JAM 2026-11-06, Codex.** Cloud duplicate; sync needs 12-file hand merge.
+**Brief/JAM 2026-11-07, Codex.** Cloud duplicate; live jobs.json blocks sync.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
