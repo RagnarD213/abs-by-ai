@@ -1,5 +1,5 @@
 import concurrent.futures,json,subprocess,time,pathlib
-w=pathlib.Path(__file__).parent
+w=pathlib.Path('/Users/danielrose/Projects/_edit_work/sl13-setup-20261107')
 plan=json.loads((w/'generation-plan.json').read_text())
 root=pathlib.Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI')
 def run(x):

@@ -13,7 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Keep Your Muscle B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **Written 2026-11-07, start now.** B R2 approved; Codex owns cover picks and reversible setup. A remains in editing. Hold release until RO01 is confirmed public on/after December6.
 
-- [Calories Dont Matter SFL Setup](handoff-20261107-sl13-calories-dont-matter-setup.md): **Written 2026-11-07, start now.** Dan approved all three exact R2 Shorts. Codex owns covers, picks, verified backups, metadata and Blotato queue/waitlist under the November 7 rule. No SL-13 covers selected or posts scheduled yet.
+- [Calories Dont Matter SFL Setup](handoff-20261107-sl13-calories-dont-matter-setup.md): **Executing in Codex01a1b65a, 2026-11-07.** [Cover review](http://127.0.0.1:9341/) ready, waiting for three picks. Metadata and local/Extreme backups prepared; one Drive MP4 remains incomplete. No Blotato schedules/waitlist yet. Receipt: `Docs/SL13_SETUP_RECEIPT_20261107.md`. Resume existing chat, do not duplicate setup.
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
 

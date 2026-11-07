@@ -2,7 +2,7 @@ from pathlib import Path
 import sys,json,hashlib
 from PIL import Image,ImageDraw,ImageOps,ImageFilter
 import numpy as np
-ROOT=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');w=Path(__file__).parent
+ROOT=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');w=Path('/Users/danielrose/Projects/_edit_work/sl13-setup-20261107')
 sys.path.insert(0,str(ROOT/'scripts/covers/sl08-20261025'))
 import build as B
 W,H=1080,1920

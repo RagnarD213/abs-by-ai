@@ -1,7 +1,7 @@
 from pathlib import Path
 from PIL import Image,ImageDraw,ImageFont
 import json,subprocess,hashlib,html,shutil,socket
-w=Path(__file__).parent;root=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');blind=root/'.claude/skills/_shared/blind-image/blind.py'
+w=Path('/Users/danielrose/Projects/_edit_work/sl13-setup-20261107');root=Path('/Users/danielrose/Projects/Claude/Projects/Abs By AI');blind=root/'.claude/skills/_shared/blind-image/blind.py'
 rows=json.loads((w/'layout-manifest-private.json').read_text());assert len(rows)==42 and not any(r['face_hair_text_pixels'] for r in rows)
 public=root/'Short-form video content/covers/review/sl13-20261107';public.mkdir(parents=True,exist_ok=True)
 titles={'A':'Eat Protein First To Keep Muscle While Losing Fat','B':'Eat Less Without Counting Every Calorie','C':'Keep Your Steps Up While You Diet'}
