@@ -1,4 +1,4 @@
-**SL13:COVERS-REVIEW:2026-11-07:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261107.md`. Picks-pending;Drive-B-incomplete;sync-blocked-live-files.
+**SL13:COVERS-REVIEW:2026-11-07:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261107.md`;picks-pending;Drive-B-incomplete;sync-blocked-live-files.
 
 **DS15/19 2026-11-02:** covers-picked;HQ-awaited.
 
