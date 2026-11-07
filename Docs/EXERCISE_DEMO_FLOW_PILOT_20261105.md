@@ -70,3 +70,11 @@ movement accuracy on anything that is not a single symmetric in-place move.
 - **Alternating or fast cyclic moves** (mountain-climber, jumping-jack, battle-ropes, march-in-place,
   db-renegade-row, leg-swings): treat as bicycle-crunch, expect one retry and use Omni 6 s for a native cycle.
 - Budget the reviews: about 1 frame review plus 1 to 2 motion reviews per demo, so batch 10 demos per session.
+
+## Round 3 (2026-11-06): shipped all three to the app
+
+Dan: "better than a stick figure", so the bar for app demos is the best take, not a clean reviewer pass.
+- chair-squat: Flow Veo three-quarter front take, left side frozen. Installed 944ef64.
+- db-lunge (reverse lunge): keyframed deep bottom (Codex) plus paid 1080p down and up legs, joined at the bottom, hard cut onto the exact START match. Fixed depth, foot plant and loop ghost; still about 17 degree lean on the step and about 2 s standing between reps. Installed 68cdd00.
+- bicycle-crunch: paid 1080p side-view mirror pair, palindrome at native speed. Correct opposite elbow to knee, sharp print; hand still crosses the face at each switch, twist comes late (all 5 takes). Installed 68cdd00.
+Round 3 paid spend about $3.60 (9 paid 4 s takes), 1 Flow take. Next three: `Handoffs/handoff-20261106-exercise-demos-three-more.md`.

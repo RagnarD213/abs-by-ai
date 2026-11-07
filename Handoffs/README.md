@@ -16,12 +16,12 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
 
 
+- [Three more AI-Dan exercise demos (triceps extension, dumbbell fly, weighted crunch)](handoff-20261106-exercise-demos-three-more.md): **Written 2026-11-06, fire now.** Dan asked for it. Claude Opus high makes the next three app demos with paid 1080p Veo (up to $10, 5 takes each), puts the best on a review page; install only after Dan says ship.
 - [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
 
 - [Texas sales tax permit (Codex + Grokbot)](handoff-20261105-texas-sales-tax-permit-codex-grokbot.md): **Written 2026-11-05, fire now.** Dan authorized it; apply in Texas eSystems for Rose Digital Holdings LLC (taxpayer 32105235058). Codex/Grokbot do every step including SSN/EIN and signing. Then enter the permit in Shopify Taxes. Codex newest Sol medium; Grokbot same prompt.
 
 
-- [Glycine LFC Setup: Sleep Better With Glycine (RO-15)](handoff-20261106-ro15-glycine-lfc-setup.md): **In progress 2026-11-06, Codex; awaiting thumbnail pick.** [Four new mixing designs and X2](https://drive.google.com/open?id=11I27gSdB131dsbkxSSnvrrJQi8KQZzl6). After pick: release setup and Shorts registration.
 
 - [Shopify store setup (SixPackAbs)](handoff-20261104-shopify-store-setup-sixpackabs.md): **Written 2026-11-04, not started.** Dan signed up himself. Back-end plumbing now (store details, US shipping, taxes, Supliful app, draft policies, store stays locked); Dan does payments and DNS. Sonnet 5.5 medium.
 
