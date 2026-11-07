@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-11-03",
+  "updated": "2026-11-07",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4369,6 +4369,60 @@
         "/Volumes/Expansion/_edit_work/DS-37/round4/source-finished-tempo.wav",
         "--verbatim"
       ]
+    },
+    {
+      "id": "sl13-r2-a-approved",
+      "verdict": "approved",
+      "date": "2026-11-07",
+      "root": "repo",
+      "path": "Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short1_eat-protein-first.mp4",
+      "excerpt": [
+        0,
+        20
+      ],
+      "dan": "Everything is approved. Proceed to setup",
+      "sha256": "b5b5037e1c133971c9a7080f2e96c1d3e76996104ba19252e2b532ac7378cf55",
+      "bytes": 185526440,
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact-file audio PASS; shared delivery v2.6.3 PASS 39 rows; independent visual review complete.",
+      "notes": "Owner approved all three finished R2 Shorts. Keep gate receipts and honest silent QA limits. No threshold or gate changes."
+    },
+    {
+      "id": "sl13-r2-b-approved",
+      "verdict": "approved",
+      "date": "2026-11-07",
+      "root": "repo",
+      "path": "Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short2_eat-less-without-counting.mp4",
+      "excerpt": [
+        0,
+        20
+      ],
+      "dan": "Everything is approved. Proceed to setup",
+      "sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892",
+      "bytes": 148745110,
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact-file audio PASS; shared delivery v2.6.3 PASS 39 rows; independent visual review complete.",
+      "notes": "Owner approved all three finished R2 Shorts. Keep gate receipts and honest silent QA limits. No threshold or gate changes."
+    },
+    {
+      "id": "sl13-r2-c-approved",
+      "verdict": "approved",
+      "date": "2026-11-07",
+      "root": "repo",
+      "path": "Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short3_keep-your-steps-up.mp4",
+      "excerpt": [
+        0,
+        20
+      ],
+      "dan": "Everything is approved. Proceed to setup",
+      "sha256": "6dded1889c38ed4e48c86c52fbb6f6b24b68d185c7dcd8360e8aa6a854912b04",
+      "bytes": 170126005,
+      "must_pass": [],
+      "must_trigger": [],
+      "measured": "Exact-file audio PASS; shared delivery v2.6.3 PASS 39 rows; independent visual review complete.",
+      "notes": "Owner approved all three finished R2 Shorts. Keep gate receipts and honest silent QA limits. No threshold or gate changes."
     }
   ]
 }

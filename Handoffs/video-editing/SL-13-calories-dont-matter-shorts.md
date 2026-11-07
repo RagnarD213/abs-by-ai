@@ -1,6 +1,6 @@
 # SL-13: Shorts from "When Calories Don't Matter For Fat Loss" (RO-11, Claude round 4)
 
-**List 2 · shorts from a finished long-form · READY.** Read `00-RULES.md` first. Added 2026-10-09 when RO-11 was set up for release.
+**List 2 · shorts from a finished long-form · FINALIZED 2026-11-07.** Read `00-RULES.md` first. Added 2026-10-09 when RO-11 was set up for release.
 
 ## Source
 `claude edited long form content/11 - When Calories Don't Matter For Fat Loss/When Calories Don't Matter For Fat Loss | claude round 4 | 16x9 | RO-11.mp4`
@@ -36,3 +36,7 @@ short's in/out, title and parent. Send Dan the REVIEW copies. Update `00-MASTER.
 
 **Codex (GPT-6 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-13-calories-dont-matter-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: propose segments from the RO-11 master, wait for Dan's picks, cut, gate, deliver, update `00-MASTER.md`. Name this task "Calories Dont Matter SFC R1".
+
+## R2 final approval, November 7, 2026
+
+Dan: “Everything is approved. Proceed to setup”. All three selected R2 Shorts are finalized, with exact hashes in `Docs/SL13_R2_REVIEW_RECEIPT.md` and `Short-form video content/Calories Dont Matter - SL-13/Finalized R2/APPROVED_R2.json`. Setup: `Handoffs/handoff-20261107-sl13-calories-dont-matter-setup.md`. No SL-13 covers selected or posts scheduled. Earlier candidate counts and December dates above are historical; setup must use the live parent/calendar. Do not restart editing.

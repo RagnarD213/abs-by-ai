@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Calories Dont Matter SFL Setup](handoff-20261107-sl13-calories-dont-matter-setup.md): **Written 2026-11-07, start now.** Dan approved all three exact R2 Shorts. Claude Opus 5.5 high owns covers, picks, verified backups, metadata and Blotato queue/waitlist. No SL-13 covers selected or posts scheduled yet.
+
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **Written 2026-11-06, fire now.** Needs admin rights to read the drive's SMART report; Codex and Grokbot both. Claude's full file-read scan is already running.
 
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.

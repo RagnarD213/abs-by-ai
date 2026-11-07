@@ -1,6 +1,6 @@
 # Calories Dont Matter SFC R2 review receipt
 
-Delivered for review November 3, 2026. CONTENT, internally SFL. Review URL: http://127.0.0.1:9299/. Dan has not reviewed or approved these R2 files. No publishing or new metered spending.
+Delivered for review November 3, 2026. CONTENT, internally SFL. Review URL: http://127.0.0.1:9299/. Dan approved all three exact R2 files on November 7, 2026: “Everything is approved. Proceed to setup”. No publishing or new metered spending.
 
 Revision: `saved-submission-sha256:50b61ceb8648b5024a777f168365147d74207920416be225ff1fc91d1b92230d`. Sole owner: `01a19e60-cf65-7122-8c47-4d2fd124eb79`. Ownership phase complete was verified before production. Submission is applied once; resume from execution-decisions.json, never reapply a delivered revision.
 
@@ -46,7 +46,7 @@ Shared audio selftest has four historical failures from two missing Ad1 MP4 fixt
 
 ## State and saved work
 
-All three are delivered, awaiting Dan’s review. A review 33–46 s; full B and C. The edit slot is released for review. The job is delivered, not finalized/uploaded/scheduled. Final approval will require the separate setup handoff under the current cover/publishing rules.
+All three are finalized by Dan on November 7. The finalized edit queue update (rev6) was uploaded to Drive. Exact MP4/SRT delivery copies on Expansion were checksummed against Extreme masters. Google Drive media backup remains setup work. No covers selected, uploads made or schedules created. Setup handoff: Handoffs/handoff-20261107-sl13-calories-dont-matter-setup.md. Original no-delete scope preserves review copies/services.
 
 Reproducible scripts: `.claude/skills/shorts/reference/softblue-sl13/round2/`; private work: `/Volumes/Extreme/_edit_work/SL-13/round2/`. Read execution-decisions.json and RESUME.md on continuation. Protected journal/decisions remain original; mutable execution disposition is kept separately to preserve the approval manifest.
 

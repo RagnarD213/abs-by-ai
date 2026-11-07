@@ -75,12 +75,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Overhead Tricep Extensions HOLD 2026-11-02, Codex01a19df9.** X3 installed; uploads verified; Dec29 6PM Central shared waitlist,200/200. Daily top-up owns scheduling. Push pending, live shared edits. `Docs/DS63_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-13:R2:REVIEW:2026-11-03:Codex01a19e60.** [Review](http://127.0.0.1:9299/) awaits Dan;push-pending.
+**SL-13:FINALIZED:2026-11-07:Codex01a19e60.** Push-pending.
 
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:R2:REVIEW:2026-11-03:Codex01a19c6e.** [B/A](http://127.0.0.1:9954/round2/); A-voice/frame-picks;push463a288-pending. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+**SL-12:R2:REVIEW:2026-11-07:Codex01a19c6e.** [B/A](http://127.0.0.1:9954/);player-fixed;A-picks;push463a288-pending. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
