@@ -1,5 +1,5 @@
 {
-"generated": "2026-11-07T12:25:40+00:00",
+"generated": "2026-11-07T12:27:52+00:00",
 "cap": 200,
 "scheduled": [
 {
@@ -651,6 +651,15 @@
 "batch": ""
 },
 {
+"id": "6598153",
+"platform": "youtube",
+"when": "2026-11-22T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Regular crunches and regular sit-ups are at the bottom of my ab exercise list. So if they're your whole ab rou",
+"batch": ""
+},
+{
 "id": "6390173",
 "platform": "facebook",
 "when": "2026-11-23T15:00:00.000Z",
@@ -684,6 +693,33 @@
 "kind": "Video",
 "slides": 1,
 "text": "Here's how to do hamstring curls for well-balanced aesthetic legs. Line your knees up with the machine hinge, ",
+"batch": ""
+},
+{
+"id": "6598150",
+"platform": "facebook",
+"when": "2026-11-23T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
+"batch": ""
+},
+{
+"id": "6598151",
+"platform": "instagram",
+"when": "2026-11-23T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
+"batch": ""
+},
+{
+"id": "6598152",
+"platform": "tiktok",
+"when": "2026-11-23T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
 "batch": ""
 },
 {

@@ -81,7 +81,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-27:HOLD:2026-11-02:Codex01a19c79.** Cover2;Dec31-6PM-waitlist;push-pending; `Docs/DS27_SETUP_RECEIPT_20261102.md`.
 
-**RO23:HOLD:2026-11-01:Codex.** X2-approved;Nov22-9AM-waitlist;socials-Nov23-noon;captions/tags-after-release. `Docs/RO23_SETUP_RECEIPT_20261101.md`.
+**RO-23:QUEUED-Nov22:2026-11-07:Claude.**
 
 
 **DS63:PUSH-PENDING:2026-11-02:Codex01a19c75.** Finalization metadata sync only; setup indexed in Handoffs/README.md.

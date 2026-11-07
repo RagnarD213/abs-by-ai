@@ -245,7 +245,11 @@
   "added": "2026-11-01",
   "approved_release": "2026-11-22T15:00:00.000Z",
   "kitchen": false,
-  "approval_note": "Dan approved complete setup with exact R4 and X2 Nov1; preserve Nov22 9AM Central calendar date. Shared daily top-up only; four slots required."
+  "approval_note": "Dan approved complete setup with exact R4 and X2 Nov1; preserve Nov22 9AM Central calendar date. Shared daily top-up only; four slots required.",
+  "queued": {
+   "date": "2026-11-07",
+   "main": "2026-11-22T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds21-how-to-do-hammer-curls.json",
