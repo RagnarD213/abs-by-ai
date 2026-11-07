@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**FlowMusic:PICKS:2026-11-07:Claude.**a12da22
+
 
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
@@ -85,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:R3:ACTIVE:2026-11-07:Codex01a19c6e.** B-approved;Voice2/A1-frames-approved;Flow-motion/finish-A. `Docs/SL12_SEGMENT_SHORTLIST_R1.md`.
+**SL-12:R3:REVIEW:2026-11-07:Codex01a19c6e.** [A](http://127.0.0.1:9954/);B-approved;A-pick;push1dd1c5c-pending.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
