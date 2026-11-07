@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **WorkDriveOrder:PUSH-PENDING:2026-11-06:Claude.** d51e3e8 local.
 
-**ExDemoFlow:PUSH-PENDING:2026-11-06:Claude.**3172c7e
+**ExDemoFlow:PUSH-PENDING:2026-11-06:Claude.**68cdd00
 
 **SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
