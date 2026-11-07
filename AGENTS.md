@@ -278,9 +278,9 @@ When Dan asks to check out or buy something, do every step available before paym
 
 Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 
-## New engagement ads go in all four engagement campaigns, every ad group (Dan, 2026-10-18; US campaign 2026-11-03)
+## New engagement ads go in all five engagement campaigns, every ad group (Dan, 2026-10-18; US campaign 2026-11-03; US remarketing 2026-11-07)
 
-- Every new engagement ("AT ·") ad is created in all four campaigns: tier 1 `24163535721` (no longer targets the US), tier 2 `24122099676`, US only `24422704023` (ad group `201123318425`), and remarketing `24316408288`, which has two ad groups (Website visitors `200887799219`, YouTube viewers `209156230708`), so five ads in all. Same video, headlines, long headlines, descriptions. Name suffixes: `tier1`, `tier2`, `us`, `rmktg-site`, `rmktg-yt`. A headline or copy change to an existing engagement ad is applied to every instance of it across all four. Check the live account for missing instances before saying it is done. Budgets (Dan, 2026-11-03): tier 1 $20/day, US $10/day. Why the US campaign: supplements sell only in the US, and inside tier 1 Google spent 60-70% on Ireland and under 4% on the US. Detail: `Docs/YTADS.md`.
+- Every new engagement ("AT ·") ad is created in all five campaigns: tier 1 `24163535721` (no longer targets the US), tier 2 `24122099676`, US only `24422704023` (ad group `201123318425`), remarketing tier 1 `24316408288` (no longer targets the US; Website visitors `200887799219`, YouTube viewers `209156230708`) and remarketing US `24437265255` (Website visitors `201297112505`, YouTube viewers `197223280930`), so seven ads in all. Same video, headlines, long headlines, descriptions. Name suffixes: `tier1`, `tier2`, `us`, `rmktg-site`, `rmktg-yt`, `us-rmktg-site`, `us-rmktg-yt`. A headline or copy change to an existing engagement ad is applied to every instance of it across all five. Check the live account for missing instances before saying it is done. Budgets (Dan, 2026-11-03): tier 1 $20/day, US $10/day; remarketing (2026-11-07): tier 1 $10/day, US $5/day. Why the US campaign: supplements sell only in the US, and inside tier 1 Google spent 60-70% on Ireland and under 4% on the US. Detail: `Docs/YTADS.md`.
 
 ## Google Ads final URLs within ad groups (Dan, 2026-10-05)
 

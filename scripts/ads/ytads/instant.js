@@ -25,6 +25,9 @@ const TARGETS = {
   us: { campaign: '24422704023' },   // US only (Dan 2026-11-03): tier 1 no longer targets the US
   'rmktg-site': { campaign: '24316408288', adGroup: '200887799219' },
   'rmktg-yt': { campaign: '24316408288', adGroup: '209156230708' },
+  // US-only remarketing (Dan 2026-11-07): the tier 1 remarketing campaign no longer targets the US
+  'us-rmktg-site': { campaign: '24437265255', adGroup: '201297112505' },
+  'us-rmktg-yt': { campaign: '24437265255', adGroup: '197223280930' },
 };
 const CAMPAIGNS = Object.fromEntries(Object.entries(TARGETS).map(([k, t]) => [k, t.campaign]));
 const POLL_MS = 60 * 1000;

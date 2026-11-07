@@ -1,6 +1,6 @@
 # YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
 
-**Standing rule (Dan, 2026-10-18; US campaign 2026-11-03):** new engagement ads go in all four campaigns (tier 2, tier 1, US only, remarketing) and both remarketing ad groups (5 ads); copy changes apply to every instance. See `AGENTS.md`.
+**Standing rule (Dan, 2026-10-18; US campaign 2026-11-03; US remarketing 2026-11-07):** new engagement ads go in all five campaigns (tier 2, tier 1, US only, remarketing tier 1, remarketing US) and both ad groups of each remarketing campaign (7 ads); copy changes apply to every instance. See `AGENTS.md`.
 
 ## SUNDAY PAUSE (Dan 2026-09-29): newest long-form gets the traffic
 
@@ -279,6 +279,24 @@ Out With The Ab Wheel" went public with none). `feed.js` `fetchVideos()` now fal
 `/api/sixpackabs/channel.json` (YouTube Data API via the channel OAuth token, public videos only, cached 5 minutes, no
 extra quota). Railway log: "YTADS feed: RSS failed (...), using the YouTube API backup" once, then "RSS feed is back"
 when it recovers. Covers `instant.js`, `sunday.js` and the routes. Tests: `node scripts/ads/ytads/feed.test.js`.
+
+## 2026-11-07: US-only engagement REMARKETING campaign (campaign `24437265255`)
+
+Dan split remarketing the same way as tier 1: a US copy at **$5/day**, and the tier 1 remarketing campaign
+`24316408288` lost the US and went from $15 to **$10/day**. Nothing else changed. Built by
+`scripts/ads/api/dgen-us-rmktg.js --apply`; source change by `--source --apply`; read-back in
+`scripts/ads/api/dgen-ads/us-rmktg-campaign.result.json`.
+
+- Name `[ENGAGEMENT] [DGEN] [RMKTG] US ONLY | ALL CONTENT | site visitors + youtube viewers`, ENABLED, Target CPA $3
+  (campaign), goal YouTube channel subscriptions only, location United States with **PRESENCE** (as `24422704023`).
+- Ad groups copied with their own targets, in-feed + Shorts, optimized targeting off, English, the same 84 excluded
+  countries and the same audiences (so the same member, purchaser and subscriber exclusions):
+  Website visitors `201297112505` ($3, audience `361149295`, 6 ads, one PAUSED as in the source),
+  YouTube viewers `197223280930` ($2, audience `360228120`, 8 ads). Ad names say `us-rmktg-site` / `us-rmktg-yt`.
+- **Tier 1 remarketing `24316408288`:** US removed from both groups AND added as an excluded location (presence or
+  interest). Now targets Australia, Canada, Ireland, New Zealand, UK.
+- `instant.js` TARGETS gained `us-rmktg-site` and `us-rmktg-yt`, so every new video gets seven ads. The Sunday pause
+  still leaves both remarketing campaigns alone.
 
 ## 2026-11-03: US-only engagement campaign (campaign `24422704023`)
 
