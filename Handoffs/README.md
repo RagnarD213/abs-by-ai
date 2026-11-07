@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Keep Your Muscle B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **Written 2026-11-07, start now.** B R2 approved; Codex owns cover picks and reversible setup. A remains in editing. Hold release until RO01 is confirmed public on/after December6.
+
 - [Calories Dont Matter SFL Setup](handoff-20261107-sl13-calories-dont-matter-setup.md): **Written 2026-11-07, start now.** Dan approved all three exact R2 Shorts. Codex owns covers, picks, verified backups, metadata and Blotato queue/waitlist under the November 7 rule. No SL-13 covers selected or posts scheduled yet.
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
@@ -18,6 +20,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
 
 
+- [Flow credits: AI clips for the next video edits](handoff-20261107-flow-credits-ai-clips-for-next-edits.md): **Written 2026-11-07, fire now; finish by Nov 28 (Ultra drops to the $99.99 plan Nov 29).** Dan asked for it. Claude Opus high pre-makes AI clips for unedited phase 2/3 videos on up to 14,000 Flow credits; frame pairs batched for Dan.
+- [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Written 2026-11-07, fire now; finish by Nov 28.** Dan asked for it. Claude Opus high fills clip-library gaps (gags, eating, weigh-ins, gym, lifestyle) on up to 7,000 Flow credits; frame pairs batched for Dan.
 - [Codex: three AI-Dan exercise demos (shrug, EZ-bar curl, machine chest press)](handoff-20261107-codex-exercise-demos-three.md): **Written 2026-11-07, fire now.** Dan asked for it. Codex newest Sol high makes three app demos not done or owned elsewhere, paid 1080p Veo up to $10, best takes on a review page; install only after Dan says ship.
 - [Three more AI-Dan exercise demos (triceps extension, dumbbell fly, weighted crunch)](handoff-20261106-exercise-demos-three-more.md): **Written 2026-11-06, fire now.** Dan asked for it. Claude Opus high makes the next three app demos with paid 1080p Veo (up to $10, 5 takes each), puts the best on a review page; install only after Dan says ship.
 - [Gemini exercise demo test (hammer curl, floor press, hip thrust)](handoff-20261105-gemini-exercise-demo-test.md): **Written 2026-11-05, fire now.** Dan asked for it. Gemini makes start/end frames and Veo loops for three demos on the Ultra subscription, delivers to a shared Drive folder; Claude gates and reviews after.
