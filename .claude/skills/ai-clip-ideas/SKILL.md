@@ -132,3 +132,11 @@ session cap.
    carried a carved, maze-like sand texture. A full-scene drop (a duvet over a trophy) re-composed the room on all three
    END tries. Prefer ideas carried by a big, unmistakable action or prop (a coat hanger in a t-shirt, cobwebs on a
    barbell); budget at most three tries per pair, then drop it and leave the presenter on screen.
+6. **(2026-11-07, Flow-credits batch 1, 20 gym/sleep gags, 9:16, blind Codex+Google)** 40 pairs, 15 passed first review; after one
+   redraw each, 17 of 20 ideas had at least one passing pair. Codex END edits re-texture fabric (robes, sofas, shirts turn "swirly"),
+   redraw machines and sometimes the face; say "same fabric, same face, machine does not move" in every END prompt. Google tends to
+   skip the change (END = START) or grin with teeth; state the change and "lips closed" plainly. Ideas whose change is a head turn or
+   eyes closing pass most; turning a body toward something, pressing a machine, and mirror reflections failed on both models.
+   Never edit a spec after `gate.py` ran: `--verify` refuses until re-gated (then re-record the review). A Google Flow project left on
+   16:9 rotates 9:16 prompts sideways with a fake "REC" overlay: check the aspect chip before every submit. `blind.py build` needs
+   two sources (or Codex plus evidence); a Google-only survivor is shown as a plain X1, not a comparison.
