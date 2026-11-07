@@ -1,0 +1,137 @@
+[
+  {
+    "short": "A",
+    "id": "a1",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a1.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a1.png",
+    "layout": "yellow",
+    "copy": "Eat Protein / First",
+    "real": false
+  },
+  {
+    "short": "A",
+    "id": "a2",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a2.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a2.png",
+    "layout": "side",
+    "copy": "Eat Protein / First",
+    "real": false
+  },
+  {
+    "short": "A",
+    "id": "a3",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a3.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a3.png",
+    "layout": "real",
+    "copy": "Eat Protein / First",
+    "real": true
+  },
+  {
+    "short": "A",
+    "id": "a4",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a4.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a4.png",
+    "layout": "bottom",
+    "copy": "Eat Protein / First",
+    "real": false
+  },
+  {
+    "short": "A",
+    "id": "a5",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a5.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/A/a5.png",
+    "layout": "frame",
+    "copy": "Eat Protein / First",
+    "real": false
+  },
+  {
+    "short": "B",
+    "id": "b1",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b1.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b1.png",
+    "layout": "yellow",
+    "copy": "Eat Less Without / Counting Calories",
+    "real": false
+  },
+  {
+    "short": "B",
+    "id": "b2",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b2.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b2.png",
+    "layout": "side",
+    "copy": "Eat Less Without / Counting Calories",
+    "real": false
+  },
+  {
+    "short": "B",
+    "id": "b3",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b3.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b3.png",
+    "layout": "real",
+    "copy": "Eat Less Without / Counting Calories",
+    "real": true
+  },
+  {
+    "short": "B",
+    "id": "b4",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b4.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b4.png",
+    "layout": "bottom",
+    "copy": "Eat Less Without / Counting Calories",
+    "real": false
+  },
+  {
+    "short": "B",
+    "id": "b5",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b5.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/B/b5.png",
+    "layout": "frame",
+    "copy": "Eat Less Without / Counting Calories",
+    "real": false
+  },
+  {
+    "short": "C",
+    "id": "c1",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c1.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c1.png",
+    "layout": "yellow",
+    "copy": "Keep Your / Steps Up",
+    "real": false
+  },
+  {
+    "short": "C",
+    "id": "c2",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c2.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c2.png",
+    "layout": "side",
+    "copy": "Keep Your / Steps Up",
+    "real": false
+  },
+  {
+    "short": "C",
+    "id": "c3",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c3.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c3.png",
+    "layout": "real",
+    "copy": "Keep Your / Steps Up",
+    "real": true
+  },
+  {
+    "short": "C",
+    "id": "c4",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c4.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c4.png",
+    "layout": "bottom",
+    "copy": "Keep Your / Steps Up",
+    "real": false
+  },
+  {
+    "short": "C",
+    "id": "c5",
+    "prompt": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c5.txt",
+    "out": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/codex/C/c5.png",
+    "layout": "frame",
+    "copy": "Keep Your / Steps Up",
+    "real": false
+  }
+]
