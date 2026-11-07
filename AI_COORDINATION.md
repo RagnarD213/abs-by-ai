@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**US-rmktg-split:PUSH-PENDING:2026-11-07:Claude.** b6f78ed local (instant.js adds new videos to US remarketing `24437265255` once deployed). Delete after push+deploy.
+
 **DS-78:R1:2026-11-07:Claude.**
 
 **Exercise-demos-Codex-R1:RUNNING:2026-11-07:Codex:db-shrug/ez-bar-curl/machine-chest-press:$10:review-only.** `Media/exercise-demos/_codex3/`.
