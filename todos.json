@@ -419,6 +419,13 @@
       "recurring": false,
       "addedAt": "2026-11-08",
       "boardRank": 13
+    },
+    {
+      "text": "Put away groceries",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "boardRank": 14
     }
   ],
   "handoffs": [
