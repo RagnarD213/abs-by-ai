@@ -934,5 +934,47 @@
   "setup_stage": "awaiting_cover_pick",
   "kitchen": false,
   "gym": false
+ },
+ {
+  "config": "scripts/blotato/configs/sl13-short1-eat-protein-first.json",
+  "kind": "short",
+  "job": "SL-13",
+  "label": "Eat Protein First To Keep Muscle While Losing Fat",
+  "added": "2026-11-08",
+  "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio, with existing real stock cutaways",
+  "planned": "2027-01-28 18:00",
+  "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+ },
+ {
+  "config": "scripts/blotato/configs/sl13-short2-eat-less-without-counting.json",
+  "kind": "short",
+  "job": "SL-13",
+  "label": "Eat Less Without Counting Every Calorie",
+  "added": "2026-11-08",
+  "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio, with existing real stock cutaways",
+  "planned": "2027-01-30 09:00",
+  "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+ },
+ {
+  "config": "scripts/blotato/configs/sl13-short3-keep-your-steps-up.json",
+  "kind": "short",
+  "job": "SL-13",
+  "label": "Keep Your Steps Up While You Diet",
+  "added": "2026-11-08",
+  "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "studio, with existing real stock cutaways",
+  "planned": "2027-01-30 18:00",
+  "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
  }
 ]

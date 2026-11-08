@@ -1,0 +1,33 @@
+{
+  "slug": "sl13-short2-eat-less-without-counting",
+  "title": "Eat Less Without Counting Every Calorie",
+  "content_type": "organic",
+  "campaign": "shorts",
+  "hook": "You can eat less without counting every calorie. Here's how.",
+  "body": "Researchers gave a group of adults a shorter eating window. They ate about 550 fewer calories a day, and nobody counted anything. Then a yearlong study had people fast until noon, and they did just as well as the calorie counters. When you've got fewer hours to eat, you don't have to fight yourself all day.",
+  "close": "Go to AbsByAI.com.",
+  "youtube_description": "When you've got fewer hours to eat, you eat less. University of Illinois researchers gave obese adults a 4 or 6 hour eating window each day. Nobody counted calories. After two months, they were eating about 550 fewer calories a day without even trying. Then a yearlong study had one group fast until noon every day, and they did just as well as the calorie counters. That's one more reason why I fast until 2 every day.\n\nLearn more at AbsByAI.com:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=video&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting",
+  "pinned_comment": "What time do you usually eat your first meal of the day?",
+  "caption_overrides": {
+    "facebook": "You can eat less without counting every calorie. Here's how.\n\nResearchers gave a group of adults a shorter eating window. They ate about 550 fewer calories a day, and nobody counted anything. Then a yearlong study had people fast until noon, and they did just as well as the calorie counters. When you've got fewer hours to eat, you don't have to fight yourself all day.\n\nGo to AbsByAI.com.\n\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting\n\n#IntermittentFasting #FatLoss #Shorts",
+    "instagram": "You can eat less without counting every calorie. Here's how.\n\nResearchers gave a group of adults a shorter eating window. They ate about 550 fewer calories a day, and nobody counted anything. Then a yearlong study had people fast until noon, and they did just as well as the calorie counters. When you've got fewer hours to eat, you don't have to fight yourself all day.\n\nGo to AbsByAI.com.\n\nhttps://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting\n\n#IntermittentFasting #FatLoss #Shorts",
+    "tiktok": "You can eat less without counting every calorie. Here's how.\n\nResearchers gave a group of adults a shorter eating window. They ate about 550 fewer calories a day, and nobody counted anything. Then a yearlong study had people fast until noon, and they did just as well as the calorie counters. When you've got fewer hours to eat, you don't have to fight yourself all day.\n\nGo to AbsByAI.com.\n\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting\n\n#IntermittentFasting #FatLoss #Shorts",
+    "youtube": "When you've got fewer hours to eat, you eat less. University of Illinois researchers gave obese adults a 4 or 6 hour eating window each day. Nobody counted calories. After two months, they were eating about 550 fewer calories a day without even trying. Then a yearlong study had one group fast until noon every day, and they did just as well as the calorie counters. That's one more reason why I fast until 2 every day.\n\nLearn more at AbsByAI.com:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=video&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting"
+  },
+  "instagram_first_comment": "Go to AbsByAI.com: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=shorts&utm_content=sl13-short2-eat-less-without-counting",
+  "tags": "#IntermittentFasting #FatLoss #Shorts",
+  "ai_generated": false,
+  "source": "Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short2_eat-less-without-counting.mp4",
+  "main": "2027-01-30T15:00:00.000Z",
+  "keyword": "FOOD",
+  "kitchen": false,
+  "gym": false,
+  "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+  "film_approval_sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892",
+  "approved_cover": "X4",
+  "setup_note": "Dan approved exact R2 master and both selected cover layouts. Master unchanged; TikTok cover-first copy preserves original audio. Shared waitlist after parent release. No organic YouTube holding upload.",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/586cda01-80ad-4f31-9f9e-d291bc8c5ad2.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/23ba9946-b307-4873-98b2-f201b17726f1.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/424b965f-9575-4be6-8d73-c9f72b5ec3fc.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2eb9d7d1-a46c-401e-8d9c-9bfc4d6704d3.jpg"
+}
