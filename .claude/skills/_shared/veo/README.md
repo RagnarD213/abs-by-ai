@@ -1,17 +1,13 @@
-# Veo motion: subscription first (Dan, 2026-10-17)
+# Veo motion: Google subscription first (Dan, 2026-11-08)
 
-Every AI video clip (Veo motion from approved START/END frames) is generated in **Google Flow on Dan's Google AI Ultra
-credits** (upgraded from Pro to Ultra 5x, $99.99/mo, on 2026-10-20: 10,000 credits a month plus 50 a day), by a background sub-agent driving his Chrome, while the main agent keeps editing. The paid Replicate API is
-used only when Dan says **rush**, **accelerate** or **as fast as possible**, or when the credits have run out AND Dan
-has approved paying. Claude and Codex both.
+Both Claude and Codex always try Dan's existing Google AI subscription through Flow before a paid video API. Check the current UI, credits, generation/export options and actual output; old 720p/native-1080p notes do not establish a current failure. Also attempt start/end stills through the Google subscription (`../blind-image/FLOW-IMAGE-RUNBOOK.md`); preserve required Codex subscription comparisons and blind picks.
 
-Dan: *"Default to the subscription; switch to the paid API only when I say rush, accelerate, or as fast as possible. If
-the subscription credits run out, ask me before paying."*
+Paid API generation is a fallback only after a documented subscription failure for the asset, unavailability/credit exhaustion, or a failed output quality gate. State the reason and cost estimate, retain evidence and obey existing spending caps. A budget or the word "rush" alone does not bypass the subscription attempt; Dan can explicitly request an override. This supersedes the October 17/20 rush-only rules and old paid-first exercise recipes. Full rule: `../VIDEO-RULES.md`, "Google AI subscription first for video and images".
 
 ## The routine inside an editing task
 
 1. Frames approved and gated as always (`_shared/framecheck/README.md`). Nothing here relaxes frame approval.
-2. Route: `python3 .claude/skills/_shared/veo/veo.py route --said "<Dan's latest instruction>"` prints `flow` or `api`.
+2. Route to Flow first under the rule above. `veo.py route --said "<instruction>"` defaults to Flow even for rush words. After a recorded failure use `--subscription-failed "<evidence path/reason>"`; an explicit job-specific override uses `--api-request "<Dan’s words>"`. Routing does not grant spending beyond the applicable authorization.
 3. Queue each clip: `veo.py add JOBDIR A1 --start A1-start.png --end A1-end.png --prompt-file A1.txt [--aspect 9:16]`.
    It refuses frames that have not passed the frame gate and reviewer, and stages small JPEG copies for upload.
 4. **Claude:** spawn the `flow-veo` agent (`.claude/agents/flow-veo.md`, Sonnet 5 medium) with `run_in_background: true`
@@ -20,10 +16,7 @@ the subscription credits run out, ask me before paying."*
    computer use), as a parallel task if you have one.
 5. When the agent reports, run `veo.py status JOBDIR`, then the motion gate (`_shared/framecheck/clipcheck.py`) and the
    frame-reviewer on every take, exactly as for API takes. Only gated takes go on a review page.
-6. **Credits out:** the agent stops with `CREDITS_OUT`. Ask Dan once, with the clip count and the dollar estimate
-   (Veo 3.1 Fast on Replicate: $0.10 per second, $0.80 per 8 s take). Only on his yes:
-   `veo.py api JOBDIR A1 --paid-ok "<his words>"`. Rush: `veo.py api JOBDIR A1 --rush "<his words>"`.
-   Paid takes still count against the per-video generation budget (VIDEO-RULES, "Video clip generation budget").
+6. **Subscription failure:** record the attempted asset, current credit/error evidence or failed quality gate. The Flow runner reports `CREDITS_OUT` or the failure; the parent owns any API fallback. Within an existing applicable spending authorization, state the estimate and use `veo.py api JOBDIR A1 --paid-ok "Dan 2026-11-08 subscription-first fallback; evidence: <path/reason>; budget: <authorization>"`. Ask only if a new authorization or higher cap is needed. Do not use `--rush` as a shortcut. Paid takes still count against the video's generation budget.
 
 ## Which model and how many takes (Dan, 2026-10-21)
 
@@ -62,7 +55,7 @@ and there aren't per-clip generation costs."*
 
 Dan: *"We've upgraded our Google Video Generation subscription. Try it again, and do it on subscription."* The Flow balance read
 9,830 credits right after the upgrade (it had been 10 that afternoon, when four editing sessions drained the Pro allowance). At
-20 credits a Fast clip that is about 490 clips, so plan retakes on the subscription; the paid API stays for "rush" only. The
+20 credits a Fast clip that is about 490 clips, so plan retakes on the subscription; the November 8 subscription-first failure rule now controls API fallback. The
 Pro figures in the table below are history; read the live balance (`veo.py credits`) before a big batch.
 
 ## What the subscription gives (measured 2026-10-17 on Pro, the 5-clip test)

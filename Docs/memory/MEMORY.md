@@ -1,5 +1,6 @@
 - [Cut-out traps](cutout-frame-and-gap-traps.md): 10-30: one-frame decode lag + closed arm gaps; audit every shot
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
+- [Google subscription first](veo-subscription-first.md): 11-08 Claude + Codex video and image attempts on Google/Flow; paid API only after recorded subscription failure
 - [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
 - [Reaction laptop + clips](reaction-laptop-and-matching-clips.md): 10-30: laptop visible while Dan watches; panel behind his reply shows what he claims
 - [Reaction format](greenscreen-reaction-format.md): LOCKED 10-25: Bill Maher Codex R5 sequence, title, colour; no fixed green-screen AI since 10-27 (lean: Claude long-form, Codex Shorts)
@@ -8,7 +9,7 @@
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [Chroma key standard](chroma-key-standard.md): 10-21: Claude DS-40 R2 key is the house key (replaces Codex R3)
-- [AI clips: ask before paying](ai-clips-subscription-ask-before-paying.md): 10-20: subscription default; paid only on his yes, rush counts
+- [AI generation routing](veo-subscription-first.md): superseded by November 8 subscription-first rule
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
@@ -132,7 +133,6 @@
 - [Sidebar naming](video-task-sidebar-naming.md): title, type, round
 - [Shorts graphics](shorts-soft-blue-hyperframes-from-now.md): Soft Blue now
 - [Olive retired](old-graphics-retired-soft-blue-hyperframes.md): Soft Blue after Ad 8
-- [Veo subscription](veo-subscription-first.md): Flow first; API on rush
 - [Veo Quality](veo-quality-only-when-asked.md): only when Dan names it; Fast default (10-25)
 - [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
 - [Task names](video-task-names.md): Setup, V/S/Sh

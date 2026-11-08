@@ -7,7 +7,7 @@ description: Generate a photorealistic AI exercise demo video for the Abs By AI 
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
 
-> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+> **Generation routing (Dan, 2026-11-08; Claude and Codex).** Try video on Dan's Google AI subscription through Flow first, and attempt START/END stills there too. Preserve required Codex subscription comparisons. Paid image/video APIs are fallback only after a recorded subscription failure or failed output quality check, within existing spending authorization. Historical paid/native-1080p recipes below do not bypass this attempt. Read `_shared/IMAGE-GENERATION.md` and `_shared/veo/README.md`; verify current export options and actual logo quality rather than assuming Flow's old limits.
 
 Read `_shared/VIDEO-RULES.md` first.
 
@@ -22,6 +22,11 @@ When Dan approves a demo, register the `-FINAL` file in the clip library:
 `clip_library.py add FILE --kind ai --category exercise-demos --people ai-dan --status used-final --used-in "app trainer" ...`
 (`_shared/cliplib/README.md`).
 
+## Mandatory empty-background motion check (Dan, 2026-11-08)
+
+Unused equipment in an empty gym stays completely still. The selected exercise's own driven apparatus is the only equipment allowed to move, and only causally with the rep. Check the complete native-resolution unit and final narrated master with `reference/background.py VIDEO --plate CLEAN_PLATE --masks FRAME_MASK_DIR --report REPORT.json`, through the render queue for heavy checks. Masks repeat per unit for the narrated loop; they exclude ONLY the person, held props and mechanically driven apparatus at each frame, never a whole cabinet because a bar crosses it briefly. Review mask overlays independently. The gate compares each exposed pixel to its first unoccluded observation, so newly revealed background is not compared with the foreground bar that once covered it. It checks every frame and saves exact video/mask hashes and worst-frame evidence. Every raw take still receives clipcheck and the independent reviewer; apply this dense background check on raw takes when suitable masks exist, and always on the final unit and delivered review master. A failed background gate or reviewer blocks review delivery. Rebuild/freeze the actual unused background, or regenerate on the Google subscription if needed. Dan may authorize slowing a specific movement phase; that does not waive the background or anatomy checks.
+
+
 ## Fixed assets — never regenerate these
 
 | asset | path |
@@ -29,17 +34,17 @@ When Dan approves a demo, register the `-FINAL` file in the clip library:
 | **Canonical character still** (AI-Dan, black tank, white Abs By AI logo, THE gym — Dan-approved) | `Media/exercise-demos/_character/ai-dan-canonical.jpg` |
 | **Narrator voice** (clone of Dan's real workout-video voice, Dan-approved) | MiniMax voice_id **`R8_NE3EBC2N`** (`Media/exercise-demos/bw-squat/dan-real-voice-id-v2.txt`) |
 | Exercise copy (setup / execution / mistake per exercise) | `public/exercises.js` |
-| Image runner (Google-direct; do NOT use Replicate nano-banana-pro — it rate-limits) | `.claude/skills/_shared/gemini-image.js` |
+| Image route | Google subscription in Flow first; `_shared/blind-image/FLOW-IMAGE-RUNBOOK.md`. Codex subscription comparison/fallback: `_shared/codex-image.sh`. Paid API only after recorded subscription failure. |
 | Working scripts from the proven run (Veo invocation, VO gen, demucs reclone) | `Media/exercise-demos/bw-squat/*.js` |
 | Batch runners from batch 1 (multi-exercise Veo/Kling + multi-script VO) | `Media/exercise-demos/run-batch1-videos*.js`, `gen-vo-batch1.js` |
 | Static ffmpeg/ffprobe (no Homebrew on this Mac) | `Media/video_edit/bin/` |
 
 All of `Media/` is gitignored (public repo) — verify with `git check-ignore` before staging anything.
 
-## Per-exercise recipe (~$3, ~10 min)
+## Per-exercise recipe (subscription first; historical API costs are reference only)
 
-1. **START still** — `gemini-3-pro-image` via the runner, `--tier draft` (2K, $0.134),
-   `--image Media/exercise-demos/_character/ai-dan-canonical.jpg`. Generate **2 candidates**.
+1. **START still** — attempt on the Google AI subscription in Flow using
+   `Media/exercise-demos/_character/ai-dan-canonical.jpg` as the reference. Keep required Codex subscription comparisons. Generate **2 candidates**.
    Prompt pattern (see `bw-squat/start-prompt-dan.txt`): "The EXACT same man as in the reference photo —
    reproduce his face with high fidelity (same facial structure, eyes, nose, smile lines, short
    black-and-gray faded haircut, skin tone), same black tank top with the white Abs by AI logo, same
@@ -61,12 +66,7 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
 3. **QC stills yourself frame-level** (likeness vs canonical, joint angles, contact points, scene
    consistency) — Dan reviews finished videos in batch mode, but a wrong still is a 13¢ fix and a wrong
    video is $2.40, so gate hard here.
-4. **Veo legs — one for in-place moves, TWO for step-based moves** — `google/veo-3.1` on Replicate:
-   `image` = start still, `last_frame` = end still (both resized to exactly 1280x720 with
-   `sips -z 720 1280`), `resolution: '1080p'`, `aspect_ratio: '16:9'`. Exact invocation:
-   `bw-squat/run-veo-dan.js`. Motion prompt states the coupling ("feet stay planted… the camera and
-   background never move") and demands "ONE single continuous smooth movement with absolutely no
-   pauses, stutters or hesitation".
+4. **Veo legs — one for in-place moves, TWO for step-based moves** — use Google Flow on the subscription first (`_shared/veo/README.md` and `FLOW-RUNBOOK.md`), with reviewed START and END frames. Check current export resolution and logo quality. The paid Replicate `image` + `last_frame`, native-1080p recipe is fallback only after documented subscription failure. Motion prompt couples planted feet, locked camera and fixed unused background, with one continuous controlled movement.
    - **In-place moves (squat, push-up)**: ONE 6s leg; the clip usually contains a full down-up cycle
      to extract.
    - **Step-based moves (reverse lunge, split squat, step-up): TWO legs, 4s each** — descent
@@ -626,7 +626,7 @@ ab-wheel-rollout, deficit-pushup. **9 delivered as `-FINAL-CANDIDATE` for Dan's 
 `vel.py`, `joinstep.py`/`joinN.py`, `lockfile.py`, `stabilize.py`, `silx.py`, `mkplate2.py`, `sheet.py`).
 Session AI spend ≈ **$19** (est.; see pricing note).
 
-### Engine: Replicate `google/veo-3.1-fast` WITH `last_frame` at 1080p — use it by default
+### Historical API engine (fallback only after subscription failure, 2026-11-08)
 The Replicate schema for `veo-3.1-fast` accepts `image` + `last_frame` + `resolution:'1080p'` at 4/6/8 s
 (the Gemini-API fast path does NOT take a last frame). Keyframe locking survived on every leg; Dan already
 approved Fast-generated legs in batch 3. Priced at Google's list rate ($0.15/s ⇒ 4 s = $0.60, 6 s = $0.90)
@@ -634,7 +634,7 @@ versus $0.40/s for full `google/veo-3.1` — **unverified from Replicate's page 
 rates); confirm on the billing page once.** Kling v3 (`kwaivgi/kling-v3-video`) also takes `end_image`,
 so the goblet squat was keyframe-locked on Kling (5 s standard, 720p → lanczos upscale in the cut).
 
-### Google prepaid image credit DRAINED mid-batch — Replicate `google/nano-banana-pro` is the door
+### Historical prepaid-image outage (not a reason to skip the subscription attempt now)
 `gemini-image.js` started returning `HTTP 429 "Your prepayment credits are depleted"` after ~30 edits
 (4th provider-credit outage on record; the production image leg shares the key — tell Dan). Fallback that
 worked for every remaining edit: `.claude/skills/photo-edit/scripts/replicate-edit.js --model

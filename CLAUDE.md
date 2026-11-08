@@ -1,3 +1,13 @@
+## Google AI subscription first for video and images (Dan, 2026-11-08)
+
+Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
+- **Video:** always try Dan's existing Google AI subscription through Flow first. Check its current generation/export options and the actual result; an old note about Flow quality or resolution is not evidence that it fails now.
+- **Images:** make an attempt through the Google AI subscription too. Keep required Codex subscription comparisons and blind picks; Codex's subscription remains a cost-saving alternative when needed.
+- **Paid API fallback:** only after subscription generation actually fails for the requested asset, is unavailable/out of credits, or produces an output that fails the required quality checks. Save the attempt/result and specific failure before switching. A spending cap, an old API recipe, or the word "rush" alone does not skip the subscription attempt. Dan can explicitly override this rule for a particular job.
+- Fallback stays within existing task/session spending limits. State the estimate, track actual spend and explain the fallback; ask only if the applicable authorization or cap does not cover it. No subscription upgrades or credit purchases are implied.
+- This supersedes older Codex-only image routing, paid-1080p-first exercise recipes and rush-only API routing in skills, memory and unexecuted handoffs. Preserve required quality gates, source-blind reviews, real-photo pixels and existing approved assets. It does not change the live app's generation for visitors or narration/audio providers.
+
+
 # Claude Code Instructions
 
 @AGENTS.md
