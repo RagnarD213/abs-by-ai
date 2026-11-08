@@ -412,6 +412,13 @@
       "recurring": false,
       "addedAt": "2026-11-08",
       "boardRank": 12
+    },
+    {
+      "text": "Set up laundry hamper",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "boardRank": 13
     }
   ],
   "handoffs": [
