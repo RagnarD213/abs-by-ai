@@ -433,6 +433,13 @@
       "recurring": false,
       "addedAt": "2026-11-08",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take trash to curb (Sundays)",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
