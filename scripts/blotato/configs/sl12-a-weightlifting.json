@@ -31,5 +31,18 @@
     "instagram": "Here's why lifting weights is mandatory if you're taking weight loss medication.\n\nIf you're a beginner, start with five minutes of bodyweight resistance training at home every day. You don't need a gym, and you don't need any weights. Then as you progress, increase the time bit by bit. Five minutes is a great place to start.\n\nGo to AbsByAI.com: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting\n\n#WeightTraining #KeepYourMuscle #Shorts",
     "tiktok": "Here's why lifting weights is mandatory if you're taking weight loss medication.\n\nIf you're a beginner, start with five minutes of bodyweight resistance training at home every day. You don't need a gym, and you don't need any weights. Then as you progress, increase the time bit by bit. Five minutes is a great place to start.\n\nGo to AbsByAI.com: https://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting\n\n#WeightTraining #KeepYourMuscle #Shorts"
   },
-  "instagram_first_comment": "Go to AbsByAI.com: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting"
+  "instagram_first_comment": "Go to AbsByAI.com: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting",
+  "cover_selection": {
+    "round": 2,
+    "round1_rejected": true,
+    "choices": [
+      "A1",
+      "A2",
+      "A3",
+      "A4"
+    ],
+    "selected": null,
+    "source": "four different real lifting screenshots, with photographic adjustments",
+    "installed": false
+  }
 }

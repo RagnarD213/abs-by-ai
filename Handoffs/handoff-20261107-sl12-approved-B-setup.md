@@ -37,3 +37,8 @@ Wait for Dan to pick one option for each Short at http://127.0.0.1:9954/setup/ .
 ## Recovery starter prompt
 
 > Continue Keep Your Muscle SFL Setup here using Handoffs/handoff-20261107-sl12-approved-B-setup.md. A and B are approved. Reuse all setup assets, finish pending cover picks and reversible setup. Keep publishing held until parent RO01 is verified public on or after December6,2026. Do not launch another owner or schedule early. Use newest supported stable GPT, high effort (verified local catalog November8: GPT-6.1 Sol).
+
+
+### November8 cover revision2
+
+A original eight rejected; four REAL lifting screenshots now replace them: A1incline press,A2seated dumbbell press,A3rope hammercurl,A4lateralraise. User requested this count/source mix; do not generate more comparison options. Photographic local touchups only. New paired-layout manifest in setup/round2/manifest.json. B X2 selected, YouTube exact file approved and locked; revised Instagram contains all food and awaits exact approval. Selection logged once. Current same review link shows revised choices only. Do not install or upload the revised B cover until Dan approves it. All release holds persist.

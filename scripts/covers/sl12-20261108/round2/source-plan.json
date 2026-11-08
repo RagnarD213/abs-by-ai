@@ -1,0 +1,50 @@
+[
+  {
+    "id": "B0697",
+    "t": 0.6,
+    "frame": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/B0697-0.png",
+    "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0697_incline-dumbbell-press-o23-c1865-01-t01_16x9_29s.mp4",
+    "size": 3840,
+    "label": "A1",
+    "exercise": "Incline Dumbbell Press",
+    "style": "yellow",
+    "original": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/A1-original.png",
+    "sha256": "a97771b0a66def4bb533a202069947422c59e23240709ad5319934ede6756dbb"
+  },
+  {
+    "id": "B0449",
+    "t": 2.0,
+    "frame": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/B0449-2.png",
+    "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0449_dan-seated-dumbbell-overhead-press-poolside_16x9_9s.mp4",
+    "size": 1920,
+    "label": "A2",
+    "exercise": "Seated Dumbbell Press",
+    "style": "cyan",
+    "original": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/A2-original.png",
+    "sha256": "07a28a48e66bb6ea5d501480666da3e028dffdf43040cedb3b0f1e14122b35f4"
+  },
+  {
+    "id": "B0720",
+    "t": 3.0,
+    "frame": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/A3-rope-3.png",
+    "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0720_rope-hammer-curl-o23-c1877-01-t01_16x9_36s.mp4",
+    "size": 3840,
+    "label": "A3",
+    "exercise": "Rope Hammer Curl",
+    "style": "bottom",
+    "original": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/A3-original.png",
+    "sha256": "ff945318312ba4c785a657de75f75ad2db614477aa47ee454e6fbf9a6524265a"
+  },
+  {
+    "id": "B0450",
+    "t": 2.7,
+    "frame": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/B0450-3.png",
+    "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0450_dan-dumbbell-lateral-raises-poolside_16x9_8s.mp4",
+    "size": 1920,
+    "label": "A4",
+    "exercise": "Dumbbell Lateral Raise",
+    "style": "ivory",
+    "original": "/Volumes/Extreme/_edit_work/SL-12/setup/round2/sources/A4-original.png",
+    "sha256": "beabbc16520871358a5fc3c116acf6a3ac7729d4c502d28728ad1f21572e3902"
+  }
+]

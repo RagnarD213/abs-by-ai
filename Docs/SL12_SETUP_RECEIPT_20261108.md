@@ -2,7 +2,7 @@
 
 CONTENT, organic Shorts extracted from approved RO01. Setup owner: Codex, existing chat01a19c6e. Updated2026-11-08. Editing finished; setup is waiting for Dan's cover picks. This is not an upload or scheduling receipt.
 
-Review: http://127.0.0.1:9954/setup/ . Eight neutral choices per Short; Instagram profile crop/full layout plus YouTube portrait cover. Pick one label for A and one for B. Exact install files stay in the private original manifest; normalized blind copies are not installation sources. No source hints in the review or pick report.
+Current review: http://127.0.0.1:9954/setup/ . Round2: four real screenshot designs A1toA4, both platform layouts. B X2 YouTube approved, revised Instagram awaits approval. Choose one A and approve/revise B Instagram. The older eight-choice sets below are historical. Exact install files stay in the private original manifest; normalized blind copies are not installation sources. No source hints in the review or pick report.
 
 ## Approval and files
 
@@ -49,3 +49,16 @@ New keeper A0246 registered in clip library: capped pen beside dumbbells, ONLY49
 ## Code delivery
 
 Only owned scripts, configs and documents may be committed. Shared checkout has unrelated live edits; never reset, stash, adopt or force-push them. Setup scripts/configs/receipt and finalized queue records committed and pushed as22c7c5a; safe-push confirmed ahead0/behind0. Only owned changes included. Shared board/decision updates remain in the working checkout with unrelated live edits.
+
+
+## Cover revision 2, November8
+
+Dan rejected all original A options and requested four unique designs with four unique touched-up lifting screenshots, including incline bench press. A replacement set now uses actual finished library frames: A1 B0697 at0.6s incline dumbbell press; A2 B0449 at2.0s seated dumbbell press; A3 B0720 at3.0s rope hammer curl; A4 B0450 at2.7s lateral raises. Each gets a different layout and both platform versions. Source hashes, exact crops and original/touched-up comparisons are in `/Volumes/Extreme/_edit_work/SL-12/setup/round2/`. Photographic exposure/contrast/color/clarity/sharpening only, using the existing DS77 real-frame routine. No new AI image generation, invented anatomy, changed pose or clothing removal. Gym shots keep their actual tank tops; pool shots keep their actual physique. Two early source candidates were rejected during selection for weaker definition or captured hair/blur; only the final four are offered.
+
+Dan picked B X2's picture/design and approved its YouTube cover, SHA2564ef67084203de366469d926a82f3908446c2227e3f40cd327ad298edc33da722. Its exact PNG/JPEG files are preserved. He requested a revised Instagram because the profile crop lost the food. The same scene is now proportionally contained inside y560to1663, keeping all three whole plates and shaker inside the y240to1680 profile tile. No image stretch, new food generation or subject change. Deliberate narrower containment is necessary to retain the whole food spread and head with the headline. Revised Instagram requires exact-file approval before any installation. Selection logged once in the blind pick ledger; future revision approval does not count as a second comparison pick.
+
+Round2 recipes: `scripts/covers/sl12-20261108/round2/build.py` and `review.py`. Ten native platform files plus five actual profile crops. A awaits A1/A2/A3/A4 pick; B awaits revised Instagram approval only. Both video approvals, all media hashes and publishing holds remain unchanged. No cover installation, platform media upload or schedule created by this revision. Current review link stays http://127.0.0.1:9954/setup/ . Old review/media retained privately and not offered as current choices.
+
+Quality lesson: checking a cover's title, face and abs is insufficient. The actual Instagram profile crop must retain the props that explain the subject. Here that means all three food plates and the shaker; the earlier full-canvas audit missed their loss in the profile tile.
+
+Round2 final checks: independent SHIP_FOR_DAN_REVIEW, no blocking findings; all10 native hashes checked and each A source independently re-decoded at its recorded time. All17 linked review images servedHTTP200, full bytes/hash matched and decoded. Actual B profile contains three full plates and shaker. Existing default full-page browser capture confirms gallery and food layout; all11 inline images load, no horizontal overflow, no players. Temporary viewport override showed inconsistent capture dimensions, so it was reset; exact profile/270px phone stills were independently checked. Both held entries remain excluded from actual top-up pending list. No release date or schedule IDs. Round2 cover files backed up on Expansion with exact SHA256, originals retained on Extreme.
