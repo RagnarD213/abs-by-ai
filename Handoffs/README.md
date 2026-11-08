@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
 
+- [Great Again T VSL script contest: Codex entry](great-again-t-20261105/contest/CODEX-VSL-SCRIPT-CONTEST.md), 2026-11-08. **Fire now.** Codex newest Sol high writes both VSL scripts blind; Claude, Gemini and Grokbot write the same. Output `great-again-t-20261105/contest/codex/`.
 - [Great Again T VSL outlines A (V Shred model) and B (TestoGreens model)](great-again-t-20261105/vsl-outlines-AB-20261108.md), 2026-11-08. Awaiting Dan's edits in the [Google Doc](https://docs.google.com/document/d/1IeqOqZ_sSL09fvEgfA48U6PScs9V_veG1rgK11x72oM/edit); script only after he directs one.
 - [Great Again T offer and studio launch plan](great-again-t-20261105/START-HERE.md), 2026-11-05. Seven ordered briefs; Test Reload spreadsheet evidence extracted. Start with historical creative and offer economics. Greens sourcing stays separate. No spend or shoot scheduled.
 

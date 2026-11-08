@@ -12,14 +12,19 @@ Outline A models V Shred's Test Boost Max funnel. Outline B models TestoGreens M
 
 **Foods are bait, as in both winners.** V Shred names one food (almond milk) for about a minute and pivots. TestoGreens never lists its five in the video; it names them in passing at 33:30 inside the bonus pitch.
 
-**Food and ingredient claims we can stand behind:**
+**Food and ingredient claims we can stand behind** (⚠ licorice removed 2026-11-08: Great Again T's blend contains licorice extract, so it can't be a "bad food"):
 
 | Claim | Study |
 |---|---|
 | Low-fat diets: testosterone 10 to 15% lower (6 studies, 206 men) | Whittaker & Wu 2021, J Steroid Biochem Mol Biol |
 | Whole eggs beat egg whites: bigger testosterone rise, more fat lost (30 lifting men, 12 weeks) | Bagheri 2021, J Strength Cond Res |
 | 75 g of sugar: testosterone down about 25%, still down at 2 hours (74 men) | Caronia 2013, Clinical Endocrinology |
-| Licorice 7 g a day: testosterone down within a week (26% in the larger follow-up) | Armanini 1999 NEJM; 2003 follow-up |
+| Beer with dinner, 40 g alcohol a day (about 3 drinks) for 3 weeks: testosterone down 6.8% in middle-aged men | Sierksma 2004, Alcohol Clin Exp Res (Netherlands) |
+| Stats montage: average US man weighed 166.3 lb in 1960 to 1962, 199.8 lb in 2015 to 2018 | CDC NHANES |
+| Stats montage: same-age men's testosterone fell about 1.2% a year over the study (Boston men, 1987 to 2004) | Travison 2007, J Clin Endocrinol Metab |
+| Stats montage: sperm concentration fell 51.6% from 1973 to 2018 | Levine 2022, Human Reproduction Update |
+| Stats montage: 38.7% of men 45+ seen in US primary care had low testosterone (under 300) | Mulligan 2006, HIM study |
+| TRT cost: online plans about $79 to $149 a month, median all-in about $165, local clinics often $200 to $600 (affiliate sources, use "around") | 2026 price roundups |
 | Zinc-restricted men: testosterone fell about 75%; zinc-short older men given zinc: roughly doubled | Prasad 1996, Nutrition |
 | Tongkat ali: 105 men 50 to 70, 12 weeks, testosterone up vs placebo | PubMed 34262417 (Physta extract, 100 to 200 mg) |
 | Tongkat ali, stressed adults, 200 mg, 4 weeks: cortisol down 16%, testosterone up 37% | Talbott 2013, JISSN |
@@ -61,7 +66,7 @@ Outline A models V Shred's Test Boost Max funnel. Outline B models TestoGreens M
 ### The VSL (V Shred's section timing in brackets)
 **1. Hook: one food plus a shock proof (0:00 to 2:00) [V Shred 0:00 to 2:03]**
 - Open on the food inside the first 20 seconds: the fitness world's favorite "healthy" food, egg whites, the yolk in the trash. Dan in his kitchen dumping a carton of egg whites.
-- **Shock proof in the first 30 seconds, as V Shred does with the frogs:** a one-line study that makes people stop. Candidates: one "healthy" breakfast dropped testosterone 25% within hours (Caronia); a candy-aisle food cut it in a week (licorice). Different from their frogs, same job.
+- **Shock proof in the first 30 seconds, as V Shred does with the frogs:** a one-line study that makes people stop. Use: one "healthy" breakfast dropped testosterone 25% within two hours (Caronia, Massachusetts General Hospital). Different from their frogs, same job.
 - Widen in a line or two: it's the whole low-fat, "clean," sugar-for-breakfast way men were told to eat.
 - Reframe (V Shred 2:03): "This isn't about discipline. It's not about age. The rules you were given were wrong."
 - Pivot promise: some foods drain testosterone, and a few natural compounds do the opposite; "in the next few minutes I'll show you exactly what they are."
@@ -84,7 +89,7 @@ Outline A models V Shred's Test Boost Max funnel. Outline B models TestoGreens M
   - Sugar dressed as health food knocks it down within hours (Caronia card).
   - Zinc: run short and production collapses (Prasad card).
   - Stress keeps cortisol high, and high cortisol keeps testosterone down (Talbott card).
-- **The presence and status beat (V Shred 15:06):** low testosterone and high stress don't just change your body, they change how you show up at work and at home; men shrink back. Use a real, different study on hormones and status, or Dan's own observation. This is one of V Shred's strongest emotional sections.
+- **The presence and status beat (V Shred 15:06):** low testosterone and high stress don't just change your body, they change how you show up at work and at home; men shrink back. Do NOT use the University of Texas cortisol and dominance study (Mehta & Josephs 2010): it is the one V Shred quotes ("it predicts retreat"). Use Dan's own observation. This is one of V Shred's strongest emotional sections.
 - "You can't eat or sleep your way out of this alone. You need specific compounds." (V Shred 16:07: the product is necessary, not a side note.)
 - Dan's slot: did he eat the low-fat, egg-white way himself?
 
@@ -185,7 +190,7 @@ Outline A models V Shred's Test Boost Max funnel. Outline B models TestoGreens M
 - Why 3 to 6 months: the studies ran 12 weeks; results build; stopping lets it slide back (their boulder analogy, our own image).
 - Running out at the wrong time, and stock-up savings (shelf life: ⚠ confirm the expiry date with Supliful).
 - **Bonuses only on 3 and 6 bottles, each with a stated value** (theirs: $97, $19, $17):
-  - "The Testosterone Grocery List." **The 4 foods get named here, in passing, as a teaser** (low-fat yogurt and dairy, the cereal and OJ breakfast, egg-white cartons, licorice and "detox" teas), exactly where TestoGreens names its five.
+  - "The Testosterone Grocery List." **The 4 foods get named here, in passing, as a teaser** (low-fat yogurt and dairy, the cereal and OJ breakfast, egg-white cartons, the "good for your heart" drinks with dinner), exactly where TestoGreens names its five.
   - Dan's 3-exercise ab workout.
   - Optional: free time on the Abs By AI trainer (Dan's call).
 - "More and more men choose the 3-month package" (only once true; until then "the one I recommend") and the deeper reasons why.
@@ -218,7 +223,7 @@ Outline A models V Shred's Test Boost Max funnel. Outline B models TestoGreens M
 | | TestoGreens | V Shred | Outline A | Outline B |
 |---|---|---|---|---|
 | First line | "If you're a guy over 50, you need to be aware of these five popular foods" | "Are healthy foods destroying your testosterone?" | Egg whites named, plus a study shock | "4 'heart-healthy' foods in your kitchen" |
-| Shock proof | none | Atrazine frogs grew ovaries | A breakfast or candy-aisle study | none |
+| Shock proof | none | Atrazine frogs grew ovaries | One breakfast, 25% drop in two hours | none |
 | Villain | Estrogen enzyme, "the thief" | Chemicals, cortisol, "the matrix" | The starved-testosterone diet | Same, via "heart-healthy" |
 | Foods | 5, named in passing in the bonus pitch | Almond milk, then pivot | Egg whites, then pivot | 4, named in passing in the bonus pitch |
 | Messenger | Unseen doctor, voiceover | Vince to camera | Dan to camera | Voiceover, Dan's photos as proof |
