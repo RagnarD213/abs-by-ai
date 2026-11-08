@@ -1,7 +1,7 @@
 ---
-id: TBD
-post_id: TBD
-slug: TBD
+id: ervcT6G60vw
+post_id: 984
+slug: top-5-zepbound-tips-to-lose-fat-and-keep-your-muscle
 excerpt: My top 5 Zepbound tips after two months: vials over pens, how to inject, why Thursday evening, how to taper off, and why protein comes first.
 ---
 Zepbound is the most powerful fat loss tool that has ever existed for normal people. But it is a tool, and it only gets you results if you use it the right way.
@@ -69,6 +69,6 @@ The failure here is not obvious. If you under-eat protein, the scale still goes 
 
 Needles instead of pens. Inject correctly into the outer thigh. Inject Thursday evening. Ramp on slow and taper off slower. Guard your protein. If you take this medication, eat badly and never lift, you end up skinny, weak and still unhappy with the mirror.
 
-If you want a protein target and a plan built for your body, [see your future self and get the plan to make it real]({CTA}).
+If you want a protein target and a plan built for your body, [try Abs By AI free for 7 days]({CTA}).
 
 _This is general fitness information, not medical advice. Talk to your doctor before starting or changing any medication. Some clips in the video are AI-generated visualizations, and they're labeled._
