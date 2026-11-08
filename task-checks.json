@@ -11,7 +11,8 @@
     "assistant::Make bed",
     "assistant::Put away groceries",
     "assistant::Tidy bathrooms",
-    "assistant::Take out trash"
+    "assistant::Take out trash",
+    "assistant::Take trash to curb (Sundays)"
   ],
   "log": {
     "health::Shower": [
@@ -249,6 +250,7 @@
     "assistant::Make bed": "2026-11-08",
     "assistant::Put away groceries": "2026-11-08",
     "assistant::Tidy bathrooms": "2026-11-08",
-    "assistant::Take out trash": "2026-11-08"
+    "assistant::Take out trash": "2026-11-08",
+    "assistant::Take trash to curb (Sundays)": "2026-11-08"
   }
 }
