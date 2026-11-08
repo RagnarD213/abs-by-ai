@@ -23,13 +23,13 @@
 
 ## The script
 
-### 1. Hook (0:00 to 3:41) [V Shred 0:00 to 3:04]
+### 1. Hook (0:00 to 3:44) [V Shred 0:00 to 3:04]
 
 [FIRST FRAME: Dan in his kitchen, holding a plate to camera: an egg-white omelet, a tall glass of orange juice, a bowl of granola with flavored yogurt.]
 
 This "healthy" breakfast can knock out a quarter of your testosterone in two hours.
 
-Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Two hours later, their testosterone was down about 25 percent. And it was still down when the test ended. And for most guys, that's not one bad morning. It's every morning.
+Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Two hours later, their testosterone was down about 25 percent. And it was still down when the test ended. And for most guys, that's not one bad morning. It's every morning. A quarter of the hormone behind your energy, your muscle and your drive, gone before lunch.
 
 [STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
 
@@ -47,23 +47,25 @@ But the sugar isn't even the worst thing on this plate.
 
 [Dan cracks an egg, tips the white into the pan and drops the yolk in the trash.]
 
-That yolk is where the cholesterol is. And cholesterol is what your body makes testosterone out of. Every morning, millions of men are throwing their testosterone in the trash.
-
-When researchers put 30 lifters on the same 12-week program, the guys eating whole eggs got a bigger rise in testosterone and lost more fat than the guys eating egg whites. Same workouts. The only difference was the yolk.
+That yolk is where the cholesterol is. And cholesterol is what your body makes testosterone out of. Every morning, millions of men are throwing their testosterone in the trash. In one 12-week study, lifters eating whole eggs got a bigger testosterone rise than lifters eating egg whites.
 
 [STUDY CARD: Bagheri et al., Journal of Strength and Conditioning Research, 2021.]
 
-And if you're worried about your heart, here's something nobody told you. In 2015, the government quietly dropped its old daily limit on cholesterol. But the egg-white cartons are still on the shelf, and the heart is still on the cereal box.
+And if you're worried about your heart: in 2015 the government quietly dropped its old daily limit on cholesterol. The egg-white cartons are still on the shelf anyway.
 
 [CARD: 2015 to 2020 Dietary Guidelines for Americans removed the 300 mg daily cholesterol limit.]
 
-And the biggest fix isn't on this plate at all. I'll get to that in a minute.
+And the biggest fix isn't on this plate at all. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. I'll show you exactly what it is.
 
-Because first, here's the part that should make you angry.
+But first, here's what should scare you. A man your age today has less testosterone than a man your age had in 1987. Researchers in Boston measured it: same age, about 1 percent lower for every year that passed, 17 years straight. That's not aging. Something changed. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years this breakfast took over America.
+
+[STUDY CARD: Travison et al., J Clin Endocrinol Metab, 2007, Massachusetts Male Aging Study, 1987 to 2004.]
+
+[STUDY CARDS: Araujo et al., J Clin Endocrinol Metab, 2011 (meta-analysis, low testosterone and mortality); Ding et al., JAMA, 2006 (testosterone and type 2 diabetes in men).]
 
 [B-ROLL: the 1992 food pyramid; 1990s "fat-free" packaging; a carton of egg whites; a cereal box with a heart on it.]
 
-You didn't invent this breakfast. You were sold it. In 1992 the government's food pyramid told you to build your diet on bread, cereal, rice and pasta, six to eleven servings a day, and to use fat "sparingly." And the food companies jumped all over it. They pulled the fat out of everything and poured in sugar so it would still taste like something. Fat-free yogurt. Egg whites in a carton. "Heart-healthy" cereal.
+Because you didn't invent this breakfast. You were sold it. In 1992 the government's food pyramid told you to build your diet on bread, cereal, rice and pasta, six to eleven servings a day, and to use fat "sparingly." The food companies pulled the fat out of everything and poured in sugar. Fat-free yogurt. Egg whites in a carton. "Heart-healthy" cereal.
 
 And here's what that did to a whole generation of men, step by step.
 
@@ -71,47 +73,31 @@ And here's what that did to a whole generation of men, step by step.
 
 One. The wrong food starves your body of the raw materials it makes testosterone from.
 
-Two. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is what gives a man a soft chest. So the softer you get, the faster you get softer.
+Two. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is the hormone that grows breast tissue. That soft chest you keep covered at the pool? That's where it comes from. So the softer you get, the faster you get softer.
 
 [STUDY CARD: fat tissue converts testosterone to estradiol through aromatase; Cohen, Medical Hypotheses, 1999. Verify a current review before filming.]
 
-Three. Your stress hormone, cortisol, sits on whatever's left. The job, the bills, the bad sleep keep it high all day, every day. And when cortisol is high, testosterone stays low.
+Three. Your stress hormone, cortisol, sits on whatever's left. It's the hormone behind the 3 a.m. wake-ups and the short fuse with your family. When cortisol is high, testosterone stays low. Remember that one. It's the one you can't eat your way out of.
 
 Starved, converted and stressed. I call it Starved T.
 
 [ON SCREEN: STARVED T]
 
-And researchers in Boston measured men all through the late '80s and '90s. Every year, men the same age had less testosterone than the year before. The same years that way of eating took over the country.
-
-And this isn't just about your waistline. Low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early.
-
-[STUDY CARDS: Araujo et al., J Clin Endocrinol Metab, 2011 (meta-analysis, low testosterone and mortality); Ding et al., JAMA, 2006 (testosterone and type 2 diabetes in men).]
-
 So if you've been eating clean, working out and still getting softer every year, it's not your fault. You did exactly what you were told, and what you were told was wrong.
 
-Now, fixing your plate fixes the first part of Starved T. And after 40, even the perfect breakfast comes up short, because your body gets worse at turning those raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
+[Cut: Dan to camera.]
 
-That's why the most important thing I found isn't in your fridge. It's a natural compound you won't find in any grocery store in America. In one study, stressed-out adults took it for four weeks. Their stress hormones dropped 16 percent. And their testosterone went up 37 percent.
-
-It goes straight after the part of Starved T that food can't touch.
-
-Stay with me, and I'll show you exactly what it is, the compounds that work with it, and the simple daily routine that puts them all together.
-
-### 2. Who's talking (3:41 to 4:23) [V Shred 3:04]
-
-My name is Dan Rose. The YouTube channel I built, SixPackAbs.com, has over 4 million subscribers. I went from 200 pounds, doing everything "right," to abs at 41. And I've gone through the research behind every claim in this video. I'll put every study on the screen so you can check it yourself.
+My name is Dan Rose. The YouTube channel I built, SixPackAbs.com, has over 4 million subscribers. I went from 200 pounds, doing everything "right," to abs at 41. And every study I mention is on the screen so you can check it.
 
 [DAN: true as written only if the way you ate was part of what changed. The script never says the eggs or the booster alone got you lean; keep it that way.]
 
 And this isn't just for young guys. Some of the most important research I'm going to show you was done on men in their 50s, 60s and 70s.
 
-And what Starved T is costing you is a lot more than your waistline.
+And here's what Starved T looks like in real life.
 
-### 3. What's happening to you (4:23 to 6:31) [V Shred 4:07 to 6:13]
+### 2. What it's costing you (3:44 to 4:55) [V Shred 3:04 to 6:13]
 
-You buy your jeans a size bigger and tell yourself it's the brand. You see a picture of yourself from a family trip and you don't recognize the guy with the gut. You used to leave the gym pumped. Now you leave it sore, and nothing in the mirror changes.
-
-Ten pounds used to come off in a month when you got serious. Now you eat clean for weeks and the scale doesn't move.
+You buy your jeans a size bigger and tell yourself it's the brand. You see a picture from a family trip and don't recognize the guy with the gut. Ten pounds used to come off in a month when you got serious. Now you eat clean for weeks and the scale doesn't move.
 
 By eight o'clock you're on the couch, and that's it for the night. Your wife or your girlfriend gives you that look, and you're too tired to do anything about it. Or you stopped making the first move a long time ago.
 
@@ -121,17 +107,27 @@ That was me at 200 pounds. My energy, my drive in the bedroom, my body, all of i
 
 [CLIENT STORY: Dan inserts the best-fitting real client story here, about 30 seconds. Model: V Shred 5:08, a man who was embarrassed to take his shirt off.]
 
-And I've heard some version of that story from more men than I can count. Different names. Same belly. Same tired. Same quiet bedroom.
+I've heard some version of that story from more men than I can count. Different names. Same belly. Same tired. Same quiet bedroom. And somewhere along the way, you start believing this is just what getting older feels like.
 
-And it gets in your head. You stop going after things. You let stuff slide you never would have let slide 10 years ago. And somewhere along the way you start believing this is just what getting older feels like.
+It's not. And this isn't just about looking good with your shirt off. It's about being around, and being strong, for your family, your kids, and one day your grandkids.
 
-It's not. So this isn't just about looking good with your shirt off. It's about being around, and being strong, for your family, your kids, and one day your grandkids.
+### 3. What food can't fix (4:55 to 6:30) [V Shred 2:03 and 16:07: the compounds promise]
+
+Now, fixing your plate fixes the first part of Starved T. But after 40, even the perfect breakfast comes up short, because your body gets worse at turning raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
+
+That's why the most important thing I found isn't in your fridge. It's that natural compound I told you about. It's not a food, and you can't get it from anything on your plate. Remember that 37 percent? That was 63 stressed-out adults dealing with the same kind of everyday stress I just described. And it took four weeks.
+
+[STUDY CARD: Talbott et al., Journal of the International Society of Sports Nutrition, 2013. 63 adults, placebo-controlled, 4 weeks; salivary cortisol down 16%, testosterone up 37%.]
+
+It goes straight after the part of Starved T that food can't touch, and it works with two other compounds that go after the rest.
+
+Stay with me, and I'll show you exactly what it is, the compounds that work with it, and the simple daily routine that puts them all together.
 
 And imagine what happens when your body finally gets what it needs. You're up before the alarm. No two o'clock crash. Your workouts start working again, and that belly finally starts going down. And your drive comes back. All of it. I'll leave it at that.
 
-And that compound I told you about, the one you won't find in any grocery store, is how you get there. I'm going to show you exactly what it is. And it matters more right now than it ever has, because of what's happening to men across this whole country.
+And that compound is how you get there. And it matters more right now than it ever has, because of what's happening to men across this whole country. Look at these numbers.
 
-### 4. The numbers (6:31 to 8:03) [V Shred 6:13 to 7:38]
+### 4. The numbers (6:30 to 7:35) [V Shred 6:13 to 7:38]
 
 Three numbers show you how bad it's gotten.
 
@@ -153,7 +149,7 @@ Four out of 10. Look around the next time you're at a ballgame.
 
 This isn't normal aging. This is a generation of men that's heavier and lower in testosterone than their own fathers were at the same age. Something changed. So what happened? And what do you do about it?
 
-### 5. Starved T (8:03 to 15:58) [V Shred 7:38 to 17:10]
+### 5. Starved T (7:35 to 15:34) [V Shred 7:38 to 17:10]
 
 It starts with killing the biggest myth in fitness. Most guys think that if they eat clean and train hard, their testosterone will take care of itself.
 
@@ -233,13 +229,13 @@ So if your fire's been out lately, if you've been showing up as a smaller versio
 
 And fixing it is simpler than you think. You give your body the raw materials back, and you get the stress off the brakes. When you do that, testosterone can start coming back. Energy comes back. Drive comes back. The belly finally starts moving again, because your workouts actually start working.
 
-But you can't just eat your way out of this. Fixing your diet helps, and here's step one, starting tomorrow morning: eat the whole egg, put real fat back on your plate, and get the sugar out of your breakfast. But food alone can't do it all after 30. You can't eat your way out of a stressed-out life. Most guys aren't going to eat oysters every day. And the most powerful compound I'm going to show you isn't a food at all. You can't buy it at any grocery store in America.
+But you can't just eat your way out of this. Fixing your diet helps, and here's step one, starting tomorrow morning: eat the whole egg, put real fat back on your plate, and get the sugar out of your breakfast. But food alone can't do it all after 30. You can't eat your way out of a stressed-out life. Most guys aren't going to eat oysters every day. And the most powerful compound I'm going to show you isn't a food at all. You won't find it in the meat counter or the produce aisle, and you can't get it from anything on your plate.
 
 You need compounds made for exactly this job. Over the last several years, researchers have zeroed in on a handful of natural compounds that do more than push testosterone up. They fix the environment that's been starving it. They give your body the raw materials, they help bring stress hormones down, and they help your body start making and using its own testosterone again.
 
 And I'm going to show you the three that matter most.
 
-### 6. The three heroes (15:58 to 18:57) [V Shred 17:10 to 21:21]
+### 6. The three heroes (15:34 to 18:33) [V Shred 17:10 to 21:21]
 
 Number one is tongkat ali.
 
@@ -283,7 +279,7 @@ So that's the lineup. Tongkat ali gets the stress off the brakes and supports yo
 
 Each one targets a different part of Starved T. And together, they do something most testosterone boosters never even try to do. They go after the cause, not just the number.
 
-### 7. The product (18:57 to 21:34) [V Shred 20:15 to 23:28]
+### 7. The product (18:33 to 21:10) [V Shred 20:15 to 23:28]
 
 So let me show you how I put this into something you can actually use every day, because I built exactly that.
 
@@ -325,7 +321,7 @@ And here's the part I want you to know. I don't just sell this stuff. I've taken
 
 It's two tablets, once a day. That's it.
 
-### 8. A few weeks from now (21:34 to 22:51) [V Shred 23:28 to 24:30]
+### 8. A few weeks from now (21:10 to 22:27) [V Shred 23:28 to 24:30]
 
 Before I tell you what it costs, I want you to picture what this actually means for your life.
 
@@ -343,7 +339,7 @@ And at home? Let's just say she's noticed. I'll leave it at that.
 
 I'm not hyping you up. That's simply what it feels like when your body has what it needs to make you feel like a man again.
 
-### 9. The price (22:51 to 25:17) [V Shred 24:30 to 26:43]
+### 9. The price (22:27 to 24:53) [V Shred 24:30 to 26:43]
 
 So here's how to get it.
 
@@ -377,7 +373,7 @@ So when you tap the button below, you'll see all three packages on the next page
 
 [JANUARY VERSION: "But this January price ends on January 31st. On February 1st it goes back to the regular price. So if you want the sale, now's the time."]
 
-### 10. Guarantee and close (25:17 to 27:00) [V Shred 26:43 to 28:19]
+### 10. Guarantee and close (24:53 to 26:36) [V Shred 26:43 to 28:19]
 
 And you can't lose on this. Every order is covered by a 365-day, full money-back guarantee. Take Great Again T every day. Watch your energy, your focus and your drive. Watch what happens in the mirror. And if for any reason you're not happy, even if every bottle is empty, contact our team any time in the next year and you get every dollar back. No questions asked.
 
@@ -404,6 +400,7 @@ Thanks for watching. I can't wait to hear how it goes.
 1. **Chosen (a claim about the thing on screen, then first-person proof):** "This 'healthy' breakfast can knock a man's testosterone down about 25 percent in two hours. I know, because when I weighed 200 pounds, I ate like this almost every morning."
 2. **The viewer's own morning:** "The 'healthy' breakfast you ate this morning may have cut your testosterone by a quarter before you even got to work." (Dan holding the glass of orange juice; then the study, then the 200 pounds with the photo on screen within 10 seconds.)
 3. **Blames the food, Dan's word:** "Egg whites are one of the stupidest 'health foods' ever sold to men. The part you throw in the trash is the part your body makes testosterone out of." (Then the 200 pounds, then the breakfast study.)
+4. **Yolk first (test against take 1):** open on the yolk dropping into the trash: "Every morning, millions of men throw their testosterone in the trash." Then the plate and the 25 percent study.
 
 ## Section map against the model
 

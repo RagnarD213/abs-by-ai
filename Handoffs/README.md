@@ -16,6 +16,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
 
+- [Great Again T VSL scripts, Claude's entry](great-again-t-20261105/contest/claude/), 2026-11-08. Done; awaiting Dan's review and his [DAN:] blanks (client stories, breakfast confirm, story details, Supliful facts). [Script A, V Shred model](https://docs.google.com/document/d/17kgIoKQRvtCl-JmV2oMKdZYSWmWvXnqgElaEGQurH84/edit) · [Script B, TestoGreens model](https://docs.google.com/document/d/1rT0UONP1u5ZAVG54oYeBiK9_TvrbVKpY20CxWg-WvJ0/edit).
 - [Great Again T VSL script contest: Gemini and Grokbot entries](great-again-t-20261105/contest/GEMINI-GROKBOT-VSL-SCRIPT-CONTEST.md), 2026-11-08. **Fire now.** Self-contained package in a shared Google Doc; starter prompts inside.
 - [Great Again T VSL script contest: Codex entry](great-again-t-20261105/contest/CODEX-VSL-SCRIPT-CONTEST.md), 2026-11-08. **Fire now.** Codex newest Sol high writes both VSL scripts blind; Claude, Gemini and Grokbot write the same. Output `great-again-t-20261105/contest/codex/`.
 - [Great Again T VSL outlines A (V Shred model) and B (TestoGreens model)](great-again-t-20261105/vsl-outlines-AB-20261108.md), 2026-11-08. Awaiting Dan's edits in the [Google Doc](https://docs.google.com/document/d/1IeqOqZ_sSL09fvEgfA48U6PScs9V_veG1rgK11x72oM/edit); script only after he directs one.

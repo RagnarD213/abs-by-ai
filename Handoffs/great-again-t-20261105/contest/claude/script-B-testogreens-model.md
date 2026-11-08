@@ -12,7 +12,7 @@ A bare page: the headline, the video, no buy button until the video reveals the 
 
 ## The script
 
-### 1. Hook (0:00 to 1:48) [TestoGreens 0:00 to 1:00]
+### 1. Hook (0:00 to 2:01) [TestoGreens 0:00 to 1:00]
 
 [FIRST FRAME: extreme close-ups of little red heart logos and the words "heart healthy" on food packaging. Product names stay out of frame. Each close-up lands on a beat of the first line.]
 
@@ -34,7 +34,7 @@ So how can the foods that are supposed to protect your heart be draining your te
 
 [ON SCREEN, building one line at a time: 1. STARVED. 2. CONVERTED. 3. STRESSED.]
 
-So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, the belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that, and estrogen is what gives a man a soft chest. And three, your stress hormone, cortisol, sits on whatever's left.
+So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, the belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that, and estrogen is the hormone that grows breast tissue. That's where a man's soft chest comes from. And three, your stress hormone, cortisol, sits on whatever's left.
 
 [STUDY CARD: fat tissue converts testosterone to estradiol through aromatase; Cohen, Medical Hypotheses, 1999. Verify a current review before filming.]
 
@@ -42,13 +42,33 @@ Starved, converted and stressed. I call it Starved T.
 
 [ON SCREEN: STARVED T]
 
-I'm Dan Rose. In all my years in fitness, building SixPackAbs.com into a YouTube channel with over 4 million subscribers, it's the most important thing I've learned.
+I'm Dan Rose. I built SixPackAbs.com into a YouTube channel with over 4 million subscribers, and Starved T is the most important thing I've learned.
 
-### 2. What it's doing to men (1:48 to 2:57) [TestoGreens 1:00 to 2:06]
+[Cut: Dan now, 41, shirt off, abs, full screen. Then, as its own full screen: Dan's real photo at his heaviest.]
+
+That's me at 41. And that's me at my heaviest, following every "healthy" rule in the book.
+
+### 2. Dan's story (2:01 to 2:57) [TestoGreens 3:10 to 6:18, shortened and moved up: see section map]
+
+I was sure I was doing my body a favor. I was working out. I was trying to eat right. At least one of the four foods I'm going to name was on my plate every single morning.
+
+[DAN: the scene below uses only what you told me (hitting 200 at 5'6" and looking in the mirror). Add one true detail of that moment if you have one.]
+
+And then I stepped on the scale and saw a number I never thought I'd see. 200 pounds. At five foot six, that isn't a little extra weight. That's fat. And I was in the gym, eating "clean," getting fatter and weaker anyway. My energy, my drive in the bedroom, my body, all of it slipping.
+
+So I started digging. I stopped reading the magazines and the food labels and started reading the actual studies. Food got me started. I changed what I ate, and my body started responding. But every study I read kept pointing past the plate, to the one part of Starved T no food can fix.
+
+[DAN: one short line on what actually changed is fine, but keep it brief: reviewers found a longer list sells a free fix. Never suggest one change alone did it.]
+
+And I'm not the only one.
+
+[CLIENT STORY, OVER 50: Dan inserts a real client in his 50s or 60s here, about 30 to 45 seconds, with a before photo if he has one: what he tried, what didn't work, what changed. Real people and real results only. Reviewers' top fix for B: men over 50 need to see a man their age.]
+
+### 3. What it's doing to men (2:57 to 4:28) [TestoGreens 1:00 to 2:06]
 
 [B-ROLL: a man in his 50s at his desk, rubbing his eyes at 3 p.m.; the same man pulling his belt a notch looser.]
 
-Because when researchers tested more than 2,000 men aged 45 and up in regular doctors' offices across America, almost 4 out of 10 had low testosterone. And most of them had no idea.
+And he's not the only one either. When researchers tested more than 2,000 men aged 45 and up in regular doctors' offices across America, almost 4 out of 10 had low testosterone. And most of them had no idea.
 
 [STUDY CARD: Mulligan et al., HIM study, 2006. 38.7% of men 45+ below 300 ng/dL.]
 
@@ -62,21 +82,19 @@ At 50, this isn't about your waistline anymore. It's about being around, and bei
 
 And this isn't a young man's problem. Some of the most important research I'm going to show you was done on men in their 50s, 60s and 70s.
 
-[CLIENT STORY, OVER 50: Dan inserts a real client in his 50s or 60s here, about 30 to 45 seconds, with a before photo if he has one: what he tried, what didn't work, what changed. Real people and real results only. Reviewers' top fix for B: men over 50 need to see a man their age.]
+So a lot of men start testosterone shots. And here's what most of them aren't told. When testosterone goes in from the outside, your body shuts down its own. Your testicles can shrink. Your sperm production can stop. And stop the shots, and it can take months for your body to start making its own again. Shots replace what your body makes. They don't fix why it stopped making it.
 
-So a lot of men start testosterone shots. And here's what most of them aren't told. When testosterone goes in from the outside, your body shuts down its own. Your testicles can shrink. Your sperm production can stop. And stop the shots, and it can take months for your body to start making its own again. You can't fix a starving body by forcing hormones into it.
-
-### 3. What food can't fix (2:57 to 3:40) [TestoGreens 2:06 to 3:10]
+### 4. What food can't fix (4:28 to 5:04) [TestoGreens 2:06 to 3:10]
 
 So if the problem is that your body is starving, the answer is to feed it. But after 40, your body gets worse at turning raw materials into testosterone, so you can fix your plate and still come up short. And no plate on earth fixes stress.
 
-That's why the most important thing I found isn't in your fridge. It's a natural compound you won't find in any grocery store in America. In one study, stressed-out adults took it for four weeks. Their stress hormones dropped 16 percent, and their testosterone went up 37 percent.
+That's why the most important thing I found isn't in your fridge. It's a natural compound. It's not a food, and you can't get it from anything on your plate. In a placebo-controlled study of 63 stressed-out adults, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent.
 
-[STUDY CARD: Talbott et al., Journal of the International Society of Sports Nutrition, 2013.]
+[STUDY CARD: Talbott et al., Journal of the International Society of Sports Nutrition, 2013. 63 adults, placebo-controlled, 4 weeks.]
 
-### 4. The easy way (3:40 to 4:39) [TestoGreens 2:06 to 3:10]
+### 5. The easy way (5:04 to 6:10) [TestoGreens 2:06 to 3:10]
 
-And it's simpler than you'd think, because you're not forcing anything. You're giving a starved body back what it's been missing.
+And it's simpler than you'd think. You're not replacing anything. You're giving a starved body back what it's been missing.
 
 [DAN'S CALL before filming: TestoGreens says "No need to diet, exercise, or waste time in the waiting room at the doctor's office." Proven line, but Dan is a fitness brand. Default below is the softer version.]
 
@@ -86,33 +104,15 @@ Now think about six weeks from now. You're awake before the alarm, and you actua
 
 Your belt goes back a notch. Then another one. That gut you've been hiding under loose shirts starts to flatten out.
 
-The weights at the gym start going up again instead of down, and guys at the gym start asking what you're doing. You walk into work sharp, and you're the one making the calls.
+You carry the groceries in one trip. You get down on the floor with the grandkids and get back up without a grunt. You walk into work sharp, and you're the one making the calls.
 
 And your drive is back. The kind your wife notices. I'll leave it at that.
 
 That's what happens when a starved body finally gets fed.
 
-[Cut: Dan now, 41, shirt off, abs, full screen. Hold two seconds.]
+Stick with me, and I'll show you that compound, the one thing I found that you can't get from your plate. And before this video is over, I'll name all four of those foods.
 
-### 5. Dan's story (4:39 to 5:56) [TestoGreens 3:10 to 6:18, shortened: see section map]
-
-That's me now, at 41. And not that long ago, I looked nothing like this.
-
-[DAN'S REAL "FAT PICTURE," full screen.]
-
-I was sure I was doing my body a favor. I was working out. I was trying to eat right. Every "healthy" rule in the book, exactly the way I was told. At least one of the four foods I'm going to name was on my plate every single morning.
-
-[DAN: the scene below uses only what you told me (hitting 200 at 5'6" and looking in the mirror). Add one true detail of that moment if you have one.]
-
-And then I stepped on the scale and saw a number I never thought I'd see. 200 pounds. At five foot six, that isn't a little extra weight. That's fat. And I was in the gym, eating "clean," getting fatter and weaker anyway. My energy, my drive in the bedroom, my body, all of it slipping.
-
-So I started digging. I stopped reading the magazines and the food labels and started reading the actual studies. Food got me started. I changed what I ate, and my body started responding.
-
-[DAN: one short line on what actually changed is fine, but keep it brief: reviewers found a longer list sells a free fix. Never suggest one change alone did it.]
-
-Stick with me, and I'll show you that compound, the one thing I found that no grocery store sells. And before this video is over, I'll name all four of those foods.
-
-### 6. It's not your age (5:56 to 7:08) [TestoGreens 6:18 to 7:20]
+### 6. It's not your age (6:10 to 7:21) [TestoGreens 6:18 to 7:20]
 
 Since I got in shape, I pay a lot more attention to the men around me. And with over 4 million subscribers on that channel, I've heard from a lot of them.
 
@@ -126,7 +126,7 @@ In fact, researchers followed men in Boston for almost 20 years and found someth
 
 So most doctors look at a man in his 50s with low energy and a growing belly and say, "Well, you're getting older." And nobody asks the obvious question. If it's not age, then what's starving his body of testosterone?
 
-### 7. Starved T (7:08 to 13:54) [TestoGreens 7:20 to 14:35]
+### 7. Starved T (7:21 to 14:08) [TestoGreens 7:20 to 14:35]
 
 [B-ROLL: research footage, a lab, then cholesterol molecules, then an egg yolk.]
 
@@ -208,7 +208,7 @@ That's why so many men give the gym six months, see nothing, and quit. They figu
 
 It's not. Their bodies are just starved of what they need to make testosterone. I know, because I was that guy.
 
-### 8. Proof it can be fixed (13:54 to 14:54) [TestoGreens 13:35 to 14:35]
+### 8. Proof it can be fixed (14:08 to 15:07) [TestoGreens 13:35 to 14:35]
 
 And when you feed the body what it's missing, the results can be dramatic, even in older men.
 
@@ -226,7 +226,7 @@ This isn't a band-aid. It's going after the cause.
 
 And the best part is that the answer isn't found in a pharmacy, and it's not on a TV ad. It's found in nature.
 
-### 9. The missing pieces (14:54 to 20:52) [TestoGreens 14:35 to 21:25]
+### 9. The missing pieces (15:07 to 21:03) [TestoGreens 14:35 to 21:25]
 
 I call them the missing pieces. Natural compounds that give your body back what the "heart-healthy" diet and a stressed-out life took away. No needles. No prescriptions. No shutting down your own production.
 
@@ -250,7 +250,7 @@ And in 2022, researchers in South Africa pulled together the clinical trials on 
 
 [STUDY CARD: Leisegang et al., Nutrients, 2022.]
 
-That's why tongkat ali is at the top of my list. But here's the problem. You can't buy it at any grocery store in America. You can't eat your way to it. And most of the testosterone boosters you see either leave it out completely or put in a tiny amount just so they can say it's on the label.
+That's why tongkat ali is at the top of my list. But here's the problem. It's not a food. You can't eat your way to it. And most of the testosterone boosters you see either leave it out completely or put in a tiny amount just so they can say it's on the label.
 
 So I solved that problem. Every serving of what I'm about to show you has 400 milligrams of tongkat ali.
 
@@ -302,13 +302,13 @@ And muira puama and catuaba, two traditional herbs from Brazil that men there ha
 
 From the very beginning, I knew a formula like this could help a man's body get back to making testosterone the way it's supposed to. But my biggest challenge was getting it made right.
 
-### 10. How it's made (20:52 to 21:14) [TestoGreens 21:25 to 22:30]
+### 10. How it's made (21:03 to 21:25) [TestoGreens 21:25 to 22:30]
 
 [SUPLIFUL FACTS: confirm every claim in this section with Supliful before filming: the facility (GMP certification, country), batch testing, and what is on the certificate of analysis. Cut any line that can't be documented.]
 
 Tracking down the right ingredients and having them made right takes a lot of work. The sad truth is a lot of supplements on the market don't have what the label says. So I made sure Great Again T is made in a [GMP-certified facility in the USA], and that [every batch is tested], so what's on the label is what's in the bottle. Nothing less, nothing hidden.
 
-### 11. Introducing Great Again T (21:14 to 21:56) [TestoGreens 22:30 to 23:30]
+### 11. Introducing Great Again T (21:25 to 22:08) [TestoGreens 22:30 to 23:30]
 
 [The real bottle on a table, then the Supplement Facts panel, full screen.]
 
@@ -324,11 +324,11 @@ Just take two tablets, once a day, and let your body do the rest. It contains no
 
 [VERIFY: "no stimulants" against the full label before filming; the blend includes cayenne.]
 
-### 12. What men are saying (21:56 to 22:56) [TestoGreens 23:30 to 24:39]
+### 12. What men are saying (22:08 to 23:08) [TestoGreens 23:30 to 24:39]
 
 [TESTIMONIALS: real Great Again T customer reviews only, with permission, about one minute. Film this section after reviews are collected. Do not use reviews of any other product.]
 
-### 13. The price (22:56 to 26:17) [TestoGreens 24:39 to 28:47]
+### 13. The price (23:08 to 26:29) [TestoGreens 24:39 to 28:47]
 
 By now you're probably wondering how to get Great Again T for yourself. So here's what you need to know.
 
@@ -362,7 +362,7 @@ If you ask me, a dollar fifty a day is a no-brainer to get your energy back, los
 
 And because you've made it this far, which tells me you're serious about this, if you choose the three or six-month package, I'm going to give you a bigger discount and some valuable bonuses.
 
-### 14. Bundles and bonuses (26:17 to 31:13) [TestoGreens 28:47 to 35:11]
+### 14. Bundles and bonuses (26:29 to 31:24) [TestoGreens 28:47 to 35:11]
 
 Here's why. Some men notice a difference in the first couple of weeks. But the real changes happen over months, not days. Every study I showed you ran for 12 weeks. That's how long it takes for your body to rebuild what it's been missing.
 
@@ -438,7 +438,7 @@ These men want to get ahead of it. And whatever your reason, the three-month pac
 
 [JANUARY VERSION: "And remember, this January price ends on January 31st. On February 1st, everything goes back to the regular price. So if you want the sale, now's the time."]
 
-### 15. The guarantee (31:13 to 32:07) [TestoGreens 35:11 to 36:15]
+### 15. The guarantee (31:24 to 32:18) [TestoGreens 35:11 to 36:15]
 
 And if you're skeptical, I totally get it. Most men have been told there's nothing you can do about low energy and a growing belly after 50 except take a prescription.
 
@@ -450,7 +450,7 @@ All you have to do is contact our support team any time in the next 365 days.
 
 And it's a one-time payment. No subscription you didn't sign up for, and no surprise charges. Just scroll down and pick the three-month package, or whichever one fits you. You'll go to a secure, encrypted checkout page. Fill in your details, and we'll ship it right to your door.
 
-### 16. The close (32:07 to 35:50) [TestoGreens 36:15 to 40:52]
+### 16. The close (32:18 to 36:01) [TestoGreens 36:15 to 40:52]
 
 When you order Great Again T today, you've got a full year to make up your mind. So picking the three-month package isn't a big commitment. It's a test drive, with your money back if you don't love it.
 
@@ -490,7 +490,7 @@ After you click the button, you'll go to our secure order form where you can pla
 
 That's it from me. Thank you for watching.
 
-### 17. Questions (35:50 to 46:16) [TestoGreens 40:52 to 51:50]
+### 17. Questions (36:01 to 46:27) [TestoGreens 40:52 to 51:50]
 
 You're still here? Then you probably still have a question for me. So let me take a minute to answer the questions I get the most. Yours might be one of them.
 
@@ -619,10 +619,10 @@ Thank you for your time. I can't wait to hear how it goes.
 | Our section | TestoGreens section | Deviation and reason |
 |---|---|---|
 | 1. Hook | 0:00 to 1:00: "guy over 50, five popular foods," estrogen, "testosterone killer," "33-year career" | Opening line, visual (heart logos), villain (the "heart-healthy" diet and cholesterol rules vs an estrogen enzyme) and foods changed: rip-off risk. Foods-count teaser, "how is that possible?", a named mechanism and the career line kept. The four foods are named in the bonus pitch, as theirs are. |
-| 2. What it's doing to men | 1:00 to 2:06 | Same beats: prevalence, symptoms, stakes, why shots fail. HIM study replaces "half of men over 50" (sourced). TRT side effects are the true ones. A real client over 50 sits here, before the shots: Dan is 41 and not a doctor, so the over-50 proof has to come from a man the viewer's age (spokesman difference; every reviewer's top fix). |
-| 3. What food can't fix | 2:06 to 3:10 ("good news") | The good news plus the compound tease (unnamed, as theirs). |
-| 4. The easy way | 2:06 to 3:10 | "No diet or exercise needed" softened by default: Dan's call (fitness brand). Explicit bedroom lines dropped: V Shred level per Dan. |
-| 5. Dan's story | 3:10 to 6:18 | Shortened to about a minute and built only from Dan's true facts: no blood numbers, no TRT refusal, no invented scene. Does the job T's story does: the obvious fix isn't enough. |
+| 2. Dan's story | 3:10 to 6:18 (moved up, shortened) | Right after his photos, so the before and after make sense; about a minute, built only from Dan's true facts (no blood numbers, no TRT refusal, no invented scene). It does the job T's story does: the obvious fix isn't enough. Spokesman difference: Dan is 41 and not a doctor, so his story can't carry T's three minutes. |
+| 3. What it's doing to men | 1:00 to 2:06 | Prevalence, symptoms, stakes, why shots fail. HIM study replaces "half of men over 50" (sourced). TRT side effects are the true ones. A real client over 50 sits here: the over-50 proof has to come from a man the viewer's age. |
+| 4. What food can't fix | 2:06 to 3:10 ("good news") | The good news plus the compound tease (unnamed, as theirs). |
+| 5. The easy way | 2:06 to 3:10 | "No diet or exercise needed" softened by default: Dan's call (fitness brand). Explicit bedroom lines dropped: V Shred level per Dan. Ends on the open loop. |
 | 6. It's not your age | 6:18 to 7:20 | Channel audience replaces "patients' blood work" (Dan isn't a doctor). Litany kept with "Starved T." Travison replaces the "award-winning endocrinologist." |
 | 7. Starved T | 7:20 to 14:35 aromatase, charts, health stakes, TRT, boosters, diet and exercise | Our mechanism (product difference). Chart device, health stakes, TRT section, boosters and diet sections kept in order. Real TRT prices, not $600 to $1,000. |
 | 8. Proof | 13:35 to 14:35 Harvard aromatase trials | Tongkat and zinc trials in older men (our product). |
