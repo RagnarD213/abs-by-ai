@@ -1,33 +1,24 @@
 ---
 name: veo-subscription-first
-description: "AI clips: Google Flow subscription first via flow-veo; Fast by default, Quality only when Dan names it; any paid run needs his yes each time, his rush counts as the yes"
+description: "11-08: Claude and Codex use Google AI/Flow for video first, attempt images there too; paid API fallback only after recorded subscription failure"
 metadata:
   node_type: memory
   type: feedback
-  originSessionId: f9114820-144b-4b8f-9850-bb7616940457
-  modified: 2026-10-17T19:10:01.135Z
+  modified: 2026-11-08
 ---
 
-Every Veo motion clip is generated in Google Flow (flow.google.com) on Dan's Google AI Pro credits by a background sub-agent driving his Chrome (`.claude/agents/flow-veo.md`, runbook `_shared/veo/FLOW-RUNBOOK.md`, helper `_shared/veo/veo.py`) while the main agent keeps editing. The paid Replicate API only when Dan says rush, accelerate or as fast as possible; when credits run out, ask him before paying.
+## Google AI subscription first for video and images (Dan, 2026-11-08)
 
-**Why:** Dan, 2026-10-17: "Default to the subscription; switch to the paid API only when I say rush, accelerate, or as fast as possible. If the subscription credits run out, ask me before paying."
+Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
+- **Video:** always try Dan's existing Google AI subscription through Flow first. Check its current generation/export options and the actual result; an old note about Flow quality or resolution is not evidence that it fails now.
+- **Images:** make an attempt through the Google AI subscription too. Keep required Codex subscription comparisons and blind picks; Codex's subscription remains a cost-saving alternative when needed.
+- **Paid API fallback:** only after subscription generation actually fails for the requested asset, is unavailable/out of credits, or produces an output that fails the required quality checks. Save the attempt/result and specific failure before switching. A spending cap, an old API recipe, or the word "rush" alone does not skip the subscription attempt. Dan can explicitly override this rule for a particular job.
+- Fallback stays within existing task/session spending limits. State the estimate, track actual spend and explain the fallback; ask only if the applicable authorization or cap does not cover it. No subscription upgrades or credit purchases are implied.
+- This supersedes older Codex-only image routing, paid-1080p-first exercise recipes and rush-only API routing in skills, memory and unexecuted handoffs. Preserve required quality gates, source-blind reviews, real-photo pixels and existing approved assets. It does not change the live app's generation for visitors or narration/audio providers.
 
-**How to apply:** queue clips with `veo.py add`, spawn flow-veo in the background, gate the takes as usual. Flow's "Visible watermarking" switch stays off (no visible mark on 1080p downloads, verified 2026-10-17). Flow's frame picker re-sorts during uploads: pick frames by exact name; `veo.py collect` rejects takes that do not open on START. Related: [[model-routing-plan]], [[frame-approval-before-motion]].
 
-**Update 2026-10-21:** Dan upgraded to Google AI Ultra 5x ($99.99/mo, 10,000 Flow credits + 50/day; Veo 3.1 Fast 10 credits, Lite 5, Omni 1.1 Flash 12). Blind bake-off Omni vs Veo Fast on 5 approved pairs: 2 ties, Veo preferred 3, Omni 0, and Omni refused a shirtless shot of Dan ("reputational risk"). Keep Veo 3.1 Fast as the default. Dan, 2026-10-21: generate BOTH Veo and Omni for clips over 8 s, 4/6 s clips, one-detail fixes and multi-reference shots, and whenever in doubt ("I prefer you generate with both"); two Veo takes for hooks/openers; Dan's body shirtless is Veo only. Rule: `_shared/veo/README.md`, "Which model and how many takes".
+Dan, 2026-11-08: "we always use a Google AI subscription to save on costs for the video generation. We make an attempt to use it for the images and we only fall back to API if subscription generation fails ... for both Claude and Codex."
 
-## Veo Quality only when Dan names it (10-25) (merged 2026-11-01)
+Procedure: `.claude/skills/_shared/veo/README.md`, `FLOW-RUNBOOK.md`, and `_shared/blind-image/FLOW-IMAGE-RUNBOOK.md`. Preserve START/END and motion gates, independent reviews, real-photo pixels and required blind comparison sets. Google Flow plan limits and export options must be checked live; old exercise-demo paid1080p recipes do not establish subscription failure. Live app visitor generation and narration providers stay outside this rule.
 
-Use Veo 3.1 Fast for every AI clip. Veo 3.1 Quality only when Dan asks for it by name: never "just in case", never as a twin take, never in an unrequested bake-off.
-
-**Why:** the 10,000-credit Ultra allowance ran out in three days (2026-10-20 to 10-23); 48 Quality clips used two-thirds of the logged credits, and Fast won or tied every blind test. Dan, 2026-10-25: "let's make that the standing rule."
-
-**How to apply:** `veo.py add --model quality` refuses without `--dan-asked "<his words>"`. Rule text: `.claude/skills/_shared/veo/README.md`. Related: [[veo-subscription-first]], [[ai-clips-subscription-ask-before-paying]].
-
-## Ask before any paid generation (10-20) (merged 2026-11-01)
-
-Dan, 2026-10-20, answering the audit's budget question: "default to generating everything on subscription and default to asking for authorization every time it needs to go outside subscription. If it's a rush, I'll authorize the pay."
-
-**Why:** the per-video dollar caps (VIDEO-RULES "Video clip generation budget") were being read as standing permission to use the paid Replicate API; he wants paid runs to be a conscious yes each time.
-
-**How to apply:** queue every clip through `_shared/veo/veo.py add` and the `flow-veo` agent (Claude) or the Flow runbook (Codex). Credits out or a slow queue: stop and ask once, with the clip count and the dollar estimate; proceed only on his yes. "Rush", "accelerate" or "as fast as possible" in his own words for that video is the yes. The dollar caps bound an authorized paid run; they never pre-authorize one. Rule text: VIDEO-RULES "AI video clips: Google Flow subscription first" and the budget section. Related: [[model-routing-plan]], [[audio-joins-smooth-before-ship]].
+Veo Fast remains the default; use Quality only when Dan requests it by name. Keep the existing model/take comparison rules in the Veo README. This replaces the October 17/20 rush-only and ask-for-every-fallback rules; budget alone never skips subscription generation. Existing authorizations and caps still limit a paid fallback.

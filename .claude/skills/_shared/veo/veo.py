@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Subscription-first Veo motion: one job file per video, generated on Dan's Google AI Pro credits in Flow by a background
-sub-agent, with the paid Replicate API only when Dan says rush (or approves paying after the credits run out).
+"""Subscription-first Veo motion for Claude and Codex: use Dan's Google AI subscription in Flow first.
+Paid API fallback requires a recorded subscription failure or Dan's explicit job-specific override (2026-11-08).
 
 Rule and runbook: README.md and FLOW-RUNBOOK.md beside this file. Built 2026-10-17 (Dan: "Default to the subscription; switch to
 the paid API only when I say rush, accelerate, or as fast as possible. If the subscription credits run out, ask me before paying.")
 
 usage:
-  veo.py route [--said "Dan's words"]                 prints flow or api (api only on rush / accelerate / as fast as possible)
+  veo.py route [--said "Dan's words"] [--subscription-failed "evidence/reason" | --api-request "explicit override"]
   veo.py add JOBDIR ID --start S.png [--end E.png] --prompt-file P.txt [--seconds 8] [--aspect 16:9] [--model fast]
              [--takes 1] [--skip-gate "why"]          adds a clip to JOBDIR/veo/job.json; approved frames only (framecheck)
   veo.py status JOBDIR                                 table of every clip, its route, takes and timings
@@ -102,10 +102,10 @@ def probe(p):
 
 # ---------------------------------------------------------------------------- commands
 def cmd_route(a):
-    rush = bool(os.environ.get("VEO_RUSH")) or bool(a.said and RUSH.search(a.said))
-    print("api" if rush else "flow")
-    print(("rush: Dan asked for speed, the paid API is allowed (it still counts against the per-video budget)" if rush else
-           "default: Flow on the Google AI Pro subscription, run by the flow-veo background agent"), file=sys.stderr)
+    fallback = a.subscription_failed or a.api_request
+    print("api" if fallback else "flow")
+    print(("API candidate: " + fallback + "; existing spending authorization and caps still apply" if fallback else
+           "default: Google AI subscription in Flow; rush words and VEO_RUSH do not skip the subscription attempt"), file=sys.stderr)
 
 
 def cmd_add(a):
@@ -226,7 +226,7 @@ def cmd_credits(a):
 
 
 def cmd_api(a):
-    """The paid path. Only on Dan's rush words, or after he approved paying because the credits ran out; both are recorded."""
+    """Paid fallback after documented subscription failure or explicit override; record authority and obey caps."""
     words = a.rush or a.paid_ok
     if a.rush and not RUSH.search(a.rush):
         raise SystemExit("--rush needs Dan's words containing rush / accelerate / as fast as possible")
@@ -316,6 +316,9 @@ if __name__ == "__main__":
     P = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     S = P.add_subparsers(dest="cmd", required=True)
     s = S.add_parser("route"); s.add_argument("--said")
+    g = s.add_mutually_exclusive_group()
+    g.add_argument("--subscription-failed", help="Recorded subscription attempt failure: evidence path and reason")
+    g.add_argument("--api-request", help="Dan's explicit API override for this job; rush alone is not an override")
     s = S.add_parser("add"); s.add_argument("jobdir"); s.add_argument("id"); s.add_argument("--start", required=True)
     s.add_argument("--end"); s.add_argument("--prompt-file", required=True); s.add_argument("--negative-file")
     s.add_argument("--seconds", type=int, default=8, choices=(4, 6, 8, 10)); s.add_argument("--aspect", default="16:9", choices=("16:9", "9:16"))
