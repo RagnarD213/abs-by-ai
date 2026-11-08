@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Keep Your Muscle B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **Written 2026-11-07, start now.** B R2 approved; Codex owns cover picks and reversible setup. A remains in editing. Hold release until RO01 is confirmed public on/after December6.
+- [Keep Your Muscle A+B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): Updated2026-11-08; executing in existing Codex chat. Both videos approved; cover picks next. Publishing HOLD until RO01 confirmed public on/after Dec6.
 
 - [Calories Dont Matter SFL Setup](handoff-20261107-sl13-calories-dont-matter-setup.md): **Executing in Codex01a1b65a, 2026-11-07.** [Cover review](http://127.0.0.1:9341/) ready, waiting for three picks. Metadata and local/Extreme backups prepared; one Drive MP4 remains incomplete. No Blotato schedules/waitlist yet. Receipt: `Docs/SL13_SETUP_RECEIPT_20261107.md`. Resume existing chat, do not duplicate setup.
 

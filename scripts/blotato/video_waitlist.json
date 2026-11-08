@@ -908,5 +908,31 @@
   "added": "2026-11-06",
   "approved_release": "2026-12-23T15:00:00.000Z",
   "kitchen": false
+ },
+ {
+  "config": "scripts/blotato/configs/sl12-a-weightlifting.json",
+  "kind": "short",
+  "job": "SL-12-A",
+  "label": "Lift Weights On Weight Loss Medication",
+  "added": "2026-11-08",
+  "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
+  "release_hold": true,
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
+  "setup_stage": "awaiting_cover_pick",
+  "kitchen": false,
+  "gym": false
+ },
+ {
+  "config": "scripts/blotato/configs/sl12-b-daily-protein.json",
+  "kind": "short",
+  "job": "SL-12-B",
+  "label": "How Much Protein Do You Need?",
+  "added": "2026-11-08",
+  "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
+  "release_hold": true,
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
+  "setup_stage": "awaiting_cover_pick",
+  "kitchen": false,
+  "gym": false
  }
 ]
