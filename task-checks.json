@@ -9,7 +9,8 @@
     "assistant::Put away dishes",
     "assistant::Fold laundry",
     "assistant::Make bed",
-    "assistant::Put away groceries"
+    "assistant::Put away groceries",
+    "assistant::Tidy bathrooms"
   ],
   "log": {
     "health::Shower": [
@@ -245,6 +246,7 @@
     "assistant::Put away dishes": "2026-11-08",
     "assistant::Fold laundry": "2026-11-08",
     "assistant::Make bed": "2026-11-08",
-    "assistant::Put away groceries": "2026-11-08"
+    "assistant::Put away groceries": "2026-11-08",
+    "assistant::Tidy bathrooms": "2026-11-08"
   }
 }
