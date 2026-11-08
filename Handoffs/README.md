@@ -244,7 +244,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
 
-- [Codex: three AI-Dan exercise demos](handoff-20261107-codex-exercise-demos-three.md): **Executed 2026-11-07, awaiting Dan’s review.** [1080p review](http://127.0.0.1:10967/). Shrug and press pass independent review; curl remains too fast. Veo $3.80; nothing installed. [Receipt](../Docs/EXERCISE_DEMOS_CODEX_R1_20261107.md).
+- [Codex: three AI-Dan exercise demos](handoff-20261107-codex-exercise-demos-three.md): **R2 checked 2026-11-08, awaiting Dan’s review.** [1080p review](http://127.0.0.1:10967/?round=codex-r2). Curl now lowers about 3 seconds with fixed background; Claude still flags hand/face artifacts. Shrug/press unchanged. No installation. R2 extra API $0. [Receipt](../Docs/EXERCISE_DEMOS_CODEX_R2_20261108.md).
 
 - `handoff-20261031-ro38-five-muscles-thumbnails-and-video-setup.md`: Five Muscles Women Notice LFC Setup, executed 2026-11-03 (Opus 5.5 high). Thumbnail V5 after five rounds; queued YouTube Fri Jan 8 2027, socials Jan 9. Receipt `Docs/RO38_SETUP_RECEIPT_20261103.md`.
 - [handoff-20261028-ds47-v-taper-thumbnails-and-setup.md](handoff-20261028-ds47-v-taper-thumbnails-and-setup.md): started October 28 in Codex chat `01a183fe-a59b-7770-a2d4-1c600189be69`. Five cover pairs at http://127.0.0.1:9297/ await Dan pick; R6 preserved. Upload/setup pending. `Docs/DS47_COVER_REVIEW_20261028.md`.
