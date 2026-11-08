@@ -1,3 +1,16 @@
+## Google AI subscription first for video and images (Dan, 2026-11-08)
+
+Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
+- **Video:** always try Dan's existing Google AI subscription through Flow first. Check its current generation/export options and the actual result; an old note about Flow quality or resolution is not evidence that it fails now.
+- **Images:** make an attempt through the Google AI subscription too. Keep required Codex subscription comparisons and blind picks; Codex's subscription remains a cost-saving alternative when needed.
+- **Paid API fallback:** only after subscription generation actually fails for the requested asset, is unavailable/out of credits, or produces an output that fails the required quality checks. Save the attempt/result and specific failure before switching. A spending cap, an old API recipe, or the word "rush" alone does not skip the subscription attempt. Dan can explicitly override this rule for a particular job.
+- Fallback stays within existing task/session spending limits. State the estimate, track actual spend and explain the fallback; ask only if the applicable authorization or cap does not cover it. No subscription upgrades or credit purchases are implied.
+- This supersedes older Codex-only image routing, paid-1080p-first exercise recipes and rush-only API routing in skills, memory and unexecuted handoffs. Preserve required quality gates, source-blind reviews, real-photo pixels and existing approved assets. It does not change the live app's generation for visitors or narration/audio providers.
+
+## Empty gym backgrounds stay still (Dan, 2026-11-08)
+
+For Claude and Codex: in an empty gym, no unused weight stack, machine, cable, bench or other background object may move by itself. A stack linked to the exercise being demonstrated may move only with that exercise. For locked shots, check every native frame outside a narrowly reviewed per-frame person/prop mask with `.claude/skills/exercisegeneration/reference/background.py`; a few tracker boxes or a contact sheet are insufficient. Recheck the final narrated review file too. The independent reviewer inspects the masks and all visible unused equipment, including areas briefly hidden by the bar. Fix any unexplained movement before review.
+
 ## Sales videos: outline first (Dan, 2026-11-06)
 
 For every new original sales video or VSL, Claude and Codex first develop a persuasive outline with Dan: the audience, hook, sales argument, proof, objections, offer and close. Show the outline and incorporate his direction before writing a full script. Build the script from the agreed outline in collaboration with Dan, using his voice and approved source material. Do not independently write a complete original sales video script first. An explicit request for a script does not waive this order unless Dan explicitly asks to skip the outline. Apply this to Great Again T and future sales videos; existing approved scripts are unaffected.
@@ -353,19 +366,6 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - `LFC` means long-form content; `SFC` means dedicated short-form content; `SFL` means shorts extracted from long-form. Existing paid-ad labels remain `AD` (with existing V/S/Sh format markers where applicable). This is a sidebar naming rule, not a change to job IDs or internal content schemas.
 - Rename at the start, preserve the actual round on resume of the same task (a handoff to a new task always takes the next round number), and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
 - Upload/setup tasks retain their `Setup` suffix. Full editing naming rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names".
-
-## Empty gym backgrounds stay still (Dan, 2026-11-08)
-
-For Claude and Codex: in an empty gym, no unused weight stack, machine, cable, bench or other background object may move by itself. A stack linked to the exercise being demonstrated may move only with that exercise. For locked shots, check every native frame outside a narrowly reviewed per-frame person/prop mask with `.claude/skills/exercisegeneration/reference/background.py`; a few tracker boxes or a contact sheet are insufficient. Recheck the final narrated review file too. The independent reviewer inspects the masks and all visible unused equipment, including areas briefly hidden by the bar. Fix any unexplained movement before review.
-
-## Google AI subscription first for video and images (Dan, 2026-11-08)
-
-Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
-- **Video:** always try Dan's existing Google AI subscription through Flow first. Check its current generation/export options and the actual result; an old note about Flow quality or resolution is not evidence that it fails now.
-- **Images:** make an attempt through the Google AI subscription too. Keep required Codex subscription comparisons and blind picks; Codex's subscription remains a cost-saving alternative when needed.
-- **Paid API fallback:** only after subscription generation actually fails for the requested asset, is unavailable/out of credits, or produces an output that fails the required quality checks. Save the attempt/result and specific failure before switching. A spending cap, an old API recipe, or the word "rush" alone does not skip the subscription attempt. Dan can explicitly override this rule for a particular job.
-- Fallback stays within existing task/session spending limits. State the estimate, track actual spend and explain the fallback; ask only if the applicable authorization or cap does not cover it. No subscription upgrades or credit purchases are implied.
-- This supersedes older Codex-only image routing, paid-1080p-first exercise recipes and rush-only API routing in skills, memory and unexecuted handoffs. Preserve required quality gates, source-blind reviews, real-photo pixels and existing approved assets. It does not change the live app's generation for visitors or narration/audio providers.
 
 ## AI clip frames: START and END together from the first step (Dan, 2026-11-05)
 
