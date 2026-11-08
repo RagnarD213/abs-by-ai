@@ -37,14 +37,15 @@ Outline A models V Shred's funnel. Outline B models TestoGreens'. Both are built
 
 ## Outline A: the V Shred model
 
-**Format:** a 4-question quiz, then a vertical 9:16 VSL, Dan to camera, about 25 to 28 minutes. Research B-roll and study cards cut in whenever a study is cited. The page headline can repeat the quiz answers.
+**Format:** a 4-question quiz, then a vertical 9:16 VSL, Dan to camera, about 25 to 28 minutes. Research B-roll and study cards cut in whenever a study is cited.
 
-### The quiz (same video for everyone; two questions collect real data)
-1. **"How old are you?"** 30s / 40s / 50s / 60+ *(data)*
-2. **"What bothers you most right now?"** Belly that won't move / Low energy / Low drive / Losing muscle *(data)*
-3. **"If 3 'healthy' foods were draining your testosterone, would you want to know which ones?"** Yes / No / Not sure *(preview)*
-4. **"If you could fix it with what you eat plus 2 tablets a day, no needles, no prescription, would that interest you?"** *(preview)*
-→ Headline: "The 3 'Fitness Foods' Draining Your Testosterone" (+ "for men in their 50s" etc.)
+### The quiz (V Shred's way: 4 easy yes questions, same video for everyone)
+Dan's call, 2026-11-08: no data questions. Google Ads already reports age; asking for it is intrusive. Each question previews a promise the video then keeps.
+1. **"Are you over 30 and want to lose the belly and build muscle?"** Yes / No
+2. **"If 3 'healthy' foods were draining your testosterone, would you want to know which ones?"** Yes / No / Not sure
+3. **"If you could get your energy and drive back without living in the gym, would that interest you?"** Yes / No / Not sure
+4. **"If there was a natural way to support your testosterone with 2 tablets a day, no needles, no prescription, would you want to see it?"** Yes / No / Not sure
+→ Headline: "The 3 'Fitness Foods' Draining Your Testosterone"
 
 ### The VSL
 **1. Hook (0:00 to 0:45), fitness insider attacks fitness rules**
