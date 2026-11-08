@@ -398,6 +398,13 @@
       "addedAt": "2026-10-21",
       "addedBy": "assistant",
       "boardRank": 10
+    },
+    {
+      "text": "Take out trash",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "boardRank": 11
     }
   ],
   "handoffs": [
