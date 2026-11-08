@@ -102,3 +102,5 @@ Recommendation: yes to three **outlines**, not three scripts or three shoots yet
 - Per the outline-first rule, scripts come only after Dan has directed the chosen outline.
 
 **Correction (Dan, 2026-11-08):** never open on Dan's story. Both proven VSLs open on foods; the founder story is proof that comes after the hook. Foods are essential to the opening of every version.
+
+**Quiz check (2026-11-08):** V Shred's quiz is 4 questions, not 2, and is a dummy: answering No to all four still lands on the same quiz-vsl page and the same video. Plan for ours: same single VSL, but two questions collect real data (age, main problem) saved with each order; custom intros only once a group clearly converts differently. Outlines: `Handoffs/great-again-t-20261105/vsl-outlines-AB-20261108.md`.
