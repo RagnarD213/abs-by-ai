@@ -75,9 +75,9 @@ And here's what that did to a whole generation of men, step by step.
 
 One. The wrong food starves your body of the raw materials it makes testosterone from.
 
-Two. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is the hormone that grows breast tissue. That soft chest you keep covered at the pool? That's where it comes from. So the softer you get, the faster you get softer.
+Two. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is the hormone that grows breast tissue. That soft chest you keep covered at the pool? That's part of where it comes from. So the softer you get, the faster you get softer.
 
-[STUDY CARD: fat tissue converts testosterone to estradiol through aromatase; Cohen, Medical Hypotheses, 1999. Verify a current review before filming.]
+[STUDY CARD: fat tissue converts testosterone to estradiol through aromatase, the obesity and low-testosterone cycle; Genchi et al., Int J Mol Sci, 2022 (review).]
 
 Three. Your stress hormone, cortisol, sits on whatever's left. It's the hormone behind the 3 a.m. wake-ups and the short fuse with your family. When cortisol is high, testosterone stays low. Remember that one. It's the one you can't eat your way out of.
 
@@ -419,4 +419,4 @@ Thanks for watching. I can't wait to hear how it goes.
 | 9. Price | 24:30 to 26:30 | 24:30 to 26:43 | No invented regular price (untrue); real anchor blank. Scarcity only in the January take (real). |
 | 10. Guarantee and close | 26:30 to 28:00 | 26:43 to 28:19 | 365-day instead of lifetime (our policy). No "including shipping" or "US team" (unverified). |
 
-**Word count:** see the delivery note. **Claims:** every number is on a study card and in the outline's claims table, except Araujo 2011 and Ding 2006, which are named on their cards for verification before filming.
+**Word count:** see the delivery note. **Claims:** every number is on a study card and in the outline's claims table, including Araujo 2011 and Ding 2006 (both checked 2026-11-08).

@@ -34,9 +34,9 @@ So how can the foods that are supposed to protect your heart be draining your te
 
 [ON SCREEN, building one line at a time: 1. STARVED. 2. CONVERTED. 3. STRESSED.]
 
-So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, the belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that, and estrogen is the hormone that grows breast tissue. That's where a man's soft chest comes from. And three, your stress hormone, cortisol, sits on whatever's left.
+So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, the belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that, and estrogen is the hormone that grows breast tissue. That's part of where a man's soft chest comes from. And three, your stress hormone, cortisol, sits on whatever's left.
 
-[STUDY CARD: fat tissue converts testosterone to estradiol through aromatase; Cohen, Medical Hypotheses, 1999. Verify a current review before filming.]
+[STUDY CARD: fat tissue converts testosterone to estradiol through aromatase, the obesity and low-testosterone cycle; Genchi et al., Int J Mol Sci, 2022 (review).]
 
 Starved, converted and stressed. I call it Starved T.
 
@@ -304,9 +304,9 @@ From the very beginning, I knew a formula like this could help a man's body get 
 
 ### 10. How it's made (21:03 to 21:25) [TestoGreens 21:25 to 22:30]
 
-[SUPLIFUL FACTS: confirm every claim in this section with Supliful before filming: the facility (GMP certification, country), batch testing, and what is on the certificate of analysis. Cut any line that can't be documented.]
+[Facts from Supliful's help center and site, checked 2026-11-08: made in FDA-registered US facilities that are GMP certified or cGMP compliant; certificate of analysis available on request. Do not say "FDA approved."]
 
-Tracking down the right ingredients and having them made right takes a lot of work. The sad truth is a lot of supplements on the market don't have what the label says. So I made sure Great Again T is made in a [GMP-certified facility in the USA], and that [every batch is tested], so what's on the label is what's in the bottle. Nothing less, nothing hidden.
+Tracking down the right ingredients and having them made right takes a lot of work. The sad truth is a lot of supplements on the market don't have what the label says. So Great Again T is made right here in the USA, in an FDA-registered facility that follows good manufacturing practices, and the lab certificate of analysis is available on request, so what's on the label is what's in the bottle. Nothing less, nothing hidden.
 
 ### 11. Introducing Great Again T (21:25 to 22:08) [TestoGreens 22:30 to 23:30]
 
@@ -320,9 +320,7 @@ Great Again T is built to go after Starved T at the source. It gives your body t
 
 I've taken a testosterone booster every single day for years. Great Again T is the one I built around Starved T.
 
-Just take two tablets, once a day, and let your body do the rest. It contains no stimulants, so there's no crash and no jitters.
-
-[VERIFY: "no stimulants" against the full label before filming; the blend includes cayenne.]
+Just take two tablets, once a day, and let your body do the rest. There's no caffeine in it, so there's no crash and no jitters.
 
 ### 12. What men are saying (22:08 to 23:08) [TestoGreens 23:30 to 24:39]
 
@@ -512,7 +510,7 @@ Pick your package below and see for yourself. You're covered for a full year.
 
 Here's what most men don't know. The normal range for testosterone is huge. A man at the bottom of normal and a man at the top of normal can have three times as much testosterone as each other. They're both "normal." But they don't feel the same, they don't look the same, and they don't perform the same.
 
-[VERIFY before filming: harmonized reference range, about 264 to 916 ng/dL (Travison et al., J Clin Endocrinol Metab, 2017).]
+[STUDY CARD: Travison et al., J Clin Endocrinol Metab, 2017. Harmonized normal range for men 19 to 39: 264 to 916 ng/dL.]
 
 And remember the Boston study. Men today have less testosterone than men the same age had just a generation ago. So "normal for today" isn't saying much.
 
@@ -636,4 +634,4 @@ Thank you for your time. I can't wait to hear how it goes.
 | 16. Close | 36:15 to 40:52 | Same order: "saying maybe" idea, congratulations, head-in-the-sand, option two. Invented demand and stock claims dropped. |
 | 17. Questions | 40:52 to 51:50 | Their seven questions in order, plus the tablet question from Dan's old-business data. |
 
-**Claims:** every number is on a study card and in the outline's claims table, except Ding 2006, Araujo 2011, Leproult and Van Cauter 2011 and the Travison 2017 reference range, which are named on their cards for verification before filming.
+**Claims:** every number is on a study card and in the outline's claims table, including Ding 2006, Araujo 2011, Leproult and Van Cauter 2011 and the Travison 2017 reference range (all checked 2026-11-08). Manufacturing facts are from Supliful's help center and site.
