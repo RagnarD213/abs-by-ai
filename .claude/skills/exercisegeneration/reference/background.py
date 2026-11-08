@@ -44,6 +44,7 @@ def main():
     frame = 0
     failures = []
     worst = {'largest_changed_region_px': 0, 'changed_fraction': 0}
+    worst_exposure = {'frame': 0, 'background_exposure_shift': 0.0}
     min_exposed_fraction = 1.0
     evidence = None
     first_exposed = plate.copy()
@@ -63,33 +64,40 @@ def main():
         first_exposed[newly_seen] = picture[newly_seen]
         seen |= exposed
         delta = np.max(np.abs(picture.astype(np.int16) - first_exposed.astype(np.int16)), axis=2)
+        signed = picture.astype(np.float32) - first_exposed.astype(np.float32)
+        luma_shift = 0.114 * signed[:, :, 0] + 0.587 * signed[:, :, 1] + 0.299 * signed[:, :, 2]
+        exposure = float(luma_shift[exposed].mean()) if exposed.any() else 0.0
         changed = ((delta > 20) & exposed).astype(np.uint8)
         n, _, stats, _ = cv2.connectedComponentsWithStats(changed, connectivity=8)
         regions = stats[1:] if n > 1 else np.empty((0, 5), dtype=int)
         biggest = int(regions[:, cv2.CC_STAT_AREA].max()) if len(regions) else 0
         ratio = float(changed.sum() / max(1, exposed.sum()))
-        row = {'frame': frame, 'largest_changed_region_px': biggest, 'changed_fraction': ratio}
+        row = {'frame': frame, 'largest_changed_region_px': biggest, 'changed_fraction': ratio,
+               'background_exposure_shift': exposure}
+        if abs(exposure) > abs(worst_exposure['background_exposure_shift']):
+            worst_exposure = {'frame': frame, 'background_exposure_shift': exposure}
         if biggest > worst['largest_changed_region_px']:
             worst = row
             evidence = picture.copy()
             for x, y, w, h, area in regions:
                 if area >= 64:
                     cv2.rectangle(evidence, (int(x), int(y)), (int(x+w), int(y+h)), (0, 0, 255), 3)
-        if biggest >= 64 or ratio > 0.001 or fraction < 0.50:
+        if biggest >= 64 or ratio > 0.001 or fraction < 0.50 or abs(exposure) > 2.0:
             failures.append(row)
         frame += 1
     cap.release()
     complete = frame > 0 and frame % len(masks) == 0
     report = {
-        'version': 1, 'video': str(a.video.resolve()), 'video_sha256': sha(a.video),
+        'version': 2, 'video': str(a.video.resolve()), 'video_sha256': sha(a.video),
         'plate': str(a.plate.resolve()), 'plate_sha256': sha(a.plate),
         'masks': str(a.masks.resolve()), 'mask_sequence_sha256': mask_hash.hexdigest(),
         'frames_checked': frame, 'mask_frames': len(masks), 'complete_mask_cycles': complete,
         'minimum_background_exposed_fraction': min_exposed_fraction,
         'background_reference': 'first unoccluded observation of each pixel; supplied plate is visual evidence',
         'limits': {'channel_difference': 20, 'largest_changed_region_px': 63,
-                   'changed_fraction': 0.001, 'minimum_background_exposed_fraction': 0.50},
-        'worst': worst, 'failed_frames': failures,
+                   'changed_fraction': 0.001, 'minimum_background_exposed_fraction': 0.50,
+                   'absolute_background_exposure_shift': 2.0},
+        'worst': worst, 'worst_exposure': worst_exposure, 'failed_frames': failures,
         'verdict': 'PASS' if complete and not failures else 'FAIL',
         'limitation': 'Masks require independent review. Occluded background cannot be measured until uncovered.'
     }
