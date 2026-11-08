@@ -116,9 +116,9 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Tue Jan 26 | 3 | 9 AM | OPEN | Not booked |
 | Tue Jan 26 | 3 | 6 PM | OPEN | Not booked |
 | Thu Jan 28 | 3 | 9 AM | Top 5 Ab Exercises For Six Pack Abs | Waitlist |
-| Thu Jan 28 | 3 | 6 PM | OPEN | Not booked |
-| Sat Jan 30 | 3 | 9 AM | OPEN | Not booked |
-| Sat Jan 30 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 28 | 3 | 6 PM | Eat Protein First To Keep Muscle While Losing Fat (SL-13 A) | Waitlist |
+| Sat Jan 30 | 3 | 9 AM | Eat Less Without Counting Every Calorie (SL-13 B) | Waitlist |
+| Sat Jan 30 | 3 | 6 PM | Keep Your Steps Up While You Diet (SL-13 C) | Waitlist |
 
 Approved one-off exceptions kept: Sat Oct 31 noon Five Minute Exercises (DS-55), Thu Dec 10 5 PM Fat Millionaire (DS-05) beside Five Levels Of Pushups at 9 AM.
 
@@ -129,6 +129,8 @@ Approved one-off exceptions kept: Sat Oct 31 noon Five Minute Exercises (DS-55),
 - Non-kitchen Shorts brought forward into the freed November slots: Do Women Like The Dad Bod? (DS-35) Oct 31 (was Dec 19), Alex Hormozi Asks A Fat Guy (DS-44, off-the-cuff R2) Nov 3 (was Dec 17), Does Cristiano Ronaldo's Electric Shock Ab Belt Work? (DS-33) Nov 11 (was Dec 24), Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old (DS-40) Nov 13 (was Dec 31), Let AI Do Your Homework (DS-31) Nov 16 (was Dec 3), Build Your Value Before You Date (SL-18) Nov 20 (was Dec 12).
 - Muhammad Batch A moved from February into the December two-a-day slots, since February is the lowest-value month for them: How Getting Abs Looksmaxxes Your Face (DS-02) Dec 15, The 3 Most Important Supplements (DS-03) Dec 17, Top 3 Ways To Use AI To Get Abs (DS-07) Dec 17, Why You Must Weigh Yourself Daily (DS-11) Dec 19. They are the fallback for any phase 1 film-less day (Nov 15, 18, 22). Batch B (DS-13, 06, 10, 01) keeps its Thursdays Jan 7, 14, 21, 28.
 - Blitz parents: Belly Fat Shorts (SL-07) follow their parent on Dec 27: Dec 28, 29, 31, Jan 2, Jan 4. Calories Not Losing Weight Shorts (SL-08) follow RO-10 on Jan 17: Jan 18, 19, 21 6 PM, 23, 25 (all five were Jan 4 to 11 and would have aired before their parent).
-- Still unedited, no date: other Aug 28 Shorts (DS-15, 19, 25, probably poolside), Keep Your Muscle and Calories Don't Matter cuts (SL-12/13), Boring Abs At 40 (SL-26), Why You're Not Losing Weight (SL-23), Make Time (SL-25), Invest In Your Health (SL-20/21/22, February).
+- Still unedited, no date: other Aug 28 Shorts (DS-15, 19, 25, probably poolside), Keep Your Muscle cuts (SL-12), Boring Abs At 40 (SL-26), Why You're Not Losing Weight (SL-23), Make Time (SL-25), Invest In Your Health (SL-20/21/22, February).
 
 October29: SL-11 finalized films and exact R4 covers approved; all uploads/preflights complete. Three waiting-list slots reserved after RO-02 January15 public release: January16 at9AM/6PM and January18 at6PM Central. Queue full; dates are plans, not live schedules. Receipt: `Docs/SL11_SETUP_RECEIPT_20261029.md`.
+
+November 8: Calories Dont Matter (SL-13) setup complete with covers Protein X3, Eat Less X4 and Steps X3. Three complete shared-waitlist entries reserve Jan 28 at 6 PM and Jan 30 at 9 AM/6 PM Central, after the parent Jan 27 release. All four platform targets share each slot. Blotato 199/200, so these are waiting-list plans, not live schedules. Receipt: `Docs/SL13_SETUP_RECEIPT_20261108.md`.

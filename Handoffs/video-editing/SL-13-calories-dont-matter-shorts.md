@@ -40,3 +40,7 @@ short's in/out, title and parent. Send Dan the REVIEW copies. Update `00-MASTER.
 ## R2 final approval, November 7, 2026
 
 Dan: “Everything is approved. Proceed to setup”. All three selected R2 Shorts are finalized, with exact hashes in `Docs/SL13_R2_REVIEW_RECEIPT.md` and `Short-form video content/Calories Dont Matter - SL-13/Finalized R2/APPROVED_R2.json`. Setup: `Handoffs/handoff-20261107-sl13-calories-dont-matter-setup.md`. No SL-13 covers selected or posts scheduled. Earlier candidate counts and December dates above are historical; setup must use the live parent/calendar. Do not restart editing.
+
+## Setup complete, shared waitlist, November 8, 2026
+
+Dan chose Protein X3, Eat Less X4 and Steps X3 and authorized finishing setup. All original MP4/SRT backups and twelve publishing assets are verified. Three complete entries are on the shared waitlist for Jan 28 at 6 PM and Jan 30 at 9 AM/6 PM Central, after the parent Jan 27 YouTube release. Blotato 199/200; no SL-13 schedules exist. Keep the job finalized until actual schedules read back. Receipt: `Docs/SL13_SETUP_RECEIPT_20261108.md`.
