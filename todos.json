@@ -426,6 +426,13 @@
       "addedAt": "2026-10-21",
       "addedBy": "assistant",
       "boardRank": 14
+    },
+    {
+      "text": "Make bed",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
