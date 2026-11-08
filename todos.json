@@ -405,6 +405,13 @@
       "recurring": false,
       "addedAt": "2026-11-08",
       "boardRank": 11
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-11-08",
+      "boardRank": 12
     }
   ],
   "handoffs": [
