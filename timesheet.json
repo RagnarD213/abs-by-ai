@@ -1,8 +1,12 @@
 {
-  "active": {
-    "startedAt": "2026-11-08T21:16:23.732Z"
-  },
-  "entries": [],
+  "active": null,
+  "entries": [
+    {
+      "start": "2026-11-08T21:16:23.732Z",
+      "end": "2026-11-08T22:06:15.835Z",
+      "seconds": 2992
+    }
+  ],
   "payments": [
     {
       "paidAt": "2026-09-01T21:48:43.000Z",
