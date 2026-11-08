@@ -1,6 +1,6 @@
 # Great Again T: two VSL outlines for Dan (2026-11-08)
 
-Outline A models V Shred's funnel. Outline B models TestoGreens'. Both are built for Great Again T, for Dan and for SixPackAbs, and both open on foods. Outlines only: no script until Dan has directed the outline he picks (outline-first rule). Evidence and the full analysis: `Docs/testosterone-funnels-20261105/` (transcripts, funnel recommendation).
+Outline A models V Shred's funnel. Outline B models TestoGreens'. Both are built for Great Again T, for Dan and for SixPackAbs, and both open on foods. **Revised 2026-11-08 (Dan): the foods are bait, as in both proven funnels. Neither original walks through its foods: V Shred names one food (almond milk) for about a minute and pivots; TestoGreens never lists its five foods in the video and only names them in passing at 33:30, inside the bonus pitch. We copy that, not a nutrition lesson.** Outlines only: no script until Dan has directed the outline he picks (outline-first rule). Evidence and the full analysis: `Docs/testosterone-funnels-20261105/` (transcripts, funnel recommendation).
 
 ## What both outlines share
 
@@ -9,7 +9,7 @@ Outline A models V Shred's funnel. Outline B models TestoGreens'. Both are built
 - TestoGreens' idea is estrogen: an enzyme "steals" testosterone. V Shred's is chemicals: pesticides, plastics, cortisol, a "male hormone matrix." **Ours is the diet itself**, which is Dan's home turf as the fat-loss and abs guy.
 - **Name for the mechanism (pick one):** "Starved T" / "the Starved Testosterone Diet" / "the Lean Diet Trap." Something we can say every few minutes the way they repeat "the thief" and "the matrix."
 
-**Food claims we can stand behind (every food on screen gets its study card):**
+**Food claims we can stand behind** (used briefly as the hook and teaser, one study card when a food is named; not a section each):
 
 | Food | What the study found | Source |
 |---|---|---|
@@ -37,21 +37,22 @@ Outline A models V Shred's funnel. Outline B models TestoGreens'. Both are built
 
 ## Outline A: the V Shred model
 
-**Format:** a 4-question quiz, then a vertical 9:16 VSL, Dan to camera, about 25 to 28 minutes. Research B-roll and study cards cut in whenever a study is cited.
+**Format:** a 4-question quiz, then a vertical 9:16 VSL, Dan to camera, about 22 to 28 minutes (V Shred runs 28). Research B-roll and study cards cut in whenever a study is cited.
 
 ### The quiz (V Shred's way: 4 easy yes questions, same video for everyone)
 Dan's call, 2026-11-08: no data questions. Google Ads already reports age; asking for it is intrusive. Each question previews a promise the video then keeps.
 1. **"Are you over 30 and want to lose the belly and build muscle?"** Yes / No
-2. **"If 3 'healthy' foods were draining your testosterone, would you want to know which ones?"** Yes / No / Not sure
+2. **"If a 'healthy' food in your fridge was draining your testosterone, would you want to know which one?"** Yes / No / Not sure
 3. **"If you could get your energy and drive back without living in the gym, would that interest you?"** Yes / No / Not sure
 4. **"If there was a natural way to support your testosterone with 2 tablets a day, no needles, no prescription, would you want to see it?"** Yes / No / Not sure
-→ Headline: "The 3 'Fitness Foods' Draining Your Testosterone"
+→ Headline: "The 'Fitness Food' Draining Your Testosterone" (one food, like V Shred; ours is egg whites)
 
 ### The VSL
-**1. Hook (0:00 to 0:45), fitness insider attacks fitness rules**
-- Opener direction (Dan writes the final line): "Egg whites. Fat-free everything. A 'healthy' breakfast. Every fitness guy you ever followed told you to eat this way. Three of those rules drain your testosterone, and I can prove it."
-- Pattern break: Dan, 41, shirt off or in a tank, eating whole eggs or sardines in his kitchen while saying it.
-- Promise: the 3 foods, what to eat instead, and the one thing you can't get from food after 40.
+**1. Hook (0:00 to 2:00): one food, named fast, then the pivot (V Shred's pattern)**
+- Opener direction (Dan writes the final line): the fitness world's favorite "healthy" food is draining your testosterone. Name it inside the first 20 seconds: egg whites, the yolk thrown in the trash. Bagheri card on screen, about a minute, no more.
+- Pattern break: Dan, 41, in his kitchen cracking whole eggs, dumping a carton of egg whites.
+- Widen it in one or two lines, without a list: it's not just eggs, it's the whole low-fat, "clean," sugar-for-breakfast way men were told to eat (V Shred widens almond milk to "healthy foods" the same way).
+- Pivot promise, as V Shred does at 2:03: just as some foods drain testosterone, a few natural compounds do the opposite, and "in the next few minutes I'll show you what they are."
 
 **2. The stakes (0:45 to 3:00)**
 - What low testosterone looks like to the man himself: the belly that won't move however clean he eats, energy gone by 2 p.m., drive gone, soft in the chest, the gym stops working. His own words, not clinical ones.
@@ -61,59 +62,46 @@ Dan's call, 2026-11-08: no data questions. Google Ads already reports age; askin
 - Dan: the fat-loss guy, 41 with abs, trains 7 days a week, coached and studied men's bodies for years. Here's what I found when I read the actual studies behind the "healthy" rules.
 - Research B-roll here: Dan at a desk with printed studies, PubMed on a laptop, lab footage while he says "researchers."
 
-**4. Food 1: egg whites (4:30 to 7:30)**
-- Throwing away the yolk throws away what testosterone is built from (fat and cholesterol). Bagheri 2021 study card.
-- Fix: whole eggs. Dan buys the pre-boiled packs: true and easy.
-
-**5. Food 2: the low-fat "cutting" diet (7:30 to 10:30)**
-- Chicken breast, rice, steamed broccoli, fat-free dressing: the "lean" plate. Whittaker & Wu meta-analysis card: 10 to 15% lower testosterone.
+**4. Why it's happening: the starved-testosterone problem (4:30 to 10:00)**
+- The mechanism, not a food tour. Testosterone is built from fat, cholesterol and zinc; the "healthy" diet cuts all three, and stress keeps the brakes on. Study cards as B-roll: low-fat meta-analysis (10 to 15% lower), the sugar study (25% drop), zinc restriction (Prasad). Each in a sentence or two as proof of the mechanism, not as "food number 2."
 - Dan's slot: did he eat like this? How did he feel?
-- Fix: keep the fat (olive oil, whole eggs, fatty fish).
+- Why fixing the food isn't enough after 40: zinc runs short, cortisol stays high. "There's a root that does what no grocery store food can do."
 
-**6. Food 3: the "healthy" sugar breakfast (10:30 to 13:00)**
-- OJ + granola + flavored yogurt = about 75 g of sugar. Caronia 2013: testosterone down about 25%, still down 2 hours later. Show the sugar piled up in grams on the counter.
-- Fix: protein-and-fat breakfast.
-- Optional quick bonus: licorice tea / "detox" tea (Armanini). Keep it to 30 seconds if used.
-
-**7. The turn: why food alone isn't enough after 40 (13:00 to 15:00)**
-- Fixing the food stops the damage. But two things food can't fix: men run short on zinc, and stress (cortisol) keeps the brakes on testosterone. Prasad zinc card. Talbott stress card.
-- "There's a root that does what no grocery store food can do."
-
-**8. The ingredients, one job each (15:00 to 19:30)**
+**5. The ingredients, one job each (10:00 to 15:00)**
 - **Tongkat ali:** the stress brake and the testosterone signal. The 105-men study and the stress study.
 - **Zinc:** what the factory runs on (Prasad).
 - **Maca:** drive.
-- Then the rest of the label quickly: ginseng and eleuthero, nettle, boron, tribulus, oyster extract (the zinc food in the tablet itself, a nice tie-back to the foods section).
+- Then the rest of the label quickly: ginseng and eleuthero, nettle, boron, tribulus, oyster extract (the zinc food in the tablet itself, a nice tie-back to the hook).
 - Show the real bottle, the real tablets and the Supplement Facts on screen.
 
-**9. Product reveal: Great Again T (19:30 to 21:00)**
+**6. Product reveal: Great Again T (15:00 to 16:30)**
 - What it is, 2 tablets a day, made for the man who already fixed his food or is about to. Dan's honest line: food first, this second.
 - Don't imply the bottle built Dan's body.
 
-**10. Future pacing (21:00 to 22:30)**
+**7. Future pacing (16:30 to 18:00)**
 - A specific day 4 to 8 weeks out: up before the alarm, no 2 p.m. crash, the belly finally moving because the gym is working again, presence at work, home life better ("I'll leave it at that" level, nothing explicit). Principle from V Shred's day-in-the-life; our day.
 
-**11. Offer (22:30 to 25:00)**
+**8. Offer (18:00 to 20:30)**
 - $47 single; 3 for $129 is the one most men pick (a full 90 days, which is how long the studies ran); 6 for $234 is the best price.
 - 365-day full refund, any reason. One-time purchase.
 - Sold only on this page.
 
-**12. Close (25:00 to 26:30)**
+**9. Close (20:30 to 22:00)**
 - Two options: keep eating the "healthy" plate and hope, or fix the food today and give your body what food can't. "Tap the button and pick your package."
 
 ---
 
 ## Outline B: the TestoGreens model
 
-**Format:** no quiz, the ad goes straight to the VSL. Horizontal 16:9, about 38 to 42 minutes. Dan's voice over heavy research and food B-roll, with Dan on camera for the story and the close. A longer, more list-driven video with a full offer stack and a Q&A section after the close.
+**Format:** no quiz, the ad goes straight to the VSL. Horizontal 16:9, about 35 to 40 minutes. Dan's voice over heavy research and food B-roll, with Dan on camera for the story and the close. A longer, more list-driven video with a full offer stack and a Q&A section after the close.
 
 **Headline:** "4 'Heart-Healthy' Foods That Drain Testosterone in Men Over 40" (subhead: "...and the 1 root you won't find in any grocery store").
 
 ### The VSL
-**1. Hook (0:00 to 1:00), the grocery list**
+**1. Hook (0:00 to 1:00): tease the list, don't give it (TestoGreens' pattern)**
 - Opens on the foods, never on Dan. Direction: "If you're over 40, there are 4 foods with a 'heart-healthy' label in your kitchen right now that drain testosterone. Your doctor probably told you to eat at least two of them."
-- B-roll: a cart filling with labeled foods: fat-free yogurt, a "whole grain" cereal box, orange juice, egg substitute carton.
-- Promise: all 4 foods named in this video (unlike TestoGreens, we pay off the headline), what to swap them for, and the root.
+- B-roll: a cart filling with "heart-healthy" labeled groceries, labels blurred or turned so the 4 aren't given away.
+- Promise the reveal "in a moment," then move to the bigger story. TestoGreens never walks through its five; the open loop keeps people watching.
 
 **2. Why it matters (1:00 to 3:00)**
 - The symptoms list, in his words. The belly-and-testosterone loop: low testosterone makes the belly grow, the belly makes it harder to lose. The bigger the belly gets, the harder it is to fix by eating less. Make the viewer feel the downward spiral.
@@ -123,55 +111,41 @@ Dan's call, 2026-11-08: no data questions. Google Ads already reports age; askin
 - Our version of TestoGreens' strongest section, built only from true facts: Dan at 41 with abs, training 7 days a week. The turning point is a slot for Dan's real one (e.g., when he noticed the "rules" weren't working, or his blood work).
 - Proof that he lives it: his actual breakfast, whole eggs and sardines.
 
-**4. Food 1: fat-free and low-fat dairy (6:00 to 9:00)**
-- Low-fat diet meta-analysis card. The irony: the "heart-healthy" label.
-- Swap: full-fat versions, in reasonable amounts.
+**4. The real problem behind the foods (6:00 to 14:00)**
+- The mechanism section, TestoGreens-length: why the "heart-healthy" diet starves testosterone (built from fat, cholesterol and zinc), why it gets worse after 40, the belly loop. Study cards as proof: low-fat meta-analysis, the sugar study, Prasad zinc. Mention food categories only in passing ("the low-fat aisle," "the 'healthy' breakfast"), never as a numbered list.
+- One concrete example is fine as proof (e.g., the 75 g sugar breakfast in grams on the counter), the way TestoGreens drops "plastic water bottle, pesticides, non-stick pan."
+- "Why TRT and most boosters don't fix it," then: even a perfect diet can't fix zinc and stress after 40. Bridge to the root.
 
-**5. Food 2: the "whole grain" breakfast with orange juice (9:00 to 12:00)**
-- The 75 g sugar breakfast and the Caronia card. Show the grams on screen.
-- Swap: eggs.
-
-**6. Food 3: egg substitutes and egg-white cartons (12:00 to 14:30)**
-- Bagheri card. "They took the yolk out to protect your heart, and took your testosterone with it."
-- Swap: whole eggs.
-
-**7. Food 4: licorice and "detox" teas (14:30 to 16:30)**
-- Armanini card. Short, the surprise food.
-
-**8. The bigger problem food can't fix (16:30 to 19:00)**
-- After 40: zinc runs short (Prasad), stress keeps cortisol high (Talbott). Even a perfect diet doesn't fully fix those.
-- Bridge to the root.
-
-**9. The root: tongkat ali (19:00 to 23:00)**
+**5. The root: tongkat ali (14:00 to 19:00)**
 - The longer research section TestoGreens does well, made ours: where it grows (Malaysia and Indonesia, Malaysian research), the 105-men study, the stress study, the meta-analysis. Lab and research B-roll, study cards.
 - Then zinc, maca for drive, and the rest of the label.
 
-**10. Product reveal and how it's made (23:00 to 25:00)**
+**6. Product reveal and how it's made (19:00 to 21:00)**
 - Great Again T, 2 tablets a day, the real bottle and label.
 - Only claims Supliful can document (where it's made, third-party testing). Confirm before scripting.
 
-**11. Price build-up (25:00 to 28:00)**
+**7. Price build-up (21:00 to 24:00)**
 - Anchor on what men spend now: TRT clinic memberships and their cost (verify a real price range before scripting; do not use TestoGreens' $600 to $1,000), plus the shelf of pills that didn't work.
 - Step the price down to $47, about $1.50 a day.
 
-**12. Bundles and bonuses (28:00 to 31:00)**
+**8. Bundles and bonuses, where the foods are revealed (24:00 to 27:00)**
 - Why 3 to 6 months: the studies ran 12 weeks.
 - **Bonuses only on 3 and 6 bottles** (TestoGreens' tactic, our content, all things Dan actually has or can make):
-  - "The Testosterone Grocery List": the 4 foods, the swaps, what Dan buys.
+  - "The Testosterone Grocery List": the full list and the swaps. **This is where the 4 foods get named, in passing, as a teaser for the guide** (low-fat yogurt and dairy, the cereal and orange juice breakfast, egg-white cartons, licorice and "detox" teas), exactly how TestoGreens names its five at 33:30.
   - Dan's 3-exercise ab workout.
   - If feasible: free time on the Abs By AI trainer (the unique bonus neither competitor can match; check cost and logistics).
 - Real scarcity only (e.g., bonuses or launch price for a set time). Nothing invented.
 
-**13. Guarantee (31:00 to 32:30)**
+**9. Guarantee (27:00 to 28:30)**
 - 365-day full refund, any reason. "All you're saying today is maybe." (Principle from TestoGreens; our wording.)
 
-**14. Close (32:30 to 34:00)**
+**10. Close (28:30 to 30:00)**
 - Two paths: keep buying the "heart-healthy" foods and get softer every year, or swap 4 foods today and add 2 tablets. Choose the 3-bottle package below.
 
-**15. Q&A after the close (34:00 to 40:00)**
+**11. Q&A after the close (30:00 to 38:00)**
 - "Still here? You probably have a question." Five or six real objections, answered by Dan:
   - Is it safe with my medication or TRT? (Answer: show the label to your doctor or pharmacist.)
-  - Do I still need to change my diet? (Yes, food first. That's the whole video.)
+  - Do I still need to change my diet? (Yes; the grocery list shows you how.)
   - How fast will I notice anything? (Honest: the studies ran 12 weeks.)
   - Why can't I buy it in stores?
   - I've tried boosters before. What's different?
@@ -185,7 +159,7 @@ Dan's call, 2026-11-08: no data questions. Google Ads already reports age; askin
 |---|---|---|---|---|
 | First line | "If you're a guy over 50, you need to be aware of these five popular foods" | "Are healthy foods destroying your testosterone?" | Fitness rules (egg whites, fat-free, healthy breakfast), from a fit 41-year-old | "4 'heart-healthy' foods in your kitchen" |
 | Villain | An estrogen enzyme, the "thief" | Chemicals, cortisol, the "matrix" | The low-fat, sugar-heavy diet itself | The same, through the "heart-healthy" label |
-| Foods | Teased, barely named | Almond milk, pesticides | Egg whites, low-fat cutting plate, sugar breakfast | Low-fat dairy, sugar breakfast, egg substitutes, licorice tea |
+| Foods | Teased; 5 named in passing at 33:30 in the bonus pitch | Almond milk, about a minute, then pivot | Egg whites, about a minute, then pivot | Teased; 4 named in passing in the bonus pitch |
 | Messenger | A doctor, unseen | Vince to camera | Dan to camera | Dan's voice over research B-roll, Dan for the story |
 | Hero ingredient | Pomegranate peel + cocoa | Ashwagandha | Tongkat ali | Tongkat ali |
 
