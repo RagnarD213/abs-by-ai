@@ -1,6 +1,6 @@
 # Great Again T, Script A (V Shred model): Claude's entry
 
-**Format:** 4-question quiz, then a vertical 9:16 VSL. Dan to camera, about 28 minutes (V Shred's runs 28:19, 5,840 words). Study cards and research B-roll whenever a study is cited. Bracketed lines are filming and edit notes, not read aloud. `[JANUARY VERSION: ...]` blocks replace the line before them in the January sale take; the evergreen take skips them.
+**Format:** 4-question quiz, then a vertical 9:16 VSL. Dan to camera, about 27 minutes (V Shred's runs 28:19, 5,840 words). Study cards and research B-roll whenever a study is cited. Bracketed lines are filming and edit notes, not read aloud. `[JANUARY VERSION: ...]` blocks replace the line before them in the January sale take; the evergreen take skips them.
 
 ## Quiz (same video for everyone)
 
@@ -23,13 +23,15 @@
 
 ## The script
 
-### 1. Hook (0:00 to 3:44) [V Shred 0:00 to 3:04]
+### 1. Hook (0:00 to 3:54) [V Shred 0:00 to 3:04]
 
 [FIRST FRAME: Dan in his kitchen, holding a plate to camera: an egg-white omelet, a tall glass of orange juice, a bowl of granola with flavored yogurt.]
 
 This "healthy" breakfast can knock out a quarter of your testosterone in two hours.
 
-Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Two hours later, their testosterone was down about 25 percent. And it was still down when the test ended. And for most guys, that's not one bad morning. It's every morning. A quarter of the hormone behind your energy, your muscle and your drive, gone before lunch.
+Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Two hours later, their testosterone was down about 25 percent. And it was still down when the test ended. And for most guys, that's not one bad morning. It's every morning. A quarter of the hormone behind your energy, your muscle and your sex drive, gone before lunch.
+
+And it's not just breakfast. A man your age today has less testosterone than a man your age had in 1987. Something changed.
 
 [STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
 
@@ -43,21 +45,21 @@ When I weighed 200 pounds, I ate like this almost every morning.
 
 I'm 41 now, I've got abs, and this is the first breakfast I'd throw in the trash.
 
-But the sugar isn't even the worst thing on this plate.
+And the sugar is only half of what's wrong with this plate.
 
 [Dan cracks an egg, tips the white into the pan and drops the yolk in the trash.]
 
-That yolk is where the cholesterol is. And cholesterol is what your body makes testosterone out of. Every morning, millions of men are throwing their testosterone in the trash. In one 12-week study, lifters eating whole eggs got a bigger testosterone rise than lifters eating egg whites.
+That yolk is where the cholesterol is. And cholesterol is what your body makes testosterone out of. Every morning, millions of men are throwing their testosterone in the trash. In one 12-week study, lifters eating whole eggs got a bigger testosterone rise than lifters eating egg whites. But don't run off and just eat the yolk. After 40, even the perfect breakfast comes up short, and I'll show you why.
 
 [STUDY CARD: Bagheri et al., Journal of Strength and Conditioning Research, 2021.]
 
-And if you're worried about your heart: in 2015 the government quietly dropped its old daily limit on cholesterol. The egg-white cartons are still on the shelf anyway.
+And the cholesterol limit that turned egg whites into "health food"? The government dropped it in 2015. Nobody told you.
 
 [CARD: 2015 to 2020 Dietary Guidelines for Americans removed the 300 mg daily cholesterol limit.]
 
 And the biggest fix isn't on this plate at all. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. I'll show you exactly what it is.
 
-But first, here's what should scare you. A man your age today has less testosterone than a man your age had in 1987. Researchers in Boston measured it: same age, about 1 percent lower for every year that passed, 17 years straight. That's not aging. Something changed. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years this breakfast took over America.
+But first, remember that 1987 number? Here's what should scare you. Researchers in Boston measured it: same age, about 1 percent lower testosterone for every year that passed, 17 years straight. That's not aging. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years this breakfast took over America.
 
 [STUDY CARD: Travison et al., J Clin Endocrinol Metab, 2007, Massachusetts Male Aging Study, 1987 to 2004.]
 
@@ -95,7 +97,7 @@ And this isn't just for young guys. Some of the most important research I'm goin
 
 And here's what Starved T looks like in real life.
 
-### 2. What it's costing you (3:44 to 4:55) [V Shred 3:04 to 6:13]
+### 2. What it's costing you (3:54 to 5:05) [V Shred 3:04 to 6:13]
 
 You buy your jeans a size bigger and tell yourself it's the brand. You see a picture from a family trip and don't recognize the guy with the gut. Ten pounds used to come off in a month when you got serious. Now you eat clean for weeks and the scale doesn't move.
 
@@ -111,9 +113,9 @@ I've heard some version of that story from more men than I can count. Different 
 
 It's not. And this isn't just about looking good with your shirt off. It's about being around, and being strong, for your family, your kids, and one day your grandkids.
 
-### 3. What food can't fix (4:55 to 6:30) [V Shred 2:03 and 16:07: the compounds promise]
+### 3. What food can't fix (5:05 to 6:40) [V Shred 2:03 and 16:07: the compounds promise]
 
-Now, fixing your plate fixes the first part of Starved T. But after 40, even the perfect breakfast comes up short, because your body gets worse at turning raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
+Now, fixing your plate fixes the first part of Starved T. Remember, after 40, even the perfect breakfast comes up short, because your body gets worse at turning raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
 
 That's why the most important thing I found isn't in your fridge. It's that natural compound I told you about. It's not a food, and you can't get it from anything on your plate. Remember that 37 percent? That was 63 stressed-out adults dealing with the same kind of everyday stress I just described. And it took four weeks.
 
@@ -127,7 +129,7 @@ And imagine what happens when your body finally gets what it needs. You're up be
 
 And that compound is how you get there. And it matters more right now than it ever has, because of what's happening to men across this whole country. Look at these numbers.
 
-### 4. The numbers (6:30 to 7:35) [V Shred 6:13 to 7:38]
+### 4. The numbers (6:40 to 7:45) [V Shred 6:13 to 7:38]
 
 Three numbers show you how bad it's gotten.
 
@@ -149,7 +151,7 @@ Four out of 10. Look around the next time you're at a ballgame.
 
 This isn't normal aging. This is a generation of men that's heavier and lower in testosterone than their own fathers were at the same age. Something changed. So what happened? And what do you do about it?
 
-### 5. Starved T (7:35 to 15:34) [V Shred 7:38 to 17:10]
+### 5. Starved T (7:45 to 15:44) [V Shred 7:38 to 17:10]
 
 It starts with killing the biggest myth in fitness. Most guys think that if they eat clean and train hard, their testosterone will take care of itself.
 
@@ -235,7 +237,7 @@ You need compounds made for exactly this job. Over the last several years, resea
 
 And I'm going to show you the three that matter most.
 
-### 6. The three heroes (15:34 to 18:33) [V Shred 17:10 to 21:21]
+### 6. The three heroes (15:44 to 18:43) [V Shred 17:10 to 21:21]
 
 Number one is tongkat ali.
 
@@ -279,7 +281,7 @@ So that's the lineup. Tongkat ali gets the stress off the brakes and supports yo
 
 Each one targets a different part of Starved T. And together, they do something most testosterone boosters never even try to do. They go after the cause, not just the number.
 
-### 7. The product (18:33 to 21:10) [V Shred 20:15 to 23:28]
+### 7. The product (18:43 to 21:20) [V Shred 20:15 to 23:28]
 
 So let me show you how I put this into something you can actually use every day, because I built exactly that.
 
@@ -321,7 +323,7 @@ And here's the part I want you to know. I don't just sell this stuff. I've taken
 
 It's two tablets, once a day. That's it.
 
-### 8. A few weeks from now (21:10 to 22:27) [V Shred 23:28 to 24:30]
+### 8. A few weeks from now (21:20 to 22:37) [V Shred 23:28 to 24:30]
 
 Before I tell you what it costs, I want you to picture what this actually means for your life.
 
@@ -339,7 +341,7 @@ And at home? Let's just say she's noticed. I'll leave it at that.
 
 I'm not hyping you up. That's simply what it feels like when your body has what it needs to make you feel like a man again.
 
-### 9. The price (22:27 to 24:53) [V Shred 24:30 to 26:43]
+### 9. The price (22:37 to 25:03) [V Shred 24:30 to 26:43]
 
 So here's how to get it.
 
@@ -373,7 +375,7 @@ So when you tap the button below, you'll see all three packages on the next page
 
 [JANUARY VERSION: "But this January price ends on January 31st. On February 1st it goes back to the regular price. So if you want the sale, now's the time."]
 
-### 10. Guarantee and close (24:53 to 26:36) [V Shred 26:43 to 28:19]
+### 10. Guarantee and close (25:03 to 26:46) [V Shred 26:43 to 28:19]
 
 And you can't lose on this. Every order is covered by a 365-day, full money-back guarantee. Take Great Again T every day. Watch your energy, your focus and your drive. Watch what happens in the mirror. And if for any reason you're not happy, even if every bottle is empty, contact our team any time in the next year and you get every dollar back. No questions asked.
 
