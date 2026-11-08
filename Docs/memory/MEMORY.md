@@ -63,6 +63,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed
 - [AI clip sense QC](ai-clip-sense-qc.md): cause and effect, shows the line; ~5 clips; ask budget
+- [AI clip gags: no injury jokes](ai-clip-gags-injury-and-sense.md): 11-08: injury lines play straight; gag must read in one look; sleep clips show good sleep
 - [AI clip ideas](ai-clip-ideas-more-and-funnier.md): more, funnier; abstract lines get an unreal gag
 - [AI label on the picture](ai-label-on-the-picture-not-the-scene.md): 10-30: AI picture in a real scene gets its label on the TV/inset, never frame corner; never on face or abs
 - [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
@@ -84,7 +85,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
 - [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers
-- [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [SixPackAbs logo kit](sixpackabs-logo-kit.md): 11-05: all logo files in sixpackabs/brand/logo/ (svg, pdf, png, jpg, favicons); gold on dark only
 - [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, no ribbon (11-05), existing logo symbol, % not "in blend"
 - [Website phone first](website-phone-first.md): 11-04: every AI designs at 390 first, then 1440; reviews open phone first
@@ -131,6 +131,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
 - [Headlines](ad-copy-headline-voice.md): person + outcome
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
+- [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
 - [YT ads](ytads-retired-manual-management.md): instant on, never pause
 - [Ads UI](google-ads-ui-automation.md): Chrome traps
 ## More by topic (open the hub, then the entry)
@@ -142,6 +143,8 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Publishing and social](hub-publishing.md): Queue routine, pinned comments, Social Queue page, Instagram account, ManyChat, Meta identity, TikTok
 - [Ads and marketing](hub-ads.md): Ads rules and research: never organic, all-campaign engagement ads, Ads API, proven direct response, VSL, cart teardown, funnels
 - [App and site internals](hub-app.md): The product: trainer, nutritionist, Sleep Coach, native apps, Stripe, Railway, email, SixPackAbs site, deploy traps
+
+- [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
