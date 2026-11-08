@@ -53,7 +53,7 @@ You are partly right. V Shred has a big brand and an existing customer list, so 
 - **Quiz**: two yes questions, not a real quiz.
 
 ### From TestoGreens
-- **Origin story with real numbers** (03:10 to 06:18): failed life insurance exam, did everything right, still fell apart, tested at 216, now 931 at 56, stepped on stage. This is the strongest part of either VSL. Your version needs your own true story. Your own real blood work, if you have it, would be the most powerful proof in the video.
+- **Origin story with real numbers, placed after the hook** (03:10 to 06:18; TestoGreens spends the first 3 minutes on the foods, the hidden cause and the promise before the doctor ever says his name): failed life insurance exam, did everything right, still fell apart, tested at 216, now 931 at 56, stepped on stage. This is the strongest part of either VSL. Your version needs your own true story. Your own real blood work, if you have it, would be the most powerful proof in the video.
 - **TRT as the enemy and the price anchor**: "$600 to $1,000 a month", side effects, "fighting the symptom, not the cause."
 - **"Why other boosters fail"**: they push testosterone up but ignore the real problem. We frame it with SHBG instead of aromatase.
 - **Price-drop sequence**: $219.95 retail, not $159, not $129, maybe $99 soon, today $69, "$2.30 a day."
@@ -96,7 +96,9 @@ Per the outline-first rule, the next step is building the persuasive outline for
 Recommendation: yes to three **outlines**, not three scripts or three shoots yet.
 
 - **Outline A, V Shred model:** quiz, vertical, ~28 min, foods hook first, named mechanism, three hero ingredients, future pacing.
-- **Outline B, TestoGreens model:** no quiz, horizontal, ~40 min, story first (Dan's own crisis and numbers), longer proof section, bonuses, FAQ after the close. Our own mechanism (tongkat 400 mg, freeing testosterone), not aromatase; no doctor authority. A different first minute from TestoGreens' "five foods" so it doesn't read as a copy.
+- **Outline B, TestoGreens model:** no quiz, horizontal, ~40 min, opens on foods like every proven testosterone VSL (a different food angle from TestoGreens' "five foods that spike estrogen", e.g. "3 foods" or foods that cut vs. boost testosterone), Dan's story comes in only after the hook and promise, as TestoGreens does at 3:10, longer proof section, bonuses, FAQ after the close. Our own mechanism (tongkat 400 mg, freeing testosterone), not aromatase; no doctor authority. The food list and wording must differ enough from TestoGreens' so it doesn't read as a copy.
 - **Outline C, Dan's original.**
 - Compare the three side by side, pick the strongest one (or two). Filming and testing two full VSLs roughly doubles the test budget (about $8,000 to $20,000 for a clear read), so film the second one only if A and B stay close after Dan's review.
 - Per the outline-first rule, scripts come only after Dan has directed the chosen outline.
+
+**Correction (Dan, 2026-11-08):** never open on Dan's story. Both proven VSLs open on foods; the founder story is proof that comes after the hook. Foods are essential to the opening of every version.
