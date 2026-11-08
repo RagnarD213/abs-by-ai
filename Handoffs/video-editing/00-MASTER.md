@@ -85,7 +85,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | UPLOADED | S |
 | [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | IN PROGRESS | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | FINALIZED | S |
-| [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | FINALIZED | S |
+| [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | UPLOADED | S |
 | [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | UPLOADED | S |
 | [DS-23](DS-23-how-to-do-side-laterals.md) | How To Do Side Laterals | C1672 | UPLOADED | S |
 | [DS-24](DS-24-how-to-do-rear-delt-flys.md) | How To Do Rear Delt Flys | C1672 | UPLOADED | S |

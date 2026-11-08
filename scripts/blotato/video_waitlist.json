@@ -257,7 +257,11 @@
   "job": "DS-21",
   "label": "How To Do Hammer Curls",
   "added": "2026-10-13",
-  "planned": "2026-11-26 09:00"
+  "planned": "2026-11-26 09:00",
+  "queued": {
+   "date": "2026-11-08",
+   "main": "2026-11-26T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
