@@ -1,6 +1,6 @@
 # Calories Dont Matter SFL Setup, November 7 2026
 
-CONTENT (SFL). Owner: Codex 01a1b65a-40f1-7ec0-8e5e-113b90dd18d8. **Cover review ready; setup partly done, awaiting Dan’s picks.**
+CONTENT (SFL). Owner: Codex 01a1b65a-40f1-7ec0-8e5e-113b90dd18d8. **Historical November 7 preparation snapshot. Completed November 8: see [final setup receipt](SL13_SETUP_RECEIPT_20261108.md).**
 
 ## Review
 

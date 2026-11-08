@@ -1,4 +1,4 @@
-**SL13:COVERS-REVIEW:2026-11-07:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261107.md`;picks-pending;Drive-B-incomplete;sync-blocked-live-files.
+**SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **DS15/19 2026-11-02:** covers-picked;HQ-awaited.
 
@@ -36,7 +36,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS-78:REVIEW:2026-11-07:Claude.**
 
-**Exercise-demos-Codex-R1:REVIEW:2026-11-07:Codex:await-ship.** [Review](http://127.0.0.1:10967/).
+**Exercise-demos-Codex-R2:RUNNING:2026-11-08:Codex:curl/background-check.** `Media/exercise-demos/_codex3/round2/`.
 
 
 
@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:R3:REVIEW:2026-11-07:Codex01a19c6e.** [A](http://127.0.0.1:9954/);B-approved;A-pick;push1dd1c5c-pending.
+**SL-12:COVERS:2026-11-08:Codex01a19c6e.** [Picks](http://127.0.0.1:9954/setup/);A+B-approved;Dec6-parent-public-HOLD;parent-live-schedule-unverified;pushed22c7c5a.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 

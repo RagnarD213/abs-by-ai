@@ -1,5 +1,7 @@
 # CONTENT (SFL): Calories Dont Matter SFL Setup
 
+**Executed November 8, 2026.** Protein X3, Eat Less X4 and Steps X3 installed. Backups and all twelve publishing assets verified; three complete shared-waitlist entries read back. [Final receipt](../Docs/SL13_SETUP_RECEIPT_20261108.md). Do not start duplicate setup.
+
 Prepared November 7, 2026. **Start now in Codex, newest available stable GPT at high effort.** One Codex `/video-setup` handoff for the three approved Shorts. **Use the Codex subscription to generate the images.** No separate thumbnail task.
 
 Setup routing updated November 7 per Dan: Codex handles setup unless he explicitly requests Claude. The earlier Claude recommendation is superseded. No setup task has been started by this handoff.
