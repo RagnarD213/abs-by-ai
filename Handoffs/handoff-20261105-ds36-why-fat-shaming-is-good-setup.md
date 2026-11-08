@@ -1,5 +1,7 @@
 # CONTENT SFC: Why Fat Shaming Is Good setup
 
+**Executed November5, 2026:** M1 approved, all four platforms scheduled and verified for December22, 2026 at9AM Central. Receipt: `Docs/DS36_SETUP_RECEIPT_20261105.md`.
+
 **Task name: Why Fat Shaming Is Good SFC Setup. Start in Claude Opus 5.5, high effort.**
 **Use the Codex subscription to generate the images.**
 

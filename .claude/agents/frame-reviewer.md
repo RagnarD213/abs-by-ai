@@ -60,6 +60,7 @@ D2. **Whole bodies (Dan, 2026-10-21).** Every person is whole where the shot imp
 E. **Continuity START to END.** What the spec anchors stays put (hips, back, head on the pad). Each rigid group moves as
    one piece along its guide by a plausible amount (track several features of it and every rider, such as both shoes).
    Everything that should stand still is unchanged (diff the whole frame outside the person and the moving parts).
+   **Empty gym (Dan, 2026-11-08):** inspect every visible unused machine, stack, cable and bench throughout the take. No unused stack moves by itself. A stack mechanically linked to the demonstrated exercise may move only with the rep. Inspect the dense background gate and per-frame mask overlays when supplied; a loose mask that hides a stack is not evidence it is still. Check areas as the bar uncovers them. Any unexplained movement is FAIL.
 F. **Hands and props.** Five fingers per visible hand (zoom; count them). Each hand holds what the spec says, in both
    frames (a cast on the named arm, a phone in the named hand). Exactly one of each prop; nothing left behind where a prop
    or limb was (a floating half phone, a leftover toe), nothing appearing from nowhere.

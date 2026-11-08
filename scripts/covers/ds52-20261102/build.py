@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Why Zepbound Is Actually Free (DS-52) covers, 2026-10-29. Adapted from the DS-76 Pull-Ups builder.
+"""DS-52 cover layouts, 2026-11-02, adapted from the DS-49 builder.
 
-AI plates come from generate.sh (codex-image.sh, GPT-6.1 Sol high). C composites the real studio-blue-222 cutout over a
-Codex background plate; the person pixels are never redrawn. Same headline on all five designs; only layout, type and
-colour change. Instagram keeps the title clear of the 3:4 grid crop; YouTube sits higher.
-
-    python3 scripts/covers/ds52-20261029/build.py
+Eight distinct images, paired Instagram and YouTube layouts, same title copy.
+The real studio-blue-247 cutout preserves original person pixels. Sources and
+private generation records live in the ignored review folder. Run build.py,
+check.py, then review.py after registering and shuffling the blind set once.
 """
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
@@ -30,12 +29,12 @@ FONTS = {
 PM = Path.home()/'.cache/absbyai/personmask/personmask'
 CUT = ROOT/'photos/finalized social media photos/_cutouts'
 SHORTS = {
-    # A/B/D/E: AI Dan (identity reference). C: real studio photo studio-blue-222 (green shorts) over a Codex poolside plate.
+    # C retains the real studio-blue-247 cutout over a generated backdrop.
     'ds52': dict(slug='ds-52_zepbound-free', copy=['Why Zepbound', 'Is Actually Free'],
                  cutout='studio-blue-247', waist=0.72),
 }
 LETTERS = 'ABCDEFGH'
-# F/G/H (Dan, 2026-10-29): "I like A" but pouring into a sink, F/G outdoor kitchen, H indoor. Same layout as A.
+# Every letter has its own design. Model provenance stays in the private records.
 STYLE = {}
 YT_ZOOM = {'A': 1.12, 'B': 1.10, 'E': 1.10, 'F': 1.10, 'G': 1.10, 'H': 1.10}
 ZOOM = {}   # letter: (x0, y0, x1, y1) crop on the 941x1672 Codex plate when Codex frames him too small
@@ -57,7 +56,6 @@ def fit(k, word, size, width):
 
 D_LINES = ['Why Zepbound', 'Is Actually', 'Free']
 D_BG = (4, 10, 18)
-D_COUNTER = 1180   # plate row just below the sugar plate and bottle base
 
 def d_layout(platform):
     limit = 1675 if platform == 'instagram' else 1800
@@ -129,14 +127,13 @@ def picture(key, k, platform):
     im = ImageOps.fit(src, (W, H), method=Image.Resampling.LANCZOS).convert('RGBA')
     info = {'plate': str(plate.relative_to(ROOT)), 'plate_sha256': sha(plate)}
     if k == 'D':
-        # The sugar cubes and bottle are the point of D: scale the plate so his hair lands at HAIR and the counter top
-        # (plate row D_COUNTER) lands just above the title. Instagram's hair target keeps it inside the 3:4 grid crop.
+        # Keep the full torso above the bottom title; Instagram hair stays inside the profile crop.
         hair = 260 if platform == 'instagram' else 140
         B = d_layout(platform)[2]-10
         top = person_top(Image.fromarray(np.array(src)).convert('RGBA'))
-        sc = max((B-hair)/(D_COUNTER-top), W/src.width)   # never narrower than the frame
+        sc = W/src.width   # never narrower than the frame
         pic = src.resize((round(src.width*sc), round(src.height*sc)), Image.Resampling.LANCZOS)
-        x0 = (pic.width-W)//2; yt = round(B-D_COUNTER*sc)   # counter top sits on the title
+        x0 = (pic.width-W)//2; yt = round(hair-top*sc)   # align actual hair to its measured target
         assert yt+top*sc >= (250 if platform == 'instagram' else 60), (platform, yt+top*sc)
         im = Image.new('RGBA', (W, H), D_BG+(255,))
         im.alpha_composite(pic.crop((x0, max(0, -yt), x0+W, max(0, -yt)+B-max(0, yt))).convert('RGBA'), (0, max(0, yt)))
@@ -157,7 +154,7 @@ def picture(key, k, platform):
             a[y, :, 3] = int(220*max(0, 1-y/fade))
         if k == 'E':
             # Hold a solid navy band behind the gold serif, then fade out above his hair.
-            solid, end = (470, 700) if platform == 'instagram' else (415, 450)   # YouTube: zoomed face starts ~450
+            end = min(700 if platform == 'instagram' else 450, person_top(im)-35); solid = max(0,end-100)   # YouTube: zoomed face starts ~450
             a[:, :, 3] = 0
             for y in range(end):
                 a[y, :, 3] = 238 if y < solid else int(238*(1-(y-solid)/(end-solid)))

@@ -1,5 +1,7 @@
 # CONTENT SFC · Zepbound Free SFC Setup
 
+> **Executed 2026-11-02 in Codex chat 01a19cb2.** Dan approved cover design 3/text B. Backups, uploads, metadata and four-platform shared waiting-list placement verified. Planned Dec28 6PM Central; not yet scheduled. Receipt: [DS52 setup receipt](../Docs/DS52_SETUP_RECEIPT_20261102.md).
+
 **READY. Start now. Recommended: Claude Opus 5.5, high effort.** This is one cover-and-setup task for “Why Zepbound Is Actually Free” (DS-52). The film is finalized, not uploaded or scheduled. **Use the Codex subscription to generate the images.** Keep this as one task through covers, Dan’s pick and verified queue placement; do not leave another unexecuted upload handoff after the cover pick.
 
 ## Approved film, immutable

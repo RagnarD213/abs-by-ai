@@ -358,7 +358,8 @@ def _sandbox_managed(port, root, remove=False):
     runtime.mkdir(parents=True, exist_ok=True)
     worker = runtime / 'review_server.py'
     content = Path(__file__).read_bytes()
-    if not worker.exists() or worker.read_bytes() != content:
+    worker_changed = not worker.exists() or worker.read_bytes() != content
+    if worker_changed:
         temporary = runtime / 'review_server.py.tmp'
         temporary.write_bytes(content)
         temporary.replace(worker)

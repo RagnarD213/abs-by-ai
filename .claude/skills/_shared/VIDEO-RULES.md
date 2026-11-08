@@ -144,6 +144,11 @@ Keep the camera-edge fade narrow except on frames where a hand exits. The speaki
 before Dan speaks, then stays silent behind him. The old Claude R4 B / Hormozi shrink-and-grow recipes are history;
 [Bill Maher Codex R5](../shorts/reference/ds40-codex-r5-reaction-format/README.md) is the authoritative format.
 
+## Empty gym backgrounds stay still (Dan, 2026-11-08)
+
+For Claude and Codex: in an empty gym, no unused weight stack, machine, cable, bench or other background object may move by itself. A stack linked to the exercise being demonstrated may move only with that exercise. For locked shots, check every native frame outside a narrowly reviewed per-frame person/prop mask with `.claude/skills/exercisegeneration/reference/background.py`; a few tracker boxes or a contact sheet are insufficient. Recheck the final narrated review file too. The independent reviewer inspects the masks and all visible unused equipment, including areas briefly hidden by the bar. Fix any unexplained movement before review.
+
+
 ## Google AI subscription first for video and images (Dan, 2026-11-08)
 
 Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
@@ -350,7 +355,7 @@ Dan: "Let's make this a rule going forward that we always use title capitalizati
 
 Dan rejected the SL-11 AI vacuum covers: "these AI-generated vacuum images of me are not turning out" and "The touched-up real photos ... are better than these AI photos for the vacuum." For stomach-vacuum covers and thumbnails, default to touched-up real camera screenshots of Dan actually holding a vacuum, including his previously used front-facing version when suitable. This is a topic-specific exception to the required AI-Dan mix below: do not manufacture new AI vacuum bodies by default. Preserve existing approved covers. Keep designs genuinely different; the standard count remains five unless Dan requests another count. For SL-11 he requested three designs per Short, both platform layouts, with at least one using the previously used front screenshot. Source/provenance: `Docs/memory/vacuum-covers-real-screenshots.md`.
 
-## Thumbnails: the five, each its own design, always made by Codex (Dan, 2026-10-25)
+## Thumbnails: the five, each its own design, owned by Codex (Dan, 2026-10-25)
 
 Dan changed the standard after choosing C for all five Calories Shorts: he chooses AI images of himself most often and rarely picks covers without him. This replaces the 2026-10-13 pool + studio + one AI Dan + two discretionary mix for new cover and thumbnail sets. Existing approved files and picks stay locked.
 

@@ -354,6 +354,11 @@ Full rule: read `.claude/skills/_shared/VIDEO-RULES.md`.
 - Rename at the start, preserve the actual round on resume of the same task (a handoff to a new task always takes the next round number), and use the same format in recommended task names and handoff starter prompts. Never put queue IDs in the chat title or lead with `Prepare`, `Edit`, `Continue` or an editor's name. The video title comes first. Use the condensed `R2`, not `Round 2`.
 - Upload/setup tasks retain their `Setup` suffix. Full editing naming rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names".
 
+## Empty gym backgrounds stay still (Dan, 2026-11-08)
+
+For Claude and Codex: in an empty gym, no unused weight stack, machine, cable, bench or other background object may move by itself. A stack linked to the exercise being demonstrated may move only with that exercise. For locked shots, check every native frame outside a narrowly reviewed per-frame person/prop mask with `.claude/skills/exercisegeneration/reference/background.py`; a few tracker boxes or a contact sheet are insufficient. Recheck the final narrated review file too. The independent reviewer inspects the masks and all visible unused equipment, including areas briefly hidden by the bar. Fix any unexplained movement before review.
+
+
 ## Google AI subscription first for video and images (Dan, 2026-11-08)
 
 Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
