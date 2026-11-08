@@ -48,4 +48,4 @@ New keeper A0246 registered in clip library: capped pen beside dumbbells, ONLY49
 
 ## Code delivery
 
-Only owned scripts, configs and documents may be committed. Shared checkout has unrelated live edits; never reset, stash, adopt or force-push them. Push status recorded at delivery.
+Only owned scripts, configs and documents may be committed. Shared checkout has unrelated live edits; never reset, stash, adopt or force-push them. Setup scripts/configs/receipt and finalized queue records committed and pushed as22c7c5a; safe-push confirmed ahead0/behind0. Only owned changes included. Shared board/decision updates remain in the working checkout with unrelated live edits.
