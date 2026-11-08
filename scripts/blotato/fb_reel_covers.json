@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles — not just a six-pack.",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch — a killer six-pack move you can do at home.",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -938,7 +938,7 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you’re fasting.",
+    "match": "Drink black coffee while you\u2019re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
@@ -1474,5 +1474,38 @@
     "sha256": "655ccdeeeb4d8bf12dcd14159b7259b166ea3379e3bb15b0a785468f870caef9",
     "when": "2026-12-24T18:00:00.000Z",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro15-glycine.jpg"
+  },
+  {
+    "job": "SL-13 A",
+    "slug": "sl13-short1-eat-protein-first",
+    "match": "The same calories can leave you with a completely different body.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl13-short1-eat-protein-first-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan selected X3 on2026-11-08; both exact platform layouts approved.",
+    "sha256": "d15e36464cdfdefecee42b70c51cc81993a6da171e5cf8098844e0c0ac6f8e21",
+    "when": "2027-01-29T00:00:00.000Z"
+  },
+  {
+    "job": "SL-13 B",
+    "slug": "sl13-short2-eat-less-without-counting",
+    "match": "You can eat less without counting every calorie. Here's how.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl13-short2-eat-less-without-counting-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan selected X4 on2026-11-08; both exact platform layouts approved.",
+    "sha256": "4b5fd0b2341e05427c977d919450ddbac5197c125b453fe510385b8ff0bb78e5",
+    "when": "2027-01-30T15:00:00.000Z"
+  },
+  {
+    "job": "SL-13 C",
+    "slug": "sl13-short3-keep-your-steps-up",
+    "match": "When you diet, your body can quietly make you move less.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl13-short3-keep-your-steps-up-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan selected X3 on2026-11-08; both exact platform layouts approved.",
+    "sha256": "b893f95dd13131958ba7583c792c540b89c6c2abdf7d8bad53a0f25ef5edd8b1",
+    "when": "2027-01-31T00:00:00.000Z"
   }
 ]
