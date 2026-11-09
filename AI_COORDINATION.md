@@ -87,7 +87,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **ZepboundFree:HOLD:2026-11-02:Codex01a19cb2.** B;Dec28-6PM-waitlist; `Docs/DS52_SETUP_RECEIPT_20261102.md`.
 
 
-**SL-12:COVERS:2026-11-08:Codex01a19c6e.** [Picks](http://127.0.0.1:9954/setup/);A+B-approved;Dec6-parent-public-HOLD;parent-live-schedule-unverified;pushed22c7c5a.
+**SL-12:COVERS-R2:2026-11-08:Codex01a19c6e.** [Review](http://127.0.0.1:9954/setup/);A1-4-pick;BX2-IG-approval;Dec6-parent-public-HOLD.
 
 **Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
