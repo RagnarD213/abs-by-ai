@@ -31,9 +31,9 @@ This "healthy" breakfast can knock out a quarter of your testosterone in two hou
 
 You're thinking it's the sugar. That's only half of what's wrong with this plate.
 
-Researchers at Massachusetts General Hospital gave 74 men about this much sugar and drew their blood every 30 minutes. Their testosterone dropped about 25 percent, and two hours later it was still down. About 1 in 7 of the men who started out normal fell into the low testosterone range. From one breakfast's worth of sugar.
+Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Their testosterone dropped about 25 percent and was still down two hours later. Put seven normal guys at a table and feed them this. Before lunch, one of them tests in the low testosterone range.
 
-[STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes; 10 of 66 men with normal baseline levels fell below 9.7 nmol/L. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
+[STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes; 10 of 66 men with normal baseline levels (about 1 in 7) fell below 9.7 nmol/L at one or more blood draws. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
 
 A quarter of the hormone behind your energy, your muscle and your sex drive, gone before lunch. And for most guys, that's not one bad morning. It's every morning.
 
@@ -57,7 +57,7 @@ That yolk is where the cholesterol is. And cholesterol is what your body builds 
 
 [STUDY CARD: Bagheri et al., Journal of Strength and Conditioning Research, 2021.]
 
-So don't just start eating yolks. After 40, even the perfect breakfast comes up short. And the biggest fix isn't on any plate. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. Sugar took 25 percent off. This put 37 percent on. I'll show you exactly what it is.
+So don't just start eating yolks. Even the perfect breakfast can't touch the third thing draining your testosterone, because it's the one you can't eat your way out of. And the biggest fix isn't on any plate. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. Sugar took 25 percent off. This put 37 percent on. I'll show you exactly what it is.
 
 And remember that 1987 number? Here's what should scare you. Researchers in Boston measured it: same age, about 1 percent lower for every year that passed, 17 years straight. That's not aging. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years low-fat, high-sugar "health food" took over America.
 
@@ -117,7 +117,7 @@ It's not. And this isn't just about looking good with your shirt off. It's about
 
 ### 3. What food can't fix (5:05 to 6:40) [V Shred 2:03 and 16:07: the compounds promise]
 
-Now, fixing your plate fixes the first part of Starved T. Remember, after 40, even the perfect breakfast comes up short, because your body gets worse at turning raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
+Now, fixing your plate fixes the first part of Starved T. And after 40, even the perfect breakfast comes up short, because your body gets worse at turning raw materials into testosterone. And it doesn't touch the third part at all. Tomorrow the job is still there. The bills are still there. The bad sleep is still there. And so is the cortisol sitting on your testosterone. No breakfast on earth fixes that.
 
 That's why the most important thing I found isn't in your fridge. It's that natural compound I told you about. It's not a food, and you can't get it from anything on your plate. Remember that 37 percent? That was 63 stressed-out adults dealing with the same kind of everyday stress I just described. And it took four weeks.
 
