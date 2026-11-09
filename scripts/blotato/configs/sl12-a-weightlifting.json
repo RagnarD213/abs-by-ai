@@ -17,11 +17,11 @@
   "instagram_cover_url": null,
   "youtube_cover_url": null,
   "release_hold": true,
-  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Exact revised cover approval also pending.",
   "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
   "parent_public_verified": false,
   "not_before_local": "2026-12-06",
-  "setup_stage": "awaiting_cover_pick",
+  "setup_stage": "awaiting_revised_cover_approval",
   "cover_approved": false,
   "subtitles": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Keep Your Muscle - SL-12/Keep Your Muscle - A - Weightlifting - R3.srt",
   "schedule_ids": [],
@@ -33,16 +33,17 @@
   },
   "instagram_first_comment": "Go to AbsByAI.com: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting",
   "cover_selection": {
-    "round": 2,
-    "round1_rejected": true,
-    "choices": [
-      "A1",
-      "A2",
-      "A3",
-      "A4"
-    ],
-    "selected": null,
-    "source": "four different real lifting screenshots, with photographic adjustments",
-    "installed": false
+    "round": 3,
+    "selected": "A2",
+    "selected_date": "2026-11-09",
+    "design": "cyan framed A2",
+    "photo_revision": "even dumbbell press; relaxed camera-facing neutral/smiling expression",
+    "revision_approved": false,
+    "installed": false,
+    "revision_manifest": "/Volumes/Extreme/_edit_work/SL-12/setup/round3/manifest.json",
+    "checked_revision_hashes": {
+      "instagram": "4e0f1fc35bdb40cd0818579abdf573278f158bb10888d7cb89f92dc1cf74a26d",
+      "youtube": "8124b58fd4527a2c04d87efeac44d98cb8c4bb0c583683dfe7a75da367ae3270"
+    }
   }
 }

@@ -42,3 +42,8 @@ Wait for Dan to pick one option for each Short at http://127.0.0.1:9954/setup/ .
 ### November8 cover revision2
 
 A original eight rejected; four REAL lifting screenshots now replace them: A1incline press,A2seated dumbbell press,A3rope hammercurl,A4lateralraise. User requested this count/source mix; do not generate more comparison options. Photographic local touchups only. New paired-layout manifest in setup/round2/manifest.json. B X2 selected, YouTube exact file approved and locked; revised Instagram contains all food and awaits exact approval. Selection logged once. Current same review link shows revised choices only. Do not install or upload the revised B cover until Dan approves it. All release holds persist.
+
+
+## November9: A2 selected, photograph revision3 ready
+
+Dan selected A2 cyan design and requested even dumbbells plus neutral/smiling direct gaze. Full9s real source search found no suitable combined rep/expression; his authorized AI fallback produced one corrected screenshot. Checked paired layouts at http://127.0.0.1:9954/setup/?cover_round=3 . Private setup/round3/manifest.json and independent-review.json identify exact files. Both A2 headline masks match R2; B approved YouTube and food-visible Instagram are unchanged. Approve exact new A2 layouts and B Instagram before installation. Do not reopen A design choice or generate extras. No cover installed/uploaded/scheduled. Both film approvals and December6 parent-public hold persist. Current production owner remains this same Codex chat.

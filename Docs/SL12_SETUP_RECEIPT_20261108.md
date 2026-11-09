@@ -1,8 +1,8 @@
 # Keep Your Muscle: A and B setup receipt
 
-CONTENT, organic Shorts extracted from approved RO01. Setup owner: Codex, existing chat01a19c6e. Updated2026-11-08. Editing finished; setup is waiting for Dan's cover picks. This is not an upload or scheduling receipt.
+CONTENT, organic Shorts extracted from approved RO01. Setup owner: Codex, existing chat01a19c6e. Updated2026-11-09. Editing finished; setup is waiting for exact revised cover approval. This is not an upload or scheduling receipt.
 
-Current review: http://127.0.0.1:9954/setup/ . Round2: four real screenshot designs A1toA4, both platform layouts. B X2 YouTube approved, revised Instagram awaits approval. Choose one A and approve/revise B Instagram. The older eight-choice sets below are historical. Exact install files stay in the private original manifest; normalized blind copies are not installation sources. No source hints in the review or pick report.
+Current review: http://127.0.0.1:9954/setup/?cover_round=3 . Dan selected A2's cyan design on November9 and requested a more even rep, direct camera gaze and relaxed expression. Its checked photo revision is ready in both layouts; exact revised-file approval is pending. B X2 YouTube remains approved; food-visible Instagram still awaits approval. Earlier cover sets below are historical. No revised cover installed or scheduled.
 
 ## Approval and files
 
@@ -62,3 +62,16 @@ Round2 recipes: `scripts/covers/sl12-20261108/round2/build.py` and `review.py`. 
 Quality lesson: checking a cover's title, face and abs is insufficient. The actual Instagram profile crop must retain the props that explain the subject. Here that means all three food plates and the shaker; the earlier full-canvas audit missed their loss in the profile tile.
 
 Round2 final checks: independent SHIP_FOR_DAN_REVIEW, no blocking findings; all10 native hashes checked and each A source independently re-decoded at its recorded time. All17 linked review images servedHTTP200, full bytes/hash matched and decoded. Actual B profile contains three full plates and shaker. Existing default full-page browser capture confirms gallery and food layout; all11 inline images load, no horizontal overflow, no players. Temporary viewport override showed inconsistent capture dimensions, so it was reset; exact profile/270px phone stills were independently checked. Both held entries remain excluded from actual top-up pending list. No release date or schedule IDs. Round2 cover files backed up on Expansion with exact SHA256, originals retained on Extreme.
+
+
+## A2 photograph revision 3, November9
+
+Dan selected A2, rejected the asymmetric rep/downward strained expression, and expressly authorized an AI correction only if a suitable real screenshot could not be found. Scanned the full9-second B0449 source at10frames/second and inspected90 frames plus seven native candidate crops. Cleaner rep frames3.3to3.7s still have a strained expression; no source combines an even press and the requested expression. Primary reference is the actual3.4s screenshot; separate real studio identity reference retained. Scope and selection recorded before generation in setup/round3/.
+
+One Google Flow subscription edit, Nano Banana Pro,3:4,original1K,0credits (21826 before/after), no paid API or upscale. Exact JPEG SHA256fadb4fd97b21b57923d9be6be605a7c5185f627e1dca39c75b34172577513cb3. The finished image has a relaxed lightly tooth-showing smile, permitted by Dan's wording, and eyes toward camera. The private prompt requested closed mouth, but this is not a user requirement. No second generation was needed. Download wait timed out; reconciled Downloads inventory and exact new file before accepting success. Generation receipt and screenshot retained; only the owned generation tab closed.
+
+A2 typography/layout masks are identical to R2; only the photograph changes. Independent source/model-blind visual audit passed identity, expression, anatomy, weights and paired native/profile layouts. Measured dumbbell handle centers(286,136) and(722,139),3pixels apart vertically; elbows about89.7/92.9degrees, plausible balanced midpress. No blocking findings. Instagram PNG SHA2564e0f1fc35bdb40cd0818579abdf573278f158bb10888d7cb89f92dc1cf74a26d; YouTube PNG SHA2568124b58fd4527a2c04d87efeac44d98cb8c4bb0c583683dfe7a75da367ae3270. B files byte-identical to R2, including approved YouTube and food-visible Instagram.
+
+Managed page refreshed and visually checked in existing IAB tab: four inline images loaded, no horizontal overflow, zero players. All six linked JPEGs HTTP200, byte-identical and decoded. Full-page browser proof and A2-context crop retained. All129 round evidence/image files copied to project cover archive on Expansion with full SHA256 equality; original Extreme copy retained. This is a checked cover revision awaiting Dan's exact-file approval, not cover installation, upload or schedule approval. Both approved video masters and parent-public hold unchanged.
+
+Recipes: scripts/covers/sl12-20261108/round3/build.py and review.py. Evidence: /Volumes/Extreme/_edit_work/SL-12/setup/round3/{scan-review.json,google-photo-edit-receipt.json,manifest.json,independent-review.json,served-check.json,backup-checks.json}. New quality lesson: cover QA must explicitly check a plausible even rep and a flattering relaxed facial expression, not merely intact weights, face and abs.
