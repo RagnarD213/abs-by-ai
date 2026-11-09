@@ -24,9 +24,9 @@ And if you're over 50, your doctor has probably told you to eat at least two of 
 
 And this isn't a theory. At Massachusetts General Hospital in Boston, the sugar in one "healthy" breakfast dropped men's testosterone about 25 percent in two hours. And when researchers pooled six studies on low-fat diets, the men eating low-fat had 10 to 15 percent less testosterone.
 
-That's a big reason your belly keeps growing, your energy keeps sinking and your drive keeps fading after 50, no matter what you do. And it's not just your age. It starts on your plate.
+That's a big reason your belly keeps growing, your energy keeps sinking and your sex drive keeps fading after 50, no matter what you do. And it's not just your age. It starts on your plate.
 
-I'll name all four foods before this video is over. The fourth one is going to surprise you, because almost every man over 50 has it in the house. And after that, I'll show you the one natural compound that raised testosterone 37 percent in four weeks in a placebo-controlled study.
+I'll name all four foods before this video is over. The fourth one is going to surprise you, because almost every man over 50 has it in the house. And after that, I'll show you the one natural compound, not a food and not a shot, that raised testosterone 37 percent in four weeks in a placebo-controlled study.
 
 So how can the foods that are supposed to protect your heart be draining your testosterone? Because your body builds testosterone out of cholesterol, and a "heart-healthy" diet is built to take cholesterol away. And here's what nobody told you. In 2015, the government quietly dropped its old daily limit on cholesterol. But the heart is still on the box.
 
@@ -44,7 +44,7 @@ Starved, converted and stressed. I call it Starved T.
 
 Now picture all three fixed. Three in the afternoon and you've still got energy left. Your shirts fit across the middle again. And in the bedroom, you're the one making the first move again.
 
-I'm Dan Rose. Over 4 million people subscribe to my fitness channel on YouTube. I'm 41, but some of the most important research I'm going to show you was done on men in their 50s, 60s and 70s. And Starved T is the most important thing I've learned.
+I'm Dan Rose. I've been the guy with the growing belly, working out and eating "clean" and still getting fatter. Today over 4 million people subscribe to my fitness channel on YouTube. And the most important research I'm going to show you was done on men in their 50s, 60s and 70s. Starved T is the most important thing I've learned.
 
 [Cut: Dan now, 41, shirt off, abs, full screen. Then, as its own full screen: Dan's real photo at his heaviest.]
 
