@@ -24,9 +24,9 @@ And if you're over 50, your doctor has probably told you to eat at least two of 
 
 And this isn't a theory. At Massachusetts General Hospital in Boston, the sugar in one "healthy" breakfast dropped men's testosterone about 25 percent in two hours. And when researchers pooled six studies on low-fat diets, the men eating low-fat had 10 to 15 percent less testosterone.
 
-That's a big reason your belly keeps growing, your energy keeps sinking and your drive keeps fading after 50, no matter what you do. And it's not just your age.
+That's a big reason your belly keeps growing, your energy keeps sinking and your drive keeps fading after 50, no matter what you do. And it's not just your age. It starts on your plate.
 
-I'll name all four foods before this video is over. The fourth one is going to surprise you, because almost every man over 50 has it in the house.
+I'll name all four foods before this video is over. The fourth one is going to surprise you, because almost every man over 50 has it in the house. And after that, I'll show you the one natural compound that raised testosterone 37 percent in four weeks in a placebo-controlled study.
 
 So how can the foods that are supposed to protect your heart be draining your testosterone? Because your body builds testosterone out of cholesterol, and a "heart-healthy" diet is built to take cholesterol away. And here's what nobody told you. In 2015, the government quietly dropped its old daily limit on cholesterol. But the heart is still on the box.
 
@@ -34,7 +34,7 @@ So how can the foods that are supposed to protect your heart be draining your te
 
 [ON SCREEN, building one line at a time: 1. STARVED. 2. CONVERTED. 3. STRESSED.]
 
-So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, the belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that, and estrogen is the hormone that grows breast tissue. That's part of where a man's soft chest comes from. And three, your stress hormone, cortisol, sits on whatever's left.
+So here's what happens to a man over 50. One, the wrong food starves your body of the raw materials it makes testosterone from. Two, and this is the one that should scare you. The belly that comes with it makes an enzyme that takes the testosterone you do make and turns it into estrogen, the hormone that grows breast tissue. That soft chest isn't just your age. It's partly your own belly, turning your testosterone into estrogen. And three, your stress hormone, cortisol, sits on whatever's left.
 
 [STUDY CARD: fat tissue converts testosterone to estradiol through aromatase, the obesity and low-testosterone cycle; Genchi et al., Int J Mol Sci, 2022 (review).]
 
@@ -42,7 +42,9 @@ Starved, converted and stressed. I call it Starved T.
 
 [ON SCREEN: STARVED T]
 
-I'm Dan Rose. I built SixPackAbs.com into a YouTube channel with over 4 million subscribers, and Starved T is the most important thing I've learned.
+Now picture all three fixed. Three in the afternoon and you've still got energy left. Your shirts fit across the middle again. And in the bedroom, you're the one making the first move again.
+
+I'm Dan Rose. Over 4 million people subscribe to my fitness channel on YouTube. I'm 41, but some of the most important research I'm going to show you was done on men in their 50s, 60s and 70s. And Starved T is the most important thing I've learned.
 
 [Cut: Dan now, 41, shirt off, abs, full screen. Then, as its own full screen: Dan's real photo at his heaviest.]
 
@@ -68,7 +70,7 @@ And I'm not the only one.
 
 [B-ROLL: a man in his 50s at his desk, rubbing his eyes at 3 p.m.; the same man pulling his belt a notch looser.]
 
-And he's not the only one either. When researchers tested more than 2,000 men aged 45 and up in regular doctors' offices across America, almost 4 out of 10 had low testosterone. And most of them had no idea.
+When researchers tested more than 2,000 men aged 45 and up in regular doctors' offices across America, almost 4 out of 10 had low testosterone. And most of them had no idea.
 
 [STUDY CARD: Mulligan et al., HIM study, 2006. 38.7% of men 45+ below 300 ng/dL.]
 
@@ -80,15 +82,13 @@ And that's just what you can feel. Low testosterone is linked to weaker bones, t
 
 At 50, this isn't about your waistline anymore. It's about being around, and being strong, for your kids, and one day your grandkids.
 
-And this isn't a young man's problem. Some of the most important research I'm going to show you was done on men in their 50s, 60s and 70s.
-
 So a lot of men start testosterone shots. And here's what most of them aren't told. When testosterone goes in from the outside, your body shuts down its own. Your testicles can shrink. Your sperm production can stop. And stop the shots, and it can take months for your body to start making its own again. Shots replace what your body makes. They don't fix why it stopped making it.
 
 ### 4. What food can't fix (4:28 to 5:04) [TestoGreens 2:06 to 3:10]
 
 So if the problem is that your body is starving, the answer is to feed it. But after 40, your body gets worse at turning raw materials into testosterone, so you can fix your plate and still come up short. And no plate on earth fixes stress.
 
-That's why the most important thing I found isn't in your fridge. It's a natural compound. It's not a food, and you can't get it from anything on your plate. In a placebo-controlled study of 63 stressed-out adults, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent.
+That's why the most important thing I found isn't in your fridge, and it isn't a shot. It's a natural compound. No needle, and nothing that shuts your own production down. You can't get it from anything on your plate. Remember that 37 percent? In a placebo-controlled study of 63 stressed-out adults, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent.
 
 [STUDY CARD: Talbott et al., Journal of the International Society of Sports Nutrition, 2013. 63 adults, placebo-controlled, 4 weeks.]
 
