@@ -14,4 +14,7 @@ Anthropic table (Fable 5.2 vs Opus 5.5): FrontierSWE v2 69.9 vs 62.3; FrontierCo
 
 Early users: code review found 3-4 of 5 planted defects vs Opus 1-2; most other head-to-heads tie; writing "not settled" in a blind test; reviewers won't let it design websites alone; judges video from still frames and claims success before checking; over-cautious, approval loops; cyber tasks blocked (fall back to Opus 4.8).
 
-Recommendation given 2026-11-09 (not adopted until Dan says so): Opus 5.5 stays default for writing, design, video edits, photo picks. Fable 5.2 high for hard coding (multi-file app/payment/pipeline builds, bugs Opus missed), code review of risky changes, and a trial as the blind video/frame reviewer. Never max. Related: [[model-routing-plan]], [[fable-included-in-max]], [[opus-5-5-release]].
+Adopted 2026-11-09 (AGENTS.md, Model routing): Opus 5.5 stays default for writing, design, video edits, photo picks. Fable 5.2 high for hard coding (multi-file app/payment/pipeline builds, bugs Opus missed), code review of risky changes, and a trial as the blind video/frame reviewer. Never max. Related: [[model-routing-plan]], [[fable-included-in-max]], [[opus-5-5-release]].
+
+## Reviewer trial log (3 rounds, then decide)
+- (none yet) format: date, video title, reviewer found X, Dan later flagged Y.

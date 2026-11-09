@@ -8,6 +8,8 @@ metadata:
   modified: 2026-10-20
 ---
 
+**Fable 5.2, 2026-11-09:** supersedes the Fable 5.1 lines below for hard coding, risky-code review and a 3-round video-reviewer trial; see AGENTS.md Model routing and [[fable-5-2-release]]. Editorial work stays on Opus.
+
 **Setup ownership, November 7, 2026:** Codex handles the complete setup for videos from either editor. Claude is used only if Dan explicitly requests it, for example when Codex allowance is low. This supersedes older setup-owner recommendations below. See [[setup-owner-codex]].
 
 
