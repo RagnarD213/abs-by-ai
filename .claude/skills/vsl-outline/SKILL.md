@@ -133,6 +133,16 @@ four allowed reasons). Fix everything else. This audit is what Dan asked for on 
   you"), not rewind; never end minute 5 on a stall; check every six-word run against the transcripts (a quick n-gram
   script) because "modeling closely" drifts into copied signature lines; one reviewer's verdict is not the answer,
   so use at least two fresh, unanchored reviewers for the final call.
+- **Panel mechanics learned 2026-11-09:** cut every excerpt (control and challengers) to the same minute mark, or the
+  longer one gets marked down for "pace"; put two or three unlabeled challengers in one packet (drafts and the other AIs'
+  entries) and shuffle the order per reviewer; when reviewers split, merge each one's top fix rather than picking a side.
+  On Great Again T this took Script A from about 30% to about 45% top-5% odds; Codex's entry scored 2 to 3% against the
+  control ("a reflective essay": hedges its own hook, no villain, no "not your fault").
+- **What still separates top 10% from top 5%** is one shock image the viewer can't stop seeing (V Shred's frogs that grew
+  ovaries). A number is not an image: turn the best true stat into a picture ("put seven normal guys at a table and feed
+  them this; before lunch, one tests low"). Plant the "every man" fear (V: food, water, air; ours: the 1987 same-age
+  decline) inside the first 30 seconds so the viewer who doesn't eat the hook food can't leave, and never offer a free
+  fix without the reason it isn't enough.
 - **The founder's story only claims what's true.** If the transformation also involved other things (Dan's included
   Zepbound, training and calorie tracking), the script must not let the product or the food swap take the credit.
 
