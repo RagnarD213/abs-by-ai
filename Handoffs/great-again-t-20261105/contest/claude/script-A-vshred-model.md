@@ -43,7 +43,7 @@ And it's not just breakfast. A man your age today has less testosterone than a m
 
 When I weighed 200 pounds, I ate like this almost every morning.
 
-[DAN: confirm the orange juice and granola were part of your breakfasts then. If not, say "When I weighed 200 pounds, I ate egg whites and fat-free yogurt every morning," and the plate stays as "the breakfast millions of men eat."]
+[DAN: confirm the orange juice and granola were part of your breakfasts then. If not, say "When I weighed 200 pounds, I ate egg whites and low-fat everything, almost every morning" (both confirmed 2026-11-08), and the plate stays as "the breakfast millions of men eat."]
 
 [Cut: Dan now, shirt off, 41, abs, full screen.]
 
