@@ -1507,5 +1507,29 @@
     "approved": "Dan selected X3 on2026-11-08; both exact platform layouts approved.",
     "sha256": "b893f95dd13131958ba7583c792c540b89c6c2abdf7d8bad53a0f25ef5edd8b1",
     "when": "2027-01-31T00:00:00.000Z"
+  },
+  {
+    "job": "SL-12-A",
+    "slug": "sl12-a-weightlifting",
+    "match": "Here's why lifting weights is mandatory if you're taking weight loss medication.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl12-a-weightlifting-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan approved exact revised covers November9,2026",
+    "sha256": "305ac0adbc2a0ff87b829da91d7a9f5c20d9a060cf1393d5b01448324ea9005c",
+    "when": null,
+    "release_hold": true
+  },
+  {
+    "job": "SL-12-B",
+    "slug": "sl12-b-daily-protein",
+    "match": "Here's how to figure out how much protein you need every day.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl12-b-daily-protein-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan approved exact revised covers November9,2026",
+    "sha256": "817bcb036b66985b38b159772379c881f5390067a1b1feee7f0b7b7b9e2acba2",
+    "when": null,
+    "release_hold": true
   }
 ]

@@ -1,8 +1,8 @@
 # Keep Your Muscle: A and B setup receipt
 
-CONTENT, organic Shorts extracted from approved RO01. Setup owner: Codex, existing chat01a19c6e. Updated2026-11-09. Editing finished; setup is waiting for exact revised cover approval. This is not an upload or scheduling receipt.
+CONTENT, organic Shorts extracted from approved RO01. Setup owner: Codex, existing chat01a19c6e. Updated2026-11-09. **Setup complete, publishing held.** Both videos and exact A2/BX2 covers approved, covers installed, eight publishing assets uploaded and hash-verified. No Shorts publishing dates or live schedules assigned. The existing shared waiting list holds both until actual parent RO01 public proof on/after December6,2026.
 
-Current review: http://127.0.0.1:9954/setup/?cover_round=3 . Dan selected A2's cyan design on November9 and requested a more even rep, direct camera gaze and relaxed expression. Its checked photo revision is ready in both layouts; exact revised-file approval is pending. B X2 YouTube remains approved; food-visible Instagram still awaits approval. Earlier cover sets below are historical. No revised cover installed or scheduled.
+Current approved-cover gallery: http://127.0.0.1:9954/setup/?cover_round=3 . A2 cyan design with corrected balanced press and relaxed camera smile; B X2 with all foods visible in Instagram and approved original YouTube. No review or pick remains. Earlier generation/review stages below are historical; final November9 setup record is last.
 
 ## Approval and files
 
@@ -23,7 +23,7 @@ Classification from each actual final transcript: A ends "in order to keep your 
 Project: `Short-form video content/Keep Your Muscle - SL-12/`, physically on Expansion through the existing symlink. Separate Extreme copy: `/Volumes/Extreme/Short-form video content/Keep Your Muscle - SL-12/`.
 Drive: https://drive.google.com/drive/folders/1TFHUfDU59-wtp-VNh0hXMEWrPVvPnKM6 . A uploaded through the connected Drive plugin; B already present. All8 MP4/SRT/stamp byte counts and SHA256 match Drive metadata and both local locations. Details: workfolder `backups-local.json`, `backups-drive.json`. Nothing deleted or offloaded; Expansion is not the sole copy.
 
-## Publishing hold, verified
+## Original November8 publishing hold and queue check, historical
 
 Both configs and both shared waitlist entries carry `release_hold: true`. Loaded the actual shared top-up module and verified both entries are excluded from its executable pending list. No release date assigned, no Blotato media upload, no post or schedule created. `main` and cover/media URLs remain null, so these are deliberately incomplete held setup records.
 
@@ -38,7 +38,7 @@ Shared waiting list entries: SL-12-A and SL-12-B, held and not executable. A the
 - B: "What's your favorite high-protein snack?"
 Posts and pins after release through existing youtube-pinned-comment-daily. Shorts article handled after release by sixpackabs-article-gap-daily; nothing to write at setup. Actual covers after release remain with shared cover monitors; queue fields never prove public tile success.
 
-## Cover review and next steps
+## Original cover review and next steps, historical
 
 Work: `/Volumes/Extreme/_edit_work/SL-12/setup/`. Recipes: `scripts/covers/sl12-20261108/`. Actual approved-pick images inspected from SL08, DS01 and SL10 before planning. Every design uses current title capitalization, clear abs, no website mark or real-photo chip; real-photo choice preserves source person pixels. Generation receipts and model/provider key stay private. No paid image API used. All32 platform layouts measured for title safe area and zero face/hair overlap. Native visual review and independent audit SHIP. One B bottom-title overlap was caught and repaired before delivery: title now y1205to1610, lower abs clear by about30to35pixels, hair survives profile crop. All32 layouts inspected individually; other31files match prior audit. All50 linked images HTTP200, byte-identical and decodable; phone gallery has no horizontal overflow. Static gallery has no players, and temporary viewport was reset.
 
@@ -75,3 +75,27 @@ A2 typography/layout masks are identical to R2; only the photograph changes. Ind
 Managed page refreshed and visually checked in existing IAB tab: four inline images loaded, no horizontal overflow, zero players. All six linked JPEGs HTTP200, byte-identical and decoded. Full-page browser proof and A2-context crop retained. All129 round evidence/image files copied to project cover archive on Expansion with full SHA256 equality; original Extreme copy retained. This is a checked cover revision awaiting Dan's exact-file approval, not cover installation, upload or schedule approval. Both approved video masters and parent-public hold unchanged.
 
 Recipes: scripts/covers/sl12-20261108/round3/build.py and review.py. Evidence: /Volumes/Extreme/_edit_work/SL-12/setup/round3/{scan-review.json,google-photo-edit-receipt.json,manifest.json,independent-review.json,served-check.json,backup-checks.json}. New quality lesson: cover QA must explicitly check a plausible even rep and a flattering relaxed facial expression, not merely intact weights, face and abs.
+
+
+## November9 final setup: approved, installed, uploaded, held
+
+Dan: “These look good. Approve the revised A2 covers and B’s Instagram cover, and finish setting up both. Keep publishing on hold until the parent is public on December 6.” Exact round3 originals were copied unchanged and SHA256-checked into Short-form video content/covers/approved-sl12/. Approval record and installation manifest: /Volumes/Extreme/_edit_work/SL-12/setup/installed-20261109/{cover-approval.json,installed.json}. No duplicate blind comparison pick was logged: B X2 was already recorded; A is a selected real-source design with the explicitly approved AI repair.
+
+| Short | Instagram PNG | YouTube JPEG | TikTok derivative |
+|---|---|---|---|
+| A | 4e0f1fc35bdb40cd0818579abdf573278f158bb10888d7cb89f92dc1cf74a26d | 633a38c807352a30aad115bd8d5147c450f0bf390aa891ded352728d284ee91a | 2d7755a85132bd4ac0e6ab57667d807b5135477f9c09807e8f55a15ef5e067ee |
+| B | 8aefa92026ecce12d67318a1793bc8511bd96d62ca60e47d84453e2b13d78f4d | 66af12c10c8ef4cf1325d94b50713561d072756a314f12f2d2920b7638062880 | 46b50021de27b25e6e30a2877df006c372daa5e6e2e4e64372b3455cea42cdef |
+
+Eight Blotato uploads: master, TikTok derivative, Instagram PNG and YouTube JPEG per Short. Every hosted URL was downloaded in full and matched byte count and SHA256. Exact URLs and source paths are in uploads.json and both owned configs. YouTube JPEGs are551572/333909bytes, under2MB. Masters remain1080x1920 and unchanged. A synthetic true because of realistic AI B-roll; B false, its AI thumbnail does not change its video flag.
+
+TikTok cover-first copies add exactly one frame: A917to918; B1016to1017. Full decode has no errors; cover PSNR46.76/48.94dB; all original decoded frames match after the cover; copied AAC bytes match each master (A1436packets, B1590packets). Frame0 visually inspected against each approved cover. No audio was played. These are derivative and numerical checks, not an audible listening claim.
+
+Facebook exact caption-first-line entries registered in both repository and live installer; installed image hashes match. All eight platform target cover guards pass. Full queue cover audit before/after found no issues; ad scan clean. A fresh live schedule read found no SL12 posts. No direct YouTube upload and no new post created. Existing public tile checks still run after release, as queue/settings cannot prove public covers.
+
+New cover and derivative files copied to Expansion and Extreme with SHA256 equality. Google Drive connector uploaded four covers and two derivatives into the existing SL12 folder; metadata readback confirms names/parents/size. The connector omits SHA256 fields, so the existing dedicated Drive connection independently read actual Drive SHA256 checksums: all ten master/subtitle/cover/derivative files match local bytes. Original master/stamp backups remain unchanged. Existing Drive status.json and SHORTS.md updated in place, preserving IDs.
+
+Titles, root UTM descriptions/captions, subtitle paths, topic questions and AI flags prepared. Pinned comment A: “What resistance exercise do you do at home?” B: “What's your favorite high-protein snack?” Existing youtube-pinned-comment-daily posts/pins after release. Shorts article: nothing to write now; sixpackabs-article-gap-daily writes a searchable300to500word article or records a supported skip after release. Existing cover monitor checks actual tiles on all four platforms; no new per-video automation.
+
+Both configs and existing waiting entries retain release_hold=true, parent_public_verified=false, not_before_local=2026-12-06. main=null and schedule_ids=[]; neither has reserved a release slot. Actual ad guard rejects both held configs; actual shared top-up pending list excludes both. On/after December6, the existing release/queue owner must verify actual parent public visibility, reconcile its current saved/live schedule records, then clear BOTH config and entry holds and use available dated Shorts slots A before B. A saved date, schedule, stale receipt, or calendar alone is insufficient. Parent's records contain contradictory historical dates; this setup did not change the parent or treat its old status as current proof. No Dan action remains for setup.
+
+Edit Queue SL12 stays finalized, revision10, with complete setup/upload and publishing-hold note; Drive status upload verified. It is not marked uploaded/scheduled because live platform schedules do not exist. Existing setup handoff executed; no new owner or handoff is needed.

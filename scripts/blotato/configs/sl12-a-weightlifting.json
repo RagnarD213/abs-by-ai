@@ -12,17 +12,17 @@
   "pinned_comment": "What resistance exercise do you do at home?",
   "keyword": "ABS",
   "main": null,
-  "video_url": null,
-  "tiktok_video_url": null,
-  "instagram_cover_url": null,
-  "youtube_cover_url": null,
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/57fd1365-b79c-4bda-bcf5-f058198ffcc1.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/53fa630a-98ad-4133-a00b-9f0662063947.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bf92f478-2052-48d3-8fcc-017cd40bb26a.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/27b353fe-89c8-41b3-b9a4-683e6b9c80b4.jpg",
   "release_hold": true,
-  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Exact revised cover approval also pending.",
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone.",
   "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
   "parent_public_verified": false,
   "not_before_local": "2026-12-06",
-  "setup_stage": "awaiting_revised_cover_approval",
-  "cover_approved": false,
+  "setup_stage": "setup_complete_held_for_parent_public",
+  "cover_approved": true,
   "subtitles": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Keep Your Muscle - SL-12/Keep Your Muscle - A - Weightlifting - R3.srt",
   "schedule_ids": [],
   "youtube_description": "Here's why lifting weights is mandatory if you're taking weight loss medication.\n\nIf you're a beginner, start with five minutes of bodyweight resistance training at home every day. You don't need a gym, and you don't need any weights. Then as you progress, increase the time bit by bit. Five minutes is a great place to start.\n\nGo to AbsByAI.com: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-a-weightlifting\n\nFull video: How To Keep Your Muscle While You Lose Fat, on my channel.\n\nThe opening includes labeled AI-generated B-roll and an AI-generated version of my own voice.\n\n#WeightTraining #KeepYourMuscle #Shorts",
@@ -38,12 +38,22 @@
     "selected_date": "2026-11-09",
     "design": "cyan framed A2",
     "photo_revision": "even dumbbell press; relaxed camera-facing neutral/smiling expression",
-    "revision_approved": false,
-    "installed": false,
+    "revision_approved": true,
+    "installed": true,
     "revision_manifest": "/Volumes/Extreme/_edit_work/SL-12/setup/round3/manifest.json",
     "checked_revision_hashes": {
       "instagram": "4e0f1fc35bdb40cd0818579abdf573278f158bb10888d7cb89f92dc1cf74a26d",
       "youtube": "8124b58fd4527a2c04d87efeac44d98cb8c4bb0c583683dfe7a75da367ae3270"
-    }
-  }
+    },
+    "approval_date": "2026-11-09",
+    "dan_words": "These look good. Approve the revised A2 covers and B\u2019s Instagram cover, and finish setting up both. Keep publishing on hold until the parent is public on December 6.",
+    "final_manifest": "/Volumes/Extreme/_edit_work/SL-12/setup/installed-20261109/installed.json"
+  },
+  "cover_local": {
+    "instagram_png": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-instagram-approved.png",
+    "instagram_jpg": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-instagram-approved.jpg",
+    "youtube_png": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-youtube-approved.png",
+    "youtube_jpg": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-youtube-approved.jpg"
+  },
+  "release_check_note": "On or after December 6, 2026, verify actual parent RO01 public visibility before clearing both config and waitlist holds. Then assign available dated Shorts slots A before B. Date alone is insufficient."
 }

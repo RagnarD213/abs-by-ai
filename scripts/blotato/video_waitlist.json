@@ -917,10 +917,13 @@
   "added": "2026-11-08",
   "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
   "release_hold": true,
-  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
-  "setup_stage": "awaiting_cover_pick",
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone.",
+  "setup_stage": "setup_complete_held_for_parent_public",
   "kitchen": false,
-  "gym": false
+  "gym": false,
+  "after": "scripts/blotato/configs/ro01-keep-your-muscle.json",
+  "not_before_local": "2026-12-06",
+  "note": "All covers approved/installed and eight publishing assets uploaded/hash-verified November9. On/after Dec6, verify actual parent RO01 public, then clear both config and entry holds and let shared top-up assign available dated Shorts slots A before B. Do not queue from calendar alone."
  },
  {
   "config": "scripts/blotato/configs/sl12-b-daily-protein.json",
@@ -930,10 +933,13 @@
   "added": "2026-11-08",
   "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
   "release_hold": true,
-  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
-  "setup_stage": "awaiting_cover_pick",
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone.",
+  "setup_stage": "setup_complete_held_for_parent_public",
   "kitchen": false,
-  "gym": false
+  "gym": false,
+  "after": "scripts/blotato/configs/ro01-keep-your-muscle.json",
+  "not_before_local": "2026-12-06",
+  "note": "All covers approved/installed and eight publishing assets uploaded/hash-verified November9. On/after Dec6, verify actual parent RO01 public, then clear both config and entry holds and let shared top-up assign available dated Shorts slots A before B. Do not queue from calendar alone."
  },
  {
   "config": "scripts/blotato/configs/sl13-short1-eat-protein-first.json",

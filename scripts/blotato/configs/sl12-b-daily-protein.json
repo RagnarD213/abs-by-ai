@@ -12,17 +12,17 @@
   "pinned_comment": "What's your favorite high-protein snack?",
   "keyword": "ABS",
   "main": null,
-  "video_url": null,
-  "tiktok_video_url": null,
-  "instagram_cover_url": null,
-  "youtube_cover_url": null,
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2c2acb34-ee75-468b-87c6-9572d9525dc0.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2ca0e89b-9c19-4ccd-864e-f75f5d8c0641.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/daab8498-4ac4-4948-9b38-5fe019fbaac0.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/05bf6eaf-3e01-47b9-bcd0-14aafb19eea6.jpg",
   "release_hold": true,
-  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone. Cover pick also pending.",
+  "hold_reason": "Dan: hold publishing until parent RO01 is verified public on or after December 6, 2026. Do not clear from the calendar alone.",
   "parent_config": "scripts/blotato/configs/ro01-keep-your-muscle.json",
   "parent_public_verified": false,
   "not_before_local": "2026-12-06",
-  "setup_stage": "awaiting_cover_pick",
-  "cover_approved": false,
+  "setup_stage": "setup_complete_held_for_parent_public",
+  "cover_approved": true,
   "subtitles": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Keep Your Muscle - SL-12/Keep Your Muscle - B - Daily Protein - R2.srt",
   "schedule_ids": [],
   "youtube_description": "Here's how to figure out how much protein you need every day.\n\nTake your body weight in pounds and multiply it by 0.8. That's how many grams of protein you should eat daily. So if you're 200 pounds, that's 160 grams. To hit it, eat three meals with more protein, plus a protein shake or a protein-heavy snack.\n\nGo to AbsByAI.com: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=keep-your-muscle&utm_content=sl12-b-daily-protein\n\nFull video: How To Keep Your Muscle While You Lose Fat, on my channel.\n\n#Protein #KeepYourMuscle #Shorts",
@@ -38,7 +38,18 @@
     "youtube_approved": true,
     "youtube_sha256": "4ef67084203de366469d926a82f3908446c2227e3f40cd327ad298edc33da722",
     "instagram_revised_sha256": "8aefa92026ecce12d67318a1793bc8511bd96d62ca60e47d84453e2b13d78f4d",
-    "instagram_approval": "awaiting exact revised image approval",
-    "installed": false
-  }
+    "instagram_approval": "approved exact revised image November9",
+    "installed": true,
+    "revision_approved": true,
+    "approval_date": "2026-11-09",
+    "dan_words": "These look good. Approve the revised A2 covers and B\u2019s Instagram cover, and finish setting up both. Keep publishing on hold until the parent is public on December 6.",
+    "final_manifest": "/Volumes/Extreme/_edit_work/SL-12/setup/installed-20261109/installed.json"
+  },
+  "cover_local": {
+    "instagram_png": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-b-daily-protein-instagram-approved.png",
+    "instagram_jpg": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-b-daily-protein-instagram-approved.jpg",
+    "youtube_png": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-b-daily-protein-youtube-approved.png",
+    "youtube_jpg": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-b-daily-protein-youtube-approved.jpg"
+  },
+  "release_check_note": "On or after December 6, 2026, verify actual parent RO01 public visibility before clearing both config and waitlist holds. Then assign available dated Shorts slots A before B. Date alone is insufficient."
 }

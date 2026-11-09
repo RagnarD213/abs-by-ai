@@ -615,3 +615,8 @@ Exact approved59.3sR4, revisedB approved and installed; four staged uploads down
 ## DONE: How To Get Rid Of Man Boobs (RO-31), 2026-11-05
 
 Master `FINAL - How To Get Rid Of Man Boobs.mp4` SHA256 bce049d0 (615,526,730 bytes). Title "How To Get Rid Of Man Boobs: Chest Fat vs Gynecomastia". YouTube 6535767 Sun Jan 24 2027 9 AM Central; Facebook 6535763, Instagram 6535764, TikTok 6535766 Mon Jan 25 noon. Thumbnail revised X4 (5054788...). Keyword ABS, UTM `ro31-man-boobs`, AI label on. Saved per-post media re-downloaded and hash-matched. Queue 198/200. Receipt: `Docs/RO31_SETUP_RECEIPT_20261105.md`.
+
+
+## SL-12 A+B setup complete, publishing held, November9,2026
+
+Both1080x1920 masters approved and unchanged. A Weightlifting R3 SHA25617286ab36fdc19c69986d217396debbdd8b816ebdc3d6de4bc7a2e3607154ae0; B Daily Protein R2 SHA256dc37c605692b7d8c6bb09a3bc16b2fddf5f85dfd815a1eb3580719087f7b2e38. Revised A2 paired covers and food-visible BX2 Instagram approved/installed, BX2 YouTube preserved. Eight publishing assets uploaded/hash-verified, platform cover guards pass, Facebook repo/live registries synced. Shared waitlist entries SL12A/B both release_hold=true and excluded from top-up. No release dates/schedule IDs. On/after Dec6, verify actual parent RO01 public before clearing BOTH config/entry holds; assign actual dated Shorts slots A thenB. RootUTMs/captions/pinned questions/SRTs ready. Complete receipt Docs/SL12_SETUP_RECEIPT_20261108.md.

@@ -2,7 +2,7 @@ CONTENT | SL-12 | Keep Your Muscle SFL Setup
 
 # Keep Your Muscle: A and B setup
 
-Updated November 8, 2026. This existing handoff is now being executed by Codex in chat `01a19c6e-4550-7283-a7cb-b9db7c442d0f`. Do not launch another setup owner.
+Updated November9,2026. EXECUTED: setup complete with approved A2/BX2 covers installed and eight publishing uploads verified. Shared waitlist retains parent-public hold; no dates or schedules. Earlier instructions below are historical. Completed by Codex in chat `01a19c6e-4550-7283-a7cb-b9db7c442d0f`. Do not launch another setup owner.
 
 Dan: "A looks good too. Go ahead and set up A and B. Keep publishing on hold until the parent is public on December 6."
 Message `01a1bbb8-8892-7d73-af2a-8995fce2be2e`. A approved November8; B approved November7. Both exact approved masters remain locked.
@@ -47,3 +47,8 @@ A original eight rejected; four REAL lifting screenshots now replace them: A1inc
 ## November9: A2 selected, photograph revision3 ready
 
 Dan selected A2 cyan design and requested even dumbbells plus neutral/smiling direct gaze. Full9s real source search found no suitable combined rep/expression; his authorized AI fallback produced one corrected screenshot. Checked paired layouts at http://127.0.0.1:9954/setup/?cover_round=3 . Private setup/round3/manifest.json and independent-review.json identify exact files. Both A2 headline masks match R2; B approved YouTube and food-visible Instagram are unchanged. Approve exact new A2 layouts and B Instagram before installation. Do not reopen A design choice or generate extras. No cover installed/uploaded/scheduled. Both film approvals and December6 parent-public hold persist. Current production owner remains this same Codex chat.
+
+
+## Executed November9
+
+Exact revised A2 covers and B Instagram approved by Dan. Covers installed, eight publishing assets uploaded and full-download SHA256 checked, TikTok one-frame derivatives keep all original decoded frames and AAC bytes. Facebook repository/live registries synced, all eight target guards pass. New media/covers backed up on Extreme, Expansion and existing Drive folder with checksums. Both waiting entries and configs remain held until actual parent public proof on/after Dec6; no schedule created. No further Dan review or separate setup owner needed. Existing shared release/queue workflow owns eligibility check and eventual dated slots A before B. Complete receipt Docs/SL12_SETUP_RECEIPT_20261108.md.

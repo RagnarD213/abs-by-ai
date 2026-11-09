@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Keep Your Muscle A+B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): Updated2026-11-08; executing in existing Codex chat. Both videos approved; cover picks next. Publishing HOLD until RO01 confirmed public on/after Dec6.
 
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
@@ -214,6 +213,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- [Keep Your Muscle A+B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **EXECUTED November9,2026.** Exact revised A2/BX2 covers approved and installed; eight publishing assets uploaded/hash-verified. Setup complete in shared waitlist, publishing held until parent confirmed public on/after Dec6. No dates or schedules. [Receipt](../Docs/SL12_SETUP_RECEIPT_20261108.md).
 
 - **2026-11-08, Calories Dont Matter SFL Setup:** completed with Protein X3, Eat Less X4 and Steps X3; verified backups, twelve hosted assets and three shared-waitlist entries. [Receipt](../Docs/SL13_SETUP_RECEIPT_20261108.md). Original: `handoff-20261107-sl13-calories-dont-matter-setup.md`. No Dan action.
 
