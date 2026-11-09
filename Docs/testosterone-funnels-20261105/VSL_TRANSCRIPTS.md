@@ -2,6 +2,8 @@
 
 Transcribed November 8, 2026 from the live funnel pages with Whisper (machine transcript; expect small word errors, brand names corrected by hand). Timestamps mark the start of each paragraph.
 
+Google Doc copy: https://docs.google.com/document/d/1_nGExKl_3uJzL77MGPuatGkPDlx5ETSRCgCTb5n0zfg/edit
+
 1. TestoGreens Max (Live Anabolic), testogreensmax.com/gdra, 51:50, about 10,700 words
 2. V Shred Test Boost Max (Sculpt Nation), sculptnation.com/sp/test-boost-max/quiz-vsl, 28:19, about 5,800 words
 3. Nugenix Total-T2: no VSL exists (the funnel is an article, a quiz, then a $4.99 sample). Its top YouTube ad is below instead.
