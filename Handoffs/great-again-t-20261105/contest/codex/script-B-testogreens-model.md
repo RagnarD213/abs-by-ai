@@ -8,13 +8,13 @@
 
 [Overhead. A grocery receipt comes out of the printer. A pen circles four lines, with the names folded under. Cut to a man's hand sliding it into his wallet.] <!-- rip-off risk -->
 
-If I gave you this grocery receipt and asked you to circle the four things a guy over fifty bought because he wanted to take care of himself, I bet you'd do pretty well. Now try this. Circle the four things I'd want to talk to him about if he was worried about testosterone. On this receipt, you'd circle the same four lines. <!-- rip-off risk -->
+Four lines on this grocery receipt. Cover up the prices for a second. If you're a guy over fifty, I bet you can guess why a man would put each of these in his cart. He's trying to eat better. Now suppose he asks me about testosterone. Those same four things are the first ones I'd pull out and set on the counter. <!-- rip-off risk -->
 
 The interesting part is what you'd have to ask him before you could tell him what to keep. How much is he having? What did he stop eating so he could have this instead? And when did getting a little stronger come to mean taking as much as possible out of every meal? <!-- rip-off risk -->
 
 I've got a name for that last one. Starved T. You could spend good money, come home with a kitchen full of food, and keep right on making the trade that has you asking why you went to all this trouble in the first place. In human studies, changing the amount of fat in the diet changed men's testosterone. So did restricting one mineral. One of those experiments still makes me look twice at what we're told to put in our carts. [Fat; Zinc] <!-- product difference -->
 
-Keep that receipt. Before we're done, I'll turn it over. <!-- rip-off risk -->
+Keep that receipt. Before we're done, I'll show you all four names. <!-- rip-off risk -->
 
 ## B2 | What a man actually notices
 
@@ -175,15 +175,15 @@ I'd rather make that decision at the kitchen table than in the aisle while someo
 
 Say you wanted six individual thirty-serving bottles at our standard single-bottle price. Together they'd come to two hundred and eighty-two dollars before any shipping. Three individual bottles would come to a hundred and forty-one, before shipping. You could decide either of those is too much money to lay out just to answer the first question. Would I even want to take these tablets? There's no requirement to make either of those commitments. [Offer; Label] <!-- untrue for us -->
 
-Here's where the staircase lands. A single bottle, one time, is forty-seven dollars plus shipping. The label lists thirty servings, so that's about a dollar fifty-seven per serving before shipping. You pay the bottle price now. You don't get a new forty-seven-dollar bill thirty days from now because you watched this video. That's the one-time option we're talking about. [Offer; Label] <!-- product difference -->
+So what's the smallest order you can make? One bottle. Forty-seven dollars plus shipping. The label lists thirty servings, so that's about a dollar fifty-seven per serving before shipping. You pay the bottle price now. You don't get a new forty-seven-dollar bill thirty days from now because you watched this video. That's the one-time option we're talking about. [Offer; Label] <!-- product difference -->
 
-[JANUARY VERSION: Replace the paragraph beginning "Here's where the staircase lands." The regular single is forty-seven dollars. Through January thirty-first the one-time sale price is forty-two dollars plus shipping. At thirty servings, that's a dollar forty per serving before shipping. No automatic reorder. The ten percent sale uses rounded whole-dollar totals, and it ends on January thirty-first. | Offer; Label] <!-- product difference -->
+[JANUARY VERSION: Replace the paragraph beginning "So what's the smallest order you can make?" The regular single is forty-seven dollars. Through January thirty-first the one-time sale price is forty-two dollars plus shipping. At thirty servings, that's a dollar forty per serving before shipping. No automatic reorder. The ten percent sale uses rounded whole-dollar totals, and it ends on January thirty-first. | Offer; Label] <!-- product difference -->
 
 Maybe you spend about that much on something you buy without really thinking about it. You probably know what your usual coffee costs better than I do. Use your own price as the comparison. More important, use your own idea of value. A bottle at any price is a lousy choice if it sits sealed in the cabinet. A product you understand, in a form you know you want, with money-back terms you can actually use, is at least a choice worth putting on the table. [Offer] <!-- product difference -->
 
 Before we move to the bundles, I want to say this particularly to the man who's used to somebody trying to close him on the largest package because he's reached a certain age. You are in a better position than I am to know what a hundred dollars means in your household this week. There's no test of commitment at checkout. The single is there for a reason. The next two choices are there because the arithmetic changes if you'd already decided that you want more than one. [Offer] <!-- product difference -->
 
-I'm going to show you that arithmetic, then turn over the receipt from the beginning and show you what comes with the multi-bottle options. You'll have the whole offer in front of you. You can decide for yourself where your money would be best spent. <!-- rip-off risk -->
+I'm going to show you what each bottle costs, then unfold the receipt from the beginning and show you what comes with the multi-bottle options. You'll have the whole offer in front of you. You can decide for yourself where your money would be best spent. <!-- rip-off risk -->
 
 
 ## B12 | The bundles and the four lines on the receipt
@@ -214,7 +214,7 @@ Now for something else that comes with the three and six. I wanted part of this 
 
 The four lines I circled? Fat-free salad dressing. A bowl of sweetened breakfast cereal. The big orange juice beside it. And the beer at dinner that a guy might mentally file under good for the heart. Somebody could look at that receipt, pat the guy on the back for eating a salad and having breakfast at home, and miss the three questions that matter. How much? In place of what? How often? [Fat; Caronia; Beer] <!-- rip-off risk -->
 
-Those are examples to bring the shopping decisions to life. The British diet studies changed the balance of whole diets. The Massachusetts General team tested a measured glucose drink. The nearest thing to a dinner-table experiment on that receipt comes from the Netherlands. At TNO Nutrition and Food Research, ten middle-aged men had beer with dinner or alcohol-free beer in three-week periods. At forty grams of alcohol daily in the beer period, their testosterone averaged about seven percent lower. Nobody established that a single beer, a spoonful of dressing or a glass of juice diagnoses a thing about you. [Fat; Caronia; Beer] <!-- untrue for us -->
+Those are examples to bring the shopping decisions to life. The reviewers in England looked at studies that changed how much fat men ate across the whole day. The Massachusetts General team tested a measured glucose drink. The nearest thing to a dinner-table experiment on that receipt comes from the Netherlands. At TNO Nutrition and Food Research, ten middle-aged men had beer with dinner or alcohol-free beer in three-week periods. At forty grams of alcohol daily in the beer period, their testosterone averaged about seven percent lower. Nobody established that a single beer, a spoonful of dressing or a glass of juice diagnoses a thing about you. [Fat; Caronia; Beer] <!-- untrue for us -->
 
 That's all the time I'm going to spend on the four foods. The list is there so you can take the better questions to the store, instead of trying to remember the name of a study while a line forms behind you. You could even hand it to the person who does the shopping with you. That's a much easier conversation to have in the store than sitting at dinner announcing a new rule for everybody at the table. [Bonuses] <!-- product difference -->
 
@@ -260,9 +260,11 @@ If we meet again a year from now, I hope the question you remember from this vid
 
 ## B15 | Questions after the close
 
+Still here? Maybe the reason you haven't picked a bottle is that I haven't answered the question you came with. Let's start with the one you might rather ask with the door shut. <!-- rip-off risk -->
+
 ### Will this help with my sex drive? <!-- rip-off risk -->
 
-Still here? You may be trying to get a straight answer to a question you'd rather ask with the door shut. Fair enough. Let's start with the question about sex drive. Do I understand why you'd want it back? Absolutely. I noticed my own interest and my confidence about the bedroom slipping when I was heavier. It's possible to talk about that in front of a camera without telling a story about the person on the other side of the bed. It's your experience and it counts. [Dan] <!-- untrue for us -->
+I understand why you'd want it back. It's one thing to miss how your shirt used to fit. It's another thing to lie next to somebody you love and miss how you used to feel. I noticed my own interest and my confidence about the bedroom slipping when I was heavier. It's possible to talk about that in front of a camera without telling a story about the person on the other side of the bed. It's your experience and it counts. [Dan] <!-- untrue for us -->
 
 What have researchers actually shown? In the Peruvian maca study the men were asked about desire. Men taking maca reported improvement by eight weeks, even though it wasn't accompanied by a testosterone increase. The amount of maca in that research was higher than the two hundred and fifty milligrams in Great Again T. So if you're asking me for a date to circle when things at home will change, I haven't got one for this bottle. [Maca; Label] <!-- product difference -->
 
@@ -346,7 +348,7 @@ If the size, the formula and the price all work for you, tap below and select yo
 
 ## Recording map and claims notes
 
-Evergreen spoken copy: 9,678 words, including the eight spoken questions. Excludes directions, source tags, alternate January takes and empty inserts. Times below are target edit positions, allowing 30 seconds for the client and 65 seconds for customer reviews. Final runtime depends on delivery. Target end: 51:50.
+Evergreen spoken copy: 9,716 words, including the eight spoken questions. Excludes directions, source tags, alternate January takes and empty inserts. Times below are target edit positions, allowing 30 seconds for the client and 65 seconds for customer reviews. Final runtime depends on delivery. Target end: 51:50.
 
 Each line of copy has a silent change reason in the Markdown source. Read the tags with the corresponding row below. “Rip-off risk” identifies a fresh scene or expression of the same tactic. “Untrue for us” identifies a factual limit or a truthful substitution. “Product difference” identifies our formula, mechanism, packaging or offer. Starved T is the approved name for a diet habit, never a medical diagnosis. Model timings come from the [source transcripts](../../../../Docs/testosterone-funnels-20261105/VSL_TRANSCRIPTS.md).
 

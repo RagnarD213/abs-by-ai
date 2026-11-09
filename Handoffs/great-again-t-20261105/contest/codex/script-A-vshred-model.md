@@ -125,7 +125,7 @@ A team including researchers at Tulane pooled clinical trials looking at tongkat
 
 Second, zinc. In the Detroit research, the most important fact about the older men was where they started. They were short of zinc. Think how much the meaning would change if I just told you men took a mineral and their testosterone nearly doubled. You'd reasonably think the number applied to any guy watching. Put those few words back in, and now you know what question you need to ask before looking for a bottle. What's my intake already like? [Zinc; NIH] <!-- product difference -->
 
-Turn the other bottles you use around before you decide. Look for zinc, look at the serving size and add it up. Great Again T lists fifty milligrams in its two tablets. That's above the US adult upper limit of forty milligrams a day from all sources. At fifty milligrams over a period of weeks, zinc can interfere with copper absorption. Have your clinician look at this particular label with you before starting, especially if you're considering using it over time. Don't add another zinc product or double the serving. [Label; NIH] <!-- product difference -->
+Turn the other bottles you use around before you decide. Look for zinc, look at the serving size and add it up. The two tablets I'll show you in a minute contain fifty milligrams of zinc. That's above the US adult upper limit of forty milligrams a day from all sources. At fifty milligrams over a period of weeks, zinc can interfere with copper absorption. Have your clinician look at this particular label with you before starting, especially if you're considering using it over time. Don't add another zinc product or double the serving. [Label; NIH] <!-- product difference -->
 
 The third ingredient is maca. Its story takes us to the Andes in Peru, and to a different question. If a guy wants more interest in sex, is measuring his testosterone the only way to see whether anything has changed? At Cayetano Heredia University in Lima, researchers actually asked men about desire. That's a pretty sensible thing to ask if it's what the man cares about. [Maca; Label] <!-- product difference -->
 
@@ -159,7 +159,7 @@ Pick the piece that means something to you. That's a goal worth doing the work f
 
 ## A9 | Three ways to buy
 
-Let me give you a real price anchor. When we checked, a bottle of Swanson tongkat ali root was eighteen dollars and thirty-nine cents. NOW's hundred-count maca bottle was thirteen ninety-nine, and its hundred-count zinc was eight ninety-nine. That's forty-one dollars and thirty-seven cents just to put those three separate bottles in a cart, before tax and shipping. Different amounts and different numbers of servings. Buying separately can make sense if you want to choose each component. What you're paying for here is the particular mixture in the pair of tablets I just showed you. [Retail; Label] <!-- untrue for us -->
+Suppose you bought the three ingredients separately. We checked the list prices. Swanson listed its bottle of tongkat ali root at eighteen dollars and thirty-nine cents. NOW's hundred-count maca bottle was thirteen ninety-nine, and its hundred-count zinc was eight ninety-nine. Their listed prices add up to forty-one dollars and thirty-seven cents before tax and shipping. Different amounts and different numbers of servings. Buying separately can make sense if you want to choose each component. What you're paying for here is the particular mixture in the pair of tablets I just showed you. [Retail; Label] <!-- untrue for us -->
 
 And if your comparison is with testosterone replacement, that's a different purchase altogether. TRT Nation lists a plan at about a hundred dollars a month, with labs separate. That figure includes a clinical service. If your doctor thinks you need treatment, the lower sticker price on a supplement isn't a reason to change that decision. The useful comparison for the packages I'm about to put on screen is much simpler. What would the same quantity of our own product cost bought one bottle at a time? [TRT; Endocrine; Offer] <!-- untrue for us -->
 
@@ -189,7 +189,7 @@ Tap it. Pick the one-time package you want. Check the total, and put Great Again
 
 ## Recording map and claims notes
 
-Evergreen spoken copy: 5,161 words. Excludes directions, source tags, alternate January takes and empty inserts. Times below are target edit positions, allowing 30 seconds for the client. Final runtime depends on delivery. Target end: 28:19.
+Evergreen spoken copy: 5,162 words. Excludes directions, source tags, alternate January takes and empty inserts. Times below are target edit positions, allowing 30 seconds for the client. Final runtime depends on delivery. Target end: 28:19.
 
 Each line of copy has a silent change reason in the Markdown source. Read the tags with the corresponding row below. “Rip-off risk” identifies a fresh scene or expression of the same tactic. “Untrue for us” identifies a factual limit or a truthful substitution. “Product difference” identifies our formula, mechanism, packaging or offer. Starved T is the approved name for a diet habit, never a medical diagnosis. Model timings come from the [source transcripts](../../../../Docs/testosterone-funnels-20261105/VSL_TRANSCRIPTS.md).
 
