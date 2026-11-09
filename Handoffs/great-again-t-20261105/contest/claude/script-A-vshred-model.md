@@ -23,17 +23,21 @@
 
 ## The script
 
-### 1. Hook (0:00 to 3:54) [V Shred 0:00 to 3:04]
+### 1. Hook (0:00 to 3:20) [V Shred 0:00 to 3:04]
 
 [FIRST FRAME: Dan in his kitchen, holding a plate to camera: an egg-white omelet, a tall glass of orange juice, a bowl of granola with flavored yogurt.]
 
 This "healthy" breakfast can knock out a quarter of your testosterone in two hours.
 
-Researchers at Massachusetts General Hospital gave 74 men about this much sugar. Two hours later, their testosterone was down about 25 percent. And it was still down when the test ended. And for most guys, that's not one bad morning. It's every morning. A quarter of the hormone behind your energy, your muscle and your sex drive, gone before lunch.
+You're thinking it's the sugar. That's only half of what's wrong with this plate.
+
+Researchers at Massachusetts General Hospital gave 74 men about this much sugar and drew their blood every 30 minutes. Their testosterone dropped about 25 percent, and two hours later it was still down. About 1 in 7 of the men who started out normal fell into the low testosterone range. From one breakfast's worth of sugar.
+
+[STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes; 10 of 66 men with normal baseline levels fell below 9.7 nmol/L. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
+
+A quarter of the hormone behind your energy, your muscle and your sex drive, gone before lunch. And for most guys, that's not one bad morning. It's every morning.
 
 And it's not just breakfast. A man your age today has less testosterone than a man your age had in 1987. Something changed.
-
-[STUDY CARD: Caronia et al., Clinical Endocrinology, 2013. 74 men, 75 g glucose, testosterone down about 25%, still down at 120 minutes. Beside it: "this plate: about 75 g of sugar (16 oz orange juice + granola + flavored yogurt)."]
 
 [Cut: Dan's real "fat picture," full screen.]
 
@@ -45,21 +49,17 @@ When I weighed 200 pounds, I ate like this almost every morning.
 
 I'm 41 now, I've got abs, and this is the first breakfast I'd throw in the trash.
 
-And the sugar is only half of what's wrong with this plate.
+Here's the other half.
 
 [Dan cracks an egg, tips the white into the pan and drops the yolk in the trash.]
 
-That yolk is where the cholesterol is. And cholesterol is what your body makes testosterone out of. Every morning, millions of men are throwing their testosterone in the trash. In one 12-week study, lifters eating whole eggs got a bigger testosterone rise than lifters eating egg whites. But don't run off and just eat the yolk. After 40, even the perfect breakfast comes up short, and I'll show you why.
+That yolk is where the cholesterol is. And cholesterol is what your body builds testosterone from. Every morning, millions of men throw their testosterone in the trash. In a 12-week study, lifters eating whole eggs got a bigger testosterone rise than lifters eating the whites.
 
 [STUDY CARD: Bagheri et al., Journal of Strength and Conditioning Research, 2021.]
 
-And the cholesterol limit that turned egg whites into "health food"? The government dropped it in 2015. Nobody told you.
+So don't just start eating yolks. After 40, even the perfect breakfast comes up short. And the biggest fix isn't on any plate. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. Sugar took 25 percent off. This put 37 percent on. I'll show you exactly what it is.
 
-[CARD: 2015 to 2020 Dietary Guidelines for Americans removed the 300 mg daily cholesterol limit.]
-
-And the biggest fix isn't on this plate at all. It's a natural compound. In a placebo-controlled study, four weeks of it dropped stress hormones 16 percent and raised testosterone 37 percent. I'll show you exactly what it is.
-
-But first, remember that 1987 number? Here's what should scare you. Researchers in Boston measured it: same age, about 1 percent lower testosterone for every year that passed, 17 years straight. That's not aging. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years this breakfast took over America.
+And remember that 1987 number? Here's what should scare you. Researchers in Boston measured it: same age, about 1 percent lower for every year that passed, 17 years straight. That's not aging. And low testosterone is linked to weaker bones, type 2 diabetes and a higher risk of dying early. Those 17 years ran right through the years low-fat, high-sugar "health food" took over America.
 
 [STUDY CARD: Travison et al., J Clin Endocrinol Metab, 2007, Massachusetts Male Aging Study, 1987 to 2004.]
 
@@ -67,19 +67,21 @@ But first, remember that 1987 number? Here's what should scare you. Researchers 
 
 [B-ROLL: the 1992 food pyramid; 1990s "fat-free" packaging; a carton of egg whites; a cereal box with a heart on it.]
 
-Because you didn't invent this breakfast. You were sold it. In 1992 the government's food pyramid told you to build your diet on bread, cereal, rice and pasta, six to eleven servings a day, and to use fat "sparingly." The food companies pulled the fat out of everything and poured in sugar. Fat-free yogurt. Egg whites in a carton. "Heart-healthy" cereal.
+Because you didn't invent this breakfast. You were sold it. In 1992 the government's food pyramid told you to eat six to eleven servings of bread, cereal, rice and pasta a day, and to use fat "sparingly." The food companies pulled the fat out and poured the sugar in. They told you to fear the yolk. Then in 2015 the government quietly dropped its cholesterol limit. The egg-white cartons are still on the shelf.
 
-And here's what that did to a whole generation of men, step by step.
+[CARD: 2015 to 2020 Dietary Guidelines for Americans removed the 300 mg daily cholesterol limit.]
+
+And here's what that's doing to men right now, step by step.
 
 [ON SCREEN, building one line at a time: 1. STARVED. 2. CONVERTED. 3. STRESSED.]
 
-One. The wrong food starves your body of the raw materials it makes testosterone from.
+One. Starved. Low-fat eating starves your body of the cholesterol and fat it needs to make testosterone. Every morning, it goes in the trash with the yolk.
 
-Two. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is the hormone that grows breast tissue. That soft chest you keep covered at the pool? That's part of where it comes from. So the softer you get, the faster you get softer.
+Two. Converted. The belly that comes with it turns the testosterone you do make into estrogen. Belly fat makes an enzyme that does exactly that. And estrogen is the hormone that grows breast tissue. That soft chest you keep covered at the pool? That's part of where it comes from. And the lower your testosterone drops, the easier that belly grows. It feeds itself.
 
 [STUDY CARD: fat tissue converts testosterone to estradiol through aromatase, the obesity and low-testosterone cycle; Genchi et al., Int J Mol Sci, 2022 (review).]
 
-Three. Your stress hormone, cortisol, sits on whatever's left. It's the hormone behind the 3 a.m. wake-ups and the short fuse with your family. When cortisol is high, testosterone stays low. Remember that one. It's the one you can't eat your way out of.
+Three. Stressed. Your stress hormone, cortisol, sits on whatever's left. It's the hormone behind the 3 a.m. wake-ups and the short fuse with your family. When cortisol is high, testosterone stays low. Remember that one. It's the one you can't eat your way out of. And stress hormones are exactly what that natural compound dropped 16 percent in four weeks.
 
 Starved, converted and stressed. I call it Starved T.
 
@@ -97,7 +99,7 @@ And this isn't just for young guys. Some of the most important research I'm goin
 
 And here's what Starved T looks like in real life.
 
-### 2. What it's costing you (3:54 to 5:05) [V Shred 3:04 to 6:13]
+### 2. What it's costing you (3:20 to 5:00) [V Shred 4:07 to 6:13]
 
 You buy your jeans a size bigger and tell yourself it's the brand. You see a picture from a family trip and don't recognize the guy with the gut. Ten pounds used to come off in a month when you got serious. Now you eat clean for weeks and the scale doesn't move.
 
@@ -343,9 +345,9 @@ I'm not hyping you up. That's simply what it feels like when your body has what 
 
 ### 9. The price (22:37 to 25:03) [V Shred 24:30 to 26:43]
 
-So here's how to get it.
+So here's how you get it.
 
-Every ingredient in Great Again T is in there at a real dose. No fairy dusting, where they put a sprinkle of the good stuff in just so they can put it on the label. And because we sell it only through this page, there's no store taking a cut, so we can keep the price way lower than you'd pay for a formula like this anywhere else.
+Each ingredient in Great Again T is in there at a real dose. No fairy dusting, where they put a sprinkle of the good stuff in just so they can put it on the label. And because we sell it only through this page, there's no store taking a cut, so we can keep the price way lower than a formula like this costs in a store.
 
 [ANCHOR, evergreen version: Dan states the real total cost of buying tongkat ali, zinc, maca, ginseng and nettle separately at retail. To verify before filming. Do not invent a "regular price."]
 
@@ -357,7 +359,7 @@ And if you really want this to work, don't stop at one bottle.
 
 I'll be straight with you. One bottle isn't going to turn your life around, and neither is any other supplement. Starved T took years to build up, and it's not going away in 30 days.
 
-The studies I showed you ran for 12 weeks. That's how long it takes for this stuff to build up in your system and really go to work. That's when the stress starts coming down for real, when your body has had time to rebuild, and when guys start seeing changes in the mirror, in the gym and in how they feel every day. One bottle gets you started. The guys who get the big changes are the ones who give it at least three months.
+The studies I showed you ran for 12 weeks. That's how long it takes for this stuff to build up in your system and really go to work. That's when the stress starts coming down for real, when your body has had time to rebuild, and when guys start seeing changes in the mirror, in their workouts and in their energy every day. One bottle gets you started. The guys who get the big changes are the ones who give it at least three months.
 
 Think about it this way. You wouldn't go to the gym for one week and expect abs. I train seven days a week, and I've been doing it for years. Your body works the same way on the inside. You give it what it needs, every day, and you give it time.
 
@@ -408,9 +410,10 @@ Thanks for watching. I can't wait to hear how it goes.
 
 | Our section | Time | V Shred section | Deviation and reason |
 |---|---|---|---|
-| 1. Hook | 0:00 to 3:00 | 0:00 to 3:04: healthy foods question, frogs shock, almond milk, one chain (food, cortisol, aromatase), reframe, compounds promise | Opening line, object (breakfast plate vs almond milk), shocks (sugar study, yolk vs frogs), villain (1992 food pyramid and the 2015 cholesterol reversal vs pesticides) and wording changed: rip-off risk. One mechanism chain (starved, converted, stressed), "not your fault," the compounds promise and the open loop kept. Product format and ingredient not named in the first 5 minutes, as in V. |
-| 2. Who's talking | 2:00 to 3:00 | 3:04 "helped over two million men" | 4 million subscribers instead. Comes a minute earlier because our hook is shorter. |
-| 3. What's happening to you | 3:00 to 6:00 | 4:07 to 6:13 | Same beats; Dan's own 200-pound story added (true); client story is Dan's blank. |
+| 1. Hook | 0:00 to 3:20 | 0:00 to 3:04: healthy foods question, frogs shock, "sprayed every single day", almond milk, one chain (food, cortisol, aromatase), reframe, compounds promise | Opening line, object (breakfast plate vs almond milk), shock (1 in 7 men fell to low T after one breakfast's sugar; the yolk in the trash, vs frogs), villain (1992 food pyramid and the 2015 cholesterol reversal vs pesticides) and wording changed: rip-off risk. V's "it's happening to every man" beat kept as the 1987 same-age decline, planted at 0:25 and paid off at 1:45. One mechanism chain (starved, converted, stressed), "not your fault," the compounds promise and the open loop kept. Product format and ingredient not named in the first 5 minutes, as in V. |
+| 1b. Who's talking | 2:50 to 3:20 | 3:04 "helped over two million men" | 4 million subscribers instead. |
+| 2. What it's costing you | 3:20 to 5:30 | 4:07 to 6:13: symptom list, client story at 5:08, then "linked to weaker bones... shorter life spans" | Same beats in V's order: symptoms, Dan's own 200-pound story (true), client story (Dan's blank) at about 5:00, then the health stakes. |
+| 3. What food can't fix | 5:30 to 7:00 | 2:03 and 16:07: the compounds promise | Pays the open loop forward; product format still not named. |
 | 4. The numbers | 6:00 to 7:30 | 6:13 to 7:38 four stats | Our own four sourced stats; weight stat replaces "sex lives down" (unverified for us). No "feminization" quote: rip-off risk. |
 | 5. Starved T | 7:30 to 17:00 | 7:38 to 17:10 male hormone matrix, EDCs, cortisol, status | Our mechanism (product difference). Cortisol seesaw and the status beat kept. V Shred's executives and dominance studies not used: rip-off risk; status beat runs on Dan's observation. |
 | 6. Three heroes | 17:00 to 21:00 | 17:10 to 21:21 ashwagandha, tongkat, chelated zinc | Our formula. No "exact clinical extract" beat: our tongkat extract type unconfirmed. No chelated-zinc beat: ours is zinc oxide. |
