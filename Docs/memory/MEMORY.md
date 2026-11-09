@@ -30,6 +30,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Project out of iCloud](documents-symlinked-into-icloud.md) — 10-23: Claude folder lives at ~/Projects/Claude; ~/Documents/Claude and the iCloud path are links to it; never re-enable Desktop & Documents
 - [Model routing](model-routing-plan.md): model + effort table
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
+- [Fable 5.2 release](fable-5-2-release.md): 11-09: beats Opus on coding/agents/charts, not writing/design; analysis given, routing unchanged until Dan adopts
 - [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
 ## Editing
 - [Cut-out traps](cutout-frame-and-gap-traps.md): 10-30: one-frame decode lag + closed arm gaps; audit every shot
