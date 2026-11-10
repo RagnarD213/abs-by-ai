@@ -2,7 +2,7 @@
 
 | Question | Recommendation | Proven by / evidence | Confidence |
 |---|---|---|---|
-| Product name | Test Second Half T against Great Again T before changing the label. | Test Reload, Nugenix, U.S. polling | Medium |
+| Product name | Compare Test Rematch with Great Again T. | Test Reload, TestoGreens, Dan’s feedback | Medium |
 | Set | Film Dan at an indoor table with the actual foods and bottle. | V Shred, Test Reload | High |
 | Orientation | One 4K shoot, portrait framing for the phone, landscape coverage for ads. | V Shred, TestoGreens | High on capture, medium on format |
 | Spokesperson | Dan tells his story. Test a man aged 55 to 65 introducing him. | Test Reload, V Shred, TestoGreens | High on Dan’s role, medium on opener |
@@ -17,11 +17,25 @@
 
 ## 1. What should the bottle be called?
 
-**My challenger is Second Half T by SixPackAbs. Keep Great Again T as the control.** “Second Half” gives Dan, at 41, and an older presenter the same story to tell. It fits the man who still expects good years ahead and works beyond an election cycle. Some 40-year-olds may hear “you’re old.” Test that reaction. Great Again T has rhythm, recall, a natural payoff in Dan’s close and an approved label. People who recognize the slogan may love the nod. Others may read a political affiliation before they understand the product. There is genuine category precedent for that association in fitness merchandise. [Current bottle](https://shop.sixpackabs.com/products/great-again-t) · [The Physique Builder’s merchandise](https://www.makeamericarippedagain.com/collections/merch)
+**Test Rematch is my first pick to challenge Great Again T.** Test Rematch and Test Reload both land in three syllables. It puts a man back in the ring for another shot. Great Again T already gives Dan a comeback story and an approved label. A new name has to beat it in the spoken product reveal. [Test Reload](https://www.readydefend.com/products/test-reload) · [Current bottle](https://shop.sixpackabs.com/products/great-again-t)
 
 **I would drop the peak-popularity premise.** Economist/YouGov’s November 4 to 6 survey found 41% approval and 57% disapproval among male registered voters. Among *all* voters aged 45 to 64 the figures were 37% and 61%. These are separate groups. Reuters/Ipsos found 32% approval among U.S. adults and 77% among Republicans on November 6 to 9. Neither poll identifies Dan’s customers or predicts their buying response. The commercial question is whether recognition helps enough of the men who will actually pay $67. [YouGov, table 70](https://d3nkl3psvxxpe9.cloudfront.net/documents/econTabReport_SuXgTtZ.pdf#page=79) · [Reuters/Ipsos post-election survey](https://www.ipsos.com/en-us/reutersipsos-post-election-survey)
 
-**Other ideas.** Second Set T is short and sounds like lifting, though it may suggest a pre-workout. SixPackAbs T puts Dan’s brand first and is easy to identify on a statement, but says little about the benefit. Built Again T keeps the comeback idea, though Vintage Muscle already uses “Built Again” in this market. I would retire Second Prime and Test Reload from this shortlist. A men’s supplement shop already trades as Second Prime and Ready Defend currently sells Test Reload. Second-half language also appears in sports nutrition. The preliminary web check did not establish exclusive rights to Second Half T. [Vintage Muscle](https://www.vintage-muscle.com/collections/vip-sales) · [Second Prime](https://getsecondprime.com/products/t-revive) · [Ready Defend](https://www.readydefend.com/products/test-reload) · [It’s Only Halftime Nutrition](https://iohnutrition.com/pages/why-ioh)
+**TestoTorque and TestoRoots are the other two I’d put on a bottle.** Say TestoTorque aloud and the two hard T sounds land cleanly. Torque is the force you feel when an engine pulls. TestoRoots follows the logic of TestoGreens and gives Dan two actual roots to hold up when he introduces the bottle, tongkat ali and maca. The first web check found no obvious exact-name testosterone supplement for these three. U.S. trademark availability remains unverified. [TestoGreens](https://testogreensmax.com/gdra/) · [Dan’s ingredient rundown](https://docs.google.com/document/d/1CmK7ZG45x-p7mXATjvlWzuUpvlr7AQMHUbiQcdMYCFI/edit)
+
+**30 new name candidates, in order of preference**
+
+1. Test Rematch   ·   2. TestoTorque   ·   3. TestoRoots   ·   4. Test Strikeback   ·   5. Brass Bull Test
+
+6. TestoGrit   ·   7. Hammer Down   ·   8. Test Stampede   ·   9. Black Anvil   ·   10. Test Counterpunch
+
+11. TestoBrawn   ·   12. Test Backdraft   ·   13. Heavy Hitter   ·   14. Test Breakaway   ·   15. Ironjaw
+
+16. High Gear Test   ·   17. Prizefighter Test   ·   18. Test Wildfire   ·   19. Roughneck Test   ·   20. Test Lockout
+
+21. Test Firebrand   ·   22. Full Draw Test   ·   23. Ironwood Test   ·   24. Test Throwdown   ·   25. Steelhorse Test
+
+26. Hard Charge   ·   27. Test Breakout   ·   28. Test Overtime   ·   29. Man on Fire   ·   30. Full Tilt Test
 
 **Cheap decision before filming.** Later, show otherwise identical phone-size label concepts to 20 to 30 prospective U.S. buyers across the two age ranges, randomly assigning the first name they see. Ask what the bottle is, who it is for, what they remember and whether they would consider the disclosed offer. Ask about associations without mentioning politics first. Use this to spot confusion, then compare both names on the same priced offer in a separately funded buyer test if the result is close. Switch only for a clear advantage worth new label approval, product photography, shop copy and spoken pickups. A tie keeps the current name. Before printing, search similar U.S. marks as well as exact names. [USPTO search](https://www.uspto.gov/trademarks/search)
 
@@ -99,7 +113,7 @@ Only expand when settled contribution covers advertising and Dan’s profit targ
 
 ## Decisions for Dan
 
-- Choose Great Again T as the existing control and Second Half T as the challenger for a no-spend name check before label or filming commitments.
+- Choose a challenger to Great Again T from the 30 candidates. Test Rematch is the first pick, followed by TestoTorque and TestoRoots.
 - Choose Dan in the indoor, portrait-first shoot and whether to reserve up to $300 for a separately licensed older-presenter test later.
 - Decide whether the free first bottle truly closes January 31, and set the public one-time, refill and pack prices, including shipping and terms for existing customers.
 - Set the first billing date rule, shipping refund treatment and the exact 365-day guarantee. Confirm which personal, customer and product claims Dan can support.

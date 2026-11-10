@@ -7,7 +7,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Great Again T name (Decision since: 2026-11-10).** Choose Great Again T as the existing control and Second Half T as the challenger for a no-spend name check before label or filming commitments. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
+- **Great Again T name (Decision since: 2026-11-10).** Choose a challenger to Great Again T from the 30 candidates. Test Rematch is the first pick, followed by TestoTorque and TestoRoots. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T studio and presenter (Decision since: 2026-11-10).** Choose Dan in the indoor, portrait-first shoot and whether to reserve up to $300 for a separately licensed older-presenter test later. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T January offer (Decision since: 2026-11-10).** Decide whether the free first bottle truly closes January 31, and set the public one-time, refill and pack prices, including shipping and terms for existing customers. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T billing, guarantee and claims (Decision since: 2026-11-10).** Set the first billing date rule, shipping refund treatment and the exact 365-day guarantee. Confirm which personal, customer and product claims Dan can support. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
