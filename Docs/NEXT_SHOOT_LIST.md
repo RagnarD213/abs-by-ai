@@ -57,6 +57,8 @@ the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 
 **Gym (added 2026-10-29, RO-37 I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time):** the script's cues that the 10/23 library does not have: walking in through the gym door, the empty barbell area, walking around between sets, stretching on the mats after a workout, walking out. RO-37 keeps Dan on camera for those lines; a re-edit can drop them in.
 
+**Also needed (added 2026-11-09, Flow-credits AI clip batches):** Dan walking around or jogging lightly in place between sets (wanted for DS-103 Why You Should Walk Between Your Sets; neither AI model could draw it cleanly), and Dan asleep in bed with the bedroom thermostat turned down to 63 in shot (DS-50 Why I Sleep At 63 Degrees; Dan prefers this real shot to any AI version).
+
 ## 3. Your call before filming
 
 | what | the decision |
