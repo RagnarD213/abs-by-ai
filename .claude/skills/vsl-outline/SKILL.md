@@ -32,6 +32,10 @@ tested every other AI and concluded that **AI cannot write a VSL like this witho
 - Worked example of the new process: `Handoffs/great-again-t-20261105/contest2/` (Dan's outline, blind three-model
   script contest: Opus 5.5, Fable 5.2, Codex Astra). Memory: `vsl-scripts-from-dans-outline`.
 
+## Contest result and the new workflow (Dan, 2026-11-10)
+
+The blind three-model contest on Dan's own outline failed for every model (Fable 5.2 1st, Opus 5.5 2nd, Codex Astra 3rd; none shippable). Before any sales-copy work read `Docs/VSL_SCRIPT_CONTEST_RESULT_20261110.md`: Dan's feedback word for word, the seven reasons the models failed, and the recommended approach (Dan writes the spine; AI does fenced section jobs with his line before and after, a word cap and the winner's passage; swipe-and-swap for closely modeled body sections; idea menus ranked by how surprising they are to the prospect; line edits only on request; Fable 5.2 for section jobs; a separate fact-check pass that never softens). Do not write a whole VSL again unless Dan explicitly asks.
+
 ## The rule this skill exists for
 
 Dan, 2026-11-08: *"Using Claude's own judgment and taste for these things doesn't work. That's why so many people have
