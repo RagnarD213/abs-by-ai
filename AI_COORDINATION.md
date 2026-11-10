@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Chest Flies SFC Setup ACTIVE 2026-11-09, Codex.** Final R1 hash verified. Making eight blind cover choices, both layouts. Stop for Dan's pick before uploads/scheduling. Receipt: `Docs/DS78_SETUP_RECEIPT_20261109.md`.
+
 **FlowMusic:LICENSE-ASK:2026-11-09:Claude.**
 
 
