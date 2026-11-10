@@ -475,6 +475,13 @@
       "recurring": false,
       "addedAt": "2026-11-10",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Put cardboard in recycling",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
