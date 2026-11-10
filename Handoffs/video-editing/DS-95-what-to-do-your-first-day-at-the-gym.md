@@ -26,6 +26,10 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-08)
+
+- **A0159** (library, already approved in RO-07): sore heavyset beginner eases down the stairs. Use it under "Keep it light and short to avoid getting excessively sore." `clip_library.py show A0159`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**
