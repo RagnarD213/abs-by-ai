@@ -138,6 +138,32 @@ Each phase is one review round. Run `editcap.py acquire` and the render queue as
 
 Voiceover about $0.01 per demo (under $1 total). No image or video generation. Editing is the cost: roughly one session per phase.
 
+## Phase 0 result (2026-11-09, Claude Opus 5.5): pilot built, at Dan's review
+
+Review page: http://127.0.0.1:9512/ (port 9512, files in `~/Projects/_edit_work/REALDEMOS/review/`). Finals, build
+scripts, phase tools and `LIBRARY.md`: `Media/exercise-demos/real/` (Seagate, checksummed; work copies in
+`~/Projects/_edit_work/REALDEMOS/out/`). Gate format `exercise-demo-real` is live (commit b664585). All three pass the
+audio gate and the delivery gate (39 pass, 0 fail, 0 unmeasured); four independent review rounds. Nothing installed.
+
+Traps for Phase 1 (read before cutting):
+- **Narration lines must sit on the rep phase they name** (VIDEO-RULES "Exercise demonstration timing"). Reps run
+  2.5-3.5 s, so a 2.5 s sentence cannot cover "lower ... press back up". `build.py` splits the VO at the narrator's
+  pauses and places each line with `vo_at`; where a line is longer than the phase it names, regenerate a shorter line
+  ("Keep a slight bend at the bottom", "Crunch your ribs down to your hips"). `vo_lines` splices one new line into an
+  earlier read (same voice/settings) when a fresh read comes out slower.
+- **Measure phases, do not eyeball contact sheets.** Tools in `Media/exercise-demos/real/tools/`: `shorts_y.py`
+  (pull-up height from the shorts), `track.py` (rigid object, e.g. leg-press plate, on a locked-off camera),
+  `refdist.py` (distance to a reference pose), `frames.py` (exact-frame grids). Handheld takes defeat the trackers.
+- **Takes:** B0621 (leg press favorite) is handheld with a push-in and Dan glances at the camera; B0620 is locked off
+  (arms crossed on chest), used for the pilot. B0574 (cable crunch favorite) is 17 s, so the pilot continues on B0573.
+  B0642's last rep drops into a dead hang (end at 15.27). B0643's top crops Dan's crown (disclosed); B0645 has a grin at
+  8.6-9.05; B0641 frames his face at the bottom edge. vidstab tripod mode made handheld takes jitter: do not use.
+- **Room tone:** `_batch5/mux.py` amplitude 0.004 measures about -62 dB and fails the silent-second row; 0.026 gives
+  the intended -46 dB.
+- **Gate plan** comes from `make_plan.py` (punch segments by camera angle, close-ups as covered inserts, exact frames).
+- Corpus: `qc_corpus/run.py` needs `--no-selftest` until the audio selftest's Muhammad references (moved to Expansion
+  on 2026-10-31) are restored; 3 approved entries (ds52, ds63, ds37) read TIGHT on rows this work did not touch.
+
 ## Starter prompt (Phase 0)
 
 > Real Exercise Demos Pilot R1. Read `Handoffs/handoff-20261109-real-broll-exercise-demos.md` and run Phase 0 only: build the three pilot demos (cable-crunch, leg-press, pullup) from the real gym B-roll in the clip library with the cloned-voice narration, add the `exercise-demo-real` delivery gate format, pass the gates, and put them on a 1080p review page with the current AI demo beside each replacement. Install nothing. Dan has authorized the whole plan; stop only for his review of the pilot.

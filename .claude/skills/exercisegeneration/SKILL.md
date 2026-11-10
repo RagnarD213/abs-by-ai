@@ -719,6 +719,7 @@ V-sit twist, toe touches, V-up, reverse crunch. Scripts at `Media/exercise-demos
   landmark proved the rise strictly monotonic. Trust velocity + a landmark over the saturated distance signal.
 - **Veo overshoots the V-up top to a tighter V** (legs near vertical, hands at the toes). It reads better than the
   60-degree end still and matches the VO; cut at the velocity minimum, not at the end still.
+- **Room-tone level trap (measured 2026-11-09, Real Exercise Demos pilot):** `_batch5/mux.py`'s default `amplitude=0.004` measures about -62 dB mean on this ffmpeg, not the -46 dBFS described below, and the audio gate's silent-second row failed on every real demo built with it. `amplitude=0.026` measured -45.9 dB. Real B-roll demos: `Media/exercise-demos/real/` and the `exercise-demo-real` gate format.
 - **Audio: the narrated file now passes `audio_gate.py`.** The old mux left 1 s of digital silence and an audio stream
   ~3 s shorter than the picture, which is why no earlier demo carries a stamp. `_batch5/mux.py` lays a low-passed
   brown-noise room tone (~-46 dBFS, 24 dB under the voice) for the full picture length: passes the audio gate's
