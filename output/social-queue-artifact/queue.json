@@ -1,88 +1,7 @@
 {
-"generated": "2026-11-09T12:25:54+00:00",
+"generated": "2026-11-10T12:25:41+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5909999",
-"platform": "facebook",
-"when": "2026-11-09T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
-"batch": ""
-},
-{
-"id": "5910000",
-"platform": "instagram",
-"when": "2026-11-09T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
-"batch": ""
-},
-{
-"id": "5910001",
-"platform": "tiktok",
-"when": "2026-11-09T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
-"batch": ""
-},
-{
-"id": "5910003",
-"platform": "youtube",
-"when": "2026-11-09T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's why you should start Zepbound at 1 milligram to avoid the side effects.",
-"batch": ""
-},
-{
-"id": "5046547",
-"platform": "facebook",
-"when": "2026-11-09T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5046548",
-"platform": "instagram",
-"when": "2026-11-09T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5046549",
-"platform": "tiktok",
-"when": "2026-11-09T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I've been on Zepbound for about two months, and I screwed some things up when I started. Here are my top 5 tip",
-"batch": ""
-},
-{
-"id": "5912310",
-"platform": "facebook",
-"when": "2026-11-09T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing V-sit twists like this. If you just move the ball, you're not really working as much.",
-"batch": ""
-},
-{
-"id": "5912308",
-"platform": "instagram",
-"when": "2026-11-09T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop doing V-sit twists like this. If you just move the ball, you're not really working as much.",
-"batch": ""
-},
 {
 "id": "5329631",
 "platform": "facebook",
@@ -1602,6 +1521,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "These are the five muscles that are the most important for attracting women, and how to build each one.",
+"batch": ""
+},
+{
+"id": "6716679",
+"platform": "facebook",
+"when": "2027-01-12T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Chest flies are far superior to bench press for building your chest. Here's how to do them on the machine.",
+"batch": ""
+},
+{
+"id": "6716680",
+"platform": "instagram",
+"when": "2027-01-12T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Chest flies are far superior to bench press for building your chest. Here's how to do them on the machine.",
+"batch": ""
+},
+{
+"id": "6716682",
+"platform": "tiktok",
+"when": "2027-01-12T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Chest flies are far superior to bench press for building your chest. Here's how to do them on the machine.",
+"batch": ""
+},
+{
+"id": "6716683",
+"platform": "youtube",
+"when": "2027-01-12T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Chest flies are far superior to bench press for building your chest. Here's how to do them on the machine.",
 "batch": ""
 },
 {
