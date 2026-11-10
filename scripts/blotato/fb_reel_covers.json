@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
+    "match": "You have 4 ab muscles — not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
+    "match": "The toe touch — a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -938,7 +938,7 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you\u2019re fasting.",
+    "match": "Drink black coffee while you’re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
@@ -1531,5 +1531,15 @@
     "sha256": "817bcb036b66985b38b159772379c881f5390067a1b1feee7f0b7b7b9e2acba2",
     "when": null,
     "release_hold": true
+  },
+  {
+    "job": "DS-78",
+    "match": "Chest flies are far superior to bench press for building your chest. Here's how to do them on the machine.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds78/Instagram_ds78-chest-flies-machine_cover-X1.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Dan picked X1 on 2026-11-09: \"X1\".",
+    "sha256": "ff765e1a4c435f747f4e8bf7866e0e1930b20ef61be07c65b4bd67fdcc012a28",
+    "when": "2027-01-12T15:00:00.000Z"
   }
 ]

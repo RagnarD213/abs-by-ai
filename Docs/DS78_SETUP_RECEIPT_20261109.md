@@ -1,8 +1,8 @@
 # How To Do Chest Flies On The Machine: setup receipt
 
-Updated: 2026-11-09. Owner: Codex. **Status: COVER REVIEW, awaiting Dan's pick.** This requested phase is complete. No publishing upload, cover installation, waitlist entry or schedule was created.
+Updated: 2026-11-09. Owner: Codex. **Status: SETTING UP, X1 approved.** Dan replied "X1" on 2026-11-09. Original covers are installed; media uploads and schedule verification are in progress.
 
-**Review: [Eight Cover Choices](http://127.0.0.1:9788/).** Reply with X1 to X8. Each has Instagram and YouTube Shorts layouts and an Instagram profile crop. Dan has not reviewed or picked these covers yet. The source key stays private until he requests the comparison results.
+**Review: [Eight Cover Choices](http://127.0.0.1:9788/).** Dan selected X1 for both layouts, unchanged. The blind pick was logged with his exact words: "X1". The source key stays private until he requests the comparison results.
 
 ## Preserved finalized film
 
@@ -54,8 +54,12 @@ Updated: 2026-11-09. Owner: Codex. **Status: COVER REVIEW, awaiting Dan's pick.*
 | X8 | Instagram | `4774fad98d5927b6b7f284519339ec6fd66ef15d785cca9ed35dd065fa8afc19` |
 | X8 | Youtube | `4fcf597d0c0881fbeb164d1c038b2ed02e7510b823f0ea040431f06cd0cffc64` |
 
-## Next action after Dan picks
+## Post-pick execution
 
 Log his exact words with the shared blind pick tool and install from the original candidate, never the normalized blind preview. An unchanged pick authorizes continuation of the existing setup; a requested revision returns for approval of the revised files.
 
 Then prepare verified platform uploads and cover-first TikTok copy with the approved audio stream-copied, title/description/captions, sixpackabs.com UTMs (`chest-flies-machine`, `ds78-chest-flies-machine`) and a transcript-based pinned question. The shared article routine handles this searchable Short after release. Read the live queue and release calendar, then use the organic queue helper for an allowed January-blitz gym slot or the shared waitlist with `gym: true`, `kitchen: false`. Space away from Pull-Ups on December 26 and T-Bar Rows on January 5. No slot is booked yet. Keep Edit Queue status finalized until verified setup earns uploaded. No Google Ads or Victory Dashboard work.
+
+## Post-pick progress, 2026-11-09
+
+X1 installed from original assets in both layouts and hash-matched to the reviewed PNGs. Cover backups on Extreme and existing Drive verified. TikTok derivative passed: 1,542 source frames to 1,543, 2,413 audio packets retained, no decode errors, cover-frame PSNR 50.66 dB. Encoded audio payload SHA256 matches exactly. Live queue read 190/200 with no ad or cover preflight issues. January 12 at 9 AM Central was free in all four platforms and not reserved on the waitlist. Publishing remains in progress, not yet called scheduled.
