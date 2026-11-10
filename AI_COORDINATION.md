@@ -29,6 +29,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Testosterone-upsells:RUNNING:2026-11-10:Codex.** Capture. `Docs/testosterone-upsells-20261110/`.
+
+
 **RealDemos:REVIEW:2026-11-09:Claude.**Port9512.
 
 
@@ -38,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
 
-**Exercise-demos-Codex-R3:RUNNING:2026-11-10:Codex:native-curl-retry.** `Media/exercise-demos/_codex3/round3/`.
+**Exercise-demos-Codex-R3:HOLD:2026-11-10:Codex:no-acceptable-curl.** `Docs/EXERCISE_DEMOS_CODEX_R3_20261110.md`.
 
 
 

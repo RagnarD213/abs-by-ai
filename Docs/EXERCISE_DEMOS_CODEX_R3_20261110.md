@@ -1,6 +1,6 @@
 # Exercise demos Codex R3, November 10, 2026
 
-Status: three fresh subscription curl takes generated and rejected by the editor. Independent take 1 and 2 reviews are complete and FAIL; take 3 review is being completed. No new curl loop, narrated master or app file was built. The chest press and shrug remain exact unchanged R1 files. Nothing is installed.
+Status: three fresh subscription curl takes generated, measured and independently rejected. All three independent verdicts are FAIL. [Updated review page](http://127.0.0.1:10967/?round=codex-r3): rejected curl removed, chest press first, shrug second. No new curl loop, narrated master or app file was built. The chest press and shrug remain exact unchanged R1 files. Nothing is installed.
 
 Dan rejected R2 for a frozen head, flickering biceps and unnatural movement. The R2 receipt is now marked rejected. R3 uses continuous native generated body motion only: no head/face hold, pasted hands, optical-flow slowing or post-production retiming.
 
@@ -12,7 +12,7 @@ Project: [Google Flow, natural curl R3](https://flow.google.com/project/91e58c15
 |---|---|---:|---:|---|
 | 1 | Veo 3.1 Fast, reviewed top-to-bottom pair | 4 seconds | 10 | Two fast lowerings, unused stack morphs. Independent FAIL. |
 | 2 | Veo 3.1 Quality, reviewed rest frame as single START | 8 seconds | 100 | Full rep lowers in 1.13 seconds, then partial rep, bar release/drop and bend-over. Unused stacks move. Independent FAIL. |
-| 3 | Veo 3.1 Quality, reviewed top-to-bottom pair and generated slow-motion prompt | 4 seconds | 100 | Editor rejected repeated fast lowering. Independent review pending. |
+| 3 | Veo 3.1 Quality, reviewed top-to-bottom pair and generated slow-motion prompt | 4 seconds | 100 | Two 1.0–1.2 second lowerings; unused cabinet re-renders after the bar passes. Independent FAIL. |
 
 Google credits: 21,556 before, 21,346 after; exact observed change **210 credits**, matching the three UI quotes. Additional paid API spend **$0**; no purchase, credit top-up, subscription upgrade or software installation. R1 paid Veo remains $3.80, original narration approximately $0.03. No new narration.
 
@@ -24,7 +24,7 @@ The exact R1 lowering-v2 START/END pair was reused unchanged and verified using 
 
 Every new raw take received native-frame extraction, measured motion clipcheck and a fresh independent Claude Opus 5.5 high frame review. The Fable trial log already contains the original three trial runs and later extra runs; these reviews use the standing Opus editorial default. Reviews are source-blind: actual video, specification, native frames and gate evidence, with no prompts, editor notes or prior verdicts. Reviewers measure head/face continuity, aligned biceps texture, actual lowering time, grip/rigid bar and unused equipment. Checks are silent and offline; no audible or real-time playback pass is claimed.
 
-Take 1 and 2 independent reviews find natural head micro-movement and no biceps texture flicker, but reject the exercise timing and unexplained unused equipment motion. Take 2 also loses the bar through open fingers. The raw tracker gate on take 1 has an unreliable net-distance row; its failure is retained, and the independent native-frame measurements are the evidence for actual tempo. Take 2 gate FAILS rigid bar/contact trajectory; take 3 tracker gate PASS does not establish a correct exercise or stationary background. The independent review determines those findings.
+All three independent reviews find natural head micro-movement and no biceps texture flicker, but reject the exercise timing and unexplained unused equipment change. Take 2 also loses the bar through open fingers. The raw tracker gate on take 1 has an unreliable net-distance row; its failure is retained, and the independent native-frame measurements are the evidence for actual tempo. Take 2 gate FAILS rigid bar/contact trajectory; take 3 tracker gate PASS does not establish a correct exercise or stationary background. The independent review determines those findings.
 
 There is no acceptable selected unit or R3 narrated master. Therefore final-unit dense background, loop, narration/audio, app-delivery and exact-served-master gates are not applicable to a new curl delivery. None is represented as passed or bypassed. The unchanged good demos retain their prior exact-file gates. All rejected sources and reports are preserved.
 
@@ -40,4 +40,6 @@ The existing real library was searched. B0683 was visually checked and uses a st
 
 Actual revision message: `01a1c741-e40b-7a50-95d2-d807a4357b63`, plus follow-up `01a1c742-20e5-7202-8d85-a77f8117a6c1`. The round-controller dry run preferred a fresh chat because the reply was old and the previous approach failed repeatedly. The runtime requires an explicit new-chat request; none was made. Current owner/pin was retained, title advanced to Exercise demos Codex R3, immutable decision/media locks verified, and the exception recorded. No child chat or ownership transfer was attempted.
 
-Review-page and final metadata update pending completion of the last independent review. No installation until Dan explicitly says ship for named demos.
+Final audit: all 49 completed R1–R3 independent reports are recorded; 50 gate stamps have matching report/media hashes, zero mismatches. All three new raw takes have independent FAIL recorded against their actual file hashes. The two unchanged 1080p review files serve the exact original hashes; byte ranges return 206. There is no curl player in the new review page. Phone layout checked at actual 389 CSS pixels and desktop at 1440, neither horizontally overflows. Both players verified paused at zero, unmuted/sound-ready after Finish checks for owner; temporary viewport reset and volume controls untouched. No task playback was needed for byte-identical media already checked in R2. Proof: `round3/browser-phone.png`, `browser-QA.json`, `http-QA.json` in the work folder.
+
+All three requested public MP4 files remain absent, and their exercise-demo IDs are not registered. No installation until Dan explicitly says ship for named demos. The curl has no acceptable asset to install. R3 production is stopped under the repeated-failure rule; the reliable completion path is new real EZ-bar footage as described above.
