@@ -19,7 +19,8 @@
     "assistant::Check pantry for expire food/put away soda",
     "assistant::Do dishes and start dishwasher",
     "assistant::Set up laundry hamper",
-    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly"
+    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
+    "assistant::Cut up all boxes in spare room in small pieces"
   ],
   "log": {
     "health::Shower": [
@@ -265,6 +266,7 @@
     "assistant::Check pantry for expire food/put away soda": "2026-11-10",
     "assistant::Do dishes and start dishwasher": "2026-11-10",
     "assistant::Set up laundry hamper": "2026-11-10",
-    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly": "2026-11-10"
+    "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly": "2026-11-10",
+    "assistant::Cut up all boxes in spare room in small pieces": "2026-11-10"
   }
 }
