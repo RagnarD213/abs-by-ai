@@ -1,0 +1,224 @@
+{
+  "note": "a/b are C1882 SOURCE seconds (mapped to film time through edit-plan.json pieces); start is seconds into the library master; crop is native 3840x2160 [x,y,w,h], full height always kept.",
+  "assets": [
+    {
+      "id": "B01",
+      "lib": "B0666",
+      "a": 268.75,
+      "b": 272.85,
+      "start": 0.3,
+      "crop": [
+        500,
+        0,
+        2900,
+        2160
+      ],
+      "name": "Intro: Chest Flies On The Machine (45-Degree Angle)",
+      "line": "Chest flies are far superior to bench press for building your chest. Here's how to do them",
+      "note": "Opens on about 4 s of correct reps (first-5-seconds rule: exercise how-to opens on the exercise). Window, not full screen: a 9:16 crop cuts his hands off at the stretch. B0666 0.30-4.40 s, camera steady (moves at 4.44).",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 48.9->62.9, black 0.114->0.093 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B02",
+      "lib": "B0665",
+      "a": 278.2,
+      "b": 282.36,
+      "start": 2.0,
+      "crop": [
+        1150,
+        0,
+        1900,
+        2160
+      ],
+      "covers_join": true,
+      "name": "The Seat And Handles (Wide Side View)",
+      "line": "First, set the seat in the right position.",
+      "note": "No library clip shows him adjusting THIS machine's seat (B0691/B0692 adjust the rear-delt machine, so they are not used). The wide view shows the seat and handle height. Covers the join after \"First,\".",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 44.2->58.2, black 0.093->0.074 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B03",
+      "lib": "B0666",
+      "a": 284.76,
+      "b": 285.81,
+      "start": 6.0,
+      "crop": [
+        500,
+        0,
+        2900,
+        2160
+      ],
+      "name": "Handles Line Up With Mid-Chest (Front)",
+      "line": "the handles line up with the middle",
+      "note": "B0666 6.00-7.05 s front: the handles meet at mid-chest. Only this second is used: from 7.1 s his head tips back past the top of the picture.",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 43.1->55.9, black 0.143->0.12 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B04",
+      "lib": "B0668",
+      "a": 287.91,
+      "b": 289.86,
+      "start": 2.0,
+      "crop": [
+        320,
+        0,
+        3200,
+        2160
+      ],
+      "name": "The Starting Stretch (Low Angle)",
+      "line": "set the starting position so you feel a stretch in your chest.",
+      "note": "B0668 2.00-3.95 s: arms wide at the stretch, holding the handles (not 4.0-5.3, where his hands come off the handles).",
+      "grade_note": "k=0.0: median 54.7->54.7, black 0.087->0.087 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B05",
+      "lib": "B0667",
+      "a": 293.56,
+      "b": 304.69,
+      "start": 3.6,
+      "crop": [
+        0,
+        0,
+        3000,
+        2160
+      ],
+      "covers_join": true,
+      "name": "Feel The Stretch (Side View)",
+      "line": "That way you still get the stretch and it stays low risk.",
+      "note": "B0667 3.60-6.90 s, arms travel back to the stretch. Covers the two joins of the retakes.",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 50.1->64.0, black 0.13->0.115 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B06",
+      "lib": "B0667",
+      "a": 307.04,
+      "b": 309.24,
+      "start": 7.75,
+      "crop": [
+        0,
+        0,
+        3000,
+        2160
+      ],
+      "name": "Slight Bend In The Elbows (Side View)",
+      "line": "Next, keep a slight bend in your elbows.",
+      "note": "Side view shows the elbow bend best. B0667 7.75-9.95 s, steady.",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 51.2->65.2, black 0.126->0.11 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B07",
+      "lib": "B0665",
+      "a": 309.24,
+      "b": 312.09,
+      "start": 12.1,
+      "crop": [
+        1150,
+        0,
+        1900,
+        2160
+      ],
+      "name": "Bring The Handles Together And Squeeze",
+      "line": "Bring the handles together in front of your chest and squeeze.",
+      "note": "B0665 12.10-14.95 s: the handles meet around 13.5-14.5 s, on \"and squeeze\".",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 45.4->58.2, black 0.096->0.077 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B08",
+      "lib": "B0667",
+      "a": 312.09,
+      "b": 318.25,
+      "start": 10.3,
+      "crop": [
+        0,
+        0,
+        3000,
+        2160
+      ],
+      "covers_join": true,
+      "name": "Back Slowly To The Stretch (Side View)",
+      "line": "Then let them back slowly to the stretch.",
+      "note": "B0667 10.30-13.10 s: from the squeeze back to the stretch. Covers the join over the removed \"Four sets.\" false start.",
+      "grade_note": "k=0.0: median 53.6->53.6, black 0.117->0.117 (approved gym cutaway range: median 46-72, black 7-22%)"
+    },
+    {
+      "id": "B09",
+      "lib": "B0665",
+      "a": 326.3,
+      "b": 329.2,
+      "start": 27.9,
+      "crop": [
+        950,
+        0,
+        2300,
+        2160
+      ],
+      "glass_over": true,
+      "name": "Tempo: Down Slow, Explode Up",
+      "line": "Take two to three seconds on the way down, then explode up.",
+      "note": "B0665 27.90-30.80 s (no bystander; one walks through at 22.5-23.5). Shorter window so the tempo key-point bar fits below it.",
+      "grade_fix": "curves=all='0/0 0.12/0.175 0.35/0.395 0.7/0.718 1/1',eq=saturation=1.025",
+      "grade_note": "k=0.1: median 45.4->58.2, black 0.091->0.071 (approved gym cutaway range: median 46-72, black 7-22%)"
+    }
+  ],
+  "graphics": [
+    {
+      "id": "G01",
+      "kind": "glass",
+      "a": 304.69,
+      "b": 306.89,
+      "topic": "STARTING POSITION",
+      "point": "Deep but Safe Stretch",
+      "line": "As far back as you can go, but no farther.",
+      "note": "One line so the bar stays clear of the phone apps' bottom buttons (re-review item 10); distils the starting-position point"
+    },
+    {
+      "id": "G02",
+      "kind": "opaque",
+      "a": 318.25,
+      "b": 326.3,
+      "eyebrow": "SETS AND REPS",
+      "headline": "Every Workout",
+      "rows": [
+        [
+          "Warm-Up: 10-15 Easy Reps",
+          319.58
+        ],
+        [
+          "Two Working Sets: 8-12 Reps",
+          322.06
+        ],
+        [
+          "Every Rep Strict",
+          324.22
+        ]
+      ],
+      "line": "For your sets, do one easy warm-up set of 10 to 15 reps. Then do two working sets of 8 to 12 reps. Every working rep should be strict.",
+      "note": "Script on-screen text",
+      "covers_join": false
+    },
+    {
+      "id": "G03",
+      "kind": "glass",
+      "a": 326.3,
+      "b": 329.2,
+      "topic": "TEMPO",
+      "point": "2-3 Seconds Down, Explode Up",
+      "line": "Take two to three seconds on the way down, then explode up.",
+      "top_y": 1590,
+      "note": "Two lines (script text kept), raised 70 px so its bottom sits about 80 px above the frame bottom like the approved one-line bars"
+    }
+  ],
+  "headers": {
+    "large": [
+      "How to Do",
+      "Chest Flies"
+    ],
+    "small": "How to Do Chest Flies on the Machine"
+  }
+}

@@ -1505,3 +1505,14 @@ Same roll and build as DS-76 Pull-Ups (recipe: `/Volumes/Extreme/_edit_work/DS-7
 - **Match the rep phase to the words.** A squeeze line needs the top of a rep under "at the top"; map the rep cycle on a 0.2 s strip before choosing the start.
 - **Captions print the heard word.** Teleprompter wording is not proof: a listener check (Gemini 3.1 Pro; 2.5 Pro is retired for new users) plus formants settled "handle", "row machine" and "this way in your".
 - A later voice-only pick: mix the new voice from the same cut and stream-copy the reviewed picture; prove the video stream is byte-identical before carrying reviews and the watch judge to the new hash.
+
+## Dedicated-short lessons: DS-78 Chest Flies On The Machine (2026-11-09, finalized R1 as is)
+
+Same roll and build as DS-77 (recipe: `reference/ds78-chest-fly-machine/`). Dan picked the defaults (F, B Fuller Bass, Original Portrait) and finalized the reviewed file with no rebuild.
+- **Arms-wide exercises (flies, laterals, reverse flies) go in windows, never full screen.** A 9:16 crop cuts both hands off at the stretch. Plan crop widths from the measured arm spread (2900-3200 of 3840 for the fly clips); say the reason on the page. A short window (cw 2300) leaves room for a glass key-point bar below it: `build.py` now takes a per-clip `glass_over` and a per-graphic `top_y`, and captions sit 55 px above whichever bar is on screen.
+- **Keep every glass bar about 80 px clear of the frame bottom** (phone apps put buttons there). A one-line bar at top 1660 ends ~1836; a two-line bar needs top 1590. A copy change that wraps to a second line drops the bar to 1908: re-measure after any copy edit.
+- **Listen to every join before review.** One listener pass caught an "f-For" stutter: a breath just before the next take's first word. Measure 20 ms levels across each join and end a piece before any sound that is not the kept word. End the film 0.2 s after the last word with a short fade; the closing "s" was still sounding at the old cut.
+- **The person mask misses hair in tilted-back heads.** On B0666 the mask reported 300 px of room while the head clearly left the picture; check the top of every window by eye (a strip sheet of the top 220 px every 6th frame) and trust the eye over the mask.
+- **Some library reps show open-palm presses** (B0667, B0668): that is Dan's real technique, not a mistake; B0668 4.0-5.3 s has his hands off the handles, so avoid it.
+- **No seat-setting or starting-position close-ups exist** for the chest fly machine (rolls C1844-C1846); B0691/B0692 adjust the rear-delt machine. Use the wide side view and say so as a page decision.
+- Make strip sheets in one ffmpeg pass (`fps=`), not one `select` call per frame: the per-frame version timed out.

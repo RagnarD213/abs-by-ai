@@ -34,7 +34,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
-**DS-78:REVIEW:2026-11-07:Claude.**
 
 **Exercise-demos-Codex-R2:REVIEW:2026-11-08:Codex:10967/curl-artifacts-remain.** `Docs/EXERCISE_DEMOS_CODEX_R2_20261108.md`.
 
