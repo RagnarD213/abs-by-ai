@@ -27,6 +27,26 @@ Every future run adds its accept/reject tally to the calibration log at the bott
 written, rejected 6 and rewrote 3, then changed how edits are delivered: the ones he is sure to accept go straight
 into the doc, and only the uncertain ones are tracked. Start at "Straight in, or tracked".
 
+**v3, 2026-11-10: BE BOLD. READ FIRST.** On Dan's own Great Again T VSL a light error pass (22 direct, 5 tracked) and then
+a bold style pass (26 tracked rewordings: rhythm, punch, repeated openers, flat lines, CTAs, transitions) were accepted
+in full. Dan: "you are substantially better at editing than you are at original writing... The next time you do an edit
+like this, I want you to be more bold, more confident, and take more risk to improve the script, especially because
+there's little downside. If I'm reviewing all the changes, I can just reject whatever is not good. You're good at this,
+and you're good at phrasing things." So, by default:
+- **Two layers in one run.** Errors go straight in (the list below). Then a bold style pass, every change tracked:
+  aim for at least 25 to 40 suggestions on a VSL-length script (about 1 per 150 words), more on weak drafts. Do not
+  wait to be asked for the bold layer.
+- **Take real swings:** rewrite flat or wordy lines for punch, cut repeated openers and doubled words, vary repeated
+  CTAs and make the last one the strongest, show instead of tell, sharpen verbs, tighten transitions, turn reported
+  feelings into lived ones ("I experienced some serious negative changes" became "my body and my drive took a serious
+  hit"). Borrow the winners' delivery (V Shred, TestoGreens) where it fits.
+- **Still off limits:** the marketing message, section order, the offer, prices, facts, numbers, studies, the hook
+  lines he wrote, his deliberate disclaimers, filming cues. Never soften a claim or add a caveat (sell first). Never
+  introduce AI tells (memory `vsl-scripts-from-dans-outline`).
+- **Model:** Fable 5.2 ran both 2026-11-10 passes at Dan's request and he called them excellent: use Fable 5.2 for
+  copy-edit passes; Opus 5.5 when his allowance is tight. This replaces the "Model + effort" line below.
+- His accepted wording is training data for `/dan-copywriting`: after each run, add the final text to its examples.
+
 ## What this skill is, and is not
 
 - **It is** the last pass before copy ships: spelling, grammar, consistency, tightening,
@@ -425,6 +445,7 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-10-18 and 10-19 | Gym Shorts Scripts, 27 shorts for the 10/23 pool shoot (`11nUmri621xbb7K44Wxan7IAljK2mJeizDFCRgK752AA`), after Dan's own edit pass | 48 direct (typos, hyphens, word counts, filming lines matched to his rewrites), 4 tracked (2 repeat-sentence cuts, 1 more cut, 1 "First," fix) | all 4 tracked accepted, all 48 direct stood (read 2026-10-20) | 0 | Opener lessons went to `_shared/HOOKS.md` (he rewrote 23 of 26 openers). Two soft line breaks of his looked like missing spaces: left alone. `Docs/COPYEDIT_GYM_SHORTS_1023_AS_DELIVERED_20261018.md`, `..._20261019.md`. Next session: read his rulings, fill this row |
 | 2026-10-20 | Same doc, the seven 10/23 pool long-forms, after Dan's 10/20 line edits (Fable 5.1) | 29 direct (13 "every single", 5 hyphens, 1 period, the leg-press count and two cues matched to his edits, 7 word counts), 5 tracked (3 repeat-sentence cuts, 2 double-introduction fixes) | 4 of 5 tracked, all 29 direct stood. Dan: "these edits were all pretty good" | 1: cutting the posture mechanism sentence repeated inside the "So why does this work?" recap (DON'T 13 note) | "I've got" left alone: his own 10/20 line uses "you've still got", so the tell is his here too; count his lines before swapping. `Docs/COPYEDIT_POOL_LONGFORMS_1023_AS_DELIVERED_20261020.md`. Next session: read his rulings, fill this row |
 | 2026-11-10 | Great Again T VSL, Dan's own draft (`1CmK7ZG45x-p7mXATjvlWzuUpvlr7AQMHUbiQcdMYCFI`), light pass (Fable 5.2) | 22 direct (typos, dropped and wrong words, 3 periods, age-related hyphen, $67 a month, SixPackAbs.com, cue spellings, on-screen label numbers put in spoken order), 5 tracked (a " - " inside a list to a comma, "like those that studies show", "pumpkin extract" to "pumpkin seed" from the label, two "XX%" blanks to "31%") | all 5 tracked accepted, all 22 direct stood. Dan: "excellent job with the edit... all the ones you put in line definitely make sense" | 0 | Light pass on his own writing works: fix errors only, track anything worded. He then asked for a bolder style pass (next row). `Docs/COPYEDIT_GREAT_AGAIN_T_VSL_AS_DELIVERED_20261110.md` |
+| 2026-11-10 | Same doc, bold style pass (Fable 5.2), asked for at least 10 riskier edits | 0 direct, 26 tracked (7 repeated openers and words, 12 flat or wordy lines, 6 CTAs and transitions, 1 dash) | all 26 accepted ("I accepted, I believe, every edit") | 0 | v3 BE BOLD rule above: bold layer by default, 25 to 40+ tracked on a VSL; Fable for copy edits. Final script saved to `.claude/skills/dan-copywriting/examples/` |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.
