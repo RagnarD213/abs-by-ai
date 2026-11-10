@@ -1,5 +1,7 @@
 # Exercise demos Codex R2, November 8, 2026
 
+> **Rejected by Dan, November 10:** frozen head, flickering biceps and unnatural movement. Do not install this R2 curl. R3 regenerates native motion; see `Docs/EXERCISE_DEMOS_CODEX_R3_20261110.md`.
+
 [Review the three 1080p narrated demos](http://127.0.0.1:10967/?round=codex-r2). Curl is first. Nothing is installed, uploaded or approved for the app. Dan said the existing shrug and press look good; both exact R1 masters are preserved unchanged.
 
 ## Result and remaining problems
