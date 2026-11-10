@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Real B-roll exercise demos for the app](handoff-20261109-real-broll-exercise-demos.md): **Written 2026-11-09, fire Phase 0 (pilot) when Dan says go.** Dan asked for the plan. About 56 real demos from the gym and home B-roll with cloned-voice narration; 26 go into the app (11 replace AI demos), 29 are stored for the library change. Claude Opus high; pilot is cable crunch, leg press, pull-up on a review page, nothing installed.
 
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
