@@ -13,7 +13,8 @@
     "assistant::Tidy bathrooms",
     "assistant::Take out trash",
     "assistant::Take trash to curb (Sundays)",
-    "assistant::Fix overflowing laundry in drawers"
+    "assistant::Fix overflowing laundry in drawers",
+    "assistant::Transfer laundry"
   ],
   "log": {
     "health::Shower": [
@@ -253,6 +254,7 @@
     "assistant::Tidy bathrooms": "2026-11-08",
     "assistant::Take out trash": "2026-11-08",
     "assistant::Take trash to curb (Sundays)": "2026-11-08",
-    "assistant::Fix overflowing laundry in drawers": "2026-11-10"
+    "assistant::Fix overflowing laundry in drawers": "2026-11-10",
+    "assistant::Transfer laundry": "2026-11-10"
   }
 }
