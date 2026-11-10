@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**GAT-upsells:DAN-REVIEW:2026-11-10:Claude.** Six upsell outlines (megadose, Eternal Burn, Abs By AI; TestoGreens + V Shred styles) in Doc 1zzhHGA1qswxqzBR00OtNFzjzwiSNsXvAK7JI0T4XJto. Scripts only after Dan approves outlines; Claude writes them. Transcripts: Docs/testosterone-upsells-20261110/transcripts/.
+**GAT-upsells:DAN-REVIEW:2026-11-10:Claude.** Outlines-in-Doc-1zzhHGA1qswxqzBR00OtNFzjzwiSNsXvAK7JI0T4XJto;scripts-after-approval.
 
 **SPA-Ads:2026-11-10:Codex.** Google+host-review;[next](Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md).
 
