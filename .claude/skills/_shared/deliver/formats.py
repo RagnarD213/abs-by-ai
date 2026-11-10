@@ -85,6 +85,10 @@ _LABELS = dict(min_corr=0.85, min_track_corr=0.60, wrong_margin=0.03, max_search
 # into an obstruction.
 
 _CAPTION_BAND_16x9 = (0.156, 0.861, 0.688, 0.102)
+# 2026-10-29: RO-23 source-verified HyperFrames glyphs, also proven by the native
+# synthetic exclusion fixture. These describe reference-pixel matching, never
+# a rectangular exclusion or a change to the organic10% caption-presence bound.
+CAPTION_GRAPHIC_INK = dict(alpha_min=204, source_white=200, max_luma_delta=25)
 # x, y, w, h as fractions of the frame = crop=1320:110:300:930 at 1920x1080, the band
 # longform-edit/qc_style.py has sampled since 2026-08. Keep it in fractions so 4K and 1080p agree.
 _CAPTION_BAND_9x16 = (0.10, 0.70, 0.80, 0.14)
@@ -443,7 +447,8 @@ FORMATS = {
                 # the ad16x9 numbers. ⚠ Not yet measured on an approved organic longform -- the
                 # corpus holds no approved longform of ours (Dan, 2026-09-11 on Zeeshan's follow-
                 # along: "Crop in closer by 20-30%"). Re-measure when one is approved.
-                "captions:burned": dict(present=False, max_frac=0.10, band=_CAPTION_BAND_16x9),
+                "captions:burned": dict(present=False, max_frac=0.10, band=_CAPTION_BAND_16x9,
+                                        graphic_ink=dict(CAPTION_GRAPHIC_INK)),
                 # the INVERTED rule. See the note above.
                 "captions:card_collision": dict(),
                 "compliance:banned_screen": dict(**_BANNED),
@@ -755,6 +760,82 @@ FORMATS = {
                           "batch of 9-15 before install. Decided 2026-09-16 (Phase 3)",
             "cut:naked_splices": "a seamless loop is one continuous generated rep; its loop point is "
                                  "a same-scene discontinuity by construction (see cut:uncovered_joins)",
+        },
+    ),
+
+    # ------------------------------------------------------------------ real B-roll exercise demo
+    "exercise-demo-real": dict(
+        note="A Trainer exercise demo cut from Dan's REAL gym B-roll (Real Exercise Demos plan, "
+             "Handoffs/handoff-20261109-real-broll-exercise-demos.md, 2026-11-09): the main wide take "
+             "plus one or two close detail angles of the same movement, cut between reps, with the same "
+             "cloned-voice narration over room tone as `exercise-demo`. Sibling of `exercise-demo`, NOT a "
+             "relaxation of it: the audio rows are the same rows with the same measured bounds; what "
+             "changes is the source (29.97 fps camera footage, real cuts) so the picture rows that a "
+             "generated loop could not run now DO run (cut rows, watch pass).",
+        rows=_common(
+            drop=("audio:lipsync", "audio:click_at_joins", "captions:graphic_clearance",
+                  "captions:within_runtime", "compliance:drug_names", "compliance:negative_events",
+                  "compliance:script_fidelity", "junk:repeated_take", "junk:dead_air"),
+            **{
+                "container:size": dict(size="960x540"),
+                # the app's demo player size, same as `exercise-demo` (public/exercise-demos).
+                "container:fps": dict(fps="30000/1001"),
+                # the October 23 library masters are 29.97 fps; the plan keeps the source rate
+                # ("do not convert to 24"), so this is the source's rate, not a measured allowance.
+                "container:codec": dict(vcodec="h264", acodec="aac", asr=44100, achannels=1),
+                # 44.1 kHz: the room-tone bed is generated at 44.1 kHz and the narration resampled to it
+                # (the _batch5/mux.py recipe); the older AI demos read 32 kHz only because their mux
+                # stream-copied MiniMax's 32 kHz output. Mono AAC as for every shipped demo.
+                "container:duration": dict(tolerance_s=0.25),
+                "container:frames": dict(),
+                "audio:stamp": dict(synthetic_ok=True),
+                # cloned-voice narration gated with `audio_gate.py --synthetic --profile in-app-demo`,
+                # exactly as `exercise-demo` (see its note).
+                "audio:stream_integrity": dict(length_tolerance_s=0.15, max_audio_short_s=6.5,
+                                               silent_second_dbfs=-50.0, allow_silent_lead_s=1),
+                # the `exercise-demo` bounds unchanged: 1.0 s silent lead (narration starts at 1.0 s
+                # over room tone), picture may outrun the narration by the measured 6.5 s.
+                "watch:pass": dict(required=True),
+                # unlike a generated loop, a real demo HAS boundaries: every cut between the wide take
+                # and a detail angle is stripped and judged on the delivered file.
+                "cut:naked_splices": dict(max_per_min=12.0),
+                # the ad bound (see ad9x16). A demo's cuts change camera angle, so a naked same-scene
+                # splice here is a real defect, not a format feature.
+            }),
+        not_applicable={
+            "junk:repeated_take": "the narration is Dan's cloned voice reading the form cues: there are "
+                                  "no takes, so there is no restart to catch",
+            "junk:dead_air": "the narration ends and the reps keep going to the rest position on purpose "
+                             "(about 1 s tail, as `exercise-demo`); that silence is the format",
+            "audio:click_at_joins": "the audio is one continuous narration-over-room-tone bed laid AFTER "
+                                    "the picture was cut; the picture joins are not audio joins",
+            "audio:lipsync": "nobody speaks on camera; the narration is a cloned-voice read laid over "
+                             "silent B-roll (the library masters carry no audio)",
+            "style:coverage": "a 15-25 s single-exercise demo: the bounds are calibrated on talking-head "
+                              "edits (cutaway share of a presenter); here every frame is the exercise",
+            "style:static_run": "same: the main wide take IS the demo and runs several reps by design",
+            "style:change_rate": "same: two to five shots of one movement, cut between reps",
+            "framing:hair_top": "Dan performing a movement is not a talking head; the framing is the "
+                                "library master's own, chosen so the whole movement is visible",
+            "framing:headroom": "no talking head -- see framing:hair_top",
+            "framing:centering": "no talking head -- see framing:hair_top",
+            "framing:no_wide_level": "a full-body movement IS the wide shot, by design",
+            "framing:push_coverage": "no presenter push schedule; detail angles are separate camera takes",
+            "captions:burned": "an exercise demo plays inside the app with no captions (the text lives on "
+                               "the exercise sheet)",
+            "captions:graphic_clearance": "no captions and no graphics",
+            "captions:card_collision": "no captions and no cards",
+            "captions:within_runtime": "no captions",
+            "captions:sync": "no captions",
+            "compliance:banned_screen": "no app UI appears in gym B-roll",
+            "compliance:labels": "real footage of Dan exercising, not a before/after or a physique claim; "
+                                 "the app shows no AI chip for real demos (plan default 2)",
+            "compliance:drug_names": "the narration is the movement's form cues only",
+            "compliance:script_fidelity": "the narration is generated from the approved script, not cut "
+                                          "from a recording, so there is no edit to drift from it",
+            "compliance:negative_events": "a demo of a movement shows no body-shame imagery",
+            "srt:present": "the demos play inside the app with no sidecar",
+            "srt:shape": "no sidecar -- see srt:present",
         },
     ),
 }

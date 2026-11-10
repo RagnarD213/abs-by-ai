@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THE DELIVERY GATE. One gate, called by all six video skills, run on the DELIVERED FILE.
 
-  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|organic9x16|website|exercise-demo [--plan plan.json]
+  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|organic9x16|website|exercise-demo|exercise-demo-real [--plan plan.json]
   gate.py --audit                 every format answers for every row, or say what is missing
   gate.py --formats               list the formats and their notes
 
@@ -58,7 +58,7 @@ from _shared.deliver.common import Row                       # noqa: E402
 #   1.0.0  2026-09-11  first version. Folds in the rows of the seventeen per-video QC forks, adds
 #                      audio:lipsync and the compliance rows, and moves every bound into formats.py
 #                      with the file and date it was measured on.
-GATE_VERSION = "2.6.2"        # 1.1.0: an insert may declare its own label chip + position
+GATE_VERSION = "2.6.3"        # 2.6.3: source-verified graphic ink; validate both caption layer and SRT runtime
                               # (a card hangs its chip off the card, not at the full-bleed waistline)
                               # 1.2.0  2026-09-12  Phase 2: five framing: rows on a portable tracker
                               # (FaceMesh + Apple Vision, no set-specific background) and stage 3 of
@@ -77,7 +77,7 @@ GATE_VERSION = "2.6.2"        # 1.1.0: an insert may declare its own label chip 
                               # inside the speech over the format's bound), both measured off the
                               # delivered file's own transcript (_shared/cut/junk.py).
                               # 2.3.2  2026-09-28  audio:stamp honours a format's `synthetic_ok`
-                              # key; only exercise-demo sets it (cloned-voice narration gated with
+                              # key; only exercise-demo (and, since 2026-11-09, its sibling exercise-demo-real) sets it (cloned-voice narration gated with
                               # audio_gate.py --synthetic). Every other format still rejects a
                               # synthetic stamp. (2.3.1 is the uncommitted WV-01 caption_mode work.)
                               # 2.4.0  2026-09-30  organic formats (longform, short) declare
@@ -132,6 +132,8 @@ PLAN_KEYS = """
   speech_words_evidence {method, video_sha256?}  `delivered_asr`, or source CTC only when this
                                    exact video has a verbatim audio-gate PASS stamp
   graphic_regions [{beat,rect}|{beat,image,pos}|{beat,mov}] visible obstacles captions must clear
+                  optional caption_role:"instructional_graphic",mov_sha256,source_segments
+                  lets the organic ink check identify matching source glyphs, never mask a box
   talking_head_windows [{beat,rect,motion}]      composite/full-frame Dan windows;
                                    motion is `tracking` or intentional `fixed-wide`
   label_tracks [{kind,beat,image,image_sha256,rect|pos,scale?,visibility,sample_times?,search_px?}]

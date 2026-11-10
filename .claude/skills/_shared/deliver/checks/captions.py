@@ -274,6 +274,48 @@ def card_collision(key, pr, cfg, plan, video, work):
                dict(cues=len(cues), cards=len(cards), bad=bad[:20]))
 
 
+def _graphic_white_ink(plan, t, band_rect, actual, cache, frame_wh=None, cfg=None):
+    """Only source-verified graphic glyph pixels, never a declared rectangular bypass.
+
+    A transparent lower third can resemble subtitles to the legacy white/dark heuristic.
+    Compare its independently rendered source at the actual composition frame. Unrelated
+    subtitle pixels, a missing asset, a changed asset or stale video geometry are not excluded.
+    """
+    x, y, w, h = band_rect
+    ink = np.zeros((h, w), dtype=bool)
+    if cfg is None:
+        raise ValueError("format does not configure source-verified caption graphic ink")
+    for g in plan.get("graphic_regions") or []:
+        if g.get("caption_role") != "instructional_graphic":
+            continue
+        a, b = g.get("beat", [1, 0])
+        if not a <= t < b:
+            continue
+        mov = g.get("mov")
+        if not mov or not g.get("mov_sha256") or not os.path.isfile(mov):
+            raise ValueError("caption graphic exclusion requires a readable fingerprinted source MOV")
+        if mov not in cache:
+            cache[mov] = CONTRACT.file_sha256(mov)
+        if cache[mov] != g["mov_sha256"]:
+            raise ValueError("caption graphic source fingerprint changed")
+        segments = g.get("source_segments") or [dict(beat=[a, b], source_start=0)]
+        seg = next((s for s in segments if s["beat"][0] <= t < s["beat"][1]), None)
+        if seg is None:
+            raise ValueError("caption graphic source map does not cover the sampled frame")
+        dt = float(seg.get("source_start", 0)) + t - float(seg["beat"][0])
+        scale = f"scale={frame_wh[0]}:{frame_wh[1]}," if frame_wh else ""
+        raw = subprocess.run([C.FF, "-v", "error", "-i", mov, "-ss", f"{dt:.6f}",
+                              "-frames:v", "1", "-vf", scale + f"crop={w}:{h}:{x}:{y},format=rgba",
+                              "-f", "rawvideo", "-"], capture_output=True).stdout
+        if len(raw) != w * h * 4:
+            raise ValueError("caption graphic source frame could not be decoded")
+        ref = np.frombuffer(raw, np.uint8).reshape(h, w, 4)
+        lum = ref[:, :, :3].astype(np.float32) @ np.array([.299, .587, .114])
+        ink |= ((ref[:, :, 3] >= cfg["alpha_min"]) & (lum > cfg["source_white"])
+                & (np.abs(actual.astype(np.float32) - lum) <= cfg["max_luma_delta"]))
+    return ink
+
+
 def burned(key, pr, cfg, plan, video, work):
     """captions:burned -- burned captions are present, or absent, as this format requires.
 
@@ -288,7 +330,14 @@ def burned(key, pr, cfg, plan, video, work):
     dur = pr["vdur"]
     states = plan.get("caption_states") or []
     highlight = plan.get("caption_highlight_rgb")
-    hits = n = 0
+    exclusions = any(g.get("caption_role") == "instructional_graphic"
+                     for g in plan.get("graphic_regions") or [])
+    if exclusions:
+        err = CONTRACT.contract_error(plan, key) or CONTRACT.validate(plan, plan.get("_sha256"))
+        if err:
+            return unmeasured(key, err)
+    hits = n = excluded_samples = 0
+    asset_hashes = {}
     for t in np.linspace(dur * 0.05, dur * 0.95, cfg.get("samples", 36)):
         raw = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.2f}", "-i", video, "-frames:v", "1",
                               "-vf", f"crop={cw}:{ch}:{cx}:{cy},format=gray",
@@ -297,7 +346,14 @@ def burned(key, pr, cfg, plan, video, work):
             continue
         b = np.frombuffer(raw, dtype=np.uint8)
         n += 1
-        present = 0.004 < (b > 225).mean() < 0.20 and (b < 40).mean() > 0.01
+        white = b > 225
+        if not want and exclusions:
+            ink = _graphic_white_ink(plan, t, (cx, cy, cw, ch), b.reshape(ch, cw), asset_hashes,
+                                     (W, H), cfg.get("graphic_ink"))
+            if ink.any():
+                excluded_samples += 1
+                white = white & ~ink.reshape(-1)
+        present = 0.004 < white.mean() < 0.20 and (b < 40).mean() > 0.01
         active = any(float(s["beat"][0]) <= t <= float(s["beat"][1]) for s in states)
         if not present and active and isinstance(highlight, list) and len(highlight) == 3:
             rgb = subprocess.run([C.FF, "-v", "error", "-ss", f"{t:.2f}", "-i", video,
@@ -319,15 +375,19 @@ def burned(key, pr, cfg, plan, video, work):
     hi = cfg["max_frac"]
     return Row(key, frac <= hi,
                f"no burned captions required; detected on {frac*100:.0f}% of {n} sampled frames "
-               f"(max {hi*100:.0f}%)",
-               dict(frac=round(frac, 3), max=hi, samples=n))
+               f"(max {hi*100:.0f}%); source-verified graphic ink excluded on {excluded_samples} samples",
+               dict(frac=round(frac, 3), max=hi, samples=n, graphic_ink_samples=excluded_samples))
 
 
 def within_runtime(key, pr, cfg, plan, video, work):
     """captions:within_runtime -- no cue starts or ends past the end of the picture."""
-    cues = read_cues(plan.get("captions_ass") or plan.get("srt"))
-    if cues is None:
+    paths = list(dict.fromkeys(p for p in (plan.get("captions_ass"), plan.get("srt")) if p))
+    groups = [(p, read_cues(p)) for p in paths]
+    if not groups or any(c is None for _, c in groups):
         return unmeasured(key, "the plan gives no readable `captions_ass` or `srt`")
+    cues = [c for _, group in groups for c in group]
+    if not cues:
+        return Row(key, False, "caption layer and sidecar contain no readable cues")
     dur = pr["vdur"]
     tol = cfg.get("tolerance_s", 0.10)
     over = [(round(a, 2), round(b, 2)) for a, b, _ in cues if b > dur + tol]

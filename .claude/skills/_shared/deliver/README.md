@@ -8,7 +8,9 @@ python3 .claude/skills/_shared/deliver/gate.py --audit        # every format ans
 python3 .claude/skills/_shared/deliver/gate.py --plan-keys    # what plan.json may contain
 ```
 
-Formats: `ad9x16` · `ad16x9` · `ad1x1` · `longform` · `short` · `organic9x16` · `website` · `exercise-demo`.
+Formats: `ad9x16` · `ad16x9` · `ad1x1` · `longform` · `short` · `organic9x16` · `website` · `exercise-demo` · `exercise-demo-real`.
+
+`exercise-demo-real` (2026-11-09) is a NEW format, not a changed bound: real gym B-roll demos with real cuts and the same audio rows as `exercise-demo`. No existing format's check or bound changed, so `GATE_VERSION` is unchanged and no older stamp is invalidated. Unlike `exercise-demo` it requires the watch pass, because its cuts are real boundaries.
 
 ---
 
@@ -98,6 +100,16 @@ claim v2 coverage for `ad16x9`, `longform`, `short`, `website`, or `exercise-dem
 format's renderer exports these facts.
 
 ## Where a number may live
+
+Gate2.6.3 distinguishes an empty burned-caption ASS layer from the required subtitle
+sidecar: runtime validation checks both readable files. An empty ASS cannot hide an
+overflowing SRT, and both empty fails. Organic graphic text may declare a hash-bound
+`graphic_regions` entry with `caption_role: "instructional_graphic"`, a fingerprinted
+`mov`/`mov_sha256`, and optional `source_segments: [{beat:[a,b],source_start:seconds}]`
+for edited animation time. Only bright glyph pixels matching that independent source
+frame are removed from the caption-ink heuristic. The rectangle itself is never masked;
+unrelated subtitles still count. Source matching limits live in `formats.py`; the10%
+organic presence limit is unchanged. The corpus includes adversarial source/cue tests.
 
 **`formats.py`, beside the file and the date it was measured on.** Nowhere else. If you are about
 to write a constant into `checks/`, you are starting fork number eighteen.

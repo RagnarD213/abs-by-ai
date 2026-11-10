@@ -431,6 +431,19 @@ def main():
             print((r.stdout + r.stderr)[-3000:])
             print("\nCORPUS FAIL -- the click-at-joins fixture is failing; fix that first.")
             return 1
+        # Separate empty burned layers from required subtitle sidecars; independently
+        # rendered graphic glyphs must not conceal unrelated burned subtitle pixels.
+        t_ = os.path.join(SHARED_DELIVER, "tests", "test_caption_layer_semantics.py")
+        print("_shared/deliver/tests/test_caption_layer_semantics.py ...", flush=True)
+        r = subprocess.run([sys.executable, t_], capture_output=True, text=True,
+                           cwd=os.path.dirname(SHARED_DELIVER))
+        ok_ = r.returncode == 0
+        tail = [l for l in (r.stdout + r.stderr).splitlines() if l.strip()][-1:]
+        print(f"  {'PASS' if ok_ else 'FAIL'}  {tail[0].strip() if tail else ''}")
+        if not ok_:
+            print((r.stdout + r.stderr)[-3000:])
+            print("\nCORPUS FAIL -- the caption-layer fixture is failing; fix that first.")
+            return 1
     print(f"\nQC CORPUS  {len(entries)} entries  (corpus v{corpus['version']}, {corpus['updated']})\n")
     out, t0 = [], time.time()
     for e in entries:
