@@ -17,7 +17,8 @@
     "assistant::Transfer laundry",
     "assistant::Bed made",
     "assistant::Check pantry for expire food/put away soda",
-    "assistant::Do dishes and start dishwasher"
+    "assistant::Do dishes and start dishwasher",
+    "assistant::Set up laundry hamper"
   ],
   "log": {
     "health::Shower": [
@@ -261,6 +262,7 @@
     "assistant::Transfer laundry": "2026-11-10",
     "assistant::Bed made": "2026-11-10",
     "assistant::Check pantry for expire food/put away soda": "2026-11-10",
-    "assistant::Do dishes and start dishwasher": "2026-11-10"
+    "assistant::Do dishes and start dishwasher": "2026-11-10",
+    "assistant::Set up laundry hamper": "2026-11-10"
   }
 }
