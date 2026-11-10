@@ -461,6 +461,13 @@
       "recurring": false,
       "addedAt": "2026-11-10",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Do dishes and start dishwasher",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
