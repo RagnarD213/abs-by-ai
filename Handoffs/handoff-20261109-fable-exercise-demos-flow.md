@@ -47,7 +47,7 @@ Do NOT touch these, they belong to other sessions: chair-squat, db-lunge, bicycl
 
 - Edit models redraw the whole frame; lockstill fixes the background but not the prop or the floor right under it: compare those to START by eye before gating.
 - Front views of overhead arm moves made Veo flare the elbows (3 of 3); side or three-quarter fixed it.
-- The main folder's push has been blocked by a merge jam (300+ commits ahead); commits stay local until someone clears it. Do not hand-merge other sessions' files.
+- Push with `scripts/git/safe-push.sh` only. If it stops on another session's files, follow AGENTS.md (`--adopt-stale` for files older than 2 hours); never hand-merge other sessions' files.
 - `renderq.py workdir --help` and `editcap.py acquire --help` treat `--help` as a job name and create junk entries; read the script headers instead.
 
 ## Deliver in chat
