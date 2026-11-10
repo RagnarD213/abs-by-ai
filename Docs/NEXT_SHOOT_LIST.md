@@ -59,6 +59,8 @@ the "fired my trainer" material, the Oura ring, and the busy-dad shots.
 
 **Also needed (added 2026-11-09, Flow-credits AI clip batches):** Dan walking around or jogging lightly in place between sets (wanted for DS-103 Why You Should Walk Between Your Sets; neither AI model could draw it cleanly), and Dan asleep in bed with the bedroom thermostat turned down to 63 in shot (DS-50 Why I Sleep At 63 Degrees; Dan prefers this real shot to any AI version).
 
+**Gym (added 2026-11-09, Trainer app demo, Seated Overhead Dumbbell Triceps Extension):** Dan seated upright on the end of a flat bench, one dumbbell held overhead with both palms cupped under its top head, 4 to 6 slow full reps lowering it behind the neck, elbows high and narrow. Locked tripod, three-quarter side view (about 60 degrees off his front), whole body and bench in frame, empty background, plus one take from the side. AI could not draw the bottom of this rep in 14 tries (R4 handoff `Handoffs/handoff-20261109-exercise-demos-r4-fly-seated-triceps.md`), and Dan wants it seated. The app's real-footage demo format (`exercise-demo-real`) takes it as is.
+
 ## 3. Your call before filming
 
 | what | the decision |

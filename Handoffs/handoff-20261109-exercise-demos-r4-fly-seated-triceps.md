@@ -29,5 +29,5 @@ Motion prompts already written: `db-fly/r3/F1.txt` (rewrite camera wording if th
 
 ## R4 result (2026-11-09, executed)
 - **Fly: on the review page** (`http://127.0.0.1:9317/`), file `db-fly/db-fly-AIDAN-narrated-FINAL-CANDIDATE-r4c.mp4`, app file `Media/exercise-demos/_flowpilot/app-staging/db-fly-r4c.mp4` (audio + delivery gates PASS). Frames `db-fly/r4/cxg-start.png`/`cxg-end.png` (gate + reviewer PASS), take `veo-r4f/veo/F4c-flow-t1.mp4` frames 0-36, clipcheck PASS, background PASS 71/71 + 497/497, motion review PASS (`db-fly/r4/motion-r4c.review.md`). On "ship": install r4c like db-crunch (step 6 above).
-- **Seated triceps: not ready.** All END routes failed review; details in the shared notes and `db-tricep-extension/r4/framecheck/*.review.md`. Waiting on Dan's choice (film it for real, keep the standing version, or accept a different grip).
+- **Seated triceps: not ready.** All END routes failed review; details in `db-tricep-extension/r4/framecheck/*.review.md`. Default picked: film it for real at the next gym shoot (added to `Docs/NEXT_SHOOT_LIST.md`, section 2), then build it with the `exercise-demo-real` format. Dan can override (keep standing, or accept a hands-on-handle grip).
 - Spend: $0 paid; Flow credits 21,586 -> 21,506 (8 Veo Fast clips, images 0 credits).
