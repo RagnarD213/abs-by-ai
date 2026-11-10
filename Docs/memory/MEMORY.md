@@ -147,6 +147,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [App and site internals](hub-app.md): The product: trainer, nutritionist, Sleep Coach, native apps, Stripe, Railway, email, SixPackAbs site, deploy traps
 
 - [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
+- [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
