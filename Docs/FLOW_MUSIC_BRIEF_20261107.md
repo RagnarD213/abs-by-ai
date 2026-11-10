@@ -63,6 +63,6 @@ Dan approved outreach with a $200 opening offer. Contact routes checked: the cha
 > Thanks,
 > Dan
 
-**Update 2026-11-09 evening:** YouTube removed both comments above within minutes (neither appears in Dan's comment history; likely the email address triggered spam filtering). A revised comment without the email is live on "Version 2.0": "This song goes hard. I run a fitness channel and I'd love to license Version 2.0 as my intro and outro music. Happy to pay $200 for it. Reply here if you're interested and I'll get you my contact info." Dan asked to post further comments himself; the "No Off Switch" comment is typed in his Chrome, not posted. Lesson: no email addresses in YouTube comments.
+**Update 2026-11-09 evening:** YouTube removed both comments above within minutes (neither appears in Dan's comment history; likely the email address triggered spam filtering). A revised comment without the email is live on "Version 2.0": "This song goes hard. I run a fitness channel and I'd love to license Version 2.0 as my intro and outro music. Happy to pay $200 for it. Reply here if you're interested and I'll get you my contact info." Dan asked to post further comments himself; Dan then had Claude post the "No Off Switch" comment (no email); it stayed up after a reload. Lesson: no email addresses in YouTube comments.
 
 Ceiling: up to about $250 for the license. If no reply by 2026-11-16, start Plan B (original hooks written down for Dan to pick first, then only the winning hooks generated in Flow).
