@@ -17,4 +17,12 @@ Early users: code review found 3-4 of 5 planted defects vs Opus 1-2; most other 
 Adopted 2026-11-09 (AGENTS.md, Model routing): Opus 5.5 stays default for writing, design, video edits, photo picks. Fable 5.2 high for hard coding (multi-file app/payment/pipeline builds, bugs Opus missed), code review of risky changes, and a trial as the blind video/frame reviewer. Never max. Related: [[model-routing-plan]], [[fable-included-in-max]], [[opus-5-5-release]].
 
 ## Reviewer trial log (3 rounds, then decide)
-- (none yet) format: date, video title, reviewer found X, Dan later flagged Y.
+- format: date, video title, reviewer found X, Dan later flagged Y.
+- 2026-11-09, Flow-credits batch 2 AI clip frames (Why I Use Machines At 41 / Walk Between Your Sets), 3 frame-reviewer runs on Fable 5.2 high:
+  (1) B2-01 Can't Go In: FAIL, caught a walking stride that would need a backward slide to reach END, legs 10.6% longer in START, a gym bag hanging from no strap (all real; my own screen missed them).
+  (2) B2-02 Sitting On His Phone: PASS, noted the gate measured nothing so its PASS rested on its own measurements.
+  (3) B2-03 Jogging Between Sets: FAIL, caught same-side arm and knee forward (nobody jogs like that); my screen missed it.
+  Cost ~176-194k tokens each vs ~140-160k for Opus reviewers. Dan's verdict on these frames: pending.
+- 2026-11-09, Three More Exercise Demos R3 (Dumbbell Fly, Overhead Triceps Extension seated), extra Fable 5.2 high frame-reviewer runs:
+  (4) Fly bent-elbow Codex pair: FAIL, caught THREE arms in START (my own screen missed it), near elbow 155 to 65 deg (press, not fly), changed background machine and soft floor patch. ~209k tokens. Dan's verdict: pending.
+  (5) Seated triceps Codex pair: FAIL, measured dumbbell 12% longer, upper arms 8-11% longer, half rep with forearms resting on the head, knob hands; gate had passed. ~200k tokens. Dan's verdict: pending.
