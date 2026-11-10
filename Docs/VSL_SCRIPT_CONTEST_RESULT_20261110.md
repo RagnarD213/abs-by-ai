@@ -42,7 +42,7 @@ Blind contest, 2026-11-09: three writers scripted Dan's own Great Again T outlin
 6. **AI fills whatever space it is given.** A word target becomes padding.
 7. **AI judges cannot catch any of this.** AI "operator panels" rated earlier Claude scripts top 10%; Dan called them awful. Only Dan's read and real traffic decide.
 
-## The approach (adopted as the default 2026-11-10; it follows Dan's own plan to write most of the VSL himself and give AI only the sections it is good at; Dan can change it)
+## The approach (adopted by Dan, 2026-11-10: "Adopt it")
 
 1. **Dan writes the spine:** hook, story, transitions, offer, close. AI never writes a whole VSL.
 2. **AI gets small, fenced section jobs, one at a time:** the section's exact place in Dan's draft, his last line before it and first line after it (so it joins), a word cap, the winner's matching passage, the allowed facts, nothing else. Good jobs: ingredient breakdowns, nutrient breakdowns, price math lines, study-card text, on-screen directions, Q&A answers.
