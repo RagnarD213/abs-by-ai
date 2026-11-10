@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Great Again T: comprehensive funnel plan (Codex)](great-again-t-20261105/08-funnel-plan-codex.md), 2026-11-10. **Fire now.** Codex newest Sol (gpt-6.1-sol) high. Recommendations only: set, orientation, spokesperson, January promotion, continuity (Healthy Back Institute style, Google Ads compliant), editing, page, upsells and everything else that decides conversion.
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
 - [Real B-roll exercise demos for the app](handoff-20261109-real-broll-exercise-demos.md): **Phase 0 pilot built 2026-11-09, at Dan's review** (cable crunch, leg press, pull-up; page http://127.0.0.1:9512/). Next: Dan's notes, then Phase 1 (the other 11 gym demos in the library, then install). Read the "Phase 0 result" section first. Claude Opus high.
 
@@ -215,6 +214,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- Great Again T funnel recommendations delivered 2026-11-10. [Plan and decisions](../Docs/GREAT_AGAIN_T_FUNNEL_PLAN_20261110.md).
 - How To Do Chest Flies On The Machine (DS-78): setup executed 2026-11-09. X1 installed; all four platforms queued Jan 12, 2027, 9 AM Central. [Receipt](../Docs/DS78_SETUP_RECEIPT_20261109.md). Original [handoff](handoff-20261109-ds78-chest-flies-machine-cover-and-setup.md) is complete.
 
 - [Keep Your Muscle A+B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **EXECUTED November9,2026.** Exact revised A2/BX2 covers approved and installed; eight publishing assets uploaded/hash-verified. Setup complete in shared waitlist, publishing held until parent confirmed public on/after Dec6. No dates or schedules. [Receipt](../Docs/SL12_SETUP_RECEIPT_20261108.md).
