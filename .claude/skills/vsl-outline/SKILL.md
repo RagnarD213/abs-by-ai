@@ -168,7 +168,7 @@ four allowed reasons). Fix everything else. This audit is what Dan asked for on 
 - **The founder's story only claims what's true.** If the transformation also involved other things (Dan's included
   Zepbound, training and calorie tracking), the script must not let the product or the food swap take the credit.
 
-### 8. Scripting (only after Dan approves the outline)
+### 8. Scripting (only after Dan approves the outline). SUPERSEDED 2026-11-10: write with `/dan-copywriting`; Dan writes the spine
 - Match the model's proportions section by section (`scripts/sections.py --script <file>`). Dan reads about 165 words
   a minute; the winners read faster (V Shred ~206, TestoGreens ~187), so match time and section share, not raw words.
 - His voice: plain, direct, his charged words kept (memory `claude-softens-strong-language`); the dan-voice method is
