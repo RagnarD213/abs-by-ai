@@ -14,6 +14,24 @@ description: >
 Built 2026-11-08 from the Great Again T work (`Handoffs/great-again-t-20261105/vsl-outlines-AB-20261108.md` is the
 worked example; the research is in `Docs/testosterone-funnels-20261105/`).
 
+## READ FIRST: Dan's 2026-11-09 verdict (overrides the steps below where they conflict)
+
+Dan read the Great Again T scripts this skill produced (Claude's outline, Claude's scripts, AI operator panels rating
+them "top 10%") and called them "awful, terrible ... absolutely unacceptable output ... it would lose all my money." He
+tested every other AI and concluded that **AI cannot write a VSL like this without an outline from him.** So:
+- **Dan writes (or co-writes) the outline.** The script follows his outline section by section, keeps his lines nearly
+  verbatim, and expands only where he left an instruction. Never script from a Claude-only outline (steps 5 to 7 below
+  are research support for Dan's outline, not a substitute for it).
+- **No default Claude copy.** Write like Dan, V Shred and TestoGreens write: their sentence shapes, their plain
+  claims, their selling language, modeled closely in the body (ingredients, reveal, price, guarantee, close).
+- **The intro = a proven idea + an original attention idea.** Claude's intros were "just a weaker version of the proven
+  ideas." Dan's fix for Great Again T: "eat this, not that" food swaps, held up to camera, which combine the winners'
+  proven food angle with another proven format (the Healthy Back Institute "do this, not that" commercial) and are new
+  in testosterone VSLs. If the first 30 seconds don't grab, nothing after matters.
+- **AI panels are not proof.** Their "top 10%" scores did not survive Dan's read. Use them only to catch leaks.
+- Worked example of the new process: `Handoffs/great-again-t-20261105/contest2/` (Dan's outline, blind three-model
+  script contest: Opus 5.5, Fable 5.2, Codex Astra). Memory: `vsl-scripts-from-dans-outline`.
+
 ## The rule this skill exists for
 
 Dan, 2026-11-08: *"Using Claude's own judgment and taste for these things doesn't work. That's why so many people have

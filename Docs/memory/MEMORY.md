@@ -132,6 +132,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
 - [Headlines](ad-copy-headline-voice.md): person + outcome
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
+- [VSL scripts from Dan's outline](vsl-scripts-from-dans-outline.md): 11-09: Dan rejected AI-outlined VSL scripts as awful; script only from his outline, his/V Shred voice; intro = proven idea + original attention idea
 - [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
 - [YT ads](ytads-retired-manual-management.md): instant on, never pause
 - [Ads UI](google-ads-ui-automation.md): Chrome traps
