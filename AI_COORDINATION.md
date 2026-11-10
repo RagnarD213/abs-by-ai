@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**ChestFlies:SETUP:2026-11-09:Codex.** Covers underway; pick-first. `Docs/DS78_SETUP_RECEIPT_20261109.md`
+**ChestFlies:SETUP:2026-11-09:Codex.** `Docs/DS78_SETUP_RECEIPT_20261109.md`
 
 **FlowMusic:LICENSE-ASK:2026-11-09:Claude.**
 
