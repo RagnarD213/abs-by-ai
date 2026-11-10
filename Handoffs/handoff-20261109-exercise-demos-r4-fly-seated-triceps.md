@@ -26,3 +26,8 @@ All frames in `Media/exercise-demos/db-fly/r3/` and `db-tricep-extension/r3/`, r
 6. On "ship": install like db-crunch (copy app-staging file, poster at 1.0 s, audio + delivery gates on the public file, move stamps to app-staging, add id, safe-push, verify live).
 
 Motion prompts already written: `db-fly/r3/F1.txt` (rewrite camera wording if the camera changes), `db-tricep-extension/r3/T1.txt`.
+
+## R4 result (2026-11-09, executed)
+- **Fly: on the review page** (`http://127.0.0.1:9317/`), file `db-fly/db-fly-AIDAN-narrated-FINAL-CANDIDATE-r4c.mp4`, app file `Media/exercise-demos/_flowpilot/app-staging/db-fly-r4c.mp4` (audio + delivery gates PASS). Frames `db-fly/r4/cxg-start.png`/`cxg-end.png` (gate + reviewer PASS), take `veo-r4f/veo/F4c-flow-t1.mp4` frames 0-36, clipcheck PASS, background PASS 71/71 + 497/497, motion review PASS (`db-fly/r4/motion-r4c.review.md`). On "ship": install r4c like db-crunch (step 6 above).
+- **Seated triceps: not ready.** All END routes failed review; details in the shared notes and `db-tricep-extension/r4/framecheck/*.review.md`. Waiting on Dan's choice (film it for real, keep the standing version, or accept a different grip).
+- Spend: $0 paid; Flow credits 21,586 -> 21,506 (8 Veo Fast clips, images 0 credits).
