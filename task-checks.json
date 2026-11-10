@@ -16,7 +16,8 @@
     "assistant::Fix overflowing laundry in drawers",
     "assistant::Transfer laundry",
     "assistant::Bed made",
-    "assistant::Check pantry for expire food/put away soda"
+    "assistant::Check pantry for expire food/put away soda",
+    "assistant::Do dishes and start dishwasher"
   ],
   "log": {
     "health::Shower": [
@@ -259,6 +260,7 @@
     "assistant::Fix overflowing laundry in drawers": "2026-11-10",
     "assistant::Transfer laundry": "2026-11-10",
     "assistant::Bed made": "2026-11-10",
-    "assistant::Check pantry for expire food/put away soda": "2026-11-10"
+    "assistant::Check pantry for expire food/put away soda": "2026-11-10",
+    "assistant::Do dishes and start dishwasher": "2026-11-10"
   }
 }
