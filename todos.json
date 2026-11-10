@@ -440,6 +440,13 @@
       "recurring": false,
       "addedAt": "2026-11-08",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Transfer laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
