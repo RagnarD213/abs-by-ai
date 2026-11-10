@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [How To Do Chest Flies On The Machine (DS-78): covers and setup](handoff-20261109-ds78-chest-flies-machine-cover-and-setup.md): **COVER REVIEW 2026-11-09, Codex.** [Eight paired choices](http://127.0.0.1:9788/), awaiting Dan's pick. Final R1 preserved byte for byte; no publishing uploads or scheduling. Resume the existing set after his pick. Receipt: `Docs/DS78_SETUP_RECEIPT_20261109.md`.
 - [Real B-roll exercise demos for the app](handoff-20261109-real-broll-exercise-demos.md): **Written 2026-11-09, fire Phase 0 (pilot) when Dan says go.** Dan asked for the plan. About 56 real demos from the gym and home B-roll with cloned-voice narration; 26 go into the app (11 replace AI demos), 29 are stored for the library change. Claude Opus high; pilot is cable crunch, leg press, pull-up on a review page, nothing installed.
 
 
@@ -213,6 +212,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- How To Do Chest Flies On The Machine (DS-78): setup executed 2026-11-09. X1 installed; all four platforms queued Jan 12, 2027, 9 AM Central. [Receipt](../Docs/DS78_SETUP_RECEIPT_20261109.md). Original [handoff](handoff-20261109-ds78-chest-flies-machine-cover-and-setup.md) is complete.
 
 - [Keep Your Muscle A+B SFL Setup](handoff-20261107-sl12-approved-B-setup.md): **EXECUTED November9,2026.** Exact revised A2/BX2 covers approved and installed; eight publishing assets uploaded/hash-verified. Setup complete in shared waitlist, publishing held until parent confirmed public on/after Dec6. No dates or schedules. [Receipt](../Docs/SL12_SETUP_RECEIPT_20261108.md).
 
