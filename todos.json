@@ -447,6 +447,13 @@
       "recurring": false,
       "addedAt": "2026-11-10",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Fix overflowing laundry in drawers",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
