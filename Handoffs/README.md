@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Great Again T: comprehensive funnel plan (Codex)](great-again-t-20261105/08-funnel-plan-codex.md), 2026-11-10. **Fire now.** Codex newest Sol (gpt-6.1-sol) high. Recommendations only: set, orientation, spokesperson, January promotion, continuity (Healthy Back Institute style, Google Ads compliant), editing, page, upsells and everything else that decides conversion.
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
 - [Real B-roll exercise demos for the app](handoff-20261109-real-broll-exercise-demos.md): **Phase 0 pilot built 2026-11-09, at Dan's review** (cable crunch, leg press, pull-up; page http://127.0.0.1:9512/). Next: Dan's notes, then Phase 1 (the other 11 gym demos in the library, then install). Read the "Phase 0 result" section first. Claude Opus high.
 
