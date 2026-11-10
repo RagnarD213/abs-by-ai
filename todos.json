@@ -461,6 +461,20 @@
       "recurring": false,
       "addedAt": "2026-11-10",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Do dishes and start dishwasher",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Check pantry for expire food/put away soda",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-10",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
