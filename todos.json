@@ -489,6 +489,13 @@
       "recurring": false,
       "addedAt": "2026-11-11",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take out any full garbage",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-11",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
