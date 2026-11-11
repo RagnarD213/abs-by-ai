@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**SPA-articles:13-HELD:2026-11-11:Claude.**No-republish;DAN_DECISIONS.
+
 **GAT-upsells:DAN-PICKS-BLIND-SCRIPTS:2026-11-11:Claude:Doc-17EPYViJQEcawLgUNXOgbV8zZkfJ6rVxrvIzLF430eFE;key-local-only.**
 
 **SPA-Ads:2026-11-10:Codex.** Google+host-review;[next](Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md).

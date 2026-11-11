@@ -57,6 +57,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 
 
+
+
 - **Facebook followers ad set (2026-10-22; Decision since: 2026-10-22):** Dan wants to target followers of his personal profile facebook.com/danroseninja (2.8K followers). Meta builds ad audiences only from Pages and Instagram business accounts, never a personal profile, so it cannot be built. Nothing built or spent. Rec: drop it; a free profile post asking friends to follow @danrosefit reaches the same people. No ads before Oct 30 (follower test).
 
 
@@ -124,4 +126,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
   (`549946a`); native still shows IAP + account-first; new demo videos on the russian-twist + reverse-crunch exercise sheets (09-28).
 - **Voice corpus, two questions (2026-10-16, Dan Voice P2B):** (1) Did Claude write the "Five Levels Of Pushups" short script? You thought so on Round 2 pair 8; if yes it leaves the corpus and the test set. (2) Settle the 13 numbers that differ between your videos (Zepbound start dose 2.5 or 1.5 mg, weight 192 to 181 or to 175, height 5'7" or 5'6", and 10 more): each is marked "conflict" inside its entry in `.claude/skills/_shared/voice/POSITIONS.md`.
 
-- **SL-12 Keep Your Muscle R2 (2026-11-03; Decision since: 2026-11-02):** [Review B and A voice auditions](http://127.0.0.1:9954/round2/). B complete and checked, awaiting approval. Choose A voice1(recommended) or2 and approve/revise the new AI B-roll endpoint frames before motion. A is not fully assembled; no upload/schedule; parent-public Dec6 hold.
+
+- **RO-22 release with open technical checks (2026-11-03; Decision since: 2026-11-03):** Film and revised X1 thumbnail approved. Thumbnail installed; release copy/article/TikTok cover prepared. Exact export still has audio-tone FAIL and incomplete key-edge checks; no technical waiver recorded. Choose explicit release of the approved film as-is with these limits recorded, or authorize a technical repair round. Nothing scheduled. Evidence: `Docs/RO22_SETUP_RECEIPT_20261102.md`.
+
+- **sixpackabs.com articles after the Google review (2026-11-11; Decision since: 2026-11-11):** The 11-10 text cleanup replaced 13 video-page articles with tame text, so the daily article check lists them as missing and its rule says republish. Held. Choose: restore the original articles once Google clears campaign 24453238073, or keep the tame text for good (then add the 13 ids to `sixpackabs/articles/skips.json`). List: `python3 sixpackabs/articles/gap.py`. Context: `Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md`.
