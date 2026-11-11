@@ -21,7 +21,8 @@
     "assistant::Set up laundry hamper",
     "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
     "assistant::Cut up all boxes in spare room in small pieces",
-    "assistant::Put cardboard in recycling"
+    "assistant::Put cardboard in recycling",
+    "assistant::Organize/tidy up junkroom/throw out trash"
   ],
   "log": {
     "health::Shower": [
@@ -269,6 +270,7 @@
     "assistant::Set up laundry hamper": "2026-11-10",
     "assistant::Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly": "2026-11-10",
     "assistant::Cut up all boxes in spare room in small pieces": "2026-11-10",
-    "assistant::Put cardboard in recycling": "2026-11-10"
+    "assistant::Put cardboard in recycling": "2026-11-10",
+    "assistant::Organize/tidy up junkroom/throw out trash": "2026-11-10"
   }
 }
