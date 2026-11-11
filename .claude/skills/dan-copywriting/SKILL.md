@@ -131,6 +131,22 @@ Burn and Abs By AI):
 - Docs: outlines `1zzhHGA1qswxqzBR00OtNFzjzwiSNsXvAK7JI0T4XJto`, winners
   `1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc`, rejected `1S-3DLXHgTXrzpRyQwgcgvG0fhuZ5ZTwi6cXfR_w1XhA`. When Dan
   finishes editing the winners, diff his edits against them and add what he changed here.
+- **What Dan changed by hand in the four winners (2026-11-11, 13 edits).** Write these in from the start:
+  - Winner slang comes out: "cramp city" became "dehydrated and cramping", "NUCLEAR BOMB" became "an incredibly
+    powerful strategy for taking your results with Great Again T to the next level", "And I'm serious" became "And I
+    know this supplement is going to change your life". Keep the winners' structure, not their catchphrases.
+  - Outcomes he can picture beat adjectives: "look how lean and powerful I've become" became "I look like I did in
+    my twenties".
+  - He adds the assurance himself wherever a line implies the product fails alone: "Other men get good results"
+    gained "Still significant, but much less than the top guys"; "flush it down the drain" became "flush most of it".
+  - Stock-outs get a believable, modest fact from him ("We try our best to never stock out, but we have run out of
+    inventory a few times in the past") and "unfortunately, Great Again T isn't easy to make", not drama.
+  - A reason that makes no sense for the product gets a real one: "if I could have fit it in one tablet" became why
+    day and night need different ingredients; "your order hasn't shipped yet" (wrong for an app) became a reason
+    tied to his testosterone results.
+  - The guarantee is justified by results and word of mouth ("the men who stack get elite results ... you'll tell
+    all your friends"), not by "they ask for MORE".
+  - "The one I'd grab" became "the one most guys choose"; melatonin is listed last, as "a microdose of melatonin".
 - Trap: a write hook blocks Google Doc and file writes that contain phrases Dan cuts (`HARD_PHRASES` in
   `scripts/voice/voice_check.py`). Check a long script against that list before sending it.
 
