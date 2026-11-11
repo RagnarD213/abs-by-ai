@@ -244,7 +244,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-95](DS-95-what-to-do-your-first-day-at-the-gym.md) | What To Do Your First Day At The Gym | 10/23 C1891 | READY | S |
 | [DS-96](DS-96-how-to-pick-the-right-weight-on-every-exercise.md) | How To Pick The Right Weight On Every Exercise | 10/23 C1891 | READY | S |
 | [DS-97](DS-97-how-to-stop-feeling-embarrassed-at-the-gym-when-you-re-fat.md) | How To Stop Feeling Embarrassed At The Gym When You're Fat | 10/23 C1891 | READY | S |
-| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | READY | S |
+| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | READY (3-way Codex blind test) | S |
 | [DS-99](DS-99-why-i-use-machines-and-cables-instead-of-barbells-at-41.md) | Why I Use Machines And Cables Instead Of Barbells At 41 | 10/23 C1891 | READY | S |
 | [DS-100](DS-100-the-3-gym-exercises-i-never-do.md) | The 3 Gym Exercises I Never Do | 10/23 C1892 | READY | S |
 | [DS-101](DS-101-the-only-2-exercises-you-need-for-a-wide-back.md) | The Only 2 Exercises You Need For A Wide Back | 10/23 C1892 | READY | S |

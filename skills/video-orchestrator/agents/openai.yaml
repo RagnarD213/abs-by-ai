@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Orchestrator"
+  short_description: "Astra direction, Sol editing, measured blind tests"
+  default_prompt: "Use $video-orchestrator to supervise a Sol video edit with Astra, or run an authorized three-way blind comparison."

@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [The Only 5 Machines You Need At The Gym: three-way Codex blind edit test](video-editing/DS-98-the-only-5-machines-you-need-at-the-gym.md), 2026-11-11. **Ready, not started. Codex controller GPT-6 Astra, high.** Independent all-Astra, all-Sol and Astra-supervising-Sol versions; shared sources/approval stages, randomized review labels, usage and quality tracking. One DS-98 queue job remains READY, unattended disabled. No setup or publishing. Use the Codex starter in the handoff.
+
 - [Intermittent Fasting (RO-08): register its Facebook cover so the daily top-up can queue it](handoff-20261111-ro08-facebook-cover-blocks-queue.md), 2026-11-11. **Start now. Codex newest Sol, medium** (or Grokbot). The top-up refused RO-08 for Fri Nov 27: no Facebook cover entry. Dan's approved thumbnail A (10-14) exists; no new pick needed.
 
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
