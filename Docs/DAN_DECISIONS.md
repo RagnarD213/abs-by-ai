@@ -7,6 +7,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Post Malone Drink, both Shorts (Decision since: 2026-11-11).** Review the opening and graphics, then choose one colour and voice for both. Codex recommends Warm and Studio. [Round 1 on Dan’s Mac](http://127.0.0.1:9842/)
+
 - **Great Again T name (Decision since: 2026-11-10).** Choose a challenger to Great Again T from the 30 candidates. Test Rematch is the first pick, followed by TestoTorque and TestoRoots. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T studio and presenter (Decision since: 2026-11-10).** Choose Dan in the indoor, portrait-first shoot and whether to reserve up to $300 for a separately licensed older-presenter test later. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T January offer (Decision since: 2026-11-10).** Decide whether the free first bottle truly closes January 31, and set the public one-time, refill and pack prices, including shipping and terms for existing customers. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
