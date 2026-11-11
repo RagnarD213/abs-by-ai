@@ -91,6 +91,49 @@ Only text Dan wrote, or Claude edits he accepted, goes in `examples/`. Never an 
 - Generic AI shapes: "not X, but Y", colon-then-reveal lines, clever literary lines, balanced both-sides framing.
 - Em dashes and en dashes.
 
+## Upsell scripts: act as the winner (Dan, 2026-11-10 and 11-11)
+
+Post-purchase upsell videos use a different method from the VSL method above. Dan approved it after the Great Again T
+upsells: "This is the way. Act as successful direct response marketers, not yourself." Model the winner's upsell
+video, not Dan's VSL and not Claude's own idea of a pitch.
+
+1. **Get the winner's video in the same funnel slot and transcribe it.** TestoGreens and V Shred post-purchase
+   transcripts (12 videos): `Docs/testosterone-upsells-20261110/transcripts/` (local only, git-ignored).
+2. **Outline first.** Their beats in their order, their timestamp on every section, their lines with our product
+   swapped in, and a NOTE on each forced difference. Dan approves the outlines before any script.
+3. **Two scripts per upsell, one per winner, shown blind** as Script 1 and Script 2 (order drawn at random, key in a
+   local file). After his picks: one WINNERS doc and one REJECTED doc (he stitches parts across), then `/copy-edit`.
+4. **Sell at the winners' strength.** Dan wants to be deleting lines for going too far. Calibration from the blind
+   test: the hardest script was "the first time you sold aggressively enough", and he still picked the subtler one.
+   Go hard on benefits, price and urgency. Do not go hard on fear.
+5. **Never invent customer facts** (sales counts, refund rates, past stock-outs, testimonials). Ask Dan for real ones.
+
+Rules from his picks on 2026-11-11 (V Shred style won the prepaid packs and creatine; TestoGreens style won Eternal
+Burn and Abs By AI):
+
+- **One warning per funnel, at most.** "I need to warn you about something" on upsell after upsell stops being
+  believed. Later upsells open by congratulating him on the decision he just made.
+- **Always assure him the product he bought works on its own.** The upsell gets him MORE ("you'll get even more out
+  of Great Again T when you pair it with..."). Never say or imply it will not work without the upsell: Dan expects
+  that to cause refunds. A different product can be sold as needed a little harder than more of the same product.
+- **No obvious scare tactics.** Stock-outs and missed doses are points inside the consistency argument, made the
+  subtle V Shred way, never a threat scene ("fake stockouts" was his phrase for the version he rejected).
+- **More of the same product: lead with the discount.** He already bought it. The size of the saving is the pitch.
+- **Assume the prospect is doing nothing.** No workout program, no diet. Never write as if he is trying and only
+  lacks knowledge ("you don't know which workouts to do"), and never tell him that adding a workout and a diet will
+  be "easier". Say only what he will believe.
+- **Assume he knows nothing about the ingredient.** Explain what it is and what it does, sell the benefit, give the
+  proof in a sentence or two, THEN reveal the product. A reveal before the benefits makes the studies read as
+  pitching, and they drag.
+- **Tie a complementary product back to what he bought,** point by point (the right workouts raise testosterone, the
+  right food raises testosterone, sleep is when the body makes it).
+- **Analogies must be ones he feels.** The water analogy landed. "The fastest route is a straight line" did not.
+- Docs: outlines `1zzhHGA1qswxqzBR00OtNFzjzwiSNsXvAK7JI0T4XJto`, winners
+  `1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc`, rejected `1S-3DLXHgTXrzpRyQwgcgvG0fhuZ5ZTwi6cXfR_w1XhA`. When Dan
+  finishes editing the winners, diff his edits against them and add what he changed here.
+- Trap: a write hook blocks Google Doc and file writes that contain phrases Dan cuts (`HARD_PHRASES` in
+  `scripts/voice/voice_check.py`). Check a long script against that list before sending it.
+
 ## Model
 
 Fable 5.2 (it ranked first in the 2026-11-09 blind test and did the edits Dan rated excellent); Opus 5.5 when his
