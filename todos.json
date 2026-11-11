@@ -482,6 +482,13 @@
       "recurring": false,
       "addedAt": "2026-11-10",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Organize/tidy up junkroom/throw out trash",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-11",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
