@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**GAT-L02-blind:DAN-PICKING:2026-11-12:Claude.**0b8e0d5.
+**GAT-ad-scripts:DAN-PICKING:2026-11-12:Claude.**10-decided-in-Doc;L30+8-shorts-blind:Handoffs/great-again-t-20261105/l30-shorts-blind-test.html.
 
 **WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots.
 
