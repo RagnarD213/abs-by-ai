@@ -7,6 +7,9 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+
+
+- **Post Malone Drink, both Shorts (Decision since: 2026-11-11).** Choose Scripted or Off the cuff after watching the [two complete cuts](http://127.0.0.1:9843/). The opening, graphics, Warm colour and Fuller Bass voice are approved.
 - **Great Again T name (Decision since: 2026-11-10).** Choose a challenger to Great Again T from the 30 candidates. Test Rematch is the first pick, followed by TestoTorque and TestoRoots. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T studio and presenter (Decision since: 2026-11-10).** Choose Dan in the indoor, portrait-first shoot and whether to reserve up to $300 for a separately licensed older-presenter test later. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
 - **Great Again T January offer (Decision since: 2026-11-10).** Decide whether the free first bottle truly closes January 31, and set the public one-time, refill and pack prices, including shipping and terms for existing customers. [Plan](https://docs.google.com/document/d/1xf0q5rIIyUBFiqLl6Kgq4tlA2LXxYLnYUQctwVqxVOE/edit)
@@ -130,3 +133,7 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 - **RO-22 release with open technical checks (2026-11-03; Decision since: 2026-11-03):** Film and revised X1 thumbnail approved. Thumbnail installed; release copy/article/TikTok cover prepared. Exact export still has audio-tone FAIL and incomplete key-edge checks; no technical waiver recorded. Choose explicit release of the approved film as-is with these limits recorded, or authorize a technical repair round. Nothing scheduled. Evidence: `Docs/RO22_SETUP_RECEIPT_20261102.md`.
 
 - **sixpackabs.com articles after the Google review (2026-11-11; Decision since: 2026-11-11):** The 11-10 text cleanup replaced 13 video-page articles with tame text. Default taken: keep the tame text; the 13 ids are in `sixpackabs/articles/skips.json` marked HELD so the daily article check does not republish them. To restore the originals after Google clears campaign 24453238073, say so: remove the HELD lines and the daily check republishes from the saved files. Context: `Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md`.
+
+- **DS-34 medical source photos (Decision since: 2026-11-11).** Review [Surgeon Fake Abs R2](http://127.0.0.1:9575/) at 0:06–0:25 and decide whether to keep the report's medical torso images in context or replace them under the belly-centred imagery rule. The picture defects are fixed; full-film approval is also pending. No publishing or scheduling.
+
+- **ChatGPT Coach, both Shorts (Decision since: 2026-11-11).** Compare [scripted 65.6s / off-the-cuff 63.5s](http://127.0.0.1:9567/) and choose the preferred cut. B colour, D voice and shorter cuts are approved. Both checked comparison copies retain automated FAIL flags and independent DOES NOT SHIP release verdicts; scripted 15.4–15.9s has a fine caption-timing uncertainty. No full-film approval or publication.
