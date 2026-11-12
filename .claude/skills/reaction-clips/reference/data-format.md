@@ -41,7 +41,7 @@ One JSON file per shoot or batch. A full, real example: `Docs/shoot-1017-shorts-
     }
   ],
   "reply_title": "10/17 REACTION CLIPS, ROUND 3",
-  "reply_help": "Tap Kill on any clip you don't want. Everything else counts as a keep.",
+  "reply_help": "Tap Select on every clip you want. Anything you don't select is out.",
   "reply_lines": ["Optional extra question lines for the reply box, one per line"]
 }
 ```
@@ -52,7 +52,9 @@ Rules:
 - `segs` is a list of `[start, end]` pairs in seconds, played in order. One pair for a normal clip. The total
   must be 25 seconds or less; aim for 15.
 - An item with no `id` is an idea card (title, bullets, `br` for B-roll): no player.
-- A section with `"pick": true` gets Kill buttons and a line in the reply box, and needs `reply_label`.
+- A section with `"pick": true` gets Select buttons (Dan, 2026-11-12: he clicks the ones he wants; untouched cards are
+  not selected) and a line in the reply box, and needs `reply_label`. Add `"mode": "kill"` to the section for the old
+  Kill buttons, where untouched cards count as keeps.
   A section with `"locked": true` shows a LOCKED tag and no buttons.
 - One bullet in `pts` must start with `Lesson:` or `Do this`. `page.py` refuses a clip card without one.
 - `noembed` is set by `page.py` when the owner has turned off embedding. Do not write it by hand.

@@ -25,6 +25,7 @@
   @media (min-width:980px) { .grid { grid-template-columns:1fr 1fr; } }
   .card { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
   .card.killed { opacity:.42; }
+  .card.picked { border-color:var(--green); box-shadow:0 0 0 2px var(--green) inset; }
   .card .body { padding:14px 16px 16px; }
   .num { font-size:12px; font-weight:700; color:var(--mute); letter-spacing:.08em; text-transform:uppercase; }
   .title { font-size:19px; font-weight:750; line-height:1.25; margin:3px 0 8px; }
@@ -50,6 +51,8 @@
   button { font:inherit; font-size:14px; font-weight:650; border-radius:9px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:7px 12px; cursor:pointer; }
   button.on.keep { background:var(--green-soft); color:var(--green); border-color:var(--green); }
   button.on.kill { background:var(--red-soft); color:var(--red); border-color:var(--red); }
+  button.sel { border-color:var(--green); color:var(--green); }
+  button.on.sel { background:var(--green); color:#fff; border-color:var(--green); }
   button.primary { background:var(--blue); color:#fff; border-color:var(--blue); }
   textarea { width:100%; min-height:190px; font:14px/1.45 ui-monospace, Menlo, monospace; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; margin-top:8px; }
   .card.locked { border-color:var(--green); }
@@ -78,6 +81,11 @@ const tagFor = v => v==="right" ? '<span class="tag right">RIGHT</span>' : v==="
 const total = r => r.segs.reduce((a,x) => a + x[1] - x[0], 0);
 const span = r => r.segs.map(x => fmt(x[0]) + " to " + fmt(x[1])).join(", then ");
 const killed = {};
+const picked = {};
+// Dan, 2026-11-12: "I click on the ones that I want to select rather than the ones I want to kill, because most of
+// them I'm going to be killing." A pick section now has a Select button and an untouched card is NOT selected.
+// "mode": "kill" on a section keeps the old page (Kill buttons, untouched cards are keeps).
+const selectMode = sec => sec.mode !== "kill";
 
 // Plays each piece of the clip in order, inside the page.
 function play(p, r) {
@@ -98,6 +106,15 @@ function killBtn(sec, i, card) {
   const b = el("button", "kill", "Kill");
   b.onclick = () => { set.has(i) ? set.delete(i) : set.add(i);
     b.classList.toggle("on", set.has(i)); b.textContent = set.has(i) ? "Killed (undo)" : "Kill"; card.classList.toggle("killed", set.has(i)); reply(); };
+  return b;
+}
+
+function pickBtn(sec, i, card) {
+  if (!selectMode(sec)) return killBtn(sec, i, card);
+  const set = picked[sec.id];
+  const b = el("button", "sel", "Select");
+  b.onclick = () => { set.has(i) ? set.delete(i) : set.add(i);
+    b.classList.toggle("on", set.has(i)); b.textContent = set.has(i) ? "Selected (undo)" : "Select"; card.classList.toggle("picked", set.has(i)); reply(); };
   return b;
 }
 
@@ -135,7 +152,7 @@ function card(sec, r, i) {
       (r.note ? '<div class="note">' + esc(r.note) + "</div>" : "");
   }
   const row = el("div", "row");
-  if (sec.pick) row.appendChild(killBtn(sec, i, c));
+  if (sec.pick) row.appendChild(pickBtn(sec, i, c));
   if (start) { const rp = el("button", "", "Replay"); rp.onclick = start; row.appendChild(rp); }
   if (row.children.length) b.appendChild(row);
   c.appendChild(b);
@@ -158,7 +175,7 @@ const ja = el("a", "", "Reply box"); ja.setAttribute("href", "#reply"); jump.app
 panel.appendChild(jump); wrap.appendChild(panel);
 
 DATA.sections.forEach(sec => {
-  killed[sec.id] = new Set();
+  killed[sec.id] = new Set(); picked[sec.id] = new Set();
   const h = el("h2", "", esc(sec.heading)); h.id = sec.id; wrap.appendChild(h);
   if (sec.sub) wrap.appendChild(el("p", "sub", esc(sec.sub)));
   const g = el("div", "grid"); sec.items.forEach((r, i) => g.appendChild(card(sec, r, i))); wrap.appendChild(g);
@@ -175,6 +192,11 @@ function reply() {
   if (cur.length > 1) notes = cur.slice(1).join("NOTES:").replace(/^\n/, "");
   let out = DATA.reply_title + "\n";
   DATA.sections.filter(s => s.pick).forEach(sec => {
+    if (selectMode(sec)) {
+      const s = [...picked[sec.id]].sort((a,b)=>a-b).map(x=>x+1);
+      out += sec.reply_label + ": selected " + (s.length ? s.join(", ") : "none yet") + " (of " + sec.items.length + "; everything else is out)\n";
+      return;
+    }
     const k = [...killed[sec.id]].sort((a,b)=>a-b).map(x=>x+1);
     const keep = []; for (let j=1;j<=sec.items.length;j++) if(!k.includes(j)) keep.push(j);
     out += sec.reply_label + ": keep " + (keep.length ? keep.join(", ") : "none") + "\n  kill " + (k.length ? k.join(", ") : "none") + "\n";

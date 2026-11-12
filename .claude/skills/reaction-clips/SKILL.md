@@ -35,8 +35,9 @@ goal is a round where he keeps most of them.
 ## What this skill delivers
 
 A batch of reaction short IDEAS (default 20). For each one: the clip, cued to the second, and the outline of
-Dan's reaction. They go on one review page with a working YouTube player per clip. Dan kills what he does not
-want. The keeps are saved as data and handed to a separate scripting task.
+Dan's reaction. They go on one review page with a working YouTube player per clip. Dan clicks Select on the ones he wants;
+everything he does not select is out (2026-11-12, replaces Kill buttons). The picks are saved as data and handed to a
+separate scripting task.
 
 **This skill stops at the idea.** It does not write scripts, and it does not touch the shoot doc. Dan runs
 scripting as its own task (memory `skill-creation-no-auto-execute`, and his 2026-10-12 instruction).
@@ -132,7 +133,9 @@ to the period that I'm going to react to."
 - **Serve it** with `python3 .claude/skills/_shared/review_server.py PORT OUT_DIR` and give Dan the
   `http://127.0.0.1:PORT/` address. **Never give him the file path or a link to the file.**
 - **Layout, top to bottom:** title, "What I decided (overrule anything)", the sections, one reply box. A
-  section Dan picks from has a Kill button on every card; untouched cards count as keeps. A locked section has
+  section Dan picks from has a Select button on every card; an untouched card is NOT selected (Dan, 2026-11-12: "I click
+  on the ones that I want to select rather than the ones I want to kill, because most of them I'm going to be
+  killing"). `"mode": "kill"` on a section brings back the old Kill buttons for a page built the old way. A locked section has
   no buttons. Each clip card: the player, the title, RIGHT / WRONG / MY SPIN, the clip line (a link that opens
   YouTube at the second, the time range, the length, the source and the view count), the first and last words,
   "What it is", "Your reaction", and a note when something needs his eye.

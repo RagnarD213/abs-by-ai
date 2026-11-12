@@ -53,6 +53,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 ## Review rounds
 - [Review page](review-page-what-i-decided.md): "What I decided"
 - [Review pages seek](review-page-must-seek.md): review_server.py only; http.server cannot scrub
+- [Select, not kill](review-pages-select-not-kill.md): 11-12: on pick pages he clicks what he WANTS (Select/Pick); untouched = out; clip template changed
 - [Edit Queue page](edit-queue-artifact-is-working-list.md): show every change
 - [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
 - [Round 1](round1-full-graphics-review.md): show all graphics
