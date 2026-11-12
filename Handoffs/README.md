@@ -11,6 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Surgeon Fake Abs SFC Setup](handoff-20261112-ds34-approved-film-setup.md), 2026-11-12. **In progress in existing Codex setup chat; do not launch another owner.** Film approved and backed up; [eight covers](http://127.0.0.1:9586/) await Dan's pick, then finish setup.
+
+
 - [Intermittent Fasting (RO-08): register its Facebook cover so the daily top-up can queue it](handoff-20261111-ro08-facebook-cover-blocks-queue.md), 2026-11-11. **Start now. Codex newest Sol, medium** (or Grokbot). The top-up refused RO-08 for Fri Nov 27: no Facebook cover entry. Dan's approved thumbnail A (10-14) exists; no new pick needed.
 
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.

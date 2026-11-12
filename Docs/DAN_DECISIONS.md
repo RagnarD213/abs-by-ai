@@ -7,6 +7,8 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
+- **Surgeon Fake Abs cover (Decision since: 2026-11-12).** Choose X1-X8 from the [eight paired covers](http://127.0.0.1:9586/). The film is approved and backed up. Setup waits at the cover pick before uploading or scheduling.
+
 
 
 - **Post Malone Drink, both Shorts (Decision since: 2026-11-11).** Choose Scripted or Off the cuff after watching the [two complete cuts](http://127.0.0.1:9843/). The opening, graphics, Warm colour and Fuller Bass voice are approved.
@@ -134,6 +136,5 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 - **sixpackabs.com articles after the Google review (2026-11-11; Decision since: 2026-11-11):** The 11-10 text cleanup replaced 13 video-page articles with tame text. Default taken: keep the tame text; the 13 ids are in `sixpackabs/articles/skips.json` marked HELD so the daily article check does not republish them. To restore the originals after Google clears campaign 24453238073, say so: remove the HELD lines and the daily check republishes from the saved files. Context: `Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md`.
 
-- **DS-34 medical source photos (Decision since: 2026-11-11).** Review [Surgeon Fake Abs R2](http://127.0.0.1:9575/) at 0:06–0:25 and decide whether to keep the report's medical torso images in context or replace them under the belly-centred imagery rule. The picture defects are fixed; full-film approval is also pending. No publishing or scheduling.
 
 - **ChatGPT Coach, both Shorts (Decision since: 2026-11-11).** Compare [scripted 65.6s / off-the-cuff 63.5s](http://127.0.0.1:9567/) and choose the preferred cut. B colour, D voice and shorter cuts are approved. Both checked comparison copies retain automated FAIL flags and independent DOES NOT SHIP release verdicts; scripted 15.4–15.9s has a fine caption-timing uncertainty. No full-film approval or publication.
