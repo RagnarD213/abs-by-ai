@@ -1,6 +1,6 @@
 # Copy edit as delivered: Great Again T ad outlines (2026-11-12)
 
-Doc: `1i_8S6ZkMDMdh17jSYe7K4JJmPNaXwnR-tGXhXhkZYU0` ("Great Again T Ad Outlines (23 ads)"): the 16 final long and short ad scripts that won the blind tests. Fable 5.2. Dan asked for a bolder pass with more edits typed straight in: "be a little bit more confident about what you just edit directly in the script this time."
+Doc: `1i_8S6ZkMDMdh17jSYe7K4JJmPNaXwnR-tGXhXhkZYU0` ("Great Again T Ad Outlines (23 ads)"): the 19 final long and short ad scripts that won the blind tests. Fable 5.2. Dan asked for a bolder pass with more edits typed straight in: "be a little bit more confident about what you just edit directly in the script this time."
 
 29 direct edits, 24 tracked suggestions. Verified: every changed paragraph in the before/after diff was a planned one; 24 pending; reject-all view equals the doc after the direct edits; every short ad is still 155 spoken words or fewer; 0 em or en dashes.
 
