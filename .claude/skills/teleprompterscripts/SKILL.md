@@ -457,5 +457,16 @@ editing directions written by the main model (judgment) and the teleprompter cop
 - **A script with lines spoken by someone else** (L17's AI presenter): only Dan's lines go on the prompter. "ALTERNATE
   HOOK" lines inside a bracket go on the prompter after the script's last line, label dropped, as with hook takes.
 - 11-12 result: "Great Again T - Teleprompter 1 - VSL" (4,591 words, 8 pages), "... 2 - Upsells" (6,001 words, 11 pages),
-  both in PromptSmart under those names; "Great Again T - Editing Document 1 - VSL" and "... 2 - Upsells". The ad scripts
-  ("Great Again T Ad Outlines (23 ads)", 19 final scripts) wait for Dan's copy polish before their two documents are made.
+  both in PromptSmart under those names; "Great Again T - Editing Document 1 - VSL" and "... 2 - Upsells".
+- **The ad scripts doc, same day after Dan's copy polish** ("Great Again T Ad Outlines (23 ads)": 19 final scripts, each a
+  `## ` heading with a `### Final script` line; L18 is an outline and S16, S23, S29 are struck): "Great Again T -
+  Teleprompter 3 - Ads" and "Great Again T - Editing Document 3 - Ads" (`reference/gat_ads_editing_doc.py`). These scripts
+  already carried their directions (201), so the Editing Document keeps them, keeps the "On camera" and "AD SETUP" lines
+  and the section labels, drops the "Model:" commentary, and adds only an opening rules list and a few directions: who is
+  speaking in L17, that an "ALTERNATE HOOK" means two versions of the ad, and what a replay scene must hold constant. When
+  a script doc already has directions, do not pad it with more. The script also writes the expected teleprompter sequence
+  (`ads.teleprompter.expected.json`), which is how the helper's document is checked independently.
+- **Check PromptSmart by fingerprint, not by eye:** open the card's `/scripts/<id>/preview` page and, with
+  `javascript_tool`, hash the page text from the first heading to the "SHOW MORE" line (curly quotes and spaces
+  normalized, lines joined by a newline, SHA-256). The same hash of the Drive text export must be identical. 11-12: both
+  cards matched exactly. The preview page holds the whole script even though it shows a "SHOW MORE" button.
