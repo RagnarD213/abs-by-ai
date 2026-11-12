@@ -13,7 +13,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Two-Mac setup: M6 primary, M2 headless edit machine](two-mac-setup-20261112/README.md), 2026-11-12. **Three handoffs, fire in order.** 01 M2 prep (Codex newest Sol medium or Grokbot, on the M2, now); 02 M6 setup (Claude Opus 5.5 high, on the M6, after Dan's first-boot steps); 03 edit routing (Claude Fable 5.2 high, on the M6, after 02 is verified). Nothing executed yet.
 
-- Next shoot outlines (2026-11-12): **executed 2026-11-12**, outlines delivered in the Google Doc "Next Shoot Outlines" (https://docs.google.com/document/d/1rZvNKcmAW9zch8KTSjtxCODq7YIEj3pzG2KvnlPHbrU/edit); new clips at Docs/next-shoot-outlines-clips-20261112/. Waiting on Dan's edits and clip picks; scripting is a separate task after that. Blind scorecard stays closed until he asks.
+- Next shoot outlines (2026-11-12): **executed 2026-11-12**, outlines delivered in the Google Doc "Next Shoot Outlines" (https://docs.google.com/document/d/1rZvNKcmAW9zch8KTSjtxCODq7YIEj3pzG2KvnlPHbrU/edit); new clips at Docs/next-shoot-outlines-clips-20261112/. Waiting on Dan's edits and clip picks; scripting is a separate task
+
+- Next shoot outlines, Version B (2026-11-12): the same handoff was also run in a second Claude session (Fable 5.2), which finished after the one above. Independent second version, same 36 videos: Google Doc "Next Shoot Outlines (Version B)" (https://docs.google.com/document/d/123aX2JmeqAvVTqIComnEmUc9y0VIBnNDFr1M9RHvtVg/edit); its clips at Docs/next-shoot-outlines/ (page http://127.0.0.1:11833/). Dan chooses which Doc to edit, or asks for a merge; script from the one he edits after that. Blind scorecard stays closed until he asks.
 
 - [Surgeon Fake Abs SFC Setup](handoff-20261112-ds34-approved-film-setup.md), 2026-11-12. **In progress in existing Codex setup chat; do not launch another owner.** Film approved and backed up; [eight covers](http://127.0.0.1:9586/) await Dan's pick, then finish setup.
 
