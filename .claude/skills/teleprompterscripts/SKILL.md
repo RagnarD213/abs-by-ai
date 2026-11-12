@@ -431,3 +431,31 @@ well-known person makes one blunt claim about looks or results, in a few seconds
 and then teach from. What the killed ones share: an explainer, a routine, a list, a product detail, or a person the
 viewer does not care about.
 
+
+### Sales scripts: a teleprompter copy plus an "Editing Document" (Dan, 2026-11-12)
+
+For the Great Again T shoot Dan asked for two documents per finished script doc: a teleprompter copy (words only, Drive
+plus PromptSmart) and an **Editing Document** ("I won't be using it for filming"): the same script word for word with
+`[BOLD CAPS BRACKETS]` directions for the AI editors, "not everything, just the most important parts". He wants the
+editing directions written by the main model (judgment) and the teleprompter copy handed to a cheaper helper (Sonnet,
+`general-purpose`), since it is mechanical.
+
+- **Sources as local text, no connector read:** `rclone copy gdrive: src --max-depth 1 --files-only --include "<title>*"
+  --drive-export-formats md`. One non-empty line is one paragraph; unescape `\[ \] \$ \. \- \! \+ \)`.
+- **Editing Document build:** `reference/gat_editing_docs.py`. Spoken paragraphs come from the source and are never
+  retyped; each direction is placed by an anchor snippet that must match exactly one paragraph, and the script asserts the
+  spoken sequence is unchanged. Keep Dan's own directions as written; add only what the video needs and the script does
+  not say (on-screen prices and guarantee, reveals to hold back, pauses the rough cut must not remove, graphics reused
+  across videos, the page's exact button wording). Upload and verify like the teleprompter copies.
+- **Dollar-sign trap in the HTML import:** Google Docs reads `"$97" CROSSED OUT, THEN "$67` as a math formula and drops
+  everything between the two dollar signs (a `$` followed by a non-space, later a `$` preceded by a non-space, in one
+  paragraph). `"SAVE $383" AND "ABOUT $1 A DAY"` is safe. Write prices so the second `$` follows a space ("THE $97 PRICE
+  CROSSED OUT, THEN THE NEW PRICE: $67 A MONTH"). The build script flags the pattern; the line-by-line download check is
+  what caught it. The upsell WINNERS source has one direction already damaged this way (`"19.99AMONTH"CROSSEDOUT."67`).
+- **Pause cues** (`[SHORT PAUSE]`, `[3 SECOND PAUSE]`) are stripped from the prompter like every bracket; the Editing
+  Document tells the editor to keep or add the pause.
+- **A script with lines spoken by someone else** (L17's AI presenter): only Dan's lines go on the prompter. "ALTERNATE
+  HOOK" lines inside a bracket go on the prompter after the script's last line, label dropped, as with hook takes.
+- 11-12 result: "Great Again T - Teleprompter 1 - VSL" (4,591 words, 8 pages), "... 2 - Upsells" (6,001 words, 11 pages),
+  both in PromptSmart under those names; "Great Again T - Editing Document 1 - VSL" and "... 2 - Upsells". The ad scripts
+  ("Great Again T Ad Outlines (23 ads)", 19 final scripts) wait for Dan's copy polish before their two documents are made.
