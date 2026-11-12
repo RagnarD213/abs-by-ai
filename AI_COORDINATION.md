@@ -29,6 +29,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**GAT-L02-blind:DAN-PICKING;PUSH-PENDING:2026-11-12:Claude.**0b8e0d5;merge-conflict.
+
+**WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 

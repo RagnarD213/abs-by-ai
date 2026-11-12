@@ -4029,14 +4029,17 @@
    "claude": "CONTENT (SFL). Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/SL-21-what-to-cut-shorts.md`: confirm the approved RO-20B master, propose the Shorts segments and wait for my picks, then cut three Shorts with /shorts in Soft Blue Light, with gates and an independent audit (no covers, no upload). Short 1 airs Mon Nov 30. Name this session \"What To Cut SFL R1\".",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/SL-21-what-to-cut-shorts.md` using `.claude/skills/shorts/SKILL.md` as the method: confirm the approved RO-20B master, propose segments, wait for Dan's picks, cut three Shorts, gate, deliver, update `00-MASTER.md`. Name this task \"What To Cut SFL R1\".",
-   "state": "ready",
-   "note": "Approved RO-20B parent filed Oct 20. Propose segments and wait for Dan picks; Short 1 airs Mon Nov 30, due Nov 29.",
+   "state": "in_progress",
+   "note": "Dan fired it 2026-11-12. Master confirmed; shortlist sent, waiting for his picks. Parent RO-20B is now Fri Dec 11 (kitchen), so these Shorts go to February slots, not Nov 30.",
    "unattended": false,
    "unattended_why": "Dan selects standalone Shorts segments before rendering.",
    "order": 174,
-   "updated": "2026-10-20",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-11-12",
+   "rev": 2,
+   "syncedRev": 2,
+   "editor": "Claude",
+   "needs": "",
+   "by": "Claude"
   },
   {
    "id": "SL-22",

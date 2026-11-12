@@ -310,7 +310,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts Dec 14, 15, 19) | UPLOADED | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Wed Dec 9; kitchen, so these 3 Shorts wait for February, no editing now) | FINALIZED | S |
-| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Fri Dec 11; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
+| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Fri Dec 11; kitchen, so these 3 Shorts air in February; Dan fired the edit 2026-11-12) | IN PROGRESS | S |
 | [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Wed Dec 16; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
