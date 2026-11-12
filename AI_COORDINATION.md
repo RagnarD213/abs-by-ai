@@ -29,13 +29,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**GAT-L02-blind:DAN-PICKING;PUSH-PENDING:2026-11-12:Claude.**0b8e0d5;merge-conflict.
+**GAT-L02-blind:DAN-PICKING:2026-11-12:Claude.**0b8e0d5.
 
-**WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots;push-pending-b214278.
+**WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
-**GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md;push-pending-410cba8.**
+**GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 
 **SPA-Ads:2026-11-10:Codex.** Google+host-review;[next](Docs/SIXPACKABS_TEXT_COMPLIANCE_CLEANUP_20261110.md).
 
@@ -48,14 +48,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **FlowMusic:LICENSE-ASK:2026-11-09:Claude.**
 
 
-**US-rmktg:PUSH-PENDING:2026-11-07:Claude.**b6f78ed
 
 
 **Exercise-demos-Codex-R3:HOLD:2026-11-10:Codex:no-acceptable-curl.** `Docs/EXERCISE_DEMOS_CODEX_R3_20261110.md`.
 
 
 
-**GAT-evidence:PUSH-PENDING:2026-11-06:Codex:28444bb.**
 
 
 **TeslaEstimates:WAITING:2026-11-06:Codex:Await-shops/Core-photos.**
@@ -64,11 +62,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO15:HOLD:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
 
-**WorkDriveOrder:PUSH-PENDING:2026-11-06:Claude.** d51e3e8 local.
 
-**ExDemoFlow:PUSH-PENDING:2026-11-06:Claude.**68cdd00
 
-**SPA-tests:PUSH-PENDING:2026-11-05:Codex:07201be.**
 
 **DS-77:FINALIZED;push-pending:2026-11-05:Claude.**
 
@@ -76,23 +71,19 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**SL-20:PUSH-PENDING:2026-11-05:Claude.**9198350
 
-**Stallwatch:PUSH-PENDING:2026-11-05:Claude.** c8e34c2 local; delete after push.
 
-**MuhammadClose:PUSH-PENDING:2026-11-04:Claude.**1bac414
 
 **DS-61:HOLD:2026-11-06:Codex.** Jan5 6PM waitlist; top-up dry run passed. `Docs/DS61_SETUP_RECEIPT_20261106.md`.
 
-**RO-29:QUEUED:2026-11-04:Claude.** Jan20; f4a36e3 push-pending.
+**RO-29:QUEUED:2026-11-04:Claude.** Jan20.
 
 **SPA-shop:LIVE:2026-11-05:Claude.** shop.sixpackabs.com launched. `Docs/SIXPACKABS_SHOP_BUILD_RECEIPT_20261105.md`.
 
 **DrMikeDial:HOLD:2026-11-04:Codex.** B;Jan4-6PM-waitlist;push-pending-live-files. `Docs/DS37_SETUP_RECEIPT_20261103.md`.
 
-**LastTen:WAITLIST:2026-11-04:Codex.** Jan2-6PM;X2;push-pending-e4bc753;`Docs/DS16_SETUP_RECEIPT_20261103.md`.
+**LastTen:WAITLIST:2026-11-04:Codex.** Jan2-6PM;X2;`Docs/DS16_SETUP_RECEIPT_20261103.md`.
 
-**Mac-freeze:PUSH-PENDING:2026-11-02:Claude.**b330c7c
 
 **Overhead Tricep Extensions HOLD 2026-11-02, Codex01a19df9.** X3 installed; uploads verified; Dec29 6PM Central shared waitlist,200/200. Daily top-up owns scheduling. Push pending, live shared edits. `Docs/DS63_SETUP_RECEIPT_20261102.md`.
 
@@ -104,7 +95,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-12:HOLD:2026-11-09:Codex01a19c6e.** [Setup-complete;A2/BX2-approved;8uploads-verified;Dec6-parent-public-check-next.](Docs/SL12_SETUP_RECEIPT_20261108.md)
 
-**Extreme:PUSH-PENDING:2026-11-01:Claude.**eec90de
 
 **DS-27:HOLD:2026-11-02:Codex01a19c79.** Cover2;Dec31-6PM-waitlist;push-pending; `Docs/DS27_SETUP_RECEIPT_20261102.md`.
 
@@ -113,18 +103,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **DS63:PUSH-PENDING:2026-11-02:Codex01a19c75.** Finalization metadata sync only; setup indexed in Handoffs/README.md.
 
-**SRM cutover PUSH-PENDING 2026-11-02, Claude.** Agency work and website moved to `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Local commits 9f43c2d, 4807606, c0f40b4 and the website removal. Next: safe-push when clear, then delete this entry.
 
-**Muhammad:PUSH-PENDING:2026-11-02:Claude.** f752376, 5a37ec9 local; delete after push.
 
 
 
 
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`
 
-**RO-38:QUEUED:2026-11-03:Claude.** YouTube Jan 8 9AM, socials Jan 9. Then: captions, tags, cover check. c138aa2 push-pending. `Docs/RO38_SETUP_RECEIPT_20261103.md`
+**RO-38:QUEUED:2026-11-03:Claude.** YouTube Jan 8 9AM, socials Jan 9. Then: captions, tags, cover check. `Docs/RO38_SETUP_RECEIPT_20261103.md`
 
-**RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. Commit 9a6a4dd local; next safe-push carries it. `Docs/RO21_SETUP_RECEIPT_20261101.md`
+**RO-21 HOLD 2026-11-01, Claude.** Waitlist, Dec 30. `Docs/RO21_SETUP_RECEIPT_20261101.md`
 
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
@@ -132,7 +120,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**DS-61:PUSH-PENDING:2026-11-04:Claude.** 9bf1287 local (finalized, setup handoff); staged salad article blocks. Delete after push.
 
 **DS-43 HOLD 2026-10-30, Claude.** Waitlist, Tue Dec 22 6 PM. `Docs/DS43_SETUP_RECEIPT_20261030.md`
 
@@ -158,12 +145,12 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO27:Deploy:WAIT:2026-10-28:Codex.** Video-scheduled;Railway2a302802-queued;check-SUCCESS;`Docs/RO27_SETUP_RECEIPT_20261028.md`.
 
-**DS-84:QUEUED:2026-11-02:Codex.** D installed;Gemini R3 all4 Nov23 9AM Central;media/backups verified. 1f65421 local;push blocked by live shared files. Next:push when clear;shared release checks. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
+**DS-84:QUEUED:2026-11-02:Codex.** D installed;Gemini R3 all4 Nov23 9AM Central;media/backups verified. Next:shared release checks. `Docs/DS84_SETUP_RECEIPT_20261102.md`.
 
 
 
 
-**SL-10 HOLD 2026-11-02, Claude.** Waitlist Dec 24-25. e74cfcb push-pending. `Docs/SL10_SETUP_RECEIPT_20261102.md`
+**SL-10 HOLD 2026-11-02, Claude.** Waitlist Dec 24-25. `Docs/SL10_SETUP_RECEIPT_20261102.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
 
@@ -211,7 +198,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-06 QUEUED 2026-10-22, Claude.** Six shorts Nov 9-Dec 8, nothing blocked; delete after Dec 8. `Docs/SL06_SETUP_RECEIPT_20261022.md`
 
-**Edit cap LIVE 2026-10-21, Claude.** Pushed; delete after main merge.
 
 **SL-16 HOLD 2026-10-27, Claude.** Waitlist Dec 4/7/15, Jan 12 after RO-08. `Docs/SL16_SETUP_RECEIPT_20261027.md`
 
@@ -219,7 +205,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RA-09:POLICY-RECHECK:2026-10-22:Claude.** 10-23.
 
 
-**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Commits f0284c0/f43babe local (live shared edits block push): next safe-push carries them. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
+**DS-44 Hormozi QUEUED 2026-10-27, Claude.** Off-cuff R2 (DS-44B) queued Thu Dec 17, all four (6108255/59/60/62), replacing scripted. Next: release checks. `Docs/DS44_SETUP_RECEIPT_20261023.md`
 
 **SL-15 HOLD 2026-10-22.** `Docs/SL15_SETUP_RECEIPT_20261022.md`
 
