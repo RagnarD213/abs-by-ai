@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-42:2026-11-11:Codex:awaiting-shared-picks.**
+**DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
 **GAT-upsells:DAN-PICKS-BLIND-SCRIPTS:2026-11-11:Claude:Doc-17EPYViJQEcawLgUNXOgbV8zZkfJ6rVxrvIzLF430eFE;key-local-only.**
 
