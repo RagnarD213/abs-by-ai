@@ -25,6 +25,20 @@ Category: ops (not a video). Dan asked for this plan on 2026-11-12. Nothing here
 | 2 | `02-m6-setup.md` | M6 | Claude Opus 5.5, high | After Dan's first-boot steps on the M6 |
 | 3 | `03-two-mac-edit-routing.md` | M6 | Claude Fable 5.2, high | After 2 is verified |
 
+## Starter prompts (copy from here on the new Mac)
+
+**02, Claude on the M6 (Opus 5.5, high):**
+
+```
+This is Dan's brand-new M6 Mac mini. Fetch and read these two files, then do everything in the second one: https://raw.githubusercontent.com/RagnarD213/abs-by-ai/main/Handoffs/two-mac-setup-20261112/README.md and https://raw.githubusercontent.com/RagnarD213/abs-by-ai/main/Handoffs/two-mac-setup-20261112/02-m6-setup.md. The old Mac (M2) is on the Thunderbolt cable at 10.66.0.2 and has everything. Do every step yourself; I only type passwords and sign in. Tell me in plain words exactly when you need me.
+```
+
+**03, Claude on the M6 (Fable 5.2, high), task name "Two-Mac Edit Routing":**
+
+```
+Read Handoffs/two-mac-setup-20261112/README.md and 03-two-mac-edit-routing.md and build it all: the routing rules, the link to the M2, review pages that open on this Mac, and the real test on one short. Handoff 02 is done and verified.
+```
+
 ## Inventory of the M2 taken 2026-11-12 (source for file 02)
 
 - Apps in `/Applications`: Claude, ChatGPT (holds Codex), Gemini, Grok Bot, Comet, Manus Studio, Cursor, Wispr Flow, Google Chrome, Brave, Firefox, Edge, Opera, Safari, Descript, Slack, zoom.us, Telegram, Skype, Teams classic, Thunderbird, Google Ads Editor, Android Studio, Xcode, iMazing, Adobe Acrobat DC + Reader + Creative Cloud, GIMP, VLC, Shottr, Cinch, The Unarchiver, Grammarly Editor, NordVPN, AnyDesk, Onigiri, CopyMyData, PhoneRescue, Steam, PokerStars, Keynote/Numbers/Pages/GarageBand/iMovie, printer software (Brother, Epson, HP). `~/Applications`: Civilization VI, Trader Workstation.
