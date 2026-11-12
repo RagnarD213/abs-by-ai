@@ -47,6 +47,18 @@ and you're good at phrasing things." So, by default:
   copy-edit passes; Opus 5.5 when his allowance is tight. This replaces the "Model + effort" line below.
 - His accepted wording is training data for `/dan-copywriting`: after each run, add the final text to its examples.
 
+**v4, 2026-11-12: MORE GOES STRAIGHT IN.** Dan, starting the ad outlines pass: "Put in the things you're confident
+I'll accept right there, and then only put things that you're not sure if I'll accept in Track Changes... Just because
+I've accepted almost all of your Track Changes edits before, I want you to be a little bit more confident about what
+you just edit directly in the script this time." So a rewording that fixes a clear defect now goes straight in, not
+only spelling and grammar: a run of fragments joined (his 11-12 no-staccato rule), a doubled word, a repeated opener,
+an unclear "that" given its noun, a tense slip, a hedge removed ("could be" to "can be"), wording brought into line
+with his VSL or with a line he already ruled on in the same doc. Still tracked: taste calls, cuts, new lines, claim
+changes, and anything in an AI character's dialogue he may have edited. Still never: his hook and intro lines. This is
+my reading of "a little bit more confident"; if he changes a direct rewording back, that kind returns to tracked.
+On scripts that each won a blind test, expect fewer edits (about 1 per 170 spoken words on the ad outlines); do not
+pad to hit a count.
+
 ## What this skill is, and is not
 
 - **It is** the last pass before copy ships: spelling, grammar, consistency, tightening,
@@ -447,6 +459,7 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-11-10 | Great Again T VSL, Dan's own draft (`1CmK7ZG45x-p7mXATjvlWzuUpvlr7AQMHUbiQcdMYCFI`), light pass (Fable 5.2) | 22 direct (typos, dropped and wrong words, 3 periods, age-related hyphen, $67 a month, SixPackAbs.com, cue spellings, on-screen label numbers put in spoken order), 5 tracked (a " - " inside a list to a comma, "like those that studies show", "pumpkin extract" to "pumpkin seed" from the label, two "XX%" blanks to "31%") | all 5 tracked accepted, all 22 direct stood. Dan: "excellent job with the edit... all the ones you put in line definitely make sense" | 0 | Light pass on his own writing works: fix errors only, track anything worded. He then asked for a bolder style pass (next row). `Docs/COPYEDIT_GREAT_AGAIN_T_VSL_AS_DELIVERED_20261110.md` |
 | 2026-11-10 | Same doc, bold style pass (Fable 5.2), asked for at least 10 riskier edits | 0 direct, 26 tracked (7 repeated openers and words, 12 flat or wordy lines, 6 CTAs and transitions, 1 dash) | all 26 accepted ("I accepted, I believe, every edit") | 0 | v3 BE BOLD rule above: bold layer by default, 25 to 40+ tracked on a VSL; Fable for copy edits. Final script saved to `.claude/skills/dan-copywriting/examples/` |
 | 2026-11-11 | Great Again T upsell winners, 4 scripts (`1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc`), after Dan's 13 hand edits; bold pass, Dan asked for at least 20% rejectable (Fable 5.2) | 0 direct, 57 tracked (slang and filler out, flat lines sharpened, repeated openers, CTAs strengthened, 3 new lines: a discount line, what creatine is, "even if you haven't trained in years"; 3 Abs By AI signs rewritten for a man doing nothing; second funnel warning softened) | pending | pending | `Docs/COPYEDIT_GAT_UPSELL_WINNERS_AS_DELIVERED_20261111.md`. Next session: read his rulings, fill this row |
+| 2026-11-12 | Great Again T ad outlines, 16 final ad scripts that won the blind tests (`1i_8S6ZkMDMdh17jSYe7K4JJmPNaXwnR-tGXhXhkZYU0`), bolder pass with more typed straight in at Dan's request (Fable 5.2) | 29 direct (fragments joined, doubled words, repeated openers, unclear referents, a tense slip, two hedges, the L05 left and right plate cue made screen-side, VSL and S21 wording), 24 tracked (deadline added to three last CTAs, misfit style markers cut, L23's hedged answer replaced with his S21 answer, L20 disease names cut, L17 credential matched to his standard one, flat lines sharpened) | pending | pending | v4 rule above. Left alone: hooks and intros, S13, S21, L18 (not set up), S16, S23, S29 (struck). `Docs/COPYEDIT_GAT_AD_OUTLINES_AS_DELIVERED_20261112.md`. Next session: read his rulings, check whether any direct rewording was changed back, fill this row |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.
