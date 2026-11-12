@@ -80,14 +80,36 @@ assert final == EXPECT, final
 spoken_before = {k: [p["text"] for p in scripts[k]["body"] if p["kind"] == "spoken"] for k in final}
 cues_before = sum(1 for k in final for p in scripts[k]["body"] if p["kind"] == "cue")
 
+# ---------------------------------------------------------------- pending suggestions in L17 (directions only)
+# At 22:23:57Z the doc gained tracked suggestions that add clip sources to L17's clips direction and move the wipe
+# after the presenter's last line. They touch no spoken word of Dan's. Built as if accepted; the inserted wording is
+# read from the .docx export's <w:ins> runs, never retyped.
+DOCX_XML = HERE.parent / "src4" / "doc.xml"
+if DOCX_XML.exists():
+    x = DOCX_XML.read_text()
+    ins = ["".join(re.findall(r"<w:t[^>]*>([^<]*)</w:t>", s))
+           for s in re.findall(r"<w:ins [^>]*>(.*?)</w:ins>", x, flags=re.S)]
+    ins = [html.unescape(s) for s in ins]
+    src_ins = next(s for s in ins if s.startswith("SOURCES, BOTH ON THE SIXPACKABS.COM YOUTUBE CHANNEL"))
+    wipe_ins = next(s for s in ins if s.startswith("[SHE TURNS AND GESTURES OFF SCREEN.") and s.endswith("STOOD]"))
+    b = scripts["L17"]["body"]
+    i = next(i for i, p in enumerate(b) if p["kind"] == "cue" and p["text"].startswith("[SHE TURNS AND GESTURES OFF SCREEN."))
+    keep = "SHOW CLIP OF DAN ALONE, THEN TWO CLIPS OF DAN INTERACTING WITH 40+ SIXPACKABS.COM TALENT. "
+    assert keep in b[i]["text"]
+    b[i] = {"kind": "cue", "text": "[" + keep + src_ins}
+    assert is_cue(b[i]["text"])
+    j = next(j for j, p in enumerate(b) if p["kind"] == "spoken" and p["text"].startswith("Now, you’re going to hear directly"))
+    b.insert(j + 1, {"kind": "cue", "text": wipe_ins})
+    cues_before += 1
+
 # ---------------------------------------------------------------- new directions
 OPS = [
     ("L01", "after", "So let's start with what's probably already happening to you.",
      '[B-ROLL OVER THE NEXT THREE PARAGRAPHS WHILE DAN KEEPS TALKING: A MAN OVER 40 WITH A GROWING BELLY, WIPED OUT IN THE AFTERNOON, TOO TIRED AT THE END OF THE DAY. USE THE SAME CLIPS AS THIS SECTION OF THE VSL. BACK TO DAN FOR "AND HERE\'S WHAT MOST GUYS NEVER FIGURE OUT"]'),
     ("L17", "before", "Wait, wait, wait. Stop. Stop the tape.",
      '[FROM HERE TO THE WIPE, THE VOICE IS THE AI PRESENTER, NOT DAN. HER LINES ARE NOT IN DAN\'S TELEPROMPTER SCRIPT AND HE DOES NOT FILM THEM]'),
-    ("L17", "after", "Now, you're going to hear directly from the expert himself",
-     '[THE PRESENTER SAYS THIS LINE OVER THE CLIPS OF DAN, THEN THE WIPE TO DAN HAPPENS. EVERYTHING ABOVE THIS POINT IS HER VOICE. EVERYTHING BELOW IS DAN ON CAMERA]'),
+    ("L17", "after", "WIPE TO DAN ON GREEN SCREEN, IN THE SAME STUDIO BACKGROUND, STANDING WHERE SHE STOOD",
+     '[EVERYTHING ABOVE THIS POINT IS THE PRESENTER\'S VOICE. EVERYTHING BELOW IS DAN ON CAMERA]'),
     ("L22", "after", "So let's run that morning one more time.",
      '[THE REPLAY IS A NEW AI CLIP SET, NOT THE FIRST SCENE REVERSED OR RECUT. SAME MAN, SAME KITCHEN, SAME CAMERA ANGLES, SO THE ONLY THING THAT CHANGES IS THE BREAKFAST AND HOW HE LOOKS]'),
 ]

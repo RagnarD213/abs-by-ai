@@ -466,7 +466,14 @@ editing directions written by the main model (judgment) and the teleprompter cop
   speaking in L17, that an "ALTERNATE HOOK" means two versions of the ad, and what a replay scene must hold constant. When
   a script doc already has directions, do not pad it with more. The script also writes the expected teleprompter sequence
   (`ads.teleprompter.expected.json`), which is how the helper's document is checked independently.
+- **Pending suggestions in the source:** the Markdown export prints a tracked suggestion's deleted AND inserted text
+  together (a direction ending `...CLIPS]SOURCES, ...]`, a line reading `Dan?Now, you're going...`). Before building,
+  export the source as .docx and count `<w:ins ` / `<w:del ` in `word/document.xml`; zero means no suggestions. If
+  there are some, read what each inserts and deletes there. 11-12: suggestions landed in the ad doc six minutes after the
+  first download (clip sources for L17, direction only). The Editing Document was built as if accepted, with the
+  inserted wording read from the `<w:ins>` runs; Dan's spoken lines were untouched, so the teleprompter copy stood.
+  Re-check the source's modified time at the end of the job, not only at the start.
 - **Check PromptSmart by fingerprint, not by eye:** open the card's `/scripts/<id>/preview` page and, with
   `javascript_tool`, hash the page text from the first heading to the "SHOW MORE" line (curly quotes and spaces
-  normalized, lines joined by a newline, SHA-256). The same hash of the Drive text export must be identical. 11-12: both
-  cards matched exactly. The preview page holds the whole script even though it shows a "SHOW MORE" button.
+  normalized, lines joined by a newline, SHA-256). The same hash of the Drive text export must be identical. 11-12: all
+  three cards matched exactly (the ads card is script 1540702, 7,557 words, 14 pages). The preview page holds the whole script even though it shows a "SHOW MORE" button.

@@ -29,8 +29,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**GAT-shoot-docs:ADS-WAIT-POLISH:2026-11-12:Claude.**VSL+upsell-teleprompter(Drive+PromptSmart)+editing-docs-done. Next: after Dan's ad copy polish, build ad teleprompter+editing docs (19 scripts); skill `teleprompterscripts`, 11-12 section.
-
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
 **WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots.
