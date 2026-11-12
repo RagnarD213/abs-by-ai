@@ -373,7 +373,7 @@ Context and footage (from the Codex task that filed his insurance claim). Everyt
 - Three picked Shorts share a topic with a picked long video (B08 with A28, B38 with A21, B21 with A51). Outline both; give the Short the single sharpest point and keep the rest for the long video, so they do not repeat each other.
 - YouTube caption downloads were rate limited on 2026-11-12 (HTTP 429). `yt.py` search still works; for transcripts use the browser transcript panel method in `/reaction-clips`.
 - The clip player ignores start times with half seconds; use whole seconds.
-- GitHub pushes are blocked by a merge conflict from other sessions in `AI_COORDINATION.md`, `Docs/DAN_DECISIONS.md` and `Handoffs/README.md`. `safe-push.sh` commits locally and stops; that is expected until someone hand-merges those three files.
+- GitHub pushes were blocked for most of 2026-11-12 by a merge conflict in three shared files; they went through again that evening. Push with `scripts/git/safe-push.sh` as usual and report it if it stops.
 - The status board is at its 2,500 word limit. Do not add an entry unless you remove words from your own.
 
 ## Relevant Files & Locations
