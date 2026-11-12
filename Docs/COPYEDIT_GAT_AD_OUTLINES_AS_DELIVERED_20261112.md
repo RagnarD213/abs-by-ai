@@ -72,3 +72,14 @@ Next session: read the doc, count what he accepted, rejected and rewrote, see wh
 | 22 | L30 | The foods you were led to believe are healthy can work against you. | The foods you were led to believe are healthy have been working against you. |
 | 23 | S03 | And what's fascinating is that ounce for ounce | And ounce for ounce |
 | 24 | S04 | And here's what most guys never figure out. That's the smallest swap I've got. | And that's the smallest swap I've got. |
+
+## Dan's rulings (read 2026-11-12, same day)
+
+22 of 24 tracked accepted, all 29 direct edits stood. Rejected: the L20 cut of the disease names, and the L07 tightening of "But just trying to eat fewer calories or less fat".
+
+## Talent intro standard (tracked the same day, 5 suggestions)
+
+Dan typed the new intro into L17 himself and asked for it wherever another talent introduces him. Tracked:
+- L18 handoff: "He founded SixPackAbs.com, and his channel helped over 4.4 million men lose their belly fat and get in shape." became his L17 line ("Daniel Rose is the world's leading expert in how men over 40 can naturally boost their testosterone. With his YouTube channel, Dan has helped over 4.4 million men lose their belly fat and get in shape."), plus a clips cue; "Dan?" became "Now, you're going to hear directly from the expert himself on how you can boost your T."
+- L17 cue: "LOOK FOR YOUNG VS. OLD COMPETITION VIDEO..." replaced with the two source videos and timestamps; the wipe-to-Dan cue moved below her last line.
+- Sources: "Announcing SENIORITY HEALTH" https://youtu.be/4SO2SlKh_fc and "300 Rep Weighted Push-Up Competition" https://youtu.be/4LsGxP8tzxM (the young vs. old video). S16 is struck through and was left alone.
