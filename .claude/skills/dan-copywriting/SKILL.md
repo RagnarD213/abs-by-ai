@@ -150,6 +150,43 @@ Burn and Abs By AI):
 - Trap: a write hook blocks Google Doc and file writes that contain phrases Dan cuts (`HARD_PHRASES` in
   `scripts/voice/voice_check.py`). Check a long script against that list before sending it.
 
+## Ad scripts: three styles, shown blind (Dan, 2026-11-12)
+
+Dan after the first run: "this validates our approach of modeling three different styles of copywriting and then
+choosing the winner from a blind test. This is our new way to write ads now."
+
+1. **Dan sets up each ad in the outlines Doc** (`1i_8S6ZkMDMdh17jSYe7K4JJmPNaXwnR-tGXhXhkZYU0`). Under the ad's
+   heading: his scripted opening lines in **bold italics**, normal capitalization; his outline changes in **bold
+   italic ALL CAPS** below them; outline sections he does not want are struck through. Read the Doc with formatting
+   (bold, italic, strikethrough) every time; he edits while you work, so write to it without a revision lock and
+   only inside the ad's own section. "Write it as is" means no new intro: open on the outline's own hook lines.
+2. **Three scripts per ad, one per style, each on his exact intro and only the sections he kept:**
+   - **TestoGreens:** "surprising new research shows", "And the worst part of all is", "Yes, you heard that right",
+     "sucking your T levels dry", "How is that possible? Because...", "But now, here's the good news", "Best of
+     all", three "Imagine" lines, and the close "the man you swore you'd never become ... There is option two."
+   - **V Shred:** "And if that sounds extreme, wait until you hear this", short fragments ("Marketed as clean.
+     Smart."), "Here's why.", "That's why your gut keeps growing...", "This isn't about discipline", "But here's
+     what's fascinating", "if there's one thing I've learned from working with that many guys", option one / option
+     two, "the guy who decided this was the day things changed."
+   - **Healthy Back (his own top 10 HBI ads):** credential right after the hook, "Yes, I said protein. I know.",
+     "the so-called health experts", "But the FACTS are", "See, ...", "That's right - X", "most guys never connect it
+     back to...", "It can really be that simple", "just one of the ... There are more like this, which most guys
+     don't know about", "That's why I'd like you to watch my full video", "in simple terms anyone can understand",
+     "click 'Watch Now' below", "I know that once you ..., it will change your life", "I guarantee you're going to
+     be surprised", "I urge you to watch it right now ... don't procrastinate!", "I'll see you there!" Scripts and
+     spend: memory `hbi-top-ad-creatives-sheet`; local copies in `Docs/hbi-top-ads-20261112/` (git-ignored).
+3. **Show them blind** as Script 1, 2 and 3 on one artifact page, order drawn at random per ad, key in
+   `tmp/*-blind-key.json` (git-ignored). Adding an ad to a page must not reshuffle ads he has already read. After his
+   pick, reveal the styles, put the winner into the Doc under the ad's heading (model line, AD SETUP line, script),
+   and log the result below.
+4. **He films on green screen.** Every script carries bracketed directions for what is on screen, what he holds and
+   where he points, at each important line. Before and after photos go full screen one at a time.
+5. **Curiosity ads never name the replacement food unless his outline keeps that section.** L02: the script that
+   named the baked potato "reduced the intrigue and desire to watch the VSL." Reveal one bad food, keep the others
+   covered, and make the click the only way to learn the rest.
+6. **Results so far:** L02 "3 Healthy Foods": the Healthy Back model (his "Five Foods" ad, beat for beat) was "the
+   definite winner"; of the first pair he preferred TestoGreens over V Shred.
+
 ## Model
 
 Fable 5.2 (it ranked first in the 2026-11-09 blind test and did the edits Dan rated excellent); Opus 5.5 when his
