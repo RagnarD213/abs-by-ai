@@ -13,7 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Two-Mac setup: M6 primary, M2 headless edit machine](two-mac-setup-20261112/README.md), 2026-11-12. **Three handoffs, fire in order.** 01 M2 prep (Codex newest Sol medium or Grokbot, on the M2, now); 02 M6 setup (Claude Opus 5.5 high, on the M6, after Dan's first-boot steps); 03 edit routing (Claude Fable 5.2 high, on the M6, after 02 is verified). Nothing executed yet.
 
-- [Next shoot outlines: 35 picked ideas + the Tesla crash video](handoff-20261112-next-shoot-outlines.md), 2026-11-12. **Fire now. Claude Opus 5.5 high.** Dan asked for it. Detailed outlines in his style for 36 green screen videos in one Google Doc; his changes to seven ideas are quoted in the file; no scripts yet; blind scorecard stays closed until he asks.
+- Next shoot outlines (2026-11-12): **executed 2026-11-12**, outlines delivered in the Google Doc "Next Shoot Outlines" (https://docs.google.com/document/d/1rZvNKcmAW9zch8KTSjtxCODq7YIEj3pzG2KvnlPHbrU/edit); new clips at Docs/next-shoot-outlines-clips-20261112/. Waiting on Dan's edits and clip picks; scripting is a separate task after that. Blind scorecard stays closed until he asks.
 
 - [Surgeon Fake Abs SFC Setup](handoff-20261112-ds34-approved-film-setup.md), 2026-11-12. **In progress in existing Codex setup chat; do not launch another owner.** Film approved and backed up; [eight covers](http://127.0.0.1:9586/) await Dan's pick, then finish setup.
 
