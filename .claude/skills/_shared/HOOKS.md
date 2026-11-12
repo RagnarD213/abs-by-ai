@@ -52,9 +52,15 @@ writing effort, not the least.
 
 ## Process
 
-- Write **three** hooks for every script, each from a different type in rule 2. Put the strongest
-  in the script. List the other two directly under the script as **HOOK TAKES**, so Dan can film
-  them and the edit can A/B them. (Same format as the /start VSL hook takes.)
+- **Dan picks the hook (Dan, 2026-11-12; replaces "film three takes and let the edit A/B them").** On 36
+  outlines with three hook takes each he said: "I don't like this approach of doing three hooks and having
+  the edit pick, because most of the hooks are bad. I want to pick the hook, so we'll bold the hook that
+  we're doing here." So: in an outline, write up to three hook OPTIONS, each from a different type in rule 2,
+  under the label "Hook options (bold the one you want)". He bolds one or writes his own. The script carries
+  only that hook, word for word, and no HOOK TAKES block. No bolded hook yet: ask before scripting. The hook
+  he wrote himself when none of three options worked: "Your metabolism didn't slow down at 40. I'll show you
+  why you really gained weight as you got older, and how to fix it in today's video." (the title said flat,
+  then what the viewer gets). Memory `dan-picks-the-hook`.
 - Read only the first sentence of the chosen hook, cold. Would a guy who does not care about the
   topic stop scrolling? Does sentence two tell him what he gets? If either answer is no, rewrite.
 - Long-form and VSL: the same rules govern the first 30 seconds, and the stopper still has to land

@@ -114,6 +114,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Softened words](claude-softens-strong-language.md): his top tell; keep ugly, lied, whopping
 - [Script wording](scripts-his-wording-not-his-ramble.md): blunt, plain
 - [Hooks get most effort](hooks-need-most-effort.md): rank it, attack the alternative, name the look; never 'This is the X'
+- [Dan picks the hook](dan-picks-the-hook.md): 11-12: he bolds the hook he wants in the outline; never 'film three, the edit picks'; script uses only the bolded one
 - [Voice guide](dan-voice-guide.md): use dan-voice-writer
 - [Filming scripts](filming-scripts-first.md): caps notes first
 - [Teleprompter spacing](teleprompter-no-blank-lines.md): no blank lines; edit in Filming doc
