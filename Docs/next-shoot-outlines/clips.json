@@ -1,12 +1,13 @@
 {
  "title": "Next Shoot Outlines: New Clips To Watch",
- "sub": "Clips for B06, D15 and the six other long reactions, 2026-11-12. Press play and each clip starts on the second you react to.",
+ "sub": "Clips for B06, D15 and the five other long reactions, 2026-11-12. Press play and each clip starts on the second you react to.",
  "port": 11833,
  "decisions": [
   "<b>Select the ones you want.</b> Anything you don't select is out.",
   "<b>The nine reaction Shorts (C) are not here.</b> You already watched and picked those clips.",
   "<b>Verdicts on the cards are proposals.</b> Your real verdicts go in the Doc.",
-  "<b>Clips with no captions</b> (the Planet Fitness ad, the grunting news report, the lunk alarm) were cut by eye, so the edges need your ear."
+  "<b>Clips with no captions</b> (the Planet Fitness ad, the grunting news report, the lunk alarm) were cut by eye, so the edges need your ear.",
+  "<b>D08 (the Fit Father circuit) is out.</b> You dropped that video on 11-12, so its clips are gone from this page."
  ],
  "sections": [
   {
@@ -1542,179 +1543,6 @@
       "The rule: Do not weigh or count food; act like a healthy person.",
       "Proposed verdict: He's wrong (guess, follows from Dan weighing every morning and photographing food). Touches: weighs himself every morning, photographs food to track calories.",
       "Lesson: your version of the rule, in one line (in the Doc)."
-     ]
-    }
-   ]
-  },
-  {
-   "id": "d08",
-   "heading": "D08: The Fit Father dumbbell circuit",
-   "sub": "One video, moments in order.",
-   "label": "Fit Father",
-   "pick": true,
-   "reply_label": "D08 FIT FATHER MOMENTS",
-   "items": [
-    {
-     "t": "The Hook: Big Bodybuilders Who Get Winded",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       11,
-       22
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"And then I looked around\". Ends on \"they didn't have fitness\".",
-     "what": "His origin story: bodybuilders with lots of muscle who got out of breath doing simple things.",
-     "note": "Music bed under his voice.",
-     "pts": [
-      "What he claims: His origin story: bodybuilders with lots of muscle who got out of breath doing simple things.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "Health Means Being Good At Everything",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       21,
-       34
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"As I've matured\". Ends on \"good cardiovascular function\".",
-     "what": "His argument against training only for muscle: fitness means flexibility, muscle and cardio together.",
-     "note": "This is as close as he gets to attacking body-part splits; he never criticizes splits directly beyond the hook story.",
-     "pts": [
-      "What he claims: His argument against training only for muscle: fitness means flexibility, muscle and cardio together.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "Especially If You're Over 40",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       34,
-       47
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"especially if you're over 40\". Ends on \"you want general fitness\".",
-     "what": "He aims the workout at men over 40 planning for the next 40 years.",
-     "note": "The only age line in the video. Strong fit for Dan at 41.",
-     "pts": [
-      "What he claims: He aims the workout at men over 40 planning for the next 40 years.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "Six Exercises Back To Back With One Pair Of Dumbbells",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       50,
-       64
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"We're going to train the whole body\". Ends on \"which you absolutely need\".",
-     "what": "He introduces the circuit and claims it builds muscle and cardio fitness at the same time.",
-     "pts": [
-      "What he claims: He introduces the circuit and claims it builds muscle and cardio fitness at the same time.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "25 Pound Dumbbells, 10 Reps Each",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       70,
-       80
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"Here I have some 25 lb dumbbells\". Ends on \"is a squat\".",
-     "what": "The setup: one pair of 25 lb dumbbells for everyone, 10 reps on every exercise, starting with squats.",
-     "note": "One weight for squats and presses is the point Dan can push on (too light to be hard for legs, maybe too heavy for presses; he admits the press and curl may need a lighter pair at 4:44). Exercise demos for B-roll: lunges 1:48, press 2:16, hammer curls 2:38, renegade rows 3:02, push-ups 3:44.",
-     "pts": [
-      "What he claims: The setup: one pair of 25 lb dumbbells for everyone, 10 reps on every exercise, starting with squats.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "Five Rounds, 30 Minutes, 300 Reps",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       262,
-       276
-      ],
-      [
-       280,
-       284
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Piece 1 starts on \"You would rest for 2 minutes maybe\" and ends on \"Probably take you 30 minutes\". Piece 2 starts on \"300 repetitions\" and ends on \"Amazing exercise\".",
-     "what": "The full prescription: 2 minutes rest, 3 to 6 rounds, five rounds in about 30 minutes for 300 reps.",
-     "note": "18 s. Counting total reps instead of hard sets is the core of Dan's judgment: 300 easy reps versus a few sets taken close to failure. Days per week is never stated.",
-     "pts": [
-      "What he claims: The full prescription: 2 minutes rest, 3 to 6 rounds, five rounds in about 30 minutes for 300 reps.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "Longevity, Insulin, Mitochondria, No Gym Needed",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       299,
-       313
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"Point of showing you this workout\". Ends on \"No gym needed\".",
-     "what": "His biggest claims: the circuit is built for longevity, improves insulin sensitivity, grows mitochondria, helps the brain, and needs no gym.",
-     "note": "21 s; trim to 5:13 (\"is simple\") for 14 s. He makes no fat loss or time claim beyond \"30 minutes\"; these are general health claims true of most resistance training.",
-     "pts": [
-      "What he claims: His biggest claims: the circuit is built for longevity, improves insulin sensitivity, grows mitochondria, helps the brain, and needs no gym.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
-     ]
-    },
-    {
-     "t": "The Close: Do The Work",
-     "v": "plain",
-     "id": "VwTeS5voWP4",
-     "segs": [
-      [
-       358,
-       373
-      ]
-     ],
-     "src": "Fit Father Project, \"I Used To Train Arm Day, Leg Day, Shoulder Day (Now I Do THIS)\"",
-     "views": "40.8K views",
-     "words": "Starts on \"strength training is one of those things\". Ends on \"than just lifting weights\".",
-     "what": "His closing message: strength training is about showing up and investing in your future, more than lifting weights.",
-     "note": "Alternative close at 6:14 to 6:22: \"the benefit you get is a lifetime of health, of energy, of confidence in yourself\".",
-     "pts": [
-      "What he claims: His closing message: strength training is about showing up and investing in your future, more than lifting weights.",
-      "Lesson: train your whole body every workout, with sets heavy enough that the last reps are hard, and walk between them."
      ]
     }
    ]
