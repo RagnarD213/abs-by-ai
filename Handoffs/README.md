@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Next shoot outlines: 35 picked ideas + the Tesla crash video](handoff-20261112-next-shoot-outlines.md), 2026-11-12. **Fire now. Claude Opus 5.5 high.** Dan asked for it. Detailed outlines in his style for 36 green screen videos in one Google Doc; his changes to seven ideas are quoted in the file; no scripts yet; blind scorecard stays closed until he asks.
+
 - [Surgeon Fake Abs SFC Setup](handoff-20261112-ds34-approved-film-setup.md), 2026-11-12. **In progress in existing Codex setup chat; do not launch another owner.** Film approved and backed up; [eight covers](http://127.0.0.1:9586/) await Dan's pick, then finish setup.
 
 - [The Only 5 Machines You Need At The Gym: three-way Codex blind edit test](video-editing/DS-98-the-only-5-machines-you-need-at-the-gym.md), 2026-11-11. **Ready, not started. Codex controller GPT-6 Astra, high.** Independent all-Astra, all-Sol and Astra-supervising-Sol versions; shared sources/approval stages, randomized review labels, usage and quality tracking. One DS-98 queue job remains READY, unattended disabled. No setup or publishing. Use the Codex starter in the handoff.
