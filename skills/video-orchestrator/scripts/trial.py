@@ -285,6 +285,11 @@ def checked_file(path, checks_path):
             raise ValueError("A pass needs an evidence file: " + name)
     if checks.get("status") == "pass" and not all(checks.get("checks", {}).get(k, {}).get("status") == "pass" for k in CHECKS):
         raise ValueError("Overall pass contradicts an incomplete/failed check")
+    if checks.get("status") == "ready_for_blinding":
+        if not all(checks.get("checks", {}).get(k, {}).get("status") == "pass" for k in CHECKS[:-1]):
+            raise ValueError("Blinding preparation still needs editor picture/audio/source checks")
+        if checks.get("checks", {}).get("independent_review", {}).get("status") != "pending_neutral_file":
+            raise ValueError("Record that independent review waits for the final neutral file")
     if path.suffix.lower() != ".mp4":
         raise ValueError("Record the checked 1080p MP4 review export")
     return {"file": str(path), "sha256": sha, "checks": checks,
@@ -313,7 +318,7 @@ def blind_package(root, state, stage):
     if set(artifacts) != set(ARMS):
         raise ValueError("Need one checked artifact from each of the three arms")
     for item in artifacts.values():
-        if item["checks"].get("status") != "pass" or digest(item["file"]) != item["sha256"]:
+        if item["checks"].get("status") not in ("pass", "ready_for_blinding") or digest(item["file"]) != item["sha256"]:
             raise ValueError("Candidate failed/incomplete or changed after checks")
         for e in item["evidence"]:
             if digest(e["path"]) != e["sha256"]:

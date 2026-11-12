@@ -131,8 +131,13 @@ primary cut only: give every supplementary color/audio/context asset neutral
 names, stripped metadata and a secret mapping too. Don't serve symlinks back to
 private arm folders. Never overwrite a presented stage; use a new stage name.
 
-Before blinding, fill every applicable checks field with real evidence paths,
-not merely "passed". Save first-pass status and later fixes in checks history.
+Before blinding, fill editor picture/audio/source checks with real evidence.
+Use overall status `ready_for_blinding` and independent-review status
+`pending_neutral_file`: the one fresh independent reviewer checks the final
+neutral file after packaging. Do not pay for a duplicate independent review of
+the source export merely to package it. An already reviewed source can instead
+be recorded as `pass`, but it does not waive final neutral-file verification.
+Save first-pass status and later fixes in checks history.
 The quality record also carries reviewer findings, repairs, approval rounds,
 timings, external spend and missing evidence; preserve unavailable values as null.
 

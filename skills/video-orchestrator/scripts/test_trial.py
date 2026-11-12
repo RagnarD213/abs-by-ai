@@ -147,6 +147,18 @@ class TrialTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             trial.record_artifact(self.root, self.state, "all_sol", "test", media, p)
 
+    def test_source_can_be_blinded_before_one_final_independent_review(self):
+        media = self.base / "source.mp4"; media.write_bytes(b"fixture")
+        p = self.passed_checks(media)
+        checks = trial.read(p)
+        checks["status"] = "ready_for_blinding"
+        checks["checks"]["independent_review"] = {"status": "pending_neutral_file", "evidence": []}
+        trial.write(p, checks)
+        trial.record_artifact(self.root, self.state, "all_sol", "test", media, p)
+        item = self.state["artifacts"]["test"]["all_sol"]
+        self.assertEqual(item["checks"]["status"], "ready_for_blinding")
+        self.assertEqual(item["checks"]["checks"]["independent_review"]["evidence"], [])
+
     @unittest.skipUnless(have_media_tools(), "Needs local media tools")
     def test_real_neutral_packaging_ballot_hashes_and_early_reveal_gate(self):
         media = self.base / "astra-identifying-name.mp4"
@@ -157,6 +169,10 @@ class TrialTests(unittest.TestCase):
                        check=True, capture_output=True)
         for stage in ("first-review", "candidate"):
             checks = self.passed_checks(media)
+            source_checks = trial.read(checks)
+            source_checks["status"] = "ready_for_blinding"
+            source_checks["checks"]["independent_review"] = {"status": "pending_neutral_file", "evidence": []}
+            trial.write(checks, source_checks)
             for arm in trial.ARMS:
                 trial.record_artifact(self.root, self.state, arm, stage, media, checks)
             public = trial.blind_package(self.root, self.state, stage)
