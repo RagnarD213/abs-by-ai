@@ -32,6 +32,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Fable in Max](fable-included-in-max.md): costs allowance, not dollars
 - [Fable 5.2 release](fable-5-2-release.md): 11-09: beats Opus on coding/agents/charts, not writing/design; adopted: hard coding, code review, 3-round reviewer trial
 - [Claude + Codex decisions](claude-codex-major-decision-template.md): 10-28 template: two independent plans, verify disputes, compare table, merge into one handoff
+- [Blind Claude vs Codex idea picks](blind-claude-vs-codex-idea-picks.md): 11-12: both AIs' ideas go on ONE shuffled pick page, authors hidden, scorecard only when asked; next-shoot page + key location
 ## Editing
 - [Cut-out traps](cutout-frame-and-gap-traps.md): 10-30: one-frame decode lag + closed arm gaps; audit every shot
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
