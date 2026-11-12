@@ -107,6 +107,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 ## Scripts and voice
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
+- [No staccato fragments](no-staccato-fragments.md): 11-12 runs of clipped sentences ("Clean. Lean. No fat.") are an AI tell; write full sentences
 - [Softened words](claude-softens-strong-language.md): his top tell; keep ugly, lied, whopping
 - [Script wording](scripts-his-wording-not-his-ramble.md): blunt, plain
 - [Hooks get most effort](hooks-need-most-effort.md): rank it, attack the alternative, name the look; never 'This is the X'

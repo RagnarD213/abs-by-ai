@@ -90,6 +90,11 @@ Only text Dan wrote, or Claude edits he accepted, goes in `examples/`. Never an 
 - Anything the outline did not ask for (the eight-swap list), and proof for ingredients that are not in the bottle.
 - Generic AI shapes: "not X, but Y", colon-then-reveal lines, clever literary lines, balanced both-sides framing.
 - Em dashes and en dashes.
+- **Staccato fragments (Dan, 2026-11-12: "an AI tell ... it sounds like slop").** No runs of clipped one to three
+  word sentences: "Clean. Lean. No fat.", "Same workouts. 12 weeks.", "More strength. Less body fat.", "Option one.
+  Keep eating...". Join them into full sentences ("They're marketed as the clean, lean choice with no fat"). This
+  cuts hardest against the V Shred style, which leans on fragments; keep V Shred's structure, not its chop. A single
+  short line he writes himself ("That's right. A potato.", "Same amount of protein.") is fine.
 
 ## Upsell scripts: act as the winner (Dan, 2026-11-10 and 11-11)
 
@@ -164,8 +169,7 @@ choosing the winner from a blind test. This is our new way to write ads now."
    - **TestoGreens:** "surprising new research shows", "And the worst part of all is", "Yes, you heard that right",
      "sucking your T levels dry", "How is that possible? Because...", "But now, here's the good news", "Best of
      all", three "Imagine" lines, and the close "the man you swore you'd never become ... There is option two."
-   - **V Shred:** "And if that sounds extreme, wait until you hear this", short fragments ("Marketed as clean.
-     Smart."), "Here's why.", "That's why your gut keeps growing...", "This isn't about discipline", "But here's
+   - **V Shred:** "Here's why.", "That's why your gut keeps growing...", "This isn't about discipline", "But here's
      what's fascinating", "if there's one thing I've learned from working with that many guys", option one / option
      two, "the guy who decided this was the day things changed."
    - **Healthy Back (his own top 10 HBI ads):** credential right after the hook, "Yes, I said protein. I know.",
@@ -185,7 +189,7 @@ choosing the winner from a blind test. This is our new way to write ads now."
    named the baked potato "reduced the intrigue and desire to watch the VSL." Reveal one bad food, keep the others
    covered, and make the click the only way to learn the rest.
 6. **Results so far:** L02 "3 Healthy Foods": the Healthy Back model (his "Five Foods" ad, beat for beat) was "the
-   definite winner"; of the first pair he preferred TestoGreens over V Shred.
+   definite winner"; of the first pair he preferred TestoGreens over V Shred. L03 "1 Diet Food": TestoGreens style won over V Shred and Healthy Back. L04 "The Yolk" (30-second timer): Healthy Back style won; what he liked most was the credential moved up into the countdown with a briefer study, so a timed reveal fills its seconds with who he is plus the setup, never a long study. L05 "Healthy Breakfast" (no scripted intro): TestoGreens style won; it "transitioned from my scripted content to the outline better", and he did NOT want the credential moved up here: "save that for later, given the concept and the focus on the breakfast." So the early credential is right when the hook leaves a gap to fill (a countdown, a covered food), and wrong when the hook is a demonstration that should run straight into its proof. Tally after four ads: Healthy Back 2 (L02, L04), TestoGreens 2 (L03, L05), V Shred 0; he keeps marking the V Shred scripts down for staccato. L07 "Low-Fat Diet" (quiz CTA): TestoGreens style won again (3 of 5), for the hand-off from his lines and for opening the proof on "surprising new research shows". He rejected V Shred's "And if that sounds extreme, wait until you hear this": "I don't think it sounds really that extreme." Do not use that line unless the claim before it really is extreme; lead into proof with the research instead.
 
 ## Model
 
