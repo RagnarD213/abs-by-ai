@@ -134,8 +134,10 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
 - [VSL scripts from Dan's outline](vsl-scripts-from-dans-outline.md): 11-09: Dan rejected AI-outlined VSL scripts as awful; script only from his outline, his/V Shred voice; intro = proven idea + original attention idea
 - [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
+- [HBI top 10 ad creatives](hbi-top-ad-creatives-sheet.md): 11-12 sheet of Dan's top HBI ads with scripts and spend; Five Foods $1.69M is the model for food ads
 - [YT ads](ytads-retired-manual-management.md): instant on, never pause
 - [Ads UI](google-ads-ui-automation.md): Chrome traps
+- [Channel research traps](channel-performance-research-traps.md): 11-12: Studio organic filter by URL; ad cost per sub fell 85% on Oct 7 (never rank across it); rank Shorts on stayed/US views
 ## More by topic (open the hub, then the entry)
 - [Workflow](hub-workflow.md): Standing process rules, many also in AGENTS.md: batch approval, downloads, handoffs, dashboard pause, task chips, planning
 - [Editing detail](hub-editing.md): Formats and per-shoot facts: green-screen standards, chroma key, shoots, audio demos, edit kit, Muhammad workout model
