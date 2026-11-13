@@ -32,7 +32,7 @@ Where Dan approved two frame versions, both were made (X1, X2 follow the blind l
 | Sitting On His Phone | Why You Should Walk Between Your Sets (DS-103) | X1, X2 | 2.3 s, 4.1 s |
 | Laid Up | Why You Must Stretch After Every Workout (DS-104) | one | 2.9 s |
 | The Straddle Stretch | same (DS-104) | X1, X2 | 3.0 s, 2.5 s |
-| Thermostat On 63 | Why I Sleep At 63 Degrees (DS-50) | one | 2.0 s (a calmer start-frame-only retake `B2-06s` is queued for a longer clip) |
+| Thermostat On 63 | Why I Sleep At 63 Degrees (DS-50) | one | 2.0 s (a start-frame-only retake `B2-06s`, 2 takes, was screened out: the duvet moved by itself and "63" flipped to "62" again) |
 
 Next: Dan's picks, then `blind.py pick b2/sets/<id> --chose Xn`, `veo.py pick` where the two versions' takes came from different models,
 `clip_library.py add <window cut> --kind ai --status usable-unused --used-in "<job> <title> (planned)" --tags flow-credits-batch2`,
@@ -80,7 +80,8 @@ Next: Dan's selections, `blind.py pick b3/sets/<id> --chose Xn`, then the batch 
 | batch 2 frames (24 Google images) | 0 | |
 | batch 2 video (16 clips, 24 takes: 16 Veo Fast + 8 Omni at 10 each) | 240 | balance 21,396 to 21,156 |
 | batch 3 frames (49 Google images) | 0 | |
-| **total for this handoff so far** | **480** | of 14,000 |
+| batch 2 retake (sleep clip, 2 Veo Fast takes) | 20 | balance 21,156 to 21,136 |
+| **total for this handoff so far** | **500** | of 14,000 |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 
