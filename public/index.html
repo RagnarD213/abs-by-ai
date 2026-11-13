@@ -1242,7 +1242,7 @@ input[type="time"].text-field { -webkit-appearance: none; appearance: none; colo
 .ex-sheet-muscles { font-size: 12.5px; color: var(--mute); font-weight: 600; margin-bottom: 14px; }
 .ex-demo { width: 100%; aspect-ratio: 16/9; border-radius: 12px; display: block; background: #000; }
 /* AI-Dan exercise demos: poster card on the day view, video in the sheet.
-   Always carries the AI-GENERATED chip (Dan's labeling rule). */
+   AI demos carry the AI-GENERATED chip (Dan's labeling rule); demos in EXERCISE_DEMO_REAL are real footage and carry none. */
 .ex-demo-box { position: relative; margin: 6px 0 14px; }
 .ex-card .ex-demo-box { margin: 8px 0 6px; }
 .ex-demo-thumb { position: relative; display: block; width: 100%; aspect-ratio: 16/9; border: 0; padding: 0; border-radius: 12px; overflow: hidden; background: #000; cursor: pointer; }
@@ -9291,7 +9291,9 @@ const INTAKE_KEY = 'absbyai_trainer_intake';
 EXERCISE_BY_ID['bb-bench-press'] = EXERCISE_BY_ID['db-bench-press'];
 EXERCISE_BY_ID['bb-deadlift'] = EXERCISE_BY_ID['db-rdl'];
 
-const EXERCISE_DEMO_IDS = new Set(['bird-dog', 'cable-tricep-pushdown', 'db-bench-press', 'db-goblet-squat', 'db-rdl', 'db-row', 'dead-bug', 'face-pull', 'incline-pushup', 'leg-press', 'plank', 'pushup', 'reverse-lunge', 'side-plank', 'wall-sit', 'hollow-hold', 'knee-pushup', 'pike-pushup', 'chair-dip', 'split-squat', 'glute-bridge', 'calf-raise', 'crunch', 'lying-leg-raise', 'superman', 'pullup', 'lat-pulldown', 'seated-cable-row', 'leg-extension', 'leg-curl', 'db-shoulder-press', 'db-curl', 'db-lateral-raise', 'russian-twist', 'reverse-crunch', 'chair-squat', 'db-lunge', 'bicycle-crunch', 'db-crunch']);
+const EXERCISE_DEMO_IDS = new Set(['bird-dog', 'cable-tricep-pushdown', 'db-bench-press', 'db-goblet-squat', 'db-rdl', 'db-row', 'dead-bug', 'face-pull', 'incline-pushup', 'leg-press', 'plank', 'pushup', 'reverse-lunge', 'side-plank', 'wall-sit', 'hollow-hold', 'knee-pushup', 'pike-pushup', 'chair-dip', 'split-squat', 'glute-bridge', 'calf-raise', 'crunch', 'lying-leg-raise', 'superman', 'pullup', 'lat-pulldown', 'seated-cable-row', 'leg-extension', 'leg-curl', 'db-shoulder-press', 'db-curl', 'db-lateral-raise', 'russian-twist', 'reverse-crunch', 'chair-squat', 'db-lunge', 'bicycle-crunch', 'db-crunch', 'cable-crunch']);
+// Demos cut from Dan's real gym B-roll (Real Exercise Demos, 2026-11-13): no AI-GENERATED chip.
+const EXERCISE_DEMO_REAL = new Set(['cable-crunch', 'leg-press', 'pullup']);
 const PROGRAM_KEY = 'absbyai_trainer_program';
 const PROGRESS_KEY = 'absbyai_trainer_progress';
 
@@ -10007,7 +10009,7 @@ function renderDayView(stored) {
       `<button class="set-pill${done[`${key}s${s}`] ? ' done' : ''}" data-key="${key}" data-set="${s}">${done[`${key}s${s}`] ? '✓' : `Set ${s + 1}`}</button>`
     ).join('');
     const demo = EXERCISE_DEMO_IDS.has(eff.id)
-      ? `<div class="ex-demo-box"><span class="ex-ai-chip">AI-GENERATED</span><button class="ex-demo-thumb" data-demo="${eff.id}" aria-label="Play ${escapeHtml(lib.name || eff.id)} demo"><img src="/exercise-demos/${eff.id}.jpg" loading="lazy" alt=""><span class="ex-demo-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>`
+      ? `<div class="ex-demo-box">${EXERCISE_DEMO_REAL.has(eff.id) ? '' : '<span class="ex-ai-chip">AI-GENERATED</span>'}<button class="ex-demo-thumb" data-demo="${eff.id}" aria-label="Play ${escapeHtml(lib.name || eff.id)} demo"><img src="/exercise-demos/${eff.id}.jpg" loading="lazy" alt=""><span class="ex-demo-play"><svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span></button></div>`
       : '';
     return `<div class="ex-card">
       <div class="ex-card-top">
@@ -10147,7 +10149,7 @@ function openExerciseSheet(exId, cue, mistake) {
     </div>
     <div class="ex-sheet-muscles">${escapeHtml(lib.muscles || '')}</div>
     ${EXERCISE_DEMO_IDS.has(lib.id)
-      ? `<div class="ex-demo-box"><span class="ex-ai-chip">AI-GENERATED</span><video class="ex-demo" id="exSheetDemo" src="/exercise-demos/${lib.id}.mp4" poster="/exercise-demos/${lib.id}.jpg" controls playsinline preload="none"></video></div>`
+      ? `<div class="ex-demo-box">${EXERCISE_DEMO_REAL.has(lib.id) ? '' : '<span class="ex-ai-chip">AI-GENERATED</span>'}<video class="ex-demo" id="exSheetDemo" src="/exercise-demos/${lib.id}.mp4" poster="/exercise-demos/${lib.id}.jpg" controls playsinline preload="none"></video></div>`
       : ''}
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">Setup</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.setup)}</div></div>
     <div class="ex-sheet-sec"><div class="ex-sheet-sec-lbl">How to do it</div><div class="ex-sheet-sec-txt">${escapeHtml(lib.execution)}</div></div>
