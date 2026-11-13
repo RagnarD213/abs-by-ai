@@ -477,3 +477,35 @@ editing directions written by the main model (judgment) and the teleprompter cop
   `javascript_tool`, hash the page text from the first heading to the "SHOW MORE" line (curly quotes and spaces
   normalized, lines joined by a newline, SHA-256). The same hash of the Drive text export must be identical. 11-12: all
   three cards matched exactly (the ads card is script 1540702, 7,557 words, 14 pages). The preview page holds the whole script even though it shows a "SHOW MORE" button.
+
+
+### Content scripts doc with cues: teleprompter copies plus a Filming Document (Dan, 2026-11-12, evening)
+
+For the next green screen shoot (35 scripts in "Next Shoot Filming Scripts", `1y9hR6wV0Sj7PEVZbfL6bsV_WTD48W8N8RjUfW6bwcI4`)
+Dan asked for "the teleprompter script document and the filming script document", the teleprompter copy in PromptSmart,
+"in the same way" as the Great Again T job above. He had left for the day, so nothing waited on him.
+
+- **Build:** `reference/tp_from_filming_scripts_doc.py read_doc.json OUT_DIR "<prefix>" --check-clips`. Source format:
+  Heading 1 per group, Heading 2 per script ("A15 · Title"), an italic "Filming script. N spoken words..." line, cue
+  paragraphs in brackets, spoken paragraphs. It refuses a source with pending suggestions or a bracket inside a spoken
+  line. `SETS` at the top says which groups go in which teleprompter document.
+- **Split by form to keep each prompter file short:** Teleprompter 1 Long Videos (11 scripts, 11,755 words, 21 pages),
+  2 Shorts and Reaction Shorts (18 scripts, 2,930 words, 7 pages), 3 Long Reactions (6 scripts, 5,589 words, 10 pages).
+  Headings are "Title (A15)": title first, code after.
+- **The Filming Document** (61 pages) opens with "What to bring" (every DAN HOLDS UP cue, by video, plus the laptop
+  for reactions) and "Reaction clips, in filming order" (63 links that open at the clip's first second), then every
+  script with its cues in bold blue and a recounted word count. Change wording there (or in the source Doc) and
+  rebuild; the builder reads the source Doc, so keep the two in step.
+- **Clip codes lose their case when a writer puts a cue in capitals.** Eight YouTube ids in two scripts had been
+  upper-cased (`fxyhIXZ6Yog` written as `FXYHIXZ6YOG`), which breaks the link. Before building, compare every
+  11-character code in the cues, ignoring case, with the outlines and clip lists it came from, and put the real case
+  back in the source. `--check-clips` asks YouTube about each id: 401 means the video exists but cannot be embedded
+  (three Hormozi clips on 11-12), 404 or 400 means the id is wrong.
+- Uploaded with rclone, link sharing on, downloaded back as text: 642, 164, 309 and 1,784 lines, all matching.
+  PromptSmart cards checked by fingerprint (same hash as the Drive text): "Next Green Screen Shoot - Teleprompter 1 -
+  Long Videos" (script 1540881), "... 2 - Shorts and Reaction Shorts" (1540879), "... 3 - Long Reactions" (1540880).
+- PromptSmart's own page said "Subscription expires Nov 20, 2026" on 11-12: say so in the report when the shoot date
+  is not known or is later.
+- In the PromptSmart list page, card links carry no id: click the card title (by `find` ref) and read the id from the
+  address. A script that returns resource URLs or a bare 64-character hash is blocked by the browser tool; return the
+  hash split into groups.

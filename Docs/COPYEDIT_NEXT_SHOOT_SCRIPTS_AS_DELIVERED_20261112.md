@@ -4,7 +4,7 @@ Doc: "Next Shoot Filming Scripts" (`1y9hR6wV0Sj7PEVZbfL6bsV_WTD48W8N8RjUfW6bwcI4
 
 Run under a deadline (Dan had to leave at 6 PM): eight parallel Fable 5.2 passes planned the edits, the main session filtered them and sent them. 56 direct, 67 tracked, 11 planned but not sent. Checked after sending: 67 pending suggestions, and the reject-all view equals the doc before the tracked send. The spoken word counts in the script headers were not recounted after the edits.
 
-Next session: read the doc, count what he accepted, rejected and changed back, and fill the calibration row in `.claude/skills/copy-edit/SKILL.md`.
+Dan's rulings, read the same evening: 62 of the 67 tracked accepted (61 as written), 5 rejected, no direct edit changed back. The five he rejected: A21 cutting "The reason for that is simple."; A38 cutting "And here's what happens."; TESLA cutting "Here's what most people don't realize."; TESLA merging "And the numbers show it. It's just not safe."; B14 cutting "You can't out-train a bad diet, not even on the treadmill."
 
 ## Typed straight in (56)
 
@@ -154,3 +154,89 @@ Next session: read the doc, count what he accepted, rejected and changed back, a
 | C19 | here's what to do. Stop doing flat bench press. | stop. |
 | C19 | a way safer and more effective way | a much safer and more effective way |
 | C21 | That's why you train at a bodybuilding gym. That's why I train at a bodybuilding gym. | That's why I train at a bodybuilding gym, and why you should too. |
+
+## Second pass the same evening: the six long reactions, typed straight in at Dan's instruction (48)
+
+Dan: "Just make all the edits to the document directly. Don't track changes. I don't have time to review these. I just have to ship it." Checked after sending: 0 pending suggestions, 40 changed blocks, all planned. Eight clip codes in D07 and D15 that had been typed in capitals were put back to their real case in the same pass.
+
+| Script | Was | Now |
+|---|---|---|
+| D04 | the stops hold the weight. Not your back, and not your face. | the stops hold the weight, not your back and not your face. |
+| D04 | need to be throwing a bar | need to throw a bar |
+| D04 | with half the weight. And take two | with half the weight, and take two |
+| D04 | or you can do it with the cable curl | or with the cable curl |
+| D04 | Do strict pull-ups. No kipping | Do strict pull-ups, with no kipping |
+| D04 | is really simple | is simple |
+| D04 | walking speed. Then bring | walking speed, then bring |
+| D04 | the pattern. Because this | the pattern, because this |
+| D04 | Here's the thing. Nobody | Nobody |
+| D05 | But that's the average user. The average user diets | But the average user diets |
+| D05 | that's your signal. Lower the dose | that's your signal to lower the dose |
+| D05 | sounds like a lot. But it saves | sounds like a lot, but it saves |
+| D05 | over the course of a month | over a month |
+| D05 | You're the one in control of where | You control where |
+| D05 | have some kind of chronic | have a chronic |
+| D05 | For most people, you should only be taking | Most people should only be taking |
+| D07 | So here's what I do instead of ice cream for dinner. Protein first, then food that keeps you full. | So instead of ice cream for dinner, I eat protein first, then food that keeps you full. |
+| D07 | I haven't actually seen anyone | I haven't seen anyone |
+| D07 | that usually tends to make you | that usually makes you |
+| D07 | food that actually keeps you full | food that keeps you full |
+| D07 | Those aren't magic. | Those rules aren't magic. |
+| D07 | Seven days a week, total body. Five exercises, three sets each. That's it. | I train total body seven days a week, with five exercises and three sets each. That's it. |
+| D07 | So if you're on a body part split | If you're on a body part split |
+| D07 | And that's really what getting lean | And that's what getting lean |
+| D09 | Not perfect, but very low carb, high protein. | It's not perfect, but it's very low carb and high protein. |
+| D09 | An eating window, a lot of chicken, and he knows | He has an eating window, he eats a lot of chicken, and he knows |
+| D09 | But take away the pasta. Because you're | But take away the pasta, because you're |
+| D09 | Here's why. A plant-based patty | A plant-based patty |
+| D09 | So that means you'd have to eat | That means you'd have to eat |
+| D09 | Now here's what's really interesting. When you look | When you look |
+| D10 | They made an alarm. And the alarm goes off when you're working hard. | They made an alarm that goes off when you're working hard. |
+| D10 | is normal. Because that's the room | is normal, because that's the room |
+| D10 | primarily for this reason: to be around better people | primarily to be around better people |
+| D10 | every single day | every day |
+| D10 | this week. See who's training there. | this week and see who's training there. |
+| D15 | take a look at | look at |
+| D15 | These are guys who train. And they had no idea | These are guys who train, and they had no idea |
+| D15 | training: go beyond | training, go beyond |
+| D15 | But here's the thing. Most likely | But most likely |
+| D15 | guys, failure actually means | guys, failure means |
+| D15 | this is the advice that's for you | this advice is for you |
+| D15 | how little help you actually need | how little help you need |
+| D15 | yourself. Which means you weren't | yourself, which means you weren't |
+| D15 | go to failure: you can stop | go to failure, you can stop |
+| D15 | meaning that the spotter | meaning the spotter |
+| D15 | it's no longer necessary to do the spotted reps | the spotted reps are no longer necessary |
+| D15 | ever actually had to take | ever had to take |
+| D15 | failure actually means they got five | failure means they've got five |
+
+## Planned for the long reactions, not sent (26): doubtful with no review
+
+| Script | Was | Would have been |
+|---|---|---|
+| D04 | I have zero injuries | I've had zero injuries |
+| D04 | is it made it possible | is that machines made it possible |
+| D04 | should be mine: zero injuries | should be the same as mine, zero injuries |
+| D05 | analysis, it was about 35% | analysis, muscle loss was about 35% |
+| D05 | too. Gas, indigestion | too. I had gas, indigestion |
+| D05 | Anyone who doesn't lift weights shouldn't take it | If you don't lift weights, you shouldn't take it |
+| D05 | scientist from the muscle clip | scientist as the muscle clip |
+| D05 | 1.5 mg a week, and I'm lifting | I take 1.5 mg a week, and I'm lifting |
+| D07 | rate eight of them: right or wrong, and what I do instead. | rate eight of them right or wrong and tell you what I do instead. |
+| D07 | , and then eventually you stop wanting it. | . |
+| D07 | and I'll say it: his rules | and I'll say his rules |
+| D07 | And motivation runs out. A complicated program gets skipped. | But motivation runs out, and a complicated program gets skipped. |
+| D07 | So here's the final score. Four right, two wrong, and two half right. | So the final score is four right, two wrong, and two half right. |
+| D09 | on one question: would this work for a normal guy with a job? | on whether each one would work for a normal guy with a job. |
+| D09 | So here's what you should steal from Tom Brady. No cheat days. | So what you should steal from Tom Brady is no cheat days. |
+| D09 | getting enough protein does the same job | getting enough protein do the same job |
+| D09 | Here's what you should steal from Mark Wahlberg. Fasting. | What you should steal from Mark Wahlberg is fasting. |
+| D09 | But here's what I would steal. Meat or fish | But what I would steal is meat or fish |
+| D09 | That is outweighed by the fact that it has high protein and very low carbs. | The high protein and very low carbs outweigh what it's missing. |
+| D09 | So here's what I would steal from Joe. Protein first. | So what I would steal from Joe is protein first. |
+| D09 | But here's what you should steal from him. The sentence. | But what you should steal from him is the sentence |
+| D10 | It's the worst gym in America, and that's their | That's their |
+| D10 | I don't use them for squats. I don't use them for deadlifts. I don't use them for bench press. | I don't use them for squats, deadlifts or bench press. |
+| D10 |  That's how I do my own workouts. | (cut) |
+| D10 | there are people who are not getting results | there are not getting results |
+| D10 | Look around. Pick the one with the most ripped people in it. Not the cheapest one. And not the one with the newest equipment. | Look around and pick the one with the most ripped people in it, not the cheapest one and not the one with the newest equipment. |

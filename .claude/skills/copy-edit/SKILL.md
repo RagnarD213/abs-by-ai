@@ -59,6 +59,35 @@ my reading of "a little bit more confident"; if he changes a direct rewording ba
 On scripts that each won a blind test, expect fewer edits (about 1 per 170 spoken words on the ad outlines); do not
 pad to hit a count.
 
+**v5, 2026-11-12 (evening): TYPE IT IN. TRACKED IS THE EXCEPTION.** After ruling on 67 tracked suggestions on the
+next-shoot filming scripts (62 accepted, 61 of them as written, 5 rejected, and none of the 56 direct edits changed
+back), Dan: "you've gotten really good at this. I'm very confident in your work here. I want you to become
+substantially more confident in putting edits in directly. There were a bunch of edits here that I think could have
+been made directly without my review... modify the skill to be more confident about making edits directly, which
+historically I've accepted. That way, there's less for me to review in the future." So from now on:
+- **Every kind of edit he has accepted goes straight in.** That now includes, on top of the v4 list: an empty lead-in
+  removed when the next sentence stands alone ("Here's the thing.", "Here's why.", "Here's the problem.", "So here's the
+  good news.", "And here's something interesting.", "And what they found is"); a sentence that repeats the one right
+  beside it, cut; a wordy line tightened with every idea kept; two sentences merged where the second only finishes the
+  first; a colon reveal made a plain sentence; a hedge or padding word removed ("really", "actually", "a little bit",
+  "can help" to "helps"); "Number four. What to say when..." made one sentence.
+- **Tracked is only for:** a new spoken line; a cut that removes a point, an instruction or a payoff; a claims edit in
+  sales copy; a rewording of a line he typed himself that goes beyond fixing an error. Aim for tracked edits to be
+  about 1 in 10 of a run, not more than half as they were on this run (67 of 123).
+- **Leave these alone, do not even track them (his 5 rejections on 11-12):** a lead-in that sets up a real reveal
+  ("Here's what most people don't realize.", "The reason for that is simple.", "And here's what happens."); a short
+  punch sentence merged into its neighbour ("And the numbers show it. It's just not safe." stays two sentences); a
+  short emphasis line that restates his point with force ("You can't out-train a bad diet, not even on the
+  treadmill."). Same family as DON'T 8, 12 and 13.
+- **"Ship it" runs:** when he says he has no time to review ("Just make all the edits to the document directly. Don't
+  track changes. I don't have time to review these. I just have to ship it."), everything goes straight in and
+  anything doubtful is left out instead of tracked. Read every planned edit before sending; on 11-12, 26 of 74
+  planned edits were dropped this way (his verdict lines after a clip, a recurring "here's what to steal" device, a
+  planned edit that broke a sentence, edits that added a fact).
+- Still never: his hook, intro and verdict lines; facts, numbers, order, cues' meaning.
+- My reading: this covers content scripts and sales copy alike, with claims edits in sales copy still tracked. If he
+  changes a direct edit back, that kind returns to tracked (the rule under "Moving a category between the lists").
+
 ## What this skill is, and is not
 
 - **It is** the last pass before copy ships: spelling, grammar, consistency, tightening,
@@ -460,7 +489,8 @@ Dan does not see the tool calls. The report is what he reads before opening the 
 | 2026-11-10 | Same doc, bold style pass (Fable 5.2), asked for at least 10 riskier edits | 0 direct, 26 tracked (7 repeated openers and words, 12 flat or wordy lines, 6 CTAs and transitions, 1 dash) | all 26 accepted ("I accepted, I believe, every edit") | 0 | v3 BE BOLD rule above: bold layer by default, 25 to 40+ tracked on a VSL; Fable for copy edits. Final script saved to `.claude/skills/dan-copywriting/examples/` |
 | 2026-11-11 | Great Again T upsell winners, 4 scripts (`1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc`), after Dan's 13 hand edits; bold pass, Dan asked for at least 20% rejectable (Fable 5.2) | 0 direct, 57 tracked (slang and filler out, flat lines sharpened, repeated openers, CTAs strengthened, 3 new lines: a discount line, what creatine is, "even if you haven't trained in years"; 3 Abs By AI signs rewritten for a man doing nothing; second funnel warning softened) | pending | pending | `Docs/COPYEDIT_GAT_UPSELL_WINNERS_AS_DELIVERED_20261111.md`. Next session: read his rulings, fill this row |
 | 2026-11-12 | Great Again T ad outlines, 19 final ad scripts that won the blind tests (`1i_8S6ZkMDMdh17jSYe7K4JJmPNaXwnR-tGXhXhkZYU0`), bolder pass with more typed straight in at Dan's request (Fable 5.2) | 29 direct (fragments joined, doubled words, repeated openers, unclear referents, a tense slip, two hedges, the L05 left and right plate cue made screen-side, VSL and S21 wording), 24 tracked (deadline added to three last CTAs, misfit style markers cut, L23's hedged answer replaced with his S21 answer, L20 disease names cut, L17 credential matched to his standard one, flat lines sharpened) | 22 of 24 tracked accepted, all 29 direct stood (read the same day) | 2: the L20 cut of the disease names (his VSL sentence "low T can increase your risk of cardiovascular disease, your risk of diabetes, and your risk of passing away at an early age" stays in ads; do not suggest cutting it again), and L07 "But just trying to eat fewer calories or less fat doesn't work" (his wording, tightening rejected) | v4 rule above held: no direct rewording was changed back. He then set the talent intro standard (in `/dan-copywriting`). `Docs/COPYEDIT_GAT_AD_OUTLINES_AS_DELIVERED_20261112.md` |
-| 2026-11-12 | Next Shoot Filming Scripts, 29 content scripts written by Claude from Dan's edited outlines (`1y9hR6wV0Sj7PEVZbfL6bsV_WTD48W8N8RjUfW6bwcI4`), deadline run with eight parallel planning passes (Fable 5.2); six long reactions left for later | 56 direct ("every single" and "really" out, fragments joined, colon reveals after "Rule number" made periods, hyphens), 67 tracked ("here's the thing" style lead-ins cut, repeat sentences cut, flat lines tightened) | pending | pending | A direct edit was kept direct only when it added no new word beyond and/or/because/but/so; anything else was tracked. `Docs/COPYEDIT_NEXT_SHOOT_SCRIPTS_AS_DELIVERED_20261112.md`. Next session: read his rulings, fill this row |
+| 2026-11-12 | Next Shoot Filming Scripts, 29 content scripts written by Claude from Dan's edited outlines (`1y9hR6wV0Sj7PEVZbfL6bsV_WTD48W8N8RjUfW6bwcI4`), deadline run with eight parallel planning passes (Fable 5.2); six long reactions left for later | 56 direct ("every single" and "really" out, fragments joined, colon reveals after "Rule number" made periods, hyphens), 67 tracked ("here's the thing" style lead-ins cut, repeat sentences cut, flat lines tightened) | 62 of 67 tracked accepted (61 as written, 1 reworded by him: the retatrutide line in C02), all 56 direct stood (read the same evening) | 5: three lead-ins that set up a real reveal, one merge of a short punch sentence, one cut of an emphasis line (quoted in v5) | A direct edit was kept direct only when it added no new word beyond and/or/because/but/so; anything else was tracked. `Docs/COPYEDIT_NEXT_SHOOT_SCRIPTS_AS_DELIVERED_20261112.md`. v5 rule above came from this run |
+| 2026-11-12 | Same doc, the six long reactions (D04, D05, D07, D09, D10, D15), "ship it" run: Dan had no time to review (Fable 5.2) | 48 direct, 0 tracked; 26 of 74 planned edits dropped as doubtful; 8 clip codes that a writer had typed in capitals put back to their real case | not reviewed by him (his instruction) | n/a | v5 "ship it" rule. `Docs/COPYEDIT_NEXT_SHOOT_SCRIPTS_AS_DELIVERED_20261112.md` |
 
 After every run: add a row, and if a rejection reveals a new category, add it to DON'T with
 the before and after text. Three rejections of the same kind become a rule; one is a note.
