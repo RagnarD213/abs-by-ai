@@ -43,7 +43,7 @@ def parse(path):
     return [s for s in scripts if s["clips"]]
 
 
-PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow">
 <title>__TITLE__</title><style>
 :root{--bg:#0f1216;--panel:#181c22;--line:#2a3038;--text:#e9edf2;--mute:#97a1ad;--acc:#4da3ff;--done:#3c8f5a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.45 -apple-system,Helvetica,Arial,sans-serif}
