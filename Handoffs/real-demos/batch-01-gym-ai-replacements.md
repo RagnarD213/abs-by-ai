@@ -58,6 +58,30 @@ Batches are independent and can run at the same time (edit cap 5); only the inst
   (checksummed copies; that folder is on the Seagate, keep the work copy). Delete this batch's board entry and move its
   line in `Handoffs/README.md` OPEN out (executed).
 
+## R1 result (2026-11-13, Claude): built, gated, reviewed; WAITING FOR DAN'S REVIEW
+
+Review page: http://127.0.0.1:9513/ (port 9513; files `~/Projects/_edit_work/REALDEMOS-B01/review/`). Work folder
+`~/Projects/_edit_work/REALDEMOS-B01/` (`out/<id>/`: `<id>-REAL-1080.mp4`, app encode `<id>.mp4` + `<id>.jpg`, `edit.json`,
+stamps; reviews `ROUND-*-REVIEW*.md`; recipe `build.py`, `gates.sh`, `finish2.sh`). Nothing installed.
+
+| id | cut | length | delivery gate | passed review |
+|---|---|---|---|---|
+| leg-curl | B0626 wide, B0628 rear close-up, B0626 wide | 15.9 s | PASS `exercise-demo-real` | round 6 |
+| cable-tricep-pushdown | B0651 one continuous take (no clean detail clip) | 12.6 s | PASS `exercise-demo-real-onetake` | round 4 |
+| seated-cable-row | B0648 wide, B0650 front close-up, B0648 wide | 13.3 s | PASS `exercise-demo-real` | round 3 |
+| lat-pulldown | B0688 wide, B0662 rear close-up, B0688 wide | 15.5 s | PASS `exercise-demo-real` | round 3 |
+
+Two form questions are first on the page and are Dan's call: pushdown elbows travel forward and up at the top of every
+rep (the app's `mistake` copy names that), and the row torso leans back about 15 to 30 degrees on every pull (the app copy
+says the torso stays tall). If he approves either as his form, change that exercise's `mistake` / `setup` copy in
+`public/exercises.js` in the same deploy (row setup also says "neutral grip": the footage is a wide grip on a long bar).
+If he declines one, keep its AI demo and add a strict version to `Docs/PICKUPS_NEXT_STUDIO_SHOOT.txt`.
+
+**Next (after Dan's reply):** install only the ids he approves, exactly as "After Dan approves" above; then the clip
+library records, `LIBRARY.md`, a checksummed copy of the recipe to `Media/exercise-demos/real/b01-recipe/`, remove the
+review service (`review_server.py 9513 --remove`), delete the board entry and move this batch out of `Handoffs/README.md`
+OPEN.
+
 ## Starter prompt
 
 > Real Exercise Demos Batch 1 R1. Read `Handoffs/real-demos/batch-01-gym-ai-replacements.md` and build real-footage Trainer demos for leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown from the B-roll in the clip library, exactly as the approved pilot was built (Phase 0 result section of the master handoff). Pass every gate and an independent review, put them on a 1080p review page with the current AI demo beside each one, and stop for my review. Dan has authorized the whole batch, including installing the approved demos in the app and deploying.

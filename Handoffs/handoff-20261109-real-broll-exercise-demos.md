@@ -192,8 +192,9 @@ goes to `Media/exercise-demos/real/b01-recipe/` when the batch is approved).
   "Word" must not start more than about 0.4 s before its movement starts.
 - **Screen every detail clip frame by frame before using it:** hands, bar, feet and the working joint in frame for the
   whole insert, hair inside the top edge, no grin, no strain face filling the frame, no gym member standing behind him,
-  camera steady. If no detail clip is clean, stay on the wide take (one continuous shot is acceptable and passed review)
-  and say so on the page. The defective-source hair clause does not apply when the wide take is a complete alternative.
+  camera steady. If no detail clip is clean, stay on the wide take (one continuous shot passed review), say so on the
+  page, and gate it with `--format exercise-demo-real-onetake` (added 2026-11-13: the same rows and bounds minus the two
+  cut rows, which a film with no cut cannot answer; `exercise-demo-real` fails a one-take film as NOT MEASURED). The defective-source hair clause does not apply when the wide take is a complete alternative.
 - **Form that is in every rep is Dan's decision, not a cut problem.** Measure it, do not narrate against it, and put it
   first on the review page as a question (Batch 1: pushdown elbows travel forward at the top; row torso leans back about
   30 degrees). Never write a cue the picture contradicts ("sit tall", "elbows pinned").
