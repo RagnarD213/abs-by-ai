@@ -9,6 +9,8 @@ At the start of a video editing/review task, name the chat `<Recognizable Video 
 
 > **Generation routing (Dan, 2026-11-08; Claude and Codex).** Try video on Dan's Google AI subscription through Flow first, and attempt START/END stills there too. Preserve required Codex subscription comparisons. Paid image/video APIs are fallback only after a recorded subscription failure or failed output quality check, within existing spending authorization. Historical paid/native-1080p recipes below do not bypass this attempt. Read `_shared/IMAGE-GENERATION.md` and `_shared/veo/README.md`; verify current export options and actual logo quality rather than assuming Flow's old limits.
 
+> **Real B-roll first (Dan, 2026-11-13).** "Redo everything that we have B-roll with, with real stuff, and only things we don't have B-roll with will be done with AI." Search `clip_library.py find "<exercise>"` before generating anything. Real footage exists: build a real demo (`Handoffs/handoff-20261109-real-broll-exercise-demos.md`, batch handoffs in `Handoffs/real-demos/`), not an AI one. This skill is for movements with no real footage only.
+
 Read `_shared/VIDEO-RULES.md` first.
 
 # Exercise demo generation ("keyframe-locked" AI-Dan demos)
