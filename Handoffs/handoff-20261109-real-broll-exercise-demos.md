@@ -199,6 +199,11 @@ goes to `Media/exercise-demos/real/b01-recipe/` when the batch is approved).
   30 degrees). Never write a cue the picture contradicts ("sit tall", "elbows pinned").
 - **Narration audio:** regenerate the read whenever the script changes (removing a line from the middle of a read leaves
   the wrong intonation); lead each line in by 0.08 s and out by 0.035 s.
+- **Render queue:** these clips are seconds long, but each ffmpeg call and each gate re-joins the queue. When another
+  edit holds all the cores (a chroma key), ten small steps wait an hour. Wrap the whole chain as ONE step:
+  `stallwatch.py run <JOB> -- renderq.py run --light --group <JOB> -- bash chain.sh`. Tell reviewers to call
+  `ffmpeg.real` and a Whisper model directly, never the wrapper, `whisper_chunked.py` or `cut/speech.py` (a reviewer sat
+  an hour waiting for a queued transcript). The edit slot lapses after 3 hours without activity: re-acquire it.
 - **Reviewer brief:** give each fresh `ra-reviewer` two demos, `REVIEW-BRIEF.md`, and the facts the brief does not cover;
   it writes `watch/findings.json`; then `finish.sh` runs `--judge` and the delivery gate. A review of two demos takes
   about 17 minutes. Crop the wide take off any gym member at the frame edge before the first review.
