@@ -55,7 +55,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Fri Jan 22 | 3 | The Vacuum Workout | Live |
 | Sun Jan 24 | 3 | RO-31 How To Get Rid Of Man Boobs | Booked 11-05: YouTube 6535767; FB/IG/TikTok Mon Jan 25 noon |
 | Wed Jan 27 | 3 | When Calories Don't Matter For Fat Loss | Live |
-| Fri Jan 29 | 3 | RO-32 I'm 41. Here Are The 10 Exercises I Do Every Week (gym B-roll now exists from Oct 23; needs editing) | Not booked |
+| Fri Jan 29 | 3 | RO-32 I'm 41. Here Are The 10 Exercises I Do Every Week (approved Nov13, gym/studio) | QUEUED, verified Nov13: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon. Verify YouTube public first, postpone socials if not. Receipt: Docs/RO32_SETUP_RECEIPT_20261113.md |
 | Sun Jan 31 | 3 | OPEN: How To Work Out At Home On A Budget (RO-06) if RO-22 takes Nov 25, else RO-23 if it missed Nov 22, else the strongest unused non-kitchen film | Not booked |
 
 TikTok is uploaded by hand in TikTok Studio at noon the day after YouTube for these films (over Blotato's 10 minute TikTok limit): Intermittent Fasting (RO-08) Sat Nov 28; My First Spray Tan (RO-19) Sat Dec 5; Why You Should Invest More In Your Health (RO-20) Thu Dec 10; What To Buy For Your Health (RO-20C) Thu Dec 17; How To Make Time For Exercise & Nutrition (RO-18) Thu Jan 14. Each only once YouTube reads public.

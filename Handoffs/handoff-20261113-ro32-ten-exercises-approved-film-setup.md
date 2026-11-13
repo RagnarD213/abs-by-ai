@@ -1,12 +1,45 @@
 # I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup, 2026-11-13
 
-**Type: CONTENT, long-form (LFC). Owner: Codex (setup rule, Dan 2026-11-07). Not started.**
+**CONTENT, RO-32 LFC. SETUP COMPLETE AND SCHEDULED. OPEN FOR RELEASE CHECKS ONLY. Owner Codex. No Dan approval remains.**
 
-Goal: take the approved film to fully set up and scheduled (or on the shared waitlist) on YouTube, Facebook, Instagram @danrosefit and TikTok.
+Dan approved exact film onNov13: “Okay, it looks good. This is approved. Proceed to setup.” Master SHA256 `414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d` unchanged, including approved red-cap background member. No re-render, grade or audio changes.
 
-Dan approved the exact round 3 film on 2026-11-13: "Okay, it looks good. This is approved. Proceed to setup." This also settles his one open call: the man in the red cap behind him in the chest-fly clip (3:26 to 3:30) stays unblurred. Do not re-render, re-grade or touch the audio.
+## Current verified checkpoint
 
-Read first: `.claude/skills/video-setup/SKILL.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `.claude/skills/_shared/IMAGE-GENERATION.md`, `Docs/PINNED_COMMENTS.md`, `Docs/LONGFORM_RELEASE_CALENDAR.md`. Current AGENTS.md rules win over anything older here.
+Dan approved exact `2-revised.jpg`, SHA256 `a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9`, with **“Approve it”**, replying to **“Approve the revised thumbnail 2?”**. Approval recorded in state/manifest/approval JSON. Installed exact file as `I'm 41. Here Are The 10 Exercises I Do Every Week - thumbnail FINAL.jpg` under `social media graphics/youtube/thumbnails/I'm 41. Here Are The 10 Exercises I Do Every Week`; SHA256 preserved. Original pick2 with text revision was logged once; do not re-log it. Six originals and source provenance retained, round1 rejection retained. No thumbnail generation/revision needed.
+
+| Platform | Account | Saved schedule | Central time | UTC |
+|---|---|---|---|---|
+| YouTube | 46963 | 6913482 | Fri Jan 29, 2027, 9 AM America/Chicago | 2027-01-29T15:00:00.000Z |
+| Facebook | 47105 | 6913478 | Sat Jan 30, 2027, noon America/Chicago | 2027-01-30T18:00:00.000Z |
+| Instagram @danrosefit | 67203 | 6913479 | Sat Jan 30, 2027, noon America/Chicago | 2027-01-30T18:00:00.000Z |
+| TikTok | 58181 | 6913481 | Sat Jan 30, 2027, noon America/Chicago | 2027-01-30T18:00:00.000Z |
+
+
+Live queue176before/180after. All four payloads and full saved media downloads verified. No waitlist entry, native YouTube upload/scheduling, Public upload or new per-video routine. Config `scripts/blotato/configs/ro32-ten-exercises.json`; receipt `Docs/RO32_SETUP_RECEIPT_20261113.md`; full evidence `scripts/covers/ro32-20261113/setup/`. Local package `setup-state.json` has all hashes/schedules/approval. Exact-file admission preserves35pass/4documented override gate findings; no fake PASS or film changes.
+
+FINAL thumbnail additionally backed up to Extreme/Drive with full downloaded hash. Prior film/SRT backups remain verified in original `_build-20261113` evidence. Upload copies main163MB,IG70MB,TTcover-first163MB; all SHA256-download verified, audio payload unchanged. Instagram cover is only an aspect-safe fit of full approved art, no crop/redraw. Master remains766MB unchanged. See receipt for each exact hash and source path.
+
+Title: **I'm 41. Here Are The 10 Exercises I Do Every Week**. Description13chapters and root UTM; tags saved for post-release native application; pinned question **“Which of these 10 exercises are you already doing every week?”** in config. Article `sixpackabs/articles/TBD-ro32-ten-exercises.md`,1127words,checkOK. English SRT filed; no AI footage and synthetic flags false. Cover/ad audits clean. RO-32 uploaded in Edit Queue and Drive status update succeeded; native Claude artifact fallback mirror pending per Codex procedure. SL-38 registered only, no Shorts edit launched.
+
+## Exact next action, after Jan29 YouTube release
+
+1. Verify Blotato-created YouTube video actually public onJan29. Before Jan30 noon, postpone Facebook/Instagram/TikTok if YouTube failed or is not public. Do not infer public status from schedules or create a replacement/duplicate upload.
+2. Verify actual public cover tiles on all four platforms against approved assets; FB live installer owns preferred thumbnail and TikTok uses checked frame0. Repair any wrong tile through existing workflow, preserve engagement.
+3. Apply filed English SRT through Studio Subtitles and saved native keyword tags once the public YouTube ID exists. Blotato target cannot install those tags today. Verify existing pinned-comment/article workflows complete after release; do not create per-video routines. Record actual ID/URLs/readbacks in receipt.
+4. SL-38 is separate later work. Propose three standalone lessons with complete transcripts and await Dan’s picks; no Short before public parent.
+
+No further setup/pick action for Dan. Shared-file safe-push result is recorded in the package setup-state.json after the command. Media is never committed.
+
+## Same-session continuation
+
+Session `01a1d5d0-b843-7cd0-90f3-d0b2e9cdf4f5`:
+```bash
+"/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex" resume -C "/Users/danielrose/Projects/Claude/Projects/Abs By AI" 01a1d5d0-b843-7cd0-90f3-d0b2e9cdf4f5
+```
+Starter after release: Resume RO-32 from this handoff and Docs/RO32_SETUP_RECEIPT_20261113.md. Setup and exact thumbnail approval are complete. Verify actual YouTube public status before Jan30 noon socials, postpone socials if not public, apply English SRT/native tags, inspect real public covers and confirm pinned comment/article workflows. Do not recreate schedules or log the original thumbnail pick again. Use newest supported stable Sol, high, when opening a separate Codex continuation.
+
+## Preserved approved-file reference
 
 ## Exact approved files
 
@@ -29,18 +62,4 @@ Gate: 35 pass, 4 explained fails (voice tone = Dan's approved bass lift; jump_cu
 
 ## Release slot
 
-Fri Jan 29, 2027, YouTube 9 AM America/Chicago (phase 3, January blitz). Facebook, Instagram and TikTok Sat Jan 30, noon, only after the YouTube video is verified public. Calendar row currently says "Not booked": mark it booked. Inspect the live Blotato queue; if it is full, put it on the shared waitlist (`scripts/blotato/video_waitlist.json`, gym flag, not kitchen) for the daily top-up. No per-video routine, no native YouTube scheduling, never upload Public.
-
-## Setup steps (Codex)
-
-1. Backups: hash-verified copy of the mp4 + srt on the Extreme long-form archive and Google Drive (anyone with the link can view).
-2. Thumbnails: the five-design mix (two AI Dan acting the topic out, one real pool or studio photo, two guided by his approved-cover history) plus three unlabeled Google options; Google subscription attempt first, Codex subscription images required, blind pick page, inspect every AI face. Stop for Dan's pick. Record pick and hashes.
-3. After the pick: title (start from the filmed title "I'm 41. Here Are The 10 Exercises I Do Every Week"), description in Dan's voice with the chapters and UTM link, tags, pinned question comment in the Blotato config, organic classification/ad guard, upload gate on the exact hash, Blotato media for all four platforms with cover URLs, readback of every schedule or waitlist entry, setup receipt `Docs/RO32_SETUP_RECEIPT_<date>.md`.
-4. Edit Queue: stays `finalized` until verified scheduling, then `uploaded`.
-5. Later, separate job: three Shorts from this film via `/shorts` after it is set up (LFC gets Shorts only).
-
-## Starter prompt
-
-Set up the approved film "I'm 41. Here Are The 10 Exercises I Do Every Week" (RO-32, LFC) from `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`. Dan approved this exact file on 2026-11-13; do not change the film. Make the thumbnail choices and stop for my pick, then finish metadata, backups, Blotato or shared waitlist for Fri Jan 29 2027 9 AM (socials Sat Jan 30 noon) and the setup receipt.
-
-Model: Codex newest stable Sol (GPT-6.1 Sol), high.
+Fri Jan 29, 2027, YouTube 9 AM America/Chicago (phase 3, January blitz). Facebook, Instagram and TikTok Sat Jan 30, noon, only after the YouTube video is verified public. All four saved schedules are verified above. No waitlist entry was needed. Existing shared release check must verify actual public YouTube before next-day socials; postpone socials on failure. No per-video routine, no native YouTube scheduling, never upload Public.

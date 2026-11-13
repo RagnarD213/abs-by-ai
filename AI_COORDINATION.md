@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 filed (A0255-A0262). Batch3 frames page 9245 (14 ideas). Next: his selections, then batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup ACTIVE 2026-11-13, Codex.** Dan approved 2-revised; exact FINAL installed. Finish metadata, platform uploads/gate, live Blotato or shared waitlist for Jan29/30, receipt and safe-push. Film locked. `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

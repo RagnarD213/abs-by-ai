@@ -625,3 +625,8 @@ Both1080x1920 masters approved and unchanged. A Weightlifting R3 SHA25617286ab36
 ## DONE: How To Do Chest Flies On The Machine (DS-78), 2026-11-09
 
 Dan picked X1, unchanged, both layouts. Final R1 SHA256 d12e90f5664bb785b9f288010bc022f154e1acbb304d1c9db44fae1dae67697d preserved; all publishing uploads and each saved post's actual media downloaded/hash-verified. TikTok cover frame and identical audio payload verified. All four platforms Tue Jan 12, 2027, 9 AM Central: Facebook 6716679, Instagram @danrosefit 6716680, TikTok 6716682, YouTube 6716683. Phase 3 gym slot, seven days after T-Bar Rows. Covers registered/verified, queue 194/200, guards clean. Keyword TRAIN, campaign chest-flies-machine, content ds78-chest-flies-machine. Pinned question saved; existing release routines handle public cover tiles, Facebook cover, comment and article. Edit Queue uploaded, Drive status uploaded. Receipt: `Docs/DS78_SETUP_RECEIPT_20261109.md`.
+
+
+## DONE: RO-32 Ten Exercises setup, 2026-11-13
+
+Exact film `414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d` unchanged; approved FINAL thumbnail `a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9`. Blotato schedules YouTube6913482 Jan29,2027 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon. All saved payloads/media downloads verified; queue180/200. Config `scripts/blotato/configs/ro32-ten-exercises.json`, TRAIN keyword, organic root UTM. No waitlist/native YouTube upload/new routine. Public YouTube must be verified before socials; native tags/SRT and actual public covers remain release checks. Receipt `Docs/RO32_SETUP_RECEIPT_20261113.md`.

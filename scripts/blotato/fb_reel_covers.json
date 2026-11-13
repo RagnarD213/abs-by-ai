@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles — not just a six-pack.",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch — a killer six-pack move you can do at home.",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -938,7 +938,7 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you’re fasting.",
+    "match": "Drink black coffee while you\u2019re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
@@ -1541,5 +1541,15 @@
     "approved": "Dan picked X1 on 2026-11-09: \"X1\".",
     "sha256": "ff765e1a4c435f747f4e8bf7866e0e1930b20ef61be07c65b4bd67fdcc012a28",
     "when": "2027-01-12T15:00:00.000Z"
+  },
+  {
+    "schedule": "6913478",
+    "when": "2027-01-30T18:00:00.000Z",
+    "match": "I was fat at 38. Now I have six pack abs at 41.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/I'm 41. Here Are The 10 Exercises I Do Every Week/I'm 41. Here Are The 10 Exercises I Do Every Week - thumbnail FINAL.jpg",
+    "w": 1280,
+    "h": 720,
+    "job": "RO-32",
+    "sha256": "a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9"
   }
 ]

@@ -1,0 +1,8 @@
+{
+  "video_VCL_NAL_payloads_identical_after_single_cover_frame": true,
+  "video_frames_source": 8307,
+  "video_frames_tiktok": 8308,
+  "audio_packet_payloads_identical": true,
+  "audio_packet_count": 12994,
+  "container_header_note": "Raw keyframe packet hashes differ because concat inserts H264 SPS/PPS headers. Compare actual VCL NAL payloads; AAC payload hashes ignore timestamp/skip-sample container side data."
+}
