@@ -1,0 +1,46 @@
+# M2 headless preparation receipt
+
+Executed: November 13, 2026, approximately 5:37–5:53 p.m. America/Chicago.
+Owner: Codex. Source: `Handoffs/two-mac-setup-20261112/01-m2-prep-codex-grokbot.md`.
+Machine: Mac14,12, macOS 26.5.2 (25F84), user `danielrose`.
+
+**Status: all requested system settings applied; external-drive SMB access is blocked by a verified server error. Handoff 01 is not fully complete.** No restart, logout, drive unmount, formatting, data migration, or interruption of another edit was performed. Handoffs 02 and 03 were not executed.
+
+## Settings and verification
+
+| Item | Before | Applied and verified |
+|---|---|---|
+| Names | Computer `Mac mini`, local `Mac-mini`, HostName unset | Computer `M2`, local `m2`, HostName `m2`; all three `scutil --get` checks pass |
+| Remote Login | Off | Persistent SSH launch service enabled; `systemsetup -getremotelogin` reports **On**; `ssh danielrose@localhost true` authenticated and exited **0** |
+| SSH access | Admin group permitted | Access list explicitly contains `danielrose`, with inherited admin group removed |
+| Screen Sharing | Service not configured by this task | Persistent service enabled; TCP 5900 accepts connections and returns `RFB 003.889`; access explicitly limited to `danielrose`. A full remote desktop session from the M6 has not been tested |
+| File Sharing | No explicit share records | Persistent SMB service enabled; TCP 445 listening; `sharing -l` lists exact shares `Extreme` and `Expansion`, paths `/Volumes/Extreme` and `/Volumes/Expansion`, shared=1, read-only=0, guest=0. Both roots are owned by Dan with owner read/write access |
+| SMB login | Initial authentication rejected | Enabled the account's SMB-NT credential support and refreshed its password data using the **same existing password**, without selecting a new password. Authenticated `smbutil view //danielrose@localhost` now succeeds and lists both shares |
+| Thunderbolt | DHCP, no address | Service manually configured to `10.66.0.2`, mask `255.255.255.0`, router empty. Address also applied to `bridge0`; `ifconfig bridge0` shows `inet 10.66.0.2 netmask 0xffffff00`. Physical link remains **inactive**, so M6 cable connectivity is untested |
+| Power | sleep=0, disksleep=0, displaysleep=10, womp=1 already set; autorestart=0, powernap=1 | `pmset -g custom`: sleep=0, disksleep=0, displaysleep=10, autorestart=1, womp=1, powernap=0 |
+| Automatic login | Not configured; FileVault On | FileVault disabled as instructed; `fdesetup status` reports **Off**. `sysadminctl -autologin status` reports `Automatic login user: danielrose`; loginwindow setting matches. Actual restart/login behavior deliberately not tested while renders run |
+| SSH folder | Absent | `~/.ssh` mode 700; `authorized_keys` mode 600, owned by Dan; existing content not overwritten. Local SSH host key accepted into known_hosts. No new SSH identity or M6 key installed |
+
+`systemsetup -setremotelogin on` initially refused because its caller lacks Full Disk Access. The system's SSH LaunchDaemon was enabled and bootstrapped directly with admin privileges; the subsequent official status check and authenticated SSH test both passed. No Full Disk Access grant or privacy database modification was made.
+
+## Remaining blocker: actual external-drive access
+
+Checking only the share list would have missed this failure:
+
+- Native authenticated SMB enumeration succeeds and lists `Extreme` and `Expansion`.
+- Native `mount_smbfs` tests for each return **No such file or directory**, despite both mount folders and share paths existing.
+- An independent Python `smbprotocol` client authenticated successfully. A temporary file in the existing internal `danielrose` share was written over SMB, read back, and compared byte-for-byte with the local file: **PASS**.
+- The same client's file creation on **both external shares** fails with **STATUS_INTERNAL_ERROR (0xc00000e5)**. No probe files remain.
+- Both external drives are mounted as **exFAT using FSKit**. Server logs also report `query_volume_attributes_check_root ... APFSVolumeRole error: 0xc002`. These observations isolate the failure to external-volume sharing; they do **not** establish the root cause.
+
+Diagnostic environment and non-secret results are in `~/Library/Caches/two-mac-prep-20261113/`; `smb-check.json` records the three outcomes. The isolated environment installed `smbprotocol` from PyPI. No password was put in a command argument, script, receipt, or repository file.
+
+**Exact next action:** continue diagnosing the external SMB failure without disrupting edits. When an idle maintenance window exists, test native external-volume access from the M6 and isolate the FSKit/exFAT behavior with a disposable test volume before changing either production drive's mounting method. Do not reformat these drives. Do not treat handoff 02's drive mounts as ready until actual SMB reads/writes pass.
+
+The render queue was checked before and after setup and still had an active heavy holder at the end. Per the handoff, no restart was attempted. Automatic login, power-cut recovery, the physical Thunderbolt connection, and an M6 Screen Sharing session remain untested in practice.
+
+## Handoff status
+
+The main handoff index retains the remaining work in OPEN, with the verified blocker. Marking handoff 01 completed and removing its unfinished access verification would be inaccurate. Resume only the failed verification/repair, rather than repeating the completed system settings.
+
+Reference consulted: [Apple: Set up SMB file sharing](https://support.apple.com/en-gb/guide/mac-help/-mh14107/mac). Findings above are from actual local tests, not inferred from that guide.
