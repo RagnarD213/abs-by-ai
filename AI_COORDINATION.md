@@ -31,9 +31,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **FlowClips-b2/b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 video page 9244 (5 ideas), batch3 frames page 9245 (14 ideas). Next: file picks, make batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup WAITING-PICK 2026-11-13, Codex.** [Eight checked choices](http://127.0.0.1:9790/); Extreme/Drive backups hash-verified, film unchanged. Nothing queued. Next: Dan picks, then resume setup for Jan29/30. Session and exact continuation in `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup BUILDING-R2 2026-11-13, Codex.** All eight thumbnails rejected; six real-exercise designs in progress per Dan. Film unchanged, nothing queued. Detail: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
+
+**KevinJamesCheat-SFC-R1(DS-41):BUILDING:2026-11-13:Claude.**Both-versions;/Volumes/Expansion/_edit_work/DS-41/r1;key-running.
 
 **WhatToCut-SFL(SL-21):BUILDING-R1:2026-11-13:Claude.**Picks-A/D/E;~/Projects/_edit_work/SL-21;Feb-slots.
 

@@ -157,10 +157,10 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | FINALIZED | S |
-| [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
+| [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | IN PROGRESS | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
-| [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | READY | S |
+| [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | IN PROGRESS | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
@@ -209,7 +209,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [RO-29](RO-29-cortisol-belly-is-real-but-tiktok-has-it-wrong.md) | Cortisol Belly Is Real, But TikTok Has It Wrong | 10/15 C1772-C1773 | UPLOADED | L |
 | [RO-30](RO-30-the-fastest-way-to-lose-stubborn-love-handles.md) | The Fastest Way To Lose Stubborn Love Handles | 10/15 C1774 | FINALIZED | L |
 | [RO-31](RO-31-how-to-get-rid-of-man-boobs.md) | How To Get Rid Of Man Boobs | 10/15 C1775 | UPLOADED | L |
-| [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | DELIVERED: awaiting Dan | L |
+| [RO-32](RO-32-im-41-here-are-the-10-exercises-i-do-every-week.md) | I'm 41. Here Are The 10 Exercises I Do Every Week | 10/15 C1776 + 10/23 gym B-roll | FINALIZED | L |
 | [RO-33](RO-33-the-5-minute-no-equipment-workout-for-guys-who-hate-working.md) | The 5-Minute No-Equipment Workout For Guys Who Hate Working Out | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-34](RO-34-10-minute-jump-rope-and-kettlebell-fat-burning-workout.md) | 10-Minute Jump Rope And Kettlebell Fat Burning Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
 | [RO-35](RO-35-20-minute-jump-rope-and-dumbbell-full-body-workout.md) | 20-Minute Jump Rope And Dumbbell Full Body Workout | next shoot | BLOCKED: not filmed 10-15: on the next shoot's filming document (the spoken cue track) | L |
