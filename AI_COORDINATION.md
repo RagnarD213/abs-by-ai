@@ -1,6 +1,6 @@
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
-**Stalled video setups ACTIVE 2026-11-13, Codex.** Dan authorized takeover: finish DS-15/19 backups, metadata, uploads and waitlist; register RO-08 approved Facebook cover. Next: verify assets and complete setup. Receipt: Docs/DS15_DS19_SETUP_RECEIPT_20261102.md.
+**Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete; DS-19 Jan7 6PM / DS-15 Jan9 9AM Central shared waitlist, full readback. RO-08 queued Nov27 9AM YouTube, Nov28 noon FB/IG. Next: shared top-up and existing release checks. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 # Abs By AI — Coordination / Status Board
 
@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **KevinJamesCheat-SFC-R1(DS-41):PAUSED-BY-DAN:2026-11-13:Claude.**Until-JointVigor-style-options-done;scripted-final-awaiting-re-review,offcuff-rebuild-pending;/Volumes/Expansion/_edit_work/DS-41/r1/RESUME.md.
 
-**WhatToCut-SFL(SL-21):R2-FRAME-PICKS:2026-11-13:Claude.**Short3-final;Shorts1/2-approved-except-new-lip-synced-excuse-clips;frame-pairs-for-Dan:http://127.0.0.1:9621/;setup-handoff-on-HOLD.
+**WhatToCut-SFL(SL-21):R2-PAUSED-BY-DAN:2026-11-13:Claude.**Until-Joint-Vigor-style-options-done.Clips-made+reviewed;renders-next.Resume:/Users/danielrose/Projects/_edit_work/SL-21/round2/RESUME.md
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
@@ -286,7 +286,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
 
-**RO-08 HOLD 2026-10-14.** Jan 24 2027; B test after. `Docs/RO08_SETUP_RECEIPT_20261014.md`
 
 **RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
 

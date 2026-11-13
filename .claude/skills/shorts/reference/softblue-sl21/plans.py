@@ -100,3 +100,29 @@ TEXT = {
       "Now again I'm not telling you / you've got to + sacrifice + that / permanently. I'm just telling you to sacrifice that / until you get in great shape, "
       "and you have the productivity / to make more money, and eventually / you can reinvest in_that{in that} / once you've taken care / of the higher priority.",
 }
+
+# ---- Round 2 (2026-11-13): Dan approved Short 3 as is, and Shorts 1 and 2 except one new lip-synced AI excuse clip each.
+# A2 = Short 1 with the restaurant excuse guy; D1 / D2 = Short 2 with beach pair X1 / X2 (Dan: "generate both, I'll see which
+# one looks better"). Everything else is the approved round 1 build, untouched.
+import copy as _copy
+for _d in (BARS, COVERS, NAME, NEG, SEG, SHOTS, SPLIT, TEXT, TITLE, WORDFIX):
+    if "A" in _d: _d["A2"] = _copy.deepcopy(_d["A"])
+    if "D" in _d: _d["D1"] = _copy.deepcopy(_d["D"]); _d["D2"] = _copy.deepcopy(_d["D"])
+NAME["D1"] += "_X1"; NAME["D2"] += "_X2"
+# the excuse line, film time: Short 1 "oh, I don't have the money to get in shape, Dan. I don't have the money for a gym
+# membership." = 246.59 (Cd08's out) to 250.717 (Cd09's in); Short 2 "I need a vacation. I deserve a break because I work
+# hard." = 379.312 (Cd18's out) to 382.649 (the middle of the pause before "But you don't deserve a break").
+COVERS["A2"].insert(1, dict(id="AIr", a=246.59, b=250.717, src=CL + "AIr.mp4", t=0.4, fy=0.484, ai=(40, 336, 1.6)))
+COVERS["D1"].insert(1, dict(id="AIb1", a=379.546, b=382.649, src=CL + "AIb1.mp4", t=0.4, fy=0.387, ai=(40, 336, 1.6)))
+COVERS["D2"].insert(1, dict(id="AIb2", a=379.546, b=382.649, src=CL + "AIb2.mp4", t=0.4, fy=0.69, ai=(40, 336, 1.6)))
+SHOTS["A2"][1] = dict(cap=1540)      # captions under the steak, over the lobster and the tablecloth; his face and the fork stay clear
+for _k in ("D1", "D2"): COVERS[_k][0]["b"] = 379.546      # the aerial beach holds 7 frames longer, through Dan's "You're like,", so the excuse guy comes in on silence and his first word is "I" (his lips never mouth Dan's "like,")
+# The AI clips are the lip-synced files (round2/lipsync/*_final.mp4, 25 fps): each starts 0.4 s before its slot (t=0.4), the lead-in LatentSync needs.
+# Which beach take is "pair X1" and which "pair X2" on Dan's page is the blind key (never printed): D1 is always the X1 build, D2 the X2 build.
+import json as _json
+_lab = _json.load(open("/Users/danielrose/Projects/_edit_work/SL-21/round2/blind/B/.label-to-take.json"))
+_TAKE = {"B1": dict(id="AIb1", src=CL + "AIb1.mp4", fy=0.387), "B2": dict(id="AIb2", src=CL + "AIb2.mp4", fy=0.69)}
+for _k, _l in (("D1", "X1"), ("D2", "X2")):
+    COVERS[_k][1].update(_TAKE[_lab[_l]])
+    if _lab[_l] == "B2": SHOTS[_k][1] = dict(cap=1600)      # the blue-shirt take: captions under the pineapple, on his forearms and the rail (at 1412 they covered the drink)
+PINPATH = {"D1": {2: ("D", 1)}, "D2": {2: ("D", 1)}}      # Dan's shot after the excuse clip keeps the round 1 camera path (his approval covers that framing)

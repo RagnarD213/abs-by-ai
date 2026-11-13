@@ -676,6 +676,13 @@ class Short:
         self.base = self.keys[0]
         self.cams = {}; self.clips = {}
         self.plan_windows()
+        # Round 2: a talking shot that now starts later than in the approved round 1 build (a new clip covers its head) keeps the
+        # APPROVED framing: its window path is the round 1 shot's own path from the same output frame on (plans.PINPATH).
+        for idx, (refS, refidx) in getattr(P, "PINPATH", {}).get(S, {}).items():
+            ref = Short(refS); rs = ref.shots[refidx]; sh = self.shots[idx]; off = sh["f0"] - rs["f0"]
+            assert rs["kind"] == sh["kind"] == "talk" and off >= 0 and sh["f1"] == rs["f1"], (S, idx, off, sh["f1"], rs["f1"])
+            sh["path"] = rs["path"][off:off + len(sh["raw"])]; sh["cw"], sh["ch"], sh["y0"] = rs["cw"], rs["ch"], rs["y0"]
+            self.strip = (min(self.strip[0], ref.strip[0]), max(self.strip[1], ref.strip[1]))
         f = B.font(30); xy = (64, 1800)
         o = Image.new("RGBA", (W, H), (0, 0, 0, 0)); dd = ImageDraw.Draw(o); dd.text((xy[0] + 2, xy[1] + 2), "AbsByAI.com", font=f, fill=(0, 0, 0, 140)); dd.text(xy, "AbsByAI.com", font=f, fill=(244, 250, 255, 170))
         if P.DISC.get(S):                                                          # a small on-screen disclaimer where a short needs one

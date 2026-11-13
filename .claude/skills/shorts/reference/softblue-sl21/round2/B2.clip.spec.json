@@ -1,0 +1,53 @@
+{
+ "shot": "SL-21 B: beach excuse clip (Short 2), second version",
+ "intent": "A heavy, sunburnt, scruffy man leans on a wooden beach lounger on a tropical beach, facing the camera, chest up, Hawaiian shirt, sunglasses on his head. START: his right hand (picture left) holds a pineapple cocktail in front of his chest; his left forearm lies along the wooden rail in front of him with the hand hanging at picture left; sorry-for-himself pout, mouth closed. END: he has lifted his left arm off the rail and holds the hand open, palm up, beside his left shoulder (picture right) in a whiny shrug, head tilted, eyebrows raised, mouth closed; the right hand and the cocktail have not moved. Beach, sea, palms and lounger do not move. The clip will be lip-synced later, so the mouth is closed in both frames. MOTION (about 3.4 s): locked camera; he holds the look, then lifts his left arm off the rail, palm up beside his shoulder, and tilts his head; the cocktail hand stays put. Palm fronds sway and small waves roll. Mouth stays closed (lips are synced afterwards).",
+ "person": {
+  "legs_hidden": {
+   "below_y": 1828
+  },
+  "compare": [
+   "head"
+  ],
+  "compare_why": "a shrug lifts the shoulders and pulls the shoulder landmarks toward the neck; hips and legs are hidden; head width (ear-to-ear and outer-eye mean) is the size measure a chest-up shrug leaves valid, and the head tilts but does not turn"
+ },
+ "still": {
+  "lounger_rail": [
+   14,
+   991,
+   352,
+   1111
+  ]
+ },
+ "props": [
+  {
+   "name": "pineapple_cocktail",
+   "box": [
+    478,
+    1135,
+    727,
+    1500
+   ],
+   "held_by": "right"
+  }
+ ],
+ "hands": {
+  "right": "holds the pineapple cocktail in the same place in both frames",
+  "left": "hangs over the rail in START, open palm up beside the shoulder in END"
+ },
+ "may_change": {
+  "palm_fronds_swaying": [
+   0,
+   0,
+   1080,
+   640
+  ],
+  "sea_waves": [
+   0,
+   640,
+   1080,
+   760
+  ]
+ },
+ "bounds": {},
+ "camera": "locked"
+}
