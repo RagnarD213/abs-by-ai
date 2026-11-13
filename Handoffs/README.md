@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **Fire now. Codex newest Sol, high.** Dan approved the exact round 3 film; thumbnails then setup for Fri Jan 29 2027 (socials Sat Jan 30).
+
 - [sixpackabs.com: point the dead Test Reload link at Great Again T](handoff-20261113-sixpackabs-test-reload-redirect.md), 2026-11-13. **HOLD: fire only after Google resolves the compromised-site appeal on sixpackabs.com. Codex newest Sol, medium** (or Grokbot). The old 4.46M-subscriber channel still links to sixpackabs.com URLs and `/pages/test-reload` is a 404. Silent 302 to the Great Again T product page with UTM tags; no page that shows the old name.
 
 - [Two-Mac setup: M6 primary, M2 headless edit machine](two-mac-setup-20261112/README.md), 2026-11-12. **Three handoffs, fire in order.** 01 M2 prep (Codex newest Sol medium or Grokbot, on the M2, now); 02 M6 setup (Claude Opus 5.5 high, on the M6, after Dan's first-boot steps); 03 edit routing (Claude Fable 5.2 high, on the M6, after 02 is verified). Nothing executed yet.
