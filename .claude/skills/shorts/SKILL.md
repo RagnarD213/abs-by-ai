@@ -229,7 +229,7 @@ and the V4 short1 rebuild (2026-08-10) that produced the band layout.
 **Cutting from an editor's FINISHED master (Zeeshan, Muhammad, Waleed)? For a Soft Blue batch start from `reference/softblue-sl09/` (it joins `softblue-sl07/` to `zeeshan-master/`), and read `reference/zeeshan-master/README.md` first** (SL-04, 2026-09-24: audio verbatim at 320k, pill fades outlast the scan, CTC caption timing, framing steps that must be real size changes).
 
 **Which recipe to copy (audit 2026-10-20):** a new Soft Blue batch from a 4K film of ours starts from `reference/softblue-sl07/`,
-from a 1080p film of ours `reference/softblue-sl15/`, from an editor's master `reference/softblue-sl09/`. From an APPROVED Claude long-form that has a graphics-free `base.mp4` (films_r4-style builds): `reference/softblue-sl20/` (verify the film's cut list with a frame-difference scan first; 2026-11-05). Historical (superseded
+from a 1080p film of ours `reference/softblue-sl15/`, from an editor's master `reference/softblue-sl09/`. From an APPROVED Claude long-form that has a graphics-free `base.mp4` (films_r4-style builds): `reference/softblue-sl21/` (2026-11-13; it fixes two frame-mapping bugs in `softblue-sl20/` and adds hand-set caption breaks; verify the film's cut list with its `scan.py` first). Historical (superseded
 2026-10-01 by VIDEO-RULES.md, "New shorts batches"): the J2-era pipelines in the next paragraph serve legacy re-cuts only.
 
 **Working pipelines are preserved in `reference/`.** Copy one and adapt, do NOT rewrite
@@ -1516,3 +1516,16 @@ Same roll and build as DS-77 (recipe: `reference/ds78-chest-fly-machine/`). Dan 
 - **Some library reps show open-palm presses** (B0667, B0668): that is Dan's real technique, not a mistake; B0668 4.0-5.3 s has his hands off the handles, so avoid it.
 - **No seat-setting or starting-position close-ups exist** for the chest fly machine (rolls C1844-C1846); B0691/B0692 adjust the rear-delt machine. Use the wide side view and say so as a page decision.
 - Make strip sheets in one ffmpeg pass (`fps=`), not one `select` call per frame: the per-frame version timed out.
+
+## Dedicated-short source-tail lesson: DS-38 (2026-11-11)
+
+The first complete scripted candidate cut the final fricative of “videos”. A whole-file media model and an initial source-comparison model both called the word complete; the original 48 kHz lav waveform/spectrogram and targeted phoneme comparison contradicted them. CTC ended only 20 ms before the old film cut and did not prove the decay was retained. Before choosing an endpoint, inspect the untrimmed original past the word, retain the full fricative, then leave the existing required 0.2 seconds of quiet tail and fade there. Inspect the actual final native frames too: the sufficient +12-frame source extension ended during a blink, while +16 ended eyes open within the same 66-second brief. Preserve the rejected hash and recheck the replacement; generic model approval is not source-tail proof.
+
+
+The next independent audit found a spoken “Now” omitted by a majority-overlap source-word filter, and a nasal tail on “trying” extending beyond an internal cut. Check every actual incoming word as well as outgoing tails; a source mapping list is not a literal transcript. Five real camera frames retained the nasal decay. Conversely, nonzero post-cut energy on OFF's “abs” and “work” was breath/room noise after complete consonants, so those endpoints stayed intact after original spectra and native mouth checks.
+
+Keep raw ASR and forced-alignment outliers. OFF's ASR put “a” inside a pause about 650 ms before its real onset, while whole-AAC MMS independently aligned the full literal transcript to the correct onset. MMS itself misaligned the low-confidence first quote words. Ground such outliers in actual audio/source evidence, preserve full lexical order, and keep full actual speech for junk detection. A caption relocating at the layout change is one continuing spoken cue. Follow the full-word/sync procedure in [DS-35 R2](reference/ds35-round2/README.md); do not force good caption pixels to a bad timestamp or claim that a numerical/silent check was a human audible listen.
+
+## DS-39 reaction finishing lessons (2026-11-11)
+
+See [the source, geometry and exact-file evidence lessons](reference/ds39-reaction-finish/README.md): validate crop bounds/graphic fit before rendering, select silent reels at native timestamps, keep fresh AAC ASR separate from forced text alignment, and resolve raw key flags in actual source-to-export coordinates. No key, format or gate threshold changes.
