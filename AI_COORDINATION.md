@@ -29,9 +29,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**FlowClips-b2/b3:GENERATING:2026-11-13:Claude.** Batch2 video (16 clips) + batch3 frames (21 ideas) in Flow; pages 9244/9245 next; `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips-b2/b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 video page 9244 (5 ideas), batch3 frames page 9245 (14 ideas). Next: file picks, make batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup ACTIVE 2026-11-13, Codex.** Approved RO-32 master locked. Backups and blind thumbnail page in progress; stop for Dan’s pick. Detail: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup WAITING-PICK 2026-11-13, Codex.** [Eight checked choices](http://127.0.0.1:9790/); Extreme/Drive backups hash-verified, film unchanged. Nothing queued. Next: Dan picks, then resume setup for Jan29/30. Session and exact continuation in `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

@@ -140,3 +140,13 @@ session cap.
    Never edit a spec after `gate.py` ran: `--verify` refuses until re-gated (then re-record the review). A Google Flow project left on
    16:9 rotates 9:16 prompts sideways with a fake "REC" overlay: check the aspect chip before every submit. `blind.py build` needs
    two sources (or Codex plus evidence); a Google-only survivor is shown as a plain X1, not a comparison.
+7. **(2026-11-13, Flow-credits batch 2 video + batch 3 frames, 21 ideas, 49 frame reviews, 9 motion reviews)** 14 of 21 ideas passed after
+   one redraw. What failed at the reviewer but looked fine on a contact sheet: Codex END edits changing hair (waves to curls), face, build
+   (a skinny man turned muscular) and background people's hair colour; machines drawn backwards (a stair climber faced down its steps,
+   treadmill consoles behind the walkers: say "the console is at the end nearest the camera with its back to the camera"); a cinema with the
+   screen behind the audience; a reaching arm 18 to 34% longer (write "he reaches it by bending his knees and leaning, not by a longer arm").
+   Ideas that needed two things to change at once (a rushed curl plus a flag drop) or a readable "stuck" object failed twice; head turns,
+   eyes closing and one arm moving passed. Zoom on heads and shirts at 2x before sending a pair to a reviewer. Motion: every Omni 1.1 Flash
+   6 s take re-rendered at frame 128 (about 5.3 s), so plan Omni windows inside the first 5 s; two of three takes flipped a thermostat's
+   "63" to "62" (check on-screen numbers on every frame); a roll in bed made the duvet reshape by itself, so sleep clips get a start-frame-only
+   take with "never rolls over". zsh does not split `$VAR` lists in `for` loops: write the ids out.
