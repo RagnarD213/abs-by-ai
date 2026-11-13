@@ -13,7 +13,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-13. **HOLD: fire once Shorts 1 and 2 are approved. Codex newest Sol, high.** Short 3 (If You Can't Afford A Gym, You Can't Afford Therapy) is final; Shorts 1 and 2 are approved except one new lip-synced AI excuse clip each (round 2 with Claude). Covers and setup for all three together, February slots.
 
-- [Finish stalled setups: Jiu Jitsu + Battle Ropes SFC, Intermittent Fasting Facebook cover](handoff-20261113-finish-stalled-video-setups.md), 2026-11-13. **Fire now. Codex newest Sol, high.** DS-15/DS-19 stuck at "covers approved" since Nov 3 with no queue entry; RO-08 cannot queue for Nov 27 without its Facebook cover. Supersedes firing the 11-02 DS-15/19 and 11-11 RO-08 handoffs separately.
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
 
@@ -29,7 +28,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [The Only 5 Machines You Need At The Gym: three-way Codex blind edit test](video-editing/DS-98-the-only-5-machines-you-need-at-the-gym.md), 2026-11-11. **Ready, not started. Codex controller GPT-6 Astra, high.** Independent all-Astra, all-Sol and Astra-supervising-Sol versions; shared sources/approval stages, randomized review labels, usage and quality tracking. One DS-98 queue job remains READY, unattended disabled. No setup or publishing. Use the Codex starter in the handoff.
 
-- [Intermittent Fasting (RO-08): register its Facebook cover so the daily top-up can queue it](handoff-20261111-ro08-facebook-cover-blocks-queue.md), 2026-11-11. **Start now. Codex newest Sol, medium** (or Grokbot). The top-up refused RO-08 for Fri Nov 27: no Facebook cover entry. Dan's approved thumbnail A (10-14) exists; no new pick needed.
 
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
 - [Real exercise demos: 11 batch handoffs](real-demos/README.md): **Fire any remaining batch now** (up to five at once; next: 2, then 8). Pilot and Batch 1 approved and installed 2026-11-13 (7 real demos live); every exercise with B-roll becomes a real demo, AI only without footage. Each batch file has its starter prompt. Claude Opus high.
@@ -59,7 +57,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - SixPackAbs design contest: Claude A won; detailed design APPROVED 2026-11-05 (`Contest/claude/shop-final-design/COPY-READY.md`). Labels: Claude's set won and is locked (`Contest/approved/LABELS-FINAL-LOCK-20261105.md`); Gemini's set is not used.
 
 
-- [Jiu Jitsu And Battle Ropes SFC Setup](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md): **In progress 2026-11-02, current Codex setup chat owns it.** Covers approved (Jiu Jitsu X3, Battle Ropes X8-V3); HQ exports checked by Claude November 3. Remaining: filing, backups, packaging and queue. Do not regenerate covers or ask for picks again. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 
 - Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
@@ -271,6 +268,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | [handoff-20260902-google-ads-engagement-champion-automation.md](handoff-20260902-google-ads-engagement-champion-automation.md) | built 09-03, switched ON 2026-09-08 (first live run 22:00 UTC); operating doc `Docs/YTADS.md` |
 
 ## All dated handoffs (newest first) — executed / superseded unless listed as Open above
+
+- [handoff-20261113-finish-stalled-video-setups.md](handoff-20261113-finish-stalled-video-setups.md), **Executed 2026-11-13, Codex.** DS-15/DS-19 complete on shared waitlist; RO-08 queued Nov27, approved Facebook cover installed.
+- [handoff-20261111-ro08-facebook-cover-blocks-queue.md](handoff-20261111-ro08-facebook-cover-blocks-queue.md), **Executed 2026-11-13, Codex.** Approved A registered in repo/live installer; all waiting long-form cover gaps repaired. RO-08 schedules read back for Nov27/28.
+- [handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md](handoff-20261102-jiu-jitsu-and-battle-ropes-sfc-setup.md), **Executed 2026-11-13, Codex.** DS-15/DS-19 masters, backups, metadata and all media checked; shared waitlist Jan9 9AM / Jan7 6PM Central.
+
 
 - [Codex: three AI-Dan exercise demos](handoff-20261107-codex-exercise-demos-three.md): **R3 stopped 2026-11-10: no acceptable curl.** Dan rejected R2; three fresh subscription takes also independently FAIL. [Good demos unchanged](http://127.0.0.1:10967/?round=codex-r3): chest press and shrug. Rejected curl removed; recommend actual filmed EZ-bar curl. Nothing installed. R3 210 subscription credits, API $0. [Receipt](../Docs/EXERCISE_DEMOS_CODEX_R3_20261110.md).
 

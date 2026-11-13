@@ -1595,5 +1595,27 @@
     "approved": "Final fourth-round thumbnail, Dan 2026-10-11 setup receipt",
     "sha256": "3587f2bd06f93c89aec92d02d2f1c846b83e44abcff525bcbb48dbd8553ba2ea",
     "when": "2026-12-07T18:00:00.000Z"
+  },
+  {
+    "job": "DS-15",
+    "slug": "ds-15",
+    "match": "Does jiu jitsu get you abs? Here's the honest answer from a black belt.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds15-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "X3 (design A), Dan 2026-11-02",
+    "sha256": "a3955cbc91c34ac9147dbb9f5e2d9696401a9e6d43308ecd5983c761cfa480d3",
+    "when": "2027-01-09T15:00:00.000Z"
+  },
+  {
+    "job": "DS-19",
+    "slug": "ds-19",
+    "match": "Battle ropes are an incredible total body cardio workout. Here's how to use them.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds19-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "X8 text V3, Dan 2026-11-02",
+    "sha256": "402685b09b74dfd337ff22446ee7294d9e1155b499734032ce52c45427547c3b",
+    "when": "2027-01-08T00:00:00.000Z"
   }
 ]

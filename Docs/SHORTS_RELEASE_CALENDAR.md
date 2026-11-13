@@ -92,8 +92,8 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Tue Jan 5 | 3 | 9 AM | How To Do T-Bar Rows The Right Way (DS-77, gym) | Live |
 | Tue Jan 5 | 3 | 6 PM | How To Do Bodyweight Squats (DS-61) | Waitlist |
 | Thu Jan 7 | 3 | 9 AM | The #1 Change I Made To Get Abs At 40 | Waitlist |
-| Thu Jan 7 | 3 | 6 PM | OPEN | Not booked |
-| Sat Jan 9 | 3 | 9 AM | OPEN | Not booked |
+| Thu Jan 7 | 3 | 6 PM | How To Use Battle Ropes (DS-19) | Waitlist |
+| Sat Jan 9 | 3 | 9 AM | Does Jiu Jitsu Get You Abs? (DS-15) | Waitlist |
 | Sat Jan 9 | 3 | 6 PM | OPEN | Not booked |
 | Mon Jan 11 | 3 | 9 AM | OPEN | Not booked |
 | Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
@@ -134,3 +134,5 @@ Approved one-off exceptions kept: Sat Oct 31 noon Five Minute Exercises (DS-55),
 October29: SL-11 finalized films and exact R4 covers approved; all uploads/preflights complete. Three waiting-list slots reserved after RO-02 January15 public release: January16 at9AM/6PM and January18 at6PM Central. Queue full; dates are plans, not live schedules. Receipt: `Docs/SL11_SETUP_RECEIPT_20261029.md`.
 
 November 8: Calories Dont Matter (SL-13) setup complete with covers Protein X3, Eat Less X4 and Steps X3. Three complete shared-waitlist entries reserve Jan 28 at 6 PM and Jan 30 at 9 AM/6 PM Central, after the parent Jan 27 release. All four platform targets share each slot. Blotato 199/200, so these are waiting-list plans, not live schedules. Receipt: `Docs/SL13_SETUP_RECEIPT_20261108.md`.
+
+November 13: DS-19 (Battle Ropes, X8 text V3) and DS-15 (Jiu Jitsu, X3) setup complete with verified backups/media/covers. Shared waiting-list readback reserves January 7 at 6 PM and January 9 at 9 AM Central respectively, all four platforms. These are waiting-list plans, not live schedules. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.

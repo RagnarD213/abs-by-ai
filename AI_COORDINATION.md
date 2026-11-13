@@ -1,6 +1,6 @@
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
-**Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete; DS-19 Jan7 6PM / DS-15 Jan9 9AM Central shared waitlist, full readback. RO-08 queued Nov27 9AM YouTube, Nov28 noon FB/IG. Next: shared top-up and existing release checks. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
+**Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
 
 # Abs By AI — Coordination / Status Board
 

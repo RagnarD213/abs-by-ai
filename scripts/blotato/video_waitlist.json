@@ -269,7 +269,11 @@
   "job": "RO-08",
   "label": "Intermittent Fasting: The Best Way To Get Abs",
   "added": "2026-10-14",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-13",
+   "main": "2026-11-27T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl16-short1-just-skip-breakfast.json",
@@ -982,5 +986,25 @@
   "filming_set": "studio, with existing real stock cutaways",
   "planned": "2027-01-30 18:00",
   "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+ },
+ {
+  "config": "scripts/blotato/configs/ds19-battle-ropes.json",
+  "kind": "short",
+  "job": "DS-19",
+  "label": "How To Use Battle Ropes",
+  "added": "2026-11-13",
+  "kitchen": false,
+  "planned": "2027-01-07 18:00",
+  "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
+ },
+ {
+  "config": "scripts/blotato/configs/ds15-jiu-jitsu-abs.json",
+  "kind": "short",
+  "job": "DS-15",
+  "label": "Does Jiu Jitsu Get You Abs?",
+  "added": "2026-11-13",
+  "kitchen": false,
+  "planned": "2027-01-09 09:00",
+  "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
  }
 ]

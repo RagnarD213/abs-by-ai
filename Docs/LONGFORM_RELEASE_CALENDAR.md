@@ -29,7 +29,7 @@ Phase 3 weekly themes: Dec 26 to Jan 3 starting a plan; Jan 4 to 10 technique an
 | Wed Nov 18 | 1 | RO-28 Why Zepbound Improves Your Health Even If You're Ripped | Live: YouTube6213010 Nov18 9AM; FB6213006/IG6213007/TikTok6213008 Nov19 noon Central. Receipt Docs/RO28_SETUP_RECEIPT_20261029.md |
 | Sun Nov 22 | 1 | RO-23 I Ranked Every Ab Exercise From Worst To Best | Waitlist; exact R4 + X2 approved Nov1; Nov22 9AM protected, socials Nov23 noon. Receipt `Docs/RO23_SETUP_RECEIPT_20261101.md` |
 | Wed Nov 25 | 1 | How To Work Out At Home On A Budget | Live |
-| Fri Nov 27 | 2 | Intermittent Fasting: The Best Way To Get Abs | Waitlist |
+| Fri Nov 27 | 2 | Intermittent Fasting: The Best Way To Get Abs | Queued Nov13: YouTube6915903 Nov27 9AM; FB6915899/IG6915901 Nov28 noon. TikTok direct after public YouTube. |
 | Sun Nov 29 | 2 | My Honest Oura Ring Review After 1.5 Years | Live |
 | Wed Dec 2 | 2 | Why You MUST Work Out Every Day | Waitlist |
 | Fri Dec 4 | 2 | My First Spray Tan | Waitlist |

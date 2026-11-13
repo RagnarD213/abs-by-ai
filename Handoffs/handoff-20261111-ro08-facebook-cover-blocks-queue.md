@@ -1,5 +1,7 @@
 # Handoff: Intermittent Fasting (RO-08) cannot be queued, Facebook cover not registered
 
+**Executed 2026-11-13 by Codex.** Approved A registered in repo/live installer; all waiting long-form cover gaps repaired. RO-08 schedules read back for Nov27/28. Receipts: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`, `Docs/RO08_SETUP_RECEIPT_20261014.md`.
+
 **Category:** CONTENT, long-form (LFC). Setup repair, not an edit.
 **Date:** 2026-11-11. **Written by:** Claude (daily `social-queue-daily-refresh` run).
 **Owner:** Codex (setup owner for all videos since 2026-11-07). Grokbot may do it instead if Codex is unavailable.

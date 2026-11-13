@@ -1,0 +1,223 @@
+{
+  "date": "2026-11-13",
+  "category": "CONTENT setup only, SFC DS-15/DS-19; LFC RO-08 cover repair",
+  "approved_files": [
+    {
+      "job": "DS-15",
+      "baseline": "/Volumes/Extreme/_edit_work/revisions-20261101/muhammad/dl/ds15_jiujitsu_v2.mp4",
+      "md5": "0919c05e38d83de89b403d7226b0a50d",
+      "HQ_md5": "aa5d5a216c1ddf34c288978f1645a1fc",
+      "HQ_sha256": "a0779c2c82f45dce9eca6ee4fb8a97461f75f30a867b77e7f8452853bbc359a5",
+      "duration_and_frames": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30000/1001",
+            "nb_frames": "1346"
+          },
+          {
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "2107"
+          }
+        ],
+        "format": {
+          "duration": "44.911542"
+        }
+      },
+      "cut_comparison": "Inherited verified November 3 HQ vs V2: matching duration/frame count; sampled picture differences recorded as encoding noise. No edit or audio processing in setup."
+    },
+    {
+      "job": "DS-19",
+      "baseline": "/Volumes/Extreme/_edit_work/revisions-20261101/muhammad/dl/ds19_ropes_v2.mp4",
+      "md5": "f0492615182b8aa34241ccc43afbb0a4",
+      "HQ_md5": "572d9a53f05293afd6f36483ba40e354",
+      "HQ_sha256": "ff5e92b6248b5e00c0aa8ab73ff28d35c1846a2ec159f5d743e7932d8ea17468",
+      "duration_and_frames": {
+        "programs": [],
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1080,
+            "height": 1920,
+            "r_frame_rate": "30000/1001",
+            "nb_frames": "1343"
+          },
+          {
+            "codec_type": "audio",
+            "r_frame_rate": "0/0",
+            "nb_frames": "2102"
+          }
+        ],
+        "format": {
+          "duration": "44.811438"
+        }
+      },
+      "cut_comparison": "Inherited verified November 3 HQ vs V2: matching duration/frame count; sampled picture differences recorded as encoding noise. No edit or audio processing in setup."
+    }
+  ],
+  "audio_packet_verification": {
+    "ds15": {
+      "audio_packet_count": 2106,
+      "all_audio_packet_SHA256_equal": true
+    },
+    "ds19": {
+      "audio_packet_count": 2101,
+      "all_audio_packet_SHA256_equal": true
+    }
+  },
+  "tiktok_verification": {
+    "ds15": {
+      "frames_src": 1346,
+      "frames_out": 1347,
+      "audio_pkts_src": 2106,
+      "audio_pkts_out": 2106,
+      "decode_errors": "",
+      "cover_psnr": 48.8623257489125,
+      "ok": true
+    },
+    "ds19": {
+      "frames_src": 1343,
+      "frames_out": 1344,
+      "audio_pkts_src": 2101,
+      "audio_pkts_out": 2101,
+      "decode_errors": "",
+      "cover_psnr": 51.081943647038166,
+      "ok": true
+    }
+  },
+  "backups": {
+    "ds15": "https://drive.google.com/open?id=1pzpkz25qCB-BEcsCKSRJRG6BhFnowMzA",
+    "ds19": "https://drive.google.com/open?id=1N8TZDQm9YShcRhT0krESelxDP3ym51Fj"
+  },
+  "backup_checks": "Six files per Short match project + Extreme, and rclone remote checks returned six matching files with zero differences on each public Google Drive folder. No standalone SRT supplied; burned captions retained.",
+  "uploads": {
+    "ds15/master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/567f095c-b7e8-4baf-a521-af3748ec5418.mp4",
+      "sha256": "a0779c2c82f45dce9eca6ee4fb8a97461f75f30a867b77e7f8452853bbc359a5",
+      "bytes": 120772677,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Does Jiu Jitsu Get You Abs? - DS-15/Does Jiu Jitsu Get You Abs? | muhammad | 9x16 | V2 HD.mp4"
+    },
+    "ds15/instagram_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9daa0c63-9a25-429c-9ee5-9522423f8055.png",
+      "sha256": "a3955cbc91c34ac9147dbb9f5e2d9696401a9e6d43308ecd5983c761cfa480d3",
+      "bytes": 1996881,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds15/instagram.png"
+    },
+    "ds15/youtube_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/53d852c0-c49a-448c-98a5-14d45656d921.jpg",
+      "sha256": "9af3183f2b1da6b7ac82e85159091337d7002f9c24a200390ab42819f68e8920",
+      "bytes": 345131,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds15/youtube.jpg"
+    },
+    "ds19/master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/03dc9ea1-0c7e-4a13-8139-d0047bc39e7e.mp4",
+      "sha256": "ff5e92b6248b5e00c0aa8ab73ff28d35c1846a2ec159f5d743e7932d8ea17468",
+      "bytes": 61594872,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/How To Use Battle Ropes - DS-19/How To Use Battle Ropes | muhammad | 9x16 | V2 HD.mp4"
+    },
+    "ds19/instagram_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/af11a0ac-3fb1-4ff4-b3c0-355111543bbd.png",
+      "sha256": "402685b09b74dfd337ff22446ee7294d9e1155b499734032ce52c45427547c3b",
+      "bytes": 1683775,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds19/instagram.png"
+    },
+    "ds19/youtube_cover": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ddc0558f-5e82-4db3-8a7a-1cf85e5fe510.jpg",
+      "sha256": "46a273e2106ae67b1318a6e17835737e8a05a9754c80dc2ed1a35be24c08aeed",
+      "bytes": 316244,
+      "local": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds19/youtube.jpg"
+    },
+    "ds15/tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/06626309-f1ef-45be-83e7-67e34fb17b96.mp4",
+      "sha256": "ea0328c4e1aec2163e7d912be5f21172e6b622f6632c07b9099a9ef19148056f",
+      "bytes": 120896714,
+      "local": "/Volumes/Extreme/_edit_work/ds15-ds19-publish/ds15-tiktok-cover-first.mp4"
+    },
+    "ds19/tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c6d6c261-b1f2-415e-a075-0eb690a0d94d.mp4",
+      "sha256": "1e7cbd378666d3fb0576871b57b9dea2bff2128f9e36dc0633238b59529b9dd0",
+      "bytes": 61723315,
+      "local": "/Volumes/Extreme/_edit_work/ds15-ds19-publish/ds19-tiktok-cover-first.mp4"
+    }
+  },
+  "waitlist_readback": [
+    {
+      "config": "scripts/blotato/configs/ds19-battle-ropes.json",
+      "kind": "short",
+      "job": "DS-19",
+      "label": "How To Use Battle Ropes",
+      "added": "2026-11-13",
+      "kitchen": false,
+      "planned": "2027-01-07 18:00",
+      "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
+    },
+    {
+      "config": "scripts/blotato/configs/ds15-jiu-jitsu-abs.json",
+      "kind": "short",
+      "job": "DS-15",
+      "label": "Does Jiu Jitsu Get You Abs?",
+      "added": "2026-11-13",
+      "kitchen": false,
+      "planned": "2027-01-09 09:00",
+      "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
+    }
+  ],
+  "RO08_live_schedule_readback": [
+    {
+      "account": "46963",
+      "schedule": "6915903",
+      "scheduledAt": "2026-11-27T15:00:00.000Z",
+      "target": {
+        "title": "Intermittent Fasting: The Best Way To Get Abs",
+        "targetType": "youtube",
+        "thumbnailUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8febfe51-afb2-4c3e-81c2-9850ea1f4f1e.jpg",
+        "isMadeForKids": false,
+        "privacyStatus": "public",
+        "containsSyntheticMedia": true,
+        "shouldNotifySubscribers": true
+      },
+      "mediaUrls": [
+        "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6fb4a081-0c2f-4024-a518-87e00eca15d5.mp4"
+      ]
+    },
+    {
+      "account": "47105",
+      "schedule": "6915899",
+      "scheduledAt": "2026-11-28T18:00:00.000Z",
+      "target": {
+        "pageId": "1294282227094660",
+        "mediaType": "reel",
+        "targetType": "facebook"
+      },
+      "mediaUrls": [
+        "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bfca9cb5-6523-4be1-b7ef-3f0aedadbc40.mp4"
+      ]
+    },
+    {
+      "account": "67203",
+      "schedule": "6915901",
+      "scheduledAt": "2026-11-28T18:00:00.000Z",
+      "target": {
+        "mediaType": "reel",
+        "targetType": "instagram",
+        "shareToFeed": true,
+        "firstComment": "See what you'd look like with a six-pack: https://absbyai.com/?utm_source=instagram&utm_medium=video&utm_campaign=longform&utm_content=ro08-intermittent-fasting",
+        "coverImageUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8febfe51-afb2-4c3e-81c2-9850ea1f4f1e.jpg"
+      },
+      "mediaUrls": [
+        "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f4de584f-2a78-4470-8ab4-16d42cf35be3.mp4"
+      ]
+    }
+  ],
+  "final_checks": {
+    "organic_short_helper_dry_runs": "Both: four creates, no clashes, account cap respected",
+    "all_waitlist_dry_run": "Both saved slots preserved, no PROBLEM line",
+    "ad_guard": "CLEAN, 181 schedules",
+    "cover_audit": "zero issues",
+    "edit_queue": "DS-15, DS-19 and RO-08 uploaded; each Drive status upload confirmed"
+  }
+}

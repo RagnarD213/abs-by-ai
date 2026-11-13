@@ -630,3 +630,12 @@ Dan picked X1, unchanged, both layouts. Final R1 SHA256 d12e90f5664bb785b9f28801
 ## DONE: RO-32 Ten Exercises setup, 2026-11-13
 
 Exact film `414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d` unchanged; approved FINAL thumbnail `a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9`. Blotato schedules YouTube6913482 Jan29,2027 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon. All saved payloads/media downloads verified; queue180/200. Config `scripts/blotato/configs/ro32-ten-exercises.json`, TRAIN keyword, organic root UTM. No waitlist/native YouTube upload/new routine. Public YouTube must be verified before socials; native tags/SRT and actual public covers remain release checks. Receipt `Docs/RO32_SETUP_RECEIPT_20261113.md`.
+
+
+## DONE setup, shared waitlist: Jiu Jitsu DS-15 and Battle Ropes DS-19 (2026-11-13)
+
+Dan approved films and exact covers. Eight assets uploaded/downloaded/hash-verified, project + Extreme + public Drive checks passed. DS-19 X8 text V3 plans Jan7 2027 6PM Central; DS-15 X3 plans Jan9 9AM Central, each all four platforms. Both read back from the shared waitlist, no live Blotato schedules yet. Pinned questions saved; release-time articles and public cover checks use existing routines. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`; hashes/URLs `Docs/DS15_DS19_SETUP_VERIFICATION_20261113.json`.
+
+## DONE: RO-08 Facebook cover repair and queue (2026-11-13)
+
+Exact approved A installed in repo/live installer, SHA256 c00078f63800522454643f4b18388b4575207f3e514e9f392d13c00ad28f6461. Normal top-up path read back YouTube6915903 Nov27 9AM Central; FB6915899/IG6915901 Nov28 noon after public YouTube. TikTok direct follow-through remains. Also fixed existing approved FB cover gaps for RO-07, RO-19 and Zeeshan Video5; all 14 waiting long-form cover preflights pass. Post-write ad scan CLEAN, cover audit zero issues. Receipt: `Docs/RO08_SETUP_RECEIPT_20261014.md`.

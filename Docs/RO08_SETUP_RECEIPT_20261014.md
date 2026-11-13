@@ -1,6 +1,6 @@
 # RO-08 "Intermittent Fasting: The Best Way To Get Abs" setup receipt (2026-10-14)
 
-**CONTENT, long-form (LFC).** **State updated November 13: setup repaired and on the shared waiting list for YouTube Friday November 27, 2026, 9 AM Central. Facebook/Instagram follow Saturday November 28 at noon after YouTube is verified public. Earlier January dates below are historical.**
+**CONTENT, long-form (LFC).** **State updated November 13: QUEUED and read back. YouTube Friday November 27, 2026, 9 AM Central (6915903); Facebook (6915899) and Instagram (6915901) Saturday November 28 at noon, after YouTube is verified public. Earlier January dates below are historical.**
 
 - **Classification:** organic. Closing words: "So check it out and generate an image of your future self. Go to AbsByAI.com now. Thanks for watching this video and I'll see you guys next time." No tap-the-button call to action. `ad_guard.py --scan` CLEAN (196 scheduled posts). No Blotato schedule was written.
 - **Earlier copy check:** the channel's 122 uploads hold no long-form on fasting; the only match is the 66 second Short "Why I Skip Breakfast Every Single Day" (`UFga137pseM`, public 2026-09-22), now linked from the description. No fasting long-form in the live Blotato queue or the configs.
@@ -40,3 +40,9 @@
 Registered the existing approved A, Dan 2026-10-14 thumbnail, exact 1280x720 JPEG pixels, in `scripts/blotato/fb_reel_covers.json` and the live installer at `~/.absbyai/fb-reel-covers/`. Saved a durable copy under `scripts/blotato/fb_covers/`. SHA-256 `c00078f63800522454643f4b18388b4575207f3e514e9f392d13c00ad28f6461`. Exact first caption line matched the config; the normal Facebook scheduling cover guard passed against both registry copies. No new image, cover choice or existing post change. All 14 waiting long-forms now pass this Facebook cover-registration check.
 
 `video_topup.py` dry run: 178/200 live posts; would queue RO-08 Friday November 27 at 9 AM Central, no PROBLEM line. The shared top-up routine owns queue placement; no `--apply` run in this repair. TikTok still requires the existing direct-upload release task to run November 28 after YouTube is public; its historical January schedule has not yet been checked in this repair. Thumbnail A/B and SRT steps remain after release.
+
+### Verified queue placement, November 13
+
+Ran the existing `video_topup.main()` apply path with its effective cap temporarily lowered to current queue count plus three (178 + 3 = 181). This bounded the repair to RO-08, kept every normal organic/cover/date guard, and left all other jobs and the actual 200-post plan cap unchanged. The routine kept the approved Nov 27 slot. Readback: YouTube **6915903** Nov 27 `15:00Z` (9 AM Central), Facebook **6915899** and Instagram **6915901** Nov 28 `18:00Z` (noon Central), zero problems. The waiting-list entry now has `queued` metadata. Set Facebook media type to the currently required `reel` route. Post-write `ad_guard.py --scan`: CLEAN, 181 schedules. Regenerated `queue_artifact_data.py`. No existing post was moved or deleted.
+
+TikTok direct upload, thumbnail A/B and SRT follow-through remain post-release work as recorded above. The existing direct-upload task timing was not verified through a supported scheduler tool in this repair; no new per-video task was created.

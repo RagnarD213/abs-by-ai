@@ -1,5 +1,7 @@
 # Handoff: finish three stalled video setups (2026-11-13)
 
+**Executed 2026-11-13 by Codex.** DS-15/DS-19 complete on shared waitlist; RO-08 queued Nov27, approved Facebook cover installed. Receipts: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`, `Docs/RO08_SETUP_RECEIPT_20261014.md`.
+
 **Category:** CONTENT setup only (two SFC Shorts, one LFC). No editing.
 **Owner:** Codex (setup owner for all videos since 2026-11-07). Grokbot may do item 2 if Codex is unavailable.
 **Recommended model:** Codex newest Sol (`gpt-6.1-sol`), high effort.

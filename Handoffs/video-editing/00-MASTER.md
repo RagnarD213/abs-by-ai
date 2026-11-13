@@ -24,7 +24,6 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 | job | the decision |
 |---|---|
 | RA-08 | "Why Are Trainers Going Out Of Business?" was filmed only up to *"Here's how it works"*. Cut a ~30 s version ending on the filmed CTA, or drop it? |
-| DS-15 | "Does Jiu Jitsu Get You Abs?" needs BJJ b-roll that was never filmed. Film it at the academy, use your own archive footage, or use stock? On the shoot list: `Docs/NEXT_SHOOT_LIST.md`. |
 | DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
 
@@ -74,7 +73,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [DS-12](DS-12-top-3-ways-to-looksmax.md) | Top 3 Ways To Looksmax | C1660 | UPLOADED | S |
 | [DS-13](DS-13-number-1-change-to-get-abs-at-40.md) | The #1 Change I Made To Get Abs At 40 | C1661 | FINALIZED | S |
 | [DS-14](DS-14-3-ways-to-reduce-alcohol.md) | 3 Ways To Reduce Alcohol | C1662 | FINALIZED | S |
-| [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | IN PROGRESS | S |
+| [DS-15](DS-15-does-jiu-jitsu-get-you-abs.md) | Does Jiu Jitsu Get You Abs? | C1662 | UPLOADED | S |
 | [DS-16](DS-16-how-to-lose-the-last-ten-pounds.md) | How To Lose The Last Ten Pounds Of Fat | C1662 | FINALIZED | S |
 
 **Workout shorts**
@@ -83,7 +82,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 |---|---|---|---|---|
 | [DS-17](DS-17-how-to-jump-rope.md) | How To Jump Rope | C1670 | UPLOADED | S |
 | [DS-18](DS-18-how-to-kettlebell-deadlift.md) | How To Kettlebell Deadlift | C1671 | UPLOADED | S |
-| [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | IN PROGRESS | S |
+| [DS-19](DS-19-how-to-use-battle-ropes.md) | How To Use Battle Ropes | C1671 | UPLOADED | S |
 | [DS-20](DS-20-five-levels-of-pushups.md) | The Five Levels Of Pushups | C1671 | FINALIZED | S |
 | [DS-21](DS-21-how-to-do-hammer-curls.md) | How To Do Hammer Curls | C1672 | UPLOADED | S |
 | [DS-22](DS-22-how-to-use-the-ab-wheel.md) | How To Use The Ab Wheel | C1672 | UPLOADED | S |
@@ -102,7 +101,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-05](RO-05-how-i-make-my-daily-salad.md) | How I Make My Daily Salad | 8/3 C1533–56 (50 min) | UPLOADED | L |
 | [RO-06](RO-06-work-out-at-home-on-a-budget.md) | How To Work Out At Home On A Budget | 8/3 C1557–81 (31 min) | UPLOADED | L |
 | [RO-07](RO-07-why-you-must-work-out-every-day.md) | Why You MUST Work Out Every Day | 7/8 C1484–85 (30 min) | FINALIZED | L |
-| [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | FINALIZED | L |
+| [RO-08](RO-08-intermittent-fasting.md) | Intermittent Fasting: Best Way To Get Abs | 7/8 C1486 (23 min) | UPLOADED | L |
 | [RO-09](RO-09-pushup-masterclass.md) | Pushup Masterclass: 6 Levels From Beginner To Advanced | 8/28 C1680, C1681 (+C1684) | UNEDITED: old edit scrapped, redo from scratch | M |
 
 **9/23 shoot shorts (portrait, C1719-C1720)**
