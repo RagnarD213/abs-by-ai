@@ -29,9 +29,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**FlowClips-b2/b3:GENERATING:2026-11-13:Claude.** Batch2 video (16 clips) + batch3 frames (21 ideas) in Flow; pages 9244/9245 next; `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+
+**Ten Exercises LFC Setup ACTIVE 2026-11-13, Codex.** Approved RO-32 master locked. Backups and blind thumbnail page in progress; stop for Dan’s pick. Detail: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**WhatToCut-SFL(SL-21):DAN-PICKING:2026-11-12:Claude.**Shortlist-in-chat;Feb-slots.
+**WhatToCut-SFL(SL-21):BUILDING-R1:2026-11-13:Claude.**Picks-A/D/E;~/Projects/_edit_work/SL-21;Feb-slots.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
