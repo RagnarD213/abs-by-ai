@@ -168,6 +168,41 @@ Traps for Phase 1 (read before cutting):
 - Corpus: `qc_corpus/run.py` needs `--no-selftest` until the audio selftest's Muhammad references (moved to Expansion
   on 2026-10-31) are restored; 3 approved entries (ds52, ds63, ds37) read TIGHT on rows this work did not touch.
 
+## Batch 1 result (2026-11-13): read before cutting any other batch
+
+Batch 1 (leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown) needed four independent review rounds. Every
+failure below was avoidable. Copy the Batch 1 recipe, not the pilot's: `~/Projects/_edit_work/REALDEMOS-B01/`
+(`build.py`, `make_plan.py`, `make_review.py`, `gates.sh`, `finish.sh`, `REVIEW-BRIEF.md`, `tools/`; a checksummed copy
+goes to `Media/exercise-demos/real/b01-recipe/` when the batch is approved).
+
+- **Dan's reps have almost no pause.** A pulldown bottom lasts 1 to 2 frames, a row's reach about 0.1 s, a top about
+  0.3 s. A contact sheet at 5 fps cannot place a cut. Find turnaround frames by measurement: `tools/edge.py` (top edge of
+  the weight stack, frame-accurate), a colour tracker for a moving pad, or the frame-difference minimum, then look at the
+  exact frames. Cut on the turnaround frame on BOTH sides.
+- **Cut by frame number, not by seconds.** `build.py` takes (first source frame, last source frame) per shot and trims
+  with `trim=end_frame`; `edit.json` records each shot's start frame, and `make_plan.py` reads it. The pilot's
+  seconds-based cuts landed 1 to 2 frames off the plan, so the watch strips showed no cut.
+- **Loop seam.** First and last frame must be the same pose AND the same framing. Best: end on the rep that precedes the
+  opening frame in the same take (last frame = source frame N-1, first = N: a continuous loop). Otherwise compare the
+  back edge of his body and the background (phase correlation) between candidate end frames; he drifts on his feet and
+  later reps often stop shallower than the first. "Locked-off" takes still pan a few px a second.
+- **A line must fit the phase it names.** Pulls and pushes last 0.5 to 1.0 s, returns 1.5 to 2.5 s. Write lines of 1.0
+  to 1.5 s for a pull, put "slowly" lines on a wide-shot return, and make the LAST line sit on a pull or push so the
+  return that follows is the silent tail (a last line on a return leaves no tail before the rest position).
+  "Word" must not start more than about 0.4 s before its movement starts.
+- **Screen every detail clip frame by frame before using it:** hands, bar, feet and the working joint in frame for the
+  whole insert, hair inside the top edge, no grin, no strain face filling the frame, no gym member standing behind him,
+  camera steady. If no detail clip is clean, stay on the wide take (one continuous shot is acceptable and passed review)
+  and say so on the page. The defective-source hair clause does not apply when the wide take is a complete alternative.
+- **Form that is in every rep is Dan's decision, not a cut problem.** Measure it, do not narrate against it, and put it
+  first on the review page as a question (Batch 1: pushdown elbows travel forward at the top; row torso leans back about
+  30 degrees). Never write a cue the picture contradicts ("sit tall", "elbows pinned").
+- **Narration audio:** regenerate the read whenever the script changes (removing a line from the middle of a read leaves
+  the wrong intonation); lead each line in by 0.08 s and out by 0.035 s.
+- **Reviewer brief:** give each fresh `ra-reviewer` two demos, `REVIEW-BRIEF.md`, and the facts the brief does not cover;
+  it writes `watch/findings.json`; then `finish.sh` runs `--judge` and the delivery gate. A review of two demos takes
+  about 17 minutes. Crop the wide take off any gym member at the frame edge before the first review.
+
 ## Starter prompt (Phase 0)
 
 > Real Exercise Demos Pilot R1. Read `Handoffs/handoff-20261109-real-broll-exercise-demos.md` and run Phase 0 only: build the three pilot demos (cable-crunch, leg-press, pullup) from the real gym B-roll in the clip library with the cloned-voice narration, add the `exercise-demo-real` delivery gate format, pass the gates, and put them on a 1080p review page with the current AI demo beside each replacement. Install nothing. Dan has authorized the whole plan; stop only for his review of the pilot.

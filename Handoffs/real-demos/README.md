@@ -3,6 +3,8 @@
 Dan, 2026-11-13: "Let's redo everything that we have B-roll with, with real stuff, and only things we don't have
 B-roll with will be done with AI." Pilot (cable crunch, leg press, pull-up) approved and installed that day.
 Master plan, format and traps: `../handoff-20261109-real-broll-exercise-demos.md`.
+**Before cutting any batch, read that file's "Batch 1 result" section** (2026-11-13): Batch 1 took four review rounds;
+its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, detail-clip screening) replaces the pilot's.
 
 | batch | what | outcome | exercises | file |
 |---|---|---|---|---|
