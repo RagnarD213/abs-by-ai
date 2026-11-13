@@ -209,6 +209,11 @@ def run(start, end, spec, outdir):
                 for p in (pS, pE):
                     p["hip_width"] = math.dist(p["pts"]["left_hip"][:2], p["pts"]["right_hip"][:2])
                     p.setdefault("shoulders", math.dist(p["pts"]["left_shoulder"][:2], p["pts"]["right_shoulder"][:2]))
+                    # "head": mean of ear-to-ear and outer-eye-to-outer-eye width. The size measure a chest-up shrug leaves
+                    # valid (SL-21 R2, 2026-11-13: a two-handed shrug pulled the shoulder landmarks 20 % inward on a body
+                    # whose head changed 6 %). Only valid when the head does not turn sideways; a tilt keeps it.
+                    p["head"] = (math.dist(p["pts"]["left_ear"][:2], p["pts"]["right_ear"][:2])
+                                 + math.dist(p["pts"]["left_eye_outer"][:2], p["pts"]["right_eye_outer"][:2])) / 2
                 rows.add("person:compare", True, f"measures chosen by the spec: {', '.join(pick)} ({per['compare_why']})")
             ch = {b: pE[b] / pS[b] - 1 for b in (tuple(pick) if pick else ("shoulders",) if hidden else
                                                  ("shoulders", "shins", "upper_arms", "forearms") if front else ("torso", "thigh", "shin"))}
