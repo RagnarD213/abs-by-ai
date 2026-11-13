@@ -1,6 +1,6 @@
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
-**DS15/19 2026-11-02:** covers-picked;HQ-awaited.
+**Stalled video setups ACTIVE 2026-11-13, Codex.** Dan authorized takeover: finish DS-15/19 backups, metadata, uploads and waitlist; register RO-08 approved Facebook cover. Next: verify assets and complete setup. Receipt: Docs/DS15_DS19_SETUP_RECEIPT_20261102.md.
 
 # Abs By AI — Coordination / Status Board
 
@@ -29,6 +29,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**Two-Mac M2 prep — ACTIVE 2026-11-13, Codex.** Executing handoff 01 without reboot; running edits preserved. Next: configure headless access and verify, then push receipt.
+
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 filed (A0255-A0262). Batch3 frames page 9245 (14 ideas). Next: his selections, then batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
@@ -37,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**KevinJamesCheat-SFC-R1(DS-41):BUILDING:2026-11-13:Claude.**Both-versions;/Volumes/Expansion/_edit_work/DS-41/r1;key-running.
+**KevinJamesCheat-SFC-R1(DS-41):PAUSED-BY-DAN:2026-11-13:Claude.**Until-JointVigor-style-options-done;scripted-final-awaiting-re-review,offcuff-rebuild-pending;/Volumes/Expansion/_edit_work/DS-41/r1/RESUME.md.
 
 **WhatToCut-SFL(SL-21):R2-FRAME-PICKS:2026-11-13:Claude.**Short3-final;Shorts1/2-approved-except-new-lip-synced-excuse-clips;frame-pairs-for-Dan:http://127.0.0.1:9621/;setup-handoff-on-HOLD.
 
