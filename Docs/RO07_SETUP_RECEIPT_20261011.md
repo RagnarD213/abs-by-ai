@@ -24,3 +24,8 @@
 4. Read back all four schedules; `tiktok_cover.py` audit (the config already carries the cover-first copy). TikTok may refuse 18:07; if so keep the other three and tell Dan.
 5. Edit Queue: `queue.py set RO-07 uploaded`, mirror to the artifact, `mark-synced`. Board: replace the HOLD entry with QUEUED.
 6. After release: verify YouTube public before the Monday posts, upload the .srt as English captions in Studio, add the SL- shorts job for this film.
+
+
+## Facebook cover repair, November 13, 2026 (Codex)
+
+Registered the existing approved Option 3 variation A thumbnail, exact 1280x720 JPEG pixels, in `scripts/blotato/fb_reel_covers.json` and the live installer at `~/.absbyai/fb-reel-covers/`. Saved a durable copy under `scripts/blotato/fb_covers/`. SHA-256 `2eb49aa6707bc1baaa13aaf1aa6956d172a2dcb676dffeb8242aba3b74c28ad7`. Exact first caption line matched the config; the normal Facebook scheduling cover guard passed against both registry copies. No new image, cover choice or existing post change. All 14 waiting long-forms now pass this Facebook cover-registration check.

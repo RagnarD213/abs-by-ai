@@ -1551,5 +1551,49 @@
     "h": 720,
     "job": "RO-32",
     "sha256": "a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9"
+  },
+  {
+    "job": "RO-08",
+    "slug": "ro08-intermittent-fasting",
+    "match": "Here's the simplest way to do intermittent fasting to get abs.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro08-intermittent-fasting-approved.jpg",
+    "w": 1280,
+    "h": 720,
+    "approved": "A, Dan 2026-10-14",
+    "sha256": "c00078f63800522454643f4b18388b4575207f3e514e9f392d13c00ad28f6461",
+    "when": "2026-11-28T18:00:00.000Z"
+  },
+  {
+    "job": "RO-07",
+    "slug": "ro07-work-out-every-day",
+    "match": "A 5 minute workout done every day gets beginners better results than a one hour workout done twice per week.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro07-work-out-every-day-approved.jpg",
+    "w": 1280,
+    "h": 720,
+    "approved": "Option 3 variation A, Dan 2026-10-11",
+    "sha256": "2eb49aa6707bc1baaa13aaf1aa6956d172a2dcb676dffeb8242aba3b74c28ad7",
+    "when": "2026-12-03T18:00:00.000Z"
+  },
+  {
+    "job": "RO-19",
+    "slug": "ro19-my-first-spray-tan",
+    "match": "I just got my first spray tan, and here's why you should consider one if you want to look good in photos.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro19-my-first-spray-tan-approved.jpg",
+    "w": 1280,
+    "h": 720,
+    "approved": "Option 3 colour A, Dan 2026-10-13",
+    "sha256": "d84fc5915fe10181ed852e829f1d282f9bd3c43145d188d475d2e5b11b74d594",
+    "when": "2026-12-05T18:00:00.000Z"
+  },
+  {
+    "job": "Zeeshan Video 5",
+    "slug": "abs-at-40-vs-25",
+    "match": "I got abs in my 20s, lost them in my 30s, and got them back at 40.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/abs-at-40-vs-25-approved.jpg",
+    "w": 1280,
+    "h": 720,
+    "approved": "Final fourth-round thumbnail, Dan 2026-10-11 setup receipt",
+    "sha256": "3587f2bd06f93c89aec92d02d2f1c846b83e44abcff525bcbb48dbd8553ba2ea",
+    "when": "2026-12-07T18:00:00.000Z"
   }
 ]

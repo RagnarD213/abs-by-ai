@@ -1,6 +1,6 @@
 # RO-08 "Intermittent Fasting: The Best Way To Get Abs" setup receipt (2026-10-14)
 
-**CONTENT, long-form (LFC).** **State: everything is ready and the film is on the Blotato waiting list. The daily routine queues it; expected YouTube release Sunday January 24, 2027, 9 AM Central.**
+**CONTENT, long-form (LFC).** **State updated November 13: setup repaired and on the shared waiting list for YouTube Friday November 27, 2026, 9 AM Central. Facebook/Instagram follow Saturday November 28 at noon after YouTube is verified public. Earlier January dates below are historical.**
 
 - **Classification:** organic. Closing words: "So check it out and generate an image of your future self. Go to AbsByAI.com now. Thanks for watching this video and I'll see you guys next time." No tap-the-button call to action. `ad_guard.py --scan` CLEAN (196 scheduled posts). No Blotato schedule was written.
 - **Earlier copy check:** the channel's 122 uploads hold no long-form on fasting; the only match is the 66 second Short "Why I Skip Breakfast Every Single Day" (`UFga137pseM`, public 2026-09-22), now linked from the description. No fasting long-form in the live Blotato queue or the configs.
@@ -33,3 +33,10 @@
 2. `curl -sI` the media URLs above; if any is gone, re-upload from `/Volumes/Extreme/_edit_work/ro08/publish/` and edit the `.build.py`.
 3. `python3 scripts/blotato/longform_queue.py scripts/blotato/configs/ro08-intermittent-fasting.json`, then `--apply`. If Jan 24 has been taken, move `main` to the next free Sunday in the `.build.py` first.
 4. Read back all three schedules (no TikTok in Blotato; see the TikTok line above).
+
+
+## Facebook cover repair, November 13, 2026 (Codex)
+
+Registered the existing approved A, Dan 2026-10-14 thumbnail, exact 1280x720 JPEG pixels, in `scripts/blotato/fb_reel_covers.json` and the live installer at `~/.absbyai/fb-reel-covers/`. Saved a durable copy under `scripts/blotato/fb_covers/`. SHA-256 `c00078f63800522454643f4b18388b4575207f3e514e9f392d13c00ad28f6461`. Exact first caption line matched the config; the normal Facebook scheduling cover guard passed against both registry copies. No new image, cover choice or existing post change. All 14 waiting long-forms now pass this Facebook cover-registration check.
+
+`video_topup.py` dry run: 178/200 live posts; would queue RO-08 Friday November 27 at 9 AM Central, no PROBLEM line. The shared top-up routine owns queue placement; no `--apply` run in this repair. TikTok still requires the existing direct-upload release task to run November 28 after YouTube is public; its historical January schedule has not yet been checked in this repair. Thumbnail A/B and SRT steps remain after release.

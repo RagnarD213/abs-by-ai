@@ -33,3 +33,8 @@
 4. Read back all three schedules (no TikTok in Blotato; see the TikTok line above).
 
 - **2026-10-22 TikTok run: not posted.** RO-19 did not release Wed Oct 21: it is still on the waitlist (no "queued" field) and the config's main is now Wed Dec 30 2026 9 AM Central. The task tried to re-arm itself for Thu Dec 31 2026 12:05 PM Central, but the scheduler refused the change without a person's approval, so the task needs re-arming by hand (fireAt 2026-12-31T12:05:00-06:00, or the day after main if main moves again).
+
+
+## Facebook cover repair, November 13, 2026 (Codex)
+
+Registered the existing approved Option 3 colour A thumbnail, exact 1280x720 JPEG pixels, in `scripts/blotato/fb_reel_covers.json` and the live installer at `~/.absbyai/fb-reel-covers/`. Saved a durable copy under `scripts/blotato/fb_covers/`. SHA-256 `d84fc5915fe10181ed852e829f1d282f9bd3c43145d188d475d2e5b11b74d594`. Exact first caption line matched the config; the normal Facebook scheduling cover guard passed against both registry copies. No new image, cover choice or existing post change. All 14 waiting long-forms now pass this Facebook cover-registration check.

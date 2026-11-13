@@ -20,3 +20,8 @@
   - video 5: https://drive.google.com/open?id=1OX6ylSROVrM_tuJy9ymYZFF9y3TtFVAc
 - **Videos 1 to 4 on 10-11:** V1 and V2 public on all four platforms; V3 YouTube posted Oct 11, socials Mon Oct 12; V4 queued on all four for Nov 8/9.
 - **Owed after Jan 3:** Studio English captions (Subtitles, Upload file, never the Languages page); verify YouTube is public before the Jan 4 socials; `gap.py` must not list the video; SL-14 shorts only after the parent is public.
+
+
+## Facebook cover repair, November 13, 2026 (Codex)
+
+Registered the existing approved Fourth-round final thumbnail, exact 1280x720 JPEG pixels, in `scripts/blotato/fb_reel_covers.json` and the live installer at `~/.absbyai/fb-reel-covers/`. Saved a durable copy under `scripts/blotato/fb_covers/`. SHA-256 `3587f2bd06f93c89aec92d02d2f1c846b83e44abcff525bcbb48dbd8553ba2ea`. Exact first caption line matched the config; the normal Facebook scheduling cover guard passed against both registry copies. No new image, cover choice or existing post change. All 14 waiting long-forms now pass this Facebook cover-registration check.
