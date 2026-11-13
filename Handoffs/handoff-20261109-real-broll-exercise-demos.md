@@ -138,7 +138,11 @@ Each phase is one review round. Run `editcap.py acquire` and the render queue as
 
 Voiceover about $0.01 per demo (under $1 total). No image or video generation. Editing is the cost: roughly one session per phase.
 
-## Phase 0 result (2026-11-09, Claude Opus 5.5): pilot built, at Dan's review
+## Phase 0 result (2026-11-09, Claude Opus 5.5): pilot APPROVED and INSTALLED 2026-11-13
+
+Dan, 2026-11-13: "This is definitely better than the AI versions... Let's redo everything that we have B-roll with, with real
+stuff, and only things we don't have B-roll with will be done with AI." Phases 1-4 are now 11 batch handoffs in
+`Handoffs/real-demos/` (README there). Installed: `EXERCISE_DEMO_REAL` in `public/index.html` (commit 10b6bca).
 
 Review page: http://127.0.0.1:9512/ (port 9512, files in `~/Projects/_edit_work/REALDEMOS/review/`). Finals, build
 scripts, phase tools and `LIBRARY.md`: `Media/exercise-demos/real/` (Seagate, checksummed; work copies in

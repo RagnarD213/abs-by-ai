@@ -26,7 +26,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Intermittent Fasting (RO-08): register its Facebook cover so the daily top-up can queue it](handoff-20261111-ro08-facebook-cover-blocks-queue.md), 2026-11-11. **Start now. Codex newest Sol, medium** (or Grokbot). The top-up refused RO-08 for Fri Nov 27: no Facebook cover entry. Dan's approved thumbnail A (10-14) exists; no new pick needed.
 
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
-- [Real B-roll exercise demos for the app](handoff-20261109-real-broll-exercise-demos.md): **Phase 0 pilot built 2026-11-09, at Dan's review** (cable crunch, leg press, pull-up; page http://127.0.0.1:9512/). Next: Dan's notes, then Phase 1 (the other 11 gym demos in the library, then install). Read the "Phase 0 result" section first. Claude Opus high.
+- [Real exercise demos: 11 batch handoffs](real-demos/README.md): **Written 2026-11-13, fire any batch now** (up to five at once; suggested first: 1, 2, 8). Pilot approved and installed 2026-11-13; every exercise with B-roll becomes a real demo, AI only without footage. Each batch file has its starter prompt. Claude Opus high.
 
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
