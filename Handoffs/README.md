@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Finish stalled setups: Jiu Jitsu + Battle Ropes SFC, Intermittent Fasting Facebook cover](handoff-20261113-finish-stalled-video-setups.md), 2026-11-13. **Fire now. Codex newest Sol, high.** DS-15/DS-19 stuck at "covers approved" since Nov 3 with no queue entry; RO-08 cannot queue for Nov 27 without its Facebook cover. Supersedes firing the 11-02 DS-15/19 and 11-11 RO-08 handoffs separately.
+
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **Fire now. Codex newest Sol, high.** Dan approved the exact round 3 film; thumbnails then setup for Fri Jan 29 2027 (socials Sat Jan 30).
 
 - [sixpackabs.com: point the dead Test Reload link at Great Again T](handoff-20261113-sixpackabs-test-reload-redirect.md), 2026-11-13. **HOLD: fire only after Google resolves the compromised-site appeal on sixpackabs.com. Codex newest Sol, medium** (or Grokbot). The old 4.46M-subscriber channel still links to sixpackabs.com URLs and `/pages/test-reload` is a 404. Silent 302 to the Great Again T product page with UTM tags; no page that shows the old name.
