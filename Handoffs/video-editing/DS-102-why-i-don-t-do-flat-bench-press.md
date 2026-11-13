@@ -26,6 +26,11 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+
+- **A0251** Days Without An Injury: plays under "Flat bench press is one of the highest risk exercises in the gym for injury." (2.5 s clean cut, 9:16). `clip_library.py show A0251`. Label it AI-generated on the picture.
+- **A0252** Museum Of Bad Ideas: plays under "Stop doing flat bench press. It's one of the stupidest exercises in the gym." (4.5 s clean cut, 9:16). `clip_library.py show A0252`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

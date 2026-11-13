@@ -26,6 +26,11 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+
+- **A0247** The Muscle Guy Is Self-Conscious Too: plays under "They're self-conscious just like you. They're worried about how they're perceived." (3.5 s clean cut, 9:16). `clip_library.py show A0247`. Label it AI-generated on the picture.
+- **A0248** Home Sweet Gym: plays under "Within a few months, being in the gym will feel like home." (5.0 s clean cut, 9:16). `clip_library.py show A0248`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

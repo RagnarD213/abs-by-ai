@@ -26,6 +26,11 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+
+- **A0249** Caution Tape: plays under "Here are three high-risk gym exercises I never do." (4.2 s clean cut, 9:16). `clip_library.py show A0249`. Label it AI-generated on the picture.
+- **A0250** The Paramedics Wait: plays under "These exercises cause more injuries than all other exercises combined." (2.7 s clean cut, 9:16). `clip_library.py show A0250`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

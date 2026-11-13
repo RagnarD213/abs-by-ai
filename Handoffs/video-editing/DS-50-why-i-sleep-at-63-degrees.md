@@ -17,6 +17,10 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: the thermostat turned down to 63.
 
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+
+- **A0254** Waking Up Sweating: plays under "I'm a hot sleeper and I used to wake up sweating all the time." (5.0 s clean cut, 9:16). `clip_library.py show A0254`. Label it AI-generated on the picture.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-50-why-i-sleep-at-63-degrees.md`: cut "Why I Sleep At 63 Degrees" from 10/15 roll C1759 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
