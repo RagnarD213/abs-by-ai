@@ -547,3 +547,13 @@ at set seconds; a list of links (the Filming Document has one) means a click and
   the Filming Document under the same ids. In PromptSmart the new import is script 1541485 (fingerprint matched); the
   older card 1540881 went to its trash through the card's three-dot menu, Delete, "Move to trash bin?" (clicked by
   screenshot coordinate; two cards share the name, so tell them apart by their first line).
+- **Public copy for another computer (Dan, 2026-11-13: "Put the page at AbsByAI.com/reactions. You don't need the
+  password protected or anything."):** the local page only works on the Mac that serves it. Build the same page into
+  `public/reactions/` (`clip_player_page.py SOURCE.txt public/reactions "Title" --no-embed ...` after copying the
+  downloaded clips into `public/reactions/clips/`), delete the unused window files and `clips.json`, `git add -f
+  public/reactions` (the repo ignores `*.MP4`, which matches `.mp4` on this Mac), then `safe-push.sh`. Railway had it
+  live about three minutes later at https://absbyai.com/reactions (the page carries a noindex tag). Checked on the
+  live site, muted: a YouTube clip with two windows, a gym fail clip and a Hormozi clip all played. Trap: the project's
+  `Media/video_edit/bin/ffmpeg` is a shim that waits in the shared render line, so a "quick" re-encode of 23 small
+  clips sat for four minutes behind other jobs and produced nothing; when Dan is waiting, ship the files as
+  downloaded. Take the page down after the shoot if he asks: delete `public/reactions/` and push.
