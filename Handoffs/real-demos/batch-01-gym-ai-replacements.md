@@ -58,7 +58,13 @@ Batches are independent and can run at the same time (edit cap 5); only the inst
   (checksummed copies; that folder is on the Seagate, keep the work copy). Delete this batch's board entry and move its
   line in `Handoffs/README.md` OPEN out (executed).
 
-## R1 result (2026-11-13, Claude): built, gated, reviewed; WAITING FOR DAN'S REVIEW
+## EXECUTED 2026-11-13: Dan approved all four ("Approve all four"); installed and live (commit 70b9542)
+
+Pushdown and seated row copy in `public/exercises.js` changed to match Dan's approved form. Clip library B0741 to B0744;
+source clips marked correct demonstrations; archive and recipe in `Media/exercise-demos/real/` (`b01-recipe/`). Review
+page 9513 removed. Media in workout cards changed: native retest trigger.
+
+## R1 result (2026-11-13, Claude): built, gated, reviewed
 
 Review page: http://127.0.0.1:9513/ (port 9513; files `~/Projects/_edit_work/REALDEMOS-B01/review/`). Work folder
 `~/Projects/_edit_work/REALDEMOS-B01/` (`out/<id>/`: `<id>-REAL-1080.mp4`, app encode `<id>.mp4` + `<id>.jpg`, `edit.json`,

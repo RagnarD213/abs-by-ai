@@ -29,13 +29,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RealDemos-B1:AWAITING-DAN-REVIEW:2026-11-13:Claude.** Page 9513: leg curl, pushdown, row, pulldown gated+reviewed; two form questions are Dan's. Next: install approved ids, deploy. `Handoffs/real-demos/batch-01-gym-ai-replacements.md`
-
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 filed (A0255-A0262). Batch3 frames page 9245 (14 ideas). Next: his selections, then batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup AWAITING-2-REVISED 2026-11-13, Codex.** Pick2 with text revision logged once. Checked 2-revised at9791 awaits exact-file approval; photos/rule pixel-identical. No FINAL, metadata or queue before approval. Hash/state: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup ACTIVE 2026-11-13, Codex.** Dan approved 2-revised; exact FINAL installed. Finish metadata, platform uploads/gate, live Blotato or shared waitlist for Jan29/30, receipt and safe-push. Film locked. `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

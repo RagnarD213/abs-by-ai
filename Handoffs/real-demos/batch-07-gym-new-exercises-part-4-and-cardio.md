@@ -6,6 +6,11 @@ real stuff, and only things we don't have B-roll with will be done with AI." **J
 **Outcome:** build, gate, review; approved demos are STORED for Dan's library change, not installed.
 Batches are independent and can run at the same time (edit cap 5); only the install step touches shared lines.
 
+**Read first, before the sections below (2026-11-13):** the master handoff's "Batch 1 result" section and
+`batch-02-gym-machines-new-coverage.md` "How to run this batch". They replace the pilot recipe below wherever they differ
+(exact-frame cuts, turnaround trackers, loop seam, line lengths, detail-clip screening, one queued step, `dan-filmed`
+category, recipe folder `~/Projects/_edit_work/REALDEMOS-B01/`).
+
 ## The exercises
 
 | app id | movement | main take (`*` = favorite) | detail angles | notes |

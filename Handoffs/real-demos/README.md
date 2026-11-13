@@ -8,7 +8,7 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 
 | batch | what | outcome | exercises | file |
 |---|---|---|---|---|
-| 1 | Gym AI replacements | install | leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown | [batch-01-gym-ai-replacements.md](batch-01-gym-ai-replacements.md) |
+| 1 | Gym AI replacements (**EXECUTED and installed 2026-11-13**) | install | leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown | [batch-01-gym-ai-replacements.md](batch-01-gym-ai-replacements.md) |
 | 2 | Gym machines new coverage | install | pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly | [batch-02-gym-machines-new-coverage.md](batch-02-gym-machines-new-coverage.md) |
 | 3 | Gym moving and partial moves | install | sled-push, walking-lunge, chinup | [batch-03-gym-moving-and-partial-moves.md](batch-03-gym-moving-and-partial-moves.md) |
 | 4 | Gym new exercises part 1 | store | captains-chair-leg-raise, machine-calf-raise, machine-hip-thrust, assisted-pullup, assisted-dip | [batch-04-gym-new-exercises-part-1.md](batch-04-gym-new-exercises-part-1.md) |
@@ -23,4 +23,4 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 Install batches (1, 2, 3, 8, 9) give the app's library exercises real demos: 11 replace AI demos, about 15 are new
 coverage. Store batches (4-7, 10, 11) build demos for exercises not in the library yet. AI demos stay only for library
 exercises with no real footage (listed in the master handoff); batch 11 writes the pickup list for the next shoot.
-Any order works; run up to five at once. Suggested first: 1, 2 and 8 (they change the most in the app).
+Any order works; run up to five at once. Batch 1 is done. Suggested next: 2 and 8 (they change the most in the app).
