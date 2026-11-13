@@ -1,0 +1,69 @@
+{
+ "shot": "SL-21 B: beach excuse clip (Short 2)",
+ "intent": "A fat, sunburnt, scruffy man reclines on a wooden beach lounger on a tropical beach, facing the camera, chest up, Hawaiian shirt, sunglasses on his head. START: right hand holds a pineapple cocktail in front of his lower chest, left forearm on the armrest, tired sorry-for-himself look, mouth closed. END: left hand lifted open palm up beside his left shoulder in a whiny shrug, left shoulder raised, head tilted, eyebrows raised, mouth closed; the right hand and the cocktail have not moved. Beach, sea, palms and lounger do not move. The clip will be lip-synced later, so the mouth is closed in both frames.",
+ "person": {
+  "legs_hidden": {
+   "below_y": 1600
+  },
+  "compare": [
+   "head"
+  ],
+  "compare_why": "a shrug lifts the shoulders and pulls the shoulder landmarks toward the neck; hips and legs are hidden; head width (ear-to-ear and outer-eye mean) is the size measure a chest-up shrug leaves valid, and the head tilts but does not turn"
+ },
+ "still": {
+  "lounger_left": [
+   75,
+   715,
+   215,
+   880
+  ],
+  "palm_trunk": [
+   790,
+   430,
+   890,
+   660
+  ],
+  "island": [
+   5,
+   595,
+   195,
+   665
+  ],
+  "umbrella": [
+   75,
+   1135,
+   270,
+   1275
+  ],
+  "pineapple": [
+   130,
+   1290,
+   440,
+   1560
+  ],
+  "palm_top": [
+   640,
+   0,
+   900,
+   160
+  ]
+ },
+ "props": [
+  {
+   "name": "pineapple_cocktail",
+   "box": [
+    75,
+    1130,
+    465,
+    1570
+   ],
+   "held_by": "right"
+  }
+ ],
+ "hands": {
+  "right": "holds the pineapple cocktail in the same place in both frames",
+  "left": "on the armrest in START, open palm up beside the shoulder in END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

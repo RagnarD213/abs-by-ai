@@ -49,3 +49,24 @@ proof, render` -> `deliver.py copy` -> `runwatch.sh S` -> fresh `ra-reviewer` pe
 36-37 of 39 on each Short: `framing:hair_top` and `framing:headroom` fail on every Short from roll C1511 (the camera framed his hair at
 the top edge; the crop starts at source row 0), the same two the approved film and SL-20 fail. They need Dan's acceptance, never a
 changed bound.
+
+## Round 2 (2026-11-13): two lip-synced excuse clips, frames first
+
+Dan approved Short 3 as is and Shorts 1 and 2 except for one new AI clip each: the excuse guy at a restaurant (Short 1, 0:01.5 to
+0:05.7) and on a beach (Short 2, 0:02.6 to 0:05.9), lips synced to his own recording. This round stops at START and END frame pairs
+(blind, `page_r2.py`, prompts and specs in `round2/`). Work: `/Users/danielrose/Projects/_edit_work/SL-21/round2/`.
+
+- **Compose a 9:16 frame for the 1080x1610 picture area.** The title band hides the top; the prompt keeps the top sixth empty and the
+  face between a quarter and a half of the way down. The mockup on the page (title band from the delivered Short, the cropped START,
+  an approximate caption) shows Dan the crop and where captions land; move the caption top per clip so it clears the food or drink.
+- **A chest-up shrug needs the gate's `head` measure** (`person.compare: ["head"]`, added this round): lifted shoulders pulled the
+  shoulder landmarks 20 % inward on a body whose head changed 6 %.
+- **Spec boxes:** never put a `still` box on a transparent wine glass (the shirt behind it changes; box the wine itself), and a
+  hand-held prop goes under `props`, not `still` (a 3 px drift failed it).
+- **Reviewers earn their keep on faces and props:** one caught a brown iris beside a grey one in START (fixed by matching the iris
+  colour locally, 341 px, then re-gate and a fresh reviewer), another a tomahawk bone that grew 24 % and a knife that changed handle.
+- **Screen the other model's frames against the brief before the gate.** Three of six candidates ignored the prompt (a man who was
+  not fat, a bare stomach, a knife in the hand). Ask for x2 candidates per START and both ENDs in one agent round trip.
+- **The review hub serves a snapshot.** After rebuilding a page, run `review_server.py PORT DIR` again or the link shows the old page.
+- **A busy render queue makes every frame gate and every `--review` record wait** (10 to 25 minutes each behind two heavy builds).
+  Start reviews in parallel and never edit a frame while its review record is queued: the record is refused and the review is lost.
