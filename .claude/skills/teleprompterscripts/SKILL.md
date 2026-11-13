@@ -509,3 +509,41 @@ Dan asked for "the teleprompter script document and the filming script document"
 - In the PromptSmart list page, card links carry no id: click the card title (by `find` ref) and read the id from the
   address. A script that returns resource URLs or a bare 64-character hash is blocked by the browser tool; return the
   hash split into groups.
+
+
+### Shoot-day clip player: one page, every reaction clip in its exact window (Dan, 2026-11-13)
+
+Dan asked the morning of the shoot: "What do you think is the best way for me to look at all the clips I'm going to
+react to today? Should it be like a list of links or a playlist, or what?" Answer given and built: one page with one
+player, clips in filming order, each playing only its window and stopping. A YouTube playlist cannot start and stop
+at set seconds; a list of links (the Filming Document has one) means a click and a manual stop per clip.
+
+- **Build:** `reference/clip_player_page.py SOURCE.txt OUT_DIR "Title" --no-embed ID,ID`. SOURCE.txt is the scripts
+  Doc's text export (`curl -sL ".../export?format=txt"`). It reads every cue with a YouTube id and times, including
+  "X TO Y, THEN A TO B" as two windows played back to back. Serve with `_shared/review_server.py PORT OUT_DIR`. Keys:
+  N next, P previous, R replay, space. Nothing plays until a click.
+- **Keep the page folder out of the repo** when it holds downloaded clips (the repo is public): 11-13 it lives in
+  `Research/Shoot Research Claude 2026-11-12/clip-player/`.
+- **Some videos refuse to play inside another page (player error 150), and YouTube's oembed lookup does not always
+  say so.** 11-13: 5 of 43 videos, carrying 22 of 63 clips (three Alex Hormozi uploads and both FailArmy
+  compilations). oembed had flagged only the three Hormozi ones (401); the two FailArmy ones answered 200 and still
+  failed. The only real test: with the player muted, `cueVideoById` each unique id and collect `onError`.
+- **Fix for blocked videos:** download just those windows (`download.sh` beside the page: `yt-dlp --download-sections
+  "*START-END" --force-keyframes-at-cuts`, one mp4 per window named `clips/<id>_<start>_<end>.mp4`), then rebuild. The
+  page plays a clip from local files whenever every window of it has a file, and from YouTube otherwise.
+- **The review server's sound helper blocks a play that does not come from a real click.** A scripted `local.play()`
+  resolves and the video stays paused at 0. Test with `?review_mode=automation`, `AbsReviewAudio.beginChecks()`, and a
+  click sent through the browser tool on the clip's list entry (by `find` ref). Then prove the viewer's mode works
+  without sound: set `local.volume = 0`, `AbsReviewAudio.handoff()`, click a downloaded clip, see it play, pause it,
+  set the volume back to 1. For the same reason a clip with two windows is joined into ONE file by the builder
+  (`clips/<id>_<a>_<b>__<a2>_<b2>.mp4`): a second `play()` after the first file ends is not a click.
+- **Hand over** paused, YouTube player unmuted (`player.unMute()`), local video not muted, first clip cued. 11-13 the
+  page is http://127.0.0.1:11857/ (63 clips, 22 from local files).
+- **A script filmed first (Dan, 2026-11-13: "put the Tesla crash script first in the filming and teleprompter
+  documents... and re-upload it to PromptSmart"):** `tp_from_filming_scripts_doc.py ... --first TESLA` moves it to the
+  top of its group. Before rebuilding, download the four live documents and the source as text and diff them against
+  `built_seq.json` and the last read (all unchanged on 11-13); if the Docs connector is gone, rebuild from the saved
+  `read_doc` JSON only when the source text is unchanged. `rclone copy ... --ignore-times` replaced Teleprompter 1 and
+  the Filming Document under the same ids. In PromptSmart the new import is script 1541485 (fingerprint matched); the
+  older card 1540881 went to its trash through the card's three-dot menu, Delete, "Move to trash bin?" (clicked by
+  screenshot coordinate; two cards share the name, so tell them apart by their first line).

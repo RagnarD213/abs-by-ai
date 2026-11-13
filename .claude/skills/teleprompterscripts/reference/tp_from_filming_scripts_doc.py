@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Teleprompter documents and a Filming Document from a "Filming Scripts" Google Doc (first run 2026-11-12).
 
-    python3 tp_from_filming_scripts_doc.py read_doc.json OUT_DIR "Next Green Screen Shoot"
+    python3 tp_from_filming_scripts_doc.py read_doc.json OUT_DIR "Next Green Screen Shoot" [--first TESLA] [--check-clips]
 
 Source format (the Doc built by the next-shoot scripts job): Heading 1 per group, Heading 2 per script
 ("A15 · Title"), then an italic "Filming script. N spoken words, about ..." line, cue paragraphs that start
@@ -68,6 +68,12 @@ def main():
     src, out_dir, prefix = sys.argv[1], sys.argv[2], sys.argv[3]
     os.makedirs(out_dir, exist_ok=True)
     groups = load(src); by = {g["name"]: g for g in groups}; seq = {}; report = []
+    if "--first" in sys.argv:   # film this script first: moved to the top of its group (Dan, 2026-11-13: the Tesla video)
+        want = sys.argv[sys.argv.index("--first") + 1]
+        for g in groups:
+            hit = [s for s in g["scripts"] if s["id"] == want]
+            if hit: g["scripts"].remove(hit[0]); g["scripts"].insert(0, hit[0])
+        assert any(g["scripts"][0]["id"] == want for g in groups), "no script " + want
     # teleprompter documents
     for n, (label, names) in enumerate(SETS, 1):
         name = "%s - Teleprompter %d - %s" % (prefix, n, label); body = []; lines = []; total = 0
