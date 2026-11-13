@@ -29,17 +29,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**BlendedOats:R3:CHECKING:2026-11-13:Codex01a1d61a.** Both Warm files rendered; pictures identical. Independent full gates queued with priority. Next: complete gates, paired review/copies.
+**BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 filed (A0255-A0262). Batch3 frames page 9245 (14 ideas). Next: his selections, then batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup REVISING-2 2026-11-13, Codex.** Pick 2 logged with text revision. Replace header only, preserve photos/rule pixels, serve at 9791 for exact-file approval. Nothing installed or queued. Checkpoint: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup AWAITING-2-REVISED 2026-11-13, Codex.** Pick2 with text revision logged once. Checked 2-revised at9791 awaits exact-file approval; photos/rule pixel-identical. No FINAL, metadata or queue before approval. Hash/state: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
 **KevinJamesCheat-SFC-R1(DS-41):BUILDING:2026-11-13:Claude.**Both-versions;/Volumes/Expansion/_edit_work/DS-41/r1;key-running.
 
-**WhatToCut-SFL(SL-21):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9621/;3-Shorts;setup-handoff-after-approval.
+**WhatToCut-SFL(SL-21):R2-FRAME-PICKS:2026-11-13:Claude.**Short3-final;Shorts1/2-approved-except-new-lip-synced-excuse-clips;frame-pairs-for-Dan:http://127.0.0.1:9621/;setup-handoff-on-HOLD.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
