@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Two-Mac M2 prep — ACTIVE 2026-11-13, Codex.** Executing handoff 01 without reboot; running edits preserved. Next: configure headless access and verify, then push receipt.
+**M2-prep:BLOCKED:2026-11-13:Codex.** Settings applied; external SMB fails. Next: diagnose without interrupting edits. `Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md`.
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
