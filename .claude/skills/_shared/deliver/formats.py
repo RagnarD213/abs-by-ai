@@ -841,6 +841,34 @@ FORMATS = {
 }
 
 
+# ------------------------------------------------------------------ real B-roll exercise demo, ONE continuous take
+# 2026-11-13 (Real Exercise Demos Batch 1, cable-tricep-pushdown). A NEW format, not a changed bound: every row of
+# `exercise-demo-real` is kept with the same measured bound, except the two rows that measure CUTS, which a film with no
+# cut cannot answer (the gate's own message: "declare this row not applicable (a single continuous take has none)").
+# Use it ONLY for a demo that is one unbroken camera take because no detail angle of that exercise is clean (each
+# rejected angle is named on the review page). A demo with any cut must use `exercise-demo-real`.
+import copy as _copy
+_onetake = _copy.deepcopy(FORMATS["exercise-demo-real"])
+_onetake["note"] = ("A Trainer exercise demo cut from Dan's REAL gym B-roll as ONE continuous camera take, no cut and no "
+                    "detail angle (Real Exercise Demos Batch 1, 2026-11-13). Sibling of `exercise-demo-real` with the same "
+                    "audio, container, colour-independent picture and compliance rows and bounds; only the two cut rows "
+                    "are declared not applicable, with reasons.")
+for _k in ("cut:splice_visibility", "watch:pass"):
+    _onetake["rows"].pop(_k, None)
+_onetake["not_applicable"].update({
+    "cut:splice_visibility": "one continuous camera take: the plan declares no joins because the film has none "
+                             "(`edit.json` lists a single shot); `cut:naked_splices` still scans every frame for an "
+                             "undeclared same-scene jump",
+    "watch:pass": "one continuous camera take has no boundary to strip, and the shared row cannot pass a log with zero "
+                  "boundaries. The watch pass is still RUN on the delivered file (frozen runs, black frames, unexplained "
+                  "jumps, naked splices: its `watch_pass.json` sits beside the file) and its contact sheet is judged by "
+                  "the independent reviewer (`watch/findings.json`); the reviewer's full review of the film is the "
+                  "batch's ROUND review file",
+})
+FORMATS["exercise-demo-real-onetake"] = _onetake
+del _onetake, _k
+
+
 def config_for(fmt, caption_mode=None):
     if fmt not in FORMATS:
         raise SystemExit(f"unknown format {fmt!r}; known: {', '.join(sorted(FORMATS))}")

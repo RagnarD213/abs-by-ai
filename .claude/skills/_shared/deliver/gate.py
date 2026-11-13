@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """THE DELIVERY GATE. One gate, called by all six video skills, run on the DELIVERED FILE.
 
-  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|organic9x16|website|exercise-demo|exercise-demo-real [--plan plan.json]
+  gate.py <file> --format ad9x16|ad16x9|ad1x1|longform|short|organic9x16|website|exercise-demo|exercise-demo-real|exercise-demo-real-onetake [--plan plan.json]
   gate.py --audit                 every format answers for every row, or say what is missing
   gate.py --formats               list the formats and their notes
 
