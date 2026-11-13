@@ -26,9 +26,11 @@ Genuine missing items: No verified Dan walking-between-sets footage found. Walki
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
-## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batches 1 and 2)
 
 - **A0253** Between Rounds: plays under "When you go to a jiu-jitsu tournament you always see guys jogging in place or walking between their rounds." (3.2 s clean cut, 9:16). `clip_library.py show A0253`. Label it AI-generated on the picture.
+- **A0257** Sitting On His Phone, closer view: plays under "A lot of guys think they need to rest and sit down between sets." (2.3 s clean cut, 9:16). `clip_library.py show A0257`. Label it AI-generated on the picture.
+- **A0258** Sitting On His Phone, wider view: same line (4.1 s clean cut, 9:16). `clip_library.py show A0258`. Label it AI-generated on the picture. Dan kept both versions on purpose so the editor has a choice: use whichever fits the cut, or one in each place the line allows.
 
 ## Starter prompts
 

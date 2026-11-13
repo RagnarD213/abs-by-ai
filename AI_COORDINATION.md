@@ -29,11 +29,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**BlendedOats:R3:BUILDING:2026-11-13:Codex01a1d61a.** Sole owner verified. Both Warm voices queued; pictures locked. Next: actual-file checks, independent reviews, paired page.
+**BlendedOats:R3:CHECKING:2026-11-13:Codex01a1d61a.** Both Warm files rendered; pictures identical. Independent full gates queued with priority. Next: complete gates, paired review/copies.
 
-**FlowClips-b2/b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 video page 9244 (5 ideas), batch3 frames page 9245 (14 ideas). Next: file picks, make batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch2 filed (A0255-A0262). Batch3 frames page 9245 (14 ideas). Next: his selections, then batch3 video. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
-**Ten Exercises LFC Setup R2-WAITING-PICK 2026-11-13, Codex.** R1 eight rejected/logged. [Six checked real-exercise designs](http://127.0.0.1:9791/): three splits, three singles; select only, untouched out. Film/backups unchanged, nothing queued. Checkpoint/session: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
+**Ten Exercises LFC Setup REVISING-2 2026-11-13, Codex.** Pick 2 logged with text revision. Replace header only, preserve photos/rule pixels, serve at 9791 for exact-file approval. Nothing installed or queued. Checkpoint: `Handoffs/handoff-20261113-ro32-ten-exercises-approved-film-setup.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

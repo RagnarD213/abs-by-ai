@@ -20,23 +20,27 @@ Next batch: `Handoffs/handoff-20261113-flow-credits-ai-clips-batch-2-3.md`. Cred
 Each ID is noted under "Pre-made AI clips" in its job doc. Library entries hold the window cut (only the clean frames); the full
 8 s takes and every review stay in `~/Projects/_edit_work/FLOWCLIPS/vid-b1/`.
 
-## Batch 2 video: made, waiting for Dan's picks (2026-11-13)
+## Batch 2 video: approved and filed (Dan, 2026-11-13)
 
-Work folder `~/Projects/_edit_work/FLOWCLIPS/vid-b2/` (prompts/, specs/, picks.json, windows.json, motion_results.txt, build_review.py).
-Review page http://127.0.0.1:9244/ . Every clip passed `clipcheck.py` and a fresh motion reviewer; each plays only its clean window.
-Where Dan approved two frame versions, both were made (X1, X2 follow the blind labels in `b2/sets/`); he picks between finished clips.
+Dan approved all five ideas and kept **both** versions where there were two, so the editor has a choice ("they are both good. I want to
+give the editors options"). All eight clean cuts are in the clip library, tag `flow-credits-batch2`, status usable-unused, sheet refreshed.
+Each ID is under "Pre-made AI clips" in its job doc. Blind log: `blind.py pick` recorded X1,X2 for B2-01, B2-02, B2-05; `veo.py pick`
+recorded "same" for B2-01 and B2-05 (their two versions came from different video models).
 
-| Clip | Video (job) | Versions on the page | Clean window |
+| Library ID | Clip | Video (job) | Clean cut |
 |---|---|---|---|
-| Can't Go In | Why I Use Machines And Cables Instead Of Barbells At 41 (DS-99) | X1, X2 | 3.0 s, 4.3 s |
-| Sitting On His Phone | Why You Should Walk Between Your Sets (DS-103) | X1, X2 | 2.3 s, 4.1 s |
-| Laid Up | Why You Must Stretch After Every Workout (DS-104) | one | 2.9 s |
-| The Straddle Stretch | same (DS-104) | X1, X2 | 3.0 s, 2.5 s |
-| Thermostat On 63 | Why I Sleep At 63 Degrees (DS-50) | one | 2.0 s (a start-frame-only retake `B2-06s`, 2 takes, was screened out: the duvet moved by itself and "63" flipped to "62" again) |
+| A0255 | Can't Go In, front view | Why I Use Machines And Cables Instead Of Barbells At 41 (DS-99) | 3.0 s |
+| A0256 | Can't Go In, side view | same (DS-99) | 4.3 s |
+| A0257 | Sitting On His Phone, closer view | Why You Should Walk Between Your Sets (DS-103) | 2.3 s |
+| A0258 | Sitting On His Phone, wider view | same (DS-103) | 4.1 s |
+| A0259 | Laid Up | Why You Must Stretch After Every Workout (DS-104) | 2.9 s |
+| A0260 | The Straddle Stretch, front view | same (DS-104) | 3.0 s |
+| A0261 | The Straddle Stretch, side view | same (DS-104) | 2.5 s |
+| A0262 | Thermostat On 63 | Why I Sleep At 63 Degrees (DS-50) | 2.0 s (a start-frame-only retake `B2-06s`, 2 takes, was screened out: the duvet moved by itself and "63" flipped to "62" again) |
 
-Next: Dan's picks, then `blind.py pick b2/sets/<id> --chose Xn`, `veo.py pick` where the two versions' takes came from different models,
-`clip_library.py add <window cut> --kind ai --status usable-unused --used-in "<job> <title> (planned)" --tags flow-credits-batch2`,
-`clip_library.py sheet`, and the IDs under "Pre-made AI clips" in each job doc.
+Work folder `~/Projects/_edit_work/FLOWCLIPS/vid-b2/` (prompts/, specs/, picks.json, windows.json, motion_results.txt, build_review.py,
+file_library.py, library_ids.json). Review page http://127.0.0.1:9244/ . Every clip passed `clipcheck.py` and a fresh motion reviewer;
+library entries hold only the clean window, the full takes stay in `vid-b2/veo/`.
 
 Lesson for the next video batch: every Omni 1.1 Flash 6 s take re-rendered (went soft, changed texture) at frame 128, about 5.3 s in, so only
 the first 5 s of an Omni take is usable; Veo Fast takes showed talking mouths and hands passing through feet late in the take. Two of three

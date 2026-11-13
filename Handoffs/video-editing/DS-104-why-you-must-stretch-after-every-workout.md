@@ -26,6 +26,12 @@ Genuine missing items: No verified Dan post-workout stretching footage found. Ov
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 2)
+
+- **A0259** Laid Up: plays under "If you get hurt and you can't train, you aren't going to have a good physique." (2.9 s clean cut, 9:16). Played straight, not a gag. `clip_library.py show A0259`. Label it AI-generated on the picture.
+- **A0260** The Straddle Stretch, front view: plays under "Stretching after your workout once you're already warm is when you progress and make real gains." (3.0 s clean cut, 9:16). `clip_library.py show A0260`. Label it AI-generated on the picture.
+- **A0261** The Straddle Stretch, side view: same line (2.5 s clean cut, 9:16). `clip_library.py show A0261`. Label it AI-generated on the picture. Dan kept both versions on purpose so the editor has a choice: use whichever fits the cut, or one in each place the line allows.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

@@ -17,9 +17,10 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: the thermostat turned down to 63.
 
-## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batch 1)
+## Pre-made AI clips (Dan approved 2026-11-13, Flow-credits batches 1 and 2)
 
 - **A0254** Waking Up Sweating: plays under "I'm a hot sleeper and I used to wake up sweating all the time." (5.0 s clean cut, 9:16). `clip_library.py show A0254`. Label it AI-generated on the picture.
+- **A0262** Thermostat On 63: plays under "Making your bedroom super cold is proven to make you sleep better." (2.0 s clean cut, 9:16; it is short, so do not stretch or loop it). `clip_library.py show A0262`. Label it AI-generated on the picture.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**
