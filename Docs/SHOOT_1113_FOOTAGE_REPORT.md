@@ -7,8 +7,8 @@ the shoot was still going when it was offloaded.
 
 - Shoot folder: `/Volumes/Extreme/11:13 dan rose fitness shoot - green screen/` (the nightly backup finds it by name).
 - While the Extreme was full, C1904 to C1914 were copied straight from the card to
-  `/Volumes/Expansion/Abs By AI Raw Footage/11:13 dan rose fitness shoot - green screen/` and are being copied
-  back to the Extreme folder as room frees. Every file was checked by SHA-256 against the bytes read from the card
+  `/Volumes/Expansion/Abs By AI Raw Footage/11:13 dan rose fitness shoot - green screen/`, then copied back to
+  the Extreme folder; all 14 rolls were on the Extreme by 20:05 on Nov 13. Every file was checked by SHA-256 against the bytes read from the card
   (Seagate copy re-read, Extreme copy re-read). Card left unformatted.
 - C1900 (Nov 3, a laptop video call, not this shoot) is filed in `not this shoot - C1900 laptop video call 11-03/`
   on the Seagate copy only.
