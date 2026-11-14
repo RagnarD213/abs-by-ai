@@ -557,6 +557,22 @@ async function waitForDb() {
   check('the same visitor counts down', qa1.status === 200 && qa1.remaining === 39 && qa2.remaining === 38, [qa1, qa2]);
   check('another visitor has a full allowance of their own', qb1.status === 200 && qb1.remaining === 39, qb1);
 
+  realLog('\n(r) paid-member emails start only after a confirmed payment');
+  const emailMember = (await db.query('SELECT stripe_subscription_id FROM users WHERE id=$1',[memberRow.id])).rows[0];
+  const invoice = { id: 'in_member_email', subscription: emailMember.stripe_subscription_id, billing_reason: 'subscription_cycle', status: 'open', amount_paid: 0 };
+  await server.recordPaidInvoiceConversion(invoice);
+  check('unpaid invoice does not enroll', !(await db.query('SELECT * FROM member_email_enrollments WHERE user_id=$1', [memberRow.id])).rows.length);
+  await server.recordPaidInvoiceConversion({ ...invoice, status: 'paid', amount_paid: 0 });
+  check('free trial invoice does not enroll', !(await db.query('SELECT * FROM member_email_enrollments WHERE user_id=$1', [memberRow.id])).rows.length);
+  await server.recordPaidInvoiceConversion({ ...invoice, status: 'paid', amount_paid: 1999, billing_reason: 'subscription_create' });
+  await server.recordPaidInvoiceConversion({ ...invoice, status: 'paid', amount_paid: 1999 });
+  check('positive payment enrolls once, including immediate paid checkout', (await db.query('SELECT * FROM member_email_enrollments WHERE user_id=$1', [memberRow.id])).rows.length === 1);
+  const lifetimeMail = resendCalls.find(m => m.to[0] === 'decline@example.com' && /set your password/i.test(m.subject));
+  check('lifetime account email explains one-time billing', lifetimeMail && /one-time charge/.test(lifetimeMail.html) && !/\/month/.test(lifetimeMail.html));
+  const unUrl = new URL(server.memberEmails.unsubscribeUrl(memberRow.id));
+  const unsubReply = await realFetch(BASE + unUrl.pathname + unUrl.search, {method:'POST'});
+  check('one-click member unsubscribe route works', unsubReply.status === 200 && (await db.query('SELECT opted_out FROM member_email_enrollments WHERE user_id=$1', [memberRow.id])).rows[0].opted_out);
+
   realLog(`\n${pass} passed, ${fail} failed`);
   process.exit(fail ? 1 : 0);
 })().catch((e) => { realLog('TEST CRASH', e); process.exit(2); });
