@@ -15,7 +15,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Great Again T VSL AD R3 (graphics round)](handoff-20261114-great-again-t-vsl-round3.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 2 page. Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
 
-- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-13. **HOLD: fire once Shorts 1 and 2 are approved. Codex newest Sol, high.** Short 3 (If You Can't Afford A Gym, You Can't Afford Therapy) is final; Shorts 1 and 2 are approved except one new lip-synced AI excuse clip each (round 2 with Claude). Covers and setup for all three together, February slots.
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **Fire now. Codex newest Sol, high.** All three What To Cut Shorts approved (Shorts 1 and 2 on 2026-11-14 with their lip-synced AI excuse clips, pair X1 for Short 2; Short 3 on 2026-11-13). Covers and setup for all three together, February slots after the parent film is public (Fri Dec 11).
 
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
