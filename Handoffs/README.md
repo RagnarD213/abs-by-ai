@@ -233,6 +233,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [Two-Mac edit dashboard](handoff-20261114-two-mac-edit-dashboard.md), executed November 14, 2026. Astra reviewed; installed locally on M6 and verified against both Macs. [Dashboard](http://127.0.0.1:8976/) · [receipt](../Docs/two-mac-dashboard/receipt.md).
+
 - **Two-Mac handoff 01: M2 headless preparation**, completed 2026-11-14. Names, cable address, power, automatic login, SSH and Screen Sharing configured; both drives mounted and read from the M6, Extreme write checked, reconnect installed. No reboot test. [Receipt](../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md). Continue only the remaining routing/scheduled-task work above.
 
 

@@ -1,0 +1,8 @@
+Sol's disposition after the independent GPT-6 Astra high review, November 14:
+1. Adopt qualified advice. Only fresh, complete observations of both hosts allow a candidate recommendation; the router alone may start a specific new job. Never clear an external drive. Allow a conditional small new edit only on measured internal headroom after existing commitments and reserve. Route/local waiters and reservations precede new work.
+2. Adopt direct bounded observations. macOS F_GETLK on an existing read-only descriptor reports a BSD flock without acquiring it (confirmed against a scratch exclusive flock). Cross-check holder PID birth time and open inode. Detect record replacement and retry once; partial evidence stays visible but disables positive advice.
+3. Adopt recorded states, canonical grouping, parked-ticket exemption, complete reservation window and independent deployment checks. No speculative stalls or estimated finish times.
+4. Adopt collector-side output allowlist, neutral DS-98 identity, opaque unknown-worker labels, safe errors. No raw commands/logs.
+5. Adopt independent loopback socket activation, demand-only host refresh, last success/attempt separation, monotonic cache, hard remote deadline, no shared-hub changes.
+6. Adopt CPU time accounting, component peaks and browser comparison. Measure hidden/closed, concurrent views and SSH failure/recovery without touching production networking. Distinguish sampled and bounded peaks from whole-Mac measurements.
+Deferred: live external storage, job-specific dispatch, exact render admission, speculative stage detection. Do not add a database or change infrastructure.
