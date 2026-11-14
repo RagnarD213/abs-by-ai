@@ -46,6 +46,10 @@ Track every parent, worker, reviewer, helper, retry and continuation session, wi
 
 Three independent test versions of **one dedicated Short**, presented in one blind comparison at each applicable review stage. Each receives the same required checks and independent review. Use the recorded vertical finishing workflow after take/audio/color selection. No derivative formats, extracted Shorts, covers, setup, upload or publishing. A blind preference is not approval of a final film. The controller alone updates the single DS-98 queue record at actual launch/review/delivery; this preparation leaves it READY.
 
+## Pre-made AI clips (Dan selected 2026-11-14, Flow-credits batch 3)
+
+- **A0265** Only Five: plays under "Here are the only five machines you need at the gym." (3.0 s clean cut, 9:16). A man with a gym bag looks along a single row of machines in a huge empty gym hall. `clip_library.py show A0265`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: not an entrant in this Codex trial.** The former single-Claude starter is superseded for this job. Use the Codex starter; do not launch an additional Claude edit.

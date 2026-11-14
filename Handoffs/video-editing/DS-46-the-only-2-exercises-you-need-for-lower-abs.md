@@ -17,6 +17,11 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: a close-up of the hips curling on reverse crunches.
 
+## Pre-made AI clips (Dan selected 2026-11-14, Flow-credits batch 3)
+
+- **A0268** A Thousand Sit-Ups, the sit-up: plays under "If your upper abs show but your lower abs don't, stop doing crunches and sit ups." (3.3 s clean cut, 9:16). A tired man does a slow sit-up in front of a wall covered in tally marks. `clip_library.py show A0268`. Label it AI-generated on the picture.
+- **A0269** A Thousand Sit-Ups, worn out on the floor: same line (4.3 s clean cut, 9:16). The same man flat on his back, worn out. `clip_library.py show A0269`. Label it AI-generated on the picture. Dan kept both moments: use either, or the sit-up first and the worn-out shot after it.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-46-the-only-2-exercises-you-need-for-lower-abs.md`: cut "The Only 2 Exercises You Need For Lower Abs" from 10/15 roll C1755-C1756 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.

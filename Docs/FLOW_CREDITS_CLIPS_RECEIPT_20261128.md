@@ -101,6 +101,27 @@ Six of the eight kept clips are Omni takes: with a window planned inside the fir
 Next: Dan's picks, then `clip_library.py add <window cut> --kind ai --status usable-unused --used-in "<job> <title> (planned)" --tags flow-credits-batch3`
 (copy `vid-b2/file_library.py`), `clip_library.py sheet`, IDs under "Pre-made AI clips" in the DS-94, DS-95, DS-96, DS-98, DS-51, DS-46 job docs.
 
+## Batch 3: seven clips selected and filed (Dan, 2026-11-14)
+
+Dan's picks on the redo page: Bored To Sleep (redone), First Day (redone), Only Five, Lighter But Weaker, Movie Snack and both
+A Thousand Sit-Ups moments. Filed with tag `flow-credits-batch3`, status usable-unused, sheet refreshed (1,014 clips); IDs are under
+"Pre-made AI clips" in the DS-94, DS-95, DS-98, DS-51 and DS-46 job docs. Library adds ran on the M2 (`vid-b3/file_library.py`, `library_ids.json`).
+
+| Library ID | Clip | Video (job) | Clean cut |
+|---|---|---|---|
+| A0263 | Bored To Sleep (steps running) | How To Use The Stairmaster To Burn Fat (DS-94) | 3.8 s |
+| A0264 | First Day (looks around, fidgets) | What To Do Your First Day At The Gym (DS-95) | 5.3 s (strict window 2.2 s, frames 75-127) |
+| A0265 | Only Five | The Only 5 Machines You Need At The Gym (DS-98) | 3.0 s |
+| A0266 | Lighter But Weaker | 3 Ways To Lose Fat Without Losing Muscle (DS-51) | 4.3 s |
+| A0267 | Movie Snack | same (DS-51) | 4.8 s |
+| A0268 | A Thousand Sit-Ups: the sit-up | The Only 2 Exercises You Need For Lower Abs (DS-46) | 3.3 s |
+| A0269 | A Thousand Sit-Ups: worn out on the floor | same (DS-46) | 4.3 s |
+
+Dumbbell clips (DS-96): Dan picked X1 for both ("I like X1, but I want to change the weight ... It just looks ridiculously light now.
+Make the lighter strict-form basically one plate lighter than the current X1, and then the current X1 one plate heavier"). `blind.py pick`
+recorded X1 for B3-22b and B3-23. Round 2 frames: `B3-22c` (cheat, side view, four plates per end) and `B3-23c` (strict, two plates per end,
+drawn in two men: his X1 pick and the man from his cheat pick, because his two X1 picks were different men). Results in `b3r/review_results.txt`.
+
 ## Batch 3 redo: on Dan's page (2026-11-14)
 
 Dan on the batch 3 video page: Bored To Sleep unrealistic because the machine is not moving ("he'd have the treadmill moving slowly with him
