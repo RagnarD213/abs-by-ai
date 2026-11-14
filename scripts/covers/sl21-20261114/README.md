@@ -1,6 +1,6 @@
 # What To Cut cover setup, SL-21
 
-One setup owner, Codex, 2026-11-14. Vacation X7 approved; four new table-flip restaurant choices (round 3) await a pick; therapy still awaits a pick.
+One setup owner, Codex, 2026-11-14. Vacation X7 approved; round 4 restaurant concepts await a pick; therapy still awaits a pick.
 
 Review: http://127.0.0.1:9862/
 
@@ -29,3 +29,17 @@ Dan rejected all four R2 choices. His new scene: a fat man and his fat wife eat 
 Use ONLY `<work>/r3/pick-map-private.json` and `<work>/r3/blind-set/` for the next restaurant pick, X1–X4. R1 and R2 are rejected. Full-quality originals: `<work>/r3/layouts/instagram/` and `youtube/`. Record the choice with blind.py on the R3 set; install the full-quality original, never the preview. Vacation X7 and the unchanged therapy set remain as recorded above.
 
 Current page: http://127.0.0.1:9862/?round=3 . Checked sheet: http://127.0.0.1:9862/restaurant-r3-sheet.jpg . Eight served preview files downloaded, decoded and byte-verified. Image and actual face checks passed; no title overlap on expanded face/hair guards. Phone 390px, one card column, no horizontal overflow; enlargement opens and closes. No paid API generation. Nothing uploaded or scheduled. Await remaining cover picks, then complete the already-authorized setup.
+
+## Cover round 4, active restaurant set
+
+Dan refined R3: he is centered BEHIND the table, smiling in the black tank top with defined arms; the husband is seated left and wife right, each only slightly overweight. Tabletop and meal face camera as the back edge rises. He asked for TWO concept-1 versions (frontal table tip), ONE concept-2 version (slightly elevated view) and ONE concept-3 version (instant the flip starts). Four scenes, eight platform layouts checked. The cover title remains **Why Restaurants Make You Fat**. No video edits.
+
+Use ONLY `<work>/r4/pick-map-private.json` and `<work>/r4/blind-set/` for the next restaurant pick, X1–X4. Public captions identify concept 1A, 1B, 2 or 3. Earlier restaurant choices are superseded. Full-quality originals: `<work>/r4/layouts/instagram/` and `youtube/`. Log the pick against this R4 blind set, then install the ORIGINAL, never the normalized preview. Vacation X7 stays approved, and therapy still needs its own pick.
+
+Current review: http://127.0.0.1:9862/?round=4 . Sheet: http://127.0.0.1:9862/restaurant-r4-sheet.jpg . The first elevated take and its correction showed a level table and were rejected; the replacement is checked. Attempt history remains under `<work>/r4/rejected/` and `repair-note.json`. Eight served previews decode and byte-match; safe type placement, actual identity/scene inspection, JPEG size and 390px phone layout checked. No paid image API spend. Await cover picks before setup.
+
+## Restaurant approved; waiting only for therapy
+
+Dan’s next message was **X2**, approving R4 concept 1B. Pick logged with blind.py against `<work>/r4/blind-set/`. Exact full-quality PNG layouts and existing YouTube JPEG copied and hash-verified in `Short-form video content/covers/approved-sl21/`. `<work>/selected-picks.json` and `approved-sl21/picks.json` are current. The file hashes are in the receipt. Do not regenerate or revise this selection.
+
+Vacation X7 stays approved and byte-verified. The current page http://127.0.0.1:9862/?pick=therapy shows the original therapy choices FIRST. Its next X1–X8 pick must be logged against `<work>/blind-sets/3/`, using the original mapping in `<work>/pick-map-private.json`, not any restaurant round. Once that pick is saved, complete the already-authorized backups, metadata, media uploads, four-platform setup and February slots/shared waitlist from the handoff. No further setup permission is needed. Dashboard stays paused.
