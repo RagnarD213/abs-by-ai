@@ -445,6 +445,21 @@ class SleepingDrive(unittest.TestCase):
         self.assertEqual(folders, [])
         self.assertTrue([d for d in drives if d["drive"] == "Expansion"][0]["network"])
 
+    def test_a_slow_status_answer_records_where_the_time_went(self):
+        er._probe_one = self._awake
+        old = er.SLOW_STATUS_S
+        er.SLOW_STATUS_S = -1.0
+        os.environ["EDITROUTE_HOST"] = "m2"
+        try:
+            s = er.local_status("DS-300")
+        finally:
+            er.SLOW_STATUS_S = old
+            os.environ.pop("EDITROUTE_HOST", None)
+        self.assertEqual(sorted(s["took"]), ["drives", "editcap", "git", "idle", "renderq"])
+        row = json.loads((Path(self.d) / "slow-status.jsonl").read_text().splitlines()[-1])
+        self.assertEqual(row["job"], "DS-300")
+        self.assertIn("drives", row["took"])
+
     def test_table_marks_a_sleeping_drive(self):
         m2 = st("m2")
         m2["drives"] = [dict(drive="internal", free_gb=59), dict(drive="Expansion", free_gb=16000, asleep=True)]

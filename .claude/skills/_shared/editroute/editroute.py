@@ -61,6 +61,7 @@ REMEMBER_S = 24 * 3600             # a job routed this recently is sent to the s
 # limit, so the M2 was reported "unreachable, counted as full" (2026-11-14, 12:11). Past the deadline the call
 # answers from the drive's last known folder list (drives-cache.json) instead of waiting.
 DRIVE_DEADLINE_S = float(os.environ.get("EDITROUTE_DRIVE_DEADLINE") or 2.0)
+SLOW_STATUS_S = 2.0                # a status answer slower than this writes its step timings to slow-status.jsonl
 KINDS = {"SFC": "SFC", "DS": "SFC", "SHORT": "SFC", "SFL": "SFL", "SL": "SFL", "LFC": "LFC", "RO": "LFC",
          "LONGFORM": "LFC", "AD": "AD", "RA": "AD", "SP": "AD", "ADCUT": "ADCUT", "CUTDOWN": "ADCUT", "AV": "ADCUT",
          "AS": "ADCUT", "VERTICAL": "ADCUT", "SQUARE": "ADCUT", "VSL": "VSL", "WV": "VSL", "EXDEMO": "EXDEMO",
@@ -374,9 +375,15 @@ def local_status(job=None):
     now = time.time()
     st = dict(host=h, version=VERSION, time=now, reachable=True, ncpu=os.cpu_count(), load=list(os.getloadavg()),
               pressure=_pressure(), label=hc.get("label", h))
+    took, mark = {}, [time.time()]
+
+    def lap(name):
+        took[name] = round(time.time() - mark[0], 2)
+        mark[0] = time.time()
     idle = hostcfg.idle_seconds()
     pres, why = hostcfg.presence(h, idle=idle)
     st.update(idle_s=idle, presence=pres, presence_why=why)
+    lap("idle")
     try:
         ec = _editcap()
         reg, _, rq_act, cal = ec.view()
@@ -386,6 +393,7 @@ def local_status(job=None):
                              titles={j: e.get("title", "") for j, e in reg["edits"].items()})
     except Exception as e:                                           # report, do not guess
         st["editcap"] = dict(error=str(e))
+    lap("editcap")
     try:
         rq = _renderq()
         states = rq.slot_states()
@@ -394,14 +402,16 @@ def local_status(job=None):
                              waiting=len(rq._tickets()))
     except Exception as e:
         st["renderq"] = dict(error=str(e))
+    lap("renderq")
     try:
         st["drives"], job_folders, st["slow_drives"] = probe_drives(job)
     except Exception as e:                                           # never let a drive stop the answer
         st["drives"], job_folders, st["slow_drives"] = [dict(drive="internal", free_gb=_free_gb(Path.home()))], [], []
         st["drives_error"] = str(e)
+    lap("drives")
     try:
         g = subprocess.run(["git", "-C", str(REPO), "rev-list", "--left-right", "--count", "HEAD...origin/main"],
-                           capture_output=True, text=True, timeout=3)
+                           capture_output=True, text=True, timeout=1.5)
         a, b = g.stdout.split()
         st["git"] = dict(ahead=int(a), behind=int(b))
     except Exception:
@@ -409,6 +419,15 @@ def local_status(job=None):
     if job:
         st["job"] = dict(folders=job_folders, editcap=(st.get("editcap") or {}).get("edits", {}).get(job))
     st["reviews"] = _read_json(state_dir() / "reviews.json", {})
+    lap("git")
+    st["took"] = took
+    if sum(took.values()) > SLOW_STATUS_S:                           # evidence for the next "did not answer"
+        try:
+            with open(str(state_dir() / "slow-status.jsonl"), "a") as f:
+                f.write(json.dumps(dict(t=round(now, 1), host=h, job=job, took=took,
+                                        slow_drives=st.get("slow_drives"), load=st.get("load")), sort_keys=True) + "\n")
+        except OSError:
+            pass
     return st
 
 
@@ -805,7 +824,7 @@ def status_text(statuses, c, line=None, recent=None, reviews=None):
                                         "ahead {} / behind {}".format(st["git"]["ahead"], st["git"]["behind"]))
         if st.get("git") else "-")
     widths = [max(len(str(r[i])) for r in rows + [[""] + [label(h, c) for h in hosts]]) for i in range(len(hosts) + 1)]
-    widths = [min(w, 60) for w in widths]
+    widths = [min(w, 72) for w in widths]
     out = ["Two Macs: edit routing (numbers in editroute/hosts.json)   {}".format(
         dt.datetime.now().strftime("%a %b %-d %-I:%M %p")), ""]
     out.append("  ".join([" " * widths[0]] + [label(h, c).ljust(widths[i + 1]) for i, h in enumerate(hosts)]))

@@ -103,11 +103,15 @@ its work folder on the M2's Extreme (`/Volumes/Extreme/_edit_work/DS-107`). Stil
 review page opening on the M6, step timings (`ROUTING-PROOF.md` in the work folder), and, after Dan approves the
 cut, the finals copied into the M6 project folder with `editroute.py push`.
 
-**2. Intermittent routing timeouts: cause found and fixed.** Evidence: at 12:11:44 a `pick` on the M6 reported
+**2. Intermittent routing timeouts: most likely cause fixed, and the next one will name itself.** Evidence: at 12:11:44 a `pick` on the M6 reported
 "m2 unreachable ... timed out after 8.0 seconds ... counted as full". The M2's ssh log shows the login finished in
 0.06 s, so the cable and ssh were fine; the 8 s went inside the M2's status answer. That answer read the work
 folders on every drive, including the Seagate, a 24 TB hard disk that spins down when idle and takes 10 s or more
-to wake. Awake, the same call takes 0.08 s (measured 16 times). Fix in `editroute.py`:
+to wake. Awake, the same call takes 0.08 s (measured 16 times), and nothing else in it can take seconds. Honest
+limit: the spin-up itself was not reproduced, because the drive never stayed idle long enough during this session
+(a probe after 14 minutes found it awake). So every status answer slower than 2 s now writes its step timings to
+`~/.absbyai-editroute/slow-status.jsonl` on the Mac that was slow; if a timeout ever recurs, that file says which
+step it was. Fix in `editroute.py`:
 - each external drive gets 2 s to answer; past that the status call answers from the drive's last saved free space
   and folder list (`drives-cache.json`), so it never waits on a sleeping disk and rule 1 still finds a job whose
   folder is on that drive. The table shows `(asleep)`; `pick` adds a note;
@@ -137,8 +141,18 @@ routing class, QUEUE, sent to the M2 first (`hosts.json`, one word to change). `
 and a dry run today still says "STOP: PAUSE file present ... launching nothing". Not built: starting a queue job
 on the other Mac remotely; with the queue's own limit of two jobs on a three-slot M2 it is not needed yet.
 
-**Tests.** `editroute.py selftest`: 53 of 53 (30 before; new: sleeping drive, network share, retry, queue class,
-plus the other session's 8 resume tests). `editcap.py selftest` 27 of 27, `renderq.py selftest` 61 of 61.
+**5. Found: a remote session cannot push to GitHub (open, handed off).** The saved GitHub login is in the macOS
+keychain, which refuses sessions that are not on screen, on both Macs (`failed to get: -25308`). So this session's
+commits (`0f64c08` and later) are saved on the M2 but not on GitHub, and every M2 edit started from the M6 will
+hit the same wall when it pushes its shared files. Until that is fixed, the corrected router and dispatcher files
+were copied to the M6 by hand, only where the M6's copy was byte-identical to the version the edit started from
+(all 7 were), and tested there. Handoff for Codex and Grokbot:
+`Handoffs/two-mac-setup-20261112/03b-github-push-from-remote-sessions-codex-grokbot.md`.
+
+**Tests.** `editroute.py selftest`: 54 of 54 on both Macs (30 before; new: sleeping drive, network share, retry, queue class,
+slow-answer log, plus the other session's 8 resume tests). `renderq.py selftest` 61 of 61 on the M2.
+`editcap.py selftest` 27 of 27 on the M2; on the M6 it now fails 3 CLI tests because of the other session's new
+resume hook, not this change (details in handoff 03b).
 `scripts/edit-queue/tests/test_edit_queue.py`: 59 run, the 8 new `TwoMacRouting` tests pass; 3 older tests fail
 exactly as they did before this change (they expect a routing table Dan changed on October 2).
 
