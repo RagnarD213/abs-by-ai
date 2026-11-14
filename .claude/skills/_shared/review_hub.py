@@ -75,7 +75,10 @@ def ensure_service(base):
         previous = plistlib.loads(plist.read_bytes())
         # Keep the established interpreter and permissions across clients.
         args = previous.get('ProgramArguments', [])
-        if previous.get('Label') != LABEL or len(args) != 3 or args[1:] != [str(runtime_script), '--serve']:
+        # Compare real locations: after a Mac migration the plist may name the same folder through an
+        # old-username symlink (/Users/danielrose -> /Users/danrrose on the M6, 2026-11-14).
+        same_script = len(args) == 3 and Path(args[1]).resolve() == runtime_script.resolve()
+        if previous.get('Label') != LABEL or not same_script or args[2] != '--serve':
             raise RuntimeError(f'Unexpected existing shared-review configuration: {plist}')
     loaded = subprocess.run(['launchctl', 'print', target], capture_output=True).returncode == 0
     if not loaded:
