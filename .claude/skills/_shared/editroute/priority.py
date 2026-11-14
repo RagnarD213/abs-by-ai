@@ -175,8 +175,13 @@ def main(argv=None):
         if enabled:flag.touch()
         elif flag.exists():flag.unlink()
         if not enabled:
-            r=current()
-            if r:update('release',r['job'],reason='scoped rollback')
+            # Clear every dynamic urgency lease as well as dedication. Existing
+            # queued --priority tickets retain their original explicit order.
+            with locked():
+                controls=snapshot()
+                controls['jobs']={};controls['reservation']=None
+                controls.setdefault('events',[]).append(dict(t=time.time(),action='deactivate',reason='scoped rollback; all dynamic controls cleared'))
+                save(controls)
         print('scheduler features '+('enabled' if enabled else 'disabled'));return 0
     if a.action in ('set','reserve') and not (renderq.feature('priority') or os.environ.get('EDIT_PRIORITY_FIXTURE')=='1'):
         print('WAIT: priority rollout has not reached its safe activation boundary. No reservation created.');return 3

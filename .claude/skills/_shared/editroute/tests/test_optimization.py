@@ -135,7 +135,11 @@ class Optimization(unittest.TestCase):
             self.assertEqual(priority.main(['activate']),0)
             self.assertTrue(rq.feature('priority'));self.assertTrue(rq.feature('fairness'))
             priority.update('reserve','DS-703')
+            priority.update('set','DS-704')
+            self.assertTrue(priority.urgent('DS-704'))
             self.assertEqual(priority.main(['deactivate']),0)
+            self.assertFalse(priority.urgent('DS-704'))
+            self.assertEqual(priority.read()['jobs'],{})
             self.assertFalse(rq.feature('priority'));self.assertIsNone(priority.current())
         finally:
             for k,v in saved.items():
