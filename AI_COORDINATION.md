@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **KevinJamesCheat-SFC-R1(DS-41):BUILDING:2026-11-13:Claude.**Resumed;scripted-in-re-review,offcuff-rebuilding;/Volumes/Expansion/_edit_work/DS-41/r1/RESUME.md.
 
-**WhatToCut-SFL(SL-21):R2-PAUSED-BY-DAN:2026-11-13:Claude.**Until-Joint-Vigor-style-options-done.Clips-made+reviewed;renders-next.Resume:/Users/danielrose/Projects/_edit_work/SL-21/round2/RESUME.md
+**WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-13:Claude.**http://127.0.0.1:9621/;Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
@@ -240,7 +240,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - COPYING ACTIVE 2026-11-13, Codex/Claude.** Eight older shoots verified on Seagate and Drive. New 11/13 shoot (28 files, 243.1 GB) stable; Seagate copy-only began 8:36 pm, Drive follows. Overnight monitor active. Nightly 8 pm routine remains active. Extreme originals remain; deletion paused. Next: verify shoot, then decide offload rule. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - COPYING ACTIVE 2026-11-13, Codex/Claude.** Eight older shoots verified on Seagate and Drive. New 11/13 shoot (28 files, 243.1 GB) checksum verified on Seagate at 9:17 pm; Google Drive copy-only began 9:36 pm. Overnight monitor active. Nightly 8 pm routine remains active. Extreme originals remain; deletion paused. Next: verify Drive, then decide offload rule. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 

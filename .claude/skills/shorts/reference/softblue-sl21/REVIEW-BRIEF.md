@@ -50,3 +50,33 @@ Write build/<S>/ROUND-1B-REVIEW.md (same format, VERDICT line) and judge the NEW
 - E: caption breaks: "That's a whole / different discussion.", "The discussion / that we're having is,", "On the other hand, / if you have" (one two-line caption), "great physical health,", "attaining great / mental health" (one two-line caption), "you've got to / sacrifice that" then "permanently.", "to sacrifice that / until you get in great shape,", "the productivity / to make more money,", "and eventually / you can reinvest in that / once you've taken care / of the higher priority." The pull-up clip keeps its captions in the standard place (they cross his shins on the low half of a rep; two-line captions do not fit the floor under his feet). The gate text now says a person seen from behind walks into the gym.
 Known and accepted, not defects: hair at the top edge (source framing); the delivery gate's two hair rows fail for that reason on every Short from this roll and need Dan's acceptance, which is requested on the review page.
 Write build/<S>/ROUND-1C-REVIEW.md (same format, VERDICT line) and judge the NEW watch pass (--by "ra-reviewer <S> round 1c").
+
+## Round 2 (2026-11-13): one new lip-synced AI clip in Short 1 and in Short 2 (two versions of Short 2). Read this section, not the round 1 files' verdicts.
+Dan watched round 1 and approved Short 3 as is, and Shorts 1 and 2 except for ONE new clip each: an AI "excuse guy" whose lips are synced to
+Dan's own recording of the excuse line. Everything else in both Shorts is approved and must be unchanged. Builds: A2 = Short 1; D1 and D2 =
+Short 2 with two different beach guys (Dan asked to see both and will pick one). Delivered names: plans.NAME["A2" | "D1" | "D2"]; build
+folders WORK/build/<A2|D1|D2>/ (gate plan, shots, cues, watch pass as before). The approved round 1 files are in
+"/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/whattocut REVIEW/round1/".
+What changed, exactly:
+- Short 1 (A2), 0:01.53 to 0:05.67: Dan on camera is replaced by the restaurant excuse guy (WORK/clips/AIr.mp4 from its 0.4 s). The line:
+  "oh, I don't have the money to get in shape, Dan. I don't have the money for a gym membership." Captions in that shot sit at y 1540.
+- Short 2 (D1, D2), 0:02.61 to 0:05.94: the aerial beach clip now runs to 0:02.85 (through Dan's "You're like,") and the beach excuse guy
+  plays from 0:02.85 to 0:05.94 (WORK/clips/AIb1.mp4 or AIb2.mp4 from its 0.4 s). The line: "I need a vacation. I deserve a break because
+  I work hard." The "You're like," caption now shows over the aerial clip. Dan's shot after the clip keeps the round 1 camera path.
+- Each AI clip carries an AI-GENERATED chip. The mouth is the take's own closed mouth before his first word and after his last.
+Your job:
+1. Prove nothing else changed: compare the delivered file with its round 1 file frame by frame and sample by sample outside the changed
+   stretch (WORK/recipe/samecheck.py NEW OLD T0 T1 does it; run it yourself with the window above, then spot-check with your own grabs).
+   Any difference outside the window is a must-fix.
+2. The new clip, at playback and frame by frame: does it show the line (a fat man at an expensive dinner / on a tropical beach, whining the
+   excuse); cause and effect (nothing vanishes, appears, changes hands); does it look like real footage or like AI; hands and fingers;
+   the lip sync against the words (lips closed on m, b, p; open on the vowels; no talking in the silences; no seam, smear, doubled lips,
+   soft patch or border on the lower face; teeth); no repeated or held frames beyond the normal 24-in-30 cadence; the cut into and out of
+   the clip (no flash frame, no caption across the cut, the first and last word whole).
+3. Captions in the new shot: match the words, never over his face or mouth, do not hide what makes the joke (the food; the cocktail and beach).
+4. The AI-GENERATED chip: present on every frame of the clip, readable, not on his face or body.
+5. Judge the NEW watch pass (--by "ra-reviewer <S> round 2"): every image a verdict; hair at the top edge on Dan's shots is the accepted
+   source framing (Dan approved it), mark it `expected`.
+6. Would Dan, who rejects AI slop on sight, be embarrassed by this clip? Say yes or no and why.
+Write WORK/build/<S>/ROUND-2-REVIEW.md with findings (time, what, evidence, fix) and `VERDICT: SHIP` or `VERDICT: DOES NOT SHIP`. Report a short
+summary: verdict, must-fix list, watch-judge open defects. Automated checks stay silent: decode and measure, never play audio aloud.

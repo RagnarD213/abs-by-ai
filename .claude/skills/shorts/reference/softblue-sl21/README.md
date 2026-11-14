@@ -70,3 +70,35 @@ Dan approved Short 3 as is and Shorts 1 and 2 except for one new AI clip each: t
 - **The review hub serves a snapshot.** After rebuilding a page, run `review_server.py PORT DIR` again or the link shows the old page.
 - **A busy render queue makes every frame gate and every `--review` record wait** (10 to 25 minutes each behind two heavy builds).
   Start reviews in parallel and never edit a frame while its review record is queued: the record is refused and the review is lost.
+
+## Round 2, part two (2026-11-13): motion, lip sync, the two Shorts rebuilt (three files delivered)
+
+Dan approved the restaurant pair and asked for BOTH beach pairs as finished Shorts so he can pick ("generate both, I'll see which one looks
+better"). Builds: A2 (Short 1), D1 / D2 (Short 2 with pair X1 / X2; which take is which is the blind key, `plans.py` reads it). Page:
+`page_r2b.py` + `page_text_r2.py`. Review brief: the "Round 2" section of `REVIEW-BRIEF.md`.
+
+- **Takes:** Flow, 9:16. Omni 4 s and 6 s takes kept the mouth closed and put the shrug inside the slot; of the Veo Fast 8 s takes one of
+  six was usable (fork changed hands, arms thrown up, a talking mouth). Queue Fast x2 plus an Omni twin for a 3 to 4 s slot.
+- **sync/lipsync-2-pro barely opens a pouting, closed mouth** (temperature 0.5 and 1.0: mouth open on 0 to 20 % of voiced frames; four
+  runs, $1.14, unused). **bytedance/latentsync works** (`prep25.py`, `lipsync_alt.py latent`; about $0.07 a run): it needs 25 fps and a
+  multiple of 16 frames (it drops the remainder), so resample the take to 25 and start the audio 0.4 s before the slot, then cut the lead.
+- **LatentSync holds the mouth OPEN in silence** (a flat black gape for a quarter second before the first word, and after the last).
+  `syncfix22.py`: the take's own closed mouth until the frame the voice starts (`--on-from T --on-exact`, T = voice onset in clip time; check
+  the DELIVERED file, the 24/25/30 conversions move it a frame or two), out again where the synced lips are closest to closed after the
+  last word; a hard switch, because a half-blended frame shows a grey lip slab. On a face that fills the frame add `--ease 0.33,0.66`: the
+  first two synced frames open the mouth a third and two thirds of the way (the lips are warped toward each other), or it pops open.
+- **Keep the take's texture on the lower face.** The synced patch was 95 % softer than a crisp stubble close-up. `syncfix22.py` uses the
+  sync's low frequencies (shape) with the take's high frequencies (stubble, skin) on jaw, chin and cheeks, and the synced pixels only on
+  the lips.
+- **Undo the 25 fps resample before the build** (`undup.py`): drop the repeats on the every-25 rhythm only and write 24 fps, or a repeat
+  lands mid arm swing and the 30 fps conform turns it into a visible hitch.
+- **A new clip that shortens a talking shot changes its camera path** (the landing camera starts later). `plans.PINPATH` gives the shot
+  the round 1 shot's own path from the same frame, and `samecheck.py NEW OLD T0 T1` proves the rest of the Short is the approved file
+  (picture within re-encoding noise, audio bit-identical).
+- **`framing:push_coverage` can flip when a clip covers the head of the one wide shot:** its per-hold median fell under 0.75 of the
+  dominant level and the row stopped counting it (spread x1.33 to x1.08) on frames identical to round 1. Reported to Dan as a call; no
+  bound was changed.
+- **Never wait with `pgrep -f "<script names>"` in several shells at once:** each waiting shell's own command line contains the names,
+  so they match each other and every waiter (and the chain behind them) hangs. An hour lost. Chain the steps in ONE script and wait on a
+  marker line in its log. Same trap with `pkill -f` on a name that is in your own command.
+- **Update `plans.NEG` when a Short gains an AI clip** (the gate plan's negative-events text said "no AI clips").

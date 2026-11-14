@@ -126,3 +126,5 @@ for _k, _l in (("D1", "X1"), ("D2", "X2")):
     COVERS[_k][1].update(_TAKE[_lab[_l]])
     if _lab[_l] == "B2": SHOTS[_k][1] = dict(cap=1600)      # the blue-shirt take: captions under the pineapple, on his forearms and the rail (at 1412 they covered the drink)
 PINPATH = {"D1": {2: ("D", 1)}, "D2": {2: ("D", 1)}}      # Dan's shot after the excuse clip keeps the round 1 camera path (his approval covers that framing)
+NEG["A2"] = NEG["A"].replace("no AI clips, ", "one AI clip (a heavy man at a steakhouse table behind a steak and lobster dinner, lips synced to Dan's own recording of the excuse line, 0:01.5 to 0:05.7, labelled AI-GENERATED); ")
+for _k in ("D1", "D2"): NEG[_k] = NEG["D"].replace("no AI clips, ", "one AI clip (a heavy sunburnt man on a beach lounger with a pineapple cocktail, lips synced to Dan's own recording of the excuse line, 0:02.85 to 0:05.9, labelled AI-GENERATED); ")

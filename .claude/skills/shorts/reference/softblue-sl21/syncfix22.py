@@ -42,21 +42,47 @@ def mesh(F):
 T, S = frames(take), frames(sync); n = min(len(T), len(S)); LT, LS = mesh(T[:n]), mesh(S[:n])
 gap = np.array([abs(LS[i][14, 1] - LS[i][13, 1]) / max(1.0, abs(LS[i][291, 0] - LS[i][61, 0])) for i in range(n)])
 f_on = int(round(T_ON * FPSV)); f_off = min(n - 1, int(round(T_OFF * FPSV)))
-c0 = range(max(0, f_on - SEARCH), min(n, f_on + 2)); c1 = range(max(0, f_off), min(n, f_off + SEARCH + 1))
-f_on = min(c0, key=lambda i: gap[i]); f_off = min(c1, key=lambda i: gap[i])            # switch where the synced lips are closest to closed
+# D1 review (round 2): LatentSync GAPES in the silence before the first word (a flat black mouth for a quarter second) and a
+# half-blended frame at each switch shows a grey lip slab. So: the take's own closed mouth right up to the voice; the sync switches
+# in on the frame, from the voice onset to SEARCH frames after it, where its lips are closest to closed (the gape has passed by
+# then), and out likewise after the last word; a hard switch, never a blended frame.
+c0 = range(f_on, min(n, f_on + SEARCH)); c1 = range(max(0, f_off), min(n, f_off + SEARCH + 1))
+f_off = min(c1, key=lambda i: gap[i])
+if "--on-exact" not in a: f_on = min(c0, key=lambda i: gap[i])      # --on-exact: switch in exactly at --on-from (one frame before the voice when the first word opens on a vowel: the open mouth ON the word is right, only the gape before it was wrong)
 gate = np.zeros(n, np.float32); gate[f_on:f_off + 1] = 1.0
-if f_on > 0: gate[f_on - 1] = 0.5
-if f_off + 1 < n: gate[f_off + 1] = 0.5
 blur = lambda x: cv2.GaussianBlur(x, (0, 0), SIG)
+EASE = [float(v) for v in a[a.index("--ease") + 1].split(",")] if "--ease" in a else []
+UP = [78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308]; LO = [78, 95, 88, 178, 87, 14, 317, 402, 318, 324, 308]
+
+
+def part_close(img, lm, k):
+    """The synced frame with its mouth opened only k of the way (D2 review, round 2: on a face that fills the frame the mouth popped
+    from shut to its widest in ONE frame on the first word). The inner lips move toward each other: the dark interior is squeezed to
+    k of its height and the lips, chin and upper lip slide in by the rest, fading to nothing a quarter face-width away."""
+    fw = abs(lm[454, 0] - lm[234, 0]); R = 0.25 * fw
+    xs = np.arange(W, dtype=np.float32)
+    def curve(idx):
+        pts = lm[idx]; o = np.argsort(pts[:, 0]); return np.interp(xs, pts[o, 0], pts[o, 1]).astype(np.float32)
+    yu, yl = curve(UP), curve(LO); x0, x1 = lm[78, 0], lm[308, 0]
+    aa = np.clip((yl - yu) / 2, 0, None); aa[(xs < x0) | (xs > x1)] = 0
+    edge = np.clip(np.minimum(xs - x0, x1 - xs) / max(1.0, 0.08 * (x1 - x0)), 0, 1); aa = aa * edge      # the opening tapers to the corners
+    yc = (yl + yu) / 2
+    Y, X = np.mgrid[0:H, 0:W].astype(np.float32); d = Y - yc[None, :]; A = aa[None, :]; ad = np.abs(d)
+    inside = ad <= k * A
+    wgt = np.clip(1 - (ad - k * A) / R, 0, 1)
+    src_d = np.where(inside, d / max(k, 1e-3), d + np.sign(d) * A * (1 - k) * wgt)
+    return cv2.remap(img, X, (yc[None, :] + src_d).astype(np.float32), cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
 enc = subprocess.Popen([FF, "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", f"{FPSV:g}", "-i", "-",
                         "-vf", "scale=out_color_matrix=bt709:out_range=tv,format=yuv420p", "-c:v", "libx264", "-crf", "10", "-preset", "slow",
                         "-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709", "-an", out], stdin=subprocess.PIPE)
 d_out = []; sharp = []
 yy, xx = np.mgrid[0:H, 0:W]
 for i in range(n):
-    t, s = T[i].astype(np.float32), S[i].astype(np.float32)
     if gate[i] == 0:
         enc.stdin.write(T[i].tobytes()); continue
+    if 0 <= i - f_on < len(EASE): S_i = part_close(S[i], LS[i], EASE[i - f_on])
+    else: S_i = S[i]
+    t, s = T[i].astype(np.float32), S_i.astype(np.float32)
     ls, lt = LS[i], LT[i]; fw = abs(ls[454, 0] - ls[234, 0])                              # face width: every size below scales with it
     # lower face (below a line under the eyes that follows the head's tilt)
     m = np.zeros((H, W), np.uint8); cv2.fillConvexPoly(m, cv2.convexHull(ls[OVAL]).astype(np.int32), 255)
