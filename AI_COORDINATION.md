@@ -39,7 +39,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**KevinJamesCheat-SFC-R1(DS-41):PAUSED-BY-DAN:2026-11-13:Claude.**Until-JointVigor-style-options-done;scripted-final-awaiting-re-review,offcuff-rebuild-pending;/Volumes/Expansion/_edit_work/DS-41/r1/RESUME.md.
+**KevinJamesCheat-SFC-R1(DS-41):BUILDING:2026-11-13:Claude.**Resumed;scripted-in-re-review,offcuff-rebuilding;/Volumes/Expansion/_edit_work/DS-41/r1/RESUME.md.
 
 **WhatToCut-SFL(SL-21):R2-PAUSED-BY-DAN:2026-11-13:Claude.**Until-Joint-Vigor-style-options-done.Clips-made+reviewed;renders-next.Resume:/Users/danielrose/Projects/_edit_work/SL-21/round2/RESUME.md
 
