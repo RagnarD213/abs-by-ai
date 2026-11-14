@@ -43,6 +43,7 @@ This example requires the editor to construct `input`; it must never execute mer
 The 5-edit cap (`../editcap/README.md`) applies to every round. A round that stops for Dan runs `editcap.py release <JOB> --review`; the continuing task (same or fresh) runs `editcap.py acquire <JOB>` before production and waits on exit 3. The controller's starter prompt says so.
 
 Two Macs (2026-11-14): a continuing round stays on the Mac that holds the job's work folder (`editroute.py where <JOB>`; rule 1 in `../editroute/README.md`). A fresh round for a job with no folder yet runs `editroute.py pick <JOB> --kind <K> --round <N>` first and starts on the Mac it names.
+On every existing-edit resume, `editroute/resume.py check <JOB>` verifies ownership. When remote, the original chat runs its commands via `resume.py run <JOB> -- <command>` without asking Dan to repeat routing instructions or creating another editor merely to change execution Mac. Exit 5 from editcap acquire/wait means use that remote path; exit 6 means ownership unresolved. Round changes that actually require a fresh task still follow the controller above.
 
 ## What it enforces
 

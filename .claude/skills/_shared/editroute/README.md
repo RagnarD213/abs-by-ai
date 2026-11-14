@@ -45,6 +45,41 @@ order) and `editroute.py` follow on the next call. The M2 has its own checkout: 
 
 ## Commands
 
+### Continuing in the original chat
+
+Dan resumes an existing edit by replying in its original Claude or Codex chat. He does not need to add a Mac
+instruction. Before production on every resume (also a copied old chat), run:
+
+```bash
+python3 .claude/skills/_shared/editroute/resume.py check DS-39
+```
+
+Exit 0 means the edit is local, or this is a new job that still needs normal `editroute.py pick`.
+Exit 5 names the remote owner; no local edit slot is acquired. Keep this chat as the sole editor and run its
+commands on that Mac, rather than asking Dan to open another chat or restate approvals:
+
+```bash
+python3 .claude/skills/_shared/editroute/resume.py run DS-39 -- python3 .claude/skills/_shared/editcap/editcap.py acquire DS-39
+python3 .claude/skills/_shared/editroute/resume.py run DS-39 -- python3 .claude/skills/_shared/renderq/renderq.py run --group DS-39 -- python3 /absolute/path/on/owner/build.py
+```
+
+`run` resolves the existing owner, forwards argv and stdin literally over SSH, streams output into the original
+chat, sets `GATE_GROUP`, and returns the command's exit code. No new AI or chat is launched, no work folder is
+moved, and no edit or render slot is bypassed. Default cwd is the owner's project checkout; put `--cwd <absolute
+path>` before `--` to use another folder there. Use the same helper for file reads and writes on the owner.
+Never write revised build code only on the M6 and then run the older M2 copy. Long commands use the existing
+background execution workflow. A disconnect is a blocker to inspect, not permission to retry a possibly live build.
+
+The old mandatory `editcap.py acquire/heartbeat/wait` commands also call this check, so a resumed old chat gets
+the remote instructions even if it has not reread the updated skill. Exit 6 means a Mac did not answer or ownership
+could not be verified: retry the read-only check, then report a persistent blocker. Do not start a local duplicate.
+`status`, `release` and the programmatic `editcap.acquire()` API are unchanged; callers of that API must perform
+the resume check themselves. The original chat remains responsible for following the returned routing instruction.
+
+Continue the normal review mirroring and `editroute.py push` delivery workflow. This feature installs routing for
+resumes; it does not start any edit or re-enable the paused unattended queue.
+
+
 | Command | What it does |
 |---|---|
 | `pick JOB [--kind K] [--round N] [--chroma] [--host m6\|m2 [--move]] [--dry-run] [--json]` | where the next edit goes, and why |

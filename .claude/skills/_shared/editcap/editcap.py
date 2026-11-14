@@ -8,6 +8,7 @@ nearest upcoming release. Undated and 2027 work goes last. Rule: VIDEO-RULES.md,
 
     editcap.py acquire JOB [--title T] [--type LFC|SFC|SFL|AD] [--release YYYY-MM-DD]
                                     exit 0 = go (slot held, also refreshes it), 3 = waiting (do not produce)
+                                    5 = remote owner (use editroute/resume.py run), 6 = ownership unresolved
     editcap.py wait JOB [--max-hours 24]
                                     blocks until JOB holds a slot, then exits 0 (run it in the background:
                                     the session is re-invoked when it exits). Exit 4 = gave up after max hours.

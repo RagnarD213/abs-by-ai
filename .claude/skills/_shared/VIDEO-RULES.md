@@ -1407,6 +1407,20 @@ something that we can publish."* Every point below is a standing rule for every 
 
 ## Two Macs: which Mac takes the edit (Dan, 2026-11-12; built 2026-11-14)
 
+- **Existing edits, original chat (Dan, 2026-11-14):** every resume checks the job's owning Mac with
+  `python3 .claude/skills/_shared/editroute/resume.py check <JOB>`, including chats copied from the M2 to the M6.
+  If the work belongs on the other Mac, keep this original chat as the sole editor and execute its commands through
+  `python3 .claude/skills/_shared/editroute/resume.py run <JOB> -- <command and arguments>`; `--cwd <absolute path>`
+  before `--` selects a folder on that Mac (default: its project checkout). The helper streams output and stdin
+  back to this chat, keeps the command's exit code, and starts no new AI. Read/write scripts and checkpoints on
+  that Mac too; do not edit a stale local copy then execute the old remote script. Acquire the edit slot and use
+  the normal render queue on the owner. `editcap.py acquire`, `heartbeat` and `wait` now check ownership first:
+  exit 5 = remote edit, no local slot acquired; follow the printed command automatically. Exit 6 = unresolved
+  ownership: retry read-only, then report a persistent blocker; never create a second local production copy.
+  No request for Dan to choose a Mac, repeat routing instructions, start another chat or repeat approvals merely
+  because he resumed an old chat. Existing named-Mac/move decisions and round/context limits still apply.
+  Review mirroring and final delivery remain required. This does not resume the paused overnight dispatcher.
+
 - **Named Mac and recommendation before starting (Dan, 2026-11-14):** Dan may specify M6 or M2 in an ordinary
   task prompt; pass that choice as `--host m6|m2`. Before recording the route or acquiring a production slot,
   compare the requested choice and the normal route with `pick ... --host <requested> --dry-run` and

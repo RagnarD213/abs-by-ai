@@ -28,6 +28,7 @@ start the edit there (Claude: new session on the SSH connection `m2`; Codex: `ss
 production here. On the M6, footage comes from the M2 with `editroute.py fetch`; on the M2, review pages open on the
 M6 by themselves (same link) and finals go to the M6 with `editroute.py push`. Rule: VIDEO-RULES.md, "Two Macs".
 If Dan names a Mac, follow that shared section's **Named Mac and recommendation before starting** rule: recommend a clearly better alternative before production and wait for his choice; never silently switch.
+**Every existing-edit resume:** run `python3 .claude/skills/_shared/editroute/resume.py check <JOB>`. If remote (exit 5), keep this original chat as the editor and run commands through `resume.py run <JOB> -- <command>` on the owning Mac, including slot acquisition and build-file reads/writes. Exit 6 means ownership could not be verified: no production until resolved. Never ask Dan to add Mac instructions or start another chat. See editroute/README.md, "Continuing in the original chat".
 
 ## Locked tier-list format (Dan, 2026-11-01)
 
