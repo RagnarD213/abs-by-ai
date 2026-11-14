@@ -64,6 +64,14 @@ order) and `editroute.py` follow on the next call. The M2 has its own checkout: 
    have a folder: the one with a live slot, else the one with Dan, else the bigger folder (a mirrored review folder
    on the M6 does not count against the M2's real one). `--host X --move` moves it only when Dan says so.
 2. Dan names a Mac: that Mac (it waits there if full).
+   Before recording a new route or acquiring a slot, compare `pick ... --host <requested> --dry-run` with
+   `pick ... --dry-run`. If the other Mac has a clear advantage for this job under current conditions, briefly
+   recommend it and wait for Dan to choose before production or launching the edit. Honor his original choice
+   if confirmed; never switch silently or infer consent from no answer. With no meaningful advantage, proceed
+   on his requested Mac without asking again. Record the agreed choice with `--host`; a confirmed Mac waits
+   there if full. Existing work stays in place unless Dan explicitly requests a move (`--move`). See
+   VIDEO-RULES.md, "Named Mac and recommendation before starting" (2026-11-14). This is an editor instruction;
+   the CLI's `--host` does not itself ask Dan or automatically switch hosts.
 3. Shorts (SFC, SFL), ad cutdowns, later-round revisions (`--round 2+`): the M6 first.
 4. Long-form R1, a full chroma key (`--chroma`), exercise-demo batches: the M2 first.
 5. The preferred Mac full: the other. The M6 under Dan's own load (memory pressure not normal, or the 5-minute load

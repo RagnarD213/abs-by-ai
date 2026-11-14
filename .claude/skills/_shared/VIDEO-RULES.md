@@ -1407,6 +1407,19 @@ something that we can publish."* Every point below is a standing rule for every 
 
 ## Two Macs: which Mac takes the edit (Dan, 2026-11-12; built 2026-11-14)
 
+- **Named Mac and recommendation before starting (Dan, 2026-11-14):** Dan may specify M6 or M2 in an ordinary
+  task prompt; pass that choice as `--host m6|m2`. Before recording the route or acquiring a production slot,
+  compare the requested choice and the normal route with `pick ... --host <requested> --dry-run` and
+  `pick ... --dry-run`, using current availability, job needs and the existing-work-folder rule. If the other
+  Mac has a clear advantage, briefly recommend it with the actual reason (for example less waiting, local footage
+  or keeping Dan's Mac responsive) and wait for Dan's choice before production or starting the remote edit.
+  Read-only preparation may continue. No silent switch, no agreement inferred from silence, no invented timing
+  claim. If Dan confirms his requested Mac, use it and wait there if full; do not repeat the same recommendation.
+  If no meaningful advantage exists, honor his choice without another question. After the choice, record the
+  agreed Mac with `--host`. An existing edit is not moved merely because a different Mac was named: explain where
+  it lives and obtain an explicit instruction to move it before using `--move`. This specific requested choice
+  overrides routine instructions to choose and execute without asking. Applies to Claude and Codex.
+
 - **Two Mac minis share the edits:** the M6 (Dan's Mac, 2 edit slots) and the M2 Pro on the Thunderbolt cable
   (headless, 3 slots, holds the Extreme and Seagate drives). The 5 is now 2 + 3. Numbers: `editroute/hosts.json`.
 - **Before the first `editcap.py acquire` of a new edit:** `python3 .claude/skills/_shared/editroute/editroute.py

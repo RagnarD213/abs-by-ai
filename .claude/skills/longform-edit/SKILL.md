@@ -27,6 +27,7 @@ chroma key; `--host m6|m2` only when Dan names one). It prints `m6`, `m2` or `wa
 start the edit there (Claude: new session on the SSH connection `m2`; Codex: `ssh m2 codex exec`) and do no
 production here. On the M6, footage comes from the M2 with `editroute.py fetch`; on the M2, review pages open on the
 M6 by themselves (same link) and finals go to the M6 with `editroute.py push`. Rule: VIDEO-RULES.md, "Two Macs".
+If Dan names a Mac, follow that shared section's **Named Mac and recommendation before starting** rule: recommend a clearly better alternative before production and wait for his choice; never silently switch.
 
 ## Locked tier-list format (Dan, 2026-11-01)
 
