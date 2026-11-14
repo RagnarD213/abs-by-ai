@@ -223,3 +223,9 @@ Pec deck, machine chest press, machine row, reverse pec deck: installed, all one
 - `gates.sh` wipes `watch/` including findings.json: back it up first. `REUSE_PICTURE=1` reuses a stale picture after a window change; delete `*-picture.mp4`.
 - Narrate only what the picture shows (dropped "Back flat", "Stay glued", "Chest proud"). Form faults in footage are questions for Dan, not narration.
 - Machine row footage is a chest-supported T-bar row; app copy still describes a seated machine.
+
+## Batch 3 result (2026-11-14, Dan's review pending)
+Sled push (side B0702 f18-100, cut to front B0704 f121-259, 7.4 s) and walking lunge (one side take B0708 f70-190, 4.0 s) passed five review rounds and the delivery gate; chin-up held (B0646 is a neutral-grip close-up, pickup in `Docs/NEXT_SHOOT_LIST.md`). Work and recipe: M2 `/Volumes/Extreme/_edit_work/REALDEMOS-B03` (review page port 9531).
+- **App audio: encode at `-c:a aac -b:a 128k`, not 96k.** At 96k the built-in AAC put a 20-55 ms distortion on the first word (app minus master only 4 dB under the voice). 128k: worst 15 dB, median 37 dB under. Check with `tools/appdiff.py MASTER APP`. `aac_at` reads worse on this diff (timing offset); do not switch to it.
+- **Moving subjects (tracking cameras):** screen every frame for feet, knees and hips at the edges; trackers and contact sheets miss 4-frame clips. Cut on the knees-passing frame on both sides (leg close-up strips at 1 frame) and keep legs alternating across the cut AND the loop seam; ending one step late rewinds the swinging foot on loop.
+- **Gate plan:** a cut to a different camera take is declared `covered` in `make_plan.py` (Batch 3 version); same-take jumps stay bare. Regenerating the plan renames the watch strips, so the watch verdicts need a fresh judge.
