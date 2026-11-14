@@ -46,7 +46,7 @@ Lesson for the next video batch: every Omni 1.1 Flash 6 s take re-rendered (went
 the first 5 s of an Omni take is usable; Veo Fast takes showed talking mouths and hands passing through feet late in the take. Two of three
 thermostat takes flipped "63" to "62": quote on-screen numbers in the prompt and check them on every frame.
 
-## Batch 3 frames: on Dan's page (2026-11-13)
+## Batch 3 frames: Dan selected 7 of 14 (2026-11-13)
 
 Work folder `~/Projects/_edit_work/FLOWCLIPS/b3/` (ideas.py, prompts/, codex/, google/, pairs/, review_results.txt, build_page.py).
 Frames page http://127.0.0.1:9245/ (Select buttons; untouched means out). 21 ideas for the unedited January Shorts DS-94, DS-95, DS-96, DS-98,
@@ -72,8 +72,16 @@ DS-51, DS-57, DS-46, DS-54, DS-56 (none), DS-60, DS-62, DS-64; opinion and "why"
 
 Existing library clips offered on the same page: A0159 (DS-95), A0241 and A0188 (DS-51).
 No idea passed for DS-57 (timer), DS-60 (reverse lunges) or DS-64 (3 rules); DS-56 had no opinion line worth a clip.
-Next: Dan's selections, `blind.py pick b3/sets/<id> --chose Xn`, then the batch 2 video routine in a `vid-b3/` folder
-(plan Omni takes at 5 s or less; one Flow agent; screen, clipcheck, one fresh motion reviewer per kept take).
+**Dan's selections (2026-11-13):** B3-02 Bored To Sleep, B3-03 First Day, B3-08 Lighter And Fine With It, B3-12 Only Five,
+B3-13 Lighter But Weaker, B3-14 Movie Snack, B3-15 A Thousand Sit-Ups (7 ideas, one version each; `blind.py pick` recorded for B3-02, B3-08, B3-12),
+plus the three existing clips A0159 (already in the DS-95 job doc), A0241 and A0188 (now in the DS-51 job doc). Not selected, so out:
+B3-01, B3-05, B3-06, B3-07, B3-21, B3-16, B3-17.
+
+## Batch 3 video: in progress (2026-11-13)
+
+Work folder `~/Projects/_edit_work/FLOWCLIPS/vid-b3/` (setup.py, clips.json, prompts/, specs/, veo/). 7 clips x (2 Veo Fast at 8 s + 1 Omni
+at 6 s) = 21 takes, about 210 credits. Next: screen takes on strips, `clipcheck.py` through `renderq.py`, one fresh motion reviewer per
+kept take, cut to the clean window, video page, Dan approves, file with tag `flow-credits-batch3`.
 
 ## Credits
 
