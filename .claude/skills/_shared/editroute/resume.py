@@ -23,6 +23,22 @@ EXIT_REMOTE = 5
 EXIT_UNRESOLVED = 6
 
 
+def gather_without_stdin(job, config):
+    """Ownership probes must not consume the command's piped script/input.
+
+    SSH status probes in editroute inherit fd 0. Isolate them in a child whose
+    stdin is /dev/null, reserving this process's stdin for the eventual command.
+    """
+    collector = ("import json,sys; sys.path.insert(0,sys.argv[1]); import editroute; "
+                 "print(json.dumps(editroute.gather(sys.argv[2],json.loads(sys.argv[3]))))")
+    r = subprocess.run([sys.executable, "-c", collector, str(Path(__file__).resolve().parent), job,
+                        json.dumps(config)], stdin=subprocess.DEVNULL, capture_output=True, text=True,
+                       timeout=float(config.get("remote_timeout_s", 8)) + 30)
+    if r.returncode:
+        raise ValueError("ownership probe failed: {}".format(r.stderr.strip() or r.returncode))
+    return json.loads(r.stdout)
+
+
 def locate(job, statuses=None, config=None, here=None):
     """Read-only ownership, distinct from preferences for a NEW edit."""
     job = er.job_code(job)
@@ -31,7 +47,7 @@ def locate(job, statuses=None, config=None, here=None):
     if not here or here not in config.get("hosts", {}):
         # Keep the old single-Mac/test behavior outside this two-Mac installation.
         return dict(job=job, host=here, here=here, state="unmanaged", reason="No two-Mac configuration here.")
-    statuses = er.gather(job, config) if statuses is None else statuses
+    statuses = gather_without_stdin(job, config) if statuses is None else statuses
     unavailable = [h for h in config["hosts"] if not statuses.get(h, {}).get("reachable")]
     if unavailable:
         return dict(job=job, host=None, here=here, state="unresolved",

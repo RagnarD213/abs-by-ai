@@ -26,6 +26,12 @@ def statuses(owner="m2"):
 
 
 class Resume(unittest.TestCase):
+    def test_ownership_probe_cannot_consume_command_stdin(self):
+        response = subprocess.CompletedProcess([], 0, stdout=json.dumps(statuses()), stderr="")
+        with patch.object(rs.subprocess, "run", return_value=response) as probe:
+            self.assertEqual(rs.gather_without_stdin("DS-39", config()), statuses())
+            self.assertEqual(probe.call_args.kwargs["stdin"], subprocess.DEVNULL)
+
     def test_existing_edit_ignores_new_short_preference(self):
         result = rs.locate("DS-39", statuses(), config(), "m6")
         self.assertEqual((result["host"], result["state"]), ("m2", "existing"))
