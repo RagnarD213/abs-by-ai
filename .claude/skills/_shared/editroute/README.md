@@ -37,7 +37,9 @@ order) and `editroute.py` follow on the next call. The M2 has its own checkout: 
    Silent-check and owner-handoff audio rules are unchanged (same server code on both Macs).
 6. **Finished files from an M2 edit:** `editroute.py push <file or folder> ...` copies them into the M6's project
    folder at the same place (`Videos to Review/...`, delivery folders). A different file already there is kept as
-   `NAME.m6-before-<time>`. Nothing is deleted on either Mac. Git changes (master list, queue) are committed and
+   `NAME.m6-before-<time>`. Nothing is deleted on either Mac. A delivery folder that is a link to a
+   shared drive (`Videos to Review`, `Short-form video content` on the Seagate) is not copied: the M6 already reads
+   the same file, so `push` proves it (same checksum) and says "already on the m6 through the shared drive". Git changes (master list, queue) are committed and
    pushed from the M2's own checkout as usual.
 7. **Footage for an M6 edit:** `editroute.py fetch <JOB> "/Volumes/Extreme/<shoot folder>/C1730.MP4" ...` copies it
    from the M2 into this Mac's job folder (`~/Projects/_edit_work/<JOB>/footage/`). The originals are only read.

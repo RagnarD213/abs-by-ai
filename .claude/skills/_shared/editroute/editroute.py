@@ -990,21 +990,95 @@ def cmd_fetch(job, srcs, to=None):
     return EXIT_GO
 
 
+# What one Mac sees at a path: every file with its size, plus a checksum for a single file. Run locally and, over
+# ssh, on the other Mac, to prove a file on a shared drive is the same file on both.
+_FINGERPRINT = r"""
+import hashlib, json, os, sys
+p = sys.argv[1]
+out = {"exists": os.path.exists(p), "files": [], "sha": None}
+if os.path.isfile(p):
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for b in iter(lambda: f.read(1 << 20), b""):
+            h.update(b)
+    out["files"] = [["", os.path.getsize(p)]]
+    out["sha"] = h.hexdigest()
+elif os.path.isdir(p):
+    for d, _, fs in os.walk(p):
+        for n in fs:
+            if n.startswith("._") or n == ".DS_Store":
+                continue
+            q = os.path.join(d, n)
+            out["files"].append([os.path.relpath(q, p), os.path.getsize(q)])
+    out["files"].sort()
+print(json.dumps(out))
+"""
+
+
+def _fingerprint_here(path):
+    r = subprocess.run([sys.executable, "-c", _FINGERPRINT, str(path)], capture_output=True, text=True, timeout=900)
+    return json.loads(r.stdout)
+
+
+def _fingerprint_there(h, path):
+    r = _ssh(h, "python3 -c {} {}".format(shlex.quote(_FINGERPRINT), shlex.quote(str(path))), timeout=900)
+    if r.returncode != 0:
+        raise RuntimeError((r.stderr or "").strip()[-300:] or "no answer")
+    return json.loads(r.stdout)
+
+
+def _same_on_other_mac(dest_host, here_path, there_path):
+    """(True, how it was checked) when the other Mac sees the same file or folder at its own path."""
+    try:
+        a, b = _fingerprint_here(here_path), _fingerprint_there(dest_host, there_path)
+    except Exception as e:                                        # noqa: BLE001
+        return False, "could not check: {}".format(e)
+    if not b.get("exists"):
+        return False, "nothing at that path there (is the shared drive mounted?)"
+    if a["files"] != b["files"]:
+        return False, "{} files here, {} there, or sizes differ".format(len(a["files"]), len(b["files"]))
+    if a.get("sha"):
+        if a["sha"] != b.get("sha"):
+            return False, "checksums differ"
+        return True, "same checksum {}...".format(a["sha"][:12])
+    return True, "{} files, same names and sizes".format(len(a["files"]))
+
+
 def cmd_push(paths, dest_host=None):
-    """M2: copy finished files into the M6's project folder at the same relative place (older copy kept)."""
+    """M2: copy finished files into the M6's project folder at the same relative place (older copy kept).
+
+    A project folder that is a link to a drive (`Videos to Review`, `Short-form video content` live on the Seagate,
+    which the M6 mounts as a network share) is never copied: the M6 already reads the same file through the same
+    link. Push then only proves it (same names and sizes; same checksum for a single file) and says so."""
     c = cfg()
     dest_host = dest_host or c.get("primary")
     if me() == dest_host:
         print("This is the {} already; the files are in its project folder.".format(dest_host))
         return EXIT_ERR
     repo = Path(REPO).resolve()
+    repo_as_typed = Path(os.path.abspath(str(REPO)))
     rrepo = c["hosts"][dest_host]["repo"]
+    rc = EXIT_GO
     for p in paths:
-        ap = Path(p).resolve()
+        typed = Path(os.path.abspath(str(p)))
+        ap = typed.resolve()
         try:
             rel = ap.relative_to(repo)
         except ValueError:
-            print("skipped (not inside the project folder {}): {}".format(repo, p))
+            rel = next((typed.relative_to(r) for r in (repo, repo_as_typed)
+                        if r == typed or r in typed.parents), None)
+            if rel is None:
+                print("skipped (not inside the project folder {}): {}".format(repo, p))
+                continue
+            target = "{}/{}".format(rrepo, rel.as_posix())
+            same, how = _same_on_other_mac(dest_host, ap, target)
+            if same:
+                print("{}: already on the {} through the shared drive ({}); nothing to copy".format(
+                    rel, dest_host, how))
+            else:
+                print("{}: NOT confirmed on the {}: {}. Nothing was copied (this folder is a link to a drive; "
+                      "copying would write the drive onto itself).".format(rel, dest_host, how))
+                rc = EXIT_ERR
             continue
         target = "{}/{}".format(rrepo, rel.as_posix())
         r = _ssh(dest_host, "mkdir -p " + shlex.quote(str(Path(target).parent)))
@@ -1014,7 +1088,7 @@ def cmd_push(paths, dest_host=None):
         _rsync(src, "{}:{}".format(c["hosts"][dest_host].get("ssh", dest_host),
                                    _remote_path(target + ("/" if ap.is_dir() else ""))), backup=True)
         print("{} -> {}:{}".format(rel, dest_host, target))
-    return EXIT_GO
+    return rc
 
 
 def _hub_cache(port):

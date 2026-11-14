@@ -500,5 +500,76 @@ class RemoteRetry(unittest.TestCase):
         self.assertIn("Connection refused", s["error"])
 
 
+
+
+class PushThroughSharedDrive(unittest.TestCase):
+    """A delivery folder that is a link to a drive both Macs see is proved, never copied onto itself."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name).resolve()
+        self.repo, self.drive, self.other = root / "repo", root / "drive", root / "other-mac-repo"
+        for d in (self.repo, self.drive / "Videos to Review", self.other):
+            d.mkdir(parents=True)
+        (self.repo / "Videos to Review").symlink_to(self.drive / "Videos to Review")
+        (self.other / "Videos to Review").symlink_to(self.drive / "Videos to Review")
+        self.final = self.drive / "Videos to Review" / "final.mp4"
+        self.final.write_bytes(b"film" * 1000)
+        cfg = json.loads(json.dumps(CFG))
+        cfg["hosts"]["m6"]["repo"] = str(self.other)
+        self.saved = (er.REPO, er.cfg, er.me, er._ssh, er._rsync)
+        self.copied = []
+        er.REPO, er.cfg, er.me = self.repo, (lambda: cfg), (lambda: "m2")
+        er._rsync = lambda *a, **k: self.copied.append(a)
+        er._ssh = lambda h, command, timeout=60: subprocess.run(command, shell=True, capture_output=True, text=True)
+
+    def tearDown(self):
+        er.REPO, er.cfg, er.me, er._ssh, er._rsync = self.saved
+        self.tmp.cleanup()
+
+    def run_push(self, path):
+        import contextlib
+        import io
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            rc = er.cmd_push([str(path)])
+        return rc, out.getvalue()
+
+    def test_linked_file_is_proved_not_copied(self):
+        rc, out = self.run_push(self.repo / "Videos to Review" / "final.mp4")
+        self.assertEqual(rc, er.EXIT_GO)
+        self.assertIn("already on the m6 through the shared drive (same checksum", out)
+        self.assertEqual(self.copied, [])
+
+    def test_linked_folder_is_proved_by_names_and_sizes(self):
+        rc, out = self.run_push(self.repo / "Videos to Review")
+        self.assertEqual(rc, er.EXIT_GO)
+        self.assertIn("1 files, same names and sizes", out)
+        self.assertEqual(self.copied, [])
+
+    def test_drive_not_mounted_on_the_other_mac_fails_loudly(self):
+        (self.other / "Videos to Review").unlink()
+        rc, out = self.run_push(self.repo / "Videos to Review" / "final.mp4")
+        self.assertEqual(rc, er.EXIT_ERR)
+        self.assertIn("NOT confirmed on the m6", out)
+        self.assertEqual(self.copied, [])
+
+    def test_a_different_file_there_fails(self):
+        (self.other / "Videos to Review").unlink()
+        (self.other / "Videos to Review").mkdir()
+        (self.other / "Videos to Review" / "final.mp4").write_bytes(b"old!" * 1000)
+        rc, out = self.run_push(self.repo / "Videos to Review" / "final.mp4")
+        self.assertEqual(rc, er.EXIT_ERR)
+        self.assertIn("checksums differ", out)
+
+    def test_ordinary_project_file_is_still_copied(self):
+        (self.repo / "Docs").mkdir()
+        (self.repo / "Docs" / "note.md").write_text("x")
+        rc, out = self.run_push(self.repo / "Docs" / "note.md")
+        self.assertEqual(rc, er.EXIT_GO)
+        self.assertEqual(len(self.copied), 1)
+        self.assertIn("Docs/note.md -> m6:", out)
+
+
 if __name__ == "__main__":
     unittest.main()
