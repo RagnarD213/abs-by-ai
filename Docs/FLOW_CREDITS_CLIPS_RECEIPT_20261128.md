@@ -77,11 +77,29 @@ B3-13 Lighter But Weaker, B3-14 Movie Snack, B3-15 A Thousand Sit-Ups (7 ideas, 
 plus the three existing clips A0159 (already in the DS-95 job doc), A0241 and A0188 (now in the DS-51 job doc). Not selected, so out:
 B3-01, B3-05, B3-06, B3-07, B3-21, B3-16, B3-17.
 
-## Batch 3 video: in progress (2026-11-13)
+## Batch 3 video: made, waiting for Dan's picks (2026-11-13)
 
-Work folder `~/Projects/_edit_work/FLOWCLIPS/vid-b3/` (setup.py, clips.json, prompts/, specs/, veo/). 7 clips x (2 Veo Fast at 8 s + 1 Omni
-at 6 s) = 21 takes, about 210 credits. Next: screen takes on strips, `clipcheck.py` through `renderq.py`, one fresh motion reviewer per
-kept take, cut to the clean window, video page, Dan approves, file with tag `flow-credits-batch3`.
+Work folder `~/Projects/_edit_work/FLOWCLIPS/vid-b3/` (setup.py, clips.json, prompts/, specs/, picks.json, windows.json, motion_results.txt,
+build_review.py). Flow project https://flow.google.com/project/52f3eb0e-cff4-4795-9bbd-ce43e678c7fb . 21 takes (14 Veo Fast, 7 Omni), no failures.
+Review page http://127.0.0.1:9246/ (Select buttons; untouched means out). Every clip passed `clipcheck.py` and a fresh motion reviewer and
+plays only its clean window.
+
+| Clip | Video (job) | Take | Clean window |
+|---|---|---|---|
+| Bored To Sleep | How To Use The Stairmaster To Burn Fat (DS-94) | Omni | 4.3 s |
+| First Day | What To Do Your First Day At The Gym (DS-95) | Veo Fast | 4.9 s (frozen and nervous; the head turn itself is outside the window) |
+| Lighter And Fine With It | How To Pick The Right Weight On Every Exercise (DS-96) | Omni | 4.6 s |
+| Only Five | The Only 5 Machines You Need At The Gym (DS-98) | Omni | 3.0 s |
+| Lighter But Weaker | 3 Ways To Lose Fat Without Losing Muscle (DS-51) | Omni | 4.3 s |
+| Movie Snack | same (DS-51) | Omni | 4.8 s |
+| A Thousand Sit-Ups: the sit-up | The Only 2 Exercises You Need For Lower Abs (DS-46) | Omni | 3.3 s |
+| A Thousand Sit-Ups: worn out on the floor | same (DS-46) | Veo Fast | 4.3 s |
+
+Screened out before review: Fast takes with dumbbell curls (B3-08), an arm raised to the head (B3-12, both), a second egg falling (B3-14).
+Six of the eight kept clips are Omni takes: with a window planned inside the first 5 s (before the frame-128 re-render) Omni followed the
+"nothing else moves" prompts more closely than Veo Fast in this batch.
+Next: Dan's picks, then `clip_library.py add <window cut> --kind ai --status usable-unused --used-in "<job> <title> (planned)" --tags flow-credits-batch3`
+(copy `vid-b2/file_library.py`), `clip_library.py sheet`, IDs under "Pre-made AI clips" in the DS-94, DS-95, DS-96, DS-98, DS-51, DS-46 job docs.
 
 ## Credits
 
@@ -93,7 +111,8 @@ kept take, cut to the clean window, video page, Dan approves, file with tag `flo
 | batch 2 video (16 clips, 24 takes: 16 Veo Fast + 8 Omni at 10 each) | 240 | balance 21,396 to 21,156 |
 | batch 3 frames (49 Google images) | 0 | |
 | batch 2 retake (sleep clip, 2 Veo Fast takes) | 20 | balance 21,156 to 21,136 |
-| **total for this handoff so far** | **500** | of 14,000 |
+| batch 3 video (7 clips, 21 takes: 14 Veo Fast + 7 Omni at 10 each) | 210 | balance 21,042 to 20,832 |
+| **total for this handoff so far** | **710** | of 14,000 |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 

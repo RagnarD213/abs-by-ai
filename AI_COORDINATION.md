@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
-**FlowClips-b3:VIDEO-RUNNING:2026-11-13:Claude.** Dan selected 7 batch3 ideas; Flow takes generating (vid-b3). Next: checks, video page, his approval, file in library. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
@@ -240,7 +240,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - COPYING ACTIVE 2026-10-26, Codex/Claude.** Eight shoots, including 10/23, checksum verified on Seagate and Drive. Nightly 8 pm copy-only routine remains active. Current Extreme originals remain; deletion paused. Next: decide the offload rule before enabling deletion. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - COPYING ACTIVE 2026-11-13, Codex/Claude.** Eight older shoots verified on Seagate and Drive. New 11/13 shoot (28 files, 243.1 GB) stable; Seagate copy-only began 8:36 pm, Drive follows. Overnight monitor active. Nightly 8 pm routine remains active. Extreme originals remain; deletion paused. Next: verify shoot, then decide offload rule. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
