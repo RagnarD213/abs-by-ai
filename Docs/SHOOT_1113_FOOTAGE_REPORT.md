@@ -56,7 +56,9 @@ but not frame-accurate; use the sidecar's word timings for cuts.
   only (C1907); reaction Shorts smaller plates and C01 Hormozi with off-the-cuff alternates (C1909); long-forms Tesla
   crash (C1914, complete) and A15 (C1914, partial).
 
-## Open questions for Dan
+## Orientation check
 
 - The VSL (C1903) and the four upsells (C1904) were filmed portrait, before the "should be horizontal" moment in C1905.
-  Only L01 and L02 were reshot landscape. Confirm portrait is intended for the VSL and upsells.
+  That matches the approved funnel plan (`Docs/GREAT_AGAIN_T_FUNNEL_PLAN_20261110.md`): the VSL is delivered as a native
+  9:16 phone video (V Shred model), and the upsells play inside the same phone funnel. Only the YouTube ads needed
+  landscape, which is why L01 and L02 were reshot. No reshoot needed for the VSL or upsells.
