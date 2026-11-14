@@ -29,13 +29,15 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-42-cover-setup:2026-11-14:Codex:AWAITING-DAN.** [Choose cover](http://127.0.0.1:9844/): X1–X5.
+
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-AD-R1(WV-03):DAN-REVIEW-R1:2026-11-14:Claude.** http://127.0.0.1:9760/; R2 handoff on hold in Handoffs/README.md.
+**GreatAgainT-VSL-AD-R2(WV-03):BUILDING-R2:2026-11-14:Claude.** Five darker backgrounds. Next: R2 page.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
@@ -68,7 +70,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-20Setup:HOLD:2026-11-06:Claude.** Feb1/3/5-waitlist;push-pending. `Docs/SL20_SETUP_RECEIPT_20261106.md`
 
-**RO15:HOLD:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
+**RO15:HOLD:2026-11-14:Codex.** Reverified; A approved; Dec23-9AM waitlisted. Next: shared top-up. `Docs/RO15_SETUP_RECHECK_20261114.md`.
 
 
 
