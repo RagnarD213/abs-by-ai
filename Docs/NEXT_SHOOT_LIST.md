@@ -10,6 +10,8 @@ reason.
 
 Keep this file current: when something is filmed, delete its row and note the roll number.
 
+**Unfilmed Content And Ads (2026-11-14):** every unfilmed script from the 11/13 and 10/23 shoots, plus the 10/15 leftovers, in one Doc: https://docs.google.com/document/d/1m3f0CPjFQnlIwVVpfQkgP35VrddSiVG11q574lVBvwk/edit
+
 **Shoot-day documents, since 2026-10-19:**
 - "Next Studio Shoot, Not Yet Filmed" (was "Next Shoot - Filming Document"),
   https://docs.google.com/document/d/1fNCxSNNDGmAn_nkNgzRJbWIUDuvmxum2LBNCpyKveVg/edit
