@@ -4,7 +4,7 @@ Executed: November 14, 2026, about 11:10 a.m. to 11:55 a.m. America/Chicago, on 
 Owner: Claude (Opus 5.5), a side session started from Dan's handoff session.
 Source: `Handoffs/two-mac-setup-20261112/03-two-mac-edit-routing.md`. Code commit: `5701b23` (pushed).
 
-**Status: built, unit-tested, live on both Macs. The real end-to-end test is routed but not yet started**: it needs
+**Status at 11:55 a.m.: built, unit-tested, live on both Macs; the real end-to-end test routed but not yet started (afternoon follow-up below: started, timeouts fixed, M2 checkout reconciled, dispatcher routed)**: it needs
 the Claude app's SSH connection `m2`, which does not exist yet (`list_start_targets` showed `ssh: []` at 11:15 and
 again at 11:45). Nothing was deleted on either Mac. The running WV-03 edit on the M6 was not stopped.
 
@@ -89,6 +89,62 @@ own apps used under 1 core; the WV-03 key used about 4.
   just unloaded. Left as is: someone turned it off on purpose; Dan decides whether it runs.
 - The edit-queue dispatcher `com.absbyai.edit-queue` runs on the M2 only (disabled on the M6), so jobs it launches
   start on the M2 without `editroute.py pick`. Fine as one place; teach it to route before it is moved.
+
+## Follow-up, November 14 afternoon (Claude Fable 5.2, a session running ON the M2 through the new `m2` connection)
+
+Codex finished 02b (the Claude app's SSH connection and environment `m2`), so the steps "For Dan" below are done
+and the first three Leftovers above are closed or changed. Nothing was deleted on either Mac, WV-03 was not
+touched, and the overnight queue is still paused on both Macs (`scripts/edit-queue/PAUSE`, dated October 17).
+
+**1. Real test: started, running.** `editroute.py pick DS-107 --kind SFC --chroma` again printed `m2` (rule 4) by
+itself. The edit was started from the M6 app as its own session on the SSH connection `m2`: "Metabolism Not The
+Reason SFC R1" (Opus 5.5, high). Within minutes `editroute.py status` showed `Active edits: DS-107` under the M2 and
+its work folder on the M2's Extreme (`/Volumes/Extreme/_edit_work/DS-107`). Still to come from that session: the
+review page opening on the M6, step timings (`ROUTING-PROOF.md` in the work folder), and, after Dan approves the
+cut, the finals copied into the M6 project folder with `editroute.py push`.
+
+**2. Intermittent routing timeouts: cause found and fixed.** Evidence: at 12:11:44 a `pick` on the M6 reported
+"m2 unreachable ... timed out after 8.0 seconds ... counted as full". The M2's ssh log shows the login finished in
+0.06 s, so the cable and ssh were fine; the 8 s went inside the M2's status answer. That answer read the work
+folders on every drive, including the Seagate, a 24 TB hard disk that spins down when idle and takes 10 s or more
+to wake. Awake, the same call takes 0.08 s (measured 16 times). Fix in `editroute.py`:
+- each external drive gets 2 s to answer; past that the status call answers from the drive's last saved free space
+  and folder list (`drives-cache.json`), so it never waits on a sleeping disk and rule 1 still finds a job whose
+  folder is on that drive. The table shows `(asleep)`; `pick` adds a note;
+- a connection that fails fast is tried once more; a Mac that takes the full 8 s is not asked twice; the error
+  now reads "no answer within 8 s" instead of a Python command dump;
+- found on the way: since the drives became network shares on the M6 this morning, the M6 saw every job folder
+  on the Extreme as its own, so rule 1 could see a job "on both Macs". A drive that reaches a Mac as a network
+  share now counts as the other Mac's; the M6 reports only its free space, marked `(shared)`.
+Not changed, for Dan to know: the same 12:11 answer also counted the M6 as full because its 5-minute load (12.5)
+was above its 12 cores while WV-03 was rendering there. That is rule 5 as written.
+
+**3. M2 checkout reconciled.** It was 28 commits behind with 1,230 uncommitted entries, and `git pull` refused.
+Of the 82 files GitHub had changed, 61 were untouched locally (updated), 20 were hand copies already identical to
+GitHub's (left alone), and 1 (`AI_COORDINATION.md`, the nightly-footage owner's edit) was three-way merged with the
+local edit kept as an uncommitted change. Run again 11 minutes later for 6 more commits pushed by another session
+(one old local edit to the chroma-key guide was already inside GitHub's version; the live edits to the queue
+files stayed). Result: the M2 is level with GitHub, no local edit lost, backups in `tmp/m2-reconcile-20261114-*/`.
+The tool is kept: `scripts/two-mac/reconcile-checkout.py` (`--dry` first). The untracked
+`*.before-editroute-20261114` copies are still there (nothing is deleted without Dan).
+
+**4. The overnight dispatcher uses the router.** `scripts/edit-queue/dispatcher.py` now asks
+`editroute.py pick JOB --queue` before every launch and launches a job only when the router names the Mac it runs
+on. A job sent to the other Mac (its work is there, or this Mac's slots are full) or to `wait` stays for a later
+tick and the next eligible job is asked; no router answer launches nothing. Unattended launches are their own
+routing class, QUEUE, sent to the M2 first (`hosts.json`, one word to change). `launch-one` asks too
+(`--ignore-router` when Dan names this Mac). The pause is checked first: a paused queue never calls the router,
+and a dry run today still says "STOP: PAUSE file present ... launching nothing". Not built: starting a queue job
+on the other Mac remotely; with the queue's own limit of two jobs on a three-slot M2 it is not needed yet.
+
+**Tests.** `editroute.py selftest`: 53 of 53 (30 before; new: sleeping drive, network share, retry, queue class,
+plus the other session's 8 resume tests). `editcap.py selftest` 27 of 27, `renderq.py selftest` 61 of 61.
+`scripts/edit-queue/tests/test_edit_queue.py`: 59 run, the 8 new `TwoMacRouting` tests pass; 3 older tests fail
+exactly as they did before this change (they expect a routing table Dan changed on October 2).
+
+**Seen, not changed.** The paused dispatcher's log on the M2 says "claude: program not found" and "codex: program
+not found" (program paths in `config.json` are out of date), and its review queue is over its limit (5 of 4).
+Both must be fixed before Dan resumes the queue.
 
 ## For Dan: add the M2 to the Claude app (one time, about 2 minutes)
 

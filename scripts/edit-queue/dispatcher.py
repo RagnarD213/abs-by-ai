@@ -261,6 +261,75 @@ def decide(data, cfg, facts, scoreboard):
     return out
 
 
+# ================================================================ two-Mac routing (2026-11-14)
+#
+# Dan has two Macs (M6 2 edit slots, M2 Pro 3). `.claude/skills/_shared/editroute/editroute.py` decides which Mac
+# takes each edit. The dispatcher asks it before every launch (`pick JOB --queue`) and launches a job ONLY when the
+# router names this Mac. A job the router sends to the other Mac (its work folder is there, or this Mac's edit slots
+# are full) or to the line is left for a later tick. No router answer = launch nothing (an unattended launcher never
+# guesses). Unattended launches are routed as their own class, QUEUE, which hosts.json sends to the M2 first.
+
+ROUTER = os.environ.get("EDIT_QUEUE_ROUTER") or os.path.join(
+    eq.ROOT, ".claude", "skills", "_shared", "editroute", "editroute.py")
+
+
+def this_mac():
+    """This Mac's name in the router's config (m6 / m2), or None when the router does not know it."""
+    try:
+        r = subprocess.run([sys.executable, ROUTER, "whoami"], capture_output=True, text=True, timeout=30)
+    except (OSError, subprocess.SubprocessError):
+        return None
+    name = (r.stdout.splitlines() or [""])[0].strip()
+    return name if r.returncode == 0 and re.match(r"^[a-z0-9-]+$", name) else None
+
+
+def route(job_id, dry=False):
+    """(host, why) from the router for an unattended launch of job_id; host is None when it gave no answer.
+    dry=True asks without recording; dry=False records the decision (holds the slot for 30 minutes)."""
+    cmd = [sys.executable, ROUTER, "pick", job_id, "--queue", "--json"] + (["--dry-run"] if dry else [])
+    try:
+        r = subprocess.run(cmd, capture_output=True, text=True, timeout=90)
+        if r.returncode not in (0, 3):                       # 0 = a Mac, 3 = both full
+            return None, f"router failed (exit {r.returncode}): {(r.stderr or r.stdout).strip()[-200:]}"
+        entry = json.loads(r.stdout[r.stdout.index("{"):])
+        return entry.get("host"), " ".join(entry.get("why") or [])
+    except (OSError, subprocess.SubprocessError, ValueError) as e:
+        return None, f"router gave no answer ({type(e).__name__}: {e})"
+
+
+_ASK = object()
+
+
+def route_launches(d, dry, route_fn=None, mac=_ASK):
+    """Keep only the planned launches the router gives to THIS Mac; fill from the other eligible jobs, in order.
+    Sets d["launches"], d["routed_here"] {job: why} and d["routed_away"] [(job, executor, host, why)]."""
+    route_fn = route_fn or route
+    want = len(d["launches"])
+    d["routed_here"], d["routed_away"] = {}, []
+    if not want:
+        return d
+    mac = this_mac() if mac is _ASK else mac
+    planned, go = list(d["launches"]), []
+    if mac is None:
+        d["routed_away"] = [(j, ex, None, "the two-Mac router does not know this Mac (editroute/hosts.json)")
+                            for j, ex in planned]
+        d["launches"] = []
+        return d
+    for jid, ex in planned + [c for c in d.get("eligible", []) if c not in planned]:
+        if len(go) >= want:
+            break
+        host, why = route_fn(jid, True)
+        if host == mac and not dry:
+            host, why = route_fn(jid, False)                 # records it, so the next job sees this slot as taken
+        if host == mac:
+            go.append((jid, ex))
+            d["routed_here"][jid] = why
+        else:
+            d["routed_away"].append((jid, ex, host, why))
+    d["launches"] = go
+    return d
+
+
 # ================================================================ acting
 
 def launch(job_id, executor, cfg, by_hand=False, no_budget=False):
@@ -349,7 +418,12 @@ def report(d, dry):
     lines += [f"  STOP: {x}" for x in d["stops"]]
     lines += [f"  EXECUTOR OFF: {w}" for w in d["executor_stops"].values()]
     lines += [f"  eligible: {d.get('eligible', [])}"]
-    lines += [f"  {'WOULD LAUNCH' if dry else 'LAUNCH'}: {j} -> {ex}" for j, ex in d["launches"]]
+    for j, ex, host, why in d.get("routed_away", []):
+        where = {None: "no router answer", "wait": "both Macs are full"}.get(host, f"router sends it to the {host}")
+        lines.append(f"  NOT HERE: {j} -> {ex}: {where}. {why}")
+    lines += [f"  {'WOULD LAUNCH' if dry else 'LAUNCH'}: {j} -> {ex}"
+              + (f"  (router: {d['routed_here'][j]})" if d.get("routed_here", {}).get(j) else "")
+              for j, ex in d["launches"]]
     if not d["launches"]:
         lines.append("  launching nothing")
     return "\n".join(lines)
@@ -358,6 +432,7 @@ def report(d, dry):
 def tick(dry_run=False, verbose=False):
     cfg, data = eq.load_config(), q.load()
     d = decide(data, cfg, gather(cfg, data), eq.scoreboard_load())
+    route_launches(d, dry_run)                # two Macs: only what the router gives to this Mac
     print(report(d, dry_run))
     if verbose:
         for j, w in d["skipped"].items():
@@ -384,6 +459,7 @@ def main():
     lo = sub.add_parser("launch-one"); lo.add_argument("id"); lo.add_argument("--executor")
     lo.add_argument("--ignore-pilot-limits", action="store_true", help="allow a group/size outside the pilot (Phase 0 proof runs)")
     lo.add_argument("--no-budget", action="store_true", help="lift the per-size clock and render cap; the absolute outer ceiling remains")
+    lo.add_argument("--ignore-router", action="store_true", help="launch on this Mac even if the two-Mac router would send the job to the other one (only when Dan names this Mac)")
     a = ap.parse_args()
 
     if a.cmd == "tick":
@@ -419,6 +495,13 @@ def main():
         why = d["skipped"].get(a.id) or (stops[0] if stops else None)
         if why or (a.id, eq.executor_for(a.id, cfg)) not in d.get("eligible", []):
             sys.exit(f"NOT launching {a.id}: {why or 'not eligible'}")
+        if not a.ignore_router:
+            mac = this_mac()
+            host, rwhy = route(a.id, dry=True) if mac else (None, "the two-Mac router does not know this Mac")
+            if host != mac:
+                sys.exit(f"NOT launching {a.id} on this Mac: the two-Mac router says {host or 'nothing'}. {rwhy} "
+                         f"Launch it there, or pass --ignore-router if Dan named this Mac.")
+            route(a.id, dry=False)
         print(launch(a.id, eq.executor_for(a.id, cfg), cfg, by_hand=True, no_budget=a.no_budget)[1])
 
 

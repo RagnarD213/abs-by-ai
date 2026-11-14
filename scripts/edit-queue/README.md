@@ -91,6 +91,23 @@ A job is skipped when: its state isn't `ready` or `frames_approved`; it has an o
 a source file named above the doc's `## Deliver` heading is missing; it carries `"unattended": false`; or its group is
 paused. `dispatcher.py status` prints the reason per job.
 
+## Two Macs: the router decides where a job starts (2026-11-14)
+
+Dan has two Macs: the M6 (his own, 2 edit slots) and the M2 Pro (headless edit machine, 3 slots, holds the drives
+and this queue's `work_root`). The dispatcher runs on one Mac (today the M2; its LaunchAgent is disabled on the M6).
+Before every launch it asks the two-Mac router, `.claude/skills/_shared/editroute/editroute.py pick JOB --queue`:
+
+- The router names this Mac: the decision is recorded (it holds the slot for 30 minutes) and the job launches here.
+- The router names the other Mac (the job's work folder is there, or this Mac's edit slots are full) or says `wait`
+  (both full): nothing launches for that job this tick; the next eligible job is asked instead. The tick log says
+  `NOT HERE: JOB -> executor: router sends it to the m6. <reason>`.
+- No answer from the router, or a Mac `hosts.json` does not know: nothing launches. An unattended launcher never guesses.
+
+Unattended launches are routed as the class QUEUE, which `editroute/hosts.json` sends to the M2 first. The slot
+counting below still applies on top (the queue's own two-job limit and the foreign-build count). `launch-one` asks
+the router too; `--ignore-router` starts the job on this Mac anyway, for when Dan names it. The PAUSE file is
+checked first: a paused queue never calls the router. Tests: `TwoMacRouting` in `tests/test_edit_queue.py`.
+
 ## The contract with a launched session (`preamble.md`)
 
 Work in `/Volumes/Extreme/_edit_work/<JOB>/`. The runner writes `WORK_PACKET.json`: one short change list plus the
