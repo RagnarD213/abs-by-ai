@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**M2-prep:BLOCKED:2026-11-13:Codex.** Resumed on M6; SSH works both ways. Remote drive reads denied. Next: M2 Remote Login full disk access switch. `Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md`.
+**M2-prep:BLOCKED:2026-11-14:Codex.** Logs identify disk-permission denials for sshd-keygen-wrapper and smbd. Next: enable both in M2 Full Disk Access; reconnect/retest. `Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md`.
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 

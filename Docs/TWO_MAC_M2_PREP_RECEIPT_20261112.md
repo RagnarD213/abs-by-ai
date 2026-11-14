@@ -58,3 +58,25 @@ Codex resumed this same chat on the M6 and verified:
 - Computer-use access to the M6 Screen Sharing app timed out twice, including one attempt using its verified path `/System/Applications/Utilities/Screen Sharing.app`. No remote desktop session was established and no privacy setting was changed.
 
 **Immediate next action for Dan:** on the M2, open System Settings > General > Sharing > Remote Login (information button), and enable **Allow full disk access for remote users**. This is the supported setting for disk access from authenticated SSH sessions ([Apple instructions](https://support.apple.com/en-mt/guide/mac-help/mchlp1066/27/mac/27)). After it is enabled, Codex should reconnect from this same M6 chat, verify external-drive reads, and continue the SMB diagnosis without disrupting edits. The Screen Sharing automation timeout prevents Codex from reaching that switch through the desktop interface from here.
+
+
+## November 14 follow-up after Dan enabled remote-user disk access
+
+Dan confirmed enabling the M2 Remote Login full-disk switch and authorized continued repair from the M6. Checks at approximately 7:18–7:28 a.m. Central:
+
+- Fresh SSH sessions, explicitly disabling connection reuse, still cannot list either external volume. An authenticated root SSH session gets the same denial.
+- Authenticated SMB share enumeration from the M6 succeeds and lists both exact share names. A native M6 mount of `Extreme` still returns **No such file or directory** after successful authentication. Neither external drive is mounted on the M6.
+- The M2 privacy log directly attributes the SSH denial to `/usr/libexec/sshd-keygen-wrapper`. At 07:20:28, request `25468.813` for `kTCCServiceSystemPolicyAllFiles` returned `authValue=0, authReason=5`.
+- The same log attributes the failing SMB volume access to `/usr/sbin/smbd`. At 07:23:10, request `25468.824` for `kTCCServiceSystemPolicyAllFiles` returned `authValue=0, authReason=5`; its removable-volume request `25468.825` returned `authValue=1, authReason=0`, rather than an allowed grant.
+- A read-only check of the system permission database was refused. No permission database was modified. A standard service refresh using `launchctl kickstart` was also refused by System Integrity Protection; that protection remains enabled and no alternative bypass was attempted.
+- A new attempt to reach the M2 via Finder's `vnc://10.66.0.2` route reached the native Screen Sharing login dialog. The app then quit during sign-in, and computer use returned **App quit**. Therefore the M2 settings still cannot be operated through that interface from here.
+- The render queue was idle at the initial check. No Mac restart, drive unmount, drive format, file copy, or exported-media change was performed. No new probe was written to either production drive.
+
+**Current prerequisite:** on the M2, open **System Settings > Privacy & Security > Full Disk Access**. Enable both **sshd-keygen-wrapper** and **smbd**. If missing, add the verified existing executables with **+**, then **Command-Shift-G**:
+
+1. `/usr/libexec/sshd-keygen-wrapper`
+2. `/usr/sbin/smbd`
+
+This requests permission for the actual two services observed in the logs, rather than asking Dan to repeat the Remote Login switch. Once enabled, reconnect from the M6, verify real external-drive reads, and retry the native mounts before investigating filesystem behavior. Effective permission has not yet been verified, and the FSKit hypothesis remains unproven.
+
+References: [Apple remote access setting](https://support.apple.com/en-mt/guide/mac-help/mchlp1066/27/mac/27); [storage vendor instructions for SMB Full Disk Access](https://help.iodyne.com/hc/en-us/articles/42386134675095-Sharing-a-container-over-SMB). These are setup references; the denial evidence above comes from the actual M2 logs.
