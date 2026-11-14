@@ -31,7 +31,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Two-Mac infrastructure: VERIFYING 2026-11-14, Codex.** M6 active; M2 awaits DS-39. Dispatcher PAUSED. `Docs/TWO_MAC_OPTIMIZATION_EXECUTION_RECEIPT_20261114.md`.
 
 **WhatToCut-SFL-Setup:THERAPY-PICK:2026-11-14:Codex.** [Choose-X1–X8](http://127.0.0.1:9862/?pick=therapy);Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
