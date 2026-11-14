@@ -57,6 +57,15 @@ def main():
                       jobs={"SL-18": {"title": "Wasted Life (RO-25)"}}, today=TODAY)
     print("editcap selftest")
 
+    # Help must never become a live job or wait for capacity.
+    import contextlib, io
+    fresh()
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        help_codes=[ec.main([cmd,"--help"]) for cmd in ("wait","acquire")]
+        invalid_code=ec.main(["wait","--not-a-real-option"])
+    check("subcommand help exits without a registry", help_codes==[0,0] and not (ec.DIR/"registry.json").exists())
+    check("unknown flag cannot become a queued job", invalid_code==2 and not (ec.DIR/"registry.json").exists())
+
     # 1. job codes
     cases = {"RO-27": "RO-27", "work:ro27": "RO-27", "DS-40-codex": "DS-40", "sl05-short1": "SL-05",
              "work:RO-20C": "RO-20C", "ro20c": "RO-20C", "SHOOT-20261023": "SHOOT-20261023",
