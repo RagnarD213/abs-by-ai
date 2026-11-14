@@ -156,11 +156,11 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | FINALIZED | S |
-| [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
+| [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | FINALIZED | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
-| [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | FINALIZED | S |
+| [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
@@ -317,7 +317,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |
 | [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
 | [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | READY | S |
-| [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | IN PROGRESS | S |
+| [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | DELIVERED: awaiting Dan | S |
 | [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | READY | S |
 | [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | READY | S |
 

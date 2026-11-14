@@ -32,7 +32,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **RealDemos-B03:DAN-REVIEW:2026-11-14:Claude.**http://127.0.0.1:9531/;chin-up-held;install-after-approval.
 
 
-**BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
@@ -42,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**MetabolismNotTheReason-SFC-R1(DS-107):BUILDING-ON-M2:2026-11-14:Claude.**Two-Mac-routing-proof;work-/Volumes/Extreme/_edit_work/DS-107-on-M2;ROUTING-PROOF.md-there.
+**MetabolismNotTheReason-SFC-R1(DS-107):DAN-REVIEW-R1:2026-11-14:Claude.**http://127.0.0.1:9801/(made-on-M2,open-on-M6);indep-review-SHIP;setup-handoff-after-approval;ROUTING-PROOF.md-in-work-folder.
 
 **KevinJamesCheat-SFC-R1(DS-41):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9661/;scripted-61.9s-vs-offcuff-73.2s,pick-one;setup-handoff-after-approval.
 
