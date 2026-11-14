@@ -2,7 +2,7 @@ CONTENT (SFC). Task name: `Protein Snack Can SFC R1`.
 
 # DS-106: The Best Protein Snack Costs $2 And Comes In A Can
 
-**Needs Dan: Filmed as "Here's Why Sardines Beat Protein Bars" (C1908) after B05 was stopped in C1907. Same video as B05, and which title do you want?** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
+**Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
 
 ## Read first
 
@@ -16,7 +16,7 @@ Times are minutes:seconds into each roll from an audio pass: close, not frame-ac
 
 | roll | range | notes |
 |---|---|---|
-| `C1908` | 0:00-1:21 | complete take, announced as "Here's Why Sardines Beat Protein Bars" |
+| `C1908` | 0:00-1:21 | complete take (opens on the script's first line, "Here's why sardines beat protein bars"); adds one unscripted line about a plastic fork |
 | `C1907` | 0:00-0:26 | first line only, stops to grab the sardines |
 
 Orientation: **portrait (stored 3840x2160 with rotation -90; decode to 2160x3840, add no transpose)**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (grade as Rec.709, no log LUT). One stereo LPCM audio stream.

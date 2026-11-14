@@ -5365,13 +5365,15 @@
    "claude": "AD (Great Again T sales video). Name this chat \"Great Again T VSL AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-03-great-again-t-vsl.md`: cut \"Great Again T VSL\" from the 11/13 green-screen shoot, rolls C1903. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T sales video). Name this chat \"Great Again T VSL AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-03-great-again-t-vsl.md`: cut \"Great Again T VSL\" from the 11/13 green-screen shoot, rolls C1903. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "11/13 shoot, C1903 0:00-45:18",
    "order": 232,
    "updated": "2026-11-14",
    "by": "Claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "WV-04",
@@ -5975,13 +5977,14 @@
    "claude": "CONTENT (SFC). Name this chat \"Protein Snack Can SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md`: cut \"The Best Protein Snack Costs $2 And Comes In A Can\" from the 11/13 green-screen shoot, rolls C1908 + C1907. Use /shorts. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (SFC). Name this chat \"Protein Snack Can SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md`: cut \"The Best Protein Snack Costs $2 And Comes In A Can\" from the 11/13 green-screen shoot, rolls C1908 + C1907. Use `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "needs",
-   "note": "Filmed as \"Here's Why Sardines Beat Protein Bars\" (C1908) after B05 was stopped in C1907. Same video as B05, and which title do you want?",
+   "state": "ready",
+   "note": "B05 as scripted: C1908 0:00-1:21 is the full take (its opening line is the script's first line); C1907 is a false start.",
    "order": 261,
    "updated": "2026-11-14",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 3,
+   "needs": ""
   },
   {
    "id": "DS-107",

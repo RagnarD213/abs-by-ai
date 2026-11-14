@@ -38,7 +38,7 @@ but not frame-accurate; use the sidecar's word timings for cuts.
 | C1905 | portrait | 13:14 | **L01** 0:00-8:38, **L02** 8:38-13:07, then Dan notices they should have been horizontal (both reshot landscape in C1913) |
 | C1906 | portrait | 22:34 | Short ads: **S01** 0:23-3:07, **S02** 3:07-5:25, **S03** 5:25-7:47, **S04** 7:47-10:20, **S05** 10:20-13:48, **S11** 14:29-17:00, **S13** 17:00-19:23, **S21** 20:09-22:22 |
 | C1907 | portrait | 0:26 | Short "The Best Protein Snack Costs $2 and Comes in a Can" (B05): first line only, stops to grab sardines |
-| C1908 | portrait | 4:19 | Short "Here's Why Sardines Beat Protein Bars" (complete) 0:00-1:21; **B08** "Your Metabolism Is Not The Reason You're Fat" 1:21-4:12 |
+| C1908 | portrait | 4:19 | **B05** "The Best Protein Snack Costs $2 And Comes In A Can" (complete; opens "Here's why sardines beat protein bars") 0:00-1:21; **B08** "Your Metabolism Is Not The Reason You're Fat" 1:21-4:12 |
 | C1909 | portrait | 7:47 | Reactions: watches Mike Michalowicz smaller-plates clip 0:00-0:46; scripted "A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right." 0:46-1:56; off-the-cuff reaction 1:56-3:26; watches Alex Hormozi clip 3:26-4:27; scripted **C01** "You're Not Hungry, You're Bored" 4:27-6:06; off-the-cuff reaction 6:06-7:48 |
 | C1910 | landscape | 0:28 | **L03** hook only, aborted |
 | C1911 | landscape | 29:29 | **L01** 0:06-4:39 (unannounced), **L04** 4:39-9:07, **L05** 9:08-14:47, **L07** 14:48-20:18, **L17** 20:19-23:09, **L20** 23:10-28:47, L22 start 28:48 (setup talk) |
@@ -74,4 +74,4 @@ When card 1 was put back in the reader, C1904 read as 4,162,322,432 bytes on the
 
 ## Edit Queue (added 2026-11-14)
 
-All filmed videos are on the Abs By AI Edit Queue, master-list section 1C5: Great Again T VSL WV-03 and upsells WV-04 to WV-07; Great Again T ads RA-17 to RA-35 (L03 is blocked: hook only); long-forms RO-39 Tesla, RO-40 A15, RO-41 A16, RO-42 A17, RO-43 A18; Shorts DS-106 (B05, filmed as "Here's Why Sardines Beat Protein Bars", needs Dan's title call), DS-107 B08, DS-108 B06 smaller plates, DS-109 C01 Hormozi.
+All filmed videos are on the Abs By AI Edit Queue, master-list section 1C5: Great Again T VSL WV-03 and upsells WV-04 to WV-07; Great Again T ads RA-17 to RA-35 (L03 is blocked: hook only); long-forms RO-39 Tesla, RO-40 A15, RO-41 A16, RO-42 A17, RO-43 A18; Shorts DS-106 B05 protein snack (C1908 0:00-1:21; "Here's why sardines beat protein bars" is the script's opening line, not a different title), DS-107 B08, DS-108 B06 smaller plates, DS-109 C01 Hormozi.
