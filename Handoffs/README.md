@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Post Malone Drink SFC setup](handoff-20261114-ds42-post-malone-cover-and-setup.md), 2026-11-14. OPEN: approved off-the-cuff R2; prepare covers and organic setup.
+- [Post Malone Drink SFC setup](handoff-20261114-ds42-post-malone-cover-and-setup.md), 2026-11-14. IN PROGRESS: full off-the-cuff film approved; [five covers awaiting Dan](http://127.0.0.1:9844/).
 
 - [Great Again T VSL AD R2](handoff-20261114-great-again-t-vsl-round2.md), 2026-11-14. **HOLD: fire after Dan answers the round 1 page (http://127.0.0.1:9760/). Claude Opus 5.5, high.** Round 2 builds every graphic and clip in his chosen style, keys the rest of the roll, makes AI start and end pairs and finishes the first minute.
 
