@@ -206,3 +206,18 @@ folder changes when the desktop app updates, so the newest one is resolved at la
 * A verdict on the review page marks the scoreboard row `corpus_entry: owed`. The revision session is told to record
   Dan's words in `qc_corpus` first; an approval's corpus entry still needs a session to write it.
 * Acceptance still owed: a full Claude job headless, and three consecutive clean nights.
+
+## Launcher repair, November 14, 2026
+
+The overnight dispatcher remains PAUSED. M2 is the sole native dispatcher owner; M6 stays disabled.
+Executable discovery uses validated absolute candidates and both version/build-level desktop paths.
+Codex now resolves GPT-6.1 Sol/high, verified in each local client catalog. Readiness reports binary,
+model/effort, non-billable login and pause policy separately; quota is not inferred from login.
+The standalone Claude CLI currently requires sign-in even though Claude desktop sessions work.
+No pilot, subscription upgrade, fallback API spend or resumed dispatcher was authorized.
+
+Claims are durable before spawn. A failed spawn removes its fixture claim and retains the ready job.
+A missing cross-reviewer parks the finished candidate and records the reason, without substituting
+another model. Existing pilot groups, three starts/night, backlog stop at four, 150 GB Extreme stop
+and two-hour allowance backoff remain. Tests run as individual processes because their old module
+globals collide under one unittest-discovery process; fixture routers never query real job ownership.

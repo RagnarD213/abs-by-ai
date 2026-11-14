@@ -32,7 +32,7 @@ def st(host, in_use=(), waiting=(), edits=None, load5=1.0, ncpu=12, pressure=1, 
     for j in waiting:
         e.setdefault(j, "waiting")
     out = dict(host=host, reachable=True, ncpu=ncpu, load=[load5, load5, load5], pressure=pressure,
-               editcap=dict(cap=CFG["hosts"][host]["slots"], in_use=list(in_use), waiting=list(waiting), edits=e))
+               drives=[dict(drive='internal',free_gb=500)], storage_commitments={},editcap=dict(cap=CFG["hosts"][host]["slots"], in_use=list(in_use), waiting=list(waiting), edits=e))
     if job is not None:
         out["job"] = job
     return out
@@ -77,8 +77,8 @@ class Config(unittest.TestCase):
         self.assertEqual(hostcfg.core_budget("m6", hour=14, idle=60), 6, "Dan at the Mac: about half")
         self.assertEqual(hostcfg.core_budget("m6", hour=14, idle=31 * 60), 10, "away 30+ min: all but 2")
         self.assertEqual(hostcfg.core_budget("m6", hour=14, idle=29 * 60), 6)
-        self.assertEqual(hostcfg.core_budget("m6", hour=22, idle=0), 10, "10 PM")
-        self.assertEqual(hostcfg.core_budget("m6", hour=6, idle=0), 10, "before 7 AM")
+        self.assertEqual(hostcfg.core_budget("m6", hour=22, idle=0), 6, "10 PM recent input remains present")
+        self.assertEqual(hostcfg.core_budget("m6", hour=6, idle=0), 6, "night recent input remains present")
         self.assertEqual(hostcfg.core_budget("m6", hour=7, idle=0), 6, "7 AM onwards")
         self.assertEqual(hostcfg.core_budget("m2", hour=14, idle=0), 8, "M2: 8 always")
         self.assertEqual(hostcfg.core_budget("m2", hour=23, idle=0), 8)
@@ -103,7 +103,7 @@ class Config(unittest.TestCase):
     def test_editcap_and_renderq_read_the_host(self):
         code = ("import sys; sys.path[:0] = [%r, %r]; import editcap, renderq; print(editcap.CAP, renderq.core_budget())"
                 % (str(SHARED / "editcap"), str(SHARED / "renderq")))
-        for h, hour, idle, want in (("m6", "14", "0", "2 6"), ("m6", "23", "0", "2 10"), ("m2", "14", "0", "3 8")):
+        for h, hour, idle, want in (("m6", "14", "0", "2 6"), ("m6", "23", "0", "2 6"), ("m2", "14", "0", "3 8")):
             env = dict(os.environ, EDITROUTE_HOST=h, EDITROUTE_HOUR=hour, EDITROUTE_IDLE_S=idle, EDITCAP_MAX="",
                        GATE_BUDGET="")
             env.pop("EDITCAP_MAX")
@@ -112,27 +112,16 @@ class Config(unittest.TestCase):
             self.assertEqual(r.stdout.strip(), want, (h, r.stderr))
 
     def test_m2_new_work_folder_goes_on_the_extreme_first(self):
-        sys.path.insert(0, str(SHARED / "renderq"))
-        import renderq
-        saved = (renderq.find_workdir, renderq.drive_report, renderq.INTERNAL_WORK)
+        from unittest.mock import patch
+        sys.path.insert(0,str(SHARED/'renderq'));import renderq
         with tempfile.TemporaryDirectory() as d:
-            ext, internal = Path(d) / "Extreme", Path(d) / "home" / "_edit_work"
-            ext.mkdir()
-            internal.mkdir(parents=True)
-            renderq.find_workdir = lambda job: None
-            renderq.drive_report = lambda *a, **k: [dict(drive="Extreme", root=str(ext), kind="ssd", running=0,
-                                                         waiting=0, cap=2, free_gb=656, active_jobs=0, score=0)]
-            renderq.INTERNAL_WORK = internal
-            try:
-                os.environ["EDITROUTE_HOST"] = "m2"
-                self.assertEqual(renderq.workdir("DS-200", need_gb=20), ext / "_edit_work" / "DS-200")
-                os.environ["EDITROUTE_HOST"] = "m6"
-                os.environ["GATE_INTERNAL_RESERVE_GB"] = "0"
-                self.assertEqual(renderq.workdir("DS-201", need_gb=1), internal / "DS-201", "M6: internal SSD")
-            finally:
-                renderq.find_workdir, renderq.drive_report, renderq.INTERNAL_WORK = saved
-                os.environ.pop("EDITROUTE_HOST", None)
-                os.environ.pop("GATE_INTERNAL_RESERVE_GB", None)
+            ext,internal=Path(d)/'Extreme',Path(d)/'internal'
+            ext.mkdir();internal.mkdir()
+            with patch.object(renderq,'find_workdir',return_value=None),patch.object(renderq,'mounted_work_drives',return_value=[('Extreme',ext)]),patch.object(renderq,'INTERNAL_WORK',internal),patch.object(renderq.work_storage,'check',return_value='fixture room'):
+                with patch.dict(os.environ,{'EDITROUTE_HOST':'m2'}):
+                    self.assertEqual(renderq.workdir('DS-200'),ext/'_edit_work'/'DS-200')
+                with patch.dict(os.environ,{'EDITROUTE_HOST':'m6'}):
+                    self.assertEqual(renderq.workdir('DS-201'),internal/'DS-201')
 
 
 class Rules(unittest.TestCase):
@@ -189,7 +178,7 @@ class Rules(unittest.TestCase):
         busy = both(m6=st("m6", load5=13.5, ncpu=12))
         h, why = pick(busy, kind="SFC")
         self.assertEqual(h, "m2")
-        self.assertIn("under Dan's own load", why[0])
+        self.assertIn("under system load", why[0])
         pressure = both(m6=st("m6", pressure=2))
         self.assertEqual(pick(pressure, kind="SFC")[0], "m2")
         self.assertEqual(pick(both(m2=st("m2", load5=40, ncpu=10)), kind="LFC")[0], "m2", "no load guard on the M2")
@@ -257,9 +246,12 @@ class CombinedLine(unittest.TestCase):
         self.d = tempfile.mkdtemp(prefix="editroute-test-")
         os.environ["EDITROUTE_DIR"] = self.d
         self.saved = er.gather
+        self.saved_claim = er.claim_storage
+        er.claim_storage = lambda *a,**k:None
 
     def tearDown(self):
         er.gather = self.saved
+        er.claim_storage = self.saved_claim
         os.environ.pop("EDITROUTE_DIR", None)
 
     def _full(self, job=None, c=None):

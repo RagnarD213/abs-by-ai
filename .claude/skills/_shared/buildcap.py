@@ -186,6 +186,12 @@ def _renderq():
     return mod
 
 
+
+def slot(label, pool="heavy", **kwargs):
+    """Hold the actual work through child exit; nested queue calls inherit this slot."""
+    return _renderq().slot(label, pool=pool, **kwargs)
+
+
 def wait(label, cap=CAP, quiet=False, poll=POLL_S, pool="heavy"):
     """Since 2026-10-20 a thin wrapper over the render queue (`renderq/renderq.py`): get in line, return at this
     caller's turn. The steps that follow are gated again at their own heavy work (the ffmpeg wrapper, Whisper,

@@ -57,6 +57,9 @@ def _host_slots():
         return None
 
 
+sys.path.insert(0, str(SHARED / "editroute"))
+import priority as job_priority
+
 CAP = int(os.environ.get("EDITCAP_MAX") or _host_slots() or 5)
 LEASE_S = 3 * 3600          # an active edit with no acquire and no render-queue activity this long loses its slot
 RESERVE_S = 90 * 60         # a promoted waiter that has not started this long loses its reservation
@@ -240,17 +243,18 @@ def renderq_activity(now=None):
         warn("render queue not readable ({}); counting registered edits only".format(e))
         return out
 
-    def bump(group, live, t):
-        j = job_code(group)
-        if not j:
+    def bump(group, live, t, running=0):
+        j = job_code(group) or job_priority.job_id(group)
+        if not j or j.startswith('PG:'):
             return
-        o = out.setdefault(j, {"live": 0, "last": 0.0})
+        o = out.setdefault(j, {"live": 0, "last": 0.0, "running": 0})
         o["live"] += live
+        o["running"] += running
         o["last"] = max(o["last"], t or 0.0)
     for s in states:
         info = s.get("info") or {}
         if s.get("held"):
-            bump(info.get("group"), 1, now)
+            bump(info.get("group"), 1, now, running=1)
         elif info.get("ended"):
             bump(info.get("group"), 0, info["ended"])
     for t in tickets:
@@ -368,16 +372,36 @@ def _note(reg, now, job, event, **kw):
 def order(reg, cal):
     """Waiting edits in start order: release date, then firing order."""
     w = [e for e in reg["edits"].values() if e["state"] == "waiting"]
-    return sorted(w, key=lambda e: (cal.date(e["job"], e.get("release"))[0], e.get("waiting_since", 0)))
+    fair=os.environ.get('EDITCAP_FAIRNESS')=='1' or (DIR/'fairness.enabled').exists()
+    if not fair:
+        return sorted(w,key=lambda e:(0 if e.get('priority') or job_priority.urgent(e['job']) else 1,
+                                     cal.date(e['job'],e.get('release'))[0],e.get('waiting_since',0)))
+    return sorted(w, key=lambda e: (0 if e.get('skips',0)>=2 else 1,
+                                   0 if e.get('priority') or job_priority.urgent(e['job']) else 1,
+                                   cal.date(e["job"], e.get("release"))[0], e.get("waiting_since", 0)))
 
 
 def occupancy(reg, rq):
     held = {j for j, e in reg["edits"].items() if e["state"] in ("active", "promoted")}
-    return held | {j for j, a in rq.items() if a["live"] > 0}
+    return held | {j for j, a in rq.items() if a["live"] > 0 and not (reg['edits'].get(j,{}).get('reservation_parked') and reg['edits'].get(j,{}).get('state') in ('parked','waiting') and not a.get('running'))}
 
 
 def settle(reg, now, rq, cal):
     """Reap stale slots, then promote waiters into free slots. Mutates reg; returns it."""
+    reservation = job_priority.current()
+    for j, e in reg['edits'].items():
+        if reservation and job_priority.job_id(j)!=reservation['job'] and e['state'] in ('active','promoted'):
+            activity=rq.get(j,{})
+            # No killing/suspending: unknown holder state must finish before yielding.
+            running=activity.get('running',activity.get('live',0))
+            if not running:
+                e.update(state='parked',reservation_parked=True,parked_since=now,parked_state=e['state'],
+                         reason='M6 reserved for '+reservation['job'])
+                _note(reg,now,j,'parked',reservation=reservation['job'])
+        elif not reservation and e['state']=='parked':
+            e.update(state='waiting',waiting_since=e.get('waiting_since',e.get('registered',now)),
+                     reason='dedicated M6 released; restoring original place')
+            _note(reg,now,j,'resumed waiting')
     for j, e in reg["edits"].items():
         a = rq.get(j, {})
         if e["state"] == "active":
@@ -392,11 +416,16 @@ def settle(reg, now, rq, cal):
     used = occupancy(reg, rq)
     free = CAP - len(used)
     for e in order(reg, cal):
+        if reservation and job_priority.job_id(e['job'])!=reservation['job']:
+            continue
         if e["job"] not in used:                        # a waiter already running in the render queue is counted
             if free <= 0:
                 continue
             free -= 1
-        e.update(state="promoted", since=now, wake_sent=0, reason="a slot freed; starting")
+        for other in reg['edits'].values():
+            if other['state']=='waiting' and other['job']!=e['job'] and not reservation:
+                other['skips']=other.get('skips',0)+1
+        e.update(state="promoted", since=now, wake_sent=0, skips=0, reason="a slot freed; starting")
         _note(reg, now, e["job"], "promoted")
     return reg
 
@@ -420,7 +449,7 @@ def _entry(reg, job, now, args):
     return e
 
 
-def acquire(job, title=None, type_=None, release=None, today=None, ctx=None):
+def acquire(job, title=None, type_=None, release=None, today=None, ctx=None, priority=False):
     """(exit code, message). 0 = go, 3 = waiting."""
     job = job_code(job) or job
     try:
@@ -428,7 +457,13 @@ def acquire(job, title=None, type_=None, release=None, today=None, ctx=None):
             now, rq, cal = ctx or _context(today)
             reg = settle(_load(), now, rq, cal)
             e = _entry(reg, job, now, dict(title=title, type=type_, release=release))
+            if priority:e['priority']=True
             st = e.get("state")
+            reservation=job_priority.current()
+            if reservation and job_priority.job_id(job)!=reservation['job'] and st not in ('active',):
+                if st!='parked':e.update(state='waiting',waiting_since=e.get('waiting_since',now))
+                _save(reg)
+                return EXIT_WAIT, '{}: parked/waiting for dedicated M6 job {}. Original owner and progress retained.'.format(job,reservation['job'])
             if st in ("active", "promoted"):
                 if st == "promoted":
                     _note(reg, now, job, "started")
@@ -449,6 +484,7 @@ def acquire(job, title=None, type_=None, release=None, today=None, ctx=None):
                     if st != "waiting":
                         e.update(state="waiting", since=now, waiting_since=now, reason="all {} slots in use".format(CAP))
                         _note(reg, now, job, "waiting")
+            if e['state']=='active':e.pop('reservation_parked',None)
             _save(reg)
             if e["state"] == "active":
                 return EXIT_GO, "{}: edit slot held. Go.".format(job)
@@ -480,6 +516,9 @@ def release(job, review=False, ctx=None, today=None):
                 else:
                     reg["edits"].pop(job, None)
                     _note(reg, now, job, "finished")
+            job_priority.update('release',job,reason='with Dan' if review else 'finished')
+            import storage
+            storage.consume(job)
             settle(reg, now, rq, cal)
             _save(reg)
             wakes = pending_wakes(reg)
@@ -511,6 +550,8 @@ def wait(job, max_hours=24.0, poll=POLL_S, ctx_fn=None):
                 else:
                     e["waiter_pid"] = os.getpid()
                     e["waiter_seen"] = now
+                    e['waiter_start']=job_priority.pid_identity(os.getpid())
+                    e['waiter_scheduler_version']=5
                     _save(reg)
                     code = "go" if e["state"] in ("promoted", "active") else "wait"
         except (LockTimeout, OSError) as ex:
@@ -608,8 +649,7 @@ def view(today=None, ctx=None):
     except FileNotFoundError:
         reg = _empty()
     except (OSError, ValueError) as e:
-        warn("registry unreadable ({})".format(e))
-        reg = _empty()
+        raise RuntimeError("registry unreadable; occupancy unknown ({})".format(e))
     return settle(reg, now, rq, cal), now, rq, cal
 
 
@@ -717,7 +757,7 @@ def main(argv):
         for w in wakes(claim=bool(o.get("--claim")), ai=o.get("--ai")):
             print(w)
         return 0
-    o, pos = _opts(rest, {"--title": True, "--type": True, "--release": True, "--review": False, "--max-hours": True})
+    o, pos = _opts(rest, {"--title": True, "--type": True, "--release": True, "--review": False, "--max-hours": True, "--priority": False})
     if not pos:
         sys.exit("usage: editcap.py {} JOB".format(cmd))
     job = pos[0]
@@ -737,7 +777,7 @@ def main(argv):
     if cmd in ("acquire", "heartbeat"):
         if o.get("--release") and not re.match(r"\d{4}-\d{2}-\d{2}$", o["--release"]):
             sys.exit("--release must be YYYY-MM-DD")
-        code, msg = acquire(job, o.get("--title"), o.get("--type"), o.get("--release"))
+        code, msg = acquire(job, o.get("--title"), o.get("--type"), o.get("--release"), priority=bool(o.get("--priority")))
         print(msg)
         return code
     if cmd == "release":

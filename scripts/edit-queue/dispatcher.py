@@ -375,8 +375,17 @@ def launch(job_id, executor, cfg, by_hand=False, no_budget=False):
             log.write(f"{q.now_iso()} launch-one --no-budget: per-size time and render caps lifted; "
                       f"{cfg['claims']['max_job_hours']} h outer ceiling remains\n")
             log.flush()
-        proc = subprocess.Popen(runner_cmd,
-                                stdin=subprocess.DEVNULL, stdout=log, stderr=log, cwd=eq.ROOT, start_new_session=True)
+        job['claim']['launch_state']=launch_state
+        q.save(data)  # durable before spawn; a crash leaves a claim, never an unclaimed child
+        try:
+            proc = subprocess.Popen(runner_cmd,
+                                    stdin=subprocess.DEVNULL, stdout=log, stderr=log, cwd=eq.ROOT, start_new_session=True)
+        except OSError as e:
+            job.pop('claim',None)
+            q.save(data)
+            eq.scoreboard_update(row['run_id'],outcome='launch_failed',ended=q.now_iso())
+            log.close()
+            return False, 'executor spawn failed; job retained: '+str(e)
         job["claim"]["pid"] = proc.pid
         job["claim"]["launch_state"] = launch_state
         job["queue_owned"] = True

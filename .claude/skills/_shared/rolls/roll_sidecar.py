@@ -412,9 +412,8 @@ def get_lav(clip, duration, inventory, ss=None, t=None):
 def transcribe(clip, lav, model="small"):
     if not lav.get("map") or not lav.get("filter"):
         return [], "not-run:lav-unresolved"
-    wait_for_build_slot("Whisper for " + clip.name)
     runner = repo_root() / ".claude" / "skills" / "ad-edit" / "reference" / "whisper_chunked.py"
-    with tempfile.TemporaryDirectory(prefix="roll-whisper-") as temp:
+    with _buildcap().slot("audio and Whisper for " + clip.name, pool="light"), tempfile.TemporaryDirectory(prefix="roll-whisper-") as temp:
         temp_path = Path(temp)
         wav = temp_path / "lav.wav"
         output = temp_path / "whisper.json"
@@ -445,12 +444,12 @@ def build_contact(clip, duration, output):
         "drawtext={font}text='%{{pts\\:hms}}':x=5:y=4:fontsize=16:fontcolor=white,"
         "tile={cols}x{rows}:padding=4:margin=4:color=black"
     ).format(sampler=sampler, font=font_part, cols=cols, rows=rows)
-    wait_for_build_slot("contact sheet for " + clip.name)
     output.parent.mkdir(parents=True, exist_ok=True)
-    run([
-        binary("ffmpeg"), "-nostdin", "-v", "error", "-y", "-i", str(clip),
-        "-vf", vf, "-frames:v", "1", "-q:v", "3", str(output),
-    ], nice=True)
+    with _buildcap().slot("contact sheet for " + clip.name, pool="quick" if duration <= 20 else "heavy"):
+        run([
+            binary("ffmpeg"), "-nostdin", "-v", "error", "-y", "-i", str(clip),
+            "-vf", vf, "-frames:v", "1", "-q:v", "3", str(output),
+        ], nice=True)
     return interval, count
 
 
