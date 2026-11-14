@@ -82,3 +82,9 @@ Dan picked off the cuff, cut "So guys, this concept of a cheat day does not work
 - **Review page for the side pane:** one player, loaded at page load, fixed 300 px panel from 760 px wide; each change's Play button plays
   its watch range in that player (`page_r2.py`). The page folder holds real copies, not links (exFAT drive, and the page mirrors to the M6).
 - **`build.sh` deletes `qa/`.** Copy the reviewer's `findings.json` aside before an audio-only rebuild, then send the SAME reviewer the new sha.
+
+R2 delivered 2026-11-14: build 4 (sound-only rebuild of build 2's picture), 59.46 s, sha256 `06001f612394d929e464a185ba26c8199d220e7181541fb8ed257e1e735c02bc`,
+independent review SHIP after the room fill (first pass DOES NOT SHIP on the hole alone), gate 35 passed with the same three format rows as R1 and
+captions:sync not measurable. Review page http://127.0.0.1:9800/ (M2 folder `r2/review`, mirrored to the M6). The reviewer's findings must cover the
+`pair_*.jpg` images too, or the watch pass stays open (35 images here: 3 sheets, 16 strips, 16 pairs): say so in the brief. `editroute.py push`
+printed "skipped (not inside the project folder)" for delivery paths although the files were already on the M6 with matching sha256; check the M6 copy by hash.

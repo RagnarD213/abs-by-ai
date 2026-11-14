@@ -31,25 +31,24 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Two-Mac infrastructure: ACTIVE 2026-11-14, Codex optimization execution.** Owns approved repairs in isolated worktree; production editors retain films. Router rollout waits for DS-107 owner boundary; dispatcher stays PAUSED. Next: scratch queue/archive/priority tests.
+**Two-Mac infrastructure: VERIFYING 2026-11-14, Codex.** M6 active; M2 awaits DS-39. Dispatcher PAUSED. `Docs/TWO_MAC_OPTIMIZATION_EXECUTION_RECEIPT_20261114.md`.
 
-**WhatToCut-SFL-Setup:AWAITING-DAN-R3:2026-11-14:Codex.** [Table-flip-X1–X4](http://127.0.0.1:9862/?round=3);Vacation-X7-approved;therapy-pending;setup-after-picks.
+**WhatToCut-SFL-Setup:THERAPY-PICK:2026-11-14:Codex.** [Choose-X1–X8](http://127.0.0.1:9862/?pick=therapy);Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
 **DS-98 three-way blind edit: ACTIVE 2026-11-14, Codex 01a1db93.** M6. Next: isolated first-review previews; no setup.
 
 
 
-**BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
 **FlowClips-b3:DAN-PICKS:2026-11-14:Claude.**Page-9247;push-pending(9c9d127,live-files);`Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-AD-R2(WV-03):DAN-REVIEW-R2:2026-11-14:Claude.** http://127.0.0.1:9761/; R3 handoff on hold.
+**GreatAgainT-VSL-R3(WV-03):BUILDING:2026-11-14:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**KevinJamesCheat-SFC-R2(DS-41):BUILDING-R2:2026-11-14:Claude.**Off-cuff-picked;Dan's-2-cuts+1.15x=59.5s;renders-on-M2(/Volumes/Expansion/_edit_work/DS-41/r2);next:audit,R2-page.
+**KevinJamesCheat-SFC-R2(DS-41):DAN-REVIEW:2026-11-14:Claude.**page-9800
 
 
 
