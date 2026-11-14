@@ -23,6 +23,7 @@ Lessons from the 2026-11-07 clip-library run (three agents in parallel, 30+ imag
 - The download menu needs about a 1 s wait after it opens before clicking **1K Original size**.
 - Clicking near a just-finished tile can attach it as a reference chip: check the chips before every submit.
 - ~/Downloads is shared by every session: list it before each download, copy only the one new file, delete only that file.
+- **Downloads land on the Mac that runs the connected Chrome, not the Mac the session runs on (2026-11-14).** With two Macs the Claude in Chrome browser can be the M2's: Flow said "downloaded" but the M6's ~/Downloads stayed empty, and the files were in `ssh m2 'ls -lt ~/Downloads'`. Check both Macs before calling a download failed. Each 1K download of the open image is a separate file; switch images with the filmstrip buttons (find "Man performing..." refs) and click the **1K Original size** menuitem by `find` ref about 1.5 s after the menu opens.
 
 Rules that hold from the start:
 - Same prompt text and same reference photos as the Codex twin, so the test compares models, not prompts.
