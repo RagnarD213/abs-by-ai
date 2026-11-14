@@ -152,15 +152,15 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [DS-33](DS-33-cristiano-ronaldo-sells-an-ab-belt-its-harder-than-a-workout.md) | Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout. | 10/15 C1729-C1730 | FINALIZED | S |
-| [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | FINALIZED | S |
+| [DS-34](DS-34-surgeons-now-carve-fake-abs-into-belly-fat-dont-do-it.md) | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-35](DS-35-women-say-they-love-the-dad-bod-they-dont.md) | Women Say They Love The Dad Bod. They Don't. | 10/15 C1729-C1730 | UPLOADED | S |
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
-| [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
+| [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | IN PROGRESS | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
-| [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | FINALIZED | S |
+| [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-45](DS-45-mr-olympia-shows-the-vacuum-heres-how-to-do-it-at-home.md) | Mr. Olympia Shows The Vacuum. Here's How To Do It At Home. | 10/15 C1730 | READY | S |
@@ -287,7 +287,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | IN PROGRESS | L |
+| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | DELIVERED: awaiting Dan | L |
 | [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | READY | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |

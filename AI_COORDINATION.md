@@ -41,11 +41,11 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
-**FlowClips-b3:DAN-PICKS:2026-11-14:Claude.**Page-9247;`Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips-b3:DAN-PICKS:2026-11-14:Claude.**Page-9247;push-pending(9c9d127,live-files);`Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-AD-R2(WV-03):BUILDING-R2:2026-11-14:Claude.** Five darker backgrounds. Next: R2 page.
+**GreatAgainT-VSL-AD-R2(WV-03):DAN-REVIEW-R2:2026-11-14:Claude.** http://127.0.0.1:9761/; R3 handoff on hold.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

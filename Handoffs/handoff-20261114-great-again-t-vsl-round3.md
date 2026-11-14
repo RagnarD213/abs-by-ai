@@ -26,6 +26,18 @@ and START/END pairs than usual, of which only a fraction go to motion.
 - Queue: WV-03 `delivered` for round 1 review. Edit slot released for review; `editcap.py acquire WV-03` before production.
 - Paid spend so far: $0. Nothing uploaded. Nothing approved.
 
+## Round 2 result (2026-11-14, same session)
+
+- Round 2 page: http://127.0.0.1:9761/ (rebuild: `python3 ~/_edit_work/wv-03/round2/review/build_page.py`). Two decisions:
+  the background (1 Dark Kitchen, 2 Gym, 3 Study, 4 Lab, 5 Dark Studio; editor's pick Dark Kitchen, close call) and which of
+  44 AI clip ideas to develop into START/END pairs (`plan/ai_clip_ideas_r2.json`, nothing pre-selected).
+- Take 5 is keyed: `round2/key/` (`READY.json`). **Use the RIM=3 stage 1.5 setting for the whole film**: it passes the dark-rim
+  bar (1.86% vs the camera's own 3.17%; default 3.20% failed by 0.03) and has less light fringe on dark backgrounds. The lens
+  window past his cheek still measures see-through and is left clear on purpose.
+- Background recipe (light match, skin saturation trim, food glow on dark sets, take 5 point sides): `round2/intro/recipe/`,
+  `round2/intro/OPTIONS.json`, sources `round2/intro/assets/SOURCES.md`. Pages must be tested in the app's side pane
+  (800 and 1150 px) with a video preloaded in the player (memory `review-page-plays-in-side-pane`).
+
 ## What exists (all under `~/_edit_work/wv-03/`)
 
 | What | Where |
@@ -51,7 +63,7 @@ and START/END pairs than usual, of which only a fraction go to motion.
    confirm by picture the egg line's four takes and the listed words ("4 million", "Unfortunately", "eleuthero", "Maca").
    Then run `_shared/cut/piccuts.py` and `deadair.py --preset ad --pair` on the final EDL.
 3. Key the rest of the chosen takes with `round1/key/CALIBRATION.md` through `keyonce.py` (about 6.5 CPU-seconds a
-   frame; roughly 42,000 frames for the film, so plan the queue time). `READY.json` has `all_pass: false`
+   frame; roughly 42,000 frames for the film, so plan the queue time). (Superseded by the round 2 result above: RIM=3 settles (a).) `READY.json` has `all_pass: false`
    for two reasons, both to settle on the three round 1 pieces BEFORE the long run: (a) dark rim a hair over this
    camera's own on H6 (3.18% vs 3.11%) and H1 (3.76% vs 3.43%): next try is stage 1.5 with `RIM=3` on the cached
    stage-1 frames, written as `_r2` plates; (b) the lens window past his cheek measures as see-through (H6 1,533 px);

@@ -18,7 +18,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R3 (graphics round)](handoff-20261114-great-again-t-vsl-round3.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 2 page. Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
+- [Great Again T VSL AD R3 (graphics round)](handoff-20261114-great-again-t-vsl-round3.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 2 page (http://127.0.0.1:9761/). Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
 
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **Fire now. Codex newest Sol, high.** All three What To Cut Shorts approved (Shorts 1 and 2 on 2026-11-14 with their lip-synced AI excuse clips, pair X1 for Short 2; Short 3 on 2026-11-13). Covers and setup for all three together, February slots after the parent film is public (Fri Dec 11).
 
