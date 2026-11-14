@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**M2-prep:BLOCKED:2026-11-14:Codex.** Logs identify disk-permission denials for sshd-keygen-wrapper and smbd. Next: enable both in M2 Full Disk Access; reconnect/retest. `Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md`.
+**M2-prep:BLOCKED:2026-11-14:Codex.** Next: enable sshd-keygen-wrapper and smbd in M2 Full Disk Access; reconnect/retest. `Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md`.
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
@@ -176,7 +176,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief:2026-11-14:Codex.** M2/M6 duplicate publishers; reconcile. Maintenance incomplete.
+**Brief:2026-11-14:Codex.** M2/M6 duplicate publishers; Alcohol article late. Maintenance/reconciliation incomplete.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
