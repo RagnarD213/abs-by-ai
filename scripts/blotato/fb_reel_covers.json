@@ -1628,5 +1628,13 @@
     "approved": "B, round 3, Dan 2026-11-14",
     "sha256": "e26f6351fa04cec451111b6977f83a85108a68ac5a6ac01cf2eafc2b3b71a774",
     "when": "2027-01-10T00:00:00.000Z"
+  },
+  {
+    "schedule": "pending-ds34",
+    "when": "2027-01-11T15:00:00.000Z",
+    "match": "The surgery is called abdominal etching, but they don't build abs.",
+    "cover": "/Volumes/Extreme/Short-form video content/Surgeon Fake Abs - DS-34/setup/final-A/DS34-A-Instagram.png",
+    "w": 1080,
+    "h": 1920
   }
 ]
