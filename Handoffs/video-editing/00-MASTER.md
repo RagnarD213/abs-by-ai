@@ -282,6 +282,45 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 | [SP-07](SP-07-mindmovies-manifestation.md) | Mind Movies: How To Unlock The Full Power Of Manifestation | 6:33, 1080p | READY | M |
 | [SP-08](SP-08-spybriefing-3-rules-fighting-criminals.md) | Spy Briefing: The 3 Rules Of Fighting Criminals | 5:16, 1080p | READY | M |
 
+### 1C5 · 11/13 shoot, green screen (added 2026-11-14)
+Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and sales videos are ADs; the rest is CONTENT.
+
+| job | video | rolls | status | size |
+|---|---|---|---|---|
+| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | READY | L |
+| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | READY | M |
+| [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
+| [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |
+| [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | READY | M |
+| [RA-17](RA-17-great-again-t-l01-eat-more-of-this-less-of-this.md) | Great Again T L01: Eat More Of This, Less Of This | C1913 + C1911 + C1905 | READY | M |
+| [RA-18](RA-18-great-again-t-l02-3-healthy-foods-that-are-killing-your-test.md) | Great Again T L02: 3 "Healthy" Foods That Are Killing Your Testosterone | C1913 + C1905 | READY | M |
+| [RA-19](RA-19-great-again-t-l03-the-1-diet-food-killing-your-testosterone.md) | Great Again T L03: The 1 "Diet" Food Killing Your Testosterone | C1910 | BLOCKED | M |
+| [RA-20](RA-20-great-again-t-l04-stop-throwing-out-the-yolk.md) | Great Again T L04: Stop Throwing Out The Yolk | C1911 | READY | M |
+| [RA-21](RA-21-great-again-t-l05-the-healthy-breakfast-thats-lowering-your.md) | Great Again T L05: The "Healthy" Breakfast That's Lowering Your Testosterone | C1911 | READY | M |
+| [RA-22](RA-22-great-again-t-l07-your-low-fat-diet-is-lowering-your-testost.md) | Great Again T L07: Your Low-Fat Diet Is Lowering Your Testosterone | C1911 | READY | M |
+| [RA-23](RA-23-great-again-t-l17-fix-this-hormone-that-helps-you-attract-wo.md) | Great Again T L17: Fix This Hormone (That Helps You Attract Women) | C1911 | READY | M |
+| [RA-24](RA-24-great-again-t-l20-men-over-40-fight-aging-and-lose-your-bell.md) | Great Again T L20: Men Over 40: Fight Aging And Lose Your Belly Fat | C1911 | READY | M |
+| [RA-25](RA-25-great-again-t-l22-the-scene-the-rewind-the-explanation.md) | Great Again T L22: The Scene, The Rewind, The Explanation | C1911 + C1912 | READY | M |
+| [RA-26](RA-26-great-again-t-l23-the-frog-study.md) | Great Again T L23: The Frog Study | C1912 | READY | M |
+| [RA-27](RA-27-great-again-t-l30-3-roots-men-have-used-for-centuries.md) | Great Again T L30: 3 Roots Men Have Used For Centuries | C1913 | READY | M |
+| [RA-28](RA-28-great-again-t-s01-stop-eating-egg-whites.md) | Great Again T S01: Stop Eating Egg Whites | C1906 | READY | S |
+| [RA-29](RA-29-great-again-t-s02-put-the-potato-back-on-your-plate.md) | Great Again T S02: Put The Potato Back On Your Plate | C1906 | READY | S |
+| [RA-30](RA-30-great-again-t-s03-less-of-this-meat-more-of-this-meat.md) | Great Again T S03: Less Of This Meat, More Of This Meat | C1906 | READY | S |
+| [RA-31](RA-31-great-again-t-s04-stop-cooking-with-this.md) | Great Again T S04: Stop Cooking With This | C1906 | READY | S |
+| [RA-32](RA-32-great-again-t-s05-3-swaps-10-seconds.md) | Great Again T S05: 3 Swaps, 10 Seconds | C1906 | READY | S |
+| [RA-33](RA-33-great-again-t-s11-3-signs-your-testosterone-is-dropping.md) | Great Again T S11: 3 Signs Your Testosterone Is Dropping | C1906 | READY | S |
+| [RA-34](RA-34-great-again-t-s13-how-to-keep-your-gut-after-40.md) | Great Again T S13: How To Keep Your Gut After 40 | C1906 | READY | S |
+| [RA-35](RA-35-great-again-t-s21-the-frog-study-in-45-seconds.md) | Great Again T S21: The Frog Study In 45 Seconds | C1906 | READY | S |
+| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | READY | L |
+| [RO-40](RO-40-im-41-if-i-were-25-again-this-is-exactly-how-id-get-in-shape.md) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. | C1914 + C1915 | READY | L |
+| [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | READY | L |
+| [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |
+| [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
+| [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | **NEEDS DAN** | S |
+| [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | READY | S |
+| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | READY | S |
+| [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | READY | S |
+
 ---
 
 ## LIST 2 — Organic long-forms that need shorts

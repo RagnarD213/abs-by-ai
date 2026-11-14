@@ -1,4 +1,4 @@
-# 11/13 shoot (part 1): raw footage report
+# 11/13 shoot: raw footage report (cards 1 and 2)
 
 Offloaded and sorted 2026-11-13 by Claude. Green screen, Dan in a white tank. This covers the first card only;
 the shoot was still going when it was offloaded.
@@ -62,3 +62,16 @@ but not frame-accurate; use the sidecar's word timings for cuts.
   That matches the approved funnel plan (`Docs/GREAT_AGAIN_T_FUNNEL_PLAN_20261110.md`): the VSL is delivered as a native
   9:16 phone video (V Shred model), and the upsells play inside the same phone funnel. Only the YouTube ads needed
   landscape, which is why L01 and L02 were reshot. No reshoot needed for the VSL or upsells.
+
+## Card 2 (offloaded 2026-11-14)
+
+- One roll, **C1915**, landscape, 34:29, 37.85 GB. Copied in one read to the Extreme shoot folder and the Seagate copy; both match the card's SHA-256 (`85e29a9d8c900de67a88a19d032a8b50a1c2373e854da17a098ec5155c4526c6`). Card left unformatted.
+- Content (Gemini 3.8 Flash audio pass, close but not frame-accurate): 0:19-3:55 **A15 pickup** that finishes the "I'm 41. If I Were 25 Again" video started in C1914; 4:37-15:55 **A16** "I Ranked 15 Healthy Foods" (acai pronunciation chat about 7:15-8:12); 16:31-25:05 **A17** "Why Bulking Is a Scam"; 25:26-34:29 **A18** "7 Fitness Rules That Are Completely Made Up".
+
+## Card 1 state on 2026-11-14
+
+When card 1 was put back in the reader, C1904 read as 4,162,322,432 bytes on the card itself (it was 60,130,907,491 when copied). The Extreme and Seagate copies were re-hashed and still match the hash taken from the card on 11/13 (`64c3920a...e8916`). Treat card 1 as damaged: not a backup, do not record on it. Google Drive had 13 of 14 rolls; C1914 was uploading and a full Extreme-vs-Drive check was started.
+
+## Edit Queue (added 2026-11-14)
+
+All filmed videos are on the Abs By AI Edit Queue, master-list section 1C5: Great Again T VSL WV-03 and upsells WV-04 to WV-07; Great Again T ads RA-17 to RA-35 (L03 is blocked: hook only); long-forms RO-39 Tesla, RO-40 A15, RO-41 A16, RO-42 A17, RO-43 A18; Shorts DS-106 (B05, filmed as "Here's Why Sardines Beat Protein Bars", needs Dan's title call), DS-107 B08, DS-108 B06 smaller plates, DS-109 C01 Hormozi.
