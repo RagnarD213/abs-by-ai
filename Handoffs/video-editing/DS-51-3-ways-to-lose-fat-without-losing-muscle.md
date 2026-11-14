@@ -17,6 +17,12 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: none on the list.
 
+## Pre-made AI clips (Dan selected 2026-11-13, existing library clips)
+
+- **A0241** (library, not used yet): a man lies awake at 3 a.m. staring at the ceiling, then looks at the clock. Use it under "Dieters who slept 5 hours lost 55% less fat than when they slept 8.5 hours." (5.3 s, 16:9: fit it into the vertical with `clip_fit.py`, never crop the height). `clip_library.py show A0241`. Label it AI-generated on the picture.
+- **A0188** (library, already approved in RO-17): a lean man on the sofa eats the last sardine from the tin and leans back. Use it under "Even my snacks are protein. Sardines and hard boiled eggs." (4.1 s, 16:9, same fit rule). `clip_library.py show A0188`. Label it AI-generated on the picture.
+- More clips for this Short are being made (Flow-credits batch 3: Lighter But Weaker, Movie Snack). Their library IDs are added here once Dan approves the video.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-51-3-ways-to-lose-fat-without-losing-muscle.md`: cut "3 Ways To Lose Fat Without Losing Muscle" from 10/15 roll C1759 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.
