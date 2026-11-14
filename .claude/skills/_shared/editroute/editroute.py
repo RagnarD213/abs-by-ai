@@ -674,7 +674,7 @@ def status_text(statuses, c, line=None, recent=None, reviews=None):
                                         "ahead {} / behind {}".format(st["git"]["ahead"], st["git"]["behind"]))
         if st.get("git") else "-")
     widths = [max(len(str(r[i])) for r in rows + [[""] + [label(h, c) for h in hosts]]) for i in range(len(hosts) + 1)]
-    widths = [min(w, 46) for w in widths]
+    widths = [min(w, 60) for w in widths]
     out = ["Two Macs: edit routing (numbers in editroute/hosts.json)   {}".format(
         dt.datetime.now().strftime("%a %b %-d %-I:%M %p")), ""]
     out.append("  ".join([" " * widths[0]] + [label(h, c).ljust(widths[i + 1]) for i, h in enumerate(hosts)]))
