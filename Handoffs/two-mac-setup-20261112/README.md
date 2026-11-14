@@ -1,6 +1,6 @@
 # Two-Mac setup: M6 primary, M2 headless edit machine (2026-11-12)
 
-Category: ops (not a video). Dan asked for this plan on 2026-11-12. Handoff 01 was partly executed on November 13; all requested settings were applied, but actual SMB access to the external drives fails. Handoffs 02 and 03 are unexecuted. See [the receipt](../../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md).
+Category: ops (not a video). Dan asked for this plan on 2026-11-12. Handoff 01 was partly executed on November 13; all requested settings were applied, but actual SMB access to the external drives fails. See [the 01 receipt](../../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md). Handoff 02 was executed on November 13 (M6 account is `danrrose`, aliased as `/Users/danielrose`); see [the 02 receipt](../../Docs/TWO_MAC_M6_SETUP_RECEIPT_20261113.md). Handoff 03 is unexecuted.
 
 ## Goal
 

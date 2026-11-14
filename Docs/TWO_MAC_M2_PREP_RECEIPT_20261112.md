@@ -44,3 +44,17 @@ The render queue was checked before and after setup and still had an active heav
 The main handoff index retains the remaining work in OPEN, with the verified blocker. Marking handoff 01 completed and removing its unfinished access verification would be inaccurate. Resume only the failed verification/repair, rather than repeating the completed system settings.
 
 Reference consulted: [Apple: Set up SMB file sharing](https://support.apple.com/en-gb/guide/mac-help/-mh14107/mac). Findings above are from actual local tests, not inferred from that guide.
+
+
+## Resumed from the M6 on November 13
+
+Codex resumed this same chat on the M6 and verified:
+
+- The current Mac identifies as `M6`, model `Mac18,5`. Its account is `danrrose`, with `/Users/danielrose` linked to that home. The active Thunderbolt Bridge has `10.66.0.1/24` and sees the M2.
+- Passwordless `ssh m2 hostname` returns `m2`; the reverse connection through `ssh m2 ssh m6 hostname` returns `m6`.
+- Claude owns the ongoing M6 migration, documented in `Docs/TWO_MAC_M6_SETUP_RECEIPT_20261113.md`; an rsync verification process was still running. Codex did not modify its scripts, receipt, copies, or live state.
+- On the M2, both ordinary SSH and an authenticated root SSH session receive **Operation not permitted** when listing either external drive. macOS privacy logs contain `kTCCServiceSystemPolicyRemovableVolumes` requests and denial messages during these checks. This establishes a remote-session privacy obstacle; it does not prove that privacy is the only cause of the separate SMB errors.
+- The M2 still has an active render holder. No restart, unmount, or drive change was attempted.
+- Computer-use access to the M6 Screen Sharing app timed out twice, including one attempt using its verified path `/System/Applications/Utilities/Screen Sharing.app`. No remote desktop session was established and no privacy setting was changed.
+
+**Immediate next action for Dan:** on the M2, open System Settings > General > Sharing > Remote Login (information button), and enable **Allow full disk access for remote users**. This is the supported setting for disk access from authenticated SSH sessions ([Apple instructions](https://support.apple.com/en-mt/guide/mac-help/mchlp1066/27/mac/27)). After it is enabled, Codex should reconnect from this same M6 chat, verify external-drive reads, and continue the SMB diagnosis without disrupting edits. The Screen Sharing automation timeout prevents Codex from reaching that switch through the desktop interface from here.
