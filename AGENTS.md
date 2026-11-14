@@ -208,6 +208,7 @@ When Dan asks to check out or buy something, do every step available before paym
 ## Active edit cap: 5 edits at once (Dan, 2026-10-21)
 
 - At most 5 video edits (Claude and Codex together) do production work at once. Every edit runs `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB>` before its first render, generation or build; exit 3 means wait (arm the auto-start, tell Dan, stop). Stopping for Dan's review releases the slot (`release <JOB> --review`); waiters start by release date, automatically. Setup and thumbnail tasks are exempt. `editcap.py status` shows the line. Rule: `.claude/skills/_shared/VIDEO-RULES.md`, "Active edit cap".
+- **Two Macs (2026-11-14): the M6 (Dan's Mac, 2 slots) and the M2 Pro (headless, 3 slots, has the drives).** Before the first `acquire` of a new edit, run `python3 .claude/skills/_shared/editroute/editroute.py pick <JOB> --kind <SFC|SFL|LFC|AD|ADCUT|VSL|EXDEMO> --round <N>`; it prints `m6`, `m2` or `wait` and why. Start an edit for the other Mac there (Claude: the app's SSH connection `m2`; Codex: `ssh m2 codex exec`) and `acquire` on that Mac. Review pages made on the M2 open on the M6 at the same `http://127.0.0.1:PORT/` link; give Dan that link. Footage for an M6 edit: `editroute.py fetch`; finals from an M2 edit: `editroute.py push`. `editroute.py status` shows both Macs. Rule: VIDEO-RULES.md, "Two Macs".
 
 ## Standing authorization for routine provider configuration
 

@@ -24,7 +24,8 @@ def check(name, ok, detail=""):
 
 
 def env_for(d, heavy=1, light=1, **extra):
-    e = dict(os.environ, GATE_DIR=str(d), GATE_POOLS="heavy={},light={}".format(heavy, light), GATE_UNMANAGED="0")
+    e = dict(os.environ, GATE_DIR=str(d), GATE_POOLS="heavy={},light={}".format(heavy, light), GATE_UNMANAGED="0", GATE_MEM="20,0", GATE_HEADROOM_S="0", GATE_SETTLE="0",
+             GATE_NO_HOSTCFG="1")   # the queue logic on a nominal Mac; per-Mac numbers: editroute tests
     for k in ("GATE_HELD", "GATE_OFF", "GATE_PRIORITY", "GATE_GROUP"):
         e.pop(k, None)
     e.update({k: str(v) for k, v in extra.items()})
@@ -59,6 +60,7 @@ def tickets(d):
 
 
 def main():
+    os.environ["GATE_NO_HOSTCFG"] = "1"                      # same for in-process checks
     root = Path(os.path.realpath(tempfile.mkdtemp(prefix="renderq-selftest-")))
     procs = []
 
@@ -234,6 +236,31 @@ def main():
               [round(t - ts[0], 2) for t in ts[:3]])
         check("... and a third waits for cores", ts[2] - ts[0] >= 2.2, [round(t - ts[0], 2) for t in ts[:3]])
         check("`why` names the core budget", "cores: 8 of 8 in use" in w, w)
+
+        # Regression: per-pool floors must not bypass the shared budget, even with legacy holders.
+        saved_env = dict(os.environ)
+        saved_dir = renderq.DIR
+        renderq.DIR = root / "floor-regression"
+        renderq._ensure()
+        try:
+            os.environ.update(GATE_BUDGET="8", GATE_MEM="20,0", GATE_HEADROOM_S="0", GATE_SETTLE="0")
+            holders = [dict(pool="heavy", held=True, info=dict(cores=4)),
+                       dict(pool="heavy", held=True, info=dict(cores=4))]
+            for lane in ("heavy", "light", "quick"):
+                check("full shared budget blocks even the first " + lane + " slot",
+                      "cores: 8 of 8" in renderq.budget_check(lane, holders))
+            check("unmanaged work blocks the first slot too",
+                  "cores:" in renderq.budget_check("heavy", [], [dict(cpu=600)]))
+            os.environ["GATE_MEM"] = "4,0"
+            (renderq.DIR / "mem.json").unlink(missing_ok=True)
+            check("memory blocks the first quick slot while other work runs",
+                  "memory:" in renderq.budget_check("quick", holders[:1]))
+            check("an idle queue can still make progress with low memory",
+                  renderq.budget_check("heavy", []) == "")
+        finally:
+            renderq.DIR = saved_dir
+            os.environ.clear()
+            os.environ.update(saved_env)
 
         # 7c. memory short: the floor (one heavy) still runs, nothing past it until the first ends
         d = root / "mem"

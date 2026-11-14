@@ -42,6 +42,8 @@ This example requires the editor to construct `input`; it must never execute mer
 
 The 5-edit cap (`../editcap/README.md`) applies to every round. A round that stops for Dan runs `editcap.py release <JOB> --review`; the continuing task (same or fresh) runs `editcap.py acquire <JOB>` before production and waits on exit 3. The controller's starter prompt says so.
 
+Two Macs (2026-11-14): a continuing round stays on the Mac that holds the job's work folder (`editroute.py where <JOB>`; rule 1 in `../editroute/README.md`). A fresh round for a job with no folder yet runs `editroute.py pick <JOB> --kind <K> --round <N>` first and starts on the Mac it names.
+
 ## What it enforces
 
 - Small, recent revisions with known/estimated context under 40% keep the same task. Heavy stages, stale replies, repeated failures or context pressure choose a fresh task. State context estimates honestly; account usage percentages are not context usage. Do not fabricate `get_usage` availability.

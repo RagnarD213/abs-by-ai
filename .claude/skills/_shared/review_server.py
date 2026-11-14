@@ -495,6 +495,23 @@ def managed(port, root, remove=False):
     raise RuntimeError(f'Review did not start. Read {log}')
 
 
+def mirror_to_dans_mac(port, root):
+    """Two Macs (2026-11-14): a page served on the headless M2 is also served on the M6, same port, so the link
+    opens where Dan works. No-op on the M6 or any other Mac. Never fails the review (prints a note instead)."""
+    if os.environ.get('ABS_REVIEW_NO_MIRROR'):
+        return
+    path = Path(__file__).with_name('editroute') / 'editroute.py'
+    if not path.is_file():
+        return
+    try:
+        spec = importlib.util.spec_from_file_location('abs_editroute', path)
+        er = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(er)
+        er.mirror_review_if_remote(port, root)
+    except Exception as e:
+        print(f'Note: could not check whether to open this page on the M6 too ({e}).')
+
+
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('port', type=int)
@@ -514,6 +531,8 @@ def main():
     legacy_agent = os.getppid() == 1 and not a.remove
     if sys.platform == 'darwin' and not a.serve and not legacy_agent:
         managed(a.port, root, a.remove)
+        if not a.remove:
+            mirror_to_dans_mac(a.port, root)
     elif a.remove:
         p.error('--remove requires macOS launchd')
     else:

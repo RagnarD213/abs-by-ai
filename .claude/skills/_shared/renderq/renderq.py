@@ -25,7 +25,11 @@ In Python:  `with renderq.slot("RO-27 picture pass"):` (heavy) or `renderq.slot(
 WHY (handoff 2026-10-20). The two-build cap was an honour system: only two shared tools waited, ten sessions that
 started together all saw a free slot in the same second, and the Mac ran at load 40-160. Now the cap is a lock.
 
-HOW.
+CURRENT v4 (2026-11-11): every lane, including its first slot, checks one shared core budget.
+Memory/settling apply whenever any queued holder or unmanaged build is active. Only an otherwise idle
+queue can bypass memory/settling, never cores. Old loaded waiters drain without interruption.
+
+HOW (the floor exceptions described below are historical, superseded by v4).
 
 * SLOTS are files under /tmp/absbyai-renderq/slots, one per slot, held with flock(). The kernel drops the lock the
   moment the holder exits for any reason (kill -9 included), so there is nothing to clean up and no PID file.
@@ -42,7 +46,7 @@ HOW.
 * DRIVES. Each heavy step records the drives it reads and writes (Extreme, Expansion, Seagate, internal). A drive
   takes at most its cap of heavy steps at once (drives.json, measured by drivebench.py). A waiter whose drive is
   full steps aside: the next waiter on another drive goes past it, so a busy hard disk never idles the SSD.
-* BUDGETS (v3, 2026-10-21, Handoffs/handoff-20261021-render-throughput-plan.md). A slot used to stand for "one
+* BUDGETS (historical v3, superseded by v4 below; 2026-10-21, Handoffs/handoff-20261021-render-throughput-plan.md). A slot used to stand for "one
   encode", but a chroma key held one slot with six 1 GB workers: two slots meant 11 processes and 10.5 GB, swap
   filled and 27% of the CPU went to paging. Now every step carries a CORE ALLOWANCE (heavy 4, light 2, quick 2) and
   the line admits by two budgets: the cores in use plus the new step's must fit in the Mac's cores minus 2 (kept
@@ -80,8 +84,8 @@ REPO = SHARED.parents[2]
 # ~ (tested 2026-10-20). Every session must use the same folder or the line splits in two.
 DIR = Path(os.environ.get("GATE_DIR") or "/tmp/absbyai-renderq")
 
-# (floor: always open whatever the budgets say, most at once). Slots past the floor open only while the core and
-# memory budgets have room (see _budget_ok). GATE_POOLS="heavy=1:4,light=1:3" overrides (tests: "heavy=1").
+# (legacy floor, maximum slots). Since v4 every admission checks the shared budget; the legacy floor field
+# remains for compatibility with old waiters. GATE_POOLS="heavy=1:4,light=1:3" overrides (tests: "heavy=1").
 # Heavy floor 2, not the plan's 1: with each heavy step held to 4 cores, two fill the 8-core budget exactly, and on
 # 10-21 a floor of 1 ran the ten-step bench 2.1x slower than two at a time while swap still grew from work outside
 # the queue (Handoffs/results-20261021-renderq-v3.md).
@@ -322,7 +326,23 @@ def core_budget():
     """Cores the queue may hand out: the Mac's cores minus those kept for sessions and the UI."""
     if os.environ.get("GATE_BUDGET"):
         return int(os.environ["GATE_BUDGET"])
+    hb = _host_budget()
+    if hb:
+        return hb
     return max(2, (os.cpu_count() or 10) - CORES_RESERVED)
+
+
+def _host_budget():
+    """Two Macs (2026-11-14): this Mac's core budget from editroute/hosts.json. The M6 gives edits about half its
+    cores while Dan is at it and all but 2 when he has been away 30 min or at night; the M2 gives 8. None = old rule."""
+    if os.environ.get("GATE_NO_HOSTCFG"):
+        return None
+    try:
+        sys.path.insert(0, str(SHARED / "editroute"))
+        import hostcfg                                          # noqa: E402
+        return hostcfg.core_budget()
+    except Exception:
+        return None
 
 
 def held_cores(info, pool):
@@ -452,18 +472,20 @@ def _settled(pool):
 
 
 def budget_check(pool, states, unmanaged=()):
-    """May one more step start in `pool` now? '' when yes, else the reason in plain words. The floor always may."""
-    base, most = pool_sizes()[pool]
+    """All lanes share the core budget. Only an otherwise idle queue may bypass memory/settling to make progress."""
+    _, most = pool_sizes()[pool]
     occupied = sum(1 for s in states if s["pool"] == pool and s["held"])
     if occupied >= most:
         return "{} slots all in use ({} of {})".format(pool, occupied, most)
-    if occupied < base:
-        return ""
     need, used, budget = allowance(pool), cores_in_use(states, unmanaged), core_budget()
     if used + need > budget:
         return "cores: {} of {} in use{}, this step needs {}".format(
             used, budget, " ({} by work outside the queue)".format(unmanaged_cores(unmanaged)) if unmanaged else "",
             need)
+    # Floors used to admit 14 cores into an 8-core budget (2 heavy + 1 light + 2 quick).
+    # A free lane is not spare machine capacity. Count every holder, including legacy ones.
+    if not any(s["held"] for s in states) and not unmanaged:
+        return ""
     if pool == "light" and used + need + allowance("heavy") > budget and _tickets("heavy"):
         return "cores: the last {} free cores are kept for a heavy step waiting in line".format(budget - used)
     m = mem_state()
@@ -961,7 +983,7 @@ class Ticket(object):
         self.drives = list(drives) if drives is not None else default_drives()
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pool=pool, label=label[:200], group=group,
                          priority=bool(priority), seq=self.seq, created=time.time(), cwd=os.getcwd()[:200],
-                         session=_session(), pipe=pipe, drives=self.drives)
+                         session=_session(), pipe=pipe, drives=self.drives, scheduler_version=4)
         name = "{}.{:010d}.{}.json".format(pool, self.seq, os.getpid())
         tmp = DIR / "queue" / (".tmp." + name)
         with open(tmp, "w") as f:
@@ -1036,9 +1058,8 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
         if full:
             return None, 0
         mine = [s for s in states if s["pool"] == pool]
-        base = pool_sizes()[pool][0]
-        unmanaged = _unmanaged(states) if sum(s["held"] for s in mine) >= base else []
-        if budget_check(pool, states, unmanaged):           # past the floor: cores and memory must have room
+        unmanaged = _unmanaged(states)
+        if budget_check(pool, states, unmanaged):           # all lanes share the same core and memory budgets
             return None, 0
         now = time.time()
         for s in mine:
@@ -1057,7 +1078,7 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             _write(s["path"], dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=s["i"],
                                    label=ticket.info["label"], group=group, start=now, cwd=ticket.info["cwd"],
                                    session=ticket.info["session"], drives=ticket.drives, pipe=pipe, kind="starting",
-                                   cores=allowance(pool)))
+                                   cores=allowance(pool), scheduler_version=4))
             _admitted(pool)
             return fd, s
         return None, 0
@@ -1624,7 +1645,7 @@ def find_workdir(job):
     return Path(max(hits)[1]) if hits else None
 
 
-def drive_report(states=None, tickets=None):
+def drive_report(states=None, tickets=None, recent=True):
     """One row per plugged-in work drive (plus internal): running, waiting, cap, free, kind, active jobs, score."""
     if states is None:
         _ensure()
@@ -1639,11 +1660,11 @@ def drive_report(states=None, tickets=None):
     rows = []
     for name, root in mounted_work_drives() + [("internal", Path("/tmp"))]:
         cap = drive_cap(name, caps)
-        active = _recent_jobs(root) if name != "internal" else 0
+        active = (_recent_jobs(root) if name != "internal" else 0) if recent else None
         run_, w = load.get(name, 0), wait.get(name, 0)
         rows.append(dict(drive=name, root=str(root), kind=drive_kind(name) if name != "internal" else "ssd",
                          running=run_, waiting=w, cap=cap, free_gb=round(_free_gb(root)), active_jobs=active,
-                         score=round((run_ + 0.5 * w) / float(cap) + 0.15 * active, 2)))
+                         score=round((run_ + 0.5 * w) / float(cap) + 0.15 * active, 2) if active is not None else None))
     return rows
 
 
@@ -1657,6 +1678,22 @@ def workdir(job, need_gb=20.0, source=None, create=True, why=None):
         if why is not None:
             why.append("existing work folder")
         return hit
+    first = _host_work_before_internal()                    # two Macs: the M2 (internal nearly full) uses the Extreme
+    if first and not os.environ.get("GATE_DRIVE_MAP"):
+        for r in drive_report():
+            if r["drive"] not in first:
+                continue
+            reserve = float(os.environ.get("GATE_WORK_RESERVE_GB") or WORK_RESERVE_GB.get(r["drive"],
+                                                                                          WORK_RESERVE_DEFAULT_GB))
+            room = r["free_gb"] - need_gb - reserve
+            if why is not None:
+                why.append("{} (this Mac puts new jobs here before its internal drive, editroute/hosts.json): {} GB "
+                           "free{}".format(r["drive"], r["free_gb"], "" if room >= 0 else ", NO ROOM"))
+            if room >= 0:
+                path = Path(r["root"]) / "_edit_work" / job
+                if create:
+                    path.mkdir(parents=True, exist_ok=True)
+                return path
     if not os.environ.get("GATE_DRIVE_MAP"):                # tier 0: the internal drive, when the job fits
         reserve = float(os.environ.get("GATE_INTERNAL_RESERVE_GB") or INTERNAL_WORK_RESERVE_GB)
         room = _free_gb(INTERNAL_WORK.parent if INTERNAL_WORK.parent.exists() else "/tmp") - need_gb - reserve
@@ -1691,6 +1728,18 @@ def workdir(job, need_gb=20.0, source=None, create=True, why=None):
     if create:
         path.mkdir(parents=True, exist_ok=True)
     return path
+
+
+def _host_work_before_internal():
+    """Drives this Mac puts a NEW job folder on before its internal SSD (editroute/hosts.json; [] = Dan's order)."""
+    if os.environ.get("GATE_NO_HOSTCFG"):
+        return []
+    try:
+        sys.path.insert(0, str(SHARED / "editroute"))
+        import hostcfg                                          # noqa: E402
+        return hostcfg.work_before_internal()
+    except Exception:
+        return []
 
 
 def _job_name(job=None):
@@ -1935,12 +1984,11 @@ def status(as_json=False):
                                budget=budget, unmanaged=unmanaged,
                                waiting=[dict({k: v for k, v in t.items() if k != "path"},
                                              eta_s=eta.get(str(t["path"]))) for t in _rank(tickets, states)],
-                               drives=drive_report(states, tickets)),
+                               drives=drive_report(states, tickets, recent=False)),
                           indent=1)
     lines, p = [], pools()
-    z = pool_sizes()
     held_mb = sum(r.get("mb", 0) for r in rss.values())
-    lines.append("Render queue v3: steps start by CORES and MEMORY. Each step gets cores: heavy {}, light {}, quick {} "
+    lines.append("Render queue v4: all lanes share CORES and MEMORY. Each step gets cores: heavy {}, light {}, quick {} "
                  "(exported as RENDERQ_CORES; ffmpeg -threads cap {}).".format(allowance("heavy"), allowance("light"),
                                                                   allowance("quick"),
                                                                   "on" if THREADS_DEFAULT else "off"))
@@ -1954,11 +2002,21 @@ def status(as_json=False):
                          mem["avail_gb"], float(os.environ.get("GATE_MEM_MIN_GB") or MEM_AVAIL_MIN_GB),
                          mem["swap_used_mb"] / 1024.0, mem.get("swap_grow_mb", 0),
                          _fmt(mem["ok_for"]) if mem["ok"] else "0 s ({})".format(mem["reason"]), held_mb / 1024.0))
-    lines.append("Always open whatever the budgets say: {} heavy, {} light, {} quick. Past that: {}.".format(
-        z["heavy"][0], z["light"][0], z["quick"][0],
-        "; ".join("{} {}".format(k, "open" if not closed[k] else "closed, " + closed[k]) for k in p
-                  if z[k][0] < z[k][1]) or "nothing more"))
-    drows = drive_report(states, tickets)
+    lines.append("Shared budget applies to heavy, light and quick, including each lane's first step. "
+                 "Only an idle queue bypasses memory/settling for progress; the core budget always applies.")
+    if budget["cores_in_use"] > budget["cores_budget"]:
+        lines.append("WARNING: current holders exceed the shared budget. Existing processes may still use old code; "
+                     "new v4 admissions wait for capacity. Running work is not stopped.")
+    lines.append("Lanes: " + "; ".join("{} {}".format(k, "closed, " + v if v else "open")
+                                          for k, v in closed.items()))
+    legacy = sum(1 for s in states if s["held"] and s["info"].get("scheduler_version", 3) < 4)
+    legacy_wait = sum(1 for t in tickets if t.get("scheduler_version", 3) < 4)
+    lines.append("Legacy code still loaded: {} holders, {} waiters; these drain naturally.".format(legacy, legacy_wait))
+    for s in states:
+        if s["held"] and s["pool"] == "quick" and time.time() - s["info"].get("start", time.time()) > 120:
+            lines.append("WARNING: quick job running over 2 minutes: {}. Short media can still be expensive; "
+                         "use heavy for chroma-key pipelines.".format(s["info"].get("label", "?")))
+    drows = drive_report(states, tickets, recent=False)
     lines.append("Drives (heavy steps running/cap, waiting): " + "; ".join(
         "{} {}/{}{}, {} GB free".format(r["drive"], r["running"], r["cap"],
                                         ", {} waiting".format(r["waiting"]) if r["waiting"] else "", r["free_gb"])
@@ -1994,7 +2052,8 @@ def status(as_json=False):
             full = drive_full(info_drives(t), load, caps) if pool == "heavy" else []
             lines.append("   {:>2}. {}  [{}]  waiting {}{}{}{}".format(
                 n, t.get("label", "?"), t.get("group", ""), _ago(t.get("created")),
-                ", starts in about {}".format(_fmt(e)) if e is not None and not full else "",
+                ", blocked: " + closed[pool] if closed.get(pool) else
+                (", starts in about {}".format(_fmt(e)) if e is not None and not full else ""),
                 "  PRIORITY" if t.get("priority") else "",
                 "  (its drive {} is full; later jobs on other drives go first)".format("/".join(full)) if full else ""))
     try:                                                    # the edit cap (editcap/): how many EDITS may feed this queue

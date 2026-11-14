@@ -44,7 +44,19 @@ SHARED = HERE.parent
 REPO = SHARED.parents[2]
 # /tmp, like renderq: Codex's workspace-write sandbox can write /tmp but not ~. All sessions must share one folder.
 DIR = Path(os.environ.get("EDITCAP_DIR") or "/tmp/absbyai-editcap")
-CAP = int(os.environ.get("EDITCAP_MAX") or 5)
+
+
+def _host_slots():
+    """This Mac's edit slots from editroute/hosts.json (two Macs since 2026-11-14: M6 2, M2 3). None = keep 5."""
+    try:
+        sys.path.insert(0, str(SHARED / "editroute"))
+        import hostcfg                                          # noqa: E402
+        return hostcfg.slots()
+    except Exception:
+        return None
+
+
+CAP = int(os.environ.get("EDITCAP_MAX") or _host_slots() or 5)
 LEASE_S = 3 * 3600          # an active edit with no acquire and no render-queue activity this long loses its slot
 RESERVE_S = 90 * 60         # a promoted waiter that has not started this long loses its reservation
 RECENT_RQ_S = 20 * 60       # a render-queue grant this recent refreshes an active edit's lease
@@ -341,6 +353,9 @@ def _who():
             return "codex", os.environ[k]
     if any(k.startswith("CODEX") for k in os.environ):
         return "codex", ""
+    if os.environ.get("GEMINI_WORKSPACE_DIR"):
+        m = re.search(r"/tasks/([^/]+)/", os.environ["GEMINI_WORKSPACE_DIR"])
+        return "gemini", (m.group(1) if m else os.environ["GEMINI_WORKSPACE_DIR"])
     return "", ""
 
 
@@ -535,6 +550,8 @@ def wake_line(e):
         return "WAKE claude {} :: {}".format(e["wake"], msg)
     if e.get("ai") == "codex" and e.get("wake"):
         return "WAKE codex {} :: {}".format(e["wake"], msg)
+    if e.get("ai") == "gemini" and e.get("wake"):
+        return "WAKE gemini {} :: {}".format(e["wake"], msg)
     return "WAKE unknown ({}) :: {}".format(e["job"], msg)
 
 
@@ -637,7 +654,8 @@ def status(as_json=False, ctx=None):
     for i, e in enumerate(line, 1):
         d, why = cal.date(e["job"], e.get("release"))
         armed = ("auto-start armed" if _alive(e.get("waiter_pid")) else
-                 "codex heartbeat" if e.get("ai") == "codex" else "no auto-start process running")
+                 "codex heartbeat" if e.get("ai") == "codex" else
+                 "gemini chat" if e.get("ai") == "gemini" else "no auto-start process running")
         out.append("  {}. {} {} [{}]: release {} ({}), waiting {}, {}".format(
             i, e["job"], title(e["job"]), e.get("ai", "?"), _pretty(d), why, _ago(e.get("waiting_since"), now), armed))
     if not line:

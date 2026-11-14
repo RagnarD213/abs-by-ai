@@ -20,6 +20,13 @@ in one line, end the turn, and continue when it exits. Review page up or stoppin
 --review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
 Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
 
+**Which Mac (two Macs, 2026-11-14).** Before the first `acquire` of a new edit, run
+`python3 .claude/skills/_shared/editroute/editroute.py pick <JOB> --kind <AD|ADCUT> --round <N>` (`--chroma` for a full
+chroma key; `--host m6|m2` only when Dan names one). It prints `m6`, `m2` or `wait` and why. If it names the other Mac,
+start the edit there (Claude: new session on the SSH connection `m2`; Codex: `ssh m2 codex exec`) and do no
+production here. On the M6, footage comes from the M2 with `editroute.py fetch`; on the M2, review pages open on the
+M6 by themselves (same link) and finals go to the M6 with `editroute.py push`. Rule: VIDEO-RULES.md, "Two Macs".
+
 ## Video editing task names (Dan, 2026-10-16)
 
 At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.

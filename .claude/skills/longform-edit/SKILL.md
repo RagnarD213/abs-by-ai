@@ -21,6 +21,13 @@ in one line, end the turn, and continue when it exits. Review page up or stoppin
 --review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
 Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
 
+**Which Mac (two Macs, 2026-11-14).** Before the first `acquire` of a new edit, run
+`python3 .claude/skills/_shared/editroute/editroute.py pick <JOB> --kind LFC --round <N>` (`--chroma` for a full
+chroma key; `--host m6|m2` only when Dan names one). It prints `m6`, `m2` or `wait` and why. If it names the other Mac,
+start the edit there (Claude: new session on the SSH connection `m2`; Codex: `ssh m2 codex exec`) and do no
+production here. On the M6, footage comes from the M2 with `editroute.py fetch`; on the M2, review pages open on the
+M6 by themselves (same link) and finals go to the M6 with `editroute.py push`. Rule: VIDEO-RULES.md, "Two Macs".
+
 ## Locked tier-list format (Dan, 2026-11-01)
 
 For tier-list/ranking long-forms, read [the RO-23 R3 standard](reference/tier-list-standard/README.md): its full layout and B-roll treatment are approved, with slow locked-arm full-extension ab-wheel action and unobstructed-stomach vacuum corrections mandatory. Audit every reused panel/background.

@@ -1,3 +1,17 @@
+## Shared admission budget, 2026-11-11
+
+The November 11 audit found 15 allocated cores against the 8-core budget with four edits.
+**This supersedes the always-open per-pool floors described below.** All heavy, light and quick
+admissions now check the shared core budget, including their first slot, and count unmanaged work.
+Memory and settling checks apply whenever another holder or unmanaged build is active. Only an
+otherwise idle queue may bypass memory/settling so one step can make progress; it still checks cores.
+Running work is preserved. Processes already waiting or holding slots retain the code they loaded;
+the fix takes effect as new queue processes start. Do not claim an immediate full rollout.
+Short footage does not make a chroma-key pipeline cheap: use heavy for complete key/geometry/QC
+chains. Quick jobs over two minutes are flagged in status. RENDERQ_CORES is an allowance, not an
+OS-enforced limit: nested pools and native-library/encoder threads still require compliant sizing.
+Status skips filesystem job scans and reports budget blocks instead of misleading zero-second ETAs.
+
 ## Setup owner: Codex by default (Dan, 2026-11-07)
 
 - **Codex handles setup for both Claude-edited and Codex-edited videos**, including covers/thumbnails, setup files, backups, metadata, uploads and verified scheduling or shared waitlist placement. Keep images and setup with one Codex owner to avoid unnecessary AI coordination.
@@ -1390,6 +1404,26 @@ something that we can publish."* Every point below is a standing rule for every 
   missing baseline, a missing plan, a script that is not on disk — each one fails and says what is
   missing. If a check genuinely does not apply, declare it explicitly, with a reason a reader can
   audit. Full reasoning: `.claude/skills/_shared/qc_corpus/README.md`.
+
+## Two Macs: which Mac takes the edit (Dan, 2026-11-12; built 2026-11-14)
+
+- **Two Mac minis share the edits:** the M6 (Dan's Mac, 2 edit slots) and the M2 Pro on the Thunderbolt cable
+  (headless, 3 slots, holds the Extreme and Seagate drives). The 5 is now 2 + 3. Numbers: `editroute/hosts.json`.
+- **Before the first `editcap.py acquire` of a new edit:** `python3 .claude/skills/_shared/editroute/editroute.py
+  pick <JOB> --kind <SFC|SFL|LFC|AD|ADCUT|VSL|EXDEMO> --round <N>` (`--chroma` for a full chroma key, `--host` only
+  when Dan names a Mac). It prints `m6`, `m2` or `wait` and why. Shorts, ad cutdowns and later-round revisions go to
+  the M6 first; long-form R1, full chroma keys and exercise-demo batches to the M2 first; a job never leaves the Mac
+  holding its work folder; a full or busy M6 sends the edit to the M2; both full = wait, oldest first.
+- **An edit for the other Mac is started there**, not run here: Claude through the app's SSH connection `m2` (it shows
+  in Dan's M6 sidebar), Codex with `ssh m2 codex exec`. That session runs `acquire` on its own Mac.
+- **Drives:** M2 edits read footage in place and put new work folders on the Extreme first. M6 edits work on the M6's
+  internal SSD and copy the footage they need with `editroute.py fetch` (the drives cannot be shared to the M6).
+  Seagate archive moves happen on the M2.
+- **Review pages from the M2 open on the M6 by themselves** (`review_server.py` mirrors them, same port, same
+  `http://127.0.0.1:PORT/` link). Finished files go to the M6 project folder with `editroute.py push`.
+- **Cores:** the M6 gives edits 6 of its 12 cores while Dan is at it, 10 when he has been away 30 min or 10 PM to 7 AM;
+  the M2 gives 8. See both Macs: `editroute.py status` (read-only, covered by the render-queue authorization).
+- Tool and details: `.claude/skills/_shared/editroute/README.md`.
 
 ## Active edit cap: at most 5 edits doing production at once (Dan, 2026-10-21)
 

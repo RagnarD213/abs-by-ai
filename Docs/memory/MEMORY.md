@@ -158,6 +158,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 
 - [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
+- [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks

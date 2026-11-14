@@ -1,3 +1,24 @@
+## Shared admission budget, 2026-11-11
+
+The November 11 audit found 15 allocated cores against the 8-core budget with four edits.
+**This supersedes the always-open per-pool floors described below.** All heavy, light and quick
+admissions now check the shared core budget, including their first slot, and count unmanaged work.
+Memory and settling checks apply whenever another holder or unmanaged build is active. Only an
+otherwise idle queue may bypass memory/settling so one step can make progress; it still checks cores.
+Running work is preserved. Processes already waiting or holding slots retain the code they loaded;
+the fix takes effect as new queue processes start. Do not claim an immediate full rollout.
+Short footage does not make a chroma-key pipeline cheap: use heavy for complete key/geometry/QC
+chains. Quick jobs over two minutes are flagged in status. RENDERQ_CORES is an allowance, not an
+OS-enforced limit: nested pools and native-library/encoder threads still require compliant sizing.
+Status skips filesystem job scans and reports budget blocks instead of misleading zero-second ETAs.
+
+## Two Macs, 2026-11-14
+
+Each Mac has its own queue. The core budget comes from `../editroute/hosts.json`: the M6 hands out 6 of its 12
+cores while Dan is at it (keyboard or mouse used in the last 30 min) and 10 when he is away or 10 PM to 7 AM; the M2
+hands out 8. `GATE_BUDGET` still overrides; `GATE_NO_HOSTCFG=1` restores the old rule (the selftest uses it). New
+work folders on the M2 go on the Extreme before its nearly full internal drive. Details: `../editroute/README.md`.
+
 # Render queue (`renderq`)
 
 Every heavy video step on the Mac mini waits its turn here, so Dan can start 10, 20 or 30 editing jobs at once and

@@ -3,6 +3,9 @@
 At most **5 video edits doing production work at once**, Claude and Codex together (Dan, 2026-10-21). The render
 queue (`../renderq/`) caps heavy STEPS; this caps how many EDITS feed it. Rule: `VIDEO-RULES.md`, "Active edit cap".
 
+**Two Macs (2026-11-14):** each Mac runs its own cap with its own slot count from `../editroute/hosts.json` (M6 2,
+M2 3; total still 5). `EDITCAP_MAX` still overrides. Which Mac an edit goes to: `../editroute/README.md`.
+
 Why: on 2026-10-21 about 12 edits ran at once on the 10-core Mac, the render queue was overbooked (16-18 cores of work
 on 8, ~7.8 GB swap), heavy waiters sat 3-5 hours and no video finished all day.
 
