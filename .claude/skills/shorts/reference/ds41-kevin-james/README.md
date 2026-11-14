@@ -88,3 +88,5 @@ independent review SHIP after the room fill (first pass DOES NOT SHIP on the hol
 captions:sync not measurable. Review page http://127.0.0.1:9800/ (M2 folder `r2/review`, mirrored to the M6). The reviewer's findings must cover the
 `pair_*.jpg` images too, or the watch pass stays open (35 images here: 3 sheets, 16 strips, 16 pairs): say so in the brief. `editroute.py push`
 printed "skipped (not inside the project folder)" for delivery paths although the files were already on the M6 with matching sha256; check the M6 copy by hash.
+
+R2 APPROVED by Dan 2026-11-14 ("Approved") and finalized. Setup: `Handoffs/handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md` (Codex).
