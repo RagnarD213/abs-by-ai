@@ -41,3 +41,11 @@ Current review: http://127.0.0.1:9862/?round=3 . Checked sheet: http://127.0.0.1
 All eight new served previews were downloaded, decoded and byte-checked. All four actual scenes, faces and platform layouts were inspected. Title masks clear detected faces and expanded hair guards by zero overlapping pixels. Instagram text stays in the safe band; YouTube JPEG originals are under 2 MB. Phone 390px shows one card column with no horizontal overflow; enlargement opens and closes. Full-width scene framing preserves both diners’ faces. No paid image API spend, no video re-rendering, no media upload or scheduling.
 
 Recipe and exact pick mapping: `scripts/covers/sl21-20261114/README.md`; current full-quality files and private mapping in the R3 work folder. Only current revision files were copied into the project review folder and byte-verified.
+
+## Round 4: two frontal versions, one elevated, one just starting
+
+Dan asked for the three proposed compositions: “Do two with concept 1 and one with 2 and 3.” These follow his refinement to have himself smiling and ripped in a tank top behind the table, an only slightly overweight diner on each side, and visible food as he tips it. The new set contains exactly four choices: concept 1A, concept 1B, concept 2 and concept 3, shuffled under X1–X4. Each has Instagram and YouTube layouts. Cover title unchanged: **Why Restaurants Make You Fat**.
+
+Review: http://127.0.0.1:9862/?round=4 . Sheet: http://127.0.0.1:9862/restaurant-r4-sheet.jpg . Earlier restaurant choices are superseded; current exact pick mapping is in the R4 work folder. Vacation X7 remains approved and unchanged. Therapy is unselected.
+
+All eight new served files decode and match their local preview bytes. Actual source scenes, identity faces and finished layouts were inspected. No title overlap with detected faces and expanded hair guards; Instagram type stays safe and YouTube JPEG originals are under 2 MB. Phone 390px: one column, no horizontal overflow; enlargement opens and closes. The initial elevated take and its correction both kept a level table and were discarded; a replacement was checked before review. No paid image API spend. No video edits, media upload or scheduling.

@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Two-Mac infrastructure: VERIFYING 2026-11-14, Codex.** M6 active; M2 awaits DS-39. Dispatcher PAUSED. `Docs/TWO_MAC_OPTIMIZATION_EXECUTION_RECEIPT_20261114.md`.
 
-**WhatToCut-SFL-Setup:AWAITING-DAN-R3:2026-11-14:Codex.** [Table-flip-X1–X4](http://127.0.0.1:9862/?round=3);Vacation-X7-approved;therapy-pending;setup-after-picks.
+**WhatToCut-SFL-Setup:AWAITING-DAN-R4:2026-11-14:Codex.** [Covers-X1–X4](http://127.0.0.1:9862/?round=4):concept1×2,2×1,3×1;Vacation-X7-approved;therapy-pending.
 
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
