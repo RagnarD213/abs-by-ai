@@ -39,7 +39,7 @@ A disposable M6 folder with a space in its name, nested bytes and a relative lin
 | Physical M2 progress during M6 fixture reservation | Separate real-SSH disposable command completed while the M6 fixture reservation remained active | PASS |
 | Route/priority/resume unit fixtures | 67 passing after the whole-edit waiter guard | 67/67 after the final guard |
 | Render-queue process fixtures | 57/57; four real CPU/RSS stress assertions deliberately not run in the final safe mode | 57/57, same explicit stress omissions |
-| Edit-slot fixtures | 27/27 | 27/27 |
+| Edit-slot fixtures | 29/29 | 29/29 |
 | Archive fixtures | 16/16 | 16/16 after the final reference guard |
 | Contact-sheet child lifetime | PASS; slot still held after actual sleeping child exit | PASS |
 | Launcher fixtures | 59 policy, 11 fake end-to-end, 5 repair, 2 review-page, 7 asset tests passed | Same suites passed before the final archive/waiter-only guard update |
@@ -102,3 +102,13 @@ The actual M2 dispatcher's five delivered rows were checked against the current 
 | WV-03 R3 | Original owner is building the new Great Again T round | Preserve owner and pending approvals; no complete-film approval inferred. |
 
 After the one correction, four delivered rows still meet the dispatcher's existing stop threshold of four. PAUSE and Claude background sign-in also independently block unattended launching. No threshold, claim, schedule or editorial choice was changed. The original historical DS-01, AV-01 and RO-17 scoreboard runs were not relabelled as accepted deliveries.
+
+## Final safety checks during the M2 hold
+
+While waiting for the old M2 waiter, another live session ran `editcap.py wait --help`. The old parser treated this as a job. Help is now recognized at subcommand level and unknown flags are rejected before ownership/registry mutation. Both Macs passed 29 editcap assertions. The help-only process had already exited naturally; only its exact stale invalid record was removed after confirming no process or render remained. No process was killed, and its parent editor and real jobs were preserved. Audit: private `invalid-help-cleanup.json` on M2.
+
+The scoped rollback check now includes a second ordinary urgency lease alongside the dedicated reservation. Deactivation clears all dynamic controls. Existing explicitly prioritized tickets retain their recorded order and drain normally. All 67 route/priority/resume tests passed again on both Macs. No production deactivation was run for this final check.
+
+Additional isolated recovery fixtures passed on both physical Macs: a lost wake acknowledgment did not duplicate work, the original owner reacquired, a simulated clearing of temporary registries preserved the durable checkpoint and owner, and an unreachable owner stayed unresolved. Neither Mac was rebooted. This is simulated recovery evidence, not an enabled background watchdog.
+
+The final comparison after these two corrections found zero differences across all 30 task source/test/skill files on either Mac. Manifest `final-source-hashes-complete.json` SHA-256: d0ae69a429230f7e01e360959d1a8a5ca7230824106487caec7e1fc85ee132eb. The earlier archive-worker comparison remains valid because its bytes did not change. Code corrections are published through `ab7250f`; earlier repair deployments completed successfully, as did all three services for the help-fix rollout. Automatic deployment of the final rollback-only correction is being observed. M2's production feature activation remains held while DS-39's original old waiter is alive.
