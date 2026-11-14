@@ -9,7 +9,7 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 | batch | what | outcome | exercises | file |
 |---|---|---|---|---|
 | 1 | Gym AI replacements (**EXECUTED and installed 2026-11-13**) | install | leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown | [batch-01-gym-ai-replacements.md](batch-01-gym-ai-replacements.md) |
-| 2 | Gym machines new coverage | install | pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly | [batch-02-gym-machines-new-coverage.md](batch-02-gym-machines-new-coverage.md) |
+| 2 | Gym machines new coverage (**EXECUTED and installed 2026-11-14**) | install | pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly | [batch-02-gym-machines-new-coverage.md](batch-02-gym-machines-new-coverage.md) |
 | 3 | Gym moving and partial moves | install | sled-push, walking-lunge, chinup | [batch-03-gym-moving-and-partial-moves.md](batch-03-gym-moving-and-partial-moves.md) |
 | 4 | Gym new exercises part 1 | store | captains-chair-leg-raise, machine-calf-raise, machine-hip-thrust, assisted-pullup, assisted-dip | [batch-04-gym-new-exercises-part-1.md](batch-04-gym-new-exercises-part-1.md) |
 | 5 | Gym new exercises part 2 | store | dip, weighted-dip, cable-curl, decline-situp, incline-db-press | [batch-05-gym-new-exercises-part-2.md](batch-05-gym-new-exercises-part-2.md) |

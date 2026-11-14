@@ -214,3 +214,12 @@ goes to `Media/exercise-demos/real/b01-recipe/` when the batch is approved).
 > Real Exercise Demos Pilot R1. Read `Handoffs/handoff-20261109-real-broll-exercise-demos.md` and run Phase 0 only: build the three pilot demos (cable-crunch, leg-press, pullup) from the real gym B-roll in the clip library with the cloned-voice narration, add the `exercise-demo-real` delivery gate format, pass the gates, and put them on a 1080p review page with the current AI demo beside each replacement. Install nothing. Dan has authorized the whole plan; stop only for his review of the pilot.
 
 **Model:** Claude Opus 5.5, high effort.
+
+
+## Batch 2 result (2026-11-14)
+Pec deck, machine chest press, machine row, reverse pec deck: installed, all one continuous take (gate `exercise-demo-real-onetake`), 8 to 12 s each. Built on the M2 (`/Volumes/Extreme/_edit_work/REALDEMOS-B02`); archive and recipe in `Media/exercise-demos/real/b02-recipe/` on the M2.
+- Every detail angle failed screening (hair clipped, handheld orbit, drift): screen all candidate clips before choosing a take, and pick loops with `tools/loopfind.py`.
+- TTS: commas and hyphens in the script text split lines into extra spans; use plain sentences with `<#0.3#>` pauses only.
+- `gates.sh` wipes `watch/` including findings.json: back it up first. `REUSE_PICTURE=1` reuses a stale picture after a window change; delete `*-picture.mp4`.
+- Narrate only what the picture shows (dropped "Back flat", "Stay glued", "Chest proud"). Form faults in footage are questions for Dan, not narration.
+- Machine row footage is a chest-supported T-bar row; app copy still describes a seated machine.
