@@ -43,7 +43,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9621/(mirrored-on-M6;work-folder-on-M2,ssh-m2);Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
 
-**DS-42:2026-11-11:Codex:awaiting-version-pick.**
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 
