@@ -88,3 +88,17 @@ Use in either supported client, substituting the actual video title or ID:
 - Claude: `/priority-edit Make [video] a priority.` or `/priority-edit Give [video] the M6 until its checked preview is ready.`
 
 These requests keep the original editor and owner Mac. Dedicated-M6 time for an existing M2 film first needs an explicit move instruction after its current stage is inspected.
+
+## Review backlog reconciliation
+
+The actual M2 dispatcher's five delivered rows were checked against the current owner records and dated decision evidence. This is separate from the five historical scoreboard runs, which remain preserved.
+
+| Job / current round | Evidence | Action |
+|---|---|---|
+| DS-38 R3 | Owner note still awaits Dan's scripted/off-the-cuff choice and whole-film approval | Keep pending. |
+| DS-39 R3 | Main owner record says R3 is in progress, replacing the older R2 delivery; actual M2 waiter remains alive | Record the discrepancy; do not alter its live edit or older evidence. |
+| DS-41 R2 | Owner board and current render show the requested R2 cuts/speed revision in progress | Preserve the owner's current work; no film approval inferred. |
+| SL-21 R2 | Dated handoff quotes Dan's Short 3 approval and subsequent Shorts 1/2 approval, names exact final hashes; independent cover-setup receipt confirms all three films final | Correct only the stale M2/public job record from delivered/rev5 to the owner's existing finalized/rev7 fields. Full before/after private audit saved. Covers still need choices; no upload/schedule claim. |
+| WV-03 R3 | Original owner is building the new Great Again T round | Preserve owner and pending approvals; no complete-film approval inferred. |
+
+After the one correction, four delivered rows still meet the dispatcher's existing stop threshold of four. PAUSE and Claude background sign-in also independently block unattended launching. No threshold, claim, schedule or editorial choice was changed. The original historical DS-01, AV-01 and RO-17 scoreboard runs were not relabelled as accepted deliveries.
