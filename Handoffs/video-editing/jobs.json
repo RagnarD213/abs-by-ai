@@ -4661,15 +4661,17 @@
    "claude": "This job is reserved for the authorized three-way Codex blind test. Use its Codex starter prompt; do not launch a separate Claude edit.",
    "codexModel": "GPT-6 Astra, high; three-way blind test",
    "codex": "Use $video-orchestrator for the authorized three-way blind test of \"The Only 5 Machines You Need At The Gym\". Read Handoffs/video-editing/00-RULES.md, the current shared VIDEO-RULES.md, skills/video-orchestrator/SKILL.md and its blind-test protocol, Media/footage-index/shoot-20261023/queue-jobs/DS-98.json, then execute Handoffs/video-editing/DS-98-the-only-5-machines-you-need-at-the-gym.md. Run three independent arms: all GPT-6 Astra high; all GPT-6.1 Sol high; and a separate Astra-high supervisor directing a Sol-high production worker. Use the same verified Extreme sources and approved shared library IDs, but let each arm select its own best performance across all recorded takes/hooks and preserve filmed wording/corrections. Follow the same SFC first-review and asset approval stages. Track every model session, actual usage, defects, repairs and Dan's blind preferences. Deliver randomized X1/X2/X3 versions without identities or usage figures until Dan judges all three, run required exact-file checks on the neutral review exports, and update only the DS-98 queue entry. Keep the dispatcher paused. No publishing, setup, upload, covers or unrelated edits.",
-   "state": "ready",
-   "note": "Ready for the authorized all-Astra / all-Sol / Astra-supervising-Sol blind test. One SFC, three independent edits; sources and approved library IDs in the handoff. Preparation only: no trial edit started. No setup or publishing. Keep unattended execution disabled.",
+   "state": "in_progress",
+   "note": "Authorized three-way blind edit started. One controller, isolated edits, first review pending. No setup or publishing.",
    "unattended": false,
    "intakeKey": "SHOOT-20261023-23",
    "order": 200,
-   "updated": "2026-11-11T17:55:38",
-   "rev": 3,
+   "updated": "2026-11-14",
+   "rev": 4,
    "syncedRev": 0,
-   "by": "Codex"
+   "by": "Codex",
+   "editor": "Codex",
+   "needs": ""
   },
   {
    "id": "DS-99",
