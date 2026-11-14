@@ -10,7 +10,7 @@ reason.
 
 Keep this file current: when something is filmed, delete its row and note the roll number.
 
-**Unfilmed Content And Ads (2026-11-14):** every unfilmed script from the 11/13 and 10/23 shoots, plus the 10/15 leftovers, in one Doc: https://docs.google.com/document/d/1m3f0CPjFQnlIwVVpfQkgP35VrddSiVG11q574lVBvwk/edit
+**FILM THIS FIRST (Dan, 2026-11-14): the Unfilmed Content And Ads doc.** Every approved script not filmed on the 11/13 and 10/23 shoots, plus 10/15 leftovers, with a summary at the top: https://docs.google.com/document/d/1m3f0CPjFQnlIwVVpfQkgP35VrddSiVG11q574lVBvwk/edit . Dan: shoot this before coming up with new ideas. Any session planning a shoot or writing new ideas reminds him of it first. `/process-footage` rebuilds this doc after every shoot and updates this link.
 
 **Shoot-day documents, since 2026-10-19:**
 - "Next Studio Shoot, Not Yet Filmed" (was "Next Shoot - Filming Document"),

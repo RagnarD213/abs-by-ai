@@ -110,6 +110,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Recap row loved](recap-ladder-end-graphic-loved.md): 10-30: full-screen level recap that closes RO-21; reuse for level videos
 - [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 ## Scripts and voice
+- [Shoot unfilmed first](shoot-unfilmed-first.md): 11-14: next shoot films the Unfilmed Content And Ads doc before any new ideas; remind Dan at every shoot-planning step
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
 - [No staccato fragments](no-staccato-fragments.md): 11-12 runs of clipped sentences ("Clean. Lean. No fat.") are an AI tell; write full sentences
 - [No insulting the prospect](no-insulting-the-prospect.md): 11-12 no put-downs of his current state without context ("testosterone in the toilet"); state the plain fact instead
