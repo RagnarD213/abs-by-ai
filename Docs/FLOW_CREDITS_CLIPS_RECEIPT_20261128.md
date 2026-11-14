@@ -101,6 +101,36 @@ Six of the eight kept clips are Omni takes: with a window planned inside the fir
 Next: Dan's picks, then `clip_library.py add <window cut> --kind ai --status usable-unused --used-in "<job> <title> (planned)" --tags flow-credits-batch3`
 (copy `vid-b2/file_library.py`), `clip_library.py sheet`, IDs under "Pre-made AI clips" in the DS-94, DS-95, DS-96, DS-98, DS-51, DS-46 job docs.
 
+## Batch 3 redo: on Dan's page (2026-11-14)
+
+Dan on the batch 3 video page: Bored To Sleep unrealistic because the machine is not moving ("he'd have the treadmill moving slowly with him
+being bored"); First Day "too frozen ... looking around from side to side, slightly shifting his weight"; Lighter And Fine With It replaced by
+two clips of the slim guy, slightly more muscular, in a tank top: one cheating with weights like the bodybuilder's, one with correct form
+and lighter weights. The other five clips (Only Five, Lighter But Weaker, Movie Snack, A Thousand Sit-Ups x2) are unchanged and unpicked.
+
+One page for everything still open: http://127.0.0.1:9247/ (served on the M6 from `~/Projects/_edit_work/FLOWCLIPS/vid-b3r/review`;
+keys `b3rpicks`). Work folders: M6 `~/Projects/_edit_work/FLOWCLIPS/vid-b3r/` (setup.py, picks.json, windows.json, motion_results.txt,
+build_review.py) and, so both Macs see the same paths for the gates, `/Volumes/Extreme/_edit_work/FLOWCLIPS/{b3r,vid-b3r}/`
+(frames, specs, stamps, reviews, `b3r/review_results.txt`). Flow ran in the M2's Chrome (the only one connected); downloads came back by scp.
+
+| Item | What is on the page | Checks |
+|---|---|---|
+| Bored To Sleep (DS-94), redone | Omni take from the START frame only, steps running, eyes open; 3.8 s (frames 36-127) | clipcheck PASS with a documented 18 px bound (machine floats about 10 px, background within 1 px); fresh reviewer PASS |
+| First Day (DS-95), redone | Omni take from the START frame only, looks right, back left, regrips, shifts; 5.3 s shown (0-127), strict window 75-127 | clipcheck PASS (camera 1.3 px); fresh reviewer PASS |
+| Cheating The Heavy Ones (DS-96), new frames `B3-22b` | side view, two versions (blind X1/X2) | both pairs gate + fresh reviewer PASS |
+| Lighter, Strict Form (DS-96), new frames `B3-23` | front view, two versions (blind X1/X2), each labelled with the cheat version that has the same man | both pairs gate + fresh reviewer PASS |
+
+Dropped on the way: the front-view cheat pair in both sources (a lean back does not read head-on; END failed twice), a strict pair with
+elbows flared wide (redrawn), a strict pair whose dumbbells changed type between frames (redrawn without stamps).
+Flow projects: video https://flow.google.com/project/2dadf483-422d-4f64-b3b6-b36a13bc2044 , images
+https://flow.google.com/project/a9ede1c5-b49a-4395-b20c-e8e6064802cf .
+Next: Dan's picks; file the kept clips (`--tags flow-credits-batch3`, library adds run on the M2, which holds the catalog); video for the
+frame versions he selects (`blind.py pick /Volumes/Extreme/_edit_work/FLOWCLIPS/b3r/sets/<id> --chose Xn` first).
+
+Lessons: a clip with the START frame only gives freer motion (fidgeting, a running machine) but the picture floats; Omni floated least.
+A lean BACK must be shot from the side. Give each image source its own man for every clip in a set, and say on the page which versions match.
+`veo.py collect` cannot find ffprobe on the M6 (its repo path is one folder short); put `Media/video_edit/bin` on PATH for collect.
+
 ## Credits
 
 | batch | Flow credits | notes |
@@ -112,7 +142,8 @@ Next: Dan's picks, then `clip_library.py add <window cut> --kind ai --status usa
 | batch 3 frames (49 Google images) | 0 | |
 | batch 2 retake (sleep clip, 2 Veo Fast takes) | 20 | balance 21,156 to 21,136 |
 | batch 3 video (7 clips, 21 takes: 14 Veo Fast + 7 Omni at 10 each) | 210 | balance 21,042 to 20,832 |
-| **total for this handoff so far** | **710** | of 14,000 |
+| batch 3 redo video (8 takes: 6 Veo Fast + 2 Omni at 10 each) and 7 Google images | 80 | balance 20,702 to 20,622 |
+| **total for this handoff so far** | **790** | of 14,000 |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 

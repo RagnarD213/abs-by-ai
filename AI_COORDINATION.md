@@ -1,3 +1,5 @@
+**DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
+
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
@@ -29,11 +31,17 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-42-cover-setup:2026-11-14:Codex:AWAITING-DAN.** [Choose cover](http://127.0.0.1:9844/): X1–X5.
+**Two-Mac infrastructure: ACTIVE 2026-11-14, Codex optimization execution.** Owns approved repairs in isolated worktree; production editors retain films. Router rollout waits for DS-107 owner boundary; dispatcher stays PAUSED. Next: scratch queue/archive/priority tests.
+
+**WhatToCut-SFL-Setup:AWAITING-DAN-R3:2026-11-14:Codex.** [Table-flip-X1–X4](http://127.0.0.1:9862/?round=3);Vacation-X7-approved;therapy-pending;setup-after-picks.
+
+**DS-98 three-way blind edit: ACTIVE 2026-11-14, Codex 01a1db93.** M6. Next: isolated first-review previews; no setup.
+
+
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 
-**FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips-b3:DAN-PICKS:2026-11-14:Claude.**Page-9247;`Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
@@ -43,7 +51,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **KevinJamesCheat-SFC-R2(DS-41):BUILDING-R2:2026-11-14:Claude.**Off-cuff-picked;Dan's-2-cuts+1.15x=59.5s;renders-on-M2(/Volumes/Expansion/_edit_work/DS-41/r2);next:audit,R2-page.
 
-**WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9621/(mirrored-on-M6;work-folder-on-M2,ssh-m2);Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
 
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
