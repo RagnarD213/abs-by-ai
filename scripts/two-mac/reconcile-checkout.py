@@ -50,6 +50,7 @@ for p, c in sorted(upf.items()):
     (same if wt(p) == blob(NEW, p) else both).append(p)
 print("behind {} | upstream files {} | untouched locally {} | identical to GitHub {} | both changed {}".format(b, len(upf), len(clean), len(same), both))
 bk = "tmp/checkout-reconcile-{}".format(time.strftime("%Y%m%d-%H%M%S"))
+os.makedirs(bk, exist_ok=True)
 for p in same + both:
     os.makedirs(os.path.join(bk, os.path.dirname(p)), exist_ok=True); shutil.copy2(p, os.path.join(bk, p))
 open(os.path.join(bk, "README.txt"), "w").write("Checkout reconcile {}\nfrom {} to {}\nidentical to GitHub: {}\nboth changed (3-way merged): {}\n".format(time.ctime(), OLD, NEW, same, both))
