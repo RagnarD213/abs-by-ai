@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RealDemos-B03:DAN-REVIEW-R1:2026-11-14:Claude.** Sled push + walking lunge passed review/gates; chin-up held (neutral-grip close-up only, pickup added). http://127.0.0.1:9531/ (M2 work /Volumes/Extreme/_edit_work/REALDEMOS-B03). Next: Dan's picks, then install + deploy.
+**RealDemos-B03:DAN-REVIEW:2026-11-14:Claude.**http://127.0.0.1:9531/;chin-up-held;install-after-approval.
 
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
