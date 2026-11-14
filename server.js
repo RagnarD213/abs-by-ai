@@ -76,7 +76,7 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
     // subscription was past_due by 08:41. A status-only rule would have
     // reported a $69.99 sale to Google Ads for money that never arrived.
     try { await recordPaidInvoiceConversion(event.data.object); }
-    catch (e) { console.error('Paid-invoice conversion error:', e.message); }
+    catch (e) { console.error('Paid-invoice conversion error:', e.message); return res.status(500).send('Please retry paid invoice event'); }
   } else if (event.type === 'payment_intent.succeeded' || event.type === 'payment_intent.payment_failed') {
     // The Lifetime plan's one charge. Every other payment intent on the
     // account (subscription invoices, print orders) is ignored by the handler.
@@ -5007,6 +5007,20 @@ const UNSUB_SECRET       = process.env.UNSUBSCRIBE_SECRET || STRIPE_WEBHOOK_SECR
 // can override it without a code change.
 const MARKETING_ADDRESS  = process.env.MARKETING_ADDRESS || 'Abs By AI<br>3520 Cavu Rd.<br>Georgetown, TX 78628';
 
+const memberEmails = require('./member-emails').createMemberEmails({
+  db, fetch, apiKey: RESEND_API_KEY, from: RESET_FROM,
+  replyTo: MARKETING_REPLY_TO, siteUrl: SITE_URL, secret: UNSUB_SECRET,
+  optedOut: email => !!subscribersStore.emails[String(email).toLowerCase()]?.unsubscribed,
+});
+app.all('/api/member-emails/unsubscribe', async (req, res) => {
+  try {
+    if (!db) return res.status(503).send('Please try again shortly.');
+    await dbReady;
+    if (!await memberEmails.unsubscribe(req.query.id, req.query.token)) return res.status(400).send('This unsubscribe link is invalid.');
+    res.type('html').send('<p>You have stopped Abs By AI member check-in emails. Account and payment messages will continue.</p>');
+  } catch (error) { console.error('Member unsubscribe failed:', error.message); res.status(503).send('Please try again shortly.'); }
+});
+
 async function sendResetEmail(email, token) {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — reset email skipped for', email); return; }
   const link = `${SITE_URL}/?reset=${token}`;
@@ -5031,7 +5045,7 @@ async function sendResetEmail(email, token) {
 // primary). Reuses the password-reset machinery with a 7-day token — 60 minutes
 // is right for a reset someone just asked for, wrong for an email that may sit
 // unread until the trial reminder lands.
-async function sendSetPasswordEmail(email, userId) {
+async function sendSetPasswordEmail(email, userId, membership = {}) {
   if (!db) return;
   const token = crypto.randomBytes(32).toString('hex');
   const hash = crypto.createHash('sha256').update(token).digest('hex');
@@ -5047,12 +5061,15 @@ async function sendSetPasswordEmail(email, userId) {
     body: JSON.stringify({
       from: RESET_FROM,
       to: [email],
-      subject: 'Your Abs by AI trial is active — set your password',
-      html: `<p>You're in. Your 7-day free trial is active and your account is <b>${email}</b>.</p>
+      reply_to: MARKETING_REPLY_TO,
+      subject: membership.status === 'active' ? 'Your Abs By AI account — set your password' : 'Your Abs by AI trial is active — set your password',
+      html: `<p>You're in. Your Abs By AI account is ready.</p>
+${membershipEmailDetails(membership)}
 <p>Set a password so you can log in on any device:</p>
 <p><a href="${link}" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Set my password</a></p>
 <p>Or paste this link into your browser:<br>${link}</p>
-<p>This link works for 7 days. Cancel any time before your trial ends from Manage membership and you won't be charged.</p>`,
+<p>This password link works for 7 days.</p>
+<p>After signing in, open <strong>AI Trainer</strong> to build your workout program. If you need help, reply to this email.</p>`,
     }),
   });
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
@@ -5061,20 +5078,27 @@ async function sendSetPasswordEmail(email, userId) {
 // Cart purchase whose email already had an account: the membership is attached
 // to that account and the buyer is told to log in — the paying browser is
 // deliberately never logged in automatically.
-async function sendMembershipAttachedEmail(email, plan) {
+function membershipEmailDetails({ plan = 'monthly', status = 'trialing' } = {}) {
+  const def = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
+  return status === 'trialing'
+    ? `<p>Your free trial is active, then ${planPriceStr(def)}. Cancel before the trial ends from Manage membership and you won't be charged.</p>`
+    : `<p>Your membership has been attached to your account. Open the app to view your current access and billing details.</p>`;
+}
+
+async function sendMembershipAttachedEmail(email, plan, status = 'trialing') {
   if (!RESEND_API_KEY) { console.warn('RESEND_API_KEY not set — membership-attached email skipped for', email); return; }
-  const planDef = MEMBERSHIP_PLANS[plan] || MEMBERSHIP_PLANS.monthly;
-  const priceStr = planPriceStr(planDef);
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${RESEND_API_KEY}`, 'Content-Type': 'application/json' },
     body: JSON.stringify({
       from: RESET_FROM,
       to: [email],
-      subject: 'Your Abs by AI membership is active — log in to continue',
-      html: `<p>Your 7-day free trial is active on the Abs by AI account <b>${email}</b> (then ${priceStr}, cancel any time before the trial ends).</p>
+      reply_to: MARKETING_REPLY_TO,
+      subject: 'Your Abs by AI membership — log in to continue',
+      html: membershipEmailDetails({ plan, status }) + `
 <p><a href="${SITE_URL}/?login=1" style="display:inline-block;padding:12px 22px;background:#111;color:#fff;border-radius:8px;text-decoration:none;font-weight:700">Log in</a></p>
-<p>Forgot your password? Use "Forgot password" on the login screen and we'll send a reset link.</p>`,
+<p>Forgot your password? Use "Forgot password" on the login screen and we'll send a reset link.</p>
+<p>Open <strong>AI Trainer</strong> to build your workout program or continue your saved workouts. If you need help, reply to this email.</p>`,
     }),
   });
   if (!res.ok) console.error('Resend error:', res.status, (await res.text()).slice(0, 300));
@@ -5373,6 +5397,18 @@ async function welcomeSweep() {
     if (entry.welcomeNextAt && new Date(entry.welcomeNextAt).getTime() > now) continue;
 
     const idx = entry.welcomeStep; // 0-based index of the email to send
+    // The old prospect sequence sells retired credit packs and prints. A
+    // member needs product onboarding instead, including during a free trial.
+    if (db) {
+      const members = await db.query(`SELECT id FROM users WHERE lower(email) = $1
+        AND membership_status IN ('active','trialing','past_due') AND membership_plan <> 'beta' LIMIT 1`, [email.toLowerCase()]);
+      if (members.rows.length) {
+        entry.welcomeStep = WELCOME_EMAILS.length;
+        entry.memberConverted = true;
+        changed.add(email);
+        continue;
+      }
+    }
     const sent = await sendWelcomeEmail(email, idx);
     if (!sent) continue; // defer to next pass on any failure
 
@@ -7234,10 +7270,12 @@ async function fulfillMembershipSessionInner(session, sid, meta) {
     } catch (e) { console.error('checkout_claims insert failed:', e.message); }
     if (account.created) {
       pushToMailerLite(account.email).catch(() => {}); // same as signup
-      sendSetPasswordEmail(account.email, userId).catch((e) => console.error('set-password email failed:', e.message));
+      const member = (await db.query('SELECT membership_status FROM users WHERE id = $1', [userId])).rows[0];
+      sendSetPasswordEmail(account.email, userId, { plan: meta.plan, status: member?.membership_status }).catch((e) => console.error('set-password email failed:', e.message));
       console.log(`CART_ACCOUNT_CREATED: user ${userId} from session ${sid}`);
     } else {
-      sendMembershipAttachedEmail(account.email, meta.plan).catch((e) => console.error('membership-attached email failed:', e.message));
+      const member = (await db.query('SELECT membership_status FROM users WHERE id = $1', [userId])).rows[0];
+      sendMembershipAttachedEmail(account.email, meta.plan, member?.membership_status).catch((e) => console.error('membership-attached email failed:', e.message));
       if (account.hadSubscription) {
         // Allowed, not blocked (blocking would need the email BEFORE the card).
         // Logged so it can be counted; Dan decides if it ever needs a rule.
@@ -7440,7 +7478,12 @@ async function recordPaidInvoiceConversion(inv) {
     : (inv.subscription?.id || inv.parent?.subscription_details?.subscription || null);
   if (!subId) return;
   const paid = inv.status === 'paid' && Number(inv.amount_paid || 0) > 0;
-  if (!paid || inv.billing_reason !== 'subscription_cycle') return;
+  if (!paid) return;
+  // Product onboarding also covers a returning buyer charged at checkout.
+  // Keep enrollment independent of whether Ads has already recorded the sale.
+  const members = await db.query('SELECT id FROM users WHERE stripe_subscription_id = $1', [subId]);
+  for (const member of members.rows) await memberEmails.enroll(member.id, `stripe_invoice:${inv.id}`);
+  if (inv.billing_reason !== 'subscription_cycle') return;
   const { rows } = await db.query(
     'SELECT id FROM users WHERE stripe_subscription_id = $1 AND paid_conversion_pending_at IS NULL AND paid_conversion_fired_at IS NULL',
     [subId]
@@ -7570,6 +7613,7 @@ async function markLifetimePaid(rowId, paymentIntentId) {
   );
   // The sale, stamped from the money arriving (see the invoice.paid note above).
   await markPaidConversionPending(row.user_id, `lifetime_charge:${paymentIntentId}`);
+  await memberEmails.enroll(row.user_id, `lifetime_charge:${paymentIntentId}`);
   console.log(`LIFETIME_PAID: user ${row.user_id} row ${rowId} (${paymentIntentId})`);
   return true;
 }
@@ -7950,7 +7994,10 @@ async function applyAppleMembership(userId, ent, reason) {
       `UPDATE users SET membership_status = $1, membership_period_end = $2 WHERE id = $3`,
       [ent.status, ent.periodEnd, userId]
     );
-    if (trialToPaid) await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
+    if (trialToPaid) {
+      await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
+      await memberEmails.enroll(userId, `apple_trial_to_paid:${reason}`);
+    }
     return true;
   }
 
@@ -7961,7 +8008,10 @@ async function applyAppleMembership(userId, ent, reason) {
     [ent.status, ent.plan, ent.periodEnd, userId]
   );
   console.log(`APPLE_MEMBERSHIP: user ${userId} → ${ent.status} ${ent.plan} until ${ent.periodEnd} (${reason})`);
-  if (trialToPaid) await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
+  if (trialToPaid) {
+    await markPaidConversionPending(userId, `apple_trial_to_paid (${reason})`);
+    await memberEmails.enroll(userId, `apple_trial_to_paid:${reason}`);
+  }
   return true;
 }
 
@@ -11830,6 +11880,44 @@ const WELCOME_SWEEP_MS = 60 * 60 * 1000;
 setTimeout(() => { welcomeSweep(); }, 45 * 1000).unref?.();
 setInterval(() => { welcomeSweep(); }, WELCOME_SWEEP_MS).unref?.();
 
+// Paid-member onboarding and weekly check-ins. Billing failures stay with
+// Stripe recovery (or the existing lifetime flow), so no duplicate dunning.
+async function memberEmailSweep() {
+  if (process.env.MEMBER_EMAILS_ENABLED !== 'true') return;
+  try {
+    await dbReady;
+    if (!db) return;
+    // Recover missed/out-of-order webhooks and catch up current paying members.
+    // Confirm Stripe money directly; never trust an 'active' trial-end status.
+    const missing = await db.query(`SELECT u.id,u.email,u.stripe_subscription_id,u.membership_source,u.membership_plan,
+      u.paid_conversion_pending_at,u.paid_conversion_fired_at
+      FROM users u LEFT JOIN member_email_enrollments e ON e.user_id=u.id
+      WHERE e.user_id IS NULL AND u.membership_status='active' LIMIT 100`);
+    for (const user of missing.rows) {
+      if (/@example\.(com|net|org)$/i.test(user.email)) continue;
+      try {
+        if (user.membership_plan === 'lifetime') {
+          const paid = await db.query("SELECT id FROM lifetime_pending WHERE user_id=$1 AND status='paid' LIMIT 1", [user.id]);
+          if (paid.rows[0]) await memberEmails.enroll(user.id, `lifetime_paid:${paid.rows[0].id}`);
+        } else if (user.membership_source === 'apple') {
+          if (user.paid_conversion_pending_at || user.paid_conversion_fired_at) await memberEmails.enroll(user.id, 'apple_confirmed_paid');
+        } else if (user.stripe_subscription_id && getStripe()) {
+          const stripe = getStripe();
+          const sub = await stripe.subscriptions.retrieve(user.stripe_subscription_id);
+          if (sub.status !== 'active') continue;
+          const invoices = await stripe.invoices.list({ subscription: sub.id, status:'paid', limit:10 });
+          const paid = invoices.data.find(invoice => Number(invoice.amount_paid) > 0);
+          if (paid) await memberEmails.enroll(user.id, `stripe_invoice:${paid.id}`);
+        }
+      } catch (error) { console.error('Member email reconciliation failed:', user.id, error.message); }
+    }
+    await memberEmails.sweep();
+  }
+  catch (error) { console.error('Member email sweep failed:', error.message); }
+}
+setTimeout(() => { memberEmailSweep(); }, 90 * 1000).unref?.();
+setInterval(() => { memberEmailSweep(); }, 15 * 60 * 1000).unref?.();
+
 // Orphaned Supplement Audit jobs — first pass shortly after boot (a restart is
 // exactly what orphans them), then every 10 minutes so a job orphaned less than
 // 15 minutes before the restart isn't left stuck until some later deploy. The
@@ -11849,7 +11937,7 @@ setInterval(() => { spaRefreshAndSync().catch(() => {}); }, SPA_FEED_REFRESH_MS)
 // Exposed for tests. Requiring this module also starts the server; tests point
 // DATABASE_URL at pgmem:// and stub the stripe / node-fetch modules.
 module.exports = {
-  app, db, trialReminderSweep, welcomeSweep, assistantDoneSweep, sweepOrphanedAuditJobs,
+  app, db, trialReminderSweep, welcomeSweep, memberEmails, memberEmailSweep, recordPaidInvoiceConversion, assistantDoneSweep, sweepOrphanedAuditJobs,
   fulfillMembershipSession, buildMembershipCheckout, sessionHash,
   lifetimeChargeSweep, chargeLifetimeRow, handleLifetimeIntentEvent,
   // Subscriber store internals, for scripts/subscribers/subscribers.test.js.

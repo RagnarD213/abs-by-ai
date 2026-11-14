@@ -42,6 +42,25 @@ async function initDb() {
       after_image   TEXT,
       created_at    TIMESTAMPTZ NOT NULL DEFAULT now()
     );
+    CREATE TABLE IF NOT EXISTS member_email_enrollments (
+      user_id INTEGER PRIMARY KEY REFERENCES users(id) ON DELETE CASCADE,
+      payment_reference TEXT NOT NULL,
+      started_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      next_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+      step INTEGER NOT NULL DEFAULT 0,
+      opted_out BOOLEAN NOT NULL DEFAULT false
+    );
+    CREATE TABLE IF NOT EXISTS member_email_deliveries (
+      send_key TEXT PRIMARY KEY,
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      payload JSONB NOT NULL,
+      first_attempt_at TIMESTAMPTZ,
+      lease_until TIMESTAMPTZ,
+      sent_at TIMESTAMPTZ,
+      provider_id TEXT,
+      blocked BOOLEAN NOT NULL DEFAULT false,
+      last_error TEXT
+    );
     CREATE TABLE IF NOT EXISTS sessions (
       token      TEXT PRIMARY KEY,
       user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
