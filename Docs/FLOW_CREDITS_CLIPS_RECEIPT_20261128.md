@@ -119,8 +119,17 @@ A Thousand Sit-Ups moments. Filed with tag `flow-credits-batch3`, status usable-
 
 Dumbbell clips (DS-96): Dan picked X1 for both ("I like X1, but I want to change the weight ... It just looks ridiculously light now.
 Make the lighter strict-form basically one plate lighter than the current X1, and then the current X1 one plate heavier"). `blind.py pick`
-recorded X1 for B3-22b and B3-23. Round 2 frames: `B3-22c` (cheat, side view, four plates per end) and `B3-23c` (strict, two plates per end,
-drawn in two men: his X1 pick and the man from his cheat pick, because his two X1 picks were different men). Results in `b3r/review_results.txt`.
+recorded X1 for B3-22b and B3-23. His two X1 picks were different men.
+
+Round 2 frames, page http://127.0.0.1:9248/ (M6, `vid-b3r/review2`, builder `vid-b3r/build_frames2.py`, keys `b3r2picks`):
+- Strict form `B3-23c`, two plates per end, drawn in both men; both pairs gate + fresh reviewer PASS (page labels A and B).
+- Cheat, one plate heavier (`B3-22c`): DROPPED after three routes in the source of his pick. END-first: a bright line down the wrist and
+  mismatched small discs; END-first again: the dumbbell drawn as two plate stacks with no handle or hand; START-first: clean skin and a
+  21 degree lean, but the lifted dumbbell changes type and plate count between START and END. The page offers the two cheat pairs that
+  already passed: his pick as seen (about three plates per end) and the other version (heaviest dumbbells, the man from his strict pick).
+Lesson: Nano Banana Pro does not keep a plate-loaded dumbbell identical between two frames when the pose changes a lot; ask for fixed
+one-piece dumbbells, or draw the heavy pair in one source only. All attempts and reviews: `/Volumes/Extreme/_edit_work/FLOWCLIPS/b3r/review_results.txt`.
+Next: Dan's picks on 9248, `veo.py add` for the chosen pairs (paths on the Extreme are the same on both Macs), video, reviews, page, file.
 
 ## Batch 3 redo: on Dan's page (2026-11-14)
 
