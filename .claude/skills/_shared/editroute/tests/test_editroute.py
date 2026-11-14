@@ -318,5 +318,195 @@ class StatusTable(unittest.TestCase):
         self.assertIn("Next a dedicated Short would go to: m6", txt)
 
 
+class OvernightQueue(unittest.TestCase):
+    """Unattended launches by scripts/edit-queue/dispatcher.py (`pick --queue`) are their own class: M2 first."""
+
+    def q(self, statuses, job="AV-200", kind="ADCUT", **kw):
+        return er.decide(job, kind, 1, False, None, False, statuses, CFG, kw.get("reserved"), True)
+
+    def test_queue_launch_goes_to_the_m2_even_for_a_kind_the_m6_takes_first(self):
+        self.assertEqual(pick(both(), job="AV-200", kind="ADCUT")[0], "m6")
+        host, why = self.q(both())
+        self.assertEqual(host, "m2")
+        self.assertIn("unattended overnight-queue edit", why[0])
+
+    def test_queue_launch_spills_to_the_m6_only_when_the_m2_is_full(self):
+        host, why = self.q(both(m2=st("m2", in_use=["A-1", "A-2", "A-3"])))
+        self.assertEqual(host, "m6")
+        self.assertIn("rule 5", why[0])
+
+    def test_queue_launch_never_moves_a_job_with_work_on_the_m6(self):
+        m6 = st("m6", job=dict(folders=[dict(drive="internal", path="/x/AV-200", entries=4, mtime=1)], editcap=None))
+        self.assertEqual(self.q(both(m6=m6))[0], "m6")
+
+    def test_queue_launch_waits_when_both_are_full(self):
+        full = both(st("m6", in_use=["A", "B"]), st("m2", in_use=["C", "D", "E"]))
+        self.assertEqual(self.q(full)[0], "wait")
+
+    def test_queue_pick_never_joins_the_waiting_line(self):
+        d = tempfile.mkdtemp(prefix="editroute-queue-")
+        os.environ["EDITROUTE_DIR"] = d
+        old = er.gather
+        er.gather = lambda job=None, c=None: both(st("m6", in_use=["A", "B"]), st("m2", in_use=["C", "D", "E"]))
+        try:
+            self.assertEqual(er.cmd_pick("AV-201", "ADCUT", queue=True, as_json=True), er.EXIT_WAIT)
+            self.assertEqual(json.loads((Path(d) / "waiting.json").read_text()), {})
+        finally:
+            er.gather = old
+            os.environ.pop("EDITROUTE_DIR", None)
+
+
+class SleepingDrive(unittest.TestCase):
+    """2026-11-14: the M2's status call waited for the sleeping Seagate, ran past the M6's 8 s limit and the M2 was
+    counted as full. A drive now gets a short deadline; past it the answer comes from the last saved folder list."""
+
+    def setUp(self):
+        self.d = tempfile.mkdtemp(prefix="editroute-drive-")
+        self.drive = Path(tempfile.mkdtemp(prefix="editroute-fake-drive-"))
+        (self.drive / "_edit_work" / "DS-300").mkdir(parents=True)
+        (self.drive / "_edit_work" / "DS-300" / "cut.mp4").write_text("x")
+        os.environ["EDITROUTE_DIR"] = self.d
+        self._cands, self._one = er._external_candidates, er._probe_one
+        er._external_candidates = lambda: [("Expansion", self.drive)]
+
+    def tearDown(self):
+        er._external_candidates, er._probe_one = self._cands, self._one
+        os.environ.pop("EDITROUTE_DIR", None)
+
+    def _awake(self, name, root, job, network=False):
+        names = {}
+        found = er._job_dirs(name, root, ("_edit_work",), job, names) if job else []
+        return dict(free_gb=1234, names=names if job else None, job_folders=found)
+
+    def _asleep(self, name, root, job, network=False):
+        time.sleep(5)
+        return self._awake(name, root, job)
+
+    def test_awake_drive_is_read_and_remembered(self):
+        er._probe_one = self._awake
+        drives, folders, slow = er.probe_drives("DS-300", deadline=1.0)
+        self.assertEqual(slow, [])
+        self.assertEqual([f["entries"] for f in folders if f["drive"] == "Expansion"], [1])
+        cache = json.loads((Path(self.d) / "drives-cache.json").read_text())
+        self.assertIn("DS-300", cache["Expansion"]["names"]["_edit_work"])
+
+    def test_sleeping_drive_answers_from_the_saved_list_without_waiting(self):
+        er._probe_one = self._awake
+        er.probe_drives("DS-300", deadline=1.0)
+        er._probe_one = self._asleep
+        t0 = time.time()
+        drives, folders, slow = er.probe_drives("DS-300", deadline=0.3)
+        self.assertLess(time.time() - t0, 1.5)
+        self.assertEqual(slow, ["Expansion"])
+        ex = [x for x in drives if x["drive"] == "Expansion"][0]
+        self.assertTrue(ex["asleep"])
+        self.assertEqual(ex["free_gb"], 1234)
+        hit = [f for f in folders if f["drive"] == "Expansion"]
+        self.assertEqual(len(hit), 1)
+        self.assertTrue(hit[0]["cached"])
+        # rule 1 still holds the job on its Mac, and says the drive was asleep
+        m2 = st("m2", job=dict(folders=hit, editcap=None))
+        host, why = pick(both(m2=m2), job="DS-300", kind="SFC")
+        self.assertEqual(host, "m2")
+        self.assertIn("drive asleep", why[0])
+
+    def test_sleeping_drive_with_no_saved_list_still_answers(self):
+        er._probe_one = self._asleep
+        t0 = time.time()
+        drives, folders, slow = er.probe_drives("DS-300", deadline=0.3)
+        self.assertLess(time.time() - t0, 1.5)
+        self.assertEqual(slow, ["Expansion"])
+        self.assertEqual([f for f in folders if f["drive"] == "Expansion"], [])
+
+    def test_a_status_call_without_a_job_keeps_the_saved_names(self):
+        er._probe_one = self._awake
+        er.probe_drives("DS-300", deadline=1.0)
+        er.probe_drives(None, deadline=1.0)
+        cache = json.loads((Path(self.d) / "drives-cache.json").read_text())
+        self.assertIn("DS-300", cache["Expansion"]["names"]["_edit_work"])
+
+    def test_a_network_share_is_the_other_macs_drive(self):
+        """The M2's drives are shared to the M6 over the cable: the M6 must not report the M2's job folders."""
+        seen = {}
+
+        def one(name, root, job, network=False):
+            seen["network"] = network
+            return self._one(name, root, job, network)
+        er._probe_one = one
+        types, er._mount_types = er._mount_types, lambda: {str(self.drive): "smbfs"}
+        os.environ["GATE_DRIVE_MAP"] = ""
+        real_ismount, os.path.ismount = os.path.ismount, lambda p: True
+        try:
+            drives, folders, slow = er.probe_drives("DS-300", deadline=1.0)
+        finally:
+            er._mount_types, os.path.ismount = types, real_ismount
+            os.environ.pop("GATE_DRIVE_MAP", None)
+        self.assertTrue(seen["network"])
+        self.assertEqual(folders, [])
+        self.assertTrue([d for d in drives if d["drive"] == "Expansion"][0]["network"])
+
+    def test_a_slow_status_answer_records_where_the_time_went(self):
+        er._probe_one = self._awake
+        old = er.SLOW_STATUS_S
+        er.SLOW_STATUS_S = -1.0
+        os.environ["EDITROUTE_HOST"] = "m2"
+        try:
+            s = er.local_status("DS-300")
+        finally:
+            er.SLOW_STATUS_S = old
+            os.environ.pop("EDITROUTE_HOST", None)
+        self.assertEqual(sorted(s["took"]), ["drives", "editcap", "git", "idle", "renderq"])
+        row = json.loads((Path(self.d) / "slow-status.jsonl").read_text().splitlines()[-1])
+        self.assertEqual(row["job"], "DS-300")
+        self.assertIn("drives", row["took"])
+
+    def test_table_marks_a_sleeping_drive(self):
+        m2 = st("m2")
+        m2["drives"] = [dict(drive="internal", free_gb=59), dict(drive="Expansion", free_gb=16000, asleep=True)]
+        self.assertIn("Expansion 16.0 TB (asleep)", er.status_text(both(m2=m2), CFG, {}, [], {}))
+
+
+class RemoteRetry(unittest.TestCase):
+    """A dropped connection is asked once more; a Mac that is slow to answer is not."""
+
+    def setUp(self):
+        self._run = er.subprocess.run
+        self.calls = 0
+
+    def tearDown(self):
+        er.subprocess.run = self._run
+
+    def test_fast_failure_is_retried_once(self):
+        def fake(*a, **k):
+            self.calls += 1
+            if self.calls == 1:
+                return subprocess.CompletedProcess(a, 255, "", "kex_exchange_identification: Connection closed")
+            return subprocess.CompletedProcess(a, 0, json.dumps(dict(host="m2")), "")
+        er.subprocess.run = fake
+        s = er.remote_status("m2", None, CFG)
+        self.assertTrue(s["reachable"])
+        self.assertEqual((self.calls, s["attempts"]), (2, 2))
+
+    def test_timeout_is_not_retried_and_reads_plainly(self):
+        def fake(*a, **k):
+            self.calls += 1
+            raise subprocess.TimeoutExpired(a, k.get("timeout"))
+        er.subprocess.run = fake
+        s = er.remote_status("m2", None, CFG)
+        self.assertFalse(s["reachable"])
+        self.assertEqual(self.calls, 1)
+        self.assertEqual(s["error"], "no answer within 8 s")
+
+    def test_two_failures_are_reported(self):
+        def fake(*a, **k):
+            self.calls += 1
+            return subprocess.CompletedProcess(a, 255, "", "ssh: connect to host m2: Connection refused")
+        er.subprocess.run = fake
+        s = er.remote_status("m2", None, CFG)
+        self.assertFalse(s["reachable"])
+        self.assertEqual(self.calls, 2)
+        self.assertIn("Connection refused", s["error"])
+
+
 if __name__ == "__main__":
     unittest.main()

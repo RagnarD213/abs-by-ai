@@ -6,9 +6,10 @@ Thunderbolt cable (3 slots, holds the Extreme and Seagate drives). Numbers live 
 Rule: VIDEO-RULES.md, "Two Macs". README.md beside this file.
 
     editroute.py pick JOB [--kind SFC|SFL|LFC|AD|ADCUT|VSL|EXDEMO|REV|OTHER] [--round N] [--chroma]
-                          [--host m6|m2 [--move]] [--dry-run] [--json]
+                          [--host m6|m2 [--move]] [--queue] [--dry-run] [--json]
             First line: m6, m2 or wait. Then why. Records the decision (decisions.jsonl). Exit 0 = go to that Mac
             (then run editcap.py acquire THERE), 3 = both Macs full: in the combined line (run `wait`).
+            --queue: asked by the overnight dispatcher (scripts/edit-queue) for an unattended launch.
     editroute.py wait JOB [--max-hours 24]
             Blocks until the first free slot on either Mac is JOB's (oldest first), prints the Mac, exits 0.
     editroute.py where JOB      which Mac holds JOB's work folder / edit slot (rule 1)
@@ -55,13 +56,21 @@ EXIT_GO, EXIT_WAIT, EXIT_TIMEOUT, EXIT_ERR = 0, 3, 4, 1
 POLL_S = float(os.environ.get("EDITROUTE_POLL") or 30.0)
 WAITER_STALE_S = 5 * 60            # a combined-line entry whose wait loop has not looked in this long is skipped
 REMEMBER_S = 24 * 3600             # a job routed this recently is sent to the same Mac again
+# An external work drive gets this long to answer a status call. The Seagate (24 TB hard disk on the M2) spins
+# down when idle and takes 10 s or more to wake; a status call that waited for it ran past the other Mac's 8 s
+# limit, so the M2 was reported "unreachable, counted as full" (2026-11-14, 12:11). Past the deadline the call
+# answers from the drive's last known folder list (drives-cache.json) instead of waiting.
+DRIVE_DEADLINE_S = float(os.environ.get("EDITROUTE_DRIVE_DEADLINE") or 2.0)
+SLOW_STATUS_S = 2.0                # a status answer slower than this writes its step timings to slow-status.jsonl
 KINDS = {"SFC": "SFC", "DS": "SFC", "SHORT": "SFC", "SFL": "SFL", "SL": "SFL", "LFC": "LFC", "RO": "LFC",
          "LONGFORM": "LFC", "AD": "AD", "RA": "AD", "SP": "AD", "ADCUT": "ADCUT", "CUTDOWN": "ADCUT", "AV": "ADCUT",
          "AS": "ADCUT", "VERTICAL": "ADCUT", "SQUARE": "ADCUT", "VSL": "VSL", "WV": "VSL", "EXDEMO": "EXDEMO",
-         "DEMO": "EXDEMO", "DEMOS": "EXDEMO", "REV": "REV", "REVISION": "REV", "CHROMA": "CHROMA", "OTHER": "OTHER"}
+         "DEMO": "EXDEMO", "DEMOS": "EXDEMO", "REV": "REV", "REVISION": "REV", "CHROMA": "CHROMA", "OTHER": "OTHER",
+         "QUEUE": "QUEUE"}
 KIND_WORDS = {"SFC": "a dedicated Short", "SFL": "Shorts from a long-form", "LFC": "a long-form first cut",
               "AD": "an ad edit", "ADCUT": "an ad cutdown", "VSL": "a website VSL", "EXDEMO": "an exercise-demo batch",
-              "REV": "a later-round revision Dan is waiting on", "CHROMA": "a full chroma key", "OTHER": "an edit"}
+              "REV": "a later-round revision Dan is waiting on", "CHROMA": "a full chroma key", "OTHER": "an edit",
+              "QUEUE": "an unattended overnight-queue edit"}
 
 
 def warn(msg):
@@ -108,8 +117,11 @@ def infer_kind(job):
         return "OTHER"
 
 
-def route_class(kind, rnd=1, chroma=False):
-    """The class the preference lists use: CHROMA, REV (round 2+), else the kind."""
+def route_class(kind, rnd=1, chroma=False, queue=False):
+    """The class the preference lists use: QUEUE (launched unattended by the overnight dispatcher: nobody is
+    waiting on it, so it is long unattended work whatever its kind), CHROMA, REV (round 2+), else the kind."""
+    if queue or kind == "QUEUE":
+        return "QUEUE"
     if chroma:
         return "CHROMA"
     if rnd and int(rnd) >= 2:
@@ -224,32 +236,135 @@ def _free_gb(p):
         return None
 
 
-def find_job_folders(job):
-    """Every work folder of JOB on this Mac: internal ~/Projects/_edit_work and each plugged-in work drive."""
+def _job_dirs(drive, root, folders, job, names_out=None):
+    """JOB's work folders under ROOT/<each of FOLDERS>. names_out collects every folder name seen (for the cache)."""
     out = []
-    try:
-        rq = _renderq()
-        roots = [("internal", Path(rq.INTERNAL_WORK).parent, (Path(rq.INTERNAL_WORK).name,))]
-        roots += [(n, r, tuple(rq.WORK_FOLDERS)) for n, r in rq.mounted_work_drives()]
-    except Exception:
-        roots = [("internal", Path.home() / "Projects", ("_edit_work",))]
-    for name, root, folders in roots:
-        for folder in folders:
+    for folder in folders:
+        try:
+            names = os.listdir(str(Path(root) / folder))
+        except OSError:
+            continue
+        if names_out is not None:
+            names_out[folder] = sorted(names)
+        for n in names:
+            if not job or n.lower() != job.lower():
+                continue
+            p = Path(root) / folder / n
             try:
-                names = os.listdir(str(Path(root) / folder))
+                if p.is_dir():
+                    out.append(dict(drive=drive, path=str(p), entries=len(os.listdir(str(p))),
+                                    mtime=p.stat().st_mtime))
             except OSError:
                 continue
-            for n in names:
-                if n.lower() != job.lower():
-                    continue
-                p = Path(root) / folder / n
-                try:
-                    if p.is_dir():
-                        out.append(dict(drive=name, path=str(p), entries=len(os.listdir(str(p))),
-                                        mtime=p.stat().st_mtime))
-                except OSError:
-                    continue
     return out
+
+
+def _external_candidates():
+    """[(name, root)] of the work drives that look plugged in, WITHOUT touching them (a sleeping disk blocks)."""
+    rq = _renderq()
+    if os.environ.get("GATE_DRIVE_MAP"):                         # tests: plain folders standing in for drives
+        return list(rq.mounted_work_drives())
+    try:
+        vols = set(os.listdir("/Volumes"))                       # the list of names lives on the boot disk
+    except OSError:
+        vols = set()
+    return [(n, Path("/Volumes") / n) for n in rq.WORK_DRIVES if n in vols]
+
+
+NETWORK_FS = ("smbfs", "nfs", "afpfs", "webdav")
+
+
+def _mount_types():
+    """{mount point: file system type} from the kernel's mount table (does not touch the disks)."""
+    try:
+        out = subprocess.run(["/sbin/mount"], capture_output=True, text=True, timeout=2).stdout
+    except (OSError, subprocess.SubprocessError):
+        return {}
+    return {m.group(1): m.group(2) for m in re.finditer(r" on (/.*?) \((\w+)", out)}
+
+
+def _probe_one(name, root, job, network=False):
+    """Free space and JOB's folders on one external drive, or None when it is not a mounted drive. May block.
+    A drive that reaches this Mac as a network share (the M2's drives on the M6) is the OTHER Mac's drive: its
+    work folders are reported by the Mac it is plugged into, never by this one, or rule 1 would see every job on
+    both Macs."""
+    rq = _renderq()
+    if not os.environ.get("GATE_DRIVE_MAP") and not (root.is_dir() and os.path.ismount(str(root))):
+        return None
+    names = {}
+    found = _job_dirs(name, root, tuple(rq.WORK_FOLDERS), job, names) if job and not network else []
+    return dict(free_gb=_free_gb(root), names=names if job and not network else None, job_folders=found)
+
+
+def probe_drives(job=None, deadline=None):
+    """(drives, job_folders, slow) for this Mac: free space per drive, JOB's work folders, and the external drives
+    that did not answer within the deadline (asleep). A slow drive is answered from drives-cache.json: its last
+    known free space and folder names, marked asleep/cached, so a status call never waits on a sleeping disk."""
+    deadline = DRIVE_DEADLINE_S if deadline is None else deadline
+    drives = [dict(drive="internal", free_gb=_free_gb(Path.home()))]
+    folders = []
+    try:
+        internal = Path(_renderq().INTERNAL_WORK)
+    except Exception:
+        internal = Path.home() / "Projects" / "_edit_work"
+    if job:
+        folders += _job_dirs("internal", internal.parent, (internal.name,), job)
+    try:
+        cands = _external_candidates()
+    except Exception:
+        cands = []
+    res = {}
+    types = _mount_types() if cands and not os.environ.get("GATE_DRIVE_MAP") else {}
+    net = {name: types.get(str(root)) in NETWORK_FS for name, root in cands}
+
+    def run(name, root):
+        try:
+            res[name] = _probe_one(name, root, job, net[name])
+        except Exception as e:                                   # report, do not guess
+            res[name] = dict(error=str(e))
+    threads = [threading.Thread(target=run, args=c, daemon=True) for c in cands]
+    for t in threads:
+        t.start()
+    end = time.time() + deadline
+    for t in threads:
+        t.join(max(0.0, end - time.time()))
+    cache_path = state_dir() / "drives-cache.json"
+    cache = _read_json(cache_path, {})
+    now, slow, dirty = time.time(), [], False
+    for name, root in cands:
+        if name in res and res[name] is None:
+            continue                                             # a folder in /Volumes that is not a mounted drive
+        r = res.get(name)
+        if r is not None and not r.get("error"):
+            drives.append(dict(drive=name, free_gb=r["free_gb"], **({"network": True} if net[name] else {})))
+            folders += r["job_folders"]
+            old = cache.get(name) or {}
+            cache[name] = dict(t=round(now, 1), free_gb=r["free_gb"],
+                               names=r["names"] if r["names"] is not None else old.get("names", {}),
+                               names_t=round(now, 1) if r["names"] is not None else old.get("names_t"))
+            dirty = True
+            continue
+        slow.append(name)
+        c = cache.get(name) or {}
+        drives.append(dict(drive=name, free_gb=c.get("free_gb"), asleep=True, as_of=c.get("t"),
+                           **({"network": True} if net[name] else {})))
+        if job and not net[name]:
+            for folder, names in (c.get("names") or {}).items():
+                for n in names:
+                    if n.lower() == job.lower():
+                        folders.append(dict(drive=name, path=str(Path(root) / folder / n), entries=0, mtime=0,
+                                            cached=True, as_of=c.get("names_t")))
+    if dirty:
+        try:
+            _write_json(cache_path, cache)
+        except OSError:
+            pass
+    return drives, folders, slow
+
+
+def find_job_folders(job):
+    """Every work folder of JOB on this Mac: internal ~/Projects/_edit_work and each plugged-in work drive."""
+    return probe_drives(job)[1]
 
 
 def local_status(job=None):
@@ -260,9 +375,15 @@ def local_status(job=None):
     now = time.time()
     st = dict(host=h, version=VERSION, time=now, reachable=True, ncpu=os.cpu_count(), load=list(os.getloadavg()),
               pressure=_pressure(), label=hc.get("label", h))
+    took, mark = {}, [time.time()]
+
+    def lap(name):
+        took[name] = round(time.time() - mark[0], 2)
+        mark[0] = time.time()
     idle = hostcfg.idle_seconds()
     pres, why = hostcfg.presence(h, idle=idle)
     st.update(idle_s=idle, presence=pres, presence_why=why)
+    lap("idle")
     try:
         ec = _editcap()
         reg, _, rq_act, cal = ec.view()
@@ -272,6 +393,7 @@ def local_status(job=None):
                              titles={j: e.get("title", "") for j, e in reg["edits"].items()})
     except Exception as e:                                           # report, do not guess
         st["editcap"] = dict(error=str(e))
+    lap("editcap")
     try:
         rq = _renderq()
         states = rq.slot_states()
@@ -280,22 +402,32 @@ def local_status(job=None):
                              waiting=len(rq._tickets()))
     except Exception as e:
         st["renderq"] = dict(error=str(e))
-    drives = [dict(drive="internal", free_gb=_free_gb(Path.home()))]
+    lap("renderq")
     try:
-        drives += [dict(drive=n, free_gb=_free_gb(r)) for n, r in _renderq().mounted_work_drives()]
-    except Exception:
-        pass
-    st["drives"] = drives
+        st["drives"], job_folders, st["slow_drives"] = probe_drives(job)
+    except Exception as e:                                           # never let a drive stop the answer
+        st["drives"], job_folders, st["slow_drives"] = [dict(drive="internal", free_gb=_free_gb(Path.home()))], [], []
+        st["drives_error"] = str(e)
+    lap("drives")
     try:
         g = subprocess.run(["git", "-C", str(REPO), "rev-list", "--left-right", "--count", "HEAD...origin/main"],
-                           capture_output=True, text=True, timeout=3)
+                           capture_output=True, text=True, timeout=1.5)
         a, b = g.stdout.split()
         st["git"] = dict(ahead=int(a), behind=int(b))
     except Exception:
         st["git"] = None
     if job:
-        st["job"] = dict(folders=find_job_folders(job), editcap=(st.get("editcap") or {}).get("edits", {}).get(job))
+        st["job"] = dict(folders=job_folders, editcap=(st.get("editcap") or {}).get("edits", {}).get(job))
     st["reviews"] = _read_json(state_dir() / "reviews.json", {})
+    lap("git")
+    st["took"] = took
+    if sum(took.values()) > SLOW_STATUS_S:                           # evidence for the next "did not answer"
+        try:
+            with open(str(state_dir() / "slow-status.jsonl"), "a") as f:
+                f.write(json.dumps(dict(t=round(now, 1), host=h, job=job, took=took,
+                                        slow_drives=st.get("slow_drives"), load=st.get("load")), sort_keys=True) + "\n")
+        except OSError:
+            pass
     return st
 
 
@@ -318,19 +450,31 @@ def remote_status(h, job=None, c=None):
     hc = c["hosts"][h]
     script = "{}/.claude/skills/_shared/editroute/editroute.py".format(hc["repo"])
     cmd = "python3 {} local-status --json{}".format(shlex.quote(script), " --job " + shlex.quote(job) if job else "")
+    limit = float(c.get("remote_timeout_s", 8))
     t0 = time.time()
-    try:
-        r = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout={}".format(c.get("remote_connect_s", 3)),
-                            hc.get("ssh", h), cmd], capture_output=True, text=True,
-                           timeout=float(c.get("remote_timeout_s", 8)))
-        if r.returncode != 0:
-            raise RuntimeError((r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip()
-                               else "exit {}".format(r.returncode))
-        st = json.loads(r.stdout)
-        st["reachable"], st["rtt_s"] = True, round(time.time() - t0, 2)
-        return st
-    except (OSError, ValueError, subprocess.SubprocessError, RuntimeError, IndexError) as e:
-        return dict(host=h, reachable=False, error=str(e) or type(e).__name__, rtt_s=round(time.time() - t0, 2))
+    err = "?"
+    for attempt in (1, 2):
+        t1 = time.time()
+        try:
+            r = subprocess.run(["ssh", "-o", "BatchMode=yes",
+                                "-o", "ConnectTimeout={}".format(c.get("remote_connect_s", 3)),
+                                hc.get("ssh", h), cmd], capture_output=True, text=True,
+                               timeout=max(1.0, limit - (t1 - t0)))
+            if r.returncode != 0:
+                raise RuntimeError((r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip()
+                                   else "exit {}".format(r.returncode))
+            st = json.loads(r.stdout)
+            st["reachable"], st["rtt_s"], st["attempts"] = True, round(time.time() - t0, 2), attempt
+            return st
+        except subprocess.TimeoutExpired:
+            err = "no answer within {:.0f} s".format(limit)
+            break                                                # a slow Mac is not asked twice
+        except (OSError, ValueError, subprocess.SubprocessError, RuntimeError, IndexError) as e:
+            err = str(e) or type(e).__name__
+            if attempt == 2 or time.time() - t1 > 2.0 or limit - (time.time() - t0) < 2.0:
+                break                                            # only a fast failure (a dropped connection) is retried
+            time.sleep(0.3)
+    return dict(host=h, reachable=False, error=err, rtt_s=round(time.time() - t0, 2))
 
 
 def gather(job=None, c=None):
@@ -370,7 +514,8 @@ def holder(job, statuses):
         return None, ""
     def desc(h):
         j = found[h]
-        parts = ["{} ({} items)".format(f["path"], f["entries"]) for f in j.get("folders", [])]
+        parts = ["{} (drive asleep; folder seen {} ago)".format(f["path"], _ago(f.get("as_of"))) if f.get("cached")
+                 else "{} ({} items)".format(f["path"], f["entries"]) for f in j.get("folders", [])]
         if j.get("editcap"):
             parts.append("edit slot: {}".format(j["editcap"]))
         return "{}: {}".format(h, "; ".join(parts))
@@ -421,7 +566,7 @@ def capacity(statuses, c, reserved=None):
     return out
 
 
-def decide(job, kind, rnd, chroma, named, move, statuses, c, reserved=None):
+def decide(job, kind, rnd, chroma, named, move, statuses, c, reserved=None, queue=False):
     """(host | 'wait', [reasons]). Pure: no I/O, so every rule is unit-tested."""
     reasons = []
     hosts = list(c.get("hosts", {}))
@@ -443,7 +588,7 @@ def decide(job, kind, rnd, chroma, named, move, statuses, c, reserved=None):
                 named, cap["why"]))
         return named, reasons
     cap = capacity(statuses, c, reserved)
-    rc = route_class(kind, rnd, chroma)
+    rc = route_class(kind, rnd, chroma, queue)
     pref = next((h for h in hosts if rc in (c["hosts"][h].get("first") or [])), None)
     if pref:
         other = [h for h in hosts if h != pref]
@@ -507,7 +652,7 @@ def _forward(argv):
                             " ".join(["python3", shlex.quote(script)] + [shlex.quote(a) for a in argv])])
 
 
-def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=False, as_json=False):
+def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=False, as_json=False, queue=False):
     job = job_code(job)
     kind = KINDS.get((kind or "").upper()) or infer_kind(job)
     c = cfg()
@@ -523,18 +668,22 @@ def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=Fa
                 job, prev[-1]["host"], int((now - prev[-1]["t"]) // 60), prev[-1].get("why", [""])[0])]
         else:
             res = reservations([e for e in past if e.get("job") != job], now)
-            host, reasons = decide(job, kind, rnd, chroma, named, move, statuses, c, res)
+            host, reasons = decide(job, kind, rnd, chroma, named, move, statuses, c, res, queue)
         for h, st in statuses.items():
             if not st.get("reachable"):
                 reasons.append("Note: the {} did not answer ({}).".format(h, st.get("error")))
+            elif st.get("slow_drives"):
+                reasons.append("Note: on the {} the {} drive is asleep; its work folders were read from the last "
+                               "saved list, not the disk.".format(h, " and ".join(st["slow_drives"])))
         entry = dict(t=round(now, 1), job=job, kind=kind, round=int(rnd or 1), chroma=bool(chroma), named=named,
-                     host=host, why=reasons, by=me(), dry=bool(dry))
+                     host=host, why=reasons, by=me(), dry=bool(dry), queue=bool(queue))
         if not dry:
             record(entry, d)
             line = _read_json(d / "waiting.json", {})
             if host == "wait":
-                line.setdefault(job, dict(job=job, kind=kind, round=int(rnd or 1), chroma=bool(chroma),
-                                          since=round(now, 1)))
+                if not queue:                                # the dispatcher asks again every tick; it never waits
+                    line.setdefault(job, dict(job=job, kind=kind, round=int(rnd or 1), chroma=bool(chroma),
+                                              since=round(now, 1)))
             else:
                 line.pop(job, None)
             _write_json(d / "waiting.json", line)
@@ -667,14 +816,15 @@ def status_text(statuses, c, line=None, recent=None, reviews=None):
         if st.get("reachable") else "-")
     row("New edits", lambda h, st: "full: " + cap[h]["why"] if cap[h]["free"] <= 0 else "{} free".format(cap[h]["free"]))
     def gb(x):
-        v = x.get("free_gb") or 0
-        return "{:.1f} TB".format(v / 1000.0) if v >= 1000 else "{} GB".format(v)
+        v = x.get("free_gb")
+        txt = "?" if v is None else ("{:.1f} TB".format(v / 1000.0) if v >= 1000 else "{} GB".format(v))
+        return txt + (" (shared)" if x.get("network") else "") + (" (asleep)" if x.get("asleep") else "")
     row("Free space", lambda h, st: ", ".join("{} {}".format(x["drive"], gb(x)) for x in st.get("drives", [])) or "-")
     row("Git vs GitHub", lambda h, st: ("level" if not (st["git"]["ahead"] or st["git"]["behind"]) else
                                         "ahead {} / behind {}".format(st["git"]["ahead"], st["git"]["behind"]))
         if st.get("git") else "-")
     widths = [max(len(str(r[i])) for r in rows + [[""] + [label(h, c) for h in hosts]]) for i in range(len(hosts) + 1)]
-    widths = [min(w, 60) for w in widths]
+    widths = [min(w, 72) for w in widths]
     out = ["Two Macs: edit routing (numbers in editroute/hosts.json)   {}".format(
         dt.datetime.now().strftime("%a %b %-d %-I:%M %p")), ""]
     out.append("  ".join([" " * widths[0]] + [label(h, c).ljust(widths[i + 1]) for i, h in enumerate(hosts)]))
@@ -917,14 +1067,15 @@ def main(argv):
             return f
     if cmd == "pick":
         o, pos = _opts(rest, {"--kind": True, "--round": True, "--chroma": False, "--host": True, "--move": False,
-                              "--dry-run": False, "--json": False})
+                              "--dry-run": False, "--json": False, "--queue": False})
         if not pos:
             sys.exit("usage: editroute.py pick JOB [--kind K] [--round N] [--chroma] [--host m6|m2]")
         if o.get("--kind") and o["--kind"].upper() not in KINDS:
             sys.exit("--kind must be one of: " + ", ".join(sorted(set(KINDS.values()))))
         named = (o.get("--host") or "").lower() or None
         return cmd_pick(pos[0], o.get("--kind"), int(o.get("--round") or 1), bool(o.get("--chroma")), named,
-                        bool(o.get("--move")), bool(o.get("--dry-run")), bool(o.get("--json")))
+                        bool(o.get("--move")), bool(o.get("--dry-run")), bool(o.get("--json")),
+                        bool(o.get("--queue")))
     if cmd == "wait":
         o, pos = _opts(rest, {"--max-hours": True})
         return cmd_wait(pos[0], float(o.get("--max-hours") or 24))

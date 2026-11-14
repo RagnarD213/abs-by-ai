@@ -82,7 +82,7 @@ resumes; it does not start any edit or re-enable the paused unattended queue.
 
 | Command | What it does |
 |---|---|
-| `pick JOB [--kind K] [--round N] [--chroma] [--host m6\|m2 [--move]] [--dry-run] [--json]` | where the next edit goes, and why |
+| `pick JOB [--kind K] [--round N] [--chroma] [--host m6\|m2 [--move]] [--queue] [--dry-run] [--json]` | where the next edit goes, and why (`--queue`: asked by the overnight dispatcher) |
 | `wait JOB` | block until either Mac has a slot for JOB (combined line, oldest first) |
 | `where JOB` | which Mac holds JOB's work folder or edit slot |
 | `status [--json]` | one table for both Macs: slots, edits, cores, queue, load, memory, free space, git, M2 review pages |
@@ -115,6 +115,13 @@ resumes; it does not start any edit or re-enable the paused unattended queue.
    idle: M6, M2, M2, M6, M2.
 7. Both full: the combined line, oldest first. A waiter whose `wait` loop stopped looking 5 minutes ago is skipped.
 
+**The overnight edit queue** (`scripts/edit-queue/dispatcher.py`, paused by Dan) asks `pick JOB --queue` before
+every launch. An unattended launch is its own class, QUEUE: nobody is waiting on it, so it is long unattended work
+whatever its kind, and `hosts.json` sends it to the M2 first (`"first"` list; move the word to the M6's list to change
+that). Rule 1 still comes first. The dispatcher launches a job only when the router names the Mac it runs on; a job
+sent to the other Mac or to `wait` stays in the queue for a later tick, and a `--queue` pick never joins the combined
+line (the dispatcher asks again every 15 minutes). No router answer: it launches nothing.
+
 Counted as used on a Mac: its active and promoted edits, its edit-cap waiters, anything in its render queue, and jobs
 routed there in the last 30 minutes that have not started yet. An unreachable Mac counts as full and is named in the
 reasons. The same job asked again within 30 minutes gets the same Mac.
@@ -122,8 +129,14 @@ reasons. The same job asked again within 30 minutes gets the same Mac.
 ## How it works
 
 - Each Mac knows itself from its host name (`m6`, `m2`). `editroute.py local-status --json` reports one Mac; the
-  other Mac is read with `ssh m2 ...` (connect timeout 3 s, whole call 8 s: the Seagate is a hard disk and can take a
-  few seconds to wake). On the M2, `pick` and `wait` run on the M6 over ssh, so the decision log and the combined line
+  other Mac is read with `ssh m2 ...` (connect timeout 3 s, whole call 8 s). A connection that fails fast is tried
+  once more; a Mac that takes the whole 8 s is not asked twice.
+- **A sleeping drive never holds up the answer (2026-11-14).** The Seagate is a 24 TB hard disk that spins down when
+  idle and takes 10 s or more to wake. A status call that waited for it ran past the 8 s limit, so the M2 was reported
+  "unreachable, counted as full" (seen at 12:11 that day). Now each external drive gets 2 s (`DRIVE_DEADLINE_S`,
+  env `EDITROUTE_DRIVE_DEADLINE`). Past that the call answers from `drives-cache.json` in the state folder: the
+  drive's last known free space and work-folder names, so rule 1 still finds a job whose folder is on the sleeping
+  drive. The table shows `(asleep)` beside that drive and `pick` adds a note. On the M2, `pick` and `wait` run on the M6 over ssh, so the decision log and the combined line
   are in one place: `~/.absbyai-editroute/` on the M6 (`decisions.jsonl`, `waiting.json`, `reviews.json`); if the home
   folder is not writable (Codex sandbox) it uses `/tmp/absbyai-editroute`.
 - `hostcfg.py` is the shared reader. It fails open: a missing or broken `hosts.json`, or an unknown Mac, gives the old

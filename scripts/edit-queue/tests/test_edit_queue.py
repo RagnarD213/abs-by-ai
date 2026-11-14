@@ -231,6 +231,66 @@ class StopConditions(unittest.TestCase):
         self.assertEqual(r["launches"], []); self.assertIn("captions drift", r["skipped"]["AV-01"])
 
 
+class TwoMacRouting(unittest.TestCase):
+    """2026-11-14: the dispatcher launches a job only when the two-Mac router gives it to this Mac."""
+    DATA = {"jobs": [job("AV-01"), job("AV-02", order=2), job("AV-03", order=3)]}
+
+    def plan(self, answers, dry=False, mac="m2"):
+        r = run(self.DATA)
+        self.assertEqual([j for j, _ in r["launches"]], ["AV-01", "AV-02"])
+        self.calls = []
+
+        def fake(jid, is_dry):
+            self.calls.append((jid, is_dry))
+            return answers.get(jid, ("m2", "rule 4: free slot"))
+        return d.route_launches(r, dry, route_fn=fake, mac=mac)
+
+    def test_router_gives_both_to_this_mac(self):
+        r = self.plan({})
+        self.assertEqual([j for j, _ in r["launches"]], ["AV-01", "AV-02"])
+        self.assertEqual(r["routed_away"], [])
+        self.assertIn(("AV-01", False), self.calls, "a real launch records the routing decision")
+
+    def test_job_routed_to_the_other_mac_is_not_launched_and_the_next_one_fills_in(self):
+        r = self.plan({"AV-01": ("m6", "rule 1: AV-01 already has its work on the m6")})
+        self.assertEqual([j for j, _ in r["launches"]], ["AV-02", "AV-03"])
+        self.assertEqual([(j, h) for j, _, h, _ in r["routed_away"]], [("AV-01", "m6")])
+        self.assertNotIn(("AV-01", False), self.calls, "nothing is recorded for a job this Mac does not start")
+
+    def test_both_macs_full_launches_nothing(self):
+        full = ("wait", "rule 7: both Macs are full")
+        r = self.plan({"AV-01": full, "AV-02": full, "AV-03": full})
+        self.assertEqual(r["launches"], [])
+        self.assertEqual(len(r["routed_away"]), 3)
+
+    def test_no_router_answer_launches_nothing(self):
+        r = self.plan({j: (None, "router gave no answer") for j in ("AV-01", "AV-02", "AV-03")})
+        self.assertEqual(r["launches"], [])
+        r = run(self.DATA)
+        d.route_launches(r, False, route_fn=lambda j, dry: ("m2", ""), mac=None)
+        self.assertEqual(r["launches"], [], "a Mac the router does not know never launches unattended")
+
+    def test_dry_run_records_nothing(self):
+        r = self.plan({}, dry=True)
+        self.assertEqual(len(r["launches"]), 2)
+        self.assertTrue(all(is_dry for _, is_dry in self.calls))
+
+    def test_pause_never_reaches_the_router(self):
+        r = run(self.DATA, facts(pause_file=True))
+        d.route_launches(r, False, route_fn=lambda j, dry: self.fail("router asked while paused"), mac="m2")
+        self.assertEqual(r["launches"], [])
+
+    def test_report_names_the_other_mac(self):
+        r = self.plan({"AV-01": ("m6", "rule 1: work is on the m6")})
+        txt = d.report(r, True)
+        self.assertIn("NOT HERE: AV-01 -> claude: router sends it to the m6", txt)
+        self.assertIn("WOULD LAUNCH: AV-02", txt)
+
+    def test_real_router_answers_for_an_unattended_job(self):
+        host, why = d.route("EDITQUEUE-SELFTEST-1", dry=True)
+        self.assertIn(host, ("m6", "m2", "wait"), why)
+
+
 class Eligibility(unittest.TestCase):
     def why(self, j, f=None, cfg=None):
         r = run({"jobs": [j]}, f, cfg=cfg)
