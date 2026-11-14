@@ -37,10 +37,10 @@ A disposable M6 folder with a space in its name, nested bytes and a relative lin
 | Ordinary priority and dedicated-M6 fixture | PASS | PASS; M6 policy simulated on the physical M2 |
 | Running step, third-job parking, restored owners, milestone/cancel/expiry/crash | PASS | PASS |
 | Physical M2 progress during M6 fixture reservation | Separate real-SSH disposable command completed while the M6 fixture reservation remained active | PASS |
-| Route/priority/resume unit fixtures | 67 passing after the whole-edit waiter guard | Final recheck recorded below |
+| Route/priority/resume unit fixtures | 67 passing after the whole-edit waiter guard | 67/67 after the final guard |
 | Render-queue process fixtures | 57/57; four real CPU/RSS stress assertions deliberately not run in the final safe mode | 57/57, same explicit stress omissions |
 | Edit-slot fixtures | 27/27 | 27/27 |
-| Archive fixtures | 16/16 | Final recheck recorded below |
+| Archive fixtures | 16/16 | 16/16 after the final reference guard |
 | Contact-sheet child lifetime | PASS; slot still held after actual sleeping child exit | PASS |
 | Launcher fixtures | 59 policy, 11 fake end-to-end, 5 repair, 2 review-page, 7 asset tests passed | Same suites passed before the final archive/waiter-only guard update |
 
@@ -50,7 +50,7 @@ The private client harness uses five isolated state directories and two occupied
 
 ## Measured effects and limits
 
-A six-core competition fixture used real sleeping commands with fixed short durations. On M6, the selected light check started at **3.039 s with borrowing off**, **0.292 s with borrowing on**; the heavy follower started at **2.061 s versus 2.109 s**. The next quick task waited until that heavy opening, proving the shared one-loan bound. This is simulated scheduling evidence, **not a film speedup**. The same fixture passed on physical M2; its exact timings are in the private receipt.
+A six-core competition fixture used real sleeping commands with fixed short durations. On M6, the selected light check started at **3.039 s with borrowing off**, **0.292 s with borrowing on**; the heavy follower started at **2.061 s versus 2.109 s**. The next quick task waited until that heavy opening, proving the shared one-loan bound. This is simulated scheduling evidence, **not a film speedup**. On physical M2, the selected light check started at **2.117 s versus 0.357 s**, and the heavy follower at **2.116 s versus 1.976 s**. The same shared-loan bound passed there.
 
 The mirrored fixture was an unchanged 1920×1080 three-second excerpt copied from an existing real-footage review export. HTML returned 200, media ranges 206, and owner/mirror/final-copy size and SHA-256 matched. Another job/source on the occupied port was refused before refresh; a stale page refresh arrived correctly. Twelve local page requests measured about **0.63 ms median, 11.98 ms worst**. This is a local HTTP proxy, not a before/after measurement of Dan's UI responsiveness.
 
@@ -71,3 +71,20 @@ Known-good source/private-worker copies and deployment hashes are saved privatel
 The shared main checkout's required safe push was attempted and stopped on live edits owned by other sessions. Those files were not reset, stashed, adopted or overwritten. Task files are being published from a separate clean worktree, as allowed by the repository's worktree rule. Final commit, per-host hashes, M2 activation and service observations are appended below.
 
 Private evidence root on M6: `/Users/danrrose/Projects/_edit_work/two-mac-infra-20261114/`; M2: `/Users/danielrose/Projects/_edit_work/two-mac-infra-20261114/`. Raw process snapshots stay private. Shared skill: `.claude/skills/priority-edit/SKILL.md`.
+
+## Publication and final source verification
+
+Implementation commit `0ea9c7440a70dc98e91594365f4314e677b2c402` was pushed to GitHub main from the clean publishing worktree. The only cherry-pick conflict was the replaced archive function; the exact tested archive worker was retained. All 30 task source/test/skill files match byte for byte on both installed checkouts and the published commit. Both private installed archive workers also match. The private comparison manifest SHA-256 is `b691c246f707175027dcee7858fac3895569347f0fef7f4bacc981192b6e35af`.
+
+The final installed client harness ran again on both Macs after the old-waiter guard was added: all six acceptance results passed on each. M2's final tests passed 67 route/priority/resume assertions and 16 archive tests. Both Codex skill links resolve to that Mac's shared project skill.
+
+Both PAUSE files still match the initial SHA-256 `518e294e67524002e5bac0865e5312db80073cf4337558c6211543c9cf0e83d1`. M6's edit-queue launch agent remains disabled. M2's remains loaded, not running, and paused; its unrelated review worker was preserved. Test review listener 9970 was removed on both Macs; cached evidence is retained. Only this task's exact fixture mirror note was retired. No shared hub was stopped.
+
+The homepage returned HTTP 200 after publication. The three automatic Railway deployments for the implementation commit were building at the initial follow-up. Their final status and M2 activation are recorded in the final operational note below when observed.
+
+Use in either supported client, substituting the actual video title or ID:
+
+- Codex: `$priority-edit Make [video] a priority.` or `$priority-edit Give [video] the M6 until its checked preview is ready.`
+- Claude: `/priority-edit Make [video] a priority.` or `/priority-edit Give [video] the M6 until its checked preview is ready.`
+
+These requests keep the original editor and owner Mac. Dedicated-M6 time for an existing M2 film first needs an explicit move instruction after its current stage is inspected.
