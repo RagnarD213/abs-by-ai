@@ -1,6 +1,9 @@
 {
   "editroute/hostcfg.py": "1d8a324b4c1dbe135cf91bc0ec8e4d325234d7de6a38bcf4f3a12176f59fc161",
-  "editroute/editroute.py": "e3bc2838cac3744fc546ccbd236f76ca9b95ebc4a959198af62606c845e27573",
+  "editroute/editroute.py": [
+    "e3bc2838cac3744fc546ccbd236f76ca9b95ebc4a959198af62606c845e27573",
+    "ace8ab45c67a4df4011d1498c9bf517d74a94fa887a3605409cfcf9a6a3faab5"
+  ],
   "editroute/priority.py": [
     "b0a06bbba160cc3f1f0aa685be9cdd4a8e36b8f637ada62027a637eefcab8427",
     "04ddd5f43e68df83919a57fe79b7feeff59b3d2646714ac152987f82e6db00e0"
