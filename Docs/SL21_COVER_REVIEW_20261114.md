@@ -31,3 +31,13 @@ Updated review: http://127.0.0.1:9862/?round=2 . Checked sheet: http://127.0.0.1
 Checks: all eight new images decode and match served bytes; no type over faces or hair; Instagram type stays safe; YouTube JPEGs below 2 MB; actual face and scene inspection complete; phone width 390px has no horizontal overflow; enlarged review opens and closes. All new Dan images show a black tank top and the requested blocking action. No paid image API charges.
 
 Awaiting the restaurant pick and a therapy pick. Nothing uploaded or scheduled yet. Records from the first round were saved in local commit d8a1fa9; the shared main-folder push was blocked by live work from other tasks. A clean records checkout carries only this task’s files to GitHub.
+
+## Round 3: table-flip scene
+
+Dan rejected R2 in full and asked: “Give me four new designs of a fat guy and his fat wife eating a nice meal at the restaurant. I come in in a tank top and I flip the table over while they look shocked.” Four new scenes and eight platform layouts are checked and served, with the cover title **Why Restaurants Make You Fat**. The scene shows the overturning table, flying meal and both shocked diners. Dan wears a black tank top.
+
+Current review: http://127.0.0.1:9862/?round=3 . Checked sheet: http://127.0.0.1:9862/restaurant-r3-sheet.jpg . Labels X1–X4 refer to R3 only. Both earlier restaurant sets are rejected. Vacation X7 stays approved and unchanged. Therapy remains unselected.
+
+All eight new served previews were downloaded, decoded and byte-checked. All four actual scenes, faces and platform layouts were inspected. Title masks clear detected faces and expanded hair guards by zero overlapping pixels. Instagram text stays in the safe band; YouTube JPEG originals are under 2 MB. Phone 390px shows one card column with no horizontal overflow; enlargement opens and closes. Full-width scene framing preserves both diners’ faces. No paid image API spend, no video re-rendering, no media upload or scheduling.
+
+Recipe and exact pick mapping: `scripts/covers/sl21-20261114/README.md`; current full-quality files and private mapping in the R3 work folder. Only current revision files were copied into the project review folder and byte-verified.

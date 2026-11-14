@@ -1,6 +1,6 @@
 # What To Cut cover setup, SL-21
 
-One setup owner, Codex, 2026-11-14. Vacation X7 approved; four new restaurant choices await a pick; therapy still awaits a pick.
+One setup owner, Codex, 2026-11-14. Vacation X7 approved; four new table-flip restaurant choices (round 3) await a pick; therapy still awaits a pick.
 
 Review: http://127.0.0.1:9862/
 
@@ -21,3 +21,11 @@ Restaurant R2 source of truth: `<work>/r2/pick-map-private.json`; blind key `<wo
 Vacation X7 is approved, logged, copied byte for byte into `Short-form video content/covers/approved-sl21/`, with both PNG layouts and YouTube JPEG. Pick state: `<work>/selected-picks.json`; vacation continues to use original round-1 set. Therapy uses unchanged round-1 set 3. Do not assume his silence picked a therapy cover.
 
 Review URL: http://127.0.0.1:9862/?round=2 . No media uploaded or scheduled. Wait for remaining cover picks, then continue the whole setup authorization.
+
+## Cover round 3, active restaurant set
+
+Dan rejected all four R2 choices. His new scene: a fat man and his fat wife eat a nice meal in a restaurant, then Dan enters in a tank top and flips their table while both look shocked. Cover title remains **Why Restaurants Make You Fat**. Four new scene designs, both platform layouts, checked. No video edits.
+
+Use ONLY `<work>/r3/pick-map-private.json` and `<work>/r3/blind-set/` for the next restaurant pick, X1–X4. R1 and R2 are rejected. Full-quality originals: `<work>/r3/layouts/instagram/` and `youtube/`. Record the choice with blind.py on the R3 set; install the full-quality original, never the preview. Vacation X7 and the unchanged therapy set remain as recorded above.
+
+Current page: http://127.0.0.1:9862/?round=3 . Checked sheet: http://127.0.0.1:9862/restaurant-r3-sheet.jpg . Eight served preview files downloaded, decoded and byte-verified. Image and actual face checks passed; no title overlap on expanded face/hair guards. Phone 390px, one card column, no horizontal overflow; enlargement opens and closes. No paid API generation. Nothing uploaded or scheduled. Await remaining cover picks, then complete the already-authorized setup.
