@@ -133,6 +133,8 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
     daemon_threads = True
+    # Browsers fetch a whole page of covers at once; the default queue of 5 refused connections (2026-11-14).
+    request_queue_size = 128
     allow_reuse_address = True
 
 
