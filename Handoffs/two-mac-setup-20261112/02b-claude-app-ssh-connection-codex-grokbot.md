@@ -35,3 +35,8 @@ Done looks like: Claude's `list_start_targets` shows an SSH connection named `m2
 ## Status note (Claude, 2026-11-14)
 
 Claude tried this step from a Code session on the M6 and could not do it. Dan turned Computer use on, but it permanently refuses to let Claude control the Claude app itself (by design, it cannot be granted), and the SSH list lives in the app's internal storage (not safe to hand-edit). Re-checked just now: `ssh m2 hostname` returns `m2` with no password, and `list_start_targets` still shows `ssh: []`. This handoff is still open for Codex or Grokbot, steps unchanged.
+
+
+## Completed by Codex, 2026-11-14
+
+**DONE.** Added and tested the `m2` SSH connection and saved an `m2` environment with the requested project folder. The desktop test session returned `m2` from `hostname`; its integrated terminal returned the exact requested folder from `pwd`. Claude installed its remote helper and CLI automatically, without a sign-in prompt. Archived only the disposable test session; no edit started. Details and installed versions: [02b receipt](../../Docs/TWO_MAC_M6_SETUP_RECEIPT_20261113.md#02b-claude-desktop-ssh-connection-completed-codex-november-14-2026). This supersedes the earlier open status note.
