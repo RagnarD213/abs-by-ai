@@ -1,3 +1,7 @@
+## DS-42: The Drink Post Malone Quit, scheduled November 14, 2026
+
+Cover B. All four posts scheduled January 9, 2027 at 6 p.m. Central. [Receipt](Docs/DS42_SETUP_RECEIPT_20261114.md).
+
 ## RO-15 waiting for four slots | November 6, 2026
 
 Glycine: YouTube December 23 at 9 a.m. Central, socials December 24 at noon. Round 2 A approved. Blotato 198/200; saved the dated shared waiting-list entry and verified the media. See `Docs/RO15_SETUP_RECEIPT_20261106.md`.

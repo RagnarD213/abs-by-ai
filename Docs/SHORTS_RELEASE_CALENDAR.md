@@ -94,7 +94,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Jan 7 | 3 | 9 AM | The #1 Change I Made To Get Abs At 40 | Waitlist |
 | Thu Jan 7 | 3 | 6 PM | How To Use Battle Ropes (DS-19) | Waitlist |
 | Sat Jan 9 | 3 | 9 AM | Does Jiu Jitsu Get You Abs? (DS-15) | Waitlist |
-| Sat Jan 9 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 9 | 3 | 6 PM | The Drink Post Malone Quit (DS-42) | Live |
 | Mon Jan 11 | 3 | 9 AM | OPEN | Not booked |
 | Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
 | Tue Jan 12 | 3 | 9 AM | How To Do Chest Flies On The Machine (DS-78, gym) | Live |
