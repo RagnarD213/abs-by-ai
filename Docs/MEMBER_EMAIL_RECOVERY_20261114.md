@@ -4,6 +4,7 @@ Owner: Codex. Dan requested live checks and autonomous fixes in the existing Str
 
 ## Verified findings
 
+- Stripe automatic successful-payment/refund receipts were also OFF; enabled both.
 - Stripe failed-card and expiring-card emails were OFF. Enabled both, with Stripe-hosted card-update destinations. Smart Retries already enabled: eight attempts in two weeks; existing cancellation-after-exhaustion policy retained.
 - Enabled payment-authentication emails and existing 3/5/7-day reminders when required, without changing 3DS enforcement or billing outcomes. Added customer-portal management links to subscription emails.
 - Two recent $19.99 invoices remained past due: one insufficient-funds decline and one transaction-not-allowed decline requiring customer action. An older third invoice belongs to an already-canceled subscription and is excluded from catch-up follow-up. No manual charges or invoice changes authorized or needed.
@@ -29,6 +30,16 @@ Owner: Codex. Dan requested live checks and autonomous fixes in the existing Str
 
 ## Live rollout
 
-Pending deployment and provider readback at the time this implementation receipt was first written. Update this section with actual deployment, enablement, catch-up counts and delivery evidence before final delivery.
+Implementation commit `9f9e346` pushed from an isolated clean worktree because unrelated live edits blocked the shared checkout. Railway deployment `29beea98-fa8f-468e-9522-a762e55eb8e2` succeeded at approximately 20:03 UTC. `MEMBER_EMAILS_ENABLED=true` is live.
 
-Evidence: `/tmp/stripe-recovery-enabled-20261114.jpg`.
+The two recent past-due members each received one catch-up billing email using the existing secure portal. Resend Dashboard shows both DELIVERED. Provider IDs: `01a1dba3-764f-70f0-b077-283bb3f5c13d`, `01a1dba3-79fb-76ca-8c6b-f3b5a237703a`. Durable delivery keys are `billing-recovery-start/<invoice id>` in Postgres. No charges retried manually.
+
+First production sweep ran at 20:04:59 UTC. Five paid accounts enrolled and advanced to step 1, with next emails due November 16; these are three customer accounts and two Dan-owned membership accounts. All five welcome emails show DELIVERED in Resend. No failed/blocked member deliveries. Past-due users 60/61 remained outside the paid sequence.
+
+Live unsubscribe tests: invalid token returns HTTP 400; a valid signed POST for nonexistent test ID 0 returns HTTP 200, without changing any member. Actual opt-out mutation and timing/cancellation exclusions passed fixture tests. The app health endpoint returns HTTP 200.
+
+An older active annual account (user 8) has no linked subscription, no confirmed paid marker and no matching Stripe customer by its saved email. It was excluded; membership access was not changed. Apple demo accounts and example test users also did not enroll.
+
+The new tables were created idempotently in production before recording the billing catch-up deliveries. The deployment re-used those same tables. Member product-use emails do not contain health measurements, photos or the owner's private mailing address.
+
+Evidence: `/tmp/stripe-recovery-enabled-20261114.jpg`, `/tmp/stripe-receipts-enabled-20261114.jpg`, `/tmp/absbyai-recovery-delivered-20261114.jpg`.
