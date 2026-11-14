@@ -142,7 +142,10 @@ if '--no-audio' not in sys.argv:
         a = round((p6['film0'] - 0.015 - t0)*48000); b = round((p6['film0'] + 0.122 - t0)*48000)
         ff(['-i', O/'voice-house_bass15.wav', '-i', O/'lav.wav', '-filter_complex',
             f"[1:a]{E_EQ + TAKE_EQ},atrim=start_sample={a}:end_sample={b},asetpts=PTS-STARTPTS,afade=t=in:d=0.02,afade=t=out:st={(b - a)/48000 - 0.02}:d=0.02,"
-            f"volume=4dB,adelay={a}S:all=1[b];[0:a][b]amix=inputs=2:normalize=0:duration=first[o]", '-map', '[o]', '-ar', 48000, '-c:a', 'pcm_s24le', O/'audio'/'voice-filled.wav'])
+            f"volume=1dB,adelay={a}S:all=1,pan=stereo|c0=c0|c1=c0[b];[0:a][b]amix=inputs=2:normalize=0:duration=first[o]", '-map', '[o]', '-ar', 48000, '-ac', 2, '-c:a', 'pcm_s16le', O/'audio'/'voice-filled.wav'])
+        # build 3 lesson: the chain's voice wav is STEREO s16. A mono bed made amix fold the voice to mono (+3 dB, clipped at 1.0): the audio gate caught it
+        # as processing damage (flux 0.097 -> 0.131, true peak moved). Keep the bed stereo and the output format the chain's own; +1 dB per channel
+        # is the level that was measured (+4 dB against the folded voice). Proof: diff against the unfilled voice is silent outside the gap.
         shutil.move(str(O/'audio'/'voice-filled.wav'), str(O/'voice-house_bass15.wav'))
     # the clip's sound: the picture's segments, 15 ms fades (both edits sit in pauses), folded to centred mono, plain gain to
     # about the voice level, capped so the peak stays under -1.5 dBFS (no limiter: DS-33 artifacts lesson)

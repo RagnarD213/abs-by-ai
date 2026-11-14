@@ -74,7 +74,10 @@ Dan picked off the cuff, cut "So guys, this concept of a cheat day does not work
   end; on "cheat meal only" it has 1.5 s.
 - **Removing a line can leave the quietest room of the take at the new join.** P6's 0.12 s lead-in (raw -53 to -60 dB) was dug to -62..-73 dB
   by the expander for 110-130 ms between the kept breath and "If" (reviewer D1; no other pause went under -62 dB for more than 20 ms). Fix in
-  `prep.py`: the take's own room over the same samples (`lav.wav`, same EQ, +4 dB, 20 ms fades) mixed back under it. After any cut, print the
+  `prep.py`: the take's own room over the same samples (`lav.wav`, same EQ, level matched, 20 ms fades) mixed back under it. The chain's
+  voice wav is STEREO s16: the first fill used a mono bed, so `amix` folded the voice to mono (+3 dB, clipped) and the audio gate failed
+  "no processing damage" (flux 0.097 to 0.131). Keep the bed stereo (`pan=stereo|c0=c0|c1=c0`), write the chain's own format, and prove the
+  patch with a sample diff against the unpatched voice (silent everywhere but the gap; `chk/diff.py` pattern). After any cut, print the
   10 ms floor of every pause in the treated voice against the lav (`chk/pauses.py` pattern) before sending the file to review.
 - **Review page for the side pane:** one player, loaded at page load, fixed 300 px panel from 760 px wide; each change's Play button plays
   its watch range in that player (`page_r2.py`). The page folder holds real copies, not links (exFAT drive, and the page mirrors to the M6).
