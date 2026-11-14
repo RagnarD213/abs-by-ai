@@ -740,7 +740,7 @@ def _opts(rest, names):
 
 
 def main(argv):
-    if not argv or argv[0] in ("-h", "--help", "help"):
+    if not argv or argv[0] in ("-h", "--help", "help") or any(x in ("-h", "--help") for x in argv[1:]):
         print(__doc__)
         return 0
     cmd, rest = argv[0], argv[1:]
@@ -760,6 +760,9 @@ def main(argv):
     o, pos = _opts(rest, {"--title": True, "--type": True, "--release": True, "--review": False, "--max-hours": True, "--priority": False})
     if not pos:
         sys.exit("usage: editcap.py {} JOB".format(cmd))
+    if any(x.startswith("-") for x in pos):
+        print("editcap: unknown option; use editcap.py {} --help".format(cmd), file=sys.stderr)
+        return 2
     job = pos[0]
     if cmd in ("acquire", "heartbeat", "wait"):
         # Old chats already call acquire on resume. Surface remote ownership here

@@ -14,11 +14,12 @@ const { createMemberEmails } = require('../../member-emails');
     CREATE TABLE member_email_deliveries(send_key text primary key,user_id integer,payload jsonb,first_attempt_at timestamptz,lease_until timestamptz,sent_at timestamptz,provider_id text,blocked boolean default false,last_error text);`);
   let current = new Date('2026-11-14T20:00:00Z');
   const calls = []; let fail = false;
-  const service = createMemberEmails({ db, apiKey:'test', from:'team@example.test', replyTo:'help@example.test',
+  const options = { db, apiKey:'test', from:'team@example.test', replyTo:'help@example.test',
     siteUrl:'https://absbyai.com', secret:'test-secret', address:'Business address', now:()=>current,
     optedOut:email=>email==='optedout@fixture.test',
     fetch:async (url, options)=>{ calls.push(options); if(fail) return {ok:false,status:429,text:async()=>'rate limited'};
-      return {ok:true,json:async()=>({id:'provider-'+calls.length})}; } });
+      return {ok:true,json:async()=>({id:'provider-'+calls.length})}; } };
+  const service = createMemberEmails({ ...options, followupsEnabled:true });
   const add = (id,email,status='active',end=null)=>db.query('INSERT INTO users VALUES($1,$2,$3,$4)',[id,email,status,end]);
   await add(1,'member@fixture.test');
   await add(2,'trial@fixture.test','trialing');
@@ -36,6 +37,8 @@ const { createMemberEmails } = require('../../member-emails');
   assert.equal(calls[0].headers['Idempotency-Key'],'member-checkin/1/0');
   await service.sweep(); assert.equal(calls.length,1,'no repeat before next due time');
   current = new Date(current.getTime()+2*86400000);
+  await createMemberEmails(options).sweep();
+  assert.equal(calls.length,1,'default welcome-only mode suppresses all follow-ups');
   await db.query('INSERT INTO programs VALUES(1,1)');
   fail=true; await service.sweep(); assert.equal(calls.length,2);
   assert.equal((await db.query('SELECT step FROM member_email_enrollments WHERE user_id=1')).rows[0].step,1,'failed send does not advance');

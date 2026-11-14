@@ -7,7 +7,7 @@ const escapeHtml = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&l
 // A paid event enrolls a member. Access status alone is NOT proof of payment.
 // Delivery is durable across deploys; a short lease plus Resend's idempotency
 // key handles concurrent sweeps and a crash between sending and recording it.
-function createMemberEmails({ db, fetch, apiKey, from, replyTo, siteUrl, secret, optedOut = () => false, now = () => new Date() }) {
+function createMemberEmails({ db, fetch, apiKey, from, replyTo, siteUrl, secret, followupsEnabled = false, optedOut = () => false, now = () => new Date() }) {
   const token = id => crypto.createHmac('sha256', secret).update(`member-email:${id}`).digest('hex');
   const unsubscribeUrl = id => `${siteUrl}/api/member-emails/unsubscribe?id=${id}&token=${token(id)}`;
   async function enroll(userId, reference) {
@@ -49,8 +49,9 @@ function createMemberEmails({ db, fetch, apiKey, from, replyTo, siteUrl, secret,
     const { rows } = await db.query(`SELECT e.*, u.email, u.membership_status, u.membership_period_end
       FROM member_email_enrollments e JOIN users u ON u.id = e.user_id
       WHERE e.opted_out = false AND e.next_at <= $1 AND u.membership_status = 'active'
+      AND (e.step = 0 OR $2 = true)
       AND (u.membership_period_end IS NULL OR u.membership_period_end > $1)
-      ORDER BY e.next_at LIMIT 100`, [time]);
+      ORDER BY e.next_at LIMIT 100`, [time, followupsEnabled]);
     let sent = 0;
     for (const member of rows) {
       if (/@example\.(com|net|org)$/i.test(member.email) || optedOut(member.email)) continue;
