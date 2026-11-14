@@ -5999,13 +5999,15 @@
    "claude": "CONTENT (SFC). Name this chat \"Metabolism Not The Reason SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-107-your-metabolism-is-not-the-reason-youre-fat.md`: cut \"Your Metabolism Is Not The Reason You're Fat\" from the 11/13 green-screen shoot, rolls C1908. Use /shorts. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (SFC). Name this chat \"Metabolism Not The Reason SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-107-your-metabolism-is-not-the-reason-youre-fat.md`: cut \"Your Metabolism Is Not The Reason You're Fat\" from the 11/13 green-screen shoot, rolls C1908. Use `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "11/13 shoot, C1908 1:21-4:12",
    "order": 262,
    "updated": "2026-11-14",
    "by": "Claude",
-   "rev": 2,
-   "syncedRev": 2
+   "rev": 3,
+   "syncedRev": 3,
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "DS-108",
