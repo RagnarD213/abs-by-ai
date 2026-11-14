@@ -11,16 +11,18 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Blended Oats SFC Setup: approved Off-the-cuff R3](handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md), 2026-11-14. **OPEN. Start now. Codex newest stable Sol, high (verified GPT-6.1 Sol).** Dan chose Off the cuff with Warm colour/voice. Exact approved film locked; covers/pick, backups, organic metadata, then verified queue/shared-waitlist placement. No upload or schedule yet.
+
+
 - [New Mac: texting Android phones (Text Message Forwarding)](handoff-20261114-mac-android-texting-setup.md), 2026-11-14. **Fire now. Codex newest Sol high, or Grokbot; one owner.** Claude's Messages/System Settings/iPhone Mirroring access was denied, so nothing is changed yet. Enable forwarding for the new Mac on the iPhone, check Mac iMessage settings, resend Brittany's failed text, verify delivered.
 
-- [Two-Mac edit dashboard: Astra review, then build](handoff-20261114-two-mac-edit-dashboard.md), 2026-11-14. **OPEN, AUTHORIZED.** Newest stable Sol high owns execution; GPT-6 Astra high reviews the plan first. Incorporate worthwhile changes, build the low-resource local dashboard, measure CPU/RAM and deliver the working link. Preserve the active infrastructure owner and paused dispatcher.
 
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R3 (graphics round)](handoff-20261114-great-again-t-vsl-round3.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 2 page (http://127.0.0.1:9761/). Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
+- [Great Again T VSL AD R4 (graphics round)](handoff-20261114-great-again-t-vsl-round4.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 3 page (http://127.0.0.1:9762/). Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
 
-- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **Fire now. Codex newest Sol, high.** All three What To Cut Shorts approved (Shorts 1 and 2 on 2026-11-14 with their lip-synced AI excuse clips, pair X1 for Short 2; Short 3 on 2026-11-13). Covers and setup for all three together, February slots after the parent film is public (Fri Dec 11).
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **IN PROGRESS, Codex.** All three films approved and unchanged. Restaurant R4 X2 and Vacation X7 covers approved; [therapy X1–X8 pick remains](http://127.0.0.1:9862/?pick=therapy). Then complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
 
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
@@ -238,6 +240,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- [Two-Mac edit dashboard](handoff-20261114-two-mac-edit-dashboard.md), executed November 14, 2026. Astra reviewed; installed locally on M6 and verified against both Macs. [Dashboard](http://127.0.0.1:8976/) · [receipt](../Docs/two-mac-dashboard/receipt.md).
 
 - **Two-Mac handoff 01: M2 headless preparation**, completed 2026-11-14. Names, cable address, power, automatic login, SSH and Screen Sharing configured; both drives mounted and read from the M6, Extreme write checked, reconnect installed. No reboot test. [Receipt](../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md). Continue only the remaining routing/scheduled-task work above.
 
