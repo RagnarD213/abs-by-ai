@@ -1,5 +1,7 @@
 # Kevin James Cheat SFC Setup: approved off the cuff R2 (DS-41)
 
+**IN PROGRESS since 2026-11-14 17:30 Central: Codex (gpt-6.1-sol, high), headless on the M6, session `01a1dc60-9184-7271-84d1-dd82d5a074fc`, started by the Claude editing session. Phase 1 runs to the cover review page and stops for Dan's pick; send the pick with `codex exec resume 01a1dc60-9184-7271-84d1-dd82d5a074fc "<pick>"` from the project folder. Log: `tmp/codex-run-ds41-setup.log`. Do not start a second setup owner.**
+
 CONTENT, dedicated Short (SFC). **Start now.** One Codex setup owner, newest stable Sol at high effort (GPT-6.1 Sol on 2026-11-14; verify the current newest), following `.claude/skills/video-setup/SKILL.md`. Read `.claude/skills/_shared/VIDEO-RULES.md` first. Do not render a new edit, re-encode the film or add another layer of captions.
 
 Video: "Kevin James Tried One Cheat Day A Week. It Wrecked His Diet." Reaction Short in the locked format (Bill Maher Codex R5), edited by Claude on the M2.
