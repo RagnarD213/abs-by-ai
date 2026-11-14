@@ -65,7 +65,9 @@ for d, dirs, files in os.walk(root):
     for f in files:
         p = os.path.join(d, f)
         rel = os.path.relpath(p, root)
-        if rel == ".jobarchive-manifest.json" or os.path.islink(p) or not os.path.isfile(p):
+        # ._* are macOS metadata sidecars that exFAT shows as files; rsync carries the metadata, not the sidecar.
+        if rel == ".jobarchive-manifest.json" or f.startswith("._") or f == ".DS_Store" \
+                or os.path.islink(p) or not os.path.isfile(p):
             continue
         h = hashlib.sha256()
         with open(p, "rb") as fh:
