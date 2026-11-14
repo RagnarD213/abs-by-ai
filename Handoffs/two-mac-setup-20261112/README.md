@@ -1,16 +1,16 @@
 # Two-Mac setup: M6 primary, M2 headless edit machine (2026-11-12)
 
-Category: ops (not a video). Dan asked for this plan on 2026-11-12. Handoff 01 was partly executed on November 13; all requested settings were applied, but actual SMB access to the external drives fails. See [the 01 receipt](../../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md). Handoff 02 was executed on November 13 (M6 account is `danrrose`, aliased as `/Users/danielrose`); see [the 02 receipt](../../Docs/TWO_MAC_M6_SETUP_RECEIPT_20261113.md). Handoff 03 is unexecuted.
+Category: ops (not a video). Dan asked for this plan on 2026-11-12. **Handoff 01 completed November 14:** all M2 settings applied; SSH, an actual Screen Sharing desktop session, and native SMB mounts/read checks of both external drives now pass. Full Disk Access for `smbd` fixed drive sharing; the prior exFAT/FSKit-impossibility claim was incorrect. M6 automatic reconnect is installed. Restart/power-cut recovery is configured but untested. See [the 01 receipt](../../Docs/TWO_MAC_M2_PREP_RECEIPT_20261112.md). Handoff 02 migration and 02b Claude-app SSH connection are complete; the scheduled-task switch remains pending as recorded in [the M6 receipt](../../Docs/TWO_MAC_M6_SETUP_RECEIPT_20261113.md). Handoff 03 is unexecuted.
 
 ## Goal
 
 - **M6 Mac mini** = Dan's daily driver. Holds the one project folder, all AI apps, his personal work, and one or two video edits.
-- **M2 Pro Mac mini** (32 GB, 10 cores, today's machine, computer name `Mac-mini`) = headless edit machine, joined to the M6 by a Thunderbolt cable. Takes video edits when the M6 is busy. Keeps the Extreme and Seagate (Expansion) drives and the nightly footage routine.
+- **M2 Pro Mac mini** (32 GB, 10 cores, today's machine, computer name `M2`) = headless edit machine, joined to the M6 by a Thunderbolt cable. Takes video edits when the M6 is busy. Keeps the Extreme and Seagate (Expansion) drives and the nightly footage routine.
 
 ## Decisions already made (do not reopen; Dan can change them)
 
 1. **No Migration Assistant.** The M2's internal drive is 837 GB full (183 GB of in-progress edit work, 20+ stale review LaunchAgents). Copy only what is needed, over the cable.
-2. **Same account name on the M6: `danielrose`.** Every script and path then works unchanged.
+2. **Actual M6 account: `danrrose`, with `/Users/danielrose` as a home-folder alias.** This supersedes the original same-account-name plan; verify compatibility when changing scripts.
 3. **One project folder, on the M6** (`~/Projects/Claude`). The M2 reaches it through the cable at the same path. No second checkout to drift. Fallback if git over the share is too slow: see file 03.
 4. **Drives stay on the M2.** The M6 mounts them over the cable at the same names (`/Volumes/Extreme`, `/Volumes/Expansion`). The nightly footage routine and Seagate checksum rules stay as they are.
 5. **Edits in progress on the M2 finish on the M2.** Their work folders (`~/Projects/_edit_work`, 183 GB) do not move.
@@ -21,13 +21,13 @@ Category: ops (not a video). Dan asked for this plan on 2026-11-12. Handoff 01 w
 
 | # | File | Runs on | Who | When |
 |---|---|---|---|---|
-| 1 | `01-m2-prep-codex-grokbot.md` | M2 | Codex newest Sol, medium (or Grokbot) | Now, before unboxing |
-| 2 | `02-m6-setup.md` | M6 | Claude Opus 5.5, high | After Dan's first-boot steps on the M6 |
+| 1 | `01-m2-prep-codex-grokbot.md` | M2 | Codex newest Sol, medium (or Grokbot) | Completed November 14; do not rerun |
+| 2 | `02-m6-setup.md` | M6 | Claude Opus 5.5, high | Migration complete; see receipt for scheduled-task switch |
 | 3 | `03-two-mac-edit-routing.md` | M6 | Claude Fable 5.2, high | After 2 is verified |
 
 ## Starter prompts (copy from here on the new Mac)
 
-**02, Claude on the M6 (Opus 5.5, high):**
+**02 original migration starter, historical: do not rerun completed migration (Opus 5.5, high).**
 
 ```
 This is Dan's brand-new M6 Mac mini. Fetch and read these two files, then do everything in the second one: https://raw.githubusercontent.com/RagnarD213/abs-by-ai/main/Handoffs/two-mac-setup-20261112/README.md and https://raw.githubusercontent.com/RagnarD213/abs-by-ai/main/Handoffs/two-mac-setup-20261112/02-m6-setup.md. The old Mac (M2) is on the Thunderbolt cable at 10.66.0.2 and has everything. Do every step yourself; I only type passwords and sign in. Tell me in plain words exactly when you need me.

@@ -1,5 +1,49 @@
 # M2 headless preparation receipt
 
+**Current status, November 14, 2026: handoff 01 COMPLETE.** The M6 now reaches the M2 through passwordless SSH, an authenticated Screen Sharing desktop session, and native SMB mounts of both external drives. All requested names, sharing, cable addressing, power and automatic-login settings are applied. Restart, power-cut recovery and reconnect after a real reboot remain untested; no restart or physical-drive unmount was performed.
+
+## Final drive-sharing repair, November 14
+
+Dan authorized enabling Full Disk Access for the M2 file-sharing service. Codex connected through Screen Sharing, opened the M2's System Settings, authenticated at the admin prompt and added `/usr/sbin/smbd` to **Privacy & Security > Full Disk Access**. The settings display showed **smbd ON** and **sshd-keygen-wrapper ON**. Read-only system permission metadata corroborated both grants. No privacy database was edited and System Integrity Protection was not changed.
+
+The effective remote-user grant now allows SSH reads of both drives. Adding the missing file-sharing grant resolved the separate SMB failure. Earlier claims that exFAT/FSKit made these shares impossible were incorrect. Neither filesystem nor drive mounting method needed changing.
+
+### Verified from the M6
+
+- `ssh m2 hostname` returns `m2`; the reverse SSH connection returns `m6` without a password. An actual authenticated M2 desktop was operated through Screen Sharing.
+- Native macOS NetFS mounted `//danielrose@10.66.0.2/Extreme` at `/Volumes/Extreme` and `//danielrose@10.66.0.2/Expansion` at `/Volumes/Expansion`. The M6 mount table confirms both are SMB filesystems owned by its `danrrose` account.
+- Read real project files through each SMB mount and compared SHA-256 against the same files read directly on the M2 over SSH:
+
+| Drive | Project sample | Matching SHA-256 |
+|---|---|---|
+| Extreme | `_edit_work/RO-22/setup/RESUME.md` | `adc056975b839ba2055fc0196a625edb1ddb403c33914897155ab1e7ef86cc9a` |
+| Expansion | `_edit_work/DS-41/r1/RESUME.md` | `6c8a1128903e4a7f21ad1fd0779e13db2c1c017a91981882215d053aecaa1746` |
+
+- An additional native SMB read/hash comparison passed for a small existing file on each drive.
+- A uniquely named temporary probe on **Extreme only** passed SMB write, readback and remote checksum comparison, then was removed. **No file was written to Expansion in this repair.** Expansion is shared read/write as requested, but this repair tested it read-only, respecting handoff 02's Seagate restriction.
+- Rechecked M2 names `M2`/`m2`/`m2`, Remote Login On, FileVault Off, automatic-login user `danielrose`, Thunderbolt `10.66.0.2/24` with no router, and power values `sleep=0 disksleep=0 displaysleep=10 autorestart=1 womp=1 powernap=0`.
+
+### Quiet automatic reconnect on the M6
+
+Installed and loaded the per-user LaunchAgent `com.absbyai.m2-drive-mounts`:
+
+- Helper: `~/Library/Application Support/AbsByAI/mount-m2-drives.py`.
+- Agent: `~/Library/LaunchAgents/com.absbyai.m2-drive-mounts.plist`.
+- Log: `~/Library/Logs/AbsByAI/m2-drive-mounts.log`.
+- Durable source copies: `scripts/two-mac/mount-m2-drives.py` and `scripts/two-mac/com.absbyai.m2-drive-mounts.plist` (the plist paths are for this M6 account).
+
+It runs at login and retries every 60 seconds using native macOS NetFS and the existing Keychain login. No credentials are stored in these files and dialogs are suppressed. It returns quietly when the cable is absent or both expected shares are mounted, and refuses to replace an unexpectedly occupied mount path. It never unmounts or formats a drive. Each mount attempt has a 45-second limit.
+
+Validation: native NetFS actually mounted both shares; the installed helper then exited 0 with both present; plist lint passed; `launchctl` shows the loaded agent with successful runs and last exit code 0. Actual reboot/cable-disconnect recovery was not tested, to avoid disrupting concurrent work.
+
+### Completion and boundaries
+
+Handoff 01 is retired from OPEN. Handoff 02 migration and the separate 02b Claude-app SSH connection have their own [M6 receipt](TWO_MAC_M6_SETUP_RECEIPT_20261113.md). Handoff 03 edit routing and the scheduled-task switch remain separate work; this drive repair did not launch edits or move scheduled jobs.
+
+The following entries are a chronological diagnostic history. Their blocker and next-action statements are superseded by the verified completion above.
+
+## Original November 13 execution log
+
 Executed: November 13, 2026, approximately 5:37–5:53 p.m. America/Chicago.
 Owner: Codex. Source: `Handoffs/two-mac-setup-20261112/01-m2-prep-codex-grokbot.md`.
 Machine: Mac14,12, macOS 26.5.2 (25F84), user `danielrose`.
