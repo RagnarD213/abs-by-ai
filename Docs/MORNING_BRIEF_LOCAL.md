@@ -4,6 +4,8 @@ Dan moved execution here on October 25, 2026 because cloud task permissions bloc
 
 Work from `/Users/danielrose/Projects/Claude/Projects/Abs By AI`. Private inputs and signing key belong in `/Users/danielrose/Projects/Codex/2026-09-30/task/.private-brief-proof`; social state belongs in `/Users/danielrose/Projects/Codex/2026-10-08/task-2/private`. Keep directories 0700, files 0600, secrets outside Git. Read project instructions and the current coordination board. Do not adopt other sessions' work.
 
+After a Mac migration, check the private intake configuration's `social_queue_snapshot` against the actual Projects queue. Back up the configuration privately before correcting that one field; verify the snapshot is readable and fresh. Never restore a Documents path to make an old setting work. If the home name has a compatibility symlink, pass the existing signing key's resolved real Projects path (`Path(key).resolve()`) to the signer. Preserve its key, ownership and permission checks; do not create a replacement key or weaken symlink checks.
+
 ## Each run
 
 1. Derive today's date in America/Chicago. Read the prior live document and image metadata with a bounded read-only database transaction. Save dated prior-state proof. Read private `local-routine-state.json` and verify the app automation is still active and targets this local chat before claiming it enabled. The old `cloud-routine-state.json` is historical, superseded evidence.
