@@ -350,7 +350,11 @@ def archive_one(row, base, remote):
                 "archived": dt.datetime.now().isoformat(timespec="seconds"), "files": src_hash,
                 "symlinks_not_copied": row["links"]}
     write_remote_text(dest + "/.jobarchive-manifest.json", json.dumps(manifest, indent=1), remote)
-    shutil.rmtree(src)
+    # On exFAT, deleting a file also deletes its ._ sidecar, so a later unlink of that sidecar finds nothing.
+    def gone_ok(func, path, exc):
+        if not isinstance(exc[1], FileNotFoundError):
+            raise exc[1]
+    shutil.rmtree(str(src), onerror=gone_ok)
     rec = {k: manifest[k] for k in ("job", "from", "mac", "drive", "archived")}
     rec.update(to=dest, files=len(src_hash), gb=row["gb"])
     append_index(base, rec, remote)
