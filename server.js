@@ -5010,6 +5010,8 @@ const MARKETING_ADDRESS  = process.env.MARKETING_ADDRESS || 'Abs By AI<br>3520 C
 const memberEmails = require('./member-emails').createMemberEmails({
   db, fetch, apiKey: RESEND_API_KEY, from: RESET_FROM,
   replyTo: MARKETING_REPLY_TO, siteUrl: SITE_URL, secret: UNSUB_SECRET,
+  // Dan disabled generic follow-ups on Nov 14; welcome stays enabled.
+  followupsEnabled: process.env.MEMBER_FOLLOWUPS_ENABLED === 'true',
   optedOut: email => !!subscribersStore.emails[String(email).toLowerCase()]?.unsubscribed,
 });
 app.all('/api/member-emails/unsubscribe', async (req, res) => {
