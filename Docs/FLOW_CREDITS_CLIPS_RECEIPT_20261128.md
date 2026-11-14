@@ -131,6 +131,21 @@ Lesson: Nano Banana Pro does not keep a plate-loaded dumbbell identical between 
 one-piece dumbbells, or draw the heavy pair in one source only. All attempts and reviews: `/Volumes/Extreme/_edit_work/FLOWCLIPS/b3r/review_results.txt`.
 Next: Dan's picks on 9248, `veo.py add` for the chosen pairs (paths on the Extreme are the same on both Macs), video, reviews, page, file.
 
+## Dumbbell clips video: on Dan's page (2026-11-14)
+
+Dan picked **X2 with B** on the frames page: the cheat pair with the heaviest dumbbells and the strict pair with the same man (both frame
+pairs gate + reviewer PASS; `blind.py pick` recorded for B3-22b and B3-23c). Video job `~/Projects/_edit_work/FLOWCLIPS/vid-b3d/` (M6;
+setup.py, picks.json, windows.json, motion_results.txt, build_review.py); takes, specs, stamps and reviews at
+`/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b3d/`. Flow project https://flow.google.com/project/c7d70179-327f-44ff-8027-bfd4eb581b15 .
+6 takes, no failures. Page http://127.0.0.1:9249/ (keys `b3dpicks`).
+
+| Clip | Take | Clean window | Checks |
+|---|---|---|---|
+| Cheating The Heavy Ones (`B3-22d`) | Omni | 2.7 s, frames 78-142 (never earlier: a second man shows behind him at 26-76) | clipcheck PASS, fresh reviewer PASS |
+| Lighter, Strict Form (`B3-23d`) | Veo Fast | 4.3 s, frames 6-108, two strict reps (one rep: 6-77) | clipcheck PASS, fresh reviewer PASS |
+
+Next: Dan's picks, then `vid-b3/file_library.py`-style adds on the M2 (`--tags flow-credits-batch3`), sheet, IDs under "Pre-made AI clips" in the DS-96 job doc.
+
 ## Batch 3 redo: on Dan's page (2026-11-14)
 
 Dan on the batch 3 video page: Bored To Sleep unrealistic because the machine is not moving ("he'd have the treadmill moving slowly with him
@@ -173,7 +188,8 @@ A lean BACK must be shot from the side. Give each image source its own man for e
 | batch 2 retake (sleep clip, 2 Veo Fast takes) | 20 | balance 21,156 to 21,136 |
 | batch 3 video (7 clips, 21 takes: 14 Veo Fast + 7 Omni at 10 each) | 210 | balance 21,042 to 20,832 |
 | batch 3 redo video (8 takes: 6 Veo Fast + 2 Omni at 10 each) and 7 Google images | 80 | balance 20,702 to 20,622 |
-| **total for this handoff so far** | **790** | of 14,000 |
+| dumbbell clips video (6 takes: 4 Veo Fast + 2 Omni at 10 each) and 16 Google images | 60 | balance 20,582 to 20,522 |
+| **total for this handoff so far** | **850** | of 14,000 |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 
