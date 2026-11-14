@@ -720,6 +720,19 @@ def main(argv):
     if not pos:
         sys.exit("usage: editcap.py {} JOB".format(cmd))
     job = pos[0]
+    if cmd in ("acquire", "heartbeat", "wait"):
+        # Old chats already call acquire on resume. Surface remote ownership here
+        # before touching this Mac's registry, without asking Dan to add a prompt.
+        try:
+            sys.path.insert(0, str(SHARED / "editroute"))
+            import resume as edit_resume
+            route_code = edit_resume.check(job)
+        except Exception as ex:
+            print("editcap: cannot verify this edit's Mac ({}); no slot acquired. Retry the ownership check."
+                  .format(ex))
+            return 6
+        if route_code:
+            return route_code
     if cmd in ("acquire", "heartbeat"):
         if o.get("--release") and not re.match(r"\d{4}-\d{2}-\d{2}$", o["--release"]):
             sys.exit("--release must be YYYY-MM-DD")
