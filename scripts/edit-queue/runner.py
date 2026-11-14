@@ -600,30 +600,32 @@ def main():
             else:
                 # Exactly one independent review, after the editor's complete candidate and self-QA.
                 reviewer = cfg["review"]["reviewer_for"][executor]
-                if not eq.auth_ok(reviewer, cfg)[0]:
-                    # A fresh process has not seen the build, even if the preferred cross-reviewer is unavailable.
-                    reviewer = executor
-                    eq.scoreboard_update(run_id, reviewer=f"{executor} (fresh session; cross-reviewer unavailable)")
-                brief = (open(eq.REVIEWER_BRIEF).read().replace("{WORKDIR}", workdir).replace("{JOB}", job_id)
-                         .replace("{N}", "1").replace("{JOBDOC}", "Handoffs/video-editing/" + job.get("file", "")))
-                review_timeout = min(float(cfg["claims"]["max_job_hours"]),
-                                     float(budget_doc["review_hours_allowed"]))
-                _review_code, review_tail, review_hours = run_session(
-                    reviewer, cfg, workdir, brief, log_path, "review-1", review_timeout,
-                    budget_enforced=budget_doc.get("enabled", True))
-                usage.append(eq.model_usage_record(reviewer, cfg, "independent reviewer", review_tail))
-                if _review_code == BUDGET_EXCEEDED_CODE:
-                    budget_hit = True
-                    outcome, state, note = "budget_exceeded", "needs", budget_note(review_hours, workdir, "review")
+                reviewer_ready,reviewer_why=eq.auth_ok(reviewer,cfg)
+                if not reviewer_ready:
+                    outcome,state,note='auth_failed','needs','Cross-reviewer unavailable; completed candidate retained, no model substitution: '+reviewer_why
+                    eq.scoreboard_update(run_id,reviewer=reviewer,reviewer_readiness=reviewer_why)
                 else:
-                    verdict, vpath = read_verdict(workdir, 1)
-                    verdicts.append(verdict)
-                    eq.scoreboard_update(run_id, reviewer_verdicts=verdicts, model_usage=usage)
-                    if verdict == "SHIP":
-                        outcome, state, note = "delivered", "delivered", f"Queue run {run_id}: independent reviewer ({reviewer}) says SHIP. Review copy in DELIVERY.json."
+                    brief = (open(eq.REVIEWER_BRIEF).read().replace("{WORKDIR}", workdir).replace("{JOB}", job_id)
+                             .replace("{N}", "1").replace("{JOBDOC}", "Handoffs/video-editing/" + job.get("file", "")))
+                    review_timeout = min(float(cfg["claims"]["max_job_hours"]),
+                                         float(budget_doc["review_hours_allowed"]))
+                    _review_code, review_tail, review_hours = run_session(
+                        reviewer, cfg, workdir, brief, log_path, "review-1", review_timeout,
+                        budget_enforced=budget_doc.get("enabled", True))
+                    usage.append(eq.model_usage_record(reviewer, cfg, "independent reviewer", review_tail))
+                    if _review_code == BUDGET_EXCEEDED_CODE:
+                        budget_hit = True
+                        outcome, state, note = "budget_exceeded", "needs", budget_note(review_hours, workdir, "review")
                     else:
-                        outcome, state = "parked", "needs"
-                        note = f"Reviewer: {verdict}. One consolidated review is attached at {vpath}; no automatic supervision/fix loop ran."
+                        verdict, vpath = read_verdict(workdir, 1)
+                        verdicts.append(verdict)
+                        eq.scoreboard_update(run_id, reviewer_verdicts=verdicts, model_usage=usage)
+                        if verdict == "SHIP":
+                            outcome, state, note = "delivered", "delivered", f"Queue run {run_id}: independent reviewer ({reviewer}) says SHIP. Review copy in DELIVERY.json."
+                        else:
+                            outcome, state = "parked", "needs"
+                            note = f"Reviewer: {verdict}. One consolidated review is attached at {vpath}; no automatic supervision/fix loop ran."
+
     except Exception as e:
         outcome, state, note = "runner_error", "stalled", f"runner error: {e!s:.200}"
     finally:

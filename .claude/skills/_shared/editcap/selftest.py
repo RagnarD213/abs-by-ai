@@ -45,6 +45,10 @@ def main():
     os.environ["CLAUDE_CODE_SESSION_ID"] = "selftest"
     # The checks are written for 5 slots; each Mac's real count (editroute/hosts.json) is tested in editroute's tests.
     os.environ["EDITCAP_MAX"] = "5"
+    os.environ["EDIT_PRIORITY_DIR"] = tempfile.mkdtemp(prefix="editcap-policy-test-")
+    fixture_cfg=Path(os.environ["EDIT_PRIORITY_DIR"])/"hosts.json"
+    fixture_cfg.write_text("{\"hosts\":{}}")
+    os.environ["EDITROUTE_HOSTS"]=str(fixture_cfg)
     ec.CAP = 5
     # Fixed calendar inputs keep scheduling assertions stable as production dates change.
     CAL = ec.Calendar(longform="| Sun Oct 18 | RO-25 |\n| Sun Oct 25 | RO-26 |\n"

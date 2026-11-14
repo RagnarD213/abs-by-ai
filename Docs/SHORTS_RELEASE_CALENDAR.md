@@ -94,8 +94,8 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Jan 7 | 3 | 9 AM | The #1 Change I Made To Get Abs At 40 | Waitlist |
 | Thu Jan 7 | 3 | 6 PM | How To Use Battle Ropes (DS-19) | Waitlist |
 | Sat Jan 9 | 3 | 9 AM | Does Jiu Jitsu Get You Abs? (DS-15) | Waitlist |
-| Sat Jan 9 | 3 | 6 PM | OPEN | Not booked |
-| Mon Jan 11 | 3 | 9 AM | OPEN | Not booked |
+| Sat Jan 9 | 3 | 6 PM | The Drink Post Malone Quit (DS-42) | Live |
+| Mon Jan 11 | 3 | 9 AM | Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It. (DS-34) | Waitlist |
 | Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
 | Tue Jan 12 | 3 | 9 AM | How To Do Chest Flies On The Machine (DS-78, gym) | Live |
 | Tue Jan 12 | 3 | 6 PM | OPEN | Not booked |
@@ -136,3 +136,5 @@ October29: SL-11 finalized films and exact R4 covers approved; all uploads/prefl
 November 8: Calories Dont Matter (SL-13) setup complete with covers Protein X3, Eat Less X4 and Steps X3. Three complete shared-waitlist entries reserve Jan 28 at 6 PM and Jan 30 at 9 AM/6 PM Central, after the parent Jan 27 release. All four platform targets share each slot. Blotato 199/200, so these are waiting-list plans, not live schedules. Receipt: `Docs/SL13_SETUP_RECEIPT_20261108.md`.
 
 November 13: DS-19 (Battle Ropes, X8 text V3) and DS-15 (Jiu Jitsu, X3) setup complete with verified backups/media/covers. Shared waiting-list readback reserves January 7 at 6 PM and January 9 at 9 AM Central respectively, all four platforms. These are waiting-list plans, not live schedules. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
+
+November 14: DS-34 Surgeon Fake Abs setup complete with A Clean Stamp. Four-platform shared waiting-list plan reserves January 11, 2027 at 9 AM Central. Exact approved film preserved, all publishing assets/backups checksum verified, TikTok complete silent playback checked. This is a waiting-list plan, not a live schedule. Receipt: `Docs/DS34_SETUP_COMPLETION_20261114.md`.

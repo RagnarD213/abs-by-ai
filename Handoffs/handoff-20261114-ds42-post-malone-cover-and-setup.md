@@ -1,5 +1,9 @@
 # Post Malone Drink SFC: covers and organic setup
 
+**Setup completed November 14.** Cover B, round 3. All four posts are scheduled for January 9, 2027 at 6 p.m. Central. [Verified receipt](../Docs/DS42_SETUP_RECEIPT_20261114.md).
+
+## Original handoff
+
 Start now. One Codex setup owner, newest stable Sol at high effort, following `.claude/skills/video-setup/SKILL.md`. Final edit: Apple M2 Pro. The scripted alternate was not selected. Do not render a new edit or add another layer of captions.
 
 Dan, November 14, 2026: “Okay let's go with the off-the-cuff warm color fuller bass voice.” His selected R2 is the 64.23-second off-the-cuff cut, with the approved opening and graphics, Warm colour and Fuller Bass voice.

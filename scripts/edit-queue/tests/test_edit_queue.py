@@ -60,9 +60,9 @@ class Routing(unittest.TestCase):
 
     def test_dans_assignment_2026_09_17(self):
         # Raw cuts route to Codex; secondary cuts route to Claude since the September 24 reset.
-        for g in ("RA", "RO", "DS"):
+        for g in ("RA",):
             self.assertEqual(eq.executor_for(g + "-01", CFG), "codex", g)
-        for g in ("AV", "AS", "SL"):
+        for g in ("RO", "DS", "AV", "AS", "SL"):
             self.assertEqual(eq.executor_for(g + "-01", CFG), "claude", g)
 
     def test_rx_is_never_queued(self):
@@ -71,7 +71,7 @@ class Routing(unittest.TestCase):
 
     def test_prefers_one_of_each_executor(self):
         # With the restored split, the second slot uses Codex for a raw cut.
-        cfg = copy.deepcopy(CFG); cfg["unattended"]["groups"] += ["DS"]
+        cfg = copy.deepcopy(CFG); cfg["unattended"]["groups"] += ["DS"]; cfg["routing"]["DS"]="codex"
         data = {"jobs": [job("AV-01", order=1), job("AV-02", order=2), job("DS-01", order=3)]}
         self.assertEqual(run(data, cfg=cfg)["launches"], [("AV-01", "claude"), ("DS-01", "codex")])
 
@@ -216,7 +216,7 @@ class StopConditions(unittest.TestCase):
 
     def test_usage_limit_on_one_executor_does_not_stop_the_other(self):
         # A Claude outage stops AV but leaves the Codex raw-cut route available.
-        cfg = copy.deepcopy(CFG); cfg["unattended"]["groups"] += ["DS"]
+        cfg = copy.deepcopy(CFG); cfg["unattended"]["groups"] += ["DS"]; cfg["routing"]["DS"]="codex"
         sb = {"runs": [{"executor": "claude", "started": "2026-09-18T01:30:00", "ended": "2026-09-18T01:40:00", "outcome": "usage_limited"}]}
         data = {"jobs": [job("AV-01"), job("DS-01", order=2)]}
         self.assertEqual(run(data, sb=sb, cfg=cfg)["launches"], [("DS-01", "codex")])
@@ -399,7 +399,7 @@ class Runner(unittest.TestCase):
         cx = eq.build_command("codex", CFG, "/w/AV-01")
         self.assertIn('approval_policy="never"', cx); self.assertEqual(cx[-1], "-"); self.assertIn("/w/AV-01", cx)
         # Dan, 2026-09-17: edits run Sol / high; the queue's own review sessions use review_effort
-        self.assertIn("gpt-5.6-sol", cx); self.assertIn('model_reasoning_effort="high"', cx)
+        self.assertIn("gpt-6.1-sol", cx); self.assertIn('model_reasoning_effort="high"', cx)
         if eq.resolve_binary("claude", CFG):
             cl = eq.build_command("claude", CFG, "/w/AV-01", "review-1")
             self.assertIn("-p", cl); self.assertIn("bypassPermissions", cl); self.assertIn("--strict-mcp-config", cl)

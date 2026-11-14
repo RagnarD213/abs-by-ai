@@ -19,7 +19,7 @@ A folder stays when ANY of these holds:
   * something changed in it in the last IDLE_DAYS (14) days
   * it is an edit the edit cap (editcap) lists as active, starting or waiting for a slot
   * it is with Dan for review (edit cap "with-dan"/"stalled", or a board line naming it with REVIEW, AWAITING,
-    BUILDING, NEEDS DAN or PICK), unless untouched for STALE_DAYS (30) days
+    BUILDING, NEEDS DAN or PICK), regardless of age
   * the render queue has a live step for it, or a running process has it open or in its command line
   * its name is in keep.txt beside this script or in ~/.absbyai-jobarchive/keep.txt (one name per line)
 
@@ -36,6 +36,7 @@ import os
 import plistlib
 import re
 import shutil
+import shlex
 import socket
 import subprocess
 import sys
@@ -65,7 +66,9 @@ for d, dirs, files in os.walk(root):
     for f in files:
         p = os.path.join(d, f)
         rel = os.path.relpath(p, root)
-        if rel == ".jobarchive-manifest.json" or os.path.islink(p) or not os.path.isfile(p):
+        # ._* are macOS metadata sidecars that exFAT shows as files; rsync carries the metadata, not the sidecar.
+        if rel == ".jobarchive-manifest.json" or f.startswith("._") or f == ".DS_Store" \
+                or os.path.islink(p) or not os.path.isfile(p):
             continue
         h = hashlib.sha256()
         with open(p, "rb") as fh:
@@ -104,7 +107,7 @@ def on_local_disk(path):
     try:
         out = subprocess.run(["mount"], capture_output=True, text=True, timeout=20).stdout
     except (OSError, subprocess.TimeoutExpired):
-        return True
+        return False
     best, kind = "", ""
     target = os.path.realpath(str(path))
     for line in out.splitlines():
@@ -180,7 +183,7 @@ def board_review_names():
     try:
         text = (repo() / "AI_COORDINATION.md").read_text(errors="replace")
     except OSError:
-        return ""
+        raise RuntimeError("board unreadable; reference evidence incomplete")
     return "\n".join(line for line in text.splitlines() if BOARD_WORDS.search(line))
 
 
@@ -198,9 +201,11 @@ def busy_paths():
     parts = []
     for cmd in (["ps", "-axww", "-o", "args="], ["lsof", "-n", "-d", "cwd", "-Fn"]):
         try:
-            parts.append(subprocess.run(cmd, capture_output=True, text=True, timeout=60).stdout)
-        except (OSError, subprocess.TimeoutExpired):
-            pass
+            result=subprocess.run(cmd,capture_output=True,text=True,timeout=60)
+            if result.returncode:raise RuntimeError('process-reference command failed: '+cmd[0])
+            parts.append(result.stdout)
+        except (OSError, subprocess.TimeoutExpired) as e:
+            raise RuntimeError('process-reference evidence incomplete: '+str(e))
     return "\n".join(parts)
 
 
@@ -216,23 +221,50 @@ def referenced_names():
     places = [base / ".claude" / "skills", base / "scripts", base / "Media" / "clip-library",
               base / "Media" / "footage-index"]
     files = [base / "AGENTS.md", base / "CLAUDE.md"]
+    required=places[:3]+files
+    if any(not p.exists() for p in required):raise RuntimeError('reference evidence incomplete: required rules/library/scripts missing')
+    errors=[]
     for place in places:
-        for d, dirs, fs in os.walk(str(place)):
+        if not place.exists():continue
+        for d, dirs, fs in os.walk(str(place),onerror=lambda e:errors.append(str(e))):
             dirs[:] = [x for x in dirs if x not in ("node_modules", ".git", "__pycache__")]
             files.extend(Path(d) / f for f in fs if f.endswith(REF_EXT))
     for f in files:
         try:
             if f.stat().st_size > 60_000_000:
-                continue
+                errors.append('reference file too large to inspect: '+str(f));continue
             names |= {norm(m) for m in REF_RE.findall(f.read_text(errors="ignore"))}
-        except OSError:
-            pass
+        except OSError as e:
+            errors.append(str(e))
+    if errors:raise RuntimeError('reference evidence incomplete: '+errors[0])
     return names
+
+
+def review_paths():
+    """Registered durable reviews protect their source roots and linked relative paths, regardless of age."""
+    paths=[]
+    for entry in (HOME/'Library/Application Support/AbsByAI Review Hub/pages').glob('*.json'):
+        try:
+            x=json.loads(entry.read_text());root=Path(x['root']).resolve();paths.append(root)
+            port=entry.stem;manifest=HOME/'Library/Application Support/AbsByAI Reviews'/port/'manifest.json'
+            m=json.loads(manifest.read_text())
+            paths += [(root/f['path']).resolve() for f in m.get('files',[])]
+        except (OSError,ValueError,KeyError,TypeError) as e:raise RuntimeError('review reference evidence incomplete: '+str(e))
+    for plist in (HOME/'Library/LaunchAgents').glob('com.absbyai.review.*.plist'):
+        try:
+            x=plistlib.loads(plist.read_bytes());args=x.get('ProgramArguments',[])
+            source=x.get('EnvironmentVariables',{}).get('ABS_REVIEW_SOURCE_ROOT')
+            if not source and len(args)>3:source=args[3]
+            if not source:raise RuntimeError('legacy review source unknown')
+            paths.append(Path(source).resolve())
+        except (OSError,ValueError,plistlib.InvalidFileException) as e:raise RuntimeError('legacy review evidence incomplete: '+str(e))
+    return paths
 
 
 def keep_names():
     names = set()
-    for p in (Path(__file__).resolve().parent / "keep.txt", STATE / "keep.txt"):
+    for p in (Path(__file__).resolve().parent / "keep.txt", STATE / "keep.txt",
+              repo()/'.claude/skills/_shared/jobarchive/keep.txt'):
         try:
             names |= {norm(x) for x in p.read_text().splitlines() if x.strip() and not x.startswith("#")}
         except OSError:
@@ -247,6 +279,7 @@ def decide(now=None):
     busy = busy_paths()
     keep = keep_names()
     refs = referenced_names()
+    reviews=review_paths()
     rows = []
     for label, root in roots():
         for entry in sorted(root.iterdir(), key=lambda p: p.name.lower()):
@@ -262,6 +295,8 @@ def decide(now=None):
                 why = "on the keep list"
             elif key in refs:
                 why = "a skill, script or standing rule points at it"
+            elif any(p==entry.resolve() or entry.resolve() in p.parents for p in reviews):
+                why = 'registered unresolved review points at this folder'
             elif ec is None:
                 why = "edit cap unreadable; keeping everything tonight"
             elif ec[0].get(key) in ("active", "promoted", "waiting", "new"):
@@ -270,9 +305,9 @@ def decide(now=None):
                 why = "render queue step is live"
             elif str(entry) in busy or str(entry.resolve()) in busy:
                 why = "a running process uses it"
-            elif idle < STALE_DAYS and ec[0].get(key) in ("with-dan", "stalled"):
+            elif ec[0].get(key) in ("with-dan", "stalled"):
                 why = "with Dan for review (edit cap)"
-            elif idle < STALE_DAYS and on_board(entry.name, board):
+            elif on_board(entry.name, board):
                 why = "with Dan for review (board)"
             rows.append({"job": entry.name, "path": str(entry), "drive": label, "idle_days": round(idle, 1),
                          "gb": round(size / 1e9, 2), "links": links, "move": why is None, "why": why or ""})
@@ -284,7 +319,8 @@ def seagate_local():
 
 
 def ssh(args, **kw):
-    return subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", REMOTE] + args, **kw)
+    return subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout=10", REMOTE,
+                           ' '.join(shlex.quote(str(a)) for a in args)], **kw)
 
 
 def hash_tree(folder, remote=False):
@@ -297,62 +333,111 @@ def hash_tree(folder, remote=False):
     return json.loads(r.stdout)
 
 
+def io_python(code, args, remote=False, text=None):
+    cmd=['/usr/bin/python3' if remote else sys.executable,'-c',code]+[str(a) for a in args]
+    r=ssh(cmd,input=text,capture_output=True,text=True) if remote else subprocess.run(cmd,input=text,capture_output=True,text=True)
+    if r.returncode:raise RuntimeError('archive I/O failed: '+r.stderr[-500:])
+    return r.stdout
+
+
+def mount_identity(remote=False):
+    code="""import os,sys,json,subprocess,re
+p=sys.argv[1]
+r=subprocess.run(['mount'],capture_output=True,text=True,check=True)
+line=next((l for l in r.stdout.splitlines() if ' on '+p+' (' in l),None)
+if not line or any(k in line for k in ['smbfs','nfs','afpfs','webdav']):raise RuntimeError('actual attached Seagate mount missing')
+s=os.stat(p)
+print(json.dumps([line,s.st_dev]))
+"""
+    identity=json.loads(io_python(code,[SEAGATE],remote))
+    volume_code="import subprocess,plistlib,sys,json;x=plistlib.loads(subprocess.run(['diskutil','info','-plist',sys.argv[1]],capture_output=True,check=True).stdout);print(json.dumps([x.get('VolumeName'),x.get('VolumeUUID')]))"
+    volume=json.loads(io_python(volume_code,[SEAGATE],remote))
+    expected=json.loads((STATE/'config.json').read_text()).get('seagate_uuid')
+    if not expected or volume!=['Expansion',expected]:raise RuntimeError('Seagate UUID unverified or wrong volume mounted')
+    return identity+[volume[1]]
+
+
+def check_mount(identity,remote):
+    if mount_identity(remote)!=identity:raise RuntimeError('Seagate mount identity changed; source retained')
+
+
+def read_text(path,remote):
+    return io_python("import pathlib,sys;p=pathlib.Path(sys.argv[1]);print(p.read_text() if p.exists() else '',end='')",[path],remote)
+
+
 def write_remote_text(path, text, remote):
-    if remote:
-        r = ssh(["/usr/bin/python3", "-c",
-                 "import sys;open(sys.argv[1],'w').write(sys.stdin.read())", path],
-                input=text, capture_output=True, text=True)
-        if r.returncode:
-            raise RuntimeError(r.stderr[-300:])
-    else:
-        with open(path, "w") as fh:
-            fh.write(text)
+    io_python("""import os,sys,pathlib
+p=pathlib.Path(sys.argv[1]);tmp=p.with_name(p.name+'.tmp-'+str(os.getpid()))
+with tmp.open('w') as f:f.write(sys.stdin.read());f.flush();os.fsync(f.fileno())
+os.replace(tmp,p)
+""",[path],remote,text)
+    if read_text(path,remote)!=text:raise RuntimeError('manifest read-back mismatch')
 
 
 def append_index(base, record, remote):
-    line = json.dumps(record) + "\n"
-    path = base + "/index.jsonl"
-    if remote:
-        ssh(["/usr/bin/python3", "-c", "import sys;open(sys.argv[1],'a').write(sys.stdin.read())", path],
-            input=line, capture_output=True, text=True)
-    else:
-        with open(path, "a") as fh:
-            fh.write(line)
+    path=base+'/index.jsonl';line=json.dumps(record)+'\n'
+    existing=read_text(path,remote)
+    if record in [json.loads(l) for l in existing.splitlines() if l.strip()]:return
+    io_python("""import os,sys,fcntl
+with open(sys.argv[1],'a') as f:
+ fcntl.flock(f,fcntl.LOCK_EX);f.write(sys.stdin.read());f.flush();os.fsync(f.fileno())
+""",[path],remote,line)
+    if record not in [json.loads(l) for l in read_text(path,remote).splitlines() if l.strip()]:
+        raise RuntimeError('index read-back mismatch; source retained')
+
+
+def second_copy_verified(src,files):
+    try:
+        copies=json.loads((STATE/'verified-second-copies.json').read_text())
+        other=Path(copies[str(src)])
+        if other.resolve()==src.resolve() or src.resolve() in other.resolve().parents:return False
+        if SEAGATE.resolve()==other.resolve() or SEAGATE.resolve() in other.resolve().parents:return False
+        return hash_tree(str(other))==files
+    except (OSError,ValueError,KeyError):return False
 
 
 def archive_one(row, base, remote):
-    src = Path(row["path"])
-    dest = "{}/{}-{}/{}".format(base, host(), row["drive"], src.name)
-    before = tree_stats(src)[0]
-    log("{}: copying {:.1f} GB from {} to the Seagate".format(src.name, row["gb"], row["drive"]))
-    src_hash = hash_tree(str(src))
-    if remote:
-        ssh(["mkdir", "-p", dest], check=True, capture_output=True)
-        target = "{}:{}/".format(REMOTE, dest)
-        cmd = ["rsync", "-rt", "-e", "ssh -o BatchMode=yes", str(src) + "/", target]
+    src=Path(row['path']);dest='{}/{}-{}/{}'.format(base,host(),row['drive'],src.name)
+    identity=mount_identity(remote);check_mount(identity,remote)
+    before=tree_stats(src)
+    src_hash=hash_tree(str(src))
+    old=read_text(dest+'/.jobarchive-manifest.json',remote)
+    manifest=json.loads(old) if old else None
+    if manifest:
+        if manifest['from']!=str(src) or any(manifest['files'].get(k)!=v for k,v in src_hash.items()):
+            raise RuntimeError('retry conflicts with original full manifest; source retained')
+        # A partially removed source is never allowed to replace the original full manifest.
     else:
-        os.makedirs(dest, exist_ok=True)
-        cmd = ["rsync", "-rt", str(src) + "/", dest + "/"]
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode:
-        raise RuntimeError("copy failed: " + (r.stderr or "")[-500:])
-    dst_hash = hash_tree(dest, remote)
-    missing = sorted(set(src_hash) - set(dst_hash))
-    bad = sorted(k for k in src_hash if k in dst_hash and dst_hash[k] != src_hash[k])
-    if missing or bad:
-        raise RuntimeError("verify failed: {} missing, {} mismatched (e.g. {}); source kept".format(
-            len(missing), len(bad), (missing + bad)[:3]))
-    if tree_stats(src)[0] != before:
-        raise RuntimeError("folder changed during the copy; source kept, will retry another night")
-    manifest = {"job": src.name, "from": str(src), "mac": host(), "drive": row["drive"],
-                "archived": dt.datetime.now().isoformat(timespec="seconds"), "files": src_hash,
-                "symlinks_not_copied": row["links"]}
-    write_remote_text(dest + "/.jobarchive-manifest.json", json.dumps(manifest, indent=1), remote)
-    shutil.rmtree(src)
-    rec = {k: manifest[k] for k in ("job", "from", "mac", "drive", "archived")}
-    rec.update(to=dest, files=len(src_hash), gb=row["gb"])
-    append_index(base, rec, remote)
-    log("{}: verified {} files on the Seagate, removed from {}".format(src.name, len(src_hash), row["drive"]))
+        log('{}: copying {:.1f} GB from {} to the Seagate'.format(src.name,row['gb'],row['drive']))
+        io_python('import os,sys;os.makedirs(sys.argv[1],exist_ok=True)',[dest],remote)
+        target='{}:{}/'.format(REMOTE,shlex.quote(dest)) if remote else dest+'/'
+        cmd=['rsync','-rt','--exclude=._*','--exclude=.DS_Store']+(['-e','ssh -o BatchMode=yes'] if remote else [])+[str(src)+'/',target]
+        r=subprocess.run(cmd,capture_output=True,text=True)
+        if r.returncode:raise RuntimeError('copy failed: '+r.stderr[-500:])
+        manifest=dict(job=src.name,**{'from':str(src)},mac=host(),drive=row['drive'],
+                      archived=dt.datetime.now().isoformat(timespec='seconds'),files=src_hash,
+                      symlinks_not_copied=before[2])
+    check_mount(identity,remote)
+    if hash_tree(dest,remote)!=manifest['files']:raise RuntimeError('verify failed: file set or bytes differ; source kept')
+    if tree_stats(src)!=before or hash_tree(str(src))!=src_hash:
+        raise RuntimeError('source changed during copy; source kept')
+    write_remote_text(dest+'/.jobarchive-manifest.json',json.dumps(manifest,indent=1),remote)
+    rec={k:manifest[k] for k in ('job','from','mac','drive','archived')}
+    rec.update(to=dest,files=len(manifest['files']),gb=round(sum(v[0] for v in manifest['files'].values())/1e9,2))
+    append_index(base,rec,remote)
+    # Recheck live/review/keep references immediately before removing any source.
+    fresh=next((r for r in decide() if r['path']==str(src)),None)
+    if not fresh or not fresh['move']:raise RuntimeError('source became protected or reference evidence missing; retained')
+    check_mount(identity,remote)
+    if hash_tree(dest,remote)!=manifest['files'] or hash_tree(str(src))!=src_hash:
+        raise RuntimeError('last removal check changed; source retained')
+    if not second_copy_verified(src,manifest['files']):
+        log(src.name+': archive verified and indexed; source RETAINED until independent second copy verified')
+        return dest
+    def gone_ok(func,path,exc):
+        if not isinstance(exc[1],FileNotFoundError):raise exc[1]
+    shutil.rmtree(str(src),onerror=gone_ok)
+    log('{}: verified {} files, durable index and second copy; source removed'.format(src.name,len(manifest['files'])))
     return dest
 
 
@@ -396,6 +481,9 @@ def cmd_run(args):
         log("another cleanup is already running; exiting")
         return 0
     remote = not seagate_local()
+    try:mount_identity(remote)
+    except (RuntimeError,OSError) as e:
+        log('archive mount unavailable: '+str(e));return 1
     base = str(SEAGATE / ARCHIVE_DIR)
     if remote:
         if ssh(["test", "-d", str(SEAGATE)], capture_output=True).returncode:
@@ -407,20 +495,22 @@ def cmd_run(args):
         os.makedirs(base, exist_ok=True)
     rows = [r for r in decide() if r["move"]]
     rows.sort(key=lambda r: -r["idle_days"])
-    done = errors = 0
+    done = errors = retained = 0
     for r in rows:
-        if args.limit and done >= args.limit:
+        if args.limit and done + retained >= args.limit:
             break
         if args.until is not None and args.until <= dt.datetime.now().hour < args.until + 12:
             log("past {}:00; the rest wait for tomorrow night".format(args.until))
             break
         try:
             archive_one(r, base, remote)
-            done += 1
+            if Path(r['path']).exists():retained += 1
+            else:done += 1
         except (RuntimeError, OSError, subprocess.CalledProcessError) as ex:
             errors += 1
             log("ERROR {}: {}".format(r["job"], ex))
-    log("done: {} moved, {} errors, {} left for later".format(done, errors, len(rows) - done - errors))
+    log("done: {} moved, {} verified copies with source retained, {} errors, {} left for later".format(
+        done,retained,errors,len(rows)-done-retained-errors))
     warn_low_space()
     return 1 if errors else 0
 
@@ -451,14 +541,27 @@ def cmd_restore(args):
         return 2
     r = hits[-1]
     to = args.to or r["from"]
-    if Path(to).exists():
-        print("{} already exists; pass --to another folder".format(to))
+    if Path(to).exists() and (not Path(to).is_dir() or any(Path(to).iterdir())):
+        print("{} is not empty; pass --to another folder".format(to))
         return 2
-    os.makedirs(to)
-    src = ("{}:{}/".format(REMOTE, r["to"]) if remote else r["to"] + "/")
+    os.makedirs(to,exist_ok=True)
+    src = ("{}:{}/".format(REMOTE, shlex.quote(r["to"])) if remote else r["to"] + "/")
     cmd = ["rsync", "-rt"] + (["-e", "ssh -o BatchMode=yes"] if remote else []) + [src, to + "/"]
-    subprocess.run(cmd, check=True)
-    log("{}: restored to {}".format(r["job"], to))
+    identity=mount_identity(remote)
+    manifest=json.loads(read_text(r['to']+'/.jobarchive-manifest.json',remote))
+    subprocess.run(cmd,check=True)
+    check_mount(identity,remote)
+    if hash_tree(to)!=manifest['files']:raise RuntimeError('restored file set or hashes differ; restore incomplete')
+    unresolved=[]
+    for rel,target in manifest.get('symlinks_not_copied',[]):
+        link=Path(to)/rel
+        if Path(rel).is_absolute() or '..' in Path(rel).parts:raise RuntimeError('invalid link path')
+        link.parent.mkdir(parents=True,exist_ok=True)
+        if link.exists() or link.is_symlink():raise RuntimeError('restore link collision')
+        link.symlink_to(target)
+        if not link.exists():unresolved.append(rel)
+    if unresolved:raise RuntimeError('restored bytes verified; unresolved links: '+repr(unresolved))
+    log('{}: restored bytes and links verified at {}'.format(r['job'],to))
     return 0
 
 
@@ -468,7 +571,11 @@ def cmd_install(args):
     copy = STATE / "jobarchive.py"
     if me != copy:
         shutil.copy2(str(me), str(copy))
-    (STATE / "config.json").write_text(json.dumps({"repo": str(args.repo or me.parents[4])}))
+    volume_code="import subprocess,plistlib,json;x=plistlib.loads(subprocess.run(['diskutil','info','-plist','/Volumes/Expansion'],capture_output=True,check=True).stdout);print(json.dumps({'uuid':x.get('VolumeUUID'),'name':x.get('VolumeName')}))"
+    remote=not seagate_local()
+    volume=json.loads(io_python(volume_code,[],remote))
+    if volume.get('name')!='Expansion' or not volume.get('uuid'):raise RuntimeError('cannot establish Seagate identity')
+    (STATE / "config.json").write_text(json.dumps({"repo": str(args.repo or me.parents[4]),'seagate_uuid':volume['uuid']}))
     plist = HOME / "Library/LaunchAgents" / (LABEL + ".plist")
     payload = {"Label": LABEL, "ProgramArguments": ["/usr/bin/python3", str(copy), "run", "--until", "8"],
                "StartCalendarInterval": {"Hour": args.hour, "Minute": 15},
@@ -483,70 +590,9 @@ def cmd_install(args):
 
 
 def cmd_selftest(args):
-    tmp = Path(tempfile.mkdtemp(prefix="jobarchive-test-"))
-    try:
-        work, sea = tmp / "work", tmp / "Expansion"
-        for job in ("OLD-1", "NEW-1", "DS-99", "RO-77", "KEEPME"):
-            (work / job / "sub").mkdir(parents=True)
-            (work / job / "sub" / "a.bin").write_bytes(os.urandom(2000))
-            (work / job / "b.txt").write_text(job)
-        os.symlink("b.txt", str(work / "OLD-1" / "link"))
-        old = time.time() - 40 * 86400
-        for job in ("OLD-1", "DS-99", "RO-77", "KEEPME"):
-            for d, ds, fs in os.walk(work / job):
-                for n in ds + fs + [""]:
-                    p = os.path.join(d, n) if n else d
-                    os.utime(p, (old, old), follow_symlinks=False)
-        sea.mkdir()
-        board = tmp / "repo"
-        board.mkdir()
-        (board / "AI_COORDINATION.md").write_text("**RO-77:DAN-REVIEW-R2:2026-11-14:Claude.** page\n")
-        (tmp / "state").mkdir()
-        (tmp / "state" / "keep.txt").write_text("KEEPME\n")
-        env = dict(os.environ, JOBARCHIVE_ROOTS="internal=" + str(work), JOBARCHIVE_SEAGATE=str(sea),
-                   JOBARCHIVE_STATE=str(tmp / "state"), JOBARCHIVE_REPO=str(board), JOBARCHIVE_BUSY="",
-                   JOBARCHIVE_STALE_DAYS="60", JOBARCHIVE_HOST="m6",
-                   JOBARCHIVE_EDITCAP_JSON=json.dumps({"edits": {"DS-99": {"state": "active"}}, "renderq": {}}))
-        me = str(Path(__file__).resolve())
-        rows = json.loads(subprocess.run([sys.executable, me, "scan", "--json"], env=env, capture_output=True,
-                                         text=True, check=True).stdout)
-        verdict = {r["job"]: r["move"] for r in rows}
-        assert verdict == {"DS-99": False, "KEEPME": False, "NEW-1": False, "OLD-1": True, "RO-77": False}, verdict
-        # Seagate check uses os.path.ismount; force local mode by pointing REMOTE at a host that cannot exist
-        # and making the test Seagate look mounted is not possible, so exercise archive_one directly.
-        global SEAGATE, STATE
-        SEAGATE, STATE = sea, tmp / "state"
-        os.environ.update(JOBARCHIVE_HOST="m6")
-        row = [r for r in rows if r["job"] == "OLD-1"][0]
-        base = str(sea / ARCHIVE_DIR)
-        os.makedirs(base)
-        dest = archive_one(row, base, remote=False)
-        assert not (work / "OLD-1").exists()
-        man = json.loads(Path(dest, ".jobarchive-manifest.json").read_text())
-        assert len(man["files"]) == 2 and man["symlinks_not_copied"] == [["link", "b.txt"]], man
-        assert Path(dest, "sub", "a.bin").exists()
-        # A corrupted copy must keep the source.
-        row2 = dict(row, job="RO-77", path=str(work / "RO-77"))
-        real = hash_tree
-        def corrupt(folder, remote=False):
-            h = real(folder, remote)
-            if folder.startswith(base) and h:
-                k = sorted(h)[0]
-                h[k] = [h[k][0], "0" * 64]
-            return h
-        globals()["hash_tree"] = corrupt
-        try:
-            archive_one(row2, base, remote=False)
-            raise AssertionError("corrupt copy was accepted")
-        except RuntimeError as ex:
-            assert "verify failed" in str(ex), ex
-        finally:
-            globals()["hash_tree"] = real
-        assert (work / "RO-77").exists()
-        print("selftest ok")
-        return 0
-    finally:
-        shutil.rmtree(str(tmp), ignore_errors=True)
+    import unittest
+    suite=unittest.defaultTestLoader.discover(str(Path(__file__).parent),pattern='test_jobarchive.py')
+    return 0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1
 
 
 def main():
@@ -571,7 +617,10 @@ def main():
     if not fn:
         ap.print_help()
         return 2
-    return fn(a)
+    try:return fn(a)
+    except (RuntimeError,OSError,ValueError) as e:
+        log('BLOCKED: '+str(e)+'; production sources retained')
+        return 1
 
 
 if __name__ == "__main__":

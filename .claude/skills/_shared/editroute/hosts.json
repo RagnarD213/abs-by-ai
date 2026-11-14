@@ -8,23 +8,38 @@
   "hosts": {
     "m6": {
       "label": "M6 (Dan's Mac)",
-      "names": ["m6", "M6"],
+      "names": [
+        "m6",
+        "M6"
+      ],
       "ssh": "m6",
       "address": "10.66.0.1",
-      "repo": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+      "repo": "/Users/danrrose/Projects/Claude/Projects/Abs By AI",
       "slots": 2,
       "cores_present": 6,
       "cores_away": 10,
       "away_after_min": 30,
-      "night": [22, 7],
-      "first": ["SFC", "SFL", "ADCUT", "REV"],
+      "night": [
+        22,
+        7
+      ],
+      "first": [
+        "SFC",
+        "SFL",
+        "ADCUT",
+        "REV"
+      ],
       "work_before_internal": [],
       "drives_note": "No drives of its own. The Extreme and Seagate stay plugged into the M2; since 2026-11-14 they also reach this Mac as network shares at the same names. An M6 edit still works on this Mac's internal SSD (never a heavy encode against a share) and copies the footage it needs with editroute.py fetch. Job folders on a share count as the M2's.",
       "load_guard": true
     },
     "m2": {
       "label": "M2 Pro (edit machine)",
-      "names": ["m2", "M2", "Mac-mini"],
+      "names": [
+        "m2",
+        "M2",
+        "Mac-mini"
+      ],
       "ssh": "m2",
       "address": "10.66.0.2",
       "repo": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
@@ -32,9 +47,19 @@
       "cores_present": 8,
       "cores_away": 8,
       "away_after_min": 30,
-      "night": [22, 7],
-      "first": ["LFC", "CHROMA", "EXDEMO", "QUEUE"],
-      "work_before_internal": ["Extreme"],
+      "night": [
+        22,
+        7
+      ],
+      "first": [
+        "LFC",
+        "CHROMA",
+        "EXDEMO",
+        "QUEUE"
+      ],
+      "work_before_internal": [
+        "Extreme"
+      ],
       "drives_note": "Holds the Extreme and the Seagate (Expansion). M2 edits read footage in place. Work folders go on the Extreme first: the M2's internal drive has about 54 GB free (2026-11-14). Finished jobs move to the Seagate here, checksummed.",
       "mirror_reviews_to": "m6",
       "load_guard": false

@@ -1,3 +1,5 @@
+**DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
+
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
@@ -29,7 +31,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-42-cover-setup:2026-11-14:Codex:AWAITING-DAN.** [Choose cover](http://127.0.0.1:9844/): X1–X5.
+**Two-Mac infrastructure: VERIFYING 2026-11-14, Codex.** M6 active; M2 awaits DS-39. Dispatcher PAUSED. `Docs/TWO_MAC_OPTIMIZATION_EXECUTION_RECEIPT_20261114.md`.
+
+**WhatToCut-SFL-Setup:AWAITING-DAN-R3:2026-11-14:Codex.** [Table-flip-X1–X4](http://127.0.0.1:9862/?round=3);Vacation-X7-approved;therapy-pending;setup-after-picks.
+
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
 

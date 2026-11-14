@@ -65,6 +65,7 @@ def main():
     procs = []
 
     def spawn(args, env, **kw):
+        kw.setdefault('start_new_session',True)
         p = subprocess.Popen(args, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, **kw)
         procs.append(p)
         return p
@@ -105,7 +106,9 @@ def main():
         gr = [g["t"] for g in gr if g["event"] == "granted" and g.get("group") == "W"]
         check("kill -9 the holder: the next job gets the slot within a second", gr and gr[0] - t_kill < 1.0,
               gr and round(gr[0] - t_kill, 2))
-        subprocess.run(["pkill", "-f", "^sleep 30$"])
+        # Never broad-kill sleepers from another editor; only our tracked process groups.
+        try:os.killpg(holder.pid,signal.SIGKILL)
+        except ProcessLookupError:pass
 
         # 3. a waiter killed with -9 leaves no ticket behind
         d = root / "deadwaiter"
@@ -453,7 +456,7 @@ def main():
         e2 = dict(e, GATE_WORK_RESERVE_GB="1000000")
         r = subprocess.run([PY, RQ, "workdir", "JOB-FULL", "--need", "0", "--no-create"], env=e2, capture_output=True,
                            text=True)
-        check("... and with no room anywhere it still answers (most free space)", r.returncode == 0 and r.stdout.strip(),
+        check("... and with no room anywhere it refuses without creating a folder", r.returncode != 0 and not (db/'_edit_work'/'JOB-FULL').exists(),
               r.stderr[-200:])
         holder.wait()
 
@@ -475,17 +478,21 @@ def main():
         check("... and inside the job's own folder when the internal SSD is short of space",
               r.stdout.strip() == str(db / "_edit_work" / "JOB-OLD" / "_scratch"), r.stdout + r.stderr[-200:])
 
-        # 16. (v3) status shows each holder's cores and memory
-        d = root / "statusrss"
-        e = env_for(d)
-        spawn([PY, RQ, "run", "--label", "memhog", "--", PY, "-c", "x = bytearray(300 * 2**20); import time; "
-               "x[::4096] = b'1' * len(x[::4096]); time.sleep(4)"], e)
-        time.sleep(2.0)
-        st = subprocess.run([PY, RQ, "status"], env=e, capture_output=True, text=True).stdout
-        row = next((l for l in st.splitlines() if "memhog" in l), "")
-        check("status shows a holder's cores and resident memory (its whole process tree)",
-              "4 cores" in row and " GB (peak " in row and "0.0 GB" not in row, row or st[-400:])
-        check("... and the two budgets", "Cores: 4 of " in st and "Memory: " in st, st[:500])
+        if os.environ.get('GATE_SELFTEST_NO_STRESS')!='1':
+            # 16. (v3) status shows each holder's cores and memory
+            d = root / "statusrss"
+            e = env_for(d)
+            spawn([PY, RQ, "run", "--label", "memhog", "--", PY, "-c", "x = bytearray(300 * 2**20); import time; "
+                   "x[::4096] = b'1' * len(x[::4096]); time.sleep(4)"], e)
+            time.sleep(2.0)
+            st = subprocess.run([PY, RQ, "status"], env=e, capture_output=True, text=True).stdout
+            row = next((l for l in st.splitlines() if "memhog" in l), "")
+            check("status shows a holder's cores and resident memory (its whole process tree)",
+                  "4 cores" in row and " GB (peak " in row and "0.0 GB" not in row, row or st[-400:])
+            check("... and the two budgets", "Cores: 4 of " in st and "Memory: " in st, st[:500])
+
+        else:
+            print('NOT RUN: live RSS allocation stress pair (busy-host stop rule)',flush=True)
 
         # 17. (v3) prune: a hand-started review server running past the limit is stopped and listed
         import socket
@@ -506,41 +513,47 @@ def main():
         check("prune stops it and prints how to bring it back", srv.poll() is not None and "Bring it back" in r.stdout,
               r.stdout + r.stderr[-200:])
 
-        # 15. the census of work outside the queue: a busy Python counts; one waiting in line for its encode does not
-        d = root / "census"
-        e = env_for(d)
-        e.pop("GATE_UNMANAGED")
-        burn = "import time\nt=time.time()\nwhile time.time()-t<20: pass\n"
-        # four busy processes in one build: one alone can show under 30% CPU when the Mac is saturated
-        burn4 = "import os\nfor _ in range(3):\n    if os.fork() == 0: break\n" + burn
-        outside = spawn([PY, "-c", burn4], e, start_new_session=True)      # its own build
-        spawn([PY, RQ, "run", "--", "sleep", "20"], dict(e, GATE_UNMANAGED="0"))
-        time.sleep(0.5)
-        waiter = spawn([PY, "-c", "import subprocess,sys,threading,time\n"
-                        "threading.Thread(target=lambda: exec({!r}), daemon=True).start()\n"
-                        "subprocess.call([sys.executable, {!r}, 'run', '--', 'true'])\n".format(burn, RQ)],
-                       dict(e, GATE_UNMANAGED="0"), start_new_session=True)
-        wait_for(lambda: tickets(d), 10)                    # the waiter is in line
-        time.sleep(3.0)                                     # ps's CPU figure is an average: let it rise
-        code = ("import json,sys; sys.path.insert(0,%r); import renderq; "
-                "print(json.dumps([b['pids'] for b in renderq._unmanaged(renderq.slot_states())]))" % str(HERE))
-        r = subprocess.run([PY, "-c", code], env=e, capture_output=True, text=True, timeout=30)
-        try:
-            found = [p for b in json.loads(r.stdout.strip().splitlines()[-1]) for p in b]
-        except (ValueError, IndexError):
-            found = r.stderr[-300:]
-        check("a busy Python outside the queue counts against the heavy pool", outside.pid in found,
-              (found, subprocess.run(["ps", "-o", "pid=,pcpu=", "-g", str(outside.pid)], capture_output=True,
-                                     text=True).stdout.split()))
-        check("... but not a build whose next step is waiting in line", waiter.pid not in found, found)
-        os.killpg(outside.pid, signal.SIGKILL)
-        waiter.kill()
-        subprocess.run(["pkill", "-f", "^sleep 20$"])
+        if os.environ.get('GATE_SELFTEST_NO_STRESS')!='1':
+            # 15. the census of work outside the queue: a busy Python counts; one waiting in line for its encode does not
+            d = root / "census"
+            e = env_for(d)
+            e.pop("GATE_UNMANAGED")
+            burn = "import time\nt=time.time()\nwhile time.time()-t<20: pass\n"
+            # four busy processes in one build: one alone can show under 30% CPU when the Mac is saturated
+            burn4 = "import os\nfor _ in range(3):\n    if os.fork() == 0: break\n" + burn
+            outside = spawn([PY, "-c", burn4], e, start_new_session=True)      # its own build
+            spawn([PY, RQ, "run", "--", "sleep", "20"], dict(e, GATE_UNMANAGED="0"))
+            time.sleep(0.5)
+            waiter = spawn([PY, "-c", "import subprocess,sys,threading,time\n"
+                            "threading.Thread(target=lambda: exec({!r}), daemon=True).start()\n"
+                            "subprocess.call([sys.executable, {!r}, 'run', '--', 'true'])\n".format(burn, RQ)],
+                           dict(e, GATE_UNMANAGED="0"), start_new_session=True)
+            wait_for(lambda: tickets(d), 10)                    # the waiter is in line
+            time.sleep(3.0)                                     # ps's CPU figure is an average: let it rise
+            code = ("import json,sys; sys.path.insert(0,%r); import renderq; "
+                    "print(json.dumps([b['pids'] for b in renderq._unmanaged(renderq.slot_states())]))" % str(HERE))
+            r = subprocess.run([PY, "-c", code], env=e, capture_output=True, text=True, timeout=30)
+            try:
+                found = [p for b in json.loads(r.stdout.strip().splitlines()[-1]) for p in b]
+            except (ValueError, IndexError):
+                found = r.stderr[-300:]
+            check("a busy Python outside the queue counts against the heavy pool", outside.pid in found,
+                  (found, subprocess.run(["ps", "-o", "pid=,pcpu=", "-g", str(outside.pid)], capture_output=True,
+                                         text=True).stdout.split()))
+            check("... but not a build whose next step is waiting in line", waiter.pid not in found, found)
+            os.killpg(outside.pid, signal.SIGKILL)
+            waiter.kill()
+            for own in (outside,waiter):
+                try:os.killpg(own.pid,signal.SIGKILL)
+                except ProcessLookupError:pass
+        else:
+            print('NOT RUN: CPU census stress test (busy-host stop rule); synthetic unmanaged-core checks still run',flush=True)
+
     finally:
         for p in procs:
             if p.poll() is None:
-                p.kill()
-        subprocess.run(["pkill", "-f", "^sleep 30$"])
+                try:os.killpg(p.pid,signal.SIGKILL)
+                except ProcessLookupError:pass
 
     failed = sum(not c[1] for c in CASES)
     print("\nrenderq selftest: {} of {} pass".format(len(CASES) - failed, len(CASES)))

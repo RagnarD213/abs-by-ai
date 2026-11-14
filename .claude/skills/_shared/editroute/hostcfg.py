@@ -123,9 +123,6 @@ def presence(name=None, hour=None, idle=None):
     h = host(name)
     if not h:
         return "present", "unknown Mac"
-    if is_night(h, hour):
-        a, b = (h.get("night") or [22, 7])[:2]
-        return "away", "night ({}:00 to {}:00)".format(a, b)
     if idle is None:
         idle = idle_seconds()
     limit = float(h.get("away_after_min") or 30) * 60

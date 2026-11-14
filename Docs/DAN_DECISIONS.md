@@ -7,7 +7,6 @@ Read by the morning brief (`Docs/BOARD_MORNING_MAINTENANCE.md`, decide-or-drop a
 
 ---
 
-- **Post Malone cover (Decision since: 2026-11-14).** Choose X1–X5 for the approved off-the-cuff Short. [Five cover options](http://127.0.0.1:9844/)
 
 - **Free space on the M2's internal drive (Decision since: 2026-11-14).** It has about 58 GB free. The handoff's 240 GB of "old local copies" is mostly the M2's old edit folders (`~/Projects/_edit_work`, 196 GB, 21 jobs, several still with you for review). Its project checkout (102 GB) is live and stays. Say which finished jobs may be archived to the Seagate and then deleted. Nothing was deleted. [Receipt](TWO_MAC_EDIT_ROUTING_RECEIPT_20261114.md)
 - **Surgeon Fake Abs cover (Decision since: 2026-11-12; updated 2026-11-13).** Choose X1-X4 from the [four new reaction covers](http://127.0.0.1:9586/). All eight first-round covers were rejected. The film is approved and backed up.
