@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **KevinJamesCheat-SFC-R1(DS-41):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9661/;scripted-61.9s-vs-offcuff-73.2s,pick-one;setup-handoff-after-approval.
 
-**WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-13:Claude.**http://127.0.0.1:9621/;Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
+**WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9621/(mirrored-on-M6;work-folder-on-M2,ssh-m2);Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
 
 **DS-42:2026-11-11:Codex:awaiting-version-pick.**
 

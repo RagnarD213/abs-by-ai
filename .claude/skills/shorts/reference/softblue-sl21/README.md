@@ -102,3 +102,8 @@ better"). Builds: A2 (Short 1), D1 / D2 (Short 2 with pair X1 / X2; which take i
   so they match each other and every waiter (and the chain behind them) hangs. An hour lost. Chain the steps in ONE script and wait on a
   marker line in its log. Same trap with `pkill -f` on a name that is in your own command.
 - **Update `plans.NEG` when a Short gains an AI clip** (the gate plan's negative-events text said "no AI clips").
+
+- **Two Macs (2026-11-14):** the job's work folder stays on the Mac that built it (the M2). To give Dan the review page on the M6, copy the
+  page folder to the same path there (`rsync -a m2:<work>/review/ <work>/review/`; `/Users/danielrose` is a link on the M6) and run
+  `review_server.py PORT <work>/review` on the M6. The hub's migrated registration serves an old snapshot until then. Verify by hashing a
+  video through the M6 link against the M2 file.
