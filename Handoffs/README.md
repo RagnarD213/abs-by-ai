@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Great Again T VSL AD R2](handoff-20261114-great-again-t-vsl-round2.md), 2026-11-14. **HOLD: fire after Dan answers the round 1 page (http://127.0.0.1:9760/). Claude Opus 5.5, high.** Round 2 builds every graphic and clip in his chosen style, keys the rest of the roll, makes AI start and end pairs and finishes the first minute.
+
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-13. **HOLD: fire once Shorts 1 and 2 are approved. Codex newest Sol, high.** Short 3 (If You Can't Afford A Gym, You Can't Afford Therapy) is final; Shorts 1 and 2 are approved except one new lip-synced AI excuse clip each (round 2 with Claude). Covers and setup for all three together, February slots.
 
 

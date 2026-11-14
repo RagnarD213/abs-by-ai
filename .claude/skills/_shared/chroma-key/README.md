@@ -112,3 +112,23 @@ The approved sample's gate remains 37 PASS, 1 FAIL (accepted Balanced comb/tone)
 ## 16:9 rolls (RO-24, 2026-10-20)
 
 The first 16:9 adaptation (10/15 green screen, C1726) is `.claude/skills/longform-edit/reference/ro24/` (`key16.py`, README there): the same R2/R3 maths with the head-size scale, per-frame hair geometry, a clean plate of the screen and a garbage matte. It also carries a "refined" variant offered to Dan on 2026-10-20 (solid hair interior, edge colour, edge-band spill, and moving hands: the approved body key reads a skin/screen blur as solid because skin is red-heavy). Not yet approved; the approved key above stays the standard until Dan picks.
+
+## Calibration cache transfers: prove the source frame (2026-11-11, DS-38)
+
+Before transferring a calibration cache, compare its `src_u8.npy` against the full piece’s decoded source frames. Do not assume `keyed_from_piece_frame` is the decoder’s actual first frame: decimal `-ss` origins can round differently. DS-38’s C1730 scripted and watching calibration caches matched the full source **one frame earlier on all 81 frames**, while its off-the-cuff calibration matched the reported offset. `-fps_mode passthrough` was already present.
+
+Find a unique exact RGB-pixel match near the reported offset, then verify every transferred native frame at that offset. If an earlier transfer was wrong, keep the original cache read only; invalidate only its wrongly assigned stage-1 interval and the temporal-neighbour interval in the new round. Transfer the corrected calibration stage-1 frames and only the judged stage-1.5 interior with its valid handles, then recompute the missing boundary frames. Reset the new piece’s end neighbours as usual. A reused `.done` stamp alone does not prove calibration-to-piece correspondence. This changes cache placement, not the locked house-key mathematics.
+
+## Three traps from the Great Again T VSL roll (2026-11-14, WV-03, portrait C1903)
+
+- **Stage 1 can decode one frame past the end of a piece.** S1 keyed 1225 frames for a 1224-frame piece; frame 0 was the correct
+  first source frame and the extra one was the frame after the piece. Prove which by matching against a plain decode, move the
+  extra frame aside, and do not relax the count test. Giving the piece a duration that ends mid-frame avoids it (H1: exact).
+- **Specks counted on a lossy check video are not specks.** The 1-4 px dots between arm and torso were made by the compressed
+  check video where alpha is 0; a lossless check video showed none. Measure specks on lossless output before chasing them.
+- **A glasses lens that overhangs the cheek is really see-through.** The camera saw the screen through the glass; the recipe's
+  glass box does nothing there and forcing it solid prints a grey slab. Leave it clear, show the owner the crop, and record it
+  as an open measure instead of forcing the number. Also measure the roll's OWN camera dark rim: DS-40's 8% is not this camera's
+  (C1903's is about 3.1-3.4%), and the key should be at or under the source's own figure.
+- The locked long-form `warm` grade ran too bright and orange on this roll (white tank, warmer white balance); the rebalanced
+  `matched` grade is in `~/_edit_work/wv-03/round1/look/LOOK.json`.
