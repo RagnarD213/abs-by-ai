@@ -1,0 +1,33 @@
+{
+  "url": "http://127.0.0.1:9803/",
+  "M2": {
+    "status": 200,
+    "page_sha256": "de91eb57c52a1e6f05778a14721302a737c1f383641804d41d45b7818d64609a",
+    "images_verified": [
+      "X1-grid.jpg",
+      "X1-instagram.jpg",
+      "X1-youtube.jpg",
+      "X2-grid.jpg",
+      "X2-instagram.jpg",
+      "X2-youtube.jpg",
+      "X3-grid.jpg",
+      "X3-instagram.jpg",
+      "X3-youtube.jpg",
+      "X4-grid.jpg",
+      "X4-instagram.jpg",
+      "X4-youtube.jpg",
+      "X5-grid.jpg",
+      "X5-instagram.jpg",
+      "X5-youtube.jpg",
+      "all-covers.jpg"
+    ]
+  },
+  "M6": {
+    "page_sha256": "de91eb57c52a1e6f05778a14721302a737c1f383641804d41d45b7818d64609a",
+    "image_sha256": "51a02390f6a29d948e4b4230d38d1d08a59a734831018e7736cbb0d087b579ee",
+    "page_bytes": 6142,
+    "image_bytes": 289849
+  },
+  "browser_visual_inspection": "unavailable: browser host unavailable, native Chrome cgWindowNotFound; still files visually inspected offline",
+  "media_players": 0
+}

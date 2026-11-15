@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **OPEN. Start now. Codex newest stable Sol, high.** Dan approved R2 (jump rope opener 25 % faster) on 2026-11-15; exact master 173a3290 in `Short-form video content/Metabolism Not The Reason - DS-107/`. Covers (five plus blind Google) and Dan's pick, backups, metadata, pinned question, Blotato or shared waitlist with readbacks. No upload or schedule yet.
+- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **STARTED, awaiting cover pick. Codex M2 owns setup.** [Five paired covers](http://127.0.0.1:9803/) (same link M2/M6); three blind extras browser-blocked. Approved R2 hash verified; master/SRT backups and metadata/pinned question prepared. No social upload, waitlist or schedule yet. [Setup receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md).
 
 - [Blended Oats SFC Setup: approved Off-the-cuff R3](handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md), 2026-11-14. **OPEN. Start now. Codex newest stable Sol, high (verified GPT-6.1 Sol).** Dan chose Off the cuff with Warm colour/voice. Exact approved film locked; covers/pick, backups, organic metadata, then verified queue/shared-waitlist placement. No upload or schedule yet.
 
