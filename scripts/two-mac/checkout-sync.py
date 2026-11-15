@@ -114,6 +114,38 @@ def settle_conflicts(conflict_tree, base, head, files):
             os.remove(index)
 
 
+def tidy_union_files(tree, base, head):
+    """After the merge: in merge=union files both sides changed, drop entry lines the union merge doubled."""
+    sys.path.insert(0, HERE)
+    import textmerge
+    mb = git("merge-base", base, head).stdout.strip()
+    changed = lambda ref: set(git("diff", "--name-only", "--no-renames", mb, ref).stdout.splitlines())
+    blob = lambda ref, f: subprocess.run(["git", "-C", REPO, "show", ref + ":" + f], capture_output=True, env=ENV).stdout
+    fixes = {}
+    for f in sorted(changed(base) & changed(head)):
+        if not git("--attr-source=" + base, "check-attr", "merge", "--", f).stdout.strip().endswith(": union"):
+            continue
+        now = blob(tree, f); tidy = textmerge.dedupe_union(now, blob(base, f), blob(head, f))
+        if tidy != now:
+            fixes[f] = tidy
+    if not fixes:
+        return tree
+    index = os.path.join(STATE, "merge-index.{}".format(os.getpid()))
+    env = dict(ENV, GIT_INDEX_FILE=index)
+    try:
+        subprocess.run(["git", "-C", REPO, "read-tree", tree], capture_output=True, env=env, check=True)
+        for f, data in fixes.items():
+            oid = subprocess.run(["git", "-C", REPO, "hash-object", "-w", "--stdin"], input=data, capture_output=True, env=ENV, check=True).stdout.decode().strip()
+            mode = (git("ls-tree", base, "--", f).stdout.split() or ["100644"])[0]
+            subprocess.run(["git", "-C", REPO, "update-index", "--add", "--cacheinfo", "{},{},{}".format(mode, oid, f)], capture_output=True, env=env, check=True)
+        return subprocess.run(["git", "-C", REPO, "write-tree"], capture_output=True, text=True, env=env, check=True).stdout.strip()
+    except subprocess.CalledProcessError:
+        return tree
+    finally:
+        if os.path.exists(index):
+            os.remove(index)
+
+
 def push_local_commits():
     """Merge HEAD with origin/main in the object store and push the result. Returns a short description."""
     for attempt in (1, 2, 3):
@@ -139,7 +171,7 @@ def push_local_commits():
             if r is not None and (r.returncode != 0 or not out):
                 raise RuntimeError("git merge-tree failed: " + (r.stderr or r.stdout).strip()[:300])
             msg = "Merge the {} checkout's {} local commit(s) into main (automatic checkout sync)".format(HOST, ahead)
-            new = git("commit-tree", out[0], "-p", base, "-p", head, "-m", msg).stdout.strip()
+            new = git("commit-tree", tidy_union_files(out[0], base, head), "-p", base, "-p", head, "-m", msg).stdout.strip()
             how = "{} commit(s) merged with GitHub and pushed ({}){}".format(ahead, new[:7], settled)
         if DRY:
             return "would push: " + how

@@ -40,7 +40,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
 **RealDemos-B09:R1-REVIEW:2026-11-15:Codex,M2.** Awaiting Dan: http://127.0.0.1:9870/; six cleared, lateral held. `Docs/REALDEMOS_B09_REVIEW_20261115.md`.
 
 
@@ -51,28 +50,15 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
-
 **[FlowB4:WAIT-PICKS:2026-11-15:Codex:40cuts/16clips;then-library/job-docs](http://127.0.0.1:9260/)**
-
-
-
-
 
 
 
 **DS-109:R2:REPAIRING-M2:2026-11-15:Codex01a1dc87.** Two frames. Review next; push blocked.
 
 
-**DS-108:R2-M2:2026-11-15:Codex01a1dffe;same-chat-owner;Dan-requested-move;assets-copying;slot-held.**
-
-
-
-**WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
 **DS-98 three-way blind edit: FULL FILMS IN PRODUCTION 2026-11-15.** M6 slot acquired. Dan’s choices are recorded. Next owner review: all three complete films. [Opening review](http://127.0.0.1:18899/).
-
-
 
 
 
@@ -84,7 +70,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
 **[DS41:HOLD:2026-11-15:Codex01a1dc60](Docs/DS41_SETUP_RECEIPT_20261115.md)**
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
@@ -93,17 +78,11 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
-
-
 **FlowMusic:LICENSE-ASK:2026-11-09:Claude.**
 
 
 
-
 **Exercise-demos-Codex-R3:HOLD:2026-11-10:Codex:no-acceptable-curl.** `Docs/EXERCISE_DEMOS_CODEX_R3_20261110.md`.
-
-
 
 
 
@@ -115,12 +94,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
-
 **DS-77:QUEUED-Jan5;push-pending:2026-11-06:Claude.**`Docs/DS77_SETUP_RECEIPT_20261106.md`
-
-
-
 
 
 
@@ -155,9 +129,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
-
-
 **RO-37:QUEUED:2026-11-02:Claude.** YouTube Jan 1 9AM, socials Jan 2. Then: captions, tags, cover check. Push pending. `Docs/RO37_SETUP_RECEIPT_20261102.md`
 
 **RO-38:QUEUED:2026-11-03:Claude.** YouTube Jan 8 9AM, socials Jan 9. Then: captions, tags, cover check. `Docs/RO38_SETUP_RECEIPT_20261103.md`
@@ -167,7 +138,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **RO-24:QUEUED:2026-10-30:Claude.** YouTube Nov 15 9AM, socials Nov 16. Then: captions, public-cover check. `Docs/RO24_SETUP_RECEIPT_20261030.md`
 
 **RO-31:QUEUED-Jan24:2026-11-05:Claude.** push-pending
-
 
 
 
@@ -199,7 +169,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-
 **SL-10 HOLD 2026-11-02, Claude.** Waitlist Dec 24-25. `Docs/SL10_SETUP_RECEIPT_20261102.md`
 
 **Muhammad Shorts Batch B SFC Setup - HOLD 2026-10-27, Claude.** DS-13/06/10 waitlisted Jan 7/14/21 2027. `Docs/MUHAMMAD_SHORTS_BATCH_B_SETUP_RECEIPT_20261027.md`
@@ -208,9 +177,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 **DS-20 HOLD 2026-10-28, Codex.** A installed; Dec10 9AM Central approved, waitlisted. DS05 corrected R4 approved and queued same day5PM. Daily top-up queues DS20. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
-
-
-
 
 
 
@@ -319,7 +285,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **RO-14:QUEUED-JAN3-2027:2026-10-22:Claude.** `Docs/RO14_SETUP_RECEIPT_20261022.md`
 
 **RO-20C HOLD 2026-10-21, Claude.** Waitlist, Dec 6. `Docs/RO20C_SETUP_RECEIPT_20261021.md`
-
 
 
 

@@ -13,7 +13,7 @@ need no judgement, and this settles exactly three kinds, hunk by hunk, never dro
 Anything else (the same line changed two ways, code files, a .json result that no longer parses) is refused.
 Used by checkout-sync.py (commits) and reconcile-checkout.py (unsaved edits). Tests: test_checkout_sync.py.
 """
-import difflib, json, os, subprocess, sys, tempfile
+import collections, difflib, json, os, subprocess, sys, tempfile
 
 TYPES = (".md", ".txt", ".json")
 MARK = 31                                           # long conflict markers: no real line looks like one
@@ -85,6 +85,21 @@ def _settle(raw, path):
         try: json.loads(merged.decode("utf-8"))
         except ValueError: return None, "merged .json would not parse"
     return merged, "settled {} spot(s): {}".format(len(kinds), "+".join(sorted(set(kinds))))
+
+
+def dedupe_union(merged, ours, theirs):
+    """A merge=union file (the board, the handoff index) keeps both sides' lines, so an entry both sides hold can come
+    out twice. Drop only the copies the merge added: a line never appears more often than it did on either side."""
+    try: mo, oo, tt = merged.decode("utf-8"), ours.decode("utf-8"), theirs.decode("utf-8")
+    except UnicodeDecodeError: return merged
+    co, ct, seen, out = collections.Counter(oo.splitlines()), collections.Counter(tt.splitlines()), collections.Counter(), []
+    for line in mo.splitlines(keepends=True):
+        k = line.rstrip("\r\n")
+        if len(k.strip()) >= 30:
+            seen[k] += 1
+            if seen[k] > max(co[k], ct[k], 1): continue
+        out.append(line)
+    return "".join(out).encode("utf-8")
 
 
 def _json_list(base, ours, theirs):

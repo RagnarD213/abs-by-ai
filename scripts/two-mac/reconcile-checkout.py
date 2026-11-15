@@ -108,7 +108,11 @@ for p in both:                                   # 3-way merge must be clean bef
     r = subprocess.run(["git", "merge-file", "-p", p, base, theirs], capture_output=True)
     if r.returncode != 0 and git("--attr-source=" + NEW, "check-attr", "merge", "--", p).strip().endswith(": union"):
         r = subprocess.run(["git", "merge-file", "-p", "--union", p, base, theirs], capture_output=True)   # .gitattributes: keep both sides' lines
-        print("  {}: both sides changed the same spot; both sides' lines kept (union file)".format(p))
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import textmerge
+        if r.returncode == 0:
+            merged[p] = textmerge.dedupe_union(r.stdout, open(p, "rb").read(), show(NEW, p))
+            print("  {}: both sides changed the same spot; both sides' lines kept (union file)".format(p)); continue
     if r.returncode != 0 and p == JOBS:                 # the edit queue list merges job by job, newer rev wins
         sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
         import jobsmerge

@@ -63,8 +63,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Google Flow Music: channel theme song and background beds](handoff-20261107-flow-music-theme-and-beds.md): **Written 2026-11-07, fire now.** Dan asked for it. Claude Opus high interviews Dan (theme, moods, AI-music flag), then generates a theme and beds in Flow Music before Nov 29, offline checks, review page for picks.
-- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed and published 2026-11-15, Codex; awaiting video picks.** [40 checked cuts across 16 clips](http://127.0.0.1:9260/), Three Cans reports preserved. After Dan pastes picks, file selected cuts, refresh sheet and update job docs; no duplicate review task.
-- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Video picks pending 2026-11-15, Codex.** [Review](http://127.0.0.1:9260/); frames/motion reviews complete. Remaining: file actual selections and job-doc IDs. Credit receipt updated:490 observed versus540expected,19,822 balance, discrepancy50 unresolved.
 - [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Written 2026-11-07, fire now; finish by Nov 28.** Dan asked for it. Claude Opus high fills clip-library gaps (gags, eating, weigh-ins, gym, lifestyle) on up to 7,000 Flow credits; frame pairs batched for Dan.
 - [Fly (bent elbows) and seated triceps app demos R4](handoff-20261109-exercise-demos-r4-fly-seated-triceps.md): **Written 2026-11-09, started automatically (video round rule).** Weighted crunch shipped live; fly and triceps frames failed R3 review, R4 changes the fly camera and rebuilds the seated triceps end.
 - [Three more AI-Dan exercise demos (triceps extension, dumbbell fly, weighted crunch)](handoff-20261106-exercise-demos-three-more.md): **Written 2026-11-06, fire now.** Dan asked for it. Claude Opus high makes the next three app demos with paid 1080p Veo (up to $10, 5 takes each), puts the best on a review page; install only after Dan says ship. **Executed 2026-11-07: at Dan's review (http://127.0.0.1:9317/); R2: crunch and fly passed, triceps form fixed with a brief flicker. Install on "ship" per the file.**
@@ -83,7 +81,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-
 - Social Response Marketing (Upwork, outreach, agency site): moved 2026-11-02 to its own project, `~/Projects/Claude/Projects/Social Response Marketing` (private repo). Its handoffs, website and status live there.
 
 
@@ -96,16 +93,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-
-
-
 - [Content Schedule Overhaul, final](handoff-20261028-content-schedule-overhaul.md): **Fire now. Dan approved 2026-10-28. Codex gpt-6.1-sol, high.** Rearranges the Blotato queue and waiting list and writes the plan past the queue: no kitchen before Thanksgiving except Daily Salad and its Shorts, kitchen films and two Shorts a day Thanksgiving to Christmas, January blitz Dec 26 to Jan 31 (3 long-forms + 8 Shorts a week), then 1 + 6 from Feb 1. No ad changes. Supersedes Codex's data-led alternative (kept as evidence: `Docs/CONTENT_STRATEGY_RECOMMENDATION_20261028.md`).
-
-
-
-
-
-
 
 
 
@@ -124,12 +112,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-
-
-
 - [I'm 41 Wasted Life LFC Setup](handoff-20261017-ro25-approved-thumbnail-and-video-setup.md): **Film approved and finalized 2026-10-17; existing setup handoff ready.** Thumbnail C approved and finalized, red age and white regret text. Use the exact final JPEG; skip new thumbnail choices. Target Oct 18 YouTube / Oct 19 socials, verify live slots. Claude Opus 5.5 / High.
-
-
 
 
 

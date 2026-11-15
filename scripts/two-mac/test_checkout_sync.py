@@ -227,6 +227,19 @@ class Sandbox(unittest.TestCase):
         self.assertEqual(m(head, head + "mine\n", head + "theirs\n").decode(), head + "mine\ntheirs\n")
         self.assertIsNone(m(head, head + "mine\n", head + "theirs\n", "tool.py"))
 
+    def test_union_merge_does_not_double_an_entry_both_sides_hold(self):
+        same = "**Shared entry both Macs hold, long enough to count as an entry line.**\n"
+        self.write(self.other, ".gitattributes", "board.md merge=union\n"); self.write(self.other, "board.md", "# ACTIVE\n\nold entry\n"); self.upstream("board")
+        sh(self.live, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, "board.md", "# ACTIVE\n\n" + same + "**Entry only GitHub has, also long enough to count.**\n\nold entry\n"); self.upstream()
+        self.write(self.live, "board.md", "# ACTIVE\n\n**Entry only this Mac has, also long enough to count.**\n" + same + "\nold entry\n")
+        sh(self.live, "git", "commit", "-q", "-am", "local board")
+        r = self.sync()
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        board = self.read(self.live, "board.md")
+        self.assertEqual(board.count(same), 1, board)
+        self.assertIn("only GitHub has", board); self.assertIn("only this Mac has", board)
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")
