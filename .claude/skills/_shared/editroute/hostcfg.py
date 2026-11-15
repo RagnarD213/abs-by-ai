@@ -18,6 +18,9 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 IDLE_CACHE = Path(os.environ.get("EDITROUTE_IDLE_CACHE") or "/tmp/absbyai-editroute-idle.json")
 IDLE_CACHE_S = 15.0
+# /away (Dan, 2026-11-15): "I am leaving now" switch, so the away core budget starts at once instead of after 30 min idle.
+AWAY_FILE = Path(os.environ.get("EDITROUTE_AWAY_FILE") or Path.home() / ".absbyai-away.json")
+AWAY_GRACE_S = 120.0                                  # time to walk away after typing /away before input cancels it
 _cfg = [None, None]                                   # (mtime, parsed)
 
 
@@ -118,6 +121,46 @@ def is_night(h, hour=None):
     return hour >= start or hour < end if start > end else start <= hour < end
 
 
+def away_set(hours=8.0):
+    """Dan says he is leaving: away budget from now until he touches the Mac again (after the grace) or `hours` pass."""
+    now = time.time()
+    d = {"t": now, "until": now + float(hours) * 3600, "grace_s": AWAY_GRACE_S}
+    tmp = AWAY_FILE.with_name(AWAY_FILE.name + ".{}".format(os.getpid()))
+    tmp.write_text(json.dumps(d))
+    os.replace(str(tmp), str(AWAY_FILE))
+    return d
+
+
+def away_clear():
+    try:
+        AWAY_FILE.unlink()
+        return True
+    except OSError:
+        return False
+
+
+def away_override(idle=None):
+    """(True, why) while Dan's /away switch holds. It ends, and removes itself, when its time is up or when the
+    keyboard or mouse is used after the grace period: he is back, so the Mac goes back to the present budget."""
+    try:
+        d = json.loads(AWAY_FILE.read_text())
+        t, until, grace = float(d["t"]), float(d["until"]), float(d.get("grace_s", AWAY_GRACE_S))
+    except (OSError, ValueError, KeyError, TypeError):
+        return False, ""
+    now = time.time()
+    if now >= until:
+        away_clear()
+        return False, ""
+    since_grace = now - (t + grace)
+    if since_grace > 0:
+        if idle is None:
+            idle = idle_seconds()
+        if idle is not None and idle < since_grace - IDLE_CACHE_S:    # input after the grace (cache can lag 15 s)
+            away_clear()
+            return False, ""
+    return True, "Dan said he is away ({} min ago, up to {:.1f} h more)".format(int((now - t) // 60), (until - now) / 3600)
+
+
 def presence(name=None, hour=None, idle=None):
     """('away' | 'present', why). Away = Dan has not touched this Mac for away_after_min minutes, or it is night."""
     h = host(name)
@@ -125,6 +168,9 @@ def presence(name=None, hour=None, idle=None):
         return "present", "unknown Mac"
     if idle is None:
         idle = idle_seconds()
+    ok, why = away_override(idle)
+    if ok:
+        return "away", why
     limit = float(h.get("away_after_min") or 30) * 60
     if idle is None:
         return "present", "idle time unknown, assuming Dan is here"
