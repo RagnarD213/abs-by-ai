@@ -2,7 +2,7 @@ CONTENT (SFC, reaction). Task name: `Smaller Plates Reaction SFC R1`.
 
 # DS-108: A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right.
 
-**Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
+**R1 first review ready, awaiting Dan.** [Review colour, voice and graphic stills](http://127.0.0.1:9880/). A checked 1080p 15-second component is rendered; the complete reaction is not rendered, approved, uploaded or scheduled. [R1 receipt](ds108-r1/REVIEW.md).
 
 ## Read first
 
@@ -16,7 +16,7 @@ Times are minutes:seconds into each roll from an audio pass: close, not frame-ac
 
 | roll | range | notes |
 |---|---|---|
-| `C1909` | 0:00-0:46 | Dan watches the Mike Michalowicz clip (laptop in shot) |
+| `C1909` | 0:00-0:46 | Dan watches the Mike Michalowicz clip; native source shows standing Dan with no laptop visible (intake correction) |
 | `C1909` | 0:46-1:56 | scripted reaction |
 | `C1909` | 1:56-3:26 | off-the-cuff reaction |
 
