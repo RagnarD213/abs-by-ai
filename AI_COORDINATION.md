@@ -54,7 +54,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**DS-109:R2:REPAIRING-M2:2026-11-15:Codex01a1dc87.** Two frames. Review next; push blocked.
+**DS-109:R2:REVIEW:2026-11-15:Codex01a1dc87.** [Full67s](http://127.0.0.1:9860/); approve next. Push blocked.
 
 
 
