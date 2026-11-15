@@ -34,13 +34,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **DS-109:WAIT-CAPACITY:2026-11-14:Codex01a1dc87:R1:next-look/audio/key/asset-previews-before-full-render.**
 
 
-**DS-108:ACTIVE-M6:2026-11-14:Codex01a1dc86;first-review-next;push-pending-live-files.**
+**DS-108:REVIEW-M6:2026-11-14:Codex01a1dc86;127.0.0.1:9880;Dan-picks;full-film-unbuilt.**
 
 
 
 **WhatToCut-SFL-Setup:THERAPY-PICK:2026-11-14:Codex.** [Choose-X1–X8](http://127.0.0.1:9862/?pick=therapy);Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
-**DS-98 three-way blind edit: ACTIVE 2026-11-14, Codex 01a1db93.** M6. Next: isolated first-review previews; no setup.
+**DS-98 three-way blind edit: BLOCKED 2026-11-14, Codex 01a1db93.** M6. First video review: no URL yet. [Sound-ready listening check only](http://127.0.0.1:18898/). Return the downloaded listening report in the DS-98 conversation; no setup.
 
 
 
@@ -296,10 +296,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
+**RO-19:QUEUED:2026-11-15:Claude.** Dec4.
 
 
-**RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
+**RO-07:QUEUED:2026-11-15:Claude.** Dec2.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

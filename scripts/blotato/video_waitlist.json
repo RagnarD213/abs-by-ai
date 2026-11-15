@@ -284,7 +284,11 @@
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "kitchen": true,
-  "planned": "2026-11-28 18:00"
+  "planned": "2026-11-28 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-11-29T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
@@ -295,7 +299,11 @@
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "kitchen": true,
-  "planned": "2026-12-01 18:00"
+  "planned": "2026-12-01 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-02T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
@@ -303,7 +311,11 @@
   "job": "RO-07",
   "label": "Why You MUST Work Out Every Day",
   "added": "2026-10-11",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-02T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
@@ -311,7 +323,11 @@
   "job": "RO-19",
   "label": "My First Spray Tan",
   "added": "2026-10-13",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-04T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json",
@@ -321,7 +337,11 @@
   "added": "2026-10-22",
   "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kitchen": true,
-  "planned": "2026-12-05 18:00"
+  "planned": "2026-12-05 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-06T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
@@ -1006,5 +1026,16 @@
   "kitchen": false,
   "planned": "2027-01-09 09:00",
   "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
+ },
+ {
+  "config": "scripts/blotato/configs/ds34-surgeon-fake-abs.json",
+  "kind": "short",
+  "job": "DS-34",
+  "label": "Surgeons Now Carve Fake Abs Into Belly Fat. Don't Do It.",
+  "added": "2026-11-14",
+  "kitchen": false,
+  "gym": false,
+  "planned": "2027-01-11 09:00",
+  "note": "Setup complete; exact R2 film and A Clean Stamp approved. Four staging assets fully downloaded/SHA256 verified; TikTok all 1925 frames checked, original picture/audio packet payloads unchanged. Project/Extreme/Drive backups verified. Ready for existing shared daily top-up in list order. Receipt Docs/DS34_SETUP_COMPLETION_20261114.md."
  }
 ]
