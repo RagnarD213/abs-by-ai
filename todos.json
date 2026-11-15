@@ -328,39 +328,11 @@
       "boardRank": 0
     },
     {
-      "text": "Put away dishes",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "boardRank": 1
-    },
-    {
-      "text": "Take out trash",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "boardRank": 2
-    },
-    {
-      "text": "Fold laundry",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "boardRank": 3
-    },
-    {
       "text": "Set up laundry hamper",
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-11-08",
       "boardRank": 4
-    },
-    {
-      "text": "Put away groceries",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "boardRank": 5
     },
     {
       "text": "Cut up all boxes in spare room in small pieces",
@@ -418,28 +390,6 @@
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
       "boardRank": 13
-    },
-    {
-      "text": "Tidy bathrooms",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-10-21",
-      "addedBy": "assistant",
-      "boardRank": 14
-    },
-    {
-      "text": "Make bed",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take trash to curb (Sundays)",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "addedBy": "assistant"
     },
     {
       "text": "Transfer laundry",
