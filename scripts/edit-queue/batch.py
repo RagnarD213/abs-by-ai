@@ -127,6 +127,8 @@ def handle(req):
         op=req['op']; now=time.time()
         if op=='snapshot': return snapshot()
         if op=='stop':
+            for p in batches():
+                state=read(p/'state.json');state['enabled']=False;write(p/'state.json',state)
             c=control(); c.update(enabled=False,stopped=now);write(HOME/'control.json',c);return c
         if op=='preflight':
             c=control();c['preflight']=req['proof'];write(HOME/'control.json',c);return c

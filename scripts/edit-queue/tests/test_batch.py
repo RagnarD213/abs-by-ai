@@ -73,6 +73,12 @@ class BatchTests(unittest.TestCase):
         b.handle(dict(op='stop'));self.assertIsNone(self.claim())
         self.assertEqual(self.row()['status'],'claimed');self.outcome(c)
         self.assertEqual(self.row()['status'],'delivered')
+    def test_starting_a_new_batch_does_not_restart_a_stopped_old_batch(self):
+        self.enqueue();self.start();b.handle(dict(op='stop'))
+        self.enqueue('later',ids=('RA-02',));self.start('later')
+        self.assertEqual(self.claim()['batch'],'later')
+        self.assertIsNone(self.claim())
+
     def test_round_dedup_and_live_takeover_refused(self):
         self.enqueue();self.start();c=self.claim()
         with self.assertRaises(ValueError):self.enqueue('other')
