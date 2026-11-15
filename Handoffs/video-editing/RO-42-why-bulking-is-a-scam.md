@@ -31,6 +31,10 @@ Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (g
 
 One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers and upload/setup are separate tasks after Dan approves the film (Codex owns setup).
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0239**: plays under "Then when it was time to cut, I procrastinated far too long". A man by the fridge with his DIET STARTS MONDAY note, donut in hand, sulky and guilty (3.75 s, 16:9). `clip_library.py show A0239`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

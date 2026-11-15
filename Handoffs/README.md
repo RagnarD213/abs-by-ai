@@ -11,11 +11,13 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
+
 - [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **OPEN. Start now. Codex newest stable Sol, high.** Dan approved R2 (jump rope opener 25 % faster) on 2026-11-15; exact master 173a3290 in `Short-form video content/Metabolism Not The Reason - DS-107/`. Covers (five plus blind Google) and Dan pick, backups, metadata, pinned question, Blotato or shared waitlist with readbacks. No upload or schedule yet.
 
 - [Overnight editing on both Macs](handoff-20261115-overnight-edit-batch-fable-review.md), November 15, 2026. **Awaiting Claude Fable 5.2 feedback.** Review the incident evidence, proposed batch workflow and recovery tests. Dan will return the critique before implementation.
 
-- [Kevin James Cheat SFC Setup: approved off the cuff R2](handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md), updated2026-11-15. **REVISED X3 AWAITS FINAL OK, Codex01a1dc60, M6.** [Approve revised pair](http://127.0.0.1:9868/). Dan choseX3 and requested "Why Cheat Days Make You Fat". Exact revised pair/grid checked; only text changed. No final cover approval, installs, platform uploads or schedules. Resume:`/Users/danrrose/Projects/_edit_work/DS-41-setup/RESUME.md`.
+- [Kevin James Cheat SFC Setup: approved off the cuff R2](handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md), updated2026-11-15. **SETUP COMPLETE, WAITLISTED, Codex01a1dc60.** Revised X3 approved/installed; four uploaded assets hash-verified. Shared waiting-list plan January11 2027 at6PM Central, all four destinations; queue199/200, no live schedules. [Receipt](../Docs/DS41_SETUP_RECEIPT_20261115.md). No Dan action; shared top-up owns scheduling. EditQueue finalized pending actual post readbacks.
 
 - [Blended Oats SFC Setup: approved Off-the-cuff R3](handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md), 2026-11-14. **OPEN. Start now. Codex newest stable Sol, high (verified GPT-6.1 Sol).** Dan chose Off the cuff with Warm colour/voice. Exact approved film locked; covers/pick, backups, organic metadata, then verified queue/shared-waitlist placement. No upload or schedule yet.
 
@@ -28,7 +30,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Great Again T VSL AD R5](handoff-20261115-great-again-t-vsl-round5.md), 2026-11-15. **READY: fire now. Claude Opus 5.5, high.** Dan picked the Medium Wood Kitchen. Round 5 builds the first 3 minutes in the wood kitchen and in the Teal Studio from one cut, and start and end frame pairs for all 44 AI clip ideas. Nothing else is rendered.
 
-- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-15. **IN PROGRESS, Codex.** All three films approved and unchanged. Restaurant R4 X2 and Vacation X7 covers approved; [four revised therapy choices await the final pick](http://127.0.0.1:9862/?therapy_round=2). Then complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-15. **IN PROGRESS, Codex.** Restaurant R4 X2 and Vacation X7 approved; therapy X3 selected, [large bubble and removed title await exact-file approval](http://127.0.0.1:9862/?therapy_round=4). All films unchanged. After OK, complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
 
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
@@ -55,6 +57,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Google Flow Music: channel theme song and background beds](handoff-20261107-flow-music-theme-and-beds.md): **Written 2026-11-07, fire now.** Dan asked for it. Claude Opus high interviews Dan (theme, moods, AI-music flag), then generates a theme and beds in Flow Music before Nov 29, offline checks, review page for picks.
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Written 2026-11-15, fire now (Codex newest Sol high; Grokbot only with Mac access).** Claude hit its weekly limit mid-step. 54 takes made and clipchecked; review each clip, build the video page, file Dan's picks.
 - [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **In progress 2026-11-15, Claude (this session): frames on Dan's picks page http://127.0.0.1:9251/ ; 0 credits so far; receipt `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.** Next batch of AI clips on the Google Flow credits (1,060 of 14,000 used): ideas for the 11/13 shoot's long-forms and Shorts plus the Shorts batch 3 left without clips, blind frame pairs, Dan's picks, video, file in the clip library. Claude Opus 5.5 high.
 - [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Written 2026-11-07, fire now; finish by Nov 28.** Dan asked for it. Claude Opus high fills clip-library gaps (gags, eating, weigh-ins, gym, lifestyle) on up to 7,000 Flow credits; frame pairs batched for Dan.
 - [Fly (bent elbows) and seated triceps app demos R4](handoff-20261109-exercise-demos-r4-fly-seated-triceps.md): **Written 2026-11-09, started automatically (video round rule).** Weighted crunch shipped live; fly and triceps frames failed R3 review, R4 changes the fly camera and rebuilds the seated triceps end.

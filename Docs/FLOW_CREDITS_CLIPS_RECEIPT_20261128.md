@@ -266,3 +266,12 @@ came back one pixel narrower twice (1671 vs 1672): resize to the START size befo
 and misspelled a book title in an END ("PITNESS"). Reviewers recording on the M6 waited 10 to 25 minutes behind a heavy render; record on the M2
 (`record_reviews.sh`, or `ssh m2 ... gate.py --review`). Moving a pair aside while its reviewer is still recording leaves that review orphaned in `r1/`.
 Next: Dan's picks on 9251, then `blind.py pick` for X1/X2 sets, `veo.py add` per picked pair (Veo Fast x2 + Omni x1; START-only for B4-14/B4-16), video.
+
+## Batch 4 video: made, reviews handed off (2026-11-15)
+
+Dan picked 18 frame pairs plus all 11 existing clips (existing ones now listed in the RO-40, RO-41, RO-42, DS-106, DS-64, DS-57 job docs; blind picks
+recorded). Video: 54 takes in `/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b4/veo/` (Flow projects
+https://flow.google.com/project/15feecac-1a20-4287-8325-f08eba3351be and https://flow.google.com/project/61011229-2dbc-4824-9eb7-77f6e0128d56);
+all passed clipcheck. Credits: 20,312 before; 19,822 read while half B was finishing (about 540 expected for 54 takes); final read pending.
+Motion reviews stopped when Claude's weekly limit ran out (resets Nov 19, 10 AM Central): handed to Codex in
+`Handoffs/handoff-20261115-flow-clips-batch4-motion-reviews.md`.

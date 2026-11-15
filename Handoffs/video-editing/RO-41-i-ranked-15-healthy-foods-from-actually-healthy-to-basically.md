@@ -31,6 +31,13 @@ Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (g
 
 One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers and upload/setup are separate tasks after Dan approves the film (Codex owns setup).
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0143**: plays under "Granola is 480 calories a cup". An overweight man eats granola at a table loaded with "healthy" food (4.0 s, 16:9). Also used in RO-10. `clip_library.py show A0143`. Label it AI-generated on the picture.
+- **A0181**: plays under "One cup of trail mix is about 700 calories. That's more than a Big Mac". A balance scale: trail mix poured onto one pan outweighs a double cheeseburger (16:9). Also used in RO-17. `clip_library.py show A0181`. Label it AI-generated on the picture.
+- **A0183**: plays under "Trail mix and dried fruit sound healthy, but they're loaded with calories". A packing worker pours candy-coated chocolates into a jar of nuts and raisins and winks (5.0 s, 16:9). Also used in RO-17. `clip_library.py show A0183`. Label it AI-generated on the picture.
+- **A0185**: plays under "A cup of raisins is 493 calories. A cup of grapes is 106". Raisins poured into a palm beside a bunch of grapes (4.3 s, 16:9). Also used in RO-17. `clip_library.py show A0185`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**
