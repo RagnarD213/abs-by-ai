@@ -153,7 +153,7 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
         info=b.read(wd/'DELIVERY.json',{})
         for file in checkpoint['files']:
             if r.sha256(file['path'])!=file['sha256']:raise ValueError('candidate changed after validation')
-        link=review_link(info)
+        link='http://127.0.0.1:'+str(info.get('review_port',''))+'/'
         reviewer=cfg['review']['reviewer_for'][executor]
         verdict=None;reason='reviewer returned no valid verdict';report_path=None
         # A timeout or missing verdict gets one new session. A valid rejection never starts a fix loop.
@@ -172,12 +172,18 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
             review_h+=hours
             verdict=review_verdict(report_path) if code==0 else None
             if verdict:break
+            if r.classify_failure(code,tail,cfg)=='usage_limited':
+                checkpoint['review_attempts']=attempt;b.write(checkpoint_path,checkpoint)
+                outcome=dict(status='paused-for-allowance',reason='reviewer usage limit');return 0
             reason='reviewer timeout or no valid verdict after '+str(attempt+1)+' attempt(s)'
         if verdict=='DOES NOT SHIP':
             outcome=dict(status='blocked',reason='independent reviewer: DOES NOT SHIP',next_action='Review the cut and consolidated findings; scope a separate revision',link=link,report=str(report_path))
         elif verdict in ('SHIP','SHIP WITH DISCLOSED UNCERTAINTY'):
             outcome=dict(status='delivered',verdict=verdict,link=link,report=str(report_path),files=checkpoint['files'])
         else:outcome=dict(status='delivered-unreviewed',reason=reason,link=link,files=checkpoint['files'])
+        try:outcome['link']=review_link(info)
+        except (OSError,RuntimeError,subprocess.SubprocessError):
+            outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'])
     except Exception as exc:
         outcome=dict(status='blocked',reason=str(exc),next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:
@@ -185,9 +191,13 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         if wd:
             b.write(wd/(k+'-batch-outcome-'+token+'.json'),dict(outcome,token=token,at=time.time()))
         # Retain the exact outcome locally before attempting the M2 link; outbox syncs after reconnect.
-        b.update('outcome',name,k,token,outcome=outcome,
-                 timing=dict(active_hours=edit_h,review_hours=review_h,worker_hours=(time.time()-started)/3600),
-                 backoff_s=eq.load_config()['stop']['usage_backoff_hours']*3600)
+        timing=dict(active_hours=edit_h,review_hours=review_h,worker_hours=(time.time()-started)/3600)
+        if outcome.get('pending_review'):
+            b.write(b.HOME/'outbox'/(token+'.json'),dict(op='outcome',batch=name,key=k,token=token,host=b.here(),outcome=outcome,timing=timing))
+            progress(phase='outcome waiting for review mirror',session={})
+        else:
+            b.update('outcome',name,k,token,outcome=outcome,timing=timing,
+                     backoff_s=eq.load_config()['stop']['usage_backoff_hours']*3600)
         if has_slot:
             review=outcome['status'] in ('delivered','delivered-unreviewed','needs-dan') or bool(outcome.get('link'))
             subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'release',jobid]+(['--review'] if review else []),capture_output=True,timeout=45)

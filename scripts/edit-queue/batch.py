@@ -188,6 +188,8 @@ def handle(req):
             if not choices:return None
             _,_,_,p,k,row=min(choices,key=lambda x:x[:3])
             state=read(p/'state.json');row=state['jobs'][k]
+            brief=(p/'briefs'/(k+'.md')).read_bytes()
+            if hashlib.sha256(brief).hexdigest()!=row['brief_sha256']:raise ValueError('stored brief changed')
             row.update(status='claimed',attempts=row['attempts']+1)
             row['claim']=dict(token=uuid.uuid4().hex,owner=req['host'],at=now,heartbeat=now,pid=None,birth=None,phase='starting')
             row['first_started']=row.get('first_started',now)
@@ -313,7 +315,14 @@ def guard(job):
 
 def flush_outbox():
     for p in sorted((HOME/'outbox').glob('*.json')):
-        rpc(**read(p));p.unlink()
+        request=read(p)
+        try:
+            pending=request['outcome'].pop('pending_review',None)
+            if pending:
+                request['outcome']['link']=eq.sibling('batch_runner').review_link(pending)
+            rpc(**request);p.unlink()
+        except (OSError,RuntimeError,subprocess.SubprocessError):
+            continue
 
 
 def update(op, batch, k, token, **kwargs):
@@ -336,8 +345,9 @@ def reconcile(snap):
             if row['status']!='claimed':continue
             c=row['claim']
             if c['owner']!=here():continue
+            if (HOME/'outbox'/(c['token']+'.json')).exists():continue
             local=read(HOME/'runs'/c['token']/'progress.json',{})
-            if local.get('pid')==c.get('pid'):
+            if local.get('pid') and (not c.get('pid') or local['pid']==c['pid']):
                 c=dict(c, **local)
             if alive(c.get('pid'),c.get('birth')):continue
             if time.time()-c['heartbeat']<STALE_S:continue
