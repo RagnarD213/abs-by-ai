@@ -1,3 +1,7 @@
+## WAITLISTED - DS-39 ChatGPT Coach, November 15, 2026
+
+Cover A approved and installed in both layouts. Approved off-the-cuff R5, cover assets and verified TikTok cover-first copy uploaded; complete four-platform package is on the shared video waiting list. Planned January12,2027 at6PM Central, subject to actual queue capacity. Blotato199/200; no live DS39 schedules created. Config: scripts/blotato/configs/ds39-chatgpt-coach.json. Existing shared top-up owns scheduling. Keyword COACH applies to Instagram; other platforms use direct links. Article and pinned question use existing post-release routines. Public tile verification remains after release.
+
 ## DS-42: The Drink Post Malone Quit, scheduled November 14, 2026
 
 Cover B. All four posts scheduled January 9, 2027 at 6 p.m. Central. [Receipt](Docs/DS42_SETUP_RECEIPT_20261114.md).

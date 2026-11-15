@@ -99,7 +99,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Mon Jan 11 | 3 | 9 AM | Your Metabolism Is Not The Reason You're Fat (DS-107) | Waitlist |
 | Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
 | Tue Jan 12 | 3 | 9 AM | How To Do Chest Flies On The Machine (DS-78, gym) | Live |
-| Tue Jan 12 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 12 | 3 | 6 PM | He Hired ChatGPT As His Coach For A Year. He's Right. (DS-39) | Waitlist |
 | Thu Jan 14 | 3 | 9 AM | What Every Body Fat Percentage Looks Like | Waitlist |
 | Thu Jan 14 | 3 | 6 PM | OPEN | Not booked |
 | Sat Jan 16 | 3 | 9 AM | How To Do A Standing Stomach Vacuum (SL-11 A) | Waitlist |

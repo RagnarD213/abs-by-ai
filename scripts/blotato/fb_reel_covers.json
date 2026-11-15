@@ -1672,5 +1672,14 @@
     "h": 1920,
     "approved": "Therapy X3, large bubble R4, Dan approved 2026-11-15",
     "sha256": "6e3a4125804ff0735643ad3f4188fd9582e6ef2e2d123ef63aff85459fe209f9"
+  },
+  {
+    "job": "DS-39",
+    "match": "Human personal trainers have gone obsolete. This guy hired ChatGPT as his coach for a year, and I think he's smart. There's no need to pay somebody $200 an hour just to give you advice when AI can give you that same advice, far better.",
+    "cover": "scripts/blotato/fb_covers/ds39-A-approved.png",
+    "when": "2027-01-13T00:00:00.000Z",
+    "w": 1080,
+    "h": 1920,
+    "sha256": "4c893b9ef8a067130122d10ecd89994e0a144b6cf34074170b38a93d4f2c18c9"
   }
 ]

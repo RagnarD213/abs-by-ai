@@ -1079,5 +1079,14 @@
   "after": "scripts/blotato/configs/ro20b-what-to-cut.json",
   "parent_config": "scripts/blotato/configs/ro20b-what-to-cut.json",
   "note": "All three films and exact covers approved. Setup complete: project/Extreme/public Drive backups and all uploaded bytes verified; TikTok native pictures/audio preserved, cover-first checked; four-platform preflight passed. Ready for shared top-up in order after parent. February 8/10/12 at 9AM Central plans, not live schedules. Receipt Docs/SL21_SETUP_RECEIPT_20261115.md."
+ },
+ {
+  "config": "scripts/blotato/configs/ds39-chatgpt-coach.json",
+  "kind": "short",
+  "job": "DS-39",
+  "label": "He Hired ChatGPT As His Coach For A Year. He's Right.",
+  "added": "2026-11-15",
+  "kitchen": false,
+  "gym": false
  }
 ]
