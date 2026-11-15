@@ -20,6 +20,7 @@ PY="$(xcrun --find python3 2>/dev/null || command -v python3)"
 [ -f "$HERE/.installed-once" ] || { python3 "$HERE/dispatcher.py" pause >/dev/null; : > "$HERE/.installed-once"; }
 for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
   sed -e "s|__ROOT__|$ROOT|g" -e "s|__HOME__|$HOME|g" -e "s|__PYTHON__|$PY|g" "$HERE/launchd/$L.plist" > "$AGENTS/$L.plist"
+  launchctl enable "$DOMAIN/$L"
   launchctl bootstrap "$DOMAIN" "$AGENTS/$L.plist"
 done
 echo "Installed. Dispatcher ticks every 2 min; review page: http://127.0.0.1:8830"

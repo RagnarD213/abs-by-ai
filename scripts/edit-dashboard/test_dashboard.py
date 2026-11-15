@@ -59,6 +59,12 @@ class Scratch(unittest.TestCase):
         with patch('os.open',safe),patch('fcntl.fcntl',query),patch('fcntl.flock',side_effect=AssertionError),patch('os.rename',side_effect=AssertionError),patch('os.replace',side_effect=AssertionError):
             data=self.snap()
         self.assertEqual(data['issues'],[]);self.assertEqual((data['used'],data['renders'],data['tickets']),(1,1,1));self.assertNotIn('SealedToken',json.dumps(data));self.assertEqual(before,tree(self.base))
+    def test_completed_owner_reviews_are_hidden(self):
+        for state in ('finalized','uploaded'):
+            put(self.repo/'Handoffs/video-editing/jobs.json',{'jobs':[{'id':'DS-98','title':'Real title','state':state}]})
+            put(self.ec/'registry.json',{'version':1,'edits':{'DS-98':{'job':'DS-98','state':'with-dan','since':1}}})
+            self.assertNotIn('DS-98',[j['id'] for j in self.snap()['jobs']])
+
     def test_review_handoff_supersedes_stall_until_next_round(self):
         catalog = self.repo/'Handoffs/video-editing/jobs.json'
         for host in ('m2','m6'):
