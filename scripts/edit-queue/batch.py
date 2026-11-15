@@ -437,10 +437,6 @@ def reconcile(snap):
                 if not prior:write(stopfile,dict(at=time.time()))
                 continue
             if time.time()-c['heartbeat']<STALE_S:continue
-            # A detached heavy step in renderq must finish before another editor resumes its folder.
-            capacity=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
-            if capacity.returncode:continue
-            if json.loads(capacity.stdout).get('renderq',{}).get(row['id'],{}).get('live',0):continue
             session=c.get('session',{})
             live=alive(session.get('pid'),session.get('birth'))
             if live:
@@ -453,6 +449,10 @@ def reconcile(snap):
                 if not previous:write(stopfile,dict(at=time.time(),pid=session['pid'],birth=session['birth']))
                 # A following tick confirms that group exited before any recovery claim.
                 continue
+            # A detached heavy step in renderq must finish before another editor resumes its folder.
+            capacity=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
+            if capacity.returncode:continue
+            if json.loads(capacity.stdout).get('renderq',{}).get(row['id'],{}).get('live',0):continue
             result=rpc('recover',batch=n,key=k,token=c['token'],host=here(),pid_alive=False,session_alive=False)
             if result['status'] in TERMINAL:
                 subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'release',row['id']],capture_output=True,timeout=30)

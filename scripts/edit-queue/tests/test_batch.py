@@ -219,6 +219,21 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(next_job['row']['id'],'RA-02')
         self.assertEqual(self.claim('m2',slots=1)['row']['id'],'SL-36')
 
+    def test_orphan_is_stopped_before_detached_render_drain_and_single_resume(self):
+        import subprocess
+        self.enqueue();self.start();c=self.claim();token=c['row']['claim']['token']
+        b.handle(dict(op='heartbeat',batch='night',key=c['key'],token=token,fields={'session':{'pid':567,'birth':'recorded'}}))
+        p=self.home/'night/state.json';s=b.read(p);s['jobs'][c['key']]['claim']['heartbeat']=0;b.write(p,s)
+        snapshot=lambda:b.handle({'op':'snapshot'})
+        with patch.object(b,'alive',side_effect=lambda pid,birth:pid==567),patch.object(b.os,'killpg') as kill,patch.object(b.subprocess,'run') as capacity:
+            b.reconcile(snapshot());kill.assert_called_once_with(567,b.signal.SIGTERM);capacity.assert_not_called()
+        busy=subprocess.CompletedProcess([],0,json.dumps({'renderq':{'SL-36':{'live':1}}}), '')
+        with patch.object(b,'alive',return_value=False),patch.object(b.subprocess,'run',return_value=busy):b.reconcile(snapshot())
+        self.assertEqual(self.row()['status'],'claimed')
+        clear=subprocess.CompletedProcess([],0,json.dumps({'renderq':{}}), '')
+        with patch.object(b,'alive',return_value=False),patch.object(b.subprocess,'run',return_value=clear):b.reconcile(snapshot())
+        self.assertEqual(self.row()['status'],'queued');self.assertEqual(self.row()['resumes'],1)
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')
