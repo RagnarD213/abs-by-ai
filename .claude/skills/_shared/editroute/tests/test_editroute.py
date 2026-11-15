@@ -111,7 +111,7 @@ class Config(unittest.TestCase):
             r = subprocess.run([sys.executable, "-c", code], capture_output=True, text=True, env=env)
             self.assertEqual(r.stdout.strip(), want, (h, r.stderr))
 
-    def test_m2_new_work_folder_goes_on_the_extreme_first(self):
+    def test_new_work_uses_internal_first_on_both_macs(self):
         from unittest.mock import patch
         sys.path.insert(0,str(SHARED/'renderq'));import renderq
         with tempfile.TemporaryDirectory() as d:
@@ -119,7 +119,7 @@ class Config(unittest.TestCase):
             ext.mkdir();internal.mkdir()
             with patch.object(renderq,'find_workdir',return_value=None),patch.object(renderq,'mounted_work_drives',return_value=[('Extreme',ext)]),patch.object(renderq,'INTERNAL_WORK',internal),patch.object(renderq.work_storage,'check',return_value='fixture room'):
                 with patch.dict(os.environ,{'EDITROUTE_HOST':'m2'}):
-                    self.assertEqual(renderq.workdir('DS-200'),ext/'_edit_work'/'DS-200')
+                    self.assertEqual(renderq.workdir('DS-200'),internal/'DS-200')
                 with patch.dict(os.environ,{'EDITROUTE_HOST':'m6'}):
                     self.assertEqual(renderq.workdir('DS-201'),internal/'DS-201')
 

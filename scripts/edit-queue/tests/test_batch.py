@@ -82,6 +82,13 @@ class BatchTests(unittest.TestCase):
         request['pid_alive']=False;self.assertEqual(b.handle(request)['status'],'queued')
         c=self.claim();expire();request['token']=c['row']['claim']['token']
         self.assertEqual(b.handle(request)['status'],'blocked')
+    def test_recovery_can_reuse_its_own_still_registered_full_slot(self):
+        self.enqueue();self.start();c=self.claim(slots=1)
+        p=self.home/'night/state.json';s=b.read(p);s['jobs'][c['key']]['claim']['heartbeat']=0;b.write(p,s)
+        b.handle(dict(op='recover',batch='night',key=c['key'],token=c['row']['claim']['token'],host='m2',pid_alive=False))
+        resumed=self.claim(slots=1,occupied=['SL-36'])
+        self.assertIsNotNone(resumed);self.assertEqual(resumed['row']['resumes'],1)
+
     def test_usage_pause_keeps_folder_owner_and_three_retries(self):
         self.enqueue();self.start()
         for attempt in range(3):

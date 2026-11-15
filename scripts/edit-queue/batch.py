@@ -183,7 +183,7 @@ def handle(req):
             for d in snapshot()['batches'].values():
                 live.extend(r for r in d['jobs'].values() if r['status']=='claimed' and r['claim']['owner']==req['host'])
             unregistered=sum(r['id'] not in req['occupied'] for r in live)
-            if len(req['occupied'])+unregistered>=req['slots']:return None
+            full=len(req['occupied'])+unregistered>=req['slots']
             choices=[]
             for p in batches():
                 state=read(p/'state.json')
@@ -192,6 +192,7 @@ def handle(req):
                     if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']):
                         if r['id'] in req.get('unavailable',[]):continue
                         choices.append(({'L':0,'M':1,'S':2}[r['size']],r['order'],r['queued_at'],p,k,r))
+            if full:choices=[entry for entry in choices if entry[-1]['id'] in req['occupied']]
             if not choices:return None
             _,_,_,p,k,row=min(choices,key=lambda x:x[:3])
             state=read(p/'state.json');row=state['jobs'][k]
@@ -371,8 +372,12 @@ def reconcile(snap):
             live=alive(session.get('pid'),session.get('birth'))
             if live:
                 # Only the recorded orphan's exact process group, never another editor's processes.
-                try:os.killpg(session['pid'],signal.SIGTERM)
+                stopfile=HOME/'runs'/c['token']/'orphan-stop.json'
+                previous=read(stopfile,{})
+                force=previous.get('at') and time.time()-previous['at']>30
+                try:os.killpg(session['pid'],signal.SIGKILL if force else signal.SIGTERM)
                 except ProcessLookupError:pass
+                if not previous:write(stopfile,dict(at=time.time(),pid=session['pid'],birth=session['birth']))
                 # A following tick confirms that group exited before any recovery claim.
                 continue
             rpc('recover',batch=n,key=k,token=c['token'],host=here(),pid_alive=False,session_alive=False)
@@ -452,7 +457,7 @@ def tick():
                     write(claim_home/'claim.json',owned)
                     log=(claim_home/'runner.log').open('a')
                     try:
-                        proc=subprocess.Popen(['/usr/bin/caffeinate','-i',sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_home/'claim.json')],cwd=eq.ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=log,start_new_session=True)
+                        proc=subprocess.Popen([sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_home/'claim.json')],cwd=eq.ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=log,start_new_session=True)
                         update('heartbeat',owned['batch'],owned['key'],token,fields=dict(pid=proc.pid,birth=identity(proc.pid)))
                     except OSError:
                         rpc('recover',batch=owned['batch'],key=owned['key'],token=token,host=here(),pid_alive=False,spawn_failed=True)

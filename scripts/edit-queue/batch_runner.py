@@ -68,6 +68,7 @@ def candidate_stamps(files):
 def main(claim_path):
     owned=b.read(claim_path);row=owned['row'];name=owned['batch'];k=owned['key'];token=row['claim']['token']
     jobid=row['id'];cfg=eq.load_config();executor=row['executor']
+    subprocess.Popen(['/usr/bin/caffeinate','-i','-w',str(os.getpid())],stdin=subprocess.DEVNULL,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
     os.environ.update(EDIT_BATCH_TOKEN=token,GATE_GROUP=jobid,EDIT_BATCH_JOB=jobid)
     fields=dict(pid=os.getpid(),birth=b.identity(os.getpid()),phase='allocating work folder')
     if b.update('heartbeat',name,k,token,fields=fields) is None:
@@ -125,12 +126,17 @@ def main(claim_path):
         # Carry elapsed work time forward. Allowance pauses do not get charged as active editing.
         hours_used=float(checkpoint.get('edit_hours',0))
         budget['hours_allowed']=max(0,budget['hours_allowed']-hours_used)
+        import datetime
+        clock=datetime.datetime.now().astimezone()
+        budget['deadline']=(clock+datetime.timedelta(hours=budget['hours_allowed'])).isoformat()
+        budget['soft_deadline']=(clock+datetime.timedelta(hours=budget['hours_allowed']*.7)).isoformat()
+        b.write(wd/'BUDGET.json',budget)
         brief_text=brief.decode()
         instructions=f'''Read AGENTS.md, .claude/skills/_shared/VIDEO-RULES.md, WORK_PACKET.json and BUDGET.json first.
 You are the single unattended editor for {row['title']} ({jobid}), round {row['round']}.
 Your work folder is {wd}; the runner already holds and heartbeats your edit slot. Use renderq for heavy steps.
 Do not use ps to impose the old two-build cap, run editroute wait, acquire/release editcap yourself, or change queue state.
-Do not upload, publish, schedule, send messages, change shared scheduling code, or spawn supervisors/reviewers.
+Do not upload, publish, schedule, send messages, change shared scheduling code, or spawn supervisors or a final reviewer. Required asset/frame checks still follow the existing skill.
 Resume existing verified work and provider receipts in this folder. Never repeat a paid request without reconciling its result.
 Target: {row['target']}. This is the complete approved scope, with no new review gates.
 Keep all actual approval requirements. Headless sessions have no Flow browser. If new AI clips or choices are needed,
