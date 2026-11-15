@@ -56,7 +56,7 @@ Drive folder made anyone-with-link viewable using `rclone link`; unauthenticated
 
 Post-release public-cover verification and pinned-comment checks remain with the existing shared monitors. A queued thumbnail URL is not proof of a correct public tile.
 
-## Repository checkpoint
+## Historical repository checkpoint
 
 Setup work saved in local commit `c95112b`. Shared safe-push stopped before merging because another session is actively editing `.claude/skills/_shared/editcap/editcap.py` (modified November 15 at 09:23). No other session's changes were altered. GitHub push remains pending; retry the shared safe-push after that live edit clears. This does not block the mirrored review link or verified backups.
 
@@ -80,3 +80,5 @@ The rejected source images, both layouts, public review files and private key ar
 - **Checks:** all ten outputs are 1080 × 1920 RGB; JPEGs under 2 MB. One face detected per layout; zero text pixels intersect an expanded face/hair region. Both layouts visually checked for complete hair, readable type and clear abs at phone size. All four native AI sources inspected for identity, anatomy and natural action. Real studio cutout is composited locally without redrawing the person.
 - **Preservation:** approved master, saved Blotato metadata config, existing description and pinned question are byte-identical to the pre-round snapshot. All 99 original evidence files, including the retired key, remain byte-identical. Proof: `scripts/covers/ds107-20261115-r2/protected-after.json`. No queue or scheduling commands, media uploads or film processing were performed this round.
 - **New sources/build:** `Short-form video content/covers/review/ds107-20261115-r2/` and `scripts/covers/ds107-20261115-r2/`. Public page contains only neutral filenames and still images. Await Dan's pick before any further setup.
+
+Round 2 repository checkpoint: local commit `123eca7` saves the new round and exact rejection. Shared safe-push is blocked before merging by live changes in `Docs/memory/MEMORY.md` and `scripts/edit-dashboard/review_handoff.py`; `AGENTS.md` also differs. Those files were left untouched. Push remains pending; the review service and both Macs' copies work independently. Retry after those owners finish.
