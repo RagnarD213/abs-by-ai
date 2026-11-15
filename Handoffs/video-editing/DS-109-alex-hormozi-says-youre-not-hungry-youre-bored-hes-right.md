@@ -40,3 +40,7 @@ One reaction Short. Scripted and off-the-cuff were both filmed: build the script
 
 **Codex: GPT-6.1 Sol, high effort.**
 > CONTENT (SFC, reaction). Name this chat "Hormozi Not Hungry Bored SFC R1". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md`: cut "Alex Hormozi Says You're Not Hungry, You're Bored. He's Right." from the 11/13 green-screen shoot, rolls C1909. Use the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`) and `.claude/skills/shorts/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## R1 work state, 2026-11-14
+
+Claimed by Codex chat `01a1dc87-ce93-75c1-b1c7-9aac9dc8317a`. Required rules and script read, roll sidecar resolved. Waiting for shared Mac capacity; no preview rendered yet. Preparation and exact next action: [R1 checkpoint](../../Docs/DS109_R1_PREP_20261114.md).
