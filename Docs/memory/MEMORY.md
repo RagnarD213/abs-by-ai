@@ -81,7 +81,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [No standing shots](no-standing-around-shots.md): cutaways show action
 - [One shoot](no-mixing-shoots-on-camera.md): no mixing days
 - [Phone clip](never-use-dan-phone-clip.md): B0437 never
-- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only; 11-14 B0448 sped up = opener for future videos
+- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only; 11-15 B0448 at 1.25x = approved opener for future videos
 - [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Before/after](before-after-same-person.md): same person

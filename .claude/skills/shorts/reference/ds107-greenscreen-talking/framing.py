@@ -65,7 +65,7 @@ def card(id, a, b): return dict(id=id, kind='card', a=a, b=b)
 def broll(id, clip, ai, a, b, src_t0=0.0): return dict(id=id, kind='broll', clip=clip, ai=ai, a=a, b=b, src_t0=src_t0)
 def still(id, photo, a, b): return dict(id=id, kind='still', photo=photo, a=a, b=b)
 c = cut_before
-SH = [broll('B0', 'B0448', False, 0.0, c("i'll prove"), 2.0),   # R1 review: from 2.0 s (0.5-1.6 s holds a both-feet hop; RO-28 used it from 1.5 s)           # "Your metabolism at 45 is the same as it was at 25." First 5 s (VIDEO-RULES 2026-10-08): Dan's real jump rope, shirtless at 41, as the opener
+SH = [dict(broll('B0', 'B0448', False, 0.0, c("i'll prove"), 1.6), speed=float(__import__('os').environ.get('B0_SPEED', '1.25'))),   # R2 (Dan): "accelerate that initial jump rope clip by 25 %"; picture only, his voice unchanged. From clip 1.6 s (the both-feet hop ends 1.53 s) so the 5.5 s it now uses ends at roll ~102.1, before B7's first frame   # R1 review: from 2.0 s (0.5-1.6 s holds a both-feet hop; RO-28 used it from 1.5 s)           # "Your metabolism at 45 is the same as it was at 25." First 5 s (VIDEO-RULES 2026-10-08): Dan's real jump rope, shirtless at 41, as the opener
       talk('T2', 'W', 'P1', c("i'll prove"), c('a study')),             # "I'll prove it to you and show you the real reason why people gain weight as they age."
       card('K1', c('a study'), pe('P3')),                               # the study (script: STUDY ON SCREEN, flat line 20 to 60); hides the P1|P3 take join
       talk('T3', 'T', 'P4', ps('P4'), pe('P4')),                        # "So, what changed since you were 25? Four things, and they were all hit after 40."
@@ -78,7 +78,7 @@ SH = [broll('B0', 'B0448', False, 0.0, c("i'll prove"), 2.0),   # R1 review: fro
       broll('B5', 'B0559', False, c('and you sleep'), c('food first'), 0.5),   # cache starts at clip 39.0 s (prep_media)  # "and you sleep worse."
       talk('T5', 'T', 'P5', c('food first'), c("if it's")),             # G01 "Food first. Decide what you eat before you're hungry and then eat the protein first."
       talk('T5b', 'W', 'P5', c("if it's"), c('then do')),               # "If it's fast food, order for protein." (R1 review: the chicken bowl B0042 showed protein, not fast food; no library clip shows a fast-food protein order, so Dan stays on camera with a zoom cut)
-      broll('B7', 'B0542', False, c('then do'), c('it gets'), 0.1),     # "Then do 15 minutes of exercise first thing every morning." (real Dan, the correct boxer skip, second cut: no overlap with B0's roll time)
+      broll('B7', 'B0542', False, c('then do'), c('it gets'), 0.33),     # "Then do 15 minutes of exercise first thing every morning." (real Dan, the correct boxer skip, second cut: no overlap with B0's roll time)
       talk('T6', 'W', 'P5', c('it gets'), pe('P5')),            # G02 "It gets you moving again and it takes the edge off the stress for the rest of the day."
       still('S1', 'before', ps('P5b'), pe('P5b')),                # "Bottom line, it's not your age," (script: REAL PHOTO OF ME AT 200 POUNDS, FULL SCREEN)
       still('S2', 'today', ps('P6'), c('subscribe')),                   # "which means you can fix it." (script: REAL PHOTO OF ME TODAY, FULL SCREEN)

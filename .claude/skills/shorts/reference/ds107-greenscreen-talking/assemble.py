@@ -19,7 +19,7 @@ from grade import LOOKS_DAN
 from PIL import Image, ImageDraw
 F = str(R/'Media/video_edit/bin/ffmpeg'); FPS = 30000/1001
 O = W/'main'
-NAME = 'Metabolism Not The Reason SFC R1'
+NAME = 'Metabolism Not The Reason SFC R2'
 Q = O/'review'; Q.mkdir(exist_ok=True)
 args = sys.argv[1:]
 VOICE = args[args.index('--voice') + 1] if '--voice' in args else 'house_bass15'
@@ -160,10 +160,11 @@ def broll_grade(x, clip):
     return np.clip(f, 0, 1)
 NFPS = {'A0063': 24.0, 'A0072': 25.0, 'A0182': 24.0, 'A0242': 24.0, 'B0559': 25.0, 'B0042': 25.0, 'B0448': 30000/1001, 'B0542': 30000/1001}
 _br = {}
-def broll(clip, src_t0, j):
-    """one native frame per film frame from the clip's start frame (DS-41: no fps resampling, no doubled frames)"""
+def broll(clip, src_t0, j, speed=1.0):
+    """one native frame per film frame from the clip's start frame (DS-41: no fps resampling, no doubled frames); speed > 1 skips source
+    frames (R2 opener: never blends, so no ghosting)"""
     if clip not in _br: _br[clip] = np.load(W/f'src/{clip}.npy', mmap_mode='r')
-    a = _br[clip]; k = int(round(src_t0*NFPS[clip])) + j
+    a = _br[clip]; k = int(round(src_t0*NFPS[clip])) + int(round(j*speed))
     assert k < a.shape[0], (clip, k, a.shape)
     return a[k].astype(np.float32)/255
 _st = {}
@@ -185,7 +186,7 @@ def render(g):
     if s['kind'] == 'card':
         return field(t)
     if s['kind'] == 'broll':
-        f = broll_grade(broll(s['clip'], s['src_t0'], j), s['clip']); out = field(t)
+        f = broll_grade(broll(s['clip'], s['src_t0'], j, s.get('speed', 1.0)), s['clip']); out = field(t)
         if BOX.get(s['clip']) == 'square': out[DROP + 10:DROP + 10 + 1080] = f
         else: out[DROP:] = f
         return lay(out, s['clip']) if s.get('ai') else out

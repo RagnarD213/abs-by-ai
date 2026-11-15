@@ -46,3 +46,11 @@ words) -> `framing.py` SHOTS_ONLY (key stretches) -> `key_all.sh` (+ `key_tail.s
   on the previous cue's first word. The reviewer measured those cues at +10/-10/0/0 ms against their own words. Report, never tune.
 - **Voice:** a blind 5-trial listen put Balanced first (7.2) over untreated (6.8), the DS-41 house voice (5.0) and the fitted chain
   (4.2). Balanced then failed the tone row (bright at 3.5/5.5 kHz); a per-take EQ (`take_eq.json`) fixed it (mean 0.97 dB).
+
+## Round 2 and finalization (2026-11-15)
+
+Dan approved everything in R1 except the opener: B0448 at 1.25x (picture only, frames skipped, never blended, from clip 1.6 s;
+B7 from B0542 at clip 0.33 s so no roll moment repeats). Approved: *"This clip is attention-getting. This is approved."* and he wants the 25 % sped-up
+jump rope opener in future edits (VIDEO-RULES jump rope section). R2 recipe adds `framing.py` B0 `speed` (env `B0_SPEED`), `assemble.broll(speed)`,
+`alt_opener.py` (an opener-only alternate instead of a second film) and `page_r2.py` (later-round page). Final master sha256
+173a329050ec95f84e80db82e4ed32f929630bc4143aec5411171d5d6b2d8c78.

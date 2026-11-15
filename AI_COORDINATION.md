@@ -41,8 +41,6 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**MetabolismNotTheReason-SFC-R2(DS-107):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9802/(M2-made,open-on-M6);opener-25%-faster,indep-review-SHIP;setup-handoff-after-approval.
-
 **KevinJamesCheat-SFC-R1(DS-41):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9661/;scripted-61.9s-vs-offcuff-73.2s,pick-one;setup-handoff-after-approval.
 
 **WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9621/(mirrored-on-M6;work-folder-on-M2,ssh-m2);Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
@@ -178,7 +176,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief:2026-11-14:Codex.** M2/M6 duplicate publishers; Alcohol article late. Maintenance/reconciliation incomplete.
+**Brief:2026-11-15:Codex.** Edition/retained-image verified. Two-Mac ownership and maintenance incomplete.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -242,7 +240,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - DRIVE INCOMPLETE 2026-11-14, Codex/Claude.** Eight older shoots verified on Seagate and Drive. New 11/13 shoot (28 files, 243.1 GB) checksum verified on Seagate; Drive copy ended by 8 am without verification. Temporary monitor removed; nightly 8 pm routine remains active. Extreme originals retained; deletion paused. Next: resume Drive copy-only tonight and verify. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - 2026-11-14, Codex/Claude.** Nine shoots, including the 11/13 shoot (30 files, 281.0 GB), verified on Seagate and Google Drive against Extreme. Temporary monitor removed; nightly 8 pm copy-only routine remains active. Extreme originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 

@@ -1,6 +1,6 @@
 ---
 name: jump-rope-clip-rule
-description: "Jump rope: ONLY the fast one-foot-at-a-time boxer skip (B0448, B0542); both-feet clips (B0430, 10/15 roll C1742) are mistake demos only. 11-14: Dan wants B0448 sped up as a first-5-seconds opener in future videos"
+description: "Jump rope: ONLY the fast one-foot-at-a-time boxer skip (B0448, B0542); both-feet clips (B0430, 10/15 roll C1742) are mistake demos only. 11-15: B0448 at 1.25x approved as a first-5-seconds opener for future videos"
 metadata:
   node_type: memory
   type: feedback
@@ -48,4 +48,4 @@ speed, but accelerate that initial jump rope clip by 21%."* (he said 25 % and th
 page; the speed he finally approves goes here). How: picture only, source frames skipped (never blended), his voice unchanged; start
 at clip 1.6 s or later (0.5-1.53 s of B0448 is a both-feet hop); at 1.25x a 4.4 s slot uses 5.5 s of the clip (to roll ~102.1), so a
 second jump rope cut from `B0542` in the same film starts at 0.33 s or later. Recipe: `.claude/skills/shorts/reference/ds107-greenscreen-talking/`.
-Final speed: PENDING Dan's R2 review.
+**Final speed: 25 % (1.25x), approved 2026-11-15** on DS-107 R2: *"This looks great, and I want you to make a note for future edits. I think this 25% sped-up clip could be a good way to [use in] future edits ... This clip is attention-getting. This is approved."* Default it as an opener option in future videos (also in VIDEO-RULES, jump rope section).
