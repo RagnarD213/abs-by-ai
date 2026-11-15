@@ -31,6 +31,9 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**DS-108:QUEUED:2026-11-14:Codex01a1dc86.** First-review-next;router-waiting.
+
+
 **FlyDemo-R5:AWAITING-DAN:2026-11-14:Claude.** Page-9317;push-pending(live-files).
 
 

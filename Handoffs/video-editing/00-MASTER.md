@@ -159,7 +159,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | FINALIZED | S |
 | [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | IN PROGRESS | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
-| [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | DELIVERED: awaiting Dan | S |
+| [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | FINALIZED | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-43](DS-43-terry-crews-doesnt-eat-until-2-pm-hes-right.md) | Terry Crews Doesn't Eat Until 2 PM. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-44](DS-44-alex-hormozi-asks-a-fat-guy-why-he-isnt-200-pounds-heavier-h.md) | Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Right. | 10/15 C1730 | UPLOADED | S |
@@ -287,7 +287,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | DELIVERED: awaiting Dan | L |
+| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | IN PROGRESS | L |
 | [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | READY | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |
@@ -318,8 +318,8 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
 | [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | READY | S |
 | [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | READY | S |
-| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | READY | S |
-| [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | READY | S |
+| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | IN PROGRESS | S |
+| [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | IN PROGRESS | S |
 
 ---
 
