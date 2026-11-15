@@ -45,8 +45,8 @@ Batch: `night1-20261115`. Both Macs logged the batch before its receipt reported
 | Video | Editor | Target | Authorized proof after Dan's go |
 |---|---|---|---|
 | Man Boobs Shorts (SL-36) | Claude | Three standalone segment transcripts and a review page; stop for picks | Kill runner once during editing; one resume in same folder |
-| Ad 8 square (AS-08) | Claude | Full and 59-second square review candidates | Hung reviewer, one retry, then delivered-unreviewed |
-| How To Generate Abs With AI (RA-02) | Codex | Vertical/horizontal review candidates | Clean Codex edit, Claude cross-review, honor actual unmet approvals |
+| 3 Ways To Lose Fat Without Losing Muscle (DS-51) | Claude | First-review page; final candidate only when required choices are approved | Reviewer timeout/retry proof when a valid final candidate is available |
+| Why I Sleep At 63 Degrees (DS-50) | Codex | First-review page; final candidate only when required choices are approved | Codex editing and Claude review when a valid final candidate is available |
 | Protein Snack Can (DS-106) | Claude | First-review page only | Needs-dan, working link, released slot, next eligible start |
 
 Independent review is complete. Start only after Dan says go:
@@ -64,3 +64,11 @@ Fable's initial review found four blockers. They were fixed and re-reviewed. Its
 The eight real launchd one-turn sessions did run and pass. Real video editing, the full one-hour link interruption, the deliberate kill during an actual edit, the hung production reviewer and four finished editorial outcomes have **not** been proven yet. Those are Night 1, followed by Dan's ten-video Night 2. No film was approved, uploaded or scheduled by this infrastructure task.
 
 Known minor limits: source matching currently includes docs and tests under the scheduler roots, so a later change there needs a fresh pull and preflight. Legacy chat ownership checks remain conservative when a Mac is unreachable; explicitly registered batch work uses its known owner and continues as designed. A queued report row can show its prior start error while a later allowance backoff is active; the authoritative ledger still records the correct pause time. These do not block the named test night.
+
+## November 15 update: content only, start time unconfirmed
+
+Dan: "I don't want to do any more ads for Abs By AI." Removed Ad 8 (AS-08) and How To Generate Abs With AI (RA-02) before either had started. Their original manifest/state and briefs remain in the M2 batch revision archive. Replaced them with 3 Ways To Lose Fat Without Losing Muscle (DS-51, Claude) and Why I Sleep At 63 Degrees (DS-50, Codex). Both source checks passed and neither had an existing work folder or active owner. Existing approved AI clips are listed in their job docs; use those before anything new.
+
+New Abs By AI RA/AV/AS production is paused for both executors. Batch enqueue and new claims honor those group pauses. Existing campaigns and scheduled posts were not changed. The policy is recorded in AGENTS.md, CLAUDE.md and Docs/memory/no-new-absbyai-ads.md.
+
+Suggested start: **10 p.m. Central tonight, November 15, 2026**. This is a proposal, not a scheduled or authorized start. The amended four-content-video batch remains disabled. Real first-round colour/voice choices still apply, so a needs-dan review page is the correct outcome where approval is required. The hung-final-reviewer and clean-final-cross-review checks remain incomplete until a valid final candidate exists; never call a first-review choice page proof of either.
