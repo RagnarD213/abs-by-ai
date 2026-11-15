@@ -23,4 +23,4 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 Install batches (1, 2, 3, 8, 9) give the app's library exercises real demos: 11 replace AI demos, about 15 are new
 coverage. Store batches (4-7, 10, 11) build demos for exercises not in the library yet. AI demos stay only for library
 exercises with no real footage (listed in the master handoff); batch 11 writes the pickup list for the next shoot.
-Any order works; run up to five at once. Batch 1 is done. Suggested next: 2 and 8 (they change the most in the app).
+Any order works; run up to five at once. Batches 1 and 2 are done; batch 3 is in progress (2026-11-15). Suggested next: 8 (it changes the most in the app).
