@@ -70,8 +70,9 @@ class WorkerTests(unittest.TestCase):
             return (r.BUDGET_EXCEEDED_CODE if self.mode=='timeout' else 0),'no report',.01
         report=Path(prompt.split('Write ',1)[1].split('. First line',1)[0])
         digest=r.sha256(self.video)
-        verdict='DOES NOT SHIP' if self.mode in ('reject','uncited') else 'SHIP'
+        verdict='DOES NOT SHIP' if self.mode in ('reject','uncited','unbound-reject') else 'SHIP'
         text='VERDICT: '+verdict+'\nCandidate SHA-256: '+digest+'\n'
+        if self.mode=='unbound-reject':text='VERDICT: DOES NOT SHIP\n0:12, rule VIDEO-RULES.md: clipped head.'
         if self.mode=='reject':text+='0:12, rule VIDEO-RULES.md: head is clipped.\n'
         report.write_text(text)
         if self.mode=='changed':self.video.write_bytes(b'changed after review')
@@ -88,6 +89,8 @@ class WorkerTests(unittest.TestCase):
         self.mode='timeout';_,row=self.execute();self.assertEqual(row['status'],'delivered-unreviewed');self.assertEqual(len(self.sessions),3)
     def test_uncited_rejection_does_not_get_a_second_opinion(self):
         self.mode='uncited';_,row=self.execute();self.assertEqual(row['status'],'delivered-unreviewed');self.assertEqual(len(self.sessions),2);self.assertIn('rejected without',row['outcome']['reason'])
+    def test_rejection_missing_candidate_identity_is_not_a_second_opinion(self):
+        self.mode='unbound-reject';_,row=self.execute();self.assertEqual(row['status'],'delivered-unreviewed');self.assertEqual(len(self.sessions),2)
     def test_valid_rejection_parks_without_a_fix_loop(self):
         self.mode='reject';_,row=self.execute();self.assertEqual(row['status'],'blocked');self.assertEqual(len(self.sessions),2)
     def test_temporary_slot_wait_is_queued_and_releases_registration(self):

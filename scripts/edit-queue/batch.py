@@ -255,9 +255,10 @@ def handle(req):
             elif outcome['status']=='paused-for-allowance':
                 row['allowance_tries']+=int(outcome.get('attempted',True))
                 next_executor=outcome.get('executor',row['executor']);row['next_executor']=next_executor
-                c=control();c.setdefault('executor_backoff',{})[next_executor]=dict(until=now+req.get('backoff_s',7200),reason=outcome['reason']);write(HOME/'control.json',c)
+                delay=req.get('backoff_s',7200)*(2**max(0,row['allowance_tries']-1))
+                c=control();c.setdefault('executor_backoff',{})[next_executor]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
                 if row['allowance_tries']<3:
-                    row.update(status='queued',not_before=now+req.get('backoff_s',7200),last_pause=now,
+                    row.update(status='queued',not_before=now+delay,last_pause=now,
                                placement=claim['owner'],workdir=claim.get('workdir'),resume_phase=claim.get('phase'))
                     row.setdefault('allowance_pauses',[]).append(dict(at=now,until=row['not_before']))
                     row.pop('claim',None)

@@ -22,12 +22,13 @@ def review_verdict(path, expected_hashes=None, started_ns=None):
     try:text=Path(path).read_text()
     except FileNotFoundError:return None
     if started_ns is not None and Path(path).stat().st_mtime_ns<started_ns:return None
-    if expected_hashes and any(digest not in text for digest in expected_hashes):return None
+    identity_missing=bool(expected_hashes and any(digest not in text for digest in expected_hashes))
     first=text.splitlines()[0].strip().replace('**','') if text.strip() else ''
     for verdict in ('SHIP WITH DISCLOSED UNCERTAINTY','DOES NOT SHIP','SHIP'):
         if first=='VERDICT: '+verdict:
-            if verdict=='DOES NOT SHIP' and not (re.search(r'\b\d{1,2}:\d{2}\b',text) and re.search(r'rule|\.md|standard',text,re.I)):
+            if verdict=='DOES NOT SHIP' and (identity_missing or not (re.search(r'\b\d{1,2}:\d{2}\b',text) and re.search(r'rule|\.md|standard',text,re.I))):
                 return 'REJECTION WITHOUT CITATION'
+            if identity_missing:return None
             return verdict
     return None
 
@@ -246,7 +247,7 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
             if r.sha256(file['path'])!=file['sha256']:raise ValueError('candidate changed during review')
         candidate_stamps([file['path'] for file in checkpoint['files']])
         if verdict=='REJECTION WITHOUT CITATION':
-            outcome=dict(status='delivered-unreviewed',reason='reviewer rejected without rule and timestamp; findings attached',link=link,report=str(report_path),files=checkpoint['files'])
+            outcome=dict(status='delivered-unreviewed',reason='reviewer rejected without required rule, timestamp or candidate identity; findings attached',link=link,report=str(report_path),files=checkpoint['files'])
         elif verdict=='DOES NOT SHIP':
             outcome=dict(status='blocked',reason='independent reviewer: DOES NOT SHIP',next_action='Review the cut and consolidated findings; scope a separate revision',link=link,report=str(report_path))
         elif verdict in ('SHIP','SHIP WITH DISCLOSED UNCERTAINTY'):
