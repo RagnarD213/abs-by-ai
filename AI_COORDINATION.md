@@ -36,7 +36,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
 
-**BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
+
+
+**RealDemos-B09:R1-REVIEW:2026-11-15:Codex,M2.** Awaiting Dan: http://127.0.0.1:9870/; six cleared, lateral held. `Docs/REALDEMOS_B09_REVIEW_20261115.md`.
+
+
+**REALDEMOS-B08:R1-FINAL-QA:2026-11-15:Codex:M2.** Five rendered; fresh final reviews underway. Swing pickup; no install.
+
+
+**Metabolism Not The Reason Setup:WAITLIST:2026-11-15:Codex M2.** Jan11 9AM Central; Y2 seamless/final; four uploads/covers verified; 199/200. Next: shared top-up, then uploaded status after visibility readback. Proof: http://127.0.0.1:9804/. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
+
+
+
 
 **FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
 
@@ -181,7 +192,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief:2026-11-14:Codex.** M2/M6 duplicate publishers; Alcohol article late. Maintenance/reconciliation incomplete.
+**Brief:2026-11-15:Codex.** Edition/retained-image verified. Two-Mac ownership and maintenance incomplete.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -245,7 +256,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - COPYING ACTIVE 2026-11-13, Codex/Claude.** Eight older shoots verified on Seagate and Drive. New 11/13 shoot (28 files, 243.1 GB) checksum verified on Seagate at 9:17 pm; Google Drive copy-only began 9:36 pm. Overnight monitor active. Nightly 8 pm routine remains active. Extreme originals remain; deletion paused. Next: verify Drive, then decide offload rule. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - 2026-11-14, Codex/Claude.** Nine shoots, including the 11/13 shoot (30 files, 281.0 GB), verified on Seagate and Google Drive against Extreme. Temporary monitor removed; nightly 8 pm copy-only routine remains active. Extreme originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 

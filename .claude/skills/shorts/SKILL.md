@@ -1542,3 +1542,11 @@ Keep raw ASR and forced-alignment outliers. OFF's ASR put “a” inside a pause
 ## DS-39 reaction finishing lessons (2026-11-11)
 
 See [the source, geometry and exact-file evidence lessons](reference/ds39-reaction-finish/README.md): validate crop bounds/graphic fit before rendering, select silent reels at native timestamps, keep fresh AAC ASR separate from forced text alignment, and resolve raw key flags in actual source-to-export coordinates. No key, format or gate threshold changes.
+
+## Dedicated green-screen TALKING Short (not a reaction): DS-107 (2026-11-14)
+
+For a talking Short from a green-screen roll (11/13 shoot B-series and similar), start from
+[the DS-107 recipe](reference/ds107-greenscreen-talking/README.md): Soft Blue title band for the whole Short, Dan keyed on the
+moving field in W/T windows sized to the gate's 27 % head floor and centred on his body midline, transparent study-card overlay,
+library cutaways with real cadence checks. Its README lists the traps (Whisper timing on these rolls, the flicker harness and a
+white tank, stale graphics timing in the build).

@@ -1,0 +1,28 @@
+{
+  "protected": [
+    {
+      "file": "Short-form video content/Metabolism Not The Reason - DS-107/Metabolism Not The Reason SFC R2.mp4",
+      "sha256": "173a329050ec95f84e80db82e4ed32f929630bc4143aec5411171d5d6b2d8c78",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/blotato/configs/ds107-metabolism-not-the-reason.json",
+      "sha256": "cf0c533862e21dcc143c46043de82f2ec9af9c43e8aef64bb743507594ca1c26",
+      "unchanged": true
+    },
+    {
+      "file": "Short-form video content/covers/review/ds107-20261115/youtube-description.md",
+      "sha256": "0f75e0b0fbfea7b0127c8503907637334c55db29698e3d3f94a7c01fc89363b3",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/covers/ds107-20261115/pinned-question.txt",
+      "sha256": "19826060e091fd5ecffe57a72f8c719dde0841bee35fca2e86e21f5493f4c4ef",
+      "unchanged": true
+    }
+  ],
+  "old_evidence_files_unchanged": 99,
+  "old_key_retired": true,
+  "new_key_directory": "Short-form video content/covers/review/ds107-20261115-r2/comparison",
+  "scheduling": "no scheduling commands or queue writes performed this round"
+}

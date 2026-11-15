@@ -17,6 +17,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
 
+- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **STARTED, awaiting cover pick. Codex M2 owns setup.** [Round 3 Y1-Y4 requested conversation covers](http://127.0.0.1:9804/) first, with Round 2 X1-X5 extras below, same link on M2/M6. Two shirtless/two tank-top versions; exact speech bubbles; Claude's earlier misreading corrected in receipt and rejection records. Film and metadata unchanged, no scheduling. [Setup receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md).
+
+- [Blended Oats SFC Setup: approved Off-the-cuff R3](handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md), 2026-11-14. **OPEN. Start now. Codex newest stable Sol, high (verified GPT-6.1 Sol).** Dan chose Off the cuff with Warm colour/voice. Exact approved film locked; covers/pick, backups, organic metadata, then verified queue/shared-waitlist placement. No upload or schedule yet.
+
+
 
 - [Great Again T VSL AD R2](handoff-20261114-great-again-t-vsl-round2.md), 2026-11-14. **HOLD: fire after Dan answers the round 1 page (http://127.0.0.1:9760/). Claude Opus 5.5, high.** Round 2 builds every graphic and clip in his chosen style, keys the rest of the roll, makes AI start and end pairs and finishes the first minute.
 

@@ -697,6 +697,13 @@ Dan changed the standard after choosing C for all five Calories Shorts: he choos
   it's a mistake to jump over with both feet. Basically, this clip is a mistake. Don't use it unless I'm illustrating a
   mistake. Always use the correct jump rope footage of me quickly skipping over the rope, not the beginner footage of me
   going very slowly foot by foot, but the footage of me skipping quickly like a boxer would."*
+- **The 25 % sped-up jump rope opener is approved for future edits (Dan, 2026-11-15, "Your Metabolism Is Not The Reason You're Fat", DS-107 R2).**
+  Dan: *"This looks great, and I want you to make a note for future edits. I think this 25% sped-up clip could be a good way to [use in]
+  future edits. This is what [worked] in previous videos, especially sped up. This clip is attention-getting."* (Wispr Flow; bracketed words are
+  the editor's reading.) Use `B0448` from clip 1.6 s or later (0.5-1.53 s is a both-feet hop) at 1.25x as a first-5-seconds opener under
+  the hook line: picture only (his voice and the captions at normal speed), source frames skipped, never blended. A 4.4 s slot uses 5.5 s
+  of the clip; if the same film also cuts to `B0542`, start that at clip 0.33 s or later so no moment repeats. Recipe:
+  `shorts/reference/ds107-greenscreen-talking/` (`framing.py` B0 `speed`, `assemble.broll`). Memory `jump-rope-clip-rule`.
 - **The slow foot-by-foot clip (`B0447`) is the beginner demo.** It is not the correct-form clip either: use it only where
   he is teaching how a beginner starts.
 - This binds every video, every editor brief and every revision doc. The clip library descriptions of all three carry
@@ -1611,3 +1618,11 @@ Every editing skill also follows section 5 of [CUT-CONTINUITY-QC.md](CUT-CONTINU
 ## Default jump-cut and junk-footage pass (Dan, 2026-09-29)
 
 Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.md) by default, starting with selected source footage before the first approval preview and repeated on the exact final candidate. Inspect every source/picture join, including composite internals and cutaway entrances/exits. Remove uncovered presenter jumps using distinct fixed wide/tight cuts or complete approved clip cover; pose matching alone does not clear a same-framing jump. Detect confirmed unscripted sounds, empty lead-ins, unnecessary pauses and looking away while resetting, then remove them without clipping words, stripping normal breaths or removing purposeful teaching pauses. Review native consecutive frames and moving/audio context, record each repair, and inspect every new boundary. Detector/ASR flags require actual source verification. This supplements existing gates and preserves still/frame, motion and full-render approval requirements. Do not retrofit already approved masters without scoped revision authorization.
+
+## Meal showcases: appetizing food and visible photos (Dan, 2026-11-14)
+
+- Do not use the rejected chicken-and-broccoli plate in any new or revised meal showcase. This includes B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4, its macro-short/macro-results sources and stills or crops of the same plate. Dan: “It looks like dog food.” Prefer salmon with Brussels sprouts, or another genuinely appetizing meal. This rejects that specific plate, not every chicken recipe. Preserve historical approved exports unless Dan requests a revision.
+- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible throughout the showcase; recipe names, ingredients, calories and macros support it. Do not spend the meal beat on a text-only list/detail view.
+- Reuse existing approved VSL/app assets first. Verify the actual image, dish and provenance before choosing; match displayed food, recipe, calories and macros to the same verified source. Never place a salmon photo over the old chicken’s 363-calorie result or mix different salmon results. Keep food photos, captions and key points readable in the final native frame.
+
+Memory and asset details: `Docs/memory/meal-showcases-appetizing-photo-first.md`.
