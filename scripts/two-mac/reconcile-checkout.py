@@ -12,7 +12,8 @@ It never stashes, never rebases and never touches a file GitHub did not change. 
   - edited locally and identical to GitHub's: left alone, just recorded as up to date;
   - edited on both sides: three-way merged; the local edit stays on top as an uncommitted change. If the merge
     conflicts but the local copy adds nothing GitHub lacks, GitHub's version is taken; in a file .gitattributes marks
-    merge=union (the board, the handoff index) both sides' lines are kept. Any other conflict stops the run before
+    merge=union (the board, the handoff index) both sides' lines are kept; the edit queue's jobs.json is merged job
+    by job (jobsmerge.py). Any other conflict stops the run before
     anything has moved (exit 3, every such file is named);
   - new on GitHub with a different local copy: the local copy is left as it is;
   - deleted on GitHub (2026-11-15): removed here only when the local copy is unedited (it is copied to the backup
@@ -34,6 +35,7 @@ def blob(ref, p):
     return subprocess.run(["git", "rev-parse", "-q", "--verify", "{}:{}".format(ref, p)], capture_output=True, text=True).stdout.strip() or None
 def wt(p): return git("hash-object", p).strip() if os.path.isfile(p) and not os.path.islink(p) else None
 def show(ref, p): return subprocess.run(["git", "show", "{}:{}".format(ref, p)], capture_output=True, check=True).stdout
+JOBS = "Handoffs/video-editing/jobs.json"
 def status():
     raw = git("status", "--porcelain=v1", "-z").split("\0"); st = {}; i = 0
     while i < len(raw):
@@ -90,6 +92,13 @@ for p in both:                                   # 3-way merge must be clean bef
     if r.returncode != 0 and git("--attr-source=" + NEW, "check-attr", "merge", "--", p).strip().endswith(": union"):
         r = subprocess.run(["git", "merge-file", "-p", "--union", p, base, theirs], capture_output=True)   # .gitattributes: keep both sides' lines
         print("  {}: both sides changed the same spot; both sides' lines kept (union file)".format(p))
+    if r.returncode != 0 and p == JOBS:                 # the edit queue list merges job by job, newer rev wins
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import jobsmerge
+        m = jobsmerge.merge(show(OLD, p), open(p, "rb").read(), show(NEW, p))
+        if m is not None:
+            print("  {}: merged job by job (a job changed on both sides keeps the newer rev)".format(p))
+            merged[p] = m; continue
     if r.returncode != 0:
         # a conflict is still safe when the local copy adds nothing GitHub lacks (GitHub = local edit + more)
         d = subprocess.run(["git", "diff", "--no-index", "--", theirs, p], capture_output=True, text=True, errors="replace").stdout

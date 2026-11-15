@@ -123,6 +123,42 @@ class Sandbox(unittest.TestCase):
         self.assertEqual(self.vs_origin(), ["0", "0"])
         self.assertIn(" M board.md", sh(self.live, "git", "status", "--porcelain").stdout)
 
+    def jobs(self, **changes):
+        import json
+        base = {"schema": 1, "jobs": [{"id": "A-1", "state": "ready", "note": "", "rev": 1, "syncedRev": 1},
+                                      {"id": "A-2", "state": "ready", "note": "", "rev": 1, "syncedRev": 1}]}
+        for i, fields in changes.items():
+            next(j for j in base["jobs"] if j["id"] == i.replace("_", "-")).update(fields)
+        return json.dumps(base, indent=1, ensure_ascii=False) + "\n"
+
+    def test_jobs_json_merges_job_by_job_and_newer_rev_wins(self):
+        import json
+        name = "Handoffs/video-editing/jobs.json"
+        os.makedirs(os.path.join(self.other, "Handoffs/video-editing")); self.write(self.other, name, self.jobs()); self.upstream("jobs")
+        sh(self.live, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, name, self.jobs(A_1={"state": "in_progress", "rev": 2}, A_2={"note": "from GitHub", "rev": 2})); self.upstream()
+        self.write(self.live, name, self.jobs(A_1={"state": "finalized", "rev": 4, "syncedRev": 4})); sh(self.live, "git", "commit", "-q", "-am", "local job change")
+        self.write(self.live, name, self.jobs(A_1={"state": "finalized", "rev": 5, "syncedRev": 4, "note": "unsaved note"}))
+        r = self.sync()
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(self.vs_origin(), ["0", "0"])
+        sh(self.other, "git", "pull", "-q", "--ff-only")
+        pushed = {j["id"]: j for j in json.loads(self.read(self.other, name))["jobs"]}
+        self.assertEqual((pushed["A-1"]["state"], pushed["A-1"]["rev"], pushed["A-1"]["syncedRev"]), ("finalized", 4, 1))
+        self.assertEqual(pushed["A-2"]["note"], "from GitHub")
+        here = {j["id"]: j for j in json.loads(self.read(self.live, name))["jobs"]}
+        self.assertEqual((here["A-1"]["note"], here["A-1"]["rev"], here["A-2"]["note"]), ("unsaved note", 5, "from GitHub"))
+
+    def test_jobs_json_equal_rev_conflict_stops(self):
+        name = "Handoffs/video-editing/jobs.json"
+        os.makedirs(os.path.join(self.other, "Handoffs/video-editing")); self.write(self.other, name, self.jobs()); self.upstream("jobs")
+        sh(self.live, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, name, self.jobs(A_1={"state": "in_progress", "rev": 2})); self.upstream()
+        self.write(self.live, name, self.jobs(A_1={"state": "finalized", "rev": 2})); sh(self.live, "git", "commit", "-q", "-am", "local job change")
+        r = self.sync()
+        self.assertEqual(r.returncode, 3, r.stdout + r.stderr)
+        self.assertIn("jobs.json", r.stdout)
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")

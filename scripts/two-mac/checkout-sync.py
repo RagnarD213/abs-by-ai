@@ -35,7 +35,8 @@ STATE = os.environ.get("CHECKOUT_SYNC_STATE") or os.path.join(HOME, ".absbyai-ch
 HERE = os.path.dirname(os.path.abspath(__file__))
 BIN = os.path.join(STATE, "bin")                           # the job runs its own copy, so a folder that is behind still syncs
 REPO = os.environ.get("CHECKOUT_SYNC_REPO") or os.path.dirname(os.path.dirname(HERE))
-TOOLS = ("checkout-sync.py", "reconcile-checkout.py")
+TOOLS = ("checkout-sync.py", "reconcile-checkout.py", "jobsmerge.py")
+JOBS = "Handoffs/video-editing/jobs.json"
 HOST = os.environ.get("CHECKOUT_SYNC_HOST") or socket.gethostname().split(".")[0]
 DRY = "--dry" in sys.argv
 ENV = dict(os.environ, GIT_TERMINAL_PROMPT="0", GIT_SSH_COMMAND=os.environ.get("GIT_SSH_COMMAND", "ssh -o BatchMode=yes -o ConnectTimeout=20"),
@@ -84,6 +85,27 @@ def fetch():
     raise RuntimeError("git fetch failed: " + r.stderr.strip()[:300])
 
 
+def merge_jobs_json(conflict_tree, base, head):
+    """jobs.json was the only conflict: merge it job by job and return the finished tree, or None."""
+    sys.path.insert(0, HERE)
+    import jobsmerge
+    blob = lambda ref: subprocess.run(["git", "-C", REPO, "show", ref + ":" + JOBS], capture_output=True, env=ENV).stdout
+    mb = git("merge-base", base, head).stdout.strip()
+    merged = jobsmerge.merge(blob(mb), blob(head), blob(base))
+    if merged is None:
+        return None
+    oid = subprocess.run(["git", "-C", REPO, "hash-object", "-w", "--stdin"], input=merged, capture_output=True, env=ENV, check=True).stdout.decode().strip()
+    index = os.path.join(STATE, "merge-index.{}".format(os.getpid()))
+    env = dict(ENV, GIT_INDEX_FILE=index)
+    try:
+        for a in (("read-tree", conflict_tree), ("update-index", "--cacheinfo", "100644,{},{}".format(oid, JOBS))):
+            subprocess.run(("git", "-C", REPO) + a, capture_output=True, env=env, check=True)
+        return subprocess.run(["git", "-C", REPO, "write-tree"], capture_output=True, text=True, env=env, check=True).stdout.strip()
+    finally:
+        if os.path.exists(index):
+            os.remove(index)
+
+
 def push_local_commits():
     """Merge HEAD with origin/main in the object store and push the result. Returns a short description."""
     for attempt in (1, 2, 3):
@@ -97,10 +119,14 @@ def push_local_commits():
         else:
             r = git("--attr-source=" + base, "merge-tree", "--write-tree", "--name-only", "--no-messages", base, head, check=False)
             out = r.stdout.splitlines()
-            if r.returncode == 1:
+            if r.returncode == 1 and [l for l in out[1:] if l.strip()] == [JOBS]:
+                tree = merge_jobs_json(out[0], base, head)                       # the edit queue list merges job by job
+                if tree:
+                    out, r = [tree], None
+            if r is not None and r.returncode == 1:
                 files = [l for l in out[1:] if l.strip()]
                 finish(3, "STOPPED", "{} local commit(s) cannot be merged with GitHub automatically: the same lines changed on both sides in {}. Nothing was changed. Fix: hand merge in a clean checkout, scripts/two-mac/README.md".format(ahead, ", ".join(files[:12])))
-            if r.returncode != 0 or not out:
+            if r is not None and (r.returncode != 0 or not out):
                 raise RuntimeError("git merge-tree failed: " + (r.stderr or r.stdout).strip()[:300])
             msg = "Merge the {} checkout's {} local commit(s) into main (automatic checkout sync)".format(HOST, ahead)
             new = git("commit-tree", out[0], "-p", base, "-p", head, "-m", msg).stdout.strip()
@@ -130,7 +156,7 @@ def refresh_installed_copy():
     for name in TOOLS:
         r = subprocess.run(["git", "-C", REPO, "show", "origin/main:scripts/two-mac/" + name], capture_output=True, env=ENV)
         path = os.path.join(BIN, name)
-        if r.returncode != 0 or not r.stdout.strip() or r.stdout == open(path, "rb").read():
+        if r.returncode != 0 or not r.stdout.strip() or (os.path.exists(path) and r.stdout == open(path, "rb").read()):
             continue
         try:
             compile(r.stdout, name, "exec")

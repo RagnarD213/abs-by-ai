@@ -21,6 +21,9 @@ clean checkout (that is what created duplicate commits).
 3. `AI_COORDINATION.md` and `Handoffs/README.md` are marked `merge=union` in `.gitattributes`: when both sides
    add or change entries at the same spot, both sides' lines are kept. A changed entry can show twice (old and
    new); its owner deletes the old line.
+4. `Handoffs/video-editing/jobs.json` is merged job by job and field by field (`jobsmerge.py`): when both sides
+   changed the same field of one job, the higher `rev` wins and the job is marked to sync again. Equal `rev` with
+   different content is a real conflict and stops the job (cause A or B below).
 
 Commands (either Mac):
 
