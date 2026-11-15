@@ -100,7 +100,7 @@ const EXERCISES = [
 
   // ── Minimal kit (kettlebell · push-up handles · ab wheel · mat) ──
   { id: 'kb-deadlift', name: 'Kettlebell Deadlift', equip: 'min', cat: 'legs', muscles: 'hamstrings, glutes, back',
-    setup: 'Kettlebell on the floor between your feet, feet hip-width, soft knees, chest proud.', execution: 'Hinge at the hips to grip the bell, then drive the hips forward to stand tall, squeezing the glutes. Lower under control. This is the ONLY floor deadlift Abs By AI programs.', mistake: 'Rounding the back to reach the bell — hinge the hips and keep the spine long.', swap: 'single-leg-glute-bridge', video: null },
+    setup: "Place a kettlebell between your feet. Stand with a wide stance, toes slightly out, and grip it with both hands.", execution: "Bend your hips and knees to lower the bell to the floor, then stand tall. Keep the bell between your legs and move under control.", mistake: "Rounding your back or leaning backward at the top.", swap: 'single-leg-glute-bridge', video: null },
   { id: 'kb-swing', name: 'Kettlebell Swing', equip: 'min', cat: 'conditioning', muscles: 'glutes, hamstrings, core',
     setup: 'Kettlebell a foot in front of you, feet wide, hinge and grip it with both hands.', execution: 'Hike the bell back between your legs, then snap the hips forward to float it to chest height — the power is all hips, the arms are ropes.', mistake: 'Squatting and lifting with the arms — it is a hip hinge, not a front raise.', swap: 'glute-bridge', video: null },
   { id: 'kb-goblet-squat', name: 'Kettlebell Goblet Squat', equip: 'min', cat: 'legs', muscles: 'quads, glutes, core',
@@ -110,7 +110,7 @@ const EXERCISES = [
   { id: 'kb-press', name: 'Kettlebell Overhead Press', equip: 'min', cat: 'push', muscles: 'shoulders, triceps',
     setup: 'Kettlebell racked at one shoulder, bell resting on the back of the forearm, feet hip-width, glutes and abs braced.', execution: 'Press the bell overhead until the arm is straight, then lower to the rack under control. Finish the set, then switch.', mistake: 'Arching the lower back to press — squeeze the glutes and keep the ribs down.', swap: 'pike-pushup', video: null },
   { id: 'deficit-pushup', name: 'Deep Push-Up (on handles)', equip: 'min', cat: 'push', muscles: 'chest, triceps, shoulders',
-    setup: 'Grip a push-up handle in each hand, shoulder-width, body in one straight line.', execution: 'Lower your chest below the level of the handles for a deep stretch, elbows ~45°, then press back up.', mistake: 'Sagging hips as you reach depth — squeeze glutes and brace abs the whole set.', swap: 'pushup', video: null },
+    setup: "Grip a push-up handle in each hand, shoulder-width, body in one straight line.", execution: "Lower your chest between the handles for a stretch, then press back up.", mistake: "Sagging hips as you lower. Squeeze your glutes and brace your abs through the whole set.", swap: 'pushup', video: null },
 
   // ── Dumbbell (full equipment in v3) ──
   { id: 'db-goblet-squat', name: 'Goblet Squat', equip: 'full', cat: 'legs', muscles: 'quads, glutes, core',
@@ -158,7 +158,7 @@ const EXERCISES = [
   { id: 'db-farmer-carry', name: 'Farmer Carry', equip: 'full', cat: 'conditioning', muscles: 'grip, traps, core',
     setup: 'Heavy dumbbell in each hand, stand tall.', execution: 'Walk with short quick steps, shoulders back, core braced, for the given distance or time.', mistake: 'Leaning to one side — walk as if balancing a book on your head.', swap: 'plank', video: 'https://www.youtube.com/watch?v=62v48abT5-Y' },
   { id: 'db-russian-twist', name: 'Weighted Russian Twist', equip: 'full', cat: 'abs', muscles: 'obliques',
-    setup: 'Seated, lean back ~45°, hold one dumbbell at your chest, heels light on the floor.', execution: 'Rotate the torso side to side, moving the weight across your body under control.', mistake: 'Arms swinging while the torso stays still — the ribcage rotates.', swap: 'russian-twist', video: 'https://www.youtube.com/watch?v=p_dPOhhgovg' },
+    setup: "Sit on a mat holding a medicine ball. Raise your feet and lean back with your abs braced.", execution: "Rotate your ribcage and bring the ball from side to side, keeping your torso involved in the movement.", mistake: "Moving only your arms while your torso stays still.", swap: 'russian-twist', video: 'https://www.youtube.com/watch?v=p_dPOhhgovg' },
   { id: 'db-crunch', name: 'Weighted Crunch', equip: 'full', cat: 'abs', muscles: 'upper abs',
     setup: 'Lie on your back, knees bent, dumbbell held on the chest.', execution: 'Curl shoulder blades off the floor, pause hard at the top, lower slowly.', mistake: 'Sitting all the way up — a crunch is a short, intense range.', swap: 'crunch', video: 'https://www.youtube.com/watch?v=_nzyLUvtgvs' },
 
