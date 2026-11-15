@@ -123,7 +123,7 @@ def main(claim_path):
         if cap.returncode!=0:raise StartupWait('edit slot not acquired: '+(cap.stdout+cap.stderr)[-600:])
         # editcap historically fails open. Confirm the registry actually records this job as active.
         registry=b.read(Path(os.environ.get('EDITCAP_DIR','/tmp/absbyai-editcap'))/'registry.json',{})
-        if registry.get('edits',{}).get(jobid,{}).get('state')!='active':raise StartupWait('editcap did not record an active slot')
+        if registry.get('edits',{}).get(jobid,{}).get('state')!='active':raise StartupWait('editcap did not record an active slot','infrastructure')
         has_slot=True
         work=subprocess.run([sys.executable,str(b.SHARED/'renderq/renderq.py'),'workdir',jobid,'--need',str(row['need_gb'])],capture_output=True,text=True,timeout=45)
         if work.returncode:raise StartupWait('work folder: '+(work.stdout+work.stderr)[-600:],'storage')

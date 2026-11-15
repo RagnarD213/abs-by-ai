@@ -212,6 +212,13 @@ class BatchTests(unittest.TestCase):
         self.assertTrue(b.job_live('SL-36',{'m2':{'editcap':{'in_use':['SL-36'],'edits':{}}}}))
         self.assertFalse(b.job_live('SL-36',{'m2':{'editcap':{'in_use':[],'edits':{}}}}))
 
+    def test_large_storage_wait_steps_aside_for_smaller_jobs_on_that_mac(self):
+        self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim('m6',slots=1)
+        b.handle(dict(op='outcome',batch='night',key=c['key'],token=c['row']['claim']['token'],host='m6',outcome={'status':'deferred-start','reason':'need 80 GB; only 10 GB usable','retry_kind':'storage'},backoff_s=0))
+        next_job=self.claim('m6',slots=1)
+        self.assertEqual(next_job['row']['id'],'RA-02')
+        self.assertEqual(self.claim('m2',slots=1)['row']['id'],'SL-36')
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')

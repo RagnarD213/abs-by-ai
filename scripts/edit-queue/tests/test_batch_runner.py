@@ -47,6 +47,7 @@ class WorkerTests(unittest.TestCase):
     def fake_command(self,command,**kwargs):
         if 'editcap.py' in str(command):
             if 'acquire' in command:
+                if self.mode=='registry':return subprocess.CompletedProcess(command,0,'','')
                 if self.capacity_code:return subprocess.CompletedProcess(command,self.capacity_code,'waiting','')
                 b.write(self.cap/'registry.json',{'version':1,'edits':{'SL-36':{'state':'active'}}})
             if 'release' in command:self.released+=1
@@ -97,6 +98,8 @@ class WorkerTests(unittest.TestCase):
         self.mode='reject';_,row=self.execute();self.assertEqual(row['status'],'blocked');self.assertEqual(len(self.sessions),2)
     def test_temporary_slot_wait_is_queued_and_releases_registration(self):
         self.capacity_code=3;_,row=self.execute();self.assertEqual(row['status'],'queued');self.assertEqual(self.sessions,[]);self.assertEqual(self.released,1)
+    def test_unconfirmed_slot_register_consumes_bounded_infrastructure_budget(self):
+        self.mode='registry';_,row=self.execute();self.assertEqual(row['status'],'queued');self.assertEqual(row['start_failures'],1)
     def test_temporary_storage_shortage_is_queued(self):
         self.mode='storage';_,row=self.execute();self.assertEqual(row['status'],'queued');self.assertEqual(self.sessions,[]);self.assertEqual(self.released,1)
     def test_missing_outcome_is_a_failure_even_on_exit_zero(self):

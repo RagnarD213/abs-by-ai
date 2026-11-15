@@ -199,6 +199,7 @@ def handle(req):
                 for k,r in state['jobs'].items():
                     if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']):
                         if r['id'] in req.get('unavailable',[]):continue
+                        if r.get('host_defer',{}).get(req['host'],0)>now:continue
                         next_executor=r.get('next_executor',r['executor'])
                         if c.get('executor_backoff',{}).get(next_executor,{}).get('until',0)>now:continue
                         choices.append(({'L':0,'M':1,'S':2}[r['size']],r['order'],r['queued_at'],p,k,r))
@@ -248,7 +249,10 @@ def handle(req):
                 row['start_waits']=row.get('start_waits',0)+int(resource_wait)
                 row['start_failures']=row.get('start_failures',0)+int(not resource_wait)
                 delay=req.get('backoff_s',120)
-                c=control();c.setdefault('host_backoff',{})[claim['owner']]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
+                c=control()
+                if outcome.get('retry_kind')=='storage':row.setdefault('host_defer',{})[claim['owner']]=now+max(600,delay)
+                else:
+                    c.setdefault('host_backoff',{})[claim['owner']]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
                 if resource_wait or row['start_failures']<3:
                     row.update(status='queued',not_before=now+delay,last_start_error=outcome['reason'])
                     if claim.get('workdir'):row.update(placement=claim['owner'],workdir=claim['workdir'])
@@ -472,7 +476,7 @@ def report(snap, error=None):
                     with urllib.request.urlopen(link,timeout=3) as response:verified=response.status==200
                 except Exception:pass
             item=dict(batch=name,job=r['id'],round=r['round'],title=r['title'],host=owner,status=r['status'],
-                      reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or o.get('verdict') or c.get('phase') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else r['status']),
+                      reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or o.get('verdict') or c.get('phase') or r.get('last_start_error') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else r['status']),
                       link=link,link_verified=verified,timing=r.get('timing',{}),allowance_pauses=r.get('allowance_pauses',[]),idle_slot_minutes_sampled=r.get('idle_slot_minutes',0),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
             if r['status']=='needs-dan':item['waiting_s']=now-r.get('ended',now)
             groups[group].append(item)
