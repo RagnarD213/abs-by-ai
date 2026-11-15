@@ -11,6 +11,10 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Video picks pending 2026-11-15, Codex.** [Review](http://127.0.0.1:9260/); frames/motion reviews complete. Remaining: file actual selections and job-doc IDs. Credit receipt updated:490 observed versus540expected,19,822 balance, discrepancy50 unresolved.
+
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed and published 2026-11-15, Codex; awaiting video picks.** [40 checked cuts across 16 clips](http://127.0.0.1:9260/), Three Cans reports preserved. After Dan pastes picks, file selected cuts, refresh sheet and update job docs; no duplicate review task.
+
 - [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
 
 

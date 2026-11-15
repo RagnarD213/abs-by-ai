@@ -273,6 +273,41 @@ Next: Dan's picks on 9251, then `blind.py pick` for X1/X2 sets, `veo.py add` per
 Dan picked 18 frame pairs plus all 11 existing clips (existing ones now listed in the RO-40, RO-41, RO-42, DS-106, DS-64, DS-57 job docs; blind picks
 recorded). Video: 54 takes in `/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b4/veo/` (Flow projects
 https://flow.google.com/project/15feecac-1a20-4287-8325-f08eba3351be and https://flow.google.com/project/61011229-2dbc-4824-9eb7-77f6e0128d56);
-all passed clipcheck. Final account-panel read by Codex on 2026-11-15: **19,822 credits** (Ultra account, connected M6 Chrome). Starting balance 20,312, observed drop **490 credits**. The 54 takes at the recorded 10-credit rate imply **540 credits**, so **50 credits remain unreconciled**; do not substitute an expected charge for the measured balance. This review task generated no new assets and spent no new credits. Evidence: `vid-b4/credit-balance-observation-20261115.json`.
+45 full-take automatic checks passed and 9 failed (corrected in the completed review below). Final account-panel read by Codex on 2026-11-15: **19,822 credits** (Ultra account, connected M6 Chrome). Starting balance 20,312, observed drop **490 credits**. The 54 takes at the recorded 10-credit rate imply **540 credits**, so **50 credits remain unreconciled**; do not substitute an expected charge for the measured balance. This review task generated no new assets and spent no new credits. Evidence: `vid-b4/credit-balance-observation-20261115.json`.
 Motion reviews stopped when Claude's weekly limit ran out (resets Nov 19, 10 AM Central): handed to Codex in
 `Handoffs/handoff-20261115-flow-clips-batch4-motion-reviews.md`.
+
+## Batch 4 motion review: complete, waiting for Dan's video picks (2026-11-15, Codex)
+
+Video picks page: **http://127.0.0.1:9260/**. It offers **40 checked 1080p cuts across 16 of the 18 clips**, preferred take first, with multiple selections and notes. Untouched means out. Dan has not yet selected these videos; no new batch 4 clips have been registered or added as approved library IDs to the job docs.
+
+- 51 takes received fresh independent per-clip reviews. Three Cans' three original review files were preserved byte-for-byte (`vid-b4/three-cans-preserved-sha256.json`). All 54 verdicts are recorded in their clipcheck stamps: 41 reviewer PASS windows, 13 FAIL.
+- Correction to the original handoff: **45 full-take automatic PASS, 9 FAIL**, not 54 PASS. Exact-window checks recovered B4-05-flow-t1 (60-131), B4-06-flow-t1 (0-71) and B4-11-flow-t2 (48-143). B4-05-flow-t2's proposed window also failed the automatic check and is excluded despite its visual reviewer PASS. Numeric thresholds were not changed.
+- Treadmill Milkshake is excluded: feet and belt cannot be inspected, and both longer takes drift. The Rule Book is excluded: two takes have duplication/text faults; the third failed the every-native-frame empty-gym background check (52 frames, 51 flagged) with narrow person/book masks. Its complete dense evidence and mask overlays remain in `veo/clipcheck/B4-19o-flow-t1.f72-123.dense/`.
+- Every displayed export has the expected exact frame count, fps, 1080p-or-better native dimensions, matching source/review hashes, and checked first/middle/last decoded frames. All 40 served-cache hashes match the reviewed exports, and all 40 byte-range requests returned HTTP 206. Browser checks passed at 375, 800 and 1150 px without sideways scroll; all 40 media elements loaded without errors. Landscape and portrait playback completed silently; native seeking, multiple picks, notes and persistence across reload worked. Test picks/notes were cleared. The app page was left with all 40 players paused and unmuted, ready for the owner's Play click; no volume setting was changed.
+- Honest limit: the fresh content reviews inspected every native frame in ordered still sequences and close-ups. No continuous normal-speed perceptual video-model review was available; silent browser functionality is not such a pass. The page discloses this limit. Clips are silent; no audible listening pass is claimed.
+
+| Clip | Video/job | Versions offered |
+|---|---|---|
+| Stuck In Traffic (B4-02) | I Crashed My Tesla Because I Didn't Trust FSD (RO-39) | 2 |
+| Learning To Love It (B4-03) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. (RO-40) | 3 |
+| Can't Look (B4-04) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. (RO-40) | 2 |
+| The Health Food Aisle (B4-05) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy (RO-41) | 2 |
+| Just A Quarter Cup (B4-06) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy (RO-41) | 3 |
+| Cola For Breakfast (B4-08) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy (RO-41) | 3 |
+| Two Tablespoons (B4-09) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy (RO-41) | 3 |
+| Three Cans (B4-10) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy (RO-41) | 1 |
+| Second Plate (B4-11) | Why Bulking Is a Scam (RO-42) | 3 |
+| I Bench 315 (B4-12) | Why Bulking Is a Scam (RO-42) | 3 |
+| Won't Button (B4-13) | Why Bulking Is a Scam (RO-42) | 3 |
+| Eight Glasses (B4-15) | 7 Fitness Rules That Are Completely Made Up (RO-43) | 3 |
+| Treadmill Milkshake (B4-16) | 7 Fitness Rules That Are Completely Made Up (RO-43) | 0 |
+| Kitchen Closed (B4-17) | 7 Fitness Rules That Are Completely Made Up (RO-43) | 1 |
+| Meal Four Of Six (B4-18) | 7 Fitness Rules That Are Completely Made Up (RO-43) | 2 |
+| The Rule Book (B4-19) | 7 Fitness Rules That Are Completely Made Up (RO-43) | 0 |
+| The Gym Bag (B4-21) | The Best Protein Snack Costs $2 And Comes In A Can (DS-106) | 3 |
+| Sit Up Straight (B4-22) | The Only 2 Exercises You Need For A Wide Back (DS-101) | 3 |
+
+Evidence: `/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b4/` contains `motion-review-summary.json`, `motion_results.txt`, `best_takes.json`, `gate_ranges.json`, `windows.json`, `review-cut-technical-qa.json`, `page-qa-receipt.json`, the source takes, all review reports and the exact review cuts. The managed page caches its 41 linked files on the M6. Service recovery after an actual reboot was not tested.
+
+Next, in this same chat after Dan pastes his picks: save `{selected:[take IDs], approval_words:<his exact selection>, date:<date>}` as `vid-b4/picks.json`; run `file_library.py picks.json` on the M2 for a dry run, then `--execute`. The idempotent runner adds only selected exact cuts (tag `flow-credits-batch4`), refreshes the sheet and writes `library_ids.json` plus `job-doc-additions.json`. Apply those IDs under Pre-made AI clips in the current RO-39 to RO-43, DS-106 and DS-101 job docs, verify Drive/library records, update this receipt and publish only the owned changes. No new authorization is needed.
