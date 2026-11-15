@@ -32,9 +32,9 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**REALDEMOS-B08:R1-REVIEW:2026-11-15:Codex:M2.** Five passed gates and independent review: http://127.0.0.1:9890/. Swing needs footage. No install.
+**REALDEMOS-B08:R2-REVIEW:2026-11-15:Codex:M2.** Four approved/live. Brighter fly passed gates/N; Dan review http://127.0.0.1:9890/. Swing needs footage.
 
-**DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:pick-A-D-real-covers:Docs/DS39_SETUP_RECEIPT_20261115.md.**
+**DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:shared-waitlist-capacity:Docs/DS39_SETUP_RECEIPT_20261115.md.**
 
 **WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
@@ -43,22 +43,21 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **RealDemos-B09:R1-REVIEW:2026-11-15:Codex,M2.** Awaiting Dan: http://127.0.0.1:9870/; six cleared, lateral held. `Docs/REALDEMOS_B09_REVIEW_20261115.md`.
 
 
-**REALDEMOS-B08:R1-FINAL-QA:2026-11-15:Codex:M2.** Five rendered; fresh final reviews underway. Swing pickup; no install.
 
 
 **Metabolism Not The Reason Setup:WAITLIST:2026-11-15:Codex M2.** Jan11 9AM Central; Y2 seamless/final; four uploads/covers verified; 199/200. Next: shared top-up, then uploaded status after visibility readback. Proof: http://127.0.0.1:9804/. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
 
 
 
-**[FlowB4:WAIT-PICKS:2026-11-15:Codex:40cuts/16clips;then-library/job-docs](http://127.0.0.1:9260/)**
+**[FlowB4:WAIT-ANSWERS:2026-11-15:Claude:18clips-one-each;then-library/job-docs](http://127.0.0.1:9261/)**
 
 
 
-**DS-109:R2:REVIEW:2026-11-15:Codex01a1dc87.** [Full67s](http://127.0.0.1:9860/); approve next.
+**DS-109:R3:EDITING:2026-11-15:Codex01a1dc87.** Hide shuffle until2.04s; final checks next.
 
 
 
-**DS-98 three-way blind edit: FULL FILMS IN PRODUCTION 2026-11-15.** M6 slot acquired. Dan’s choices are recorded. Next owner review: all three complete films. [Opening review](http://127.0.0.1:18899/).
+**DS-98 three-way blind edit: COMPLETE FILMS READY 2026-11-15.** M6. [Watch all three full films](http://127.0.0.1:18900/). Awaiting Dan’s pick and any revisions. [Opening review](http://127.0.0.1:18899/).
 
 
 
