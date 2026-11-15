@@ -16,7 +16,7 @@ Times are minutes:seconds into each roll from an audio pass: close, not frame-ac
 
 | roll | range | notes |
 |---|---|---|
-| `C1906` | 20:09-22:22 |  |
+| `C1906` | 19:35-22:22 | announced at 19:35 |
 
 Orientation: **portrait (stored 3840x2160 with rotation -90; decode to 2160x3840, add no transpose)**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (grade as Rec.709, no log LUT). One stereo LPCM audio stream.
 

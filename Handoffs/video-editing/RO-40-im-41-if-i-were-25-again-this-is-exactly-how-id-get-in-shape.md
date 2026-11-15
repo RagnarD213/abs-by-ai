@@ -32,6 +32,12 @@ Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (g
 
 One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers and upload/setup are separate tasks after Dan approves the film (Codex owns setup).
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0243**: plays under "Train 15 minutes every morning, every day / do it in the morning". AI you in bed before dawn opens his eyes and taps the glowing 5:30 alarm, calm (4.9 s, 16:9). `clip_library.py show A0243`. Label it AI-generated on the picture.
+- **A0173**: plays under "I eat less junk, and I do less late night eating". Night kitchen: a man pulls a pizza box loaded with ice cream and cake out of the fridge, spoon in mouth (16:9; use about 1.6 to 5.4 s of the take). Also used in RO-08. `clip_library.py show A0173`. Label it AI-generated on the picture.
+- **A0144**: plays under "If you're not weighing yourself, you don't know if what you're doing is working". A shirtless man on a bathroom scale looks down and puts his hand to his forehead (4.0 s, 16:9). Also used in RO-10. `clip_library.py show A0144`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

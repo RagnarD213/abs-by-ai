@@ -29,6 +29,7 @@ One dedicated Short. No derivative versions or extracted Shorts. Use the recorde
 ## Pre-made AI clips (Dan approved 2026-11-08)
 
 - **A0159** (library, already approved in RO-07): sore heavyset beginner eases down the stairs. Use it under "Keep it light and short to avoid getting excessively sore." `clip_library.py show A0159`. Label it AI-generated on the picture.
+- **A0264** First Day (Dan selected 2026-11-14, Flow-credits batch 3): plays under "If you're walking into a gym for the first time and you don't know what to do, this is for you." (5.3 s clean cut, 9:16). A nervous beginner just inside the door looks right, then back left, and fidgets with his bottle. `clip_library.py show A0264`. Label it AI-generated on the picture.
 
 ## Starter prompts
 

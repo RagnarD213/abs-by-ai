@@ -11,6 +11,16 @@ Batches are independent and can run at the same time (edit cap 5); only the inst
 (exact-frame cuts, turnaround trackers, loop seam, line lengths, detail-clip screening, one queued step, `dan-filmed`
 category, recipe folder `~/Projects/_edit_work/REALDEMOS-B01/`).
 
+**Updated 2026-11-15 (read with the above):**
+- Also read the master handoff's **"Batch 2 result"** section (2026-11-14). Batch 3 (`REALDEMOS-B03`) is being edited now; it
+  touches the same two install lines, so re-read `public/index.html` immediately before installing.
+- **Two Macs:** before `editcap.py acquire`, run `editroute.py pick REALDEMOS-B08 --kind EXDEMO --round 1` and work on the
+  Mac it names (M2 has the drives; footage for an M6 run via `editroute.py fetch`). Review pages made on the M2 open on
+  Dan's M6 at the same `http://127.0.0.1:PORT/` link.
+- **Review page:** Dan reviews in the app's side pane (memory `review-page-plays-in-side-pane`): load a video into the
+  player at page load, test at 800 and 1150 px wide as well as phone width.
+- Already done elsewhere: the AI demos for `db-fly` and `db-crunch` shipped 2026-11-14; nothing in this batch touches them.
+
 ## The exercises
 
 | app id | movement | main take (`*` = favorite) | detail angles | notes |

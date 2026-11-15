@@ -8,29 +8,28 @@ CONTENT (SFL) | What To Cut Shorts | SL-21 | Cover choices and setup
 
 ## Approval and exact files
 
-Dan reviewed Round 1 at http://127.0.0.1:9621/ on November 13, 2026:
+Dan's approvals, in his words:
 
-- **Short 3: "Short 3 is approved as is."** FINAL. Do not re-edit, re-render or ask for edit approval again. Preserve the file byte for byte.
-- **Short 1: "Everything else in short one is approved"**, except one new lip-synced AI clip he asked for (the excuse guy at a restaurant, 0:01.5 to 0:05.7). In round 2 with Claude.
-- **Short 2: "Everything else in short 2 approved"**, except one new lip-synced AI clip (the excuse guy on a tropical beach, about 0:02.6 to 0:05.9). In round 2 with Claude.
+- **Short 3 (2026-11-13, round 1 page): "Short 3 is approved as is."**
+- **Shorts 1 and 2 (2026-11-14, round 2 page http://127.0.0.1:9621/): "Okay, Short 1 is approved. This is looking good, and let's go with X1 for Short 2."** In round 1 he approved everything else in both and asked for one lip-synced AI excuse clip each; round 2 added only that clip (Short 1 0:01.53 to 0:05.67, the restaurant guy; Short 2 0:02.85 to 0:05.94, the beach guy, pair X1 of two versions).
 
-His approval covers the hair at the top edge (camera roll C1511 framing, same as the approved film and the Invest In Your Health Shorts) and Short 2's key point wording.
+All three edits are FINAL: do not re-edit, re-render or ask for edit approval again. Preserve each file byte for byte. His approval covers the hair at the top edge (camera roll C1511 framing, same as the approved film and the Invest In Your Health Shorts), Short 2's key point wording, and Short 2's one extra gate miss (`framing:push_coverage`: the new clip covers the first 3 seconds of his wide shot; his own frames after it are identical to round 1).
 
 | # | Approved title | File in `Short-form video content/` | Seconds | AI flag | SHA256 |
 |---|---|---|---|---|---|
-| 1 | Restaurants Don't Care About Your Fitness Goals | `whattocut-short1_restaurants-dont-care-about-your-fitness-goals.mp4` | 52.3 (round 1) | will be **true** once the AI excuse clip is in | PENDING round 2: do not use the round 1 file |
-| 2 | You Don't Deserve A Vacation Until You're Ripped | `whattocut-short2_you-dont-deserve-a-vacation-until-youre-ripped.mp4` | 51.6 (round 1) | will be **true** once the AI excuse clip is in | PENDING round 2: do not use the round 1 file |
+| 1 | Restaurants Don't Care About Your Fitness Goals | `whattocut-short1_restaurants-dont-care-about-your-fitness-goals.mp4` | 52.31 | **true**: AI restaurant excuse guy 0:01.53 to 0:05.67 | `544f74b7bb182d5a4350a8ffa740b2d6c8529a3259b82fb271b71cb311ea85d5` |
+| 2 | You Don't Deserve A Vacation Until You're Ripped | `whattocut-short2_you-dont-deserve-a-vacation-until-youre-ripped.mp4` | 51.58 | **true**: AI beach excuse guy 0:02.85 to 0:05.94 | `2c05d70ccc2055da840be8fe57b158e649bd90e94f62430dd49906b1997bce81` |
 | 3 | If You Can't Afford A Gym, You Can't Afford Therapy | `whattocut-short3_if-you-cant-afford-a-gym-you-cant-afford-therapy.mp4` | 49.8 | false | `b6bd0e5666ab58497e36bc31acc11f3349f53e7b8ed6b81cb5963818965ec2fa` |
 
-Claude fills in the Short 1 and 2 hashes and flips this handoff to "fire now" when Dan approves them. All three are 1080x1920 at 30000/1001 with one-line captions burned in (no second burned set). Notes: `Short-form video content/whattocut-SHORTS.md`. Build, reviews and gate stamps: `/Users/danielrose/Projects/_edit_work/SL-21/` (recipe copy in git: `.claude/skills/shorts/reference/softblue-sl21/`). Word timings: `build/<A|D|E>/words.json` and `cues.json` (A = Short 1, D = Short 2, E = Short 3).
+Manifest with hashes: `Short-form video content/whattocut-SHORTS-final-manifest.json`. Short 2 was gated and reviewed under the name `..._X1.mp4` and copied byte for byte to the plain name (same sha256, stamps copied unchanged); the review candidates are in `Short-form video content/whattocut REVIEW/round1` and `round2` (do not use them). The finals are in the project folder on both Macs; the build folder is on the M2 (`ssh m2`, `/Users/danielrose/Projects/_edit_work/SL-21/`, builds A2 = Short 1, D1 = Short 2, E = Short 3). All three are 1080x1920 at 30000/1001 with one-line captions burned in (no second burned set). Notes: `Short-form video content/whattocut-SHORTS.md`. Build, reviews and gate stamps: `/Users/danielrose/Projects/_edit_work/SL-21/` (recipe copy in git: `.claude/skills/shorts/reference/softblue-sl21/`). Word timings: `build/<A|D|E>/words.json` and `cues.json` (A = Short 1, D = Short 2, E = Short 3).
 
 **Not done:** covers, Drive backup, the Extreme copy, media uploads, metadata, schedules.
 
 ## QA history (honest)
 
-- Three independent review rounds per Short (Short 2 a fourth for captions); final verdicts SHIP with 0 open defects on all three round 1 files.
+- Round 1: three independent review rounds per Short (Short 2 a fourth for captions). Round 2: a fresh reviewer per delivered file; Short 1 passed first time, Short 2 took three rounds on the lip sync. Final verdicts SHIP with 0 open defects on all three finals. Each AI take also passed the motion gate and its own frame reviewer.
 - Audio: the film's own mix, verbatim (audio gate PASS). Measured, not listened to.
-- Delivery gate 2.6.3: 37 of 39 rows pass on each; the two misses are `framing:hair_top` and `framing:headroom` (source framing, accepted by Dan above). Do not rebuild or alter stamps to satisfy a row.
+- Delivery gate 2.6.3: Shorts 1 and 3 pass 37 of 39 rows (misses `framing:hair_top` and `framing:headroom`, source framing); Short 2 passes 36 of 39 (the same two plus `framing:push_coverage`). All accepted by Dan above. Do not rebuild or alter stamps to satisfy a row.
 
 ## What ships
 
@@ -47,6 +46,6 @@ Kitchen footage (Aug 3 kitchen set). The job doc's "Short 1 airs Mon Nov 30" is 
 3. **After his picks:** Extreme copy and Google Drive backup (anyone with the link can view), verify bytes; `content_type: organic`, `ad_guard.py --scan` before and after; per Short title, description, tags, UTMs and an easy `pinned_comment` question from the transcript; `ai_generated` true for Shorts 1 and 2 (realistic AI excuse clip), false for Short 3; covers to `Short-form video content/covers/approved-sl21/`; TikTok cover-first copies; Facebook cover registry entries; one config per Short at `scripts/blotato/configs/sl21-short<N>-<slug>.json`; `organic_short_queue.py` dry, then `--apply` or the shared waitlist; read back all four platforms. Never a direct Public upload or YouTube native scheduling. Once the parent is public, add YouTube's Related Video link to RO-20B.
 4. **Record** a receipt `Docs/SL21_SETUP_RECEIPT_<date>.md`, set SL-21 `uploaded` only after live read-backs, remove this handoff from the OPEN list and push owned changes with `scripts/git/safe-push.sh`. Dashboard stays paused.
 
-## Starter prompt (use once this file says "fire now")
+## Starter prompt
 
 What To Cut SFL Setup. Read `Handoffs/handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md` and execute it with the /video-setup method. All three What To Cut Shorts are approved by Dan; verify each file against the hashes in the handoff and preserve the finals byte for byte. Dan has authorized the whole setup: do not stop to ask him anything except his cover picks. Make five unique cover choices for each Short (two AI images of Dan acting out the topic, one real pool or studio photo, two of your choice from his pick history) plus the three unlabeled Google options, in Instagram and YouTube layouts, show the checked sheet and stop for his picks. After the picks, complete backups, metadata and Blotato setup in February Short slots after the parent film is public (Fri Dec 11), or the shared waitlist if Blotato is full.

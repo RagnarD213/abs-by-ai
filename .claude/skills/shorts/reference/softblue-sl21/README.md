@@ -107,3 +107,10 @@ better"). Builds: A2 (Short 1), D1 / D2 (Short 2 with pair X1 / X2; which take i
   page folder to the same path there (`rsync -a m2:<work>/review/ <work>/review/`; `/Users/danielrose` is a link on the M6) and run
   `review_server.py PORT <work>/review` on the M6. The hub's migrated registration serves an old snapshot until then. Verify by hashing a
   video through the M6 link against the M2 file.
+
+## Finalized (2026-11-14)
+
+Dan: "Okay, Short 1 is approved. This is looking good, and let's go with X1 for Short 2." All three Shorts are final; hashes in
+`Short-form video content/whattocut-SHORTS-final-manifest.json`. Short 2's picked build (`..._X1.mp4`) was copied byte for byte to the plain
+name with its stamps; the candidates moved to `whattocut REVIEW/round2/`. Setup: `Handoffs/handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md`.
+Finishing from the M6: `editroute/resume.py run SL-21 -- zsh -s` with the script on stdin runs it on the M2 in the project checkout.

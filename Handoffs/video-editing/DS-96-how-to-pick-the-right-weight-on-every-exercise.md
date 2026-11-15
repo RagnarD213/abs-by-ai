@@ -26,6 +26,11 @@ Genuine missing items: No known missing spoken section.
 
 One dedicated Short. No derivative versions or extracted Shorts. Use the recorded vertical finishing workflow after take/audio/color selection. Covers and upload/setup are separate after film approval. Keep the dispatcher paused; this registration is not permission to start other jobs.
 
+## Pre-made AI clips (Dan approved 2026-11-15, Flow-credits batch 3)
+
+- **A0270** Cheating The Heavy Ones: plays under "Don't be embarrassed to do that. It's better to go down in weight and keep your form strict than to cheat through a heavier weight." (3.4 s clean cut, 9:16). From the side, a slim man yanks huge dumbbells up in three fast, jerky cheated curls. Use it on "cheat through a heavier weight". `clip_library.py show A0270`. Label it AI-generated on the picture.
+- **A0271** Lighter, Strict Form: same line (5.0 s clean cut, 9:16). The same man, back against a wall, does slow strict curls with lighter dumbbells. Use it on "go down in weight and keep your form strict". `clip_library.py show A0271`. Label it AI-generated on the picture. The two clips are a pair: the same man, cheat first or strict first to match the order of the words.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

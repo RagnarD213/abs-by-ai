@@ -12,6 +12,8 @@ description: >
   list" step in /teleprompterscripts.
 ---
 
+> **Film the unfilmed scripts first (Dan, 2026-11-14).** Before brainstorming anything new, remind Dan in one line that the Unfilmed Content And Ads doc exists (link at the top of `Docs/NEXT_SHOOT_LIST.md`), with how many scripts are still open. New ideas only fill what is left after those are on the filming plan. Memory: `shoot-unfilmed-first`.
+
 > **Shared writing rules:** before writing a card, read `.claude/skills/_shared/WRITING-RULES.md` and
 > `.claude/skills/_shared/HOOKS.md`. Memory: `reaction-clip-criteria`. No em dashes, anywhere.
 

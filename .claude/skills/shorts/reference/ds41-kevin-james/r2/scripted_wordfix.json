@@ -1,0 +1,20 @@
+{
+ "_note": "scripted: 'So' sits after the pause (Whisper put it on the s of 'surplus'); 'If' starts 1719.26 (Whisper put it on the s of 'progress')",
+ "drop": [
+  1690.18,
+  1718.62
+ ],
+ "text": {},
+ "add": [
+  [
+   "So",
+   1690.66,
+   1690.8
+  ],
+  [
+   "If",
+   1719.26,
+   1719.4
+  ]
+ ]
+}

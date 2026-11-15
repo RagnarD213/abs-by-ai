@@ -21,7 +21,8 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 - **A0241** (library, not used yet): a man lies awake at 3 a.m. staring at the ceiling, then looks at the clock. Use it under "Dieters who slept 5 hours lost 55% less fat than when they slept 8.5 hours." (5.3 s, 16:9: fit it into the vertical with `clip_fit.py`, never crop the height). `clip_library.py show A0241`. Label it AI-generated on the picture.
 - **A0188** (library, already approved in RO-17): a lean man on the sofa eats the last sardine from the tin and leans back. Use it under "Even my snacks are protein. Sardines and hard boiled eggs." (4.1 s, 16:9, same fit rule). `clip_library.py show A0188`. Label it AI-generated on the picture.
-- More clips for this Short are being made (Flow-credits batch 3: Lighter But Weaker, Movie Snack). Their library IDs are added here once Dan approves the video.
+- **A0266** Lighter But Weaker (Dan selected 2026-11-14, Flow-credits batch 3): plays under "Most guys who diet lose about a quarter of the weight they lose as muscle." (4.3 s clean cut, 9:16). A thin man on a scale looks pleased, then flexes his skinny arm and is disappointed. `clip_library.py show A0266`. Label it AI-generated on the picture.
+- **A0267** Movie Snack (Dan selected 2026-11-14, Flow-credits batch 3): plays under "Even my snacks are protein. Sardines and hard boiled eggs." (4.8 s clean cut, 9:16). A man in a cinema lifts a hard-boiled egg out of a popcorn bucket full of them. `clip_library.py show A0267`. Label it AI-generated on the picture. The same line also has A0188 above; use one, or one on each half of the line.
 
 ## Starter prompts
 **Claude (Opus 5.5, high):**

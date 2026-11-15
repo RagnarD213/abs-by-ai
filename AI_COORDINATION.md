@@ -49,18 +49,32 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**FlowClips-b3:AWAITING-DAN-PICKS:2026-11-13:Claude.** Batch3 video page 9246 (8 clips, 7 ideas). Next: his picks, file in library, job docs. `Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+
+**DS-109:R1-FIRST-REVIEW:2026-11-15:Codex01a1dc87.** AwaitDan: opening/key, color, voice, foodcards. [Review](http://127.0.0.1:9810/). Fullfilm unrendered; assetsM2.
+
+
+**DS-108:REVIEW-M6:2026-11-14:Codex01a1dc86;127.0.0.1:9880;Dan-picks;full-film-unbuilt.**
+
+
+
+**WhatToCut-SFL-Setup:THERAPY-R2-PICK:2026-11-15:Codex.** [Choose-X1–X4](http://127.0.0.1:9862/?therapy_round=2);two-shirtless/two-tank;Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
+
+**DS-98 three-way blind edit: FULL FILMS QUEUED 2026-11-15.** M6. Dan’s three sets of picks and common exercise-footage revisions recorded. Resume automatically in next edit slot. Next owner review is the three completed films.
+
+
+
+
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-AD-R1(WV-03):DAN-REVIEW-R1:2026-11-14:Claude.** http://127.0.0.1:9760/; R2 handoff on hold in Handoffs/README.md.
+**GreatAgainT-VSL-R5(WV-03):BUILDING-M6:2026-11-15:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**KevinJamesCheat-SFC-R1(DS-41):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9661/;scripted-61.9s-vs-offcuff-73.2s,pick-one;setup-handoff-after-approval.
 
-**WhatToCut-SFL(SL-21):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9621/(mirrored-on-M6;work-folder-on-M2,ssh-m2);Short1+Short2(X1/X2)-with-excuse-clips;pick-beach-guy;setup-handoff-HOLD-until-approved.
 
+
+**[DS41-X3:FINAL-OK:2026-11-15:Codex01a1dc60](http://127.0.0.1:9868/)**
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 
@@ -86,7 +100,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **SL-20Setup:HOLD:2026-11-06:Claude.** Feb1/3/5-waitlist;push-pending. `Docs/SL20_SETUP_RECEIPT_20261106.md`
 
-**RO15:HOLD:2026-11-06:Codex.** Docs/RO15_SETUP_RECEIPT_20261106.md
+**RO15:HOLD:2026-11-14:Codex.** Reverified; A approved; Dec23-9AM waitlisted. Next: shared top-up. `Docs/RO15_SETUP_RECHECK_20261114.md`.
 
 
 
@@ -300,10 +314,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ad 6 remarketing 2026-10-04:** Awaiting Dan: copy to enabled campaign 24305381214?
 
-**RO-19 HOLD 2026-10-13.** `Docs/RO19_SETUP_RECEIPT_20261013.md`
+**RO-19:QUEUED:2026-11-15:Claude.** Dec4.
 
 
-**RO-07 - HOLD 2026-10-11, Claude.** Blotato full. `Docs/RO07_SETUP_RECEIPT_20261011.md`
+**RO-07:QUEUED:2026-11-15:Claude.** Dec2.
 
 **SL-07 HOLD 2026-10-18, Claude.** Covers picked, media and configs ready; Blotato full, five shorts on the waitlist for Dec 21-29. Next: the daily top-up routine queues them as slots free. `Docs/SL07_SETUP_RECEIPT_20261018.md`
 

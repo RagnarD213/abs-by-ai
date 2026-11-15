@@ -183,3 +183,10 @@ refresh leaves evidence in scratch; it never permits replacing another job's rev
 Functional suites use isolated registries and fake ownership. `client_acceptance.py` records a
 separate client receipt. Its host simulations are not production film completion or speed evidence.
 New fairness/borrowing is activated only after old loaded holders and waiters have drained.
+
+## /away: Dan says he is leaving (2026-11-15)
+
+`python3 away.py on [--hours 8]` makes `hostcfg.presence()` answer "away" at once, so the render queue hands out
+`cores_away` (M6: 10) without waiting `away_after_min`. It removes itself when the keyboard or mouse is used after a
+2 minute grace, or when its hours run out. `away.py off` and `away.py status` do what they say. State file:
+`~/.absbyai-away.json` (per Mac). Skill: `.claude/skills/away/SKILL.md`.

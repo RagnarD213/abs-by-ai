@@ -284,7 +284,11 @@
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "kitchen": true,
-  "planned": "2026-11-28 18:00"
+  "planned": "2026-11-28 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-11-29T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl16-short2-why-carbs-destroy-your-productivity.json",
@@ -295,7 +299,11 @@
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "kitchen": true,
-  "planned": "2026-12-01 18:00"
+  "planned": "2026-12-01 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-02T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro07-work-out-every-day.json",
@@ -303,7 +311,11 @@
   "job": "RO-07",
   "label": "Why You MUST Work Out Every Day",
   "added": "2026-10-11",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-02T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
@@ -311,7 +323,11 @@
   "job": "RO-19",
   "label": "My First Spray Tan",
   "added": "2026-10-13",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-04T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json",
@@ -321,7 +337,11 @@
   "added": "2026-10-22",
   "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kitchen": true,
-  "planned": "2026-12-05 18:00"
+  "planned": "2026-12-05 18:00",
+  "queued": {
+   "date": "2026-11-15",
+   "main": "2026-12-06T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/abs-at-40-vs-25.json",
