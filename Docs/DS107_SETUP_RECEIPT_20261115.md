@@ -55,3 +55,7 @@ Drive folder made anyone-with-link viewable using `rclone link`; unauthenticated
 5. Keep DS-107 FINALIZED until the required verified upload/schedule conditions are met. Then use `scripts/edit-queue/queue.py set DS-107 uploaded`, mirror the queue page, and record actual readbacks. Update this receipt, the setup handoff index and the single board line.
 
 Post-release public-cover verification and pinned-comment checks remain with the existing shared monitors. A queued thumbnail URL is not proof of a correct public tile.
+
+## Repository checkpoint
+
+Setup work saved in local commit `c95112b`. Shared safe-push stopped before merging because another session is actively editing `.claude/skills/_shared/editcap/editcap.py` (modified November 15 at 09:23). No other session's changes were altered. GitHub push remains pending; retry the shared safe-push after that live edit clears. This does not block the mirrored review link or verified backups.
