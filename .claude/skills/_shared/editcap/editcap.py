@@ -59,6 +59,8 @@ def _host_slots():
 
 sys.path.insert(0, str(SHARED / "editroute"))
 import priority as job_priority
+sys.path.insert(0, str(HERE))
+import review_handoff
 
 CAP = int(os.environ.get("EDITCAP_MAX") or _host_slots() or 5)
 LEASE_S = 3 * 3600          # an active edit with no acquire and no render-queue activity this long loses its slot
@@ -388,6 +390,11 @@ def occupancy(reg, rq):
 
 def settle(reg, now, rq, cal):
     """Reap stale slots, then promote waiters into free slots. Mutates reg; returns it."""
+    # Reconcile a committed handoff even if its caller exited before releasing.
+    for job, entry in reg["edits"].items():
+        if review_handoff.current(entry, review_handoff.handoff_time(cal.jobs.get(job))):
+            entry.update(state="with-dan", since=now, reason="waiting on Dan's review or picks")
+            _note(reg, now, job, "with Dan")
     reservation = job_priority.current()
     for j, e in reg['edits'].items():
         if reservation and job_priority.job_id(j)!=reservation['job'] and e['state'] in ('active','promoted'):
@@ -500,13 +507,16 @@ def acquire(job, title=None, type_=None, release=None, today=None, ctx=None, pri
         return EXIT_GO, "{}: edit cap unavailable, allowed.".format(job)
 
 
-def release(job, review=False, ctx=None, today=None):
+def release(job, review=False, ctx=None, today=None, handoff_at=None):
     job = job_code(job) or job
     try:
         with _locked():
             now, rq, cal = ctx or _context(today)
             reg = _load()
             e = reg["edits"].get(job)
+            if handoff_at is not None:
+                if not e or not review_handoff.current(e, handoff_at):
+                    return EXIT_GO, "{}: no current edit slot to release for this handoff.".format(job)
             if e is None and review:
                 e = _entry(reg, job, now, {})
             if e is not None:
@@ -524,7 +534,7 @@ def release(job, review=False, ctx=None, today=None):
             wakes = pending_wakes(reg)
     except (LockTimeout, OSError) as ex:
         warn("registry not available ({}); nothing released".format(ex))
-        return EXIT_GO, "{}: edit cap unavailable.".format(job)
+        return (1 if handoff_at is not None else EXIT_GO), "{}: edit cap unavailable.".format(job)
     msg = ["{}: slot released{}.".format(job, " (with Dan)" if review else " (finished)")]
     if rq.get(job, {}).get("live"):
         msg.append("Note: {} still has {} step(s) in the render queue; they count as a slot until they finish."
@@ -783,6 +793,12 @@ def main(argv):
         code, msg = acquire(job, o.get("--title"), o.get("--type"), o.get("--release"), priority=bool(o.get("--priority")))
         print(msg)
         return code
+    if cmd == "handoff":
+        if len(pos) != 2:
+            sys.exit("usage: editcap.py handoff JOB REVIEW_TIMESTAMP")
+        code, msg = release(job, review=True, handoff_at=float(pos[1]))
+        print(msg)
+        return code
     if cmd == "release":
         code, msg = release(job, review=bool(o.get("--review")))
         print(msg)
@@ -802,5 +818,8 @@ if __name__ == "__main__":
     except SystemExit:
         raise
     except Exception as ex:                                    # fail-open on any bug
+        if sys.argv[1:2] == ["handoff"]:
+            warn("review handoff failed: {}".format(ex))
+            sys.exit(1)
         warn("unexpected error ({}: {}); allowing (fail-open)".format(type(ex).__name__, ex))
         sys.exit(0)

@@ -24,7 +24,7 @@ function card(h,v,route,now){
  for(const a of jobs.filter(j=>!j.occupies&&j.held))more.append(el('p','',a.title+': '+a.held+' render step(s) observed.'));
  box.append(more);
  const review=jobs.filter(j=>j.states.includes('with-dan'));
- if(review.length){const det=el('details');det.dataset.key=h+'review';det.append(el('summary','','Recorded as waiting for Dan ('+review.length+')'));for(const a of review)det.append(job(a,'Review or picks recorded'));box.append(det)}
+ if(review.length){const det=el('details');det.dataset.key=h+'review';det.append(el('summary','','Waiting for Dan ('+review.length+')'));for(const a of review)det.append(job(a,'Awaiting review or picks'));box.append(det)}
  const stalled=jobs.filter(j=>j.states.includes('stalled'));if(stalled.length){const det=el('details');det.dataset.key=h+'stalled';det.append(el('summary','','Possible stalls ('+stalled.length+')'));for(const a of stalled)det.append(job(a,'Marked stalled in the edit register'));box.append(det)}
  return box
 }

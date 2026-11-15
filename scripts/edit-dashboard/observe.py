@@ -16,6 +16,8 @@ import sys
 import time
 from pathlib import Path
 
+import review_handoff
+
 HERE = Path(__file__).resolve().parent
 STATES = {'active','promoted','waiting','with-dan','stalled','parked','finished'}
 POLICY = json.loads((HERE/'policy.json').read_text())
@@ -59,8 +61,13 @@ def key(s):
     return 'Unidentified project'
 
 
+def get_catalog(path):
+    return memo(path, lambda b: {e['id']: e for e in json.loads(b)['jobs']})
+
+
 def get_titles(repo):
-    return memo(repo/'Handoffs/video-editing/jobs.json',lambda b:{key(e['id']):e['title'] for e in json.loads(b)['jobs']})
+    catalog=get_catalog(repo/'Handoffs/video-editing/jobs.json')
+    return {key(ident):row.get('title', ident) for ident,row in catalog.items()}
 
 
 def kernel():
@@ -189,9 +196,11 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
     out['lastGrant']=section('Render settling time unknown',adm)
     watched=[ec/'registry.json',rq/'slots',rq/'queue',pr/'priority.json',rq/'features.json',storage/'storage.json']
     if host=='m6':watched.extend([route/'waiting.json',route/'decisions.jsonl'])
-    titlemap=(section('Title catalog unavailable',lambda:get_titles(repo)) or {}) if host=='m6' else {}
+    catalog_path=repo/'Handoffs/video-editing/jobs.json'
+    watched.append(catalog_path)
     for attempt in range(2):
         before=stamp(watched);issues=len(out['issues'])
+        catalog=section('Edit handoff catalog unavailable',lambda:get_catalog(catalog_path)) or {}
         def registry():
             r=read(ec/'registry.json')
             if r['version']!=1 or not isinstance(r['edits'],dict):raise ValueError()
@@ -210,12 +219,15 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
         else:out['issues'].append('Work changed during observation')
     jobs={}
     def job(j):
-        return jobs.setdefault(j,dict(id=j,title='The Only 5 Machines You Need' if j=='DS-98' else titlemap.get(j,j),states=[],held=0,tickets=0,parked=False,urgent=False))
+        return jobs.setdefault(j,dict(id=j,title='The Only 5 Machines You Need' if j=='DS-98' else catalog.get(j,{}).get('title',j),states=[],held=0,tickets=0,parked=False,urgent=False))
     for ident,e in (reg or {}).items():
         if e['state']=='finished':continue
         j=key(ident); a=job(j)
         if j not in ('DS-98','Unidentified project') and e.get('title'):a['title']=str(e['title'])[:110]
-        a['states'].append(e['state']); a['parked']|=bool(e.get('reservation_parked')); a['urgent']|=bool(e.get('priority')) or j in urgent
+        stage=e['state']
+        if review_handoff.current(e, review_handoff.handoff_time(catalog.get(ident))):
+            stage='with-dan'
+        a['states'].append(stage); a['parked']|=bool(e.get('reservation_parked')); a['urgent']|=bool(e.get('priority')) or j in urgent
     for j,held,cores,urgent in rows or []:
         a=job(j);a['held' if held else 'tickets']+=1;a['urgent']|=urgent
     unknown=jobs.get('Unidentified project')

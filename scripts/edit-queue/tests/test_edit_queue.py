@@ -46,6 +46,39 @@ def run(data, f=None, sb=None, cfg=None):
 
 
 class Routing(unittest.TestCase):
+    def test_review_handoff_releases_stalled_slot_and_ignores_old_round(self):
+        import argparse
+        from pathlib import Path
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            register = root / "registry.json"
+            def record(state, last_seen):
+                register.write_text(json.dumps({"version": 1, "edits": {"DS-98": {
+                    "job": "DS-98", "state": state, "registered": 1, "last_seen": last_seen}}, "log": []}))
+            def submit(state):
+                q.run(argparse.Namespace(cmd="set", id="DS-98", state=state, by="Codex",
+                                         note=None, editor=None, needs=None))
+            with patch.dict(os.environ, {"EDITCAP_DIR": td, "GATE_DIR": str(root/"render"),
+                                         "EDIT_PRIORITY_DIR": td, "EDIT_STORAGE_DIR": td}), \
+                 patch.multiple(q, JOBS=str(root/"jobs.json"), EXPORT=td, MASTER=str(root/"master")):
+                q.save({"jobs": [job("DS-98", "in_progress")]})
+                record("stalled", 10)
+                submit("draft_review")
+                self.assertEqual(json.loads(register.read_text())["edits"]["DS-98"]["state"], "with-dan")
+                ready = q.load()["jobs"][0]["review_ready_at"]
+                contents = register.read_bytes()
+                submit("draft_review")
+                self.assertEqual(register.read_bytes(), contents)
+                record("active", ready+1)
+                submit("draft_review")
+                self.assertEqual(json.loads(register.read_text())["edits"]["DS-98"]["state"], "active")
+                submit("in_progress")
+                self.assertNotIn("review_ready_at", q.load()["jobs"][0])
+                record("active", 20)
+                submit("delivered")
+                self.assertEqual(json.loads(register.read_text())["edits"]["DS-98"]["state"], "with-dan")
+
     def test_phase2_states_and_drive_schema_are_explicit(self):
         self.assertIn("draft_review", q.STATES); self.assertIn("frames_approved", q.STATES)
         old = q.EXPORT; q.EXPORT = TMP

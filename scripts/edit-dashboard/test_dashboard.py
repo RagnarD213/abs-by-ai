@@ -59,6 +59,36 @@ class Scratch(unittest.TestCase):
         with patch('os.open',safe),patch('fcntl.fcntl',query),patch('fcntl.flock',side_effect=AssertionError),patch('os.rename',side_effect=AssertionError),patch('os.replace',side_effect=AssertionError):
             data=self.snap()
         self.assertEqual(data['issues'],[]);self.assertEqual((data['used'],data['renders'],data['tickets']),(1,1,1));self.assertNotIn('SealedToken',json.dumps(data));self.assertEqual(before,tree(self.base))
+    def test_review_handoff_supersedes_stall_until_next_round(self):
+        catalog = self.repo/'Handoffs/video-editing/jobs.json'
+        for host in ('m2','m6'):
+            put(catalog, {'jobs':[{'id':'DS-98','state':'draft_review','review_ready_at':200,'note':'SealedToken'}]})
+            put(self.ec/'registry.json', {'version':1,'edits':{'DS-98':{
+                'job':'DS-98','state':'stalled','active_since':100,'last_seen':150,'since':250}}})
+            result=self.snap(host)
+            self.assertEqual(result['jobs'][0]['states'],['with-dan'])
+            self.assertEqual(result['used'],0)
+            self.assertNotIn('SealedToken',json.dumps(result))
+            self.assertEqual(o.read(self.ec/'registry.json')['edits']['DS-98']['state'],'stalled')
+            put(self.ec/'registry.json', {'version':1,'edits':{'DS-98':{
+                'job':'DS-98','state':'active','active_since':210,'last_seen':211}}})
+            self.assertEqual(self.snap(host)['jobs'][0]['states'],['active'])
+            put(catalog, {'jobs':[{'id':'DS-98','state':'in_progress','review_ready_at':500}]})
+            self.reg(**{'DS-98':'stalled'})
+            self.assertEqual(self.snap(host)['jobs'][0]['states'],['stalled'])
+
+    def test_dated_review_and_live_render(self):
+        catalog = self.repo/'Handoffs/video-editing/jobs.json'
+        put(catalog, {'jobs':[{'id':'DS-98','state':'delivered','updated':'2026-11-14'}]})
+        put(self.ec/'registry.json', {'version':1,'edits':{'DS-98':{
+            'job':'DS-98','state':'active','last_seen':100}}})
+        self.lease()
+        data=self.snap()
+        self.assertEqual(data['jobs'][0]['states'],['with-dan'])
+        self.assertEqual((data['used'],data['renders']),(1,1))
+        put(catalog, {'jobs':[{'id':'DS-98','state':'delivered','updated':'unknown'}]})
+        self.assertEqual(self.snap()['jobs'][0]['states'],['active'])
+
     def test_dead_and_reused_holders_and_tickets(self):
         f=self.lease();f.close()
         t=self.lease(ticket=True);t.close()
