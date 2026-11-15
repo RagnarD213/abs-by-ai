@@ -31,7 +31,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-109:WAIT-CAPACITY:2026-11-14:Codex01a1dc87:R1:next-look/audio/key/asset-previews-before-full-render.**
+**DS-109:PRODUCTION-M2:2026-11-15:Codex01a1dc87:R1.** First-review-build;worker58358;root-supervises-until-page-ready.
 
 
 **DS-108:REVIEW-M6:2026-11-14:Codex01a1dc86;127.0.0.1:9880;Dan-picks;full-film-unbuilt.**
@@ -40,7 +40,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **WhatToCut-SFL-Setup:THERAPY-PICK:2026-11-14:Codex.** [Choose-X1–X8](http://127.0.0.1:9862/?pick=therapy);Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
-**DS-98 three-way blind edit: BLOCKED 2026-11-14, Codex 01a1db93.** M6. First video review: no URL yet. [Sound-ready listening check only](http://127.0.0.1:18898/). Return the downloaded listening report in the DS-98 conversation; no setup.
+**DS-98 three-way blind edit: FIRST REVIEW READY 2026-11-15.** M6. [Watch X1, X2 and X3 with sound](http://127.0.0.1:18899/). Dan: reply with your favorite opening and any changes. Awaiting Dan’s first review.
 
 
 
@@ -49,7 +49,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R4(WV-03):DAN-REVIEW:2026-11-14:Claude:9763.**
+**GreatAgainT-VSL-R5(WV-03):HANDOFF-READY:2026-11-15:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 

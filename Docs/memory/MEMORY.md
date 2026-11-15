@@ -143,6 +143,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Headlines](ad-copy-headline-voice.md): person + outcome
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
 - [VSL scripts from Dan's outline](vsl-scripts-from-dans-outline.md): 11-09: Dan rejected AI-outlined VSL scripts as awful; script only from his outline, his/V Shred voice; intro = proven idea + original attention idea
+- [GAT VSL: teal studio test later](gat-vsl-teal-studio-test-later.md): 11-15: VSL background is the medium wood kitchen; Teal Studio (his winners' look) saved as the first split test once live
 - [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
 - [HBI top 10 ad creatives](hbi-top-ad-creatives-sheet.md): 11-12 sheet of Dan's top HBI ads with scripts and spend; Five Foods $1.69M is the model for food ads
 - [YT ads](ytads-retired-manual-management.md): instant on, never pause

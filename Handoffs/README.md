@@ -22,7 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R5 (graphics round)](handoff-20261114-great-again-t-vsl-round5.md), 2026-11-14. **HOLD: fire after Dan picks a background on the round 4 page (http://127.0.0.1:9763/). Claude Opus 5.5, high.** Small rounds: graphics as stills in his chosen look and AI start and end pairs first; no full render before a full graphics review.
+- [Great Again T VSL AD R5](handoff-20261115-great-again-t-vsl-round5.md), 2026-11-15. **READY: fire now. Claude Opus 5.5, high.** Dan picked the Medium Wood Kitchen. Round 5 builds the first 3 minutes in the wood kitchen and in the Teal Studio from one cut, and start and end frame pairs for all 44 AI clip ideas. Nothing else is rendered.
 
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **IN PROGRESS, Codex.** All three films approved and unchanged. Restaurant R4 X2 and Vacation X7 covers approved; [therapy X1–X8 pick remains](http://127.0.0.1:9862/?pick=therapy). Then complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
 
