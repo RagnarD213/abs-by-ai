@@ -29,10 +29,16 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Metabolism Not The Reason Setup:R3-PICK:2026-11-15:Codex M2.** http://127.0.0.1:9804/ (M2+M6); Y1-Y4 requested bubbles, two shirtless/two tank; R2 extras below. Records corrected; film/metadata unchanged; no scheduling; push-pending. Next: Dan picks. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
 
 
-**RealDemos-B03:DAN-REVIEW-R3:2026-11-15:Claude.**http://127.0.0.1:9531/;sled+lunge-live;chinup-install-after-approval.
+**RealDemos-B09:R1-REVIEW:2026-11-15:Codex,M2.** Awaiting Dan: http://127.0.0.1:9870/; six cleared, lateral held. `Docs/REALDEMOS_B09_REVIEW_20261115.md`.
+
+
+**REALDEMOS-B08:R1-FINAL-QA:2026-11-15:Codex:M2.** Five rendered; fresh final reviews underway. Swing pickup; no install.
+
+
+**Metabolism Not The Reason Setup:WAITLIST:2026-11-15:Codex M2.** Jan11 9AM Central; Y2 seamless/final; four uploads/covers verified; 199/200. Next: shared top-up, then uploaded status after visibility readback. Proof: http://127.0.0.1:9804/. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
+
 
 
 
