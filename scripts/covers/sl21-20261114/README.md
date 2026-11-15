@@ -1,6 +1,6 @@
 # What To Cut cover setup, SL-21
 
-One setup owner, Codex, 2026-11-14. Vacation X7 and restaurant R4 X2 approved; therapy X3 selected, its bubble revision awaits exact-file approval.
+One setup owner, Codex. All three covers approved and setup complete, 2026-11-15. Shared waitlist plans February 8/10/12, 9 AM Central; no live schedules at 199/200. See `Docs/SL21_SETUP_RECEIPT_20261115.md`. Do not rerun.
 
 Review: http://127.0.0.1:9862/
 
@@ -63,3 +63,7 @@ The blind pick was already logged against `<work>/therapy-r2/blind-set/`; do not
 Dan's latest request supersedes the interrupted doubled one-line idea: remove the title; enlarge the bubble across the right two-thirds; allow multiple lines; exact copy **Therapy makes you fat and depressed.** Current review: http://127.0.0.1:9862/?therapy_round=4 . Both layouts checked. Current full originals and hashes: `<work>/therapy-r4/layout-manifest-private.json`. Recipe: `therapy-r4/build.py`, no image regeneration. Await exact-file approval under the cover revision rule. R3 is superseded and must not be installed.
 
 On approval install `<work>/therapy-r4/layouts/instagram/X3-revised.png`, `<work>/therapy-r4/layouts/youtube/X3-revised.png` and its prebuilt `.jpg` byte for byte, update approved picks, then complete the authorized setup. The original X3 blind selection is already logged, so do not duplicate it. Restaurant R4 X2 and vacation X7 are locked. Final videos and their original titles remain unchanged. Dashboard stays paused; no platform uploads or schedules yet.
+
+## COMPLETE: approved covers and shared waitlist
+
+Therapy final R4 X3 approved November 15. All exact originals installed; no further cover approval needed. Three masters byte-preserved; project/Extreme/public Drive backup package verified (36 files). Twelve CDN assets downloaded and hash-matched; twelve platform targets pass cover/ad preflight on both Macs. Three unique shared waitlist entries have kitchen and parent dependencies, planned February 8/10/12 at 9 AM Central. No live schedules yet. SL-21 remains finalized, rev8, with Drive status reread. Use existing shared top-up and release checks. Receipt: `Docs/SL21_SETUP_RECEIPT_20261115.md`.

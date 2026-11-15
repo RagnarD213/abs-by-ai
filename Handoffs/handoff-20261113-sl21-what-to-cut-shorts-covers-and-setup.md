@@ -2,6 +2,8 @@ CONTENT (SFL) | What To Cut Shorts | SL-21 | Cover choices and setup
 
 # What To Cut SFL Setup
 
+**EXECUTED 2026-11-15.** All three covers approved and setup complete. HOLD in shared waitlist for February 8/10/12 plans after parent. [Completion receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not repeat generation, uploads or waitlist entries. Original instructions below are historical.
+
 **HOLD: fire once Shorts 1 and 2 are approved (one new AI clip each is in round 2). Codex newest Sol, high effort.** Not executed yet. One Codex setup task does the covers and setup for all three Shorts together (setup owner rule, Dan 2026-11-07). Setup and cover tasks are exempt from the edit cap.
 
 ## Approval and exact files

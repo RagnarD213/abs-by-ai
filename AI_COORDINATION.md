@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 # ACTIVE
 
 
-**WhatToCut-SFL-Setup:THERAPY-X3-R4-APPROVAL:2026-11-15:Codex.** [Review-X3-large-bubble](http://127.0.0.1:9862/?therapy_round=4);title-removed/new-copy;await-exact-file-OK;Restaurant-X2/Vacation-X7-locked;setup-after-OK.
+**WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.

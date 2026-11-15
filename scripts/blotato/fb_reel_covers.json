@@ -1636,5 +1636,41 @@
     "cover": "/Volumes/Extreme/Short-form video content/Surgeon Fake Abs - DS-34/setup/final-A/DS34-A-Instagram.png",
     "w": 1080,
     "h": 1920
+  },
+  {
+    "job": "SL-21",
+    "slug": "sl21-short1",
+    "schedule": "pending-sl21-short1",
+    "when": "2027-02-08T15:00:00.000Z",
+    "match": "I don't have the money for a gym membership.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl21-short1-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Restaurant R4 X2, Dan approved 2026-11-15",
+    "sha256": "28d5500fecd5625c2653fd1637b7367cc20809d2f824b8518de53670706e15ec"
+  },
+  {
+    "job": "SL-21",
+    "slug": "sl21-short2",
+    "schedule": "pending-sl21-short2",
+    "when": "2027-02-10T15:00:00.000Z",
+    "match": "You deserve a break once you're ripped.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl21-short2-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Vacation original X7, Dan approved 2026-11-15",
+    "sha256": "5bcc32741dd7dfd0847406784e20005543098513abf349414d4e9edaa6b2c2a4"
+  },
+  {
+    "job": "SL-21",
+    "slug": "sl21-short3",
+    "schedule": "pending-sl21-short3",
+    "when": "2027-02-12T15:00:00.000Z",
+    "match": "If you can't afford a gym, you can't afford therapy.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl21-short3-approved.png",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Therapy X3, large bubble R4, Dan approved 2026-11-15",
+    "sha256": "6e3a4125804ff0735643ad3f4188fd9582e6ef2e2d123ef63aff85459fe209f9"
   }
 ]

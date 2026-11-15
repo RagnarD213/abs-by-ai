@@ -16,7 +16,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Great Again T VSL AD R2](handoff-20261114-great-again-t-vsl-round2.md), 2026-11-14. **HOLD: fire after Dan answers the round 1 page (http://127.0.0.1:9760/). Claude Opus 5.5, high.** Round 2 builds every graphic and clip in his chosen style, keys the rest of the roll, makes AI start and end pairs and finishes the first minute.
 
-- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-15. **IN PROGRESS, Codex.** Restaurant R4 X2 and Vacation X7 approved; therapy X3 selected, [large bubble and removed title await exact-file approval](http://127.0.0.1:9862/?therapy_round=4). All films unchanged. After OK, complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
 
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
@@ -234,6 +233,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. All covers approved; backups, media and four-platform setup verified. Shared waitlist plans February 8/10/12 at 9 AM Central after the parent. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun setup.
+
 
 - [Two-Mac edit dashboard](handoff-20261114-two-mac-edit-dashboard.md), executed November 14, 2026. Astra reviewed; installed locally on M6 and verified against both Macs. [Dashboard](http://127.0.0.1:8976/) · [receipt](../Docs/two-mac-dashboard/receipt.md).
 

@@ -1,6 +1,6 @@
 # What To Cut SFL: cover review, 2026-11-14
 
-Status: three films finalized and approved by Dan. Restaurant R4 X2 and Vacation X7 covers approved; therapy X3 selected, with its speech-bubble revision awaiting exact-file approval. Backups, platform media upload and scheduling have not been completed in this setup.
+Status: all three films and exact covers approved. Setup complete in the shared waitlist; planned February 8/10/12 at 9 AM Central. No live schedules yet. Completion receipt: `Docs/SL21_SETUP_RECEIPT_20261115.md`.
 
 Review: http://127.0.0.1:9862/
 
@@ -85,3 +85,7 @@ Dan superseded the interrupted request to double one-line text. He now wants the
 Review: http://127.0.0.1:9862/?therapy_round=4 . Sheet: http://127.0.0.1:9862/therapy-r4-sheet.jpg . Eighty-two-pixel-high small bubble is superseded by a 695×480 body with 132-pixel type. Both 1080×1920 layouts checked: lettering and bubble avoid all three detected faces and hair guards, safe text bounds pass, YouTube JPEG under 2 MB, and no pixels change outside the old/new bubble plus removed-title regions. Both layouts visually checked at phone scale. Served previews decode and match local bytes. Phone 390px: no overflow, images loaded, enlargement opens and closes, viewport reset.
 
 Current candidate originals and hashes: `<work>/therapy-r4/layout-manifest-private.json`, mirrored under the project review's `therapy-r4/layouts/`. **Await Dan's approval of these exact revised files before installation**, under the shared cover revision rule. Do not install R3 or the unbuilt doubled one-line idea. The source-blind X3 selection is already logged; do not log it again. Restaurant R4 X2 and vacation X7 remain approved and preserved. No image regeneration, video edits, platform uploads or schedules in this revision.
+
+## Final approval and setup complete, 2026-11-15
+
+Dan approved therapy R4 X3 and authorized completion. All three cover originals are installed and preserved. Backups, all publishing media, metadata and twelve platform payloads are verified; three unique shared waitlist entries plan February 8/10/12 at 9 AM Central after the parent. No live schedules yet at 199/200. Completion: `Docs/SL21_SETUP_RECEIPT_20261115.md`.
