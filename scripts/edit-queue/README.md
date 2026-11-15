@@ -262,3 +262,12 @@ are hidden by both the register and desk. Other unmatched reviews stay visible w
 
 Tests: run each `scripts/edit-queue/tests/test_*.py` in its own Python process; several legacy tests set import-time
 environment overrides and cannot safely share one `unittest discover` interpreter. Batch tests use temporary ledgers.
+
+Independent Fable 5.2 review and repair receipts: `Docs/overnight-batch-review-20261115/` and
+`Docs/OVERNIGHT_BATCH_IMPLEMENTATION_20261115.md`. The 31 ledger and 18 worker tests include real process-group
+interruption with a fake executor and offline outcome sync; they are not a substitute for the held real test night.
+Capacity/storage waits do not exhaust the bounded infrastructure-start budget. Storage waits defer only that job on
+that Mac for ten minutes. Executor allowance backoff is shared, doubles from two to four hours, and is not extended
+by another job merely waiting for the same allowance. The old `editroute.py wait` remains usable while batches are
+disabled; after activation, newly submitted `chat-*` batches inherit current enablement. Existing armed waiters or
+render-only live jobs cannot be transferred into a batch.

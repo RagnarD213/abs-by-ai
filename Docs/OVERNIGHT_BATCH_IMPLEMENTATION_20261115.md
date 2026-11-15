@@ -1,6 +1,6 @@
 # Overnight batch implementation, November 15, 2026
 
-Status: installed on both Macs, disabled. The four-job first night is queued and has not started. Final Fable 5.2 review is still in progress. Dan's go is required to start Night 1; no general backlog resume is authorized.
+Status: installed on both Macs, disabled. The four-job first night is queued and has not started. Claude Fable 5.2 high has signed off with no remaining blockers, including the final orphan-stop ordering fix at `edd9b86`. Dan's go is required to start Night 1; no general backlog resume is authorized.
 
 ## Repaired and verified today
 
@@ -16,7 +16,7 @@ Status: installed on both Macs, disabled. The four-job first night is queued and
 
 One M2 ledger outside Git, immutable copied briefs with read-back hashes, one ledger lock, explicit job and round keys, independent local pulling, fixed placement, longest-size-first ordering and Dan's ordering within size. Each runner acquires/refreshes/releases editcap and asks renderq for its work folder. Named rounds bypass the old launch/review caps while PAUSE continues to block general discovery. A single stop disables future starts and leaves running workers to finish.
 
-Ordinary exits record delivered, delivered-unreviewed, needs-dan or blocked. Exit zero without a fresh outcome is a failure. Unexplained runner loss gets one bounded recovery in the same folder after exact process/session reconciliation. No unreachable claim is reassigned. Allowance pauses preserve the folder/owner with shared backoff and at most three total attempts. A reviewer timeout or absent verdict gets one fresh retry, then unreviewed; a valid rejection retains the cut and findings with no fix loop. Current exact-file shared gate stamps are required for final candidates. Missing review mirroring is saved locally and retried before delivery is recorded.
+Ordinary exits record delivered, delivered-unreviewed, needs-dan or blocked. Exit zero without a fresh outcome is a failure. Unexplained runner loss gets one bounded recovery in the same folder after exact process/session reconciliation. No unreachable claim is reassigned. Allowance pauses preserve the folder/owner with shared executor backoff (2 hours, then 4 hours) and at most three total attempts. Capacity and storage waits stay queued, while executor/infrastructure start failures are bounded. A storage-limited job steps aside on that Mac so smaller work can proceed. A reviewer timeout or absent verdict gets one fresh retry, then unreviewed; a valid rejection retains the cut and findings with no fix loop. Current exact-file shared gate stamps are required for final candidates. Missing review mirroring is saved locally and retried before delivery is recorded.
 
 Chat waits use `batch.py enqueue-chat` with their self-contained brief. A batch-owned round requires `batch.py takeover` before chat production; an active or unconfirmed claim cannot be taken over. The M6 morning report is saved every tick and distinguishes checked, unreviewed, owner choices, blockers, unreachable owners and queued/running work. Review links are verified on M6. Queue wait, active/review time, allowance pauses and sampled idle-slot minutes are retained. No throughput forecast is claimed.
 
@@ -30,10 +30,11 @@ Inspected the existing owner records without restarting their tasks. The old Cod
 
 ## Verification
 
-- 16 new batch tests: competing-process claims, placement/order, disabled receipt, source-preflight failure, global stop, no implicit restart of stopped batches, live takeover refusal, duplicate-round refusal, killed-runner recovery, reuse of its still-registered slot, three allowance attempts, disconnected owner, stale outcome tokens, mandatory owner question/link, offline outbox and distinct uncertainty/rejection verdicts.
+- 31 new ledger tests: competing-process claims, placement/order, disabled receipt, source-preflight failure, global stop, no implicit restart of stopped batches, live takeover refusal, duplicate-round refusal, killed-runner recovery, reuse of its still-registered slot, three allowance attempts, disconnected owner, stale outcome tokens, mandatory owner question/link, offline outbox and distinct uncertainty/rejection verdicts.
 - Existing queue tests run in separate processes because their import-time environment overrides interfere when combined in one unittest discovery run. 60 queue unit tests, 5 launcher tests and 11 end-to-end runner tests passed. Asset approval and review-page tests also passed.
 - 72 routing tests passed. The old M2 Extreme-first test now expects Dan's current internal-first drive order.
-- 29 editcap checks and 15 dashboard tests passed.
+- 18 worker tests passed, including actual SIGTERM of a fake executor process group, offline review/outcome synchronization, capacity/storage waits, successful logs containing limit words, stale/missing reviews, bounded retries, candidate mutation, heartbeat timeouts and unconfirmed cleanup retaining its claim.
+- 29 editcap checks and 16 dashboard tests passed.
 - Renderq's non-stress suite: 57/57 passed. CPU-census stress was omitted on the busy Macs; the earlier full stress invocation hit a test cleanup PermissionError. No production renderq behavior was relaxed.
 - `https://absbyai.com` returned HTTP 200. Git-triggered Railway builds are queued; a latest-commit successful website deployment has not been verified. These scheduler services run on the Macs, not Railway.
 
@@ -48,10 +49,18 @@ Batch: `night1-20261115`. Both Macs logged the batch before its receipt reported
 | How To Generate Abs With AI (RA-02) | Codex | Vertical/horizontal review candidates | Clean Codex edit, Claude cross-review, honor actual unmet approvals |
 | Protein Snack Can (DS-106) | Claude | First-review page only | Needs-dan, working link, released slot, next eligible start |
 
-Before starting, finish the independent Fable 5.2 review and resolve its blockers. Then, only after Dan says go:
+Independent review is complete. Start only after Dan says go:
 `python3 scripts/edit-queue/batch.py start night1-20261115`.
 The proof still needs its real killed-runner, hung-reviewer and one-hour M6 connection interruption while the submission chats are closed. Do not imply those have passed. Preserve unrelated live editors when arranging the interruption. Pass requires all four accounted for, no duplicate, no silent stop and no false done. Night 2 needs Dan's ten specific videos and measured results before any throughput promise.
 
 M6 owner report: `/Users/danrrose/.absbyai-batch/morning-report.md`.
 M2 authoritative batch: `/Users/danielrose/.absbyai-batch/night1-20261115/`.
 Operating instructions: `scripts/edit-queue/README.md`.
+
+## Independent review and final limits
+
+Fable's initial review found four blockers. They were fixed and re-reviewed. Its follow-up found the offline reviewer-start bug, which was fixed and tested. Final sign-off and two small verification addenda confirm no remaining blocker. The review files are preserved in `Docs/overnight-batch-review-20261115/`.
+
+The eight real launchd one-turn sessions did run and pass. Real video editing, the full one-hour link interruption, the deliberate kill during an actual edit, the hung production reviewer and four finished editorial outcomes have **not** been proven yet. Those are Night 1, followed by Dan's ten-video Night 2. No film was approved, uploaded or scheduled by this infrastructure task.
+
+Known minor limits: source matching currently includes docs and tests under the scheduler roots, so a later change there needs a fresh pull and preflight. Legacy chat ownership checks remain conservative when a Mac is unreachable; explicitly registered batch work uses its known owner and continues as designed. A queued report row can show its prior start error while a later allowance backoff is active; the authoritative ledger still records the correct pause time. These do not block the named test night.
