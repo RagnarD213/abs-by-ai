@@ -31,7 +31,10 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**DS-108:QUEUED:2026-11-14:Codex01a1dc86.** First-review-next;router-waiting.
+**DS-109:WAIT-CAPACITY:2026-11-14:Codex01a1dc87:R1:next-look/audio/key/asset-previews-before-full-render.**
+
+
+**DS-108:QUEUED:2026-11-14:Codex01a1dc86;first-review-next;router-waiting.**
 
 
 **FlyDemo-R5:AWAITING-DAN:2026-11-14:Claude.** Page-9317;push-pending(live-files).
@@ -48,7 +51,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R3(WV-03):DAN-REVIEW:2026-11-14:Claude:9762.**
+**GreatAgainT-VSL-R4(WV-03):DAN-REVIEW:2026-11-14:Claude:9763.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
