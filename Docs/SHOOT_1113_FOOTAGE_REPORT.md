@@ -83,3 +83,5 @@ All filmed videos are on the Abs By AI Edit Queue, master-list section 1C5: Grea
 - Transcripts: every roll's spoken "this video is ..." announcements were checked against the queue rows. All 33 rows point at the right rolls; four start times were corrected (S01 0:00, S21 19:35, L22 0:02-6:31, L23 6:31). C1903 has no announcements: the whole roll is the VSL. Every gap between videos is crew chat, framing checks or breaks; no filmed take is missing from the queue.
 - Roll sidecars: C1901 to C1914 are built and indexed; C1915's transcript was building on 2026-11-14.
 - Scripts not filmed on this shoot (remain for a later session): Great Again T L03 (hook only) and L18; content A21, A28, A29, A38, A47, A51, B10, B14, B21, B22, B29, B38, C02, C03, C09, C19, C21, C25, C31, C35, and the long reactions D04, D05, D07, D09, D10, D15.
+
+- 2026-11-14 18:28 CST: Google Drive copy of the full shoot folder (card 2 C1915 included) checked with rclone: 30 matching files, 0 differences. Card 2 may be reused.
