@@ -1,6 +1,6 @@
 # Overnight batch implementation, November 15, 2026
 
-Status: installed on both Macs, disabled. The four-job first night is queued and has not started. Claude Fable 5.2 high has signed off with no remaining blockers, including the final orphan-stop ordering fix at `edd9b86`. Dan's go is required to start Night 1; no general backlog resume is authorized.
+Status: installed on both Macs, disabled. The four-job first night is queued and has not started. Claude Fable 5.2 high has signed off with no remaining blockers, including the final orphan-stop ordering fix at `edd9b86`. Dan authorized a one-time start tonight at 10 p.m. Central; no general backlog resume is authorized. The scheduled launch must pass the current readiness check.
 
 ## Repaired and verified today
 
@@ -40,7 +40,7 @@ Inspected the existing owner records without restarting their tasks. The old Cod
 
 ## Night 1, still disabled
 
-Batch: `night1-20261115`. Both Macs logged the batch before its receipt reported queued. All four listed sources were rechecked on M2 and none were missing; the required Ad 8 parent/adaptation is uploaded.
+Batch: `night1-20261115`. Both Macs logged the batch before its receipt reported queued. All four content sources were rechecked on M2 and none were missing. The former Ad 8 and AI-abs ad jobs were withdrawn before starting.
 
 | Video | Editor | Target | Authorized proof after Dan's go |
 |---|---|---|---|
@@ -72,3 +72,9 @@ Dan: "I don't want to do any more ads for Abs By AI." Removed Ad 8 (AS-08) and H
 New Abs By AI RA/AV/AS production is paused for both executors. Batch enqueue and new claims honor those group pauses. Existing campaigns and scheduled posts were not changed. The policy is recorded in AGENTS.md, CLAUDE.md and Docs/memory/no-new-absbyai-ads.md.
 
 Suggested start: **10 p.m. Central tonight, November 15, 2026**. This is a proposal, not a scheduled or authorized start. The amended four-content-video batch remains disabled. Real first-round colour/voice choices still apply, so a needs-dan review page is the correct outcome where approval is required. The hung-final-reviewer and clean-final-cross-review checks remain incomplete until a valid final candidate exists; never call a first-review choice page proof of either.
+
+## Confirmed one-time start
+
+Dan: "Okay, start the four content videos tonight at 10 p.m. Central." Created and read back active Codex heartbeat `start-four-content-videos-tonight`, one occurrence on November 15, 2026 at 22:00 America/Chicago (November 16 04:00 UTC), attached to chat `01a1dfd6-880b-7970-8e76-206110e2e643`. It runs the actual batch start, not just a reminder. Receipt: `~/.absbyai-batch/pilot-prep/night1/schedule-receipt.json`. All four jobs remain queued and disabled until the scheduled start. No ad or publication is included.
+
+The new readiness check found an in-progress M6 `/away` change in `hostcfg.py` that is not yet pushed or on M2. That other owner's work was preserved. The scheduled run fetches references, safely reconciles pushed clean copies where possible and reruns preflight. If the mismatch remains, it must leave the batch disabled and report the precise blocker. Do not bypass the source check or overwrite live work. The failure-injection proofs still have not run.
