@@ -74,6 +74,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
 - [AI frames start+end first](ai-frames-start-and-end-first.md): 11-05: Dan sees START and END together from the first step, two full pairs for the blind test
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
+- [Codex image batches exhaust the subscription](codex-image-batches-exhaust-subscription.md): 11-15: ~150 Codex images in a day used up the ChatGPT limit for 3 days; warn Dan, pace big frame batches
 - [Clip library](clip-library.md): find first, add after
 - [B-roll first](broll-library-first.md): scan the library
 - [B-roll grade](broll-always-colour-corrected.md): never raw footage, ever; real grade, not a gamma lift (10-23)
