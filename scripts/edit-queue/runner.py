@@ -53,7 +53,12 @@ def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budge
                                     stdout=log, stderr=subprocess.STDOUT, cwd=eq.ROOT, start_new_session=True)
             if session_observer:
                 batch = eq.sibling("batch")
-                session_observer(proc.pid, batch.identity(proc.pid))
+                try:
+                    session_observer(proc.pid, batch.identity(proc.pid))
+                except BaseException:
+                    os.killpg(proc.pid, signal.SIGTERM)
+                    proc.wait(timeout=10)
+                    raise
             try:
                 proc.communicate(prompt, timeout=max(0.01, timeout_h * 3600))
                 code = proc.returncode

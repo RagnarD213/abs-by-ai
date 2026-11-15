@@ -84,11 +84,11 @@ class BatchTests(unittest.TestCase):
         self.assertEqual(b.handle(request)['status'],'blocked')
     def test_usage_pause_keeps_folder_owner_and_three_retries(self):
         self.enqueue();self.start()
-        for attempt in range(4):
+        for attempt in range(3):
             c=self.claim();token=c['row']['claim']['token']
             b.handle(dict(op='heartbeat',batch='night',key=c['key'],token=token,fields=dict(workdir='/saved/original')))
             r=self.outcome(c,'paused-for-allowance',reason='quota')
-            if attempt<3:
+            if attempt<2:
                 self.assertEqual(r['status'],'queued');self.assertEqual(r['workdir'],'/saved/original');self.assertEqual(r['placement'],'m2')
                 self.assertIsNone(self.claim())
                 p=self.home/'night/state.json';s=b.read(p);s['jobs'][c['key']]['not_before']=0;b.write(p,s)

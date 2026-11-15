@@ -54,7 +54,7 @@ def main(claim_path):
         # No session may start until this owner has confirmed its durable claim.
         b.write(Path(claim_path).parent/'not-started.json',dict(reason='coordinator unavailable before first session'))
         return 1
-    stop=threading.Event();has_slot=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
+    stop=threading.Event();has_slot=False;cap_requested=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
     outcome=dict(status='blocked',reason='runner exited before completing',next_action='Inspect the retained worker log')
     lock=threading.Lock();current=dict(fields)
     def progress(**values):
@@ -78,6 +78,7 @@ def main(claim_path):
         return code,tail,hours
     try:
         # Claim and slot are separate: this runner acquires, refreshes and finally releases the slot.
+        cap_requested=True
         cap=subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'acquire',jobid,'--title',row['title'],'--type',row['kind']],capture_output=True,text=True,timeout=45)
         if cap.returncode!=0:raise RuntimeError('edit slot not acquired: '+(cap.stdout+cap.stderr)[-600:])
         # editcap historically fails open. Confirm the registry actually records this job as active.
@@ -143,7 +144,11 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
                 if not evidence:raise ValueError('needs-dan has no first-review evidence')
                 for file in evidence:
                     if r.sha256(file['path'])!=file['sha256']:raise ValueError('review evidence hash mismatch')
-                outcome=dict(status='needs-dan',question=marker['question'],link=review_link(marker),evidence=evidence);return 0
+                outcome=dict(status='needs-dan',question=marker['question'],link='http://127.0.0.1:'+str(marker.get('review_port',''))+'/',evidence=evidence)
+                try:outcome['link']=review_link(marker)
+                except (OSError,RuntimeError,subprocess.SubprocessError):
+                    outcome['pending_review']=dict(review_root=marker['review_root'],review_port=marker['review_port'])
+                return 0
             if marker.get('status')!='candidate':raise ValueError('invalid editor outcome')
             info=b.read(wd/'DELIVERY.json',{})
             errors=r.validate_delivery(info,str(wd),packet,cfg,'frames_approved' if row.get('assets_approved') else 'ready')
@@ -188,19 +193,20 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         outcome=dict(status='blocked',reason=str(exc),next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:
         stop.set();thread.join(timeout=5)
-        if wd:
-            b.write(wd/(k+'-batch-outcome-'+token+'.json'),dict(outcome,token=token,at=time.time()))
-        # Retain the exact outcome locally before attempting the M2 link; outbox syncs after reconnect.
-        timing=dict(active_hours=edit_h,review_hours=review_h,worker_hours=(time.time()-started)/3600)
-        if outcome.get('pending_review'):
-            b.write(b.HOME/'outbox'/(token+'.json'),dict(op='outcome',batch=name,key=k,token=token,host=b.here(),outcome=outcome,timing=timing))
-            progress(phase='outcome waiting for review mirror',session={})
-        else:
-            b.update('outcome',name,k,token,outcome=outcome,timing=timing,
-                     backoff_s=eq.load_config()['stop']['usage_backoff_hours']*3600)
-        if has_slot:
-            review=outcome['status'] in ('delivered','delivered-unreviewed','needs-dan') or bool(outcome.get('link'))
-            subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'release',jobid]+(['--review'] if review else []),capture_output=True,timeout=45)
-        progress(phase='finished',session={}) if outcome['status']=='paused-for-allowance' else None
-        b.kick(other=True)
+        try:
+            if wd:
+                b.write(wd/(k+'-batch-outcome-'+token+'.json'),dict(outcome,token=token,at=time.time()))
+            # Retain the exact outcome locally before attempting the M2 link; outbox syncs after reconnect.
+            timing=dict(active_hours=edit_h,review_hours=review_h,worker_hours=(time.time()-started)/3600)
+            if outcome.get('pending_review'):
+                b.write(b.HOME/'outbox'/(token+'.json'),dict(op='outcome',batch=name,key=k,token=token,host=b.here(),outcome=outcome,timing=timing))
+                progress(phase='outcome waiting for review mirror',session={})
+            else:
+                b.update('outcome',name,k,token,outcome=outcome,timing=timing,
+                         backoff_s=eq.load_config()['stop']['usage_backoff_hours']*3600)
+        finally:
+            if cap_requested:
+                review=outcome['status'] in ('delivered','delivered-unreviewed','needs-dan') or bool(outcome.get('link'))
+                subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'release',jobid]+(['--review'] if review else []),capture_output=True,timeout=45)
+            b.kick(other=True)
     return 0 if outcome['status']!='blocked' else 1

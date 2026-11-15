@@ -41,7 +41,7 @@ def read(path, default=None):
 
 def write(path, doc):
     path = Path(path); path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name+'.'+str(os.getpid())+'.tmp')
+    tmp = path.with_name(path.name+'.'+uuid.uuid4().hex+'.tmp')
     with tmp.open('w') as f:
         json.dump(doc, f, indent=2, ensure_ascii=False); f.write('\n'); f.flush(); os.fsync(f.fileno())
     os.replace(tmp, path)
@@ -157,7 +157,14 @@ def handle(req):
             return dict(registered=True,batch=name)
         if op=='tick':
             for p in batches():
-                state=read(p/'state.json');state['ticks'][req['host']]=now
+                state=read(p/'state.json')
+                last=state['ticks'].get(req['host'],now)
+                elapsed=min(180,max(0,now-last))/60
+                capacity=req.get('observation',{}).get('_capacity',{})
+                for row in state['jobs'].values():
+                    if row['status']=='queued' and row['placement'] in ('any',req['host']) and row['not_before']<=now and capacity.get('free',0)>0:
+                        row['idle_slot_minutes']=row.get('idle_slot_minutes',0)+elapsed
+                state['ticks'][req['host']]=now
                 state.setdefault('observations',{})[req['host']]=req.get('observation',{})
                 write(p/'state.json',state)
             return snapshot()
@@ -221,16 +228,17 @@ def handle(req):
         if op=='heartbeat':
             claim.update(req.get('fields',{}));claim['heartbeat']=now
         elif op=='outcome':
-            row['outcome_token']=req['token']; row.setdefault('timing',{}).update(req.get('timing',{}))
+            row['outcome_token']=req['token']; row.setdefault('timing',{})
+            for field,value in req.get('timing',{}).items():row['timing'][field]=row['timing'].get(field,0)+value
             outcome=req['outcome']
             if outcome['status']=='paused-for-allowance':
                 row['allowance_tries']+=1
-                if row['allowance_tries']<=3:
+                if row['allowance_tries']<3:
                     row.update(status='queued',not_before=now+req.get('backoff_s',7200),last_pause=now,
                                placement=claim['owner'],workdir=claim.get('workdir'),resume_phase=claim.get('phase'))
                     row.setdefault('allowance_pauses',[]).append(dict(at=now,until=row['not_before']))
                     row.pop('claim',None)
-                else:finish(row,dict(status='blocked',reason='allowance exhausted after three retries',next_action='Resume after allowance is restored'))
+                else:finish(row,dict(status='blocked',reason='allowance exhausted after three attempts',next_action='Resume after allowance is restored'))
             else:finish(row,outcome)
         elif op=='recover':
             if req['pid_alive'] or req.get('session_alive'):return row
@@ -302,8 +310,11 @@ def kick(other=False):
 
 def save_snapshot(snap):
     write(HOME/'snapshot.json',snap)
-    registrations={r['id']:dict(batch=n,key=k,status=r['status'],token=(r.get('claim') or {}).get('token'))
-                   for n,d in snap['batches'].items() for k,r in d['jobs'].items() if r['status']!='taken-over'}
+    registrations={}
+    ordered=sorted(((n,k,r) for n,d in snap['batches'].items() for k,r in d['jobs'].items()),key=lambda x:x[2]['queued_at'])
+    for n,k,r in ordered:
+        if r['status']=='taken-over':registrations.pop(r['id'],None)
+        else:registrations[r['id']]=dict(batch=n,key=k,status=r['status'],token=(r.get('claim') or {}).get('token'))
     write(HOME/'registrations.json',registrations)
 
 
@@ -336,7 +347,11 @@ def update(op, batch, k, token, **kwargs):
 
 def observe_local():
     reg=read(Path('/tmp/absbyai-editcap')/'registry.json',{})
-    return {j:dict(state=e.get('state'),since=e.get('since')) for j,e in reg.get('edits',{}).items()}
+    result={j:dict(state=e.get('state'),since=e.get('since')) for j,e in reg.get('edits',{}).items()}
+    cap=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
+    if cap.returncode==0:
+        ec=json.loads(cap.stdout);result['_capacity']=dict(free=max(0,ec['cap']-len(ec['in_use'])))
+    return result
 
 
 def reconcile(snap):
@@ -381,7 +396,7 @@ def report(snap, error=None):
                 except Exception:pass
             item=dict(batch=name,job=r['id'],round=r['round'],title=r['title'],host=owner,status=r['status'],
                       reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or c.get('phase') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else 'queued'),
-                      link=link,link_verified=verified,timing=r.get('timing',{}),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
+                      link=link,link_verified=verified,timing=r.get('timing',{}),allowance_pauses=r.get('allowance_pauses',[]),idle_slot_minutes_sampled=r.get('idle_slot_minutes',0),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
             if r['status']=='needs-dan':item['waiting_s']=now-r.get('ended',now)
             groups[group].append(item)
     lost=[]

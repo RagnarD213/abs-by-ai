@@ -441,10 +441,13 @@ def report(d, dry):
 def tick(dry_run=False, verbose=False):
     if not dry_run and eq.sibling("canary").pending():
         return {"canary": True}
-    if not dry_run:
+    if not dry_run and not os.environ.get("EDIT_QUEUE_DIR"):
         eq.sibling("batch").tick()
     cfg, data = eq.load_config(), q.load()
     d = decide(data, cfg, gather(cfg, data), eq.scoreboard_load())
+    batch_control = eq.sibling("batch").read(eq.sibling("batch").HOME/"snapshot.json",{}).get("control",{}) if not os.environ.get("EDIT_QUEUE_DIR") else {}
+    if batch_control.get("stopped") and not batch_control.get("enabled"):
+        d["launches"] = []; d["stops"].append("batch.py stop: new starts disabled")
     route_launches(d, dry_run)                # two Macs: only what the router gives to this Mac
     print(report(d, dry_run))
     if verbose:
