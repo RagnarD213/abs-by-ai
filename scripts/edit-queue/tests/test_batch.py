@@ -30,9 +30,9 @@ class BatchTests(unittest.TestCase):
         self.p=patch.object(b,'HOME',self.home);self.p.start()
         self.h=patch.object(b,'here',return_value='m2');self.h.start()
     def tearDown(self):self.h.stop();self.p.stop();self.tmp.cleanup()
-    def enqueue(self,name='night',ids=('SL-36',),placement='any'):
+    def enqueue(self,name='night',ids=('SL-36',),placement='any',round_=1):
         data=b'CONTENT SFL: use approved source; stop for real choices.'
-        jobs=[dict(id=j,round=1,title='Real video '+j,size='S',order=i,kind='SFL',target='review',need_gb=5,
+        jobs=[dict(id=j,round=round_,title='Real video '+j,size='S',order=i,kind='SFL',target='review',need_gb=5,
                    executor='claude',placement=placement,brief_sha256=hashlib.sha256(data).hexdigest()) for i,j in enumerate(ids)]
         return b.handle(dict(op='enqueue',batch=name,jobs=jobs,briefs={b.key(j):base64.b64encode(data).decode() for j in jobs}))
     def start(self,name='night'):
@@ -83,7 +83,9 @@ class BatchTests(unittest.TestCase):
         self.enqueue();self.start();c=self.claim()
         with self.assertRaises(ValueError):self.enqueue('other')
         with self.assertRaises(ValueError):b.handle(dict(op='takeover',job='SL-36',host='m6'))
-        self.outcome(c);self.enqueue('next')
+        self.outcome(c)
+        with self.assertRaises(ValueError):self.enqueue('next')
+        self.enqueue('next',round_=2)
     def test_killed_runner_one_recovery_then_blocked(self):
         self.enqueue();self.start();c=self.claim()
         def expire():
@@ -110,6 +112,7 @@ class BatchTests(unittest.TestCase):
                 self.assertEqual(r['status'],'queued');self.assertEqual(r['workdir'],'/saved/original');self.assertEqual(r['placement'],'m2')
                 self.assertIsNone(self.claim())
                 p=self.home/'night/state.json';s=b.read(p);s['jobs'][c['key']]['not_before']=0;b.write(p,s)
+                ctrl=b.control();ctrl['executor_backoff']={};b.write(self.home/'control.json',ctrl)
             else:self.assertEqual(r['status'],'blocked')
     def test_owner_disconnect_never_moves_claim(self):
         self.enqueue();self.start();c=self.claim('m6')
@@ -146,11 +149,30 @@ class BatchTests(unittest.TestCase):
         b.handle(dict(op='tick',host='m2',observation={'_capacity':{'free':3}}))
         self.assertEqual(self.row().get('idle_slot_minutes',0),0)
 
+    def test_temporary_start_wait_requeues_and_holds_the_host(self):
+        self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim()
+        outcome=dict(op='outcome',batch='night',key=c['key'],token=c['row']['claim']['token'],host='m2',outcome={'status':'deferred-start','reason':'slot raced'},backoff_s=120)
+        self.assertEqual(b.handle(outcome)['status'],'queued');self.assertIsNone(self.claim())
+        self.assertEqual(self.claim('m6')['row']['id'],'RA-02')
+    def test_allowance_backoff_is_shared_by_executor(self):
+        self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim()
+        self.outcome(c,'paused-for-allowance',reason='quota',executor='claude')
+        self.assertIsNone(self.claim('m6'))
+    def test_malformed_outbox_does_not_wedge_later_items(self):
+        (self.home/'outbox').mkdir();(self.home/'outbox/broken.json').write_text('{bad')
+        b.flush_outbox()
+        self.assertFalse((self.home/'outbox/broken.json').exists())
+        self.assertTrue((self.home/'outbox-quarantine/broken.json').exists())
+    def test_pending_mirror_does_not_consume_a_finished_workers_slot(self):
+        self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim(slots=1)
+        b.handle(dict(op='heartbeat',batch='night',key=c['key'],token=c['row']['claim']['token'],fields={'phase':'outcome waiting for review mirror'}))
+        self.assertEqual(self.claim(slots=1)['row']['id'],'RA-02')
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')
         p.write_text('VERDICT: DOES NOT SHIP\nSomething I would like Dan to approve')
-        self.assertIsNone(worker.review_verdict(p))
+        self.assertEqual(worker.review_verdict(p),'REJECTION WITHOUT CITATION')
         p.write_text('VERDICT: DOES NOT SHIP\n0:12, rule VIDEO-RULES.md: head clipped')
         self.assertEqual(worker.review_verdict(p),'DOES NOT SHIP')
 

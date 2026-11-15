@@ -85,7 +85,7 @@ def main(claim_path):
         # No session may start until this owner has confirmed its durable claim.
         b.write(Path(claim_path).parent/'not-started.json',dict(reason='coordinator unavailable before first session'))
         return 1
-    stop=threading.Event();has_slot=False;cap_requested=False;session_started=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
+    stop=threading.Event();has_slot=False;cap_requested=False;session_started=False;pending_cleanup=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
     outcome=dict(status='blocked',reason='runner exited before completing',next_action='Inspect the retained worker log')
     lock=threading.Lock();current=dict(fields)
     def progress(**values):
@@ -256,6 +256,10 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         try:outcome['link']=review_link(info)
         except (OSError,RuntimeError,subprocess.SubprocessError):
             outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'],review_report=info.get('review_report'))
+    except r.SessionCleanupFailed as exc:
+        pending_cleanup=True
+        progress(phase='session cleanup waiting; claim retained')
+        outcome=dict(status='blocked',reason=str(exc),next_action='Wait for exact session exit before recovery')
     except StartupWait as exc:
         outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
     except Exception as exc:
@@ -268,14 +272,16 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
                 b.write(wd/(k+'-batch-outcome-'+token+'.json'),dict(outcome,token=token,at=time.time()))
             # Retain the exact outcome locally before attempting the M2 link; outbox syncs after reconnect.
             timing=dict(active_hours=edit_h,review_hours=review_h,worker_hours=(time.time()-started)/3600)
-            if outcome.get('pending_review'):
+            if pending_cleanup:
+                pass  # Keep the live claim and slot until the recorded session is confirmed gone.
+            elif outcome.get('pending_review'):
                 b.write(b.HOME/'outbox'/(token+'.json'),dict(op='outcome',batch=name,key=k,token=token,host=b.here(),outcome=outcome,timing=timing))
                 progress(phase='outcome waiting for review mirror',session={})
             else:
                 b.update('outcome',name,k,token,outcome=outcome,timing=timing,
                          backoff_s=120 if outcome['status']=='deferred-start' else eq.load_config()['stop']['usage_backoff_hours']*3600)
         finally:
-            if cap_requested:
+            if cap_requested and not pending_cleanup:
                 review=outcome['status'] in ('delivered','delivered-unreviewed','needs-dan') or bool(outcome.get('link'))
                 subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'release',jobid]+(['--review'] if review else []),capture_output=True,timeout=45)
             b.kick(other=True)

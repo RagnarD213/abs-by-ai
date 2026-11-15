@@ -40,6 +40,9 @@ def heartbeat_loop(job_id, stop, minutes):
 class SessionInterrupted(RuntimeError):
     pass
 
+class SessionCleanupFailed(RuntimeError):
+    pass
+
 
 def stop_session(proc):
     """Stop the session group on every exceptional exit, including Python signal handlers."""
@@ -51,6 +54,13 @@ def stop_session(proc):
     try:os.killpg(proc.pid,signal.SIGKILL)
     except ProcessLookupError:pass
     proc.wait(timeout=10)
+    for _ in range(100):
+        states=subprocess.run(['/bin/ps','-axo','pgid=,stat='],capture_output=True,text=True,timeout=3)
+        if states.returncode:raise SessionCleanupFailed('cannot verify session process group exit')
+        live=any(int(parts[0])==proc.pid and not parts[1].startswith('Z') for line in states.stdout.splitlines() if len(parts:=line.split())>=2)
+        if not live:return
+        time.sleep(.05)
+    raise SessionCleanupFailed('session process group still alive after stop')
 
 
 def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budget_enforced=True, session_observer=None):
@@ -76,7 +86,7 @@ def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budge
             except BaseException:
                 stop_session(proc)
                 raise
-        except SessionInterrupted:
+        except (SessionInterrupted,SessionCleanupFailed):
             raise
         except Exception as exc:
             log.write(f"\n[runner] session failed: {exc}\n");code=-1

@@ -360,8 +360,9 @@ def normalize_outcome(outcome):
 
 def flush_outbox():
     for p in sorted((HOME/'outbox').glob('*.json')):
-        request=read(p);error=None
+        request={};error=None
         try:
+            request=read(p)
             request['outcome']=normalize_outcome(request['outcome'])
             pending=request['outcome'].get('pending_review')
             if pending:
@@ -372,6 +373,9 @@ def flush_outbox():
             error=str(exc) or type(exc).__name__
         except Exception as exc:
             error=str(exc) or type(exc).__name__
+            if not request.get('token'):
+                write(HOME/'outbox-quarantine'/p.name,dict(error=error,raw=p.read_text(errors='replace')))
+                p.unlink();continue
             request['_failures']=request.get('_failures',0)+1
             if request['_failures']>=3:
                 quarantine=HOME/'outbox-quarantine'/p.name
