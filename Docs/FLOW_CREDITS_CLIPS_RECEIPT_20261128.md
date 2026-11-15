@@ -131,20 +131,31 @@ Lesson: Nano Banana Pro does not keep a plate-loaded dumbbell identical between 
 one-piece dumbbells, or draw the heavy pair in one source only. All attempts and reviews: `/Volumes/Extreme/_edit_work/FLOWCLIPS/b3r/review_results.txt`.
 Next: Dan's picks on 9248, `veo.py add` for the chosen pairs (paths on the Extreme are the same on both Macs), video, reviews, page, file.
 
-## Dumbbell clips video: on Dan's page (2026-11-14)
+## Dumbbell clips video: round 2 on Dan's page (2026-11-14)
 
-Dan picked **X2 with B** on the frames page: the cheat pair with the heaviest dumbbells and the strict pair with the same man (both frame
-pairs gate + reviewer PASS; `blind.py pick` recorded for B3-22b and B3-23c). Video job `~/Projects/_edit_work/FLOWCLIPS/vid-b3d/` (M6;
-setup.py, picks.json, windows.json, motion_results.txt, build_review.py); takes, specs, stamps and reviews at
-`/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b3d/`. Flow project https://flow.google.com/project/c7d70179-327f-44ff-8027-bfd4eb581b15 .
-6 takes, no failures. Page http://127.0.0.1:9249/ (keys `b3dpicks`).
+Dan picked **X2 with B** on the frames page (cheat pair with the heaviest dumbbells, strict pair with the same man; `blind.py pick` recorded
+for B3-22b and B3-23c). Round 1 video (cheat heave-and-hold, free-standing strict reps) came back with: "Regenerate both. On the top one,
+have him do a quicker rep ... quickly and jerkily going down. For the strict ones, he's rocking a little bit. Just have him not rock and do
+strict reps." Round 2 is on http://127.0.0.1:9249/ (M6, `vid-b3d/review`, keys `b3dpicks`).
 
 | Clip | Take | Clean window | Checks |
 |---|---|---|---|
-| Cheating The Heavy Ones (`B3-22d`) | Omni | 2.7 s, frames 78-142 (never earlier: a second man shows behind him at 26-76) | clipcheck PASS, fresh reviewer PASS |
-| Lighter, Strict Form (`B3-23d`) | Veo Fast | 4.3 s, frames 6-108, two strict reps (one rep: 6-77) | clipcheck PASS, fresh reviewer PASS |
+| Cheating The Heavy Ones (`B3-22e`) | Omni, START frame only | 3.4 s, frames 0-80: three fast jerky reps (borderline hard drop at 47-48; 0-47 if nothing borderline is wanted; never past 80) | clipcheck PASS, fresh reviewer PASS |
+| Lighter, Strict Form (`B3-23g`) | Veo Fast, new frames `B3-23w` with his back against a wall | 5.0 s, frames 8-127: one full rep plus most of a second | frame pair gate + reviewer PASS (second draw); clipcheck PASS; fresh reviewer PASS: head 3.7 px side / 8.0 px up-down (rejected take 21 / 17) |
 
-Next: Dan's picks, then `vid-b3/file_library.py`-style adds on the M2 (`--tags flow-credits-batch3`), sheet, IDs under "Pre-made AI clips" in the DS-96 job doc.
+Job `~/Projects/_edit_work/FLOWCLIPS/vid-b3d/` (M6; setup.py, setup_r2.py, setup_wall.py, picks.json, windows.json, motion_results.txt,
+sway.py, sway2.py, build_review.py); takes, specs, stamps and reviews at `/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b3d/`. Flow project
+https://flow.google.com/project/c7d70179-327f-44ff-8027-bfd4eb581b15 . 27 takes over five Flow runs.
+
+Lessons (also in `vid-b3d/motion_results.txt`):
+- A man standing free and curling: Veo Fast and Omni both dip his head 15-23 px on every rep whatever the prompt says ("statue", "head stays at
+  the same height"). Wording and Omni cut side-to-side sway by half; only a physical anchor in the frame (back and head against a wall) stopped
+  the dip. Stage strict or "no movement" exercises against a wall, a pad or a bench.
+- Measure rocking before spending a reviewer: `vid-b3d/sway2.py TAKE:A-B` (tracked points on head and chest).
+- A motion that must come back down needs the START frame only; an END frame at the top forces a slow hold. Veo Fast turned the plate dumbbells
+  into one-piece hex dumbbells in the fast cheat takes; Omni kept them.
+- Omni takes often pout, part the lips or close the eyes during effort; say eyes on the camera and screen the face frame by frame.
+Next: Dan's picks on 9249, then library adds on the M2 (`--tags flow-credits-batch3`), sheet, IDs in the DS-96 job doc.
 
 ## Batch 3 redo: on Dan's page (2026-11-14)
 
@@ -189,7 +200,8 @@ A lean BACK must be shot from the side. Give each image source its own man for e
 | batch 3 video (7 clips, 21 takes: 14 Veo Fast + 7 Omni at 10 each) | 210 | balance 21,042 to 20,832 |
 | batch 3 redo video (8 takes: 6 Veo Fast + 2 Omni at 10 each) and 7 Google images | 80 | balance 20,702 to 20,622 |
 | dumbbell clips video (6 takes: 4 Veo Fast + 2 Omni at 10 each) and 16 Google images | 60 | balance 20,582 to 20,522 |
-| **total for this handoff so far** | **850** | of 14,000 |
+| dumbbell clips redo (21 takes over four runs: faster cheat, strict free-standing x3 rounds, strict against the wall) | 210 | balance 20,522 to 20,312 |
+| **total for this handoff so far** | **1,060** | of 14,000 |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 
