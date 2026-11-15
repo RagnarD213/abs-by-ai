@@ -26,7 +26,8 @@ Overnight-queue commands (scripts/edit-queue/README.md). A claim is what holds o
 States: unedited, ready, draft_review, frames_approved, needs, blocked, in_progress, delivered,
 finalized, uploaded, stalled. (unedited = old edit scrapped, redo from scratch; not launchable until Dan moves it to ready.)
 """
-import argparse, contextlib, datetime, fcntl, json, os, re, sys, tempfile
+import argparse, contextlib, datetime, fcntl, json, os, re, subprocess, sys, tempfile, time
+from pathlib import Path
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 DIR = os.environ.get("EDIT_QUEUE_DIR") or os.path.join(ROOT, "Handoffs", "video-editing")  # env override: tests only
@@ -196,8 +197,48 @@ def editor_from(by):
     return next((name for key, name in EDITORS.items() if key in low), "")
 
 
+REVIEW_STATES = ("draft_review", "delivered")
+
+
+def sync_review_handoff(job):
+    """Deliver the committed queue event to the edit register on the production Mac."""
+    if job["state"] not in REVIEW_STATES:
+        return
+    shared = Path(ROOT) / ".claude/skills/_shared"
+    args = ["handoff", job["id"], str(job["review_ready_at"])]
+    cmd = [sys.executable, str(shared / "editcap/editcap.py"), *args]
+    if os.environ.get("EDIT_QUEUE_DIR"):
+        if not os.environ.get("EDITCAP_DIR"):
+            return  # Isolated test queue without a test register.
+    else:
+        sys.path.insert(0, str(shared / "editroute"))
+        try:
+            import resume
+            info = resume.locate(job["id"])
+            if info["state"] == "new":
+                return  # External edits have no production Mac to release.
+            if info["state"] == "unresolved":
+                raise RuntimeError(info["reason"])
+            if info["state"] == "existing" and info["host"] != info["here"]:
+                remote = ["python3", ".claude/skills/_shared/editcap/editcap.py", *args]
+                cmd = resume.command_for(info, remote, resume.er.cfg())
+        finally:
+            sys.path.remove(str(shared / "editroute"))
+    subprocess.run(cmd, check=True, timeout=45)
+
+
 def set_state(data, jid, state, by="", note=None, editor=None, needs=None):
     j = find(data, jid)
+    if state in REVIEW_STATES:
+        if j["state"] != state:
+            j["review_ready_at"] = time.time()
+        elif not j.get("review_ready_at"):
+            try:
+                j["review_ready_at"] = datetime.datetime.fromisoformat(j["updated"]).timestamp()
+            except (KeyError, TypeError, ValueError):
+                j["review_ready_at"] = time.time()
+    else:
+        j.pop("review_ready_at", None)
     j["state"] = state
     if note is not None:
         j["note"] = note
@@ -226,6 +267,7 @@ def run(args):
         push_drive(data)
         print("Claude sessions also mirror it to the artifact db (write_db set):")
         print(json.dumps(export([j])[0]))
+        sync_review_handoff(j)
     elif args.cmd == "add":
         new = json.load(open(args.json_file))
         new = new if isinstance(new, list) else [new]

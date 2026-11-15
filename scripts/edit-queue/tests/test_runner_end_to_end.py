@@ -10,6 +10,10 @@ import json, os, stat, subprocess, sys, tempfile, unittest
 PKG = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FAKE = r'''#!/usr/bin/env python3
 import sys, os, re, json, time, datetime, hashlib
+if sys.argv[1:3]==['login','status']:
+    print('Not logged in' if os.environ.get('FAKE_MODE')=='reviewer_signed_out' else 'Logged in using ChatGPT');sys.exit(1 if os.environ.get('FAKE_MODE')=='reviewer_signed_out' else 0)
+if sys.argv[1:3]==['auth','status']:
+    print(json.dumps({'loggedIn':True}));sys.exit(0)
 prompt = sys.stdin.read()
 mode = os.environ.get("FAKE_MODE", "ok")
 wd = re.search(r"work directory is `([^`]+)`|`([^`]+)/DELIVERY.json`", prompt)
@@ -92,15 +96,17 @@ class EndToEnd(unittest.TestCase):
         fake = os.path.join(self.tmp, "fake-exec"); open(fake, "w").write(FAKE); os.chmod(fake, os.stat(fake).st_mode | stat.S_IEXEC)
         cfg = json.load(open(os.path.join(PKG, "config.json")))
         cfg["work_root"] = os.path.join(self.tmp, "work"); os.makedirs(cfg["work_root"])
-        for ex in cfg["executors"].values():
-            ex.pop("binary_glob", None); ex["binary"] = fake; ex["auth_check"] = None
+        for executor_name,ex in cfg["executors"].items():
+            ex.pop("binary_glob", None); ex["binary"] = fake; ex["auth_check"] = ["login","status"] if executor_name=="codex" else ["auth","status"]
         json.dump(cfg, open(os.path.join(self.tmp, "config.json"), "w"))
         json.dump({"jobs": [{"id": "AV-01", "state": "ready", "size": "S", "order": 1, "title": "t", "file": "", "claude": "edit it", "codex": "edit it", "rev": 1}]},
                   open(os.path.join(self.tmp, "jobs.json"), "w"))
+        router=os.path.join(self.tmp,'fixture-router.py')
+        open(router,'w').write("import sys,json;print('m6' if 'whoami' in sys.argv else json.dumps({'host':'m6','why':['isolated fake owner']}))")
         self.env = dict(os.environ, EDIT_QUEUE_DIR=self.tmp, EDIT_QUEUE_NO_DRIVE="1", EDIT_QUEUE_CONFIG=os.path.join(self.tmp, "config.json"),
                         EDIT_QUEUE_SCOREBOARD=os.path.join(self.tmp, "scoreboard.json"), EDIT_QUEUE_PKG=PKG,
                         EDIT_QUEUE_PAUSE_FILE=os.path.join(self.tmp, "PAUSE"),
-                        EDIT_QUEUE_SNAPSHOT=os.path.join(self.tmp,"review-snapshot.html"))
+                        EDIT_QUEUE_SNAPSHOT=os.path.join(self.tmp,"review-snapshot.html"),EDIT_QUEUE_ROUTER=router)
         gate_file = os.path.join(PKG, "..", "..", ".claude", "skills", "_shared", "deliver", "gate.py")
         gate_text = open(gate_file, encoding="utf-8").read()
         import re
@@ -118,6 +124,14 @@ class EndToEnd(unittest.TestCase):
         job = json.load(open(os.path.join(self.tmp, "jobs.json")))["jobs"][0]
         row = json.load(open(os.path.join(self.tmp, "scoreboard.json")))["runs"][-1]
         return job, row
+
+    def test_unavailable_cross_reviewer_keeps_candidate_without_substituting_model(self):
+        job,row=self.go('reviewer_signed_out')
+        self.assertEqual(job['state'],'needs');self.assertEqual(row['outcome'],'auth_failed')
+        self.assertEqual(row['reviewer_verdicts'],[])
+        self.assertEqual(len(row['model_usage']),1)
+        self.assertTrue(os.path.isfile(os.path.join(self.tmp,'work','AV-01','DELIVERY.json')))
+        self.assertIn('no model substitution',job['note'])
 
     def test_one_review_then_ship(self):
         job, row = self.go("ok")

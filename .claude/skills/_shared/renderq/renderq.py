@@ -140,6 +140,75 @@ BIN = REPO / "Media" / "video_edit" / "bin"
 REAL_FFMPEG = BIN / "ffmpeg.real"
 
 
+# Shared durable job controls; admission still uses this queue's single admit.lock.
+sys.path.insert(0, str(SHARED / "editroute"))
+import priority as job_priority
+import storage as work_storage
+SCHEDULER_VERSION = 5
+
+
+def feature(name):
+    env = os.environ.get("GATE_" + name.upper())
+    return env == "1" if env is not None else bool(_read(DIR / "features.json").get(name, False))
+
+
+def project(group):
+    return job_priority.job_id(group)
+
+
+def _eligible(t, states, unmanaged, borrowing=False):
+    if job_priority.blocked(t.get("group")):
+        return False
+    if t['pool']=='heavy' and drive_full(info_drives(t), drive_load(states), drive_caps()):
+        return False
+    return not budget_check(t['pool'], states, unmanaged) and not _borrow_reason(t, states, unmanaged)
+
+
+def _fair_order(tickets, states, pool=None):
+    """Rank eligible tickets. Counters advance on actual grants, never polling."""
+    counts=_read(DIR/'fairness.json')
+    active={project(s['info'].get('group')) for s in states if s['held'] and s['pool']=='heavy'}
+    def key(t):
+        j=project(t.get('group')); due=counts.get(j,{}).get('skips',0)>=2
+        urgent=t.get('priority') or job_priority.urgent(j)
+        repeat=pool=='heavy' and j in active
+        return (0 if due else 1, 0 if urgent else 1, 1 if repeat else 0,
+                0 if t.get('group') in _active_groups(states) and pool!='quick' else 1,t['seq'])
+    return sorted(tickets,key=key)
+
+
+def _record_opening(chosen, eligible):
+    p=DIR/'fairness.json'; counts=_read(p); j=project(chosen.get('group'))
+    for other in {project(t.get('group')) for t in eligible}:
+        counts.setdefault(other,{'skips':0})
+        counts[other]['skips']=0 if other==j else counts[other]['skips']+1
+    _write(p,counts)
+
+
+def _borrow_reason(ticket, states, unmanaged):
+    """Both small lanes share one loan per otherwise eligible heavy's core wait."""
+    if ticket['pool']=='heavy':return ''
+    if not feature('borrowing'):
+        # Compatible installation while old loaded processes drain: preserve the
+        # previous light reservation; quick remains as it was until activation.
+        if ticket['pool']=='light' and _tickets('heavy') and cores_in_use(states,unmanaged)+allowance('light')+allowance('heavy')>core_budget():
+            return 'cores: legacy heavy reservation (borrowing not activated)'
+        return ''
+    heavy=[t for t in _tickets('heavy') if not job_priority.blocked(t.get('group'))
+           and not drive_full(info_drives(t),drive_load(states),drive_caps())]
+    if not heavy:return ''
+    used=cores_in_use(states,unmanaged); budget=core_budget()
+    if used+allowance(ticket['pool'])+allowance('heavy')<=budget:return ''
+    loans=_read(DIR/'borrowing.json'); oldest=min(t['seq'] for t in heavy)
+    if any(loans.get(str(t['seq'])) for t in heavy):return 'cores: short-task loan used; reserving for heavy'
+    if used+allowance('heavy')<=budget:return 'cores: protecting a fitting heavy opening'
+    recipe=ticket.get('recipe')
+    if not feature('borrowing') or not 0 < ticket.get('expected_s',0) <=120 or not recipe:
+        return 'cores: heavy waiting; borrowing requires a known recipe and runtime <=120s'
+    if _read(DIR/'borrow-overruns.json').get(recipe):return 'cores: recipe previously overran its short-task loan'
+    return ''
+
+
 # ------------------------------------------------------------------------------------------------ plumbing
 def pool_sizes():
     """{pool: (always open, most at once)}"""
@@ -486,8 +555,6 @@ def budget_check(pool, states, unmanaged=()):
     # A free lane is not spare machine capacity. Count every holder, including legacy ones.
     if not any(s["held"] for s in states) and not unmanaged:
         return ""
-    if pool == "light" and used + need + allowance("heavy") > budget and _tickets("heavy"):
-        return "cores: the last {} free cores are kept for a heavy step waiting in line".format(budget - used)
     m = mem_state()
     if not m["ok"]:
         return m["reason"]
@@ -767,7 +834,12 @@ def _finish(info, info_path, end):
     info["ended"] = end
     _write(info_path, info)
     rec = dict(pool=info.get("pool"), label=info.get("label"), group=info.get("group"), start=info["start"], end=end,
-               dur=round(end - info["start"], 2), cores=info.get("cores"))
+               dur=round(end - info["start"], 2), cores=info.get("cores"),
+               scheduler_version=info.get('scheduler_version','unknown'), waited=info.get('waited'),
+               project=project(info.get('group')), overrun_s=max(0,end-info['start']-120) if info.get('borrowed') else 0)
+    if rec['overrun_s'] and info.get('recipe'):
+        bad=_read(DIR/'borrow-overruns.json');bad[info['recipe']]=rec['overrun_s'];_write(DIR/'borrow-overruns.json',bad)
+        _log('borrow_overrun',group=info.get('group'),seconds=round(rec['overrun_s'],1),recipe=info['recipe'])
     r = _read(DIR / "rss.json").get("slots", {}).get("{}.{}".format(info.get("pool"), info.get("i")), {})
     if r and r.get("pid") == info.get("pid"):
         rec["peak_mb"] = r.get("peak_mb")
@@ -955,6 +1027,8 @@ def _active_groups(states):
 
 
 def _rank(tickets, states, pool=None):
+    if feature("fairness"):
+        return _fair_order(tickets, states, pool)
     if pool == "quick":                                     # short steps: plain first come, first served, so a
         return sorted(tickets, key=lambda t: (0 if t.get("priority") else 1, t["seq"]))   # build's loop never hogs it
     groups = _active_groups(states)
@@ -983,7 +1057,9 @@ class Ticket(object):
         self.drives = list(drives) if drives is not None else default_drives()
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pool=pool, label=label[:200], group=group,
                          priority=bool(priority), seq=self.seq, created=time.time(), cwd=os.getcwd()[:200],
-                         session=_session(), pipe=pipe, drives=self.drives, scheduler_version=4)
+                         session=_session(), pipe=pipe, drives=self.drives, scheduler_version=SCHEDULER_VERSION,
+                         project=project(group), expected_s=float(os.environ.get("GATE_EXPECT_S") or 0),
+                         recipe=os.environ.get("GATE_RECIPE", ""))
         name = "{}.{:010d}.{}.json".format(pool, self.seq, os.getpid())
         tmp = DIR / "queue" / (".tmp." + name)
         with open(tmp, "w") as f:
@@ -1044,9 +1120,34 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
     this waiter cannot start while one of its own drives is full."""
     with _mutex():
         states = slot_states()
+        # Expiry/crash recovery uses editcap's existing registry and lock. Parked
+        # jobs reacquire whole-edit capacity before their next production step.
+        cap_dir=Path(os.environ.get('EDITCAP_DIR') or '/tmp/absbyai-editcap')
+        reg=_read(cap_dir/'registry.json')
+        if any(e.get('reservation_parked') for e in reg.get('edits',{}).values()):
+            sys.path.insert(0,str(SHARED/'editcap'))
+            import editcap as ec
+            with ec._locked():
+                reg=ec.settle(ec._load(),*ec._context());ec._save(reg)
+            entry=reg.get('edits',{}).get(project(group),{})
+            if entry.get('reservation_parked') and entry.get('state') not in ('active','promoted'):
+                return None,0
         if pipe and pipe_partner_holds(states):
             return RIDE, None
-        line = _rank(_tickets(pool), states, pool)
+        unmanaged = _unmanaged(states)
+        if job_priority.blocked(group):
+            ticket.info['blocked'] = 'dedicated M6 reservation; current step finishes, new step parked'
+            return None, 0
+        all_tickets = _tickets()
+        eligible = [t for t in all_tickets if _eligible(t, states, unmanaged)]
+        candidates = [t for t in all_tickets if t['pool']==pool]
+        if feature('fairness'):
+            # Exclude incompatible drives/budgets before ordering, across all three lanes.
+            ranked = _fair_order(eligible, states, pool)
+            candidates = [t for t in ranked if t['pool']==pool]
+            if ranked and ranked[0]['path'] != ticket.path:
+                return None, 1
+        line = _rank(candidates, states, pool)
         pos = next((k for k, t in enumerate(line) if t["path"] == ticket.path), len(line))
         full = []
         if pool == "heavy":
@@ -1059,7 +1160,11 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             return None, 0
         mine = [s for s in states if s["pool"] == pool]
         unmanaged = _unmanaged(states)
-        if budget_check(pool, states, unmanaged):           # all lanes share the same core and memory budgets
+        reason = budget_check(pool, states, unmanaged) or _borrow_reason(ticket.info, states, unmanaged)
+        if reason:
+            if ticket.info.get('blocked') != reason:
+                ticket.info['blocked'] = reason
+                _log('blocked',group=group,reason=reason,waited=round(time.time()-ticket.info['created'],1))
             return None, 0
         now = time.time()
         for s in mine:
@@ -1078,7 +1183,19 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             _write(s["path"], dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=s["i"],
                                    label=ticket.info["label"], group=group, start=now, cwd=ticket.info["cwd"],
                                    session=ticket.info["session"], drives=ticket.drives, pipe=pipe, kind="starting",
-                                   cores=allowance(pool), scheduler_version=4))
+                                   cores=allowance(pool), scheduler_version=SCHEDULER_VERSION))
+            if feature('fairness'):
+                _record_opening(ticket.info, eligible)
+            loans=_read(DIR/'borrowing.json')
+            if pool=='heavy':
+                for w in all_tickets:
+                    if project(w.get('group'))==project(group):loans.pop(str(w['seq']),None)
+            else:
+                for w in all_tickets:
+                    if w['pool']=='heavy' and not drive_full(info_drives(w),drive_load(states),drive_caps()):
+                        loans[str(w['seq'])]=dict(recipe=ticket.info.get('recipe'),t=now)
+                ticket.info['borrowed']=any(loans.get(str(w['seq']),{}).get('t')==now for w in all_tickets)
+            _write(DIR/'borrowing.json',loans)
             _admitted(pool)
             return fd, s
         return None, 0
@@ -1091,13 +1208,13 @@ class Hold(object):
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=slot["i"],
                          label=label[:200], group=group, start=time.time(), waited=round(waited, 1),
                          cwd=os.getcwd()[:200], session=_session(), drives=list(drives or []),
-                         cores=allowance(pool))
+                         cores=allowance(pool), scheduler_version=SCHEDULER_VERSION)
 
     def publish(self, **extra):
         self.info.update(extra)
         _write(self.slot["path"], self.info)
         _log("granted", slot=self.name, label=self.info["label"], group=self.info["group"],
-             waited=self.info["waited"])
+             waited=self.info["waited"],scheduler_version=self.info['scheduler_version'],project=project(self.info['group']))
 
     def release(self):
         if self.fd is None:
@@ -1126,7 +1243,7 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
     if pool not in pools():
         raise ValueError("unknown pool " + pool)
     group = group or default_group()
-    priority = os.environ.get("GATE_PRIORITY") == "1" if priority is None else priority
+    priority = (os.environ.get("GATE_PRIORITY") == "1" if priority is None else priority) or job_priority.urgent(group)
     _ensure()
     if covered_by_holder(pipe=pipe):                      # a parent, ancestor or pipe partner holds a slot
         return None
@@ -1141,6 +1258,8 @@ def acquire(label, pool="heavy", group=None, priority=None, quiet=False, pipe=Fa
             if fd is not None:
                 ticket.close()
                 hold = Hold(fd, got, pool, label, group, time.time() - t0, drives=ticket.drives)
+                hold.info.update(expected_s=ticket.info.get('expected_s'),recipe=ticket.info.get('recipe'),
+                                 borrowed=ticket.info.get('borrowed',False))
                 if said:
                     _say(quiet, "{} slot granted to {} after {}".format(pool, label, _fmt(time.time() - t0)))
                 return hold
@@ -1585,7 +1704,7 @@ def mounted_work_drives():
         return out
     for name in WORK_DRIVES:
         root = Path("/Volumes") / name
-        if root.is_dir() and os.path.ismount(str(root)):
+        if root.is_dir() and os.path.ismount(str(root)) and work_storage.usable(root):
             out.append((name, root))
     return out
 
@@ -1669,65 +1788,36 @@ def drive_report(states=None, tickets=None, recent=True):
 
 
 def workdir(job, need_gb=20.0, source=None, create=True, why=None):
-    """The folder a job works in: its existing _edit_work folder (a job never splits across drives), else a new
-    one on the plugged-in work drive with room that is least busy (heavy steps running and waiting there against
-    its cap, plus job folders active in the last 3 h). SSD before hard disk on a tie; a hard disk that also holds
-    the job's source footage counts as busier. `why` (a list) gets the scores."""
-    hit = find_workdir(job)
+    """Reuse a job in place only with room for its additional growth; never choose a full disk."""
+    hit=find_workdir(job)
+    candidates=[]
     if hit:
-        if why is not None:
-            why.append("existing work folder")
-        return hit
-    first = _host_work_before_internal()                    # two Macs: the M2 (internal nearly full) uses the Extreme
-    if first and not os.environ.get("GATE_DRIVE_MAP"):
-        for r in drive_report():
-            if r["drive"] not in first:
-                continue
-            reserve = float(os.environ.get("GATE_WORK_RESERVE_GB") or WORK_RESERVE_GB.get(r["drive"],
-                                                                                          WORK_RESERVE_DEFAULT_GB))
-            room = r["free_gb"] - need_gb - reserve
-            if why is not None:
-                why.append("{} (this Mac puts new jobs here before its internal drive, editroute/hosts.json): {} GB "
-                           "free{}".format(r["drive"], r["free_gb"], "" if room >= 0 else ", NO ROOM"))
-            if room >= 0:
-                path = Path(r["root"]) / "_edit_work" / job
-                if create:
-                    path.mkdir(parents=True, exist_ok=True)
-                return path
-    if not os.environ.get("GATE_DRIVE_MAP"):                # tier 0: the internal drive, when the job fits
-        reserve = float(os.environ.get("GATE_INTERNAL_RESERVE_GB") or INTERNAL_WORK_RESERVE_GB)
-        room = _free_gb(INTERNAL_WORK.parent if INTERNAL_WORK.parent.exists() else "/tmp") - need_gb - reserve
-        if why is not None:
-            why.append("internal: {:.0f} GB free after {} GB + {} GB reserve{}".format(
-                room, need_gb, reserve, "" if room >= 0 else ", NO ROOM"))
-        if room >= 0:
-            if create:
-                (INTERNAL_WORK / job).mkdir(parents=True, exist_ok=True)
-            return INTERNAL_WORK / job
-    src = drive_of(source) if source else None
-    best = []
-    for r in drive_report():
-        if r["drive"] == "internal":
-            continue
-        reserve = float(os.environ.get("GATE_WORK_RESERVE_GB") or WORK_RESERVE_GB.get(r["drive"],
-                                                                                      WORK_RESERVE_DEFAULT_GB))
-        room = r["free_gb"] - need_gb - reserve
-        score = r["score"] + (0.5 if src == r["drive"] and r["kind"] == "hdd" else 0.0)
-        if why is not None:
-            why.append("{}: score {:.2f} ({} running, {} waiting, cap {}, {} active jobs), {} GB free{}".format(
-                r["drive"], score, r["running"], r["waiting"], r["cap"], r["active_jobs"], r["free_gb"],
-                "" if room >= 0 else ", NO ROOM for {} GB + {} GB reserve".format(need_gb, reserve)))
-        best.append((room < 0, DRIVE_TIER.get(r["drive"], 2), score, r["kind"] != "ssd", -r["free_gb"], r["drive"],
-                     Path(r["root"])))
-    if not best:
-        raise RuntimeError("no work drive is plugged in (Extreme, Expansion or Seagate)")
-    best.sort()
-    if best[0][0]:                                          # nowhere has room: the most free space
-        best.sort(key=lambda b: b[4])
-    path = best[0][6] / "_edit_work" / job
-    if create:
-        path.mkdir(parents=True, exist_ok=True)
-    return path
+        candidates=[hit]
+    else:
+        drives={n:r for n,r in mounted_work_drives()}
+        first=_host_work_before_internal() if not os.environ.get('GATE_DRIVE_MAP') else []
+        candidates += [drives[n]/'_edit_work'/job for n in first if n in drives]
+        if not os.environ.get('GATE_DRIVE_MAP'):candidates.append(INTERNAL_WORK/job)
+        reports={r['drive']:r for r in drive_report()}
+        ordered=sorted((n for n in drives if n not in first),key=lambda n:(DRIVE_TIER.get(n,2),reports.get(n,{}).get('score',0),n))
+        candidates += [drives[n]/'_edit_work'/job for n in ordered]
+    failures=[]
+    for path in candidates:
+        try:
+            if os.environ.get('GATE_DRIVE_MAP'):
+                # Explicit fixture drives use the same reserve calculation with their mapped identity.
+                name=drive_of(path); free=_free_gb(path.parent.parent)
+                reserve=float(os.environ.get('GATE_WORK_RESERVE_GB',work_storage.reserve_gb(name)))
+                ok=free-need_gb>=reserve;msg='fixture space after need and reserve: '+str(free-need_gb-reserve)
+                if not ok:raise RuntimeError(msg)
+            else:msg=work_storage.check(path,need_gb,job,commit=create)
+            if create:path.mkdir(parents=True,exist_ok=True)
+            if why is not None:why.append(str(path)+': '+msg)
+            return path
+        except (OSError,RuntimeError) as e:
+            failures.append(str(path)+': '+str(e))
+            if why is not None:why.append(failures[-1])
+    raise RuntimeError('no eligible work storage; wait in place. '+'; '.join(failures))
 
 
 def _host_work_before_internal():
@@ -1988,7 +2078,7 @@ def status(as_json=False):
                           indent=1)
     lines, p = [], pools()
     held_mb = sum(r.get("mb", 0) for r in rss.values())
-    lines.append("Render queue v4: all lanes share CORES and MEMORY. Each step gets cores: heavy {}, light {}, quick {} "
+    lines.append("Render queue v5: all lanes share CORES and MEMORY. Each step gets cores: heavy {}, light {}, quick {} "
                  "(exported as RENDERQ_CORES; ffmpeg -threads cap {}).".format(allowance("heavy"), allowance("light"),
                                                                   allowance("quick"),
                                                                   "on" if THREADS_DEFAULT else "off"))
@@ -2006,12 +2096,12 @@ def status(as_json=False):
                  "Only an idle queue bypasses memory/settling for progress; the core budget always applies.")
     if budget["cores_in_use"] > budget["cores_budget"]:
         lines.append("WARNING: current holders exceed the shared budget. Existing processes may still use old code; "
-                     "new v4 admissions wait for capacity. Running work is not stopped.")
+                     "new admissions wait for capacity. Running work is not stopped.")
     lines.append("Lanes: " + "; ".join("{} {}".format(k, "closed, " + v if v else "open")
                                           for k, v in closed.items()))
-    legacy = sum(1 for s in states if s["held"] and s["info"].get("scheduler_version", 3) < 4)
-    legacy_wait = sum(1 for t in tickets if t.get("scheduler_version", 3) < 4)
-    lines.append("Legacy code still loaded: {} holders, {} waiters; these drain naturally.".format(legacy, legacy_wait))
+    legacy = sum(1 for s in states if s["held"] and s["info"].get("scheduler_version", 0) < 4)
+    legacy_wait = sum(1 for t in tickets if t.get("scheduler_version", 0) < 4)
+    lines.append("Historical/unknown scheduler metadata: {} holders, {} waiters; these drain naturally.".format(legacy, legacy_wait))
     for s in states:
         if s["held"] and s["pool"] == "quick" and time.time() - s["info"].get("start", time.time()) > 120:
             lines.append("WARNING: quick job running over 2 minutes: {}. Short media can still be expensive; "

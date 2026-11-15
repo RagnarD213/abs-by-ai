@@ -45,6 +45,10 @@ def main():
     os.environ["CLAUDE_CODE_SESSION_ID"] = "selftest"
     # The checks are written for 5 slots; each Mac's real count (editroute/hosts.json) is tested in editroute's tests.
     os.environ["EDITCAP_MAX"] = "5"
+    os.environ["EDIT_PRIORITY_DIR"] = tempfile.mkdtemp(prefix="editcap-policy-test-")
+    fixture_cfg=Path(os.environ["EDIT_PRIORITY_DIR"])/"hosts.json"
+    fixture_cfg.write_text("{\"hosts\":{}}")
+    os.environ["EDITROUTE_HOSTS"]=str(fixture_cfg)
     ec.CAP = 5
     # Fixed calendar inputs keep scheduling assertions stable as production dates change.
     CAL = ec.Calendar(longform="| Sun Oct 18 | RO-25 |\n| Sun Oct 25 | RO-26 |\n"
@@ -52,6 +56,15 @@ def main():
                       shorts="| Nov 9 | | | | Dedicated Short (SL-09) | |\n",
                       jobs={"SL-18": {"title": "Wasted Life (RO-25)"}}, today=TODAY)
     print("editcap selftest")
+
+    # Help must never become a live job or wait for capacity.
+    import contextlib, io
+    fresh()
+    with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+        help_codes=[ec.main([cmd,"--help"]) for cmd in ("wait","acquire")]
+        invalid_code=ec.main(["wait","--not-a-real-option"])
+    check("subcommand help exits without a registry", help_codes==[0,0] and not (ec.DIR/"registry.json").exists())
+    check("unknown flag cannot become a queued job", invalid_code==2 and not (ec.DIR/"registry.json").exists())
 
     # 1. job codes
     cases = {"RO-27": "RO-27", "work:ro27": "RO-27", "DS-40-codex": "DS-40", "sl05-short1": "SL-05",

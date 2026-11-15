@@ -213,12 +213,12 @@ def _version_key(path):
 
 
 def resolve_binary(executor, cfg):
-    ex = cfg["executors"][executor]
-    if ex.get("binary"):
-        return os.path.expanduser(ex["binary"])
-    # The desktop app's Claude Code lives in a versioned folder that changes on every app update.
-    hits = sorted(glob.glob(os.path.expanduser(ex["binary_glob"])), key=_version_key)
-    return hits[-1] if hits else None
+    ex=cfg['executors'][executor]
+    candidates=[os.path.expanduser(x) for x in ([ex['binary']] if ex.get('binary') else [])+ex.get('binary_candidates',[])]
+    patterns=ex.get('binary_globs',[])+([ex['binary_glob']] if ex.get('binary_glob') else [])
+    hits=[p for pattern in patterns for p in glob.glob(os.path.expanduser(pattern))]
+    candidates+=sorted(hits,key=lambda p:(_version_key(p),p),reverse=True)
+    return next((p for p in candidates if os.path.isabs(p) and os.path.isfile(p) and os.access(p,os.X_OK)),None)
 
 
 def build_command(executor, cfg, workdir, role="edit"):
@@ -255,6 +255,26 @@ def build_command(executor, cfg, workdir, role="edit"):
     return cmd
 
 
+def model_ok(executor,cfg):
+    ex=cfg['executors'][executor];model=ex.get('model');effort=ex.get('effort')
+    if executor=='claude':
+        return (model in ('opus','claude-opus-5-5') and effort=='high','Claude must use the configured Opus/high policy')
+    try:
+        with open(os.path.expanduser('~/.codex/models_cache.json')) as f:catalog=json.load(f)
+        hit=next(m for m in catalog.get('models',[]) if (m.get('slug') or m.get('id'))==model)
+        levels=[v.get('effort') if isinstance(v,dict) else v for v in hit.get('supported_reasoning_levels',[])]
+        return effort in levels,'Codex model/effort checked against this client catalog'
+    except (OSError,ValueError,StopIteration,TypeError,AttributeError):return False,'Codex model availability unverified in this client catalog'
+
+
+def readiness(executor,cfg):
+    binary=resolve_binary(executor,cfg);model,why=model_ok(executor,cfg)
+    login,login_why=auth_ok(executor,cfg)
+    return dict(binary=binary,binary_ready=bool(binary),model_ready=model,model_reason=why,
+                login_ready=login,login_reason=login_why,quota='unverified without a real session',
+                policy='PAUSED' if os.path.exists(PAUSE_FILE) else 'not paused')
+
+
 def auth_ok(executor, cfg, run=None):
     """Free sign-in check (no tokens). True / False, plus a sentence for the page."""
     import subprocess
@@ -262,12 +282,16 @@ def auth_ok(executor, cfg, run=None):
     binary = resolve_binary(executor, cfg)
     if not binary or not os.path.exists(binary):
         return False, f"{executor}: program not found"
+    model,why=model_ok(executor,cfg)
+    if not model:return False,why
     if not ex.get("auth_check"):
-        return True, ""
+        return False, executor+': sign-in readiness unverified (no non-billable check configured)'
     try:
         r = (run or subprocess.run)([binary] + ex["auth_check"], capture_output=True, text=True, timeout=60)
-        if json.loads(r.stdout).get("loggedIn"):
-            return True, ""
+        if executor=='codex':
+            return (True,'quota/entitlement unverified') if r.returncode==0 and 'logged in using' in (r.stdout+r.stderr).lower() and 'not logged' not in (r.stdout+r.stderr).lower() else (False,'codex: signed out or login check failed')
+        if r.returncode==0 and json.loads(r.stdout).get("loggedIn"):
+            return True, "quota/entitlement unverified"
         return False, f"{executor}: not signed in. Dan signs in once: run the program in Terminal and type /login"
     except Exception as e:   # unreadable answer = not proven = not OK
         return False, f"{executor}: sign-in check failed ({e!s:.200})"

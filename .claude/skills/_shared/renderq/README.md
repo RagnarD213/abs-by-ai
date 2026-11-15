@@ -140,3 +140,25 @@ first `review_server.py PORT DIR`.
 queue vs two at a time vs all at once), `bench10.py` (ten real steps through two versions of the queue: before and
 after; `--two` adds the same steps two at a time with no queue, plus kernel CPU and swap per run), `realbuild.py` (a small real build from the shared pipeline pieces, for timing). Install or remove the
 wrapper: `renderq.py install-shim` / `uninstall-shim`.
+
+## Scheduler v5, November 14
+
+Holder publication and completion retain scheduler version, project identity and measured wait. Missing
+historical versions are unknown metadata, not proof of an old-code failure. Long roll contact-sheet
+decodes and audio/Whisper preparation now hold their slot through the actual child exit.
+
+After safe activation, compatible ready projects receive fair turns, with two eligible bypasses giving
+a normal project an owed opening. A waiting different project precedes a second heavy step of the same
+project; one project may use spare capacity when no other is ready. Grouping changes scheduling only,
+never paths, approved assets or blind identities. All lanes retain shared CPU/memory/drive protection.
+
+One short light/quick loan may use stranded cores while an otherwise eligible heavy cannot fit. It
+requires `GATE_EXPECT_S` in (0,120] from measured comparable work and a stable `GATE_RECIPE`. Long
+scans and unknown recipes cannot borrow. Both small lanes share the loan; an overrun finishes safely,
+is recorded and disqualifies that recipe. No global FFmpeg thread injection or key-math change ships.
+
+Features: `GATE_FAIRNESS=0` and `GATE_BORROWING=0` are independent scoped overrides. Production
+defaults come from the existing queue's `features.json`, set by `editroute/priority.py activate` after
+old holders/waiters drain. `deactivate` disables features and releases the temporary reservation.
+`GATE_SELFTEST_NO_STRESS=1` runs functional fixtures without the real CPU census stress case; report
+that case as not run. Selftest cleanup targets only its own live process groups.

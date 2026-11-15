@@ -37,7 +37,9 @@ order) and `editroute.py` follow on the next call. The M2 has its own checkout: 
    Silent-check and owner-handoff audio rules are unchanged (same server code on both Macs).
 6. **Finished files from an M2 edit:** `editroute.py push <file or folder> ...` copies them into the M6's project
    folder at the same place (`Videos to Review/...`, delivery folders). A different file already there is kept as
-   `NAME.m6-before-<time>`. Nothing is deleted on either Mac. Git changes (master list, queue) are committed and
+   `NAME.m6-before-<time>`. Nothing is deleted on either Mac. A delivery folder that is a link to a
+   shared drive (`Videos to Review`, `Short-form video content` on the Seagate) is not copied: the M6 already reads
+   the same file, so `push` proves it (same checksum) and says "already on the m6 through the shared drive". Git changes (master list, queue) are committed and
    pushed from the M2's own checkout as usual.
 7. **Footage for an M6 edit:** `editroute.py fetch <JOB> "/Volumes/Extreme/<shoot folder>/C1730.MP4" ...` copies it
    from the M2 into this Mac's job folder (`~/Projects/_edit_work/<JOB>/footage/`). The originals are only read.
@@ -154,3 +156,30 @@ not `git pull` because its `AI_COORDINATION.md` had a local edit that upstream a
 copied to it directly (older copies kept as `*.before-editroute-20261114`). When the M2 next pulls, git will list
 those files as "would be overwritten"; they are identical to GitHub's, so `git checkout -- <file>` (tracked) or moving
 the untracked `editroute/` folder aside, then pulling, is safe.
+
+## Approved optimization, November 14
+
+`priority.py` is the shared job control for `$priority-edit` in Codex and `/priority-edit` in Claude.
+`set JOB` marks ordinary urgency; `reserve JOB --milestone checked-preview --minutes 120` requests
+temporary M6 dedication, preserving running steps and parking saved edits through editcap. `renew`,
+`milestone`, `release`, `status`, `activate` and `deactivate` are the actual controls. Two eligible
+openings bypassed give a normal ready project its owed turn. Read the shared priority skill for the workflow.
+
+The M6 night rule now follows presence: recent input or unknown idle time remains six cores at night.
+Only 30 minutes of confirmed idle grants ten. M2 remains eight. A missing occupancy answer grants
+no automatic capacity. The primary route lock must be held; an unreachable primary cannot create
+a second combined line. Promotion rechecks each job's ownership.
+
+`pick` accepts `--priority --need-gb GB`. The owner rechecks and reserves additional bytes, using
+`storage.py` and the same reserve calculation as `renderq.workdir`: 80 GB internal, 30 GB Extreme,
+100 GB Expansion. Existing jobs must also have room for growth. Cached/asleep or network drives
+cannot supply new storage. `editcap release` abandons the job's remaining commitment. For a long
+job, use `storage.consume(JOB, GB)` as reserved bytes are actually consumed; it is incremental.
+
+Review mirrors copy into private staging first. `mirror_accept.py` verifies the port, page root and
+job identity before staging and again under a destination lock before refreshing a cache. A failed
+refresh leaves evidence in scratch; it never permits replacing another job's review.
+
+Functional suites use isolated registries and fake ownership. `client_acceptance.py` records a
+separate client receipt. Its host simulations are not production film completion or speed evidence.
+New fairness/borrowing is activated only after old loaded holders and waiters have drained.

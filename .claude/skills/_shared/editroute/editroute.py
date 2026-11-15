@@ -51,7 +51,10 @@ REPO = SHARED.parents[2]
 sys.path.insert(0, str(HERE))
 import hostcfg                                                       # noqa: E402
 
-VERSION = 1
+import priority as job_priority
+import storage
+
+VERSION = 2
 EXIT_GO, EXIT_WAIT, EXIT_TIMEOUT, EXIT_ERR = 0, 3, 4, 1
 POLL_S = float(os.environ.get("EDITROUTE_POLL") or 30.0)
 WAITER_STALE_S = 5 * 60            # a combined-line entry whose wait loop has not looked in this long is skipped
@@ -174,7 +177,7 @@ class _Lock(object):
                 return self
             except OSError:
                 if time.time() - t0 > 15:
-                    return self                      # fail open: route without the lock
+                    raise RuntimeError('route lock unavailable; no claim granted')
                 time.sleep(0.1)
 
     def __exit__(self, *a):
@@ -203,7 +206,7 @@ def record(entry, d=None):
         with open(str((d or state_dir()) / "decisions.jsonl"), "a") as f:
             f.write(json.dumps(entry, sort_keys=True) + "\n")
     except OSError as e:
-        warn("decision not recorded ({})".format(e))
+        raise RuntimeError("decision not recorded; no claim granted ({})".format(e))
 
 
 # ------------------------------------------------------------------------------------------------ this Mac
@@ -420,6 +423,7 @@ def local_status(job=None):
         st["job"] = dict(folders=job_folders, editcap=(st.get("editcap") or {}).get("edits", {}).get(job))
     st["reviews"] = _read_json(state_dir() / "reviews.json", {})
     lap("git")
+    st['storage_commitments']=storage.read()
     st["took"] = took
     if sum(took.values()) > SLOW_STATUS_S:                           # evidence for the next "did not answer"
         try:
@@ -477,7 +481,16 @@ def remote_status(h, job=None, c=None):
     return dict(host=h, reachable=False, error=err, rtt_s=round(time.time() - t0, 2))
 
 
-def gather(job=None, c=None):
+def gather(job=None,c=None):
+    fixture=os.environ.get('EDITROUTE_FIXTURE_STATUS')
+    if fixture:
+        if not all(os.environ.get(k) for k in ('GATE_DIR','EDITCAP_DIR','EDITROUTE_DIR','EDIT_PRIORITY_DIR','EDIT_STORAGE_DIR')):
+            raise RuntimeError('fixture status requires all isolated state directories')
+        return json.loads(Path(fixture).read_text())
+    return _gather_live(job,c)
+
+
+def _gather_live(job=None, c=None):
     """{host: status} for both Macs: this one directly, the other over ssh (in parallel)."""
     c = c or cfg()
     here = me()
@@ -547,8 +560,9 @@ def capacity(statuses, c, reserved=None):
                 st.get("error", "?")))
             continue
         ecs = st.get("editcap") or {}
-        if ecs.get("error"):
-            used = 0
+        if ecs.get("error") or 'in_use' not in ecs:
+            out[h]=dict(slots=slots,used=slots,free=0,why='edit occupancy unknown; counted as full')
+            continue
         else:
             used = len(ecs.get("in_use", [])) + len(ecs.get("waiting", []))
         res = [j for j in reserved.get(h, []) if j not in (ecs.get("edits") or {})]
@@ -560,7 +574,7 @@ def capacity(statuses, c, reserved=None):
             why += ", {} waiting there".format(len(ecs["waiting"]))
         loaded, lwhy = under_load(st, hc)
         if loaded:
-            out[h] = dict(slots=slots, used=slots, free=0, why="under Dan's own load: {}; counted as full".format(lwhy))
+            out[h] = dict(slots=slots, used=slots, free=0, why="under system load: {}; counted as full".format(lwhy))
             continue
         out[h] = dict(slots=slots, used=used, free=max(0, slots - used), why=why)
     return out
@@ -645,14 +659,46 @@ def _forward(argv):
         probe = subprocess.run(["ssh", "-o", "BatchMode=yes", "-o", "ConnectTimeout={}".format(c.get("remote_connect_s", 3)),
                                 hc.get("ssh", p), "test -f " + shlex.quote(script)], timeout=8)
         if probe.returncode != 0:
-            return None
+            print('wait\nPrimary routing authority unreachable; no claim recorded.')
+            return EXIT_WAIT
     except (OSError, subprocess.SubprocessError):
-        return None
+        print('wait\nPrimary routing authority unreachable; no claim recorded.')
+        return EXIT_WAIT
     return subprocess.call(["ssh", "-o", "BatchMode=yes", hc.get("ssh", p),
                             " ".join(["python3", shlex.quote(script)] + [shlex.quote(a) for a in argv])])
 
 
-def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=False, as_json=False, queue=False):
+def claim_storage(host,job,need,priority=False):
+    """Owner-side recheck/reservation, serialized inside the existing global route lock."""
+    import base64
+    hc=cfg()['hosts'][host]
+    code="import sys;sys.path.insert(0,sys.argv[1]);import storage,priority,editroute;rq=editroute._renderq();p=rq.workdir(sys.argv[2],need_gb=float(sys.argv[3]),create=False);sys.exit(3) if sys.argv[4]=='1' and (not rq.feature('priority') or priority.legacy_cap_waiters()) else None;storage.check(p,float(sys.argv[3]),sys.argv[2],commit=True);priority.update('set',sys.argv[2]) if sys.argv[4]=='1' else None"
+    argv=['python3','-c',code,hc['repo']+'/.claude/skills/_shared/editroute',job,str(need),'1' if priority else '0']
+    if host!=me():argv=['ssh','-o','BatchMode=yes',hc.get('ssh',host),' '.join(shlex.quote(a) for a in argv)]
+    r=subprocess.run(argv,capture_output=True,text=True,timeout=30,stdin=subprocess.DEVNULL)
+    if r.returncode:raise RuntimeError('owner storage reservation refused: '+r.stderr[-400:])
+
+
+def waiting_key(w):
+    sys.path.insert(0,str(SHARED/'editcap'))
+    import editcap
+    return (0 if w.get('skips',0)>=2 else 1,0 if w.get('priority') or job_priority.urgent(w['job']) else 1,
+            editcap.Calendar().date(w['job'],w.get('release'))[0],w.get('since',0))
+
+
+def ready_on(w,host,c,res,now):
+    if now-w.get('seen',w.get('since',0))>WAITER_STALE_S:return False
+    statuses=gather(w['job'],c)
+    if any(not statuses.get(h,{}).get('reachable') for h in c.get('hosts',{})):return False
+    selected,_=decide(w['job'],w['kind'],w.get('round',1),w.get('chroma'),w.get('named'),False,statuses,c,res)
+    st=statuses.get(host,{})
+    has_space=any(not x.get('asleep') and not x.get('network') and not x.get('cached') and
+                  storage.available(x.get('free_gb'),sum(v['remaining_gb'] for k,v in st.get('storage_commitments',{}).items() if k!=w['job'] and v['drive']==x.get('drive')),w.get('need_gb',20),x.get('drive'))[0]
+                  for x in st.get('drives',[]))
+    return selected==host and has_space
+
+
+def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=False, as_json=False, queue=False, priority=False, need_gb=20.0):
     job = job_code(job)
     kind = KINDS.get((kind or "").upper()) or infer_kind(job)
     c = cfg()
@@ -662,6 +708,9 @@ def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=Fa
         past = decisions(d, now=now)
         prev = [e for e in past if e.get("job") == job and e.get("host") not in ("wait", None) and not e.get("dry")]
         statuses = gather(job, c)
+        if not c.get('hosts') or any(not statuses.get(h,{}).get('reachable') for h in c.get('hosts',{})):
+            print('wait\nOwnership/configuration incomplete; no new route claimed.')
+            return EXIT_WAIT
         held, _ = holder(job, statuses)
         if prev and not named and not held and now - prev[-1]["t"] < float(c.get("reserve_min", 30)) * 60:
             host, reasons = prev[-1]["host"], ["{} was routed to the {} {} min ago ({}); same Mac again.".format(
@@ -669,21 +718,41 @@ def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=Fa
         else:
             res = reservations([e for e in past if e.get("job") != job], now)
             host, reasons = decide(job, kind, rnd, chroma, named, move, statuses, c, res, queue)
+        if host != 'wait':
+            st=statuses[host]
+            candidates=[x for x in st.get('drives',[]) if not x.get('asleep') and not x.get('cached') and not x.get('network')
+                        and storage.available(x.get('free_gb'),sum(v['remaining_gb'] for k,v in st.get('storage_commitments',{}).items() if k!=job and v['drive']==x.get('drive')),need_gb,x.get('drive'))[0]]
+            if not candidates:
+                reasons.append('storage: no freshly checked local drive fits additional need and reserve');host='wait'
         for h, st in statuses.items():
             if not st.get("reachable"):
                 reasons.append("Note: the {} did not answer ({}).".format(h, st.get("error")))
             elif st.get("slow_drives"):
                 reasons.append("Note: on the {} the {} drive is asleep; its work folders were read from the last "
                                "saved list, not the disk.".format(h, " and ".join(st["slow_drives"])))
+        line_before=_read_json(d/'waiting.json',{})
+        request=dict(job=job,kind=kind,round=rnd,chroma=chroma,named=named,priority=priority,since=now)
+        compatible=[]
+        if host!='wait' and not held and not prev:
+            compatible=[w for w in line_before.values() if w['job']!=job and ready_on(w,host,c,reservations(past,now),now)]
+            earlier=[w for w in compatible if waiting_key(w)<waiting_key(request)]
+            if earlier:
+                reasons.append('combined line: an older/owed eligible job owns this opening');host='wait'
+        if host!='wait' and not dry:
+            try:claim_storage(host,job,need_gb,priority)
+            except (RuntimeError,subprocess.SubprocessError) as e:host='wait';reasons.append(str(e))
         entry = dict(t=round(now, 1), job=job, kind=kind, round=int(rnd or 1), chroma=bool(chroma), named=named,
-                     host=host, why=reasons, by=me(), dry=bool(dry), queue=bool(queue))
+                     host=host, why=reasons, by=me(), dry=bool(dry), queue=bool(queue), priority=bool(priority), need_gb=need_gb)
         if not dry:
             record(entry, d)
             line = _read_json(d / "waiting.json", {})
+            if host!='wait':
+                for w in compatible:
+                    if w['job'] in line:line[w['job']]['skips']=line[w['job']].get('skips',0)+1
             if host == "wait":
                 if not queue:                                # the dispatcher asks again every tick; it never waits
                     line.setdefault(job, dict(job=job, kind=kind, round=int(rnd or 1), chroma=bool(chroma),
-                                              since=round(now, 1)))
+                                              since=round(now, 1), priority=bool(priority), need_gb=need_gb,named=named))
             else:
                 line.pop(job, None)
             _write_json(d / "waiting.json", line)
@@ -726,13 +795,20 @@ def cmd_wait(job, max_hours=24.0, poll=POLL_S):
             line[job]["pid"] = os.getpid()
             _write_json(d / "waiting.json", line)
             c = cfg()
-            statuses = gather(None, c)
+            statuses = gather(job, c)
             res = reservations(decisions(d, now=now), now)
-            for w in sorted(line.values(), key=lambda w: w.get("since", 0)):
+            from importlib import import_module
+            sys.path.insert(0,str(SHARED/'editcap'))
+            cal=import_module('editcap').Calendar()
+            for w in sorted(line.values(), key=lambda w: (0 if w.get('skips',0)>=2 else 1,
+                    0 if w.get('priority') or job_priority.urgent(w['job']) else 1,
+                    cal.date(w['job'],w.get('release'))[0],w.get('since',0))):
                 if w["job"] != job and now - w.get("seen", 0) > WAITER_STALE_S:
                     continue                                   # nobody is waiting on it any more
-                host, reasons = decide(w["job"], w["kind"], w.get("round", 1), w.get("chroma"), None, False,
-                                       statuses, c, res)
+                specific = statuses if w['job']==job else gather(w['job'],c)
+                if any(not s.get('reachable') for s in specific.values()):continue
+                host, reasons = decide(w["job"], w["kind"], w.get("round", 1), w.get("chroma"), w.get('named'), False,
+                                       specific, c, res)
                 if host == "wait":
                     if w["job"] == job:
                         break
@@ -740,9 +816,14 @@ def cmd_wait(job, max_hours=24.0, poll=POLL_S):
                 if w["job"] != job:
                     res.setdefault(host, []).append(w["job"])  # an older waiter gets this slot first
                     continue
+                try:claim_storage(host,job,w.get('need_gb',20),w.get('priority',False))
+                except (RuntimeError,subprocess.SubprocessError):break
                 record(dict(t=round(now, 1), job=job, kind=w["kind"], round=w.get("round", 1),
                             chroma=bool(w.get("chroma")), named=None, host=host, why=reasons, by=me(),
                             dry=False, from_line=True), d)
+                for other in line.values():
+                    if other['job']!=job and ready_on(other,host,c,res,now):
+                        other['skips']=other.get('skips',0)+1
                 line.pop(job, None)
                 _write_json(d / "waiting.json", line)
                 print(host)
@@ -909,21 +990,95 @@ def cmd_fetch(job, srcs, to=None):
     return EXIT_GO
 
 
+# What one Mac sees at a path: every file with its size, plus a checksum for a single file. Run locally and, over
+# ssh, on the other Mac, to prove a file on a shared drive is the same file on both.
+_FINGERPRINT = r"""
+import hashlib, json, os, sys
+p = sys.argv[1]
+out = {"exists": os.path.exists(p), "files": [], "sha": None}
+if os.path.isfile(p):
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for b in iter(lambda: f.read(1 << 20), b""):
+            h.update(b)
+    out["files"] = [["", os.path.getsize(p)]]
+    out["sha"] = h.hexdigest()
+elif os.path.isdir(p):
+    for d, _, fs in os.walk(p):
+        for n in fs:
+            if n.startswith("._") or n == ".DS_Store":
+                continue
+            q = os.path.join(d, n)
+            out["files"].append([os.path.relpath(q, p), os.path.getsize(q)])
+    out["files"].sort()
+print(json.dumps(out))
+"""
+
+
+def _fingerprint_here(path):
+    r = subprocess.run([sys.executable, "-c", _FINGERPRINT, str(path)], capture_output=True, text=True, timeout=900)
+    return json.loads(r.stdout)
+
+
+def _fingerprint_there(h, path):
+    r = _ssh(h, "python3 -c {} {}".format(shlex.quote(_FINGERPRINT), shlex.quote(str(path))), timeout=900)
+    if r.returncode != 0:
+        raise RuntimeError((r.stderr or "").strip()[-300:] or "no answer")
+    return json.loads(r.stdout)
+
+
+def _same_on_other_mac(dest_host, here_path, there_path):
+    """(True, how it was checked) when the other Mac sees the same file or folder at its own path."""
+    try:
+        a, b = _fingerprint_here(here_path), _fingerprint_there(dest_host, there_path)
+    except Exception as e:                                        # noqa: BLE001
+        return False, "could not check: {}".format(e)
+    if not b.get("exists"):
+        return False, "nothing at that path there (is the shared drive mounted?)"
+    if a["files"] != b["files"]:
+        return False, "{} files here, {} there, or sizes differ".format(len(a["files"]), len(b["files"]))
+    if a.get("sha"):
+        if a["sha"] != b.get("sha"):
+            return False, "checksums differ"
+        return True, "same checksum {}...".format(a["sha"][:12])
+    return True, "{} files, same names and sizes".format(len(a["files"]))
+
+
 def cmd_push(paths, dest_host=None):
-    """M2: copy finished files into the M6's project folder at the same relative place (older copy kept)."""
+    """M2: copy finished files into the M6's project folder at the same relative place (older copy kept).
+
+    A project folder that is a link to a drive (`Videos to Review`, `Short-form video content` live on the Seagate,
+    which the M6 mounts as a network share) is never copied: the M6 already reads the same file through the same
+    link. Push then only proves it (same names and sizes; same checksum for a single file) and says so."""
     c = cfg()
     dest_host = dest_host or c.get("primary")
     if me() == dest_host:
         print("This is the {} already; the files are in its project folder.".format(dest_host))
         return EXIT_ERR
     repo = Path(REPO).resolve()
+    repo_as_typed = Path(os.path.abspath(str(REPO)))
     rrepo = c["hosts"][dest_host]["repo"]
+    rc = EXIT_GO
     for p in paths:
-        ap = Path(p).resolve()
+        typed = Path(os.path.abspath(str(p)))
+        ap = typed.resolve()
         try:
             rel = ap.relative_to(repo)
         except ValueError:
-            print("skipped (not inside the project folder {}): {}".format(repo, p))
+            rel = next((typed.relative_to(r) for r in (repo, repo_as_typed)
+                        if r == typed or r in typed.parents), None)
+            if rel is None:
+                print("skipped (not inside the project folder {}): {}".format(repo, p))
+                continue
+            target = "{}/{}".format(rrepo, rel.as_posix())
+            same, how = _same_on_other_mac(dest_host, ap, target)
+            if same:
+                print("{}: already on the {} through the shared drive ({}); nothing to copy".format(
+                    rel, dest_host, how))
+            else:
+                print("{}: NOT confirmed on the {}: {}. Nothing was copied (this folder is a link to a drive; "
+                      "copying would write the drive onto itself).".format(rel, dest_host, how))
+                rc = EXIT_ERR
             continue
         target = "{}/{}".format(rrepo, rel.as_posix())
         r = _ssh(dest_host, "mkdir -p " + shlex.quote(str(Path(target).parent)))
@@ -933,7 +1088,7 @@ def cmd_push(paths, dest_host=None):
         _rsync(src, "{}:{}".format(c["hosts"][dest_host].get("ssh", dest_host),
                                    _remote_path(target + ("/" if ap.is_dir() else ""))), backup=True)
         print("{} -> {}:{}".format(rel, dest_host, target))
-    return EXIT_GO
+    return rc
 
 
 def _hub_cache(port):
@@ -953,19 +1108,25 @@ def mirror_review(port, root, job=None):
         raise RuntimeError("no cached page for port {} on this Mac (run review_server.py first)".format(port))
     job = job or job_code(next((x for x in Path(root).parts[::-1] if re.match(r"^[A-Za-z]{2,3}-?\d", x)), "")) or ""
     rel = "Library/Application Support/AbsByAI Reviews/m2-mirror/{}".format(port)
-    r = _ssh(dest_host, "mkdir -p " + shlex.quote(rel))
-    if r.returncode != 0:
-        raise RuntimeError("cannot reach the {}: {}".format(dest_host, (r.stderr or "").strip()))
-    _rsync(str(cache) + "/", "{}:{}/".format(c["hosts"][dest_host].get("ssh", dest_host), _remote_path(rel)))
-    drepo = c["hosts"][dest_host]["repo"]
-    note = json.dumps(dict(job=job, source="{}:{}".format(me(), root), port=port))
-    cmd = ("cd ~ && ABS_REVIEW_NO_MIRROR=1 python3 {srv} {port} {dir} && python3 {er} note-review {port} {note}"
-           .format(srv=shlex.quote(drepo + "/.claude/skills/_shared/review_server.py"), port=int(port),
-                   dir=shlex.quote(rel), er=shlex.quote(drepo + "/.claude/skills/_shared/editroute/editroute.py"),
-                   note=shlex.quote(note)))
-    r = _ssh(dest_host, cmd, timeout=120)
-    if r.returncode != 0:
-        raise RuntimeError("the {} could not serve it: {}".format(dest_host, (r.stderr or r.stdout).strip()[-300:]))
+    drepo=c['hosts'][dest_host]['repo']
+    helper=drepo+'/.claude/skills/_shared/editroute/mirror_accept.py'
+    dest='~/'+rel
+    source='{}:{}'.format(me(),root)
+    # The owner expands ~ in Python, not in a shell string. Validate BEFORE copying.
+    args=['python3',helper,str(port),dest,job,source]
+    r=_ssh(dest_host,' '.join(shlex.quote(a) for a in args))
+    if r.returncode:raise RuntimeError('mirror preflight refused: '+r.stderr[-400:])
+    import uuid
+    stage='/tmp/abs-review-stage-'+uuid.uuid4().hex
+    r=_ssh(dest_host,'mkdir -p '+shlex.quote(stage))
+    if r.returncode:raise RuntimeError('mirror staging failed')
+    _rsync(str(cache)+'/', '{}:{}/'.format(c['hosts'][dest_host].get('ssh',dest_host),_remote_path(stage)))
+    args += [stage,drepo+'/.claude/skills/_shared/review_server.py']
+    r=_ssh(dest_host,' '.join(shlex.quote(a) for a in args),timeout=120)
+    if r.returncode:raise RuntimeError('mirror refresh refused: '+(r.stderr or r.stdout)[-400:])
+    note=json.dumps(dict(job=job,source=source,port=port))
+    r=_ssh(dest_host,' '.join(shlex.quote(a) for a in ['python3',drepo+'/.claude/skills/_shared/editroute/editroute.py','note-review',str(port),note]))
+    if r.returncode:raise RuntimeError('mirror note failed')
     return "http://127.0.0.1:{}/".format(int(port))
 
 
@@ -1067,7 +1228,7 @@ def main(argv):
             return f
     if cmd == "pick":
         o, pos = _opts(rest, {"--kind": True, "--round": True, "--chroma": False, "--host": True, "--move": False,
-                              "--dry-run": False, "--json": False, "--queue": False})
+                              "--dry-run": False, "--json": False, "--queue": False, "--priority": False, "--need-gb": True})
         if not pos:
             sys.exit("usage: editroute.py pick JOB [--kind K] [--round N] [--chroma] [--host m6|m2]")
         if o.get("--kind") and o["--kind"].upper() not in KINDS:
@@ -1075,7 +1236,7 @@ def main(argv):
         named = (o.get("--host") or "").lower() or None
         return cmd_pick(pos[0], o.get("--kind"), int(o.get("--round") or 1), bool(o.get("--chroma")), named,
                         bool(o.get("--move")), bool(o.get("--dry-run")), bool(o.get("--json")),
-                        bool(o.get("--queue")))
+                        bool(o.get("--queue")), priority=bool(o.get("--priority")), need_gb=float(o.get("--need-gb") or 20))
     if cmd == "wait":
         o, pos = _opts(rest, {"--max-hours": True})
         return cmd_wait(pos[0], float(o.get("--max-hours") or 24))
