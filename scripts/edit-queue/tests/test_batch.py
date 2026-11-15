@@ -63,6 +63,11 @@ class BatchTests(unittest.TestCase):
         self.start();self.assertEqual(self.claim('m6')['row']['id'],'RA-02')
         self.assertIsNone(self.claim('m6'))
         self.assertEqual(self.claim('m2')['row']['id'],'SL-36')
+    def test_failed_preflight_stops_new_claims_on_an_enabled_batch(self):
+        self.enqueue();self.start()
+        b.handle(dict(op='preflight',proof=dict(passed=False,digest='proof',problems=['other Mac mismatch'])))
+        self.assertIsNone(self.claim())
+
     def test_stop_keeps_running_claim_and_prevents_starts(self):
         self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim(slots=1)
         b.handle(dict(op='stop'));self.assertIsNone(self.claim())

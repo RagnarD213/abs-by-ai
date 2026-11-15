@@ -178,7 +178,7 @@ def handle(req):
             c=control();c.update(enabled=True,started=now);write(HOME/'control.json',c);return state
         if op=='claim':
             c=control()
-            if not c.get('enabled') or req['digest']!=c.get('preflight',{}).get('digest'):return None
+            if not c.get('enabled') or not c.get('preflight',{}).get('passed') or req['digest']!=c.get('preflight',{}).get('digest'):return None
             live=[]
             for d in snapshot()['batches'].values():
                 live.extend(r for r in d['jobs'].values() if r['status']=='claimed' and r['claim']['owner']==req['host'])
@@ -415,6 +415,7 @@ def report(snap, error=None):
             groups[group].append(item)
     lost=[]
     if here()=='m6':
+        catalog={r['id']:r for r in read(Path(eq.ROOT)/'Handoffs/video-editing/jobs.json',{'jobs':[]})['jobs']}
         route=read(Path.home()/'.absbyai-editroute/waiting.json',{})
         obs=d.get('observations',{}) if snap.get('batches') else {}
         # Combined-line promotions are journalled even after waiting.json is popped.
@@ -423,6 +424,7 @@ def report(snap, error=None):
             entries=[json.loads(line) for line in path.read_text().splitlines()[-2000:]]
             latest={e['job']:e for e in entries if not e.get('dry')}
             for j,e in latest.items():
+                if catalog.get(j,{}).get('state') in ('delivered','draft_review','finalized','uploaded'):continue
                 if e.get('host') in ('m2','m6') and e.get('from_line') and 600<now-e['t']<86400:
                     observed=[v.get(j) for dd in snap.get('batches',{}).values() for v in dd.get('observations',{}).values()]
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
