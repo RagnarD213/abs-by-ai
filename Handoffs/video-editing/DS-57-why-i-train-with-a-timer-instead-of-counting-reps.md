@@ -17,6 +17,10 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll on this shoot: the pool demos and equipment (C1732 to C1754, listed in the report). Clip library first for anything else.
 - B-roll not filmed yet: the Gymboss (prop shot).
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0271**: plays under "Set that timer for 30 seconds on and 30 seconds off and make every rep slow and good". A man, back against a wall, does slow strict curls with light dumbbells (5.0 s, 9:16). Also planned for DS-96 and DS-64. `clip_library.py show A0271`. Label it AI-generated on the picture.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-57-why-i-train-with-a-timer-instead-of-counting-reps.md`: cut "Why I Train With A Timer Instead Of Counting Reps" from 10/15 roll C1777 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.

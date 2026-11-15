@@ -36,13 +36,13 @@ but not frame-accurate; use the sidecar's word timings for cuts.
 | C1903 | portrait | 45:18 | **Great Again T VSL**, full read with many retakes and pickups across the whole roll |
 | C1904 | portrait | 54:49 | **GAT upsells**: 1 Prepaid Packs 0:00-13:45, 2 Eternal Burn AM/PM 13:45-30:31, 3 Electro-Creatine 31:18-44:43, 4 Abs By AI 44:43-54:50 |
 | C1905 | portrait | 13:14 | **L01** 0:00-8:38, **L02** 8:38-13:07, then Dan notices they should have been horizontal (both reshot landscape in C1913) |
-| C1906 | portrait | 22:34 | Short ads: **S01** 0:23-3:07, **S02** 3:07-5:25, **S03** 5:25-7:47, **S04** 7:47-10:20, **S05** 10:20-13:48, **S11** 14:29-17:00, **S13** 17:00-19:23, **S21** 20:09-22:22 |
+| C1906 | portrait | 22:34 | Short ads: **S01** 0:00-3:07, **S02** 3:07-5:25, **S03** 5:25-7:47, **S04** 7:47-10:20, **S05** 10:20-13:48, **S11** 14:29-17:00, **S13** 17:00-19:23, **S21** 19:35-22:22 |
 | C1907 | portrait | 0:26 | Short "The Best Protein Snack Costs $2 and Comes in a Can" (B05): first line only, stops to grab sardines |
 | C1908 | portrait | 4:19 | **B05** "The Best Protein Snack Costs $2 And Comes In A Can" (complete; opens "Here's why sardines beat protein bars") 0:00-1:21; **B08** "Your Metabolism Is Not The Reason You're Fat" 1:21-4:12 |
 | C1909 | portrait | 7:47 | Reactions: watches Mike Michalowicz smaller-plates clip 0:00-0:46; scripted "A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right." 0:46-1:56; off-the-cuff reaction 1:56-3:26; watches Alex Hormozi clip 3:26-4:27; scripted **C01** "You're Not Hungry, You're Bored" 4:27-6:06; off-the-cuff reaction 6:06-7:48 |
 | C1910 | landscape | 0:28 | **L03** hook only, aborted |
 | C1911 | landscape | 29:29 | **L01** 0:06-4:39 (unannounced), **L04** 4:39-9:07, **L05** 9:08-14:47, **L07** 14:48-20:18, **L17** 20:19-23:09, **L20** 23:10-28:47, L22 start 28:48 (setup talk) |
-| C1912 | landscape | 12:23 | **L22** 0:12-6:30 (many hook restarts, alternate CTAs), **L23** 7:08-12:17 (complete take about 7:46-11:48) |
+| C1912 | landscape | 12:23 | **L22** 0:02-6:31 (many hook restarts, alternate CTAs), **L23** 6:31-12:17 (complete take about 7:46-11:48) |
 | C1913 | landscape | 17:48 | **L30** 0:00-5:03, **L01** 5:03-12:40 (horizontal reshoot Dan called the keeper), **L02** 12:40-17:48 |
 | C1914 | landscape | 12:26 | **"I Crashed My Tesla Because I Didn't Trust FSD"** complete, 0:00-7:09; **A15** "I'm 41. If I Were 25 Again..." 7:10-12:28, hook restarts, cut off mid-take |
 
@@ -75,3 +75,13 @@ When card 1 was put back in the reader, C1904 read as 4,162,322,432 bytes on the
 ## Edit Queue (added 2026-11-14)
 
 All filmed videos are on the Abs By AI Edit Queue, master-list section 1C5: Great Again T VSL WV-03 and upsells WV-04 to WV-07; Great Again T ads RA-17 to RA-35 (L03 is blocked: hook only); long-forms RO-39 Tesla, RO-40 A15, RO-41 A16, RO-42 A17, RO-43 A18; Shorts DS-106 B05 protein snack (C1908 0:00-1:21; "Here's why sardines beat protein bars" is the script's opening line, not a different title), DS-107 B08, DS-108 B06 smaller plates, DS-109 C01 Hormozi.
+
+## Double-check (2026-11-14)
+
+- All 15 rolls (C1901 to C1915) are on the Extreme and the Seagate with identical sizes; every MP4 was SHA-256 checked against the card when copied, and C1904 was re-hashed on both drives after card 1 started misreading it.
+- Google Drive: C1901 to C1914 and their XMLs match the Extreme (rclone check; the only "differences" were Mac `._` housekeeping files). C1915 upload and check started 2026-11-14.
+- Transcripts: every roll's spoken "this video is ..." announcements were checked against the queue rows. All 33 rows point at the right rolls; four start times were corrected (S01 0:00, S21 19:35, L22 0:02-6:31, L23 6:31). C1903 has no announcements: the whole roll is the VSL. Every gap between videos is crew chat, framing checks or breaks; no filmed take is missing from the queue.
+- Roll sidecars: C1901 to C1914 are built and indexed; C1915's transcript was building on 2026-11-14.
+- Scripts not filmed on this shoot (remain for a later session): Great Again T L03 (hook only) and L18; content A21, A28, A29, A38, A47, A51, B10, B14, B21, B22, B29, B38, C02, C03, C09, C19, C21, C25, C31, C35, and the long reactions D04, D05, D07, D09, D10, D15.
+
+- 2026-11-14 18:28 CST: Google Drive copy of the full shoot folder (card 2 C1915 included) checked with rclone: 30 matching files, 0 differences. Card 2 may be reused.

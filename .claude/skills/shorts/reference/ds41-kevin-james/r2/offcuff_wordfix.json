@@ -1,0 +1,81 @@
+{
+ "_note": "off the cuff: 'tracking.' (Whisper wrote 'trying to eat. tracking.'); 'If' of the clean second attempt; 'going hog wild' (no 'to'); the second subscribe read, which the take pass dropped after the silence (spot pass times); build 8: the restart's 'and' (Whisper placed it at 1777.34, in the breath now kept after 'calories.') dropped: it is not in the film; build 9 review: his second attempt really starts 'And you'll find' (the 'and' onset is raw 1780.893), so the caption carries it",
+ "drop": [
+  1753.94,
+  1753.98,
+  1761.98,
+  1783.44,
+  1777.34
+ ],
+ "text": {
+  "1781.02": "you'll",
+  "1776.82": "calories."
+ },
+ "add": [
+  [
+   "tracking.",
+   1753.95,
+   1754.28
+  ],
+  [
+   "If",
+   1762.46,
+   1762.58
+  ],
+  [
+   "Subscribe",
+   1800.98,
+   1801.36
+  ],
+  [
+   "to",
+   1801.36,
+   1801.58
+  ],
+  [
+   "my",
+   1801.58,
+   1801.7
+  ],
+  [
+   "channel",
+   1801.7,
+   1802.0
+  ],
+  [
+   "for",
+   1802.0,
+   1802.22
+  ],
+  [
+   "more",
+   1802.22,
+   1802.44
+  ],
+  [
+   "workout",
+   1802.44,
+   1802.68
+  ],
+  [
+   "and",
+   1802.68,
+   1802.9
+  ],
+  [
+   "nutrition",
+   1802.9,
+   1803.14
+  ],
+  [
+   "tips.",
+   1803.14,
+   1803.56
+  ],
+  [
+   "And",
+   1780.89,
+   1781.01
+  ]
+ ]
+}

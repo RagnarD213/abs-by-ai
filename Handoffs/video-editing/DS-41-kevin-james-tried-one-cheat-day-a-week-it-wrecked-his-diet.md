@@ -31,3 +31,7 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 
 **Codex (GPT-6.1 Sol, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Edit BOTH versions (scripted and off the cuff) in the locked reaction format, every gate and an independent review on each, deliver both side by side, send Dan the review page, update `00-MASTER.md`.
+
+## Setup completion, November15 2026
+
+Dan approved the revised X3 pair with “Approved”. Both final covers installed, all four publishing assets CDN-uploaded and full-download SHA256 verified. One ready shared waitlist entry reserves January11 2027 at6PM Central, all four platforms. Queue199/200, zero DS41 schedules, so Edit Queue stays finalized until actual posts exist/read back. Drive status updated with this note. [Full setup receipt](../../Docs/DS41_SETUP_RECEIPT_20261115.md). No re-edit or title change. Shared top-up owns future scheduling; no per-video routine.

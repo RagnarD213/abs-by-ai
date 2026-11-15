@@ -16,7 +16,7 @@ Times are minutes:seconds into each roll from an audio pass: close, not frame-ac
 
 | roll | range | notes |
 |---|---|---|
-| `C1912` | 7:08-12:17 | complete take about 7:46-11:48 |
+| `C1912` | 6:31-12:17 | complete take about 7:46-11:48 |
 
 Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (grade as Rec.709, no log LUT). One stereo LPCM audio stream.
 

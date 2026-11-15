@@ -32,6 +32,10 @@ Orientation: **portrait (stored 3840x2160 with rotation -90; decode to 2160x3840
 
 One dedicated vertical Short. Nothing derived from it. Covers and upload/setup are separate tasks after Dan approves the film (Codex owns setup).
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0188**: plays under "Nobody has ever binged on three cans of sardines". A lean man on the sofa at night eats the last sardine, sets the empty tin down and leans back (4.1 s, 16:9: crop or panel it for the vertical). Also used in RO-17. `clip_library.py show A0188`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

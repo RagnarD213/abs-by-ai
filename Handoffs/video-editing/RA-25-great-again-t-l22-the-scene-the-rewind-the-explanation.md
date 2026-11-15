@@ -17,7 +17,7 @@ Times are minutes:seconds into each roll from an audio pass: close, not frame-ac
 | roll | range | notes |
 |---|---|---|
 | `C1911` | 28:48-29:29 | setup talk only |
-| `C1912` | 0:12-6:30 | many hook restarts, alternate CTAs |
+| `C1912` | 0:02-6:31 | many hook restarts, alternate CTAs |
 
 Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (grade as Rec.709, no log LUT). One stereo LPCM audio stream.
 

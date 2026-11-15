@@ -51,3 +51,42 @@ The recipe copy is in `recipe/` here. Read the DS-36 and DS-43 READMEs first; on
 Gate rows that stay failing on this format (same as DS-36 / DS-43 / DS-44B, each measured by the reviewers): full-mix tone (the clip's
 sound is in the window; the voice alone passes), hair_top on the panel (planned overlap), splice visibility on zoom cuts, and
 captions:sync on the scripted file (the energy method reads the cue after the card; cue starts match delivered speech).
+
+## Round 2 (2026-11-14): off the cuff only, two lines cut, reply at 1.15x, 59.46 s
+
+Dan picked off the cuff, cut "So guys, this concept of a cheat day does not work mathematically." (P5) and the closing subscribe line
+(P10, with its card and shot), and asked for under 60 s. Recipe: `r2/` here (source of truth; rsync to the M2's
+`/Volumes/Expansion/_edit_work/DS-41/r2/recipe/`). The key, source and framing caches are links to `r1/`. Built on the M2 from the M6 over
+`ssh m2`. What was new:
+
+- **Speed in the recipe:** `SPEED` in `prep.py` (atempo on each lav piece, frames = (b - a)/SPEED, word times divided by it), `measure_sp` in
+  `framing.py` (hair track sampled at the source rate), `t_roll` in `assemble.py` multiplied by the piece's speed. 1.12x (Fat Shaming) left
+  60.7 s; 1.15x lands 59.46 s. Cutaways and lower thirds shrink with it: check each still reads.
+- **Non-interactive ssh on the M2 has no `/usr/local/bin`:** `npx` was missing and graphics failed. Prefix PATH with
+  `/usr/local/bin:$HOME/.npm-global/bin` on every remote build command.
+- **atempo dulled the voice at 5.5 kHz** (voice-alone tone max 2.61 against 2.5). Refit `TAKE_EQ` on the sped-up voice. The gate's bands are
+  level-normalised, so a 1.2 dB change at 6 kHz moved the 5.5 kHz row by 4.7 dB: step in halves and re-measure each time.
+- **Never run `prep.py` by hand while a chain is between steps.** A manual tone test overlapped the build's own prep. Proof it did no harm:
+  rerun prep alone afterwards and compare the voice wav's sha256 with the one the build used.
+- **A caption under 0.30 s with a cut before it and no room after** ("while you're", 0.28 s): `captions.py` now takes the NEXT cue's first
+  word when both stay readable ("while you're going" / "hog wild").
+- **When the film ends on a lower-third shot, land its last line early.** "Count The Cheat Meal Too" on "and still" had 0.85 s before the
+  end; on "cheat meal only" it has 1.5 s.
+- **Removing a line can leave the quietest room of the take at the new join.** P6's 0.12 s lead-in (raw -53 to -60 dB) was dug to -62..-73 dB
+  by the expander for 110-130 ms between the kept breath and "If" (reviewer D1; no other pause went under -62 dB for more than 20 ms). Fix in
+  `prep.py`: the take's own room over the same samples (`lav.wav`, same EQ, level matched, 20 ms fades) mixed back under it. The chain's
+  voice wav is STEREO s16: the first fill used a mono bed, so `amix` folded the voice to mono (+3 dB, clipped) and the audio gate failed
+  "no processing damage" (flux 0.097 to 0.131). Keep the bed stereo (`pan=stereo|c0=c0|c1=c0`), write the chain's own format, and prove the
+  patch with a sample diff against the unpatched voice (silent everywhere but the gap; `chk/diff.py` pattern). After any cut, print the
+  10 ms floor of every pause in the treated voice against the lav (`chk/pauses.py` pattern) before sending the file to review.
+- **Review page for the side pane:** one player, loaded at page load, fixed 300 px panel from 760 px wide; each change's Play button plays
+  its watch range in that player (`page_r2.py`). The page folder holds real copies, not links (exFAT drive, and the page mirrors to the M6).
+- **`build.sh` deletes `qa/`.** Copy the reviewer's `findings.json` aside before an audio-only rebuild, then send the SAME reviewer the new sha.
+
+R2 delivered 2026-11-14: build 4 (sound-only rebuild of build 2's picture), 59.46 s, sha256 `06001f612394d929e464a185ba26c8199d220e7181541fb8ed257e1e735c02bc`,
+independent review SHIP after the room fill (first pass DOES NOT SHIP on the hole alone), gate 35 passed with the same three format rows as R1 and
+captions:sync not measurable. Review page http://127.0.0.1:9800/ (M2 folder `r2/review`, mirrored to the M6). The reviewer's findings must cover the
+`pair_*.jpg` images too, or the watch pass stays open (35 images here: 3 sheets, 16 strips, 16 pairs): say so in the brief. `editroute.py push`
+printed "skipped (not inside the project folder)" for delivery paths although the files were already on the M6 with matching sha256; check the M6 copy by hash.
+
+R2 APPROVED by Dan 2026-11-14 ("Approved") and finalized. Setup: `Handoffs/handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md` (Codex).

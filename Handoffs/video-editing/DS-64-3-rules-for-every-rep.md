@@ -18,6 +18,11 @@ Deliverable: 1080x1920, 45 to 66 s, J2 captions, Soft Blue Light HyperFrames gra
 - B-roll not filmed yet: the side close-up of chest depth on handle push-ups.
 - Demos: C1744, C1745, C1746.
 
+## Pre-made AI clips (Dan selected 2026-11-15, Flow-credits batch 4: existing library clips)
+
+- **A0270**: plays under "Rule number three, no swinging. If you have to swing your body to move the weight, it's too heavy". From the side, a slim man yanks huge dumbbells up in three fast, jerky cheated curls (3.4 s, 9:16). Also planned for DS-96. `clip_library.py show A0270`. Label it AI-generated on the picture.
+- **A0271**: plays under "A lighter weight is fine if that's what it takes to go slow on the way down, go all the way through the rep, and to not swing". The same man, back against a wall, does slow strict curls with lighter dumbbells (5.0 s, 9:16). Also planned for DS-96. `clip_library.py show A0271`. Label it AI-generated on the picture.
+
 ## Starter prompts
 **Claude (Opus 5.5, high):**
 > Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-64-3-rules-for-every-rep.md`: cut "3 Rules For Every Rep" from 10/15 roll C1783 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.

@@ -1,7 +1,7 @@
 ---
-id: TBD
-post_id: TBD
-slug: TBD
+id: OFObz4wuj0k
+post_id: 1225
+slug: reacting-to-celebrity-ozempic-transformations
 title: Reacting To Celebrity Ozempic Transformations
 excerpt: Ripped or wrecked on weight loss medication comes down to dose, protein, lifting and not stopping. Here's what these celebrities got right and wrong.
 cta_path: /
