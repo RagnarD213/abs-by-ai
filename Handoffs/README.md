@@ -35,7 +35,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R5](handoff-20261115-great-again-t-vsl-round5.md), 2026-11-15. **READY: fire now. Claude Opus 5.5, high.** Dan picked the Medium Wood Kitchen. Round 5 builds the first 3 minutes in the wood kitchen and in the Teal Studio from one cut, and start and end frame pairs for all 44 AI clip ideas. Nothing else is rendered.
+- [Great Again T VSL AD R6](handoff-20261115-great-again-t-vsl-round6.md), 2026-11-15. **WAIT: fire after Dan replies on the round 5 page (http://127.0.0.1:9764/) and the usage limits allow (Codex 11-18, Claude Opus/Sonnet 11-19). Claude Opus 5.5, high.** Round 6: record his reply, second-attempt pictures for the 18 AI clip ideas with none, motion for the pairs he selected, his notes on the first 3 minutes. Round 5 handoff executed 2026-11-15.
 
 
 
@@ -63,6 +63,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Google Flow Music: channel theme song and background beds](handoff-20261107-flow-music-theme-and-beds.md): **Written 2026-11-07, fire now.** Dan asked for it. Claude Opus high interviews Dan (theme, moods, AI-music flag), then generates a theme and beds in Flow Music before Nov 29, offline checks, review page for picks.
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed and published 2026-11-15, Codex; awaiting video picks.** [40 checked cuts across 16 clips](http://127.0.0.1:9260/), Three Cans reports preserved. After Dan pastes picks, file selected cuts, refresh sheet and update job docs; no duplicate review task.
+- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Video picks pending 2026-11-15, Codex.** [Review](http://127.0.0.1:9260/); frames/motion reviews complete. Remaining: file actual selections and job-doc IDs. Credit receipt updated:490 observed versus540expected,19,822 balance, discrepancy50 unresolved.
 - [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Written 2026-11-07, fire now; finish by Nov 28.** Dan asked for it. Claude Opus high fills clip-library gaps (gags, eating, weigh-ins, gym, lifestyle) on up to 7,000 Flow credits; frame pairs batched for Dan.
 - [Fly (bent elbows) and seated triceps app demos R4](handoff-20261109-exercise-demos-r4-fly-seated-triceps.md): **Written 2026-11-09, started automatically (video round rule).** Weighted crunch shipped live; fly and triceps frames failed R3 review, R4 changes the fly camera and rebuilds the seated triceps end.
 - [Three more AI-Dan exercise demos (triceps extension, dumbbell fly, weighted crunch)](handoff-20261106-exercise-demos-three-more.md): **Written 2026-11-06, fire now.** Dan asked for it. Claude Opus high makes the next three app demos with paid 1080p Veo (up to $10, 5 takes each), puts the best on a review page; install only after Dan says ship. **Executed 2026-11-07: at Dan's review (http://127.0.0.1:9317/); R2: crunch and fly passed, triceps form fixed with a brief flicker. Install on "ship" per the file.**
