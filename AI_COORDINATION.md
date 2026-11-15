@@ -41,7 +41,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
-**MetabolismNotTheReason-SFC-R1(DS-107):DAN-REVIEW-R1:2026-11-14:Claude.**http://127.0.0.1:9801/(made-on-M2,open-on-M6);indep-review-SHIP;setup-handoff-after-approval;ROUTING-PROOF.md-in-work-folder.
+**MetabolismNotTheReason-SFC-R2(DS-107):DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9802/(M2-made,open-on-M6);opener-25%-faster,indep-review-SHIP;setup-handoff-after-approval.
 
 **KevinJamesCheat-SFC-R1(DS-41):DAN-REVIEW-R1:2026-11-13:Claude.**http://127.0.0.1:9661/;scripted-61.9s-vs-offcuff-73.2s,pick-one;setup-handoff-after-approval.
 

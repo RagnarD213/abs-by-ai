@@ -1,6 +1,6 @@
 ---
 name: jump-rope-clip-rule
-description: "Jump rope: ONLY the fast one-foot-at-a-time boxer skip (B0448, B0542); every both-feet clip (B0430, 10/15 roll C1742) is a mistake demo only. Repeated mistake (10-09, 10-27)"
+description: "Jump rope: ONLY the fast one-foot-at-a-time boxer skip (B0448, B0542); both-feet clips (B0430, 10/15 roll C1742) are mistake demos only. 11-14: Dan wants B0448 sped up as a first-5-seconds opener in future videos"
 metadata:
   node_type: memory
   type: feedback
@@ -38,3 +38,14 @@ alternate fast; a raw roll that is not in the library is unverified until you ha
 clip or a similar clip of me jumping rope correctly, one foot at a time and fast, in the future, unless I'm specifically pointing out
 a mistake."* This is the reference clip. The approved grade (explicit BT.709 to RGB first, then the JR_B0448 curve) is noted on
 `B0448` in the clip library.
+
+
+**11-14 (Your Metabolism Is Not The Reason You're Fat, DS-107 R1): the sped-up opener.** `B0448` opened the Short under the hook line
+(first 5 seconds) and Dan approved the choice and asked for it in future videos, faster: *"I like your decision to use a jump rope clip
+because we know that, historically, was successful. I feel like this is a good clip to use in future videos too, but I want you to
+accelerate this by 25% to make it more attention-getting. Keep the jump rope clip and the rest of it and the rest of the video at normal
+speed, but accelerate that initial jump rope clip by 21%."* (he said 25 % and then 21 %; R2 built 1.25x with a 1.21x alternate on the
+page; the speed he finally approves goes here). How: picture only, source frames skipped (never blended), his voice unchanged; start
+at clip 1.6 s or later (0.5-1.53 s of B0448 is a both-feet hop); at 1.25x a 4.4 s slot uses 5.5 s of the clip (to roll ~102.1), so a
+second jump rope cut from `B0542` in the same film starts at 0.33 s or later. Recipe: `.claude/skills/shorts/reference/ds107-greenscreen-talking/`.
+Final speed: PENDING Dan's R2 review.
