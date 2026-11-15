@@ -6,7 +6,7 @@
 
 # Abs By AI — Coordination / Status Board
 
-Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`. Dan's open decisions: `Docs/DAN_DECISIONS.md`.
+Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Facts: `Docs/BOARD_REFERENCE.md`. Dan's open decisions: `Docs/DAN_DECISIONS.md`.
 
 | what | where it belongs |
 |---|---|
@@ -31,18 +31,29 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+**REALDEMOS-B08:R1-REVIEW:2026-11-15:Codex:M2.** Five passed gates and independent review: http://127.0.0.1:9890/. Swing needs footage. No install.
+
+**DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:cover-pick:Docs/DS39_SETUP_RECEIPT_20261115.md.**
 
 
-**DS-109:R1-FIRST-REVIEW:2026-11-15:Codex01a1dc87.** AwaitDan: opening/key, color, voice, foodcards. [Review](http://127.0.0.1:9810/). Fullfilm unrendered; assetsM2.
-
-
-**DS-108:REVIEW-M6:2026-11-14:Codex01a1dc86;127.0.0.1:9880;Dan-picks;full-film-unbuilt.**
+**[FlowB4:WAIT-PICKS:2026-11-15:Codex:40cuts/16clips;then-library/job-docs](http://127.0.0.1:9260/)**
 
 
 
-**WhatToCut-SFL-Setup:THERAPY-R2-PICK:2026-11-15:Codex.** [Choose-X1–X4](http://127.0.0.1:9862/?therapy_round=2);two-shirtless/two-tank;Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
-**DS-98 three-way blind edit: FULL FILMS QUEUED 2026-11-15.** M6. Dan’s three sets of picks and common exercise-footage revisions recorded. Resume automatically in next edit slot. Next owner review is the three completed films.
+
+
+
+**DS-109:R2:CHECKING-M2:2026-11-15:Codex01a1dc87.** Rendered. Next: review. Push blocked.
+
+
+**DS-108:R2-M2:2026-11-15:Codex01a1dffe;same-chat-owner;Dan-requested-move;assets-copying;slot-held.**
+
+
+
+**WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
+
+**DS-98 three-way blind edit: FULL FILMS IN PRODUCTION 2026-11-15.** M6 slot acquired. Dan’s choices are recorded. Next owner review: all three complete films. [Opening review](http://127.0.0.1:18899/).
 
 
 
@@ -50,14 +61,14 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R5(WV-03):BUILDING-M6:2026-11-15:Claude.**
+**GreatAgainT-VSL-R5(WV-03):DAN-REVIEW:127.0.0.1:9764;R6-handoff-in-README;push-pending:2026-11-15:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
 
 
 
-**[DS41-X3:FINAL-OK:2026-11-15:Codex01a1dc60](http://127.0.0.1:9868/)**
+**[DS41:HOLD:2026-11-15:Codex01a1dc60](Docs/DS41_SETUP_RECEIPT_20261115.md)**
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 
@@ -320,7 +331,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**OvernightBatch:DISABLED:2026-11-15:Codex01a1dfd6.** M2 repaired; canaries passed; Fable review next. First night awaits Dan.
+**OvernightBatch:SCHEDULED-22CT:2026-11-15:Codex01a1dfd6.** Four-content-only;disabled-until-tonight. Preflight:unpublished-M6-away-change. Next:scheduled-recheck/start. `Docs/OVERNIGHT_BATCH_IMPLEMENTATION_20261115.md`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
@@ -374,3 +385,5 @@ Memory `google-ads-ui-automation`.
 List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 
 **RO-23:SETUP-HANDOFF:2026-11-01:Codex01a1989e.** Metadata push blocked by live staged article deletion. Retry when clear; setup pointer in `Handoffs/README.md`.
+
+**RealDemos-B09:R2-DEFERRED:2026-11-15:Codex,M2.** Only after M2 drains. `Docs/REALDEMOS_B09_R2_REVISIONS_20261115.md`; 10PM backup armed.

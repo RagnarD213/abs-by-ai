@@ -157,7 +157,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-36](DS-36-bill-maher-says-fat-shaming-should-come-back-hes-right.md) | Bill Maher Says Fat Shaming Should Come Back. He's Right. | 10/15 C1730 | UPLOADED | S |
 | [DS-37](DS-37-dr-mike-says-tirzepatide-is-a-dial-for-your-body-weight-hes.md) | Dr. Mike Says Tirzepatide Is A Dial For Your Body Weight. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-38](DS-38-tiktok-says-blended-oats-work-like-ozempic-they-dont.md) | TikTok Says Blended Oats Work Like Ozempic. They Don't. | 10/15 C1730 | FINALIZED | S |
-| [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | IN PROGRESS | S |
+| [DS-39](DS-39-he-hired-chatgpt-as-his-coach-for-a-year-hes-right.md) | He Hired ChatGPT As His Coach For A Year. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-40](DS-40-bill-maher-asks-if-youve-ever-seen-a-fat-90-year-old-hes-rig.md) | Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right. | 10/15 C1730 | FINALIZED | S |
 | [DS-41](DS-41-kevin-james-tried-one-cheat-day-a-week-it-wrecked-his-diet.md) | Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. | 10/15 C1730 | FINALIZED | S |
 | [DS-42](DS-42-post-malone-lost-55-pounds-by-cutting-out-one-drink-hes-righ.md) | Post Malone Lost 55 Pounds By Cutting Out One Drink. He's Right. | 10/15 C1730 | UPLOADED | S |
@@ -243,7 +243,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-95](DS-95-what-to-do-your-first-day-at-the-gym.md) | What To Do Your First Day At The Gym | 10/23 C1891 | READY | S |
 | [DS-96](DS-96-how-to-pick-the-right-weight-on-every-exercise.md) | How To Pick The Right Weight On Every Exercise | 10/23 C1891 | READY | S |
 | [DS-97](DS-97-how-to-stop-feeling-embarrassed-at-the-gym-when-you-re-fat.md) | How To Stop Feeling Embarrassed At The Gym When You're Fat | 10/23 C1891 | READY | S |
-| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | DRAFT: asset choices waiting for Dan | S |
+| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | IN PROGRESS | S |
 | [DS-99](DS-99-why-i-use-machines-and-cables-instead-of-barbells-at-41.md) | Why I Use Machines And Cables Instead Of Barbells At 41 | 10/23 C1891 | READY | S |
 | [DS-100](DS-100-the-3-gym-exercises-i-never-do.md) | The 3 Gym Exercises I Never Do | 10/23 C1892 | READY | S |
 | [DS-101](DS-101-the-only-2-exercises-you-need-for-a-wide-back.md) | The Only 2 Exercises You Need For A Wide Back | 10/23 C1892 | READY | S |
@@ -287,7 +287,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
-| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | READY | L |
+| [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | DELIVERED: awaiting Dan | L |
 | [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | READY | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |
@@ -318,8 +318,8 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
 | [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | READY | S |
 | [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | READY | S |
-| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | DRAFT: asset choices waiting for Dan | S |
-| [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | DELIVERED: awaiting Dan | S |
+| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | IN PROGRESS | S |
+| [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Alex Hormozi Says You're Not Hungry, You're Bored. He's Right. | C1909 | IN PROGRESS | S |
 
 ---
 
@@ -348,7 +348,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | [SL-18](SL-18-wasted-my-life-shorts.md) | I'm 41. I Wasted My Life. (RO-25, YouTube Sun Oct 18; 3 Shorts, Short 1 airs Mon Oct 26) | UPLOADED | S |
 | [SL-19](SL-19-3-healthy-foods-shorts.md) | 3 Healthy Foods That Made Me Fat (RO-17, YouTube Sun Dec 13; 3 Shorts Dec 14, 15, 19) | UPLOADED | S |
 | [SL-20](SL-20-invest-in-your-health-shorts.md) | Why You Should Invest More In Your Health (RO-20, YouTube Wed Dec 9; kitchen, so these 3 Shorts wait for February, no editing now) | FINALIZED | S |
-| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B, YouTube Fri Dec 11; kitchen, so these 3 Shorts air in February; Dan fired the edit 2026-11-12) | FINALIZED | S |
+| [SL-21](SL-21-what-to-cut-shorts.md) | What To Cut To Afford Getting In Shape (RO-20B Dec 11; 3 Shorts setup complete, February 8/10/12 shared waitlist) | FINALIZED | S |
 | [SL-22](SL-22-what-to-buy-shorts.md) | What To Buy For Your Health At Every Income Level (RO-20C, YouTube Wed Dec 16; kitchen, so these 3 Shorts wait for February, no editing now) | HOLD for February: kitchen; not scheduled for editing (Dan, 2026-10-28) | S |
 | [SL-23](SL-23-not-losing-weight-shorts.md) | Why You're Not Losing Weight (RO-14, YouTube Sun Jan 3 2027; 3 Shorts, Short 1 airs Mon Jan 4) | READY: approved parent filed; due Jan 3 | S |
 | [SL-24](SL-24-arms-shoulders-follow-along-shorts.md) | Arms & Shoulders Workout Only (3 music-led follow-along Shorts; parent YouTube Jan 6, 2027) | READY | S |
