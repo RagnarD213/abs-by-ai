@@ -65,6 +65,11 @@ class Scratch(unittest.TestCase):
             put(self.ec/'registry.json',{'version':1,'edits':{'DS-98':{'job':'DS-98','state':'with-dan','since':1}}})
             self.assertNotIn('DS-98',[j['id'] for j in self.snap()['jobs']])
 
+    def test_new_review_is_not_hidden_by_an_old_completion(self):
+        put(self.repo/'Handoffs/video-editing/jobs.json',{'jobs':[{'id':'DS-98','state':'finalized','completed_at':2}]})
+        put(self.ec/'registry.json',{'version':1,'edits':{'DS-98':{'job':'DS-98','state':'with-dan','since':3}}})
+        self.assertIn('DS-98',[j['id'] for j in self.snap()['jobs']])
+
     def test_review_handoff_supersedes_stall_until_next_round(self):
         catalog = self.repo/'Handoffs/video-editing/jobs.json'
         for host in ('m2','m6'):

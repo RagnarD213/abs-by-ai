@@ -264,7 +264,10 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
     except StartupWait as exc:
         outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
     except Exception as exc:
-        outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
+        if not session_started and isinstance(exc,(OSError,RuntimeError,subprocess.SubprocessError)):
+            outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
+        else:
+            outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:
         stop.set();thread.join(timeout=5)
         outcome=b.normalize_outcome(outcome)

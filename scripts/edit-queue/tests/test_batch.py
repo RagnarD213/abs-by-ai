@@ -34,7 +34,7 @@ class BatchTests(unittest.TestCase):
         data=b'CONTENT SFL: use approved source; stop for real choices.'
         jobs=[dict(id=j,round=round_,title='Real video '+j,size='S',order=i,kind='SFL',target='review',need_gb=5,
                    executor='claude',placement=placement,brief_sha256=hashlib.sha256(data).hexdigest()) for i,j in enumerate(ids)]
-        return b.handle(dict(op='enqueue',batch=name,jobs=jobs,briefs={b.key(j):base64.b64encode(data).decode() for j in jobs}))
+        return b.handle(dict(op='enqueue',batch=name,jobs=jobs,briefs={b.key(j):base64.b64encode(data).decode() for j in jobs},digest='proof'))
     def start(self,name='night'):
         b.handle(dict(op='preflight',proof=dict(passed=True,digest='proof')))
         return b.handle(dict(op='start',batch=name,digest='proof'))
@@ -186,6 +186,13 @@ class BatchTests(unittest.TestCase):
         self.enqueue();self.start();c=self.claim();self.outcome(c,verdict='SHIP')
         b.handle(dict(op='takeover',job='SL-36',host='m2'))
         self.assertEqual(self.row()['prior_outcome']['status'],'delivered')
+
+    def test_chat_batches_inherit_only_a_current_enabled_preflight(self):
+        self.enqueue('seed',ids=('RA-02',));self.start('seed')
+        self.enqueue('chat-SL-36-R1')
+        self.assertTrue(b.read(self.home/'chat-SL-36-R1/state.json')['enabled'])
+        b.handle({'op':'stop'});self.enqueue('chat-DS-106-R1',ids=('DS-106',))
+        self.assertFalse(b.read(self.home/'chat-DS-106-R1/state.json')['enabled'])
 
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')

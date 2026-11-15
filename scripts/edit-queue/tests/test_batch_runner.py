@@ -7,6 +7,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -107,6 +108,19 @@ class WorkerTests(unittest.TestCase):
         self.mode='allowance';_,row=self.execute();self.assertEqual(row['status'],'queued');self.assertEqual(row['workdir'],str(self.wd));self.assertIn('claude',b.control()['executor_backoff'])
     def test_invalid_review_location_does_not_spend_a_reviewer(self):
         self.mode='bad-link';_,row=self.execute();self.assertEqual(row['status'],'blocked');self.assertEqual(len(self.sessions),1)
+    def test_heartbeat_errors_do_not_kill_the_pulse_thread(self):
+        original_command=self.fake_command;original_session=self.fake_session;beats=[]
+        def command(args,**kwargs):
+            if 'heartbeat' in args:
+                beats.append(1)
+                if len(beats)<3:raise subprocess.TimeoutExpired(args,35)
+            return original_command(args,**kwargs)
+        def session(*args,**kwargs):
+            if args[5]=='batch-editor':time.sleep(.08)
+            return original_session(*args,**kwargs)
+        with patch.object(b,'HEARTBEAT_S',.005),patch.object(w.subprocess,'run',side_effect=command),patch.object(r,'run_session',side_effect=session):
+            _,row=self.execute()
+        self.assertEqual(row['status'],'delivered');self.assertGreaterEqual(len(beats),3)
     def test_candidate_changed_during_review_cannot_be_delivered(self):
         self.mode='changed';_,row=self.execute();self.assertEqual(row['status'],'blocked');self.assertIn('changed during review',row['outcome']['reason'])
 
