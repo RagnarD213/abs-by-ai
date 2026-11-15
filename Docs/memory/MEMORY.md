@@ -65,6 +65,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Human editor tolerance](human-editor-end-of-job-tolerance.md): 11-02: late rounds from Muhammad/Zeeshan send back only missing/broken things; polish goes to "For Dan's call"
 ## Clips and photos
 - [Exercise demos: real B-roll first](exercise-demos-real-broll-first.md): 11-13: real gym/home footage demos beat AI; redo every exercise with B-roll, AI only where none
+- [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed
 - [AI clip sense QC](ai-clip-sense-qc.md): cause and effect, shows the line; ~5 clips; ask budget
