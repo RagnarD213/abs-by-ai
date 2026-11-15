@@ -87,3 +87,7 @@ brightness to approved pool B-roll from the same shoot and look at stills side b
 > Real Exercise Demos Batch 8 R1. Read `Handoffs/real-demos/batch-08-home-moves-new-coverage.md` and build real-footage Trainer demos for ab-wheel-rollout, kb-deadlift, kb-swing, deficit-pushup, db-rear-delt-fly, db-russian-twist from the B-roll in the clip library, exactly as the approved pilot was built (Phase 0 result section of the master handoff). Pass every gate and an independent review, put them on a 1080p review page with the current AI demo beside each one, and stop for my review. Dan has authorized the whole batch, including installing the approved demos in the app and deploying.
 
 **Model:** Claude Opus 5.5, high effort.
+
+## Batch8 R1 review status (2026-11-15)
+
+Updated R2: Five Dan-approved real demos are installed, deployed and live-verified, including the brighter Rear Delt Fly. Receipt Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md. Swing needs correct real footage. Batch remains open only for that pickup.
