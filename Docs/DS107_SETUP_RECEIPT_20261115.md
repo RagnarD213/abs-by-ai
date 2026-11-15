@@ -2,9 +2,9 @@
 
 CONTENT (SFC). Owner: Codex, “Metabolism Not The Reason Setup”, M2.
 
-**Status: partly prepared, awaiting Dan's cover pick.** Film approved. Five standard covers checked and served. Three additional blind comparison images could not be generated because subscription browser access is unavailable. No cover approved or installed, no social media uploaded, no release scheduled or waitlisted. Edit Queue remains FINALIZED.
+**Current status: new cover round 2 ready, awaiting Dan's pick.** The previous set is rejected and preserved. Five new designs have checked Instagram and YouTube layouts. Three extra blind options remain unavailable after a fresh subscription-browser retry. No cover is approved or installed. Film, existing metadata and release state are unchanged.
 
-**Cover review: http://127.0.0.1:9803/**. Same link on the M2 and M6. Reply X1 through X5 to choose a finished pair. Nothing in the page identifies a generated option's provider. The real-photo option is excluded from model-comparison scoring. Dan has not yet reviewed or picked this set.
+**Current cover review: http://127.0.0.1:9804/**, same link on M2 and M6. Reply **Round 2 X1 through X5**. Dan has not yet reviewed this new set. The old http://127.0.0.1:9803/ set is retained only as rejected evidence and must never be installed. Its comparison key is permanently retired.
 
 ## Approved film
 
@@ -15,7 +15,7 @@ CONTENT (SFC). Owner: Codex, “Metabolism Not The Reason Setup”, M2.
 - Dan's approval: `dan-approval-20261115.json` beside the film, November 15: “This looks great ... This clip is attention-getting. This is approved. Go ahead and make that note for future edits and finalize this video. Proceed to set up.”
 - No film render, remix, recut, gate modification or new playback was performed. Existing approval and delivery evidence retained.
 
-## Covers and review verification
+## Historical first cover package (rejected)
 
 - Five distinct designs, each with separate 1080 × 1920 Instagram and YouTube layouts. Full-size YouTube JPEGs are under 2 MB. Copy: “It's Not Your Metabolism”, first letter of each word capitalized.
 - Required mix: two topic-action AI Dan concepts, one original real pool photograph, two history-guided discretionary concepts. Past picks and selected images inspected before planning. The real photograph retains original face/body pixels, cropped above the brief leg openings.
@@ -48,7 +48,7 @@ Drive folder made anyone-with-link viewable using `rclone link`; unauthenticated
 
 ## Continue after the pick
 
-1. If Dan wants the absent comparison options before choosing, retry Flow when supported browser access is available, then extend and rebuild the neutral set. Do not manufacture a comparison result. Preserve existing labels while Dan is reviewing; explicitly issue a new review if the set changes.
+1. Use only the new round 2 comparison set, `Short-form video content/covers/review/ds107-20261115-r2/comparison/`. Never read a selection from, rebuild, append to or install using the rejected set's key. If another round is requested, give it another new directory/key.
 2. Record Dan's exact selection with `blind.py pick`; install from the original paired layouts, never the normalized review copy. A requested revision must be shown in both layouts and approved before installation.
 3. Register/sync the Facebook cover, make the TikTok frame-0 derivative from the unchanged original master, upload master/derivative/covers and verify full downloads. Recheck the live queue, release calendar and `release_phases.py`. This is green screen, not kitchen.
 4. Current queue: **199/200**, read November 15 during setup, insufficient room for four posts. No date reserved yet. If still full after the pick, complete all media/config verification, clear the cover hold and add one entry to the existing `scripts/blotato/video_waitlist.json`. Existing daily top-up owns scheduling; never create a per-video routine. Otherwise queue with the shared organic Short helper and fresh readbacks. Never create a direct or native-scheduled YouTube upload.
@@ -59,3 +59,24 @@ Post-release public-cover verification and pinned-comment checks remain with the
 ## Repository checkpoint
 
 Setup work saved in local commit `c95112b`. Shared safe-push stopped before merging because another session is actively editing `.claude/skills/_shared/editcap/editcap.py` (modified November 15 at 09:23). No other session's changes were altered. GitHub push remains pending; retry the shared safe-push after that live edit clears. This does not block the mirrored review link or verified backups.
+
+
+## Cover rejection and new round, November 15
+
+Dan rejected every cover at http://127.0.0.1:9803/. Exact dictated words, preserved without reinterpretation:
+
+> Okay, I don't like any of these four new designs. All of them have me talking to an overweight guy in his 50s with a mountain of junk food in front of him. There is a speech bubble from him saying, 'My metabolism slowed down,' and a speech bubble from me saying, 'No.' Two variations are shirtless, and two variations are with a tank top.
+
+The rejected source images, both layouts, public review files and private key are retained in `Short-form video content/covers/review/ds107-20261115/`. Their pre-rejection hashes are saved in `scripts/covers/ds107-20261115-r2/prior-round-rejection.json`. Its key is retired and must never be reused. The new round uses a separate folder and newly built key. Drop the entire argument scene, second character, junk-food pile and speech bubbles. Film, existing metadata and release state remain untouched.
+
+
+## New cover round 2 delivery
+
+- **Review:** http://127.0.0.1:9804/, chosen by a fresh `editroute.py free-port` call and served with the required managed `review_server.py`. Mirrored to M6. Both Macs return the same page and all 16 linked image files with matching SHA-256 values. This verifies network delivery; CUA browser visual inspection remains unavailable. The source images and ten finished phone layouts were visually inspected offline.
+- **Five genuinely different designs:** natural meal preparation with a yellow condensed headline; climbing stairs with a pale rounded title card; original real studio portrait with large three-line bottom type; a standing dumbbell workout with dramatic white/cyan headline; rested Dan opening the curtains with a light teal type treatment. All show Dan alone. No second character, argument, junk-food pile or speech bubbles. Copy remains “It's Not Your Metabolism”, capitalizing every word.
+- **Required mix:** two distinct AI Dan topic-action images, one original real studio photo (`studio-white-49`, original person pixels preserved), two history-guided AI Dan choices. Four new subscription image generations. No rejected generated source reused. Recent `approved-ds42`, `approved-sl21` and `approved-sl08` pick records and selected final images informed the concepts and typography.
+- **Blind key:** created from scratch in the round 2 directory with `blind.py`. Shuffled X1 through X5; real-photo choice excluded from comparison scoring. No pick logged. No source-to-label mapping is shown on the page or in this receipt.
+- **Google subscription retry:** fresh CUA inventory again returned “The browser access host is unavailable” with no browser surfaces. Native Chrome retry returned `cgWindowNotFound`, error `-10005`. Flow could not be opened, so none of the three intended extras was submitted. Zero Google image submissions, no credit or paid API charges. Specific failure saved in the new round's `comparison-unavailable.txt`. The absent extras are not counted as offered.
+- **Checks:** all ten outputs are 1080 × 1920 RGB; JPEGs under 2 MB. One face detected per layout; zero text pixels intersect an expanded face/hair region. Both layouts visually checked for complete hair, readable type and clear abs at phone size. All four native AI sources inspected for identity, anatomy and natural action. Real studio cutout is composited locally without redrawing the person.
+- **Preservation:** approved master, saved Blotato metadata config, existing description and pinned question are byte-identical to the pre-round snapshot. All 99 original evidence files, including the retired key, remain byte-identical. Proof: `scripts/covers/ds107-20261115-r2/protected-after.json`. No queue or scheduling commands, media uploads or film processing were performed this round.
+- **New sources/build:** `Short-form video content/covers/review/ds107-20261115-r2/` and `scripts/covers/ds107-20261115-r2/`. Public page contains only neutral filenames and still images. Await Dan's pick before any further setup.
