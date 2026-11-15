@@ -33,7 +33,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**DS-109:PRODUCTION-M2:2026-11-15:Codex01a1dc87:R1.** First-review-build;worker58358;root-supervises-until-page-ready.
+**DS-109:R1-FIRST-REVIEW:2026-11-15:Codex01a1dc87.** AwaitDan: opening/key, color, voice, foodcards. [Review](http://127.0.0.1:9810/). Fullfilm unrendered; assetsM2.
 
 
 **DS-108:REVIEW-M6:2026-11-14:Codex01a1dc86;127.0.0.1:9880;Dan-picks;full-film-unbuilt.**
