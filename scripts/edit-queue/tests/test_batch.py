@@ -168,6 +168,25 @@ class BatchTests(unittest.TestCase):
         b.handle(dict(op='heartbeat',batch='night',key=c['key'],token=c['row']['claim']['token'],fields={'phase':'outcome waiting for review mirror'}))
         self.assertEqual(self.claim(slots=1)['row']['id'],'RA-02')
 
+    def test_outbox_permanent_rejection_becomes_visible_blocked(self):
+        self.enqueue();self.start();c=self.claim();token=c['row']['claim']['token']
+        request=dict(op='outcome',batch='night',key=c['key'],token=token,host='m2',outcome=dict(status='needs-dan',question='Pick',link='http://127.0.0.1:9850/',pending_review={'review_root':'bad','review_port':9850}))
+        b.write(self.home/'outbox'/(token+'.json'),request)
+        with patch.object(worker,'review_link',side_effect=ValueError('invalid review folder')):
+            for _ in range(3):b.flush_outbox()
+        self.assertEqual(self.row()['status'],'blocked');self.assertFalse(list((self.home/'outbox').glob('*.json')))
+    def test_transport_failure_preserves_pending_review_for_long_outage(self):
+        self.enqueue();self.start();c=self.claim();token=c['row']['claim']['token']
+        request=dict(op='outcome',batch='night',key=c['key'],token=token,host='m2',outcome=dict(status='needs-dan',question='Pick',link='http://127.0.0.1:9850/',pending_review={'review_root':'saved','review_port':9850}))
+        path=self.home/'outbox'/(token+'.json');b.write(path,request)
+        with patch.object(worker,'review_link',side_effect=b.TransportError('M6 unreachable')):
+            for _ in range(35):b.flush_outbox()
+        self.assertIn('pending_review',b.read(path)['outcome']);self.assertEqual(self.row()['status'],'claimed')
+    def test_takeover_preserves_the_previous_terminal_outcome(self):
+        self.enqueue();self.start();c=self.claim();self.outcome(c,verdict='SHIP')
+        b.handle(dict(op='takeover',job='SL-36',host='m2'))
+        self.assertEqual(self.row()['prior_outcome']['status'],'delivered')
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')

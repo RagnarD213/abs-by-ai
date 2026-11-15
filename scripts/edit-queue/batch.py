@@ -426,6 +426,10 @@ def reconcile(snap):
                 if not prior:write(stopfile,dict(at=time.time()))
                 continue
             if time.time()-c['heartbeat']<STALE_S:continue
+            # A detached heavy step in renderq must finish before another editor resumes its folder.
+            capacity=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
+            if capacity.returncode:continue
+            if json.loads(capacity.stdout).get('renderq',{}).get(row['id'],{}).get('live',0):continue
             session=c.get('session',{})
             live=alive(session.get('pid'),session.get('birth'))
             if live:

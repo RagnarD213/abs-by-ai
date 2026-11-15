@@ -223,6 +223,10 @@ def sync_review_handoff(job):
             if info["state"] == "existing" and info["host"] != info["here"]:
                 remote = ["python3", ".claude/skills/_shared/editcap/editcap.py", *args]
                 cmd = resume.command_for(info, remote, resume.er.cfg())
+        except Exception:
+            if job['state'] not in ('finalized','uploaded'):raise
+            print('Completed state saved; owner cleanup waits for reconnection.')
+            return
         finally:
             sys.path.remove(str(shared / "editroute"))
     try:subprocess.run(cmd, check=True, timeout=45)
@@ -243,6 +247,7 @@ def set_state(data, jid, state, by="", note=None, editor=None, needs=None):
                 j["review_ready_at"] = time.time()
     else:
         j.pop("review_ready_at", None)
+    if state in ("finalized","uploaded"):j["completed_at"]=time.time()
     j["state"] = state
     if note is not None:
         j["note"] = note

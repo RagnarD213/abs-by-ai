@@ -396,7 +396,7 @@ def settle(reg, now, rq, cal):
             entry.update(state="with-dan", since=now, reason="waiting on Dan's review or picks")
             _note(reg, now, job, "with Dan")
     for job, entry in list(reg["edits"].items()):
-        if entry.get("state") == "with-dan" and cal.jobs.get(job, {}).get("state") in ("finalized", "uploaded"):
+        if entry.get("state") == "with-dan" and review_handoff.completed(entry,cal.jobs.get(job)):
             reg["edits"].pop(job, None)
     reservation = job_priority.current()
     for j, e in reg['edits'].items():

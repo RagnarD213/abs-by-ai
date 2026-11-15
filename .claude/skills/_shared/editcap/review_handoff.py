@@ -28,3 +28,12 @@ def current(entry, ready_at):
     if entry["state"] in ("waiting", "promoted", "parked"):
         last_work = max(last_work, entry.get("since", 0))
     return ready_at > 0 and ready_at >= last_work
+
+
+def completed(entry, job):
+    """Hide only owner reviews that predate the recorded completion event."""
+    if not job or job.get('state') not in ('finalized','uploaded'):return False
+    try:
+        cutoff=float(job['completed_at']) if job.get('completed_at') is not None else datetime.fromisoformat(job.get('updated','')).timestamp()
+        return isfinite(cutoff) and float(entry.get('since',0))<=cutoff
+    except (ValueError,TypeError,OverflowError):return False

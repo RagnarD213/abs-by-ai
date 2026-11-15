@@ -222,7 +222,7 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
         return jobs.setdefault(j,dict(id=j,title='The Only 5 Machines You Need' if j=='DS-98' else catalog.get(j,{}).get('title',j),states=[],held=0,tickets=0,parked=False,urgent=False))
     for ident,e in (reg or {}).items():
         if e['state']=='finished':continue
-        if e['state']=='with-dan' and catalog.get(ident,{}).get('state') in ('finalized','uploaded'):continue
+        if e['state']=='with-dan' and review_handoff.completed(e,catalog.get(ident)):continue
         j=key(ident); a=job(j)
         if j not in ('DS-98','Unidentified project') and e.get('title'):a['title']=str(e['title'])[:110]
         stage=e['state']
