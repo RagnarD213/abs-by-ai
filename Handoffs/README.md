@@ -11,6 +11,10 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **OPEN. Start now. Codex newest stable Sol, high.** Dan approved R2 (jump rope opener 25 % faster) on 2026-11-15; exact master 173a3290 in `Short-form video content/Metabolism Not The Reason - DS-107/`. Covers (five plus blind Google) and Dan pick, backups, metadata, pinned question, Blotato or shared waitlist with readbacks. No upload or schedule yet.
+
+- [Overnight editing on both Macs](handoff-20261115-overnight-edit-batch-fable-review.md), November 15, 2026. **Awaiting Claude Fable 5.2 feedback.** Review the incident evidence, proposed batch workflow and recovery tests. Dan will return the critique before implementation.
+
 - [Kevin James Cheat SFC Setup: approved off the cuff R2](handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md), 2026-11-14. **AWAITING COVER PICK, Codex session 01a1dc60, M6.** [Review X1-X8](http://127.0.0.1:9868/). Approved film unchanged; hashes/backups, metadata and 16 cover layouts checked. Nothing uploaded to publishing platforms, queued or scheduled. Resume state: `/Users/danrrose/Projects/_edit_work/DS-41-setup/RESUME.md`.
 
 - [Blended Oats SFC Setup: approved Off-the-cuff R3](handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md), 2026-11-14. **OPEN. Start now. Codex newest stable Sol, high (verified GPT-6.1 Sol).** Dan chose Off the cuff with Warm colour/voice. Exact approved film locked; covers/pick, backups, organic metadata, then verified queue/shared-waitlist placement. No upload or schedule yet.
