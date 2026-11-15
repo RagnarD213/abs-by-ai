@@ -1,3 +1,7 @@
+## Source footage length (Dan, 2026-11-15)
+
+Preserve the full take when clean. Remove only obvious junk or visible AI/physics/text faults, with exact excluded frame ranges and reasons. Keep every usable clean section, separately when a fault interrupts the shot; do not concatenate a fake continuous take or impose an arbitrary 2–5 second crop. The final editor chooses length in context. This applies to new/revised source-clip reviews and clip-library filing, including Flow batches; preserve existing approvals. Full policy: `.claude/skills/_shared/VIDEO-RULES.md`, "Preserve clean source footage".
+
 ## Google AI subscription first for video and images (Dan, 2026-11-08)
 
 Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.

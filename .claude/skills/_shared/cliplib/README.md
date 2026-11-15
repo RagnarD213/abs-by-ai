@@ -25,6 +25,10 @@ filed. Files that sat loose in folders 03/04 before the 2026-09-29 sweep and wer
 the robot story montages whose shots are catalogued, a lower-quality toe-touch copy, old `.roll` sidecars) were moved
 to `/Volumes/Extreme/_edit_work/_clip_library_set_aside/`. Old file names are kept in each clip's `legacy_name`.
 
+## Preserve clean footage for editors
+
+Keep full clean takes instead of arbitrary short approval trims. When a source has defects, retain every usable clean span as a separate library part, with original source timestamps/frame ranges and explicit excluded-fault notes. The final film editor chooses duration. Keep the original source and QC history; do not register faulty spans as usable or join separated parts into a fake continuous shot. Dan's November 15, 2026 rule in `../VIDEO-RULES.md` supersedes older 2–5 second window recipes.
+
 ## The rule for every video job
 
 1. **Before generating an AI clip, searching stock, or hunting raw rolls: search the library.**

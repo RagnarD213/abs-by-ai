@@ -26,6 +26,10 @@ me this").
   (`clipcheck/<take>.fA-B.frames/`). The tracker only sees what vanishes, appears, slips or drifts; it does not judge anatomy,
   hands, cause and effect or whether the clip shows the line.
 
+## Preserve source length
+
+Dan's 2026-11-15 standard supersedes older best 2–5 second instructions. Keep the full take when clean; otherwise identify ALL maximal usable clean ranges and the excluded ranges with concrete junk/AI-error reasons. Keep clean setup, action, follow-through and reactions. Final editors choose duration. Multiple separated clean ranges remain separate source parts, never a fake continuous shot. Use WINDOW for the longest clean range and CLEAN for each additional range; retain native source frame numbers. Do not reject harmless ordinary eating/drinking mouth contact solely because lips part. Existing realism, physical causality and AI-artifact standards remain.
+
 ## How to review
 
 1. **Look first, at full resolution, before opening the gate's rows.** Then crop and zoom (2x to 5x) every area named

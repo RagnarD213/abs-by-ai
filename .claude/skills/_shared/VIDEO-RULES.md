@@ -1,3 +1,11 @@
+## Preserve clean source footage; editors choose final length (Dan, 2026-11-15)
+
+For reusable clips, approval pages and clip-library handoffs, keep the full take when it is clean. Trim only obvious junk, resets or visible AI/physics/text errors. Do not automatically shorten footage to 2–5 seconds or another target. Keep valid setup, action, follow-through and natural reactions so the final video editor can choose the length in context.
+
+When a fault interrupts a take, preserve all usable clean sections as separate parts with original frame ranges. Do not join them into a falsely continuous shot. Review the entire retained footage, record each excluded range and its concrete reason, and retain the original source for traceability. Register/deliver only the reviewed clean parts as usable assets. Harmless brief imperfections retain their existing borderline treatment.
+
+This is the standard for new or revised source-clip reviews and filing, including Flow batches. It supersedes older best 2–5 second window briefs. It does not lengthen finished films or reopen previously approved masters by itself. Final film editors choose their actual in/out points from the available clean footage.
+
 ## Shared admission budget, 2026-11-11
 
 The November 11 audit found 15 allocated cores against the 8-core budget with four edits.
