@@ -336,6 +336,9 @@ def reconcile(snap):
             if row['status']!='claimed':continue
             c=row['claim']
             if c['owner']!=here():continue
+            local=read(HOME/'runs'/c['token']/'progress.json',{})
+            if local.get('pid')==c.get('pid'):
+                c=dict(c, **local)
             if alive(c.get('pid'),c.get('birth')):continue
             if time.time()-c['heartbeat']<STALE_S:continue
             session=c.get('session',{})
@@ -381,7 +384,7 @@ def report(snap, error=None):
             entries=[json.loads(line) for line in path.read_text().splitlines()[-2000:]]
             latest={e['job']:e for e in entries if not e.get('dry')}
             for j,e in latest.items():
-                if e.get('host') in ('m2','m6') and e.get('event')=='promoted' and 600<now-e['t']<86400:
+                if e.get('host') in ('m2','m6') and e.get('from_line') and 600<now-e['t']<86400:
                     observed=[v.get(j) for dd in snap.get('batches',{}).values() for v in dd.get('observations',{}).values()]
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
         except (OSError,ValueError,KeyError):pass
@@ -453,6 +456,8 @@ def enqueue(name,path):
         job['chroma']=bool(job.get('chroma'));job['drive_bound']=bool(job.get('drive_bound'))
         statuses=editroute.gather(job['id']);owner,_=editroute.holder(job['id'],statuses)
         if any(not st.get('reachable') for st in statuses.values()):raise ValueError('both Macs must be reachable to establish placement at enqueue')
+        if any(job['id'] in st.get('editcap',{}).get('in_use',[]) for st in statuses.values()):
+            raise ValueError(job['id']+' has active production; batch enqueue cannot transfer a live chat')
         if owner:placement=owner
         elif job['kind']=='LFC' or job['chroma'] or job['drive_bound']:placement='m2'
         else:placement='any'
@@ -476,6 +481,11 @@ def main():
     ap=argparse.ArgumentParser(description=__doc__);sub=ap.add_subparsers(dest='cmd',required=True)
     sub.add_parser('_rpc');sub.add_parser('fingerprints');sub.add_parser('preflight');sub.add_parser('tick');sub.add_parser('stop');sub.add_parser('status')
     p=sub.add_parser('enqueue');p.add_argument('batch');p.add_argument('manifest')
+    p=sub.add_parser('enqueue-chat');p.add_argument('job');p.add_argument('--brief',required=True)
+    p.add_argument('--round',type=int,required=True);p.add_argument('--title',required=True)
+    p.add_argument('--size',choices=['S','M','L'],required=True);p.add_argument('--kind',required=True)
+    p.add_argument('--executor',choices=['claude','codex'],required=True);p.add_argument('--need-gb',type=float,required=True)
+    p.add_argument('--target',required=True);p.add_argument('--chroma',action='store_true')
     p=sub.add_parser('receipt');p.add_argument('batch')
     p=sub.add_parser('start');p.add_argument('batch')
     p=sub.add_parser('takeover');p.add_argument('job')
@@ -486,6 +496,12 @@ def main():
     elif args.cmd=='preflight':result=preflight()
     elif args.cmd=='tick':result=tick()
     elif args.cmd=='enqueue':result=enqueue(args.batch,args.manifest)
+    elif args.cmd=='enqueue-chat':
+        spec=HOME/'chat-submissions'/(args.job+'-R'+str(args.round)+'.json')
+        write(spec,dict(jobs=[dict(id=args.job,round=args.round,title=args.title,size=args.size,kind=args.kind,
+                                  executor=args.executor,need_gb=args.need_gb,target=args.target,chroma=args.chroma,
+                                  brief=str(Path(args.brief).resolve()))]))
+        result=enqueue('chat-'+args.job+'-R'+str(args.round),spec)
     elif args.cmd=='receipt':result=receipt(args.batch)
     elif args.cmd=='start':
         proof=preflight()

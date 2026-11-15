@@ -708,7 +708,7 @@ def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=Fa
         past = decisions(d, now=now)
         prev = [e for e in past if e.get("job") == job and e.get("host") not in ("wait", None) and not e.get("dry")]
         statuses = gather(job, c)
-        if not c.get('hosts') or any(not statuses.get(h,{}).get('reachable') for h in c.get('hosts',{})):
+        if not c.get('hosts') or not any(statuses.get(h,{}).get('reachable') for h in c.get('hosts',{})):
             print('wait\nOwnership/configuration incomplete; no new route claimed.')
             return EXIT_WAIT
         held, _ = holder(job, statuses)
@@ -1238,6 +1238,8 @@ def main(argv):
                         bool(o.get("--move")), bool(o.get("--dry-run")), bool(o.get("--json")),
                         bool(o.get("--queue")), priority=bool(o.get("--priority")), need_gb=float(o.get("--need-gb") or 20))
     if cmd == "wait":
+        print("Chat waits must copy their brief into scripts/edit-queue/batch.py enqueue-chat. A route alone does not launch an editor.", file=sys.stderr)
+        return EXIT_WAIT
         o, pos = _opts(rest, {"--max-hours": True})
         return cmd_wait(pos[0], float(o.get("--max-hours") or 24))
     if cmd == "where":

@@ -57,10 +57,8 @@
         "EXDEMO",
         "QUEUE"
       ],
-      "work_before_internal": [
-        "Extreme"
-      ],
-      "drives_note": "Holds the Extreme and the Seagate (Expansion). M2 edits read footage in place. Work folders go on the Extreme first: the M2's internal drive has about 54 GB free (2026-11-14). Finished jobs move to the Seagate here, checksummed.",
+      "work_before_internal": [],
+      "drives_note": "Holds the Extreme and Seagate. Work folders use internal SSD if 80 GB reserve remains, then Extreme, then Seagate. M2 edits read local footage in place.",
       "mirror_reviews_to": "m6",
       "load_guard": false
     }

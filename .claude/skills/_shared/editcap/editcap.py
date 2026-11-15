@@ -395,6 +395,9 @@ def settle(reg, now, rq, cal):
         if review_handoff.current(entry, review_handoff.handoff_time(cal.jobs.get(job))):
             entry.update(state="with-dan", since=now, reason="waiting on Dan's review or picks")
             _note(reg, now, job, "with Dan")
+    for job, entry in list(reg["edits"].items()):
+        if entry.get("state") == "with-dan" and cal.jobs.get(job, {}).get("state") in ("finalized", "uploaded"):
+            reg["edits"].pop(job, None)
     reservation = job_priority.current()
     for j, e in reg['edits'].items():
         if reservation and job_priority.job_id(j)!=reservation['job'] and e['state'] in ('active','promoted'):
@@ -774,7 +777,20 @@ def main(argv):
         print("editcap: unknown option; use editcap.py {} --help".format(cmd), file=sys.stderr)
         return 2
     job = pos[0]
-    if cmd in ("acquire", "heartbeat", "wait"):
+    batch_owned = False
+    if cmd in ("acquire", "heartbeat", "wait") and not os.environ.get("EDITCAP_DIR"):
+        registry_path = Path.home()/".absbyai-batch/registrations.json"
+        try:
+            batch_row = json.loads(registry_path.read_text()).get(job)
+        except FileNotFoundError:
+            batch_row = None
+        if batch_row:
+            batch_owned = (batch_row.get("status") == "claimed" and
+                           batch_row.get("token") == os.environ.get("EDIT_BATCH_TOKEN"))
+            if not batch_owned:
+                print("{}: owned by batch {}; use batch.py takeover before chat production.".format(job,batch_row["batch"]))
+                return EXIT_WAIT
+    if cmd in ("acquire", "heartbeat", "wait") and not batch_owned:
         # Old chats already call acquire on resume. Surface remote ownership here
         # before touching this Mac's registry, without asking Dan to add a prompt.
         try:

@@ -202,10 +202,11 @@ REVIEW_STATES = ("draft_review", "delivered")
 
 def sync_review_handoff(job):
     """Deliver the committed queue event to the edit register on the production Mac."""
-    if job["state"] not in REVIEW_STATES:
+    if job["state"] not in REVIEW_STATES + ("finalized", "uploaded"):
         return
     shared = Path(ROOT) / ".claude/skills/_shared"
-    args = ["handoff", job["id"], str(job["review_ready_at"])]
+    args = (["forget", job["id"]] if job["state"] in ("finalized", "uploaded") else
+            ["handoff", job["id"], str(job["review_ready_at"])])
     cmd = [sys.executable, str(shared / "editcap/editcap.py"), *args]
     if os.environ.get("EDIT_QUEUE_DIR"):
         if not os.environ.get("EDITCAP_DIR"):
