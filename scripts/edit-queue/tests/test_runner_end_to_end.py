@@ -95,6 +95,7 @@ class EndToEnd(unittest.TestCase):
         self.tmp = tempfile.mkdtemp(prefix="eq-e2e-")
         fake = os.path.join(self.tmp, "fake-exec"); open(fake, "w").write(FAKE); os.chmod(fake, os.stat(fake).st_mode | stat.S_IEXEC)
         cfg = json.load(open(os.path.join(PKG, "config.json")))
+        cfg["paused_groups"] = []  # This file uses fake ads to exercise the runner, not live production.
         cfg["work_root"] = os.path.join(self.tmp, "work"); os.makedirs(cfg["work_root"])
         for executor_name,ex in cfg["executors"].items():
             ex.pop("binary_glob", None); ex["binary"] = fake; ex["auth_check"] = ["login","status"] if executor_name=="codex" else ["auth","status"]

@@ -144,6 +144,8 @@ def handle(req):
                 return dict(registered=True,batch=name,duplicate=True)
             all_rows=[r for d in snapshot()['batches'].values() for r in d['jobs'].values()]
             for job in req['jobs']:
+                reason=eq.paused_reason(job['id'],job['executor'],eq.load_config())
+                if reason:raise ValueError(reason)
                 for prior in all_rows:
                     if prior['id']==job['id'] and (prior['status'] not in TERMINAL or prior['round']==job['round']):
                         raise ValueError(job['id']+' has a nonterminal round; finish or take it over first')
@@ -198,6 +200,7 @@ def handle(req):
                 if not state['enabled']:continue
                 for k,r in state['jobs'].items():
                     if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']):
+                        if eq.paused_reason(r['id'],r['executor'],eq.load_config()):continue
                         if r['id'] in req.get('unavailable',[]):continue
                         if r.get('host_defer',{}).get(req['host'],0)>now:continue
                         next_executor=r.get('next_executor',r['executor'])

@@ -94,7 +94,23 @@
       "claude": "codex"
     }
   },
-  "paused_groups": [],
+  "paused_groups": [
+    {
+      "group": "RA",
+      "executor": "any",
+      "reason": "Dan 2026-11-15: no new Abs By AI ads; content only"
+    },
+    {
+      "group": "AV",
+      "executor": "any",
+      "reason": "Dan 2026-11-15: no new Abs By AI ads; content only"
+    },
+    {
+      "group": "AS",
+      "executor": "any",
+      "reason": "Dan 2026-11-15: no new Abs By AI ads; content only"
+    }
+  ],
   "work_root": "/Volumes/Extreme/_edit_work",
   "executors": {
     "codex": {

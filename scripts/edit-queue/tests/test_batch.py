@@ -29,7 +29,9 @@ class BatchTests(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory();self.home=Path(self.tmp.name)
         self.p=patch.object(b,'HOME',self.home);self.p.start()
         self.h=patch.object(b,'here',return_value='m2');self.h.start()
-    def tearDown(self):self.h.stop();self.p.stop();self.tmp.cleanup()
+        self.cfg=eq.load_config();self.cfg['paused_groups']=[]
+        self.c=patch.object(eq,'load_config',return_value=self.cfg);self.c.start()
+    def tearDown(self):self.c.stop();self.h.stop();self.p.stop();self.tmp.cleanup()
     def enqueue(self,name='night',ids=('SL-36',),placement='any',round_=1):
         data=b'CONTENT SFL: use approved source; stop for real choices.'
         jobs=[dict(id=j,round=round_,title='Real video '+j,size='S',order=i,kind='SFL',target='review',need_gb=5,
@@ -233,6 +235,12 @@ class BatchTests(unittest.TestCase):
         clear=subprocess.CompletedProcess([],0,json.dumps({'renderq':{}}), '')
         with patch.object(b,'alive',return_value=False),patch.object(b.subprocess,'run',return_value=clear):b.reconcile(snapshot())
         self.assertEqual(self.row()['status'],'queued');self.assertEqual(self.row()['resumes'],1)
+
+    def test_stopped_ad_production_blocks_enqueue_and_existing_queued_claim(self):
+        self.enqueue(ids=('RA-02',));self.start()
+        self.cfg['paused_groups']=[{'group':'RA','executor':'any','reason':'Dan stopped new Abs By AI ads'}]
+        self.assertIsNone(self.claim())
+        with self.assertRaisesRegex(ValueError,'stopped new Abs By AI ads'):self.enqueue('other',ids=('RA-99',))
 
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')

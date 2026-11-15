@@ -110,3 +110,7 @@ Most of Dan's prompts are dictated through Wispr Flow, not typed. If an instruct
 ## Multi-AI design process and SixPackAbs lock (Dan, 2026-11-03)
 
 For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
+
+## No new Abs By AI ads (Dan, 2026-11-15)
+
+Dan: "I don't want to do any more ads for Abs By AI." Stop new Abs By AI ad production, including raw ad cuts and vertical/square ad adaptations. Use organic content for the overnight test and future new work. This applies to Abs By AI; SixPackAbs and client work keep their own instructions. Existing campaigns, published posts and approved schedules keep their recorded state unless Dan requests a change.

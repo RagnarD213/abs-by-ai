@@ -21,6 +21,7 @@ q, d, runner, review_page = (eq.sibling("queue"), eq.sibling("dispatcher"), eq.s
 
 NOW = datetime.datetime(2026, 9, 18, 2, 0, 0)          # 2 AM: Dan is asleep
 CFG = eq.load_config()
+CFG["paused_groups"] = []  # Isolated mechanics tests; live production policy is tested separately.
 
 
 def job(jid, state="ready", size="S", order=1, **kw):
