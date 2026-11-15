@@ -73,9 +73,9 @@ def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budge
         try:
             cmd=eq.build_command(executor,cfg,workdir,role)
             log.write('argv: '+json.dumps(cmd)+'\n');log.flush();start=log.tell()
-            proc=subprocess.Popen(['/usr/bin/caffeinate','-i']+cmd,stdin=subprocess.PIPE,text=True,
-                                  stdout=log,stderr=subprocess.STDOUT,cwd=eq.ROOT,start_new_session=True)
             try:
+                proc=subprocess.Popen(['/usr/bin/caffeinate','-i']+cmd,stdin=subprocess.PIPE,text=True,
+                                      stdout=log,stderr=subprocess.STDOUT,cwd=eq.ROOT,start_new_session=True)
                 if session_observer:
                     batch=eq.sibling('batch');session_observer(proc.pid,batch.identity(proc.pid))
                 proc.communicate(prompt,timeout=max(.01,timeout_h*3600));code=proc.returncode
@@ -84,7 +84,7 @@ def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budge
                 log.write(f"\n[runner] stopped after {timeout_h:g} h\n")
                 code=BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
             except BaseException:
-                stop_session(proc)
+                if proc is not None:stop_session(proc)
                 raise
         except (SessionInterrupted,SessionCleanupFailed):
             raise

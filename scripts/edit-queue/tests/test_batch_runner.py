@@ -20,7 +20,7 @@ class WorkerTests(unittest.TestCase):
         self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name);self.home=self.root/'home';self.home.mkdir()
         self.wd=self.root/'work';self.wd.mkdir();self.review=self.wd/'review';self.review.mkdir()
         self.video=self.wd/'final.mp4';self.video.write_bytes(b'candidate bytes')
-        self.cap=self.root/'cap';self.cap.mkdir();self.released=0;self.sessions=[];self.mode='clean';self.capacity_code=0
+        self.cap=self.root/'cap';self.cap.mkdir();self.released=0;self.sessions=[];self.mode='clean';self.capacity_code=0;self.offline=False
         self.patches=[]
         def use(p):self.patches.append(p);return p.start()
         use(patch.object(b,'HOME',self.home));use(patch.object(b,'here',return_value='m2'))
@@ -66,6 +66,7 @@ class WorkerTests(unittest.TestCase):
             if self.mode=='bad-link':info.pop('review_root')
             b.write(self.wd/'DELIVERY.json',info)
             b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'candidate'})
+            if self.mode=='offline':self.offline=True
             return 0,'Example note: rate limit was handled; session limit is discussed in the script',.01
         if self.mode in ('no-verdict','timeout'):
             return (r.BUDGET_EXCEEDED_CODE if self.mode=='timeout' else 0),'no report',.01
@@ -108,6 +109,16 @@ class WorkerTests(unittest.TestCase):
         self.mode='allowance';_,row=self.execute();self.assertEqual(row['status'],'queued');self.assertEqual(row['workdir'],str(self.wd));self.assertIn('claude',b.control()['executor_backoff'])
     def test_invalid_review_location_does_not_spend_a_reviewer(self):
         self.mode='bad-link';_,row=self.execute();self.assertEqual(row['status'],'blocked');self.assertEqual(len(self.sessions),1)
+    def test_m6_reviewer_continues_offline_and_outcome_syncs_later(self):
+        self.mode='offline';original_rpc=b.rpc
+        def rpc(op,**kwargs):
+            if self.offline:raise b.TransportError('M2 link cut')
+            return original_rpc(op,**kwargs)
+        with patch.object(b,'rpc',side_effect=rpc):_,row=self.execute()
+        self.assertEqual(len(self.sessions),2);self.assertEqual(row['status'],'claimed');self.assertEqual(self.released,1)
+        pending=list((self.home/'outbox').glob('*.json'));self.assertEqual(len(pending),1)
+        self.assertEqual(b.read(pending[0])['outcome']['status'],'delivered')
+        b.flush_outbox();self.assertEqual(b.handle({'op':'snapshot'})['batches']['worker-test']['jobs']['SL-36-R1']['status'],'delivered')
     def test_heartbeat_errors_do_not_kill_the_pulse_thread(self):
         original_command=self.fake_command;original_session=self.fake_session;beats=[]
         def command(args,**kwargs):

@@ -194,6 +194,24 @@ class BatchTests(unittest.TestCase):
         b.handle({'op':'stop'});self.enqueue('chat-DS-106-R1',ids=('DS-106',))
         self.assertFalse(b.read(self.home/'chat-DS-106-R1/state.json')['enabled'])
 
+    def test_capacity_waits_do_not_exhaust_start_failure_budget(self):
+        self.enqueue();self.start()
+        for _ in range(5):
+            c=self.claim();token=c['row']['claim']['token']
+            b.handle(dict(op='outcome',batch='night',key=c['key'],token=token,host='m2',outcome={'status':'deferred-start','reason':'dedicated reservation','retry_kind':'capacity'},backoff_s=0))
+        self.assertEqual(self.row()['status'],'queued');self.assertEqual(self.row()['start_failures'],0)
+    def test_unattempted_review_pause_does_not_extend_executor_backoff(self):
+        self.enqueue(ids=('SL-36','RA-02'));self.start();first=self.claim();second=self.claim()
+        self.outcome(first,'paused-for-allowance',reason='quota',executor='codex')
+        until=b.control()['executor_backoff']['codex']['until']
+        self.outcome(second,'paused-for-allowance',reason='waiting for quota',executor='codex',attempted=False)
+        self.assertEqual(b.control()['executor_backoff']['codex']['until'],until)
+    def test_live_render_only_or_waiting_jobs_cannot_enqueue(self):
+        for state in ('waiting','promoted','active','parked'):
+            self.assertTrue(b.job_live('SL-36',{'m2':{'editcap':{'edits':{'SL-36':state}}}}))
+        self.assertTrue(b.job_live('SL-36',{'m2':{'editcap':{'in_use':['SL-36'],'edits':{}}}}))
+        self.assertFalse(b.job_live('SL-36',{'m2':{'editcap':{'in_use':[],'edits':{}}}}))
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')

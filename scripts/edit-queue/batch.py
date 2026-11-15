@@ -244,19 +244,25 @@ def handle(req):
             for field,value in req.get('timing',{}).items():row['timing'][field]=row['timing'].get(field,0)+value
             outcome=req['outcome']
             if outcome['status']=='deferred-start':
-                row['start_failures']=row.get('start_failures',0)+1
+                resource_wait=outcome.get('retry_kind') in ('capacity','storage')
+                row['start_waits']=row.get('start_waits',0)+int(resource_wait)
+                row['start_failures']=row.get('start_failures',0)+int(not resource_wait)
                 delay=req.get('backoff_s',120)
                 c=control();c.setdefault('host_backoff',{})[claim['owner']]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
-                if row['start_failures']<3:
+                if resource_wait or row['start_failures']<3:
                     row.update(status='queued',not_before=now+delay,last_start_error=outcome['reason'])
                     if claim.get('workdir'):row.update(placement=claim['owner'],workdir=claim['workdir'])
                     row.pop('claim',None)
                 else:finish(row,dict(status='blocked',reason='start failed three times: '+outcome['reason'],next_action='Resolve the recorded capacity, storage or executor problem'))
             elif outcome['status']=='paused-for-allowance':
-                row['allowance_tries']+=int(outcome.get('attempted',True))
+                attempted=outcome.get('attempted',True)
+                row['allowance_tries']+=int(attempted)
                 next_executor=outcome.get('executor',row['executor']);row['next_executor']=next_executor
-                delay=req.get('backoff_s',7200)*(2**max(0,row['allowance_tries']-1))
-                c=control();c.setdefault('executor_backoff',{})[next_executor]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
+                c=control();prior=c.get('executor_backoff',{}).get(next_executor,{})
+                until=(now+req.get('backoff_s',7200)*(2**max(0,row['allowance_tries']-1))) if attempted else max(now,prior.get('until',now))
+                delay=until-now
+                if attempted:
+                    c.setdefault('executor_backoff',{})[next_executor]=dict(until=until,reason=outcome['reason']);write(HOME/'control.json',c)
                 if row['allowance_tries']<3:
                     row.update(status='queued',not_before=now+delay,last_pause=now,
                                placement=claim['owner'],workdir=claim.get('workdir'),resume_phase=claim.get('phase'))
@@ -543,6 +549,12 @@ def tick():
             print('Batch tick unavailable:',exc,flush=True);return doc
 
 
+def job_live(job_id,statuses):
+    return any(job_id in st.get('editcap',{}).get('in_use',[]) or
+               st.get('editcap',{}).get('edits',{}).get(job_id) in ('waiting','promoted','active','parked')
+               for st in statuses.values())
+
+
 def enqueue(name,path):
     source=Path(path).resolve();request=json.loads(source.read_text())
     jobs=[];briefs={}
@@ -561,7 +573,7 @@ def enqueue(name,path):
         job['chroma']=bool(job.get('chroma'));job['drive_bound']=bool(job.get('drive_bound'))
         statuses=editroute.gather(job['id']);owner,_=editroute.holder(job['id'],statuses)
         if any(not st.get('reachable') for st in statuses.values()):raise ValueError('both Macs must be reachable to establish placement at enqueue')
-        if any(st.get('editcap',{}).get('edits',{}).get(job['id']) in ('waiting','promoted','active','parked') for st in statuses.values()):
+        if job_live(job['id'],statuses):
             raise ValueError(job['id']+' has active production; batch enqueue cannot transfer a live chat')
         if owner:placement=owner
         elif job['kind']=='LFC' or job['chroma'] or job['drive_bound']:placement='m2'

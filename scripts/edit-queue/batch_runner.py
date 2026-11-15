@@ -33,7 +33,9 @@ def review_verdict(path, expected_hashes=None, started_ns=None):
     return None
 
 
-class StartupWait(RuntimeError):pass
+class StartupWait(RuntimeError):
+    def __init__(self,reason,kind='capacity'):
+        super().__init__(reason);self.kind=kind
 
 
 def review_location(info):
@@ -115,7 +117,7 @@ def main(claim_path):
         return code,tail,hours
     try:
         # Claim and slot are separate: this runner acquires, refreshes and finally releases the slot.
-        if not eq.resolve_binary(executor,cfg):raise StartupWait(executor+' program is unavailable')
+        if not eq.resolve_binary(executor,cfg):raise StartupWait(executor+' program is unavailable','executor')
         cap_requested=True
         cap=subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'acquire',jobid,'--title',row['title'],'--type',row['kind']],capture_output=True,text=True,timeout=45)
         if cap.returncode!=0:raise StartupWait('edit slot not acquired: '+(cap.stdout+cap.stderr)[-600:])
@@ -124,7 +126,7 @@ def main(claim_path):
         if registry.get('edits',{}).get(jobid,{}).get('state')!='active':raise StartupWait('editcap did not record an active slot')
         has_slot=True
         work=subprocess.run([sys.executable,str(b.SHARED/'renderq/renderq.py'),'workdir',jobid,'--need',str(row['need_gb'])],capture_output=True,text=True,timeout=45)
-        if work.returncode:raise StartupWait('work folder: '+(work.stdout+work.stderr)[-600:])
+        if work.returncode:raise StartupWait('work folder: '+(work.stdout+work.stderr)[-600:],'storage')
         wd=Path(work.stdout.strip().splitlines()[-1])
         if not wd.is_absolute() or not wd.is_dir():raise RuntimeError('renderq did not return a usable work folder')
         if row.get('workdir') and str(wd)!=row['workdir']:raise RuntimeError('resume must use the original work folder')
@@ -184,7 +186,7 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
                 failure=r.classify_failure(code,tail,cfg)
                 if failure=='usage_limited':
                     outcome=dict(status='paused-for-allowance',reason='editor usage limit',executor=executor);return 0
-                if failure=='auth_failed':raise StartupWait('editor sign-in is unavailable')
+                if failure=='auth_failed':raise StartupWait('editor sign-in is unavailable','executor')
             if not marker or marker.get('token')!=token:raise RuntimeError('editor exited '+str(code)+' without a fresh outcome file')
             if code!=0:raise RuntimeError('editor exited '+str(code)+'; candidate not accepted')
             if marker.get('status')=='blocked':
@@ -215,7 +217,9 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
         review_location(info)
         link='http://127.0.0.1:'+str(info.get('review_port',''))+'/'
         reviewer=cfg['review']['reviewer_for'][executor]
-        executor_pause=b.rpc('snapshot')['control'].get('executor_backoff',{}).get(reviewer,{})
+        try:pause_control=b.rpc('snapshot')['control']
+        except Exception:pause_control=b.read(b.HOME/'snapshot.json',{}).get('control',{})
+        executor_pause=pause_control.get('executor_backoff',{}).get(reviewer,{})
         if executor_pause.get('until',0)>time.time():
             outcome=dict(status='paused-for-allowance',reason='reviewer allowance backoff',executor=reviewer,attempted=False);return 0
         verdict=None;reason='reviewer returned no valid verdict';report_path=None
@@ -262,10 +266,10 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         progress(phase='session cleanup waiting; claim retained')
         outcome=dict(status='blocked',reason=str(exc),next_action='Wait for exact session exit before recovery')
     except StartupWait as exc:
-        outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
+        outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__,retry_kind=exc.kind)
     except Exception as exc:
         if not session_started and isinstance(exc,(OSError,RuntimeError,subprocess.SubprocessError)):
-            outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
+            outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__,retry_kind='infrastructure')
         else:
             outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:
