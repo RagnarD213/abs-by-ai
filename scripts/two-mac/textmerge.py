@@ -6,14 +6,14 @@
 git stops whenever both sides touch the same spot. For status lists, calendars and registries most of those stops
 need no judgement, and this settles exactly three kinds, hunk by hunk, never dropping a line either side wrote:
   S  one side's lines contain the other's (both added the same entries, one added more): the fuller side;
-  L  both sides changed DIFFERENT lines of the same block (neighbouring table rows): each line from the side that
-     changed it;
+  L  both sides edited DIFFERENT lines of the same block (neighbouring table rows, a row added beside a row the
+     other side changed): every edit is applied;
   U  .md/.txt only: both sides added different lines at the same spot and nothing was there before: both, ours first;
   J  a .json file that is one list of entries: merged entry by entry (both sides' new entries kept, in place).
 Anything else (the same line changed two ways, code files, a .json result that no longer parses) is refused.
 Used by checkout-sync.py (commits) and reconcile-checkout.py (unsaved edits). Tests: test_checkout_sync.py.
 """
-import json, os, subprocess, sys, tempfile
+import difflib, json, os, subprocess, sys, tempfile
 
 TYPES = (".md", ".txt", ".json")
 MARK = 31                                           # long conflict markers: no real line looks like one
@@ -24,19 +24,37 @@ def _subseq(small, big):
     return all(any(x == y for y in it) for x in small)
 
 
+def _separate_lines(o, b, t):
+    """Rule L: each side's edits to the block, as (start, end, new lines) against base. They merge when no edit of
+    one side touches a base line the other side edited (an insertion beside a changed line is fine)."""
+    if not b: return None
+    def edits(new):
+        return [(i1, i2, new[j1:j2]) for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, b, new, autojunk=False).get_opcodes() if tag != "equal"]
+    eo, et = edits(o), edits(t)
+    for a1, a2, la in eo:
+        for c1, c2, lc in et:
+            if (a1, a2, la) == (c1, c2, lc): continue
+            if a1 == a2 and c1 == c2:
+                if a1 == c1: return None                              # two different insertions at one point
+            elif a1 == a2:
+                if c1 < a1 < c2: return None                          # insertion inside the other side's change
+            elif c1 == c2:
+                if a1 < c1 < a2: return None
+            elif max(a1, c1) < min(a2, c2): return None               # both changed the same base line(s)
+    out, pos = [], 0
+    for i1, i2, new in sorted(set((i1, i2, tuple(n)) for i1, i2, n in eo + et), key=lambda e: (e[0], e[0] != e[1], e[1])):
+        out += b[pos:i1] + list(new); pos = max(pos, i2)
+    return out + b[pos:]
+
+
 def _hunk(o, b, t, union_ok):
     nb = lambda ls: [l.rstrip() for l in ls if l.strip()]
     no, nbb, nt = nb(o), nb(b), nb(t)
     if no == nt: return o, "same"
     if _subseq(nt, no): return o, "S"
     if _subseq(no, nt): return t, "S"
-    if len(o) == len(b) == len(t):
-        out = []
-        for lo, lb, lt in zip(o, b, t):
-            if lo == lt or lt == lb: out.append(lo)
-            elif lo == lb: out.append(lt)
-            else: return None, None
-        return out, "L"
+    res = _separate_lines(o, b, t)
+    if res is not None: return res, "L"
     if union_ok and not nbb: return o + t, "U"
     return None, None
 

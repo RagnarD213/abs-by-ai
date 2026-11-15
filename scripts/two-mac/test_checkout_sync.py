@@ -210,6 +210,23 @@ class Sandbox(unittest.TestCase):
         self.assertEqual(sorted(e["config"] for e in json.loads(self.read(self.other, "waitlist.json"))), ["a.json", "committed.json", "github.json"])
         self.assertEqual(json.loads(self.read(self.live, "waitlist.json"))[0]["label"], "A — first")
 
+    def test_textmerge_rules(self):
+        sys.path.insert(0, HERE)
+        import textmerge
+        m = lambda b, o, t, name="cal.md": textmerge.merge(name, b.encode(), o.encode(), t.encode())[0]
+        head, a, b_, c = "# T\n", "| A | open |\n", "| B | open |\n", "| C | open |\n"
+        base = head + a + b_ + c
+        # a row added right above a row the other side changed
+        got = m(base, head + a + "| B | mine |\n" + c, head + a + "| A2 | theirs |\n" + b_ + c)
+        self.assertEqual(got.decode(), head + a + "| A2 | theirs |\n| B | mine |\n" + c)
+        # the same row changed two ways is refused
+        self.assertIsNone(m(base, head + a + "| B | mine |\n" + c, head + a + "| B | theirs |\n" + c))
+        # one side's additions contain the other's
+        self.assertEqual(m(head, head + "x\ny\n", head + "x\n").decode(), head + "x\ny\n")
+        # two different additions at one spot: kept in .md, refused in code
+        self.assertEqual(m(head, head + "mine\n", head + "theirs\n").decode(), head + "mine\ntheirs\n")
+        self.assertIsNone(m(head, head + "mine\n", head + "theirs\n", "tool.py"))
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")
