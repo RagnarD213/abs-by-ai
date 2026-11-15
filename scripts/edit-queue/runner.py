@@ -37,52 +37,51 @@ def heartbeat_loop(job_id, stop, minutes):
         qcmd("heartbeat", job_id)
 
 
+class SessionInterrupted(RuntimeError):
+    pass
+
+
+def stop_session(proc):
+    """Stop the session group on every exceptional exit, including Python signal handlers."""
+    try:os.killpg(proc.pid,signal.SIGTERM)
+    except ProcessLookupError:pass
+    try:proc.wait(timeout=5)
+    except subprocess.TimeoutExpired:pass
+    # The group can outlive its leader. Never forget a still-running child.
+    try:os.killpg(proc.pid,signal.SIGKILL)
+    except ProcessLookupError:pass
+    proc.wait(timeout=10)
+
+
 def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budget_enforced=True, session_observer=None):
-    """One headless session. Returns (returncode, tail_of_log, wall_hours). Never raises for session failure."""
-    with open(os.path.join(workdir, f"queue-prompt-{role}.txt"), "w") as f:
-        f.write(prompt)
-    began = time.time()
-    with open(log_path, "a") as log:
+    """Run one headless session and clean up its group before returning or propagating interruption."""
+    with open(os.path.join(workdir,f"queue-prompt-{role}.txt"),'w') as f:f.write(prompt)
+    began=time.time();proc=None
+    with open(log_path,'a') as log:
         log.write(f"\n===== {datetime.datetime.now():%Y-%m-%d %H:%M:%S} {role} session: {executor} =====\n")
-        start = log.tell()
+        start=log.tell()
         try:
-            cmd = eq.build_command(executor, cfg, workdir, role)
-            log.write("argv: " + json.dumps(cmd) + "\n"); log.flush()
-            start = log.tell()
-            proc = subprocess.Popen(["/usr/bin/caffeinate", "-i"] + cmd, stdin=subprocess.PIPE, text=True,
-                                    stdout=log, stderr=subprocess.STDOUT, cwd=eq.ROOT, start_new_session=True)
-            if session_observer:
-                batch = eq.sibling("batch")
-                try:
-                    session_observer(proc.pid, batch.identity(proc.pid))
-                except BaseException:
-                    os.killpg(proc.pid, signal.SIGTERM)
-                    proc.wait(timeout=10)
-                    raise
+            cmd=eq.build_command(executor,cfg,workdir,role)
+            log.write('argv: '+json.dumps(cmd)+'\n');log.flush();start=log.tell()
+            proc=subprocess.Popen(['/usr/bin/caffeinate','-i']+cmd,stdin=subprocess.PIPE,text=True,
+                                  stdout=log,stderr=subprocess.STDOUT,cwd=eq.ROOT,start_new_session=True)
             try:
-                proc.communicate(prompt, timeout=max(0.01, timeout_h * 3600))
-                code = proc.returncode
+                if session_observer:
+                    batch=eq.sibling('batch');session_observer(proc.pid,batch.identity(proc.pid))
+                proc.communicate(prompt,timeout=max(.01,timeout_h*3600));code=proc.returncode
             except subprocess.TimeoutExpired:
-                try:
-                    os.killpg(proc.pid, signal.SIGTERM)
-                    proc.wait(timeout=5)
-                except (ProcessLookupError, subprocess.TimeoutExpired):
-                    try:
-                        os.killpg(proc.pid, signal.SIGKILL)
-                    except ProcessLookupError:
-                        pass
-                    proc.wait()
-                label = "work budget" if budget_enforced else "absolute outer ceiling"
-                log.write(f"\n[runner] stopped process group after {timeout_h:g} h ({label})\n")
-                code = BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
-        except subprocess.TimeoutExpired:
-            log.write(f"\n[runner] stopped after {timeout_h:g} h\n")
-            code = BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
-        except Exception as e:
-            log.write(f"\n[runner] could not start {executor}: {e}\n"); code = -1
-    with open(log_path, errors="replace") as f:
-        f.seek(start)
-        return code, f.read()[-6000:], (time.time() - began) / 3600
+                stop_session(proc)
+                log.write(f"\n[runner] stopped after {timeout_h:g} h\n")
+                code=BUDGET_EXCEEDED_CODE if budget_enforced else OUTER_TIMEOUT_CODE
+            except BaseException:
+                stop_session(proc)
+                raise
+        except SessionInterrupted:
+            raise
+        except Exception as exc:
+            log.write(f"\n[runner] session failed: {exc}\n");code=-1
+    with open(log_path,errors='replace') as f:
+        f.seek(start);return code,f.read()[-6000:],(time.time()-began)/3600
 
 
 def classify_failure(code, tail, cfg):
