@@ -214,10 +214,11 @@ def _version_key(path):
 
 def resolve_binary(executor, cfg):
     ex=cfg['executors'][executor]
-    candidates=[os.path.expanduser(x) for x in ([ex['binary']] if ex.get('binary') else [])+ex.get('binary_candidates',[])]
+    candidates=[os.path.expanduser(ex['binary'])] if ex.get('binary') else []
     patterns=ex.get('binary_globs',[])+([ex['binary_glob']] if ex.get('binary_glob') else [])
     hits=[p for pattern in patterns for p in glob.glob(os.path.expanduser(pattern))]
     candidates+=sorted(hits,key=lambda p:(_version_key(p),p),reverse=True)
+    candidates+=[os.path.expanduser(x) for x in ex.get('binary_candidates',[])]
     return next((p for p in candidates if os.path.isabs(p) and os.path.isfile(p) and os.access(p,os.X_OK)),None)
 
 

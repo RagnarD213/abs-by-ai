@@ -366,7 +366,15 @@ def reconcile(snap):
             local=read(HOME/'runs'/c['token']/'progress.json',{})
             if local.get('pid') and (not c.get('pid') or local['pid']==c['pid']):
                 c=dict(c, **local)
-            if alive(c.get('pid'),c.get('birth')):continue
+            if alive(c.get('pid'),c.get('birth')):
+                progress_path=HOME/'runs'/c['token']/'progress.json'
+                fresh=progress_path.exists() and time.time()-progress_path.stat().st_mtime<STALE_S
+                if fresh:continue
+                if time.time()-c['heartbeat']<STALE_S:continue
+                stopfile=HOME/'runs'/c['token']/'runner-stop.json';prior=read(stopfile,{})
+                os.kill(c['pid'],signal.SIGKILL if prior.get('at') and time.time()-prior['at']>30 else signal.SIGTERM)
+                if not prior:write(stopfile,dict(at=time.time()))
+                continue
             if time.time()-c['heartbeat']<STALE_S:continue
             session=c.get('session',{})
             live=alive(session.get('pid'),session.get('birth'))
@@ -419,10 +427,11 @@ def report(snap, error=None):
                     observed=[v.get(j) for dd in snap.get('batches',{}).values() for v in dd.get('observations',{}).values()]
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
         except (OSError,ValueError,KeyError):pass
-    doc=dict(at=now,enabled=snap.get('control',{}).get('enabled',False),error=error,groups=groups,lost=lost)
+    doc=dict(at=now,start_block=snap.get('start_block'),enabled=snap.get('control',{}).get('enabled',False),error=error,groups=groups,lost=lost)
     write(HOME/'morning-report.json',doc)
     lines=['# Overnight edit report','',time.strftime('%Y-%m-%d %H:%M:%S %Z'),'', 'New starts: '+('enabled' if doc['enabled'] else 'disabled')]
     if error:lines+=['',error]
+    if doc['start_block']:lines+=['','New starts blocked: '+doc['start_block']]
     for group,rows in groups.items():
         lines+=['','## '+group,'','| Video | Mac | State / next action | Review |','|---|---|---|---|']
         for r in rows:
@@ -444,7 +453,8 @@ def tick():
             snap=rpc('tick',host=here(),observation=observe_local());save_snapshot(snap)
             reconcile(snap)
             fp=fingerprints()
-            if not fp['dirty']:
+            start_block=('installed source differs from pushed main: '+', '.join(fp['dirty'])) if fp['dirty'] else ('scheduler changed since preflight' if snap['control'].get('enabled') and fp['digest']!=snap['control'].get('preflight',{}).get('digest') else None)
+            if not start_block:
                 while True:
                     cap=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
                     if cap.returncode:raise RuntimeError('editcap status unavailable: '+cap.stderr[-300:])
@@ -463,6 +473,7 @@ def tick():
                         rpc('recover',batch=owned['batch'],key=owned['key'],token=token,host=here(),pid_alive=False,spawn_failed=True)
                     finally:log.close()
             snap=rpc('snapshot');save_snapshot(snap)
+            if start_block:snap['start_block']=start_block
             doc=report(snap)
             print('Batch tick:',here(),'new starts',snap['control'].get('enabled',False),flush=True)
             return doc
