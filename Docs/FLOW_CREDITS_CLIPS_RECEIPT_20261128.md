@@ -221,3 +221,48 @@ with the thermostat-at-63 shot), plus Dan's batch 1 rejects (map, plan card, dus
 seated fold, ski goggles, penguin). His notes: memory `ai-clip-gags-injury-and-sense`.
 Batch 3 (failed twice, or failed on concept): Not On Day One, Way Too Heavy, Everyone Heard That, The Checkered Flag, Doesn't Fit,
 Too Many Machines, Not Tonight. Reasons per pair: `b3/review_results.txt`.
+
+## Batch 4 frames: on Dan's page (2026-11-15)
+
+Handoff `Handoffs/handoff-20261115-flow-credits-ai-clips-batch-4.md`. Work folder (same path on both Macs) `/Volumes/Extreme/_edit_work/FLOWCLIPS/b4/`
+(ideas.py, prompts/, codex/, google/, pairs/, sets/, review_results.txt, review_queue.json, build_page.py, GOOGLE-BRIEF.md, GOOGLE-REDO*.md, REVIEWER-BRIEF.md).
+Frames page **http://127.0.0.1:9251/** (M6; Select buttons, each version selectable on its own so Dan can keep both; untouched means out; keys `b4picks2`).
+Flow image projects: https://flow.google.com/project/5cdf6f93-b6d6-4c02-891e-96680411db96 (A + redraws), https://flow.google.com/project/e9f527cd-aab6-43fe-ac4b-dbfefb106742 (B).
+Credits: 0 spent (20,312 before and after); 62 Google images, 61 Codex images, 58 fresh frame reviews.
+
+Videos: the five 11/13 long-forms (16:9) RO-39 Tesla, RO-40 I'm 41 / 25 Again, RO-41 15 Healthy Foods, RO-42 Bulking Is a Scam, RO-43 7 Made-Up Rules;
+Shorts (9:16) DS-106 Sardines and DS-101 Wide Back. Skipped: DS-107 (already approved R2), DS-54/DS-62/DS-60 (how-to lines only; Dan passed on last ideas), DS-57 (no fresh line; A0271 offered).
+
+| id | Idea | Video | On the page |
+|---|---|---|---|
+| B4-02 | Stuck In Traffic | RO-39 | X1/X2 |
+| B4-03 | Learning To Love It | RO-40 (also fits RO-42) | X1/X2 |
+| B4-04 | Can't Look (scale peek) | RO-40 | 1 (Codex) |
+| B4-05 | The Health Food Aisle | RO-41 | X1/X2 |
+| B4-06 | Just A Quarter Cup | RO-41 | X1/X2 |
+| B4-07 | Where Did It Go (opaque pouch) | RO-41 | 1 (Codex) |
+| B4-08 | Cola For Breakfast | RO-41 | 1 (Codex) |
+| B4-09 | Two Tablespoons | RO-41 | X1/X2 |
+| B4-10 | Three Cans | RO-41 | X1/X2 |
+| B4-11 | Second Plate | RO-42 | 1 (Google) |
+| B4-12 | I Bench 315 | RO-42 | X1/X2 |
+| B4-13 | Won't Button | RO-42 | X1/X2 |
+| B4-14 | Steps Before Bed | RO-43 | X1/X2 (START-only video planned) |
+| B4-15 | Eight Glasses | RO-43 | 1 (Codex) |
+| B4-16 | Treadmill Milkshake | RO-43 | X1/X2 (START-only video planned) |
+| B4-17 | Kitchen Closed | RO-43 | X1/X2 |
+| B4-18 | Meal Four Of Six | RO-43 | X1/X2 |
+| B4-19 | The Rule Book | RO-43 | 1 (Codex) |
+| B4-21 | The Gym Bag | DS-106 | X1/X2 |
+| B4-22 | Sit Up Straight | DS-101 | X1/X2 |
+
+Dropped after two failures in both sources: B4-01 Blinders (head turn never read; hair and harness redrawn), B4-20 The Desk Drawer (drawer across his lap, then
+a drawer with no front; Google's tin never left the grid). Existing library clips offered on the same page: A0239 (RO-42), A0143, A0181, A0183, A0185 (RO-41),
+A0243, A0173, A0144 (RO-40), A0188 (DS-106), A0270, A0271 (DS-64; A0271 also fits DS-57).
+
+Lessons (frames): props that a person uses must exist and change in both frames (containers drawn already open, a lid from nowhere; a see-through bag
+emptying by itself; a tin that never leaves a full drawer). Say "every one closed with its lid on" / "opaque pouch" / "one fewer in the drawer". Codex ENDs
+came back one pixel narrower twice (1671 vs 1672): resize to the START size before `gate.py`. Google turned a cola into a beer (clear bottle, creamy head)
+and misspelled a book title in an END ("PITNESS"). Reviewers recording on the M6 waited 10 to 25 minutes behind a heavy render; record on the M2
+(`record_reviews.sh`, or `ssh m2 ... gate.py --review`). Moving a pair aside while its reviewer is still recording leaves that review orphaned in `r1/`.
+Next: Dan's picks on 9251, then `blind.py pick` for X1/X2 sets, `veo.py add` per picked pair (Veo Fast x2 + Omni x1; START-only for B4-14/B4-16), video.

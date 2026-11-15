@@ -31,6 +31,8 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
+
+
 **DS-109:PRODUCTION-M2:2026-11-15:Codex01a1dc87:R1.** First-review-build;worker58358;root-supervises-until-page-ready.
 
 
@@ -38,14 +40,13 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**WhatToCut-SFL-Setup:THERAPY-PICK:2026-11-14:Codex.** [Choose-X1–X8](http://127.0.0.1:9862/?pick=therapy);Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
+**WhatToCut-SFL-Setup:THERAPY-R2-PICK:2026-11-15:Codex.** [Choose-X1–X4](http://127.0.0.1:9862/?therapy_round=2);two-shirtless/two-tank;Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
 
-**DS-98 three-way blind edit: FIRST REVIEW READY 2026-11-15.** M6. [Watch X1, X2 and X3 with sound](http://127.0.0.1:18899/). Dan: reply with your favorite opening and any changes. Awaiting Dan’s first review.
-
-
+**DS-98 three-way blind edit: FULL FILMS QUEUED 2026-11-15.** M6. Dan’s three sets of picks and common exercise-footage revisions recorded. Resume automatically in next edit slot. Next owner review is the three completed films.
 
 
-**FlowClips:PUSH-PENDING:2026-11-15:Claude.**Batches1-3-filed;batch4-handoff-in-README;commits-local(live-files).
+
+
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
@@ -56,7 +57,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**DS-41 COVERS-R2 2026-11-15, Codex01a1dc60.** Four requested replacements; podcast scan first. No pick or uploads.
+**[DS41-X3:FINAL-OK:2026-11-15:Codex01a1dc60](http://127.0.0.1:9868/)**
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 
@@ -319,7 +320,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**Overnight edit queue - PAUSED 2026-09-24, Dan's call.** Resume only if Dan says: `dispatcher.py resume`.
+**OvernightBatch:DISABLED:2026-11-15:Codex01a1dfd6.** M2 repaired; canaries passed; Fable review next. First night awaits Dan.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
