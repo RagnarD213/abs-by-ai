@@ -439,6 +439,8 @@ def report(d, dry):
 
 
 def tick(dry_run=False, verbose=False):
+    if not dry_run and eq.sibling("canary").pending():
+        return {"canary": True}
     cfg, data = eq.load_config(), q.load()
     d = decide(data, cfg, gather(cfg, data), eq.scoreboard_load())
     route_launches(d, dry_run)                # two Macs: only what the router gives to this Mac
