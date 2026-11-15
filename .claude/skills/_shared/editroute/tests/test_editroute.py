@@ -462,11 +462,11 @@ class RemoteRetry(unittest.TestCase):
     """A dropped connection is asked once more; a Mac that is slow to answer is not."""
 
     def setUp(self):
-        self._run = er.subprocess.run
+        self._run = er._first_answer
         self.calls = 0
 
     def tearDown(self):
-        er.subprocess.run = self._run
+        er._first_answer = self._run
 
     def test_fast_failure_is_retried_once(self):
         def fake(*a, **k):
@@ -474,7 +474,7 @@ class RemoteRetry(unittest.TestCase):
             if self.calls == 1:
                 return subprocess.CompletedProcess(a, 255, "", "kex_exchange_identification: Connection closed")
             return subprocess.CompletedProcess(a, 0, json.dumps(dict(host="m2")), "")
-        er.subprocess.run = fake
+        er._first_answer = fake
         s = er.remote_status("m2", None, CFG)
         self.assertTrue(s["reachable"])
         self.assertEqual((self.calls, s["attempts"]), (2, 2))
@@ -482,8 +482,8 @@ class RemoteRetry(unittest.TestCase):
     def test_timeout_is_not_retried_and_reads_plainly(self):
         def fake(*a, **k):
             self.calls += 1
-            raise subprocess.TimeoutExpired(a, k.get("timeout"))
-        er.subprocess.run = fake
+            raise subprocess.TimeoutExpired(a, 8)
+        er._first_answer = fake
         s = er.remote_status("m2", None, CFG)
         self.assertFalse(s["reachable"])
         self.assertEqual(self.calls, 1)
@@ -493,13 +493,53 @@ class RemoteRetry(unittest.TestCase):
         def fake(*a, **k):
             self.calls += 1
             return subprocess.CompletedProcess(a, 255, "", "ssh: connect to host m2: Connection refused")
-        er.subprocess.run = fake
+        er._first_answer = fake
         s = er.remote_status("m2", None, CFG)
         self.assertFalse(s["reachable"])
         self.assertEqual(self.calls, 2)
         self.assertIn("Connection refused", s["error"])
 
 
+class AnswerBeforeExit(unittest.TestCase):
+    """The other Mac's answer counts the moment its line arrives, even if its process cannot exit yet."""
+
+    def ask(self, code, limit=5.0):
+        t0 = time.time()
+        r = er._first_answer([sys.executable, "-c", code], limit)
+        return r, time.time() - t0
+
+    def test_answer_then_a_process_that_will_not_exit(self):
+        r, took = self.ask("import json,time;print(json.dumps({'host':'m2'}),flush=True);time.sleep(60)")
+        self.assertEqual(json.loads(r.stdout)["host"], "m2")
+        self.assertEqual(r.returncode, 0)
+        self.assertLess(took, 3.0, "must not wait for the process to end")
+
+    def test_a_warning_line_before_the_answer_is_skipped(self):
+        r, _ = self.ask("import json,time;print('warning: something');print(json.dumps({'host':'m2'}),flush=True);"
+                        "time.sleep(60)")
+        self.assertEqual(json.loads(r.stdout)["host"], "m2")
+
+    def test_ordinary_exit_keeps_exit_code_and_error_text(self):
+        r, _ = self.ask("import sys;sys.stderr.write('Connection refused\\n');sys.exit(255)")
+        self.assertEqual(r.returncode, 255)
+        self.assertIn("Connection refused", r.stderr)
+
+    def test_no_answer_in_time_is_a_timeout(self):
+        with self.assertRaises(subprocess.TimeoutExpired):
+            self.ask("import time;time.sleep(60)", limit=1.0)
+
+    def test_remote_status_uses_the_early_answer(self):
+        saved = er._first_answer
+        er._first_answer = lambda argv, limit: saved(
+            [sys.executable, "-c", "import json,time;print(json.dumps({'host':'m2'}),flush=True);time.sleep(60)"],
+            limit)
+        try:
+            t0 = time.time()
+            s = er.remote_status("m2", None, CFG)
+        finally:
+            er._first_answer = saved
+        self.assertTrue(s["reachable"])
+        self.assertLess(time.time() - t0, 3.0)
 
 
 class PushThroughSharedDrive(unittest.TestCase):

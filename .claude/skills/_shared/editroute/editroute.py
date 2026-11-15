@@ -449,6 +449,53 @@ def under_load(st, hc):
 
 
 # ------------------------------------------------------------------------------------------------ the other Mac
+def _first_answer(argv, limit):
+    """Run a command whose answer is ONE line of JSON and return as soon as that line arrives.
+
+    Why not wait for the command to end: on 2026-11-15 12:35 the M2 answered in 2.1 s (its own log) and the M6
+    still gave up after 8 s. The answer had been written, but the M2's process could not exit while a drive check
+    was stuck inside the sleeping Seagate, and ssh stays open until the far process ends. The answer is complete
+    the moment its line is here, so nothing is gained by waiting for the exit. Returns a CompletedProcess; raises
+    subprocess.TimeoutExpired when no full answer came within `limit` seconds."""
+    import select
+    p = subprocess.Popen(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.DEVNULL)
+    end, buf, seen = time.time() + limit, b"", 0
+    fd = p.stdout.fileno()
+    try:
+        while True:
+            left = end - time.time()
+            if left <= 0:
+                raise subprocess.TimeoutExpired(argv, limit)
+            if not select.select([fd], [], [], left)[0]:
+                continue
+            chunk = os.read(fd, 1 << 16)
+            if not chunk:                                        # the command ended by itself: the ordinary case
+                try:
+                    _, err = p.communicate(timeout=max(0.2, end - time.time()))
+                except subprocess.TimeoutExpired:
+                    err = b""
+                return subprocess.CompletedProcess(argv, p.returncode if p.returncode is not None else 0,
+                                                   buf.decode("utf-8", "replace"), err.decode("utf-8", "replace"))
+            buf += chunk
+            while b"\n" in buf[seen:]:
+                cut = buf.index(b"\n", seen)
+                line, seen = buf[seen:cut].strip(), cut + 1
+                if line.startswith(b"{"):
+                    try:
+                        json.loads(line)
+                    except ValueError:
+                        continue
+                    return subprocess.CompletedProcess(argv, 0, line.decode("utf-8", "replace"), "")
+    finally:
+        if p.poll() is None:
+            p.kill()
+        for f in (p.stdout, p.stderr):
+            try:
+                f.close()
+            except OSError:
+                pass
+
+
 def remote_status(h, job=None, c=None):
     c = c or cfg()
     hc = c["hosts"][h]
@@ -460,10 +507,9 @@ def remote_status(h, job=None, c=None):
     for attempt in (1, 2):
         t1 = time.time()
         try:
-            r = subprocess.run(["ssh", "-o", "BatchMode=yes",
-                                "-o", "ConnectTimeout={}".format(c.get("remote_connect_s", 3)),
-                                hc.get("ssh", h), cmd], capture_output=True, text=True,
-                               timeout=max(1.0, limit - (t1 - t0)))
+            r = _first_answer(["ssh", "-o", "BatchMode=yes",
+                               "-o", "ConnectTimeout={}".format(c.get("remote_connect_s", 3)),
+                               hc.get("ssh", h), cmd], max(1.0, limit - (t1 - t0)))
             if r.returncode != 0:
                 raise RuntimeError((r.stderr or r.stdout).strip().splitlines()[-1] if (r.stderr or r.stdout).strip()
                                    else "exit {}".format(r.returncode))
@@ -1219,7 +1265,7 @@ def main(argv):
         return 0 if unittest.TextTestRunner(verbosity=1).run(suite).wasSuccessful() else 1
     if cmd == "local-status":
         o, _ = _opts(rest, {"--json": False, "--job": True})
-        print(json.dumps(local_status(job_code(o["--job"]) if o.get("--job") else None), default=str))
+        print(json.dumps(local_status(job_code(o["--job"]) if o.get("--job") else None), default=str), flush=True)      # the caller reads this line and stops waiting
         return 0
     if cmd == "status":
         o, _ = _opts(rest, {"--json": False})
