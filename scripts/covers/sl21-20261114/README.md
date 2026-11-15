@@ -1,6 +1,6 @@
 # What To Cut cover setup, SL-21
 
-One setup owner, Codex, 2026-11-14. Vacation X7 approved; round 4 restaurant concepts await a pick; therapy still awaits a pick.
+One setup owner, Codex, 2026-11-14. Vacation X7 and restaurant R4 X2 approved; therapy round 2 awaits the final cover pick.
 
 Review: http://127.0.0.1:9862/
 
@@ -43,3 +43,11 @@ Current review: http://127.0.0.1:9862/?round=4 . Sheet: http://127.0.0.1:9862/re
 Dan’s next message was **X2**, approving R4 concept 1B. Pick logged with blind.py against `<work>/r4/blind-set/`. Exact full-quality PNG layouts and existing YouTube JPEG copied and hash-verified in `Short-form video content/covers/approved-sl21/`. `<work>/selected-picks.json` and `approved-sl21/picks.json` are current. The file hashes are in the receipt. Do not regenerate or revise this selection.
 
 Vacation X7 stays approved and byte-verified. The current page http://127.0.0.1:9862/?pick=therapy shows the original therapy choices FIRST. Its next X1–X8 pick must be logged against `<work>/blind-sets/3/`, using the original mapping in `<work>/pick-map-private.json`, not any restaurant round. Once that pick is saved, complete the already-authorized backups, metadata, media uploads, four-platform setup and February slots/shared waitlist from the handoff. No further setup permission is needed. Dashboard stays paused.
+
+## Active therapy round 2, 2026-11-15
+
+Dan rejected all original therapy choices. Four replacements now show Dan in the middle between an overweight male patient and an overweight male therapist, with the exact speech bubble **You're getting scammed.** Two are shirtless and two black tank top. The therapy headline is unchanged. Instagram and YouTube layouts are checked. Review: http://127.0.0.1:9862/?therapy_round=2 . Sheet: http://127.0.0.1:9862/therapy-r2-sheet.jpg . Labels: X1 tank top, X2 shirtless, X3 shirtless, X4 tank top.
+
+Use ONLY `<work>/therapy-r2/pick-map-private.json` and `<work>/therapy-r2/blind-set/` for the next therapy pick. The original `<work>/blind-sets/3/` is rejected and must not receive the new pick. Log with blind.py pick, then copy and hash-verify the original full-quality `<work>/therapy-r2/layouts/instagram/<id>.png`, `<work>/therapy-r2/layouts/youtube/<id>.png` and existing `.jpg`; never install neutral previews. Current state: `<work>/selected-picks.json`. Approved restaurant R4 X2 and vacation X7 remain locked and verified. Continue all original setup steps after the final pick, without another permission request. No uploads or schedules yet; dashboard stays paused.
+
+Current recipe: `therapy-r2/build.py` and `therapy-r2/publish.py` beside this README. The generation plan and private source key remain outside Git in the internal work folder. The project mirror contains the new review images and checks. Eight served previews and the six previously approved cover files verified. Static-image review; no audio playback. No paid image API spend.

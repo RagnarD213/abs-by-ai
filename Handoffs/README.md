@@ -14,7 +14,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Great Again T VSL AD R2](handoff-20261114-great-again-t-vsl-round2.md), 2026-11-14. **HOLD: fire after Dan answers the round 1 page (http://127.0.0.1:9760/). Claude Opus 5.5, high.** Round 2 builds every graphic and clip in his chosen style, keys the rest of the roll, makes AI start and end pairs and finishes the first minute.
 
-- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-14. **IN PROGRESS, Codex.** All three films approved and unchanged. Restaurant R4 X2 and Vacation X7 covers approved; [therapy X1–X8 pick remains](http://127.0.0.1:9862/?pick=therapy). Then complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), 2026-11-15. **IN PROGRESS, Codex.** All three films approved and unchanged. Restaurant R4 X2 and Vacation X7 covers approved; [four revised therapy choices await the final pick](http://127.0.0.1:9862/?therapy_round=2). Then complete backups and February Blotato/shared-waitlist setup after the Dec 11 parent release.
 
 
 - [I'm 41. Here Are The 10 Exercises I Do Every Week LFC Setup](handoff-20261113-ro32-ten-exercises-approved-film-setup.md), 2026-11-13. **OPEN: RELEASE CHECKS ONLY; SETUP COMPLETE.** Exact 2-revised approved/installed. Four verified schedules: YouTube6913482 Jan29 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon, after public YouTube check. Edit Queue uploaded; SL-38 registered. [Receipt](../Docs/RO32_SETUP_RECEIPT_20261113.md).
