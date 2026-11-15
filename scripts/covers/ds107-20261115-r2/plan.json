@@ -29,11 +29,12 @@
     "approved-sl08/picks.json and final Calories cover",
     "Docs/memory/cover-picks-ai-dan-acting-topic.md"
   ],
-  "rejected_elements": [
+  "old_key_reused": false,
+  "superseded_wrong_brief": [
     "Dan arguing with overweight older man",
     "junk-food pile",
     "speech bubbles",
     "any second character"
   ],
-  "old_key_reused": false
+  "brief_correction": "Corrected November 15, 2026: Claude confirms it misread the dictated message. Dan disliked the first round and REQUESTED four new designs of the two-man junk-food/speech-bubble concept. He did not reject that concept. Two must show Dan shirtless and two in a tank top. Round 2 remains available as extra options, not the requested concept."
 }

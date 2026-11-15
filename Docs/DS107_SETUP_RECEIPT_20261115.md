@@ -2,9 +2,9 @@
 
 CONTENT (SFC). Owner: Codex, “Metabolism Not The Reason Setup”, M2.
 
-**Current status: new cover round 2 ready, awaiting Dan's pick.** The previous set is rejected and preserved. Five new designs have checked Instagram and YouTube layouts. Three extra blind options remain unavailable after a fresh subscription-browser retry. No cover is approved or installed. Film, existing metadata and release state are unchanged.
+**Current status: Round 3 Y1-Y4 ready for Dan's pick.** These are the four requested conversation designs: two shirtless and two tank-top versions of lean Dan talking to an overweight man in his 50s with a mountain of junk food. Older man's bubble: “My metabolism slowed down.” Dan's bubble: “No.” Round 2 X1-X5 remain below as extra options. No cover approved or installed. Film, existing metadata and release state are unchanged.
 
-**Current cover review: http://127.0.0.1:9804/**, same link on M2 and M6. Reply **Round 2 X1 through X5**. Dan has not yet reviewed this new set. The old http://127.0.0.1:9803/ set is retained only as rejected evidence and must never be installed. Its comparison key is permanently retired.
+**Current cover review: http://127.0.0.1:9804/**, same link on M2 and M6. Refresh to see Round 3 Y1-Y4 first. Dan has not yet reviewed or picked these four. The mistaken claim that he rejected this concept has been corrected; it was his requested concept. The original first-round key stays retired. Round 3 has its own new directory/key and Y labels.
 
 ## Approved film
 
@@ -48,7 +48,7 @@ Drive folder made anyone-with-link viewable using `rclone link`; unauthenticated
 
 ## Continue after the pick
 
-1. Use only the new round 2 comparison set, `Short-form video content/covers/review/ds107-20261115-r2/comparison/`. Never read a selection from, rebuild, append to or install using the rejected set's key. If another round is requested, give it another new directory/key.
+1. Match the selected round and label: Round 3 uses Y1-Y4, with Round 2 X1-X5 retained as extras. For a Round 2 selection, use `Short-form video content/covers/review/ds107-20261115-r2/comparison/`. Never read a selection from, rebuild, append to or install using the rejected set's key. If another round is requested, give it another new directory/key.
 2. Record Dan's exact selection with `blind.py pick`; install from the original paired layouts, never the normalized review copy. A requested revision must be shown in both layouts and approved before installation.
 3. Register/sync the Facebook cover, make the TikTok frame-0 derivative from the unchanged original master, upload master/derivative/covers and verify full downloads. Recheck the live queue, release calendar and `release_phases.py`. This is green screen, not kitchen.
 4. Current queue: **199/200**, read November 15 during setup, insufficient room for four posts. No date reserved yet. If still full after the pick, complete all media/config verification, clear the cover hold and add one entry to the existing `scripts/blotato/video_waitlist.json`. Existing daily top-up owns scheduling; never create a per-video routine. Otherwise queue with the shared organic Short helper and fresh readbacks. Never create a direct or native-scheduled YouTube upload.
@@ -61,14 +61,13 @@ Post-release public-cover verification and pinned-comment checks remain with the
 Setup work saved in local commit `c95112b`. Shared safe-push stopped before merging because another session is actively editing `.claude/skills/_shared/editcap/editcap.py` (modified November 15 at 09:23). No other session's changes were altered. GitHub push remains pending; retry the shared safe-push after that live edit clears. This does not block the mirrored review link or verified backups.
 
 
-## Cover rejection and new round, November 15
+## Corrected interpretation of Dan's request, November 15
 
-Dan rejected every cover at http://127.0.0.1:9803/. Exact dictated words, preserved without reinterpretation:
+Claude reported that it misread the dictation and supplied the wrong brief. Dan rejected the first round and REQUESTED four new designs of the same conversation concept. He did not reject that concept. His exact dictated words remain:
 
 > Okay, I don't like any of these four new designs. All of them have me talking to an overweight guy in his 50s with a mountain of junk food in front of him. There is a speech bubble from him saying, 'My metabolism slowed down,' and a speech bubble from me saying, 'No.' Two variations are shirtless, and two variations are with a tank top.
 
-The rejected source images, both layouts, public review files and private key are retained in `Short-form video content/covers/review/ds107-20261115/`. Their pre-rejection hashes are saved in `scripts/covers/ds107-20261115-r2/prior-round-rejection.json`. Its key is retired and must never be reused. The new round uses a separate folder and newly built key. Drop the entire argument scene, second character, junk-food pile and speech bubbles. Film, existing metadata and release state remain untouched.
-
+Correct brief: lean, identity-matched Dan talking to an overweight man in his 50s with a mountain of junk food in front of him. Older man's bubble: “My metabolism slowed down.” Dan's bubble: “No.” Two shirtless versions and two tank-top versions. The earlier instruction to drop this concept was incorrect and is withdrawn. The original first-round assets/key stay preserved and retired because that first set was rejected. Round 2 is retained below as extra options; it has not been approved or rejected by this correction. The rejection JSON records and obsolete Round 2 brief have been corrected to prevent repeating the misunderstanding.
 
 ## New cover round 2 delivery
 
@@ -82,3 +81,16 @@ The rejected source images, both layouts, public review files and private key ar
 - **New sources/build:** `Short-form video content/covers/review/ds107-20261115-r2/` and `scripts/covers/ds107-20261115-r2/`. Public page contains only neutral filenames and still images. Await Dan's pick before any further setup.
 
 Round 2 repository checkpoint: local commit `123eca7` saves the new round and exact rejection. Shared safe-push is blocked before merging by live changes in `Docs/memory/MEMORY.md` and `scripts/edit-dashboard/review_handoff.py`; `AGENTS.md` also differs. Those files were left untouched. Push remains pending; the review service and both Macs' copies work independently. Retry after those owners finish.
+
+
+## Round 3 requested conversation covers, completed November 15
+
+- **Brief corrected:** Claude confirmed its earlier reading was wrong. The request is four variations of one two-person scene, not a request to drop it. The exact dictated words and correction are recorded above. Both rejection JSON records and the obsolete Round 2 brief were corrected. Round 2 is retained as extra choices, not treated as rejected by this correction.
+- **Four final choices:** Y1 and Y2 show Dan shirtless; Y3 and Y4 show him in a tank top. Each has the older overweight man, mountain of junk food, and exact bubbles “My metabolism slowed down.” / “No.” Four distinct settings and natural gestures. Dan's real pool portrait was used as the identity reference for every generation; he is lean and natural, not intentionally enlarged. No extra thumbnail title text was added. The requested dialogue keeps its exact sentence capitalization.
+- **Google first:** fresh attempt again found no browser surfaces and “The browser access host is unavailable”; native Chrome returned `cgWindowNotFound` (`-10005`). Flow could not be reached or submitted to. Failure saved in `Short-form video content/covers/review/ds107-20261115-r3/google-subscription-failure.txt`. Codex subscription helper fallback used `gpt-6.1-sol`, high, verified available in the current local catalog. Four initial calls plus one targeted Y3 food-pile correction, five subscription calls total, four final images. No paid image API used. The smaller-pile initial Y3 is retained privately and was not presented on the page.
+- **Checks completed:** eight final 1080 × 1920 RGB layouts; Instagram and YouTube paired for each choice; JPEGs under 2 MB. All eight generated faces inspected enlarged, all four Dan faces checked against the real reference; repaired Y3's two faces inspected again. Exact dialogue typeset locally. Both bubbles checked at 270 × 480 phone size. Two faces detected per layout, zero text overlap with expanded face/hair regions. Full hair and face clearance, clear shirtless abs, and text clear of tank-top torsos. Evidence: Round 3 `cover-qa.json`, `layout-manifest.json`, `face-review.jpg`.
+- **Page:** Y1-Y4 at the top; the unchanged five Round 2 X1-X5 designs below. All 16 original Round 2 JPEG images remain byte-identical. First-round key not reused. A fresh Round 3 `blind.py` registry/key uses a local label adapter to match Dan's requested Y labels; no pick logged.
+- **Delivery verified:** required `review_server.py` on the existing port 9804. The server registry pins the port to its existing source folder, so the new canonical Round 3 public assets were copied into that established service root, `Short-form video content/covers/review/ds107-20261115-r2/public/`. Previous Round 2 HTML archived at `ds107-20261115-r2/page-before-round3.html`. The active build script is now `scripts/covers/ds107-20261115-r3/review.py`, which preserves that source root for future refreshes. Do not run the obsolete Round 2 page builder over the active page.
+- **M2/M6 readback:** updated title, Round 3 first, nine choices total, page HTTP 200 on both Macs, all 28 linked images match source bytes and each other's SHA-256 values. CUA browser visual inspection unavailable; final native sources, faces and paired phone stills inspected offline. Static page has no media players or audio playback.
+- **Protected:** approved master, existing Blotato metadata config, description and pinned question still match the pre-round SHA-256 values. No film render, media upload, queue write or scheduling command performed. `scripts/covers/ds107-20261115-r3/protected-after.json` and `review-verification.json` hold the proof.
+- **Next:** stop for Dan's Y1-Y4 pick or a Round 2 X1-X5 extra. A requested further revision needs another exact-file look before installation. Build and source records live in the new `ds107-20261115-r3` folders.

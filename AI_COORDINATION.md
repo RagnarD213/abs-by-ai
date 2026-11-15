@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**Metabolism Not The Reason Setup:R2-AWAITING-PICK:2026-11-15:Codex M2.** http://127.0.0.1:9804/ (M2+M6); five covers checked; old set rejected/preserved, key retired; Google extras browser-blocked. Film/metadata unchanged; no scheduling; push-pending. Next: Dan picks X1-X5. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
+**Metabolism Not The Reason Setup:R3-PICK:2026-11-15:Codex M2.** http://127.0.0.1:9804/ (M2+M6); Y1-Y4 requested bubbles, two shirtless/two tank; R2 extras below. Records corrected; film/metadata unchanged; no scheduling; push-pending. Next: Dan picks. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
 
 
 **RealDemos-B03:DAN-REVIEW-R3:2026-11-15:Claude.**http://127.0.0.1:9531/;sled+lunge-live;chinup-install-after-approval.
