@@ -28,6 +28,9 @@ SOURCE_ROOTS = ['.claude/skills/_shared/'+n for n in ('editroute','editcap','ren
 TERMINAL = {'delivered','delivered-unreviewed','needs-dan','blocked','taken-over'}
 NAME = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$')
 JOB = re.compile(r'^[A-Z]{2,8}-[A-Z0-9-]+$')
+class TransportError(RuntimeError):pass
+class RejectedError(RuntimeError):pass
+
 HEARTBEAT_S = 60
 STALE_S = 600
 
@@ -67,8 +70,9 @@ def remote(host, args, payload=None, timeout=25):
     run = subprocess.run(['ssh','-oBatchMode=yes','-oConnectTimeout=3',hc.get('ssh',host),command],
                          input=json.dumps(payload) if payload is not None else None,
                          capture_output=True, text=True, timeout=timeout)
-    if run.returncode: raise RuntimeError(host+': '+(run.stderr or run.stdout)[-1000:])
-    return json.loads(run.stdout)
+    if run.returncode: raise (TransportError if run.returncode==255 else RejectedError)(host+': '+(run.stderr or run.stdout)[-1000:])
+    try:return json.loads(run.stdout)
+    except ValueError as exc:raise RejectedError('invalid coordinator response: '+str(exc))
 
 
 def rpc(op, **values):
@@ -141,7 +145,7 @@ def handle(req):
             all_rows=[r for d in snapshot()['batches'].values() for r in d['jobs'].values()]
             for job in req['jobs']:
                 for prior in all_rows:
-                    if prior['id']==job['id'] and prior['status'] not in TERMINAL:
+                    if prior['id']==job['id'] and (prior['status'] not in TERMINAL or prior['round']==job['round']):
                         raise ValueError(job['id']+' has a nonterminal round; finish or take it over first')
                 for sibling in req['jobs']:
                     if sibling is not job and sibling['id']==job['id']:
@@ -154,7 +158,8 @@ def handle(req):
                 if hashlib.sha256(dest.read_bytes()).hexdigest()!=job['brief_sha256']:
                     raise ValueError('brief readback failed')
                 rows[key(job)]=dict(job,status='queued',queued_at=now,attempts=0,resumes=0,allowance_tries=0,not_before=0)
-            write(p/'state.json',dict(enabled=False,jobs=rows,ticks={}))
+            c=control();chat_enabled=name.startswith('chat-') and c.get('enabled') and c.get('preflight',{}).get('passed') and req.get('digest')==c.get('preflight',{}).get('digest')
+            write(p/'state.json',dict(enabled=bool(chat_enabled),jobs=rows,ticks={}))
             write(p/'manifest.json',dict(schema=1,batch=name,created=now,jobs=req['jobs']))
             return dict(registered=True,batch=name)
         if op=='tick':
@@ -184,7 +189,8 @@ def handle(req):
             live=[]
             for d in snapshot()['batches'].values():
                 live.extend(r for r in d['jobs'].values() if r['status']=='claimed' and r['claim']['owner']==req['host'])
-            unregistered=sum(r['id'] not in req['occupied'] for r in live)
+            unregistered=sum(r['id'] not in req['occupied'] and r['claim'].get('phase')!='outcome waiting for review mirror' for r in live)
+            if c.get('host_backoff',{}).get(req['host'],{}).get('until',0)>now:return None
             full=len(req['occupied'])+unregistered>=req['slots']
             choices=[]
             for p in batches():
@@ -193,6 +199,8 @@ def handle(req):
                 for k,r in state['jobs'].items():
                     if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']):
                         if r['id'] in req.get('unavailable',[]):continue
+                        next_executor=r.get('next_executor',r['executor'])
+                        if c.get('executor_backoff',{}).get(next_executor,{}).get('until',0)>now:continue
                         choices.append(({'L':0,'M':1,'S':2}[r['size']],r['order'],r['queued_at'],p,k,r))
             if full:choices=[entry for entry in choices if entry[-1]['id'] in req['occupied']]
             if not choices:return None
@@ -218,6 +226,7 @@ def handle(req):
             if row['status']=='claimed':raise ValueError('live or unconfirmed claim; takeover refused until owner confirms exit')
             state=read(p/'state.json');row=state['jobs'][k]
             result=dict(row)
+            if row.get('outcome'):row['prior_outcome']=dict(row['outcome'])
             finish(row,dict(status='taken-over',reason='explicit chat takeover',by=req['host']))
             write(p/'state.json',state);return result
         p,manifest,state=load_batch(req['batch'])
@@ -234,8 +243,19 @@ def handle(req):
             row['outcome_token']=req['token']; row.setdefault('timing',{})
             for field,value in req.get('timing',{}).items():row['timing'][field]=row['timing'].get(field,0)+value
             outcome=req['outcome']
-            if outcome['status']=='paused-for-allowance':
-                row['allowance_tries']+=1
+            if outcome['status']=='deferred-start':
+                row['start_failures']=row.get('start_failures',0)+1
+                delay=req.get('backoff_s',120)
+                c=control();c.setdefault('host_backoff',{})[claim['owner']]=dict(until=now+delay,reason=outcome['reason']);write(HOME/'control.json',c)
+                if row['start_failures']<3:
+                    row.update(status='queued',not_before=now+delay,last_start_error=outcome['reason'])
+                    if claim.get('workdir'):row.update(placement=claim['owner'],workdir=claim['workdir'])
+                    row.pop('claim',None)
+                else:finish(row,dict(status='blocked',reason='start failed three times: '+outcome['reason'],next_action='Resolve the recorded capacity, storage or executor problem'))
+            elif outcome['status']=='paused-for-allowance':
+                row['allowance_tries']+=int(outcome.get('attempted',True))
+                next_executor=outcome.get('executor',row['executor']);row['next_executor']=next_executor
+                c=control();c.setdefault('executor_backoff',{})[next_executor]=dict(until=now+req.get('backoff_s',7200),reason=outcome['reason']);write(HOME/'control.json',c)
                 if row['allowance_tries']<3:
                     row.update(status='queued',not_before=now+req.get('backoff_s',7200),last_pause=now,
                                placement=claim['owner'],workdir=claim.get('workdir'),resume_phase=claim.get('phase'))
@@ -303,7 +323,8 @@ def alive(pid,birth):return bool(birth and identity(pid)==birth)
 
 def kick(other=False):
     label='gui/'+str(os.getuid())+'/com.absbyai.edit-queue'
-    subprocess.run(['launchctl','kickstart',label],capture_output=True,timeout=5)
+    try:subprocess.run(['launchctl','kickstart',label],capture_output=True,timeout=5)
+    except Exception:pass
     if other:
         target='m2' if here()=='m6' else 'm6'
         try:
@@ -328,22 +349,45 @@ def guard(job):
     return row
 
 
+def normalize_outcome(outcome):
+    outcome=dict(outcome)
+    if outcome.get('status') in ('deferred-start','paused-for-allowance') and outcome.get('reason'):return outcome
+    try:finish({},outcome)
+    except Exception as exc:
+        return dict(status='blocked',reason='invalid worker outcome: '+(str(exc) or type(exc).__name__),next_action='Inspect the saved outcome and retained work')
+    return outcome
+
+
 def flush_outbox():
     for p in sorted((HOME/'outbox').glob('*.json')):
-        request=read(p)
+        request=read(p);error=None
         try:
-            pending=request['outcome'].pop('pending_review',None)
+            request['outcome']=normalize_outcome(request['outcome'])
+            pending=request['outcome'].get('pending_review')
             if pending:
                 request['outcome']['link']=eq.sibling('batch_runner').review_link(pending)
-            rpc(**request);p.unlink()
-        except (OSError,RuntimeError,subprocess.SubprocessError):
-            continue
+                request['outcome'].pop('pending_review',None)
+            rpc(**{k:v for k,v in request.items() if not k.startswith('_')});p.unlink()
+        except (TransportError,subprocess.TimeoutExpired,ConnectionError) as exc:
+            error=str(exc) or type(exc).__name__
+        except Exception as exc:
+            error=str(exc) or type(exc).__name__
+            request['_failures']=request.get('_failures',0)+1
+            if request['_failures']>=3:
+                quarantine=HOME/'outbox-quarantine'/p.name
+                write(quarantine,dict(request,error=error))
+                request['outcome']=dict(status='blocked',reason='outcome synchronization rejected: '+error,next_action='Inspect quarantined outcome; retained media and work are unchanged')
+                try:rpc(**{k:v for k,v in request.items() if not k.startswith('_')});p.unlink();continue
+                except Exception:pass
+        if error:
+            request['_error']=error;write(p,request)
 
 
 def update(op, batch, k, token, **kwargs):
+    if op=='outcome':kwargs['outcome']=normalize_outcome(kwargs['outcome'])
     request=dict(op=op,batch=batch,key=k,token=token,host=here(),**kwargs)
     try:return rpc(**request)
-    except (OSError,RuntimeError,subprocess.SubprocessError):
+    except Exception:
         # Heartbeats do not queue: after reconnect the live process sends a fresh one.
         if op=='outcome':write(HOME/'outbox'/(token+'.json'),request)
         return None
@@ -390,7 +434,9 @@ def reconcile(snap):
                 if not previous:write(stopfile,dict(at=time.time(),pid=session['pid'],birth=session['birth']))
                 # A following tick confirms that group exited before any recovery claim.
                 continue
-            rpc('recover',batch=n,key=k,token=c['token'],host=here(),pid_alive=False,session_alive=False)
+            result=rpc('recover',batch=n,key=k,token=c['token'],host=here(),pid_alive=False,session_alive=False)
+            if result['status'] in TERMINAL:
+                subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'release',row['id']],capture_output=True,timeout=30)
 
 
 def report(snap, error=None):
@@ -402,7 +448,7 @@ def report(snap, error=None):
             if r['status']=='taken-over':continue
             owner=(r.get('claim') or {}).get('owner',r.get('placement'))
             c=r.get('claim') or {};last_tick=d.get('ticks',{}).get(owner,0)
-            unknown=bool(error) or (r['status']=='claimed' and now-last_tick>STALE_S)
+            unknown=(bool(error) and r['status'] not in TERMINAL) or (r['status']=='claimed' and now-last_tick>STALE_S)
             group='Unknown (Mac unreachable)' if unknown else {'delivered':'Checked','delivered-unreviewed':'Unreviewed','needs-dan':'Needs Dan','blocked':'Blocked'}.get(r['status'],'Queued / Running')
             o=r.get('outcome',{});link=o.get('link','');verified=False
             if link and here()=='m6':
@@ -431,10 +477,12 @@ def report(snap, error=None):
                     observed=[v.get(j) for dd in snap.get('batches',{}).values() for v in dd.get('observations',{}).values()]
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
         except (OSError,ValueError,KeyError):pass
-    doc=dict(at=now,start_block=snap.get('start_block'),enabled=snap.get('control',{}).get('enabled',False),error=error,groups=groups,lost=lost)
+    outbox_errors=[read(p).get('_error') for p in (HOME/'outbox').glob('*.json') if read(p).get('_error')]
+    doc=dict(outbox_errors=outbox_errors,at=now,start_block=snap.get('start_block'),enabled=snap.get('control',{}).get('enabled',False),error=error,groups=groups,lost=lost)
     write(HOME/'morning-report.json',doc)
     lines=['# Overnight edit report','',time.strftime('%Y-%m-%d %H:%M:%S %Z'),'', 'New starts: '+('enabled' if doc['enabled'] else 'disabled')]
     if error:lines+=['',error]
+    if outbox_errors:lines+=['','Outcome sync waiting: '+ '; '.join(outbox_errors)]
     if doc['start_block']:lines+=['','New starts blocked: '+doc['start_block']]
     for group,rows in groups.items():
         lines+=['','## '+group,'','| Video | Mac | State / next action | Review |','|---|---|---|---|']
@@ -481,7 +529,7 @@ def tick():
             doc=report(snap)
             print('Batch tick:',here(),'new starts',snap['control'].get('enabled',False),flush=True)
             return doc
-        except (OSError,RuntimeError,subprocess.SubprocessError) as exc:
+        except Exception as exc:
             doc=report(read(HOME/'snapshot.json',{}),str(exc))
             print('Batch tick unavailable:',exc,flush=True);return doc
 
@@ -494,6 +542,8 @@ def enqueue(name,path):
     for i,j in enumerate(request['jobs']):
         job=dict(j);job['id']=job['id'].upper()
         if not JOB.fullmatch(job['id']):raise ValueError('invalid job ID')
+        shortened=re.match(r'^([A-Z]{2,3})-(\d{1,3}[A-Z]?)(?![0-9])',job['id'])
+        if shortened and shortened.group(0)!=job['id']:raise ValueError('job ID would be shortened by editcap')
         if job.get('size') not in ('L','M','S') or int(job.get('round',0))<1:raise ValueError('size and positive round required')
         if job.get('executor') not in ('claude','codex'):raise ValueError('preserve an explicit editor for each job')
         if not job.get('title') or not job.get('kind') or not job.get('target'):raise ValueError('title, kind and target required')
@@ -502,7 +552,7 @@ def enqueue(name,path):
         job['chroma']=bool(job.get('chroma'));job['drive_bound']=bool(job.get('drive_bound'))
         statuses=editroute.gather(job['id']);owner,_=editroute.holder(job['id'],statuses)
         if any(not st.get('reachable') for st in statuses.values()):raise ValueError('both Macs must be reachable to establish placement at enqueue')
-        if any(job['id'] in st.get('editcap',{}).get('in_use',[]) for st in statuses.values()):
+        if any(st.get('editcap',{}).get('edits',{}).get(job['id']) in ('waiting','promoted','active','parked') for st in statuses.values()):
             raise ValueError(job['id']+' has active production; batch enqueue cannot transfer a live chat')
         if owner:placement=owner
         elif job['kind']=='LFC' or job['chroma'] or job['drive_bound']:placement='m2'
@@ -511,7 +561,7 @@ def enqueue(name,path):
         brief=Path(job.pop('brief'));brief=brief if brief.is_absolute() else source.parent/brief
         data=brief.read_bytes();job['brief_sha256']=hashlib.sha256(data).hexdigest()
         briefs[key(job)]=base64.b64encode(data).decode();jobs.append(job)
-    result=rpc('enqueue',batch=name,jobs=jobs,briefs=briefs)
+    result=rpc('enqueue',batch=name,jobs=jobs,briefs=briefs,digest=fingerprints()['digest'])
     kick(other=True)
     result['receipt']='registered; waiting for both Macs to log this batch'
     return result

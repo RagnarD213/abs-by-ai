@@ -18,23 +18,33 @@ b=eq.sibling('batch')
 r=eq.sibling('runner')
 
 
-def review_verdict(path):
+def review_verdict(path, expected_hashes=None, started_ns=None):
     try:text=Path(path).read_text()
     except FileNotFoundError:return None
+    if started_ns is not None and Path(path).stat().st_mtime_ns<started_ns:return None
+    if expected_hashes and any(digest not in text for digest in expected_hashes):return None
     first=text.splitlines()[0].strip().replace('**','') if text.strip() else ''
     for verdict in ('SHIP WITH DISCLOSED UNCERTAINTY','DOES NOT SHIP','SHIP'):
         if first=='VERDICT: '+verdict:
             if verdict=='DOES NOT SHIP' and not (re.search(r'\b\d{1,2}:\d{2}\b',text) and re.search(r'rule|\.md|standard',text,re.I)):
-                return None
+                return 'REJECTION WITHOUT CITATION'
             return verdict
     return None
 
 
-def review_link(info):
-    """The existing managed review server mirrors M2 pages to the M6 and verifies HTTP."""
+class StartupWait(RuntimeError):pass
+
+
+def review_location(info):
     root=Path(info.get('review_root',''));port=info.get('review_port')
     if not root.is_absolute() or not root.is_dir() or not isinstance(port,int) or not (1024<=port<=65535):
         raise ValueError('outcome needs an absolute review_root and review_port from editroute.py free-port')
+    return root,port
+
+
+def review_link(info):
+    """The existing managed review server mirrors M2 pages to the M6 and verifies HTTP."""
+    root,port=review_location(info)
     if info.get('review_report'):
         source=Path(info['review_report'])
         if source.is_file():
@@ -45,13 +55,13 @@ def review_link(info):
                 if 'independent-review.md' not in html:
                     page.write_text(html+'\n<p><a href="independent-review.md">Independent review and findings</a></p>\n')
     run=subprocess.run([sys.executable,str(b.SHARED/'review_server.py'),str(port),str(root)],capture_output=True,text=True,timeout=120)
-    if run.returncode:raise RuntimeError('managed review installation/mirror failed: '+(run.stdout+run.stderr)[-600:])
+    if run.returncode:raise b.TransportError('managed review installation/mirror failed: '+(run.stdout+run.stderr)[-600:])
     link='http://127.0.0.1:'+str(port)+'/'
     if b.here()=='m2':
         cmd=['ssh','-oBatchMode=yes','-oConnectTimeout=3','m6','curl -fsS --max-time 5 -o /dev/null '+link]
     else:cmd=['curl','-fsS','--max-time','5','-o','/dev/null',link]
     opened=subprocess.run(cmd,capture_output=True,text=True,timeout=10)
-    if opened.returncode:raise RuntimeError('M6 review link did not open')
+    if opened.returncode:raise b.TransportError('M6 review link did not open')
     return link
 
 
@@ -75,7 +85,7 @@ def main(claim_path):
         # No session may start until this owner has confirmed its durable claim.
         b.write(Path(claim_path).parent/'not-started.json',dict(reason='coordinator unavailable before first session'))
         return 1
-    stop=threading.Event();has_slot=False;cap_requested=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
+    stop=threading.Event();has_slot=False;cap_requested=False;session_started=False;wd=None;checkpoint={};edit_h=review_h=0.;started=time.time()
     outcome=dict(status='blocked',reason='runner exited before completing',next_action='Inspect the retained worker log')
     lock=threading.Lock();current=dict(fields)
     def progress(**values):
@@ -85,29 +95,35 @@ def main(claim_path):
         return b.update('heartbeat',name,k,token,fields=data)
     def pulse():
         while not stop.wait(b.HEARTBEAT_S):
-            if has_slot:
-                subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'heartbeat',jobid],capture_output=True,timeout=35)
-            progress()
+            try:
+                if has_slot:
+                    subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'heartbeat',jobid],capture_output=True,timeout=35)
+                progress()
+            except Exception as exc:
+                print('heartbeat retry: '+(str(exc) or type(exc).__name__),flush=True)
     thread=threading.Thread(target=pulse,daemon=True);thread.start()
-    def interrupted(signum,frame):raise RuntimeError('runner interrupted by signal '+str(signum))
+    def interrupted(signum,frame):raise r.SessionInterrupted('runner interrupted by signal '+str(signum))
     signal.signal(signal.SIGTERM,interrupted)
     signal.signal(signal.SIGINT,interrupted)
     def session(ex, prompt, role, timeout):
+        nonlocal session_started
+        session_started=True
         def observe(pid,birth):progress(session=dict(pid=pid,birth=birth),phase=role)
         code,tail,hours=r.run_session(ex,cfg,str(wd),prompt,str(wd/'queue-run.log'),role,timeout,session_observer=observe)
         progress(session={},phase=role+' ended')
         return code,tail,hours
     try:
         # Claim and slot are separate: this runner acquires, refreshes and finally releases the slot.
+        if not eq.resolve_binary(executor,cfg):raise StartupWait(executor+' program is unavailable')
         cap_requested=True
         cap=subprocess.run([sys.executable,str(b.SHARED/'editcap/editcap.py'),'acquire',jobid,'--title',row['title'],'--type',row['kind']],capture_output=True,text=True,timeout=45)
-        if cap.returncode!=0:raise RuntimeError('edit slot not acquired: '+(cap.stdout+cap.stderr)[-600:])
+        if cap.returncode!=0:raise StartupWait('edit slot not acquired: '+(cap.stdout+cap.stderr)[-600:])
         # editcap historically fails open. Confirm the registry actually records this job as active.
         registry=b.read(Path(os.environ.get('EDITCAP_DIR','/tmp/absbyai-editcap'))/'registry.json',{})
-        if registry.get('edits',{}).get(jobid,{}).get('state')!='active':raise RuntimeError('editcap did not record an active slot')
+        if registry.get('edits',{}).get(jobid,{}).get('state')!='active':raise StartupWait('editcap did not record an active slot')
         has_slot=True
         work=subprocess.run([sys.executable,str(b.SHARED/'renderq/renderq.py'),'workdir',jobid,'--need',str(row['need_gb'])],capture_output=True,text=True,timeout=45)
-        if work.returncode:raise RuntimeError('work folder: '+(work.stdout+work.stderr)[-600:])
+        if work.returncode:raise StartupWait('work folder: '+(work.stdout+work.stderr)[-600:])
         wd=Path(work.stdout.strip().splitlines()[-1])
         if not wd.is_absolute() or not wd.is_dir():raise RuntimeError('renderq did not return a usable work folder')
         if row.get('workdir') and str(wd)!=row['workdir']:raise RuntimeError('resume must use the original work folder')
@@ -118,6 +134,9 @@ def main(claim_path):
         checkpoint_path=wd/(k+'-batch-checkpoint.json');checkpoint=b.read(checkpoint_path,{})
         if checkpoint and checkpoint.get('brief_sha256')!=row['brief_sha256']:raise ValueError('resume brief changed')
         checkpoint.update(brief_sha256=row['brief_sha256'])
+        if row['attempts']==1 and checkpoint.get('registration')!=name:
+            checkpoint['review_attempts']=0
+        checkpoint['registration']=name
         job=dict(id=jobid,title=row['title'],size=row['size'],state='ready',file=row.get('jobdoc',''),
                  claude=brief.decode(),codex=brief.decode())
         job['queue_revision']=dict(round=row['round'],words='Execute the copied batch brief exactly')
@@ -135,6 +154,7 @@ def main(claim_path):
         instructions=f'''Read AGENTS.md, .claude/skills/_shared/VIDEO-RULES.md, WORK_PACKET.json and BUDGET.json first.
 You are the single unattended editor for {row['title']} ({jobid}), round {row['round']}.
 Your work folder is {wd}; the runner already holds and heartbeats your edit slot. Use renderq for heavy steps.
+On M6, copy the needed source footage to the internal work folder with editroute.py fetch before heavy work; never encode against a network share.
 Do not use ps to impose the old two-build cap, run editroute wait, acquire/release editcap yourself, or change queue state.
 Do not upload, publish, schedule, send messages, change shared scheduling code, or spawn supervisors or a final reviewer. Required asset/frame checks still follow the existing skill.
 Resume existing verified work and provider receipts in this folder. Never repeat a paid request without reconciling its result.
@@ -158,14 +178,18 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
             progress(phase='editor')
             code,tail,edit_h=session(executor,instructions,'batch-editor',max(.001,budget['hours_allowed']))
             checkpoint['edit_hours']=hours_used+edit_h;b.write(checkpoint_path,checkpoint)
-            if r.classify_failure(code,tail,cfg)=='usage_limited':
-                outcome=dict(status='paused-for-allowance',reason='editor usage limit');return 0
             marker=b.read(marker_path)
+            if code!=0 and (not marker or marker.get('token')!=token):
+                failure=r.classify_failure(code,tail,cfg)
+                if failure=='usage_limited':
+                    outcome=dict(status='paused-for-allowance',reason='editor usage limit',executor=executor);return 0
+                if failure=='auth_failed':raise StartupWait('editor sign-in is unavailable')
             if not marker or marker.get('token')!=token:raise RuntimeError('editor exited '+str(code)+' without a fresh outcome file')
             if code!=0:raise RuntimeError('editor exited '+str(code)+'; candidate not accepted')
             if marker.get('status')=='blocked':
                 outcome=dict(status='blocked',reason=marker['reason'],next_action=marker['next_action']);return 0
             if marker.get('status')=='needs-dan':
+                review_location(marker)
                 evidence=marker.get('evidence',[])
                 if not evidence:raise ValueError('needs-dan has no first-review evidence')
                 for file in evidence:
@@ -179,6 +203,7 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
             info=b.read(wd/'DELIVERY.json',{})
             errors=r.validate_delivery(info,str(wd),packet,cfg,'frames_approved' if row.get('assets_approved') else 'ready')
             if errors:raise ValueError('candidate evidence incomplete: '+'; '.join(errors[:6]))
+            review_location(info)
             candidate_stamps(info['files'])
             checkpoint.update(candidate=True,files=[dict(path=f,sha256=r.sha256(f)) for f in info['files']],review_attempts=0)
             b.write(checkpoint_path,checkpoint)
@@ -186,30 +211,43 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
         candidate_stamps([file['path'] for file in checkpoint['files']])
         for file in checkpoint['files']:
             if r.sha256(file['path'])!=file['sha256']:raise ValueError('candidate changed after validation')
+        review_location(info)
         link='http://127.0.0.1:'+str(info.get('review_port',''))+'/'
         reviewer=cfg['review']['reviewer_for'][executor]
+        executor_pause=b.rpc('snapshot')['control'].get('executor_backoff',{}).get(reviewer,{})
+        if executor_pause.get('until',0)>time.time():
+            outcome=dict(status='paused-for-allowance',reason='reviewer allowance backoff',executor=reviewer,attempted=False);return 0
         verdict=None;reason='reviewer returned no valid verdict';report_path=None
         # A timeout or missing verdict gets one new session. A valid rejection never starts a fix loop.
         for attempt in range(int(checkpoint.get('review_attempts',0)),2):
             checkpoint['review_attempts']=attempt+1;b.write(checkpoint_path,checkpoint)
-            report_path=wd/('BATCH-REVIEW-'+str(attempt+1)+'.md')
+            report_path=wd/(k+'-'+token+'-BATCH-REVIEW-'+str(attempt+1)+'.md')
+            if report_path.exists():report_path.replace(report_path.with_suffix('.before-session.md'))
+            review_started_ns=time.time_ns()
+            expected_hashes=[file['sha256'] for file in checkpoint['files']]
             prompt=f'''Read AGENTS.md and .claude/skills/_shared/VIDEO-RULES.md. Independently review only the exact
 candidate files in {wd}/DELIVERY.json and the scope in {wd}/{k}-BRIEF.md and WORK_PACKET.json.
 Do not read editor notes/logs or earlier review reports. Do not edit, render, publish, send, or ask Dan for a new gate.
 Use existing checks and silent non-speaker inspection. Do not claim an audible listen from numbers.
+Candidate SHA-256 values: {', '.join(expected_hashes)}. Echo every value in your report to identify the reviewed files.
 Write {report_path}. First line exactly VERDICT: SHIP, VERDICT: DOES NOT SHIP, or
 VERDICT: SHIP WITH DISCLOSED UNCERTAINTY. Cite the existing rule and a timestamp for every rejection.
 Disclose unsupported checks and genuine uncertainty. Return one consolidated review; no fix loop or additional reviewers.'''
             progress(phase='reviewer')
             code,tail,hours=session(reviewer,prompt,'review-batch-'+str(attempt+1),float(budget['review_hours_allowed']))
             review_h+=hours
-            verdict=review_verdict(report_path) if code==0 else None
+            verdict=review_verdict(report_path,expected_hashes,review_started_ns) if code==0 else None
             if verdict:break
-            if r.classify_failure(code,tail,cfg)=='usage_limited':
+            if code!=0 and r.classify_failure(code,tail,cfg)=='usage_limited':
                 checkpoint['review_attempts']=attempt;b.write(checkpoint_path,checkpoint)
-                outcome=dict(status='paused-for-allowance',reason='reviewer usage limit');return 0
+                outcome=dict(status='paused-for-allowance',reason='reviewer usage limit',executor=reviewer);return 0
             reason='reviewer timeout or no valid verdict after '+str(attempt+1)+' attempt(s)'
-        if verdict=='DOES NOT SHIP':
+        for file in checkpoint['files']:
+            if r.sha256(file['path'])!=file['sha256']:raise ValueError('candidate changed during review')
+        candidate_stamps([file['path'] for file in checkpoint['files']])
+        if verdict=='REJECTION WITHOUT CITATION':
+            outcome=dict(status='delivered-unreviewed',reason='reviewer rejected without rule and timestamp; findings attached',link=link,report=str(report_path),files=checkpoint['files'])
+        elif verdict=='DOES NOT SHIP':
             outcome=dict(status='blocked',reason='independent reviewer: DOES NOT SHIP',next_action='Review the cut and consolidated findings; scope a separate revision',link=link,report=str(report_path))
         elif verdict in ('SHIP','SHIP WITH DISCLOSED UNCERTAINTY'):
             outcome=dict(status='delivered',verdict=verdict,link=link,report=str(report_path),files=checkpoint['files'])
@@ -218,10 +256,13 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         try:outcome['link']=review_link(info)
         except (OSError,RuntimeError,subprocess.SubprocessError):
             outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'],review_report=info.get('review_report'))
+    except StartupWait as exc:
+        outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__)
     except Exception as exc:
-        outcome=dict(status='blocked',reason=str(exc),next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
+        outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:
         stop.set();thread.join(timeout=5)
+        outcome=b.normalize_outcome(outcome)
         try:
             if wd:
                 b.write(wd/(k+'-batch-outcome-'+token+'.json'),dict(outcome,token=token,at=time.time()))
@@ -232,7 +273,7 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
                 progress(phase='outcome waiting for review mirror',session={})
             else:
                 b.update('outcome',name,k,token,outcome=outcome,timing=timing,
-                         backoff_s=eq.load_config()['stop']['usage_backoff_hours']*3600)
+                         backoff_s=120 if outcome['status']=='deferred-start' else eq.load_config()['stop']['usage_backoff_hours']*3600)
         finally:
             if cap_requested:
                 review=outcome['status'] in ('delivered','delivered-unreviewed','needs-dan') or bool(outcome.get('link'))

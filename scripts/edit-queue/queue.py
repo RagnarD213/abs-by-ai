@@ -225,7 +225,10 @@ def sync_review_handoff(job):
                 cmd = resume.command_for(info, remote, resume.er.cfg())
         finally:
             sys.path.remove(str(shared / "editroute"))
-    subprocess.run(cmd, check=True, timeout=45)
+    try:subprocess.run(cmd, check=True, timeout=45)
+    except Exception:
+        if job['state'] not in ('finalized','uploaded'):raise
+        print('Completed state saved; editcap cleanup will reconcile when the owner reconnects.')
 
 
 def set_state(data, jid, state, by="", note=None, editor=None, needs=None):

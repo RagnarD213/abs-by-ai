@@ -462,6 +462,12 @@ def _entry(reg, job, now, args):
 def acquire(job, title=None, type_=None, release=None, today=None, ctx=None, priority=False):
     """(exit code, message). 0 = go, 3 = waiting."""
     job = job_code(job) or job
+    if not os.environ.get('EDITCAP_DIR'):
+        try:
+            record=json.loads((Path.home()/'.absbyai-batch/registrations.json').read_text()).get(job)
+        except FileNotFoundError:record=None
+        if record and not (record.get('status')=='claimed' and record.get('token')==os.environ.get('EDIT_BATCH_TOKEN')):
+            return EXIT_WAIT, '{}: batch owned; use batch.py takeover before chat production.'.format(job)
     try:
         with _locked():
             now, rq, cal = ctx or _context(today)

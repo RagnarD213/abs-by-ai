@@ -763,9 +763,11 @@ def cmd_pick(job, kind=None, rnd=1, chroma=False, named=None, move=False, dry=Fa
         for r in reasons:
             print("  " + r)
         if host == "wait":
-            print("  Next: run `python3 .claude/skills/_shared/editroute/editroute.py wait {}` in the background; it "
-                  "exits 0 and prints the Mac when a slot is free for this job. Do no production work until then."
-                  .format(job))
+            batch_control=_read_json(Path.home()/'.absbyai-batch/snapshot.json',{}).get('control',{})
+            if batch_control.get('enabled'):
+                print("  Next: copy a self-contained brief and use scripts/edit-queue/batch.py enqueue-chat; see scripts/edit-queue/README.md. Confirm both tick receipts, then close the chat.")
+            else:
+                print("  Next: editroute.py wait {} still works while batch starts are disabled. The original chat must remain available to start the selected Mac; a route alone is not an editor.".format(job))
         elif host != me():
             print("  Next: start this edit ON THE {} (Claude: a new session on the SSH connection `{}`; Codex: "
                   "`ssh {} codex exec ...`, see editroute/README.md). There, run editcap.py acquire {} first."
@@ -1238,8 +1240,10 @@ def main(argv):
                         bool(o.get("--move")), bool(o.get("--dry-run")), bool(o.get("--json")),
                         bool(o.get("--queue")), priority=bool(o.get("--priority")), need_gb=float(o.get("--need-gb") or 20))
     if cmd == "wait":
-        print("Chat waits must copy their brief into scripts/edit-queue/batch.py enqueue-chat. A route alone does not launch an editor.", file=sys.stderr)
-        return EXIT_WAIT
+        batch_control=_read_json(Path.home()/'.absbyai-batch/snapshot.json',{}).get('control',{})
+        if batch_control.get('enabled'):
+            print("Copy the chat brief into scripts/edit-queue/batch.py enqueue-chat; a route alone does not launch an editor.",file=sys.stderr)
+            return EXIT_WAIT
         o, pos = _opts(rest, {"--max-hours": True})
         return cmd_wait(pos[0], float(o.get("--max-hours") or 24))
     if cmd == "where":
