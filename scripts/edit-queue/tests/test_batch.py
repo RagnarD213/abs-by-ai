@@ -135,6 +135,17 @@ class BatchTests(unittest.TestCase):
     def test_brief_tamper_fails_before_worker_start(self):
         self.enqueue();self.start();(self.home/'night/briefs/SL-36-R1.md').write_text('tampered')
         with self.assertRaises(ValueError):self.claim()
+    def test_checked_report_does_not_describe_a_delivered_job_as_queued(self):
+        self.enqueue();self.start();c=self.claim();self.outcome(c,verdict='SHIP WITH DISCLOSED UNCERTAINTY')
+        report=b.report(b.handle(dict(op='snapshot')))
+        self.assertEqual(report['groups']['Checked'][0]['reason'],'SHIP WITH DISCLOSED UNCERTAINTY')
+    def test_disabled_batch_does_not_accumulate_idle_slot_time(self):
+        self.enqueue()
+        b.handle(dict(op='tick',host='m2',observation={'_capacity':{'free':3}}))
+        p=self.home/'night/state.json';s=b.read(p);s['ticks']['m2']=time.time()-120;b.write(p,s)
+        b.handle(dict(op='tick',host='m2',observation={'_capacity':{'free':3}}))
+        self.assertEqual(self.row().get('idle_slot_minutes',0),0)
+
     def test_uncertainty_verdict_is_distinct_and_rejection_needs_evidence(self):
         p=self.home/'review.md';p.write_text('VERDICT: SHIP WITH DISCLOSED UNCERTAINTY\nUnsupported perceptual check disclosed.')
         self.assertEqual(worker.review_verdict(p),'SHIP WITH DISCLOSED UNCERTAINTY')

@@ -164,7 +164,7 @@ def handle(req):
                 elapsed=min(180,max(0,now-last))/60
                 capacity=req.get('observation',{}).get('_capacity',{})
                 for row in state['jobs'].values():
-                    if row['status']=='queued' and row['placement'] in ('any',req['host']) and row['not_before']<=now and capacity.get('free',0)>0:
+                    if control().get('enabled') and state['enabled'] and row['status']=='queued' and row['placement'] in ('any',req['host']) and row['not_before']<=now and capacity.get('free',0)>0:
                         row['idle_slot_minutes']=row.get('idle_slot_minutes',0)+elapsed
                 state['ticks'][req['host']]=now
                 state.setdefault('observations',{})[req['host']]=req.get('observation',{})
@@ -411,7 +411,7 @@ def report(snap, error=None):
                     with urllib.request.urlopen(link,timeout=3) as response:verified=response.status==200
                 except Exception:pass
             item=dict(batch=name,job=r['id'],round=r['round'],title=r['title'],host=owner,status=r['status'],
-                      reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or c.get('phase') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else 'queued'),
+                      reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or o.get('verdict') or c.get('phase') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else r['status']),
                       link=link,link_verified=verified,timing=r.get('timing',{}),allowance_pauses=r.get('allowance_pauses',[]),idle_slot_minutes_sampled=r.get('idle_slot_minutes',0),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
             if r['status']=='needs-dan':item['waiting_s']=now-r.get('ended',now)
             groups[group].append(item)
