@@ -1,6 +1,6 @@
 # What To Cut cover setup, SL-21
 
-One setup owner, Codex, 2026-11-14. Vacation X7 and restaurant R4 X2 approved; therapy round 2 awaits the final cover pick.
+One setup owner, Codex, 2026-11-14. Vacation X7 and restaurant R4 X2 approved; therapy X3 selected, its bubble revision awaits exact-file approval.
 
 Review: http://127.0.0.1:9862/
 
@@ -51,3 +51,9 @@ Dan rejected all original therapy choices. Four replacements now show Dan in the
 Use ONLY `<work>/therapy-r2/pick-map-private.json` and `<work>/therapy-r2/blind-set/` for the next therapy pick. The original `<work>/blind-sets/3/` is rejected and must not receive the new pick. Log with blind.py pick, then copy and hash-verify the original full-quality `<work>/therapy-r2/layouts/instagram/<id>.png`, `<work>/therapy-r2/layouts/youtube/<id>.png` and existing `.jpg`; never install neutral previews. Current state: `<work>/selected-picks.json`. Approved restaurant R4 X2 and vacation X7 remain locked and verified. Continue all original setup steps after the final pick, without another permission request. No uploads or schedules yet; dashboard stays paused.
 
 Current recipe: `therapy-r2/build.py` and `therapy-r2/publish.py` beside this README. The generation plan and private source key remain outside Git in the internal work folder. The project mirror contains the new review images and checks. Eight served previews and the six previously approved cover files verified. Static-image review; no audio playback. No paid image API spend.
+
+## CURRENT: therapy X3 picked, revised bubble needs approval
+
+Dan selected round 2 **X3** and requested the bubble smaller, right toward the patient, text all on one line and black, with no line across the rectangle/tail join. Both revised layouts are checked at http://127.0.0.1:9862/?therapy_round=3 . Original photo and headline are preserved exactly outside the bubble areas. Recipe: `therapy-r3/build.py`; full originals and hashes: `<work>/therapy-r3/layout-manifest-private.json`. Pending approval only; do not install or queue the revision yet. The shared cover revision rule explicitly requires approval of the exact new files.
+
+The blind pick was already logged against `<work>/therapy-r2/blind-set/`; do not log it twice. On approval of the revision, install `<work>/therapy-r3/layouts/instagram/X3-revised.png`, `<work>/therapy-r3/layouts/youtube/X3-revised.png` and its existing `.jpg` byte for byte. Update `approved-sl21/picks.json` and `<work>/selected-picks.json`, then complete the original handoff's backups, metadata, TikTok copy, registries, uploads and February/shared-waitlist setup. Restaurant R4 X2 and vacation X7 remain locked. Nothing is uploaded or scheduled yet; dashboard remains paused.
