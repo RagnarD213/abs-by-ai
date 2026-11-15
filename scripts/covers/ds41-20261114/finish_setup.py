@@ -27,14 +27,20 @@ if args.action=='build':
         return [x['data_hash'] for x in json.loads(subprocess.check_output(command))['packets']]
     check['audio_payload_identical']=packets(master,'a')==packets(tt,'a')
     check['video_payload_identical_after_cover']=packets(master,'v')==packets(tt,'v')[1:]
-    assert check['audio_payload_identical'] and check['video_payload_identical_after_cover']
+    if not check['video_payload_identical_after_cover']:
+        def decoded(path):
+            cmd=[str(ROOT/'Media/video_edit/bin/ffmpeg'),'-v','error','-threads','2','-i',str(path),'-map','0:v:0','-an','-fps_mode','passthrough','-f','framemd5','-']
+            output=subprocess.check_output(cmd,text=True)
+            return [x.split(',')[-1].strip() for x in output.splitlines() if x and not x.startswith('#')]
+        check['decoded_picture_frames_identical_after_cover']=decoded(master)==decoded(tt)[1:]
+    assert check['audio_payload_identical'] and (check['video_payload_identical_after_cover'] or check.get('decoded_picture_frames_identical_after_cover'))
     check.update(path=str(tt),sha256=sha(tt.read_bytes()),bytes=tt.stat().st_size)
     save('tiktok-verification.json',check);print(json.dumps(check,indent=2),flush=True)
 else:
     files={'instagram':(ig,a['files']['Instagram jpg']['sha256']),'youtube':(yt,a['files']['YouTube jpg']['sha256']),'master':(master,a['film_sha256'])}
     if args.action=='upload':
         check=json.loads((WORK/'final/tiktok-verification.json').read_text())
-        assert check['ok'] and check['audio_payload_identical'] and check['video_payload_identical_after_cover']
+        assert check['ok'] and check['audio_payload_identical'] and (check.get('video_payload_identical_after_cover') or check.get('decoded_picture_frames_identical_after_cover'))
         files['tiktok']=(tt,check['sha256'])
     statepath=WORK/'final/uploads.json';state=json.loads(statepath.read_text()) if statepath.exists() else {}
     for name,(path,digest) in files.items():

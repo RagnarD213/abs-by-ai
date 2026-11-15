@@ -1,6 +1,8 @@
 # Kevin James Cheat SFC Setup: approved off the cuff R2 (DS-41)
 
-**IN PROGRESS since 2026-11-14 17:30 Central: Codex (gpt-6.1-sol, high), headless on the M6, session `01a1dc60-9184-7271-84d1-dd82d5a074fc`, started by the Claude editing session. Phase 1 runs to the cover review page and stops for Dan's pick; send the pick with `codex exec resume 01a1dc60-9184-7271-84d1-dd82d5a074fc "<pick>"` from the project folder. Log: `tmp/codex-run-ds41-setup.log`. Do not start a second setup owner.**
+**SETUP COMPLETE, WAITLISTED, 2026-11-15.** Dan approved the exact revised Round2 X3 Instagram/YouTube files with “Approved”. Installed and CDN-uploaded assets fully hash-verified; one ready shared waitlist entry reserves January11 2027 at6PM Central for YouTube, Facebook, Instagram @danrosefit and TikTok. Live queue199/200, so no live schedules or public posts. Video title unchanged. [Setup receipt](../Docs/DS41_SETUP_RECEIPT_20261115.md). Same Codex owner01a1dc60; setup work is finished. Existing shared top-up owns future scheduling, no per-video routine or duplicate setup. EditQueue remains finalized until four posts exist/read back, with accurate waitlist note; Drive sync succeeded. Resume: `/Users/danrrose/Projects/_edit_work/DS-41-setup/RESUME.md`.
+
+The historical request and film approval below are retained. Status statements in “What exists and what does not” describe the initial handoff, superseded by the completion receipt above.
 
 CONTENT, dedicated Short (SFC). **Start now.** One Codex setup owner, newest stable Sol at high effort (GPT-6.1 Sol on 2026-11-14; verify the current newest), following `.claude/skills/video-setup/SKILL.md`. Read `.claude/skills/_shared/VIDEO-RULES.md` first. Do not render a new edit, re-encode the film or add another layer of captions.
 
