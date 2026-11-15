@@ -1,6 +1,6 @@
 # What To Cut SFL: cover review, 2026-11-14
 
-Status: three films finalized and approved by Dan; cover choices checked and awaiting his picks. Backups, platform media upload and scheduling have not been completed in this setup.
+Status: three films finalized and approved by Dan. Restaurant R4 X2 and Vacation X7 covers approved; four revised therapy choices await his final cover pick. Backups, platform media upload and scheduling have not been completed in this setup.
 
 Review: http://127.0.0.1:9862/
 
@@ -59,3 +59,13 @@ Dan picked “X2”. This is the R4 concept 1B cover, with Dan smiling behind th
 - youtube_jpeg: `Youtube_whattocut-short1_cover-R4-X2.jpg`, SHA-256 `02fbcbcdfe8f51c83154ce4710434487718b265d116da13f6a4caac5af293885`, 403948 bytes.
 
 Only the therapy cover remains unselected. The page now opens with its unchanged eight choices; the two approved covers are shown below. Review: http://127.0.0.1:9862/?pick=therapy . Nothing uploaded or scheduled in this setup. Full setup continues after the final cover pick.
+
+## Therapy round 2, 2026-11-15: four new designs
+
+Dan rejected the original therapy choices and asked for all four new scenes to include himself in the middle, with an overweight male patient on one side and overweight therapist on the other. Exactly two versions are shirtless and two wear a black tank top. Each has a speech bubble from Dan saying **You're getting scammed.** The approved therapy headline stays **If You Can't Afford A Gym, You Can't Afford Therapy**.
+
+Review: http://127.0.0.1:9862/?therapy_round=2 . Checked sheet: http://127.0.0.1:9862/therapy-r2-sheet.jpg . New labels: **X1 tank top, X2 shirtless, X3 shirtless, X4 tank top**. These labels supersede the original therapy set. Source identities stay hidden. The restaurant R4 X2 and vacation X7 approvals remain unchanged and their six original files were hash-verified again.
+
+Eight new RGB 1080×1920 originals checked, with distinct Instagram and YouTube layouts. Actual source scenes and faces inspected against Dan's identity reference, then completed layouts inspected at phone scale. Exact headline and bubble text verified. Actual lettering and bubble masks have zero pixels over detected faces and expanded hair guards. Instagram lettering stays within y240–1620; YouTube JPEG originals remain under 2 MB. All eight served previews decode and match local bytes. Browser width 390px has one card column, no overflow, all images loaded; enlargement opens and closes; viewport reset. Static images only. No paid API charges.
+
+Full-quality originals, source attempt history and current pick map are in the internal work folder's **therapy-r2** directory. Install the chosen originals, never the normalized previews. Log the next therapy pick against that directory's **blind-set**, not the original set 3 or any restaurant set. This review is awaiting Dan's choice, not approval. No videos edited or rendered, no platform media uploaded and no schedules created. After this pick, complete the whole setup already authorized in the original handoff. The parent-publication gate and February/shared-waitlist instructions still apply.
