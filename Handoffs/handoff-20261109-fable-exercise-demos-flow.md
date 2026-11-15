@@ -1,5 +1,9 @@
 # Handoff: Fable makes three more AI-Dan exercise demos on Google Flow (2026-11-09)
 
+## Rear Delt Fly update, 2026-11-15
+
+Dan approved the real Rear Delt Fly R2 from B0451, final library B0756. Its exact approved app file and poster are installed, deployed and live-verified. Do not generate an AI rear delt fly; real coverage is available and approved. This update applies only to db-rear-delt-fly; other exercises keep their existing ownership and status. Receipt: Docs/REALDEMOS_B08_R2_20261115.md.
+
 **Type:** in-app exercise demo (not a content video, not an ad). **Owner:** Claude **Fable 5.2, high effort** (Dan, 2026-11-09: "a handoff document for Fable to make three more exercises using Google Flow"). This is Dan's explicit pick, so it overrides the usual "edits stay on Opus" routing for this job.
 **Authorization:** do every step without asking; stop only for Dan's review. Google subscription first for video and images (AGENTS.md, 2026-11-08). Paid Replicate Veo only after a recorded Flow failure, capped at **$10** for this session (inside the $25 standing cap). Up to **5 video takes per exercise**. Do not install anything in the app until Dan says ship.
 
