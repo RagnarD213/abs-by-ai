@@ -6,9 +6,9 @@ Dan has authorized every batch end to end, including installing approved demos i
 
 ## Where it stands
 
-- **Done and live in the app (13 real demos):** Pilot (cable-crunch, leg-press, pullup), Batch 1 (leg-curl, cable-tricep-pushdown,
+- **Done and live in the app (14 real demos):** Pilot (cable-crunch, leg-press, pullup), Batch 1 (leg-curl, cable-tricep-pushdown,
   seated-cable-row, lat-pulldown), Batch 2 (pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly), Batch 3 (sled-push,
-  walking-lunge). **Chin-up** (Batch 3) is with Dan on review page http://127.0.0.1:9531/; install it when he approves (Batch 3 session).
+  walking-lunge, chinup; all installed 2026-11-15).
 - **Left: 8 batches, 42 exercises.** None started.
 
 | batch | outcome | count | exercises | file |

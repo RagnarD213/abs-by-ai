@@ -34,7 +34,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Dan Copywriting: grow the training set and blind-test it](handoff-20261110-dan-copywriting-training-and-blind-test.md), 2026-11-10. Fire when Dan's allowance allows. Fable 5.2 high for writing and tests, Sonnet 5 for gathering and reference fixes. Goal: a blind reviewer cannot tell Dan's copy from the skill's.
-- [Real exercise demos: next round, batches 4-11](real-demos/next-round-20261115.md): **Fire now, two or three at a time** (8 and 9 first: they change the app). 42 exercises left in 8 batches; 13 real demos live (pilot, Batches 1-3), chin-up with Dan. Every demo targets 15 s, minimum 10 s. Starter prompts in the file. Claude Opus 5.5 high.
+- [Real exercise demos: next round, batches 4-11](real-demos/next-round-20261115.md): **Fire now, two or three at a time** (8 and 9 first: they change the app). 42 exercises left in 8 batches; 14 real demos live (pilot, Batches 1-3 all done). Every demo targets 15 s, minimum 10 s. Starter prompts in the file. Claude Opus 5.5 high.
 
 
 - [Seagate health scan](handoff-20261106-seagate-health-scan.md): **SUPERSEDED 2026-11-07, do not fire.** Done by Claude; verdict in Docs/SEAGATE_HEALTH_20261106.md.
