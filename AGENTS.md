@@ -134,7 +134,7 @@ Ab Exercise Ranking R3 is the approved format for tier-list/ranking instructiona
 
 ## Real-photo disclosure wording (Dan, 2026-10-17)
 
-Real photographs remain labelled “Real photo(s) of me, not AI-generated” even if retouched or touched up. Do not label them “retouched photos.” Fundamentally AI-generated imagery still receives the AI label. Preserve internal provenance and existing thumbnail/real-moving-footage exceptions. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
+Real photographs remain labelled “Real photo(s) of me, not AI-generated” even if retouched or touched up. Do not label them “retouched photos.” AI imagery follows the November 15, 2026 deception-risk rule below; images of people almost always need the AI label. Preserve internal provenance and existing thumbnail/real-moving-footage exceptions. Full rule: `.claude/skills/_shared/VIDEO-RULES.md`.
 
 ## Video graphics use Soft Blue Light HyperFrames motion (Dan, 2026-10-17)
 
@@ -222,7 +222,7 @@ When Dan asks to check out or buy something, do every step available before paym
 ## Standing authorization for SixPackAbs.com content and site changes
 
 - You are authorized to create, edit, and publish content and site changes on sixpackabs.com (WordPress.com) without asking for confirmation each time: blog posts, pages, templates, template parts, CTAs, email-capture forms, tracking snippets, and SEO metadata.
-- Follow these settled decisions: keep the informational content, label AI-generated imagery, one email list on Resend, no display ads under ~50k views. (Full history/rationale, if needed: `AI_COORDINATION_ARCHIVE.md`.)
+- Follow these settled decisions: keep the informational content, disclose AI imagery according to the November 15, 2026 deception-risk rule, one email list on Resend, no display ads under ~50k views. (Full history/rationale, if needed: `AI_COORDINATION_ARCHIVE.md`.)
 - Verify every change on the live site after publishing and record it in the coordination file.
 - This authorization does not permit deleting existing posts or pages, changing the domain or DNS for sixpackabs.com, purchasing plans or plugins, or sending email to the list.
 
@@ -420,3 +420,10 @@ For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independ
 ## No new Abs By AI ads (Dan, 2026-11-15)
 
 Dan: "I don't want to do any more ads for Abs By AI." Stop new Abs By AI ad production, including raw ad cuts and vertical/square ad adaptations. Use organic content for the overnight test and future new work. This applies to Abs By AI; SixPackAbs and client work keep their own instructions. Existing campaigns, published posts and approved schedules keep their recorded state unless Dan requests a change.
+
+## AI imagery disclosures depend on deception risk (Dan, 2026-11-15)
+
+Applies to every new or revised video made by Claude or Codex. Disclose AI imagery when viewers could reasonably feel deceived if they mistook it for a real image. Images of people almost always need disclosure, especially fabricated physiques, transformations, before/after pictures or apparent real-world proof. Ordinary illustrative food, landscapes and other non-person shots usually do not need an on-screen AI disclaimer when they are not deceptive. Non-person imagery still needs disclosure when its presentation could mislead viewers about actual evidence, events or results. Do not add blanket AI labels to harmless food or landscape illustrations.
+
+Keep internal source/provenance records even when no on-screen label is needed. Preserve the real-physique-photo wording “Real photo(s) of me, not AI-generated”, existing thumbnail/moving-footage exceptions, and safe placement for labels that are needed. Apply this risk-based rule before older blanket instructions to label every AI image or clip. Previously approved exports stay unchanged unless Dan requests revision. DS-39's ending food labels are explicitly removed at his request.
+

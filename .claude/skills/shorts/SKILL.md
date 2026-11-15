@@ -10,6 +10,10 @@ description: >
   use /youtube-packaging. For a fully AI-generated video ad use /make-ad.
 ---
 
+## AI disclosures (Dan, 2026-11-15)
+
+Use the shared VIDEO-RULES deception-risk rule for Claude and Codex: people almost always need disclosure; harmless food, landscapes and other non-person illustrations usually do not. Preserve internal provenance and required physique-photo labels. This supersedes blanket label-every-insert instructions below.
+
 ## Green-screen reactions: Bill Maher Codex R5 format (Dan, 2026-10-25); no fixed editor (2026-10-27)
 
 For a green-screen reaction, read [the Codex R5 reference](reference/ds40-codex-r5-reaction-format/README.md)
@@ -894,7 +898,7 @@ Two things that make the band the better default when the subject fills the fram
 Dan, 2026-08-28: *"Cover that awkward cut with an AI-generated clip illustrating what's being
 said in the video at the time."* An insert straddles the join, taking part
 of its length off each neighbour, so **runtime is unchanged and the audio underneath never
-moves.** Label each one AI-generated.
+moves.** Apply the shared November 15, 2026 deception-risk disclosure rule to each insert.
 
 How the clip is made: clip library first (`_shared/cliplib/clip_library.py find`), then approved frames, the frame gate,
 motion in Google Flow by the background `flow-veo` agent, the motion gate and a fresh `frame-reviewer`

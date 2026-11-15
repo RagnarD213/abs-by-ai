@@ -1116,12 +1116,19 @@ no content-style edits of ads ("such as making 5 shorts out of an ad").
 - Applies to every surface: Instagram, Facebook, TikTok photo posts, covers, thumbnails, site images and in-video real-photo displays. Real shorts are untouched. Instagram needs aspect 0.8 to 1.91.
 - Before queuing any photo post, check it for the Speedo. Crops, boxes and swap maps from 2026-09-27: `photos/finalized social media photos/_speedo-crops-20260927/`. Swap mechanics: `scripts/blotato/swap_media.py` (its "new schedule not found" line is read lag; re-fetch and MD5-check).
 
+## AI imagery disclosures depend on deception risk (Dan, 2026-11-15)
+
+Applies to every new or revised video made by Claude or Codex. Disclose AI imagery when viewers could reasonably feel deceived if they mistook it for a real image. Images of people almost always need disclosure, especially fabricated physiques, transformations, before/after pictures or apparent real-world proof. Ordinary illustrative food, landscapes and other non-person shots usually do not need an on-screen AI disclaimer when they are not deceptive. Non-person imagery still needs disclosure when its presentation could mislead viewers about actual evidence, events or results. Do not add blanket AI labels to harmless food or landscape illustrations.
+
+Keep internal source/provenance records even when no on-screen label is needed. Preserve the real-physique-photo wording “Real photo(s) of me, not AI-generated”, existing thumbnail/moving-footage exceptions, and safe placement for labels that are needed. Apply this risk-based rule before older blanket instructions to label every AI image or clip. Previously approved exports stay unchanged unless Dan requests revision. DS-39's ending food labels are explicitly removed at his request.
+
+
 ## The AI label never covers a face or abs (Dan, 2026-10-30, RO-21 round 3 at 4:40)
 
 - Dan: *"the AI-generated label blocks one of my faces ... put that above the pair. Move the pair slightly down, if you need to, but avoid blocking faces with that AI-generated label. Avoid blocking faces or abs."* Applies to every on-screen disclosure chip in every video, Claude and Codex, across the whole film, not only the shot he noticed.
 - Before a page goes out, pull one frame of every labelled moment and look: moving pictures (floating cards drift) need the check at their highest drift. Fixes that keep the picture: on a `panel`, `panel_y` moves the pair down and `chip_xy` puts the label above it; on `cards`, `slots` shifts a card and `chip_xy` moves the label (`_shared/greenscreen-bg/`).
 
-## An AI picture inside a real scene carries its label ON that picture (Dan, 2026-10-30, RO-21 at 5:27)
+## When an AI picture needs disclosure, place its label ON that picture (Dan, 2026-10-30, RO-21 at 5:27)
 
 - Dan: *"when I have an AI-generated scene in the background within a non-AI-generated scene, I want the AI-generated label to be on the TV or specifically on the background image (just so that doesn't create confusion and make everybody think the entire scene is AI-generated)."* Applies to future videos, Claude and Codex; existing approved films stay as they are.
 - A label in the frame's corner says the whole scene is AI. The label sits inside the AI picture: on the TV, phone screen, card or inset, sized to it, and it moves with it. A fully AI full-screen clip keeps its normal corner label.
