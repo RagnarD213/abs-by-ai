@@ -63,6 +63,11 @@ if [ -n "$oldest" ] && [ $((now - oldest)) -gt $JAM_SECS ]; then
   jam_note=" Oldest unpushed commit is $(( (now - oldest) / 3600 )) hours old."
 fi
 line="Git drift $state: main folder is ahead $ahead / behind $behind against GitHub (last fetch ${age_min} min ago).$jam_note"
+# The every-30-minutes checkout sync (scripts/two-mac/checkout-sync.py) writes its last result here.
+sync_note=$(head -1 "$HOME/.absbyai-checkout-sync/status.txt" 2>/dev/null | tr -d '"\\' | cut -c1-700)
+case "$sync_note" in
+  STOPPED*) [ "$state" = "OK" ] && state="WARN"; line="$line Checkout sync $sync_note" ;;
+esac
 
 if [ $hook -eq 0 ]; then
   echo "$line"
@@ -75,6 +80,6 @@ fi
 warned=$(mtime "$gitdir/drift-warn-stamp")
 [ $((now - warned)) -lt $WARN_EVERY ] && exit 0
 touch "$gitdir/drift-warn-stamp"
-advice="Commits are not reaching GitHub. Push with scripts/git/safe-push.sh. If it stops on files older than 2 hours, re-run it with --adopt-stale; if a file is newer, its owner is live: add one board entry and retry at the end of the task."
+advice="Push your own work with scripts/git/safe-push.sh as usual. If it stops on another session's files, your commit is safe: the checkout sync job (every 30 minutes on each Mac, scripts/two-mac/README.md) pushes it and levels this folder. If the line above says the sync STOPPED, do the fix it names; for files older than 2 hours safe-push.sh --adopt-stale still applies."
 printf '{"systemMessage":"%s","hookSpecificOutput":{"hookEventName":"PostToolUse","additionalContext":"%s %s"}}\n' "$line" "$line" "$advice"
 exit 0
