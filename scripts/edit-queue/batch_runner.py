@@ -45,6 +45,16 @@ def review_link(info):
     return link
 
 
+def candidate_stamps(files):
+    """Reuse the shared gate's exact-file/version check without adding editorial thresholds."""
+    sys.path.insert(0,str(Path(eq.ROOT)/'.claude/skills'))
+    try:
+        from _shared.deliver import gate
+        for file in files:gate.require_stamp(file,quiet=True)
+    except (SystemExit,Exception) as exc:
+        raise ValueError('candidate lacks current exact-file gate evidence: '+str(exc))
+
+
 def main(claim_path):
     owned=b.read(claim_path);row=owned['row'];name=owned['batch'];k=owned['key'];token=row['claim']['token']
     jobid=row['id'];cfg=eq.load_config();executor=row['executor']
@@ -153,9 +163,11 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
             info=b.read(wd/'DELIVERY.json',{})
             errors=r.validate_delivery(info,str(wd),packet,cfg,'frames_approved' if row.get('assets_approved') else 'ready')
             if errors:raise ValueError('candidate evidence incomplete: '+'; '.join(errors[:6]))
+            candidate_stamps(info['files'])
             checkpoint.update(candidate=True,files=[dict(path=f,sha256=r.sha256(f)) for f in info['files']],review_attempts=0)
             b.write(checkpoint_path,checkpoint)
         info=b.read(wd/'DELIVERY.json',{})
+        candidate_stamps([file['path'] for file in checkpoint['files']])
         for file in checkpoint['files']:
             if r.sha256(file['path'])!=file['sha256']:raise ValueError('candidate changed after validation')
         link='http://127.0.0.1:'+str(info.get('review_port',''))+'/'
