@@ -45,18 +45,18 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 
 
-**FlowClips-b3:DAN-PICKS:2026-11-14:Claude.**Dumbbell-video-page-9249;push-pending(live-files);`Docs/FLOW_CREDITS_CLIPS_RECEIPT_20261128.md`.
+**FlowClips:PUSH-PENDING:2026-11-15:Claude.**Batches1-3-filed;batch4-handoff-in-README;commits-local(live-files).
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R5(WV-03):HANDOFF-READY:2026-11-15:Claude.**
+**GreatAgainT-VSL-R5(WV-03):BUILDING-M6:2026-11-15:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
 
 
 
-**DS-41 PICK 2026-11-14, Codex01a1dc60.** [Covers](http://127.0.0.1:9868/). Choose X1-X8.
+**DS-41 COVERS-R2 2026-11-15, Codex01a1dc60.** Four requested replacements; podcast scan first. No pick or uploads.
 
 **GAT-upsells:DAN-EDITING-WINNERS:2026-11-11:Claude:Doc-1lOl-CdLLIkvMQmECAmHz2WmrHfbpDOzxMuKlTMtXRcc;copy-edit-after;factcheck:Docs/GAT_UPSELL_SCRIPTS_FACTCHECK_20261111.md.**
 

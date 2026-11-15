@@ -1,7 +1,7 @@
 # Flow credits: AI clips for the next edits (receipt, running; final by 2026-11-28)
 
 Handoff: `Handoffs/handoff-20261107-flow-credits-ai-clips-for-next-edits.md` (budget up to 14,000 credits; Ultra 20x drops Nov 29).
-Next batch: `Handoffs/handoff-20261113-flow-credits-ai-clips-batch-2-3.md`. Credit log: `Media/flow-credit-log.md`.
+Batches 2 and 3: `Handoffs/handoff-20261113-flow-credits-ai-clips-batch-2-3.md` (executed). Next batch: `Handoffs/handoff-20261115-flow-credits-ai-clips-batch-4.md`. Credit log: `Media/flow-credit-log.md`.
 
 ## Clips made and approved (Dan, 2026-11-13)
 
@@ -131,7 +131,18 @@ Lesson: Nano Banana Pro does not keep a plate-loaded dumbbell identical between 
 one-piece dumbbells, or draw the heavy pair in one source only. All attempts and reviews: `/Volumes/Extreme/_edit_work/FLOWCLIPS/b3r/review_results.txt`.
 Next: Dan's picks on 9248, `veo.py add` for the chosen pairs (paths on the Extreme are the same on both Macs), video, reviews, page, file.
 
-## Dumbbell clips video: round 2 on Dan's page (2026-11-14)
+## Dumbbell clips: approved and filed (Dan, 2026-11-15, "Keep both")
+
+| Library ID | Clip | Video (job) | Clean cut |
+|---|---|---|---|
+| A0270 | Cheating The Heavy Ones (side view, three fast jerky reps) | How To Pick The Right Weight On Every Exercise (DS-96) | 3.4 s |
+| A0271 | Lighter, Strict Form (same man, back against a wall) | same (DS-96) | 5.0 s |
+
+Tag `flow-credits-batch3`, status usable-unused, sheet refreshed (1,017 clips); both IDs are under "Pre-made AI clips" in the DS-96 job doc
+(`vid-b3d/file_library.py` on the M2). **Batches 1 to 3 are finished: 25 new clips, A0247 to A0271, for 1,060 of the 14,000 credits.**
+Next batch: `Handoffs/handoff-20261115-flow-credits-ai-clips-batch-4.md`.
+
+## Dumbbell clips video: how round 2 was made (2026-11-14)
 
 Dan picked **X2 with B** on the frames page (cheat pair with the heaviest dumbbells, strict pair with the same man; `blind.py pick` recorded
 for B3-22b and B3-23c). Round 1 video (cheat heave-and-hold, free-standing strict reps) came back with: "Regenerate both. On the top one,
