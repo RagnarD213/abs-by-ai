@@ -168,6 +168,29 @@ class Sandbox(unittest.TestCase):
         self.assertEqual(self.read(self.live, "tool.py"), "v1\nv2\n")
         self.assertEqual(sh(self.live, "git", "status", "--porcelain", "tool.py").stdout, "")
 
+    def test_record_file_collisions_are_settled_and_code_is_not(self):
+        table = "| A | open |\n| B | open |\n| C | open |\n"
+        self.write(self.other, "cal.md", "# Calendar\n\n" + table + "\nNotes\n"); self.write(self.other, "tool.py", "x = 1\n"); self.upstream("files")
+        sh(self.live, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, "cal.md", "# Calendar\n\n" + table.replace("| A | open |", "| A | GitHub took A |") + "\nNotes\nGitHub note\n"); self.upstream()
+        self.write(self.live, "cal.md", "# Calendar\n\n" + table.replace("| B | open |", "| B | this Mac took B |") + "\nNotes\nThis Mac note\n")
+        sh(self.live, "git", "commit", "-q", "-am", "local calendar")
+        r = self.sync()                                                                      # neighbouring rows + two additions at one spot
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        cal = self.read(self.live, "cal.md")
+        for s in ("| A | GitHub took A |", "| B | this Mac took B |", "GitHub note", "This Mac note"): self.assertIn(s, cal)
+        self.assertEqual(self.vs_origin(), ["0", "0"])
+        sh(self.other, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, "cal.md", cal.replace("| C | open |", "| C | GitHub took C |")); self.write(self.other, "tool.py", "x = 2\n"); self.upstream()
+        self.write(self.live, "cal.md", cal.replace("| C | open |", "| C | this Mac took C |"))            # the same row two ways: a person decides
+        r = self.sync()
+        self.assertEqual(r.returncode, 3, r.stdout + r.stderr); self.assertIn("cal.md", r.stdout)
+        self.assertIn("this Mac took C", self.read(self.live, "cal.md"))
+        sh(self.live, "git", "checkout", "-q", "--", "cal.md")
+        self.write(self.live, "tool.py", "x = 3\n"); sh(self.live, "git", "commit", "-q", "-am", "local code")
+        r = self.sync()                                                                      # code is never settled by rule
+        self.assertEqual(r.returncode, 3, r.stdout + r.stderr); self.assertIn("tool.py", r.stdout)
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")

@@ -13,8 +13,9 @@ removes that dependency:
 
  1. PUSH. Local commits GitHub lacks are merged with GitHub's main inside git's object store
     (`git merge-tree --write-tree`): no working folder is read or written, so uncommitted edits cannot block it.
-    A clean merge is pushed as a merge commit. A real conflict (both sides changed the same lines of a committed
-    file) is never guessed at: the job stops, names the files and leaves everything as it was. A session then
+    A clean merge is pushed as a merge commit. Collisions in record files that need no judgement are settled by
+    rule (.gitattributes union for the board and handoff index, jobsmerge.py, textmerge.py). A real conflict (the
+    same line changed two ways, or any code file) is never guessed at: the job stops, names the files and leaves everything as it was. A session then
     merges by hand in a clean checkout (scripts/two-mac/README.md, "When the sync stops").
  2. LEVEL. Once nothing local is missing from GitHub, reconcile-checkout.py brings the folder up to GitHub's
     version, keeping every uncommitted edit (three-way merge, backups under tmp/checkout-reconcile-*).
@@ -35,7 +36,7 @@ STATE = os.environ.get("CHECKOUT_SYNC_STATE") or os.path.join(HOME, ".absbyai-ch
 HERE = os.path.dirname(os.path.abspath(__file__))
 BIN = os.path.join(STATE, "bin")                           # the job runs its own copy, so a folder that is behind still syncs
 REPO = os.environ.get("CHECKOUT_SYNC_REPO") or os.path.dirname(os.path.dirname(HERE))
-TOOLS = ("checkout-sync.py", "reconcile-checkout.py", "jobsmerge.py")
+TOOLS = ("checkout-sync.py", "reconcile-checkout.py", "jobsmerge.py", "textmerge.py")
 JOBS = "Handoffs/video-editing/jobs.json"
 HOST = os.environ.get("CHECKOUT_SYNC_HOST") or socket.gethostname().split(".")[0]
 DRY = "--dry" in sys.argv
@@ -85,22 +86,29 @@ def fetch():
     raise RuntimeError("git fetch failed: " + r.stderr.strip()[:300])
 
 
-def merge_jobs_json(conflict_tree, base, head):
-    """jobs.json was the only conflict: merge it job by job and return the finished tree, or None."""
+def settle_conflicts(conflict_tree, base, head, files):
+    """Settle conflicts that need no judgement (jobsmerge.py, textmerge.py). Returns (finished tree, None) or (None, first file a person must merge)."""
     sys.path.insert(0, HERE)
-    import jobsmerge
-    blob = lambda ref: subprocess.run(["git", "-C", REPO, "show", ref + ":" + JOBS], capture_output=True, env=ENV).stdout
+    import jobsmerge, textmerge
+    blob = lambda ref, f: subprocess.run(["git", "-C", REPO, "show", ref + ":" + f], capture_output=True, env=ENV).stdout
     mb = git("merge-base", base, head).stdout.strip()
-    merged = jobsmerge.merge(blob(mb), blob(head), blob(base))
-    if merged is None:
-        return None
-    oid = subprocess.run(["git", "-C", REPO, "hash-object", "-w", "--stdin"], input=merged, capture_output=True, env=ENV, check=True).stdout.decode().strip()
     index = os.path.join(STATE, "merge-index.{}".format(os.getpid()))
     env = dict(ENV, GIT_INDEX_FILE=index)
     try:
-        for a in (("read-tree", conflict_tree), ("update-index", "--cacheinfo", "100644,{},{}".format(oid, JOBS))):
-            subprocess.run(("git", "-C", REPO) + a, capture_output=True, env=env, check=True)
-        return subprocess.run(["git", "-C", REPO, "write-tree"], capture_output=True, text=True, env=env, check=True).stdout.strip()
+        subprocess.run(["git", "-C", REPO, "read-tree", conflict_tree], capture_output=True, env=env, check=True)
+        for f in files:
+            if f == JOBS:
+                merged = jobsmerge.merge(blob(mb, f), blob(head, f), blob(base, f))
+            else:
+                merged = textmerge.merge(f, blob(mb, f), blob(base, f), blob(head, f))[0]
+            if merged is None:
+                return None, f
+            oid = subprocess.run(["git", "-C", REPO, "hash-object", "-w", "--stdin"], input=merged, capture_output=True, env=ENV, check=True).stdout.decode().strip()
+            mode = (git("ls-tree", base, "--", f).stdout.split() or ["100644"])[0]
+            subprocess.run(["git", "-C", REPO, "update-index", "--add", "--cacheinfo", "{},{},{}".format(mode, oid, f)], capture_output=True, env=env, check=True)
+        return subprocess.run(["git", "-C", REPO, "write-tree"], capture_output=True, text=True, env=env, check=True).stdout.strip(), None
+    except subprocess.CalledProcessError:
+        return None, files[0]
     finally:
         if os.path.exists(index):
             os.remove(index)
@@ -119,18 +127,20 @@ def push_local_commits():
         else:
             r = git("--attr-source=" + base, "merge-tree", "--write-tree", "--name-only", "--no-messages", base, head, check=False)
             out = r.stdout.splitlines()
-            if r.returncode == 1 and [l for l in out[1:] if l.strip()] == [JOBS]:
-                tree = merge_jobs_json(out[0], base, head)                       # the edit queue list merges job by job
-                if tree:
-                    out, r = [tree], None
-            if r is not None and r.returncode == 1:
+            settled = ""
+            if r.returncode == 1:
                 files = [l for l in out[1:] if l.strip()]
+                tree, unsettled = settle_conflicts(out[0], base, head, files)   # record files: no judgement needed
+                if tree:
+                    out, r, settled = [tree], None, "; settled by rule: " + ", ".join(files)
+            if r is not None and r.returncode == 1:
+                files = [unsettled] + [f for f in files if f != unsettled]
                 finish(3, "STOPPED", "{} local commit(s) cannot be merged with GitHub automatically: the same lines changed on both sides in {}. Nothing was changed. Fix: hand merge in a clean checkout, scripts/two-mac/README.md".format(ahead, ", ".join(files[:12])))
             if r is not None and (r.returncode != 0 or not out):
                 raise RuntimeError("git merge-tree failed: " + (r.stderr or r.stdout).strip()[:300])
             msg = "Merge the {} checkout's {} local commit(s) into main (automatic checkout sync)".format(HOST, ahead)
             new = git("commit-tree", out[0], "-p", base, "-p", head, "-m", msg).stdout.strip()
-            how = "{} commit(s) merged with GitHub and pushed ({})".format(ahead, new[:7])
+            how = "{} commit(s) merged with GitHub and pushed ({}){}".format(ahead, new[:7], settled)
         if DRY:
             return "would push: " + how
         r = git("push", "origin", new + ":refs/heads/main", check=False)

@@ -24,6 +24,10 @@ clean checkout (that is what created duplicate commits).
 4. `Handoffs/video-editing/jobs.json` is merged job by job and field by field (`jobsmerge.py`): when both sides
    changed the same field of one job, the higher `rev` wins and the job is marked to sync again. Equal `rev` with
    different content is a real conflict and stops the job (cause A or B below).
+5. In other record files (`.md`, `.txt`, `.json`) three kinds of collision are settled by rule (`textmerge.py`),
+   never dropping a line either side wrote: one side's lines contain the other's; both sides changed different
+   lines of one block (neighbouring table rows); both sides added different lines at the same spot (`.md`/`.txt`
+   only). The same line changed two ways, and every code file, still stops the job for a person or session.
 
 Commands (either Mac):
 

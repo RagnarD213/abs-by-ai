@@ -13,7 +13,9 @@ It never stashes, never rebases and never touches a file GitHub did not change. 
   - edited on both sides: three-way merged; the local edit stays on top as an uncommitted change. If the merge
     conflicts but the local copy adds nothing GitHub lacks, GitHub's version is taken; in a file .gitattributes marks
     merge=union (the board, the handoff index) both sides' lines are kept; the edit queue's jobs.json is merged job
-    by job (jobsmerge.py). Any other conflict stops the run before
+    by job (jobsmerge.py); in .md, .txt and .json record files the collisions that need no judgement are settled
+    (textmerge.py: one side contains the other, different lines of one block, two additions at one spot). Any other
+    conflict stops the run before
     anything has moved (exit 3, every such file is named);
   - a local copy that equals an EARLIER GitHub version of the file (a hand copy from the other Mac that GitHub has
     since moved past): GitHub's current version is taken;
@@ -107,6 +109,13 @@ for p in both:                                   # 3-way merge must be clean bef
         m = jobsmerge.merge(show(OLD, p), open(p, "rb").read(), show(NEW, p))
         if m is not None:
             print("  {}: merged job by job (a job changed on both sides keeps the newer rev)".format(p))
+            merged[p] = m; continue
+    if r.returncode != 0:                                # record files: settle the collisions that need no judgement
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import textmerge
+        m, note = textmerge.merge(p, show(OLD, p), open(p, "rb").read(), show(NEW, p))
+        if m is not None:
+            print("  {}: {} (every local line kept)".format(p, note))
             merged[p] = m; continue
     if r.returncode != 0:
         # a conflict is still safe when the local copy adds nothing GitHub lacks (GitHub = local edit + more)
