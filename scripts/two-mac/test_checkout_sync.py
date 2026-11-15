@@ -159,6 +159,15 @@ class Sandbox(unittest.TestCase):
         self.assertEqual(r.returncode, 3, r.stdout + r.stderr)
         self.assertIn("jobs.json", r.stdout)
 
+    def test_stale_hand_copy_takes_githubs_current_version(self):
+        self.write(self.other, "tool.py", "v1\n"); self.upstream("v1")
+        self.write(self.live, "tool.py", "v1\n")                                            # hand copy, untracked here
+        self.write(self.other, "tool.py", "v1\nv2\n"); self.upstream("v2")
+        r = self.sync()
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertEqual(self.read(self.live, "tool.py"), "v1\nv2\n")
+        self.assertEqual(sh(self.live, "git", "status", "--porcelain", "tool.py").stdout, "")
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")

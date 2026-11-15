@@ -15,6 +15,8 @@ It never stashes, never rebases and never touches a file GitHub did not change. 
     merge=union (the board, the handoff index) both sides' lines are kept; the edit queue's jobs.json is merged job
     by job (jobsmerge.py). Any other conflict stops the run before
     anything has moved (exit 3, every such file is named);
+  - a local copy that equals an EARLIER GitHub version of the file (a hand copy from the other Mac that GitHub has
+    since moved past): GitHub's current version is taken;
   - new on GitHub with a different local copy: the local copy is left as it is;
   - deleted on GitHub (2026-11-15): removed here only when the local copy is unedited (it is copied to the backup
     first); an edited local copy stays on disk; a copy already gone locally needs nothing.
@@ -33,7 +35,10 @@ def stop(msg):
     print("STOPPED: " + msg); sys.exit(3)
 def blob(ref, p):
     return subprocess.run(["git", "rev-parse", "-q", "--verify", "{}:{}".format(ref, p)], capture_output=True, text=True).stdout.strip() or None
-def wt(p): return git("hash-object", p).strip() if os.path.isfile(p) and not os.path.islink(p) else None
+def wt(p):
+    if os.path.islink(p):                        # git stores a link as its target text
+        return subprocess.run(["git", "hash-object", "--stdin"], input=os.readlink(p).encode(), capture_output=True).stdout.decode().strip()
+    return git("hash-object", p).strip() if os.path.isfile(p) else None
 def show(ref, p): return subprocess.run(["git", "show", "{}:{}".format(ref, p)], capture_output=True, check=True).stdout
 JOBS = "Handoffs/video-editing/jobs.json"
 def status():
@@ -84,6 +89,10 @@ merged, stuck = {}, []
 for p in both:                                   # 3-way merge must be clean before anything moves
     base, theirs = os.path.join(bk, p + ".base"), os.path.join(bk, p + ".github")
     open(theirs, "wb").write(show(NEW, p))
+    mine = wt(p)
+    if any(blob(c, p) == mine for c in git("log", "--format=%H", "{}..{}".format(OLD, NEW), "--", p).split()):
+        print("  {}: local copy is an earlier GitHub version (a hand copy); taking GitHub's current one".format(p))
+        merged[p] = show(NEW, p); continue
     if blob(OLD, p) is None:                     # new on GitHub AND a different local copy: its owner is live, keep theirs
         print("  {}: new on GitHub, local copy differs; local copy left as it is (shows as modified)".format(p))
         continue
