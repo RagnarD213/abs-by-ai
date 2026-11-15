@@ -4477,6 +4477,42 @@
       "must_pass": [],
       "must_trigger": [],
       "notes": "Scoped graphics/food-card approval only; this context export used the earlier provisional color, not the newly selected warm grade."
+    },
+    {
+      "id": "ds109-r2-reaction-shuffle-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "DS-109/r2/review/media/hormozi-not-hungry-bored-r2.mp4",
+      "sha256": "208109c43c1fc4006d4386b65d93ce98b9c9dbd5c743baca9bca47c2e836e83d",
+      "bytes": 60040677,
+      "excerpt": [
+        0,
+        3
+      ],
+      "dan": "Okay. In the beginning it looks weird that I'm shuffling around my feet. I want you to keep that full clip like you have it. However just put me on screen as soon as I start looking up at the video and don't include that footage of me shuffling around once you make that change the video is set.",
+      "must_pass": [],
+      "must_trigger": [
+        "reaction:preparation_visible"
+      ],
+      "notes": "Only early reaction/shuffling rejected. Full source clip and rest of R2 accepted, conditional finalization after hiding Dan+laptop before natural upward-look onset. Semantic trigger pending, not an automated PASS."
+    },
+    {
+      "id": "ds109-r3-conditional-final-reference-20261115",
+      "verdict": "reference",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "DS-109/r3/review/media/hormozi-not-hungry-bored-r3.mp4",
+      "sha256": "e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189",
+      "bytes": 59850924,
+      "excerpt": [
+        0,
+        3
+      ],
+      "dan": "Okay. In the beginning it looks weird that I'm shuffling around my feet. I want you to keep that full clip like you have it. However just put me on screen as soon as I start looking up at the video and don't include that footage of me shuffling around once you make that change the video is set.",
+      "must_pass": [],
+      "must_trigger": [],
+      "notes": "Conditional final approval after verified sole fix: hide cornerDan+laptop through60, reveal61atupwardlook. User did not watch exactR3; source/native independent check proves condition. Full source/audio/rest retained. Generic diagnostics remain rawFAIL with specific evidence, not blanket automatedPASS."
     }
   ]
 }

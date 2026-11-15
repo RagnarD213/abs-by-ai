@@ -6048,16 +6048,16 @@
     "claude": "CONTENT (SFC, reaction). Name this chat \"Hormozi Not Hungry Bored SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md`: cut \"Alex Hormozi Says You're Not Hungry, You're Bored. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use /shorts with the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
     "codexModel": "GPT-6.1 Sol, high",
     "codex": "CONTENT (SFC, reaction). Name this chat \"Hormozi Not Hungry Bored SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md`: cut \"Alex Hormozi Says You're Not Hungry, You're Bored. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`) and `.claude/skills/shorts/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-    "state": "delivered",
-    "note": "R2 full67s1080p review ready: http://127.0.0.1:9860/. Earlier hungry context; portrait until closed mouth13.15s; A Matched Warm/B Bass Default. Native source flashes repaired, independent exact-file review and silent playback/handoff checked. Awaiting Dan full-film approval.",
+    "state": "finalized",
+    "note": "R3 finalized per Dan conditional approval after verified fix: hide Dan+laptop through frame60, reveal at61/2.035s as upward look starts. Entire67.467s source/audio/edit preserved; exactfile independent native/tail/AAC and silent playback checked. Master SHA e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189. Setup handoff OPEN: Handoffs/handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md. No upload/scheduling.",
     "order": 264,
     "updated": "2026-11-15",
     "by": "Codex",
-    "rev": 9,
+    "rev": 11,
     "syncedRev": 2,
     "editor": "Codex",
     "needs": "",
-    "review_ready_at": 1794783333.912425
+    "completed_at": 1794786738.313504
   }
  ]
 }

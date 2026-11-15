@@ -1,8 +1,8 @@
-CONTENT (SFC, reaction). Current task: `Hormozi Not Hungry Bored SFC R2`, same original chat.
+CONTENT (SFC, reaction). Current task: `Hormozi Not Hungry Bored SFC R3`, same original chat.
 
 # DS-109: Alex Hormozi Says You're Not Hungry, You're Bored. He's Right.
 
-**R2 full review delivered 2026-11-15.** [Open the full67-second1080p review](http://127.0.0.1:9860/). Dan’s approved A Matched Warm, B Bass Default, key and food graphics are applied. Earlier hungry context is included; portrait holds until closed-mouth frame394/13.1465s. Exact final film is independently checked, awaiting Dan’s full-film approval. No covers, upload or scheduling. [Delivery receipt](../../Docs/DS109_R2_FULL_REVIEW_20261115.md). The [R1 packet](http://127.0.0.1:9810/) remains preserved.
+**R3 FINALIZED 2026-11-15.** [Final film](http://127.0.0.1:9860/). Dan+laptop now appear at2.035367s as the upward look begins; initial shuffling is hidden. Entire source/audio/rest of R2 unchanged. Dan's “once you make that change the video is set” condition is fulfilled and independently verified. [Final receipt](../../Docs/DS109_R3_FINALIZATION_20261115.md). [Setup handoff](../handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md) OPEN, start now. No cover/upload/schedule claim.
 
 ## Read first
 
@@ -51,8 +51,6 @@ The R1 approval boundary is cleared for the full render with Dan’s recorded in
 
 Exact scope, checks and recovery history: [R1 first-review receipt](../../Docs/DS109_R1_FIRST_REVIEW_20261115.md). Original preparation: [November14 checkpoint](../../Docs/DS109_R1_PREP_20261114.md).
 
-## Current R2 checkpoint, 2026-11-15
+## Final R3 checkpoint, 2026-11-15
 
-Full R2 review is delivered at http://127.0.0.1:9860/, SHA256 `208109c43c1fc4006d4386b65d93ce98b9c9dbd5c743baca9bca47c2e836e83d`. Two real source-conform flashes121/584were fixed and rechecked. All1400taildecodedRGBframes and allAACsamples are unchanged; new exact-file watch has29judgments/13boundaries/0openvisualdefects. Full generic gate raw33PASS/6FAIL remains preserved with actual-source/PNG/approval dispositions, not relabeled allPASS. Player checked silently on phone/desktop and handed off paused/sound-ready. Same final1080p copies verified on both Macs in Videos to Review and Short-form video content. Queue/master delivered revision9 and Drive status uploaded; edit slot released for Dan.
-
-Next: Dan reviews the full67seconds and approves or gives revisions. No production, covers, upload or scheduling before that choice. On notes, stay in this original chat when context permits, advance the round/controller, reacquire M2capacity and preserve approved hashes. All rebuildable work remains M2 /Volumes/Extreme/_edit_work/DS-109. Metadata review/status commit5be96bbwas pushed after the shared Git jam was cleared; preserve unrelated staged work.
+Exact SHA256 `e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189`,67.4674s/2022frames/1080p. Reaction hidden0–60 and revealed61; rest conditionally approved and retained. Native reveal/source121/stream250 clean; all1772tailRGBframes and allAACPCM match R2. Final shared watch33/33,15boundaries,0defects; full gate32PASS7known-diagnosticFAIL0unmeasured, raw results retained with source/approval/native-proof dispositions. Same checked master exists on Extreme and shared Seagate/M6. Player tested silently, handed off paused/sound-ready. Queue/master finalizedrev11,Driveuploaded,edit slot released. Only this film's old review copy removed. The film needs no further approval; setup/covers are separate and OPEN in the linked handoff. Keep earlier media/approval history; no new re-render/remix.
