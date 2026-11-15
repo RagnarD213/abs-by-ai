@@ -27,7 +27,8 @@ clean checkout (that is what created duplicate commits).
 5. In other record files (`.md`, `.txt`, `.json`) three kinds of collision are settled by rule (`textmerge.py`),
    never dropping a line either side wrote: one side's lines contain the other's; both sides changed different
    lines of one block (neighbouring table rows); both sides added different lines at the same spot (`.md`/`.txt`
-   only). The same line changed two ways, and every code file, still stops the job for a person or session.
+   only); a `.json` file that is one list of entries (waitlist, cover registry) is merged entry by entry. The
+   same line or entry changed two ways, and every code file, still stops the job for a person or session.
 
 Commands (either Mac):
 
@@ -68,7 +69,9 @@ run levels the folder.
 **B. "edited here and on GitHub in the same lines"**: commits are on GitHub, but the folder cannot move forward
 because an unsaved edit collides with GitHub's change to the same file. The file's owner commits it with
 `safe-push.sh` (it will stop; the job then pushes it, or reports cause A). A file untouched for 2 hours has no
-live owner: any session may commit it as it is (`safe-push.sh --adopt-stale` rule in `AGENTS.md`). Never copy
-GitHub's version over a file another session edited in the last 2 hours.
+live owner: any session may commit it as it is (`safe-push.sh --adopt-stale` rule in `AGENTS.md`), or, for a stale
+generated file such as `output/social-queue-artifact/queue.json`, run
+`python3 scripts/two-mac/reconcile-checkout.py --take-github=<path>` (the local copy goes to the backup folder).
+Never copy GitHub's version over a file another session edited in the last 2 hours.
 
 Never in the project folder: `git stash`, `git reset --hard`, `git rebase`, `git pull`, `git add -A`, force-push.

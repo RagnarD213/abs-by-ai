@@ -3,6 +3,8 @@
 
     python3 scripts/two-mac/reconcile-checkout.py --dry     what it would do; writes only the backup folder
     python3 scripts/two-mac/reconcile-checkout.py           do it
+    ... --take-github=PATH   by hand only, for a blocked file with NO live owner (untouched 2 hours or more, such as
+                             a stale generated file): take GitHub's version; the local copy goes to the backup folder
 
 Built 2026-11-14 for the M2's own checkout (two Macs, two checkouts; the M2 was 28 commits behind and `git pull`
 refused because sessions there hold uncommitted edits). Only for a checkout with NO commits GitHub lacks (it refuses
@@ -43,6 +45,7 @@ def wt(p):
     return git("hash-object", p).strip() if os.path.isfile(p) else None
 def show(ref, p): return subprocess.run(["git", "show", "{}:{}".format(ref, p)], capture_output=True, check=True).stdout
 JOBS = "Handoffs/video-editing/jobs.json"
+TAKE = {a.split("=", 1)[1] for a in sys.argv if a.startswith("--take-github=")}
 def status():
     raw = git("status", "--porcelain=v1", "-z").split("\0"); st = {}; i = 0
     while i < len(raw):
@@ -92,6 +95,9 @@ for p in both:                                   # 3-way merge must be clean bef
     base, theirs = os.path.join(bk, p + ".base"), os.path.join(bk, p + ".github")
     open(theirs, "wb").write(show(NEW, p))
     mine = wt(p)
+    if p in TAKE:                                   # named by hand: a stale generated file with no live owner
+        print("  {}: taking GitHub's version as asked (local copy kept in the backup)".format(p))
+        merged[p] = show(NEW, p); continue
     if any(blob(c, p) == mine for c in git("log", "--format=%H", "{}..{}".format(OLD, NEW), "--", p).split()):
         print("  {}: local copy is an earlier GitHub version (a hand copy); taking GitHub's current one".format(p))
         merged[p] = show(NEW, p); continue

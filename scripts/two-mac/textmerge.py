@@ -8,7 +8,8 @@ need no judgement, and this settles exactly three kinds, hunk by hunk, never dro
   S  one side's lines contain the other's (both added the same entries, one added more): the fuller side;
   L  both sides changed DIFFERENT lines of the same block (neighbouring table rows): each line from the side that
      changed it;
-  U  .md/.txt only: both sides added different lines at the same spot and nothing was there before: both, ours first.
+  U  .md/.txt only: both sides added different lines at the same spot and nothing was there before: both, ours first;
+  J  a .json file that is one list of entries: merged entry by entry (both sides' new entries kept, in place).
 Anything else (the same line changed two ways, code files, a .json result that no longer parses) is refused.
 Used by checkout-sync.py (commits) and reconcile-checkout.py (unsaved edits). Tests: test_checkout_sync.py.
 """
@@ -68,6 +69,43 @@ def _settle(raw, path):
     return merged, "settled {} spot(s): {}".format(len(kinds), "+".join(sorted(set(kinds))))
 
 
+def _json_list(base, ours, theirs):
+    """Rule J: a .json file that is one list of entries (waitlist, cover registry). Merged entry by entry, so two Macs
+    that each append an entry, or write the file with different escaping, no longer collide. Returns bytes or None."""
+    try:
+        raw_t = theirs.decode("utf-8")
+        b, o, t = (json.loads(x.decode("utf-8")) if x.strip() else [] for x in (base, ours, theirs))
+    except (ValueError, UnicodeDecodeError):
+        return None
+    if not all(isinstance(d, list) and all(isinstance(e, dict) for e in d) for d in (b, o, t)): return None
+    fmt = next(((i, a) for i in (1, 2, 4, None) for a in (False, True)
+                if json.dumps(t, indent=i, ensure_ascii=a) in (raw_t, raw_t.rstrip("\n"))), None)
+    if fmt is None: return None                                      # unknown layout: do not rewrite the file
+    key = lambda e: json.dumps(e, sort_keys=True)
+    kb, ko, kt = ([key(e) for e in d] for d in (b, o, t))
+    if any(len(set(k)) != len(k) for k in (kb, ko, kt)): return None  # duplicate entries: positions are ambiguous
+    sb, so, st = set(kb), set(ko), set(kt)
+    ids = [k for k in ("config", "id", "slug", "schedule") if all(k in e for d in (b, o, t) for e in d)
+           and all(len({json.dumps(e[k]) for e in d}) == len(d) for d in (b, o, t))]
+    if ids:                                                           # one entry changed two ways must not become two entries
+        i = ids[0]; mb, mo, mt = ({json.dumps(e[i]): key(e) for e in d} for d in (b, o, t))
+        if any(k in mb and mo[k] != mb[k] and mt[k] != mb[k] and mo[k] != mt[k] for k in set(mo) & set(mt)): return None
+        if any(k not in mb and mo[k] != mt[k] for k in set(mo) & set(mt)): return None
+        replaced = {mt[k] for k in set(mo) & set(mt) if mo[k] != mt[k] and mb.get(k) == mt[k]}   # ours changed it
+        keep_theirs = {mo[k] for k in set(mo) & set(mt) if mo[k] != mt[k] and mb.get(k) == mo[k]}  # theirs changed it
+    else:
+        replaced, keep_theirs = set(), set()
+    out = [k for k in kt if not (k in sb and k not in so) and k not in replaced]   # drop what ours deleted or replaced
+    have = set(out)
+    for n, k in enumerate(ko):                                        # add what ours added, right after its neighbour
+        if k in have or k in sb or k in keep_theirs: continue
+        prev = next((x for x in reversed(ko[:n]) if x in have), None)
+        out.insert(out.index(prev) + 1 if prev is not None else len(out), k); have.add(k)
+    order = {key(e): e for d in (t, o) for e in d}                    # keep each entry's own field order
+    text = json.dumps([order[k] for k in out], indent=fmt[0], ensure_ascii=fmt[1])
+    return (text + ("\n" if raw_t.endswith("\n") else "")).encode("utf-8")
+
+
 def merge(path, base, ours, theirs):
     """bytes x3 -> (merged bytes or None, short note). A clean git merge is returned as it is."""
     d = tempfile.mkdtemp(prefix="textmerge-")
@@ -82,6 +120,9 @@ def merge(path, base, ours, theirs):
         m, note = _settle(r.stdout, path)             # tight hunks first: best for "one side contains the other"
         if m is None:
             m, note = _settle(_run("--diff3", names).stdout, path)   # whole blocks: lets rule L line rows up
+        if m is None and path.lower().endswith(".json"):
+            m = _json_list(base, ours, theirs)
+            if m is not None: note = "list of entries merged entry by entry (J)"
         return m, note
     finally:
         for n in os.listdir(d): os.remove(os.path.join(d, n))

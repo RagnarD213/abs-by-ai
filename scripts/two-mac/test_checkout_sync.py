@@ -191,6 +191,25 @@ class Sandbox(unittest.TestCase):
         r = self.sync()                                                                      # code is never settled by rule
         self.assertEqual(r.returncode, 3, r.stdout + r.stderr); self.assertIn("tool.py", r.stdout)
 
+    def test_json_registry_both_macs_append_an_entry(self):
+        import json
+        dump = lambda entries: json.dumps(entries, indent=1, ensure_ascii=False) + "\n"
+        a = {"config": "a.json", "label": "A — first", "planned": "2027-01-04 09:00"}
+        self.write(self.other, "waitlist.json", dump([a])); self.upstream("registry")
+        sh(self.live, "git", "pull", "-q", "--ff-only")
+        self.write(self.other, "waitlist.json", dump([a, {"config": "github.json", "label": "from GitHub"}])); self.upstream()
+        mine = [a, {"config": "committed.json", "label": "committed here"}]
+        self.write(self.live, "waitlist.json", dump(mine)); sh(self.live, "git", "commit", "-q", "-am", "local entry")
+        self.write(self.live, "waitlist.json", json.dumps(mine + [{"config": "unsaved.json", "label": "unsaved here"}], indent=1) + "\n")   # other escaping
+        r = self.sync()
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        got = [e["config"] for e in json.loads(self.read(self.live, "waitlist.json"))]
+        self.assertEqual(sorted(got), ["a.json", "committed.json", "github.json", "unsaved.json"])
+        self.assertEqual(self.vs_origin(), ["0", "0"])
+        sh(self.other, "git", "pull", "-q", "--ff-only")
+        self.assertEqual(sorted(e["config"] for e in json.loads(self.read(self.other, "waitlist.json"))), ["a.json", "committed.json", "github.json"])
+        self.assertEqual(json.loads(self.read(self.live, "waitlist.json"))[0]["label"], "A — first")
+
     def test_dry_run_changes_nothing(self):
         self.write(self.other, "a.txt", "one\ntwo\nthree\nupstream\n"); self.upstream()
         self.write(self.live, "b.txt", self.read(self.live, "b.txt") + "x\n"); sh(self.live, "git", "commit", "-q", "-am", "local")
