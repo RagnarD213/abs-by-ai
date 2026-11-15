@@ -1,6 +1,6 @@
 # What To Cut SFL: cover review, 2026-11-14
 
-Status: three films finalized and approved by Dan. Restaurant R4 X2 and Vacation X7 covers approved; four revised therapy choices await his final cover pick. Backups, platform media upload and scheduling have not been completed in this setup.
+Status: three films finalized and approved by Dan. Restaurant R4 X2 and Vacation X7 covers approved; therapy X3 selected, with its speech-bubble revision awaiting exact-file approval. Backups, platform media upload and scheduling have not been completed in this setup.
 
 Review: http://127.0.0.1:9862/
 
@@ -69,3 +69,11 @@ Review: http://127.0.0.1:9862/?therapy_round=2 . Checked sheet: http://127.0.0.1
 Eight new RGB 1080×1920 originals checked, with distinct Instagram and YouTube layouts. Actual source scenes and faces inspected against Dan's identity reference, then completed layouts inspected at phone scale. Exact headline and bubble text verified. Actual lettering and bubble masks have zero pixels over detected faces and expanded hair guards. Instagram lettering stays within y240–1620; YouTube JPEG originals remain under 2 MB. All eight served previews decode and match local bytes. Browser width 390px has one card column, no overflow, all images loaded; enlargement opens and closes; viewport reset. Static images only. No paid API charges.
 
 Full-quality originals, source attempt history and current pick map are in the internal work folder's **therapy-r2** directory. Install the chosen originals, never the normalized previews. Log the next therapy pick against that directory's **blind-set**, not the original set 3 or any restaurant set. This review is awaiting Dan's choice, not approval. No videos edited or rendered, no platform media uploaded and no schedules created. After this pick, complete the whole setup already authorized in the original handoff. The parent-publication gate and February/shared-waitlist instructions still apply.
+
+## Therapy X3 selected; bubble revision awaits approval, 2026-11-15
+
+Dan selected **therapy round 2 X3** and requested a smaller speech bubble on the right toward the patient, with all text on one line in black and no dividing line between the rectangle and triangular tail. The pick was logged against the therapy round 2 blind set. Both revised platform layouts are built from the same source image; headline and all pixels outside the old/new bubble regions are identical to X3. No image regeneration.
+
+Review: http://127.0.0.1:9862/?therapy_round=3 . Sheet: http://127.0.0.1:9862/therapy-r3-sheet.jpg . The bubble uses one continuous silhouette and outer border, exact text **You're getting scammed.**, black on white, positioned to the patient/right side with the tail pointing toward Dan. It is one line and substantially smaller than before. Actual lettering and bubble masks clear all three detected faces and expanded hair guards by zero pixels; safe text bounds and YouTube JPEG size pass. Both layouts and the enlarged bubble were visually inspected. Both served previews decode and byte-match. Phone width 390px has no overflow; both images load, enlargement opens and closes, viewport reset.
+
+Current originals and exact hashes: `<work>/therapy-r3/layout-manifest-private.json`. Revised candidates are mirrored under `Short-form video content/covers/review/sl21-20261114/therapy-r3/layouts/`; these are not installed approved covers. **Stop for Dan's exact revised-file approval**, required by `.claude/skills/_shared/VIDEO-RULES.md`, lines 354–362. A choice with changes does not approve the altered file. Restaurant R4 X2 and vacation X7 remain approved; their six locked files were hash-verified. No video edits, media uploads or schedules. After revision approval, install these exact candidates and continue all setup steps already authorized in the handoff.

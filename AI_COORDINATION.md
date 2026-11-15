@@ -32,7 +32,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 # ACTIVE
 
 
-**WhatToCut-SFL-Setup:THERAPY-R2-PICK:2026-11-15:Codex.** [Choose-X1–X4](http://127.0.0.1:9862/?therapy_round=2);two-shirtless/two-tank;Restaurant-R4-X2-and-Vacation-X7-approved;setup-after-last-pick.
+**WhatToCut-SFL-Setup:THERAPY-X3-REV-APPROVAL:2026-11-15:Codex.** [Review-revised-X3](http://127.0.0.1:9862/?therapy_round=3);smaller-right-bubble-one-black-line-no-seam;await-exact-file-OK;Restaurant-X2/Vacation-X7-locked;setup-after-OK.
 
 
 **BlendedOats:R3:AWAITING-DAN:2026-11-13:Codex01a1d61a.** Both Warm versions checked/copied; http://127.0.0.1:9600/. Next: Dan version choice/approval. `Docs/DS38_R3_DELIVERY_20261113.md`.
