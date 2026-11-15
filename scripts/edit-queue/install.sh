@@ -22,6 +22,6 @@ for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
   sed -e "s|__ROOT__|$ROOT|g" -e "s|__HOME__|$HOME|g" -e "s|__PYTHON__|$PY|g" "$HERE/launchd/$L.plist" > "$AGENTS/$L.plist"
   launchctl bootstrap "$DOMAIN" "$AGENTS/$L.plist"
 done
-echo "Installed. Dispatcher ticks every 15 min; review page: http://127.0.0.1:8830"
+echo "Installed. Dispatcher ticks every 2 min; review page: http://127.0.0.1:8830"
 [ -f "$HERE/PAUSE" ] && echo "The queue is PAUSED (scripts/edit-queue/PAUSE exists). Resume: python3 scripts/edit-queue/dispatcher.py resume"
 echo "Logs: ~/Library/Logs/absbyai-edit-queue/"

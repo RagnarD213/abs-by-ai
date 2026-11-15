@@ -37,7 +37,7 @@ def heartbeat_loop(job_id, stop, minutes):
         qcmd("heartbeat", job_id)
 
 
-def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budget_enforced=True):
+def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budget_enforced=True, session_observer=None):
     """One headless session. Returns (returncode, tail_of_log, wall_hours). Never raises for session failure."""
     with open(os.path.join(workdir, f"queue-prompt-{role}.txt"), "w") as f:
         f.write(prompt)
@@ -51,6 +51,9 @@ def run_session(executor, cfg, workdir, prompt, log_path, role, timeout_h, budge
             start = log.tell()
             proc = subprocess.Popen(["/usr/bin/caffeinate", "-i"] + cmd, stdin=subprocess.PIPE, text=True,
                                     stdout=log, stderr=subprocess.STDOUT, cwd=eq.ROOT, start_new_session=True)
+            if session_observer:
+                batch = eq.sibling("batch")
+                session_observer(proc.pid, batch.identity(proc.pid))
             try:
                 proc.communicate(prompt, timeout=max(0.01, timeout_h * 3600))
                 code = proc.returncode
@@ -476,6 +479,8 @@ def prompts(job, executor, cfg, workdir, launch_state="ready"):
 
 
 def main():
+    if len(sys.argv) > 2 and sys.argv[1] == "--batch":
+        return eq.sibling("batch_runner").main(sys.argv[2])
     job_id, executor, run_id = sys.argv[1:4]
     launch_state = sys.argv[4] if len(sys.argv) > 4 else "ready"
     no_budget = "--no-budget" in sys.argv[5:]
