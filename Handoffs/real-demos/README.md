@@ -3,6 +3,7 @@
 Dan, 2026-11-13: "Let's redo everything that we have B-roll with, with real stuff, and only things we don't have
 B-roll with will be done with AI." Pilot (cable crunch, leg press, pull-up) approved and installed that day.
 Master plan, format and traps: `../handoff-20261109-real-broll-exercise-demos.md`.
+**Next round (batches 4-11, 42 exercises): `next-round-20261115.md`** has the order, the Batch 3 lessons and starter prompts.
 **Length rule (Dan, 2026-11-15): every demo targets 15 s, minimum 10 s** ("too brief if it's just 1 or 2 reps"); narrate more cues (pace of the reps etc.) and show more reps or angles.
 **Before cutting any batch, read that file's "Batch 1 result" section** (2026-11-13): Batch 1 took four review rounds;
 its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, detail-clip screening) replaces the pilot's.
@@ -11,7 +12,7 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 |---|---|---|---|---|
 | 1 | Gym AI replacements (**EXECUTED and installed 2026-11-13**) | install | leg-curl, cable-tricep-pushdown, seated-cable-row, lat-pulldown | [batch-01-gym-ai-replacements.md](batch-01-gym-ai-replacements.md) |
 | 2 | Gym machines new coverage (**EXECUTED and installed 2026-11-14**) | install | pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly | [batch-02-gym-machines-new-coverage.md](batch-02-gym-machines-new-coverage.md) |
-| 3 | Gym moving and partial moves (**sled push + walking lunge installed 2026-11-14/15; chin-up in review**) | install | sled-push, walking-lunge, chinup | [batch-03-gym-moving-and-partial-moves.md](batch-03-gym-moving-and-partial-moves.md) |
+| 3 | Gym moving and partial moves (**EXECUTED: sled push + walking lunge installed 2026-11-14/15; chin-up with Dan**) | install | sled-push, walking-lunge, chinup | [batch-03-gym-moving-and-partial-moves.md](batch-03-gym-moving-and-partial-moves.md) |
 | 4 | Gym new exercises part 1 | store | captains-chair-leg-raise, machine-calf-raise, machine-hip-thrust, assisted-pullup, assisted-dip | [batch-04-gym-new-exercises-part-1.md](batch-04-gym-new-exercises-part-1.md) |
 | 5 | Gym new exercises part 2 | store | dip, weighted-dip, cable-curl, decline-situp, incline-db-press | [batch-05-gym-new-exercises-part-2.md](batch-05-gym-new-exercises-part-2.md) |
 | 6 | Gym new exercises part 3 | store | machine-lateral-raise, cable-overhead-tricep-extension, preacher-curl, bb-curl, rope-hammer-curl | [batch-06-gym-new-exercises-part-3.md](batch-06-gym-new-exercises-part-3.md) |
