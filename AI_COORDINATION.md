@@ -29,7 +29,7 @@ Status board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md
 
 # ACTIVE
 
-**RealDemos-B03:DAN-REVIEW:2026-11-14:Claude.**http://127.0.0.1:9531/;chin-up-held;install-after-approval.
+**RealDemos-B03:DAN-REVIEW-R2:2026-11-14:Claude.**http://127.0.0.1:9531/;sled-live;lunge+chinup-install-after-approval.
 
 
 
