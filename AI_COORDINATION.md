@@ -34,7 +34,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **REALDEMOS-B08:R1-REVIEW:2026-11-15:Codex:M2.** Five passed gates and independent review: http://127.0.0.1:9890/. Swing needs footage. No install.
 
-**DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:cover-pick:Docs/DS39_SETUP_RECEIPT_20261115.md.**
+**DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:pick-A-D-real-covers:Docs/DS39_SETUP_RECEIPT_20261115.md.**
 
 **WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
@@ -61,7 +61,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**DS-109:R2:CHECKING-M2:2026-11-15:Codex01a1dc87.** Rendered. Next: review. Push blocked.
+**DS-109:R2:REPAIRING-M2:2026-11-15:Codex01a1dc87.** Two frames. Review next; push blocked.
 
 
 **DS-108:R2-M2:2026-11-15:Codex01a1dffe;same-chat-owner;Dan-requested-move;assets-copying;slot-held.**
