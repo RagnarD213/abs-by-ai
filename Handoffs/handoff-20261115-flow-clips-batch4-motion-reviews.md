@@ -5,7 +5,7 @@ limit ran out mid-step (resets Nov 19, 10 AM Central). Dan has authorized this w
 `Handoffs/handoff-20261115-flow-credits-ai-clips-batch-4.md`); do every step without asking. No Flow credits are needed for this step.
 
 ## Execution status (Codex, 2026-11-15)
-Steps 1, 2 and 4 are complete. **Awaiting Dan's video selections at http://127.0.0.1:9260/**, 40 checked cuts across 16 clips. Do not redo the reviews or regenerate sources. Three Cans' three original review files are unchanged. All54 verdicts are recorded:41 visual PASS windows,13 FAIL; one additional automatic-window exclusion. Treadmill Milkshake and The Rule Book have no offered take.
+Steps 1, 2 and 4 are complete. **SUPERSEDED 2026-11-15 (Claude): Dan asked for one full-length clip per video; awaiting his answers at http://127.0.0.1:9261/ (see receipt, "one clip per video page"). File approved clips from `vid-b4/one_per_clip_manifest.json`.** Old page:9260, 40 checked cuts across 16 clips. Do not redo the reviews or regenerate sources. Three Cans' three original review files are unchanged. All54 verdicts are recorded:41 visual PASS windows,13 FAIL; one additional automatic-window exclusion. Treadmill Milkshake and The Rule Book have no offered take.
 
 Fresh reviews inspected every native frame as still sequences and close-ups; continuous normal-speed perceptual review was unavailable and is disclosed on the page. Layout at375/800/1150, silent functional playback, seeking, saved selections/notes, exact hashes/frame counts and HTTP206 for all40 files passed. Owner page is paused and sound-ready.
 
