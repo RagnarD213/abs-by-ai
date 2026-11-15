@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Real one-turn readiness proof, consumed only by the installed launchd tick."""
 import fcntl
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -39,7 +40,7 @@ def pending():
         if result.exists() and json.loads(result.read_text()).get('finished'):
             return False
         cfg = eq.load_config()
-        doc = dict(id=req['id'], started=time.time(), pid=os.getpid(), parent=os.getppid(), rows=[])
+        doc = dict(id=req['id'], started=time.time(), pid=os.getpid(), parent=os.getppid(), rows=[],launcher_sha256=hashlib.sha256(Path(eq.__file__).read_bytes()).hexdigest(),executors_sha256=hashlib.sha256(json.dumps(cfg['executors'],sort_keys=True).encode()).hexdigest())
         save(result, doc)
         for executor in ('claude', 'codex'):
             for role in ('editor', 'reviewer'):

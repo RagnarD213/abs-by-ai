@@ -2,6 +2,7 @@
 import base64
 import hashlib
 import json
+import shutil
 import os
 from pathlib import Path
 import re
@@ -34,6 +35,15 @@ def review_link(info):
     root=Path(info.get('review_root',''));port=info.get('review_port')
     if not root.is_absolute() or not root.is_dir() or not isinstance(port,int) or not (1024<=port<=65535):
         raise ValueError('outcome needs an absolute review_root and review_port from editroute.py free-port')
+    if info.get('review_report'):
+        source=Path(info['review_report'])
+        if source.is_file():
+            shutil.copy2(source,root/'independent-review.md')
+            page=root/'index.html'
+            if page.is_file():
+                html=page.read_text()
+                if 'independent-review.md' not in html:
+                    page.write_text(html+'\n<p><a href="independent-review.md">Independent review and findings</a></p>\n')
     run=subprocess.run([sys.executable,str(b.SHARED/'review_server.py'),str(port),str(root)],capture_output=True,text=True,timeout=120)
     if run.returncode:raise RuntimeError('managed review installation/mirror failed: '+(run.stdout+run.stderr)[-600:])
     link='http://127.0.0.1:'+str(port)+'/'
@@ -198,9 +208,10 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
         elif verdict in ('SHIP','SHIP WITH DISCLOSED UNCERTAINTY'):
             outcome=dict(status='delivered',verdict=verdict,link=link,report=str(report_path),files=checkpoint['files'])
         else:outcome=dict(status='delivered-unreviewed',reason=reason,link=link,files=checkpoint['files'])
+        if report_path and report_path.exists():info['review_report']=str(report_path)
         try:outcome['link']=review_link(info)
         except (OSError,RuntimeError,subprocess.SubprocessError):
-            outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'])
+            outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'],review_report=info.get('review_report'))
     except Exception as exc:
         outcome=dict(status='blocked',reason=str(exc),next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
     finally:

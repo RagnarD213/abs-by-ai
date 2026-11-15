@@ -268,7 +268,8 @@ def fingerprints():
         hashes[name]=hashlib.sha256(data).hexdigest()
     canary=read(HOME/'canary-latest.json',{})
     digest=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
-    return dict(host=here(),hashes=hashes,digest=digest,dirty=dirty,canary=canary,
+    launcher_ok=(canary.get('launcher_sha256')==hashlib.sha256(Path(eq.__file__).read_bytes()).hexdigest() and canary.get('executors_sha256')==hashlib.sha256(json.dumps(eq.load_config()['executors'],sort_keys=True).encode()).hexdigest())
+    return dict(host=here(),launcher_ok=launcher_ok,hashes=hashes,digest=digest,dirty=dirty,canary=canary,
                 commit=subprocess.check_output(['git','rev-parse','origin/main'],cwd=eq.ROOT,text=True).strip())
 
 
@@ -278,7 +279,7 @@ def preflight():
     problems=[]
     for fp in (local,remote_fp):
         if fp['dirty']:problems.append(fp['host']+' source differs from pushed main: '+', '.join(fp['dirty']))
-        if not fp['canary'].get('passed') or len(fp['canary'].get('rows',[]))!=4:problems.append(fp['host']+' real-session canary incomplete')
+        if not fp['launcher_ok'] or not fp['canary'].get('passed') or len(fp['canary'].get('rows',[]))!=4:problems.append(fp['host']+' real-session canary incomplete')
     if local['hashes']!=remote_fp['hashes']:problems.append('scheduler hashes differ between Macs')
     proof=dict(passed=not problems,at=time.time(),digest=local['digest'],problems=problems,
                hosts={f['host']:dict(commit=f['commit'],canary=f['canary'].get('id')) for f in (local,remote_fp)})

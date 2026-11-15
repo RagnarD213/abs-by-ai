@@ -221,3 +221,44 @@ A missing cross-reviewer parks the finished candidate and records the reason, wi
 another model. Existing pilot groups, three starts/night, backlog stop at four, 150 GB Extreme stop
 and two-hour allowance backoff remain. Tests run as individual processes because their old module
 globals collide under one unittest-discovery process; fixture routers never query real job ownership.
+
+## Explicit overnight batches (2026-11-15)
+
+The named batch is installed **disabled** on both Macs. General backlog discovery remains blocked by `PAUSE`.
+Dan's first test night begins only after he says go. A passed launcher canary is readiness evidence, not a video delivery.
+
+- `python3 scripts/edit-queue/batch.py preflight`: compare installed scheduler source with pushed main and with the other Mac; require four real launchd session replies per Mac from the current launcher/configuration.
+- `batch.py enqueue NAME /absolute/spec.json`: copy immutable briefs to the M2 ledger. It reports **registered** until `batch.py receipt NAME` confirms both Macs' ticks logged it, then **queued**. Enqueue never enables production.
+- `batch.py start NAME`: run preflight again, then enable only the named rounds. Use only with Dan's go.
+- `batch.py stop`: one M2 control file stops new starts on both Macs, including backlog discovery. Existing workers finish. An unreachable M6 cannot claim anything new; it keeps its running work and saves outcomes locally until it can sync.
+- `batch.py status`: authoritative M2 state. `~/.absbyai-batch/morning-report.md` and `.json` on the M6 are saved every two-minute tick, including unknown/unreachable owners.
+- `batch.py takeover JOB`: required before a chat resumes batch-owned work. Claimed work cannot be taken over, including an unreachable owner. A queued or terminal round can be taken over; keep its saved work folder.
+- A chat that must wait copies a self-contained brief and uses `batch.py enqueue-chat JOB --round N --brief /absolute/brief.md --title 'Recognizable title' --size S --kind SFC --executor codex --need-gb 10 --target 'first review'`. It does not run `editroute.py wait`. Registration is not a running editor. If new starts are disabled, explicitly report that the work is queued and disabled.
+
+A spec contains `{"jobs":[{"id":"DS-106","round":1,"title":"Protein Snack Can","size":"S","order":1,"kind":"SFC","executor":"claude","need_gb":20,"target":"first review only","chroma":true,"brief":"brief.md"}]}`.
+Brief paths are relative to the spec or absolute. Preserve the film's existing editor. Placement is fixed at enqueue:
+existing work owner, otherwise M2 for long-form/chroma/drive-bound work, otherwise either Mac. Longest size first,
+then Dan's order. Active chat production cannot be transferred by enqueue.
+
+The ledger is `~/.absbyai-batch/NAME/{manifest.json,state.json,briefs/}` on the M2, outside Git, with one flock for
+all batches. Each local tick pulls its own claim; no cross-Mac start requests or receipts exist. Workers use the
+existing editcap slot and renderq work-folder allocator. They preserve the original folder during recovery and
+allowance pauses. No volume-share or old ps-based two-build cap applies to a batch. Named rounds bypass the pilot's
+three-start and four-review limits. There is one automatic recovery after an unexplained runner exit, and at most
+three total allowance attempts, with shared backoff. An orphaned recorded session is stopped and its exit confirmed
+before recovery. Unreachable owners are never reassigned.
+
+Every ordinary exit records delivered, delivered-unreviewed with reason, needs-dan with question/link, or blocked
+with reason/next action. Exit zero alone proves nothing. Final candidates need current exact-file delivery gate
+stamps, preserved efficiency evidence and an independent cross-review. Reviewer timeout/no verdict gets one fresh
+session, then unreviewed; a valid rejection parks the cut and findings without a fix loop. Disclosed uncertainty is
+an explicit verdict, never an invented request for a new approval. A missing managed review mirror stays in the
+owner's durable outbox until the M6 link opens. The local slot is released meanwhile. No publishing occurs.
+
+Queue wait, active/review hours and allowance pauses are recorded per round. Idle-slot minutes are sampled at ticks,
+not an exact continuous measurement. No ten-video throughput promise is supported before the real test nights.
+Finalized/uploaded jobs are removed from the editcap review register by `queue.py`, and old completed review entries
+are hidden by both the register and desk. Other unmatched reviews stay visible with their wait age.
+
+Tests: run each `scripts/edit-queue/tests/test_*.py` in its own Python process; several legacy tests set import-time
+environment overrides and cannot safely share one `unittest discover` interpreter. Batch tests use temporary ledgers.
