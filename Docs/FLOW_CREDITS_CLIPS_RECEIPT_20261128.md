@@ -212,7 +212,8 @@ A lean BACK must be shot from the side. Give each image source its own man for e
 | batch 3 redo video (8 takes: 6 Veo Fast + 2 Omni at 10 each) and 7 Google images | 80 | balance 20,702 to 20,622 |
 | dumbbell clips video (6 takes: 4 Veo Fast + 2 Omni at 10 each) and 16 Google images | 60 | balance 20,582 to 20,522 |
 | dumbbell clips redo (21 takes over four runs: faster cheat, strict free-standing x3 rounds, strict against the wall) | 210 | balance 20,522 to 20,312 |
-| **total for this handoff so far** | **1,060** | of 14,000 |
+| batch 4 video (54 takes) | **490 observed; 540 expected** | 20,312 to 19,822, final account read 2026-11-15; 50-credit discrepancy unresolved |
+| **total for this handoff so far** | **1,550 observed; 1,600 expected** | of 14,000; discrepancy above |
 
 ## Dropped (no version passed after two tries per model, or Dan rejected)
 
@@ -272,6 +273,6 @@ Next: Dan's picks on 9251, then `blind.py pick` for X1/X2 sets, `veo.py add` per
 Dan picked 18 frame pairs plus all 11 existing clips (existing ones now listed in the RO-40, RO-41, RO-42, DS-106, DS-64, DS-57 job docs; blind picks
 recorded). Video: 54 takes in `/Volumes/Extreme/_edit_work/FLOWCLIPS/vid-b4/veo/` (Flow projects
 https://flow.google.com/project/15feecac-1a20-4287-8325-f08eba3351be and https://flow.google.com/project/61011229-2dbc-4824-9eb7-77f6e0128d56);
-all passed clipcheck. Credits: 20,312 before; 19,822 read while half B was finishing (about 540 expected for 54 takes); final read pending.
+all passed clipcheck. Final account-panel read by Codex on 2026-11-15: **19,822 credits** (Ultra account, connected M6 Chrome). Starting balance 20,312, observed drop **490 credits**. The 54 takes at the recorded 10-credit rate imply **540 credits**, so **50 credits remain unreconciled**; do not substitute an expected charge for the measured balance. This review task generated no new assets and spent no new credits. Evidence: `vid-b4/credit-balance-observation-20261115.json`.
 Motion reviews stopped when Claude's weekly limit ran out (resets Nov 19, 10 AM Central): handed to Codex in
 `Handoffs/handoff-20261115-flow-clips-batch4-motion-reviews.md`.
