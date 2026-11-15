@@ -40,21 +40,12 @@ def _hunk(o, b, t, union_ok):
     return None, None
 
 
-def merge(path, base, ours, theirs):
-    """bytes x3 -> (merged bytes or None, short note). A clean git merge is returned as it is."""
-    d = tempfile.mkdtemp(prefix="textmerge-")
-    try:
-        names = []
-        for n, data in (("ours", ours), ("base", base), ("theirs", theirs)):
-            names.append(os.path.join(d, n))
-            with open(names[-1], "wb") as f: f.write(data)
-        r = subprocess.run(["git", "merge-file", "-p", "--zdiff3", "--marker-size={}".format(MARK)] + names, capture_output=True)
-    finally:
-        for n in os.listdir(d): os.remove(os.path.join(d, n))
-        os.rmdir(d)
-    if r.returncode == 0: return r.stdout, "clean"
-    if r.returncode < 0 or r.returncode > 127 or not path.lower().endswith(TYPES): return None, "not a record file"
-    try: text = r.stdout.decode("utf-8")
+def _run(style, names):
+    return subprocess.run(["git", "merge-file", "-p", style, "--marker-size={}".format(MARK)] + names, capture_output=True)
+
+
+def _settle(raw, path):
+    try: text = raw.decode("utf-8")
     except UnicodeDecodeError: return None, "not text"
     S, B, M, E = "<" * MARK + " ", "|" * MARK + " ", "=" * MARK, ">" * MARK + " "
     out, cur, state, kinds = [], None, None, []
@@ -74,7 +65,27 @@ def merge(path, base, ours, theirs):
     if path.lower().endswith(".json"):
         try: json.loads(merged.decode("utf-8"))
         except ValueError: return None, "merged .json would not parse"
-    return merged, "settled {} spot(s): {}".format(len(kinds), "".join(sorted(set(kinds))))
+    return merged, "settled {} spot(s): {}".format(len(kinds), "+".join(sorted(set(kinds))))
+
+
+def merge(path, base, ours, theirs):
+    """bytes x3 -> (merged bytes or None, short note). A clean git merge is returned as it is."""
+    d = tempfile.mkdtemp(prefix="textmerge-")
+    try:
+        names = []
+        for n, data in (("ours", ours), ("base", base), ("theirs", theirs)):
+            names.append(os.path.join(d, n))
+            with open(names[-1], "wb") as f: f.write(data)
+        r = _run("--zdiff3", names)
+        if r.returncode == 0: return r.stdout, "clean"
+        if r.returncode < 0 or r.returncode > 127 or not path.lower().endswith(TYPES): return None, "not a record file"
+        m, note = _settle(r.stdout, path)             # tight hunks first: best for "one side contains the other"
+        if m is None:
+            m, note = _settle(_run("--diff3", names).stdout, path)   # whole blocks: lets rule L line rows up
+        return m, note
+    finally:
+        for n in os.listdir(d): os.remove(os.path.join(d, n))
+        os.rmdir(d)
 
 
 if __name__ == "__main__":
