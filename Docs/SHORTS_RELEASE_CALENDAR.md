@@ -95,7 +95,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Jan 7 | 3 | 6 PM | How To Use Battle Ropes (DS-19) | Waitlist |
 | Sat Jan 9 | 3 | 9 AM | Does Jiu Jitsu Get You Abs? (DS-15) | Waitlist |
 | Sat Jan 9 | 3 | 6 PM | The Drink Post Malone Quit (DS-42) | Live |
-| Mon Jan 11 | 3 | 9 AM | OPEN | Not booked |
+| Mon Jan 11 | 3 | 9 AM | Your Metabolism Is Not The Reason You're Fat (DS-107) | Waitlist |
 | Mon Jan 11 | 3 | 6 PM | OPEN | Not booked |
 | Tue Jan 12 | 3 | 9 AM | How To Do Chest Flies On The Machine (DS-78, gym) | Live |
 | Tue Jan 12 | 3 | 6 PM | OPEN | Not booked |
@@ -136,3 +136,5 @@ October29: SL-11 finalized films and exact R4 covers approved; all uploads/prefl
 November 8: Calories Dont Matter (SL-13) setup complete with covers Protein X3, Eat Less X4 and Steps X3. Three complete shared-waitlist entries reserve Jan 28 at 6 PM and Jan 30 at 9 AM/6 PM Central, after the parent Jan 27 release. All four platform targets share each slot. Blotato 199/200, so these are waiting-list plans, not live schedules. Receipt: `Docs/SL13_SETUP_RECEIPT_20261108.md`.
 
 November 13: DS-19 (Battle Ropes, X8 text V3) and DS-15 (Jiu Jitsu, X3) setup complete with verified backups/media/covers. Shared waiting-list readback reserves January 7 at 6 PM and January 9 at 9 AM Central respectively, all four platforms. These are waiting-list plans, not live schedules. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
+
+November 15: DS-107 finalized film and Round 3 Y2 covers (seam-only fix pre-approved) fully prepared with verified media and covers for all four platforms. Shared waitlist reserves January 11 at 9 AM Central, phase 3 green screen. Blotato 199/200, so this is a planned waitlist slot, not a live schedule. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
