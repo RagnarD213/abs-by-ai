@@ -78,3 +78,7 @@ brightness to approved pool B-roll from the same shoot and look at stills side b
 > Real Exercise Demos Batch 9 R1. Read `Handoffs/real-demos/batch-09-home-moves-ai-replacements.md` and build real-footage Trainer demos for bw-squat, battle-ropes, pushup, knee-pushup, db-shoulder-press, db-curl, db-lateral-raise from the B-roll in the clip library, exactly as the approved pilot was built (Phase 0 result section of the master handoff). Pass every gate and an independent review, put them on a 1080p review page with the current AI demo beside each one, and stop for my review. Dan has authorized the whole batch, including installing the approved demos in the app and deploying.
 
 **Model:** Claude Opus 5.5, high effort.
+
+## R2 installed result, 2026-11-16
+
+All seven approved R2 demos installed, deployed and live-verified. Actual curl is db-hammer-curl, not db-curl; distinct supinated curl remains unchanged. All approved masters registered, uploaded and archived with checksums. Receipt Docs/REALDEMOS_B09_INSTALLED_20261116.md. This batch is EXECUTED.

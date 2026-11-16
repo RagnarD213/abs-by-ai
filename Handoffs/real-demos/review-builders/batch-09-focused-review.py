@@ -31,7 +31,7 @@ for i,name,tag,note,start in items:
  manifest.append({'id':i,**clear[i],'duration':duration,'watch_start':start,'file':master.name})
 shutil.copyfile(P/'.claude/skills/_shared/review_player.js',R/'review_player.js')
 page='''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Batch 9: only the changes</title><script src="review_player.js" defer></script><style>
+<title>Batch 9 approved and installed</title><script src="review_player.js" defer></script><style>
 :root{color-scheme:light dark;--bg:#f3f6fa;--card:#fff;--ink:#172332;--muted:#536478;--line:#d8e1eb;--blue:#1d5c9a}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,sans-serif}
 main{max-width:900px;margin:auto;padding:16px}h1{font-size:clamp(25px,4vw,34px);line-height:1.15;margin:12px 0}
@@ -43,9 +43,9 @@ video{display:block;width:100%;aspect-ratio:16/9;background:#050a10;border-radiu
 .transport{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px}.transport button{font:inherit;font-size:14px;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:7px;padding:8px 12px;cursor:pointer}
 .transport span{font-size:13px;color:var(--muted)}.prior{font-size:14px;border-top:1px solid var(--line);padding-top:14px}
 @media(min-width:760px){main{padding:24px}}@media(prefers-color-scheme:dark){:root{--bg:#101821;--card:#182430;--ink:#eff5fa;--muted:#afc0d0;--line:#304252;--blue:#8fc3ff}}
-</style></head><body><main><h1>Only the changes to review</h1><p class="lede">Batch 9 · Three items, about 36 seconds to check.</p>
+</style></head><body><main><h1>Batch 9 approved and live</h1><p class="lede">All seven approved real demos are installed in the app.</p>
 <nav aria-label="Changes"><a href="#db-lateral-raise">Side Lateral</a><a href="#db-hammer-curl">Hammer Curl</a><a href="#db-shoulder-press">Shoulder Press</a></nav>
-'''+''.join(sections)+'''<p class="prior">Your earlier review is retained. Squat, battle ropes, push-up and knee push-up are off this page. Their requested ending and pacing fixes have been checked.</p>
+'''+''.join(sections)+'''<p class="prior">All seven demos are approved and installed. These three reviewed changes remain here for reference.</p>
 </main><script>
 document.querySelectorAll('[data-play]').forEach(b=>b.addEventListener('click',()=>{
  const v=document.getElementById('real-'+b.dataset.play);document.querySelectorAll('video').forEach(x=>x.pause());

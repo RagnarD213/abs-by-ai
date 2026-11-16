@@ -2,7 +2,7 @@
 
 ## Progress update, 2026-11-16
 
-This supersedes the original scheduling snapshot below: Batch8 has five real demos installed/live-verified; Dan also approved the fly after testing its picture and sound in the app. Swing requires correct real footage. Batch9 has seven independently cleared R2 demos awaiting review at http://127.0.0.1:9870/ (including Hammer Curl, not supinated db-curl). Batches4-7,10,11 contain29 planned demos still to build/store for future library additions. Do not relaunch Batch9 or install its unapproved R2 files from this status update. Latest batch receipts are in Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md and Docs/REALDEMOS_B09_R2_REVIEW_20261115.md.
+26real demos are live: pilot, Batches1-3, five available Batch8 demos and all seven Batch9 R2 demos. Dan approved the focused three Batch9 revisions and installation; live media/registration checks passed. Actual curl is Hammer Curl; separate db-curl stays unchanged. Batch8 swing needs correct footage. Remaining29planned demos are in Batches4-7,10,11 for future-library storage. See Docs/REALDEMOS_B09_INSTALLED_20261116.md and the Batch8 installation receipt.
 
 **Type:** app asset (Trainer exercise demos from Dan's real B-roll; not content, not an ad). **Written:** 2026-11-15 by the Batch 3
 session, after Dan asked for "a Handoff document to fire the next round of these". **Owner per batch:** Claude Opus 5.5, high effort.
