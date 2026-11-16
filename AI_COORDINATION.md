@@ -32,8 +32,13 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-
 **REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
+
+
+**DS-109:SETUP:** REVIEW http://127.0.0.1:9920/ X1-X8. Film final; publishing awaits cover pick.
+**DS-109:SETUP:** COVER R2 REVIEW http://127.0.0.1:9920/?round=2 A-D, exact revised title. Film final; publishing awaits cover pick. Setup holds no edit slot.
+
+
 
 
 **DS-109:SETUP:** REVISED B COVER REVIEW http://127.0.0.1:9920/?round=3 . Clearer, half-size, lower-left; exact pair awaits approval. Film final; setup holds no edit slot.
@@ -71,7 +76,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R7(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.**
-**GATUpsell1(WV-04):R1:2026-11-16:Claude,M2.**
+**GATUpsell1(WV-04):R1-REVIEW:2026-11-16:Claude,M2.** http://127.0.0.1:9812/
 **GreatAgainT-VSL-R7(WV-03):DAN-REVIEW:2026-11-16:Claude,M2.** http://127.0.0.1:9811/
 **GreatAgainT-VSL-R8(WV-03):HANDOFF-READY;Dan-fires;M2:2026-11-16:Claude.**
 
