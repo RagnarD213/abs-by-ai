@@ -41,9 +41,10 @@ VSL (job SRM-JV-R4), which is why Dan moved this edit.
   Failed: AI-11 (eggs fly), AI-45 (eating: mouth faults), AI-15 (Flow refuses a child; Kling slow motion), AI-17-2.
 - **Spend:** $1.57 of the $5 paid cap. Flow credits were 19,665 after the clips. Google subscription first; paid API only
   after a recorded subscription failure.
-- **Independent review of the round 6 file:** started 11-16 9:24 AM from the round 6 chat (Fable 5.2), writing
-  `m6:~/_edit_work/wv-03/round6/ROUND-6-REVIEW.md`. If the file is missing when you start, ask the round 6 chat
-  ("Great Again T VSL AD R5") for the verdict; do not start a second review of the same file. Fix its must-fix items.
+- **Independent review of the round 6 file: NOT DONE.** A Fable reviewer started 11-16 9:24 AM from the round 6 chat
+  never got its first decode step through the M6 queue and was cancelled at 10:17 AM when the job moved to the M2. No
+  verdict exists. Run a fresh `ra-reviewer` on the M2 on the first 3 minutes rebuilt in round 7, before Dan sees it.
+  (`renderq.py run` has no `--quick` option; use `--light`.)
 
 ## 2. Dan's round 6 decisions
 
@@ -103,7 +104,7 @@ he selected; where he selected neither, the first-listed pair, and say so. Log o
 
 ## 3. Order of work
 
-1. Section 0, then the independent review's must-fix items and the KEY POINT card; re-render the first 3 minutes.
+1. Section 0, then the KEY POINT card; re-render the first 3 minutes and have a fresh `ra-reviewer` check that file; fix its must-fix items.
 2. Design and make the new and changed pairs (the nine story ideas, AI-46 and AI-61 remakes, both tongkat piles,
    AI-34, AI-35, AI-38, the beach run if no clip exists): both models as blind pairs, the frame gate, a fresh frame
    reviewer per pair with a neutral link folder. Tell Dan the Codex image count before the batch (memory
