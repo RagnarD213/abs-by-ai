@@ -1,6 +1,6 @@
 # Overnight batch implementation, November 15, 2026
 
-Status: installed on both Macs, disabled. The four-job first night is queued and has not started. Claude Fable 5.2 high has signed off with no remaining blockers, including the final orphan-stop ordering fix at `edd9b86`. Dan authorized a one-time start tonight at 10 p.m. Central; no general backlog resume is authorized. The scheduled launch must pass the current readiness check.
+Status update, November 16: all four content first-review targets are ready and awaiting Dan. Recovery and slot release passed; fully unattended operation did not, because storage/drive-access workarounds were needed. See [actual Night 1 results](OVERNIGHT_BATCH_NIGHT1_20261116.md). The earlier sections below preserve the implementation and pre-launch record.
 
 ## Repaired and verified today
 
