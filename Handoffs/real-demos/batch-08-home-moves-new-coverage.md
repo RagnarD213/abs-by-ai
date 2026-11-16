@@ -90,4 +90,4 @@ brightness to approved pool B-roll from the same shoot and look at stills side b
 
 ## Batch8 R1 review status (2026-11-15)
 
-Updated R2: Five Dan-approved real demos are installed, deployed and live-verified, including the brighter Rear Delt Fly. Receipt Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md. Swing needs correct real footage. Batch remains open only for that pickup.
+Updated 2026-11-16: Five Dan-approved real demos are installed, deployed and live-verified, including the brighter Rear Delt Fly. Dan also checked the fly inside the app, confirmed good picture and working sound, and approved it. Receipt Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md. Swing still needs correct real footage. Batch remains open only for that pickup.

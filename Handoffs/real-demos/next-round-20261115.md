@@ -1,5 +1,9 @@
 # Real Exercise Demos: next round (batches 4 to 11)
 
+## Progress update, 2026-11-16
+
+This supersedes the original scheduling snapshot below: Batch8 has five real demos installed/live-verified; Dan also approved the fly after testing its picture and sound in the app. Swing requires correct real footage. Batch9 has seven independently cleared R2 demos awaiting review at http://127.0.0.1:9870/ (including Hammer Curl, not supinated db-curl). Batches4-7,10,11 contain29 planned demos still to build/store for future library additions. Do not relaunch Batch9 or install its unapproved R2 files from this status update. Latest batch receipts are in Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md and Docs/REALDEMOS_B09_R2_REVIEW_20261115.md.
+
 **Type:** app asset (Trainer exercise demos from Dan's real B-roll; not content, not an ad). **Written:** 2026-11-15 by the Batch 3
 session, after Dan asked for "a Handoff document to fire the next round of these". **Owner per batch:** Claude Opus 5.5, high effort.
 Dan has authorized every batch end to end, including installing approved demos in the app and deploying.
@@ -9,7 +13,7 @@ Dan has authorized every batch end to end, including installing approved demos i
 - **Done and live in the app (14 real demos):** Pilot (cable-crunch, leg-press, pullup), Batch 1 (leg-curl, cable-tricep-pushdown,
   seated-cable-row, lat-pulldown), Batch 2 (pec-deck, machine-chest-press, machine-row, machine-rear-delt-fly), Batch 3 (sled-push,
   walking-lunge, chinup; all installed 2026-11-15).
-- **Left: 8 batches, 42 exercises.** None started.
+- **Original planning snapshot (2026-11-15):8 batches,42 exercises.** See the progress update above for current status.
 
 | batch | outcome | count | exercises | file |
 |---|---|---|---|---|
@@ -56,8 +60,7 @@ in `public/index.html` (re-read it first).
 - **Edit slot:** read `editcap.py acquire` exit code directly (`> file; echo $?`), never through a pipe (Batch 3 rendered once while
   it said wait). Arm `editcap.py wait JOB` in the background when it says wait.
 - **Reviewer verdicts:** never change a reviewer's findings yourself. Apply the stated fix, then have a fresh judge confirm it.
-- **Pushing:** the main folder is often blocked by other sessions' live edits. Push only your own files: if `safe-push.sh` stops on
-  live files, commit in a clean worktree from `origin/main` (plain git is allowed there) and push that.
+- **Pushing:** use current AGENTS.md delivery rules. If safe-push.sh commits then stops on other owners' live files, checkout-sync.py pushes the existing commit without touching their working files. Do not duplicate that commit from a clean worktree.
 - **Dan's form standards** in `/exercisegeneration` "Batch 2 revision round" win over the app copy; narrate only what the picture shows.
 
 ## Starter prompts (one session per batch, Claude Opus 5.5 high)
