@@ -101,7 +101,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Tue Jan 12 | 3 | 9 AM | How To Do Chest Flies On The Machine (DS-78, gym) | Live |
 | Tue Jan 12 | 3 | 6 PM | He Hired ChatGPT As His Coach For A Year. He's Right. (DS-39) | Waitlist |
 | Thu Jan 14 | 3 | 9 AM | What Every Body Fat Percentage Looks Like | Waitlist |
-| Thu Jan 14 | 3 | 6 PM | OPEN | Not booked |
+| Thu Jan 14 | 3 | 6 PM | Hormozi: You're Not Hungry, You're Bored. (DS-109) | Queued |
 | Sat Jan 16 | 3 | 9 AM | How To Do A Standing Stomach Vacuum (SL-11 A) | Waitlist |
 | Sat Jan 16 | 3 | 6 PM | Stop Holding Your Breath During Stomach Vacuums (SL-11 B) | Waitlist |
 | Mon Jan 18 | 3 | 9 AM | Why I Fast Until 2 pm Every Day | Waitlist |
@@ -143,3 +143,5 @@ November 14: DS-34 Surgeon Fake Abs setup complete with A Clean Stamp. Four-plat
 November 15: SL-21 What To Cut setup complete. Shared waiting-list plans February 8/10/12, 2027 at 9 AM Central, restaurants/vacation/therapy in order, after SL-20 February 1/3/5 and RO-20B December 11. All four targets ready, kitchen=true and parent dependencies saved. Blotato 199/200; planned dates, not live schedules. Receipt: `Docs/SL21_SETUP_RECEIPT_20261115.md`.
 
 November 15: DS-107 finalized film and Round 3 Y2 covers (seam-only fix pre-approved) fully prepared with verified media and covers for all four platforms. Shared waitlist reserves January 11 at 9 AM Central, phase 3 green screen. Blotato 199/200, so this is a planned waitlist slot, not a live schedule. `Docs/DS107_SETUP_RECEIPT_20261115.md`.
+
+November16: DS-109 finalized R4 and exact revised B R3 pair approved. Four actual Blotato schedules read back for January14,2027 at6PM Central: YouTube7055960, Facebook7055957, Instagram7055958, TikTok7055959. All publishing assets and saved-post bytes hash-verified. This is scheduled, not a planned waitlist slot. Receipt: Docs/DS109_SETUP_RECEIPT_20261116.md.

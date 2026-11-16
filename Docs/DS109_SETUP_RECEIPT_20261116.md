@@ -1,6 +1,42 @@
 # DS-109 cover and publishing setup
 
-## Current cover round 3: revised B
+## Publishing setup completed: four actual schedules
+
+**Scheduled January 14, 2027, at 6 p.m. America/Chicago (CST), all four platforms.** UTC2027-01-15T00:00:00.000Z. Film finalized, revised B approved and installed, publishing assets uploaded and verified, four actual Blotato schedules created/read back. Public release has not happened yet. No pending DS109 waitlist hold.
+
+Dan's exact approval: “Looks good. Revised B is approved. Go ahead and finish the publishing setup and scheduling.” R3 original platform bytes are unchanged from that review. Approved paired files and picks.json in Short-form video content/covers/approved-ds109 and separate Extreme delivery folder, SHA256 copies re-read. Approved movie R4 SHA256 `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54` remains unchanged. Existing project/Extreme/Google Drive movie+SRT backups remain verified; [Drive backup](https://drive.google.com/open?id=1TZooPryQaxC_yHuDeWE6RWfG1RGUzEqx).
+
+| Platform | Saved Blotato schedule | Release, Central | Saved media verified |
+|---|---|---|---|
+| facebook | 7055957 | Jan14,2027 at6p.m. | 67,061,656bytes, SHA256 match |
+| instagram | 7055958 | Jan14,2027 at6p.m. | 67,061,656bytes, SHA256 match |
+| tiktok | 7055959 | Jan14,2027 at6p.m. | 67,154,930bytes, SHA256 match |
+| youtube | 7055960 | Jan14,2027 at6p.m. | 67,061,656bytes, SHA256 match |
+
+The next unreserved dated-phase Short slot was selected after checking the live posts, all shared-waitlist config dates and named calendar reservations. Original snapshot190/200 with10free meant all four fit; final194/200, no slot clashes. A provisional DS109 waitlist entry made during planning is marked queued with its actual four IDs, not left pending. Existing schedules and other waiting entries were preserved. No native YouTube holding upload, separate public upload or per-video automation.
+
+Four uploaded assets, all full-download SHA256 verified:
+
+| Asset | Bytes | SHA256 |
+|---|---|---|
+| video | 67,061,656 | `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54` |
+| instagram | 988,479 | `f2f8f65c6fbc01bfd0d1e9b2d56829e114bdf7ab7cec84771a426ed64d7f57a3` |
+| youtube | 265,462 | `6d7bd696caff6643a61cd376bcd984764657bbd57401126066b1be173521723d` |
+| tiktok | 67,154,930 | `b9659c8240722146f4633deb2fa5751ebe6fc0d0903f911434796a0696d348c6` |
+
+Every actual saved post's media URL was then downloaded in full and matched the appropriate original master or TikTok derivative. Saved captions, target settings, account and time match the config; YouTube/Instagram target covers were independently downloaded, decoded1080x1920and matched their exact approved hashes, with YouTube under2MB. Evidence: M2 setup/publish/saved-post-verification.json. API/media URLs may be rehosted by Blotato; saved-post byte hashes, not URL spelling, decide identity.
+
+TikTok: approved Instagram cover is one prefixed frame;2022original video packet payloads after that frame and3164AACpacket payloads are identical to the approved movie.2023frames total, zero full-decode errors, frame-zero PSNR51.305dB against the cover. Actual hosted TikTok download's first frame is byte-identical to the inspected native frame. videoCoverTimestamp0. Full recipe and proof in setup/publish/. Numerical/offline inspection only, no audible-listen claim.
+
+Facebook: exact first caption line registered in repository and live installer on both Macs, portable Extreme cover path and live copied JPEG hashes verified. Its public cover is applied after release by the existing installer. Final cover_audit194posts/0issues; ad_guard194posts/38ads/71adIDs CLEAN. These are queue/asset checks, not claims that future public tiles have been seen. Existing four-platform release checks inspect actual public tiles and repair if needed; YouTube public Short tile remains a post-release check.
+
+Exact publishing title: **Hormozi: You're Not Hungry, You're Bored.** Config: scripts/blotato/configs/ds109-hungry-or-bored.json. Organic, no kitchen/gym hold, real-film AI flagfalse; enhanced cover still does not change the film's flag. Four captions retain the prepared film-based copy, FOOD keyword and root absbyai.com UTMs. UTM content normalized to canonical ds109-hungry-or-bored so idempotent schedule matching works. No Free Preview offer or /start link.
+
+Pinned comment: “Before you snack tonight, would you eat a hard boiled egg right now, or do you just want some Doritos?” Prepared in config; existing youtube-pinned-comment-daily posts/pins after release. Article: dedicated Short; existing post-release article routine writes a searchable300–500word article or records a skip. Nothing to write at setup.
+
+Queue/master UPLOADEDrev19; Drive status upload confirmed. This means uploaded publishing assets and four verified Blotato schedules, not already public. Cover page now records approval/scheduling with no new approval request. Setup reserved no video-edit slot. Production/QA/rebuilds remain on M2, accessed through SSH/resume.
+
+## Historical cover round 3 review, now approved
 
 [Revised B, both platform layouts](http://127.0.0.1:9920/?round=3). **Built and checked, awaiting Dan's approval of the exact revised pair. Design B selected with changes. Film finalized; no platform upload or scheduling.** Title stays **Hormozi: You're Not Hungry, You're Bored.**
 

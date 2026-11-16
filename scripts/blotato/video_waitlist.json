@@ -1099,5 +1099,29 @@
   "added": "2026-11-15",
   "kitchen": false,
   "gym": false
+ },
+ {
+  "config": "scripts/blotato/configs/ds109-hungry-or-bored.json",
+  "kind": "short",
+  "job": "DS-109",
+  "label": "Hormozi: You're Not Hungry, You're Bored.",
+  "added": "2026-11-16",
+  "kitchen": false,
+  "gym": false,
+  "planned": "2027-01-14 18:00 America/Chicago",
+  "cover_pick": "B revised R3",
+  "approval": "Dan: Looks good. Revised B is approved. Go ahead and finish the publishing setup and scheduling.",
+  "receipt": "Docs/DS109_SETUP_RECEIPT_20261116.md",
+  "note": "Approved R4 and revised B fully prepared. Four actual Blotato schedules created/read back at190+4=194/200, no date clash. Scheduling capacity available, so no pending waitlist hold. Scheduled January14,2027 at6PM Central. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md.",
+  "queued": {
+   "date": "2026-11-16",
+   "main": "2027-01-15T00:00:00.000Z",
+   "schedules": {
+    "facebook": "7055957",
+    "instagram": "7055958",
+    "tiktok": "7055959",
+    "youtube": "7055960"
+   }
+  }
  }
 ]

@@ -23,7 +23,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 
 
-- [DS-109 finalized R4: revised B cover, then authorized publishing setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md) **COVER R3 REVIEW:** [approve revised B](http://127.0.0.1:9920/?round=3). Selected design B, clearer half-size lower-left cutout. Exact pair awaits approval; no edit slot. Same original owner; platforms not uploaded/scheduled.
 
 - [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Installed 2026-11-16, Codex.** All18 approved deliveries A0272–A0289; jobs and catalog updated. [Library audit](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md):343 usable AI clips plus the preserved source archive. No new spend.
 
@@ -253,6 +252,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [DS-109 approved film and revised B publishing setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md) **DONE November16:** four verified schedules January14,2027 at6PM Central. No setup work remains; public release pending.
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. Approved, setup complete in February shared waitlist. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun.
 
 
