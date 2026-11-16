@@ -75,3 +75,17 @@ generated file such as `output/social-queue-artifact/queue.json`, run
 Never copy GitHub's version over a file another session edited in the last 2 hours.
 
 Never in the project folder: `git stash`, `git reset --hard`, `git rebase`, `git pull`, `git add -A`, force-push.
+
+## Self-repair of the M2 drive shares (2026-11-16)
+
+`mount-m2-drives.py` (LaunchAgent `com.absbyai.m2-drive-mounts`, every 60 s on the M6) now repairs a stuck share by itself:
+when a reconnect times out while the M2 answers on port 445, it restarts the M2's file server over ssh (at most once per
+15 minutes) and force-unmounts a stale mount point on the M6. Why: on 2026-11-16 the M2's `smbd` stuck at 200-700% CPU, both
+shares dropped at 12:20, and nothing could remount them without an admin password. Both actions use `sudo -n` and need two
+one-time sudoers entries that Dan installs with his own password (each allows exactly one command):
+
+    ssh -t m2 "echo 'danielrose ALL=(root) NOPASSWD: /bin/launchctl kickstart -k system/com.apple.smbd' | sudo tee /etc/sudoers.d/absbyai-smbd >/dev/null && sudo chmod 440 /etc/sudoers.d/absbyai-smbd && sudo visudo -cf /etc/sudoers.d/absbyai-smbd"
+    echo 'danrrose ALL=(root) NOPASSWD: /sbin/umount -f /Volumes/Extreme, /sbin/umount -f /Volumes/Expansion' | sudo tee /etc/sudoers.d/absbyai-m2-shares >/dev/null && sudo chmod 440 /etc/sudoers.d/absbyai-m2-shares && sudo visudo -cf /etc/sudoers.d/absbyai-m2-shares
+
+Without them the repair steps log "not allowed" and the old behaviour (retry every minute) continues. Log:
+`~/Library/Logs/AbsByAI/m2-drive-mounts.log`. Editors still never run job work through the share (VIDEO-RULES "Two Macs").
