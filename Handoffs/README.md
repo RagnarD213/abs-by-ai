@@ -11,10 +11,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Joint Vigor R4 Flow clip collection](handoff-20261116-jv-r4-flow-collect.md), 2026-11-16. **OPEN: Codex (newest Sol) or Grokbot, fire now.** Chrome blocks Flow downloads for Claude; unblock or collect the generated takes into the job folder.
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
-- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **OPEN: start now, Codex newest Sol high.** Dan approved R1 (colour C, voice V1) as delivered; master sha 31dcb750 locked. Five covers + blind Google options, Dan's pick, then backups, metadata and verified organic scheduling/shared waitlist. No upload yet.
+- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **IN PROGRESS: Codex, cover pick pending.** Eight blind choices, both layouts: http://127.0.0.1:9921/. Approved master checksum verified; no film render or upload. After Dan picks: backups, metadata, four-platform queue/shared waitlist with readbacks. [Partial receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
 
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 
