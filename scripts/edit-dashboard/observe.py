@@ -239,7 +239,12 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
         else:out['note']='Unrecognized entry in the edit register; shown as recorded.'
     for a in jobs.values():
         s=set(a['states'])
-        a['occupies']=a['id'] not in ('Unidentified project','Unassigned render work') and bool(s&{'active','promoted'} or a['held'] or (a['tickets'] and not (a['parked'] and s&{'parked','waiting'})))
+        # Whole-edit ownership comes from editcap, never a short render lease.
+        # Setup/QA can use renderq without acquiring an edit slot (including
+        # helper steps for an edit owned by the other Mac).
+        a['occupies']=a['id'] not in ('Unidentified project','Unassigned render work') and bool(s&{'active','promoted'})
+        a['auxiliary']=not a['occupies'] and bool(a['held'] or a['tickets'])
+        a['workKind']='setup' if a['auxiliary'] and catalog.get(a['id'],{}).get('state') in ('finalized','uploaded') else 'helper'
     out['jobs']=list(jobs.values())
     if rows is not None:
         out.update(renders=sum(r[1] for r in rows),tickets=sum(not r[1] for r in rows),assigned=sum(r[2] for r in rows if r[1]))

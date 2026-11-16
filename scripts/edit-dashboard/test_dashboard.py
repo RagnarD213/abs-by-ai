@@ -37,6 +37,10 @@ class Scratch(unittest.TestCase):
         self.env=patch.dict(os.environ,{},clear=True);self.env.start();self.addCleanup(self.env.stop)
         for f in o.POLICY:
             dst=self.shared/f;dst.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(Path(__file__).resolve().parents[2]/'.claude/skills/_shared'/f,dst)
+        # Fixture policy approves only the fixture's copied sources. Production
+        # compatibility remains governed by policy.json, never relaxed here.
+        policy=patch.object(o,'POLICY',{f:hashlib.sha256((self.shared/f).read_bytes()).hexdigest() for f in o.POLICY})
+        policy.start();self.addCleanup(policy.stop)
         self.config=dict(primary='m6',reserve_min=30,hosts={h:dict(slots=n,cores_present=b,cores_away=b+4 if h=='m6' else b,away_after_min=30,names=[socket.gethostname().split('.')[0]],load_guard=False,first=['EXDEMO'] if h=='m2' else ['SFC']) for h,n,b in [('m6',2,6),('m2',3,8)]})
         put(self.shared/'editroute/hosts.json',self.config);put(self.repo/'Handoffs/video-editing/jobs.json',{'jobs':[{'id':'DS-98','title':'SealedToken'}]});put(self.ec/'registry.json',{'version':1,'edits':{}})
         (self.rq/'slots').mkdir(parents=True);(self.rq/'queue').mkdir()
@@ -96,7 +100,7 @@ class Scratch(unittest.TestCase):
         self.lease()
         data=self.snap()
         self.assertEqual(data['jobs'][0]['states'],['with-dan'])
-        self.assertEqual((data['used'],data['renders']),(1,1))
+        self.assertEqual((data['used'],data['renders']),(0,1))
         put(catalog, {'jobs':[{'id':'DS-98','state':'delivered','updated':'unknown'}]})
         self.assertEqual(self.snap()['jobs'][0]['states'],['active'])
 
@@ -108,7 +112,28 @@ class Scratch(unittest.TestCase):
         self.assertIsNone(self.snap()['used']);self.assertIn('Render ownership unconfirmed',self.snap()['issues'])
     def test_parked_ticket_and_render_only(self):
         self.lease('DS-22',True);put(self.ec/'registry.json',dict(version=1,edits={'DS-22':dict(job='DS-22',state='parked',reservation_parked=True)}))
-        self.assertEqual(self.snap()['used'],0);self.lease('DS-77');self.assertEqual(self.snap()['used'],1)
+        self.assertEqual(self.snap()['used'],0);self.lease('DS-77');self.assertEqual(self.snap()['used'],0)
+    def test_helpers_do_not_inflate_whole_edit_slots(self):
+        self.reg(**{'DS-108':'active','DS-98':'active','WV-04':'active'})
+        self.lease('SRM-JV-R4')
+        self.lease('DS-109',ticket=True)
+        data=self.snap('m2')
+        self.assertEqual((data['used'],data['registered'],data['renders'],data['tickets']),(3,3,1,1))
+        self.assertEqual({j['id'] for j in data['jobs'] if j['auxiliary']},{'SRM-JV-R4','DS-109'})
+
+    def test_finalized_setup_waiter_is_auxiliary_not_production(self):
+        put(self.repo/'Handoffs/video-editing/jobs.json',{'jobs':[{'id':'DS-109','state':'finalized','completed_at':1}]})
+        self.reg(**{'DS-109':'waiting'})
+        self.lease('DS-109',ticket=True)
+        data=self.snap('m2');job=data['jobs'][0]
+        self.assertEqual(data['used'],0)
+        self.assertTrue(job['auxiliary']);self.assertEqual(job['workKind'],'setup')
+        self.assertFalse(job['occupies'])
+        # A genuinely newly acquired production round stays authoritative.
+        self.reg(**{'DS-109':'active'})
+        data=self.snap('m2')
+        self.assertEqual(data['used'],1);self.assertFalse(data['jobs'][0]['auxiliary'])
+
     def test_registry_reboot_and_schema(self):
         (self.ec/'registry.json').unlink();s=self.snap();self.assertIsNone(s['used']);self.assertIsNotNone(s['pressure'])
         put(self.ec/'registry.json',dict(version=9,edits={}));self.assertIsNone(self.snap()['used'])
