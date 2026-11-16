@@ -27,11 +27,10 @@ iceberg clip (AI-17-1) with two labels from 2:47.83 to the end. Dan stays on cam
 **Dan's decisions today** (his words: `round6-plan/decisions.json`): Wood Kitchen 1 is final ("Let's go to the wood kitchen");
 the close shot by default, the wide shot only with something above his head or a cutaway; kitchen-only renders from here.
 
-**Pictures on the page:** 41 ideas with at least one verified START/END pair, 59 pairs; 7 ideas dropped after every attempt
-(AI-01, AI-30, AI-40, AI-41, AI-42, AI-48, AI-53: plain reasons in `round5/frames/final_dropped.json`); AI-59 (Yolk Over
-Steak) and AI-61 (the mechanic, redesigned, clock composited in code) failed on the Google side and their Codex twins
-were still being gated when this was written (`round5/frames/AI-59/wave2c/state.json`, `AI-61/wave2c/state.json`,
-markers `WAVE5C_DONE`, `WAVE6C_DONE`): check them first, re-run the assembly and rebuild the page.
+**Pictures on the page:** 43 ideas with at least one verified START/END pair, 61 pairs; 7 ideas dropped after every attempt
+(AI-01, AI-30, AI-40, AI-41, AI-42, AI-48 in its first design, AI-53: plain reasons in `round5/frames/final_dropped.json`).
+All picture waves are finished (markers `WAVE*_DONE` in `round5/frames/`). AI-59 (Yolk Over Steak) and AI-61 (the mechanic,
+redesigned as two moments of ongoing work with the clock composited in code) each have one verified pair.
 Ideas Dan replaced are hidden once their replacement verifies (`retired_ids.txt`); new ideas are AI-45 to AI-61.
 
 **Motion so far** (`round5/clips/MANIFEST.json`): only AI-17-1 (The Iceberg, first pair) verified. Failed: AI-17-2 (picture
