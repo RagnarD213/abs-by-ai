@@ -288,7 +288,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | DELIVERED: awaiting Dan | L |
-| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | READY | M |
+| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | IN PROGRESS | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |
 | [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | READY | M |
