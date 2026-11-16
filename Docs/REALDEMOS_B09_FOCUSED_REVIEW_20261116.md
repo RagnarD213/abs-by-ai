@@ -1,3 +1,5 @@
+> **Latest installation status, 2026-11-16:** All seven Batch9 demos are Dan-approved, installed, deployed and live-verified. See Docs/REALDEMOS_B09_INSTALLED_20261116.md. Historical review notes below are retained.
+
 # Batch 9 focused review, 2026-11-16
 
 Dan asked in the Batch8 chat to show only items not already approved and the revisions, rather than the full gallery. Active review remains http://127.0.0.1:9870/ . Three players only; current AI comparisons and the four previously reviewed cards are removed from this view.

@@ -1,3 +1,5 @@
+> **Latest installation status, 2026-11-16:** All seven Batch9 demos are Dan-approved, installed, deployed and live-verified. See Docs/REALDEMOS_B09_INSTALLED_20261116.md. Historical review notes below are retained.
+
 # Real Exercise Demos Batch9 R2: owner review
 
 Completed 2026-11-16 00:02 CST. Seven revised1080p demos rendered, checked and independently cleared, awaiting Dan's review. No revised exact file is approved. None of the new exercise assets has been installed in the live app. Documentation and timing-policy changes were pushed separately; no public exercise-demo file was changed.
