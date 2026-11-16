@@ -220,6 +220,19 @@ Dan: "The system that I want is one where I give my revisions and then the new t
 - Never put queue/job codes such as RO-25, ORO-25, RO-617, DS- or SL- numbers in the sidebar title, or lead with generic instructions such as `Prepare`, `Edit` or `Continue`. Keep internal IDs in job records, handoffs and filenames where needed. This changes task naming, not internal categories, IDs or schemas.
 - Apply the same title to proposed editing tasks and ready-to-paste handoff prompts. Preserve the actual round when resuming the same task; advance it for a new editing/review round, and always when work moves to a new task through a handoff (Dan, 2026-10-17: two tasks must never share a name). Use the available chat-title tool to apply the name. This supersedes older editor-first names such as `Muhammad revisions` and inconsistent SFC labels for shorts extracted from long-form.
 
+## Review pages: Full screen opens the video in VLC (Dan, 2026-11-16)
+
+Dan: "the full screen control on the video player on the review pages is NOT working ... make a robust fix that works and
+makes all review pages functional going forward." The Claude app's side pane refuses true full screen, so a page's own
+button could only stretch the video inside the pane. Since 2026-11-16 the shared `review_player.js` (injected into every
+page by `review_server.py`) sends the video to VLC on the Mac, full screen, from the moment the page player was at, with
+sound, and pauses the page player. It catches any button labelled exactly "Full screen" (or `data-review-fullscreen`), a
+double-click on a video, a small hover chip on every video, and the player's own full-screen icon (switched back on). In
+silent-check mode it never opens anything; if VLC cannot open, the page's own in-pane behaviour runs. Server side:
+`POST /__fullscreen` in `review_server.py` (files inside the review only). Page generators need nothing new. After any
+change to `review_server.py` or `review_player.js`, run `python3 .claude/skills/_shared/review_refresh.py` on the Mac that
+serves Dan's pages (the M6; M2 pages are mirrored there): it updates every existing page and restarts the review hub.
+
 ## Review-panel testing stays silent; owner handoff enables sound (Dan, 2026-10-28)
 
 - Automated video/audio checks stay muted during playback, auditions, seeking, source/format changes, reloads and recovery. They must not interrupt Dan or feed Wispr Flow. On managed pages, click **Start silent checks** before testing; `?review_mode=automation` also starts in check mode. Verify actual `muted` state before playing. Task-generated trusted input is indistinguishable from owner input, so entering check mode is required.
