@@ -4604,6 +4604,25 @@
       ],
       "must_pass": [],
       "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "ds109-r3-blank-topic-headline-20261116",
+      "verdict": "rejected",
+      "date": "2026-11-16",
+      "root": "ssd",
+      "path": "DS-109/r3/review/media/hormozi-not-hungry-bored-r3.mp4",
+      "sha256": "e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189",
+      "bytes": 59850924,
+      "excerpt": [
+        0,
+        24.26
+      ],
+      "dan": "Okay one more revision. I feel like the title looks blank. I want you, in the title at the top while this clip plays, to add in, in the large title text below the blue text, \"Alex Hormozi on Hunger.\"",
+      "must_pass": [],
+      "must_trigger": [
+        "graphics:topic_headline_missing"
+      ],
+      "notes": "Only requested topic-headline addition below sourcecredit. R3rest preserved. Semantic trigger pending, not automatedPASS."
     }
   ]
 }

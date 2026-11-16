@@ -1,8 +1,8 @@
-CONTENT (SFC, reaction). Current task: `Hormozi Not Hungry Bored SFC R3`, same original chat.
+CONTENT (SFC, reaction). Current task: `Hormozi Not Hungry Bored SFC R4`, same original chat.
 
 # DS-109: Alex Hormozi Says You're Not Hungry, You're Bored. He's Right.
 
-**R3 FINALIZED 2026-11-15.** [Final film](http://127.0.0.1:9860/). Dan+laptop now appear at2.035367s as the upward look begins; initial shuffling is hidden. Entire source/audio/rest of R2 unchanged. Dan's “once you make that change the video is set” condition is fulfilled and independently verified. [Final receipt](../../Docs/DS109_R3_FINALIZATION_20261115.md). [Setup handoff](../handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md) OPEN, start now. No cover/upload/schedule claim.
+**R4 TITLE REVIEW READY, November16,2026.** [Review the title revision](http://127.0.0.1:9860/?round=4). Added large white “Alex Hormozi on Hunger” beneath the blue source credit, with a compact matching header in the horizontal panel. Check0:00–0:03 and0:13–0:14.5. Full67.4674s film retained; all AAC/PCM and1295tailRGBframes match R3. Rendered and independently checked, awaiting Dan title review. [R4 receipt](../../Docs/DS109_R4_TITLE_REVIEW_20261116.md). Setup **HOLD** until title approval; R3 conditional final approval/history below remains preserved. No upload/scheduling.
 
 ## Read first
 

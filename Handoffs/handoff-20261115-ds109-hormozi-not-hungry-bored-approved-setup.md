@@ -1,12 +1,22 @@
+**HOLD, November16: [R4 title review](http://127.0.0.1:9860/?round=4) is rendered and checked, awaiting Dan. Do not upload R3 or start setup until R4 is cleared and this exact-file handoff is updated.**
+
 CONTENT (SFC, reaction). Setup task name: `Hormozi Not Hungry Bored Setup`.
 
 # DS-109: approved Hormozi reaction Short, setup
 
-**OPEN. Start now. Codex owns setup. Recommended model: newest supported stable Sol, high; GPT-6.1 Sol verified in the supported client catalog November15,2026. Check for an existing DS-109 setup owner first and reuse it. Do not duplicate uploads or an active setup task.**
+**HOLD pending Dan’s R4 title approval. Codex owns subsequent setup. Recommended model: newest supported stable Sol, high; GPT-6.1 Sol verified in the supported client catalog November15,2026. Check for an existing DS-109 setup owner first and reuse it. Do not duplicate uploads or an active setup task.**
 
 Take the finalized organic Short through covers, backups, metadata, platform preparation and verified scheduling or the shared waitlist. Read `.claude/skills/video-setup/SKILL.md`, `.claude/skills/coverimage/SKILL.md`, `.claude/skills/_shared/VIDEO-RULES.md`, `.claude/skills/_shared/IMAGE-GENERATION.md` and `Docs/PINNED_COMMENTS.md`. Current user instructions override older image routing and permanently-muted owner defaults.
 
-## Exact final film
+## Pending R4 title revision, do not upload
+
+- Review: http://127.0.0.1:9860/?round=4. Check0:00–0:03 and0:13–0:14.5.
+- Candidate: `Short-form video content/DS-109_Alex-Hormozi-Not-Hungry-Youre-Bored_R4.mp4`.
+- SHA256 `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54`,67,061,656bytes,1080×1920/2022frames/67.4674s.
+- New white headline Alex Hormozi on Hunger beneath blue sourcecredit through24.257567s. All prior edit approvals, full AAC/PCM and1295tailRGBframes retained.
+- [Exact R4 receipt](../Docs/DS109_R4_TITLE_REVIEW_20261116.md). Dan has not reviewed this exact R4 file. This is not R4 final approval.
+
+## Archived approved R3 reference, superseded for setup
 
 - Project-relative master: `Short-form video content/DS-109_Alex-Hormozi-Not-Hungry-Youre-Bored_R3.mp4`.
 - M2 absolute project path: `/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-109_Alex-Hormozi-Not-Hungry-Youre-Bored_R3.mp4`.
@@ -37,6 +47,6 @@ Organic dedicated reaction Short, green-screen11/13shoot/C1909. Ending is a subs
 
 All task-driven media playback stays silent: `AbsReviewAudio.beginChecks()` before any playback/seek/source change, then `.handoff()` verifying paused/sound-ready without autoplay. Preserve user volume including zero. No Mac audio/routing/microphone changes.
 
-## Starter prompt
+## Setup starter held
 
-> CONTENT (SFC, reaction). Name this chat "Hormozi Not Hungry Bored Setup". Execute `Handoffs/handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md` now. Set up the finalized DS-109R3Short, exact SHA256 e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189. Five cover choices with current Google-first/Codex comparison rules; stop for Dan's pick, then backups, organic metadata, pinned question, four-platform Blotato scheduling or shared waitlist, verified readbacks and setup receipt. Do not re-render or request film approval again.
+Do not launch the previous R3 setup prompt. After Dan clears the R4 title, update this handoff to the exact approved R4 hash and resume the existing setup owner or supply its starter. No new setup chat, cover generation or upload was launched by this revision.
