@@ -318,7 +318,7 @@ Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and
 | [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
 | [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | READY | S |
 | [DS-107](DS-107-your-metabolism-is-not-the-reason-youre-fat.md) | Your Metabolism Is Not The Reason You're Fat | C1908 | FINALIZED | S |
-| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | IN PROGRESS | S |
+| [DS-108](DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md) | A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right. | C1909 | DELIVERED: awaiting Dan | S |
 | [DS-109](DS-109-alex-hormozi-says-youre-not-hungry-youre-bored-hes-right.md) | Hormozi: You're Not Hungry, You're Bored. | C1909 | FINALIZED | S |
 
 ---

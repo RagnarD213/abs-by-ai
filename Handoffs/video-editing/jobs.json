@@ -6032,15 +6032,16 @@
    "claude": "CONTENT (SFC, reaction). Name this chat \"Smaller Plates Reaction SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md`: cut \"A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use /shorts with the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (SFC, reaction). Name this chat \"Smaller Plates Reaction SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md`: cut \"A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`) and `.claude/skills/shorts/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "R2 full scripted Short authorized: Colour B, Voice C, medium framing, G00-G03 approved. Dan requested M2 move on November 15. Same editor chat 01a1dffe-54a2-73a3-8818-23f9c7f16278; M2 edit slot acquired; migration and watching-key calibration running at /Volumes/Extreme/_edit_work/DS-108/round2. Full film not yet rendered, approved, uploaded or scheduled.",
+   "state": "delivered",
+   "note": "R2 full scripted reaction Short finished on M2: 63.363s, 1080x1920, approved Colour B / Voice C / Medium / G00-G03. Review http://127.0.0.1:9882/ . Exact file SHA256 7e2727834bae0f760a2274b9a7acb10678f956cb977cc56ebab8bb4247d93793; matching file in Videos to Review. Full silent browser playback, seek, sound-ready paused handoff and fresh independent audit complete. Raw numerical QA flags preserved with scoped evidence; no confirmed defect. Awaiting Dan review, not approved/uploaded/scheduled.",
    "order": 263,
-   "updated": "2026-11-15",
+   "updated": "2026-11-16",
    "by": "Codex",
-   "rev": 5,
+   "rev": 7,
    "syncedRev": 2,
    "editor": "Codex",
-   "needs": ""
+   "needs": "",
+   "review_ready_at": 1794866820.300425
   },
   {
     "id": "DS-109",

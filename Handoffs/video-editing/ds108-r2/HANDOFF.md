@@ -1,3 +1,5 @@
+Current result: [full-film delivery, November 16](DELIVERY-20261116.md). Review http://127.0.0.1:9882/ . Awaiting Dan; M2 slot released. Historical preparation below is superseded where the delivery receipt records completion.
+
 # Smaller Plates Reaction SFC R2: finish the full Short
 
 CONTENT, dedicated reaction Short DS-108. Sole implementation owner is the exact chat recorded in the round controller. Follow that journal before production. Dan has approved the first review and explicitly authorized finishing the complete Short. Do not stop for another approval of unchanged graphics or the chosen look/voice.
