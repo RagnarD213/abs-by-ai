@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [M2 drive share self-repair (sudoers)](handoff-20261116-m2-share-self-repair-sudoers.md), 2026-11-16. **OPEN: start now, Codex newest Sol high + Grokbot (has the password vault).** Two one-line sudoers entries so the M6 can restart a stuck M2 file server and clear dead shares by itself; then restart smbd and verify both shares remount. Dan authorized typing his passwords.
+
 - [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **OPEN: start now, Codex newest Sol high.** Dan approved R1 (colour C, voice V1) as delivered; master sha 31dcb750 locked. Five covers + blind Google options, Dan's pick, then backups, metadata and verified organic scheduling/shared waitlist. No upload yet.
 
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
