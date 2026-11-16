@@ -49,7 +49,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**[FlowB4:WAIT-DAN-GymBag:2026-11-15:Claude](http://127.0.0.1:9261/gymbag.html)** 16 filed A0272-87.
+**[FlowB4:WAIT-DAN:2026-11-15:Claude](http://127.0.0.1:9261/gymbag.html)**
 
 
 
