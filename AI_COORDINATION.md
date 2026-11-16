@@ -45,7 +45,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**RealDemos-B09:R2-REVIEW:2026-11-16:Codex,M2.** Seven revised1080p demos rendered, checked and independently cleared; awaiting Dan at http://127.0.0.1:9870/ . No new demo installed. One-time fallback deleted. `Docs/REALDEMOS_B09_R2_REVIEW_20261115.md`.
 
 
 
@@ -61,13 +60,13 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**DS-98 three-way blind edit: ROUND 2 HOST DECISION, 2026-11-16.** Dan asked about moving to M2 before work starts. M6 automatic start withdrawn; Round 1 and the prepared Round 2 packets remain intact. [Round 2 handoff](Handoffs/video-editing/DS-98-round-2-full-film-revisions.md).
+**DS-98 three-way blind edit: ROUND 2 IN PRODUCTION ON M2, 2026-11-16.** Dan requested the move. M2 holds the edit slot; the M6 starter was withdrawn. [Round 2 handoff](Handoffs/video-editing/DS-98-round-2-full-film-revisions.md). New checked films will be delivered together.
 
 
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R7(WV-03):DAN-REVIEW:2026-11-16:Claude,M2.** http://127.0.0.1:9811/
+**GreatAgainT-VSL-R8(WV-03):HANDOFF-READY;Dan-fires;M2:2026-11-16:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
