@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **OPEN: new task, GPT-6.1 Sol high.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Start with checked blind START/END pairs and stop for Dan's frame picks before motion; every take archived and every cleared keeper filed. Production not started here.
+- [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **IN PROGRESS: Phase A, Codex, M2.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Audit and references prepared; first in production queue, no generation yet. Checked blind START/END pairs precede motion; every take archived and every cleared keeper filed. [Receipt](../Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md).
 
 - [GAT Upsell 1 AD R2](video-editing/WV-04-round-2-revisions.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 1 reviewed: Matched colour, House bass; full-screen product shot with ingredients at 0:52; larger key-point cards; sofa pair recast (after guy, younger wife); cleaner than the VSL, more camera, fewer AI clips; builds the whole upsell.
 
@@ -29,7 +29,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Complete 2026-11-16.** All18 one-per-video picks approved and installed; Three Cans reports preserved. [Library summary and sweep](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md).
 
-- [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
+- [Smaller Plates Reaction SFC Setup](handoff-20261116-ds108-smaller-plates-approved-setup.md), 2026-11-16. **IN PROGRESS, same Codex owner, do not duplicate.** Dan finalized exact R2 film; cover generation and verified backups started. Required blind paired cover review next, then metadata and organic queue/shared waitlist. No platform upload or scheduling yet.
 
 - [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **STARTED, awaiting cover pick. Codex M2 owns setup.** [Round 3 Y1-Y4 requested conversation covers](http://127.0.0.1:9804/) first, with Round 2 X1-X5 extras below, same link on M2/M6. Two shirtless/two tank-top versions; exact speech bubbles; Claude's earlier misreading corrected in receipt and rejection records. Film and metadata unchanged, no scheduling. [Setup receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md).
 

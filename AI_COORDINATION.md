@@ -1,6 +1,6 @@
 **DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
 
-**DS-108:R2-M2:2026-11-16:Codex01a1dffe;delivered-awaiting-Dan;review9882;full63s-checked;slot-released.**
+**DS-108:SETUP:2026-11-16:Codex01a1dffe;film-finalized;covers-building;no-edit-slot;handoff-20261116-ds108-smaller-plates-approved-setup.md.**
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
@@ -31,6 +31,9 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 ---
 
 # ACTIVE
+
+**CLIPLIB-V2:PHASE-A-WAIT:2026-11-16:Codex:M2.** First in production queue; 25-concept audit prepared, 0/5,000 credits. Frames before motion. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
+
 
 **REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
 
