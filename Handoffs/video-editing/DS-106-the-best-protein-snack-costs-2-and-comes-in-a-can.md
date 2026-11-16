@@ -43,3 +43,7 @@ One dedicated vertical Short. Nothing derived from it. Covers and upload/setup a
 
 **Codex: GPT-6.1 Sol, high effort.**
 > CONTENT (SFC). Name this chat "Protein Snack Can SFC R1". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md`: cut "The Best Protein Snack Costs $2 And Comes In A Can" from the 11/13 green-screen shoot, rolls C1908 + C1907. Use `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## Pre-made AI clips (Dan approved 2026-11-16, Flow-credits batch 4: new clips)
+
+- **A0288** (The Gym Bag): plays under "Keep cans in your desk, your car and your gym bag.". 7.2 s, 9:16, silent. Exact approved one-per-video delivery; keep its full clean footage and let the final editor choose duration. `clip_library.py show A0288`. Label AI-generated person imagery in the final edit.

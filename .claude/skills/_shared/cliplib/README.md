@@ -103,3 +103,7 @@ library root is accessible first. This selects an existing connection; it grants
 
 
 October23 finished assets and Claude queue access: `Docs/OCTOBER23_SHARED_EDITOR_ACCESS.md`. Both editing workflows may use every usable catalogued take, not only the initial IDs suggested in a particular brief.
+
+## Generated source archive (November 16, 2026 sweep)
+
+`07 AI Generation Source Archive` in the existing library holds source/alternate exports and `source-register.json`, with hashes and original/duplicate locations. It includes rejected and unreviewed takes and is not a set of usable clips. Check `source-mirror-status.json` for its separate Drive-copy verification. Main catalogued clips retain their own approvals, quality scopes and permanent IDs. Sweep receipt: `Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md`.

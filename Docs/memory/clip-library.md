@@ -15,3 +15,5 @@ Built: `clip_library.py` in `.claude/skills/_shared/cliplib/` (README there). Fi
 **Why:** Dan wants reuse by default; generation and stock hunting cost money and time.
 
 **How to apply:** any clip-sourcing job runs `clip_library.py find` first and `add` when done (rule in `_shared/VIDEO-RULES.md`). Filmed B-roll cutting is a separate handoff (`Handoffs/handoff-20260929-cut-broll-into-clip-library.md`). The Sheets API is off on rclone's project, so the Sheet is refreshed by uploading an .xlsx over it. Related: [[drive-always-public]], [[ai-clip-artifact-giveaways]], [[home-ab-demos-reuse]].
+
+November16 sweep: all18 Batch4 picks installed (A0272–A0289),52 checked clean alternates (A0290–A0341) and five shipped AI demos (A0342–A0346) registered.343 usable AI clips at this snapshot. `07 AI Generation Source Archive` separately preserves1,168 source/alternate exports, including rejected/unreviewed takes; these are not cleared for edits. Audit and current library/archive links: `Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md`.

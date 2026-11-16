@@ -33,3 +33,7 @@ One dedicated Short. No derivative versions or extracted Shorts. Use the recorde
 
 **Codex: GPT-6.1 Sol, high effort, verified newest supported workhorse on this client.**
 > Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-101.json, then execute Handoffs/video-editing/DS-101-the-only-2-exercises-you-need-for-a-wide-back.md for "The Only 2 Exercises You Need For A Wide Back". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.
+
+## Pre-made AI clips (Dan approved 2026-11-16, Flow-credits batch 4: new clips)
+
+- **A0289** (Sit Up Straight): plays under "Training your back also improves your posture, so your chest and your physique overall look better from the front.". 7.8 s, 9:16, silent. Exact approved one-per-video delivery; keep its full clean footage and let the final editor choose duration. `clip_library.py show A0289`. Label AI-generated person imagery in the final edit.

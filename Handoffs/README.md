@@ -19,9 +19,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Hormozi Not Hungry Bored SFC Setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md), updated2026-11-16. **ACTIVE in original edit chat.** Dan finalized R4 and authorized setup; cover choices being built, then publishing after cover pick. No duplicate setup chat.
 
-- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Awaiting video approval.** [One clip per idea](http://127.0.0.1:9261/), Claude. Full-clean-source archive and permanent editor-chooses-length standard completed by Codex; no new spend. After picks, file approved assets and job-doc IDs.
+- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Installed 2026-11-16, Codex.** All18 approved deliveries A0272–A0289; jobs and catalog updated. [Library audit](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md):343 usable AI clips plus the preserved source archive. No new spend.
 
-- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed; length follow-up complete 2026-11-15.** [Current one-per-idea approval page](http://127.0.0.1:9261/). Supplementary archive: 67 clean parts / 40 versions, original Three Cans reports unchanged. Filing awaits actual choices.
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Complete 2026-11-16.** All18 one-per-video picks approved and installed; Three Cans reports preserved. [Library summary and sweep](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md).
 
 - [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
 

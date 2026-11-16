@@ -14,6 +14,9 @@ master; copy it to the M6 after each line). Veo 3.1 Fast = 10 a take, Omni 1.1 F
 
 ## Current batch4 status (Codex, 2026-11-15)
 
+**FINAL 2026-11-16: all18 owner-approved deliveries are installed as A0272–A0289.** New approval supersedes the earlier two rejections. Job docs, approval provenance and sheet updated. Library sweep:343 usable AI clips,1,168 preserved source/alternate exports; source mirror completion is recorded separately. No remaining video-pick request. See `Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md` and the latest receipt section. Historical instructions/statuses below are superseded.
+
+
 Video reviews complete. **Current approval page: one clip per idea at http://127.0.0.1:9261/** (Claude). Codex's full-clean-source follow-up preserves67 clean parts from 40 previously offered versions, with 269.292 s available, and records the permanent editor-chooses-duration standard. Port9260 is supplementary source evidence; do not ask Dan to review 40 variations. Three Cans' three original reports are unchanged. Actual video approval/library filing and job-doc IDs remain pending Dan's choices. See the motion-review handoff and receipt for the distinct one-per-clip and archive filing routes. No new generation/spend;490 measured versus540expected,19,822 last observed balance,50 unresolved.
 
 ## Done so far (do not redo)
