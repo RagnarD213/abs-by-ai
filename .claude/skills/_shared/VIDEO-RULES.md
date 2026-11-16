@@ -1151,7 +1151,6 @@ Applies to every new or revised video made by Claude or Codex. Disclose AI image
 
 Keep internal source/provenance records even when no on-screen label is needed. Preserve the real-physique-photo wording “Real photo(s) of me, not AI-generated”, existing thumbnail/moving-footage exceptions, and safe placement for labels that are needed. Apply this risk-based rule before older blanket instructions to label every AI image or clip. Previously approved exports stay unchanged unless Dan requests revision. DS-39's ending food labels are explicitly removed at his request.
 
-
 ## The AI label never covers a face or abs (Dan, 2026-10-30, RO-21 round 3 at 4:40)
 
 - Dan: *"the AI-generated label blocks one of my faces ... put that above the pair. Move the pair slightly down, if you need to, but avoid blocking faces with that AI-generated label. Avoid blocking faces or abs."* Applies to every on-screen disclosure chip in every video, Claude and Codex, across the whole film, not only the shot he noticed.
@@ -1443,6 +1442,13 @@ something that we can publish."* Every point below is a standing rule for every 
 
 ## Two Macs: which Mac takes the edit (Dan, 2026-11-12; built 2026-11-14)
 
+- **Never run job work through the SMB share (2026-11-16, WV-03 R7).** The M6 sees the M2's drives as `/Volumes/Extreme`
+  and `/Volumes/Expansion` over the network. Under many helpers' file traffic the M2's file server (smbd) stuck at 200%+ CPU,
+  the M6 lost both shares at 12:20 and could not remount them without an admin password; every helper reading or writing job
+  files through the share stalled while Dan was away. Rule: a job that lives on the M2 is edited by a session on the M2 (the
+  `m2` SSH connection) whenever possible. When an M6 chat or M6 helpers drive an M2 job, every read, write and command goes
+  through `ssh m2` (or `resume.py run`), and pictures are viewed by `scp` to a local scratch folder. The shares are for Dan's
+  browsing and for `editroute.py fetch/push`, never for an editor's or agent's working files.
 - **Existing edits, original chat (Dan, 2026-11-14):** every resume checks the job's owning Mac with
   `python3 .claude/skills/_shared/editroute/resume.py check <JOB>`, including chats copied from the M2 to the M6.
   If the work belongs on the other Mac, keep this original chat as the sole editor and execute its commands through
@@ -1645,6 +1651,7 @@ Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.
 
 - Do not use the rejected chicken-and-broccoli plate in any new or revised meal showcase. This includes B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4, its macro-short/macro-results sources and stills or crops of the same plate. Dan: “It looks like dog food.” Prefer salmon with Brussels sprouts, or another genuinely appetizing meal. This rejects that specific plate, not every chicken recipe. Preserve historical approved exports unless Dan requests a revision.
 - Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible when showcasing meal or recipe choices; recipe names, ingredients, calories and macros support it. For a calorie-tracking walkthrough, show the real app action and its matching calorie result after the meal photo. A static meal photo alone does not demonstrate tracking. Do not spend a recipe-variety beat on a text-only list or a single recipe: show multiple distinct recipe photos when that is the spoken point.
+- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible throughout the showcase; recipe names, ingredients, calories and macros support it. Do not spend the meal beat on a text-only list/detail view.
 - Reuse existing approved VSL/app assets first. Verify the actual image, dish and provenance before choosing; match displayed food, recipe, calories and macros to the same verified source. Never place a salmon photo over the old chicken’s 363-calorie result or mix different salmon results. Keep food photos, captions and key points readable in the final native frame.
 
 Memory and asset details: `Docs/memory/meal-showcases-appetizing-photo-first.md`.

@@ -49,6 +49,10 @@ order) and `editroute.py` follow on the next call. The M2 has its own checkout: 
 
 ### Continuing in the original chat
 
+**No job I/O over the SMB share (2026-11-16):** an M6 chat driving an M2 job uses `ssh m2` / `resume.py run` for every file
+and command, and `scp` to view pictures locally; never `/Volumes/Extreme` paths on the M6 (the share hung for WV-03 R7 when the M2's
+smbd stuck, and a hung share cannot be remounted without an admin password). See VIDEO-RULES "Two Macs".
+
 Dan resumes an existing edit by replying in its original Claude or Codex chat. He does not need to add a Mac
 instruction. Before production on every resume (also a copied old chat), run:
 
