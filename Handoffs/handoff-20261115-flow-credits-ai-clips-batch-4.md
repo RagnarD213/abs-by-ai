@@ -14,7 +14,7 @@ master; copy it to the M6 after each line). Veo 3.1 Fast = 10 a take, Omni 1.1 F
 
 ## Current batch4 status (Codex, 2026-11-15)
 
-Video reviews complete; **40 checked cuts across16clips await Dan at http://127.0.0.1:9260/**. Three Cans reviews preserved. Do not restart ideas/frames/motion reviews. Filing actual video selections remains, authorized in this same chat. Exact next commands: `Handoffs/handoff-20261115-flow-clips-batch4-motion-reviews.md`. Credits:490 measured versus540expected,19,822 observed balance; discrepancy50 unreconciled. Receipt updated.
+Video reviews complete. **Current approval page: one clip per idea at http://127.0.0.1:9261/** (Claude). Codex's full-clean-source follow-up preserves67 clean parts from 40 previously offered versions, with 269.292 s available, and records the permanent editor-chooses-duration standard. Port9260 is supplementary source evidence; do not ask Dan to review 40 variations. Three Cans' three original reports are unchanged. Actual video approval/library filing and job-doc IDs remain pending Dan's choices. See the motion-review handoff and receipt for the distinct one-per-clip and archive filing routes. No new generation/spend;490 measured versus540expected,19,822 last observed balance,50 unresolved.
 
 ## Done so far (do not redo)
 

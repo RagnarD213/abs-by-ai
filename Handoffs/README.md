@@ -13,9 +13,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Hormozi Not Hungry Bored SFC Setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md), 2026-11-15. **OPEN: start now, Codex setup.** Final R3 verified under Dan’s conditional approval; first-look reveal2.04s. Five cover choices and Dan’s pick next, then backups, metadata and verified organic scheduling/shared waitlist. No setup owner launched or upload claimed.
 
-- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Video picks pending 2026-11-15, Codex.** [Review](http://127.0.0.1:9260/); frames/motion reviews complete. Remaining: file actual selections and job-doc IDs. Credit receipt updated:490 observed versus540expected,19,822 balance, discrepancy50 unresolved.
+- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Awaiting video approval.** [One clip per idea](http://127.0.0.1:9261/), Claude. Full-clean-source archive and permanent editor-chooses-length standard completed by Codex; no new spend. After picks, file approved assets and job-doc IDs.
 
-- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed and published 2026-11-15, Codex; awaiting video picks.** [40 checked cuts across 16 clips](http://127.0.0.1:9260/), Three Cans reports preserved. After Dan pastes picks, file selected cuts, refresh sheet and update job docs; no duplicate review task.
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed; length follow-up complete 2026-11-15.** [Current one-per-idea approval page](http://127.0.0.1:9261/). Supplementary archive: 67 clean parts / 40 versions, original Three Cans reports unchanged. Filing awaits actual choices.
 
 - [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
 
