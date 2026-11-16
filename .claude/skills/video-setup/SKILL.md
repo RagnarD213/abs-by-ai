@@ -8,6 +8,10 @@ description: >
 
 Codex owns the complete setup for videos edited by either Claude or Codex, including images and setup files. Claude is used only when Dan explicitly requests it, for example because his Codex allowance is low; never switch automatically or infer the exception. This overrides older one-Claude handoffs and executor recommendations below. Reuse the existing setup package and preserve approvals, cover picks and publishing rules.
 
+## Setup is not a video edit (Dan, 2026-11-16)
+
+Cover design, metadata, backups and publishing setup do not acquire or reserve video-edit slots. Do not call editcap acquire/wait for setup or hold cover work behind the editing-slot queue. If this task has an accidental edit reservation, cancel only its own waiter and release it. Heavy media processing still follows the shared render-resource budget; lightweight image layout and file checks do not become a film edit.
+
 ## Silent task-driven playback (Dan, 2026-10-28)
 
 Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`, "Review-panel testing stays silent". Mute every actual video/audio player before task-driven playback or auditions and after source/reload changes, then leave it paused and muted. Use offline decoding, audio measurements or supported non-speaker file/model inspection; never claim an audible listen from silent testing. Preserve actual narration, exported media audio and Dan's manual unmute controls. This is the normal workflow, not an added approval step.
@@ -32,6 +36,10 @@ schedules 4413699 / 4413701 / 4413702 / 4413703; record in `BLOTATO_QUEUE_PROGRE
 YouTube video at release time (title, description, thumbnail, AI flag all travel in its YouTube target). Never upload to
 YouTube ourselves and never use YouTube native scheduling.** Anything that needs the YouTube id (thumbnail A/B test,
 English captions, publishing the sixpackabs article) happens after release: see Step 6 and Step 6b.
+
+## Reaction cover composition (Dan, 2026-11-16)
+
+For reaction videos, at least half of all designs presented, including blind comparison options, show the big-name reacted-to person in the background and Dan reacting in the foreground, with varied reactions. Round up and count platform layouts only once. Follow the shared VIDEO-RULES reaction-cover rule and /coverimage; generic topic scenes alone do not satisfy this requirement. Dan’s requested count overrides the default set size.
 
 ## YouTube Shorts cover verification (2026-10-06)
 

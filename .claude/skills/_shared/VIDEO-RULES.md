@@ -411,6 +411,14 @@ Dan: "Let's make this a rule going forward that we always use title capitalizati
 
 Dan rejected the SL-11 AI vacuum covers: "these AI-generated vacuum images of me are not turning out" and "The touched-up real photos ... are better than these AI photos for the vacuum." For stomach-vacuum covers and thumbnails, default to touched-up real camera screenshots of Dan actually holding a vacuum, including his previously used front-facing version when suitable. This is a topic-specific exception to the required AI-Dan mix below: do not manufacture new AI vacuum bodies by default. Preserve existing approved covers. Keep designs genuinely different; the standard count remains five unless Dan requests another count. For SL-11 he requested three designs per Short, both platform layouts, with at least one using the previously used front screenshot. Source/provenance: `Docs/memory/vacuum-covers-real-screenshots.md`.
 
+## Reaction covers: at least half resemble the reaction (Dan, 2026-11-16)
+
+For every reaction-video cover or thumbnail review, at least half of the distinct designs actually presented must look like a simulated screenshot of the reaction: the person being reacted to is prominent in the background and Dan is visibly reacting in the foreground. When the source includes several people, feature the big-name person, such as Alex Hormozi in DS-109. Vary Dan’s reactions, expressions or gestures across those designs. A generic topic scene without the reacted-to person does not count.
+
+Count all presented designs, including blind comparison choices, and round up: at least3of5 or4of8. Instagram and YouTube layouts of one design count once. A requested set of4still needs at least2; DS-109’s requested revision is4of4. Prefer authentic source pixels for the background subject and appropriate real or simulated reaction poses for Dan. Keep both faces recognizable and clear of the title. Matching the reaction scene takes priority over a generic standalone physique pose.
+
+This applies to future reaction Shorts and long-form covers for Claude and Codex. Keep the remaining source mix and subscription rules where compatible, honor Dan’s requested count and exact title, and preserve existing approved covers.
+
 ## Thumbnails: the five, each its own design, owned by Codex (Dan, 2026-10-25)
 
 Dan changed the standard after choosing C for all five Calories Shorts: he chooses AI images of himself most often and rarely picks covers without him. This replaces the 2026-10-13 pool + studio + one AI Dan + two discretionary mix for new cover and thumbnail sets. Existing approved files and picks stay locked.
