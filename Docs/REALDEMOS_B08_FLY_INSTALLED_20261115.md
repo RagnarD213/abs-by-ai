@@ -16,3 +16,7 @@ Fresh independent N SHIPS, both audio gates PASS and delivery39/0/0 PASS were re
 Final master registered B0756, source B0451 C1676 f5943-6362; original source pixels untouched. Drive upload: https://drive.google.com/file/d/130xqa8iT4hrhiKWTFeNRJ-h0LTg3rZgo/view. Sources marked used-final/correct demonstration, catalog refreshed1024clips. Archive Media/exercise-demos/real/b08-approved-r2 checksums reread from Seagate; Extreme originals remain. Registration proof round2/REGISTERED-FLY-APPROVED.json.
 
 Five available demos approved and live. Full batch remains open only for Kettlebell Swing, which requires correct real-footage pickup; no AI substitute. Shared-board check remains above limit from other-owner content; only this task entries changed.
+
+## Owner app check, 2026-11-16
+
+Dan: "I checked the rear delt fly in the app. The picture looks good and the sound works. This is approved." The outstanding owner picture/sound check is complete. Device/OS was not specified, so this confirms his actual app check, not separate iOS and Android tests. Both public file hashes were reverified against the approved R2 files. The demo was already installed and deployed; no duplicate installation or deployment was needed. Evidence: round2/fly-owner-app-check-20261116.json.

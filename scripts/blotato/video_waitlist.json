@@ -1028,6 +1028,17 @@
   "note": "Dan approved film and exact covers. Full setup complete November 13: project, Extreme and public Drive backups checked; all media downloaded/hash-verified; four platform cover preflights pass. Shared top-up queues in list order as capacity frees. Receipt Docs/DS15_DS19_SETUP_RECEIPT_20261102.md."
  },
  {
+  "config": "scripts/blotato/configs/ds107-metabolism-not-the-reason.json",
+  "kind": "short",
+  "job": "DS-107",
+  "label": "Your Metabolism Is Not The Reason You're Fat",
+  "added": "2026-11-15",
+  "kitchen": false,
+  "planned": "2027-01-11 09:00",
+  "cover": "Round 3 Y2, seamless joins finalized by Dan",
+  "note": "Complete verified setup: exact approved master and cover-first TikTok derivative uploaded/downloaded/hash-verified; both approved Y2 cover layouts verified; Facebook registry and live covers installed on M2 and M6; all four platform cover preflights pass. Queue 199/200, needs four slots. Existing shared top-up queues in order when room opens. Keep Edit Queue finalized until actual saved schedule/visibility readbacks, then mark uploaded. Receipt Docs/DS107_SETUP_RECEIPT_20261115.md."
+ },
+ {
   "config": "scripts/blotato/configs/ds34-surgeon-fake-abs.json",
   "kind": "short",
   "job": "DS-34",

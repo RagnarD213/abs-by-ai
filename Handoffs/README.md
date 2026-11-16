@@ -244,6 +244,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## Recently retired (do not run)
 
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. Approved, setup complete in February shared waitlist. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun.
+
+
+- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), **EXECUTED 2026-11-15.** Dan's Y2 seam-only fix finalized and installed; exact master unchanged. Four media/cover uploads verified; Facebook covers installed on both Macs. Shared waitlist reserves Jan 11, 2027 at 9 AM Central, Blotato 199/200. No live schedules yet; Edit Queue remains finalized pending visibility readback. [Receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md), [final covers/proofs](http://127.0.0.1:9804/). Shared top-up handles capacity; do not restart setup.
+
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. All covers approved; backups, media and four-platform setup verified. Shared waitlist plans February 8/10/12 at 9 AM Central after the parent. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun setup.
 
 

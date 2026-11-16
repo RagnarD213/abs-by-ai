@@ -14,6 +14,12 @@ For every new or revised narrated exercise demo, end the picture as the final co
 
 This supersedes the old approximately1-second demo-tail recipe and the delivery format's dead-air exclusion where it permits padding. Before a revised demo passes, its editor and independent reviewer must check the actual last spoken sound against the last picture and each internal pause. Numeric gates alone previously missed this fault. Existing R1 stamps are historical evidence, not proof of compliance with this new rule. Gate-code changes require the normal regression corpus before shipping.
 
+## Original portrait and exercise clip framing (Dan, November 15, 2026)
+
+For vertical videos, use the original portrait framing on Dan’s talking shots. Only present alternative talking-shot crops when the original shot is unusually wide and leaves him too small. This supersedes routine first-round crop auditions for vertical footage.
+
+In every video, frame exercise footage as large as the source and movement allow. In a vertical edit, use full-screen vertical when it keeps Dan and the demonstration in frame. Crop empty space closely around him, keeping his body, working equipment and full range of motion visible throughout the rep. When a complete action needs more width, use the largest framing that preserves it. Check the most extended position and keep captions clear of the demonstration.
+
 ## Shared admission budget, 2026-11-11
 
 The November 11 audit found 15 allocated cores against the 8-core budget with four edits.
@@ -1638,7 +1644,7 @@ Every new video edit and revision runs [CUT-CONTINUITY-QC.md](CUT-CONTINUITY-QC.
 ## Meal showcases: appetizing food and visible photos (Dan, 2026-11-14)
 
 - Do not use the rejected chicken-and-broccoli plate in any new or revised meal showcase. This includes B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4, its macro-short/macro-results sources and stills or crops of the same plate. Dan: “It looks like dog food.” Prefer salmon with Brussels sprouts, or another genuinely appetizing meal. This rejects that specific plate, not every chicken recipe. Preserve historical approved exports unless Dan requests a revision.
-- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible throughout the showcase; recipe names, ingredients, calories and macros support it. Do not spend the meal beat on a text-only list/detail view.
+- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible when showcasing meal or recipe choices; recipe names, ingredients, calories and macros support it. For a calorie-tracking walkthrough, show the real app action and its matching calorie result after the meal photo. A static meal photo alone does not demonstrate tracking. Do not spend a recipe-variety beat on a text-only list or a single recipe: show multiple distinct recipe photos when that is the spoken point.
 - Reuse existing approved VSL/app assets first. Verify the actual image, dish and provenance before choosing; match displayed food, recipe, calories and macros to the same verified source. Never place a salmon photo over the old chicken’s 363-calorie result or mix different salmon results. Keep food photos, captions and key points readable in the final native frame.
 
 Memory and asset details: `Docs/memory/meal-showcases-appetizing-photo-first.md`.

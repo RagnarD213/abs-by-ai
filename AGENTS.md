@@ -426,6 +426,14 @@ Dan, on the Google AI Ultra upgrade: "two sets of starting frames for all clips 
 
 For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
 
+## Meal showcases: appetizing food and visible photos (Dan, 2026-11-14)
+
+- Do not use the rejected chicken-and-broccoli plate in any new or revised meal showcase. This includes B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4, its macro-short/macro-results sources and stills or crops of the same plate. Dan: “It looks like dog food.” Prefer salmon with Brussels sprouts, or another genuinely appetizing meal. This rejects that specific plate, not every chicken recipe. Preserve historical approved exports unless Dan requests a revision.
+- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible when showcasing meal or recipe choices; recipe names, ingredients, calories and macros support it. For a calorie-tracking walkthrough, show the real app action and its matching calorie result after the meal photo. A static meal photo alone does not demonstrate tracking. Do not spend a recipe-variety beat on a text-only list or a single recipe: show multiple distinct recipe photos when that is the spoken point.
+- Reuse existing approved VSL/app assets first. Verify the actual image, dish and provenance before choosing; match displayed food, recipe, calories and macros to the same verified source. Never place a salmon photo over the old chicken’s 363-calorie result or mix different salmon results. Keep food photos, captions and key points readable in the final native frame.
+
+Memory and asset details: `Docs/memory/meal-showcases-appetizing-photo-first.md`.
+
 ## No new Abs By AI ads (Dan, 2026-11-15)
 
 Dan: "I don't want to do any more ads for Abs By AI." Stop new Abs By AI ad production, including raw ad cuts and vertical/square ad adaptations. Use organic content for the overnight test and future new work. This applies to Abs By AI; SixPackAbs and client work keep their own instructions. Existing campaigns, published posts and approved schedules keep their recorded state unless Dan requests a change.
