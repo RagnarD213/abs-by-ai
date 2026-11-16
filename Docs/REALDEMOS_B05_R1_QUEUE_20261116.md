@@ -25,3 +25,5 @@ Approval filing is authorized afterward: checksum copies and library records. Do
 ## Next action
 
 Enabled M2 worker acquires a free slot and builds this single batch from its immutable brief, then delivers the managed review link. Dan has no action while it waits. If another chat takes ownership, use batch.py takeover before production and preserve its existing work folder.
+
+Coordination-board note: the inherited board exceeds its word limit and has an unrelated undated entry. Removed this job’s added row to avoid increasing that problem; other entries preserved. This receipt and enabled batch ledger hold the pending production record.

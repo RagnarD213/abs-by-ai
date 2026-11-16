@@ -32,7 +32,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**REALDEMOS-B05:QUEUED-ENABLED:2026-11-16:Codex01a1e64a:M2.** Five real demos + proposed copy, 10–15s minimum10, last-word ending; no production yet, awaits M2 capacity. Both ticks acknowledged. Batch4 manifest/job/enablement verified unchanged. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B05_R1_QUEUE_20261116.md`.
 
 **REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
 
