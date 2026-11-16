@@ -2,7 +2,7 @@ CONTENT (SFC, reaction). Current task: `Hormozi Not Hungry Bored SFC R4`, same o
 
 # DS-109: Alex Hormozi Says You're Not Hungry, You're Bored. He's Right.
 
-**R4 FINALIZED, November16,2026.** Dan: “Looks good. The video is finalized. Go ahead with the cover and publishing setup.” Exact approved SHA256 `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54`. [Final film](http://127.0.0.1:9860/?round=4). Same chat now owns cover/publishing setup. Cover choices being built; no upload/schedule yet. [Setup receipt](../../Docs/DS109_SETUP_RECEIPT_20261116.md). [Active setup handoff](../handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md).
+**R4 FINALIZED, November16,2026.** Dan: “Looks good. The video is finalized. Go ahead with the cover and publishing setup.” Exact approved SHA256 `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54`. [Final film](http://127.0.0.1:9860/?round=4). Same chat now owns cover/publishing setup. [Cover choices X1 to X8](http://127.0.0.1:9920/) are checked and awaiting Dan’s pick. Backups and publishing text prepared; no publishing upload/schedule yet. [Setup receipt](../../Docs/DS109_SETUP_RECEIPT_20261116.md). [Active setup handoff](../handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md).
 
 ## Read first
 
