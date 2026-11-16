@@ -1,3 +1,5 @@
+SUPERSEDED 2026-11-16 by `handoff-20261116-great-again-t-vsl-round7.md` (Dan's full round 6 reply, the move to the M2). Sections 3 and 4 below are still referenced by it.
+
 AD (Great Again T sales video). Task name: `Great Again T VSL AD R7`.
 
 # Great Again T VSL (WV-03): round 7 handoff
