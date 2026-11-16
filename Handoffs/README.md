@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Great Again T VSL round 8: collect 23 finished Flow clips](handoff-20261116-wv03-r8-flow-downloads-blocked.md), 2026-11-16. **OPEN: Codex newest Sol high, M6, fire now.** Chrome on the M6 saves no downloads (disk nearly full); 28 Veo generations wait in Flow project "WV-03 R8 motion". Fix downloads, collect 23, resubmit 5 failed, push to M2; motion lead then gates and files.
+
 - [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **OPEN: fresh Codex coordinator; original Claude Opus 5.5 high editors on M2.** All four R1 decisions captured, including Sleep B/B and upper-right intro; Man Boobs verticals, Protein A/V1, Fat/Muscle opener/B-roll/ending. R2 not yet queued or rendering; standing-rule updates pending.
 
 - [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **IN PROGRESS: Phase A, Codex, M2.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Audit and references prepared; first in production queue, no generation yet. Checked blind START/END pairs precede motion; every take archived and every cleared keeper filed. [Receipt](../Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md).
@@ -20,7 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
-- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **IN PROGRESS: Codex, cover pick pending.** Eight blind choices, both layouts: http://127.0.0.1:9921/. Approved master checksum verified; no film render or upload. After Dan picks: backups, metadata, four-platform queue/shared waitlist with readbacks. [Partial receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
+- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **IN PROGRESS: revised text approval pending.** R2-X4 selected; new Fitness title and two-line cover text: http://127.0.0.1:9921/?revision=x4-text. Film unchanged. [Receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
 
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 

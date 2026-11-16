@@ -8,7 +8,7 @@ Phase A preparation is underway. The M2 production queue placed this job first i
 
 The current master catalog was searched against all 25 draft concepts, including real footage and synonyms. Relevant existing contact sheets, source ranges and approval history were inspected. The working plan replaces three covered ideas with stairs, rainy-day walking preparation and a hotel breakfast choice. It retains the mainly vertical AI Dan mix. Portrait-crop suitability is a sourcing judgment from previews, not a fresh full-motion quality clearance.
 
-The canonical AI Dan reference and real studio identity photos were inspected. A separate Flow project was created for this batch. Direct extension upload requires file-URL access; the supported native Mac chooser successfully uploaded the canonical reference instead. No extension-access setting was changed.
+The canonical AI Dan reference and real studio identity photos were inspected. A separate Flow project was created for this batch. Direct extension upload requires file-URL access; the supported native Mac chooser successfully uploaded the canonical and real studio references instead. Both are staged as ingredients. No extension-access setting was changed, and no action from Dan is needed for uploading.
 
 ## Credits and output reconciliation
 
@@ -18,6 +18,8 @@ The canonical AI Dan reference and real studio identity photos were inspected. A
 - Initial planned images: **50 Google + 50 Codex**, comprising two complete START/END pairs per concept, before justified corrections. Choices will remain source-blind.
 - This batch's submissions: **0**. Confirmed spend: **0**. Remaining batch allowance: **5,000**.
 - Generated video outputs: **0**; collected originals: **0**; archived sources: **0**; usable library IDs: **0**. No generated output is pending collection or filing.
+
+The private submission recorder was checked with temporary records: it permits the exact 5,000-credit ceiling and rejects an over-cap reservation, duplicate submission key, negative charge, or motion without recorded whole-pair approval. Tests made no provider calls and left the real ledger empty. Unresolved charges remain reserved; account-balance changes are recorded separately. Current read access to the existing Drive source register and mirror-status record was also verified.
 
 ## Private working records
 
