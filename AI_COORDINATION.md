@@ -43,8 +43,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**RealDemos-B09:R2-DEFERRED:2026-11-15:Codex,M2.** Only after M2 drains. `Docs/REALDEMOS_B09_R2_REVISIONS_20261115.md`; 10PM backup armed.
-**RealDemos-B09:R1-REVIEW:2026-11-15:Codex,M2.** Awaiting Dan: http://127.0.0.1:9870/; six cleared, lateral held. `Docs/REALDEMOS_B09_REVIEW_20261115.md`.
+**RealDemos-B09:R2-REVIEW:2026-11-16:Codex,M2.** Seven revised1080p demos rendered, checked and independently cleared; awaiting Dan at http://127.0.0.1:9870/ . No new demo installed. One-time fallback deleted. `Docs/REALDEMOS_B09_R2_REVIEW_20261115.md`.
 
 
 
@@ -66,7 +65,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R6(WV-03):DAN-REVIEW:127.0.0.1:9764;R7-handoff-in-README:2026-11-15:Claude.**
+**GreatAgainT-VSL-R7(WV-03):STARTED;waits-M6-behind-SRM-JV-R4:2026-11-16:Claude.**
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
@@ -371,4 +370,3 @@ List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 **RO-23:SETUP-HANDOFF:2026-11-01:Codex01a1989e.** Metadata push blocked by live staged article deletion. Retry when clear; setup pointer in `Handoffs/README.md`.
 **WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
-**RealDemos-B09:R2-DEFERRED:2026-11-15:Codex,M2.** Only after M2 drains. `Docs/REALDEMOS_B09_R2_REVISIONS_20261115.md`; 10PM backup armed.

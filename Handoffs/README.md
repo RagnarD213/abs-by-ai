@@ -40,7 +40,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R7](handoff-20261115-great-again-t-vsl-round7.md), 2026-11-15. **WAIT: fire after Dan replies on the round 6 page (http://127.0.0.1:9764/). Claude Opus 5.5, high.** Round 7: record his reply, independent review of the round 6 film, motion only for the picture pairs he selected, his notes on the first 3 minutes. Rounds 5 and 6 were executed 2026-11-15 in one chat (the round 6 handoff file is superseded by this one).
+- [Great Again T VSL AD R7](handoff-20261115-great-again-t-vsl-round7.md), 2026-11-15. **STARTED 2026-11-16 in its own chat (Claude Opus 5.5, high); delete this line when round 7 is delivered.** Round 7: Dan's round 6 reply (framing approved, KEY POINT card change, all page clips approved, a new one-character prospect-story series of pictures from 0:53), independent review of the round 6 film, motion for approved pairs. Rounds 5 and 6 were executed 2026-11-15 in one chat (the round 6 handoff file is superseded by this one).
 
 
 
