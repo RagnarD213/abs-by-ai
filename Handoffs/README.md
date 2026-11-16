@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **OPEN: new task, GPT-6.1 Sol high.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Start with checked blind START/END pairs and stop for Dan's frame picks before motion; every take archived and every cleared keeper filed. Production not started here.
+
 - [Joint Vigor R4 Flow clip collection](handoff-20261116-jv-r4-flow-collect.md), 2026-11-16. **OPEN: Codex (newest Sol) or Grokbot, fire now.** Chrome blocks Flow downloads for Claude; unblock or collect the generated takes into the job folder.
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
@@ -74,7 +76,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 - [Google Flow Music: channel theme song and background beds](handoff-20261107-flow-music-theme-and-beds.md): **Written 2026-11-07, fire now.** Dan asked for it. Claude Opus high interviews Dan (theme, moods, AI-music flag), then generates a theme and beds in Flow Music before Nov 29, offline checks, review page for picks.
-- [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Written 2026-11-07, fire now; finish by Nov 28.** Dan asked for it. Claude Opus high fills clip-library gaps (gags, eating, weigh-ins, gym, lifestyle) on up to 7,000 Flow credits; frame pairs batched for Dan.
+- [Flow credits: reusable clips for the clip library](handoff-20261107-flow-credits-clip-library.md): **Batch1 filed.** Continue with [the November16 mostly-vertical AI Dan batch](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), target25 clips and a separate hard5,000-credit cap for that batch; frame approval first. Do not start a duplicate from the old brief.
 - [Fly (bent elbows) and seated triceps app demos R4](handoff-20261109-exercise-demos-r4-fly-seated-triceps.md): **Written 2026-11-09, started automatically (video round rule).** Weighted crunch shipped live; fly and triceps frames failed R3 review, R4 changes the fly camera and rebuilds the seated triceps end.
 - [Three more AI-Dan exercise demos (triceps extension, dumbbell fly, weighted crunch)](handoff-20261106-exercise-demos-three-more.md): **Written 2026-11-06, fire now.** Dan asked for it. Claude Opus high makes the next three app demos with paid 1080p Veo (up to $10, 5 takes each), puts the best on a review page; install only after Dan says ship. **Executed 2026-11-07: at Dan's review (http://127.0.0.1:9317/); R2: crunch and fly passed, triceps form fixed with a brief flicker. Install on "ship" per the file.**
 - [Fable: three AI-Dan exercise demos on Google Flow (kickback, pullover, rear delt fly)](handoff-20261109-fable-exercise-demos-flow.md): **Written 2026-11-09, fire now.** Dan asked for it. Fable 5.2 high makes three app demos with Google Flow first (Google + Codex blind frame pairs), paid Veo only after a recorded Flow failure (cap $10), best takes on a review page; install only after Dan says ship.
