@@ -1,6 +1,6 @@
 **DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
 
-**DS-108:R2-M2:2026-11-15:Codex01a1dffe;same-chat-owner;Dan-requested-move;assets-copying;slot-held.**
+**DS-108:R2-M2:2026-11-16:Codex01a1dffe;same-chat-owner;key-and-VoiceC-complete;full-film-building;slot-active.**
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.
@@ -32,9 +32,14 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
+**REALDEMOS-B05:QUEUED-ENABLED:2026-11-16:Codex01a1e64a:M2.** Five real demos + proposed copy, 10–15s minimum10, last-word ending; no production yet, awaits M2 capacity. Both ticks acknowledged. Batch4 manifest/job/enablement verified unchanged. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B05_R1_QUEUE_20261116.md`.
+
+**REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
+
+
 **DS-109:SETUP:** COVER R2 REVIEW http://127.0.0.1:9920/?round=2 A-D, exact revised title. Film final; publishing awaits cover pick. Setup holds no edit slot.
 
-**DS-30:DAN-REVIEW-R1:2026-11-15:Claude,M2.** http://127.0.0.1:9805/
+**DS-30:SETUP-COVER-REVIEW:2026-11-16:Codex01a1e611.** http://127.0.0.1:9921/ X1 to X8, both layouts. Next: Dan picks, then backups and queue setup. `Docs/DS30_SETUP_RECEIPT_20261116.md`.
 
 **REALDEMOS-B08:HELD:2026-11-15:Codex:M2.** Five approved real demos installed/live-verified. Only swing pickup remains.
 
