@@ -31,6 +31,14 @@ Orientation: **landscape 3840x2160**. Sony FX30, 29.97p, S-Cinetone / Rec.709 (g
 
 One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers and upload/setup are separate tasks after Dan approves the film (Codex owns setup).
 
+## Pre-made AI clips (Dan approved 2026-11-15, Flow-credits batch 4: new clips)
+
+- **A0283** (Eight Glasses): plays under "So for decades, people have been forcing down glass after glass of water because of half of a sentence in a government report.". Forcing down eight glasses of water at his desk. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0283`. Label it AI-generated on the picture.
+- **A0284** (Treadmill Milkshake): plays under "No amount of cardio is going to fix your drinks and your snacks.". Strolling in the fat-burning zone with a milkshake. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0284`. Label it AI-generated on the picture.
+- **A0285** (Kitchen Closed): plays under "Don't eat any food after 7 PM. So where did it come from? Nobody knows.". The fridge is locked: closed after 7 PM. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0285`. Label it AI-generated on the picture.
+- **A0286** (Meal Four Of Six): plays under "Rule number five. Eat six small meals a day to stoke your metabolism.". Six small meals a day: he opens the next one on schedule. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0286`. Label it AI-generated on the picture.
+- **A0287** (The Rule Book): plays under "Here are 7 bullshit fitness rules that are still incredibly popular.". Into the bin: the old fitness rule book. (2.5 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0287`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

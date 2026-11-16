@@ -35,6 +35,12 @@ One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers 
 
 - **A0239**: plays under "Then when it was time to cut, I procrastinated far too long". A man by the fridge with his DIET STARTS MONDAY note, donut in hand, sulky and guilty (3.75 s, 16:9). `clip_library.py show A0239`. Label it AI-generated on the picture.
 
+## Pre-made AI clips (Dan approved 2026-11-15, Flow-credits batch 4: new clips)
+
+- **A0280** (Second Plate): plays under "The bulk is the easy part. Anybody can eat more. Anybody can go back for a second plate.". Back for more at the buffet with a plate that's already full. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0280`. Label it AI-generated on the picture.
+- **A0281** (I Bench 315): plays under "Nobody walking past you at the beach knows how much you bench. They don't see your numbers. They see your shape.". His shirt says I BENCH 315. Nobody at the beach can tell. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0281`. Label it AI-generated on the picture.
+- **A0282** (Won't Button): plays under "For most guys, it doesn't turn into muscle. It just turns into belly fat.". After the bulk his jeans won't button. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0282`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

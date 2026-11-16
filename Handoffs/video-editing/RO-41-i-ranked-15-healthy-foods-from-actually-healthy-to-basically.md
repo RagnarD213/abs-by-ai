@@ -38,6 +38,14 @@ One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers 
 - **A0183**: plays under "Trail mix and dried fruit sound healthy, but they're loaded with calories". A packing worker pours candy-coated chocolates into a jar of nuts and raisins and winks (5.0 s, 16:9). Also used in RO-17. `clip_library.py show A0183`. Label it AI-generated on the picture.
 - **A0185**: plays under "A cup of raisins is 493 calories. A cup of grapes is 106". Raisins poured into a palm beside a bunch of grapes (4.3 s, 16:9). Also used in RO-17. `clip_library.py show A0185`. Label it AI-generated on the picture.
 
+## Pre-made AI clips (Dan approved 2026-11-15, Flow-credits batch 4: new clips)
+
+- **A0275** (The Health Food Aisle): plays under "I ranked 15 "healthy" foods, and nine of them belong in the candy aisle.". The health food aisle is all candy. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0275`. Label it AI-generated on the picture.
+- **A0276** (Just A Quarter Cup): plays under "And nobody pours a quarter cup. You pour a bowl, you eat a bowl.". The measuring cup sits there while he fills the whole bowl. (7.7 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0276`. Label it AI-generated on the picture.
+- **A0277** (Cola For Breakfast): plays under "If you wouldn't drink a Coke with breakfast every morning, you shouldn't be drinking orange juice every morning either.". Cola in the juice glass with breakfast. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0277`. Label it AI-generated on the picture.
+- **A0278** (Two Tablespoons): plays under "But nobody is scooping out exactly two tablespoons. You're digging a spoon into the jar.". Two tablespoons, he says: a giant spoonful. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0278`. Label it AI-generated on the picture.
+- **A0279** (Three Cans): plays under "That's 530 calories and 119 grams of sugar. That's the sugar in three cans of Coke.". His healthy smoothie next to the three cans of soda it equals. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0279`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

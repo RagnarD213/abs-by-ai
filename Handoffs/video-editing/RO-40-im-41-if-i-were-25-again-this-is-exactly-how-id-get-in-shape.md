@@ -38,6 +38,11 @@ One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers 
 - **A0173**: plays under "I eat less junk, and I do less late night eating". Night kitchen: a man pulls a pizza box loaded with ice cream and cake out of the fridge, spoon in mouth (16:9; use about 1.6 to 5.4 s of the take). Also used in RO-08. `clip_library.py show A0173`. Label it AI-generated on the picture.
 - **A0144**: plays under "If you're not weighing yourself, you don't know if what you're doing is working". A shirtless man on a bathroom scale looks down and puts his hand to his forehead (4.0 s, 16:9). Also used in RO-10. `clip_library.py show A0144`. Label it AI-generated on the picture.
 
+## Pre-made AI clips (Dan approved 2026-11-15, Flow-credits batch 4: new clips)
+
+- **A0273** (Learning To Love It): plays under "After a few months I actually started to ENJOY eating like this.". Forcing down a huge plate turns into enjoying it. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0273`. Label it AI-generated on the picture.
+- **A0274** (Can't Look): plays under "Trying to get abs without weighing yourself daily is like trying to get rich while never looking at your bank account.". He can't bring himself to look at the scale, then peeks. (5.3 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0274`. Label it AI-generated on the picture.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

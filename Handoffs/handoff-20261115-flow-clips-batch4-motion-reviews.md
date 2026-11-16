@@ -40,3 +40,5 @@ Credits receipt and M2 master credit log record19,822 observed balance:490 measu
 
 ## Grokbot
 These files live only on Dan's Macs; Grokbot cannot reach them, so Grokbot's part is none unless Dan gives it Mac access. If it has access, it follows the same steps.
+
+**Status 2026-11-15 (Claude):** 16 approved clips filed (A0272 to A0287) and added to RO-39 to RO-43. Gym Bag redo waiting on Dan at http://127.0.0.1:9261/gymbag.html; Sit Up Straight rejected. Receipt has the details.
