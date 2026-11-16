@@ -2,13 +2,13 @@
 
 ## Next unedited batch
 
-Start with Batch4 (five gym demos), using [the current remaining-work handoff](remaining-unedited-20261116.md). It carries the latest timing/review rules and the full29-demo inventory. No new production has started.
+Start with Batch 4 (five gym demos), using [the current remaining-work handoff](remaining-unedited-20261116.md). It carries the latest timing/review rules and the full 29-demo inventory. No new production has started.
 
 ## Current progress, 2026-11-16
 
-- Batch8: five demos installed and live; Dan confirmed Rear Delt Fly picture and sound inside the app. Kettlebell Swing alone needs a correct footage pickup.
-- Batch9: seven R2 demos approved, installed and live-verified; receipt Docs/REALDEMOS_B09_INSTALLED_20261116.md. Hammer Curl is distinct from the unchanged AI Dumbbell Curl.
-- Batches4-7,10,11:29 planned demos remain to be made and stored with library copy. These cover exercises not yet in the app library, so these are not immediate app installs.
+- Batch 8: five demos installed and live; Dan confirmed Rear Delt Fly picture and sound inside the app. Kettlebell Swing alone needs a correct footage pickup.
+- Batch 9: seven R2 demos approved, installed and live-verified; receipt Docs/REALDEMOS_B09_INSTALLED_20261116.md. Hammer Curl is distinct from the unchanged AI Dumbbell Curl.
+- Batches 4-7,10,11:29 planned demos remain to be made and stored with library copy. These cover exercises not yet in the app library, so these are not immediate app installs.
 
 Dan, 2026-11-13: "Let's redo everything that we have B-roll with, with real stuff, and only things we don't have
 B-roll with will be done with AI." Pilot (cable crunch, leg press, pull-up) approved and installed that day.
@@ -35,4 +35,4 @@ its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, deta
 Install batches (1, 2, 3, 8, 9) give the app's library exercises real demos: 11 replace AI demos, about 15 are new
 coverage. Store batches (4-7, 10, 11) build demos for exercises not in the library yet. AI demos stay only for library
 exercises with no real footage (listed in the master handoff); batch 11 writes the pickup list for the next shoot.
-Batches1-3 are done; Batch8 has five installed with swing held for footage; Batch9 is installed. Remaining production: Batches4-7,10,11. Start work within the current shared editing budget, preserving existing owners.
+Batches 1-3 are done; Batch 8 has five installed with swing held for footage; Batch 9 is installed. Remaining production: Batches 4-7,10,11. Start work within the current shared editing budget, preserving existing owners.
