@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **OPEN: fresh Codex coordinator; original Claude Opus 5.5 high editors on M2.** All four R1 decisions captured, including Sleep B/B and upper-right intro; Man Boobs verticals, Protein A/V1, Fat/Muscle opener/B-roll/ending. R2 not yet queued or rendering; standing-rule updates pending.
+
 - [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **IN PROGRESS: Phase A, Codex, M2.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Audit and references prepared; first in production queue, no generation yet. Checked blind START/END pairs precede motion; every take archived and every cleared keeper filed. [Receipt](../Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md).
 
 - [GAT Upsell 1 AD R2](video-editing/WV-04-round-2-revisions.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 1 reviewed: Matched colour, House bass; full-screen product shot with ingredients at 0:52; larger key-point cards; sofa pair recast (after guy, younger wife); cleaner than the VSL, more camera, fewer AI clips; builds the whole upsell.
