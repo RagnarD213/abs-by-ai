@@ -1,3 +1,5 @@
+**DONE 2026-11-16 12:33 by Dan himself (both entries parsed OK); Claude restarted smbd (748% -> 0% CPU) and verified both shares remounted, read/write, and `sudo -n -l` on both Macs. Do not fire.**
+
 # Handoff: let the M6 repair a stuck M2 drive share by itself (2026-11-16)
 
 For **Codex and Grokbot**. Dan authorizes the whole step, including typing his Mac passwords: "I don't want to do this
