@@ -36,7 +36,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
 
 
-**DS-109:SETUP:** COVER R2 REVIEW http://127.0.0.1:9920/?round=2 A-D, exact revised title. Film final; publishing awaits cover pick. Setup holds no edit slot.
+**DS-109:SETUP:** REVISED B COVER REVIEW http://127.0.0.1:9920/?round=3 . Clearer, half-size, lower-left; exact pair awaits approval. Film final; setup holds no edit slot.
 
 **DS-30:SETUP-COVER-REVIEW:2026-11-16:Codex01a1e611.** http://127.0.0.1:9921/ X1 to X8, both layouts. Next: Dan picks, then backups and queue setup. `Docs/DS30_SETUP_RECEIPT_20261116.md`.
 

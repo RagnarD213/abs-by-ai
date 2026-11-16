@@ -1,6 +1,22 @@
 # DS-109 cover and publishing setup
 
-## Current cover round 2
+## Current cover round 3: revised B
+
+[Revised B, both platform layouts](http://127.0.0.1:9920/?round=3). **Built and checked, awaiting Dan's approval of the exact revised pair. Design B selected with changes. Film finalized; no platform upload or scheduling.** Title stays **Hormozi: You're Not Hungry, You're Bored.**
+
+Dan: “Okay I like B but enhance my image so I don't look so blurry and make me about half the size. Move me more into the left-hand corner. Make me smaller so I'm not blocking Hormozi.” A single enhanced cutout preserves his identity, pointing pose, expression, glasses and clothing. It is placed12px from the left edge, width310px versus620.47px previously, a0.4996linear ratio, with half-height framing. In Instagram his head starts around1130 and the figure continues through the profile crop's bottom; YouTube uses1370and the frame bottom. Hormozi's source panel is unchanged and unobstructed; exact B header pixels retained. The exposed backdrop under the YouTube source panel is clean navy, replacing a giant stretched hand formerly hidden by the large cutout. Original sources and B remain preserved. New enhancement is AI-assisted; it does not change the real film's footage flag or require an AI label on the cover under the thumbnail exception.
+
+Both native1080x1920RGB layouts and the actual3:4Instagram crop inspected together. Browser checked2/2images at1080x1920, phone390x844 and desktop1440x1000without overflow, actual Instagram crop ratio4/3, mobile YouTube toggle working. All4servedPNG/JPEG files downloaded and matched exact SHA256; JPEGs under2MB. No audio/video elements or playback. Page cached on both Macs, prior four-choice page preserved at index-round2.html. New files and originals at setup/r3/ on M2; recipe, layout-manifest, source and output hashes, enhancement route proof and QA retained. Candidates filed under Short-form video content/covers/review/ds109-hungry-bored-r3/; editroute confirms same5files on shared drive. No editing-slot acquisition or render reservation. No paid image API cost.
+
+Shared VIDEO-RULES “Revised covers and thumbnails: show Dan before installing” requires approval of these exact revised files before install/upload/scheduling. Publishing-config-draft.json records design_selected B, cover_revision_round3, cover_choice null and ready_to_schedule false. Queue/master remains finalizedrev17. Actual B selection and requested direction saved in cover preference memory; this does not claim final revision approval.
+
+| Layout | Revised B PNG SHA256 |
+|---|---|
+| instagram | `f2f8f65c6fbc01bfd0d1e9b2d56829e114bdf7ab7cec84771a426ed64d7f57a3` |
+| youtube | `f8c7d76803de531346206d3252eaec0f49a45a129c9f0a50d7e70f00150369f2` |
+
+## Historical cover round 2, superseded by revised B
+
 
 [Four new reaction covers A to D](http://127.0.0.1:9920/?round=2). **Built and checked, awaiting Dan's cover choice. Film finalized. No platform upload or scheduling.** Exact cover and publishing title: **Hormozi: You're Not Hungry, You're Bored.** No change to the approved movie or its internal title.
 
