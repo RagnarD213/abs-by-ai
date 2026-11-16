@@ -11,6 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
+
+
 - [Hormozi Not Hungry Bored SFC Setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md), 2026-11-15. **OPEN: start now, Codex setup.** Final R3 verified under Dan’s conditional approval; first-look reveal2.04s. Five cover choices and Dan’s pick next, then backups, metadata and verified organic scheduling/shared waitlist. No setup owner launched or upload claimed.
 
 - [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Awaiting video approval.** [One clip per idea](http://127.0.0.1:9261/), Claude. Full-clean-source archive and permanent editor-chooses-length standard completed by Codex; no new spend. After picks, file approved assets and job-doc IDs.
@@ -37,7 +40,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Two-Mac video editing optimization and priority skills](handoff-20261114-two-mac-video-editing-optimization-execution.md), 2026-11-14. **OPEN, APPROVED FOR EXECUTION.** Shared skill installed on both Macs. Implement and test both priority modes and the remaining [approved repairs](../Docs/TWO_MAC_VIDEO_EDITING_OPTIMIZATION_PLAN_20261114.md). Keep the overnight dispatcher paused.
 
 
-- [Great Again T VSL AD R6](handoff-20261115-great-again-t-vsl-round6.md), 2026-11-15. **WAIT: fire after Dan replies on the round 5 page (http://127.0.0.1:9764/) and the usage limits allow (Codex 11-18, Claude Opus/Sonnet 11-19). Claude Opus 5.5, high.** Round 6: record his reply, second-attempt pictures for the 18 AI clip ideas with none, motion for the pairs he selected, his notes on the first 3 minutes. Round 5 handoff executed 2026-11-15.
+- [Great Again T VSL AD R7](handoff-20261115-great-again-t-vsl-round7.md), 2026-11-15. **WAIT: fire after Dan replies on the round 6 page (http://127.0.0.1:9764/). Claude Opus 5.5, high.** Round 7: record his reply, independent review of the round 6 film, motion only for the picture pairs he selected, his notes on the first 3 minutes. Rounds 5 and 6 were executed 2026-11-15 in one chat (the round 6 handoff file is superseded by this one).
 
 
 

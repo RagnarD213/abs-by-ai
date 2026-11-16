@@ -1,3 +1,5 @@
+SUPERSEDED 2026-11-15: round 6 was run the same evening in the round 5 chat. Use `handoff-20261115-great-again-t-vsl-round7.md`.
+
 AD (Great Again T sales video). Task name: `Great Again T VSL AD R6`.
 
 # Great Again T VSL (WV-03): round 6 handoff
