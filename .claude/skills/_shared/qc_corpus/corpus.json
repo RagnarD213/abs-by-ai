@@ -4513,6 +4513,97 @@
       "must_pass": [],
       "must_trigger": [],
       "notes": "Conditional final approval after verified sole fix: hide cornerDan+laptop through60, reveal61atupwardlook. User did not watch exactR3; source/native independent check proves condition. Full source/audio/rest retained. Generic diagnostics remain rawFAIL with specific evidence, not blanket automatedPASS."
+    },
+    {
+      "id": "realdemos-b09-r1-bw-squat-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/bw-squat/bw-squat-REAL-1080.mp4",
+      "dan": "Body weight squat looks good but there is about a second of dead time at the end. Trim out that dead time at the end.",
+      "sha256": "7ce5b37ad5c1dd161556373b94113eb934289d9245bdad27192b40affbfa870c",
+      "bytes": 59129941,
+      "must_trigger": [
+        "exercise-demo:narration_end_padding"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "realdemos-b09-r1-battle-ropes-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/battle-ropes/battle-ropes-REAL-1080.mp4",
+      "dan": "Same thing with battle ropes. Trim that extra pause at the end.",
+      "sha256": "294d3a79a9ed84a0251744998141b754a16db295f2fe535350a3409d46859dc9",
+      "bytes": 68885057,
+      "must_trigger": [
+        "exercise-demo:narration_end_padding"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "realdemos-b09-r1-pushup-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/pushup/pushup-REAL-1080.mp4",
+      "dan": "Same thing with pushups. Add more content or trim it at the end.",
+      "sha256": "c4e5d320bf67764c7ab028cec5040535be858f7a4fa264e76040d67e5325e608",
+      "bytes": 72955189,
+      "must_trigger": [
+        "exercise-demo:narration_end_padding"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "realdemos-b09-r1-knee-pushup-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/knee-pushup/knee-pushup-REAL-1080.mp4",
+      "dan": "Same thing with knee push-ups.",
+      "sha256": "3c4570d26fe4a7951c6fb7b0ab326e98e08ee70c339f41b29cd5e5fddf9e1e15",
+      "bytes": 70771090,
+      "must_trigger": [
+        "exercise-demo:narration_end_padding"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "realdemos-b09-r1-db-shoulder-press-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/db-shoulder-press/db-shoulder-press-REAL-1080.mp4",
+      "dan": "In dumbbell shoulder press the end is good but there's an unnecessary pause in the middle. Remove that.",
+      "sha256": "4356ceb4f3a356c0eb7b3832555ca45b31a8995a01a9a4aa860ada551e0bcd03",
+      "bytes": 48599289,
+      "must_trigger": [
+        "exercise-demo:unnecessary_internal_pause"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
+    },
+    {
+      "id": "realdemos-b09-r1-db-curl-20261115",
+      "verdict": "rejected",
+      "date": "2026-11-15",
+      "root": "ssd",
+      "path": "REALDEMOS-B09/out/db-curl/db-curl-REAL-1080.mp4",
+      "dan": "Some unnecessary pauses in dumbbell curls. Remove those within the video. Also rename that hammer curl. That is a hammer curl.",
+      "sha256": "64bcfae931b8ceaebaafd776cc751d2c10f1945bf2dd1465b0baa66c33ebbfce",
+      "bytes": 63888840,
+      "must_trigger": [
+        "exercise-demo:unnecessary_internal_pause",
+        "exercise-demo:movement_identity"
+      ],
+      "must_pass": [],
+      "notes": "R1 production gates/independent checks passed but missed owner pacing correction. Squat picture/content and press ending accepted; overall file needs revision. Pending named checks do not claim implementation or a pass. R2 deferred behind all M2 work."
     }
   ]
 }
