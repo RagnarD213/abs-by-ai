@@ -20,14 +20,21 @@ revision docs and EDLs. File name: `<ID>_<what-it-shows>_<shape>_<seconds>s.<ext
 
 **Status:** `used-final` (in a finished video; `used_in` says which), `usable-unused`, or `unusable` for a registered
 asset later excluded by quality checks. `find` excludes unusable records; `show ID` retains their source history.
-Rejected takes are never
-filed. Files that sat loose in folders 03/04 before the 2026-09-29 sweep and were not catalogued (stick-figure gags,
+Rejected takes are preserved in `07 AI Generation Source Archive`, outside the usable catalog. Files that sat loose in folders 03/04 before the 2026-09-29 sweep and were not catalogued (stick-figure gags,
 the robot story montages whose shots are catalogued, a lower-quality toe-touch copy, old `.roll` sidecars) were moved
 to `/Volumes/Extreme/_edit_work/_clip_library_set_aside/`. Old file names are kept in each clip's `legacy_name`.
 
 ## Preserve clean footage for editors
 
 Keep full clean takes instead of arbitrary short approval trims. When a source has defects, retain every usable clean span as a separate library part, with original source timestamps/frame ranges and explicit excluded-fault notes. The final film editor chooses duration. Keep the original source and QC history; do not register faulty spans as usable or join separated parts into a fake continuous shot. Dan's November 15, 2026 rule in `../VIDEO-RULES.md` supersedes older 2–5 second window recipes.
+
+## Every generated AI clip is filed before the job closes (Dan, 2026-11-16)
+
+For business production footage, every newly generated video take from Flow, a paid API or any other model goes into the existing clip library system, including unused, rejected and unreviewed takes. Preserve each full original promptly in `07 AI Generation Source Archive`, with SHA-256, original path, job/shot/model, generation or collection time and its review disposition; merge its entry into `source-register.json` on the M2 master without replacing other jobs' entries. Use the M2 `clip_library.catalog_lock()` for the complete register read/merge/atomic-write transaction. Duplicate content points to the existing source rather than creating another copy. Keep rejected/unreviewed sources outside the usable catalog.
+
+After the existing quality and approval steps, register every clean used or unused keeper with `clip_library.py add`, preserving full clean footage and separate clean spans, then refresh `clip_library.py sheet` and put usable IDs in the job docs. Approval gates and source restrictions still apply.
+
+Library filing is a required completion check, not a later cleanup task. Reconcile every successful generation output in the job manifest against a source-archive entry and every cleared keeper against a permanent library ID. Verify local and Drive copies by file hashes, the source register and the current human catalog; record the output count, archive references, keeper IDs and verification receipt in the job's final report. Before pausing for review, archive all outputs already generated. A failed/missing collection or mirror stays explicitly incomplete with its exact output IDs and next action; do not claim the job fully filed or complete. No extra permission is needed for this filing. This supersedes older instructions to save only clips used in approved edits or to omit rejected takes entirely. See `.claude/skills/_shared/cliplib/README.md`.
 
 ## The rule for every video job
 
@@ -42,7 +49,7 @@ Keep full clean takes instead of arbitrary short approval trims. When a source h
    `python3 .claude/skills/_shared/cliplib/clip_library.py add FILE --kind ai|real|screen|stock --slug what-it-shows --description "one concrete sentence" --category <cat> --people dan|ai-dan|other-man|woman|mixed|none --status used-final --used-in "RO-05" [--model kling-v3 --prompt "..."]`
    then `clip_library.py sheet` to refresh the Google Sheet. `add` copies (never moves) the file into the library,
    makes previews and uploads it to Drive.
-4. Rejected or defective takes (melting hands, fogging mirrors, breath smoke, warped faces) never go in.
+4. Preserve every source take, including rejected or defective takes (melting hands, fogging mirrors, breath smoke, warped faces), in `07 AI Generation Source Archive`. Never register a defective span as usable.
 
 Other commands: `show A0042`, `verify`, `describe` (Gemini flash-lite re-describes clips from their contact sheets
 and flags visible AI defects, about $0.0015 a clip), `drive-sync`, `thumbs`.

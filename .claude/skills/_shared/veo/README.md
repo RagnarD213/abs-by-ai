@@ -18,6 +18,10 @@ Paid API generation is a fallback only after a documented subscription failure f
    frame-reviewer on every take, exactly as for API takes. Only gated takes go on a review page.
 6. **Subscription failure:** record the attempted asset, current credit/error evidence or failed quality gate. The Flow runner reports `CREDITS_OUT` or the failure; the parent owns any API fallback. Within an existing applicable spending authorization, state the estimate and use `veo.py api JOBDIR A1 --paid-ok "Dan 2026-11-08 subscription-first fallback; evidence: <path/reason>; budget: <authorization>"`. Ask only if a new authorization or higher cap is needed. Do not use `--rush` as a shortcut. Paid takes still count against the video's generation budget.
 
+## Mandatory library filing (Dan, 2026-11-16)
+
+Every produced take, including failed-quality and unused alternatives, must be collected and preserved in `07 AI Generation Source Archive` with its source-register entry and verified Drive copy. The parent registers cleared clean keepers in the usable catalog, refreshes the sheet and records IDs in the job docs. Reconcile all job outputs before reporting completion; a review pause still requires archiving the generated sources first. This applies to Flow and API outputs equally. Canonical workflow: `../cliplib/README.md`, "Every generated AI clip is filed".
+
 ## Which model and how many takes (Dan, 2026-10-21)
 
 Credits are not the limit on Ultra (about 1,000 Veo Fast clips a month), so when in doubt, generate more, not less. Dan:

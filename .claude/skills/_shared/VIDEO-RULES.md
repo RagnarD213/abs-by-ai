@@ -1,3 +1,11 @@
+## Every generated AI clip is filed before the job closes (Dan, 2026-11-16)
+
+For business production footage, every newly generated video take from Flow, a paid API or any other model goes into the existing clip library system, including unused, rejected and unreviewed takes. Preserve each full original promptly in `07 AI Generation Source Archive`, with SHA-256, original path, job/shot/model, generation or collection time and its review disposition; merge its entry into `source-register.json` on the M2 master without replacing other jobs' entries. Use the M2 `clip_library.catalog_lock()` for the complete register read/merge/atomic-write transaction. Duplicate content points to the existing source rather than creating another copy. Keep rejected/unreviewed sources outside the usable catalog.
+
+After the existing quality and approval steps, register every clean used or unused keeper with `clip_library.py add`, preserving full clean footage and separate clean spans, then refresh `clip_library.py sheet` and put usable IDs in the job docs. Approval gates and source restrictions still apply.
+
+Library filing is a required completion check, not a later cleanup task. Reconcile every successful generation output in the job manifest against a source-archive entry and every cleared keeper against a permanent library ID. Verify local and Drive copies by file hashes, the source register and the current human catalog; record the output count, archive references, keeper IDs and verification receipt in the job's final report. Before pausing for review, archive all outputs already generated. A failed/missing collection or mirror stays explicitly incomplete with its exact output IDs and next action; do not claim the job fully filed or complete. No extra permission is needed for this filing. This supersedes older instructions to save only clips used in approved edits or to omit rejected takes entirely. See `.claude/skills/_shared/cliplib/README.md`.
+
 ## Preserve clean source footage; editors choose final length (Dan, 2026-11-15)
 
 For reusable clips, approval pages and clip-library handoffs, keep the full take when it is clean. Trim only obvious junk, resets or visible AI/physics/text errors. Do not automatically shorten footage to 2–5 seconds or another target. Keep valid setup, action, follow-through and natural reactions so the final video editor can choose the length in context.
@@ -1204,7 +1212,7 @@ Keep internal source/provenance records even when no on-screen label is needed. 
   its ID (A#### AI, B#### B-roll). Generate only when nothing fits, and say so in the job notes.
 - **When a job finishes, register every new AI clip, stock clip or cut B-roll insert that made it into the approved
   video** (and any clean unused keeper) with `clip_library.py add ... --status used-final --used-in "<job>"`, then
-  `clip_library.py sheet`. Rejected or defective takes never go in.
+  `clip_library.py sheet`. Rejected/defective takes belong in the source archive, outside the usable catalog; the mandatory all-output filing rule above applies.
 - Human editors browse the same catalog as a Google Sheet in the Drive library folder. Full rules: `_shared/cliplib/README.md`.
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)

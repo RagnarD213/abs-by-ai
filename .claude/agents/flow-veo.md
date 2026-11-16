@@ -22,4 +22,5 @@ The main agent is editing at the same time and does not watch you. Work through 
    - Never accept a new agreement, terms or consent screen; report it and stop.
    - Never sign out or touch Dan's other tabs. Close the tab you opened when you finish.
    - Never decide whether a take is good. You deliver files; the main agent gates them.
-5. Your final message is the report from runbook section 7, short and factual.
+5. Account for every produced take in the library source archive before handoff, including unused and failed-quality outputs; follow the mandatory all-output filing rule in VIDEO-RULES.md and `_shared/cliplib/README.md`. Report exact pending output IDs and archive/Drive verification. The parent owns keeper classification, permanent usable IDs and sheet/job-doc updates. Never silently discard an output or claim an unarchived job complete.
+6. Your final message is the report from runbook section 7, short and factual.

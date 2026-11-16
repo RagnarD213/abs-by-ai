@@ -116,9 +116,14 @@ Measured 2026-10-17: the 1080p download is 1920x1080, 24 fps, 8.0 s, H.264 with 
 edit mutes or replaces it), **no visible watermark** with the switch off (checked every second of the frame, corners
 included). The invisible SynthID mark is always there and is not our concern.
 
+## 6a. Preserve every collected take (Dan, 2026-11-16)
+
+Every collected output must be accounted for in the library source archive, including rejected, unused and unreviewed takes. Follow `../cliplib/README.md` and the all-output filing rule in VIDEO-RULES.md. Preserve the full original, its SHA-256 and job/model provenance, merge the M2 source register and verify the Drive copy. The parent owns quality decisions and promotion of cleared clean parts into permanent usable library IDs; the runner never calls a raw take usable. Report any uncollected or unarchived output by exact ID, never silently skip it.
+
 ## 7. Report back (your final message)
 
 - Per clip: id, status, file, resolution and length, seconds from submit to finished.
+- Output reconciliation: successful generations, collected files, source-archive references and Drive verification, plus any exact pending IDs. Parent must supply usable keeper IDs and sheet/job-doc verification before closing the overall job.
 - Batch wall time: first submit to last file collected.
 - Credits before and after (open the avatar menu again, `veo.py credits --set N`).
 - Anything that went wrong or a screen that did not match this runbook.
