@@ -32,7 +32,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**DS-109:SETUP:** ACTIVE in original chat. R4 finalized; covers building, no upload yet.
+**DS-109:SETUP:** REVIEW http://127.0.0.1:9920/ X1-X8. Film final; publishing awaits cover pick.
 
 **DS-30:DAN-REVIEW-R1:2026-11-15:Claude,M2.** http://127.0.0.1:9805/
 
