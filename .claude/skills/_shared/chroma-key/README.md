@@ -132,3 +132,10 @@ Find a unique exact RGB-pixel match near the reported offset, then verify every 
   (C1903's is about 3.1-3.4%), and the key should be at or under the source's own figure.
 - The locked long-form `warm` grade ran too bright and orange on this roll (white tank, warmer white balance); the rebalanced
   `matched` grade is in `~/_edit_work/wv-03/round1/look/LOOK.json`.
+- **A held prop the colour of the screen needs a tracked hold-out (DS-106, 2026-11-15, C1908 0-81 s sardine tin).** A teal and
+  dark-green tin keyed 30-70 % see-through and the despill turned it purple; a calibration excerpt shows it in minutes, so look at
+  any held prop over hot pink BEFORE the full key. Fix (`/Volumes/Extreme/_edit_work/DS-106/r1/recipe/keylib.py` `tin_holdout`,
+  `stage1_key.py`): seed = teal cue (B/G > 0.72 against the screen's 0.40-0.51, G-R > 0.06) near Dan's solid matte, plus pixels
+  much darker than the plate (Y < 0.78 x plate) within 110 px of the seed; convex hull per group made solid, and stage 1 keeps the
+  UNdespilled source colour inside it. Hair, glasses and edges stay on the unchanged house maths. A keylib change invalidates every
+  keyonce stamp, so decide this before keying.
