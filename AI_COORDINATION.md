@@ -315,7 +315,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**OvernightBatch:N1-REVIEW:2026-11-16:Codex01a1dfd6.** Four-first-reviews;1-recovery-pass;slots-released. NeedsDan:picks. Unattended-pass-blocked:drive-access/M6-space. Next:9AM-report. `Docs/OVERNIGHT_BATCH_NIGHT1_20261116.md`.
+**OvernightBatch:N1-REVIEW:2026-11-16:Codex01a1dfd6.** Four-first-reviews;1-recovery-pass;slots-released. NeedsDan:picks. Unattended-pass-blocked:drive-access/M6-space. Next:Dan-picks,then-infrastructure-fixes. `Docs/OVERNIGHT_BATCH_NIGHT1_20261116.md`.
 
 **Ads 6, 7, 10, 14 YouTube + Google Ads - REVIEW 2026-09-15, Codex 01a0a744.** Four unlisted uploads, eight enabled campaign ads, shared budget $40/day, policy `REVIEW_IN_PROGRESS`. Next: re-run policy; swap in Ad 7 typo / Ad 14 bitrate exports when delivered. Detail: `Docs/DGEN_CONVERSION_CAMPAIGN.md`.
 
