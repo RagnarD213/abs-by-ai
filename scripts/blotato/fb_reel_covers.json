@@ -50,7 +50,7 @@
   {
     "schedule": "3563151",
     "when": "2026-10-17T22:00:00.000Z",
-    "match": "You have 4 ab muscles — not just a six-pack.",
+    "match": "You have 4 ab muscles \u2014 not just a six-pack.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/07-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -58,7 +58,7 @@
   {
     "schedule": "3563159",
     "when": "2026-10-20T22:00:00.000Z",
-    "match": "The toe touch — a killer six-pack move you can do at home.",
+    "match": "The toe touch \u2014 a killer six-pack move you can do at home.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/covers/review/queue-bakeoff-20260924/round3-platform-layouts-20260925-fbd1/covers/08-A-youtube.jpg",
     "w": 1080,
     "h": 1920
@@ -390,7 +390,7 @@
     "h": 1920
   },
   {
-    "match": "Most people jump rope with both feet — and that's why they keep tripping.",
+    "match": "Most people jump rope with both feet \u2014 and that's why they keep tripping.",
     "cover": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds-17-approved.jpg",
     "w": 1080,
     "h": 1920
@@ -938,7 +938,7 @@
   {
     "job": "SL-08 short 5",
     "when": "2027-01-11T15:00:00.000Z",
-    "match": "Drink black coffee while you’re fasting.",
+    "match": "Drink black coffee while you\u2019re fasting.",
     "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/sl08-short5-approved.png",
     "w": 1080,
     "h": 1920,
@@ -1630,6 +1630,29 @@
     "when": "2027-01-10T00:00:00.000Z"
   },
   {
+    "schedule": "waitlist-ds107-y2",
+    "when": "2027-01-11T15:00:00.000Z",
+    "match": "Your age is not the reason you're gaining weight. So what changed since you were 25? You have more stress. You're eating worse food without realizing it. You move less and you sleep worse.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds107/DS107-Y2-Instagram.png",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-107",
+    "approved": "2026-11-15",
+    "cover_sha256": "94062ca8cdabba0ff771556188775edc5b97fa63caa8cef5ab1d5694e3a2393b"
+  },
+  {
+    "job": "DS-41",
+    "slug": "ds41-kevin-james-cheat-day",
+    "schedule": "pending-ds41",
+    "when": "2027-01-12T00:00:00.000Z",
+    "match": "You can't outwork a bad diet.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds41-X3-revised.jpg",
+    "w": 1080,
+    "h": 1920,
+    "approved": "Round2 X3 revised headline, Dan Approved 2026-11-15",
+    "sha256": "26dd9695ccc53cc16030445d92e8e5ba4cbf5d360e02e7acd6cf91561a384d66"
+  },
+  {
     "schedule": "pending-ds34",
     "when": "2027-01-11T15:00:00.000Z",
     "match": "The surgery is called abdominal etching, but they don't build abs.",
@@ -1672,5 +1695,14 @@
     "h": 1920,
     "approved": "Therapy X3, large bubble R4, Dan approved 2026-11-15",
     "sha256": "6e3a4125804ff0735643ad3f4188fd9582e6ef2e2d123ef63aff85459fe209f9"
+  },
+  {
+    "job": "DS-39",
+    "match": "Human personal trainers have gone obsolete. This guy hired ChatGPT as his coach for a year, and I think he's smart. There's no need to pay somebody $200 an hour just to give you advice when AI can give you that same advice, far better.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ds39-A-approved.png",
+    "when": "2027-01-13T00:00:00.000Z",
+    "w": 1080,
+    "h": 1920,
+    "sha256": "4c893b9ef8a067130122d10ecd89994e0a144b6cf34074170b38a93d4f2c18c9"
   }
 ]

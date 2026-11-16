@@ -11,9 +11,9 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Video picks pending 2026-11-15, Codex.** [Review](http://127.0.0.1:9260/); frames/motion reviews complete. Remaining: file actual selections and job-doc IDs. Credit receipt updated:490 observed versus540expected,19,822 balance, discrepancy50 unresolved.
+- [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Awaiting video approval.** [One clip per idea](http://127.0.0.1:9261/), Claude. Full-clean-source archive and permanent editor-chooses-length standard completed by Codex; no new spend. After picks, file approved assets and job-doc IDs.
 
-- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed and published 2026-11-15, Codex; awaiting video picks.** [40 checked cuts across 16 clips](http://127.0.0.1:9260/), Three Cans reports preserved. After Dan pastes picks, file selected cuts, refresh sheet and update job docs; no duplicate review task.
+- [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Reviewed; length follow-up complete 2026-11-15.** [Current one-per-idea approval page](http://127.0.0.1:9261/). Supplementary archive: 67 clean parts / 40 versions, original Three Cans reports unchanged. Filing awaits actual choices.
 
 - [Smaller Plates Reaction SFC R2](video-editing/ds108-r2/HANDOFF.md), 2026-11-15. **ALREADY RUNNING automatically, Codex GPT-6.1 Sol high; do not start a duplicate.** Dan approved Colour B, Voice C, Medium and G00–G03; R2 finishes the complete Short. Owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`; immutable approvals and sole-owner journal in the job’s `round2/`. No final-film approval or publication yet.
 
@@ -238,6 +238,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 | ~~[handoff-20260909-vqc-D-phase5-6-framing-and-junk.md](handoff-20260909-vqc-D-phase5-6-framing-and-junk.md)~~ | ⛔ **FULLY SUPERSEDED 2026-09-11** — Phase 5 → the engine doc, Phase 6 → the junk-footage doc. Source material only |
 
 ## Recently retired (do not run)
+
+- [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. Approved, setup complete in February shared waitlist. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun.
+
+
+- [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), **EXECUTED 2026-11-15.** Dan's Y2 seam-only fix finalized and installed; exact master unchanged. Four media/cover uploads verified; Facebook covers installed on both Macs. Shared waitlist reserves Jan 11, 2027 at 9 AM Central, Blotato 199/200. No live schedules yet; Edit Queue remains finalized pending visibility readback. [Receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md), [final covers/proofs](http://127.0.0.1:9804/). Shared top-up handles capacity; do not restart setup.
 
 - [What To Cut SFL Setup](handoff-20261113-sl21-what-to-cut-shorts-covers-and-setup.md), completed 2026-11-15. All covers approved; backups, media and four-platform setup verified. Shared waitlist plans February 8/10/12 at 9 AM Central after the parent. [Receipt](../Docs/SL21_SETUP_RECEIPT_20261115.md). Do not rerun setup.
 

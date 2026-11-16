@@ -1,3 +1,11 @@
+## Source footage length (Dan, 2026-11-15)
+
+Preserve the full take when clean. Remove only obvious junk or visible AI/physics/text faults, with exact excluded frame ranges and reasons. Keep every usable clean section, separately when a fault interrupts the shot; do not concatenate a fake continuous take or impose an arbitrary 2–5 second crop. The final editor chooses length in context. This applies to new/revised source-clip reviews and clip-library filing, including Flow batches; preserve existing approvals. Full policy: `.claude/skills/_shared/VIDEO-RULES.md`, "Preserve clean source footage".
+
+## Narrated exercise demo timing (Dan, 2026-11-15)
+
+End demos when the final complete spoken word finishes, without silent padding. Remove unnecessary internal pauses; add useful explanation if needed for the15-second target, never under10seconds. The new rule in `.claude/skills/_shared/VIDEO-RULES.md` supersedes the old1-second tail recipe. Batch9 real side lateral footage B0450 was accepted by Dan for use; do not hold that source again for the previously alleged pour-form problem. Batch9's reviewed curl is Hammer Curl (`db-hammer-curl`), not supinated Dumbbell Curl (`db-curl`); keep those exercise identities separate.
+
 ## Google AI subscription first for video and images (Dan, 2026-11-08)
 
 Applies to both Claude and Codex, including exercise demos, editing, marketing and ad hoc generation.
@@ -417,6 +425,14 @@ Dan, on the Google AI Ultra upgrade: "two sets of starting frames for all clips 
 ## Multi-AI design process and SixPackAbs lock (Dan, 2026-11-03)
 
 For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
+
+## Meal showcases: appetizing food and visible photos (Dan, 2026-11-14)
+
+- Do not use the rejected chicken-and-broccoli plate in any new or revised meal showcase. This includes B0035_app-meal-photo-macro-analysis-chicken-broccoli_660x1434_9s.mp4, its macro-short/macro-results sources and stills or crops of the same plate. Dan: “It looks like dog food.” Prefer salmon with Brussels sprouts, or another genuinely appetizing meal. This rejects that specific plate, not every chicken recipe. Preserve historical approved exports unless Dan requests a revision.
+- Never showcase a meal or recipe with text alone. Show an existing app/VSL screenshot or recording with a clear, prominent image of the food, as in the AbsByAI VSL. Keep a food image visible when showcasing meal or recipe choices; recipe names, ingredients, calories and macros support it. For a calorie-tracking walkthrough, show the real app action and its matching calorie result after the meal photo. A static meal photo alone does not demonstrate tracking. Do not spend a recipe-variety beat on a text-only list or a single recipe: show multiple distinct recipe photos when that is the spoken point.
+- Reuse existing approved VSL/app assets first. Verify the actual image, dish and provenance before choosing; match displayed food, recipe, calories and macros to the same verified source. Never place a salmon photo over the old chicken’s 363-calorie result or mix different salmon results. Keep food photos, captions and key points readable in the final native frame.
+
+Memory and asset details: `Docs/memory/meal-showcases-appetizing-photo-first.md`.
 
 ## No new Abs By AI ads (Dan, 2026-11-15)
 

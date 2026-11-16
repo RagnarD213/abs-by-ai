@@ -53,7 +53,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 ## Review rounds
 - [Review page](review-page-what-i-decided.md): "What I decided"
 - [Review pages seek](review-page-must-seek.md): review_server.py only; http.server cannot scrub
-- [Review page plays in side pane](review-page-plays-in-side-pane.md): 11-14: Dan reviews in the app's side pane; load a video into the player at start, side panel from 760 px, test at 800 and 1150 px
 - [Select, not kill](review-pages-select-not-kill.md): 11-12: on pick pages he clicks what he WANTS (Select/Pick); untouched = out; clip template changed
 - [Edit Queue page](edit-queue-artifact-is-working-list.md): show every change
 - [Self bake-off](self-bakeoff-before-dan-reviews.md): judge first
@@ -75,7 +74,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
 - [AI frames start+end first](ai-frames-start-and-end-first.md): 11-05: Dan sees START and END together from the first step, two full pairs for the blind test
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
-- [Codex image batches exhaust the subscription](codex-image-batches-exhaust-subscription.md): 11-15: ~150 Codex images in a day used up the ChatGPT limit for 3 days; warn Dan, pace big frame batches
 - [Clip library](clip-library.md): find first, add after
 - [B-roll first](broll-library-first.md): scan the library
 - [B-roll grade](broll-always-colour-corrected.md): never raw footage, ever; real grade, not a gamma lift (10-23)
@@ -112,7 +110,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Recap row loved](recap-ladder-end-graphic-loved.md): 10-30: full-screen level recap that closes RO-21; reuse for level videos
 - [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 ## Scripts and voice
-- [Shoot unfilmed first](shoot-unfilmed-first.md): 11-14: next shoot films the Unfilmed Content And Ads doc before any new ideas; remind Dan at every shoot-planning step
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
 - [No staccato fragments](no-staccato-fragments.md): 11-12 runs of clipped sentences ("Clean. Lean. No fat.") are an AI tell; write full sentences
 - [No insulting the prospect](no-insulting-the-prospect.md): 11-12 no put-downs of his current state without context ("testosterone in the toilet"); state the plain fact instead
@@ -145,7 +142,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Headlines](ad-copy-headline-voice.md): person + outcome
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
 - [VSL scripts from Dan's outline](vsl-scripts-from-dans-outline.md): 11-09: Dan rejected AI-outlined VSL scripts as awful; script only from his outline, his/V Shred voice; intro = proven idea + original attention idea
-- [GAT VSL: teal studio test later](gat-vsl-teal-studio-test-later.md): 11-15: VSL background is the medium wood kitchen; Teal Studio (his winners' look) saved as the first split test once live
 - [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
 - [HBI top 10 ad creatives](hbi-top-ad-creatives-sheet.md): 11-12 sheet of Dan's top HBI ads with scripts and spend; Five Foods $1.69M is the model for food ads
 - [YT ads](ytads-retired-manual-management.md): instant on, never pause
@@ -163,6 +159,10 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 
 - [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
+- [Review page plays in side pane](review-page-plays-in-side-pane.md): 11-14: Dan reviews in the app's side pane; load a video into the player at start, side panel from 760 px, test at 800 and 1150 px
+- [Codex image batches exhaust the subscription](codex-image-batches-exhaust-subscription.md): 11-15: ~150 Codex images in a day used up the ChatGPT limit for 3 days; warn Dan, pace big frame batches
+- [Shoot unfilmed first](shoot-unfilmed-first.md): 11-14: next shoot films the Unfilmed Content And Ads doc before any new ideas; remind Dan at every shoot-planning step
+- [GAT VSL: teal studio test later](gat-vsl-teal-studio-test-later.md): 11-15: VSL background is the medium wood kitchen; Teal Studio (his winners' look) saved as the first split test once live
 - [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
