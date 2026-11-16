@@ -1,5 +1,26 @@
 # DS-109 cover and publishing setup
 
+## Current cover round 2
+
+[Four new reaction covers A to D](http://127.0.0.1:9920/?round=2). **Built and checked, awaiting Dan's cover choice. Film finalized. No platform upload or scheduling.** Exact cover and publishing title: **Hormozi: You're Not Hungry, You're Bored.** No change to the approved movie or its internal title.
+
+All four current designs use actual Hormozi podcast pixels in the background and authentic recorded Dan reactions in the foreground: A surprised, B pointing, C considering, D smiling. Approved house-key alpha is reused unchanged. No new AI generation or paid generation cost. Source frames, native cutouts and hashes are in setup/r2/source-manifest.json; exact recipe and layout manifest in setup/r2/. Both Instagram and YouTube layouts are RGB1080x1920, JPEGs under2MB; Instagram foreground is lifted to preserve the reaction in its center1080x1440profile crop. All eight layouts inspected together; actual phone and desktop screenshots inspected. Browser decoded8/8images, measured four3:4Instagram crops, no horizontal overflow at390x844 or1440x1000, working YouTube toggle. All16served PNG/JPEG files downloaded and matched exact hashes. No audio/video player on this static page.
+
+Current page replaces the old choices, which are archived at index-round1.html and remain historical, unapproved. Four of four current designs satisfy Dan's new standing reaction-cover rule. Shared VIDEO-RULES, coverimage, youtube-packaging and video-setup now require at least half of distinct designs in every reaction cover presentation to resemble the reaction, using the biggest-name subject in the background and Dan reacting foreground. Platform variants count once.
+
+**Setup does not reserve editing slots.** A mistaken DS-109 contact-sheet reservation and its own waiter were canceled; DS-109 release and absence from active/waiting were verified. Other jobs were untouched. Subsequent image work used one-thread ordinary source-image processing, without editcap acquisition or a renderq reservation. This correction is saved in video-setup and coverimage.
+
+Candidates are filed under `Short-form video content/covers/review/ds109-hungry-bored-r2/`, with same-name/size peer proof (shared drive). Source and final files were independently hashed and served-byte verification is in setup/r2/qa/ds109-served-r2.json. Review page cached on both Macs at9920. Publishing-config-draft.json has the exact new title; old draft preserved at publishing-config-draft-r1.json. Captions and already verified movie backups remain prepared. Queue/master finalizedrev16. After actual A-D choice, record chosen original/platform hashes, install the matching pair, make cover-first TikTok derivative, upload/check assets and re-read live schedule capacity before finishing authorized publishing. Do not use the old X-label blind registry for the new A-D set.
+
+| Choice | Instagram PNG SHA256 | YouTube PNG SHA256 |
+|---|---|---|
+| A | `a49fc63f3fe4dabdff05355221ee3adb31dc94487a7a603b8e31a2af1fb36ca6` | `d67c344df5dd012656554bc67b1e1b0f64e531c4016ab8a3587ab1b1890e8f5c` |
+| B | `c578bb4b3d7e61ab771448f3dd26ab5555914fee1afd003756e790af799f7484` | `e662fd9edd3dde34a09187621c193d9628c045634a6ff9203cbc2c763ee7a45c` |
+| C | `88c6f707b635708ad3702970911f2730185a00f966f868b117dd63327873f06c` | `d9794719108892505cdf759d714e5c9140cfab1dc5c0520cbca547716cd81e1e` |
+| D | `ce312d8da176b55037eacaacf56d777f9c4adb922f71af6cca13edc7f67ce659` | `fad4fc4b5b1cec34aac9618479bf285d39c969d9c40fdaf94afcf247f8e7c109` |
+
+## Historical first cover set, superseded
+
 [Cover choices X1 to X8](http://127.0.0.1:9920/). **Cover review ready, awaiting Dan’s pick. Film finalized. Publishing platforms are not uploaded or scheduled.** Original chat01a1dc87-ce93-75c1-b1c7-9aac9dc8317a remains the sole setup owner.
 
 Dan’s exact November16approval: “Looks good. The video is finalized. Go ahead with the cover and publishing setup.” Message01a1e5da-27d5-7163-afeb-d09a5a59ff11. Approved R4 SHA256 `ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54`,67,061,656bytes,1080x1920,2022frames/67.4674s,AAC48k stereo. SRT SHA256 `d5fae357971caeddf9177d91d0185ca105dc9b964fdb72dc767ffe4127db87bd`. No movie edit or new film review required. Prior raw gate diagnostics and approval/source/instrument dispositions remain preserved; no blanket gate-PASS claim.

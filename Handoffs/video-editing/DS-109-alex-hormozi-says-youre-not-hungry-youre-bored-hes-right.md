@@ -54,3 +54,7 @@ Exact scope, checks and recovery history: [R1 first-review receipt](../../Docs/D
 ## Final R3 checkpoint, 2026-11-15
 
 Exact SHA256 `e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189`,67.4674s/2022frames/1080p. Reaction hidden0–60 and revealed61; rest conditionally approved and retained. Native reveal/source121/stream250 clean; all1772tailRGBframes and allAACPCM match R2. Final shared watch33/33,15boundaries,0defects; full gate32PASS7known-diagnosticFAIL0unmeasured, raw results retained with source/approval/native-proof dispositions. Same checked master exists on Extreme and shared Seagate/M6. Player tested silently, handed off paused/sound-ready. Queue/master finalizedrev11,Driveuploaded,edit slot released. Only this film's old review copy removed. The film needs no further approval; setup/covers are separate and OPEN in the linked handoff. Keep earlier media/approval history; no new re-render/remix.
+
+## Cover setup round 2, November 16, 2026
+
+Dan changed the cover/publishing title to **Hormozi: You're Not Hungry, You're Bored.** Four new actual-footage reaction composites A-D are ready at http://127.0.0.1:9920/?round=2, both platform layouts checked. Film remains approved R4, no recut. New reaction-cover standing rule saved across shared/cover/packaging/setup guidance. Setup reserves no edit slot; accidental DS109 reservation/waiter removed and absence verified. Queue/master finalizedrev16; publication awaits actual cover selection. See current setup receipt and handoff for exact source/original hashes and resume instructions.

@@ -19,7 +19,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 
 
-- [Hormozi Not Hungry Bored SFC Setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md), updated2026-11-16. **REVIEW: [pick X1-X8](http://127.0.0.1:9920/).** R4 finalized, backups/metadata ready; publishing after cover pick already authorized. Same original chat owns setup.
+- [DS-109 finalized R4: four new reaction covers, then authorized publishing setup](handoff-20261115-ds109-hormozi-not-hungry-bored-approved-setup.md) **COVER R2 REVIEW:** [pick A-D](http://127.0.0.1:9920/?round=2). Exact new title; no edit slot. Same original chat owns setup. Movie finalized; platforms not uploaded/scheduled.
 
 - [Flow credits: AI clips batch 4](handoff-20261115-flow-credits-ai-clips-batch-4.md): **Installed 2026-11-16, Codex.** All18 approved deliveries A0272–A0289; jobs and catalog updated. [Library audit](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md):343 usable AI clips plus the preserved source archive. No new spend.
 
