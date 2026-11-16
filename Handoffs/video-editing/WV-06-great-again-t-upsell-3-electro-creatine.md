@@ -4,6 +4,10 @@ AD (Great Again T upsell video). Task name: `GAT Upsell 3 AD R1`.
 
 **Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
 
+## Style for the upsells (Dan, 2026-11-16, from his Upsell 1 round 1 review)
+
+Cleaner, less busy and more trustworthy than the VSL. More of Dan on camera, fewer AI clips. Graphics and clips only now and then, on a key point. High production value. Colour Matched and voice House bass were his picks on Upsell 1; show them as the recommended options. Key-point cards are slightly larger than the VSL's (taller, and clearly wider with a lot of text). Detail: `WV-04-round-2-revisions.md`, sections 1 and 2.
+
 ## Read first
 
 `00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, and the shoot report `Docs/SHOOT_1113_FOOTAGE_REPORT.md` (format, orientation, camera clock, full roll map).

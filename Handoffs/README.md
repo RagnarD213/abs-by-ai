@@ -13,6 +13,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **OPEN: new task, GPT-6.1 Sol high.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Start with checked blind START/END pairs and stop for Dan's frame picks before motion; every take archived and every cleared keeper filed. Production not started here.
 
+- [GAT Upsell 1 AD R2](video-editing/WV-04-round-2-revisions.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 1 reviewed: Matched colour, House bass; full-screen product shot with ingredients at 0:52; larger key-point cards; sofa pair recast (after guy, younger wife); cleaner than the VSL, more camera, fewer AI clips; builds the whole upsell.
+
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
