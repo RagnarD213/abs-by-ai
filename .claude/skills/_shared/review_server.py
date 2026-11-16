@@ -61,6 +61,24 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         else:
             super().do_GET()
 
+    def do_POST(self):
+        LAST_REQUEST[0] = time.time()
+        if urlsplit(self.path).path != '/__fullscreen':
+            self.send_error(404)
+            return
+        try:
+            n = min(int(self.headers.get('Content-Length') or 0), 65536)
+            request = json.loads(self.rfile.read(n) or b'{}')
+        except ValueError:
+            request = {}
+        result = open_fullscreen(self.directory, request)
+        body = json.dumps(result).encode()
+        self.send_response(200 if result.get('ok') else 400)
+        self.send_header('Content-Type', 'application/json')
+        self.send_header('Content-Length', str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
+
     def send_head(self):
         self._left = None
         if urlsplit(self.path).path == '/__review_player.js':
@@ -129,6 +147,44 @@ class Handler(http.server.SimpleHTTPRequestHandler):
 
     def log_message(self, *args):
         pass
+
+
+VIDEO_SUFFIXES = {'.mp4', '.mov', '.m4v', '.webm', '.mkv'}
+PLAYERS = (('VLC', Path('/Applications/VLC.app')), ('QuickTime Player', Path('/System/Applications/QuickTime Player.app')))
+
+
+def open_fullscreen(directory, request, launch=None):
+    """Owner's Full screen (Dan, 2026-11-16): the Claude app's side pane refuses true full screen, so open the page's
+    own video file in VLC on this Mac, full screen, from the moment the page player was at (review_player.js calls this
+    only in owner mode, never during silent checks). Only files inside this review's served folder; nothing else.
+    Returns {"ok": true, "player": ..., "file": name} or {"ok": false, "error": ...}."""
+    try:
+        src = str(request.get('src') or '')
+        t = max(0.0, min(float(request.get('t') or 0), 86400.0))
+    except (TypeError, ValueError, AttributeError):
+        return {'ok': False, 'error': 'bad request'}
+    rel = unquote(urlsplit(src).path).lstrip('/')
+    root = os.path.abspath(str(directory))
+    candidate = os.path.normpath(os.path.join(root, rel))
+    if not rel or not (candidate == root or candidate.startswith(root + os.sep)):
+        return {'ok': False, 'error': 'video is outside this review'}
+    if Path(candidate).suffix.lower() not in VIDEO_SUFFIXES or not os.path.isfile(candidate):
+        return {'ok': False, 'error': 'video file not found'}
+    real = os.path.realpath(candidate)
+    for name, app in PLAYERS:
+        if not app.exists():
+            continue
+        if name == 'VLC':
+            cmd = ['/usr/bin/open', '-n', '-a', str(app), '--args', '--fullscreen', '--no-video-title-show',
+                   f'--start-time={t:.2f}', '--play-and-exit', real]
+        else:   # QuickTime: no start time or full screen without Apple Events; it opens at the start
+            cmd = ['/usr/bin/open', '-a', str(app), real]
+        try:
+            (launch or subprocess.run)(cmd, check=True, timeout=20, capture_output=True)
+        except Exception as error:
+            return {'ok': False, 'error': f'{name} did not open: {error}'}
+        return {'ok': True, 'player': name, 'file': Path(real).name, 't': round(t, 2)}
+    return {'ok': False, 'error': 'no video player app found (VLC or QuickTime Player)'}
 
 
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
