@@ -115,9 +115,9 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
 6. **Voiceover** — `minimax/speech-02-hd`, `voice_id: 'R8_NE3EBC2N'`, `speed: 1.0`, `emotion: 'auto'`.
    Script: **open with "Here's how to do the [exercise name]."** then 3–5 cues built from the
    exercise's `setup`/`execution`/`mistake` copy in `public/exercises.js`, `<#0.3#>` pauses between
-   cues. Target 15–20s spoken. Pattern: `bw-squat/clone-dan-voice-v2.js`.
+   cues. Target 10–15s total, with useful explanation and no dead air. Pattern: `bw-squat/clone-dan-voice-v2.js`.
 7. **Assemble** — loop the rep only as needed to cover the useful 10–15-second narration (`-stream_loop N-1`), with no padded lead-in or tail; end with the final complete word and natural decay,
-   then mux (`adelay=1000|1000`, `-c:v copy -c:a aac`). **Do NOT use `apad` or `-shortest` with
+   then mux with cue placement tied to the visible movement (`-c:v copy -c:a aac`); do not add a fixed silent one-second delay. **Do NOT use `apad` or `-shortest` with
    filter_complex** — this Mac's static ffmpeg 6.0 hangs on the first and segfaults on
    `apad=whole_dur`. Build video first, mux plain.
 8. **Deliver** — send the finished MP4 in chat (batch = a review set). Dan is the form authority;
