@@ -14,8 +14,10 @@ One native 9:16 upsell video (1080x1920, 29.97), Dan on green screen over Wood K
 - Round 1 state, written by the round 1 editor: `round1/ROUND-1-NOTES.md` (read it first; it is updated after Dan's review
   with the keyed pieces, graphics build files, recipe paths and traps). Take map for the whole upsell: `plan/take_map.md`.
 - Round 1 film (first minute): `round1/GAT Upsell 1 AD R1 - First Minute.mp4`. Review page: http://127.0.0.1:9812/.
-- Look and voice recipes: `look/LOOK_WV04.json`, `look/VOICE_WV04.json`. Key recipe `key/recipe`, stamps in `key/`
-  (pieces A and B keyed; the rest of the upsell was keying in the background at handoff time: never re-key a stamped piece).
+- Look and voice recipes: `look/LOOK_WV04.json`, `look/VOICE_WV04.json`. Key recipe `key/recipe`, stamps in `key/`.
+  **Only pieces A and B (the first minute, takes T01 and T02) are keyed.** Nothing after the first minute is keyed: every
+  later take needs new pieces (copy `key/chain_piece.sh`, add them to `key/pieces.json`, same settings, absolute paths).
+  Never re-key A or B. Keying the rest is the long step of round 2: queue it first and do pictures and graphics while it runs.
 - Great Again T VSL (WV-03, same shoot and set): `/Volumes/Extreme/_edit_work/WV-03`. Copy from it; never run inside it.
   Characters: `round5/frames/characters/` (`everyman_after`, `wife`, ...). Approved graphics: `round7/graphics/` (bottle
   render, Tongkat root X1, Maca root X2). Its round 8 handoff: `Handoffs/handoff-20261116-great-again-t-vsl-round8.md`.
