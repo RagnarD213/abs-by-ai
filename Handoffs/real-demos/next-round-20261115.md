@@ -38,7 +38,7 @@ in `public/index.html` (re-read it first).
 
 1. The batch file (exercises, clip IDs, notes).
 2. `Handoffs/handoff-20261109-real-broll-exercise-demos.md`: "The demo format", then the **Batch 1, Batch 2 and Batch 3 results**.
-3. AGENTS.md "Exercise demos: real B-roll first", including the **length rule (Dan, 2026-11-15): target 15 s, never under 10 s.**
+3. AGENTS.md "Exercise demos: real B-roll first", including the **length rule (Dan, 2026-11-16): target 10–15 seconds, never under 10, with no dead air.**
    Dan: "It seems too brief if it's just 1 or 2 reps." Plan about five cues (setup, the movement, a form point, a common mistake,
    the pace of the reps) and enough reps or angles to carry them. Approved demos before 11-15 were not redone.
 4. Recipe to copy (never edit in place): `/Volumes/Extreme/_edit_work/REALDEMOS-B03/` on the M2 (`build.py` with `vo_pick`,
@@ -65,7 +65,7 @@ in `public/index.html` (re-read it first).
 
 ## Starter prompts (one session per batch, Claude Opus 5.5 high)
 
-> Real Exercise Demos Batch 8 R1. Read `Handoffs/real-demos/next-round-20261115.md`, then `Handoffs/real-demos/batch-08-home-moves-new-coverage.md`, and build real-footage Trainer demos for every exercise in it from the clip-library B-roll, on the Batch 3 recipe, each targeting 15 s and never under 10 s. Pass every gate and the independent review, put them on a 1080p review page with the current AI demo beside any it replaces, and stop for my review. Dan has authorized the whole batch, including installing the approved demos in the app and deploying.
+> Real Exercise Demos Batch 8 R1. Read `Handoffs/real-demos/next-round-20261115.md`, then `Handoffs/real-demos/batch-08-home-moves-new-coverage.md`, and build real-footage Trainer demos for every exercise in it from the clip-library B-roll, on the Batch 3 recipe, each targeting 10–15 s, never under 10 s, with no dead air. Pass every gate and the independent review, put them on a 1080p review page with the current AI demo beside any it replaces, and stop for my review. Dan has authorized the whole batch, including installing the approved demos in the app and deploying.
 
 For the others, change the batch number and file name: Batch 9 `batch-09-home-moves-ai-replacements.md`; Batch 4 `batch-04-gym-new-exercises-part-1.md`;
 Batch 5 `batch-05-gym-new-exercises-part-2.md`; Batch 6 `batch-06-gym-new-exercises-part-3.md`; Batch 7 `batch-07-gym-new-exercises-part-4-and-cardio.md`;

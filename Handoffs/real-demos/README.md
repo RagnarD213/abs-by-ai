@@ -14,7 +14,7 @@ Dan, 2026-11-13: "Let's redo everything that we have B-roll with, with real stuf
 B-roll with will be done with AI." Pilot (cable crunch, leg press, pull-up) approved and installed that day.
 Master plan, format and traps: `../handoff-20261109-real-broll-exercise-demos.md`.
 **Next round (batches 4-11, 42 exercises): `next-round-20261115.md`** has the order, the Batch 3 lessons and starter prompts.
-**Length rule (Dan, 2026-11-15): every demo targets 15 s, minimum 10 s** ("too brief if it's just 1 or 2 reps"); narrate more cues (pace of the reps etc.) and show more reps or angles.
+**Length rule (Dan, 2026-11-16): target 10–15 seconds, minimum 10, with no dead air** ("too brief if it's just 1 or 2 reps"); narrate more cues (pace of the reps etc.) and show more reps or angles.
 **Before cutting any batch, read that file's "Batch 1 result" section** (2026-11-13): Batch 1 took four review rounds;
 its recipe (exact-frame cuts, turnaround trackers, loop seam, line lengths, detail-clip screening) replaces the pilot's.
 

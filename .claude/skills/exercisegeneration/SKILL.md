@@ -2,7 +2,7 @@
 name: exercisegeneration
 description: Generate a photorealistic AI exercise demo video for the Abs By AI Trainer — AI-Dan (Dan's likeness in the logo tank top) performing the movement in the canonical gym as a seamless looping rep, narrated by Dan's cloned voice reading the form cues. Use whenever Dan asks to generate exercise demos, demo videos, replace stick figures, or run a batch of exercises from the library — even if he doesn't say "/exercisegeneration". For ad videos use /make-ad; for retouching Dan's real photos use /photo-edit.
 ---
-> **Timing correction (Dan, 2026-11-15).** End narrated demos with the final complete word; no silent tail or padding. Remove unnecessary pauses within the read. Add useful explanation to reach approximately15s and never under10s. This overrides the old loop-to-VO-plus1s-tail instruction below. Follow the new VIDEO-RULES section and check actual delivered word/picture endings.
+> **Timing correction (Dan, 2026-11-16).** Target 10–15 seconds for every new or revised narrated exercise demo, never under 10 seconds. Avoid dead air at the beginning, between instructions and at the end. Keep only natural brief phrasing pauses, with cues aligned to the visible movement. End the picture when the final complete spoken word and its natural decay finish. Never pad the length with silent reps, a hold or room tone; add useful setup, movement, tempo, breathing or mistake explanation when needed. Existing approved demos stay approved. This overrides older duration, lead-in and tail instructions. Follow VIDEO-RULES and check actual delivered word/picture endings and every internal pause.
 
 
 ## Video editing task names (Dan, 2026-10-16)
@@ -17,7 +17,7 @@ Read `_shared/VIDEO-RULES.md` first.
 
 # Exercise demo generation ("keyframe-locked" AI-Dan demos)
 
-Produces one finished asset per exercise: a 15–25s MP4 of AI-Dan performing clean looping reps with
+Produces one finished asset per exercise: a 10–15s MP4 of AI-Dan performing clean looping reps with
 Dan's cloned voice coaching the form. Proven end to end on `bw-squat` (2026-08-19, Dan-approved) and on
 batch 1 — `pushup`, `reverse-lunge`, `plank` (2026-08-19/20, all three Dan-approved after one revision
 round; finals at `Media/exercise-demos/<id>/<id>-AIDAN-narrated-FINAL.mp4`).
@@ -116,7 +116,7 @@ All of `Media/` is gitignored (public repo) — verify with `git check-ignore` b
    Script: **open with "Here's how to do the [exercise name]."** then 3–5 cues built from the
    exercise's `setup`/`execution`/`mistake` copy in `public/exercises.js`, `<#0.3#>` pauses between
    cues. Target 15–20s spoken. Pattern: `bw-squat/clone-dan-voice-v2.js`.
-7. **Assemble** — loop the rep enough times to cover VO + ~1s lead-in + ~1s tail (`-stream_loop N-1`),
+7. **Assemble** — loop the rep only as needed to cover the useful 10–15-second narration (`-stream_loop N-1`), with no padded lead-in or tail; end with the final complete word and natural decay,
    then mux (`adelay=1000|1000`, `-c:v copy -c:a aac`). **Do NOT use `apad` or `-shortest` with
    filter_complex** — this Mac's static ffmpeg 6.0 hangs on the first and segfaults on
    `apad=whole_dur`. Build video first, mux plain.
