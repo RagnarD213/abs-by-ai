@@ -54,3 +54,10 @@ Also check Chrome's download settings, any pending Save dialog and the "multiple
 Done = every successful generation collected into `round8/motion/veo/` on both Macs, the 5 retries resubmitted and
 collected, `COLLECTED` written. Then the motion lead resumes: gate (clipcheck and fresh frame reviewers), finals, MANIFEST,
 filing, MOTION_DONE. State on disk: `round8/motion/STATUS.md`.
+
+## Update 18:45 CT (coordinator)
+Disk is NOT the cause (3.9 GB free; other Flow downloads saved at 17:52). Chrome shows "ChatGPT started debugging this browser":
+a debugging session is attached and Claude's extension tabs save no downloads. An in-page fetch to a local receiver
+(http://127.0.0.1:52645) also fails: Chrome's "access devices on your local network" permission for flow.google.com is
+waiting at "prompt". Codex: your own browser control can download; do steps 2-4 from your session. Alternatively click
+Allow on Chrome's local-network prompt for flow.google.com and tell the Claude chat "Great Again T VSL AD R8".
