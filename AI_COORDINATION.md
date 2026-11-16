@@ -32,6 +32,10 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
+**DS-109:SETUP:** ACTIVE in original chat. R4 finalized; covers building, no upload yet.
+
+**DS-30:DAN-REVIEW-R1:2026-11-15:Claude,M2.** http://127.0.0.1:9805/
+
 **REALDEMOS-B08:HELD:2026-11-15:Codex:M2.** Five approved real demos installed/live-verified. Only swing pickup remains.
 
 **DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:shared-waitlist-capacity:Docs/DS39_SETUP_RECEIPT_20261115.md.**
@@ -57,13 +61,13 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**DS-98 three-way blind edit: COMPLETE FILMS READY 2026-11-15.** M6. [Watch all three full films](http://127.0.0.1:18900/). Awaiting Dan’s pick and any revisions. [Opening review](http://127.0.0.1:18899/).
+**DS-98 three-way blind edit: ROUND 2 HOST DECISION, 2026-11-16.** Dan asked about moving to M2 before work starts. M6 automatic start withdrawn; Round 1 and the prepared Round 2 packets remain intact. [Round 2 handoff](Handoffs/video-editing/DS-98-round-2-full-film-revisions.md).
 
 
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GreatAgainT-VSL-R7(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.**
+**GreatAgainT-VSL-R7(WV-03):DAN-REVIEW:2026-11-16:Claude,M2.** http://127.0.0.1:9811/
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
@@ -369,4 +373,3 @@ List: `Handoffs/README.md` (OPEN section). Add new handoffs there, never here.
 **WhatToCut-SFL-Setup:HOLD-SHARED-WAITLIST:2026-11-15:Codex.** Setup complete; 3 approved films/covers, backups/media/12 targets verified; Feb8/10/12 9AM CT plans, after RO20B;199/200,no live schedules. [Receipt](Docs/SL21_SETUP_RECEIPT_20261115.md). No Dan action.
 
 
-**DS-109:SETUP:** ACTIVE in original chat. R4 finalized; covers building, no upload yet.
