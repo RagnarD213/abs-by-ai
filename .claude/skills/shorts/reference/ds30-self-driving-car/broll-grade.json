@@ -1,0 +1,12 @@
+{
+ "tesla1": "eq=gamma=0.95:saturation=1.20:contrast=1.04",
+ "tesla2": "eq=gamma=0.95:saturation=1.20:contrast=1.04",
+ "traffic": "eq=gamma=0.90:contrast=1.06:saturation=1.25",
+ "phone": "eq=gamma=1.00:contrast=1.05:saturation=1.35",
+ "laptop": "eq=gamma=0.78:contrast=1.10:saturation=1.50",
+ "wheel": "eq=gamma=0.92:saturation=1.20",
+ "waymo": "eq=gamma=0.82:contrast=1.08:saturation=1.50",
+ "robotaxi": "eq=gamma=0.92:contrast=1.04:saturation=1.30",
+ "drive": "eq=gamma=0.92:saturation=1.20",
+ "austin": "eq=gamma=0.88:contrast=1.05:saturation=1.25"
+}
