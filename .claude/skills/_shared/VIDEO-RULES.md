@@ -1,3 +1,11 @@
+## Every generated AI clip is filed before the job closes (Dan, 2026-11-16)
+
+For business production footage, every newly generated video take from Flow, a paid API or any other model goes into the existing clip library system, including unused, rejected and unreviewed takes. Preserve each full original promptly in `07 AI Generation Source Archive`, with SHA-256, original path, job/shot/model, generation or collection time and its review disposition; merge its entry into `source-register.json` on the M2 master without replacing other jobs' entries. Use the M2 `clip_library.catalog_lock()` for the complete register read/merge/atomic-write transaction. Duplicate content points to the existing source rather than creating another copy. Keep rejected/unreviewed sources outside the usable catalog.
+
+After the existing quality and approval steps, register every clean used or unused keeper with `clip_library.py add`, preserving full clean footage and separate clean spans, then refresh `clip_library.py sheet` and put usable IDs in the job docs. Approval gates and source restrictions still apply.
+
+Library filing is a required completion check, not a later cleanup task. Reconcile every successful generation output in the job manifest against a source-archive entry and every cleared keeper against a permanent library ID. Verify local and Drive copies by file hashes, the source register and the current human catalog; record the output count, archive references, keeper IDs and verification receipt in the job's final report. Before pausing for review, archive all outputs already generated. A failed/missing collection or mirror stays explicitly incomplete with its exact output IDs and next action; do not claim the job fully filed or complete. No extra permission is needed for this filing. This supersedes older instructions to save only clips used in approved edits or to omit rejected takes entirely. See `.claude/skills/_shared/cliplib/README.md`.
+
 ## Preserve clean source footage; editors choose final length (Dan, 2026-11-15)
 
 For reusable clips, approval pages and clip-library handoffs, keep the full take when it is clean. Trim only obvious junk, resets or visible AI/physics/text errors. Do not automatically shorten footage to 2–5 seconds or another target. Keep valid setup, action, follow-through and natural reactions so the final video editor can choose the length in context.
@@ -402,6 +410,14 @@ Dan: "Let's make this a rule going forward that we always use title capitalizati
 ## Vacuum covers use touched-up real screenshots (Dan, 2026-10-29)
 
 Dan rejected the SL-11 AI vacuum covers: "these AI-generated vacuum images of me are not turning out" and "The touched-up real photos ... are better than these AI photos for the vacuum." For stomach-vacuum covers and thumbnails, default to touched-up real camera screenshots of Dan actually holding a vacuum, including his previously used front-facing version when suitable. This is a topic-specific exception to the required AI-Dan mix below: do not manufacture new AI vacuum bodies by default. Preserve existing approved covers. Keep designs genuinely different; the standard count remains five unless Dan requests another count. For SL-11 he requested three designs per Short, both platform layouts, with at least one using the previously used front screenshot. Source/provenance: `Docs/memory/vacuum-covers-real-screenshots.md`.
+
+## Reaction covers: at least half resemble the reaction (Dan, 2026-11-16)
+
+For every reaction-video cover or thumbnail review, at least half of the distinct designs actually presented must look like a simulated screenshot of the reaction: the person being reacted to is prominent in the background and Dan is visibly reacting in the foreground. When the source includes several people, feature the big-name person, such as Alex Hormozi in DS-109. Vary Dan’s reactions, expressions or gestures across those designs. A generic topic scene without the reacted-to person does not count.
+
+Count all presented designs, including blind comparison choices, and round up: at least3of5 or4of8. Instagram and YouTube layouts of one design count once. A requested set of4still needs at least2; DS-109’s requested revision is4of4. Prefer authentic source pixels for the background subject and appropriate real or simulated reaction poses for Dan. Keep both faces recognizable and clear of the title. Matching the reaction scene takes priority over a generic standalone physique pose.
+
+This applies to future reaction Shorts and long-form covers for Claude and Codex. Keep the remaining source mix and subscription rules where compatible, honor Dan’s requested count and exact title, and preserve existing approved covers.
 
 ## Thumbnails: the five, each its own design, owned by Codex (Dan, 2026-10-25)
 
@@ -1204,7 +1220,7 @@ Keep internal source/provenance records even when no on-screen label is needed. 
   its ID (A#### AI, B#### B-roll). Generate only when nothing fits, and say so in the job notes.
 - **When a job finishes, register every new AI clip, stock clip or cut B-roll insert that made it into the approved
   video** (and any clean unused keeper) with `clip_library.py add ... --status used-final --used-in "<job>"`, then
-  `clip_library.py sheet`. Rejected or defective takes never go in.
+  `clip_library.py sheet`. Rejected/defective takes belong in the source archive, outside the usable catalog; the mandatory all-output filing rule above applies.
 - Human editors browse the same catalog as a Google Sheet in the Drive library folder. Full rules: `_shared/cliplib/README.md`.
 
 ## Video clip generation budget and frame approval (Dan, 2026-09-15)
