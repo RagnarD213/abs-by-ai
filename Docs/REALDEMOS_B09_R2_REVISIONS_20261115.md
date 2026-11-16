@@ -32,3 +32,7 @@ Dan: "Okay I'll resume this once the priority work is done. If I haven't resumed
 ##10p.m. execution
 
 At22:00 November15 M2 admission returned idle, with no other active/waiting edits or render steps. No manual R2 production had begun. The one-time backup fired and was deleted. Original chat acquired M2 slot and built seven R2 candidates; fresh independent checks are underway. No revised file is approved or installed.
+
+## Completed for owner review
+
+November16: all seven revised candidates rendered and cleared by fresh exact-file gates and independent reviews. The1080p page is updated and verified paused with sound ready at http://127.0.0.1:9870/ . No revised demo is approved or installed. See `Docs/REALDEMOS_B09_R2_REVIEW_20261115.md`. The one-time10p.m. fallback was deleted after firing.
