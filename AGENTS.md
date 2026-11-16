@@ -1,3 +1,13 @@
+## Shorts from long-form: review vertical drafts first (Dan, 2026-11-16)
+
+No separate horizontal selection previews for Shorts cut from long-form. The first review goes directly to actual 1080x1920 vertical drafts with colour-correction options, playable level-matched voice choices, normal captions/graphics/clip treatment, and each title with its full word-for-word transcript. The approved parent's look and voice may be the recommended baseline, but do not hide the alternatives. This supersedes the October 20 exemption from new look/voice choices. Segment selection can happen on the vertical review; the old Step 2 wording is not a mandatory stop before proposed vertical drafts.
+
+Keep the locked graphic family and safe geometry, later-round choices, and final-approved masters. Horizontal source footage and essential-action panels inside a vertical remain allowed. New AI start/end-frame and motion approval gates still apply. Applies to Claude and Codex. SL-36's three segments were approved November 16 and now proceed to actual vertical reviews.
+
+## Every B-roll insert is corrected and checked in the finished film (Dan, 2026-11-16)
+
+Every inserted B-roll clip must be colour corrected and optimized before review. Preserve its source and correction recipe, compare it with the surrounding presenter and appropriate approved references, then inspect its actual final rendered appearance. A library flag or recipe labelled "graded" is not proof. Flat, washed-out, crushed or neon footage is a defect to fix before delivery. This reinforces the existing rule without changing gates or thresholds. DS-51 R1's curls near 0:30 and seated press near 0:37 were rejected on appearance and must be visibly corrected.
+
 ## Every generated AI clip is filed before the job closes (Dan, 2026-11-16)
 
 For business production footage, every newly generated video take from Flow, a paid API or any other model goes into the existing clip library system, including unused, rejected and unreviewed takes. Preserve each full original promptly in `07 AI Generation Source Archive`, with SHA-256, original path, job/shot/model, generation or collection time and its review disposition; merge its entry into `source-register.json` on the M2 master without replacing other jobs' entries. Use the M2 `clip_library.catalog_lock()` for the complete register read/merge/atomic-write transaction. Duplicate content points to the existing source rather than creating another copy. Keep rejected/unreviewed sources outside the usable catalog.

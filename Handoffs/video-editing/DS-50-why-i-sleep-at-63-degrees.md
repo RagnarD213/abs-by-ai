@@ -1,3 +1,16 @@
+CONTENT (SFC). Sleep 63 Degrees SFC R2.
+
+# Current state, November 16, 2026
+
+R1 exists and Dan's exact stage decisions are saved. The authorized R2 packet is prepared for the existing M2 Claude batch path; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
+
+Execute the self-contained [R2 production brief](four-content-r2-20261116/DS-50.md). Editor remains Claude Opus 5.5 high on M2. Stable decisions and manifest are in `/Volumes/Extreme/_edit_work/DS-50/round2/`. No revised review, final approval, upload or schedule is claimed at preparation.
+
+Dan's exact reply:
+> Why I Sleep at 63° cut is approved B. Richer contrast for color b fuller base for the voice I want to make a change to the intro. The 63° sleeping clip that appears at 7 seconds, I want this to appear in the beginning. I want it to appear in the upper right-hand corner in a little box, not blocking the guy or anything important there. Then it transitions to the camera scene.
+
+## Historical R1 registration and sources
+
 **SFC.** Task name: `Sleep 63 Degrees SFC R1`.
 
 # DS-50: "Why I Sleep At 63 Degrees", first cut from raw footage

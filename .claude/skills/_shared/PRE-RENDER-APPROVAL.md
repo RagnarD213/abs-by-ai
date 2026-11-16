@@ -1,3 +1,13 @@
+## Shorts from long-form: review vertical drafts first (Dan, 2026-11-16)
+
+No separate horizontal selection previews for Shorts cut from long-form. The first review goes directly to actual 1080x1920 vertical drafts with colour-correction options, playable level-matched voice choices, normal captions/graphics/clip treatment, and each title with its full word-for-word transcript. The approved parent's look and voice may be the recommended baseline, but do not hide the alternatives. This supersedes the October 20 exemption from new look/voice choices. Segment selection can happen on the vertical review; the old Step 2 wording is not a mandatory stop before proposed vertical drafts.
+
+Keep the locked graphic family and safe geometry, later-round choices, and final-approved masters. Horizontal source footage and essential-action panels inside a vertical remain allowed. New AI start/end-frame and motion approval gates still apply. Applies to Claude and Codex. SL-36's three segments were approved November 16 and now proceed to actual vertical reviews.
+
+## Every B-roll insert is corrected and checked in the finished film (Dan, 2026-11-16)
+
+Every inserted B-roll clip must be colour corrected and optimized before review. Preserve its source and correction recipe, compare it with the surrounding presenter and appropriate approved references, then inspect its actual final rendered appearance. A library flag or recipe labelled "graded" is not proof. Flat, washed-out, crushed or neon footage is a defect to fix before delivery. This reinforces the existing rule without changing gates or thresholds. DS-51 R1's curls near 0:30 and seated press near 0:37 were rejected on appearance and must be visibly corrected.
+
 # The round method: approve in small steps, render the full video last
 
 **Dan, 2026-09-28, the standard for EVERY video skill** (filmed ads, organic long-form, website VSLs, Shorts, AI ads, aspect-ratio

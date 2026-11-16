@@ -1,5 +1,7 @@
 Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the hub files at the bottom.
 
+- [Vertical Shorts first; B-roll colour checks](shorts-vertical-first-broll-final-check.md): 11-16 actual vertical drafts plus look/voice choices, no horizontal selection exports; inspect every final B-roll insert
+
 - [Google subscription first](veo-subscription-first.md): 11-08 Claude + Codex video and image attempts on Google/Flow; paid API only after recorded subscription failure
 ## Working with Dan
 - Agency (SRM) work: 11-02: Upwork, outreach, no-calls rule and SRM email memory live in the Social Response Marketing project (`~/Projects/Claude/Projects/Social Response Marketing`)

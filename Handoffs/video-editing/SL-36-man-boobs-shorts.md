@@ -1,3 +1,16 @@
+CONTENT (SFL). Man Boobs SFL R2.
+
+# Current state, November 16, 2026
+
+R1 exists and Dan's exact stage decisions are saved. The authorized R2 packet is prepared for the existing M2 Claude batch path; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
+
+Execute the self-contained [R2 production brief](four-content-r2-20261116/SL-36.md). Editor remains Claude Opus 5.5 high on M2. Stable decisions and manifest are in `/Volumes/Extreme/_edit_work/SL-36/round2/`. No revised review, final approval, upload or schedule is claimed at preparation.
+
+Dan's exact reply:
+> Okay all the man boobs shorts are approved. You can proceed to the next round with this one. Let's put in the rule: in the future I don't see any need for these horizontal previews. They don't really add any value beyond what I can already read in the transcripts. No more horizontal previews. The first round of shorts from long form every time should move right into the verticals, color correction, voice options, etc
+
+## Historical R1 registration and sources
+
 CONTENT (SFL). Man Boobs SFL R1.
 
 # Three standalone Shorts from approved RO-31

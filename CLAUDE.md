@@ -1,3 +1,13 @@
+## Shorts from long-form: review vertical drafts first (Dan, 2026-11-16)
+
+No separate horizontal selection previews for Shorts cut from long-form. The first review goes directly to actual 1080x1920 vertical drafts with colour-correction options, playable level-matched voice choices, normal captions/graphics/clip treatment, and each title with its full word-for-word transcript. The approved parent's look and voice may be the recommended baseline, but do not hide the alternatives. This supersedes the October 20 exemption from new look/voice choices. Segment selection can happen on the vertical review; the old Step 2 wording is not a mandatory stop before proposed vertical drafts.
+
+Keep the locked graphic family and safe geometry, later-round choices, and final-approved masters. Horizontal source footage and essential-action panels inside a vertical remain allowed. New AI start/end-frame and motion approval gates still apply. Applies to Claude and Codex. SL-36's three segments were approved November 16 and now proceed to actual vertical reviews.
+
+## Every B-roll insert is corrected and checked in the finished film (Dan, 2026-11-16)
+
+Every inserted B-roll clip must be colour corrected and optimized before review. Preserve its source and correction recipe, compare it with the surrounding presenter and appropriate approved references, then inspect its actual final rendered appearance. A library flag or recipe labelled "graded" is not proof. Flat, washed-out, crushed or neon footage is a defect to fix before delivery. This reinforces the existing rule without changing gates or thresholds. DS-51 R1's curls near 0:30 and seated press near 0:37 were rejected on appearance and must be visibly corrected.
+
 ## Narrated exercise demos: 10–15 seconds, no dead air (Dan, 2026-11-16)
 
 Target 10–15 seconds for every new or revised narrated exercise demo, never under 10 seconds. Avoid dead air at the beginning, between instructions and at the end. Keep only natural brief phrasing pauses, with cues aligned to the visible movement. End the picture when the final complete spoken word and its natural decay finish. Never pad the length with silent reps, a hold or room tone; add useful setup, movement, tempo, breathing or mistake explanation when needed. Existing approved demos stay approved. Full shared policy: `.claude/skills/_shared/VIDEO-RULES.md`, "Narrated exercise demos end with the last spoken word". This supersedes older 15-second-only, 15–25-second and silent-tail recipes.

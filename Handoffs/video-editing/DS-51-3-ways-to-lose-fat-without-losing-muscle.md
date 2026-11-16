@@ -1,3 +1,16 @@
+CONTENT (SFC). Fat Not Muscle SFC R2.
+
+# Current state, November 16, 2026
+
+R1 exists and Dan's exact stage decisions are saved. The authorized R2 packet is prepared for the existing M2 Claude batch path; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
+
+Execute the self-contained [R2 production brief](four-content-r2-20261116/DS-51.md). Editor remains Claude Opus 5.5 high on M2. Stable decisions and manifest are in `/Volumes/Extreme/_edit_work/DS-51/round2/`. No revised review, final approval, upload or schedule is claimed at preparation.
+
+Dan's exact reply:
+> For "Lose Fat Without Losing Muscle" eliminate the AI clip at the beginning. Just show the camera scene at the beginning the clip at 30 seconds is not color corrected. We need color correction on that clip at 30 seconds. Make sure we have the save of the standing roll. Whenever you put in B-roll you can't just put in raw footage. It needs to be color corrected and optimized. Same thing for the clip at 37 seconds. At the end I want you to trim a fraction of a second to get it under 1 minute and also because there's junk footage where I'm putting my hands on my hips and not talking. Just a fraction of a second at the end. If you need more just very slightly accelerate to get it under the minute.
+
+## Historical R1 registration and sources
+
 **SFC.** Task name: `Fat Not Muscle SFC R1`.
 
 # DS-51: "3 Ways To Lose Fat Without Losing Muscle", first cut from raw footage

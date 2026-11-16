@@ -1,7 +1,7 @@
 {
   "_README": "THE STANDARD IS DAN'S WORDS, NOT OUR PARAPHRASE. Every entry quotes him verbatim. See README.md.",
   "version": 2,
-  "updated": "2026-11-15",
+  "updated": "2026-11-16",
   "roots": {
     "repo": ".",
     "ssd": "/Volumes/Extreme/_edit_work",
@@ -4649,6 +4649,49 @@
         "graphics:topic_headline_missing"
       ],
       "notes": "Only requested topic-headline addition below sourcecredit. R3rest preserved. Semantic trigger pending, not automatedPASS."
+    },
+    {
+      "id": "ds51-r1-broll-opener-tail-20261116",
+      "verdict": "rejected",
+      "date": "2026-11-16",
+      "root": "ssd",
+      "path": "DS-51/round1/page/Fat Not Muscle SFC R1 - complete Short.mp4",
+      "sha256": "da2f55b764271ee6d36ac8ac1a60d1309806afec3566a0103bb04fafec535778",
+      "bytes": 73387745,
+      "excerpt": [
+        0,
+        61.9619
+      ],
+      "dan": "For \"Lose Fat Without Losing Muscle\" eliminate the AI clip at the beginning. Just show the camera scene at the beginning the clip at 30 seconds is not color corrected. We need color correction on that clip at 30 seconds. Make sure we have the save of the standing roll. Whenever you put in B-roll you can't just put in raw footage. It needs to be color corrected and optimized. Same thing for the clip at 37 seconds. At the end I want you to trim a fraction of a second to get it under 1 minute and also because there's junk footage where I'm putting my hands on my hips and not talking. Just a fraction of a second at the end. If you need more just very slightly accelerate to get it under the minute.",
+      "must_trigger": [
+        "style:broll_colour_match",
+        "junk:visual_reset_tail"
+      ],
+      "must_pass": [],
+      "measured": "R1 complete Short duration 61.9619 s. Dan rejected opener ~0-3.3 s, curl B0432 ~29.7-32.3 s, seated press B0449 ~37-39.6 s and silent hands-on-hips ending. Times are R1 approximate anchors pending exact repair measurements.",
+      "notes": "Exact R1 retained in place and SHA-256 verified before R2. Existing graded flag is not acceptance. Both named visual checks remain PENDING, not implemented automatic coverage. No gate/threshold changes. Preserve last complete word and natural decay, then smallest pitch-preserving acceleration to strictly <60 s. Preserve verbatim phrase \"save of the standing roll\".",
+      "rejected_spans": [
+        {
+          "start": 0,
+          "end": 3.3,
+          "reason": "Remove A0266 AI opener; actual camera scene requested"
+        },
+        {
+          "start": 29.7,
+          "end": 32.3,
+          "reason": "B0432 curl appears uncorrected"
+        },
+        {
+          "start": 37,
+          "end": 39.6,
+          "reason": "B0449 seated press appears uncorrected"
+        },
+        {
+          "start": null,
+          "end": 61.9619,
+          "reason": "Silent hands-on-hips tail; exact final speech end to be measured before trim"
+        }
+      ]
     }
   ]
 }

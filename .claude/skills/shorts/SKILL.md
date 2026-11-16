@@ -10,6 +10,17 @@ description: >
   use /youtube-packaging. For a fully AI-generated video ad use /make-ad.
 ---
 
+## Shorts from long-form: review vertical drafts first (Dan, 2026-11-16)
+
+No separate horizontal selection previews for Shorts cut from long-form. The first review goes directly to actual 1080x1920 vertical drafts with colour-correction options, playable level-matched voice choices, normal captions/graphics/clip treatment, and each title with its full word-for-word transcript. The approved parent's look and voice may be the recommended baseline, but do not hide the alternatives. This supersedes the October 20 exemption from new look/voice choices. Segment selection can happen on the vertical review; the old Step 2 wording is not a mandatory stop before proposed vertical drafts.
+
+Keep the locked graphic family and safe geometry, later-round choices, and final-approved masters. Horizontal source footage and essential-action panels inside a vertical remain allowed. New AI start/end-frame and motion approval gates still apply. Applies to Claude and Codex. SL-36's three segments were approved November 16 and now proceed to actual vertical reviews.
+
+## Every B-roll insert is corrected and checked in the finished film (Dan, 2026-11-16)
+
+Every inserted B-roll clip must be colour corrected and optimized before review. Preserve its source and correction recipe, compare it with the surrounding presenter and appropriate approved references, then inspect its actual final rendered appearance. A library flag or recipe labelled "graded" is not proof. Flat, washed-out, crushed or neon footage is a defect to fix before delivery. This reinforces the existing rule without changing gates or thresholds. DS-51 R1's curls near 0:30 and seated press near 0:37 were rejected on appearance and must be visibly corrected.
+
+
 ## AI disclosures (Dan, 2026-11-15)
 
 Use the shared VIDEO-RULES deception-risk rule for Claude and Codex: people almost always need disclosure; harmless food, landscapes and other non-person illustrations usually do not. Preserve internal provenance and required physique-photo labels. This supersedes blanket label-every-insert instructions below.
@@ -71,7 +82,7 @@ Older text further down that disagrees with these loses. Section titles are in `
 - Covers: "Thumbnails: the five, each its own design, always made by Codex" (2026-10-13), made in `/video-setup`.
 - Stumbles: "Stumbles inside a kept take get fixed" (2026-10-20).
 - Victory Dashboard: paused (CLAUDE.md, 2026-10-05).
-- Look and voice: a Short cut from an approved film reuses that film's look and voice, no options round (Dan, 2026-10-20).
+- Look and voice: actual vertical drafts with colour and voice choices in the first review (Dan, 2026-11-16); the October 20 no-options exemption is superseded.
 - Model: a video stays with the AI it started on, Opus high for Claude, Sol high for Codex (AGENTS.md, 2026-10-20).
 
 ## The shortlist shows every proposed Short's full transcript under its title (Dan, 2026-10-22)
@@ -102,7 +113,7 @@ his own words naming that video override it.
 
 SL-05 was the last batch in the J2 / olive set. Every new batch uses Soft Blue Light graphics from the HyperFrames templates; the first vertical and the first square made that way get a full approval round with every asset shown to Dan before the build. Full rule: `_shared/VIDEO-RULES.md`, "New shorts batches".
 
-**The vertical look is locked (Dan, 2026-10-02, SL-03 round 1: "Everything is approved").** A new batch of shorts from a long-form does not need a look round (a Short cut from an approved film reuses that film's look and voice; new options only for a new set). Use the "Soft Blue shorts standard" in [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md): title band y 0 to 310 for the whole short, picture 1080 x 1610 under it, two steady windows (724 x 1080 and 604 x 900), the HyperFrames key-point bar at 68,1130 to 1012,1378 with two lines landing on words, captions from y 1412, B-roll filling the picture area, phone beside Dan for app demos, small corner wordmark. Start from `reference/softblue-sl03/` (README, renderer, gate plan). Claude still checks every key point as a still and moving, and brings Dan only what is materially uncertain. The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
+**The vertical look is locked (Dan, 2026-10-02, SL-03 round 1: "Everything is approved").** The locked graphic family and geometry remain; every new batch now shows actual vertical drafts with colour and voice options in the first review (Dan, 2026-11-16), using the parent treatment as a recommended baseline. Use the "Soft Blue shorts standard" in [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md): title band y 0 to 310 for the whole short, picture 1080 x 1610 under it, two steady windows (724 x 1080 and 604 x 900), the HyperFrames key-point bar at 68,1130 to 1012,1378 with two lines landing on words, captions from y 1412, B-roll filling the picture area, phone beside Dan for app demos, small corner wordmark. Start from `reference/softblue-sl03/` (README, renderer, gate plan). Claude still checks every key point as a still and moving, and brings Dan only what is materially uncertain. The J2 title band, olive bars and `reference/zeeshan-master/` layouts below are for finishing or revising batches already delivered in that set.
 
 ## A horizontal clip in the vertical or square frame keeps its full height (Dan, 2026-10-01)
 
@@ -560,7 +571,9 @@ builds: the render queue", 2026-10-20). The paid Replicate Whisper path is retir
 
 Shape is `{ chunks: [{ text, timestamp: [start, end] }] }`.
 
-## Step 2 — Dan picks the segments
+## Step 2 — Dan picks the segments on actual vertical drafts
+
+**November 16 override:** build proposed vertical drafts and first-round colour/voice choices with the titles and full transcripts. Do not export horizontal selection previews or stop here merely to ask for segment picks before any vertical is built. Preserve any genuine new-AI approval gates.
 
 **Each candidate on the shortlist carries its full transcript under its title** (Dan, 2026-10-22, rule at the top of this file).
 
