@@ -2157,17 +2157,17 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-30-self-driving-car-short.md`: cut \"Self-Driving Car (short)\" from 9/23 roll C1720 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-30-self-driving-car-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "delivered",
-   "note": "Model 3 vs Camry cost lines and look-away lines are intended ad-libs; use his final takes.",
+   "state": "finalized",
+   "note": "Dan finalized R1 2026-11-16 (colour C, voice V1); master sha 31dcb750; Codex setup handoff written",
    "sub": "9/23 shoot",
    "order": 96,
-   "updated": "2026-11-15",
+   "updated": "2026-11-16",
    "by": "Claude",
-   "rev": 4,
+   "rev": 5,
    "syncedRev": 2,
    "editor": "Claude",
    "needs": "",
-   "review_ready_at": 1794792717.553209
+   "completed_at": 1794845849.02316
   },
   {
    "id": "DS-31",

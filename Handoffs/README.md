@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **OPEN: start now, Codex newest Sol high.** Dan approved R1 (colour C, voice V1) as delivered; master sha 31dcb750 locked. Five covers + blind Google options, Dan's pick, then backups, metadata and verified organic scheduling/shared waitlist. No upload yet.
+
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 
 

@@ -18,3 +18,10 @@ Deliverable: 1080x1920, 45-66 s, J2 captions. No cover image (a separate Codex t
 
 **Codex (GPT-6 Astra, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-30-self-driving-car-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## FINALIZED 2026-11-16 (Dan)
+
+Dan: "All right, let's keep color C and voice V1. Proceed to setup if there is nothing else left to do here. Give me a handoff or setup, actually. For Codex"
+
+- Approved master: `Short-form video content/Self-Driving Car - DS-30/Self-Driving Car SFC R1 - complete Short.mp4`, SHA-256 `31dcb750b089c33e01622da845c9bf15281a932b6132e3cb10f66f6f957dc4fc`, 61.96 s, 1080x1920. Colour C, voice V1 (both already in the file; no rebuild).
+- Record: `APPROVAL.json` in the delivery folder. Setup (Codex): `Handoffs/handoff-20261116-ds30-self-driving-car-setup.md`.

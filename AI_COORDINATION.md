@@ -32,8 +32,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**DS-30:DAN-REVIEW-R1:2026-11-15:Claude,M2.** http://127.0.0.1:9805/
-
 **REALDEMOS-B08:HELD:2026-11-15:Codex:M2.** Five approved real demos installed/live-verified. Only swing pickup remains.
 
 **DS39-setup:HOLD:2026-11-15:Codex01a1cbf4:shared-waitlist-capacity:Docs/DS39_SETUP_RECEIPT_20261115.md.**
