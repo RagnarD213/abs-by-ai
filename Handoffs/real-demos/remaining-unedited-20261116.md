@@ -15,10 +15,10 @@ No new chat or production work has been started by the handoff writer.
 - 26 real demos are installed: pilot, Batches 1-3, five available Batch 8 demos and all seven Batch 9 demos.
 - Batch 8 is finished apart from Kettlebell Swing. B0439 was mislabeled deadlift footage; the relevant originals were searched. Correct swing footage is on Docs/NEXT_SHOOT_LIST.md. Do not substitute deadlifts or include that pickup in the 29 below.
 - Batch 9 is approved, installed and live-verified. Actual curl is db-hammer-curl, distinct from the unchanged supinated db-curl. Do not reopen either batch's approved media or ask Dan to review them again.
--29 planned demos remain across Batches 4-7,10,11. Both Macs' standard work roots were checked: no corresponding work folders. The current clip catalog has no final REALDEMOS-B04/B05/B06/B07/B10/B11 source-range registrations. No such active owner is on the coordination board.
+- 29 planned demos remain across Batches 4-7,10,11. Both Macs' standard work roots were checked: no corresponding work folders. The current clip catalog has no final REALDEMOS-B04/B05/B06/B07/B10/B11 source-range registrations. No such active owner is on the coordination board.
 - Recheck current ownership before starting; the inventory can change after this handoff.
 
-Installed evidence: Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md and Docs/REALDEMOS_B09_INSTALLED_20261116.md. The old "42left, none started" scheduling text is historical.
+Installed evidence: Docs/REALDEMOS_B08_FLY_INSTALLED_20261115.md and Docs/REALDEMOS_B09_INSTALLED_20261116.md. The old "42 left, none started" scheduling text is historical.
 
 ## The next five: REALDEMOS-B04
 
@@ -39,8 +39,8 @@ Original source brief: [Batch 4](batch-04-gym-new-exercises-part-1.md). Screen t
 |5|5|Dip; Weighted Dip; Cable Curl; Decline Sit-Up; Incline Dumbbell Press|[Batch 5](batch-05-gym-new-exercises-part-2.md)|
 |6|5|Machine Lateral Raise; Cable Overhead Triceps Extension; Preacher Curl; Barbell Curl; Rope Hammer Curl|[Batch 6](batch-06-gym-new-exercises-part-3.md)|
 |7|4|Machine Shoulder Press; Stair Climber; Stationary Bike; Stomach Vacuum|[Batch 7](batch-07-gym-new-exercises-part-4-and-cardio.md)|
-|10|5|Plank Up-Down; Spiderman Plank; Toe-Touch Crunch; Medicine-Ball V-Up; Medicine-Ball Sit-Up|[Batch10](batch-10-home-new-exercises-part-1.md)|
-|11|5|Handstand Push-Up; Feet-Elevated Push-Up; Jump Rope; Towel Pull-Apart; Home Walking Lunge|[Batch11](batch-11-home-new-exercises-part-2-and-close-out.md)|
+|10|5|Plank Up-Down; Spiderman Plank; Toe-Touch Crunch; Medicine-Ball V-Up; Medicine-Ball Sit-Up|[Batch 10](batch-10-home-new-exercises-part-1.md)|
+|11|5|Handstand Push-Up; Feet-Elevated Push-Up; Jump Rope; Towel Pull-Apart; Home Walking Lunge|[Batch 11](batch-11-home-new-exercises-part-2-and-close-out.md)|
 
 Run Batch 11 last because its close-out needs the other batches' results. After each batch, preserve decisions and show only genuinely outstanding items in later reviews. Never reset already accepted content to "unreviewed."
 
