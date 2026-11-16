@@ -58,3 +58,7 @@ Exact SHA256 `e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189`,
 ## Cover setup round 2, November 16, 2026
 
 Dan changed the cover/publishing title to **Hormozi: You're Not Hungry, You're Bored.** Four new actual-footage reaction composites A-D are ready at http://127.0.0.1:9920/?round=2, both platform layouts checked. Film remains approved R4, no recut. New reaction-cover standing rule saved across shared/cover/packaging/setup guidance. Setup reserves no edit slot; accidental DS109 reservation/waiter removed and absence verified. Queue/master finalizedrev16; publication awaits actual cover selection. See current setup receipt and handoff for exact source/original hashes and resume instructions.
+
+## Cover setup round 3, November 16, 2026
+
+Dan selected design B with changes: clearer portrait, half linear size, lower-left, no obstruction of Hormozi. Revised1080x1920pair is built and checked at http://127.0.0.1:9920/?round=3. Exact pair awaits final cover approval before platform installation/upload/scheduling. Movie unchanged and finalized. No edit slot reserved. Queue/master finalizedrev17; see current receipt and setup/r3/layout-manifest.json for exact source/output hashes.
