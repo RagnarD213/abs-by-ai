@@ -105,3 +105,7 @@ Await Dan's review of these exact R2 files. Install only approved IDs/hashes und
   }
 }
 ```
+
+## Focused review requested November16
+
+Dan requested only the outstanding revisions. Active page shows Side Lateral, Hammer Curl and shoulder-press changed narration beginning6.3s. Four previously reviewed cards and current AI comparisons omitted. Media/clearances and installation status unchanged. See Docs/REALDEMOS_B09_FOCUSED_REVIEW_20261116.md and canonical focused builder; do not restore old seven-card gallery.
