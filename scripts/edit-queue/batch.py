@@ -27,7 +27,7 @@ SHARED = Path(eq.ROOT)/'.claude/skills/_shared'
 SOURCE_ROOTS = ['.claude/skills/_shared/'+n for n in ('editroute','editcap','renderq')] + ['scripts/edit-queue','scripts/edit-dashboard']
 TERMINAL = {'delivered','delivered-unreviewed','needs-dan','blocked','taken-over'}
 NAME = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$')
-JOB = re.compile(r'^[A-Z]{2,8}-[A-Z0-9-]+$')
+JOB = re.compile(r'^(?:[A-Z]{2,8}|REALDEMOS)-[A-Z0-9-]+$')
 class TransportError(RuntimeError):pass
 class RejectedError(RuntimeError):pass
 

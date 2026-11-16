@@ -214,6 +214,23 @@ class BatchTests(unittest.TestCase):
         self.assertTrue(b.job_live('SL-36',{'m2':{'editcap':{'in_use':['SL-36'],'edits':{}}}}))
         self.assertFalse(b.job_live('SL-36',{'m2':{'editcap':{'in_use':[],'edits':{}}}}))
 
+    def test_real_demo_batch_keeps_its_id_and_drive_bound_placement(self):
+        import editroute
+        brief=self.home/'brief.md';brief.write_text('Build only the five real Batch 4 demos; stop for review.')
+        spec=self.home/'spec.json'
+        b.write(spec,dict(jobs=[dict(id='REALDEMOS-B04',round=1,title='Real Exercise Demos Batch 4 R1',
+            size='M',kind='EXDEMO',executor='codex',need_gb=20,target='review',drive_bound=True,brief=str(brief))]))
+        statuses={h:dict(reachable=True,editcap=dict(in_use=[],edits={})) for h in ('m2','m6')}
+        with patch.object(editroute,'gather',return_value=statuses), patch.object(editroute,'holder',return_value=(None,None)), \
+             patch.object(b,'rpc',side_effect=lambda op,**kw:b.handle(dict(op=op,**kw))), \
+             patch.object(b,'fingerprints',return_value=dict(digest='proof')), patch.object(b,'kick'):
+            b.enqueue('chat-REALDEMOS-B04-R1',spec)
+        row=b.handle(dict(op='snapshot'))['batches']['chat-REALDEMOS-B04-R1']['jobs']['REALDEMOS-B04-R1']
+        self.assertEqual(row['id'],'REALDEMOS-B04')
+        self.assertEqual(row['placement'],'m2')
+        self.assertEqual(row['brief_sha256'],hashlib.sha256(brief.read_bytes()).hexdigest())
+        self.assertFalse(b.JOB.fullmatch('UNRELATEDLONG-B04'))
+
     def test_large_storage_wait_steps_aside_for_smaller_jobs_on_that_mac(self):
         self.enqueue(ids=('SL-36','RA-02'));self.start();c=self.claim('m6',slots=1)
         b.handle(dict(op='outcome',batch='night',key=c['key'],token=c['row']['claim']['token'],host='m6',outcome={'status':'deferred-start','reason':'need 80 GB; only 10 GB usable','retry_kind':'storage'},backoff_s=0))
