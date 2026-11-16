@@ -52,6 +52,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [BT.601 trap](untagged-video-bt601-trap.md): decode as BT.709
 - [Longform finals](longform-delivery-location.md): finals in folder; work in `renderq.py workdir` folder
 ## Review rounds
+- [No next round until review is finished](no-next-round-until-review-finished.md): 11-16: notes still coming or a decision open = write the handoff and wait; never start the next chat on partial feedback
 - [Review page](review-page-what-i-decided.md): "What I decided"
 - [Review pages seek](review-page-must-seek.md): review_server.py only; http.server cannot scrub
 - [Review page plays in side pane](review-page-plays-in-side-pane.md): 11-14: Dan reviews in the app's side pane; load a video into the player at start, side panel from 760 px, test at 800 and 1150 px
