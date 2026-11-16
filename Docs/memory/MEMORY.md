@@ -9,6 +9,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Blocked step → Codex + Grokbot](blocked-step-handoff-codex-grokbot.md): 11-05: any step Claude can't do gets an automatic handoff for both, same reply, with both starter prompts
 - [Explain simply](explain-simply.md): plain language, stepwise
 - [Pasted text](pasted-text-is-dans.md): Dan's, act on it
+- [Wrong-chat paste alert](wrong-chat-paste-alert.md): 11-16: paste clearly meant for another task → alert in one line before any work
 - [Credentials](autonomy-credentials-framing.md): Claude's limit, one line
 - [Personal info OK](personal-info-form-entry-ok.md): 10-29: enter his DOB, address, phone in forms; never ask (not passwords/cards/IDs)
 - [Action items](action-items-at-bottom.md): numbered, at end
@@ -65,7 +66,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Human editor tolerance](human-editor-end-of-job-tolerance.md): 11-02: late rounds from Muhammad/Zeeshan send back only missing/broken things; polish goes to "For Dan's call"
 ## Clips and photos
 - [Exercise demos: real B-roll first](exercise-demos-real-broll-first.md): 11-13: real gym/home footage demos beat AI; redo every exercise with B-roll, AI only where none
-- [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [AI clips natural or regenerate](ai-clips-natural-or-regenerate.md): 10-21: calm real-looking, closed-mouth smile, no shake; regenerate slop, never patch
 - [AI giveaways](ai-clip-artifact-giveaways.md): visible at speed
 - [AI clip sense QC](ai-clip-sense-qc.md): cause and effect, shows the line; ~5 clips; ask budget
@@ -84,7 +84,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [No standing shots](no-standing-around-shots.md): cutaways show action
 - [One shoot](no-mixing-shoots-on-camera.md): no mixing days
 - [Phone clip](never-use-dan-phone-clip.md): B0437 never
-- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only; 11-15 B0448 at 1.25x = approved opener for future videos
+- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only
 - [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
 - [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
 - [Before/after](before-after-same-person.md): same person
@@ -164,6 +164,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
 - [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
 - [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
+- [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
 - [Execute Dan's picks](execute-dans-explicit-picks.md): build exactly what he names
 - [Allegations not facts](allegations-not-fact.md): never mentioned unless Dan asks
