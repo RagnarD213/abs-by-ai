@@ -1,5 +1,9 @@
 # Real Exercise Demos: batch handoffs
 
+## Next unedited batch
+
+Start with Batch4 (five gym demos), using [the current remaining-work handoff](remaining-unedited-20261116.md). It carries the latest timing/review rules and the full29-demo inventory. No new production has started.
+
 ## Current progress, 2026-11-16
 
 - Batch8: five demos installed and live; Dan confirmed Rear Delt Fly picture and sound inside the app. Kettlebell Swing alone needs a correct footage pickup.
