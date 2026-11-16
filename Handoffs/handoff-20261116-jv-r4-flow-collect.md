@@ -14,3 +14,11 @@ Claude's Chrome stopped saving any downloads from flow.google.com after 15:23 to
 4. **Hand back.** Write `ai/COLLECTED.json` listing each file, its size and its SHA-256. Claude's AI-clips agent then gates, reviews and files them.
 
 Do not judge or edit the clips. Do not send anything to the client.
+
+## Collection completed by Codex, 2026-11-16
+
+The index expanded during collection to 18 needs and 37 takes. All 37 original MP4s and all 37 1080p exports were saved to their M2 `ai/<id>/incoming/` folders. All required start frames were preserved as original JPEGs plus pixel-identical PNG conversions; repeated-title candidates are retained, with opening-frame identity matches in the receipt. Nothing was quality-approved or sent to the client.
+
+Canonical receipt on M2: `/Volumes/Extreme/_edit_work/SRM-goldenroots-jointvigor/claude-r4/ai/COLLECTED.json`. It lists all 140 media-file copies, byte sizes, SHA-256, ffprobe records and provenance. All 74 video files are preserved in the existing source archive, merged into the M2 register under `clip_library.catalog_lock()`, and verified against full-file Drive downloads. The first AI-1 pair retains the originating editor's rejected-frame disposition; other takes await Claude's gates and independent review. No usable library IDs were assigned.
+
+M6 receipt mirror: [COLLECTED.json](/Users/danrrose/Projects/_edit_work/SRM-JV-R4-collect/ai/COLLECTED.json). Claude can continue with the canonical receipt now. No further collection action is needed from Dan or Grokbot.
