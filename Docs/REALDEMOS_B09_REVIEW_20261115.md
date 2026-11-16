@@ -15,7 +15,7 @@ Six 1080p real-footage candidates, each one continuous original take at natural 
 | db-shoulder-press | 13.981 s | REVIEW-R4-press.md | PASS |
 | db-curl | 16.116 s | REVIEW-R1-dumbbells.md | PASS |
 
-Six exact app delivery stamps pass all39 measured checks, with26 declared format exclusions and no failed or unmeasured items. Exact master/app audio stamps pass. Independent reviewers inspected delivered pictures, relevant native cue/loop/edge frames, source/grade reference, narration alignment, posters and app comparison. Each report states its actual coverage and limits. Rejected candidates are archived in the work directory. No shared gate code or thresholds were changed.
+Six exact app delivery stamps show39 pass-status rows per file:13 measured checks and26 declared format exclusions and no failed or unmeasured items. Exact master/app audio stamps pass. Independent reviewers inspected delivered pictures, relevant native cue/loop/edge frames, source/grade reference, narration alignment, posters and app comparison. Each report states its actual coverage and limits. Rejected candidates are archived in the work directory. No shared gate code or thresholds were changed.
 
 ## What Dan should check
 
