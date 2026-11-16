@@ -4630,6 +4630,25 @@
       },
       "measured": "Complete current gate2.6.3 process0,32measuredPASS+7NA,0unresolved; all1943nativeframes exactly R2; full223words,82/84rasterstates97.6%,worst120ms. Actual selected Warm fidelity. Raw normal owned tone/dryness FAIL retained with precise approved-Warm/source applicability, not synthetic/verbatim/refmix.",
       "notes": "Dan selected this exact Off-the-cuff alternative in direct response to choose-and-approve request. Scripted not selected. No new gate, bound or setting change; no rerun requested. Corpus row execution belongs on M2 where the bound plan/evidence live. Existing raw diagnostics and silent-inspection limits retained."
+    },
+    {
+      "id": "ds109-r3-blank-topic-headline-20261116",
+      "verdict": "rejected",
+      "date": "2026-11-16",
+      "root": "ssd",
+      "path": "DS-109/r3/review/media/hormozi-not-hungry-bored-r3.mp4",
+      "sha256": "e0204d30b0706583a3fd017126ac534df3fac8c462ccd9beb0ff52923f70b189",
+      "bytes": 59850924,
+      "excerpt": [
+        0,
+        24.26
+      ],
+      "dan": "Okay one more revision. I feel like the title looks blank. I want you, in the title at the top while this clip plays, to add in, in the large title text below the blue text, \"Alex Hormozi on Hunger.\"",
+      "must_pass": [],
+      "must_trigger": [
+        "graphics:topic_headline_missing"
+      ],
+      "notes": "Only requested topic-headline addition below sourcecredit. R3rest preserved. Semantic trigger pending, not automatedPASS."
     }
   ]
 }
