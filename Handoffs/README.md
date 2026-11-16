@@ -28,7 +28,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Flow clips batch 4: motion reviews + video page](handoff-20261115-flow-clips-batch4-motion-reviews.md): **Complete 2026-11-16.** All18 one-per-video picks approved and installed; Three Cans reports preserved. [Library summary and sweep](../Docs/AI_CLIP_LIBRARY_AUDIT_20261116.md).
 
-- [Smaller Plates Reaction SFC Setup](handoff-20261116-ds108-smaller-plates-approved-setup.md), 2026-11-16. **IN PROGRESS, same Codex owner, do not duplicate.** Dan finalized exact R2 film; cover generation and verified backups started. Required blind paired cover review next, then metadata and organic queue/shared waitlist. No platform upload or scheduling yet.
+- [Smaller Plates Reaction SFC Setup](handoff-20261116-ds108-smaller-plates-approved-setup.md), 2026-11-16. **STARTED, cover pick pending, same Codex owner; do not duplicate.** Film finalized, all three final-media backups verified. Eight paired blind choices: http://127.0.0.1:9886/ . [Partial receipt](../Docs/DS108_SETUP_RECEIPT_20261116.md). After pick: metadata, uploads, verified organic queue/shared waitlist. No platform upload or schedule yet.
 
 - [Metabolism Not The Reason SFC Setup](handoff-20261115-ds107-metabolism-approved-film-setup.md), 2026-11-15. **STARTED, awaiting cover pick. Codex M2 owns setup.** [Round 3 Y1-Y4 requested conversation covers](http://127.0.0.1:9804/) first, with Round 2 X1-X5 extras below, same link on M2/M6. Two shirtless/two tank-top versions; exact speech bubbles; Claude's earlier misreading corrected in receipt and rejection records. Film and metadata unchanged, no scheduling. [Setup receipt](../Docs/DS107_SETUP_RECEIPT_20261115.md).
 

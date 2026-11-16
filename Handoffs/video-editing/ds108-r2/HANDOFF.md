@@ -1,4 +1,4 @@
-Current result: [full-film delivery, November 16](DELIVERY-20261116.md). Review http://127.0.0.1:9882/ . Awaiting Dan; M2 slot released. Historical preparation below is superseded where the delivery receipt records completion.
+Current result: Dan finalized the exact R2 film on November 16. [Setup is running in the same chat](../../handoff-20261116-ds108-smaller-plates-approved-setup.md); [eight cover choices](http://127.0.0.1:9886/) await his pick. [Historical full-film delivery](DELIVERY-20261116.md) below preserves the completed edit record. No edit slot held.
 
 # Smaller Plates Reaction SFC R2: finish the full Short
 
