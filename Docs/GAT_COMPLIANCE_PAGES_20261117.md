@@ -31,7 +31,7 @@ Local builder (gitignored, M6): `Media/research/gat-sales-page-contest-20261117/
 1. Monthly refill: the page says $67; the shop gives free shipping only from $70, so it would charge $76.99 today.
 2. Regular price $97 on the sales page; the shop sells one bottle for $47.
 3. Guarantee: the script says unopened bottles within one year of receiving them; the shop's refund page says any reason, 365 days from the order.
-4. Contact: the pages publish email, mailing address, hours and a form, no phone number. `support@sixpackabs.com` has no mailbox yet (the domain forwards only admin@ and dan@); creating the forward waits on Dan's OK. The 7-day reminder email before the first refill charge is a launch requirement for the checkout build.
+4. Contact: the pages publish email, mailing address, hours and a form, no phone number. `support@sixpackabs.com` was created 2026-11-17 on Dan's OK as a WordPress.com forward to his inbox (active; not yet tested with a real email). The 7-day reminder email before the first refill charge is a launch requirement for the checkout build.
 
 ## Extra pages recommended
 
