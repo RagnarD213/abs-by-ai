@@ -376,6 +376,13 @@
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
       "boardRank": 7
+    },
+    {
+      "text": "Bring packages in",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-17",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
