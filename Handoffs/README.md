@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Joint Vigor R4 review fixes (Codex)](handoff-20261117-jv-r4-review-fixes-codex.md), 2026-11-17. **OPEN: Codex newest Sol high, started automatically.** Claude weekly limit hit; apply both Fable reviews' fixes, re-finish, build Dan's review page.
+
 - [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **EXECUTING: four enabled Claude R2s queued on M2; no duplicate producers.** Recorded choices, immutable R1/decision evidence and stable journals filed; DS-51 rejection recorded; vertical-first and final B-roll colour rules pushed and synced. M2 capacity full; revised pages pending. [Receipt](../Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md).
 - [Great Again T VSL round 8: collect 23 finished Flow clips](handoff-20261116-wv03-r8-flow-downloads-blocked.md), 2026-11-16. **OPEN: Codex newest Sol high, M6, fire now.** Chrome on the M6 saves no downloads (disk nearly full); 28 Veo generations wait in Flow project "WV-03 R8 motion". Fix downloads, collect 23, resubmit 5 failed, push to M2; motion lead then gates and files.
 
