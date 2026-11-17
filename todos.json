@@ -328,27 +328,6 @@
       "boardRank": 0
     },
     {
-      "text": "Set up laundry hamper",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-08",
-      "boardRank": 4
-    },
-    {
-      "text": "Cut up all boxes in spare room in small pieces",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-06",
-      "boardRank": 6
-    },
-    {
-      "text": "Clean & organize bedroom closet. Remove all junk, throw away trash and move other items to junk room for Dan to review before throwing away. Vaccum carpet with manual vaccum thoroughly",
-      "priority": "high",
-      "recurring": false,
-      "addedAt": "2026-10-20",
-      "boardRank": 7
-    },
-    {
       "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
@@ -390,62 +369,6 @@
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
       "boardRank": 13
-    },
-    {
-      "text": "Transfer laundry",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Fix overflowing laundry in drawers",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Bed made",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Do dishes and start dishwasher",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Check pantry for expire food/put away soda",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Put cardboard in recycling",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-10",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Organize/tidy up junkroom/throw out trash",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-11",
-      "addedBy": "assistant"
-    },
-    {
-      "text": "Take out any full garbage",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-11",
-      "addedBy": "assistant"
     }
   ],
   "handoffs": [
