@@ -1,12 +1,16 @@
 # Night-before personal planning
 
-Dan changed this workflow November 16, 2026. The deliverable is the proposed board and calendar at https://absbyai.com/dash, not a long plan in chat. Default to planning tomorrow the night before so he can start priority #1 at 8 a.m. Use America/Chicago dates.
+Dan changed this workflow November 16, 2026. The deliverable is the proposed board and calendar at https://absbyai.com/dash, not a long plan in chat. Default to planning tomorrow the night before so he can start from an agreed plan at 8 a.m. Use America/Chicago dates.
 
-Standard hours every day, including weekends: work 8–9:30 a.m.; reserve 9:30–11:30 a.m. for gym preparation, workout, shower and supplements; work 11:30 a.m.–7 p.m., except Tuesday ends at 6:30 p.m. Include lunch, real Google Calendar commitments and preparation/travel buffers. Five big outcomes are targets, not guaranteed finishes. Preserve Dan's ranked priorities unless he agrees to reorder them.
+Standard hours every day, including weekends: work 8–9:30 a.m.; reserve 9:30–11:30 a.m. for gym preparation, workout, shower and supplements; work 11:30 a.m.–7 p.m., except Tuesday ends at 6:30 p.m. Include lunch, real Google Calendar commitments and preparation/travel buffers. Calendar blocks describe how Dan spends his time, not predicted delivery times for unfinished videos. Preserve Dan's ranked priorities unless he agrees to reorder them.
 
 The board contains exactly Planned for Today, In Progress, Completed and the shared human Assistant Taskboard. Personal planning must not dispatch AI work or write tasks into the human assistant's list. Keep the edit-dashboard link. Cards default to titles only; optional details can be added later. Preserve existing cards and attachments, and keep unfinished cards from other dates available for deliberate carry-forward.
 
 Before proposing, check the live personal board and Google Calendar for the planned date. Read the relevant owning task's compact status if it changes the recommendation. Do not create or message execution chats as a side effect of planning. No automatic recurrence/reminder has been requested. The standard routine is a dashboard template, not a set of recurring Google Calendar events.
+
+## Work first, reviews before stepping away (Dan, 2026-11-16)
+
+Begin each work session with useful non-video work, then reserve the end for reviewing whatever videos have actually finished and giving decisions/revisions so editing can continue while Dan is away. Apply this before the gym, lunch, and leaving for the evening. Do not assume Joint Vigor, Great Again T or an upsell will be rendered by a specific hour. Review windows cover all ready films in priority order; if nothing is ready, continue the non-video work. The board holds the individual desired outcomes, while the calendar holds flexible activities. Keep all four Great Again T upsells as separate cards: Prepaid Packs, Eternal Burn AM/PM, Electro-Creatine, Abs By AI. Do not schedule Dan to resolve Google Ads policy issues when the next action is already owned by an automated or scheduled follow-up; show personal work only when he has an actual decision or action. This planning pattern does not authorize launching or messaging editing chats.
 
 ## Read and propose
 
