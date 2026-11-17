@@ -51,6 +51,11 @@ def reserve_slot(live, entries):
             taken.add((when.date(), when.strftime('%H:%M')))
         except (ValueError, IndexError):
             pass
+    # The approved Dec 10 5 PM Short occupies that day's evening slot.
+    # Preserve other explicitly moved afternoon/evening releases in the same way.
+    taken.update((day, '18:00') for day, hhmm in list(taken)
+                 if hhmm not in ('09:00', '12:00', '18:00') and hhmm >= '15:00'
+                 and '18:00' in rp.short_times(day))
     today = date(2026, 11, 16)
     day, hhmm = rp.next_short_slot(today, taken, {'kitchen': False, 'gym': False}, SLUG)
     when = datetime.combine(day, datetime.strptime(hhmm, '%H:%M').time(), CT)
