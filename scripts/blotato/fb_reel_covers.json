@@ -1714,5 +1714,13 @@
     "cover_pick": "B revised R3",
     "cover_sha256": "6d7bd696caff6643a61cd376bcd984764657bbd57401126066b1be173521723d",
     "note": "Approved exact revised B November16; four actual schedules saved for January14,2027 at6PM Central. Cover pixels verified."
+  },
+  {
+    "match": "Think you don't have time to work out? You might be losing that time every day in your car.",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds30/R2-X4-Car-Fixed-Instagram.jpg",
+    "w": 1080,
+    "h": 1920,
+    "job": "DS-30",
+    "when": "2027-01-20T00:00:00.000Z"
   }
 ]
