@@ -9,7 +9,7 @@ the `prompt`, `aspect` and `model`. Only clips with `"status": "queued"` and `"r
 
 ## 0. Before you start
 
-- Chrome tools only (`mcp__claude-in-chrome__*`), in your own new tab (`tabs_create_mcp`). Never touch other tabs.
+- Use supported browser tools in the current client, in this job’s own new tab. Native Mac file-picker controls are allowed when the supported uploader is unavailable. Never touch another job’s tabs.
 - The account is Dan's (signed in, PRO badge top right). Never sign out, never change account settings, never click
   Upgrade or Manage subscription, never buy credits.
 - One-time agreements (privacy notice, "Rights to use this image") were accepted by Dan on 2026-10-17. If any NEW
@@ -49,23 +49,11 @@ not happen).
 
 ## 4. Upload the job's frames (once per job)
 
-Flow builds its file box only when "Upload media" is clicked, which would open a Mac file picker you cannot operate.
-Hook it first, in the project tab:
+Flow builds its file chooser only when **Upload media** is clicked. Use the current client's documented file-chooser/upload API, arming its filechooser event before clicking. Do not inject upload hooks, mutate the DOM with evaluation, use CDP/private APIs, or bypass current tool restrictions.
 
-```js
-if(!window.__veoHook){window.__veoHook=true;const o=HTMLInputElement.prototype.click;
-HTMLInputElement.prototype.click=function(){if(this.type==='file'){this.id='veo-file-input';
-this.style.cssText='position:fixed;left:0;top:0;width:40px;height:40px;opacity:0.01;z-index:99999';
-if(!this.isConnected)document.body.appendChild(this);return;}return o.call(this);};}
-```
+If the supported uploader fails because Chrome's extension file-URL access is off, retain the error and use the native Mac picker. Do not repeatedly retry the blocked uploader or silently change that permission. On Codex, follow the installed computer-use skill and `@oai/sky` through node_repl. Get fresh full native accessibility state before using element indices when diff indices are unreliable. In the native Open dialog, **Go to Folder** reaches the exact staged upload directory; verify the full path and selected filenames. Use native **Edit > Select All** if the shortcut fails. All28 small JPEGs (10.7MB total) uploaded successfully in one native batch on November17; transport limits may differ for supported API uploads.
 
-Then click **Start** in the prompt box (opens "Select a frame image"), click **Upload media** at its bottom left, and
-`find` "file input" to get its ref. `file_upload` with up to 10 MB per call: every `upload_start` / `upload_end` path of
-the queued clips (each JPEG is about 0.4 MB, so all of a job's frames go in one or two calls). The first upload of the
-day may show "Rights to use this image": Dan agreed to it on 2026-10-17 for our own AI frames, so click **I agree**.
-**Wait until every upload has finished** (no percentage left on any tile in the grid behind the picker) before you assign
-any frame: the picker list re-sorts while uploads complete, and a click lands on a different file. Close the picker with
-its X. After a page reload the hook is gone: run it again before the next upload.
+Wait until every upload has finished before assigning frames: the picker list re-sorts while uploads complete. Search each exact unique staged filename and verify that its preview matches the correct START or END. Never select from a shifting unfiltered list. Any NEW rights agreement, consent, terms or payment screen follows the current action-time confirmation policy; do not treat an old acceptance note as permission to accept a new agreement.
 
 ## 5. Submit each clip
 
@@ -74,7 +62,7 @@ For each queued clip, in job order:
 1. **Fill END first, then START (measured 2026-10-20: with START filled first, the End picker's Add landed the START image in both slots).** Clicking a filled slot empties it. In each picker type the file name, wait for the preview to show the right frame, then click **Add to prompt** (never the result row). Slot thumbnails are square center crops, so hands at the edges vanish: compare faces/poses, not edges. Old order, for reference: Click **Start** → type the clip's exact start file name (`A1-start`) in "Search assets" so only that file is listed
    (it is highlighted already) → click **Add to prompt** directly. Do not click the result row: on the test that sometimes
    closed the picker and added the frame on its own. The End picker is wider, so its Add to prompt button sits further right.
-2. If the clip has an end frame: click **End** → search `A1-end` → click it → confirm the name → **Add to prompt**. Zoom on
+2. After END is assigned, click **Start** → search the exact START filename → verify its preview name → **Add to prompt**. Zoom on
    the two thumbnails in the prompt box and compare them with the job's frames: START left, END right (⇄ swaps them).
    **This step is the one that went wrong on the first test (2026-10-17): the END frame landed in both slots.**
    `veo.py collect` now refuses a take that does not open on START, but a wrong pick still wastes 20 credits.
