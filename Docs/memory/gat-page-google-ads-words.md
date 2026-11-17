@@ -18,7 +18,7 @@ What was applied to the sales letter (Draft v2, Doc `1klwTUdTl5q_17MTA5c1Dtv-Agm
 - The study list shows the 31 studies without paper titles (the titles carry the words): authors, journal, year, volume, pages, DOI, PMID.
 - Left in on purpose: cortisol, hormone, the love-life wording, "FDA-registered", the footer's Food and Drug Administration sentence.
 
-Compliance pages (Dan, 2026-11-17): FAQ, How It Works, Contact Us and Privacy Policy are written "purely for compliance", for the Google Ads policy team only, informational and never salesy. Draft Doc `1lu2BkYz5bDkwe3hLij6lZb2qfP60J_AY8isJxim84W8`; Google's rules and the build rules are in `Docs/GAT_COMPLIANCE_PAGES_20261117.md`. Google's Health category names sexual health and intimate body functions: a page judged to be about them loses website visitor and customer list audiences, so those topics stay off these pages.
+Compliance pages (Dan, 2026-11-17): FAQ, How It Works, Contact Us and Privacy Policy are written "purely for compliance", for the Google Ads policy team only, informational and never salesy. Draft Doc `1FdDzvyTMJhhBYEtWT6u2w_jxlyUmUR2jDMzOp_KoOhg`; Google's rules and the build rules are in `Docs/GAT_COMPLIANCE_PAGES_20261117.md`. Google's Health category names sexual health and intimate body functions: a page judged to be about them loses website visitor and customer list audiences, so those topics stay off these pages.
 
 **Why:** Google Ads compliance on a paid-traffic page.
 
