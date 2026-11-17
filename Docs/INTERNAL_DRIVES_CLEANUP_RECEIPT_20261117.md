@@ -30,3 +30,8 @@ Handoff: `Handoffs/handoff-20261117-clear-internal-drives.md`. Goal was 250 GB f
 - **M2 CHROMA-FABLE-TEST + GRAPHICS-FABLE-TEST (about 28 GB): not moved yet.** The Extreme task's cleanup lock still blocks `jobarchive.py run`; a retry loop on the M2 retries every 2 minutes (`/tmp/dl/ja-m2.log`).
 - **M6 `~/M2-transfer/staging` (27 GB): not removed yet.** Final checksum dry-run to the Seagate copy is running (`/tmp/claude-501/m6-staging-final.log`); remove only when it shows no content differences.
 - Free space now: M6 173 GB, M2 116 GB. The 250 GB target is still not met.
+
+## Update 15:50 CST
+- The M6 staging copy over SMB hung for six hours (never completed; its earlier "verify done" line was stale). Restarted over SSH into the M2, where the Seagate is local: 23 of 28 GB copied at 15:44. Checksum verify follows (`/tmp/claude-501/m6-staging-ssh-verify.log`); delete the M6 folder only on a clean result.
+- M2 test-folder move still blocked by the Extreme task's long jobarchive run (started 09:03); the retry loop is waiting.
+- Remaining steps handed off for Codex and Grokbot: `Handoffs/handoff-20261117-finish-internal-drives-cleanup.md`.
