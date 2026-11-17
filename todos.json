@@ -318,7 +318,7 @@
   "assistant": [
     {
       "text": "Assemble bar",
-      "priority": "unassigned",
+      "priority": "key",
       "recurring": false,
       "addedAt": "2026-11-17",
       "boardRank": 0
