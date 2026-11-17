@@ -46,7 +46,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **DS-109:SETUP:** DONE. Four schedules verified Jan14,2027 at6PM Central: YT7055960 FB7055957 IG7055958 TT7055959. Revised B approved. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md. No owner action or edit slot; public release pending.
 
-**DS-30:SETUP-CAR-FIX-REVIEW:2026-11-16:Codex01a1e611.** http://127.0.0.1:9921/?revision=car-fixed. Original foreground preserved; corrected car and With A text await approval, then setup. `Docs/DS30_SETUP_RECEIPT_20261116.md`.
+**DS-30:SETUP-WAITLIST:2026-11-16:Codex01a1e611.** Make Time for Fitness with a Self-Driving Car: covers approved, setup complete, shared waitlist January19,2027 at6PM Central. No live schedule or Dan action. Docs/DS30_SETUP_RECEIPT_20261116.md.
 
 **REALDEMOS-B08:HELD:2026-11-15:Codex:M2.** Five approved real demos installed/live-verified. Only swing pickup remains.
 

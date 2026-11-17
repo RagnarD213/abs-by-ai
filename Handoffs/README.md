@@ -22,7 +22,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
-- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **IN PROGRESS: revised text approval pending.** R2-X4 selected; new Fitness title and two-line cover text: http://127.0.0.1:9921/?revision=x4-text. Film unchanged. [Receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
+- [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **EXECUTED.** Both corrected covers approved; uploads, backups and metadata verified. Shared waitlist January19,2027 at6PM Central, not a live schedule. [Receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
 
 - [Breckenridge booking recovery](handoff-20261115-breckenridge-call.md), 2026-11-15. **OPEN: Grokbot call requested.** Full brief is in the private travel folder; Codex pursuing official support chat. Coordinate ownership before payment.
 
