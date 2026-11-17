@@ -18,6 +18,12 @@
   const label=node('label','','Priority'),select=node('select');select.setAttribute('aria-label','Assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value=t.priority||'low';label.append(select);body.append(label,btn('Save priority',async()=>{if(await save('priority',{text:t.text,priority:select.value}))$('panel-dialog').close();}));
   const position=node('select');position.setAttribute('aria-label','Assistant position');data.tasks.forEach((x,i)=>position.append(new Option(String(i+1),String(i))));position.value=String(data.tasks.findIndex(x=>x.text===t.text));body.append(node('label','','Position'),position,btn('Move assistant task',async()=>{if(await save('move',{text:t.text,index:Number(position.value)}))$('panel-dialog').close();}));
  });}
+ function quickAdd(column,value=''){
+  if(column.querySelector('.quick-add'))return column.querySelector('.quick-add input').focus();
+  const form=node('form','quick-add'),input=node('input');input.required=true;input.maxLength=500;input.value=value;input.placeholder='Card title';input.setAttribute('aria-label','Assistant task title');
+  const submit=node('button','btn primary','Add');submit.type='submit';form.append(input,submit,btn('Cancel',()=>form.remove()));column.append(form);input.focus();input.onkeydown=e=>{if(e.key==='Escape')form.remove();};
+  form.onsubmit=async e=>{e.preventDefault();const title=input.value;if(!await save('add',{text:title,priority:'unassigned'}))quickAdd(document.getElementById('assistant-column'),title);};
+ }
  window.renderAssistant=()=>{
   const board=document.getElementById('board');if(!board)return;document.getElementById('assistant-column')?.remove();
   const c=node('section','column assistant-column');c.id='assistant-column';c.append(node('div','phase','04 · HUMAN ASSISTANT'));
@@ -36,7 +42,7 @@
   });
   stack.addEventListener('dragover',e=>{if(drag){e.preventDefault();e.stopPropagation();}});stack.addEventListener('drop',e=>{e.stopPropagation();e.preventDefault();if(!drag)return;const text=drag;drag=null;const nodes=[...stack.querySelectorAll('[data-assistant-text]')].filter(n=>n.dataset.assistantText!==text);let index=nodes.findIndex(n=>e.clientY<n.getBoundingClientRect().y+n.getBoundingClientRect().height/2);if(index<0)index=nodes.length;save('move',{text,index});});
   if(!stack.children.length)stack.append(node('p','empty',q?'No matching assistant tasks':'No assistant tasks'));c.append(stack);
-  c.append(btn('＋ Add Card',()=>showPanel('Delegate assistant task',body=>{const f=node('form'),input=node('input'),select=node('select');input.required=true;input.maxLength=500;input.setAttribute('aria-label','Assistant task text');select.setAttribute('aria-label','New assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value='unassigned';const submit=node('button','btn primary','Add');f.append(input,submit);f.onsubmit=async e=>{e.preventDefault();if(await save('add',{text:input.value,priority:select.value}))$('panel-dialog').close();};body.append(f);})));board.append(c);timer();
+  c.append(btn('＋ Add Card',()=>quickAdd(c)));board.append(c);timer();
  };
  const jump=document.getElementById('assistant-jump');if(jump)jump.onclick=()=>document.getElementById('assistant-column')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
  window.renderAssistant();load();setInterval(timer,1000);setInterval(()=>{if(!document.hidden&&Date.now()-lastLoaded>30000&&!saving&&!document.querySelector('dialog[open]'))load();},30000);window.addEventListener('focus',load);
