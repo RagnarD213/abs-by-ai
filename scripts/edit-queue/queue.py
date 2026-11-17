@@ -172,6 +172,8 @@ def main():
     s = sub.add_parser("set"); s.add_argument("id"); s.add_argument("state", choices=STATES)
     s.add_argument("--note"); s.add_argument("--by", default="")
     s.add_argument("--editor", help="who is editing it (in_progress); defaults from --by")
+    s.add_argument("--question", help="decision requested on the review page")
+    s.add_argument("--review-url", help="link for this review handoff")
     s.add_argument("--needs", help="blocked: one short line on what unblocks it")
     a = sub.add_parser("add"); a.add_argument("json_file")
     sub.add_parser("pending")
@@ -239,6 +241,8 @@ def set_state(data, jid, state, by="", note=None, editor=None, needs=None):
     j = find(data, jid)
     if state in REVIEW_STATES:
         if j["state"] != state:
+            j.pop("review_question",None)
+            j.pop("review_url",None)
             j["review_ready_at"] = time.time()
         elif not j.get("review_ready_at"):
             try:
@@ -247,6 +251,8 @@ def set_state(data, jid, state, by="", note=None, editor=None, needs=None):
                 j["review_ready_at"] = time.time()
     else:
         j.pop("review_ready_at", None)
+        j.pop("review_question", None)
+        j.pop("review_url", None)
     if state in ("finalized","uploaded"):j["completed_at"]=time.time()
     j["state"] = state
     if note is not None:
@@ -269,7 +275,13 @@ def run(args):
     if args.cmd == "set":
         if args.state == "blocked" and not (args.needs or find(data, args.id).get("needs")):
             sys.exit("a blocked job needs --needs \"what unblocks it\" (Dan 10-08: it shows beside the title)")
+        question = getattr(args,"question",None)
+        link = getattr(args,"review_url",None)
+        if bool(question) != bool(link) or (question and args.state not in REVIEW_STATES):
+            sys.exit("Use --question and --review-url together on a review handoff.")
         j = set_state(data, args.id, args.state, args.by, args.note, args.editor, args.needs)
+        if question:
+            j.update(review_question=question,review_url=link)
         save(data)
         row = master_status(args.id, STATES[args.state])
         print(f"{args.id} -> {args.state} (rev {j['rev']}); 00-MASTER.md row {'updated' if row else 'NOT FOUND'}")

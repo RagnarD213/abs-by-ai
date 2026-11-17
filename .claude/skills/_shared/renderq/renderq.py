@@ -298,6 +298,14 @@ def _session():
     return "codex" if any(k.startswith("CODEX") for k in os.environ) else ""
 
 
+def display_job(group):
+    """Identify anonymous work for the desk without changing its scheduling group."""
+    if not group.startswith("pg:"):
+        return group
+    folders = {match.group(1) for arg in sys.argv for match in _JOB_IN_PATH.finditer(arg)}
+    return folders.pop() if len(folders) == 1 else None
+
+
 def default_group():
     """Which video a step belongs to: GATE_GROUP, else the _edit_work job folder it runs in, else its command."""
     g = os.environ.get("GATE_GROUP")
@@ -1058,7 +1066,7 @@ class Ticket(object):
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pool=pool, label=label[:200], group=group,
                          priority=bool(priority), seq=self.seq, created=time.time(), cwd=os.getcwd()[:200],
                          session=_session(), pipe=pipe, drives=self.drives, scheduler_version=SCHEDULER_VERSION,
-                         project=project(group), expected_s=float(os.environ.get("GATE_EXPECT_S") or 0),
+                         display_job=display_job(group), project=project(group), expected_s=float(os.environ.get("GATE_EXPECT_S") or 0),
                          recipe=os.environ.get("GATE_RECIPE", ""))
         name = "{}.{:010d}.{}.json".format(pool, self.seq, os.getpid())
         tmp = DIR / "queue" / (".tmp." + name)
@@ -1183,7 +1191,7 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             _write(s["path"], dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=s["i"],
                                    label=ticket.info["label"], group=group, start=now, cwd=ticket.info["cwd"],
                                    session=ticket.info["session"], drives=ticket.drives, pipe=pipe, kind="starting",
-                                   cores=allowance(pool), scheduler_version=SCHEDULER_VERSION))
+                                   display_job=display_job(group), cores=allowance(pool), scheduler_version=SCHEDULER_VERSION))
             if feature('fairness'):
                 _record_opening(ticket.info, eligible)
             loans=_read(DIR/'borrowing.json')
@@ -1208,7 +1216,7 @@ class Hold(object):
         self.info = dict(pid=os.getpid(), ppid=os.getppid(), pgid=os.getpgid(0), pool=pool, i=slot["i"],
                          label=label[:200], group=group, start=time.time(), waited=round(waited, 1),
                          cwd=os.getcwd()[:200], session=_session(), drives=list(drives or []),
-                         cores=allowance(pool), scheduler_version=SCHEDULER_VERSION)
+                         display_job=display_job(group), cores=allowance(pool), scheduler_version=SCHEDULER_VERSION)
 
     def publish(self, **extra):
         self.info.update(extra)

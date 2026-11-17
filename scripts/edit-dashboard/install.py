@@ -9,11 +9,11 @@ def install():
     ROOT.mkdir(parents=True,exist_ok=True)
     if not PLIST.exists():
         with socket.socket() as s:s.bind(('127.0.0.1',PORT))
-    for f in ('review_handoff.py','observe.py','server.py','index.html','style.css','app.js','policy.json'):shutil.copy2(D/f,ROOT/f)
+    for f in ('desk_records.py','review_handoff.py','observe.py','server.py','index.html','style.css','app.js','policy.json'):shutil.copy2(D/f,ROOT/f)
     run('clang','-O2','-dynamiclib','-framework','CoreFoundation','-framework','IOKit',str(D/'kernel.c'),'-o',str(ROOT/'kernel.next'));os.replace(ROOT/'kernel.next',ROOT/'kernel.dylib')
     # No shell profile/PATH dependence. Compile against M2's own SDK at install time.
     run(*SSH,'mkdir -p "$HOME/.local/share/abs-edit-dashboard"')
-    for f in ('kernel.c','policy.json','review_handoff.py','observe.py'):
+    for f in ('kernel.c','policy.json','desk_records.py','review_handoff.py','observe.py'):
         with (D/f).open('rb') as src:run(*SSH,'cd "$HOME/.local/share/abs-edit-dashboard" && cat > '+f+'.new && mv '+f+'.new '+f,stdin=src)
     run(*SSH, """set -e
 cd "$HOME/.local/share/abs-edit-dashboard"

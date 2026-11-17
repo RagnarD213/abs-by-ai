@@ -17,6 +17,7 @@ import time
 from pathlib import Path
 
 import review_handoff
+import desk_records
 
 HERE = Path(__file__).resolve().parent
 STATES = {'active','promoted','waiting','with-dan','stalled','parked','finished'}
@@ -57,6 +58,7 @@ def key(s):
     if re.search(r'DS[-_ ]?0?98(?!\d)',s): return 'DS-98'
     m=re.match(r'^([A-Z]{2,3})-?(\d{1,3}[A-Z]?)(?!\d)',s)
     if m: return m[1]+'-'+m[2]
+    if s == 'CLIPLIB-V2':return s
     if re.fullmatch(r'(?:REALDEMOS|EXDEMO|SHOOT|SRM)(?:-[A-Z0-9]+){0,4}',s):return s
     return 'Unidentified project'
 
@@ -84,7 +86,7 @@ def locked(fd):
     return struct.unpack(fmt,ans)[3]!=fcntl.F_UNLCK
 
 
-def render_rows(rq,k):
+def render_rows(rq,k,resolve=key):
     out=[]
     for sub in ('slots','queue'):
         directory=rq/sub
@@ -102,22 +104,37 @@ def render_rows(rq,k):
                 if h.get('scheduler_version',5) not in (1,2,3,4,5):raise ValueError()
                 cores=(int(h.get('cores') or {'heavy':4,'light':2,'quick':2}[h['pool']])) if is_slot else 0
                 if is_slot and cores<=0:raise ValueError()
-                out.append((key(h['group']),is_slot,cores,bool(h.get('priority'))))
+                ident = resolve(h.get('display_job') or h['group'])
+                where = h.get('cwd','')
+                if ident == 'Unassigned render work':
+                    # Only extract project-folder names. Never expose command lines.
+                    args = subprocess.run(['/bin/ps','-ww','-p',str(int(h['pid'])),'-o','command='],
+                                          capture_output=True, text=True, timeout=1).stdout
+                    folders = re.findall(r'/_edit_work/([A-Za-z0-9_-]+)(?:/|$)', args)
+                    where += ' ' + args
+                    owners = {resolve(folder) for folder in folders}
+                    if len(owners)==1:
+                        ident = owners.pop()
+                if ident == 'SRM-GOLDENROOTS-JOINTVIGOR':
+                    rounds = set(re.findall(r'/SRM-goldenroots-jointvigor/claude-r(\d+)(?:/|$)', where, re.I))
+                    if len(rounds)==1:
+                        ident = 'SRM-JV-R'+rounds.pop()
+                out.append((ident,is_slot,cores,bool(h.get('priority'))))
             finally:os.close(fd)
     return out
 
 
-def routes(d,window,now):
+def routes(d,window,now,resolve=key):
     line=read(d/'waiting.json')
     if not isinstance(line,dict):raise ValueError()
     buf,cut=raw(d/'decisions.jsonl',262144,True); latest={}; times=[]
     for s in buf.splitlines():
         e=json.loads(s); t=float(e['t']);times.append(t)
         if t>now+5 or (len(times)>1 and t<times[-2]-1):raise ValueError()
-        if now-t<=window:latest[key(e['job'])]=None if e.get('dry') else e['host']
+        if now-t<=window:latest[resolve(e['job'])]=None if e.get('dry') else e['host']
     if cut and (not times or times[0]>now-window):raise ValueError()
     if any(x not in ('m6','m2','wait',None) for x in latest.values()): raise ValueError()
-    return {'line':sorted({key(j) for j in line}), 'reserved':{h:[j for j,v in latest.items() if v==h] for h in ('m6','m2')}}
+    return {'line':sorted({resolve(j) for j in line if not j.startswith('-')}), 'reserved':{h:[j for j,v in latest.items() if v==h] for h in ('m6','m2')}}
 
 
 def version(p): return memo(p,lambda b:hashlib.sha256(b).hexdigest())
@@ -160,6 +177,11 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
     if hc and k:
         idle=k.idle_seconds() if host=='m6' else -1
         away=idle>=60*hc['away_after_min']
+        switch=home/'.absbyai-away.json'
+        if host=='m6' and switch.is_file():
+            setting=section('Away switch unreadable',lambda:read(switch)) or {}
+            elapsed=now-setting.get('t',0)-setting.get('grace_s',120)
+            away |= now<setting.get('until',0) and (elapsed<=0 or idle<0 or idle>=elapsed-15)
         out.update(budget=hc['cores_away' if away else 'cores_present'],presence=('away' if away else 'recent input' if idle>=0 else 'input unknown') if host=='m6' else 'fixed')
     def pressure():
         val=C.c_int(); size=C.c_size_t(C.sizeof(val))
@@ -208,27 +230,45 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
                 if e['state'] not in STATES or key(j)!=key(e['job']):raise ValueError()
             return r['edits']
         reg=section('Edit register unavailable or unsupported',registry)
-        rows=section('Render ownership unconfirmed',lambda:render_rows(rq,k))
+        if reg:
+            named = {ident.upper():ident.upper() for ident,e in reg.items() if e.get('title')
+                     and re.fullmatch(r'[A-Z][A-Z0-9]*(?:-[A-Z0-9]+)+',ident.upper()) and key(ident)=='Unidentified project'}
+        else:
+            named = {}
+        def resolve(value):
+            normalized=str(value).upper().removeprefix('WORK:')
+            if key(normalized)=='Unidentified project' and normalized in catalog:
+                return normalized
+            return named.get(normalized,key(normalized))
+        rows=section('Render ownership unconfirmed',lambda:render_rows(rq,k,resolve))
         if host=='m6':
             def routeview():
                 if route!=fallback and fallback.is_dir() and not os.getenv('EDITROUTE_DIR'):raise ValueError()
-                return routes(route,float(cfg['reserve_min'])*60,now)
+                return routes(route,float(cfg['reserve_min'])*60,now,resolve)
             out['route']=section('Shared waiting list or reservations unknown',routeview)
         if stamp(watched)==before:break
         if attempt==0:del out['issues'][issues:]
         else:out['issues'].append('Work changed during observation')
     jobs={}
     def job(j):
-        return jobs.setdefault(j,dict(id=j,title='The Only 5 Machines You Need' if j=='DS-98' else catalog.get(j,{}).get('title',j),states=[],held=0,tickets=0,parked=False,urgent=False))
+        return jobs.setdefault(j,dict(id=j,title=desk_records.title(j,catalog) or j,states=[],held=0,tickets=0,parked=False,urgent=False))
     for ident,e in (reg or {}).items():
         if e['state']=='finished':continue
+        if e['state']=='with-dan' and (ident,e.get('since')) in desk_records.CLOSED:continue
         if e['state']=='with-dan' and review_handoff.completed(e,catalog.get(ident)):continue
-        j=key(ident); a=job(j)
-        if j not in ('DS-98','Unidentified project') and e.get('title'):a['title']=str(e['title'])[:110]
+        j=resolve(ident); a=job(j)
+        if j not in ('DS-98','Unidentified project') and e.get('title'):a['title']=desk_records.title(j,catalog,e['title']) or j
         stage=e['state']
         if review_handoff.current(e, review_handoff.handoff_time(catalog.get(ident))):
             stage='with-dan'
-        if stage=='with-dan':a['waitingSince']=e.get('since',now)
+        if stage=='with-dan':
+            a['waitingSince']=e.get('since') or review_handoff.handoff_time(catalog.get(ident))
+            record = catalog.get(ident,{})
+            if record.get('state') not in ('draft_review','delivered'):
+                record = {}
+            a.update(desk_records.review_fields(e.get('question') or record.get('review_question'),
+                                                e.get('link') or record.get('review_url')))
+        a['lastWork']=max(e.get(k,0) for k in ('registered','active_since','last_seen','waiting_since'))
         a['states'].append(stage); a['parked']|=bool(e.get('reservation_parked')); a['urgent']|=bool(e.get('priority')) or j in urgent
     for j,held,cores,urgent in rows or []:
         a=job(j);a['held' if held else 'tickets']+=1;a['urgent']|=urgent
@@ -246,6 +286,23 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
         a['auxiliary']=not a['occupies'] and bool(a['held'] or a['tickets'])
         a['workKind']='setup' if a['auxiliary'] and catalog.get(a['id'],{}).get('state') in ('finalized','uploaded') else 'helper'
     out['jobs']=list(jobs.values())
+    if host=='m6' and out.get('route'):
+        route_ids = out['route']['line'] + sum(out['route']['reserved'].values(),[])
+        out['route']['titles'] = {j:desk_records.title(j,catalog) for j in route_ids}
+    if host=='m2':
+        directory=home/'.absbyai-batch'
+        if directory.is_dir():
+            rows_batch=section('Production queue unreadable',lambda:desk_records.batch_jobs(directory,read))
+            out['batch']=[]
+            for item in rows_batch or []:
+                ident=key(item['id'])
+                item['id']=ident
+                if item['status']=='needs-dan' and review_handoff.completed({'since':item['ended']},catalog.get(ident)):
+                    item['status']='completed'
+                item['title']=desk_records.title(ident,catalog,item['title']) or ident
+                out['batch'].append(item)
+        elif repo == Path.home()/'Projects/Claude/Projects/Abs By AI':
+            out['issues'].append('Production queue unavailable')
     if rows is not None:
         out.update(renders=sum(r[1] for r in rows),tickets=sum(not r[1] for r in rows),assigned=sum(r[2] for r in rows if r[1]))
     if reg is not None:
