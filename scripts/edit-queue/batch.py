@@ -517,6 +517,24 @@ def report(snap, error=None):
     return doc
 
 
+def worker_command(claim_path):
+    """Reach M2 through the existing M2->M6->M2 keys and its drive-capable SSH login."""
+    argv=[sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_path)]
+    if here()=='m2':
+        target=hostcfg.host('m2').get('ssh','m2')
+        bridge=hostcfg.host('m6').get('ssh','m6')
+        remote='cd '+shlex.quote(str(eq.ROOT))+' && exec '+shlex.join(argv)
+        onward=['ssh','-oBatchMode=yes','-oConnectTimeout=3',target,remote]
+        return ['ssh','-oBatchMode=yes','-oConnectTimeout=3',bridge,shlex.join(onward)], True
+    return argv, False
+
+
+def worker_spawn_fields(proc, via_ssh):
+    # The SSH transport is not the runner. Its first heartbeat supplies the actual local PID.
+    prefix='transport_' if via_ssh else ''
+    return {prefix+'pid':proc.pid,prefix+'birth':identity(proc.pid)}
+
+
 def tick():
     HOME.mkdir(parents=True,exist_ok=True)
     with (HOME/'tick.lock').open('a') as lock:
@@ -541,8 +559,9 @@ def tick():
                     write(claim_home/'claim.json',owned)
                     log=(claim_home/'runner.log').open('a')
                     try:
-                        proc=subprocess.Popen([sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_home/'claim.json')],cwd=eq.ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=log,start_new_session=True)
-                        update('heartbeat',owned['batch'],owned['key'],token,fields=dict(pid=proc.pid,birth=identity(proc.pid)))
+                        command,via_ssh=worker_command(claim_home/'claim.json')
+                        proc=subprocess.Popen(command,cwd=eq.ROOT,stdin=subprocess.DEVNULL,stdout=log,stderr=log,start_new_session=True)
+                        update('heartbeat',owned['batch'],owned['key'],token,fields=worker_spawn_fields(proc,via_ssh))
                     except OSError:
                         rpc('recover',batch=owned['batch'],key=owned['key'],token=token,host=here(),pid_alive=False,spawn_failed=True)
                     finally:log.close()

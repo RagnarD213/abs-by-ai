@@ -32,6 +32,30 @@ class BatchTests(unittest.TestCase):
         self.cfg=eq.load_config();self.cfg['paused_groups']=[]
         self.c=patch.object(eq,'load_config',return_value=self.cfg);self.c.start()
     def tearDown(self):self.c.stop();self.h.stop();self.p.stop();self.tmp.cleanup()
+    def test_m2_worker_uses_existing_ssh_with_literal_claim_path(self):
+        import shlex
+        claim=self.home/"claim with ' spaces.json"
+        with patch.object(b.hostcfg,'host',side_effect=lambda h:{'ssh':h}):
+            command,via_ssh=b.worker_command(claim)
+        self.assertTrue(via_ssh)
+        self.assertEqual(command[:4],['ssh','-oBatchMode=yes','-oConnectTimeout=3','m6'])
+        onward=shlex.split(command[-1])
+        self.assertEqual(onward[:4],['ssh','-oBatchMode=yes','-oConnectTimeout=3','m2'])
+        self.assertEqual(shlex.split(onward[-1].split(' && exec ',1)[1])[-1],str(claim))
+        class Process:pid=4321
+        with patch.object(b,'identity',return_value='transport-birth'):
+            fields=b.worker_spawn_fields(Process(),True)
+        self.assertEqual(fields,{'transport_pid':4321,'transport_birth':'transport-birth'})
+        self.assertNotIn('pid',fields)
+
+    def test_m6_worker_keeps_direct_launch_and_runner_identity(self):
+        with patch.object(b,'here',return_value='m6'):
+            command,via_ssh=b.worker_command(self.home/'claim.json')
+        self.assertFalse(via_ssh)
+        self.assertEqual(command[0],sys.executable)
+        class Process:pid=4321
+        with patch.object(b,'identity',return_value='runner-birth'):
+            self.assertEqual(b.worker_spawn_fields(Process(),False),{'pid':4321,'birth':'runner-birth'})
     def enqueue(self,name='night',ids=('SL-36',),placement='any',round_=1):
         data=b'CONTENT SFL: use approved source; stop for real choices.'
         jobs=[dict(id=j,round=round_,title='Real video '+j,size='S',order=i,kind='SFL',target='review',need_gb=5,
