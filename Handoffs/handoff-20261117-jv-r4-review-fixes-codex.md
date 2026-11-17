@@ -95,3 +95,5 @@ Claude's builder had started the B fixes and was extending the film gate (`/Volu
 6. **Filing:** if any AI takes remain unarchived (`ai/INDEX.json` / `ai/RECEIPT.md`), archive them per `.claude/skills/_shared/cliplib/README.md`.
 
 Finish with a short chat report that includes the review page link.
+
+Superseded 2026-11-17 10:55 CT: Codex was out of usage, so the Claude builder applied every fix in round 2 (claude-r4/asm/out/RECEIPT-R2.md). This handoff is closed.
