@@ -49,7 +49,7 @@ def reserve_slot(live, entries):
             year = 2027 if month == 'Jan' else 2026
             when = datetime.strptime(f'{fields[1]} {year} {fields[3]}', '%a %b %d %Y %I %p')
             taken.add((when.date(), when.strftime('%H:%M')))
-        except ValueError:
+        except (ValueError, IndexError):
             pass
     today = date(2026, 11, 16)
     day, hhmm = rp.next_short_slot(today, taken, {'kitchen': False, 'gym': False}, SLUG)
