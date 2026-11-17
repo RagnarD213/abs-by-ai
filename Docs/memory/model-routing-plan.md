@@ -8,6 +8,8 @@ metadata:
   modified: 2026-10-20
 ---
 
+**Design, 2026-11-17 (Dan):** website, landing, sales page, quiz, cart and checkout design defaults to Codex GPT-6 Astra high, run with the Codex CLI; Claude designs only when Dan asks. He wants Claude usage kept for video editing. See [[design-astra-first]]. The "Design" line under Opus below is superseded for page and website design.
+
 **Fable 5.2, 2026-11-09:** supersedes the Fable 5.1 lines below for hard coding, risky-code review and a 3-round video-reviewer trial; see AGENTS.md Model routing and [[fable-5-2-release]]. Editorial work stays on Opus.
 
 **Setup ownership, November 7, 2026:** Codex handles the complete setup for videos from either editor. Claude is used only if Dan explicitly requests it, for example when Codex allowance is low. This supersedes older setup-owner recommendations below. See [[setup-owner-codex]].

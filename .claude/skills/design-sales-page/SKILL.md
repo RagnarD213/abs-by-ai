@@ -15,8 +15,10 @@ Worked example (read it before building): canvas https://claude.ai/artifact/GM8H
 the generator that built it in `reference/round2-letter/` (`gen.py`). Build handoff that followed it:
 `Handoffs/handoff-20260930-sales-page-build.md`.
 
-Recommended model: **Claude Opus 5.5, high effort** (page design inside locked standards). Fable only if Dan asks for a
-new design direction from scratch.
+Recommended model: **Codex GPT-6 Astra, high effort** (Dan, 2026-11-17: "Astra's design was a clear winner. I'm going to
+favor using Astra more for designs going forward"). Run it with the Codex CLI pointed at this skill and the brief; Claude
+designs only when Dan asks. Before any round, read `Docs/DESIGN_QUALITY_LESSONS.md` ("Great Again T sales page"): bring in
+at least one idea Dan did not ask for, match imagery to the prospect, and build any sticky offer bar as part of the design.
 
 ## What you deliver
 

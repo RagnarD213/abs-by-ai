@@ -50,6 +50,8 @@ The implementation remains owned by Cart Mockups R1. These notes preserve prefer
 
 ## How Astra earns future use
 
+**Update (Dan, 2026-11-17):** Astra earned it. After the Great Again T contest Dan favors Astra for design work (section "Great Again T sales page" below). The paragraphs here are kept as history.
+
 Recommend Opus for similar cart and page design work on the evidence available, unless Dan chooses otherwise. This is scoped to these design tasks, not a blanket routing change for coding, images or video.
 
 If Dan authorizes another comparison, use one bounded representative design with the same brief, assets, viewport sizes and time or usage budget. Show anonymous versions where practical. Dan judges initial quality and required revisions. Record elapsed work, available usage/cost evidence and correction count. Do not invent a dollar estimate when usage is unavailable.
@@ -64,7 +66,12 @@ Dan ranked the websites Claude, Grokbot, Codex, Gemini. Claude A, The Numbered S
 
 ## Great Again T sales page (Dan, November 17, 2026)
 
-- Dark green reads more trustworthy than black for a landing page while keeping the dramatic feel. Use it behind the quiz and behind the headline and player; keep the rest of the page light.
-- A sticky offer bar must belong to the design. Dan rejected D's cream bar with a white background that popped in under the dark header ("It looks weird"). Build it inside the dark header family, or as a matching dark dock, never a light strip that appears from nowhere.
-- Do not put the founder's physique photo directly under a quiz or video: Dan called it a non sequitur for a 40 to 60-year-old prospect.
-- Sans-serif for headlines and body for this audience; serif only for a reference list or a personal note.
+Blind contest, two phone designs each from Fable 5.2, Opus 5.5 and Codex GPT-6 Astra, all at high effort, from one shared brief. Dan picked D (Astra). Mapping: A Opus, B Astra, C Fable, D Astra, E Opus, F Fable. His feedback to every model, to apply in every future design:
+
+- **Bring in ideas he did not ask for.** B and D (both Astra) chose a dark green that the brief never asked for. Dan: "they made a good design decision with that green, which I didn't explicitly ask for. After seeing it, I realized that green works, especially in the quiz." He had agreed to a dark background, but green was "another alternative I didn't consider. Sometimes maybe we want to bring in ideas that weren't considered, not just the alternatives I present." Every design round should include at least one well-reasoned option beyond the choices Dan named, presented as such.
+- **Dark green over black.** For this page, dark green carries the drama of black without black's trust problem. Use it behind the quiz and behind the headline and player, and keep the rest light.
+- **Match imagery to the prospect, especially for cold traffic.** E and F (Opus and Fable) put Dan's physique photo near the top, F directly under the quiz. Dan: "it seems very non sequitur to see an image of a jacked guy who appears to be 30 years old, especially given that I'm Asian and the prospect is probably white... given the cold traffic nature of this offer." Before placing a founder or physique photo, ask who the visitor is (here: men 40 to 60, cold traffic) and whether the image builds trust at that moment. Early on the page, lead with the offer, the video and the science.
+- **Logo strip and hamburger menu: good.** Google Ads compliance needs them (menu: Questions, Contact, Shipping and Returns, Privacy Policy, Terms and Conditions, plus a full company footer). Include them on every page of a paid-traffic funnel.
+- **A sticky offer button that appears at the reveal is a good idea, but execution decides trust.** Several designs, the winner included, did it "in a very clunky way that looked untrustworthy" (D's cream strip with a white background that popped in under the dark header). Build it as part of the design: the same dark family as the header, a smooth slide, product thumbnail, one short line and the standard button.
+- **Sans-serif** for headlines and body for this audience; serif only for a reference list or a personal note.
+- **Verdict:** "Overall, decent job by all models here, but Astra's design was a clear winner." Design work now defaults to Astra (AGENTS.md, "Design work: Astra first").
