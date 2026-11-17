@@ -1123,5 +1123,14 @@
     "youtube": "7055960"
    }
   }
+ },
+ {
+  "config": "scripts/blotato/configs/ds30-fitness-self-driving-car.json",
+  "kind": "short",
+  "job": "DS-30",
+  "label": "Make Time for Fitness with a Self-Driving Car.",
+  "added": "2026-11-16",
+  "kitchen": false,
+  "gym": false
  }
 ]

@@ -1,3 +1,5 @@
+**EXECUTED 2026-11-16:** Both corrected covers approved; setup complete through shared waitlist for January19,2027 at6PM Central. Receipt: `Docs/DS30_SETUP_RECEIPT_20261116.md`. No live schedules yet.
+
 CONTENT (SFC), organic. Setup task name: `Self-Driving Car SFC Setup`.
 
 # Make Time For Exercise With A Self-Driving Car: setup of the approved Short (DS-30), 2026-11-16

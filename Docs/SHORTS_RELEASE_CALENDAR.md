@@ -107,7 +107,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Mon Jan 18 | 3 | 9 AM | Why I Fast Until 2 pm Every Day | Waitlist |
 | Mon Jan 18 | 3 | 6 PM | Start With One 20-Second Vacuum Every Morning (SL-11 C) | Waitlist |
 | Tue Jan 19 | 3 | 9 AM | Eat a Salad First to Eat Less | Waitlist |
-| Tue Jan 19 | 3 | 6 PM | OPEN | Not booked |
+| Tue Jan 19 | 3 | 6 PM | Make Time for Fitness with a Self-Driving Car. (DS-30) | Waitlist |
 | Thu Jan 21 | 3 | 9 AM | Top 3 Non-Weight Loss Benefits Of Zepbound | Waitlist |
 | Thu Jan 21 | 3 | 6 PM | Stop Drinking Your Calories | Waitlist |
 | Sat Jan 23 | 3 | 9 AM | Snack on Protein, Not Carbs | Waitlist |

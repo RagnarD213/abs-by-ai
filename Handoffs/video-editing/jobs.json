@@ -2158,16 +2158,16 @@
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-30-self-driving-car-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "finalized",
-   "note": "Dan finalized R1 2026-11-16 (colour C, voice V1); master sha 31dcb750; Codex setup handoff written",
+   "note": "Make Time for Fitness with a Self-Driving Car: film and both corrected covers approved; assets uploaded and hash-verified, backups complete. Shared waitlist Jan19 2027 6PM Central, kitchen false. No live schedules yet; uploaded status waits for four read-back Blotato posts. Docs/DS30_SETUP_RECEIPT_20261116.md",
    "sub": "9/23 shoot",
    "order": 96,
    "updated": "2026-11-16",
-   "by": "Claude",
-   "rev": 5,
+   "by": "Codex",
+   "rev": 6,
    "syncedRev": 5,
    "editor": "Claude",
    "needs": "",
-   "completed_at": 1794845849.02316
+   "completed_at": 1794875656.596568
   },
   {
    "id": "DS-31",
