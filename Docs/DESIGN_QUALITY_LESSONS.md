@@ -2,6 +2,10 @@
 
 Recorded October 2, 2026. Dan preferred Opus's Healthy Back Institute cart from Cart Mockups R1 over Codex Astra's version. He described the difference as close but meaningful, especially given Astra's higher cost to him. This is a design preference verdict, not a measured conversion result. Opus is the current benchmark for this work. Astra has not demonstrated a premium worth paying for on this task.
 
+## Website design and review order (Dan, November 4, 2026)
+
+For every website concept, page and shopping flow, design the phone version first. Dan expects more than 80% of visitors to use phones. At phone width, settle the first screen, content order, product imagery, navigation and primary action. Then adapt that design to desktop. Every review opens with the phone design, or shows phone and desktop together with the phone first and readable. Apply this to all entrants, future briefs and revisions. For SixPackAbs, design at 390px first and derive the 1440px layout from it.
+
 ## Evidence reviewed
 
 - Dan's feedback in Abs By AI Five Cart Designs and his revision requests in Cart Mockups R1.
@@ -53,3 +57,14 @@ If Dan authorizes another comparison, use one bounded representative design with
 Matching Opus at a higher cost is insufficient. Astra needs a clear visual win, materially less revision effort, or another concrete benefit Dan values. A single win is preliminary; broader routing should follow repeated useful results. Do not launch an unsolicited redesign or paid model contest to prove this plan.
 
 This document changes the working process. It does not retrain the underlying model or guarantee future superiority.
+
+## SixPackAbs website contest (Dan, November 4, 2026)
+
+Dan ranked the websites Claude, Grokbot, Codex, Gemini. Claude A, The Numbered Shelf, is the approved design direction. Use light page backgrounds in future website designs; Dan generally dislikes black storefronts and suspects they convert less well. This is his preference, not test data. Keep dark packaging bands and restrained accents where useful. Judge mobile first. Grokbot B's opening may have been Dan’s favorite; Claude A won on how well the rest of the page presented individual products. Speed did not compensate for Codex’s weaker design work. Keep contest notes out of visitor-facing layouts and check original desktop and phone renders before presenting them.
+
+## Great Again T sales page (Dan, November 17, 2026)
+
+- Dark green reads more trustworthy than black for a landing page while keeping the dramatic feel. Use it behind the quiz and behind the headline and player; keep the rest of the page light.
+- A sticky offer bar must belong to the design. Dan rejected D's cream bar with a white background that popped in under the dark header ("It looks weird"). Build it inside the dark header family, or as a matching dark dock, never a light strip that appears from nowhere.
+- Do not put the founder's physique photo directly under a quiz or video: Dan called it a non sequitur for a 40 to 60-year-old prospect.
+- Sans-serif for headlines and body for this audience; serif only for a reference list or a personal note.
