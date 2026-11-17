@@ -1,6 +1,6 @@
 ---
 name: blocked-step-handoff-codex-grokbot
-description: "Standing rule 11-05: any step Claude can't do gets an automatic handoff for both Codex and Grokbot in the same reply, never a stop"
+description: "Standing rule 11-05, updated 11-16: a step blocked by a tool limit = Claude runs Codex CLI itself (never asks Dan to fire it); prohibited steps (passwords, payment) keep the handoff"
 metadata:
   node_type: memory
   type: feedback
@@ -19,3 +19,4 @@ When a task reaches a step Claude can't do, write a handoff for **both Codex and
 - Only restriction: don't write the secret values into repo files (public repo); say where Dan keeps them.
 - Full rule: AGENTS.md "A step Claude can't do goes to Codex and Grokbot". Related: [[do-the-next-step-and-contact-support]], [[do-the-clicks-yourself]], [[handoff-starter-prompt-rule]].
 - **Fastest hand-over (2026-11-05):** Claude can't start Codex or Grokbot on a step Claude is blocked from (calling the Codex CLI, or pasting and sending via computer use, is still Claude doing it). Instead: copy the starter prompt to Dan's clipboard and open the Codex / Grokbot app, so Dan only presses Cmd+V and Enter. For work that is not blocked (images, ops), Claude calls the Codex CLI itself (`/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex exec`), as `_shared/codex-image.sh` does.
+- **Call Codex yourself; never make Dan fire it (Dan, 2026-11-16, WV-03 R8).** When a step is blocked by a tool or technical limit (Chrome downloads blocked for Claude's tabs, a browser Claude can't drive, a site that refuses Claude's extension), Claude starts Codex itself with the CLI, in the background, with a full brief and Dan's authorization stated: `/Applications/ChatGPT.app/Contents/Resources/codex-cli/bin/codex exec -C "<project>" -m <newest Sol> -c model_reasoning_effort=high --dangerously-bypass-approvals-and-sandbox "<brief>" < /dev/null > <log> 2>&1 &`, then watches the log and the result files. Dan: "Don't be lazy and have me fire a handoff when you can do it yourself... You have a tendency to make me do unnecessary work when you could just call Codex yourself through the command line interface." The handoff file is still written (record of the step); Dan gets no starter prompt to paste. Steps Claude is prohibited from (typing passwords, payment details, ID numbers, final purchase clicks) keep the clipboard hand-over above.
