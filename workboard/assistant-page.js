@@ -20,8 +20,8 @@
  });}
  window.renderAssistant=()=>{
   const board=document.getElementById('board');if(!board)return;document.getElementById('assistant-column')?.remove();
-  const c=node('section','column assistant-column');c.id='assistant-column';c.append(node('div','phase','Assistant · Shared tasks'));
-  const header=node('div','column-head');header.append(node('div','column-title','Assistant'));const link=node('a','btn','Her page ↗');link.href='/assistant';link.target='_blank';link.rel='noopener';header.append(link);c.append(header,node('p','column-note','Top task is next. Priority is a separate label.'));
+  const c=node('section','column assistant-column');c.id='assistant-column';c.append(node('div','phase','04 · HUMAN ASSISTANT'));
+  const header=node('div','column-head');header.append(node('div','column-title','Assistant Taskboard'));const link=node('a','btn','Her page ↗');link.href='/assistant';link.target='_blank';link.rel='noopener';header.append(link);c.append(header,node('p','column-note','Top task is next. Priority is a separate label.'));
   const error=node('p','muted');error.id='assistant-error';c.append(error);
   if(!data){error.textContent='Loading shared assistant tasks…';c.append(btn('Retry assistant',load));board.append(c);return;}
   const clock=node('div','assistant-clock'),text=node('p'),amount=node('p');text.id='assistant-time';amount.id='assistant-payment';clock.append(text,amount,btn(data.timesheet.active?'Clock out':'Clock in',()=>time(data.timesheet.active?'stop':'start')));
@@ -36,8 +36,8 @@
   });
   stack.addEventListener('dragover',e=>{if(drag){e.preventDefault();e.stopPropagation();}});stack.addEventListener('drop',e=>{e.stopPropagation();e.preventDefault();if(!drag)return;const text=drag;drag=null;const nodes=[...stack.querySelectorAll('[data-assistant-text]')].filter(n=>n.dataset.assistantText!==text);let index=nodes.findIndex(n=>e.clientY<n.getBoundingClientRect().y+n.getBoundingClientRect().height/2);if(index<0)index=nodes.length;save('move',{text,index});});
   if(!stack.children.length)stack.append(node('p','empty',q?'No matching assistant tasks':'No assistant tasks'));c.append(stack);
-  c.append(btn('＋ Delegate task',()=>showPanel('Delegate assistant task',body=>{const f=node('form'),input=node('input'),select=node('select');input.required=true;input.maxLength=500;input.setAttribute('aria-label','Assistant task text');select.setAttribute('aria-label','New assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value='unassigned';const submit=node('button','btn primary','Add assistant task');f.append(input,select,submit);f.onsubmit=async e=>{e.preventDefault();if(await save('add',{text:input.value,priority:select.value}))$('panel-dialog').close();};body.append(f);})));board.append(c);timer();
+  c.append(btn('＋ Add Card',()=>showPanel('Delegate assistant task',body=>{const f=node('form'),input=node('input'),select=node('select');input.required=true;input.maxLength=500;input.setAttribute('aria-label','Assistant task text');select.setAttribute('aria-label','New assistant priority');Object.entries(labels).forEach(([v,l])=>select.append(new Option(l,v)));select.value='unassigned';const submit=node('button','btn primary','Add');f.append(input,submit);f.onsubmit=async e=>{e.preventDefault();if(await save('add',{text:input.value,priority:select.value}))$('panel-dialog').close();};body.append(f);})));board.append(c);timer();
  };
- document.getElementById('assistant-jump').onclick=()=>document.getElementById('assistant-column')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+ const jump=document.getElementById('assistant-jump');if(jump)jump.onclick=()=>document.getElementById('assistant-column')?.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
  window.renderAssistant();load();setInterval(timer,1000);setInterval(()=>{if(!document.hidden&&Date.now()-lastLoaded>30000&&!saving&&!document.querySelector('dialog[open]'))load();},30000);window.addEventListener('focus',load);
 })();
