@@ -2,7 +2,13 @@
 
 **OPEN. Prepared November 16, 2026 at Dan's request for a fresh Codex chat.** This is the complete handoff for all four reviews, including his latest Sleep directions. Start the authorized continuation now when this brief is invoked. Do not ask Dan to repeat his picks, approve these revisions again, start editor cards or manage pins.
 
-## Actual state at handoff
+## Continuation registered November 16, 2026
+
+Four enabled `chat-JOB-R2` registrations now retain Claude Opus 5.5 high on M2. Exact decisions, immutable manifests and stable R2 journals are saved; R1 hashes matched, DS-51 rejection was filed before repair, and standing rules were committed/pushed and narrowly synced to both Macs. M2 is full, so these are queued, not rendering. Revised review pages are pending. See [execution receipt](../Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md) and the per-job R2 briefs in `Handoffs/video-editing/four-content-r2-20261116/`. No Dan restart or repeated choices are required.
+
+The original preparation snapshot below is historical. It does not describe the current queue state.
+
+## Historical state at handoff
 
 The four R1 review pages exist. Dan has supplied the decisions below. **No R2 packets, production queue entries, renders, policy changes or corpus additions have been made by this chat yet.** Do not mistake the recorded approvals in this brief for implemented changes. The authoritative batch ledger still reports all four R1 jobs `needs-dan`; it has not absorbed these replies. No new chat has been created and no pin transfer has occurred.
 

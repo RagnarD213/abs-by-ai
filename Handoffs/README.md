@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **OPEN: fresh Codex coordinator; original Claude Opus 5.5 high editors on M2.** All four R1 decisions captured, including Sleep B/B and upper-right intro; Man Boobs verticals, Protein A/V1, Fat/Muscle opener/B-roll/ending. R2 not yet queued or rendering; standing-rule updates pending.
+- [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **EXECUTING: four enabled Claude R2s queued on M2; no duplicate producers.** Recorded choices, immutable R1/decision evidence and stable journals filed; DS-51 rejection recorded; vertical-first and final B-roll colour rules pushed and synced. M2 capacity full; revised pages pending. [Receipt](../Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md).
 
 - [Clip-library batch 2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **IN PROGRESS: Phase A, Codex, M2.** Target25 useful clips (authorized20–30), hard5,000 Flow-credit cap. Audit and references prepared; first in production queue, no generation yet. Checked blind START/END pairs precede motion; every take archived and every cleared keeper filed. [Receipt](../Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md).
 

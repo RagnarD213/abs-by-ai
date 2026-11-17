@@ -2,9 +2,9 @@ CONTENT (SFC). Protein Snack Can SFC R2.
 
 # Current state, November 16, 2026
 
-R1 exists and Dan's exact stage decisions are saved. The authorized R2 packet is prepared for the existing M2 Claude batch path; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
+R1 exists and Dan's exact stage decisions are saved. The authorized R2 is registered and enabled through the existing M2 Claude batch path, queued for capacity; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
 
-Execute the self-contained [R2 production brief](four-content-r2-20261116/DS-106.md). Editor remains Claude Opus 5.5 high on M2. Stable decisions and manifest are in `/Volumes/Extreme/_edit_work/DS-106/round2/`. No revised review, final approval, upload or schedule is claimed at preparation.
+Execute the self-contained [R2 production brief](four-content-r2-20261116/DS-106.md). Editor remains Claude Opus 5.5 high on M2. Stable decisions and manifest are in `/Volumes/Extreme/_edit_work/DS-106/round2/`. No revised R2 review, final approval, upload or schedule is claimed at this queued stage.
 
 Dan's exact reply:
 > Protein Snack is approved for first minute cut. Let's go with a warm house look for the color. Let's go with B1 balance for the voice.
