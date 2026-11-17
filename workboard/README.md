@@ -1,3 +1,28 @@
+# Personal day dashboard
+
+The private dashboard is https://absbyai.com/dash. As of November 16, 2026, it is for Dan's personal work, with three fixed columns (Planned for Today, In Progress, Completed) and the existing shared human Assistant Taskboard as the fourth. The edit-dashboard link remains. AI task dispatch is disabled.
+
+Add Card opens an inline title field. Enter saves the title and returns to the board; opening the card later allows optional details. Start and Complete save immediately. Successful moves into Completed show a brief silent reward with confetti and a random existing private image favorite. Reloads, failed saves, adding cards and assistant checkoffs do not trigger rewards. Rewards can be disabled; reduced-motion preferences suppress confetti.
+
+Plans use Central dates, with a date picker, proposed/accepted status, editable calendar blocks, checked-calendar timestamp, and cards linked to scheduled blocks. Accepting a plan saves it on this dashboard only. There is no automatic Google Calendar sync or recurring reminder. Saved workday template: 8–9:30 a.m., gym routine 9:30–11:30 a.m., work 11:30 a.m.–7 p.m.; Tuesday ends 6:30 p.m. See [PLANNING.md](PLANNING.md) for the night-before planning workflow and owner-side helper.
+
+Migration takes a database row lock and saves the old list layout and execution settings inside the same private document. It renames the existing personal columns, preserves all card content and file bytes, and archives other lists. Existing personal cards are dated to the migration day; unfinished cards from other dates can be deliberately carried forward. Archived cards can be restored into the selected day without recreating old columns. Live local runs block migration until stopped. No assistant tasks, completion history or payment records are migrated or replaced.
+
+Verification:
+
+```sh
+node workboard/tests/personal.test.js
+node workboard/tests/api.test.js
+node workboard/tests/assistant.test.js
+node workboard/tests/timer-compat.test.js
+node scripts/brief/tests/brief_web.test.js
+node scripts/brief/tests/page_render.test.js
+```
+
+For disposable browser QA, run `node workboard/tests/preview.js`. Optional `WORKBOARD_PREVIEW_PLAN` and `WORKBOARD_PREVIEW_IMAGE` point to local fixture files; this server never uses production credentials. Test title-only creation, optional editing, Start/Complete, reward dismissal and timeout, calendar adjustment/acceptance, date isolation, stale-tab recovery, and phone/desktop layout through the browser. The older `tests/browser.py` suite described below targets the superseded ten-list board and is retained for reference, not current personal-board validation. Old runner implementation notes and tests below are historical; they do not describe enabled product behavior.
+
+## Previous implementation reference
+
 # Private Workboard
 
 Standalone `/dash` (the former `/workboard` address redirects to `/dash`), mounted before the product JSON parser and public static files. It starts with ten empty lists. No old dashboard import or sample cards. Local agent dispatch stays disabled until explicit activation.
