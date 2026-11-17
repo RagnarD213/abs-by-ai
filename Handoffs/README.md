@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Great Again T sales page: blind six-design contest](gat-sales-page-contest-20261117/HANDOFF.md), 2026-11-17. **OPEN: Dan fires; Claude Opus 5.5 high, M6.** Research reviewed and elements picked. Two phone designs each from Fable, Opus and Codex Astra (all high) on one shared brief modeled on Healthy Back Institute; shuffled A to F gallery; reveal model and effort only when Dan picks; then refine the winner.
 - [Joint Vigor R4 review fixes (Codex)](handoff-20261117-jv-r4-review-fixes-codex.md), 2026-11-17. **OPEN: Codex newest Sol high, started automatically.** Claude weekly limit hit; apply both Fable reviews' fixes, re-finish, build Dan's review page.
 
 - [Four content videos: Round 2 continuation](handoff-20261116-four-content-videos-round2.md), 2026-11-16. **EXECUTING: four enabled Claude R2s queued on M2; no duplicate producers.** Recorded choices, immutable R1/decision evidence and stable journals filed; DS-51 rejection recorded; vertical-first and final B-roll colour rules pushed and synced. M2 capacity full; revised pages pending. [Receipt](../Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md).
