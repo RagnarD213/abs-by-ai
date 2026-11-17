@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Clear the Extreme drive](handoff-20261117-clear-extreme-drive.md), 2026-11-17. **OPEN: Dan reviews, then fires; Claude Sonnet 5 medium.** Extreme is full; unblock the nightly cleanup and move finished jobs to the Seagate, hash-verified.
+- [Clear the M2 and M6 internal drives](handoff-20261117-clear-internal-drives.md), 2026-11-17. **OPEN: Dan reviews, then fires; Claude Sonnet 5 medium.** Both internals near full; archive finished jobs and old review pages, clear caches.
 - [Great Again T sales page: blind six-design contest](gat-sales-page-contest-20261117/HANDOFF.md), 2026-11-17. **OPEN: Dan fires; Claude Opus 5.5 high, M6.** Research reviewed and elements picked. Two phone designs each from Fable, Opus and Codex Astra (all high) on one shared brief modeled on Healthy Back Institute; shuffled A to F gallery; reveal model and effort only when Dan picks; then refine the winner.
 - [Joint Vigor R4 review fixes (Codex)](handoff-20261117-jv-r4-review-fixes-codex.md), 2026-11-17. **OPEN: Codex newest Sol high, started automatically.** Claude weekly limit hit; apply both Fable reviews' fixes, re-finish, build Dan's review page.
 
