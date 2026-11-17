@@ -14,7 +14,7 @@ Dan approved the complete film on November 16, 2026: “This looks good. Finaliz
 
 ## Setup scope and current checkpoint
 
-**Cover round prepared:** [X1-X8, both layouts](http://127.0.0.1:9886/). [Partial receipt](../Docs/DS108_SETUP_RECEIPT_20261116.md) records completed backups, cover checks and cleanup. Resume at Dan's cover pick; do not regenerate the set or repeat backups blindly.
+**X5 selected, revision ready:** [both revised layouts](http://127.0.0.1:9886/). Identical portions at the same scale, big plate emptier; headline “Use Smaller Plates To Lose Fat.”. Exact R2 pair awaits approval. [Receipt](../Docs/DS108_SETUP_RECEIPT_20261116.md) has final checks. Do not repeat generation, backups or X5 blind-pick logging; continue after exact revised-pair approval.
 
 Read current `.claude/skills/video-setup/SKILL.md`, `coverimage/SKILL.md`, `_shared/VIDEO-RULES.md`, `_shared/IMAGE-GENERATION.md`, `_shared/blind-image/FLOW-IMAGE-RUNBOOK.md`, writing rules and pinned-comment rules. Existing work folder `/Users/danrrose/Projects/_edit_prep/DS-108-setup`. Keep generated/reference images private and out of Git.
 
@@ -24,7 +24,7 @@ Read current `.claude/skills/video-setup/SKILL.md`, `coverimage/SKILL.md`, `_sha
 4. After cover choice: save exact pick/hashes, prepare paired covers and TikTok cover-first derivative, inspect its first frame, verify uploaded media/cover downloads. Build organic config using current supported helper. Cover audit/ad_guard before and after scheduling. Save Facebook cover in repository/live installer as required. Never upload a YouTube holding copy or native schedule.
 5. Follow `Docs/SHORTS_RELEASE_CALENDAR.md` and release-phase slot helper, respecting current live queue and shared waitlist. Studio green screen, not kitchen. If full, complete ready package and add one entry to existing `scripts/blotato/video_waitlist.json`; no per-video automation. Report actual waitlisted versus scheduled state with readbacks. Queue stays finalized until actual verified setup/post completion rule permits uploaded.
 
-Current film is finalized, setup started, no cover picked, platform upload or schedule yet. Save completion/partial receipt `Docs/DS108_SETUP_RECEIPT_20261116.md`; update only DS108 board/queue/handoff records and commit through isolated clean worktree, preserving unrelated shared changes. Existing owner remains responsible after the cover pick.
+Current film is finalized. X5 preference recorded; revised pair awaits approval. No platform upload or schedule yet. Save completion/partial receipt `Docs/DS108_SETUP_RECEIPT_20261116.md`; update only DS108 board/queue/handoff records and commit through isolated clean worktree, preserving unrelated shared changes. Existing owner remains responsible after the cover pick.
 
 ## Recovery starter prompt
 
