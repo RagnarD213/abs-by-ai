@@ -5883,12 +5883,14 @@
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (LFC). Name this chat \"I Crashed My Tesla LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md`: cut \"I Crashed My Tesla Because I Didn't Trust FSD\" from the 11/13 green-screen shoot, rolls C1914. Use `$long-form-content-edit` with the long-form green-screen standard (`.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "ready",
-   "note": "11/13 shoot, C1914 0:00-7:09",
+   "note": "November 16: first-review round registered as chat-RO-39-R1, enabled M2 queue, waiting for capacity. No production or review delivery yet. Brief RO-39-r1-queued-production-20261116.md; stop for Dan before full render.",
    "order": 256,
-   "updated": "2026-11-14",
-   "by": "Claude",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-11-16",
+   "by": "Codex",
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Codex",
+   "needs": ""
   },
   {
    "id": "RO-40",

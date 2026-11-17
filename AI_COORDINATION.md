@@ -32,6 +32,8 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
+**RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop for Dan before full film. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
+
 **CLIPLIB-V2:PHASE-A-WAIT:2026-11-16:Codex:M2.** First in production queue; 25-concept audit prepared, 0/5,000 credits. Frames before motion. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
