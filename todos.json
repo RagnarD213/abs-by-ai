@@ -332,35 +332,35 @@
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
-      "boardRank": 8
+      "boardRank": 1
     },
     {
       "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
-      "boardRank": 9
+      "boardRank": 2
     },
     {
       "text": "Spray weeds with roundup",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03",
-      "boardRank": 10
+      "boardRank": 3
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "boardRank": 11
+      "boardRank": 4
     },
     {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08",
-      "boardRank": 12
+      "boardRank": 5
     },
     {
       "text": "Find coffee table for living room and have Daniel review it",
@@ -368,7 +368,14 @@
       "recurring": false,
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
-      "boardRank": 13
+      "boardRank": 6
+    },
+    {
+      "text": "Assemble bar",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-17",
+      "boardRank": 7
     }
   ],
   "handoffs": [
