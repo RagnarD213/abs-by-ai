@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Edit order: 8/28 then 9/23 shoots, then clear them off the Extreme](handoff-20261117-edit-queue-828-then-923-then-clear-extreme.md), 2026-11-17. **OPEN: Dan fires each in order; Claude Opus 5.5 high for the five edits, Sonnet 5.5 medium for the two clear steps.** M100s, Pushup Masterclass, clear 8/28; AI Job, Wispr Flow, Robot Lawn Mower, clear 9/23. Five 8/28 ads and VSL 2 cancelled.
+- [Clear the 8/28 shoot from the Extreme](handoff-20261117-clear-828-shoot-from-extreme.md) and [clear the 9/23 shoot](handoff-20261117-clear-923-shoot-from-extreme.md), 2026-11-17. **OPEN: fire only after Dan approves the edits that hold each shoot.**
 - [Clear the Extreme drive](handoff-20261117-clear-extreme-drive.md), 2026-11-17. **OPEN: Dan reviews, then fires; Claude Sonnet 5 medium.** Extreme is full; unblock the nightly cleanup and move finished jobs to the Seagate, hash-verified.
 - [Clear the M2 and M6 internal drives](handoff-20261117-clear-internal-drives.md), 2026-11-17. **OPEN: Dan reviews, then fires; Claude Sonnet 5 medium.** Both internals near full; archive finished jobs and old review pages, clear caches.
 - [Great Again T sales page: blind six-design contest](gat-sales-page-contest-20261117/HANDOFF.md), 2026-11-17. **OPEN: Dan fires; Claude Opus 5.5 high, M6.** Research reviewed and elements picked. Two phone designs each from Fable, Opus and Codex Astra (all high) on one shared brief modeled on Healthy Back Institute; shuffled A to F gallery; reveal model and effort only when Dan picks; then refine the winner.

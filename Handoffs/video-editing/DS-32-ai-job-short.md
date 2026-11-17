@@ -18,3 +18,6 @@ Deliverable: 1080x1920, 45-66 s, J2 captions. No cover image (a separate Codex t
 
 **Codex (GPT-6 Astra, high):**
 > Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-32-ai-job-short.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.
+
+## UPDATE 2026-11-17 (Dan)
+Part of Dan's 9/23 batch: this is the first of three edits (DS-32, then DS-26 Wispr Flow, then DS-29 Robot Lawn Mower) that hold the 9/23 shoot on the Extreme drive. Task name `AI Job SFC R1`, Claude Opus 5.5 high. Nothing blocks it. Any AI footage you need goes through the clip-library and frame-approval rules; look for real B-roll in the library first.

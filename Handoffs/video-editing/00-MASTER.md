@@ -23,8 +23,6 @@ Replaces `Handoffs/handoff-20260913-ad-variants-master-queue.md` (jobs J1–J18)
 
 | job | the decision |
 |---|---|
-| RA-08 | "Why Are Trainers Going Out Of Business?" was filmed only up to *"Here's how it works"*. Cut a ~30 s version ending on the filmed CTA, or drop it? |
-| DS-25 | "How To Do M100s" pulls b-roll from an M100 long-form that was never filmed. RX-01 confirmed 2026-09-18 that no roll anywhere shows the three moves. On the shoot list now: `Docs/NEXT_SHOOT_LIST.md`. Film 30 s of each move, or use stock? |
 | AS-01 | A square for **Zeeshan's** Ad 1, when Muhammad's Ad 1 square is already live. Still wanted? |
 
 ---
@@ -37,16 +35,11 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | job | ad | roll | status | size |
 |---|---|---|---|---|
 | [RA-01](RA-01-ai-trick-that-got-me-abs.md) | The AI Trick That Got Me Abs | C1663 | UPLOADED | S |
-| [RA-02](RA-02-how-to-generate-abs-with-ai.md) | How To Generate Abs With AI | C1663 | READY | S |
-| [RA-03](RA-03-watch-ai-put-abs-on-me-in-30-seconds.md) | Watch AI Put Abs On Me In 30 Seconds | C1664 | READY (needs a recording of your own generation) | S |
 | [RA-04](RA-04-top-3-tips-for-getting-abs.md) | Top 3 Tips For Getting Abs | C1664 | UPLOADED | S |
 | [RA-05](RA-05-how-ai-can-get-you-real-six-pack-abs.md) | How AI Can Get You REAL Six Pack Abs | C1664 | UPLOADED | S |
 | [RA-06](RA-06-whats-the-best-ab-exercise.md) | What's The Best Ab Exercise? | C1664 | UPLOADED | S |
 | [RA-07](RA-07-fire-your-trainer.md) | Fire Your Trainer! | C1664 | UPLOADED | S |
-| [RA-08](RA-08-why-are-trainers-going-out-of-business.md) | Why Are Trainers Going Out Of Business? | C1665 | **NEEDS DAN** | S |
 | [RA-09](RA-09-do-you-think-ai-is-changing-the-world.md) | Do You Think AI Is Changing The World? | C1666 | UPLOADED | S |
-| [RA-10](RA-10-ai-is-changing-the-world.md) | AI Is Changing The World | C1667 | READY | S |
-| [RA-11](RA-11-what-would-you-look-like-with-abs.md) | What Would You Look Like With Abs? | C1667 | READY | S |
 | [RA-12](RA-12-first-step-to-getting-abs-isnt-a-workout.md) | The First Step To Getting Abs Isn't A Workout | C1667 | UPLOADED | S |
 | [RA-13](RA-13-why-do-most-guys-never-get-abs.md) | Why Do Most Guys Never Get Abs? | C1667 | UPLOADED | S |
 | [RA-14](RA-14-cheat-code-for-six-pack-abs.md) | The Cheat Code For Six Pack Abs | C1667 | UPLOADED | S |
@@ -108,10 +101,10 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 
 | job | short | roll | status | size |
 |---|---|---|---|---|
-| [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | BLOCKED: Alternate hooks on the roll | S |
+| [DS-26](DS-26-wispr-flow-short.md) | Wispr Flow | 9/23 C1719 | READY | S |
 | [DS-27](DS-27-home-workouts-short.md) | Home Workouts | 9/23 C1719 | FINALIZED | S |
 | [DS-28](DS-28-meal-prep-short.md) | Meal Prep | 9/23 C1720 | UPLOADED | S |
-| [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | BLOCKED: Robot mower b-roll not filmed | S |
+| [DS-29](DS-29-robot-lawn-mower-short.md) | Robot Lawn Mower | 9/23 C1720 | READY | S |
 | [DS-30](DS-30-self-driving-car-short.md) | Self-Driving Car | 9/23 C1720 | FINALIZED | S |
 | [DS-31](DS-31-ai-homework-short.md) | AI Homework | 9/23 C1720 | UPLOADED | S |
 | [DS-32](DS-32-ai-job-short.md) | AI Job | 9/23 C1720 | READY | S |
@@ -260,7 +253,6 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 |---|---|---|---|---|
 | [WV-01](WV-01-vsl-1-analysis-page-video-version-a-version-b-intr.md) | VSL 1: Analysis-page video (version A + version B intro) | C1692-C1700 | FINALIZED | L |
 | [WV-01B](../handoff-20261010-wv01-b-claude-1p2x-then-website-test.md) | VSL 1 version B: Fired Them All, full film R5 | C1699 | CANCELED 2026-10-17 (Dan dropped this funnel; staying with the VSL funnel) | L |
-| [WV-02](WV-02-vsl-2-start-landing-page-video.md) | VSL 2: /start landing-page video | C1701-C1703 | READY | M |
 
 ### 1D · Housekeeping
 
