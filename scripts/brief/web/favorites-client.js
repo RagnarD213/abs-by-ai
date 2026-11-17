@@ -37,6 +37,22 @@
       next=result.next;$('favorites-more').hidden=!next;text('favorites-status',result.rows.length || $('favorites-grid').children.length ? result.wallpaper.message : 'No favorites yet. Save an image above to start your private collection.');state();
     }catch(e){text('favorites-status',e.message);}finally{loading=false;$('favorites-refresh').disabled=false;$('favorites-more').disabled=false;}
   }
+  let pollTimer=null;
+  function pollSync(attempt=0){
+    clearTimeout(pollTimer);
+    if(attempt>=12 || !current?.active)return;
+    const expected=source?.sha256;
+    pollTimer=setTimeout(async()=>{
+      try{const manifest=await request('/api/brief/favorites/manifest');
+        if(source?.sha256!==expected || busy)return;
+        const row=manifest.rows.find(r=>r.sha256===expected);if(!row?.active)return;
+        text('favorite-status',manifest.wallpaper.message);
+        if($('favorites-details').open)text('favorites-status',manifest.wallpaper.message);
+        if(manifest.wallpaper.state!=='confirmed')pollSync(attempt+1);
+      }catch{pollSync(attempt+1);}
+    },15000);
+    pollTimer?.unref?.();
+  }
   let generation=0;
   async function initialize(){
     const ownGeneration=++generation;source=null;current=null;state();
@@ -50,7 +66,8 @@
       const manifest=await request('/api/brief/favorites/manifest');
       if(ownGeneration!==generation)return;
       current=manifest.rows.find(r=>r.sha256===expected.sha256)||null;state();
-      text('favorite-status',current ? manifest.wallpaper.message : 'Save this original image to your private favorites.');
+      text('favorite-status',current?.active ? manifest.wallpaper.message : 'Save this original image to your private favorites.');
+      if(current?.active && manifest.wallpaper.state!=='confirmed')pollSync();
     }catch{if(ownGeneration===generation){source=null;state();text('favorite-status','Favorite status unavailable. Refresh the page to try again.');}}
   }
   $('daily-image').addEventListener('load',initialize);
@@ -59,6 +76,7 @@
     try{const result=wasActive ? await change(selected.sha256,false) : await write('/api/brief/favorites','POST',{sha256:selected.sha256,forDate:selected.forDate});
       if(source?.sha256!==selected.sha256)return;
       current=result.favorite;text('favorite-status',current.active ? result.wallpaper.message : 'Removed from rotation eligibility. Original retained; restore any time. Mac update pending.');
+      if(current.active)pollSync();else clearTimeout(pollTimer);
       if($('favorites-details').open)await favorites(true);
     }catch(e){text('favorite-status',e.message);}finally{busy=false;state();}
   });

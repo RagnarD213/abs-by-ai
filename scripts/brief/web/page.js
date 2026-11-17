@@ -166,7 +166,7 @@ async function loadPriorities() {
   const r=await fetch('/api/brief/priorities',{credentials:'same-origin',cache:'no-store'});
   if(!r.ok)throw Error();const p=await r.json();$('priorities').replaceChildren();
   put('focus-title',p.rows[0]?.title || 'Plan your day on the dashboard');
-  put('focus-why',p.rows[0]?.detail || 'Your top planned card will appear here.');
+  put('focus-why',p.rows.length ? (p.rows[0].detail || '') : 'Your top planned card will appear here.');
   put('focus-source','Live dashboard · '+instant(p.checkedAt));
   for(const row of p.rows.slice(1)){const item=el('li');item.append(el('strong',row.title+' '));if(row.detail)item.append(el('span',row.detail));$('priorities').append(item);}
  }catch{put('focus-title','Dashboard priority unavailable');put('focus-why','Open your dashboard to see the current order.');put('focus-source','');}
@@ -211,7 +211,7 @@ async function load() {
     put('stats-window',business ? `${date(business.day)} · Yesterday's totals; members and latest-video views checked ${instant(business.checkedAt)}.` : 'Business figures have not been collected for this edition.');
     for (const [key,label,money] of METRICS) {
       const metric=business?.metrics?.[key],box=el('div',undefined,'metric');
-      box.append(el('h3',label),el('div',(money?dollars:number)(metric?.value ?? null),'big'));
+      box.append(el('h3',label),el('div',metric?.value == null && /not reported yet/i.test(metric?.note||'') ? 'Not reported yet' : (money?dollars:number)(metric?.value ?? null),'big'));
       if(metric?.note)box.append(el('p',metric.note,'note'));
       $('business-numbers').append(box);
     }
