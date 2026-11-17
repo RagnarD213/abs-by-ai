@@ -516,7 +516,7 @@ def acquire(job, title=None, type_=None, release=None, today=None, ctx=None, pri
         return EXIT_GO, "{}: edit cap unavailable, allowed.".format(job)
 
 
-def release(job, review=False, ctx=None, today=None, handoff_at=None):
+def release(job, review=False, ctx=None, today=None, handoff_at=None, question=None, link=None):
     job = job_code(job) or job
     try:
         with _locked():
@@ -531,6 +531,10 @@ def release(job, review=False, ctx=None, today=None, handoff_at=None):
             if e is not None:
                 if review:
                     e.update(state="with-dan", since=now, reason="waiting on Dan's review or picks")
+                    e.pop("question", None)
+                    e.pop("link", None)
+                    if question and link:
+                        e.update(question=question, link=link)
                     _note(reg, now, job, "with Dan")
                 else:
                     reg["edits"].pop(job, None)
@@ -776,7 +780,7 @@ def main(argv):
         for w in wakes(claim=bool(o.get("--claim")), ai=o.get("--ai")):
             print(w)
         return 0
-    o, pos = _opts(rest, {"--title": True, "--type": True, "--release": True, "--review": False, "--max-hours": True, "--priority": False})
+    o, pos = _opts(rest, {"--title": True, "--type": True, "--release": True, "--review": False, "--question": True, "--link": True, "--max-hours": True, "--priority": False})
     if not pos:
         sys.exit("usage: editcap.py {} JOB".format(cmd))
     if any(x.startswith("-") for x in pos):
@@ -822,7 +826,9 @@ def main(argv):
         print(msg)
         return code
     if cmd == "release":
-        code, msg = release(job, review=bool(o.get("--review")))
+        if bool(o.get("--question")) != bool(o.get("--link")) or (o.get("--question") and not o.get("--review")):
+            sys.exit("Use --review --question QUESTION --link REVIEW_URL together.")
+        code, msg = release(job, review=bool(o.get("--review")), question=o.get("--question"), link=o.get("--link"))
         print(msg)
         return code
     if cmd == "wait":

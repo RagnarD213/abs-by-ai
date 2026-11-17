@@ -134,6 +134,37 @@ class Scratch(unittest.TestCase):
         data=self.snap('m2')
         self.assertEqual(data['used'],1);self.assertFalse(data['jobs'][0]['auxiliary'])
 
+    def test_new_batch_round_replaces_old_review_and_opens_its_own_decision(self):
+        directory=self.home/'.absbyai-batch'
+        def batch(number,status,question=None):
+            path=directory/('test-round-'+str(number))
+            row=dict(id='DS-51',title='3 Ways To Lose Fat Without Losing Muscle',
+                     placement='m2',round=number,queued_at=10*number,status=status,
+                     ended=10*number+5,outcome={'question':question,'link':'http://127.0.0.1:9901/'})
+            put(path/'manifest.json',{})
+            put(path/'state.json',dict(enabled=True,jobs={'DS-51':row}))
+        def view():
+            return sv.desk_records.reconcile({h:{'data':self.snap(h)} for h in ('m6','m2')})
+        batch(1,'needs-dan','Choose the voice.')
+        self.assertEqual(view()[1][0]['question'],'Choose the voice.')
+        batch(2,'queued')
+        hosts,reviews,*_=view()
+        self.assertEqual(reviews,[])
+        jobs=hosts['m2']['data']['jobs']
+        self.assertEqual([(j['title'],j['batchStage']) for j in jobs],
+                         [('3 Ways To Lose Fat Without Losing Muscle · Round 2','Waiting in production queue')])
+        batch(2,'needs-dan','Approve the revised curls at 0:30.')
+        self.assertEqual(view()[1][0]['question'],'Approve the revised curls at 0:30.')
+        self.assertEqual(view()[1][0]['link'],'http://127.0.0.1:9901/')
+
+    def test_historical_receipt_does_not_close_later_handoff(self):
+        entry=dict(job='REALDEMOS-B09',state='with-dan',since=1794808928.4621289)
+        put(self.ec/'registry.json',dict(version=1,edits={entry['job']:entry}))
+        self.assertEqual(self.snap()['jobs'],[])
+        entry.update(since=self.now,question='Approve the new demonstration?',link='http://127.0.0.1:9889/')
+        put(self.ec/'registry.json',dict(version=1,edits={entry['job']:entry}))
+        self.assertEqual(self.snap()['jobs'][0]['question'],entry['question'])
+
     def test_registry_reboot_and_schema(self):
         (self.ec/'registry.json').unlink();s=self.snap();self.assertIsNone(s['used']);self.assertIsNotNone(s['pressure'])
         put(self.ec/'registry.json',dict(version=9,edits={}));self.assertIsNone(self.snap()['used'])

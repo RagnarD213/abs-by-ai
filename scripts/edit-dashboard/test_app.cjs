@@ -21,3 +21,10 @@ all=nodes(vm.runInContext("card('m2',state,{reserved:{m2:[]}},1)",context));
 assert.equal(all.filter(e=>e.tag==='strong').length,1);
 assert(!all.some(e=>e.textContent==='SETUP / HELPER WORK (NOT EDIT SLOTS)'));
 console.log('Passed setup/helper deduplication and active/waiting UI checks');
+
+context.state.data.jobs=[{...fixture(true),workKind:'helper',batchStage:'Waiting in production queue'}];
+all=nodes(vm.runInContext("card('m2',state,{reserved:{m2:['DS-109']}},1)",context));
+assert(all.some(e=>e.textContent==='WAITING OR RESERVED'));
+assert(!all.some(e=>e.textContent==='SETUP / HELPER WORK (NOT EDIT SLOTS)'));
+assert.equal(all.filter(e=>e.tag==='strong').length,1);
+assert(all.some(e=>e.textContent.includes('Slot reserved') && e.textContent.includes('render steps queued')));

@@ -11,6 +11,7 @@ import threading
 import time
 from pathlib import Path
 import observe
+import desk_records
 
 HERE=Path(__file__).resolve().parent
 HOSTS=('m6','m2'); AUTO=58; MANUAL=12; STALE=120; IDLE=75
@@ -55,13 +56,13 @@ def suggest(hosts,now):
             why=(d.get('issues') or ['No complete current reading'])[0]
             return ['check','Check status before starting',h.upper()+': '+(v.get('error') or ('Last reading is stale' if v.get('age',0)>STALE else why))+'.']
     a,b=[hosts[h]['data'] for h in HOSTS];route=a['route']
-    if route['line']:return ['wait','Queue additional edits','The shared waiting list already has work for the next opening.']
+    if hosts['m6'].get('sharedLine',route['line']):return ['wait','Queue additional edits','The shared waiting list already has work for the next opening.']
     reasons=[]
     for d in (b,a):
         h=d['host']; jobs=d['jobs']; existing={j['id'] for j in jobs if j['occupies']}
         extra=set(route['reserved'][h])-existing
         if d['used']+len(extra)>=d['cap']:reasons.append('its edit slots are occupied or reserved');continue
-        if any(set(j['states'])&{'waiting','parked'} for j in jobs) or d['tickets'] or d['dedicated']:
+        if any(j.get('batchStage') or set(j['states'])&{'waiting','parked'} for j in jobs) or d['tickets'] or d['dedicated']:
             reasons.append('waiting or reserved work has the next turn');continue
         if d['pressure']!='normal' or d['loadGuard']:reasons.append('the Mac is under load');continue
         if d['internalRoom']<20:reasons.append('internal space for a new edit is unconfirmed');continue
@@ -110,7 +111,10 @@ class Store:
                 if x['age'] is None:x.pop('age')
                 for k in ('lastGood','meter','readMono','attemptMono'):x.pop(k,None)
                 if x.get('data'):x['data']={k:v for k,v in x['data'].items() if k!='cost'}
-            return dict(hosts=hosts,advice=suggest(hosts,time.time()),now=time.time())
+            hosts, requests, pending, shared, titles = desk_records.reconcile(hosts)
+            hosts['m6']['sharedLine']=shared
+            return dict(hosts=hosts,advice=suggest(hosts,time.time()),now=time.time(),
+                        reviews=requests,unconfirmed=pending,shared=shared,titles=titles)
 
 class Handler(http.server.BaseHTTPRequestHandler):
     def log_message(self,*a):pass

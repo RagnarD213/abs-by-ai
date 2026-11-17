@@ -24,7 +24,7 @@ on 8, ~7.8 GB swap), heavy waiters sat 3-5 hours and no video finished all day.
        minutes, prompt: "Run `python3 .claude/skills/_shared/editcap/editcap.py acquire RO-27`. Exit 3: end the turn
        silently. Exit 0: pause this heartbeat, then continue the edit from its handoff." A Codex shell cannot hold a
        background waiter across turns, so the heartbeat is its auto-start.
-2. **Review page up, awaiting picks, stopping for Dan:** `python3 $E release RO-27 --review`. The slot goes to the
+2. **Review page up, awaiting picks, stopping for Dan:** `python3 $E release RO-27 --review --question "Approve the revised opening or list changes." --link http://127.0.0.1:PORT/`. The slot goes to the
    next edit. When Dan's notes arrive, `acquire` again: you go now if a slot is free, otherwise you wait in
    release-date order (front of the line only if your release is soonest).
 3. **Edit finished** (final delivered and approved, or handed to setup): `python3 $E release RO-27`.
