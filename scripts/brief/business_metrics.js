@@ -13,6 +13,7 @@ function windowFor(now=new Date()){
 async function collect(now=new Date(),s=settings()){
  const w=windowFor(now),checkedAt=now.toISOString(),metrics=Object.fromEntries(KEYS.map(k=>[k,{value:null,source:'Unavailable',note:'Source not connected or not yet reported.'}]));
  const set=(key,value,source,note='')=>{if(!Number.isFinite(value)||value<0)throw Error('Invalid metric');metrics[key]={value,source,note};};
+ let shopifyReport=null;
  const errors=[];
  async function task(name,fn){try{await fn();}catch(e){
   errors.push(name+': '+e.message);
@@ -89,7 +90,12 @@ async function collect(now=new Date(),s=settings()){
   if(!row)throw Error('Yesterday not reported yet');set('instagramFollowers',Number(row.value),'Instagram Insights','New followers, not net change; Instagram reporting day.');
  }),
  task('Supplement revenue',async()=>{
-  if(!s.SHOPIFY_ADMIN_ACCESS_TOKEN)throw Error('Shopify orders read access not connected');
+  if(!s.SHOPIFY_ADMIN_ACCESS_TOKEN){
+   const reportFile=s.BRIEF_SHOPIFY_REPORT||path.join(os.homedir(),'Projects/Codex/2026-09-30/task/.private-brief-proof/shopify-report.json');
+   try{shopifyReport=require('./shopify_metrics').validateReport(JSON.parse(fs.readFileSync(reportFile,'utf8')),w.day,now.getTime());}
+   catch(e){if(e.code==='ENOENT')throw Error('Fresh connected Shopify report unavailable');throw e;}
+   return;
+  }
   const url='https://1yar3v-ie.myshopify.com/admin/api/2026-10/graphql.json';
   const query=`query($after:String){orders(first:100,after:$after,query:"updated_at:>=${w.day}"){nodes{test transactions{kind status processedAt amountSet{shopMoney{amount currencyCode}}}}pageInfo{hasNextPage endCursor}}}`;
   let after=null,total=0;
@@ -101,7 +107,8 @@ async function collect(now=new Date(),s=settings()){
   set('supplementRevenue',Math.round(total*100)/100,'SixPackAbs Shopify','Successful non-test sale/capture transactions; USD gross collections.');
  })
  ]);
- return {day:w.day,checkedAt,metrics,note:'Daily visitor, signup and Ads windows use Central time. Platform exceptions are stated beside the metric. Revenue currently covers Stripe only; supplement and app-store collections are not consolidated.',limitations:errors};
+ if(shopifyReport)require('./shopify_metrics').applyReport(metrics,shopifyReport);
+ return {day:w.day,checkedAt,metrics,note:shopifyReport ? 'Daily visitor, signup and Ads windows use Central time. Platform exceptions are stated beside the metric. Revenue combines Stripe and SixPackAbs Shopify collections; Apple app-store revenue is not included.' : 'Daily visitor, signup and Ads windows use Central time. Platform exceptions are stated beside the metric. Revenue currently covers Stripe only; supplement and app-store collections are not consolidated.',limitations:errors};
 }
 module.exports={collect,KEYS,windowFor};
 if(require.main===module)collect().then(r=>process.stdout.write(JSON.stringify(r))).catch(()=>{console.error('Business totals unavailable');process.exitCode=1;});

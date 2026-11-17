@@ -1,0 +1,13 @@
+'use strict';
+const assert=require('node:assert/strict'),{validateReport,applyReport,reportFromAnalytics,SHOP}=require('../shopify_metrics');
+const now=Date.parse('2026-11-17T18:00:00Z'),r={schemaVersion:1,shopDomain:SHOP,currency:'USD',timezone:'America/Chicago',day:'2026-11-16',checkedAt:'2026-11-17T17:55:00Z',testPaymentsExcluded:true,lifetimeComplete:true,yesterdayGrossCollected:0,lifetimeGrossCollected:282};
+assert.equal(validateReport(r,r.day,now).yesterdayGrossCollected,0);
+for(const update of [{day:'2026-11-15'},{shopDomain:'other.myshopify.com'},{currency:'CAD'},{timezone:'UTC'},{lifetimeComplete:false},{testPaymentsExcluded:false},{checkedAt:'2026-11-17T16:00:00Z'},{checkedAt:'2026-11-18T00:00:00Z'},{yesterdayGrossCollected:-1}])assert.throws(()=>validateReport({...r,...update},r.day,now));
+const metrics={revenueYesterday:{value:1.99,source:'Stripe live charges'},lifetimeRevenue:{value:567.9,source:'Stripe live charges'}};
+applyReport(metrics,r);assert.equal(metrics.supplementRevenue.value,0);assert.equal(metrics.revenueYesterday.value,1.99);assert.equal(metrics.lifetimeRevenue.value,849.9);applyReport(metrics,r);assert.equal(metrics.lifetimeRevenue.value,849.9,'Cannot double-count on retry');assert.match(metrics.lifetimeRevenue.note,/Apple/);
+const report=(from,to,value)=>({query:`FROM payments SHOW gross_payments SINCE ${from} UNTIL ${to}`,shopDomain:SHOP,currencyCode:'USD',rowCount:1,columns:[{name:'gross_payments'}],rows:[[String(value)]]});
+const input={checkedAt:r.checkedAt,shop:{myshopifyDomain:SHOP,currencyCode:'USD',ianaTimezone:'America/Chicago',createdAt:'2026-11-04T23:50:33Z'},daily:report('2026-11-16','2026-11-16',0),lifetime:report('2026-11-04','2026-11-17',282)};
+assert.equal(reportFromAnalytics(input,r.day,now).lifetimeGrossCollected,282);
+assert.throws(()=>reportFromAnalytics({...input,daily:report('2026-11-15','2026-11-15',0)},r.day,now));
+assert.throws(()=>reportFromAnalytics({...input,lifetime:{...input.lifetime,rowCount:0,rows:[]}},r.day,now));
+console.log('shopify_metrics: exact store/day/currency, report freshness, test exclusion, real zero and no double-counting passed');
