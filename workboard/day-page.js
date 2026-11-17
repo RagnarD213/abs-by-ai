@@ -14,9 +14,9 @@
   ['work','break','travel','commitment'].forEach(k=>kind.append(new Option(k[0].toUpperCase()+k.slice(1),k)));kind.value=block?.kind||'work';kind.setAttribute('aria-label','Block type');
   for(const [text,input] of [['Title',name],['Start',start],['End',finish],['Type',kind]]){const l=el('label','',text);l.append(input);f.append(l);}
   const submit=el('button','btn primary','Save block');submit.type='submit';f.append(submit);body.append(f);
-  const save=async blocks=>{if(await change('plan.save',{...snapshot,blocks,status:'proposed'}))$('panel-dialog').close();};
-  f.onsubmit=e=>{e.preventDefault();save([...snapshot.blocks.filter(b=>b.id!==block?.id),{...block,id:block?.id||crypto.randomUUID(),title:name.value,start:start.value,end:finish.value,kind:kind.value}]);};
-  if(block)body.append(button('Remove block',()=>save(snapshot.blocks.filter(b=>b.id!==block.id)),'btn danger'));
+  const save=async replacement=>{const latest=state.plans?.[snapshot.date]||snapshot,blocks=latest.blocks.filter(b=>b.id!==block?.id);if(replacement)blocks.push(replacement);if(await change('plan.save',{...latest,blocks,status:'proposed'}))$('panel-dialog').close();};
+  f.onsubmit=e=>{e.preventDefault();save({...block,id:block?.id||crypto.randomUUID(),title:name.value,start:start.value,end:finish.value,kind:kind.value});};
+  if(block)body.append(button('Remove block',()=>save(null),'btn danger'));
  });}
  window.renderDay=()=>{
   if(!state)return;const p=plan(),dateLabel=label(selectedDate),isToday=selectedDate===centralToday();
