@@ -38,7 +38,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **CLIPLIB-V2:PHASE-A-M6-WAIT:2026-11-16:Codex.** Move/5GB exception approved; generation blocked by Joint Vigor exclusive reservation. Sharing choice pending; 0/5,000 credits. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
-**REALDEMOS-B04:QUEUED-ENABLED:2026-11-16:Codex01a1e613:M2.** Five real demos + proposed copy; no render yet, awaits capacity. Stop for Dan; store approved assets, no install. `Docs/REALDEMOS_B04_R1_QUEUE_20261116.md`.
+**REALDEMOS-B04:QUEUED-ENABLED:2026-11-17:Codex01a1e613:M2.** Startup drive access repaired/tested; awaits edit capacity. Five demos + proposed copy; no render. `Docs/REALDEMOS_B04_R1_RESUME_20261117.md`.
 
 
 **DS-109:SETUP:** DONE. Four schedules verified Jan14,2027 at6PM Central: YT7055960 FB7055957 IG7055958 TT7055959. Revised B approved. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md. No owner action or edit slot; public release pending.
@@ -49,7 +49,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **DS-109:SETUP:** DONE. Four schedules verified Jan14,2027 at6PM Central: YT7055960 FB7055957 IG7055958 TT7055959. Revised B approved. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md. No owner action or edit slot; public release pending.
 
-**DS-30:SETUP-WAITLIST:2026-11-16:Codex01a1e611.** Make Time for Fitness with a Self-Driving Car: covers approved, setup complete, shared waitlist January19,2027 at6PM Central. No live schedule or Dan action. Docs/DS30_SETUP_RECEIPT_20261116.md.
+**DS-30:SETUP-WAITLIST:2026-11-16:Codex01a1e611.** Make Time for Fitness with a Self-Driving Car: covers approved, setup complete, shared waitlist January23,2027 at6PM Central. No live schedule or Dan action. Docs/DS30_SETUP_RECEIPT_20261116.md.
 
 **REALDEMOS-B08:HELD:2026-11-15:Codex:M2.** Five approved real demos installed/live-verified. Only swing pickup remains.
 
@@ -81,7 +81,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
-**GAT-sales-page:DAN-PICKS:2026-11-16:Claude.** Research: https://claude.ai/artifact/Mqrk2zasokk3pxzKuz5fYg. Next: blind six-design contest.
+**GAT-sales-page:CONTEST-HANDOFF:2026-11-17:Claude.** Elements picked; Dan fires `Handoffs/gat-sales-page-contest-20261117/HANDOFF.md`.
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
 **GATUpsell1(WV-04):R1-REVIEWED:2026-11-16:Claude,M2.** R2 waits on handoff Dan fires.
 
