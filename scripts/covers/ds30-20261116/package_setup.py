@@ -39,8 +39,12 @@ def reserve_slot(live, entries):
             v = json.loads(p.read_text())
             if v.get('main'):
                 taken.add(local_slot(v['main']))
-    # The approved calendar reserves slots for unfinished work as well as live/waiting posts.
-    for line in (ROOT / 'Docs/SHORTS_RELEASE_CALENDAR.md').read_text().splitlines():
+    # Include the other Mac's current reservations, which can lead the git mirror.
+    extra = json.loads((WORK / 'm6-release-reservations.json').read_text())
+    taken.update(local_slot(stamp) for stamp in extra['mains'])
+    # The approved calendars reserve unfinished work as well as live/waiting posts.
+    calendar = (ROOT / 'Docs/SHORTS_RELEASE_CALENDAR.md').read_text() + '\n' + extra['calendar']
+    for line in calendar.splitlines():
         fields = [f.strip() for f in line.split('|')]
         if len(fields) != 7 or fields[-2] == 'Not booked':
             continue
@@ -62,7 +66,7 @@ def reserve_slot(live, entries):
     stamp = when.astimezone(timezone.utc).strftime('%Y-%m-%dT%H:%M:%S.000Z')
     save(WORK / 'slot-verification.json', dict(main=stamp, local=when.isoformat(),
          kitchen=False, gym=False, phase=rp.phase_for(day).name,
-         checked_against=['fresh live queue', 'shared waitlist', 'approved release calendar'],
+         checked_against=['fresh live queue', 'M2 and M6 shared waitlists', 'M2 and M6 approved release calendars'],
          occupied_slots=len(taken), live_count=len(live), waiting_count=sum(not e.get('queued') for e in entries)))
     return stamp
 
