@@ -224,6 +224,14 @@ globals collide under one unittest-discovery process; fixture routers never quer
 
 ## Explicit overnight batches (2026-11-15)
 
+M2 workers launch through the existing M2 to M6 to M2 SSH connections, returning to the same Mac.
+M2 does not have a self-login key; the already configured M6 key supplies the existing M2 login.
+A November 17 exact-folder
+probe confirmed launchd's Python could not access the external work drive even after its folder
+existed, while the SSH login could. No privacy grant or drive permission is changed. The transport
+PID is recorded separately; the worker's own heartbeat records its actual M2 PID for recovery.
+M6 worker launches remain direct. Admission, claims, storage reserves and review rules are unchanged.
+
 The named batch is installed **disabled** on both Macs. General backlog discovery remains blocked by `PAUSE`.
 Dan's first test night begins only after he says go. A passed launcher canary is readiness evidence, not a video delivery.
 
