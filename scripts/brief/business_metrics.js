@@ -89,9 +89,16 @@ async function collect(now=new Date(),s=settings()){
   if(!row)throw Error('Yesterday not reported yet');set('instagramFollowers',Number(row.value),'Instagram Insights','New followers, not net change; Instagram reporting day.');
  }),
  task('Supplement revenue',async()=>{
-  if(!s.SPA_WC_KEY||!s.SPA_WC_SECRET)throw Error('WooCommerce read credential not connected');
-  const url=new URL('https://sixpackabs.com/wp-json/wc/v3/reports/sales');url.search=new URLSearchParams({date_min:w.day,date_max:w.day});const r=await json(url,{headers:{Authorization:'Basic '+Buffer.from(s.SPA_WC_KEY+':'+s.SPA_WC_SECRET).toString('base64')}});
-  if(!r[0]?.total_sales)throw Error('Sales report unavailable');set('supplementRevenue',Number(r[0].total_sales),'WooCommerce','Store sales report; confirm store timezone and refund/tax treatment.');
+  if(!s.SHOPIFY_ADMIN_ACCESS_TOKEN)throw Error('Shopify orders read access not connected');
+  const url='https://1yar3v-ie.myshopify.com/admin/api/2026-10/graphql.json';
+  const query=`query($after:String){orders(first:100,after:$after,query:"updated_at:>=${w.day}"){nodes{test transactions{kind status processedAt amountSet{shopMoney{amount currencyCode}}}}pageInfo{hasNextPage endCursor}}}`;
+  let after=null,total=0;
+  do{const r=await json(url,{method:'POST',headers:{'X-Shopify-Access-Token':s.SHOPIFY_ADMIN_ACCESS_TOKEN,'Content-Type':'application/json'},body:JSON.stringify({query,variables:{after}})});
+   if(r.errors||!r.data?.orders)throw Error('Shopify orders report unavailable');
+   for(const o of r.data.orders.nodes)if(!o.test)for(const t of o.transactions)if(['SALE','CAPTURE'].includes(t.kind)&&t.status==='SUCCESS'&&Date.parse(t.processedAt)>=w.from&&Date.parse(t.processedAt)<w.to){if(t.amountSet.shopMoney.currencyCode!=='USD')throw Error('Store currency is not USD');total+=Number(t.amountSet.shopMoney.amount);}
+   after=r.data.orders.pageInfo.hasNextPage?r.data.orders.pageInfo.endCursor:null;
+  }while(after);
+  set('supplementRevenue',Math.round(total*100)/100,'SixPackAbs Shopify','Successful non-test sale/capture transactions; USD gross collections.');
  })
  ]);
  return {day:w.day,checkedAt,metrics,note:'Daily visitor, signup and Ads windows use Central time. Platform exceptions are stated beside the metric. Revenue currently covers Stripe only; supplement and app-store collections are not consolidated.',limitations:errors};

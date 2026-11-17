@@ -93,7 +93,7 @@ function validate(input, now = Date.now()) {
           notes: list(row.notes || [], 8).map(note => text(note, 250))};
       }).sort((a, b) => Date.parse(a.scheduledAt) - Date.parse(b.scheduledAt))};
   }
-  const words = [focus.task, focus.why, ...[result.yesterday, result.opportunities, result.useful].flat().flatMap(c => [c.title, c.detail])].join(' ').split(/\s+/).length;
+  const words = [focus.task, focus.why, ...(result.updates || [result.yesterday, result.opportunities, result.useful].flat()).flatMap(c => [c.title, c.detail])].join(' ').split(/\s+/).length;
   if (words > 550) throw new Error('Main brief exceeds reading budget');
   return result;
 }
