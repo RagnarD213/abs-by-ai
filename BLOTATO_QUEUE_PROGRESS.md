@@ -1,3 +1,7 @@
+## DONE: Smaller Plates Reaction (DS-108), November 16, 2026
+
+Revised X5 R2 approved. All four saved/read-back schedules: January 23, 2027 at6PM Central; FB7058491, IG7058492, TikTok7058493, YouTube7058494. Caption/target and actual saved media hashes verified. Keyword FOOD; original live-action film, no synthetic-footage flag. Approved covers registered on both Macs; pinned question saved for shared post-release routine. [Receipt](Docs/DS108_SETUP_RECEIPT_20261116.md). No waiting list required, no direct YouTube holding upload.
+
 ## WAITLISTED - DS-39 ChatGPT Coach, November 15, 2026
 
 Cover A approved and installed in both layouts. Approved off-the-cuff R5, cover assets and verified TikTok cover-first copy uploaded; complete four-platform package is on the shared video waiting list. Planned January12,2027 at6PM Central, subject to actual queue capacity. Blotato199/200; no live DS39 schedules created. Config: scripts/blotato/configs/ds39-chatgpt-coach.json. Existing shared top-up owns scheduling. Keyword COACH applies to Instagram; other platforms use direct links. Article and pinned question use existing post-release routines. Public tile verification remains after release.

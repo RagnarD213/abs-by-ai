@@ -1722,5 +1722,13 @@
     "h": 1920,
     "job": "DS-30",
     "when": "2027-01-20T00:00:00.000Z"
+  },
+  {
+    "job": "DS-108",
+    "match": "Buying smaller plates will make you eat less, and it's the easiest change you'll ever make.",
+    "cover": "scripts/blotato/fb_covers/ds108-X5-R2-approved.jpg",
+    "w": 1080,
+    "h": 1920,
+    "approval": "Dan approved X5 R2 on 2026-11-16"
   }
 ]

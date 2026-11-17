@@ -111,7 +111,7 @@ Status: **Live** = in Blotato (re-read 2026-10-28); **Waitlist** = finished, on 
 | Thu Jan 21 | 3 | 9 AM | Top 3 Non-Weight Loss Benefits Of Zepbound | Waitlist |
 | Thu Jan 21 | 3 | 6 PM | Stop Drinking Your Calories | Waitlist |
 | Sat Jan 23 | 3 | 9 AM | Snack on Protein, Not Carbs | Waitlist |
-| Sat Jan 23 | 3 | 6 PM | OPEN | Not booked |
+| Sat Jan 23 | 3 | 6 PM | Use Smaller Plates To Lose Fat (DS-108) | Queued |
 | Mon Jan 25 | 3 | 9 AM | Make Fasting Easier With Black Coffee | Waitlist |
 | Mon Jan 25 | 3 | 6 PM | OPEN | Not booked |
 | Tue Jan 26 | 3 | 9 AM | OPEN | Not booked |

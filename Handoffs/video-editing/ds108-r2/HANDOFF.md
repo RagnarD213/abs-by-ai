@@ -1,4 +1,4 @@
-Current result: Dan finalized the exact R2 film on November 16. [Setup is running in the same chat](../../handoff-20261116-ds108-smaller-plates-approved-setup.md); [eight cover choices](http://127.0.0.1:9886/) await his pick. [Historical full-film delivery](DELIVERY-20261116.md) below preserves the completed edit record. No edit slot held.
+Current result: Dan finalized the exact R2 film and approved revised X5 R2 on November 16. Setup complete: YouTube, Facebook, Instagram and TikTok scheduled January 23, 2027 at 6 PM Central. [Verified setup receipt](../../../Docs/DS108_SETUP_RECEIPT_20261116.md). [Historical full-film delivery](DELIVERY-20261116.md) below preserves the edit record. No edit slot held.
 
 # Smaller Plates Reaction SFC R2: finish the full Short
 

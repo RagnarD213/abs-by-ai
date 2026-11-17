@@ -1,6 +1,10 @@
+**EXECUTED November 16, 2026.** Revised X5 approved; all four platforms scheduled January 23, 2027 at 6 PM Central. [Final setup receipt](../Docs/DS108_SETUP_RECEIPT_20261116.md). Nothing remains for Dan; preparation below is historical. Do not start another setup owner.
+
 # Smaller Plates Reaction SFC Setup
 
-**IN PROGRESS, same Codex owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`. Do not start a duplicate.** Model: newest supported stable Sol, high; live app catalog confirms GPT-6.1 Sol. This chat has started setup now. No video-edit slot is needed.
+## Historical preparation brief
+
+**Original owner chat `01a1dffe-54a2-73a3-8818-23f9c7f16278`. Do not start a duplicate.** Model: newest supported stable Sol, high; live app catalog confirms GPT-6.1 Sol. Setup finished in this chat; the preparation instructions below are retained as history.
 
 Dan approved the complete film on November 16, 2026: “This looks good. Finalize Smaller Plates Reaction and move on to setup.” This authorizes organic publishing setup, retaining required cover selection. The approved film must not be re-rendered, re-cut or re-mixed.
 

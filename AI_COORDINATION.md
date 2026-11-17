@@ -1,6 +1,7 @@
 **DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
 
-**DS-108:SETUP-HOLD:2026-11-16:Codex01a1dffe;film-finalized;X5-R2-approval:http://127.0.0.1:9886/;Docs/DS108_SETUP_RECEIPT_20261116.md;no-edit-slot.**
+**DS-108:SCHEDULED:2026-11-16:Codex01a1dffe;Jan23-2027-6PM-Central/all4;X5-R2-approved;Docs/DS108_SETUP_RECEIPT_20261116.md;done.**
+
 **SL13:HOLD:2026-11-08:Codex01a1b65a.** `Docs/SL13_SETUP_RECEIPT_20261108.md`;Jan28-6PM,Jan30-9AM/6PM-waitlist;shared-top-up-next.
 
 **Jiu Jitsu / Battle Ropes HOLD 2026-11-13, Codex.** Setup complete, shared waitlist verified: DS-19 Jan7 6PM, DS-15 Jan9 9AM Central. Next: automatic top-up. `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`.

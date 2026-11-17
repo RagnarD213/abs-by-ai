@@ -6035,16 +6035,16 @@
    "claude": "CONTENT (SFC, reaction). Name this chat \"Smaller Plates Reaction SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md`: cut \"A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use /shorts with the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (SFC, reaction). Name this chat \"Smaller Plates Reaction SFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/DS-108-a-money-expert-says-the-fix-for-your-weight-is-smaller-plate.md`: cut \"A Money Expert Says The Fix For Your Weight Is Smaller Plates. He's Right.\" from the 11/13 green-screen shoot, rolls C1909. Use the reaction Short standard (`.claude/skills/shorts/reference/ds40-codex-r5-reaction-format/README.md`) and `.claude/skills/shorts/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "finalized",
-   "note": "Film finalized unchanged; setup awaits exact revised X5 R2 cover approval at http://127.0.0.1:9886/ . Dan selected X5 and clarified identical food portions, big plate emptier. Revision uses the same original food cutout at scale 1.0 on both plates; headline Use Smaller Plates To Lose Fat. Both layouts checked. Preference logged, revised files not approved/installed/uploaded/scheduled. Backups complete; same setup owner, no edit slot. Receipt Docs/DS108_SETUP_RECEIPT_20261116.md.",
+   "state": "uploaded",
+   "note": "Dan approved X5 R2. Setup complete: YouTube, Facebook, Instagram and TikTok scheduled Jan 23, 2027 at 6 PM Central; saved IDs 7058491/7058492/7058493/7058494 and exact media verified. Receipt Docs/DS108_SETUP_RECEIPT_20261116.md.",
    "order": 263,
    "updated": "2026-11-16",
    "by": "Codex",
-   "rev": 10,
+   "rev": 12,
    "syncedRev": 2,
    "editor": "Codex",
    "needs": "",
-   "completed_at": 1794873576.682029
+   "completed_at": 1794877427.049394
   },
   {
    "id": "DS-109",
