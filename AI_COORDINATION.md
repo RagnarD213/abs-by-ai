@@ -37,10 +37,10 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 
-**CLIPLIB-V2:WAITING:2026-11-17:Codex:M6.** Dan picked14 checked whole framepairs;6UNDECIDED held. 14 motion jobs prepared/28 approved uploadframes verified; no motion submitted,0/5,000 credits. Waiter armed behind Joint Vigor dedicated reservation; M2 full. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
+**CLIPLIB-V2:ACTIVE:2026-11-17:Codex:M2.**14 X1 whole framepairs approved;6UNDECIDED held. Authorized M2 move after slot opened;9 motion takes submitted/90 of5,000credits,14 native/export files archived with local+Drive SHA verification. V2-01 machine gate PASS; independent motion review pending. M6 production remains with Joint Vigor. No usable keeperIDs yet. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
-**REALDEMOS-B04:QUEUED-ENABLED:2026-11-17:Codex01a1e613:M2.** Startup drive access repaired/tested; awaits edit capacity. Five demos + proposed copy; no render. `Docs/REALDEMOS_B04_R1_RESUME_20261117.md`.
+**REALDEMOS-B04:PAUSED-BY-DAN:2026-11-17:Codex01a1e613:M2.** Dan is low on allowance. Automatic start removed; no active worker or rendered demos. Resume only when Dan asks.
 
 
 **DS-109:SETUP:** DONE. Four schedules verified Jan14,2027 at6PM Central: YT7055960 FB7055957 IG7055958 TT7055959. Revised B approved. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md. No owner action or edit slot; public release pending.

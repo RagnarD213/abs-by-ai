@@ -1,6 +1,6 @@
 # Handoff: clip-library batch 2, mostly vertical AI Dan
 
-**Status:** Dan approved14 X1 whole START/END pairs November17;6 remain UNDECIDED and held. PhaseB setup ready,28 approved frames uploaded/verified; no motion submitted,0/5,000 credits. Production waits behind Joint Vigor’s dedicated M6 reservation; M2 full. See `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`. Original brief below; do not restart or duplicate PhaseA.
+**Status:** PhaseB active on M2 after Dan’s14 X1 whole-pair picks;6UNDECIDED held.9 motion takes submitted/90 of5,000credits;14 native/export files source-archived with M2/Drive SHA verification. Motion quality review in progress, no final video approval or usable keeper IDs yet. M6 stays with Joint Vigor. See `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`. Do not restart PhaseA or duplicate production.
 **Recommended owner:** newest available stable GPT Sol at high effort. GPT-6.1 Sol high is supported in the local Codex model catalog, verified 2026-11-16. Recheck availability rather than adopting an older model pin.
 **Job key:** `CLIPLIB-V2`. This is reusable-library batch 2, not another round of the completed Flow video batch 4.
 
