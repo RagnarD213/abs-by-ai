@@ -1,6 +1,6 @@
 # Handoff: clip-library batch 2, mostly vertical AI Dan
 
-**Status:** READY for a new task. This handoff does not start production. 2026-11-16.
+**Status:** Phase A executed November17:20 checked concepts await Dan’s whole-pair picks at http://127.0.0.1:9871/ . No motion,0/5,000 credits. M6 slot released for review; Joint Vigor has priority. See `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`. Original brief below; do not restart or duplicate Phase A.
 **Recommended owner:** newest available stable GPT Sol at high effort. GPT-6.1 Sol high is supported in the local Codex model catalog, verified 2026-11-16. Recheck availability rather than adopting an older model pin.
 **Job key:** `CLIPLIB-V2`. This is reusable-library batch 2, not another round of the completed Flow video batch 4.
 
