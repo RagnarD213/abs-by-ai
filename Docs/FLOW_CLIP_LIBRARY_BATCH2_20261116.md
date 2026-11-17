@@ -2,7 +2,7 @@
 
 Updated November 17, 2026. Job `CLIPLIB-V2`. [Review the checked START/END pairs](http://127.0.0.1:9871/). [Execution brief](../Handoffs/handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md).
 
-**Phase A is complete and awaiting Dan's whole-pair picks.** Twenty concepts have 24 passing pairs: 19 portrait concepts, one landscape concept, and 19 AI Dan concepts. Four concepts offer two passing alternatives; other comparisons failed and only their passing pair is offered. Dan has not reviewed or approved these frames. No motion has been generated.
+**Dan approved 14 whole START/END pairs on November17.** Six scenes remain UNDECIDED and are held; they are not treated as skips or approvals. Motion preparation is complete for the 14 selected pairs. Production is waiting behind Joint Vigor’s dedicated M6 reservation; M2 is full. No motion has been submitted. Phase A retains its checked review set below. Twenty concepts have 24 passing pairs: 19 portrait concepts, one landscape concept, and 19 AI Dan concepts. Four concepts offer two passing alternatives; other comparisons failed and only their passing pair is offered. The exact picks, date, words and native source hashes are recorded privately through the blind tooling. The picks authorize motion generation for those14pairs only, not final video approval. No motion has been generated.
 
 The batch remains within the authorized 20–30 range. The target was 25 useful clips; repeated frame failures reduced the cleared review set to the authorized minimum of 20. Rejected concepts and every raw still remain preserved privately. This is a frame review, not a completed or usable video library batch.
 
@@ -16,8 +16,8 @@ All **96 served image files** were hash-verified. The **48 native inspection fra
 
 ## Credits and preserved outputs
 
-- Hard cap: **5,000 Flow credits** for this batch, including charged stills, motion, retries and exports. **0 spent, 0 reserved, 5,000 remaining.** No paid API, credit purchase or subscription change was used or authorized.
-- Last live account observation: **17,115 credits**, reset November 29 at 8:11 AM. Account changes from other jobs are separate from this batch's ledger. Nano Banana Pro Image, 9:16, x1 displayed 0 credits during production.
+- Hard cap: **5,000 Flow credits** for this batch, including charged stills, motion, retries and exports. **0 spent, 0 reserved, 5,000 remaining.** Live Veo3.1Fast Frames9:16/x1/8s shows10credits; initial14takes estimate140credits, before legitimate retakes. No paid API, credit purchase or subscription change was used or authorized.
+- Last live account observation: **17,075 credits**, reset November 29 at 8:11 AM. Account changes from other jobs are separate from this batch's ledger. Nano Banana Pro Image, 9:16, x1 displayed 0 credits during production.
 - **227 successful native still outputs were collected and hash-matched against their original downloads/tool files**, including rejected and unused versions. All collection mismatches are resolved. The private manifests retain original paths, prompts/references and review dispositions. Technical failures with no output are recorded separately.
 - Initial count announced: 50 images from each subscription, before justified corrections. Audited replacements were announced before their initial generations. Google was attempted first for later concepts; the earlier V2-02/V2-03 ordering deviation remains recorded privately.
 - Generated video outputs: **0**. Video source-archive entries: **0**. Usable clip-library IDs: **0**. No video filing or Drive-mirror completion is claimed at this still-only stage.
