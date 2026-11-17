@@ -33,7 +33,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**GAT-sales-page:ROUND3-REVIEW:2026-11-17:Claude.** D won; refined review sent. Next: Dan notes. `Handoffs/gat-sales-page-contest-20261117/HANDOFF.md`.
+**GAT-sales-page:ROUND5-REVIEW:2026-11-17:Claude.** Letter from Doc installed. Next: Dan notes. `Handoffs/gat-sales-page-contest-20261117/LETTER-INSTALL.md`.
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 
