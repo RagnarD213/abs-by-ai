@@ -72,7 +72,20 @@ def main():
             if metrics.returncode:
                 raise ValueError('Business metric collector failed')
             draft = json.loads(data)
-            draft['business'] = json.loads(metrics.stdout)
+            fresh = json.loads(metrics.stdout)
+            supplied = draft.get('business') or {}
+            # Connected tools may supply a fresh store report where the local API
+            # credential is unavailable. Never carry forward yesterday's snapshot.
+            try:
+                observed = datetime.fromisoformat(supplied['checkedAt'].replace('Z', '+00:00'))
+                age = (datetime.now(timezone.utc) - observed).total_seconds()
+                if supplied.get('day') == fresh['day'] and 0 <= age <= 1800:
+                    for name, row in supplied.get('metrics', {}).items():
+                        if name in fresh['metrics'] and fresh['metrics'][name]['value'] is None and row.get('value') is not None:
+                            fresh['metrics'][name] = row
+            except (KeyError, ValueError, TypeError):
+                pass
+            draft['business'] = fresh
             data = json.dumps(draft).encode()
 
         if args.refresh_social_project:
