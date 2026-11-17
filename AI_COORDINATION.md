@@ -35,7 +35,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 
-**CLIPLIB-V2:PHASE-A-M6-WAIT:2026-11-16:Codex.** Move/5GB exception approved; generation blocked by Joint Vigor exclusive reservation. Sharing choice pending; 0/5,000 credits. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
+**CLIPLIB-V2:WAIT:2026-11-17:Codex.** Dan: no M6 sharing; Joint Vigor priority. M2 full; wait M6, M2 fallback authorized. 0/5,000 credits. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
 **REALDEMOS-B04:QUEUED-ENABLED:2026-11-17:Codex01a1e613:M2.** Startup drive access repaired/tested; awaits edit capacity. Five demos + proposed copy; no render. `Docs/REALDEMOS_B04_R1_RESUME_20261117.md`.
