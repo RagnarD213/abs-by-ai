@@ -47,6 +47,10 @@ from pathlib import Path
 HOME = Path.home()
 STATE = Path(os.environ.get("JOBARCHIVE_STATE") or HOME / ".absbyai-jobarchive")
 IDLE_DAYS = float(os.environ.get("JOBARCHIVE_IDLE_DAYS") or 14)
+# Dan-approved explicit moves (run --approved): named jobs skip the idle-days and "a skill/script points at it" guards
+# and may be removed after the Seagate copy alone verifies. Live, review, board, keep-list and process guards still apply.
+APPROVED=set()
+KEEP_FILES={}
 STALE_DAYS = float(os.environ.get("JOBARCHIVE_STALE_DAYS") or 30)
 SEAGATE = Path(os.environ.get("JOBARCHIVE_SEAGATE") or "/Volumes/Expansion")
 ARCHIVE_DIR = "_finished_edit_jobs"
@@ -246,7 +250,9 @@ def review_paths():
     for entry in (HOME/'Library/Application Support/AbsByAI Review Hub/pages').glob('*.json'):
         try:
             x=json.loads(entry.read_text());root=Path(x['root']).resolve();paths.append(root)
-            port=entry.stem;manifest=HOME/'Library/Application Support/AbsByAI Reviews'/port/'manifest.json'
+            port=entry.stem;rdir=HOME/'Library/Application Support/AbsByAI Reviews'/port;manifest=rdir/'manifest.json'
+            # A review whose whole folder is gone is retired: its recorded root stays protected, but there are no linked files to read.
+            if not rdir.exists():continue
             m=json.loads(manifest.read_text())
             paths += [(root/f['path']).resolve() for f in m.get('files',[])]
         except (OSError,ValueError,KeyError,TypeError) as e:raise RuntimeError('review reference evidence incomplete: '+str(e))
@@ -289,11 +295,11 @@ def decide(now=None):
             idle = (now - newest) / 86400
             key = norm(entry.name)
             why = None
-            if idle < IDLE_DAYS:
+            if idle < IDLE_DAYS and key not in APPROVED:
                 why = "changed {:.1f} days ago".format(idle)
             elif key in keep:
                 why = "on the keep list"
-            elif key in refs:
+            elif key in refs and key not in APPROVED:
                 why = "a skill, script or standing rule points at it"
             elif any(p==entry.resolve() or entry.resolve() in p.parents for p in reviews):
                 why = 'registered unresolved review points at this folder'
@@ -431,12 +437,23 @@ def archive_one(row, base, remote):
     check_mount(identity,remote)
     if hash_tree(dest,remote)!=manifest['files'] or hash_tree(str(src))!=src_hash:
         raise RuntimeError('last removal check changed; source retained')
-    if not second_copy_verified(src,manifest['files']):
+    if not second_copy_verified(src,manifest['files']) and norm(src.name) not in APPROVED:
         log(src.name+': archive verified and indexed; source RETAINED until independent second copy verified')
         return dest
     def gone_ok(func,path,exc):
         if not isinstance(exc[1],FileNotFoundError):raise exc[1]
+    keepers={}
+    for rel in KEEP_FILES.get(norm(src.name),[]):
+        f=src/rel
+        if f.is_file():keepers[rel]=f.read_bytes()
+        elif f.is_dir():
+            for g in f.rglob('*'):
+                if g.is_file() and not g.is_symlink():keepers[str(g.relative_to(src))]=g.read_bytes()
     shutil.rmtree(str(src),onerror=gone_ok)
+    for rel,data in keepers.items():
+        t=src/rel;t.parent.mkdir(parents=True,exist_ok=True);t.write_bytes(data)
+        if hashlib.sha256(t.read_bytes()).hexdigest()!=hashlib.sha256(data).hexdigest():raise RuntimeError('kept file write-back mismatch: '+rel)
+    if keepers:log('{}: kept {} small referenced file(s) in place'.format(src.name,len(keepers)))
     log('{}: verified {} files, durable index and second copy; source removed'.format(src.name,len(manifest['files'])))
     return dest
 
@@ -493,7 +510,11 @@ def cmd_run(args):
         ssh(["mkdir", "-p", base], capture_output=True)
     else:
         os.makedirs(base, exist_ok=True)
-    rows = [r for r in decide() if r["move"]]
+    if getattr(args,"approved",None):
+        APPROVED.update(norm(x) for x in args.approved.split(',') if x.strip())
+        for spec in getattr(args,"keep_file",None) or []:
+            job,_,rel=spec.partition(':');KEEP_FILES.setdefault(norm(job),[]).append(rel)
+    rows = [r for r in decide() if r["move"] and (not APPROVED or norm(r["job"]) in APPROVED)]
     rows.sort(key=lambda r: -r["idle_days"])
     done = errors = retained = 0
     for r in rows:
@@ -603,6 +624,8 @@ def main():
     s = sub.add_parser("run")
     s.add_argument("--limit", type=int, default=0)
     s.add_argument("--until", type=int, default=None)
+    s.add_argument("--approved", help="comma list of jobs Dan approved to move now (Seagate copy only)")
+    s.add_argument("--keep-file", action="append", help="JOB:relative/path left in place after the move")
     s = sub.add_parser("restore")
     s.add_argument("job")
     s.add_argument("--to")
