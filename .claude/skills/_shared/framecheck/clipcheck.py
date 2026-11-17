@@ -626,6 +626,10 @@ def main():
 
 
 if __name__ == "__main__":
+    # These branches only hash/read stamps or record a completed review. They do
+    # not decode, track, render or load a model, and must not wait behind films.
+    if "--review" in sys.argv[1:] or "--verify" in sys.argv[1:]:
+        sys.exit(main())
     _clip = sys.argv[1] if len(sys.argv) > 1 else ""
     _pool = "heavy"
     try:                                                     # the render queue (VIDEO-RULES, "Video builds")

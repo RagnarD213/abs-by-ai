@@ -99,6 +99,8 @@ it, and then through a fresh `frame-reviewer`, before any review page shows it.
 4. **Pages refuse a take without both:** `clipcheck.py TAKE [--frames A:B] --verify`, or in Python
    `from clipcheck import require_pass; require_pass(TAKE, frames=(A, B))`.
 
+`--review` and `--verify` only record/check existing evidence and file hashes; they do not take a video-render slot. Actual motion measurements still use the normal shared queue. This does not change any gate threshold or approval requirement.
+
 How it works. CoTracker3 (Meta, 2025) tracks a 40 px grid of points (1,296 at 1080p, not on people, not in `may_change` boxes)
 forward from the first frame, and a second grid backward from the last frame. A point **vanished** when it is never visible again
 (at least 0.4 s before the end), had not moved against what its neighbours say (a local fit, so a pan or zoom is followed), its spot
