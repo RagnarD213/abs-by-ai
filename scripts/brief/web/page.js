@@ -151,11 +151,31 @@ async function loadMaster() {
   }catch{put('master-status','Private inventory could not be loaded. Try again.');}
   finally{masterLoading=false;$('master-more').disabled=false;}
 }
+const METRICS = [
+ ['newSignups','Total new signups yesterday'],['revenueYesterday','Total revenue collected yesterday',true],
+ ['activeMembers','Total active members'],['lifetimeRevenue','Total revenue over lifetime of business',true],
+ ['adSpendOverall',"Yesterday's ad spend (overall)",true],['adSpendEngagement',"Yesterday's ad spend (engagement)",true],['adSpendTrials',"Yesterday's ad spend (trials)",true],
+ ['visitorsAbs','Total visitors · absbyai.com'],['visitorsSixpack','Total visitors · sixpackabs.com'],
+ ['supplementRevenue',"Yesterday's supplement revenue · sixpackabs.com",true],
+ ['youtubeSubscribers','Total new YouTube subscribers gained yesterday'],['youtubeViews','Total new YouTube views yesterday'],
+ ['latestLongViews','Total views on most recent long form'],['latestShortViews','Total views on most recent short form'],
+ ['instagramFollowers','Total new Instagram followers gained yesterday']
+];
+async function loadPriorities() {
+ try {
+  const r=await fetch('/api/brief/priorities',{credentials:'same-origin',cache:'no-store'});
+  if(!r.ok)throw Error();const p=await r.json();$('priorities').replaceChildren();
+  put('focus-title',p.rows[0]?.title || 'Plan your day on the dashboard');
+  put('focus-why',p.rows[0]?.detail || 'Your top planned card will appear here.');
+  put('focus-source','Live dashboard · '+instant(p.checkedAt));
+  for(const row of p.rows.slice(1)){const item=el('li');item.append(el('strong',row.title+' '));if(row.detail)item.append(el('span',row.detail));$('priorities').append(item);}
+ }catch{put('focus-title','Dashboard priority unavailable');put('focus-why','Open your dashboard to see the current order.');put('focus-source','');}
+}
 let loading = false;
 function resetEdition() {
   gallery.length=0;
-  for (const id of ['yesterday','opportunities','sites','campaigns','queue-rows','useful','sources']) $(id).replaceChildren();
-  for (const id of ['stats-section','useful-section']) $(id).hidden = true;
+  for (const id of ['updates','priorities','business-numbers','queue-rows','sources']) $(id).replaceChildren();
+  for (const id of ['stats-section']) $(id).hidden = true;
   for (const id of ['edition-note','routine-status','focus-why','focus-source']) put(id,'');
 }
 async function load() {
@@ -178,28 +198,32 @@ async function load() {
     put('edition',date(d.forDate)); put('edition-note',`${d.editionType === 'retrospective' ? 'Retrospective proof' : 'Verified edition'} · Updated ${instant(d.generatedAt)} · About two to three minutes`);
     imageProvenance(d);
     put('routine-status',routineStatus(d));
-    if (d.forDate !== dayOf(Date.now())) put('notice',`This is the ${date(d.forDate)} edition. It does not establish today's priority.`);
-    const currentFocus = d.focus.status === 'current' && d.forDate === dayOf(Date.now());
-    put('focus-title',currentFocus ? d.focus.task : 'Confirm your current priority');
-    put('focus-why',currentFocus ? d.focus.why : (d.editionType === 'retrospective' ? `Historical plan for ${date(d.forDate)}: ${d.focus.task} ${d.focus.why} This is not today's priority.` : 'There is no fresh, applicable explicit planning priority. Trello is not connected. Choose the task before starting an old backlog item.'));
-    put('focus-source',`${d.focus.source}${d.focus.statedAt ? ' · ' + instant(d.focus.statedAt) : ''}${d.focus.status !== 'current' ? ' · ' + d.focus.status : ''}`);
-    cards('yesterday',d.yesterday,'No confirmed completion supplied.'); cards('opportunities',d.opportunities,'No verified inbox conclusion supplied.');
-    if (d.stats) {
-      $('stats-section').hidden = false;
-      put('stats-window',`${date(d.stats.day)}, full day in America/Chicago. Seven-day spend: ${d.stats.weekFrom} through ${d.stats.weekThrough}, inclusive.`);
-      for (const s of d.stats.sites) { const box = el('div'); box.append(el('h3',s.name),el('div',number(s.visitors) + ' visitors','big'),el('p',`Same weekday last week: ${number(s.previousVisitors)}. First newsletter captures: ${number(s.emailLeads)}.`,'note'),el('p',`Free generations: ${number(s.freeGenerations)}. New trials: ${number(s.trials)}. Paid customers: ${number(s.paid)}.`,'note')); $('sites').append(box); }
-      for (const c of d.stats.campaigns) { const row = el('tr'); row.append(el('td',c.name),el('td',dollars(c.daySpend)),el('td',dollars(c.last7dSpend))); $('campaigns').append(row); }
-      put('stats-note',d.stats.note);
+    if (d.forDate !== dayOf(Date.now())) put('notice',`This is the ${date(d.forDate)} edition. Updates below are from that edition. Today's priority comes from the live dashboard.`);
+    loadPriorities();
+    const updates = d.updates || [...d.yesterday,...d.opportunities,...d.useful];
+    for (const row of updates) {
+      const item=el('li');item.append(el('strong',row.title+' '),el('span',row.detail));
+      link(item,'Open',row.url);$('updates').append(item);
     }
+    if (!updates.length) $('updates').append(el('li','No new verified updates.'));
+    $('stats-section').hidden=false;
+    const business=d.business;
+    put('stats-window',business ? `${date(business.day)} · Yesterday's totals; members and latest-video views checked ${instant(business.checkedAt)}.` : 'Business figures have not been collected for this edition.');
+    for (const [key,label,money] of METRICS) {
+      const metric=business?.metrics?.[key],box=el('div',undefined,'metric');
+      box.append(el('h3',label),el('div',(money?dollars:number)(metric?.value ?? null),'big'));
+      if(metric?.note)box.append(el('p',metric.note,'note'));
+      $('business-numbers').append(box);
+    }
+    put('stats-note',business?.note || 'Unavailable sources stay unknown.');
     queue(d);
-    if (d.useful.length) { $('useful-section').hidden = false; cards('useful',d.useful,''); }
     for (const source of d.sources) $('sources').append(el('p',`${source.name}: ${source.status}${source.sourceAt ? ' · ' + instant(source.sourceAt) : ''}`));
   } catch (error) {
     resetEdition();
     put('edition','Your morning brief');
     const reason = error.status ? `The brief data request returned HTTP ${error.status}.` : phase === 'render' ? 'The edition could not be displayed.' : phase === 'data' ? 'The data response could not be read.' : error.name === 'AbortError' ? 'The brief data request timed out.' : 'The brief data request could not connect.';
     put('notice',`${reason} Try loading again. No old priority or zero count has been substituted.`);
-    put('focus-title','Confirm your current priority');
+    put('focus-title','Dashboard priority unavailable');
     if (retry) retry.hidden = false;
   } finally { clearTimeout(timeout); loading = false; if (retry) retry.disabled = false; }
 }

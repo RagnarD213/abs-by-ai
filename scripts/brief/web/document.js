@@ -45,6 +45,15 @@ function validate(input, now = Date.now()) {
     focus, yesterday: cards(input.yesterday || []), opportunities: cards(input.opportunities || []), useful: cards(input.useful || []),
     sources: list(input.sources || [], 25).map(row => ({name: text(row.name, 80), status: status(row.status), sourceAt: row.sourceAt ? instant(row.sourceAt) : null})),
     stats: null, socialReleaseQueue: null, imageAvailable: input.imageAvailable === true, image: null};
+  if (input.business != null) {
+    const b=input.business;
+    result.business={day:date(b.day),checkedAt:instant(b.checkedAt),note:text(b.note||'',700),
+      metrics:Object.fromEntries(require('../business_metrics').KEYS.map(key=>{
+        const m=b.metrics?.[key];
+        return [key,{value:count(m?.value??null),source:text(m?.source||'Unavailable',160),note:text(m?.note||'',400)}];
+      }))};
+  }
+  if(input.updates != null)result.updates=list(input.updates,20).map(row=>({title:text(row.title,160),detail:text(row.detail,500),source:text(row.source,120),url:link(row.url)}));
   if (input.image != null) {
     const i = input.image;
     if (!result.imageAvailable || typeof i.sha256 !== 'string' || i.sha256.length !== 64 || !/^[a-f0-9]{64}$/.test(i.sha256) ||

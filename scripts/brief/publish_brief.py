@@ -56,6 +56,7 @@ def main():
     parser.add_argument("document", help="Structured private edition JSON outside Git")
     parser.add_argument("--publish", action="store_true")
     parser.add_argument("--key-file", default=str(Path.home() / ".absbyai-brief" / "publish-key.pem"))
+    parser.add_argument('--refresh-business', action='store_true', help='Collect read-only business totals before publication')
     parser.add_argument('--social-state-dir', help='Private fresh queue and complete master export; imports every record in bounded batches')
     parser.add_argument('--refresh-social-project', help='Run the read-only social review after edition creation, using this existing project root')
     args = parser.parse_args()
@@ -66,6 +67,14 @@ def main():
             raise ValueError("Document too large")
         validator = Path(__file__).parent / "web/document.js"
         records = []
+        if args.refresh_business:
+            metrics = subprocess.run(['node', str(Path(__file__).parent / 'business_metrics.js')], capture_output=True, timeout=240)
+            if metrics.returncode:
+                raise ValueError('Business metric collector failed')
+            draft = json.loads(data)
+            draft['business'] = json.loads(metrics.stdout)
+            data = json.dumps(draft).encode()
+
         if args.refresh_social_project:
             if not args.social_state_dir:
                 raise ValueError('Social refresh needs a private state directory')

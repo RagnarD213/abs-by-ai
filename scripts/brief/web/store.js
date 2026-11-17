@@ -44,6 +44,14 @@ function createStore(pool, ready = Promise.resolve()) {
     async session(token) { await init(); return (await pool.query('SELECT google_sub, expires_at FROM brief_sessions WHERE token_hash = $1', [hash(token)])).rows[0]; },
     async renew(token, expires) { await init(); await pool.query('UPDATE brief_sessions SET expires_at = $2 WHERE token_hash = $1', [hash(token), new Date(expires)]); },
     async logout(token) { await init(); await pool.query('DELETE FROM brief_sessions WHERE token_hash = $1', [hash(token)]); },
+    async readPriorities(day) {
+      await init();
+      const board=(await pool.query('SELECT document FROM workboard_state WHERE id=1')).rows[0]?.document;
+      if(!board)throw Error('Dashboard unavailable');
+      const lists=board.lists.filter(l=>!l.archived&&['planned','progress'].includes(l.role));
+      const rows=lists.flatMap(l=>board.cards.filter(c=>!c.archived&&c.listId===l.id&&(!c.plannedFor||c.plannedFor===day)).map(c=>({title:c.title,detail:c.description||''})));
+      return {day,rows};
+    },
     async readDocument() { await init(); return (await pool.query('SELECT document FROM brief_document WHERE id = 1')).rows[0]?.document || null; },
     async writeDocument(document) { await init(); await pool.query('INSERT INTO brief_document (id, document) VALUES (1, $1) ON CONFLICT (id) DO UPDATE SET document = EXCLUDED.document', [JSON.stringify(document)]); },
     async importMaster(records) {

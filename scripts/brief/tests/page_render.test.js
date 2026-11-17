@@ -13,7 +13,7 @@ class Node {
 }
 async function harness(response){
   const nodes=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Node()]));
-  for(const id of ['image-section','stats-section','useful-section','retry']) nodes[id].hidden=true;
+  for(const id of ['image-section','stats-section','retry']) nodes[id].hidden=true;
   let next=response,redirect=null;
   const scope={window:{addEventListener(){}},document:{getElementById:id=>nodes[id]||null,createElement:()=>new Node()},fetch:async()=>{if(next instanceof Error)throw next;return next;},location:{replace:url=>{redirect=url;}},Date:class extends Date {static now(){return now;}},Intl,AbortController,setTimeout,clearTimeout};
   vm.runInNewContext(script,scope);await tick();
@@ -25,15 +25,15 @@ const response=d=>({status:200,ok:true,json:async()=>d});
   assert(html.indexOf('id="image-section"')<html.indexOf('class="first"'),'Hero precedes priority');
   const h=await harness(response(fixture));
   assert.equal(h.nodes.notice.textContent,'');assert.match(h.nodes.edition.textContent,/October 5/);
-  assert.equal(h.nodes.yesterday.children.length,1);assert.equal(h.nodes.opportunities.children.length,1);assert.equal(h.nodes['queue-rows'].children.length,7);
-  assert.match(h.nodes.sites.children[0].children[3].textContent,/Free generations: Unknown\. New trials: Unknown\. Paid customers: Unknown/);
+  assert.equal(h.nodes.updates.children.length,3);assert.equal(h.nodes['queue-rows'].children.length,7);
+  assert.equal(h.nodes['business-numbers'].children.length,15);assert.equal(h.nodes['business-numbers'].children[0].children[1].textContent,'Unknown');
   assert.equal(h.nodes['daily-image'].src,'/api/brief/image');h.nodes['daily-image'].events.load();assert.equal(h.nodes['image-section'].hidden,false);
-  await h.scope.load();assert.equal(h.nodes.yesterday.children.length,1);assert.equal(h.nodes.campaigns.children.length,1);assert.equal(h.nodes.sources.children.length,1);
-  h.setResponse({status:503,ok:false});await h.scope.load();assert.match(h.nodes.notice.textContent,/HTTP 503/);assert.equal(h.nodes.yesterday.children.length,0);assert.equal(h.nodes['stats-section'].hidden,true);assert.equal(h.nodes['image-section'].hidden,false);assert.equal(h.nodes.retry.hidden,false);
-  h.setResponse(response(fixture));await h.nodes.retry.events.click();assert.equal(h.nodes.notice.textContent,'');assert.equal(h.nodes.retry.hidden,true);assert.equal(h.nodes.yesterday.children.length,1);
-  for(const [r,pattern] of [[Object.assign(new Error('timeout'),{name:'AbortError'}),/timed out/],[new Error('network'),/could not connect/],[{status:200,ok:true,json:async()=>{throw new Error('parse');}},/could not be read/],[response({...fixture,focus:null}),/could not be displayed/]]){h.setResponse(r);await h.scope.load();assert.match(h.nodes.notice.textContent,pattern);assert.equal(h.nodes.yesterday.children.length,0);}
+  await h.scope.load();assert.equal(h.nodes.updates.children.length,3);assert.equal(h.nodes['business-numbers'].children.length,15);assert.equal(h.nodes.sources.children.length,1);
+  h.setResponse({status:503,ok:false});await h.scope.load();assert.match(h.nodes.notice.textContent,/HTTP 503/);assert.equal(h.nodes.updates.children.length,0);assert.equal(h.nodes['stats-section'].hidden,true);assert.equal(h.nodes['image-section'].hidden,false);assert.equal(h.nodes.retry.hidden,false);
+  h.setResponse(response(fixture));await h.nodes.retry.events.click();assert.equal(h.nodes.notice.textContent,'');assert.equal(h.nodes.retry.hidden,true);assert.equal(h.nodes.updates.children.length,3);
+  for(const [r,pattern] of [[Object.assign(new Error('timeout'),{name:'AbortError'}),/timed out/],[new Error('network'),/could not connect/],[{status:200,ok:true,json:async()=>{throw new Error('parse');}},/could not be read/],[response({...fixture,sources:null}),/could not be displayed/]]){h.setResponse(r);await h.scope.load();assert.match(h.nodes.notice.textContent,pattern);assert.equal(h.nodes.updates.children.length,0);}
   const denied=await harness({status:401});assert.equal(denied.redirect(),'/brief-login');
-  const old=await harness(response({...fixture,forDate:'2026-09-30',focus:{...fixture.focus,status:'current',task:'Historical work'}}));assert.match(old.nodes.notice.textContent,/does not establish today's priority/);assert.equal(old.nodes['focus-title'].textContent,'Confirm your current priority');
+  const old=await harness(response({...fixture,forDate:'2026-09-30',focus:{...fixture.focus,status:'current',task:'Historical work'}}));assert.match(old.nodes.notice.textContent,/Updates below are from that edition/);assert.notEqual(old.nodes['focus-title'].textContent,'Historical work');
   h.nodes['daily-image'].events.error();assert.equal(h.nodes['image-section'].hidden,true);
   console.log('page_render: complete edition, unknown outcomes, independent top hero, clear retry, separate errors, stale priority and auth redirect passed');
 })().catch(e=>{console.error(e);process.exitCode=1;});

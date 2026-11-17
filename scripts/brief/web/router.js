@@ -103,6 +103,12 @@ function createRouter({store, env = process.env, verifyToken, now = Date.now, me
   router.get('/api/brief/favorites.js', owner, file('favorites-client.js'));
   router.get('/api/brief/publish.js', owner, file('publish.js'));
   router.get('/api/brief/style.css', owner, file('style.css'));
+  router.get('/api/brief/priorities', owner, async (req,res) => {
+    try {
+      const day=new Intl.DateTimeFormat('en-CA',{timeZone:'America/Chicago',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(now()));
+      return res.json({...await store.readPriorities(day),checkedAt:new Date(now()).toISOString()});
+    }catch{return res.status(503).json({error:'Dashboard priorities unavailable'});}
+  });
   router.get('/api/brief/data', owner, async (req, res) => {
     try {
       const document = await store.readDocument();
