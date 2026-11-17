@@ -30,6 +30,13 @@ Dan asked for exactly this line-up: **2 designs from Fable, high effort; 2 from 
 4. **Phone only this round.** Dan asked for "almost mobile-only". Desktop comes in the refinement round as the centered phone column.
 5. **Mismatch to raise with Dan at delivery, one line:** the script says "I've put links to every one of those studies right below this video." He now wants the list not clickable.
 
+## Dan's decisions during the contest (2026-11-17)
+
+- Quiz: stacked buttons as V Shred, "Not Sure" on questions 2 to 4, V Shred-style progress bar. Wording pending Dan's pick between his set and Claude's tightened set.
+- Headline: "Eat More Of These Foods And Less Of Those Foods To Naturally Boost Your T". Text under video: "This is a science-based presentation backed by real research. To see the research supporting the food swaps in this video, see the studies below." Studies directly under it as a large journal-style block (31 real citations with DOI and PMID) pushing the rest far below the fold.
+- Sans-serif throughout (serif allowed only for his note and the study list); dark only behind headline and player; logo strip with hamburger menu (Questions, Contact, Shipping and Returns, Privacy Policy, Terms and Conditions) on every page; full company footer.
+- **Desktop:** start with V Shred's desktop layout (white centered card over a full-width background photo, two-line headline, video in a 16:9 player box; measured 2026-11-17 at 1440 x 900: card about 1,050 px, player 1000 x 562, vertical video pillarboxed inside it). Later, make a separate 16:9 edit of the VSL for desktop, as Healthy Back does (its desktop page plays a horizontal edit at 890 x 501), which then fills the same box. Build the desktop version in the refinement round on the winner.
+
 ## Steps
 
 ### 1. Build the shared package (once, identical for all three)
