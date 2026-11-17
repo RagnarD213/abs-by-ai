@@ -14,7 +14,11 @@ async function collect(now=new Date(),s=settings()){
  const w=windowFor(now),checkedAt=now.toISOString(),metrics=Object.fromEntries(KEYS.map(k=>[k,{value:null,source:'Unavailable',note:'Source not connected or not yet reported.'}]));
  const set=(key,value,source,note='')=>{if(!Number.isFinite(value)||value<0)throw Error('Invalid metric');metrics[key]={value,source,note};};
  const errors=[];
- async function task(name,fn){try{await fn();}catch(e){errors.push(name+': '+e.message);}}
+ async function task(name,fn){try{await fn();}catch(e){
+  errors.push(name+': '+e.message);
+  const affected={'Supplement revenue':['supplementRevenue'],'YouTube daily':['youtubeSubscribers','youtubeViews'],'Instagram':['instagramFollowers'],'Accounts':['newSignups','activeMembers'],'Revenue':['revenueYesterday','lifetimeRevenue'],'Visitors':['visitorsAbs','visitorsSixpack'],'Ads':['adSpendOverall','adSpendEngagement','adSpendTrials'],'YouTube':['latestLongViews','latestShortViews']}[name]||[];
+  for(const key of affected)if(metrics[key].value===null)metrics[key].note=name+': '+e.message;
+ }}
  await Promise.all([
  task('Accounts',async()=>{
   const {Client}=require('pg'),client=new Client({connectionString:s.DATABASE_PUBLIC_URL||s.DATABASE_URL,ssl:{rejectUnauthorized:false},connectionTimeoutMillis:10000});

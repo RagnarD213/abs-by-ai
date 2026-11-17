@@ -50,8 +50,15 @@ do {
    let url=URL(fileURLWithPath:path)
    try NSWorkspace.shared.setDesktopImageURL(url,for:screen,options:[.imageScaling:NSImageScaling.scaleProportionallyUpOrDown.rawValue,.allowClipping:true])
   }
-  let observed=screens()
-  for entry in entries { guard observed.contains(where:{$0["id"] as? String==entry["id"] && $0["path"] as? String==entry["path"]}) else { fail("Mac wallpaper readback did not match") } }
+  // WallpaperAgent applies these asynchronously; immediate readback can be stale.
+  let deadline=Date().addingTimeInterval(12)
+  var observed=screens()
+  func matches()->Bool { entries.allSatisfy { entry in observed.contains(where:{$0["id"] as? String==entry["id"] && $0["path"] as? String==entry["path"]}) } }
+  while !matches() && Date()<deadline {
+    RunLoop.current.run(until:Date().addingTimeInterval(0.2))
+    observed=screens()
+  }
+  guard matches() else { fail("Mac wallpaper readback did not match after 12 seconds") }
   try output(observed)
  default:fail("Unknown action")
  }
