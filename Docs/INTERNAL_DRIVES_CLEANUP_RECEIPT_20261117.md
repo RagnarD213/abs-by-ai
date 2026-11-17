@@ -23,3 +23,10 @@ Handoff: `Handoffs/handoff-20261117-clear-internal-drives.md`. Goal was 250 GB f
 - **M2 CHROMA-FABLE-TEST + GRAPHICS-FABLE-TEST (about 28 GB, test folders):** the same command was refused ("another cleanup is already running", the Extreme task's run). Re-run on M2: `python3 .claude/skills/_shared/jobarchive/jobarchive.py run --approved CHROMA-FABLE-TEST,GRAPHICS-FABLE-TEST`.
 - **DS-98-blind is NOT moved:** it is Round 2 in production on the board (the handoff says never). An earlier line in this receipt suggesting it was wrong.
 - M6 free 111 GB, M2 114 GB at this point.
+
+## Update 14:00 CST
+- **M2 `~/Downloads` (17 GB, 1,391 files): REMOVED from the M2.** Both copies verified first. Seagate `_downloads_archive/m2-20261117/`: SHA-256 match for all files, and a final `rsync -anc` from the M2 showed only permission-flag differences (SMB), no content, size or new-file differences. Google Drive folder `M2 Downloads backup 2026-11-17` (private, confirmed `visibility: PRIVATE`): `rclone check` 1,391 matching, 0 differences. Symlinks inside a few app bundles (for example Descript Installer.app) were not uploaded to Drive; the Seagate copy keeps them.
+- **M6 DS-108 (63 GB): MOVED.** `jobarchive.py run --approved DS-108` verified 3,147 files, durable index and second copy, then removed the source (12:00).
+- **M2 CHROMA-FABLE-TEST + GRAPHICS-FABLE-TEST (about 28 GB): not moved yet.** The Extreme task's cleanup lock still blocks `jobarchive.py run`; a retry loop on the M2 retries every 2 minutes (`/tmp/dl/ja-m2.log`).
+- **M6 `~/M2-transfer/staging` (27 GB): not removed yet.** Final checksum dry-run to the Seagate copy is running (`/tmp/claude-501/m6-staging-final.log`); remove only when it shows no content differences.
+- Free space now: M6 173 GB, M2 116 GB. The 250 GB target is still not met.
