@@ -10,19 +10,24 @@ class Node {
 }
 const tick=()=>new Promise(resolve=>setImmediate(resolve));
 (async()=>{
- const nodes=Object.fromEntries(['favorite-image','daily-image','favorites-refresh','favorites-more','favorites-grid','favorites-status','favorite-status','favorites-details'].map(id=>[id,new Node()]));
+ const nodes=Object.fromEntries(['review-favorites','favorite-image','daily-image','favorites-refresh','favorites-more','favorites-grid','favorites-status','favorite-status','favorites-details'].map(id=>[id,new Node()]));
  const old={sha256:'a'.repeat(64),forDate:'2026-10-21'},next={sha256:'b'.repeat(64),forDate:'2026-10-25'};
  let image=old,calls=[],pending=null;
  nodes['daily-image'].src='https://absbyai.com/api/brief/image?sha256='+old.sha256;nodes['daily-image'].naturalWidth=1920;
  async function fetch(url,options={}){
   calls.push({url,options});
   if(options.method&&pending)return pending;
-  const value=url==='/api/brief/data'?{imageAvailable:true,image}:url==='/api/brief/favorites/manifest'?{rows:[],wallpaper:{message:'pending'}}:{favorite:{...JSON.parse(options.body),active:true},wallpaper:{message:'Waiting for Mac'}};
+  const value=url==='/api/brief/data'?{imageAvailable:true,image}:url==='/api/brief/favorites'?{rows:[{...old,active:true}],next:null,wallpaper:{message:'Confirmed'}}:url==='/api/brief/favorites/manifest'?{rows:[],wallpaper:{message:'pending'}}:{favorite:{...JSON.parse(options.body),active:true},wallpaper:{message:'Waiting for Mac'}};
   return {status:200,ok:true,json:async()=>value};
  }
- vm.runInNewContext(code,{document:{getElementById:id=>nodes[id],createElement:()=>new Node()},location:{href:'https://absbyai.com/morningbrief',replace(){}},fetch,URL,AbortController,setTimeout,clearTimeout,Date});await tick();await tick();
+ vm.runInNewContext(code,{document:{getElementById:id=>nodes[id],createElement:()=>new Node()},window:{addEventListener(){}},location:{href:'https://absbyai.com/morningbrief',replace(){}},fetch,URL,AbortController,setTimeout,clearTimeout,Date});await tick();await tick();
  assert.equal(nodes['favorite-image'].disabled,false);
  await nodes['favorite-image'].events.click();assert.equal(JSON.parse(calls.find(c=>c.options.method).options.body).forDate,'2026-10-21');
+ await nodes['review-favorites'].events.click();await tick();
+ assert.equal(nodes['favorites-details'].open,true,'Review link expands the gallery');
+ assert.equal(nodes['favorites-grid'].children.length,1,'Review link loads saved images');
+ assert.equal(nodes['favorites-grid'].children[0].children[0].src,'/api/brief/favorites/'+old.sha256+'/image');
+
  // Main page replaces the image URL before load. A stale enabled button must not save.
  nodes['daily-image'].src='https://absbyai.com/api/brief/image?sha256='+next.sha256;
  const previous=calls.filter(c=>c.options.method).length;

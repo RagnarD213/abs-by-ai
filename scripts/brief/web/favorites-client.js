@@ -32,7 +32,7 @@
   }
   async function favorites(reset=false){
     if(loading)return;loading=true;$('favorites-refresh').disabled=true;$('favorites-more').disabled=true;
-    if(reset){next=null;$('favorites-grid').replaceChildren();}
+    if(reset){next=null;$('favorites-grid').replaceChildren();text('favorites-status','Loading your saved images…');}
     try{const result=await request('/api/brief/favorites'+(next ? '?after='+next : ''));for(const row of result.rows){$('favorites-grid').append(card(row));if(source?.sha256===row.sha256)current=row;}
       next=result.next;$('favorites-more').hidden=!next;text('favorites-status',result.rows.length || $('favorites-grid').children.length ? result.wallpaper.message : 'No favorites yet. Save an image above to start your private collection.');state();
     }catch(e){text('favorites-status',e.message);}finally{loading=false;$('favorites-refresh').disabled=false;$('favorites-more').disabled=false;}
@@ -81,6 +81,14 @@
     }catch(e){text('favorite-status',e.message);}finally{busy=false;state();}
   });
   $('daily-image').addEventListener('error',()=>{generation++;source=null;state();});
+  function revealFavorites(){
+    $('favorites-details').open=true;
+    favorites(true);
+  }
+  $('review-favorites').addEventListener('click',revealFavorites);
+  window.addEventListener('hashchange',()=>{if(location.hash==='#wallpaper-favorites')revealFavorites();});
+  // Direct links and a reload must reveal the gallery, not just its closed heading.
+  if(location.hash==='#wallpaper-favorites')revealFavorites();
   $('favorites-details').addEventListener('toggle',()=>{if($('favorites-details').open)favorites(true);});
   $('favorites-more').addEventListener('click',()=>favorites());$('favorites-refresh').addEventListener('click',()=>favorites(true));
   initialize();
