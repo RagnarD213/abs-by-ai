@@ -35,6 +35,18 @@ One 16:9 long-form. Shorts are cut from it later (List 2), nothing else. Covers 
 
 - **A0272** (Stuck In Traffic): plays under "That's 15 days every year sitting behind the wheel, stressed out, staring at the road.". Another hour stuck in traffic: he drops his head back on the headrest. (7.8 s, 16:9, silent; full usable length, trim in context). `clip_library.py show A0272`. Label it AI-generated on the picture.
 
+## Source preparation verified November 17, 2026
+
+Read-only resume check: batch `chat-RO-39-R1` remains enabled and queued with zero production attempts. Both Macs remain full. Preserve the immutable submitted brief and avoid a duplicate editor.
+
+- The canonical M2 roll sidecar exists at `Media/footage-index/11-13-dan-rose-fitness-shoot-green-screen/C1914.roll.json`. Source key: `13690730089:ab5ef4692863fcbb1be494b15bb7343b0f3cf4c7e373345f3c9e23a7910e453c`. It reports 3840x2160, rotation 0, 29.97003 fps and 746.245 s. Transcript has 2,138 words across Tesla plus A15; exclude A15 from about 431 s onward. Verify picture/word cuts before locking any ranges.
+- The measured existing lav pick is `-map 0:a:0 -af pan=mono|c0=c0`, single-live, measured over 120 s plus 45 s. Reuse the sidecar result; do not hard-code a channel from another roll.
+- The actual crash clips are on the M2, **not** the M6: `~/Documents/Insurance Claims/2026-10-24/claim-attachments/2026-10-24_15-29-29-front.mp4` (79,650,931 bytes) and `2026-10-24_15-29-29-back.mp4` (40,104,657 bytes). Both files' existence and sizes were verified over SSH. The smaller front copy also exists, but prefer the original unless actual inspection gives a reason otherwise.
+- Original footage context is recorded in `Handoffs/handoff-20261112-next-shoot-outlines.md`, the Tesla section: impact reported at about 43 s in the rear minute. This is a lookup hint, **not a verified edit point**. Inspect both native recordings silently, match the front/rear timeline, and build the narrated crash sequence from what they actually show. No frames or motion were inspected in this resume check.
+- Keep private insurance data, other people's names, trucking-company identifiers, claim/police numbers and exact location out of public records and the film. Select/crop actual footage as needed without obscuring the incident. Do not copy the claims folder or its records into the repo.
+
+No cut map, key calibration, rendered preview, media QC or review link exists yet. First-review approval stop remains required.
+
 ## Starter prompts
 
 **Claude: Opus 5.5, high effort.**

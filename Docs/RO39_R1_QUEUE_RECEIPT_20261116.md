@@ -27,3 +27,11 @@ Required next result: checked 1080p opening minute, colour choices, level-matche
 Automatic production is enabled for this round. No Dan action is needed while it waits. Exact storage/allowance/infrastructure failures, if any occur, must be reported by the worker instead of claiming delivery.
 
 Coordination board validation remains failed on existing board-wide issues: 2,751 words against 2,500, plus three existing undated DS-109 entries. Only this job’s short entry was added; other owners’ entries were preserved. This does not indicate a media check passed.
+
+Documentation commit fe2608c is saved locally. Push was rejected because main advanced; the prescribed safe-push retry stopped on nine live files/staged changes owned by other sessions. Their work was preserved. Git publication remains pending and does not disable the already mirrored immutable M2 production brief or enabled ledger. Reconcile/push with safe-push after those live blockers clear.
+
+## November 17 resume
+
+Queue guard and authoritative ledger still report queued, enabled, zero attempts; both Macs have active edits and no new-edit capacity. The M6 is also under warning memory pressure. No takeover or duplicate production was started.
+
+Useful source prep completed read-only: canonical M2 C1914 sidecar read, measured lav result and roll metadata recorded, and both original front/rear dashcam files located and their sizes verified on the M2. The main RO-39 handoff now contains that supplement on both Macs; the immutable queued brief/hash is unchanged. No native picture/word-boundary check, crash-timing verification or render is claimed. Existing queue is enabled to continue when capacity allows. No review link exists yet.
