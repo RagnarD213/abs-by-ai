@@ -37,6 +37,12 @@ Dan asked for exactly this line-up: **2 designs from Fable, high effort; 2 from 
 - Sans-serif throughout (serif allowed only for his note and the study list); dark only behind headline and player; logo strip with hamburger menu (Questions, Contact, Shipping and Returns, Privacy Policy, Terms and Conditions) on every page; full company footer.
 - **Desktop:** start with V Shred's desktop layout (white centered card over a full-width background photo, two-line headline, video in a 16:9 player box; measured 2026-11-17 at 1440 x 900: card about 1,050 px, player 1000 x 562, vertical video pillarboxed inside it). Later, make a separate 16:9 edit of the VSL for desktop, as Healthy Back does (its desktop page plays a horizontal edit at 890 x 501), which then fills the same box. Build the desktop version in the refinement round on the winner.
 
+## Result and refinement (2026-11-17)
+
+- Dan picked **D** (Codex GPT-6 Astra high, concept 1): dark green quiz and hero read trustworthy. Full mapping in `blind-key.json`; recorded in `Docs/DESIGN_CONTEST_WORKFLOW.md`.
+- Round 3 (Claude Opus 5.5): generator `Media/research/gat-sales-page-contest-20261117/refine/gen.py` + `page.css` (responsive 390 / 768 / 1440), `python3 gen.py check` proves all 180 VSL script lines are on the page in order (10 tracked spoken-to-written edits in `EDITS`). Pages: 2-before-offer, 3-after-offer (offer bar inside the dark header), 3b (bottom dock alternative), 4-checkout (modelled on the HBI order page). Review: https://claude.ai/artifact/V5jWex1Nzp7DsPU4TjZ2gm (`build_review.py`).
+- Citation fix: entries 15 to 30 carried a neighbour's DOI and PMID in rounds 1 and 2; corrected against PubMed in `package/CONTENT.md` and `citations-final.txt`.
+
 ## Steps
 
 ### 1. Build the shared package (once, identical for all three)
