@@ -15,7 +15,7 @@ async function harness(response){
   const nodes=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(m=>[m[1],new Node()]));
   for(const id of ['image-section','stats-section','retry']) nodes[id].hidden=true;
   let next=response,redirect=null;
-  const scope={window:{addEventListener(){}},document:{getElementById:id=>nodes[id]||null,createElement:()=>new Node()},fetch:async()=>{if(next instanceof Error)throw next;return next;},location:{replace:url=>{redirect=url;}},Date:class extends Date {static now(){return now;}},Intl,AbortController,setTimeout,clearTimeout};
+  const scope={window:{addEventListener(){}},document:{getElementById:id=>nodes[id]||null,createElement:()=>new Node()},fetch:async()=>{if(next instanceof Error)throw next;return next;},location:{replace:url=>{redirect=url;}},Date:class extends Date {static now(){return now;}},Intl,AbortController,AbortSignal,setTimeout,clearTimeout};
   vm.runInNewContext(script,scope);await tick();
   return {nodes,scope,setResponse:r=>{next=r;},redirect:()=>redirect};
 }
@@ -29,6 +29,9 @@ const response=d=>({status:200,ok:true,json:async()=>d});
   assert.equal(h.nodes['business-numbers'].children.length,15);assert.equal(h.nodes['business-numbers'].children[0].children[1].textContent,'Unknown');
   assert.equal(h.nodes['daily-image'].src,'/api/brief/image');h.nodes['daily-image'].events.load();assert.equal(h.nodes['image-section'].hidden,false);
   await h.scope.load();assert.equal(h.nodes.updates.children.length,3);assert.equal(h.nodes['business-numbers'].children.length,15);assert.equal(h.nodes.sources.children.length,1);
+  h.setResponse(response({...fixture,generatedAt:'2026-10-05T12:06:00Z',yesterday:[{title:'Fresh completion',detail:'Updated while open',source:'Synthetic'}]}));
+  await h.scope.refreshIfChanged();assert.equal(h.nodes.updates.children[0].children[0].textContent,'Fresh completion ');
+  h.scope.document.querySelectorAll=()=>[{paused:false}];h.setResponse(response(fixture));await h.scope.refreshIfChanged();assert.equal(h.nodes.updates.children[0].children[0].textContent,'Fresh completion ');h.scope.document.querySelectorAll=()=>[];
   h.setResponse({status:503,ok:false});await h.scope.load();assert.match(h.nodes.notice.textContent,/HTTP 503/);assert.equal(h.nodes.updates.children.length,0);assert.equal(h.nodes['stats-section'].hidden,true);assert.equal(h.nodes['image-section'].hidden,false);assert.equal(h.nodes.retry.hidden,false);
   h.setResponse(response(fixture));await h.nodes.retry.events.click();assert.equal(h.nodes.notice.textContent,'');assert.equal(h.nodes.retry.hidden,true);assert.equal(h.nodes.updates.children.length,3);
   for(const [r,pattern] of [[Object.assign(new Error('timeout'),{name:'AbortError'}),/timed out/],[new Error('network'),/could not connect/],[{status:200,ok:true,json:async()=>{throw new Error('parse');}},/could not be read/],[response({...fixture,sources:null}),/could not be displayed/]]){h.setResponse(r);await h.scope.load();assert.match(h.nodes.notice.textContent,pattern);assert.equal(h.nodes.updates.children.length,0);}

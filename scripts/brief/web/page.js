@@ -171,7 +171,19 @@ async function loadPriorities() {
   for(const row of p.rows.slice(1)){const item=el('li');item.append(el('strong',row.title+' '));if(row.detail)item.append(el('span',row.detail));$('priorities').append(item);}
  }catch{put('focus-title','Dashboard priority unavailable');put('focus-why','Open your dashboard to see the current order.');put('focus-source','');}
 }
-let loading = false;
+let loading = false, displayedEdition='';
+async function refreshIfChanged(){
+  if(loading || document.hidden || [...(document.querySelectorAll?.('video')||[])].some(v=>!v.paused))return;
+  try{
+    const r=await fetch('/api/brief/data',{credentials:'same-origin',cache:'no-store',signal:AbortSignal.timeout(15000)});
+    if(r.status===401){location.replace('/brief-login');return;}
+    if(!r.ok)return;const d=await r.json();
+    if(`${d.generatedAt}:${d.image?.sha256||''}`!==displayedEdition)await load();
+    else await loadPriorities();
+  }catch{/* Keep the dated current edition visible; the next check retries. */}
+}
+window.addEventListener('focus',refreshIfChanged);
+window.setInterval?.(refreshIfChanged,60000);
 function resetEdition() {
   gallery.length=0;
   for (const id of ['updates','priorities','business-numbers','queue-rows','sources']) $(id).replaceChildren();
@@ -218,6 +230,7 @@ async function load() {
     put('stats-note',business?.note || 'Unavailable sources stay unknown.');
     queue(d);
     for (const source of d.sources) $('sources').append(el('p',`${source.name}: ${source.status}${source.sourceAt ? ' · ' + instant(source.sourceAt) : ''}`));
+    displayedEdition=`${d.generatedAt}:${d.image?.sha256||''}`;
   } catch (error) {
     resetEdition();
     put('edition','Your morning brief');
