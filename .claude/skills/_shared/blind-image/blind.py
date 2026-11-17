@@ -8,6 +8,7 @@ Dan never learns which model made which image until he asks "which did I choose 
   blind.py build SETDIR --kind start-frame|thumbnail|cover|background|other --video "<title (code)>" --shot "<name>"
       Shuffle everything registered, write neutral copies (same size, no metadata, neutral names X1..Xn) to
       SETDIR/blind/ for the review page, and a key SETDIR/.blind-key.json. Never show or print the key to Dan.
+      A single passing candidate from either source requires --comparison-unavailable EVIDENCE_FILE.
   blind.py pick SETDIR --chose X3[,X5] [--words "<his words>"]
       Log Dan's pick(s) to ~/.absbyai-image-picks.jsonl and print ONLY the neutral labels back.
   blind.py scorecard [--since YYYY-MM-DD] [--kind K]
@@ -58,8 +59,9 @@ def cmd_build(a):
         note = open(unavailable, encoding="utf-8").read().strip()
         if not note:
             raise SystemExit("comparison-unavailable evidence file is empty")
-    if len(imgs) < 2 or (len(sources) < 2 and not (sources == {"codex"} and note)):
-        raise SystemExit("need both sources, or Codex choices plus --comparison-unavailable evidence")
+    single_source_with_evidence = len(sources) == 1 and bool(note)
+    if not imgs or (len(sources) < 2 and not single_source_with_evidence):
+        raise SystemExit("need both sources, or checked single-source choices plus --comparison-unavailable evidence")
     random.shuffle(imgs)
     out = os.path.join(a.setdir, "blind"); shutil.rmtree(out, ignore_errors=True); os.makedirs(out)
     ims = [Image.open(r["file"]).convert("RGB") for r in imgs]
@@ -126,7 +128,7 @@ s = S.add_parser("add"); s.add_argument("setdir"); s.add_argument("--source", ch
 s.add_argument("--file", required=True); s.add_argument("--note")
 s.add_argument("--not-comparison", action="store_true", help="Include a real-photo choice in the neutral review without counting it as an AI-model offer or pick")
 s = S.add_parser("build"); s.add_argument("setdir"); s.add_argument("--kind", required=True); s.add_argument("--video", required=True); s.add_argument("--shot", required=True)
-s.add_argument("--comparison-unavailable", metavar="EVIDENCE_FILE", help="Allow Codex-only neutral choices when a logged comparison-provider failure prevents the normal blind test")
+s.add_argument("--comparison-unavailable", metavar="EVIDENCE_FILE", help="Allow a checked single-source choice when a logged comparison-provider failure prevents the normal blind test")
 s = S.add_parser("pick"); s.add_argument("setdir"); s.add_argument("--chose", required=True); s.add_argument("--words", default="")
 s = S.add_parser("scorecard"); s.add_argument("--since"); s.add_argument("--kind")
 s = S.add_parser("reveal"); s.add_argument("setdir"); s.add_argument("--label", required=True)
