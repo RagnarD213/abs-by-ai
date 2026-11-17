@@ -40,13 +40,17 @@ function createRouter({store,ownerStore,env=process.env,origin='https://absbyai.
   const file=name=>(req,res)=>res.sendFile(path.join(__dirname,name));
   router.get('/dash',file('page.html'));
   router.get('/workboard',(req,res)=>res.redirect(303,'/dash'));
-  for(const name of ['page.js','assistant-page.js','execution-page.js','baseline.css','style.css'])router.get('/api/workboard/'+name,file(name));
+  for(const name of ['page.js','assistant-page.js','execution-page.js','day-page.js','rewards.js','baseline.css','style.css'])router.get('/api/workboard/'+name,file(name));
   const run=fn=>async(req,res)=>{try{await fn(req,res);}catch(e){res.status(e.status||503).json({error:e instanceof BoardError?e.message:'Could not save or load the board. Please retry.'});}};
   if(assistant){
     router.get('/api/workboard/assistant',run(async(req,res)=>res.json(await assistant.state())));
     router.get('/api/workboard/assistant/unpaid',run(async(req,res)=>res.json(await assistant.balance())));
   }
   router.get('/api/workboard/state',run(async(req,res)=>res.json(await store.read())));
+  router.get('/api/workboard/rewards',run(async(req,res)=>{
+    const manifest=await ownerStore.favoriteManifest();
+    res.json({images:manifest.rows.map(r=>({sha256:r.sha256,url:'/api/brief/favorites/'+r.sha256+'/image'}))});
+  }));
   router.get('/api/workboard/files/:id',run(async(req,res)=>{
     const f=await store.file(req.params.id);if(!f)return res.sendStatus(404);
     res.set({'Content-Type':f.mime,'Content-Disposition':`attachment; filename="download.${f.name.split('.').pop().replace(/[^a-zA-Z0-9]/g,'')}"; filename*=UTF-8''${encodeURIComponent(f.name).replace(/'/g,'%27')}`});res.send(f.bytes);

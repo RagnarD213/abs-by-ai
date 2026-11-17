@@ -3,6 +3,10 @@ name: plantheday
 description: Plan and prioritize Dan's workday for Abs By AI from his current ideas, relevant recent tasks, and a checked dashboard. Produce a realistic schedule and ready-to-paste task prompts with model and effort recommendations. Use for /plantheday, planning today or tomorrow, or deciding what deserves today's attention.
 ---
 
+## Night-before board and calendar (Dan, 2026-11-16)
+
+The planning deliverable is now tomorrow's proposed personal board and calendar at https://absbyai.com/dash. Plan the night before so Dan can begin priority #1 at 8 a.m. Read `workboard/PLANNING.md` in the Abs By AI project for the saved hours, proposal mechanics and verification. This supersedes older chat-first timelines, morning planning defaults, Victory Dashboard reads/writes and automatic backlog intake below. Keep exact priorities in Dan's order, use title-only personal cards, and show the direct dated board link. The human Assistant Taskboard is the fourth column; do not put AI assignments there. Standard hours: work 8–9:30 a.m., gym routine 9:30–11:30 a.m., work 11:30 a.m.–7 p.m.; Tuesdays stop at 6:30 p.m. These hours apply every day unless Dan changes them. Check actual Google Calendar commitments. Proposed and accepted blocks are currently saved on the dashboard only; never claim Google sync. Do not create reminders or dispatch execution work as a planning side effect.
+
 ## Video editing assignments
 
 Name proposed video editing chats `<Recognizable Video Title> <Type> R<round>`: LFC for long-form, SFC for dedicated shorts, SFL for shorts extracted from long-form. Retain existing paid-ad type labels. Use a brief recognizable video title first, no queue ID or generic action prefix, and preserve the actual round. Full rule: `/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared/VIDEO-RULES.md`, "Video editing task names". This affects proposed editing chats, not this planning chat's own title.
