@@ -97,3 +97,14 @@ Dan on the 15 hooks: **"These are all extremely bad. These sound like AI slop ..
 - Checks that ran: loudness, range, true peak, Whisper transcript. No listening pass; whether the voice flows is unverified. Dropped takes: Old You storytelling (the voice said the word "spoken"), Made Not Born storytelling 1 (stray ad-libs), others with skipped lines.
 - Not tried yet: naming a real rapper in the Flow prompt. Hold it for round 3 if these voices still miss.
 - Next: Dan picks; then a full song from the winner and the sting and intro cuts.
+
+## 2026-11-18, round 3: Dan rejects round 2 as low energy; high-energy rebuild
+
+Dan on round 2: **"the lyrics here are better, but it's still real bad. This isn't something I would ever put on one of my videos ... the rapping is low energy. The songs are overall very low energy and boring ... not appropriate for a workout video. I want to be high energy ... that gets people hyped up to work out and watch the videos, like Version 2.0 and Do It Tired."**
+
+- Cause: round 2 over-corrected the shouting into "calm", "smooth", "conversational" prompts.
+- References measured offline (`20261118-r3/tools/check.py`, numbers in `catalog.json`): both about 94 bpm, -11.4 and -11.8 LUFS, low sub-bass share (0.11 to 0.12), drum-punch score 50.7 and 36.5, rap speed 3.5 and 2.7 words a second. Round 2 takes: punch 16 to 21, bass-heavy (0.18 to 0.23), about -14 LUFS.
+- Round 3: same four lyrics, one high-energy prompt (hard punchy drums, bright loud mix, intense fast double-time rapper, anthemic hook, "not screaming, no crowd chants"). 8 takes: punch 26 to 33, sub-bass 0.14 to 0.17, 90 to 93 bpm, 1.8 to 3.1 words a second.
+- Reference-audio route: Flow refused the 60 s "Version 2.0" excerpt ("This audio might violate our prohibited use policy and can't be uploaded") and offered "Create a similar original track". Taken; the Producer made 2 takes of Outwork Yesterday from the text request alone. Take 2 measured best of the round (punch 36.3, 2.9 words a second). Do not retry reference uploads of released songs.
+- Shown to Dan (5 takes, levelled with ffmpeg loudnorm to about -11 LUFS, -1 dBTP; masters in `20261118-r3/mastered/`): Outwork Yesterday ref-2 and hype-1, Nobody's Coming hype-1, The Old You hype-1, Made Not Born hype-1 (hook slightly slurred). Review page: http://127.0.0.1:8800/ . Pages :8798 and :8799 superseded.
+- Honest limit: numbers moved toward the references but nobody has listened; no text prompt has yet matched the references' drum punch (best 36 against 51 for Version 2.0). If round 3 still misses, the remaining levers are naming a real rapper's style in the prompt (Dan allowed it) and trying another generator for the vocal.

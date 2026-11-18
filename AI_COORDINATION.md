@@ -101,7 +101,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**FlowMusic:R2-PICKS:2026-11-18:Claude.** Hooks rejected; 7 verse-plus-hook takes on :8799. Next: Dan picks, then full song. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
+**FlowMusic:R3-PICKS:2026-11-18:Claude.** R1, R2 rejected; 5 high-energy takes on :8800. Next: Dan picks, then full song. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
 
 
 
