@@ -390,6 +390,13 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Clean up bar shelf box, plastic, and stryofoam",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
