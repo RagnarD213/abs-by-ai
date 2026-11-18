@@ -158,7 +158,7 @@
    "updated": "2026-10-21",
    "by": "Claude",
    "rev": 7,
-   "syncedRev": 3,
+   "syncedRev": 7,
    "editor": "Claude",
    "needs": ""
   },
@@ -181,7 +181,7 @@
    "updated": "2026-10-17",
    "by": "Codex",
    "rev": 9,
-   "syncedRev": 5,
+   "syncedRev": 9,
    "editor": "Codex",
    "needs": ""
   },
@@ -227,7 +227,7 @@
    "updated": "2026-10-17",
    "by": "",
    "rev": 11,
-   "syncedRev": 10,
+   "syncedRev": 11,
    "editor": "Claude",
    "needs": ""
   },
@@ -250,7 +250,7 @@
    "updated": "2026-10-17",
    "by": "Codex",
    "rev": 9,
-   "syncedRev": 7,
+   "syncedRev": 9,
    "editor": "Codex",
    "needs": ""
   },
@@ -380,7 +380,7 @@
    "updated": "2026-10-28",
    "by": "Codex",
    "rev": 14,
-   "syncedRev": 6,
+   "syncedRev": 14,
    "needs": "",
    "editor": "Codex"
   },
@@ -610,7 +610,7 @@
    "updated": "2026-11-13",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 4,
+   "syncedRev": 5,
    "editor": "Muhammad",
    "needs": ""
   },
@@ -633,7 +633,7 @@
    "updated": "2026-11-04",
    "by": "Codex",
    "rev": 6,
-   "syncedRev": 4,
+   "syncedRev": 6,
    "editor": "Muhammad",
    "needs": ""
   },
@@ -698,7 +698,7 @@
    "updated": "2026-11-13",
    "by": "Codex",
    "rev": 5,
-   "syncedRev": 4,
+   "syncedRev": 5,
    "editor": "Muhammad",
    "needs": ""
   },
@@ -721,7 +721,7 @@
    "updated": "2026-10-26",
    "by": "Codex",
    "rev": 12,
-   "syncedRev": 4,
+   "syncedRev": 12,
    "editor": "Codex",
    "needs": ""
   },
@@ -836,7 +836,7 @@
    "updated": "2026-11-17",
    "by": "Claude",
    "rev": 8,
-   "syncedRev": 7,
+   "syncedRev": 8,
    "editor": "Muhammad",
    "needs": ""
   },
@@ -924,7 +924,7 @@
    "updated": "2026-10-25",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 4,
+   "syncedRev": 8,
    "editor": "Codex",
    "needs": ""
   },
@@ -991,7 +991,7 @@
    "updated": "2026-11-15",
    "by": "Claude",
    "rev": 9,
-   "syncedRev": 8,
+   "syncedRev": 9,
    "editor": "Claude",
    "needs": ""
   },
@@ -1014,7 +1014,7 @@
    "updated": "2026-11-13",
    "by": "Codex",
    "rev": 11,
-   "syncedRev": 10,
+   "syncedRev": 11,
    "editor": "Claude",
    "needs": ""
   },
@@ -1615,7 +1615,7 @@
    "sub": "",
    "updated": "2026-11-17",
    "rev": 7,
-   "syncedRev": 2,
+   "syncedRev": 7,
    "editor": "Codex",
    "needs": ""
   },
@@ -1812,7 +1812,7 @@
    "updated": "2026-10-17",
    "by": "Codex",
    "rev": 8,
-   "syncedRev": 7,
+   "syncedRev": 8,
    "needs": ""
   },
   {
@@ -1834,7 +1834,7 @@
    "updated": "2026-10-22",
    "by": "",
    "rev": 8,
-   "syncedRev": 7,
+   "syncedRev": 8,
    "editor": "Claude",
    "needs": ""
   },
@@ -1901,7 +1901,7 @@
    "updated": "2026-10-18",
    "by": "Claude",
    "rev": 15,
-   "syncedRev": 12,
+   "syncedRev": 15,
    "queue_owned": true,
    "needs": "",
    "editor": "Claude"
@@ -1948,7 +1948,7 @@
    "updated": "2026-11-17",
    "by": "Claude",
    "rev": 4,
-   "syncedRev": 3,
+   "syncedRev": 4,
    "needs": ""
   },
   {
@@ -1970,7 +1970,7 @@
    "updated": "2026-11-02",
    "by": "codex",
    "rev": 12,
-   "syncedRev": 4,
+   "syncedRev": 12,
    "needs": "",
    "editor": "Codex"
   },
@@ -1993,7 +1993,7 @@
    "updated": "2026-10-17",
    "by": "Codex",
    "rev": 12,
-   "syncedRev": 10,
+   "syncedRev": 12,
    "editor": "Codex",
    "needs": ""
   },
@@ -2016,7 +2016,7 @@
    "updated": "2026-11-17",
    "by": "Claude",
    "rev": 4,
-   "syncedRev": 3,
+   "syncedRev": 4,
    "needs": ""
   },
   {
@@ -2038,7 +2038,7 @@
    "updated": "2026-11-16",
    "by": "Codex",
    "rev": 6,
-   "syncedRev": 5,
+   "syncedRev": 6,
    "editor": "Claude",
    "needs": "",
    "completed_at": 1794875656.596568
@@ -2199,7 +2199,7 @@
    "unattended": false,
    "unattended_why": "Job doc says show Dan the segment list and wait for picks.",
    "order": 99,
-   "syncedRev": 4,
+   "syncedRev": 12,
    "updated": "2026-10-25",
    "rev": 12,
    "by": "Codex",
@@ -2250,7 +2250,7 @@
    "sub": "",
    "updated": "2026-11-15",
    "rev": 7,
-   "syncedRev": 6,
+   "syncedRev": 7,
    "editor": "Claude",
    "needs": ""
   },
@@ -2322,7 +2322,7 @@
    "order": 103,
    "updated": "2026-10-29",
    "rev": 17,
-   "syncedRev": 2,
+   "syncedRev": 17,
    "by": "Codex",
    "editor": "Codex01a183c0",
    "needs": ""
@@ -2347,7 +2347,7 @@
    "order": 104,
    "updated": "2026-11-09",
    "rev": 10,
-   "syncedRev": 1,
+   "syncedRev": 10,
    "editor": "Codex",
    "needs": "",
    "by": "Codex"
@@ -2372,7 +2372,7 @@
    "order": 105,
    "updated": "2026-11-08",
    "rev": 7,
-   "syncedRev": 1,
+   "syncedRev": 7,
    "by": "Codex",
    "editor": "Codex",
    "needs": ""
@@ -2442,7 +2442,7 @@
    "order": 108,
    "updated": "2026-10-21",
    "rev": 16,
-   "syncedRev": 13,
+   "syncedRev": 16,
    "by": "Claude"
   },
   {
@@ -2490,7 +2490,7 @@
    "order": 110,
    "updated": "2026-10-27",
    "rev": 4,
-   "syncedRev": 1,
+   "syncedRev": 4,
    "editor": "Claude",
    "needs": "",
    "by": "Claude"
@@ -2514,7 +2514,7 @@
    "order": 111,
    "updated": "2026-10-17",
    "rev": 11,
-   "syncedRev": 6,
+   "syncedRev": 11,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2537,7 +2537,7 @@
    "order": 112,
    "updated": "2026-10-29",
    "rev": 10,
-   "syncedRev": 8,
+   "syncedRev": 10,
    "editor": "Claude",
    "by": "Codex"
   },
@@ -2560,7 +2560,7 @@
    "order": 113,
    "updated": "2026-10-23",
    "rev": 10,
-   "syncedRev": 1,
+   "syncedRev": 10,
    "editor": "Claude",
    "by": ""
   },
@@ -2583,7 +2583,7 @@
    "order": 114,
    "updated": "2026-11-14",
    "rev": 8,
-   "syncedRev": 1,
+   "syncedRev": 8,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2606,7 +2606,7 @@
    "order": 115,
    "updated": "2026-10-26",
    "rev": 12,
-   "syncedRev": 3,
+   "syncedRev": 12,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2629,7 +2629,7 @@
    "order": 116,
    "updated": "2026-11-05",
    "rev": 7,
-   "syncedRev": 2,
+   "syncedRev": 7,
    "editor": "Claude",
    "by": "Codex"
   },
@@ -2652,7 +2652,7 @@
    "order": 117,
    "updated": "2026-11-04",
    "rev": 13,
-   "syncedRev": 2,
+   "syncedRev": 13,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2675,7 +2675,7 @@
    "order": 118,
    "updated": "2026-11-14",
    "rev": 9,
-   "syncedRev": 2,
+   "syncedRev": 9,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2698,7 +2698,7 @@
    "order": 119,
    "updated": "2026-11-15",
    "rev": 18,
-   "syncedRev": 2,
+   "syncedRev": 18,
    "editor": "Codex",
    "by": "Codex",
    "completed_at": 1794784531.517806
@@ -2722,7 +2722,7 @@
    "order": 120,
    "updated": "2026-10-25",
    "rev": 15,
-   "syncedRev": 12,
+   "syncedRev": 15,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2769,7 +2769,7 @@
    "order": 122,
    "updated": "2026-11-14",
    "rev": 8,
-   "syncedRev": 2,
+   "syncedRev": 8,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2792,7 +2792,7 @@
    "order": 123,
    "updated": "2026-10-30",
    "rev": 7,
-   "syncedRev": 2,
+   "syncedRev": 7,
    "editor": "Claude",
    "by": "Claude"
   },
@@ -2815,7 +2815,7 @@
    "order": 124,
    "updated": "2026-10-27",
    "rev": 5,
-   "syncedRev": 4,
+   "syncedRev": 5,
    "editor": "Claude",
    "by": "Claude"
   },
@@ -2880,7 +2880,7 @@
    "order": 127,
    "updated": "2026-10-28",
    "rev": 12,
-   "syncedRev": 1,
+   "syncedRev": 12,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -2924,7 +2924,7 @@
    "order": 129,
    "updated": "2026-10-29",
    "rev": 6,
-   "syncedRev": 1,
+   "syncedRev": 6,
    "editor": "Claude",
    "by": "Claude"
   },
@@ -2962,13 +2962,15 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/DS-51-3-ways-to-lose-fat-without-losing-muscle.md`: cut \"3 Ways To Lose Fat Without Losing Muscle\" from 10/15 roll C1759 with /shorts. Best take of every line, every gate, independent audit, deliver, send me the review copy, update the master list.",
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/DS-51-3-ways-to-lose-fat-without-losing-muscle.md` with `$long-form-content-edit` for take selection/audio/colour and `.claude/skills/shorts/SKILL.md` for vertical finishing. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "draft_review",
    "note": "",
    "needs": "",
    "order": 131,
-   "updated": "2026-10-16",
-   "rev": 1,
-   "syncedRev": 1
+   "updated": "2026-11-18",
+   "rev": 2,
+   "syncedRev": 2,
+   "review_ready_at": 1795030135.673791,
+   "by": "claude"
   },
   {
    "id": "DS-52",
@@ -2989,7 +2991,7 @@
    "order": 132,
    "updated": "2026-11-02",
    "rev": 8,
-   "syncedRev": 1,
+   "syncedRev": 8,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3054,7 +3056,7 @@
    "order": 135,
    "updated": "2026-10-28",
    "rev": 10,
-   "syncedRev": 1,
+   "syncedRev": 10,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3182,7 +3184,7 @@
    "order": 141,
    "updated": "2026-11-04",
    "rev": 4,
-   "syncedRev": 1,
+   "syncedRev": 4,
    "editor": "Claude",
    "by": "Claude"
   },
@@ -3226,7 +3228,7 @@
    "order": 143,
    "updated": "2026-11-02",
    "rev": 7,
-   "syncedRev": 1,
+   "syncedRev": 7,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3417,7 +3419,7 @@
    "order": 152,
    "updated": "2026-10-25",
    "rev": 2,
-   "syncedRev": 1,
+   "syncedRev": 2,
    "by": "Codex",
    "unattended": false,
    "availableBrollShoot": "SHOOT-20261023"
@@ -3527,7 +3529,7 @@
    "order": 157,
    "updated": "2026-11-03",
    "rev": 16,
-   "syncedRev": 1,
+   "syncedRev": 16,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3619,7 +3621,7 @@
    "order": 161,
    "updated": "2026-10-28",
    "rev": 6,
-   "syncedRev": 4,
+   "syncedRev": 6,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3665,7 +3667,7 @@
    "order": 163,
    "updated": "2026-10-30",
    "rev": 16,
-   "syncedRev": 1,
+   "syncedRev": 16,
    "editor": "Codex",
    "by": "Codex"
   },
@@ -3919,7 +3921,7 @@
    "order": 174,
    "updated": "2026-11-15",
    "rev": 8,
-   "syncedRev": 7,
+   "syncedRev": 8,
    "editor": "Claude",
    "needs": "",
    "by": "Codex",
@@ -3988,7 +3990,7 @@
    "by": "Claude",
    "updated": "2026-10-27",
    "rev": 5,
-   "syncedRev": 0
+   "syncedRev": 5
   },
   {
    "id": "SL-24",
@@ -4010,7 +4012,7 @@
    "order": 177,
    "updated": "2026-10-25",
    "rev": 3,
-   "syncedRev": 0,
+   "syncedRev": 3,
    "needs": "",
    "by": "Codex"
   },
@@ -4084,7 +4086,7 @@
    "order": 180,
    "updated": "2026-11-09",
    "rev": 6,
-   "syncedRev": 0,
+   "syncedRev": 6,
    "by": "Codex",
    "editor": "Claude",
    "needs": ""
@@ -4109,7 +4111,7 @@
    "order": 181,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4132,7 +4134,7 @@
    "order": 182,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4155,7 +4157,7 @@
    "order": 183,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4178,7 +4180,7 @@
    "order": 184,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4201,7 +4203,7 @@
    "order": 185,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4224,7 +4226,7 @@
    "order": 186,
    "updated": "2026-11-02",
    "rev": 11,
-   "syncedRev": 0,
+   "syncedRev": 11,
    "by": "Codex",
    "needs": "",
    "editor": "Codex"
@@ -4249,7 +4251,7 @@
    "order": 187,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4272,7 +4274,7 @@
    "order": 188,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4295,7 +4297,7 @@
    "order": 189,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4318,7 +4320,7 @@
    "order": 190,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4341,7 +4343,7 @@
    "order": 191,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4364,7 +4366,7 @@
    "order": 192,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4387,7 +4389,7 @@
    "order": 193,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4410,7 +4412,7 @@
    "order": 194,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4433,7 +4435,7 @@
    "order": 195,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4456,7 +4458,7 @@
    "order": 196,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4479,7 +4481,7 @@
    "order": 197,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4502,7 +4504,7 @@
    "order": 198,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4525,7 +4527,7 @@
    "order": 199,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4548,7 +4550,7 @@
    "order": 200,
    "updated": "2026-11-16",
    "rev": 11,
-   "syncedRev": 0,
+   "syncedRev": 11,
    "by": "Codex",
    "editor": "Codex",
    "needs": ""
@@ -4573,7 +4575,7 @@
    "order": 201,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4596,7 +4598,7 @@
    "order": 202,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4619,7 +4621,7 @@
    "order": 203,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4642,7 +4644,7 @@
    "order": 204,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4665,7 +4667,7 @@
    "order": 205,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4688,7 +4690,7 @@
    "order": 206,
    "updated": "2026-10-26T08:52:45",
    "rev": 2,
-   "syncedRev": 0,
+   "syncedRev": 2,
    "by": "Codex"
   },
   {
@@ -4711,7 +4713,7 @@
    "order": 207,
    "updated": "2026-10-29",
    "rev": 9,
-   "syncedRev": 0,
+   "syncedRev": 9,
    "by": "Codex",
    "editor": "Codex",
    "needs": ""
@@ -4788,7 +4790,7 @@
    "order": 210,
    "updated": "2026-10-27",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SL-26",
@@ -4812,7 +4814,7 @@
    "order": 211,
    "updated": "2026-10-28",
    "rev": 2,
-   "syncedRev": 0
+   "syncedRev": 2
   },
   {
    "id": "SL-27",
@@ -4836,7 +4838,7 @@
    "order": 212,
    "updated": "2026-10-29",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SL-28",
@@ -4860,7 +4862,7 @@
    "order": 213,
    "updated": "2026-10-29",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SL-29",
@@ -4928,7 +4930,7 @@
    "order": 216,
    "updated": "2026-11-01",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SL-32",
@@ -4968,7 +4970,7 @@
    "order": 218,
    "updated": "2026-11-02",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SP-01",
@@ -5183,12 +5185,15 @@
    "claude": "CONTENT (SFL). Name this task Man Boobs SFL R1. Read Handoffs/video-editing/SL-36-man-boobs-shorts.md. Propose three standalone segments with full transcripts and stop for Dan picks before rendering. Reuse approved parent look/voice.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (SFL). Name this task Man Boobs SFL R1. Read Handoffs/video-editing/SL-36-man-boobs-shorts.md. Propose three standalone segments with full transcripts and stop for Dan picks before rendering. Reuse approved parent look/voice.",
-   "state": "ready",
+   "state": "draft_review",
    "note": "Parent planned Sun Jan 24 2027; never before the parent is public.",
-   "updated": "2026-11-05",
+   "updated": "2026-11-18",
    "order": 229,
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 2,
+   "review_ready_at": 1795030132.773227,
+   "needs": "",
+   "by": "claude"
   },
   {
    "id": "SL-37",
@@ -5208,7 +5213,7 @@
    "order": 230,
    "updated": "2026-11-06",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "SL-38",
@@ -5232,7 +5237,7 @@
    "order": 231,
    "updated": "2026-11-13",
    "rev": 1,
-   "syncedRev": 0
+   "syncedRev": 1
   },
   {
    "id": "WV-03",
@@ -5253,7 +5258,7 @@
    "updated": "2026-11-16",
    "by": "Claude",
    "rev": 17,
-   "syncedRev": 1,
+   "syncedRev": 17,
    "editor": "Claude",
    "needs": ""
   },
@@ -5270,15 +5275,16 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 1 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-04-great-again-t-upsell-1-prepaid-packs.md`: cut \"Great Again T Upsell 1: Prepaid Packs\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 1 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-04-great-again-t-upsell-1-prepaid-packs.md`: cut \"Great Again T Upsell 1: Prepaid Packs\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
+   "state": "draft_review",
    "note": "R1 first-minute review page http://127.0.0.1:9812/ (awaiting Dan's picks)",
    "order": 233,
-   "updated": "2026-11-16",
-   "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3,
+   "updated": "2026-11-18",
+   "by": "claude",
+   "rev": 4,
+   "syncedRev": 4,
    "editor": "Claude",
-   "needs": ""
+   "needs": "",
+   "review_ready_at": 1795030130.0212638
   },
   {
    "id": "WV-05",
@@ -5299,7 +5305,7 @@
    "updated": "2026-11-18",
    "by": "Claude",
    "rev": 2,
-   "syncedRev": 1,
+   "syncedRev": 2,
    "editor": "Claude",
    "needs": ""
   },
@@ -5316,13 +5322,15 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 3 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-06-great-again-t-upsell-3-electro-creatine.md`: cut \"Great Again T Upsell 3: Electro-Creatine\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 3 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-06-great-again-t-upsell-3-electro-creatine.md`: cut \"Great Again T Upsell 3: Electro-Creatine\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "11/13 shoot, C1904 31:18-44:43",
    "order": 235,
-   "updated": "2026-11-14",
+   "updated": "2026-11-18",
    "by": "Claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 2,
+   "syncedRev": 1,
+   "editor": "Claude",
+   "needs": ""
   },
   {
    "id": "WV-07",
@@ -5758,13 +5766,13 @@
    "claude": "CONTENT (LFC). Name this chat \"I Crashed My Tesla LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md`: cut \"I Crashed My Tesla Because I Didn't Trust FSD\" from the 11/13 green-screen shoot, rolls C1914. Use /longform-edit (long-form green-screen standard: `.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (LFC). Name this chat \"I Crashed My Tesla LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md`: cut \"I Crashed My Tesla Because I Didn't Trust FSD\" from the 11/13 green-screen shoot, rolls C1914. Use `$long-form-content-edit` with the long-form green-screen standard (`.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
+   "state": "in_progress",
    "note": "November 16: first-review round registered as chat-RO-39-R1, enabled M2 queue, waiting for capacity. No production or review delivery yet. Brief RO-39-r1-queued-production-20261116.md; stop for Dan before full render.",
    "order": 256,
-   "updated": "2026-11-16",
-   "by": "Codex",
-   "rev": 2,
-   "syncedRev": 1,
+   "updated": "2026-11-18",
+   "by": "codex",
+   "rev": 3,
+   "syncedRev": 3,
    "editor": "Codex",
    "needs": ""
   },
@@ -5893,7 +5901,7 @@
    "updated": "2026-11-15",
    "by": "Codex",
    "rev": 7,
-   "syncedRev": 6,
+   "syncedRev": 7,
    "editor": "Claude",
    "needs": "",
    "completed_at": 1794768533.171604
@@ -5917,7 +5925,7 @@
    "updated": "2026-11-16",
    "by": "Codex",
    "rev": 12,
-   "syncedRev": 2,
+   "syncedRev": 12,
    "editor": "Codex",
    "needs": "",
    "completed_at": 1794877427.049394
@@ -5941,7 +5949,7 @@
    "updated": "2026-11-16",
    "by": "Codex",
    "rev": 19,
-   "syncedRev": 2,
+   "syncedRev": 19,
    "editor": "Codex",
    "needs": "",
    "completed_at": 1794872080.2065852
