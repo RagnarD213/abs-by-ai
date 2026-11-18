@@ -383,6 +383,13 @@
       "recurring": false,
       "addedAt": "2026-11-17",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Transfer all bar related items to assembled bar shelf",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
