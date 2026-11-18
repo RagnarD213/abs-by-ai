@@ -5,7 +5,7 @@ For Codex and Grokbot (either; Codex newest Sol, medium). Dan's authorization: t
 ## Why this exists
 Two steps ran longer than the Claude session could wait. Both have background jobs running that may already have finished; check before redoing anything.
 
-## 1. M6 `~/M2-transfer/staging` (27 GB): verify the Seagate copy, then delete
+## 1. DONE 18:45 CST: M6 `~/M2-transfer/staging` verified and deleted (skip this step)
 - Copy runs over SSH into the M2 (the SMB route hung for six hours; do not use it): `rsync -a -e ssh staging/ m2:/Volumes/Expansion/_m6_staging_archive/m2-transfer-20261117/staging/`. Logs on M6: `/tmp/claude-501/m6-staging-ssh.log` (ends "copy done 0") and `/tmp/claude-501/m6-staging-ssh-verify.log` (checksum dry-run, ends "verify done 0").
 - Delete `~/M2-transfer/staging` on M6 only when the verify log lists nothing but permission-flag lines (`.f...p...`), meaning no content, size or new-file differences. If the logs are missing, rerun both commands (second one: `rsync -anc --itemize-changes -e ssh ...`) from `~/M2-transfer`.
 
