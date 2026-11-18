@@ -234,8 +234,19 @@ def photos(kind, label='Real photos of me, not AI-generated', cap=None):
     figs = ''.join(f'<figure class="{c}"><img src="{A}{f}" alt="Daniel Rose, {cap}"><figcaption>{cap}</figcaption></figure>' for f, c in items)
     return f'<div class="photos3 photos-{kind}">{figs}</div><p class="disclosure">{label}</p>'
 
-def swapimg(name, alt):
-    return f'<figure class="swapimg"><img src="{A}{name}" alt="{alt}"></figure>'
+def swapimg(name, alt, cls=''):
+    return f'<figure class="swapimg {cls}"><img src="{A}{name}" alt="{alt}"></figure>'
+
+ONE_BOTTLE = 'Buy just one bottle - $97'      # Dan, 2026-11-18: small grey second button under the last two buy buttons only
+
+def one_bottle_buttons(letter_html):
+    """Adds the small one-bottle button after the last two buy buttons of the letter."""
+    marks = [m.end() for m in re.finditer(r'<div class="cta-wrap [^"]*"><a class="cta" .*?</a>(?:<ul class="cta-notes">.*?</ul>)?', letter_html, flags=re.S)]
+    assert len(marks) >= 2, len(marks)
+    link = f'<a class="cta2" href="{LINKS["order"]}?option=single">{ONE_BOTTLE}</a>'
+    for at in sorted(marks[-2:], reverse=True):
+        letter_html = letter_html[:at] + link + letter_html[at:]
+    return letter_html
 
 INGR = [('Tongkat ali', '400 mg', 'Tongkat ali is a root that grows in the rainforests of Malaysia and Indonesia. Men there have used it for centuries for strength, stamina and male vitality.'),
         ('Zinc', '50 mg', 'Your body literally cannot make T without zinc.'),
@@ -261,7 +272,7 @@ def sec(body, cls=''):
     return f'<section class="lsec {cls}"><div class="lcol">{body}</div></section>'
 
 def letter():
-    return render_letter()
+    return one_bottle_buttons(render_letter())
 
 # ---------- CSS ----------
 CSS = (HERE / 'page.css').read_text()
@@ -436,6 +447,8 @@ def check():
     assert not leaked, ('gold text on the page', leaked)
     assert '[P]' not in text and '[' not in ltext, 'bracket text on the page'
     n_btn = letter_html.count('<a class="cta" ')
+    assert pg.count('class="cta2"') == 2 and letter_html.count(ONE_BOTTLE) == 2, 'one-bottle button under the last two buy buttons only'
+    ltext = ltext.replace(ONE_BOTTLE, ' ')
     assert n_btn == 5, ('buttons in the letter', n_btn)
     info_files = [fn for _, _, _, fn in INFO_PAGES]
     for f in FUNNEL + info_files:
