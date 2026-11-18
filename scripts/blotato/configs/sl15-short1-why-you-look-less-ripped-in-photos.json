@@ -16,12 +16,13 @@
   "close": "Save this for your next photo shoot, and watch my full spray tanning guide on my channel.",
   "tags": "#SprayTan #SprayTanning #FitnessPhotos #Abs #AbsByAI",
   "youtube_description": "If you guys want good photos for Instagram or for your dating profile, spray tanning can be especially important.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=spray-tanning-guide&utm_content=sl15-short1\n\nCameras tend to flatten your definition. I looked good in the mirror but nowhere near as defined in my photo shoot pictures, mainly because I was too pale. Definition on camera is all about contrast, which is why fitness models and bodybuilders go very dark.\n\nFull video on my channel: Spray Tanning Guide: How To Looksmax With A Spray Tan\n\nThe photos of me in this video are real.\n\n#SprayTan #SprayTanning #FitnessPhotos #Abs #Shorts",
-  "pinned_comment": "Have you ever looked great in the mirror and then way less defined in a photo? Let me know in the comments.",
+  "pinned_comment": "Do you look leaner in the mirror or in photos?",
   "parent": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "media_sha256": {
     "master": "ec87695a67769440467809385a95b92c1543a055f82a2e2e8e010a363282168c",
     "tiktok": "1315e0c4a0dc739c2df2efc477655275913770ec28ea33e0af0495051d54ae21",
     "ig": "3ff5f5629a23f3186dbe4087d7ae18593369cbebf5d74b3970d95fda2cdc38e3",
     "yt": "9b99aabcfc378f0703401f53b9034fc196f538fff7734cd70d10329fd6dea099"
-  }
+  },
+  "engagement_prompt": "Do you look leaner in the mirror or in photos?"
 }

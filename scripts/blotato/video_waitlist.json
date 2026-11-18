@@ -349,7 +349,11 @@
   "job": "Zeeshan Video 5",
   "label": "Getting Abs At 40 vs 25",
   "added": "2026-10-11",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-18",
+   "main": "2026-12-06T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl16-short3-never-break-your-fast-with-alcohol.json",
@@ -1048,6 +1052,18 @@
   "gym": false,
   "planned": "2027-01-11 09:00",
   "note": "Setup complete; exact R2 film and A Clean Stamp approved. Four staging assets fully downloaded/SHA256 verified; TikTok all 1925 frames checked, original picture/audio packet payloads unchanged. Project/Extreme/Drive backups verified. Ready for existing shared daily top-up in list order. Receipt Docs/DS34_SETUP_COMPLETION_20261114.md."
+ },
+ {
+  "config": "scripts/blotato/configs/ds41-kevin-james-cheat-day.json",
+  "kind": "short",
+  "job": "DS-41",
+  "label": "Kevin James Tried One Cheat Day A Week. It Wrecked His Diet.",
+  "added": "2026-11-15",
+  "kitchen": false,
+  "gym": false,
+  "filming_set": "10/15 studio green screen",
+  "planned": "2027-01-11 18:00",
+  "note": "Exact approved off the cuff R2 and revised X3 pair. All four publishing assets downloaded/SHA256 verified; native decoded TikTok source frames and audio identical. Ready for existing shared daily top-up in list order, no release hold. Planned January11 2027 6PM America/Chicago. Receipt Docs/DS41_SETUP_RECEIPT_20261115.md."
  },
  {
   "config": "scripts/blotato/configs/sl21-short1-restaurants-dont-care-about-your-fitness-goals.json",

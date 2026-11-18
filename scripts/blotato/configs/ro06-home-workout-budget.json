@@ -16,5 +16,7 @@
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a967e34d-7514-4b2c-b142-ae51290807cd.mp4",
   "instagram_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0a03a829-3a2e-4bdf-b0dc-93d36f4b0164.mp4",
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/65437c3b-1986-451b-aebb-9342c2bcba26.jpg",
-  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/65437c3b-1986-451b-aebb-9342c2bcba26.jpg"
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/65437c3b-1986-451b-aebb-9342c2bcba26.jpg",
+  "engagement_prompt": "If you had $58 to start a home gym, what would you buy first?",
+  "pinned_comment": "If you had $58 to start a home gym, what would you buy first?"
 }

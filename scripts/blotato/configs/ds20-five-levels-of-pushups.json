@@ -19,7 +19,7 @@
     "handstand pushups",
     "home workout"
   ],
-  "pinned_comment": "What's your favorite pushup variation?",
+  "pinned_comment": "Which of the five push-up levels can you do with clean form?",
   "youtube_description": "Here are the five levels of pushups and how to figure out which one is right for you.\n\nStart with countertop pushups, then move to knee pushups, regular pushups, decline pushups with your feet on a chair, and finally handstand pushups.\n\nPushup handles are a variation of regular pushups that extend your range of motion. Do each level until you can do 15 reps, then progress to the next one.\n\nComment below to let me know which pushup is your favorite.\n\nAbs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=five-levels-of-pushups&utm_content=ds20-five-levels-of-pushups\n\n#Pushups #BodyweightTraining #HomeWorkout #Shorts",
   "keyword": "ABS",
   "instagram_first_comment": "Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=five-levels-of-pushups&utm_content=ds20-five-levels-of-pushups",
@@ -44,5 +44,7 @@
     "timezone": "America/Chicago",
     "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts",
     "release": "2026-12-10T15:00:00.000Z"
-  }
+  },
+  "engagement_prompt": "Which of the five push-up levels can you do with clean form?",
+  "engagement_topic": "training"
 }

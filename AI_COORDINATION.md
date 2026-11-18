@@ -84,6 +84,8 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
+**GATUpsell3(WV-06):QUEUED-M2:2026-11-18:Claude.** No production yet; batch chat-WV-06-R1 waits for an M2 slot, switch-on retrying (M6 scheduler file unpushed). Next: first review page.
+**GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
 **GATUpsell1(WV-04):R2-REVIEW:2026-11-18:Claude,M2.** Review http://127.0.0.1:9813/; awaiting Dan. `/Volumes/Expansion/_edit_work/WV-04/round2/ROUND-2-NOTES.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
@@ -283,7 +285,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-06 - QUEUED 2026-10-13, Claude.** YouTube Sun Dec 27, socials Mon. Then: captions, article check.
 
-**Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
+**Video 5 (Zeeshan abs at 40 vs 25) - QUEUED 2026-11-18, Claude.** YouTube Sun Dec 6. Then: captions, article check.
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 

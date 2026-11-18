@@ -22,7 +22,7 @@
     "Dan Rose Fitness"
   ],
   "tags": "#Glycine #SleepBetter #SleepSupplements #SixPackAbs",
-  "pinned_comment": "How many nights a week do you wake up too hot or sweating?",
+  "pinned_comment": "Subscribe for more on what I've tried to improve my sleep.",
   "slug": "ro15-glycine",
   "source": "claude edited long form content/30 - Sleep Better With Glycine/FINAL - Sleep Better With Glycine.mp4",
   "content_type": "organic",
@@ -34,7 +34,6 @@
   "english_srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/claude edited long form content/30 - Sleep Better With Glycine/FINAL - Sleep Better With Glycine.srt",
   "platform_ctas": {
     "facebook": "Try Abs By AI free for 7 days:\n{link}",
-    "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
   },
@@ -59,5 +58,7 @@
     "socials": "2026-12-24T18:00:00.000Z",
     "timezone": "America/Chicago",
     "words": "Let's go with A. Finish the setup for December 23 and queue it in Blotato or put it on the waiting list if it's full."
-  }
+  },
+  "engagement_prompt": "Follow for more on what I've tried to improve my sleep.",
+  "engagement_topic": "recovery"
 }

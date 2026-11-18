@@ -108,13 +108,19 @@ def render_rows(rq,k,resolve=key):
                 where = h.get('cwd','')
                 if ident == 'Unassigned render work':
                     # Only extract project-folder names. Never expose command lines.
-                    args = subprocess.run(['/bin/ps','-ww','-p',str(int(h['pid'])),'-o','command='],
+                    pids = ','.join(str(int(x)) for x in (h['pid'], h.get('ppid')) if x)
+                    args = subprocess.run(['/bin/ps','-ww','-p',pids,'-o','command='],
                                           capture_output=True, text=True, timeout=1).stdout
                     folders = re.findall(r'/_edit_work/([A-Za-z0-9_-]+)(?:/|$)', args)
                     where += ' ' + args
                     owners = {resolve(folder) for folder in folders}
                     if len(owners)==1:
                         ident = owners.pop()
+                    elif not owners:
+                        # A label such as "WV-05 R1 review whisper" names its job.
+                        named = resolve(h.get('label') or '')
+                        if named not in ('Unidentified project','Unassigned render work'):
+                            ident = named
                 if ident == 'SRM-GOLDENROOTS-JOINTVIGOR':
                     rounds = set(re.findall(r'/SRM-goldenroots-jointvigor/claude-r(\d+)(?:/|$)', where, re.I))
                     if len(rounds)==1:

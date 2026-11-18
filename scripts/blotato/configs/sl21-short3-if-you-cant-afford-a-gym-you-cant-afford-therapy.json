@@ -26,7 +26,7 @@
     "Abs By AI"
   ],
   "youtube_description": "If you can't afford a gym, you can't afford therapy.\n\nNow, I'm not a psychologist, obviously this is not medical advice, but this is my opinion.\n\nThe discussion that we're having is, is that doing you more good than having a gym membership if you're broke? I don't think it is.\n\nNow, I'm not even claiming that that stuff does you no good. That's a whole different discussion.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short3\n\nFull video on this channel: What To Cut To Afford Getting In Shape\n\n#Fitness #GymMembership #PhysicalHealth #Shorts",
-  "pinned_comment": "How much do you pay for your gym membership every month?",
+  "pinned_comment": "What's one thing you pay for that keeps you training consistently?",
   "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short3",
   "parent_config": "scripts/blotato/configs/ro20b-what-to-cut.json",
   "kitchen": true,
@@ -42,7 +42,9 @@
   },
   "caption_overrides": {
     "facebook": "If you can't afford a gym, you can't afford therapy.\n\nNow, I'm not a psychologist, obviously this is not medical advice, but this is my opinion.\n\nThe discussion that we're having is, is that doing you more good than having a gym membership if you're broke? I don't think it is.\n\nNow, I'm not even claiming that that stuff does you no good. That's a whole different discussion.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short3\n\n#Fitness #GymMembership #PhysicalHealth #Shorts",
-    "instagram": "If you can't afford a gym, you can't afford therapy.\n\nNow, I'm not a psychologist, obviously this is not medical advice, but this is my opinion.\n\nThe discussion that we're having is, is that doing you more good than having a gym membership if you're broke? I don't think it is.\n\nNow, I'm not even claiming that that stuff does you no good. That's a whole different discussion.\n\nComment COACH and I'll send you the Abs By AI link.\n\n#Fitness #GymMembership #PhysicalHealth #Shorts",
+    "instagram": "If you can't afford a gym, you can't afford therapy.\n\nNow, I'm not a psychologist, obviously this is not medical advice, but this is my opinion.\n\nThe discussion that we're having is, is that doing you more good than having a gym membership if you're broke? I don't think it is.\n\nNow, I'm not even claiming that that stuff does you no good. That's a whole different discussion.\n\n\n#Fitness #GymMembership #PhysicalHealth #Shorts",
     "tiktok": "If you can't afford a gym, you can't afford therapy.\n\nNow, I'm not a psychologist, obviously this is not medical advice, but this is my opinion.\n\nThe discussion that we're having is, is that doing you more good than having a gym membership if you're broke? I don't think it is.\n\nNow, I'm not even claiming that that stuff does you no good. That's a whole different discussion.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short3\n\n#Fitness #GymMembership #PhysicalHealth #Shorts"
-  }
+  },
+  "engagement_prompt": "What's one thing you pay for that keeps you training consistently?",
+  "engagement_topic": "lifestyle"
 }

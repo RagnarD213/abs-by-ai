@@ -3,7 +3,7 @@
   "hook": "Cortisol belly is real, but the TikTok fixes for it, like the cortisol cocktail, won't take an inch off your waist.",
   "body": "Stress and high cortisol are linked to belly fat. But cortisol doesn't make belly fat out of nothing: stress makes you eat more, and the extra calories land on your belly. The cortisol cocktail is orange juice and coconut water with some salt, about 80 calories and most of that is sugar, so skip it and skip the adrenal supplements too. Here are the six things that actually fix it. 1. Sleep: get at least seven hours a night in a cold room. 2. Train every day, first thing in the morning. 3. Cut way back on alcohol. 4. Talk to your doctor about Zepbound to turn down the stress eating. 5. Get the chronically stressful people and jobs out of your life. 6. Hit your calories and your protein every day, no matter how you feel. Pick the one you're worst at and fix it this week.",
   "close": "Subscribe for more videos like this and go to SixPackAbs.com to get all my newest videos as soon as they are published.",
-  "pinned_comment": "Which of the six fixes are you worst at right now?",
+  "pinned_comment": "What's one cortisol claim you keep seeing on TikTok?",
   "youtube_tags": [
     "cortisol belly",
     "cortisol cocktail",
@@ -30,7 +30,6 @@
   "english_srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/claude edited long form content/28 - Cortisol Belly Is Real, But TikTok Has It Wrong/Cortisol Belly Is Real, But TikTok Has It Wrong | claude round 3 | 16x9 | RO-29.srt",
   "platform_ctas": {
     "facebook": "Try Abs By AI free for 7 days:\n{link}",
-    "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
   },
@@ -55,5 +54,6 @@
   "instagram_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/67bef7d9-82a2-43b3-bb1e-c003ea623824.mp4",
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7fbc4dfd-5522-4aaf-b1b4-24e38b50580b.mp4",
   "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/180aa876-f6f3-4216-bf53-9db0ecf07479.jpg",
-  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/180aa876-f6f3-4216-bf53-9db0ecf07479.jpg"
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/180aa876-f6f3-4216-bf53-9db0ecf07479.jpg",
+  "engagement_prompt": "What's one cortisol claim you keep seeing on TikTok?"
 }

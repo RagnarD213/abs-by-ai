@@ -16,11 +16,13 @@
   "close": "Save this if you have 30 pounds to lose.",
   "tags": "#BellyFat #FatLoss #WeightLoss #Abs #AbsByAI",
   "youtube_description": "Most fitness channels tell you to lose one pound a week. In my opinion, that advice is why most people following it are still fat.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=belly-fat-90-days&utm_content=sl07-short1\n\nIf you have 30 pounds to lose, one pound a week takes seven months, and almost nobody stays motivated that long. It's far easier to go all in for 90 days. Make losing fat the number one priority in your life, and fit everything else around it.\n\nFull video on my channel: If I Had Belly Fat, Here's How I'd Lose It In 90 Days\n\n#BellyFat #FatLoss #WeightLoss #Abs #Shorts",
-  "pinned_comment": "Losing 1 pound a week means 7 months for 30 pounds, and almost nobody stays motivated that long. Would you go all in for 90 days?",
+  "pinned_comment": "How much weight were you trying to lose per week when you started?",
   "media_sha256": {
     "master": "b55cf95749157494496e56badc00d4969e1683eccd3a2f0b156571206fc370df",
     "tiktok": "fe58c9f66d8049a64e96bada2cb343e2bd1434237a3fb814c313527e82a3e7c1",
     "ig": "90c159730ce6d39a9e2cf086faf3b81279d7efca504de24b3a4d80109beeb3a2",
     "yt": "d05fd112170688498cc4f556ed3925c3b1ce5ec25ae431201af1d7b4d86e14c1"
-  }
+  },
+  "engagement_prompt": "How much weight were you trying to lose per week when you started?",
+  "engagement_topic": "nutrition"
 }

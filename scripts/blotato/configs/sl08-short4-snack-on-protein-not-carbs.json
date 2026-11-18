@@ -16,11 +16,11 @@
   "close": "Save this for the next time you buy snacks.",
   "tags": "#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
   "youtube_description": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\nFull video on this channel: Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss #Shorts",
-  "pinned_comment": "Which protein snack do you like the most?",
+  "pinned_comment": "Subscribe for more of my go-to high-protein snacks.",
   "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4",
   "caption_overrides": {
     "facebook": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
-    "instagram": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nComment FOOD and I'll send you the Abs By AI link.\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
+    "instagram": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss",
     "tiktok": "Snack on protein, not on carbs.\n\nYou can eat a whole bag of chips and still be hungry again in an hour, so keep protein snacks around instead. Beef jerky, sardines, Greek yogurt, cottage cheese or a few slices of deli turkey are all options, and most of these are 100 to 150 calories with 15 to 20 grams of protein. It's very, very hard to overeat sardines or cottage cheese because you get full and you stop.\n\nSave this for the next time you buy snacks.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=calories-not-losing-weight&utm_content=sl08-short4\n\n#AbsByAI #ProteinSnacks #Nutrition #FatLoss"
   },
   "parent_config": "scripts/blotato/configs/ro10-calories-not-losing-weight.json",
@@ -32,5 +32,7 @@
     "tiktok": "b713914a017c12bbb66d29faab0495163ce9b2f97949248bc86f9ce8ba3f374e",
     "ig": "b97505adef7f38ee1bbbf7ab552323c05852bbbee66dea645bfe439fc6770d50",
     "yt": "8880787717c0399d8fc1dab6aa580dd122b136058ccc4e0dba8bc1e540202103"
-  }
+  },
+  "engagement_prompt": "Follow for more of my go-to high-protein snacks.",
+  "engagement_topic": "nutrition"
 }

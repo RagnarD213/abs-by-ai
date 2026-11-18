@@ -25,7 +25,7 @@
     "home leg workout",
     "Dan Rose Fitness"
   ],
-  "pinned_comment": "Do you do bodyweight squats in your workouts?",
+  "pinned_comment": "Subscribe for more exercises you can do without equipment.",
   "main": "2027-01-06T00:00:00.000Z",
   "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ab7a0161-e2c3-4e74-a242-c3936c0d2f05.mp4",
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/07b5414a-ca03-415d-92e6-c20d9d91a3d0.mp4",
@@ -44,5 +44,7 @@
   "captions_burned_in": true,
   "duplicate_captions": false,
   "setup_receipt": "Docs/DS61_SETUP_RECEIPT_20261106.md",
-  "article": "Existing post-release searchable Short article/skip routine"
+  "article": "Existing post-release searchable Short article/skip routine",
+  "engagement_prompt": "Follow for more exercises you can do without equipment.",
+  "engagement_topic": "nutrition"
 }

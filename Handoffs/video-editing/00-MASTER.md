@@ -162,7 +162,7 @@ RO-25's exact R7 film was approved by Dan on 2026-10-17. YouTube is scheduled fo
 | [DS-48](DS-48-why-jump-rope-beats-the-treadmill-for-fat-loss.md) | Why Jump Rope Beats The Treadmill For Fat Loss | 10/15 C1758 | READY | S |
 | [DS-49](DS-49-why-i-stopped-drinking-coconut-water.md) | Why I Stopped Drinking Coconut Water | 10/15 C1758-C1759 | FINALIZED | S |
 | [DS-50](DS-50-why-i-sleep-at-63-degrees.md) | Why I Sleep At 63 Degrees | 10/15 C1759 | READY | S |
-| [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | READY | S |
+| [DS-51](DS-51-3-ways-to-lose-fat-without-losing-muscle.md) | 3 Ways To Lose Fat Without Losing Muscle | 10/15 C1759 | DRAFT: asset choices waiting for Dan | S |
 | [DS-52](DS-52-why-zepbound-is-actually-free.md) | Why Zepbound Is Actually Free | 10/15 C1760-C1761 | FINALIZED | S |
 | [DS-53](DS-53-the-only-2-exercises-you-need-for-bigger-arms.md) | The Only 2 Exercises You Need For Bigger Arms | 10/15 C1761 | BLOCKED: cable curl and cable tricep pushdown B-roll (next gym shoot) | S |
 | [DS-54](DS-54-the-only-2-kettlebell-exercises-you-need.md) | The Only 2 Kettlebell Exercises You Need | 10/15 C1761-C1765 | READY | S |
@@ -282,9 +282,9 @@ RO-39 first review is queued and enabled on M2, waiting for capacity; no render 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | IN PROGRESS | L |
-| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | DELIVERED: awaiting Dan | M |
-| [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | READY | M |
-| [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | READY | M |
+| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | DRAFT: asset choices waiting for Dan | M |
+| [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | IN PROGRESS | M |
+| [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | IN PROGRESS | M |
 | [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | READY | M |
 | [RA-17](RA-17-great-again-t-l01-eat-more-of-this-less-of-this.md) | Great Again T L01: Eat More Of This, Less Of This | C1913 + C1911 + C1905 | READY | M |
 | [RA-18](RA-18-great-again-t-l02-3-healthy-foods-that-are-killing-your-test.md) | Great Again T L02: 3 "Healthy" Foods That Are Killing Your Testosterone | C1913 + C1905 | READY | M |
@@ -305,7 +305,7 @@ RO-39 first review is queued and enabled on M2, waiting for capacity; no render 
 | [RA-33](RA-33-great-again-t-s11-3-signs-your-testosterone-is-dropping.md) | Great Again T S11: 3 Signs Your Testosterone Is Dropping | C1906 | READY | S |
 | [RA-34](RA-34-great-again-t-s13-how-to-keep-your-gut-after-40.md) | Great Again T S13: How To Keep Your Gut After 40 | C1906 | READY | S |
 | [RA-35](RA-35-great-again-t-s21-the-frog-study-in-45-seconds.md) | Great Again T S21: The Frog Study In 45 Seconds | C1906 | READY | S |
-| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | READY | L |
+| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | IN PROGRESS | L |
 | [RO-40](RO-40-im-41-if-i-were-25-again-this-is-exactly-how-id-get-in-shape.md) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. | C1914 + C1915 | READY | L |
 | [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | READY | L |
 | [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |
@@ -360,7 +360,7 @@ RO-39 first review is queued and enabled on M2, waiting for capacity; no render 
 | [SL-33](SL-33-losing-fat-face-shorts.md) | How Losing Fat Changed My Face (RO-22; 3 Shorts; parent Nov25 planned, not booked) | REGISTERED: parent technical QA open, no production launched | S |
 | [SL-34](SL-34-five-muscles-women-notice-shorts.md) | The 5 Muscles Women Notice First, And The Machine That Builds Each One (RO-38; 3 Shorts; parent Jan 8 9AM Central planned) | READY: propose segments before rendering | S |
 | [SL-35](SL-35-cortisol-belly-shorts.md) | Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29; 3 Shorts; parent Jan 20 9AM Central planned) | READY: propose segments before rendering | S |
-| [SL-36](SL-36-man-boobs-shorts.md) | How To Get Rid Of Man Boobs (RO-31; 3 Shorts; parent Jan24 9AM Central planned) | READY: propose segments before rendering | S |
+| [SL-36](SL-36-man-boobs-shorts.md) | How To Get Rid Of Man Boobs (RO-31; 3 Shorts; parent Jan24 9AM Central planned) | DRAFT: asset choices waiting for Dan | S |
 | [SL-37](SL-37-glycine-shorts.md) | Sleep Better With Glycine (RO-15; 3 Shorts; parent Dec 23 9AM Central planned) | READY: propose segments before rendering | S |
 | [SL-38](SL-38-ten-exercises-shorts.md) | I'm 41. Here Are The 10 Exercises I Do Every Week (RO-32; 3 Shorts; parent Jan29 9AM Central) | READY: propose segments before rendering | S |
 

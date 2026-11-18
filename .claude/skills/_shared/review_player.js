@@ -340,15 +340,31 @@
     const el = e.target, v = isVideo(el) ? el : (el && el.querySelector ? el.querySelector('video') : null);
     if (v) open(v);
   });
-  // Every video: the player's own full-screen icon is switched back on (pages hid it because it did nothing in the side
-  // pane); its refused request lands in the fullscreenerror handler above and opens VLC. Plus a small hover chip.
+  // Every video (2026-11-18, Dan on Joint Vigor R4: "make full screen controls work"): in the app's side pane the
+  // player's own full-screen icon does nothing and fires no fullscreenerror, so the VLC hand-off above never ran. The
+  // dead native icon is hidden and every video gets a permanent "Full screen" button right under it (handled by the
+  // click capture above: VLC in owner mode). Double-click and the F key do the same. Plus the small hover chip.
   function enableNative() {
-    let vids = []; try { vids = [...document.querySelectorAll('video[controlslist]')]; } catch (_) { return; }
+    let vids = []; try { vids = [...document.querySelectorAll('video')]; } catch (_) { return; }
     vids.forEach(v => {
       const list = (v.getAttribute('controlslist') || '').split(/\s+/).filter(x => x && x.toLowerCase() !== 'nofullscreen');
-      if (list.length) v.setAttribute('controlslist', list.join(' ')); else v.removeAttribute('controlslist');
+      list.push('nofullscreen');
+      v.setAttribute('controlslist', list.join(' '));
+      if (v.hasAttribute('data-abs-fs-nobutton') || v.__absFsButton || !v.parentNode) return;
+      const next = v.nextElementSibling;
+      if (next && next.hasAttribute && next.hasAttribute('data-review-fullscreen')) { v.__absFsButton = next; return; }
+      const b = document.createElement('button'); b.type = 'button'; b.textContent = '⤢ Full screen';
+      b.setAttribute('data-review-fullscreen', v.id || ''); b.setAttribute('data-abs-fs-button', '');
+      b.style.cssText = 'display:inline-block;margin:6px 0 2px;padding:5px 12px;border-radius:8px;border:1px solid #4aa3ff;' +
+        'background:#0b1e33;color:#fff;font:600 13px system-ui;cursor:pointer';
+      v.__absFsButton = b; v.insertAdjacentElement('afterend', b);
     });
   }
+  document.addEventListener('keydown', e => {
+    if ((e.key !== 'f' && e.key !== 'F') || e.metaKey || e.ctrlKey || e.altKey || !owner()) return;
+    const t = e.target; if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(t.tagName || ''))) return;
+    const v = pick(null); if (v) { e.preventDefault(); open(v); }
+  }, true);
   let chip = null, chipVideo = null, chipHide = 0;
   function showChip(v) {
     if (!owner() || !visible(v)) return;

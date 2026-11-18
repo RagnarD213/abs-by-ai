@@ -32,7 +32,7 @@
     "Dan Rose Fitness",
     "Shorts"
   ],
-  "pinned_comment": "How many minutes do you spend in the car each day?",
+  "pinned_comment": "What could you change about your commute to make more time for fitness?",
   "pinned_comment_status": "prepared; shared daily routine posts and pins after public release",
   "instagram_first_comment": "Watch all my newest videos: https://sixpackabs.com/?utm_source=instagram&utm_medium=short&utm_campaign=fitness-self-driving-car&utm_content=ds30-fitness-self-driving-car",
   "caption_overrides": {
@@ -44,5 +44,7 @@
   "approved_cover": "R2-X4, car correction and final With A copy",
   "approved_cover_record": "Short-form video content/covers/approved-ds30/picks.json",
   "kitchen": false,
-  "gym": false
+  "gym": false,
+  "engagement_prompt": "What could you change about your commute to make more time for fitness?",
+  "engagement_topic": "lifestyle"
 }
