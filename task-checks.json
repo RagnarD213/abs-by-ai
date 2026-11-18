@@ -13,7 +13,8 @@
     "assistant::Dishes",
     "assistant::Replace robot mop water",
     "assistant::Fold laundry",
-    "assistant::Make bed"
+    "assistant::Make bed",
+    "assistant::Take trash out"
   ],
   "log": {
     "health::Shower": [
@@ -253,6 +254,7 @@
     "assistant::Dishes": "2026-11-17",
     "assistant::Replace robot mop water": "2026-11-17",
     "assistant::Fold laundry": "2026-11-17",
-    "assistant::Make bed": "2026-11-17"
+    "assistant::Make bed": "2026-11-17",
+    "assistant::Take trash out": "2026-11-17"
   }
 }
