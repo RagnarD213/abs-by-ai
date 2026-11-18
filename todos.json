@@ -439,6 +439,13 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Sweep outdoor entry way",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
