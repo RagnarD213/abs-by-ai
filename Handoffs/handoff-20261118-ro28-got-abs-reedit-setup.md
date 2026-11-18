@@ -25,6 +25,11 @@ Google Ads disapproved/limited the Zepbound engagement ads for RO-28 (yt:eLV6Elu
 - Dan: **"Post the re-edited video instead."** So the re-edited film takes the cancelled slot: aim for YouTube as early as Dan's thumbnail pick allows (Thu Nov 19 9 AM Central is the target), and Facebook, Instagram and TikTok at Thu Nov 19 noon Central once the YouTube video is verified public (Dan's override of the usual next-day rule; if the YouTube copy is not public by noon, postpone the three). Confirm the slot is free in the live Blotato queue and `release_phases.py` before scheduling; only the thumbnail pick is still Dan's.
 - The old page on sixpackabs.com is draft; the new video gets its own page when public (sync does it).
 
+## DAN'S PICKS, 2026-11-18 evening (these override every date above and Codex's earlier Jan 31 proposal)
+- **Thumbnail: X1 (Studio portrait)** from the review page http://127.0.0.1:9942/. Install and finalize exactly that image (all required platform sizes), record the pick and hash in `Docs/memory/cover-picks-ai-dan-acting-topic.md`. Dan has approved it; no further cover choice is pending.
+- **Release: Thu Nov 19, 2026.** YouTube at **10:00 AM Central** through Blotato (the 9 AM slot holds the Rear Delt Flys Short, DS-24, four platforms: do not move or touch it). Facebook, Instagram @danrosefit and TikTok at **12:00 noon Central** the same day (Dan's override of the next-day rule; the cancelled RO-28 socials left that noon slot empty). Verify the YouTube copy is public before noon; if it is not, postpone the three socials and tell Dan.
+- Then: seven engagement ads (neutral text, no drug terms), the sixpackabs.com page check, pinned comment, backups, receipt. Dan's standing rules apply: never upload Public by hand, neutral title/description/thumbnail/ad text.
+
 ## Starter prompt and model
 Model: Codex GPT-6.2 Sol, High. Start now (Dan approved the film).
 ```
