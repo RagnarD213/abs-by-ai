@@ -236,6 +236,7 @@ def photos(kind, label='Real photos of me, not AI-generated', cap=None):
 def swapimg(name, alt, cls=''):
     return f'<figure class="swapimg {cls}"><img src="{A}{name}" alt="{alt}"></figure>'
 
+FOUNDER_AGE = '41 years old'      # Dan, 2026-11-18: a second grey line under his name on the founder card and the sign-off
 ONE_BOTTLE = 'Buy just one bottle - $97'      # Dan, 2026-11-18: small grey second button under every buy button in the letter.
                                             # Not on the pinned top bar and not on the offer card right under the video.
 

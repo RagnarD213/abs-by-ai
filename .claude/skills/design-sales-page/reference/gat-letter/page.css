@@ -581,3 +581,14 @@ footer a{color:inherit}
 .inline-nav{display:none!important}
 .menu{display:block!important}
 @media (min-width:1280px){.has-secure .secure{margin-left:auto;order:0}}
+
+/* Dan, 2026-11-18: on desktop the three top graphics line up; the shorter headings get the extra space above the picture */
+@media (min-width:1024px){
+  .swappair{display:flex;flex-direction:column}
+  .swappair .swapline{margin-bottom:16px}
+  .letter .swappair .swapimg{margin-top:auto}
+}
+.so-age{display:block}
+/* the real store listing, in a phone frame */
+.listing{margin:20px auto 22px;max-width:320px;border:8px solid #11171a;border-radius:30px;overflow:hidden;background:#f2ecdf;box-shadow:0 12px 28px rgba(20,30,28,.18)}
+.listing img{display:block;width:100%;height:auto}

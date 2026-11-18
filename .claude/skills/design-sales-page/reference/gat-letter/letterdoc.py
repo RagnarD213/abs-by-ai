@@ -131,7 +131,9 @@ def image_for(d, sec):
         return (f'<figure class="ytshot"><img src="{A}yt-3min-abs.jpg" alt="Crazy 3 Min Home Abs Workout on the SixPackAbs.com '
                 f'YouTube channel: 4.47M subscribers, 2.6M views"><img class="ytzoom" src="{A}yt-3min-abs-counts.jpg" alt=""></figure>')
     if 'store listing' in t:
-        return GREY('Picture to come: the Great Again T store listing at $97 (the live shop shows $47 today)')
+        # the real listing, captured from shop.sixpackabs.com on 2026-11-18, cropped to name, picture and price
+        return (f'<figure class="listing"><img src="{A}store-listing-97.jpg" width="780" height="1448" '
+                'alt="Great Again T on the SixPackAbs.com shop: 1 bottle, $97"></figure>')
     if 'before photos' in t:
         return {'photos': 'before'}
     if 'after photos' in t:
@@ -267,7 +269,7 @@ def render_letter():
                 n, t_ = [x.strip() for x in val.split(' / ')]
                 COPY.extend([n, t_])
                 o.append(f'<div class="founder"><img src="{A}founder-aged-full.jpg" alt="{esc(n)}"><div>'
-                         f'<p class="founder-n">{esc(n)}</p><p class="founder-t">{esc(t_)}</p></div></div>')
+                         f'<p class="founder-n">{esc(n)}</p><p class="founder-t">{esc(t_)}</p><p class="founder-t">{FOUNDER_AGE}</p></div></div>')
             elif key == 'Label under the photos':
                 LABELS.append(val); pending_photos[si]['label'] = val
             elif key.startswith('Caption on each'):
@@ -275,7 +277,7 @@ def render_letter():
             elif key == 'Sign-off':
                 n, t_ = [x.strip() for x in val.split(' / ')]
                 COPY.extend([n, t_])
-                o.append(f'<div class="signoff"><img src="{A}founder-aged-full.jpg" alt="{esc(n)}"><p><b>{esc(n)}</b>{esc(t_)}</p></div>')
+                o.append(f'<div class="signoff"><img src="{A}founder-aged-full.jpg" alt="{esc(n)}"><p><b>{esc(n)}</b>{esc(t_)}<span class="so-age">{FOUNDER_AGE}</span></p></div>')
             continue
         COPY.append(s)
         if b['tag'] == 'li':

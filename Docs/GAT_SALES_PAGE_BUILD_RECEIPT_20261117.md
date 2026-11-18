@@ -56,13 +56,13 @@ Shopify copies the first shipment's rate onto the subscription ("Recurring shipm
 4. A small grey "Buy just one bottle - $97" button under the last two buy buttons only. It opens the order page with the one-bottle option already chosen (`?option=single`). Checked live.
 No change to the order page, checkout, plan, discount or pixel, so Grokbot's test orders do not need repeating.
 5. Later the same day: the small one-bottle button now sits under every buy button in the letter (all five), still not on the pinned top bar or the offer card under the video; and the nine page links are inside the hamburger menu at every screen size, desktop included (the row of links in the header is gone).
+6. Evening: on desktop the three top graphics are bottom-aligned so they line up under headings of different lengths; "41 years old" under Dan's name on the founder card and the sign-off (`FOUNDER_AGE` in `gen.py`, not in the Doc); the $97 store listing grey block replaced by a real screenshot of the live listing in a phone frame (`assets/store-listing-97.jpg`). Deployed as three files only (sales template, stylesheet, the picture), because the one-page checkout session now owns `build_live.py`, `onepage.py` and `live/gat*.js`.
 
 ## Left to do
 
 1. Two real test orders (free month and one bottle), then cancel the test subscription and orders. Needs a card: Codex or Grokbot, `Handoffs/handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`.
 2. Video: when Great Again T VSL (WV-03) is approved, set `CFG['video']` and `revealAt` (the second Dan says "So if you already know you want this").
 3. Launch day: `LAUNCHED = True` (removes noindex), rebuild, deploy.
-4. The $97 store listing picture in the letter (grey block): the listing is $97 now, so it can be captured.
 5. The 7-day reminder email before the first $67 charge; Dan's Part C items in the compliance Doc; the two label differences (directions and warnings wording).
 6. 3 and 6 bottle packs are still $129 and $234.
 
