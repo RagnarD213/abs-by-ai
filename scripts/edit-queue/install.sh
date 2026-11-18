@@ -15,7 +15,10 @@ done
 mkdir -p "$AGENTS" "$HOME/Library/Logs/absbyai-edit-queue"
 # The real interpreter, not the /usr/bin/python3 shim: through the shim, macOS privacy checks intermittently
 # refused the launchd job access to ~/Documents (2026-09-17); launched directly it was allowed 5/5.
-PY="$(xcrun --find python3 2>/dev/null || command -v python3)"
+# Prefer the Command Line Tools Python (2026-11-18): macOS credits a Python inside Xcode.app to Xcode itself, so a
+# Full Disk Access grant on that Python never reaches the agent. The M6 and M2 both grant this copy.
+CLT_PY=/Library/Developer/CommandLineTools/usr/bin/python3
+if [ -x "$CLT_PY" ]; then PY="$CLT_PY"; else PY="$(xcrun --find python3 2>/dev/null || command -v python3)"; fi
 # First install starts paused: un-pausing is a deliberate act (dispatcher.py resume).
 [ -f "$HERE/.installed-once" ] || { python3 "$HERE/dispatcher.py" pause >/dev/null; : > "$HERE/.installed-once"; }
 for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
