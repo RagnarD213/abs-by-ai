@@ -4,6 +4,8 @@ CONTENT (LFC). Task name: `I Crashed My Tesla LFC R1`.
 
 **Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
 
+**Paused by Dan on November 18, 2026.** Progress is preserved on M2 in `/Volumes/Extreme/_edit_work/RO-39/PAUSED_BY_DAN.json` and `r1/RESUME.md`. Production processes and render/edit slots were released. Do not restart automatically; wait for Dan’s explicit resume instruction. No checked first-review delivery or full-film approval exists.
+
 ## Read first
 
 `00-RULES.md`, `.claude/skills/_shared/VIDEO-RULES.md`, and the shoot report `Docs/SHOOT_1113_FOOTAGE_REPORT.md` (format, orientation, camera clock, full roll map).
