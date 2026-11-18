@@ -26,12 +26,9 @@ Local builder (gitignored, M6): `Media/research/gat-sales-page-contest-20261117/
 - The Privacy Policy promises quiz answers are never sent to ad platforms: keep quiz answers out of Google tags and page addresses.
 - The sales page wording rule applies (memory `gat-page-google-ads-words`).
 
-## Mismatches found between the sales page offer and the live shop (Dan decides)
+## Shop matched to the offer (2026-11-17, on Dan's "Yes, change it")
 
-1. Monthly refill: the page says $67; the shop gives free shipping only from $70, so it would charge $76.99 today.
-2. Regular price $97 on the sales page; the shop sells one bottle for $47.
-3. Guarantee: the script says unopened bottles within one year of receiving them; the shop's refund page says any reason, 365 days from the order.
-4. Contact: the pages publish email, mailing address, hours and a form, no phone number. `support@sixpackabs.com` was created 2026-11-17 on Dan's OK as a WordPress.com forward to his inbox (active; not yet tested with a real email). The 7-day reminder email before the first refill charge is a launch requirement for the checkout build.
+Receipt: `Docs/GAT_SHOP_OFFER_MATCH_RECEIPT_20261117.md`. One bottle $97, a $67 monthly plan with free shipping, the unopened-bottle guarantee store-wide. Still open: the free first bottle itself (first payment 100% off) and the 7-day reminder email are part of the checkout build; the 3 and 6 bottle packs are still $129 and $234.
 
 ## Label facts
 
