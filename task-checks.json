@@ -12,7 +12,8 @@
     "assistant::Clean up bar shelf box, plastic, and stryofoam",
     "assistant::Dishes",
     "assistant::Replace robot mop water",
-    "assistant::Fold laundry"
+    "assistant::Fold laundry",
+    "assistant::Make bed"
   ],
   "log": {
     "health::Shower": [
@@ -251,6 +252,7 @@
     "assistant::Clean up bar shelf box, plastic, and stryofoam": "2026-11-17",
     "assistant::Dishes": "2026-11-17",
     "assistant::Replace robot mop water": "2026-11-17",
-    "assistant::Fold laundry": "2026-11-17"
+    "assistant::Fold laundry": "2026-11-17",
+    "assistant::Make bed": "2026-11-17"
   }
 }
