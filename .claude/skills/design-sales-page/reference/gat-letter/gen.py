@@ -110,8 +110,7 @@ LINKS = {'quiz': '1-quiz.html', 'sales': '2-before-offer.html', 'order': '4-chec
          'questions': 'p-questions.html', 'how': 'p-how-it-works.html', 'ingredients': 'p-ingredients.html',
          'shipping': 'p-shipping-returns.html', 'contact': 'p-contact.html', 'about': 'p-about.html',
          'privacy': 'p-privacy.html', 'terms': 'p-terms.html', 'disclaimer': 'p-disclaimer.html'}
-SUPPORT = 'dan@sixpackabs.com'   # Dan's choice for the footer and checkout. The compliance Doc's own text says support@sixpackabs.com
-                                 # (mailbox made 2026-11-17, forwards to Dan); the two differ until Dan picks one.
+SUPPORT = 'support@sixpackabs.com'   # Dan, 2026-11-18: "support@ everywhere". Forwards to his inbox.
 CTA_TXT = 'Claim My Free Month’s Supply'
 ARROW = '<svg class="chev" aria-hidden="true" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg>'
 NOTES = ['1 year money back guarantee', '$9.99 shipping today', 'Cancel any time']

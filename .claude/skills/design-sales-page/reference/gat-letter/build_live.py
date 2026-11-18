@@ -354,6 +354,7 @@ def check():
     assert len(files) == 12, len(files)
     for f in files:
         raw = f.read_text()
+        assert 'dan@sixpackabs.com' not in raw, (f.name, 'old contact address')
         t, a = gen.page_text(raw)
         bad = sorted(set(m.group(0) for m in gen.BANNED.finditer(t + ' ' + a)))
         assert not bad, (f.name, 'Google Ads words', bad)
