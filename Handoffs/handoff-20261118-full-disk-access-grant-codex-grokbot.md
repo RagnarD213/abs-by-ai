@@ -63,4 +63,5 @@ Per Mac and per folder: pass or fail, the time, and the last line of each `drive
 
 ## Result
 
-(not run yet)
+- M6, Nov 18 5:49 PM Central, granted by Dan himself (Python.app and python3.9): Videos to Review PASS; internal work folder PASS; Extreme work folder PASS; Expansion work folder PASS. Last line: `PASS m6 background agent: every folder: create, write, rename, delete`.
+- M2: not granted yet.
