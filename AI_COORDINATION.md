@@ -37,7 +37,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 
-**CLIPLIB-V2:ACTIVE:2026-11-17:Codex:M2.**14 X1 whole framepairs approved;6UNDECIDED held. Authorized M2 move after slot opened;9 motion takes submitted/90 of5,000credits,14 native/export files archived with local+Drive SHA verification. V2-01 machine gate PASS; independent motion review pending. M6 production remains with Joint Vigor. No usable keeperIDs yet. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
+**CLIPLIB-V2:ACTIVE:2026-11-17:Codex:M2.** 14 X1 whole frame pairs approved; 6 UNDECIDED held. 18 motion submissions, 17 successful takes and one refunded technical failure; 170 of 5,000 credits used, 0 reserved. All 23 provider files (17 native, 6 exports) archived on M2 with full Drive SHA verification. First three full takes failed detailed review; replacement takes collected. Complete-native 1080p checks/reviews are in progress through M2’s normal queue. M6 remains with Joint Vigor. No final video approval or usable keeper IDs. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
 **REALDEMOS-B04:PAUSED-BY-DAN:2026-11-17:Codex01a1e613:M2.** Dan is low on allowance. Automatic start removed; no active worker or rendered demos. Resume only when Dan asks.

@@ -86,11 +86,13 @@ More options** → **Rename**, **wait about a second** for the box, select all (
 Typing too early appends to the old title. Tiles start newest first, but the grid re-sorts after renames and reloads:
 find tiles by name, or click **Videos** in the left sidebar to hide the uploaded frames.
 
-To get the file: ⋮ **More options** → **Download** → **1080p Upscaled** (720p "Original size" only if 1080p is missing;
-4K needs Ultra, never click its Upgrade). Upscaling took 50 s on 2026-10-17 but 1.5 to 6 minutes on 2026-10-20 (other Flow tabs queue behind each other); Flow asks you not to run several at once. Rename the tile first (it names the file `P1_1080p_<timestamp>.mp4`), then poll `~/Downloads/<id>_*.mp4`: start
-one, wait until the file is in `~/Downloads` (usually `<tile title>_1080p_<YYYYMMDDHHMMSS>.mp4`; once it came without
-"1080p" in the name and was still 1920x1080), then the next. Watch `~/Downloads`, not the "Upscaling" toast, which lingers
-for minutes. The submenu is translucent for a moment after it opens: 1080p Upscaled is its third entry. Then:
+Always collect the **full native original** first. In the November 17 Flow UI, the tile’s direct Download button saved native 720p immediately. Right-clicking the completed asset group opened Rename and a Download submenu with **720p Original size** and **1080p Upscaled**. Reinspect the current UI rather than assuming this layout persists. Do not click paid 4K or Upgrade options without applicable authorization. Rename first, wait for the edit box, select all and confirm the exact saved title.
+
+Use the actual browser host’s Downloads folder. A supported browser download-event wait timed out on November 17 even though Chrome had saved the complete file. Check the exact title/token, file stability, media metadata and SHA before retrying a download. A generated title alone does not prove completion: failed tiles can have titles too. Read provider error/Retry controls before collection.
+
+Request a provider 1080p export only within the job’s budget and preserve it as a separate output. Inspect **both frame count and actual endpoint chronology** against the native file. In CLIPLIB-V2, five exports contained 188 frames versus 190 native, while one preserved all 192. These are actual job results, not proof that future exports will truncate. If an export drops clean source frames, make the required 1080p review copy from the complete native original without retiming, interpolation or added holds, and gate/review that exact derivative. Never shorten the archived original to match an export. Record the upscale method honestly.
+
+Historical upscaling took 50 seconds to six minutes. Collect one export before starting another, checking the filesystem rather than a lingering toast. Download names and UI positions vary; use the actual observed file, never a guessed filename. Then:
 
 ```bash
 python3 .claude/skills/_shared/veo/veo.py collect JOBDIR A1 --from ~/Downloads/<the new file>.mp4
