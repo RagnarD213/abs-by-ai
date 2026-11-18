@@ -1,3 +1,7 @@
+## A video made private comes off sixpackabs.com the same day (Dan, 2026-11-18)
+
+Standing rule, Claude and Codex. When any video is made private, unlisted or deleted on YouTube, set its sixpackabs.com page (and article) to draft right away, never delete, and verify the page is gone from the home page and /videos/. Full rule: AGENTS.md, same heading. Memory: `private-video-comes-off-the-site`.
+
 ## Advertised videos: no Zepbound or GLP-1 imagery in title, description, thumbnail or ad text (Dan, 2026-11-18)
 
 Standing rule, Claude and Codex. Never put "Zepbound", other GLP-1 or drug names, needles, syringes, pens, vials or pharmacy imagery in the title, description, thumbnail or ad text of any video that is or will be advertised (Google disapproved these ads for restricted drug terms). Use a neutral title and thumbnail from the start. Change them to name the drug only once the video is no longer advertised. Full rule: AGENTS.md, same heading. Memory: `ads-no-drug-terms-in-metadata`.

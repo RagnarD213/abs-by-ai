@@ -173,6 +173,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [M6 network drive drops](m6-network-drive-drops.md): 11-16: M6 edits on M2 drives die when the share drops; keepalive + throttled copies
 - [Ads: no drug terms in metadata](ads-no-drug-terms-in-metadata.md): 11-18 advertised videos never show Zepbound/GLP-1/needle/vial in title, description, thumbnail, ad text; neutral title until ads end
 - [Edit Queue ETA](edit-queue-eta.md): 11-18: sessions report steps with eta.py; page shows ETA ranges every 10 min, no AI; never post ETAs in chat unprompted
+- [Private video off the site](private-video-comes-off-the-site.md): 11-18 video made private/unlisted/deleted = its sixpackabs.com page to draft same day, verify home page + /videos/
 - [Vertical Shorts first; B-roll colour checks](shorts-vertical-first-broll-final-check.md): 11-16 actual vertical drafts plus look/voice choices, no horizontal selection exports; inspect every final B-roll insert
 - [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
