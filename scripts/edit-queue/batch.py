@@ -302,7 +302,7 @@ def handle(req):
                     if claim.get('workdir'):row.update(placement=claim['owner'],workdir=claim['workdir'])
                     row.pop('claim',None)
                 else:finish(row,dict(status='blocked',reason='start failed three times: '+outcome['reason'],owner=editor_name(row),
-                                     next_action='The edit never got going. Open a new '+editor_name(row)+' chat, fix the start problem named here, then switch this batch back on (batch.py start).'))
+                                     next_action=takeover_action(row,'fix the start problem named here, then start the edit in that chat')))
             elif outcome['status']=='paused-for-allowance':
                 attempted=outcome.get('attempted',True)
                 row['allowance_tries']+=int(attempted)
@@ -362,52 +362,71 @@ def fingerprints(fresh_probe=False):
     canary=read(HOME/'canary-latest.json',{})
     digest=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
     launcher_ok=(canary.get('launcher_sha256')==hashlib.sha256(Path(eq.__file__).read_bytes()).hexdigest() and canary.get('executors_sha256')==hashlib.sha256(json.dumps(eq.load_config()['executors'],sort_keys=True).encode()).hexdigest())
-    if fresh_probe:request_launchd_probe()
+    request_id=request_launchd_probe() if fresh_probe else None
     return dict(host=here(),launcher_ok=launcher_ok,hashes=hashes,digest=digest,dirty=dirty,canary=canary,
-                drive_probe=launchd_probe_status(),
+                drive_probe=launchd_probe_status(request_id=request_id),
                 commit=subprocess.check_output(['git','rev-parse','origin/main'],cwd=eq.ROOT,text=True).strip())
 
 
 # ---- Background file access (2026-11-18). The launchd Python, not a chat's shell, must be able to use the
 # drives: on Nov 17-18 it could not write the M2 work drive or the M6's Videos to Review folder.
+PROBE_DIR = '.absbyai-batch-probe'   # one fixed private folder per checked folder, so leftovers are always retried
+PROBE_TIMEOUT_S = 60
+
+
+def volume_root(path):
+    """'/Volumes/X' for a path on an external or network volume, else None (the internal disk)."""
+    parts=Path(path).parts
+    return str(Path(*parts[:3])) if len(parts)>=3 and parts[1]=='Volumes' else None
+
+
 def probe_folders():
+    """(label, folder, required, create_root). Mirrors renderq: internal work first, then mounted drives."""
     override=os.environ.get('EDIT_BATCH_PROBE_FOLDERS')
-    if override:return [(f['label'],Path(f['path']),bool(f.get('required',True))) for f in json.loads(override)]
+    if override:
+        return [(f['label'],Path(f['path']),bool(f.get('required',True)),bool(f.get('create',False))) for f in json.loads(override)]
     internal=Path(os.environ.get('GATE_INTERNAL_WORK') or Path.home()/'Projects/_edit_work')
-    folders=[('Videos to Review',Path(eq.ROOT)/'Videos to Review',True),('internal work folder',internal,True),
-             ('Extreme work folder',Path('/Volumes/Extreme/_edit_work'),True)]
-    if Path('/Volumes/Expansion').is_dir():folders.append(('Expansion work folder',Path('/Volumes/Expansion/_edit_work'),True))
+    folders=[('Videos to Review',Path(eq.ROOT)/'Videos to Review',True,False),('internal work folder',internal,True,True)]
+    for name in ('Extreme','Expansion'):
+        # Required whenever the drive is really mounted here; a missing share does not stop internal work.
+        folders.append((name+' work folder',Path('/Volumes')/name/'_edit_work',os.path.ismount('/Volumes/'+name),True))
     return folders
 
 
 def drive_probe(folders=None):
     """Create, write, rename and delete inside each folder exactly as a worker would."""
     results=[]
-    for label,folder,required in (probe_folders() if folders is None else folders):
+    for label,folder,required,create_root in (probe_folders() if folders is None else folders):
         r=dict(label=label,path=str(folder),required=required,steps=[])
-        tag='.absbyai-batch-probe-'+uuid.uuid4().hex;sub=moved=None
         try:
             real=Path(os.path.realpath(folder));r['resolved']=str(real)
+            vol=volume_root(real)
+            if vol and not os.path.ismount(vol):
+                # A leftover folder at an unmounted /Volumes path is the internal disk, never the drive.
+                r.update(passed=not required,mounted=False,error='drive not mounted ('+vol+')');results.append(r);continue
+            r['mounted']=True
+            if not real.is_dir() and create_root:real.mkdir(parents=True,exist_ok=True)
             if not real.is_dir():
-                r.update(passed=not required,error='folder missing or drive not mounted');results.append(r);continue
-            sub=real/tag;sub.mkdir();r['steps'].append('create')
-            f=sub/'probe.txt'
+                r.update(passed=not required,error='folder missing');results.append(r);continue
+            box=real/PROBE_DIR
+            leftovers=[str(x) for x in box.iterdir()] if box.is_dir() else []
+            for x in leftovers:Path(x).unlink()
+            if leftovers:r['cleared_leftovers']=leftovers
+            box.mkdir(exist_ok=True);r['steps'].append('create')
+            f=box/'probe.txt'
             with f.open('w') as h:h.write('absbyai batch probe\n');h.flush();os.fsync(h.fileno())
             r['steps'].append('write')
-            moved=real/(tag+'.txt');os.replace(f,moved);r['steps'].append('rename')
+            moved=box/'probe-renamed.txt';os.replace(f,moved);r['steps'].append('rename')
             ok=moved.read_text()=='absbyai batch probe\n'
-            moved.unlink();moved=None;sub.rmdir();sub=None;r['steps'].append('delete')
+            moved.unlink();box.rmdir();r['steps'].append('delete')
             r['passed']=ok
             if not ok:r['error']='read back differs'
         except Exception as exc:
-            # Stable text: the folder is named by its label, never the random probe file name.
+            # Stable text: the folder is named by its label, never a probe file name.
             r.update(passed=False,error=type(exc).__name__+': '+(getattr(exc,'strerror',None) or str(exc)))
-        finally:
-            for leftover in (moved,sub and sub/'probe.txt'):
-                try:leftover and leftover.unlink()
-                except OSError:pass
-            try:sub and sub.rmdir()
-            except OSError:pass
+            box=Path(r.get('resolved',folder))/PROBE_DIR
+            try:r['leftovers']=[str(x) for x in box.iterdir()] if box.is_dir() else []
+            except OSError:r['leftovers']=['unreadable: '+str(box)]
         results.append(r)
     return results
 
@@ -423,12 +442,31 @@ def process_executable(pid=None):
     except (OSError,subprocess.SubprocessError):return None
 
 
-def record_probe(context=None):
+def run_probe_with_deadline():
+    """The probe runs in a child of this same interpreter (same launchd responsibility), with a deadline,
+    so a hung share can never stall the tick."""
+    proc=subprocess.Popen([sys.executable,'-B',str(Path(__file__).resolve()),'_probe-worker'],stdin=subprocess.DEVNULL,
+                          stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,start_new_session=True)
+    try:
+        out,err=proc.communicate(timeout=PROBE_TIMEOUT_S)
+        return json.loads(out),None
+    except subprocess.TimeoutExpired:
+        proc.kill()
+        try:proc.communicate(timeout=5)
+        except subprocess.TimeoutExpired:pass
+        return None,'file-access check timed out after '+str(PROBE_TIMEOUT_S)+' s (a drive or share is hung)'
+    except ValueError:
+        return None,'file-access check crashed: '+(err or '')[-300:]
+
+
+def record_probe(context=None, request=None, deadline=True):
     context=context or ('launchd' if launchd_context() else 'interactive')
-    folders=drive_probe()
+    if deadline:folders,error=run_probe_with_deadline()
+    else:folders,error=drive_probe(),None
+    if error:folders=[dict(label='all folders',passed=False,required=True,error=error)]
     doc=dict(at=time.time(),host=here(),context=context,interpreter=sys.executable,
              real_interpreter=os.path.realpath(sys.executable),process=process_executable(),pid=os.getpid(),
-             passed=all(f['passed'] for f in folders),folders=folders)
+             request=(request or {}).get('id'),passed=bool(folders) and all(f['passed'] for f in folders),folders=folders)
     write(HOME/('drive-probe-'+context+'.json'),doc)
     return doc
 
@@ -438,16 +476,28 @@ def maybe_probe():
     if not launchd_context():return None
     last=read(HOME/'drive-probe-launchd.json',{});request=read(HOME/'drive-probe-request.json',{})
     age=time.time()-last.get('at',0)
-    if request.get('at',0)>last.get('at',0) or age>PROBE_EVERY_S or (not last.get('passed') and age>300):
-        return record_probe('launchd')
+    pending=request.get('id') and request.get('id')!=last.get('request')
+    if pending or age>PROBE_EVERY_S or (not last.get('passed') and age>300):
+        return record_probe('launchd',request if pending else None)
     return None
 
 
-def launchd_probe_status(now=None):
+def launchd_probe_status(now=None, request_id=None):
+    """OK only for a fresh launchd record that answers the request (when given) and passes every folder
+    this Mac currently needs, at the same resolved paths."""
     now=now or time.time();doc=read(HOME/'drive-probe-launchd.json',{})
     if not doc:return dict(ok=False,problem='no background file-access check has run yet on this Mac')
-    failed=[f['label']+' ('+f.get('error','failed')+')' for f in doc.get('folders',[]) if not f.get('passed')]
-    if failed:problem='the background agent cannot use: '+'; '.join(failed)
+    seen={f.get('label'):f for f in doc.get('folders',[])}
+    problems=[f['label']+' ('+f.get('error','failed')+')' for f in doc.get('folders',[]) if not f.get('passed')]
+    for label,folder,required,_ in probe_folders():
+        if not required or label in [x.split(' (')[0] for x in problems]:continue
+        got=seen.get(label)
+        if not got:problems.append(label+' (not checked by the background agent)')
+        elif got.get('resolved') and got['resolved']!=os.path.realpath(folder):problems.append(label+' (moved since the check)')
+    if not doc.get('folders'):problems.append('no folders recorded')
+    if problems:problem='the background agent cannot use: '+'; '.join(problems)
+    elif not doc.get('passed'):problem='the background file-access check did not pass'
+    elif request_id and doc.get('request')!=request_id:problem='the background agent did not answer a fresh file-access check'
     elif now-doc.get('at',0)>PROBE_MAX_AGE_S:problem='the background file-access check is older than six hours'
     else:problem=None
     return dict(ok=not problem,problem=problem,at=doc.get('at'),interpreter=doc.get('interpreter'),
@@ -455,14 +505,14 @@ def launchd_probe_status(now=None):
 
 
 def request_launchd_probe(wait_s=75):
-    """Ask this Mac's own launchd agent for a fresh check, then wait for its answer."""
-    asked=time.time();write(HOME/'drive-probe-request.json',dict(at=asked))
+    """Ask this Mac's own launchd agent for a fresh check, then wait for its answer. Returns the request id."""
+    request=dict(id=uuid.uuid4().hex,at=time.time());write(HOME/'drive-probe-request.json',request)
     kick()
-    deadline=asked+wait_s
+    deadline=request['at']+wait_s
     while time.time()<deadline:
-        if read(HOME/'drive-probe-launchd.json',{}).get('at',0)>=asked:return True
+        if read(HOME/'drive-probe-launchd.json',{}).get('request')==request['id']:break
         time.sleep(2)
-    return False
+    return request['id']
 
 
 def preflight():
@@ -622,14 +672,44 @@ def when(t):
     return time.strftime('%b %-d %-I:%M %p',time.localtime(t)) if t else 'an unknown time'
 
 
-def start_blockers(snap, start_block=None, batch=None):
-    """Why queued rounds will not start, in plain words. Empty reasons means they can start."""
+GATE_STALE_S = 600
+ROLLOUT_AT = 1795042800   # Nov 18 2026 5:00 p.m. Central: rows that ended before this were reported before alerts existed
+
+
+def row_label(r):
+    return (r.get('title') or r['id'])+' ('+r['id']+' R'+str(r['round'])+')'
+
+
+def host_gates(snap, local=None, now=None):
+    """Each Mac's own start gate as it last reported it to the coordinator. A Mac silent for ten minutes
+    is not claiming anything, so it counts as gated too. `local` = (host, reason) overrides with this
+    Mac's fresher reading."""
+    now=now or time.time();latest={}
+    for d in snap.get('batches',{}).values():
+        for host,obs in (d.get('observations') or {}).items():
+            gate=(obs or {}).get('_start_block')
+            if isinstance(gate,dict) and gate.get('at',0)>latest.get(host,{}).get('at',0):latest[host]=gate
+    gates={}
+    for host in ('m2','m6'):
+        g=latest.get(host)
+        if not g:gates[host]='the '+host.upper()+' has not reported its start check yet'
+        elif now-g['at']>GATE_STALE_S:gates[host]='the '+host.upper()+' has not reported for '+str(int((now-g['at'])//60))+' minutes'
+        else:gates[host]=g.get('reason')
+    if local:gates[local[0]]=local[1]
+    return gates
+
+
+def start_blockers(snap, start_block=None, batch=None, error=None, local=None):
+    """Why queued rounds will not start, in plain words, per round and per Mac. Empty reasons means they can start."""
     c=snap.get('control',{}) or {};pre=c.get('preflight') or {}
     rows=[(n,k,r) for n,d in snap.get('batches',{}).items() for k,r in d.get('jobs',{}).items()
           if r.get('status')=='queued' and not r.get('held') and (batch is None or n==batch)]
     held=[(n,k,r) for n,d in snap.get('batches',{}).items() for k,r in d.get('jobs',{}).items()
           if r.get('status')=='queued' and r.get('held') and (batch is None or n==batch)]
     reasons=[];kinds=[];global_block=False
+    if error:
+        global_block=True;kinds.append('coordinator-unreachable')
+        reasons.append('this Mac could not finish its check with the M2 ledger ('+str(error)[:160]+'), so what is shown may be out of date')
     if not c.get('enabled'):
         global_block=True;kinds.append('starts-off')
         reasons.append('new starts are switched off'+(' since '+when(c['stopped']) if c.get('stopped') else '')+
@@ -639,16 +719,24 @@ def start_blockers(snap, start_block=None, batch=None):
     elif not pre.get('passed'):
         global_block=True;kinds.append('preflight-failed')
         reasons.append('the last safety check ('+when(pre.get('at'))+') failed: '+'; '.join(pre.get('problems') or ['no reason saved']))
-    if start_block:
-        global_block=True;kinds.append('start-block');reasons.append(start_block)
-    off=[(n,k,r) for n,k,r in rows if not snap['batches'][n].get('enabled')]
-    if off and not global_block:
-        kinds.append('batch-off');reasons.append('these batches were never switched on: '+', '.join(sorted({n for n,_,_ in off})))
-    stuck=rows if global_block else off
+    if local is None and start_block:local=(here(),start_block)
+    gates=host_gates(snap,local)
+    stuck=[];host_reasons={};off=set()
+    for n,k,r in rows:
+        eligible=['m2','m6'] if r.get('placement')=='any' else [r.get('placement')]
+        blocked_hosts=[h for h in eligible if gates.get(h)]
+        if global_block:stuck.append((n,k,r));continue
+        if not snap['batches'][n].get('enabled'):stuck.append((n,k,r));off.add(n);continue
+        if blocked_hosts and len(blocked_hosts)==len(eligible):
+            stuck.append((n,k,r))
+            for h in blocked_hosts:host_reasons[h]=gates[h]
+    if not global_block:
+        for h,why in sorted(host_reasons.items()):kinds.append('gate-'+h);reasons.append(h.upper()+': '+why)
+        if off:kinds.append('batch-off');reasons.append('these batches were never switched on: '+', '.join(sorted(off)))
     return dict(count=len(stuck),reasons=reasons if stuck else [],kinds=kinds if stuck else [],
-                keys=sorted(r['id']+'-R'+str(r['round']) for _,_,r in stuck),
-                jobs=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+')' for _,_,r in stuck],
-                held=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+'): '+r['held'].get('reason','') for _,_,r in held])
+                keys=sorted(n+':'+k for n,k,_ in stuck),rows={n+':'+k:row_label(r) for n,k,r in stuck},
+                jobs=[row_label(r) for _,_,r in stuck],
+                held=[row_label(r)+': '+r['held'].get('reason','') for _,_,r in held])
 
 
 def headline(blockers):
@@ -680,6 +768,7 @@ def report(snap, error=None):
                       link=link,link_verified=verified,timing=r.get('timing',{}),allowance_pauses=r.get('allowance_pauses',[]),idle_slot_minutes_sampled=r.get('idle_slot_minutes',0),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
             if r['status']=='needs-dan':
                 item['waiting_s']=now-r.get('ended',now)
+                if o.get('finding'):item['reason']=str(item['reason'])+' Finding: '+str(o['finding'])
                 if o.get('choices'):item['reason']=str(item['reason'])+' Choices: '+'; '.join(map(str,o['choices']))
             if r['status']=='blocked' and not unknown:
                 item['owner']=o.get('owner') or editor_name(r)
@@ -703,7 +792,7 @@ def report(snap, error=None):
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
         except (OSError,ValueError,KeyError):pass
     outbox_errors=[read(p).get('_error') for p in (HOME/'outbox').glob('*.json') if read(p).get('_error')]
-    blockers=start_blockers(snap,snap.get('start_block'))
+    blockers=start_blockers(snap,error=error,local=(here(),snap.get('start_block')))
     head=headline(blockers)
     alerts=[x for x in [head,
                         (str(len(groups['Needs Dan']))+' video(s) need your answer') if groups['Needs Dan'] else None,
@@ -743,42 +832,62 @@ def notify(title, message):
 
 
 def alert_events(snap, doc):
-    events={}
+    """(key, short text, ended) for every blocked or needs-Dan row."""
+    events=[]
     for n,d in snap.get('batches',{}).items():
         for k,r in d.get('jobs',{}).items():
             if r.get('status') in ('blocked','needs-dan'):
                 o=r.get('outcome') or {}
-                what='needs your answer' if r['status']=='needs-dan' else 'is blocked; next: '+(o.get('owner') or editor_name(r))
-                events[r['status']+':'+n+':'+k+':'+str(int(r.get('ended') or 0))]=r.get('title',r['id'])+' ('+r['id']+' R'+str(r['round'])+') '+what
-    if doc.get('headline'):
-        # Same stuck rounds for the same kinds of reason = the same event, however the wording drifts.
-        ns=doc['not_starting'];sig=hashlib.sha1(json.dumps([ns.get('keys'),ns.get('kinds')]).encode()).hexdigest()[:12]
-        events['not-starting:'+sig]=doc['headline']
+                what='needs your answer' if r['status']=='needs-dan' else 'blocked, '+(o.get('owner') or editor_name(r))+' acts next'
+                events.append((r['status']+':'+n+':'+k+':'+str(int(r.get('ended') or 0)),row_label(r)+': '+what,r.get('ended') or 0))
     return events
 
 
-def send_alerts(snap, doc):
-    """One notification per new event, recorded in alerts.json and never repeated. M6 only."""
+def send_alerts(snap, doc, now=None):
+    """One notification per new event, recorded in alerts.json and never repeated. M6 only.
+
+    Blocked and needs-Dan rows are events by their ending. A round that cannot start opens an episode that
+    stays open while it stays stuck and closes when it clears, so a later recurrence rings again and a
+    partly resolved set does not."""
     if here()!='m6':return None
-    path=HOME/'alerts.json';state=read(path)
-    events=alert_events(snap,doc)
-    if state is None:
-        # First run: earlier blocked/needs-Dan rows were already reported elsewhere; record, do not ring.
-        state=dict(created=time.time(),events={e:dict(text=t,at=time.time(),seeded=True) for e,t in events.items() if not e.startswith('not-starting:')})
-    fresh=[(e,t) for e,t in events.items() if e not in state['events'] or
-           (not state['events'][e].get('sent') and not state['events'][e].get('seeded') and state['events'][e].get('tries',0)<3)]
-    if not fresh:
+    now=now or time.time();path=HOME/'alerts.json';state=read(path) or dict(created=now,events={})
+    state.setdefault('events',{})
+    migrating='episodes' not in state
+    episodes=state.setdefault('episodes',{})
+    candidates=[]
+    for e,text,ended in alert_events(snap,doc):
+        if e in state['events']:
+            prior=state['events'][e]
+            if prior.get('sent') or prior.get('seeded') or prior.get('tries',0)>=3:continue
+        elif ended<ROLLOUT_AT:
+            state['events'][e]=dict(text=text,at=now,seeded=True);continue
+        candidates.append((e,text))
+    stuck=(doc.get('not_starting') or {}).get('rows') or {}
+    for rk in list(episodes):
+        if rk not in stuck:episodes.pop(rk)
+    for rk,label in sorted(stuck.items()):
+        if rk not in episodes:
+            episodes[rk]=dict(id='not-starting:'+rk+':'+uuid.uuid4().hex[:10],since=now)
+            if migrating:state['events'][episodes[rk]['id']]=dict(text=label,at=now,seeded=True);continue
+        e=episodes[rk]['id'];prior=state['events'].get(e,{})
+        if not (prior.get('sent') or prior.get('seeded') or prior.get('tries',0)>=3):candidates.append((e,label+': will not start'))
+    included=[];body=''
+    for e,text in candidates:
+        nxt=(body+'; ' if body else '')+text
+        if len(nxt)>200 and included:break      # the rest wait for the next tick; only what is shown is recorded
+        included.append((e,text));body=nxt
+    if not included:
         write(path,state);return dict(sent=0)
-    title='Edit queue: '+(str(len(fresh))+' new alerts' if len(fresh)>1 else 'needs attention')
-    body=' | '.join(t for _,t in fresh)+' | Report: ~/.absbyai-batch/morning-report.md'
+    title='Edit queue: '+(str(len(candidates))+' items need a look' if len(candidates)>1 else 'needs a look')
+    body=body[:220]+('. Full report on the edit desk.' if len(body)<200 else '')
     try:result=notify(title,body)
     except Exception as exc:result=dict(method='osascript display notification',rc=-1,stderr=str(exc))
-    for e,t in fresh:
+    for e,text in included:
         prior=state['events'].get(e,{})
-        state['events'][e]=dict(text=t,at=time.time(),sent=result['rc']==0,tries=prior.get('tries',0)+1,delivery=result,
-                                screen_delivery='not verifiable from the background; edit desk shows the alert')
+        state['events'][e]=dict(text=text,at=now,sent=result['rc']==0,tries=prior.get('tries',0)+1,delivery=result,
+                                screen_delivery='not verifiable from the background; the edit desk shows the alert and the report')
     write(path,state)
-    return dict(sent=len(fresh),result=result)
+    return dict(sent=len(included),waiting=len(candidates)-len(included),result=result)
 
 
 def worker_command(claim_path):
@@ -805,13 +914,18 @@ def tick():
             try:maybe_probe()
             except Exception as exc:print('file-access check failed to run:',exc,flush=True)
             flush_outbox()
-            snap=rpc('tick',host=here(),observation=observe_local());save_snapshot(snap)
-            reconcile(snap)
             fp=fingerprints()
-            probe=launchd_probe_status()
-            start_block=(('installed source on the '+here().upper()+' differs from pushed main: '+', '.join(fp['dirty'])) if fp['dirty'] else
-                         ('scheduler changed since preflight' if snap['control'].get('enabled') and fp['digest']!=snap['control'].get('preflight',{}).get('digest') else
-                          (here().upper()+': '+probe['problem'] if not probe['ok'] else None)))
+            def gate(control):
+                probe=launchd_probe_status()
+                if fp['dirty']:return 'installed source differs from pushed main: '+', '.join(fp['dirty'])
+                if control.get('enabled') and fp['digest']!=control.get('preflight',{}).get('digest'):return 'scheduler changed since preflight'
+                return None if probe['ok'] else probe['problem']
+            # This Mac's own start gate travels with its observation, so the other Mac's report and receipts know it.
+            observation=observe_local()
+            observation['_start_block']=dict(at=time.time(),reason=gate(read(HOME/'snapshot.json',{}).get('control',{})))
+            snap=rpc('tick',host=here(),observation=observation);save_snapshot(snap)
+            reconcile(snap)
+            start_block=gate(snap['control'])
             if not start_block:
                 while True:
                     cap=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
@@ -886,8 +1000,8 @@ def startability(name, snap=None):
     """Whether anything will actually launch this batch now. A chat is never told 'queued' when nothing will."""
     snap=snap or rpc('snapshot')
     local=read(HOME/'start-block.json',{})
-    fresh_local=local.get('start_block') if time.time()-local.get('at',0)<900 else None
-    blockers=start_blockers(snap,fresh_local,batch=name)
+    mine=(here(),local.get('start_block')) if time.time()-local.get('at',0)<GATE_STALE_S else None
+    blockers=start_blockers(snap,batch=name,local=mine)
     if not snap.get('batches',{}).get(name):
         return dict(can_start=False,start_status='WILL NOT START: batch '+name+' is not registered.')
     if blockers['count']:
@@ -908,7 +1022,7 @@ def receipt(name):
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);sub=ap.add_subparsers(dest='cmd',required=True)
-    sub.add_parser('_rpc');sub.add_parser('preflight');sub.add_parser('tick');sub.add_parser('stop');sub.add_parser('status')
+    sub.add_parser('_rpc');sub.add_parser('_probe-worker');sub.add_parser('preflight');sub.add_parser('tick');sub.add_parser('stop');sub.add_parser('status')
     p=sub.add_parser('fingerprints');p.add_argument('--fresh-probe',action='store_true')
     p=sub.add_parser('drive-probe',help='check background file access; --launchd asks this Mac\'s agent and waits')
     p.add_argument('--launchd',action='store_true')
@@ -927,10 +1041,14 @@ def main():
     args=ap.parse_args()
     if args.cmd=='_rpc':result=handle(json.load(sys.stdin))
     elif args.cmd=='fingerprints':result=fingerprints(fresh_probe=args.fresh_probe)
+    elif args.cmd=='_probe-worker':
+        print(json.dumps(drive_probe()));return 0
     elif args.cmd=='drive-probe':
         if args.launchd:
-            answered=request_launchd_probe(wait_s=90)
-            result=dict(answered=answered,record=read(HOME/'drive-probe-launchd.json',{}),status=launchd_probe_status())
+            request_id=request_launchd_probe(wait_s=90)
+            status=launchd_probe_status(request_id=request_id)
+            answered=read(HOME/'drive-probe-launchd.json',{}).get('request')==request_id
+            result=dict(answered=answered,record=read(HOME/'drive-probe-launchd.json',{}),status=status)
             print(json.dumps(result,indent=2))
             print(('PASS' if result['status']['ok'] else 'FAIL')+' '+here()+' background agent: '+(result['status']['problem'] or 'every folder: create, write, rename, delete')
                   +('' if answered else ' (agent did not answer within 90 s; shown result is the last saved one)'))

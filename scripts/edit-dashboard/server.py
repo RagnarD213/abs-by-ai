@@ -135,6 +135,11 @@ class Handler(http.server.BaseHTTPRequestHandler):
     def do_GET(self):
         if not self.ok():return self.sendbody(b'','text/plain',403)
         if self.path=='/state':return self.state()
+        if self.path=='/batch-report':
+            # The overnight batch's persistent morning report (2026-11-18): what the M6 notification points to.
+            try:body=(Path.home()/'.absbyai-batch'/'morning-report.md').read_bytes()
+            except OSError:body=b'No overnight batch report on this Mac yet.'
+            return self.sendbody(body,'text/plain; charset=utf-8')
         if self.path in ('/','/app.js','/style.css'):
             f,t={'/':('index.html','text/html; charset=utf-8'),'/app.js':('app.js','application/javascript'),'/style.css':('style.css','text/css')}[self.path]
             return self.sendbody((HERE/f).read_bytes(),t)

@@ -12,7 +12,8 @@ function card(h,v,route,now,titles={}){
  box.append(el('p','muted','Last full reading: '+tm(v.lastSuccess)+(v.busy?' · Updating…':'')));
  if(v.error||(v.age||0)>120)box.append(el('p','warn',(v.error||'Reading is stale')+'. Last attempt: '+tm(v.attempt)));
  if(d.note)box.append(el('p','muted',d.note));
- for(const alert of d.alerts||[])box.append(el('p','warn','Overnight queue: '+alert));
+ if((d.alerts||[]).length){const w=el('div','warn');for(const alert of d.alerts)w.append(el('p','','Overnight queue: '+alert));
+  const a=el('a','','Open the full overnight report');a.href='/batch-report';a.target='_blank';w.append(a);box.append(w)}
  for(const issue of d.issues||[])box.append(el('p','warn',issue));
  if(!v.data)return box;
  const jobs=d.jobs,active=jobs.filter(j=>j.occupies),res=(route?.reserved[h]||[]).filter(id=>!active.some(j=>j.id===id));

@@ -66,7 +66,7 @@ class BatchTests(unittest.TestCase):
     def test_disabled_install_and_two_tick_receipt(self):
         self.enqueue();self.assertIsNone(self.claim())
         self.assertNotEqual(b.receipt('night')['receipt'],'queued')
-        for host in ('m2','m6'):b.handle(dict(op='tick',host=host,observation={}))
+        for host in ('m2','m6'):b.handle(dict(op='tick',host=host,observation={'_start_block':{'at':time.time(),'reason':None}}))
         # Logged by both Macs but switched off: never told "queued" (2026-11-18).
         receipt=b.receipt('night')
         self.assertNotEqual(receipt['receipt'],'queued');self.assertFalse(receipt['can_start'])

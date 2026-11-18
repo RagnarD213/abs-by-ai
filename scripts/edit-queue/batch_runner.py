@@ -44,14 +44,57 @@ def split_delivery_errors(errors):
     return fmt,[e for e in errors if e not in fmt]
 
 
+REPAIRABLE_FIELDS = {'approved_elements','reuse','paid_provider_costs','generation_spend_usd','revision_count'}
+
+
+def _literal(value, kind):
+    if isinstance(value,kind):return value
+    if isinstance(value,str):
+        import ast
+        try:
+            parsed=ast.literal_eval(value)
+            return parsed if isinstance(parsed,kind) else None
+        except (ValueError,SyntaxError):return None
+    return None
+
+
 def documented_gate_hold(info, substantive):
-    """A gate FAIL whose every failing row the editor documented against an approved choice is Dan's call."""
-    if not substantive or any('DELIVERY gate must be PASS' not in e for e in substantive):return None
-    dispositions=info.get('gate_failure_dispositions')
-    failures=info.get('gate_failures')
-    if not dispositions or not failures:return None
-    return dict(finding=failures if isinstance(failures,str) else json.dumps(failures)[:1500],
-                dispositions=dispositions if isinstance(dispositions,str) else json.dumps(dispositions)[:1500])
+    """A literal gate FAIL on the exact delivered file, whose every failing row carries the editor's written
+    disposition, is Dan's call. Draft, missing, malformed or partly documented gates are not."""
+    if info.get('gate')!='FAIL' or len(substantive)!=1 or "(got 'FAIL')" not in substantive[0]:return None
+    failures=_literal(info.get('gate_failures'),list);dispositions=_literal(info.get('gate_failure_dispositions'),dict)
+    if not failures or not dispositions:return None
+    rows=[]
+    for item in failures:
+        parts=[x.strip() for x in str(item).split(':')]
+        if len(parts)<2 or not parts[0] or not parts[1]:return None
+        rows.append(parts[0]+':'+parts[1])
+    if any(not str(dispositions.get(row,'')).strip() for row in rows):return None
+    gate_json=info.get('gate_json')
+    try:text=Path(gate_json).read_text(errors='replace') if gate_json else ''
+    except OSError:return None
+    files=info.get('files') or []
+    if not files or not any(Path(f).name in text or (Path(f).is_file() and r.sha256(f) in text) for f in files):return None
+    return dict(rows=rows,finding='; '.join(map(str,failures))[:1500],dispositions={row:dispositions[row] for row in rows})
+
+
+def delivery_fingerprint(info):
+    """What a format repair must not change: every non-format field, the delivered bytes and the gate evidence."""
+    files=[f for f in (info.get('files') or []) if isinstance(f,str)]+([info['review_copy']] if isinstance(info.get('review_copy'),str) else [])
+    hashes={f:(r.sha256(f) if os.path.isfile(f) else None) for f in files}
+    gate=info.get('gate_json');gate_sha=r.sha256(gate) if isinstance(gate,str) and os.path.isfile(gate) else None
+    return dict(info={k:v for k,v in info.items() if k not in REPAIRABLE_FIELDS},hashes=hashes,gate_sha=gate_sha)
+
+
+def repair_violations(before, info):
+    after=delivery_fingerprint(info);problems=[]
+    for key in sorted(set(before['info'])|set(after['info'])):
+        if before['info'].get(key)!=after['info'].get(key):problems.append('changed '+key)
+    if before['hashes']!=after['hashes']:problems.append('delivered files changed')
+    if before['gate_sha']!=after['gate_sha']:problems.append('gate evidence changed')
+    for i,row in enumerate(info.get('paid_provider_costs') or [],1):
+        if isinstance(row,dict) and row.get('usd')==0 and not row.get('reason'):problems.append('cost row '+str(i)+' claims $0 without saying how that is known')
+    return problems
 
 
 class StartupWait(RuntimeError):
@@ -200,69 +243,88 @@ Exit 0 without a fresh outcome file is a failure. Do not invent a perceptual lis
 Full renders obey the existing budget. Stop exploration at the soft deadline. Preserve every unchanged approval.
 \nCOPIED BRIEF:\n{brief_text}'''
         marker_path=wd/'BATCH-OUTCOME.json'
+        launch_state='frames_approved' if row.get('assets_approved') else 'ready'
         if not checkpoint.get('candidate'):
-            if marker_path.exists():marker_path.replace(wd/('BATCH-OUTCOME.before-'+token+'.json'))
-            progress(phase='editor')
-            code,tail,edit_h=session(executor,instructions,'batch-editor',max(.001,budget['hours_allowed']))
-            checkpoint['edit_hours']=hours_used+edit_h;b.write(checkpoint_path,checkpoint)
-            marker=b.read(marker_path)
-            if code!=0 and (not marker or marker.get('token')!=token):
-                failure=r.classify_failure(code,tail,cfg)
-                if failure=='usage_limited':
-                    outcome=dict(status='paused-for-allowance',reason='editor usage limit',executor=executor);return 0
-                if failure=='auth_failed':raise StartupWait('editor sign-in is unavailable','executor')
-            if not marker or marker.get('token')!=token:raise RuntimeError('editor exited '+str(code)+' without a fresh outcome file')
-            if code!=0:raise RuntimeError('editor exited '+str(code)+'; candidate not accepted')
-            if marker.get('status')=='blocked':
-                outcome=dict(status='blocked',reason=marker['reason'],next_action=marker['next_action'],
-                             owner=marker.get('owner') or b.editor_name(row));return 0
-            if marker.get('status')=='needs-dan':
-                review_location(marker)
-                evidence=marker.get('evidence',[])
-                if not evidence:raise ValueError('needs-dan has no first-review evidence')
-                for file in evidence:
-                    if r.sha256(file['path'])!=file['sha256']:raise ValueError('review evidence hash mismatch')
-                outcome=dict(status='needs-dan',question=marker['question'],link='http://127.0.0.1:'+str(marker.get('review_port',''))+'/',evidence=evidence)
-                for extra in ('finding','choices'):
-                    if marker.get(extra):outcome[extra]=marker[extra]
-                try:outcome['link']=review_link(marker)
-                except (OSError,RuntimeError,subprocess.SubprocessError):
-                    outcome['pending_review']=dict(review_root=marker['review_root'],review_port=marker['review_port'])
-                return 0
-            if marker.get('status')!='candidate':raise ValueError('invalid editor outcome')
+            if not checkpoint.get('submitted'):
+                if marker_path.exists():marker_path.replace(wd/('BATCH-OUTCOME.before-'+token+'.json'))
+                progress(phase='editor')
+                code,tail,edit_h=session(executor,instructions,'batch-editor',max(.001,budget['hours_allowed']))
+                checkpoint['edit_hours']=hours_used+edit_h;b.write(checkpoint_path,checkpoint)
+                marker=b.read(marker_path)
+                if code!=0 and (not marker or marker.get('token')!=token):
+                    failure=r.classify_failure(code,tail,cfg)
+                    if failure=='usage_limited':
+                        outcome=dict(status='paused-for-allowance',reason='editor usage limit',executor=executor);return 0
+                    if failure=='auth_failed':raise StartupWait('editor sign-in is unavailable','executor')
+                if not marker or marker.get('token')!=token:raise RuntimeError('editor exited '+str(code)+' without a fresh outcome file')
+                if code!=0:raise RuntimeError('editor exited '+str(code)+'; candidate not accepted')
+                if marker.get('status')=='blocked':
+                    outcome=dict(status='blocked',reason=marker['reason'],next_action=marker['next_action'],
+                                 owner=marker.get('owner') or b.editor_name(row));return 0
+                if marker.get('status')=='needs-dan':
+                    review_location(marker)
+                    evidence=marker.get('evidence',[])
+                    if not evidence:raise ValueError('needs-dan has no first-review evidence')
+                    for file in evidence:
+                        if r.sha256(file['path'])!=file['sha256']:raise ValueError('review evidence hash mismatch')
+                    if (marker.get('finding') or marker.get('choices')) and not (
+                            str(marker.get('finding') or '').strip() and isinstance(marker.get('choices'),list) and marker['choices']):
+                        raise ValueError('a quality decision for Dan needs both the exact finding and a list of choices')
+                    outcome=dict(status='needs-dan',question=marker['question'],link='http://127.0.0.1:'+str(marker.get('review_port',''))+'/',evidence=evidence)
+                    for extra in ('finding','choices'):
+                        if marker.get(extra):outcome[extra]=marker[extra]
+                    try:outcome['link']=review_link(marker)
+                    except (OSError,RuntimeError,subprocess.SubprocessError):
+                        outcome['pending_review']=dict(review_root=marker['review_root'],review_port=marker['review_port'])
+                    return 0
+                if marker.get('status')!='candidate':raise ValueError('invalid editor outcome')
+                # The submitted candidate is saved before any repair, so a pause or a lost runner resumes the
+                # repair, never the whole edit, and a repair can be checked against what the editor delivered.
+                checkpoint['submitted']=delivery_fingerprint(b.read(wd/'DELIVERY.json',{}));b.write(checkpoint_path,checkpoint)
             info=b.read(wd/'DELIVERY.json',{})
-            launch_state='frames_approved' if row.get('assets_approved') else 'ready'
             errors=r.validate_delivery(info,str(wd),packet,cfg,launch_state)
             fmt,substantive=split_delivery_errors(errors)
-            if fmt and int(checkpoint.get('format_repairs',0))<1:
-                # Exactly one repair by the same editor in the same folder; it may fix evidence format only.
-                checkpoint['format_repairs']=1;b.write(checkpoint_path,checkpoint)
-                repair=f'''Read AGENTS.md and {wd}/DELIVERY.json. You edited {row['title']} ({jobid}) round {row['round']} in {wd}.
+            repair=checkpoint.get('repair') or dict(phase='pending',starts=0)
+            if fmt and repair['phase']!='done' and repair['starts']<2:
+                # One repair by the same editor in the same folder, for evidence format only. A start that was
+                # interrupted (lost runner) may be retried once; an allowance pause does not use it up.
+                repair.update(phase='running',starts=repair['starts']+1,errors=fmt);checkpoint['repair']=repair
+                b.write(checkpoint_path,checkpoint)
+                prompt=f'''Read AGENTS.md and {wd}/DELIVERY.json. You edited {row['title']} ({jobid}) round {row['round']} in {wd}.
 The batch runner rejected only the FORMAT of your delivery evidence. Fix exactly these items in DELIVERY.json:
 {chr(10).join('- '+e for e in fmt)}
-Do not edit, render, re-time or regrade the film. Do not change any gate result, threshold, approval or file hash.
-A gate FAIL stays a FAIL: leave gate and gate_failures as measured. For unknown costs add a row
-{{"provider":"none","usd":0,"reason":"no paid provider used this round"}} or an unavailable row with a reason.
+Change only these fields: {', '.join(sorted(REPAIRABLE_FIELDS))}. Do not edit, render, re-time, regrade or swap the film,
+and do not touch files, review_copy, gate, gate_failures, gate_json or any other field. The runner checks the bytes.
+A gate FAIL stays a FAIL. For a cost you do not know, add {{"provider":"unknown","usd":null,"reason":"why it is unknown"}}.
+Use "usd": 0 only when this round used no paid provider, with a reason that says how you know.
 Then rewrite BATCH-OUTCOME.json with token "{token}" and status "candidate". Do not ask Dan anything.'''
                 if marker_path.exists():marker_path.replace(wd/('BATCH-OUTCOME.before-repair-'+token+'.json'))
                 progress(phase='evidence format repair')
-                remaining=max(.25,min(1.0,float(budget['hours_allowed'])-edit_h))
-                code,tail,repair_h=session(executor,repair,'batch-format-repair',remaining)
-                edit_h+=repair_h;checkpoint['edit_hours']=hours_used+edit_h;b.write(checkpoint_path,checkpoint)
+                remaining=max(.25,min(1.0,float(budget['hours_allowed'])-float(checkpoint.get('edit_hours',0))))
+                code,tail,repair_h=session(executor,prompt,'batch-format-repair',remaining)
+                checkpoint['edit_hours']=float(checkpoint.get('edit_hours',0))+repair_h;edit_h+=repair_h
                 if code!=0 and r.classify_failure(code,tail,cfg)=='usage_limited':
+                    repair.update(phase='pending',starts=repair['starts']-1);b.write(checkpoint_path,checkpoint)
                     outcome=dict(status='paused-for-allowance',reason='editor usage limit during evidence repair',executor=executor);return 0
+                repair['phase']='done';b.write(checkpoint_path,checkpoint)
+                if code!=0:raise ValueError('evidence repair session exited '+str(code)+'; candidate not accepted')
                 marker=b.read(marker_path)
                 if not marker or marker.get('token')!=token or marker.get('status')!='candidate':
                     raise ValueError('evidence format repair did not return a fresh candidate; remaining: '+'; '.join(fmt[:4]))
                 info=b.read(wd/'DELIVERY.json',{})
+                violations=repair_violations(checkpoint['submitted'],info)
+                if violations:raise ValueError('evidence repair changed more than evidence format: '+'; '.join(violations[:6]))
                 errors=r.validate_delivery(info,str(wd),packet,cfg,launch_state)
                 fmt,substantive=split_delivery_errors(errors)
+            if fmt and checkpoint.get('repair',{}).get('phase')=='done' and checkpoint.get('submitted'):
+                violations=repair_violations(checkpoint['submitted'],info)
+                if violations:raise ValueError('evidence repair changed more than evidence format: '+'; '.join(violations[:6]))
             hold=None if fmt else documented_gate_hold(info,substantive)
             if hold:
                 review_location(info)
                 outcome=dict(status='needs-dan',
-                             question=('The finished film fails its delivery gate on rows the editor says conflict with your '
-                                       'approved choices. Approve it as is, or ask for a fix of those rows?'),
+                             question=('The finished film fails its delivery gate on '+str(len(hold['rows']))+' row(s) ('+', '.join(hold['rows'])+
+                                       ') that the editor says follow your approved choices. Approve it as is, or ask for a fix of those rows?'),
                              finding=hold['finding'],dispositions=hold['dispositions'],
                              choices=['Approve as is (the failing rows follow your picks)','Ask for a fix of the failing rows'],
                              link='http://127.0.0.1:'+str(info.get('review_port',''))+'/')

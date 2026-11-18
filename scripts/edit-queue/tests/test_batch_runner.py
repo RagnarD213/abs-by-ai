@@ -39,7 +39,7 @@ class WorkerTests(unittest.TestCase):
         use(patch.object(w,'review_link',return_value='http://127.0.0.1:9850/'))
         use(patch.object(w,'candidate_stamps'))
         use(patch.object(r,'write_work_packet',return_value={'revision_number':1}))
-        use(patch.object(r,'validate_delivery',return_value=[]))
+        self.validate_patch=patch.object(r,'validate_delivery',return_value=[]);use(self.validate_patch)
         use(patch.object(r,'run_session',side_effect=self.fake_session))
     def tearDown(self):
         for p in reversed(self.patches):p.stop()
@@ -59,13 +59,23 @@ class WorkerTests(unittest.TestCase):
     def fake_session(self,executor,cfg,wd,prompt,log,role,timeout,**kwargs):
         self.sessions.append((executor,role));self.prompts=getattr(self,'prompts',{});self.prompts[role]=prompt
         if role=='batch-format-repair':
-            self.assertIn('paid_provider_costs',prompt);self.assertIn('A gate FAIL stays a FAIL',prompt)
+            self.assertIn('Change only these fields',prompt);self.assertIn('A gate FAIL stays a FAIL',prompt)
+            self.repairs=getattr(self,'repairs',0)+1
+            if self.mode=='repair-allowance' and self.repairs==1:return 1,'You hit your usage limit',.01
+            if self.mode=='repair-lost' and self.repairs==1:raise r.SessionInterrupted('runner lost during repair')
+            info=b.read(self.wd/'DELIVERY.json')
+            info['paid_provider_costs']=[{'provider':'none','usd':0,'reason':'no paid provider used this round'}]
+            if self.mode=='repair-zero':info['paid_provider_costs']=[{'provider':'none','usd':0}]
+            if self.mode=='repair-swap':
+                other=self.wd/'older-pass.mp4';other.write_bytes(b'older passing export');info['files']=[str(other)];info['review_copy']=str(other)
+            if self.mode=='repair-gate':info['gate']='PASS'
+            b.write(self.wd/'DELIVERY.json',info)
             b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'candidate'})
-            return 0,'repaired',.01
-        if role=='batch-editor' and self.mode=='quality-hold':
+            return (1 if self.mode=='repair-exit' else 0),'repaired',.01
+        if role=='batch-editor' and self.mode in ('quality-hold','quality-hold-nochoices'):
             page=self.review/'index.html';page.write_text('first review')
             b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'needs-dan','question':'Hold for another audio pass, or approve?',
-                    'finding':'early decay 83 ms against 80','choices':['Hold for another audio pass','Approve an exception in the gate rules'],
+                    'finding':'early decay 83 ms against 80','choices':([] if self.mode=='quality-hold-nochoices' else ['Hold for another audio pass','Approve an exception in the gate rules']),
                     'review_root':str(self.review),'review_port':9850,'evidence':[{'path':str(page),'sha256':r.sha256(page)}]})
             return 0,'held',.01
         if role=='batch-editor':
@@ -75,9 +85,17 @@ class WorkerTests(unittest.TestCase):
             if self.mode=='allowance':return 1,'usage limit',.01
             info=dict(files=[str(self.video)],review_copy=str(self.video),review_root=str(self.review),review_port=9850)
             if self.mode=='bad-link':info.pop('review_root')
-            if self.mode=='gate-documented':
-                info.update(gate='FAIL',gate_failures="['audio:stamp: tone fails on the bass lift Dan picked']",
-                            gate_failure_dispositions="{'audio:stamp': 'Known house mismatch on Dan\'s Voice B pick'}")
+            if getattr(self,'full_delivery',False):
+                (self.wd/'PRE_RENDER_CHECK.json').write_text(json.dumps({'status':'not_applicable','reason':'fixture'}))
+                info.update(gate='PASS',revision_count=1,approved_elements=['Colour B (Dan)'],generation_spend_usd=0,paid_provider_costs=[],
+                            reuse={n:{'status':'not_applicable','reason':'fixture'} for n in ('scenes','audio','transcript','assets')})
+            if self.mode=='repair-gate':info['gate']='FAIL'
+            if self.mode in ('gate-documented','gate-partial','gate-draft'):
+                gate=self.wd/'delivery-gate.json';gate.write_text(json.dumps({'file':self.video.name,'result':'FAIL'}))
+                info.update(gate='DRAFT' if self.mode=='gate-draft' else 'FAIL',gate_json=str(gate),
+                            gate_failures="['audio:stamp: tone fails on the bass lift Dan picked', 'framing:no_wide_level: portrait rule']",
+                            gate_failure_dispositions=("{'audio:stamp': 'Dan picked Voice B'}" if self.mode=='gate-partial' else
+                                                       "{'audio:stamp': 'Dan picked Voice B', 'framing:no_wide_level': 'Dan rule 2026-11-15'}"))
             b.write(self.wd/'DELIVERY.json',info)
             b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'candidate'})
             if self.mode=='offline':self.offline=True
@@ -176,55 +194,79 @@ print('session group stopped and interruption propagated')
 
 
 class EvidenceRepairAndDecisionTests(WorkerTests):
-    """2026-11-18: one automatic evidence-format repair; quality dead ends end with a question for Dan."""
-    FORMAT='DELIVERY paid_provider_costs must be a non-empty list (use an unavailable row when unknown)'
-    GATE="DELIVERY gate must be PASS before independent review (got 'FAIL')"
-    def validations(self,*answers):
-        answers=list(answers);calls=[]
-        def validate(*args,**kwargs):
-            calls.append(1);return answers.pop(0) if answers else []
-        self.patches.append(patch.object(r,'validate_delivery',side_effect=validate));self.patches[-1].start()
-        return calls
-    def test_format_error_gets_exactly_one_repair_then_ships(self):
-        calls=self.validations([self.FORMAT],[])
-        _,row=self.execute()
-        self.assertEqual(row['status'],'delivered')
-        self.assertEqual([x[1] for x in self.sessions],['batch-editor','batch-format-repair','review-batch-1'])
-        self.assertEqual(len(calls),2)
-    def test_format_error_that_survives_repair_blocks_with_owner_and_plain_action(self):
-        self.validations([self.FORMAT],[self.FORMAT],[self.FORMAT])
-        _,row=self.execute()
+    """2026-11-18 (after the Codex review): one tamper-checked, resumable evidence repair through the real
+    validator; quality dead ends end with a question for Dan; only a fully documented FAIL becomes one."""
+    def real(self):
+        self.full_delivery=True;self.validate_patch.stop();self.patches.remove(self.validate_patch)
+    def roles(self):return [x[1] for x in self.sessions]
+    def test_real_validator_one_repair_then_ships(self):
+        self.real();_,row=self.execute()
+        self.assertEqual(row['status'],'delivered',row.get('outcome'))
+        self.assertEqual(self.roles(),['batch-editor','batch-format-repair','review-batch-1'])
+    def test_repair_that_swaps_the_film_is_refused(self):
+        self.real();self.mode='repair-swap';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('changed more than evidence format',row['outcome']['reason'])
+        self.assertNotIn('review-batch-1',self.roles())
+    def test_repair_that_changes_the_gate_is_refused(self):
+        self.real();self.mode='repair-gate';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('changed gate',row['outcome']['reason'])
+    def test_zero_dollar_claim_needs_a_reason(self):
+        self.real();self.mode='repair-zero';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('claims $0',row['outcome']['reason'])
+    def test_nonzero_repair_exit_is_not_accepted_even_with_a_marker(self):
+        self.real();self.mode='repair-exit';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('repair session exited 1',row['outcome']['reason'])
+    def test_allowance_pause_during_repair_resumes_the_repair_not_the_edit(self):
+        self.real();self.mode='repair-allowance';_,row=self.execute()
+        self.assertEqual(row['status'],'queued')
+        self.resume();_,row=self.execute()
+        self.assertEqual(row['status'],'delivered',row.get('outcome'))
+        self.assertEqual(self.roles(),['batch-editor','batch-format-repair','batch-format-repair','review-batch-1'])
+    def test_runner_lost_during_repair_resumes_the_repair_not_the_edit(self):
+        self.real();self.mode='repair-lost';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked')     # an interruption is recorded; recovery would requeue it
+        self.requeue();_,row=self.execute()
+        self.assertEqual(row['status'],'delivered',row.get('outcome'))
+        self.assertEqual(self.roles().count('batch-editor'),1)
+    def test_documented_gate_fail_is_a_question_naming_the_rows(self):
+        self.real();self.mode='gate-documented';_,row=self.execute()
+        self.assertEqual(row['status'],'needs-dan',row.get('outcome'))
+        self.assertIn('2 row(s) (audio:stamp, framing:no_wide_level)',row['outcome']['question'])
+        self.assertIn('bass lift',row['outcome']['finding']);self.assertNotIn('review-batch-1',self.roles())
+    def test_partly_documented_gate_fail_stays_blocked(self):
+        self.real();self.mode='gate-partial';_,row=self.execute()
         self.assertEqual(row['status'],'blocked')
-        self.assertEqual([x[1] for x in self.sessions].count('batch-format-repair'),1)
-        self.assertEqual(row['outcome']['owner'],'Claude')
-        self.assertIn('Open a new Claude chat for Man Boobs Shorts (SL-36)',row['outcome']['next_action'])
-    def test_documented_gate_fail_after_repair_is_a_question_not_a_block(self):
-        self.mode='gate-documented'
-        self.validations([self.GATE,self.FORMAT],[self.GATE])
-        _,row=self.execute()
-        self.assertEqual(row['status'],'needs-dan')
-        self.assertIn('Approve it as is',row['outcome']['question'])
-        self.assertIn('bass lift',row['outcome']['finding'])
-        self.assertEqual(len(row['outcome']['choices']),2)
-        self.assertNotIn('review-batch-1',[x[1] for x in self.sessions])
-        self.assertEqual(self.released,1)
-    def test_undocumented_gate_fail_is_still_a_fail_and_gets_no_repair(self):
-        self.validations([self.GATE])
-        _,row=self.execute()
-        self.assertEqual(row['status'],'blocked');self.assertIn('gate must be PASS',row['outcome']['reason'])
-        self.assertNotIn('batch-format-repair',[x[1] for x in self.sessions])
+    def test_draft_gate_with_dispositions_stays_blocked(self):
+        self.real();self.mode='gate-draft';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked')
+    def test_undocumented_gate_fail_gets_no_repair_and_stays_blocked(self):
+        calls=[]
+        self.validate_patch.stop();self.patches.remove(self.validate_patch)
+        self.patches.append(patch.object(r,'validate_delivery',return_value=["DELIVERY gate must be PASS before independent review (got 'FAIL')"]))
+        self.patches[-1].start();_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertNotIn('batch-format-repair',self.roles())
     def test_failed_quality_check_with_nothing_left_ends_needs_dan_with_choices(self):
-        self.mode='quality-hold'
-        _,row=self.execute()
+        self.mode='quality-hold';_,row=self.execute()
         self.assertEqual(row['status'],'needs-dan')
         self.assertEqual(row['outcome']['finding'],'early decay 83 ms against 80')
         self.assertEqual(row['outcome']['choices'][0],'Hold for another audio pass')
-        self.assertTrue(row['outcome']['link'])
+    def test_quality_decision_without_choices_is_refused(self):
+        self.mode='quality-hold-nochoices';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('finding and a list of choices',row['outcome']['reason'])
     def test_editor_instructions_route_quality_dead_ends_to_dan(self):
         self.mode='quality-hold';self.execute()
         prompt=self.prompts['batch-editor']
         self.assertIn('nothing approved is left to try, do not write blocked: write needs-dan',prompt)
-        self.assertIn('Never change a threshold',prompt)
-        self.assertIn('owner (Dan, Claude or Codex)',prompt)
+        self.assertIn('Never change a threshold',prompt);self.assertIn('owner (Dan, Claude or Codex)',prompt)
+    def resume(self):
+        """Claim the requeued round again as the next tick would."""
+        state=b.read(self.home/'worker-test/state.json');state['jobs']['SL-36-R1']['not_before']=0;b.write(self.home/'worker-test/state.json',state)
+        c=b.control();c.pop('executor_backoff',None);b.write(b.HOME/'control.json',c)
+        self.claim=b.handle(dict(op='claim',host='m2',digest='test',occupied=[],slots=1));self.token=self.claim['row']['claim']['token']
+        self.claim_path=self.home/'runs'/self.token/'claim.json';b.write(self.claim_path,self.claim)
+    def requeue(self):
+        state=b.read(self.home/'worker-test/state.json');row=state['jobs']['SL-36-R1']
+        row.update(status='queued',not_before=0,workdir=str(self.wd));row.pop('outcome',None);b.write(self.home/'worker-test/state.json',state)
+        self.resume()
 
 if __name__=='__main__':unittest.main()

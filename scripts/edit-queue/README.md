@@ -230,22 +230,36 @@ globals collide under one unittest-discovery process; fixture routers never quer
   Drive access comes from Full Disk Access for the exact Python the `com.absbyai.edit-queue` agent runs.
 - **Background file-access check.** Every launchd tick re-checks (every 30 minutes, or at once on request) that
   the agent itself can create, write, rename and delete in `Videos to Review/`, the internal work folder and each
-  mounted `/Volumes/{Extreme,Expansion}/_edit_work`. `batch.py drive-probe --launchd` asks this Mac's agent and
-  waits. Preflight requires a passing, under-six-hour check on both Macs; a tick refuses to claim on its own Mac
-  while its check fails. A chat's shell passing proves nothing; only the agent's record counts.
+  mounted `/Volumes/{Extreme,Expansion}/_edit_work` (a drive counts only if it is really mounted; a leftover
+  folder at an unmounted path never passes, and an absent share does not block internal work). It runs in a child
+  of the agent's own Python with a 60-second deadline, inside one fixed `.absbyai-batch-probe` folder whose
+  leftovers are cleared next time. `batch.py drive-probe --launchd` asks this Mac's agent and waits. Preflight
+  requires each Mac's agent to answer that exact request and pass every folder it needs at the same resolved
+  path; a cached pass is not enough. A chat's shell passing proves nothing; only the agent's record counts.
+- **Per-Mac start gates.** Each tick sends its own start gate with its observation. Reports and receipts on either
+  Mac judge each round by its placement: an M2-only round is stuck if the M2 is gated or silent for ten minutes,
+  an either-Mac round only if both are.
 - **Narrow source check.** Only files the scheduler and workers run or read (`.py .json .sh .plist .js .c` plus
   `preamble.md`, `reviewer-brief.md`) under editroute, editcap, renderq and edit-queue. The edit desk, tests,
   READMEs, benches, fixtures and snapshots no longer block starts. Real scheduler drift still blocks and is named.
 - **Loud when nothing will start.** If any queued round cannot start (starts off, failed safety check, a start
   block), the morning report's first line says `NOT STARTING:` with the count, reasons and videos.
   `enqueue-chat` and `receipt` end with `CAN START` or `WILL NOT START: why`; "queued" is never said otherwise.
-- **One alert per event on the M6.** A blocked row, a needs-Dan row or the not-starting condition sends one local
-  notification (recorded in `~/.absbyai-batch/alerts.json`, never repeated, failed sends retried at most three
-  times). Screen delivery cannot be confirmed from launchd, so the edit desk's M6 card shows the same lines.
+- **One alert per event on the M6.** A blocked row, a needs-Dan row, or a round that starts being unable to start
+  sends one short local notification, recorded in `~/.absbyai-batch/alerts.json` and never repeated (failed sends
+  retried at most three times; only events that fit in the message are recorded as sent). A stuck round is an
+  episode: it closes when the round can start again, so a later recurrence rings again. Rows that ended before
+  the Nov 18 rollout do not ring. Clicking a macOS notification cannot open a file, and screen delivery cannot be
+  confirmed from launchd, so the edit desk's M6 card shows the same lines with an "Open the full overnight report"
+  link (`/batch-report`).
 - **No dead ends.** A failed mandatory check with nothing approved left to try ends `needs-dan` with the finding,
   choices and review link. A delivery whose only problem is evidence format gets exactly one repair session by the
   same editor in the same folder. A gate FAIL is never repaired away: documented against Dan's picks it becomes his
-  question; otherwise it stays blocked. Every blocked row names an owner and a plain next action.
+  question (every failing row needs a written disposition, a literal FAIL and gate evidence for the delivered
+  file); otherwise it stays blocked. The editor's submitted candidate is saved before the repair; the repair may
+  change only the evidence fields (bytes, files and gate evidence are compared), must exit cleanly, and resumes as
+  a repair, never a new edit, after an allowance pause or a lost runner. Every blocked row names an owner and a
+  plain next action.
 - **Holds.** `batch.py hold BATCH KEY --reason '...'` keeps a queued round registered but never started and out of
   the not-starting count; `unhold` releases it.
 - `editroute.py pick/wait` refuse job names that start with `-` and print help for `-h/--help`.
