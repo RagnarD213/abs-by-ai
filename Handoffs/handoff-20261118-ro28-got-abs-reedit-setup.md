@@ -20,6 +20,11 @@ Google Ads disapproved/limited the Zepbound engagement ads for RO-28 (yt:eLV6Elu
 6. **The old public copy:** ask Dan whether to unlist or delete the original RO-28 YouTube video (duplicate content). Do not touch it before he answers. Its title and thumbnail may name the drug only because it is no longer advertised.
 7. Backups (project, Extreme, Drive, checksummed), setup receipt, board entry.
 
+## Dan's later instructions, 2026-11-18 (read first; they change steps 4 to 6)
+- The old Zepbound video (eLV6EluvyD0) is now **Private** on YouTube (confirmed by API), its sixpackabs.com page is draft, and its three social schedules (Facebook 6213006, Instagram 6213007, TikTok 6213008, all Thu Nov 19 noon Central) were **cancelled** and saved in `output/social-engagement-20261117/ro28-cancelled-socials-20261118.json`. Nothing of the old video is left to schedule or advertise. Skip step 6's question: it is already private.
+- Dan: **"Post the re-edited video instead."** So the re-edited film takes the cancelled slot: aim for YouTube as early as Dan's thumbnail pick allows (Thu Nov 19 9 AM Central is the target), and Facebook, Instagram and TikTok at Thu Nov 19 noon Central once the YouTube video is verified public (Dan's override of the usual next-day rule; if the YouTube copy is not public by noon, postpone the three). Confirm the slot is free in the live Blotato queue and `release_phases.py` before scheduling; only the thumbnail pick is still Dan's.
+- The old page on sixpackabs.com is draft; the new video gets its own page when public (sync does it).
+
 ## Starter prompt and model
 Model: Codex GPT-6.2 Sol, High. Start now (Dan approved the film).
 ```
