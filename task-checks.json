@@ -11,7 +11,8 @@
     "assistant::Transfer all bar related items to assembled bar shelf",
     "assistant::Clean up bar shelf box, plastic, and stryofoam",
     "assistant::Dishes",
-    "assistant::Replace robot mop water"
+    "assistant::Replace robot mop water",
+    "assistant::Fold laundry"
   ],
   "log": {
     "health::Shower": [
@@ -249,6 +250,7 @@
     "assistant::Transfer all bar related items to assembled bar shelf": "2026-11-17",
     "assistant::Clean up bar shelf box, plastic, and stryofoam": "2026-11-17",
     "assistant::Dishes": "2026-11-17",
-    "assistant::Replace robot mop water": "2026-11-17"
+    "assistant::Replace robot mop water": "2026-11-17",
+    "assistant::Fold laundry": "2026-11-17"
   }
 }
