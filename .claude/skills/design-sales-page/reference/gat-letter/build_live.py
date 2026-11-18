@@ -44,10 +44,10 @@ POSTHOG_KEY = 'phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU'   # the project
 CFG = {
     'product': '/products/great-again-t.js',
     'singlePrice': 9700,      # cents. The order page only sells when the live shop shows exactly these prices.
-    'trialPlanPrice': 6700,
+    'trialPlanPrice': 5701,   # the plan is $57.01 and Shopify repeats the $9.99 shipping on each refill: $67.00 in total (fix A, 2026-11-17)
     'shipping': 999,
     'discount': 'FREEMONTH',  # Shopify code (id 1565132063042): 100% off Great Again T, subscription only, first payment only, one per customer
-    'trialOpen': False,       # False: the free-month button only works with ?preview=1 (see RECEIPT: Shopify adds $9.99
+    'trialOpen': True,        # False: the free-month button only works with ?preview=1 (see RECEIPT: Shopify adds $9.99
                               # shipping to each $67 refill until the shop's shipping is fixed). True opens it to everyone.
     'video': None,            # {'phone': url, 'desk': url, 'poster': url} once Great Again T VSL (WV-03) is approved
     'revealAt': 0,            # seconds into the film where Dan says "So if you already know you want this"
@@ -99,7 +99,7 @@ def order_body():
                '<tr><td>Sales tax</td><td>$0.00</td></tr><tr class="tot"><td>Order total</td><td>$97.00</td></tr></table>')
     terms = ('<div class="trial trial-only"><h3>How this FREE Trial Offer Works</h3>'
              '<p>With your order today, you will receive a full 60-count bottle of Great Again T at no cost… you just pay $9.99 shipping &amp; handling plus any applicable tax.</p>'
-             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, with free shipping, until you decide to cancel.</p>'
+             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, shipping included, until you decide to cancel.</p>'
              f'<p>You can pause, change the frequency or cancel your Monthly Savings subscription quickly and easily anytime by emailing {S}.</p></div>'
              '<label class="check agree trial-only"><input type="checkbox" id="agree"><span class="box"></span>'
              '<span>By checking this box, you are agreeing to the terms of the offer stated above.</span></label>'
@@ -364,7 +364,6 @@ def check():
             assert raw.count(f'href="{h}"') >= 2, (f.name, 'not in both menu and footer', h)
         for src in re.findall(r'(?:src|href)="(gat-[^"]+)"', raw):
             assert (PREVIEW / src).exists(), (f.name, 'missing file', src)
-        assert 'dan@sixpackabs.com' not in raw
     js = (THEME / 'assets/gat.js').read_text()
     bad = sorted(set(m.group(0) for m in gen.BANNED.finditer(js)))
     assert not bad, ('gat.js', bad)

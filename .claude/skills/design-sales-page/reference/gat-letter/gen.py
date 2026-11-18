@@ -110,7 +110,8 @@ LINKS = {'quiz': '1-quiz.html', 'sales': '2-before-offer.html', 'order': '4-chec
          'questions': 'p-questions.html', 'how': 'p-how-it-works.html', 'ingredients': 'p-ingredients.html',
          'shipping': 'p-shipping-returns.html', 'contact': 'p-contact.html', 'about': 'p-about.html',
          'privacy': 'p-privacy.html', 'terms': 'p-terms.html', 'disclaimer': 'p-disclaimer.html'}
-SUPPORT = 'support@sixpackabs.com'   # the compliance Doc's address (mailbox made 2026-11-17, forwards to Dan)
+SUPPORT = 'dan@sixpackabs.com'   # Dan's choice for the footer and checkout. The compliance Doc's own text says support@sixpackabs.com
+                                 # (mailbox made 2026-11-17, forwards to Dan); the two differ until Dan picks one.
 CTA_TXT = 'Claim My Free Month’s Supply'
 ARROW = '<svg class="chev" aria-hidden="true" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg>'
 NOTES = ['1 year money back guarantee', '$9.99 shipping today', 'Cancel any time']
@@ -319,7 +320,7 @@ def checkout():
                 + field('Expiration', 'MM / YY', half=True) + field('CVV', '123', half=True) + '</div>')
     terms = ('<div class="trial"><h3>How this FREE Trial Offer Works</h3>'
              '<p>With your order today, you will receive a full 60-count bottle of Great Again T at no cost… you just pay $9.99 shipping &amp; handling plus any applicable tax.</p>'
-             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, with free shipping, until you decide to cancel.</p>'
+             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, shipping included, until you decide to cancel.</p>'
              f'<p>You can pause, change the frequency or cancel your Monthly Savings subscription quickly and easily anytime by emailing {SUPPORT}.</p></div>'
              '<label class="check agree"><span class="box"></span>By checking this box, you are agreeing to the terms of the offer stated above.</label>'
              f'<a class="cta cta-order" href="#">Complete My Order{ARROW}<small>{LOCK}Secure 256-bit encryption</small></a>'
@@ -452,7 +453,7 @@ def check():
         assert not dead, (f, 'dead links', dead)
         gone = [fn for fn in info_files if raw.count(f'href="{fn}"') < 2]
         assert not gone, (f, 'not linked from both the menu and the footer', gone)
-    assert SUPPORT in (HERE / '4-checkout.html').read_text() and 'dan@sixpackabs.com' not in (HERE / '4-checkout.html').read_text()
+    assert SUPPORT in (HERE / '4-checkout.html').read_text()
     for need in ('terms', 'privacy', 'shipping'):
         co = (HERE / '4-checkout.html').read_text()
         assert f'class="policy-links"' in co and LINKS[need] in co[co.index('class="policy-links"'):co.index('class="policy-links"') + 400], need
