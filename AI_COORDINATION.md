@@ -85,6 +85,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
 **GATUpsell3(WV-06):IN-PRODUCTION:2026-11-18:Claude,M2.** R1: take map, key, first minute, options page. Folder `/Volumes/Extreme/_edit_work/WV-06/`. Next: R1 review page.
+**GATUpsell3(WV-06):QUEUED-ENABLED-M2:2026-11-18:Claude.** No production yet; batch chat-WV-06-R1 enabled, starts on the next free M2 slot. Next: first review page.
 **GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
 **GATUpsell4(WV-07):QUEUED-ENABLED:2026-11-18:Claude:M2.** Waits for an M2 slot. `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
