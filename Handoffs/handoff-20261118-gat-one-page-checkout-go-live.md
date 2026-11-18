@@ -25,7 +25,7 @@ Read first: `Docs/GAT_ONE_PAGE_CHECKOUT_RECEIPT_20261118.md` (what is built, how
    - Also try one declined card (any card with a wrong CVV): the page must show the bank's message and let the next try go through on the same order.
 5. **Undo the test orders.** Open the account link from the free-month email and press Cancel My Monthly Delivery (check the cancel email). Refund both charges in Stripe. Cancel both Shopify orders and stop them in Supliful unless Dan wants the bottles (default: cancel both).
 6. **Switch over.** In `Media/research/gat-sales-page-contest-20261117/refine/build_live.py` set `CFG['onePage'] = 'on'`, run `python3 build_live.py --no-export`, then `./deploy_live.sh`. Now everyone gets the one-page form, and `?classic=1` brings back the two-step Shopify checkout (the fallback; keep discount `FREEMONTH`, the $57.01 plan and the Shopify pixel in place). Copy the changed files to `.claude/skills/design-sales-page/reference/gat-letter/` and push.
-7. Add the results to `Docs/GAT_ONE_PAGE_CHECKOUT_RECEIPT_20261118.md`, mark this handoff and `handoff-20261118-gat-one-page-checkout.md` executed in `Handoffs/README.md`, and delete the board entry "GAT-one-page".
+7. Add the results to `Docs/GAT_ONE_PAGE_CHECKOUT_RECEIPT_20261118.md`, and mark this handoff and `handoff-20261118-gat-one-page-checkout.md` executed in `Handoffs/README.md`.
 
 ## Limits
 
