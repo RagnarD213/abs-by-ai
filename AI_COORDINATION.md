@@ -101,7 +101,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**FlowMusic:LICENSE-ASK:2026-11-09:Claude.**
+**FlowMusic:HOOK-PICKS:2026-11-18:Claude.** 15 sung hooks on :8798. Next: Dan picks, then full songs. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
 
 
 
