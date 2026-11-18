@@ -1,12 +1,12 @@
 # Overnight batch: make queued edits start, fix background file access, surface blockers
 
-**Handoff, November 18, 2026 | Ops/infrastructure, not a video edit | Owner: Codex (it built and owns the overnight batch) | Recommended: Codex GPT-6.2 Sol, High | Independent review of the diff afterwards: Claude Fable 5.2, high**
+**Handoff, November 18, 2026 | Ops/infrastructure, not a video edit | Owner: Claude, by Dan's explicit request on Nov 18 (Codex built the system; this handoff transfers the repair) | Recommended: Claude Fable 5.2, high effort | Independent review of the diff afterwards: Codex GPT-6.2 Sol, High**
 
 ## Goal
 
 Dan queues named edits, leaves, and finds them started and accounted for with no chat supervising. Today the batch system cannot start anything, and Night 1 (Nov 15-16) only worked because a chat ran the M2 ticks by hand. Fix the six defects below, prove them, then run the three-video pilot at the end. No ten-video night until that pilot passes.
 
-Dan's authorization: do every step, including system permission grants on both Macs, without asking him. Stop only for the pilot's start (he names the three videos and says go).
+Dan's authorization: do every step without asking him. Stop only for the pilot's start (he names the three videos and says go). The one step Claude cannot do is the system permission grant in fixes 3 and 4 (a Mac privacy setting): do all the code and tests first, then hand that step off as described in "Permission grant step" below, and carry on with everything that does not depend on it.
 
 ## Background to read first
 
@@ -36,6 +36,15 @@ Dan's authorization: do every step, including system permission grants on both M
 
 Also: reject job names beginning with `-` in `editroute.py wait` and remove the `--help` entry from the waiting line (confirm first that no real job is behind it). Tell the owner of the WV-07 board entry what its real state is; do not edit another session's entry. After the fixes, re-register or re-enable DS-51 R2, REALDEMOS-B05 R1 and WV-07 R1 only if their owners still want them queued and Dan's priorities allow (RO-39 and WV-06 are paused by Dan; REALDEMOS-B04 is paused by Dan).
 
+## Permission grant step (for Codex and Grokbot, not Claude)
+
+Claude prepares everything up to the grant: identify the exact interpreter path each LaunchAgent runs on each Mac (`launchctl print gui/$(id -u)/com.absbyai.edit-queue`), write the launchd-context probe script, and run it to capture the failing result. Then, per AGENTS.md "A step Claude can't do goes to Codex and Grokbot", give Dan two ready-to-paste starter prompts in chat, both stating his authorization plainly:
+
+- **Codex (GPT-6.2 Sol, High):** on the M6 and on the M2 (`ssh m2`), grant Full Disk Access to the exact interpreter path named in this handoff's receipt, reload `com.absbyai.edit-queue`, run the probe script from the launchd context, and report pass or fail per Mac per folder.
+- **Grokbot:** the same task, self-contained, with the interpreter paths, the probe command and the expected output written into the prompt.
+
+Until the probe passes on the M2, keep the existing M6 hop in place so nothing regresses; switch M2 launches to direct in the same change that preflight starts requiring the probe.
+
 ## Tests to add and pass
 
 - Start a named batch while the shared checkout has unrelated uncommitted edits (dashboard, docs, tests): starts proceed. With a real scheduler file changed: starts block and the report names the file.
@@ -56,8 +65,9 @@ Three videos, no chat supervising, submitting chat closed: two second-round film
 - `scripts/edit-queue/PAUSE` stays: general backlog discovery remains off. Only named batches start.
 - No new Abs By AI ad jobs in any batch. No approval, upload, publish or schedule by this task.
 - Push scheduler changes from a clean checkout as before, pull on both Macs, rerun preflight on both.
-- Board entry `OvernightBatch` is yours: update it, keep it under 80 words.
+- The board entry `OvernightBatch` belongs to Codex. Add your own short entry for this repair (under 80 words) that names this handoff as the transfer; do not rewrite Codex's entry.
+- Check for a live Codex session on the overnight batch before touching `scripts/edit-queue` (git log, the board, `ps` on both Macs). If one is mid-change, tell Dan in one line and wait for it to finish.
 
 ## Done looks like
 
-Preflight passes on both Macs with the shared checkout dirty; an M2 fixture job runs with the M6 offline; both Macs pass the launchd file probe; the report and an alert flag anything that cannot start; the two blocked R2 rows are reclassified correctly; tests pass; a short receipt in `Docs/` lists what changed, what was proven with real runs versus fixtures, and what the pilot still has to prove. Then ask for a Fable 5.2 high review of the diff before the pilot.
+Preflight passes on both Macs with the shared checkout dirty; an M2 fixture job runs with the M6 offline; both Macs pass the launchd file probe; the report and an alert flag anything that cannot start; the two blocked R2 rows are reclassified correctly; tests pass; a short receipt in `Docs/` lists what changed, what was proven with real runs versus fixtures, and what the pilot still has to prove. Then start a Codex GPT-6.2 Sol High review of the diff with the Codex CLI in the background (AGENTS.md, "Claude calls Codex itself"), fix what it finds, and only then ask Dan for the pilot's three videos.

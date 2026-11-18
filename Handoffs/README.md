@@ -52,7 +52,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Overnight batch: make queued edits start, fix background file access, surface blockers](handoff-20261118-overnight-batch-start-and-permission-fixes.md), November 18, 2026. **OPEN. Codex GPT-6.2 Sol, High.** Six fixes from the Fable review of the as-built system, their tests, then a three-video unattended pilot on Dan's go. The Nov 15 pre-build review handoff is executed and superseded by this.
+- [Overnight batch: make queued edits start, fix background file access, surface blockers](handoff-20261118-overnight-batch-start-and-permission-fixes.md), November 18, 2026. **OPEN. Claude Fable 5.2, high (Dan's pick of Claude, Nov 18); the Mac permission grant goes to Codex and Grokbot.** Six fixes from the Fable review of the as-built system, their tests, then a three-video unattended pilot on Dan's go. The Nov 15 pre-build review handoff is executed and superseded by this.
 
 - [Kevin James Cheat SFC Setup: approved off the cuff R2](handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md), updated2026-11-15. **SETUP COMPLETE, WAITLISTED, Codex01a1dc60.** Revised X3 approved/installed; four uploaded assets hash-verified. Shared waiting-list plan January11 2027 at6PM Central, all four destinations; queue199/200, no live schedules. [Receipt](../Docs/DS41_SETUP_RECEIPT_20261115.md). No Dan action; shared top-up owns scheduling. EditQueue finalized pending actual post readbacks.
 
