@@ -5,11 +5,11 @@
   "slug": "ds107-metabolism-not-the-reason",
   "campaign": "metabolism-after-40",
   "title": "Your Metabolism Is Not The Reason You're Fat",
-  "video_url": "",
-  "tiktok_video_url": "",
-  "instagram_cover_url": "",
-  "youtube_cover_url": "",
-  "main": null,
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b1c499ba-8e62-4e6e-9cf6-324fdd8dca99.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a4657823-8f2b-4f5c-88d2-e054b0d901b5.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/85431b85-3438-43ec-8484-d7d679936474.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fe93777d-2e97-4b42-9669-13d4bb8d2233.jpg",
+  "main": "2027-01-11T15:00:00.000Z",
   "keyword": "ABS",
   "ai_generated": true,
   "hook": "Your age is not the reason you're gaining weight. So what changed since you were 25? You have more stress. You're eating worse food without realizing it. You move less and you sleep worse.",
@@ -24,6 +24,8 @@
     "instagram": "Your age is not the reason you're gaining weight. So what changed since you were 25? You have more stress. You're eating worse food without realizing it. You move less and you sleep worse.\n\nFood first. Decide what you eat before you're hungry, and then eat the protein first. If it's fast food, order for protein.\n\nThen do 15 minutes of exercise first thing every morning. It gets you moving again and takes the edge off the stress.\n\nIt's not your age, which means you can fix it. Subscribe to my channel and go to SixPackAbs.com for all my newest videos.\n\nWatch all my newest videos:\nhttps://sixpackabs.com/?utm_source=instagram&utm_medium=short&utm_campaign=metabolism-after-40&utm_content=ds107-metabolism-not-the-reason\n\n#Metabolism #FatLoss #FitnessOver40 #Shorts",
     "tiktok": "Your age is not the reason you're gaining weight. So what changed since you were 25? You have more stress. You're eating worse food without realizing it. You move less and you sleep worse.\n\nFood first. Decide what you eat before you're hungry, and then eat the protein first. If it's fast food, order for protein.\n\nThen do 15 minutes of exercise first thing every morning. It gets you moving again and takes the edge off the stress.\n\nIt's not your age, which means you can fix it. Subscribe to my channel and go to SixPackAbs.com for all my newest videos.\n\nWatch all my newest videos:\nhttps://sixpackabs.com/?utm_source=tiktok&utm_medium=short&utm_campaign=metabolism-after-40&utm_content=ds107-metabolism-not-the-reason\n\n#Metabolism #FatLoss #FitnessOver40 #Shorts"
   },
-  "setup_status": "awaiting_cover_pick",
-  "release_hold": "Awaiting Dan cover pick. Media/cover URLs and release slot are intentionally unassigned."
+  "setup_status": "waitlisted",
+  "approved_cover": "Round 3 Y2, seam-only fix finalized by Dan",
+  "approved_cover_record": "Short-form video content/covers/approved-ds107/picks.json",
+  "pinned_comment_status": "prepared, shared daily routine posts and pins after public release"
 }
