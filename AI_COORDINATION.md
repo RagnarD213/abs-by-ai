@@ -33,7 +33,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-17:Claude.** Needs Dan: refill shipping fix A or B. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
+**GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-17:Claude.** Next: test orders (handoff in README), Dan's review. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 

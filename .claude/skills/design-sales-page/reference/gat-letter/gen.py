@@ -319,7 +319,7 @@ def checkout():
                 + field('Expiration', 'MM / YY', half=True) + field('CVV', '123', half=True) + '</div>')
     terms = ('<div class="trial"><h3>How this FREE Trial Offer Works</h3>'
              '<p>With your order today, you will receive a full 60-count bottle of Great Again T at no cost… you just pay $9.99 shipping &amp; handling plus any applicable tax.</p>'
-             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, with free shipping, until you decide to cancel.</p>'
+             '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, shipping included, until you decide to cancel.</p>'
              f'<p>You can pause, change the frequency or cancel your Monthly Savings subscription quickly and easily anytime by emailing {SUPPORT}.</p></div>'
              '<label class="check agree"><span class="box"></span>By checking this box, you are agreeing to the terms of the offer stated above.</label>'
              f'<a class="cta cta-order" href="#">Complete My Order{ARROW}<small>{LOCK}Secure 256-bit encryption</small></a>'
