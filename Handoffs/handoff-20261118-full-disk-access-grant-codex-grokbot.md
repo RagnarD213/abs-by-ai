@@ -49,7 +49,13 @@ When both Macs pass, run once on the M6:
 cd ~/Projects/Claude/Projects/Abs\ By\ AI && python3 -B scripts/edit-queue/batch.py preflight
 ```
 
-Expected: `"passed": true`. This only records the safety check. It does **not** switch starts on and must not be followed by `batch.py start` (that needs Dan's go for the three-video pilot).
+Expected: `"passed": true`. **Then switch the two waiting edits on (Dan's go, Nov 18, 5:41 p.m.: "disable the block on new video starts so that videos will start once we're done with the current ones"):**
+
+```bash
+cd ~/Projects/Claude/Projects/Abs\ By\ AI && python3 -B scripts/edit-queue/batch.py start chat-WV-07-R1 && python3 -B scripts/edit-queue/batch.py start chat-REALDEMOS-B05-R1
+```
+
+Claude tried both at 5:44 p.m.; each was refused only because of the missing grant. Start nothing else.
 
 ## Report back
 
