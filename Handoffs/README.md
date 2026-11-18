@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Grant Full Disk Access to the edit queue's background Python on both Macs](handoff-20261118-full-disk-access-grant-codex-grokbot.md), 2026-11-18. **OPEN: fire now; Codex GPT-6.2 Sol high and Grokbot.** Exact program paths per Mac, reload and probe commands; nothing starts until both Macs pass.
 - [RO-28 "Got Abs? You need to see this.": thumbnail, upload, new ads](handoff-20261118-ro28-got-abs-reedit-setup.md), 2026-11-18. **OPEN: fire now (film approved); Codex GPT-6.2 Sol high.** Neutral title/thumbnail/ads, no drug terms; old 7 ads removed.
 
 - [Social engagement after ManyChat: post-specific questions and follow tests](handoff-20261117-social-engagement-after-manychat.md), 2026-11-17. **Implemented.** Verified 194 schedules across four platforms. Live comment and metric checks await release. Results review December 16. [Receipt](../output/social-engagement-20261117/receipt.md).
@@ -53,7 +54,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 
 
-- [Overnight batch: make queued edits start, fix background file access, surface blockers](handoff-20261118-overnight-batch-start-and-permission-fixes.md), November 18, 2026. **OPEN. Claude Fable 5.2, high (Dan's pick of Claude, Nov 18); the Mac permission grant goes to Codex and Grokbot.** Six fixes from the Fable review of the as-built system, their tests, then a three-video unattended pilot on Dan's go. The Nov 15 pre-build review handoff is executed and superseded by this.
+- [Overnight batch: make queued edits start, fix background file access, surface blockers](handoff-20261118-overnight-batch-start-and-permission-fixes.md), November 18, 2026. **EXECUTED by Claude except the pilot: six fixes, tests and live checks done ([receipt](../Docs/OVERNIGHT_BATCH_REPAIRS_20261118.md)). Waiting on the Full Disk Access grant below, then Dan's three pilot videos and go.**
 
 - [Kevin James Cheat SFC Setup: approved off the cuff R2](handoff-20261114-ds41-kevin-james-cheat-approved-film-setup.md), updated2026-11-15. **SETUP COMPLETE, WAITLISTED, Codex01a1dc60.** Revised X3 approved/installed; four uploaded assets hash-verified. Shared waiting-list plan January11 2027 at6PM Central, all four destinations; queue199/200, no live schedules. [Receipt](../Docs/DS41_SETUP_RECEIPT_20261115.md). No Dan action; shared top-up owns scheduling. EditQueue finalized pending actual post readbacks.
 
