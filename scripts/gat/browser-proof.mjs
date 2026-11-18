@@ -34,9 +34,13 @@ async function browser(size) {
   const go = async url => { await send('Page.navigate', { url }); await sleep(900); };
   const waitFor = async (expr, ms = 30000, what = expr) => { const t = Date.now(); for (;;) { if (await ev(expr).catch(() => false)) return; if (Date.now() - t > ms) throw new Error('timed out waiting for ' + what); await sleep(300); } };
   const shot = async (name, full = true) => {
+    // a full-length picture is taken with the sticky header and sticky column laid flat, or they print mid-page
+    if (full) await ev(`(() => { const s = document.createElement('style'); s.id = 'proof-flat'; s.textContent = '.site-top,.co-left{position:static!important}html{scroll-behavior:auto!important}'; document.head.appendChild(s); scrollTo(0, 0); })()`);
+    if (full) await sleep(250);
     const h = full ? await ev('Math.ceil(document.documentElement.scrollHeight)') : size.h;
     const r = await send('Page.captureScreenshot', { format: 'jpeg', quality: 82, captureBeyondViewport: full, clip: { x: 0, y: full ? 0 : await ev('scrollY'), width: size.w, height: Math.min(h, 12000), scale: 1 } });
     writeFileSync(join(outDir, name + '.jpg'), Buffer.from(r.result.data, 'base64'));
+    if (full) await ev(`(() => { const s = document.getElementById('proof-flat'); if (s) s.remove(); })()`);
   };
   const click = async sel => {
     await ev(`document.querySelector(${JSON.stringify(sel)}).scrollIntoView({block:'center',behavior:'instant'})`); await sleep(250);

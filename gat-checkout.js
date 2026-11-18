@@ -480,7 +480,9 @@ SixPackAbs.com is owned and operated by Rose Digital Holdings LLC, 3520 Cavu Rd,
       if (claim.rowCount) {
         const order = await one('SELECT * FROM gat_orders WHERE id=$1', [row.order_id]);
         const mail = cancelEmail(order);
-        await send(order.email, mail[0], mail[1]);
+        if (!await send(order.email, mail[0], mail[1])) {    // not sent: free the claim so the next event for this subscription tries again
+          await db.query('UPDATE gat_subscriptions SET cancel_email_sent_at=NULL WHERE stripe_subscription_id=$1', [sub.id]);
+        }
       }
     }
     return true;
@@ -572,9 +574,10 @@ SixPackAbs.com is owned and operated by Rose Digital Holdings LLC, 3520 Cavu Rd,
     const s = stripe();
     const list = await s.billingPortal.configurations.list({ limit: 100 });
     const mine = list.data.find(c => c.metadata && c.metadata.funnel === 'gat' && c.active);
+    // (the headline may be at most 60 characters)
     portalId = mine ? mine.id : (await s.billingPortal.configurations.create({
       metadata: { funnel: 'gat' },
-      business_profile: { headline: 'SixPackAbs.com: update the card for your Great Again T monthly delivery', privacy_policy_url: SHOP_URL + '/pages/great-again-t-privacy-policy', terms_of_service_url: PAGES.terms },
+      business_profile: { headline: 'Update the card for your Great Again T monthly delivery', privacy_policy_url: SHOP_URL + '/pages/great-again-t-privacy-policy', terms_of_service_url: PAGES.terms },
       features: { payment_method_update: { enabled: true }, invoice_history: { enabled: true }, customer_update: { enabled: false },
         subscription_cancel: { enabled: false } },
     })).id;
@@ -652,7 +655,8 @@ SixPackAbs.com is owned and operated by Rose Digital Holdings LLC, 3520 Cavu Rd,
         const { order, sub, out } = await account(id);
         const action = req.params.action;
         if (action === 'card') {
-          const configuration = await portalConfig();
+          // our own settings for Stripe's card page; if they cannot be made, Stripe's default page still lets the buyer change the card
+          const configuration = await portalConfig().catch(e => { log.error('GAT portal settings failed:', e.message); return undefined; });
           const portal = await stripe().billingPortal.sessions.create({ customer: order.stripe_customer_id, return_url: accountLink(id), configuration,
             flow_data: { type: 'payment_method_update' } }).catch(() => stripe().billingPortal.sessions.create({ customer: order.stripe_customer_id, return_url: accountLink(id), configuration }));
           return res.json({ url: portal.url });

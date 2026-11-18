@@ -105,7 +105,7 @@
   }
 
   /* ---------------- order page ---------------- */
-  if (page === 'order') {
+  if (page === 'order' && !body.classList.contains('op')) {   /* the one-page form (gat-pay.js) takes over when body has class op */
     var main = $('main.co'), btn = $('#co-go'), agree = $('#agree'), err = $('#co-err');
     var shop = null;   /* {variant, plan} read from the live product, so the page can never charge a price it does not show */
     var option = function () { var r = $('input[name="gat-option"]:checked'); return r ? r.value : 'trial'; };
