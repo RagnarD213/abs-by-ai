@@ -99,6 +99,14 @@
         "Media/research/gat-sales-page-contest-20261117/refine/live-preview"
       ],
       "port": 9731
+    },
+    {
+      "name": "gat-order-form-test",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "scripts/gat/local-proof-server.js"
+      ],
+      "port": 8787
     }
   ]
 }

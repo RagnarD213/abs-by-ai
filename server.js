@@ -86,6 +86,14 @@ app.post('/api/stripe/webhook', express.raw({ type: 'application/json' }), async
   res.json({ received: true });
 });
 
+// Great Again T one-page order form on shop.sixpackabs.com (gat-checkout.js). It has its own Stripe keys
+// (GAT_*), its own webhook (raw body, so it is mounted here, before the JSON parser) and its own tables.
+// Unset keys leave it off; it never touches Abs By AI members, credits or the webhook above.
+const gatCheckout = require('./gat-checkout').createGatCheckout({ db, dbReady, express, rateLimit });
+app.use(gatCheckout.router());
+setInterval(() => { gatCheckout.sweep().catch(e => console.error('GAT sweep error:', e.message)); }, 60 * 60 * 1000).unref?.();
+setTimeout(() => { gatCheckout.sweep().catch(e => console.error('GAT sweep error:', e.message)); }, 90 * 1000).unref?.();
+
 // Workboard owns authentication and bounded body parsers before product middleware.
 const {createRouter: createWorkboardRouter} = require('./workboard/router');
 const {createStore: createWorkboardStore} = require('./workboard/store');
@@ -2005,7 +2013,9 @@ app.post('/api/task-checks', async (req, res) => { await withTaskDataLock(async 
 // summary is sent by POSTing /api/send-push (triggered from the Mac 7am job).
 const VAPID_PUBLIC_KEY  = process.env.VAPID_PUBLIC_KEY;
 const VAPID_PRIVATE_KEY = process.env.VAPID_PRIVATE_KEY;
-const VAPID_SUBJECT     = process.env.VAPID_SUBJECT || 'mailto:danroseconsulting@gmail.com';
+// The contact a push service sees. Set VAPID_SUBJECT on Railway to change it; the fallback is the business address
+// (the same one the member emails reply to), never a personal one: this repo is public.
+const VAPID_SUBJECT     = process.env.VAPID_SUBJECT || 'mailto:dan@absbyai.com';
 const PUSH_SUBS_FILE    = 'push-subs.json';
 
 let webpush = null;

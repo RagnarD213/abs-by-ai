@@ -45,3 +45,8 @@ Handoff: `Handoffs/handoff-20261117-clear-internal-drives.md`. Goal was 250 GB f
 - The Extreme task's lock cleared, so `jobarchive.py run --approved CHROMA-FABLE-TEST,GRAPHICS-FABLE-TEST` ran on the M2 and moved nothing: the nightly tool's review guard (which an approval does not override) refuses both folders because two registered review pages still point at them: 9461 (GRAPHICS-FABLE-TEST, registered Nov 9) and 9462 (CHROMA-FABLE-TEST, registered Nov 9). Both pages are live (HTTP 200) and not on the board or in Dan's decisions.
 - Nothing was deleted or retired. To finish (about 28 GB): Dan says whether the Fable chroma and graphics test reviews are done; then retire both pages (`review_retire.py`), re-run the same command on the M2.
 - Free space now: M6 118 GB, M2 102 GB (both fell since yesterday: WV-05 added 33 GB on M6, Flow work on M2).
+
+## Update 2026-11-18 17:00 CST: DONE
+- The two M2 test folders were the finished Fable 5.2 trial of Nov 9 (graphics and chroma key; Dan's picks are in memory `fable-5-2-release`). Their two review pages (9461, 9462) were backed up with checksums to `/Volumes/Expansion/_retired_reviews/m2/hub-fable-tests-20261118/` and their hub registrations removed.
+- `jobarchive.py run --approved CHROMA-FABLE-TEST,GRAPHICS-FABLE-TEST` then moved both: GRAPHICS-FABLE-TEST 106 files and CHROMA-FABLE-TEST 1,853 files verified, durable index and second copy, sources removed (16:55). Restore with `jobarchive.py restore`.
+- Free space: M2 115 GB (started at 51). The 250 GB goal was not reached on either Mac; what remains is live work (M6 wv-03, M2 SRM-JV-LEAD) and folders outside this brief.

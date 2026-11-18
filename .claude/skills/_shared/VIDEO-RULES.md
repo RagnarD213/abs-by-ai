@@ -145,8 +145,10 @@ Do not interrupt another active editor or launch a new job merely to install thi
 *"I've changed my mind about that rule of doing green screen on Codex because this edit was so good. I haven't tested
 Codex yet, but let's not have any rule for which one. Codex is untested, but I think Claude is our likely champion for
 long-form green screen, probably Codex for the short form."* A video stays with the AI it started on (2026-10-20 rule).
-For a new green-screen job, recommend Claude Opus 5.5 high for long-form and Codex newest Sol high for reaction Shorts: a
-lean, not a rule. The R5 reaction format and the long-form background template stay locked whichever AI edits.
+For new green-screen long-form, recommend Claude Opus 5.5 High. Use GPT-6.2 Astra High for the first cut of the next
+new, unowned reaction Short (Dan, 2026-11-17). Follow R5 and the normal review and verification process. Record the
+finished result and revision effort for Dan before shifting more editing off Claude. After the one-job trial, the normal
+lean is Codex Sol High for new reaction Shorts pending Dan's decision.
 
 ## Long-form green-screen backgrounds: the locked template (Dan, 2026-10-27, RO-24 R3)
 
@@ -218,7 +220,7 @@ Use `_shared/veo/FLOW-RUNBOOK.md` for motion and `_shared/blind-image/FLOW-IMAGE
 
 Dan: "The system that I want is one where I give my revisions and then the new task automatically starts, is pinned, and the old task is unpinned." The editor chooses whether a fresh task is useful. Dan does not manage handoffs, fire suggested cards or transfer pins. This replaces the 2026-10-18 manual-card/pin rule for authorized video continuations. It does not authorize starting an unrelated film or interrupting a different active editor.
 
-**Model default for every video edit and new round (Dan, 2026-10-20, evening; replaces the Sol-for-everything default of that morning):** a video stays with the AI it started on. A video started on Claude: Opus 5.5, high effort, every round. A video started on Codex: the newest available stable Sol, high effort, currently `gpt-6.1-sol`, resolved through the supported model catalog on the destination/client when available (never guess a future ID, never inherit Astra because the previous round used it; if no catalog is accessible, disclose the known baseline; if the catalog has no compatible Sol, report that blocker). Only Dan's explicit request for this round or all future rounds moves a video to the other AI; older recipe/handoff defaults and general routing do not. Dan: *"default to Opus High for things that we started on Claude and Sol High for things that we started on Codex, unless I explicitly request different... My limit was almost burned up."* An active turn cannot change model mid-inference: use an actually supported next-turn override and end the current turn before production resumes, or choose a fresh task if that control is unavailable.
+**Model default for every video edit and new round (Dan, 2026-10-20, evening; replaces the Sol-for-everything default of that morning):** a video stays with the AI it started on. A video started on Claude: Opus 5.5, high effort, every round. A video started on Codex: the newest available stable Sol, high effort, currently `gpt-6.2-sol`, resolved through the supported model catalog on the destination/client when available (never guess a future ID, never inherit Astra because the previous round used it; if no catalog is accessible, disclose the known baseline; if the catalog has no compatible Sol, report that blocker). The first cut of the next new reaction Short has Dan’s explicit Astra 6.2 High trial exception. Only Dan's explicit request for this round or all future rounds moves a video to the other AI; older recipe/handoff defaults and general routing do not. Dan: *"default to Opus High for things that we started on Claude and Sol High for things that we started on Codex, unless I explicitly request different... My limit was almost burned up."* An active turn cannot change model mid-inference: use an actually supported next-turn override and end the current turn before production resumes, or choose a fresh task if that control is unavailable.
 
 **Choose and explain in one line.** Quality outranks token savings. Continue here for small contained notes, a recent reply (about an hour) and task context below about 40%. Prefer a fresh task for a substantial new round, a heavy remaining stage (new motion/retakes, full rebuild, gate/reviewer chain), context pressure, stale conversation or repeated wrong turns. Never hand off simply by habit. Use actual context telemetry if exposed; otherwise record a conservative estimate and its basis. Account-wide usage limits are not context usage. No exact percentage should be invented.
 
@@ -1556,6 +1558,21 @@ something that we can publish."* Every point below is a standing rule for every 
   stopped. An edit silent for 3 hours loses its slot. The tool fails open: if it breaks, it warns and allows.
 - **See it:** `python3 .claude/skills/_shared/editcap/editcap.py status` (read-only, covered by the standing
   render-queue authorization in AGENTS.md).
+
+## Report the ETA as you go: Dan reads it on the Edit Queue page (Dan, 2026-11-18)
+
+Dan asked for ETAs in chat many times a day; each ask costs tokens and interrupts the edit. Now every edit reports
+its plan and steps with one cheap command, and a plain script (no AI) on the M6 turns that, the render queue and
+the edit slots of both Macs into a time range on the Edit Queue page every 10 minutes. Claude and Codex, both Macs.
+
+- **After `editcap.py acquire` succeeds, post the plan for this round:** `python3 .claude/skills/_shared/eta/eta.py
+  plan <JOB> "Take map:20" "Key 14 pieces:180" "Build film:60" "Checks:20" "Review page:10"` (step name, colon,
+  honest minutes). Use the same step names as earlier rounds and jobs so the tool learns real times.
+- **Each new step:** `eta.py step <JOB> <N>`. **A redo after a failed check:** `eta.py retry <JOB> "why"`.
+- **When you can measure it** (render percent, pieces done), `eta.py left <JOB> <minutes>` makes the range tight.
+- `editcap.py release` clears the ETA by itself. Run these on the Mac doing the work (`resume.py run` for the other Mac).
+- Never wait or poll for this, and never report ETAs in chat unprompted: the page is the report. `/eta` still answers
+  a direct question. Tool and estimate method: `.claude/skills/_shared/eta/README.md`.
 
 ## Video builds: the render queue (formerly "never run more than two at once")
 

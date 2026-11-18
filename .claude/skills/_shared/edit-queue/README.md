@@ -6,10 +6,15 @@ status live. **Any skill or agent (Claude, Codex, Grok Bot) that edits, finalize
 updates its status at the moments below.** The record lives in three places, and `queue.py` keeps the first two equal:
 
 * `Handoffs/video-editing/jobs.json`: the source of truth in git
-* **Google Drive `Abs By AI automation/edit-queue-status.json`** (file id `1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg`): uploaded
+* **Google Drive `Abs By AI automation/edit-queue-status.json`** (file id `1eCS26zmSuh5weNasVTrAVpHO7xfg8rAU` since 2026-11-15): uploaded
   by `queue.py` on every change via `~/bin/rclone`. The page reads it through Dan's Google Drive connector and
   re-checks every minute, so **any agent's update shows within about a minute of the page being open**
 * the artifact db `jobs/<ID>`: a mirror Claude sessions write, used when the Drive read isn't available
+
+**ETAs (2026-11-18):** the page's "Running now" panel and the ETA line on each row come from a second Drive file,
+`edit-queue-eta.json`, written every 10 minutes by `.claude/skills/_shared/eta/eta.py` (README beside it). Sessions
+report steps with `eta.py`, not `queue.py`. **Page Drive id:** the status file is `1eCS26zmSuh5weNasVTrAVpHO7xfg8rAU`
+since 2026-11-15 (the old `1RX-...` copy was trashed; the page read it until 2026-11-18).
 
 ## When to set which status (Dan, 2026-09-16)
 
