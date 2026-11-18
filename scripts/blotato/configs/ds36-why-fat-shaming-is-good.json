@@ -18,7 +18,7 @@
   "body": "Weigh yourself every morning. If you're more than three pounds above your goal weight, get back on track with your diet and workouts. Feel that shame when you're only a little over your goal, rather than 20 or 30 pounds over. Feel it, then fix it. Don't stay ashamed forever and do nothing.",
   "close": "So subscribe and go to SixPackAbs.com for all my latest videos.",
   "tags": "#FatLoss #WeightLoss #BillMaher #Shorts",
-  "pinned_comment": "Do you weigh yourself every morning?",
+  "pinned_comment": "What pushed you to get in shape in the first place?",
   "youtube_description": "Bill Maher is right. Fat shaming can be good. But fat shaming other people is cruel and there's no point to doing it. Instead, use your own shame as motivation.\n\nWeigh yourself every morning. If you're more than three pounds above your goal weight, get back on track with your diet and workouts. Feel that shame when you're only a little over your goal, rather than 20 or 30 pounds over. Feel it, then fix it. Don't stay ashamed forever and do nothing.\n\nSo subscribe and go to SixPackAbs.com for all my latest videos.\n\nMore videos: https://sixpackabs.com/?utm_source=youtube&utm_medium=short&utm_campaign=fat-shaming&utm_content=ds36-why-fat-shaming-is-good\n\nIncludes labeled AI-generated footage.\n\nBill Maher clip: Real Time with Bill Maher (HBO), \"New Rule: The Fudge Report\".\n\n#FatLoss #WeightLoss #BillMaher #Shorts",
   "caption_overrides": {
     "facebook": "Bill Maher is right. Fat shaming can be good. But fat shaming other people is cruel and there's no point to doing it. Instead, use your own shame as motivation.\n\nWeigh yourself every morning. If you're more than three pounds above your goal weight, get back on track with your diet and workouts. Feel that shame when you're only a little over your goal, rather than 20 or 30 pounds over. Feel it, then fix it. Don't stay ashamed forever and do nothing.\n\nSo subscribe and go to SixPackAbs.com for all my latest videos.\n\nMore videos: https://sixpackabs.com/?utm_source=facebook&utm_medium=short&utm_campaign=fat-shaming&utm_content=ds36-why-fat-shaming-is-good\n\n#FatLoss #WeightLoss #BillMaher #Shorts",
@@ -36,5 +36,6 @@
   "setup_receipt": "Docs/DS36_SETUP_RECEIPT_20261105.md",
   "caption_file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Fat Shaming - DS-36/Fat Shaming SFC R2 - off the cuff.srt",
   "article": "Shared Short article/skip routine after release",
-  "setup_note": "Exact approved off-the-cuff R2 master; M1 cover pair approved. No native YouTube upload. Target explicitly approved Dec22 9AM America/Chicago."
+  "setup_note": "Exact approved off-the-cuff R2 master; M1 cover pair approved. No native YouTube upload. Target explicitly approved Dec22 9AM America/Chicago.",
+  "engagement_prompt": "What pushed you to get in shape in the first place?"
 }

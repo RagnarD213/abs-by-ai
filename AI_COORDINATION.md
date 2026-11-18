@@ -283,7 +283,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-06 - QUEUED 2026-10-13, Claude.** YouTube Sun Dec 27, socials Mon. Then: captions, article check.
 
-**Video 5 setup - 2026-10-11, Claude.** Queue blocked (200 cap). Task `abs40-vs-25-blotato-queue` queues Jan 3 2027 on Oct 12. `Docs/ABS40VS25_SETUP_RECEIPT_20261011.md`.
+**Video 5 (Zeeshan abs at 40 vs 25) - QUEUED 2026-11-18, Claude.** YouTube Sun Dec 6. Then: captions, article check.
 
 **Muhammad-Shorts QUEUED 2026-10-13.** DS-05 waitlisted 10-16; queued: set Edit Queue uploaded. `Docs/MUHAMMAD_SHORTS_SETUP_RECEIPT_20261013.md`
 

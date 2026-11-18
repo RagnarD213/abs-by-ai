@@ -3,7 +3,7 @@
   "hook": "These are the five muscles that are the most important for attracting women, and how to build each one.",
   "body": "On a dating app, she decides in a couple of seconds off your pictures. And none of these five muscles needs a barbell: you can build every one of them on a machine or cable. Number one, your side delts: the side lateral machine and dumbbell side laterals, up to shoulder height and slow on the way down. Number two, your upper chest: the incline dumbbell press and the chest fly machine. Number three, your arms: cable curls, rope tricep pushdowns and preacher curls, and don't skip your triceps. Number four, your back: pull-ups or lat pulldowns and chest supported T-bar rows. Number five, your abs: cable crunches and leg raises on the captain's chair, and lose the belly fat that's hiding them with nutrition.",
   "close": "Subscribe for more videos like this and go to SixPackAbs.com to get all my newest videos as soon as they are published.",
-  "pinned_comment": "Which of these five muscles is the weakest one on you right now?",
+  "pinned_comment": "Which of these five muscles would you put at number one?",
   "youtube_tags": [
     "muscles women notice",
     "muscles women find attractive",
@@ -30,7 +30,6 @@
   "english_srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/claude edited long form content/26 - The 5 Muscles Women Notice First, And The Machine That Builds Each One/The 5 Muscles Women Notice First, And The Machine That Builds Each One | claude round 3 | 16x9 | RO-38.srt",
   "platform_ctas": {
     "facebook": "Try Abs By AI free for 7 days:\n{link}",
-    "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
   },
@@ -55,5 +54,6 @@
     "youtube": "2027-01-08T15:00:00.000Z",
     "socials": "2027-01-09T18:00:00.000Z",
     "timezone": "America/Chicago"
-  }
+  },
+  "engagement_prompt": "Which of these five muscles would you put at number one?"
 }

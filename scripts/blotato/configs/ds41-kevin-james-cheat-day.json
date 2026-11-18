@@ -32,7 +32,7 @@
     "jre clips",
     "joe rogan kevin james"
   ],
-  "pinned_comment": "Do you do a full cheat day or just one cheat meal?",
+  "pinned_comment": "Has a weekly cheat day ever worked for you?",
   "ai_generated": true,
   "captions_burned_in": true,
   "related_video": null,
@@ -100,5 +100,7 @@
       "sha256": "800fa0ee26ca5771b153cb667d3712118b179022833be9efd6fd1912fb08177c",
       "bytes": 65420373
     }
-  }
+  },
+  "engagement_prompt": "Has a weekly cheat day ever worked for you?",
+  "engagement_topic": "reaction"
 }

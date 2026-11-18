@@ -26,7 +26,7 @@
     "Abs By AI"
   ],
   "youtube_description": "You deserve a break once you're ripped.\n\nWhen you go on vacation, the usual rules of working out and eating for most people go out the window.\n\nSo before you establish good health habits, vacation is toxic to your fitness goals.\n\nYou can enjoy those vacations eventually, but it's going to be way more enjoyable when you're ripped and when you have your health habits dialed in.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short2\n\nFull video on this channel: What To Cut To Afford Getting In Shape\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #Vacation #FitnessHabits #Shorts",
-  "pinned_comment": "Do you work out when you're on vacation, or do you take the week off?",
+  "pinned_comment": "Do you train on vacation or take the week off?",
   "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short2",
   "parent_config": "scripts/blotato/configs/ro20b-what-to-cut.json",
   "kitchen": true,
@@ -42,7 +42,9 @@
   },
   "caption_overrides": {
     "facebook": "You deserve a break once you're ripped.\n\nWhen you go on vacation, the usual rules of working out and eating for most people go out the window.\n\nSo before you establish good health habits, vacation is toxic to your fitness goals.\n\nYou can enjoy those vacations eventually, but it's going to be way more enjoyable when you're ripped and when you have your health habits dialed in.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short2\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #Vacation #FitnessHabits #Shorts",
-    "instagram": "You deserve a break once you're ripped.\n\nWhen you go on vacation, the usual rules of working out and eating for most people go out the window.\n\nSo before you establish good health habits, vacation is toxic to your fitness goals.\n\nYou can enjoy those vacations eventually, but it's going to be way more enjoyable when you're ripped and when you have your health habits dialed in.\n\nComment COACH and I'll send you the Abs By AI link.\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #Vacation #FitnessHabits #Shorts",
+    "instagram": "You deserve a break once you're ripped.\n\nWhen you go on vacation, the usual rules of working out and eating for most people go out the window.\n\nSo before you establish good health habits, vacation is toxic to your fitness goals.\n\nYou can enjoy those vacations eventually, but it's going to be way more enjoyable when you're ripped and when you have your health habits dialed in.\n\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #Vacation #FitnessHabits #Shorts",
     "tiktok": "You deserve a break once you're ripped.\n\nWhen you go on vacation, the usual rules of working out and eating for most people go out the window.\n\nSo before you establish good health habits, vacation is toxic to your fitness goals.\n\nYou can enjoy those vacations eventually, but it's going to be way more enjoyable when you're ripped and when you have your health habits dialed in.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short2\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #Vacation #FitnessHabits #Shorts"
-  }
+  },
+  "engagement_prompt": "Do you train on vacation or take the week off?",
+  "engagement_topic": "lifestyle"
 }

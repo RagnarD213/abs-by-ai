@@ -13,7 +13,7 @@
   "ai_generated": false,
   "cover_pick": "B (round 3)",
   "captions_burned_in": true,
-  "pinned_comment": "What's the one drink you'd have the hardest time giving up?",
+  "pinned_comment": "If you quit regular soda, what did you replace it with?",
   "youtube_tags": [
     "Post Malone",
     "Post Malone soda",
@@ -37,5 +37,6 @@
   "tiktok_sha256": "ef404f6171f46eab49a95e758471456ab693b65506358e7e5da3a066cfb3d048",
   "cover_ig_sha256": "e26f6351fa04cec451111b6977f83a85108a68ac5a6ac01cf2eafc2b3b71a774",
   "cover_yt_sha256": "38ce5830597f9234dabca2cc80bcd5ac0688cdffacfd0538f8403859e5d1263d",
-  "setup_receipt": "Docs/DS42_SETUP_RECEIPT_20261114.md"
+  "setup_receipt": "Docs/DS42_SETUP_RECEIPT_20261114.md",
+  "engagement_prompt": "If you quit regular soda, what did you replace it with?"
 }

@@ -9,7 +9,7 @@
   "body": "If you're a beginner, start with five minutes of bodyweight resistance training at home every day. You don't need a gym, and you don't need any weights. Then as you progress, increase the time bit by bit. Five minutes is a great place to start.",
   "close": "Go to AbsByAI.com.",
   "tags": "#WeightTraining #KeepYourMuscle #Shorts",
-  "pinned_comment": "What resistance exercise do you do at home?",
+  "pinned_comment": "Subscribe for more on how I train to keep muscle while losing weight.",
   "keyword": "ABS",
   "main": null,
   "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/57fd1365-b79c-4bda-bcf5-f058198ffcc1.mp4",
@@ -46,7 +46,7 @@
       "youtube": "8124b58fd4527a2c04d87efeac44d98cb8c4bb0c583683dfe7a75da367ae3270"
     },
     "approval_date": "2026-11-09",
-    "dan_words": "These look good. Approve the revised A2 covers and B\u2019s Instagram cover, and finish setting up both. Keep publishing on hold until the parent is public on December 6.",
+    "dan_words": "These look good. Approve the revised A2 covers and B’s Instagram cover, and finish setting up both. Keep publishing on hold until the parent is public on December 6.",
     "final_manifest": "/Volumes/Extreme/_edit_work/SL-12/setup/installed-20261109/installed.json"
   },
   "cover_local": {
@@ -55,5 +55,7 @@
     "youtube_png": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-youtube-approved.png",
     "youtube_jpg": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl12/sl12-a-weightlifting-youtube-approved.jpg"
   },
-  "release_check_note": "On or after December 6, 2026, verify actual parent RO01 public visibility before clearing both config and waitlist holds. Then assign available dated Shorts slots A before B. Date alone is insufficient."
+  "release_check_note": "On or after December 6, 2026, verify actual parent RO01 public visibility before clearing both config and waitlist holds. Then assign available dated Shorts slots A before B. Date alone is insufficient.",
+  "engagement_prompt": "Follow for more on how I train to keep muscle while losing weight.",
+  "engagement_topic": "medication"
 }

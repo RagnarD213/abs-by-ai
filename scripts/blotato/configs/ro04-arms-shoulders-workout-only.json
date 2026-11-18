@@ -3,7 +3,7 @@
   "hook": "Grab a pair of dumbbells and do these three arms and shoulders exercises with me.",
   "body": "First, we're doing 30 seconds of bicep curls, then 30 seconds of side lateral raises, then 30 seconds of overhead triceps extensions. Once you've finished all three exercises, rest for 30 seconds before you go again. For beginners replay 2 more rounds; for advanced guys replay 4 more rounds, just like it says on the closing screen, so you're doing 3 or 5 rounds total.",
   "close": "Save this workout so the next time you want to train your arms and shoulders, you can grab your dumbbells and follow along with me again.",
-  "pinned_comment": "What dumbbell weight did you use for this workout?",
+  "pinned_comment": "Subscribe for more of the exercises I use to train arms and shoulders.",
   "youtube_tags": [
     "arms and shoulders workout",
     "dumbbell arm workout",
@@ -26,7 +26,6 @@
   "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fa806386-2477-4ff4-a1cc-a1250632d7eb.mp4",
   "platform_ctas": {
     "facebook": "Try Abs By AI free for 7 days:\n{link}",
-    "instagram": "Comment {keyword} and I will send you the link to try Abs By AI free for 7 days.",
     "instagram_first_comment": "Try Abs By AI free for 7 days: {link}",
     "tiktok": "Try Abs By AI free for 7 days at AbsByAI.com, link in bio.\n{link}"
   },
@@ -38,5 +37,7 @@
     "socials": "2027-01-07T18:00:00.000Z",
     "timezone": "America/Chicago",
     "exception": "Explicit approval of 2027 date despite finished-film 2026 rule."
-  }
+  },
+  "engagement_prompt": "Follow for more of the exercises I use to train arms and shoulders.",
+  "engagement_topic": "training"
 }
