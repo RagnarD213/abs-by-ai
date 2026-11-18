@@ -85,6 +85,20 @@
         "--blueprint=sixpackabs/playground/blueprint.json"
       ],
       "port": 9401
+    },
+    {
+      "name": "gat-live-preview",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "9731",
+        "--bind",
+        "127.0.0.1",
+        "--directory",
+        "Media/research/gat-sales-page-contest-20261117/refine/live-preview"
+      ],
+      "port": 9731
     }
   ]
 }

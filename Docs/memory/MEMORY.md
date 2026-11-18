@@ -99,6 +99,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Design: Astra first](design-astra-first.md): 11-17: Astra won the blind GAT page contest; page/site/cart design goes to Codex Astra high; Dan's feedback to all models
 - [GAT sales page direction](gat-sales-page-direction.md): 11-17: model Healthy Back first (full-height vertical player, free-bottle terms box); plain headline, no red word; long non-clickable citation list
 - [GAT page words for Google Ads](gat-page-google-ads-words.md): 11-17: no "testosterone" on the page (T or test), no drugs or needles, other poison words out; study list without paper titles
+- [GAT live funnel build](gat-live-funnel-build.md): 11-17: live on the shop, not launched; generated pages, deploy through the M2; Shopify repeats first-order shipping on refills
 - [Shop design direction](sixpackabs-shop-design-direction.md): 11-04: Claude A won; light pages not black; center product on phone; gold logo, existing symbol + Archivo
 - [Supliful to Shopify linking](supliful-shopify-linking.md): 11-05: publish from Supliful to fulfill; multipacks = Supliful bundles; Combined Listings Plus-only; other 5 products still hand-made
 

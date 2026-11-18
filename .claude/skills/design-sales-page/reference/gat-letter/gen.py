@@ -101,9 +101,17 @@ def bars(rows, unit, note=''):
 
 # ---------- shared pieces ----------
 A = 'assets/'
-MENU = ['Questions', 'Contact', 'Shipping and Returns', 'Privacy Policy', 'Terms and Conditions']
+# The nine information pages, in footer order (compliance Doc, Part D): (name, key). Files and live addresses in LINKS.
+MENU = [('Questions', 'questions'), ('How It Works', 'how'), ('Ingredients', 'ingredients'),
+        ('Shipping and Returns', 'shipping'), ('Contact', 'contact'), ('About Us', 'about'),
+        ('Privacy Policy', 'privacy'), ('Terms and Conditions', 'terms'), ('Disclaimer', 'disclaimer')]
+# Where every link goes. These are the mockup files; build_live.py swaps in the live addresses.
+LINKS = {'quiz': '1-quiz.html', 'sales': '2-before-offer.html', 'order': '4-checkout.html',
+         'questions': 'p-questions.html', 'how': 'p-how-it-works.html', 'ingredients': 'p-ingredients.html',
+         'shipping': 'p-shipping-returns.html', 'contact': 'p-contact.html', 'about': 'p-about.html',
+         'privacy': 'p-privacy.html', 'terms': 'p-terms.html', 'disclaimer': 'p-disclaimer.html'}
+SUPPORT = 'support@sixpackabs.com'   # the compliance Doc's address (mailbox made 2026-11-17, forwards to Dan)
 CTA_TXT = 'Claim My Free Month’s Supply'
-CHECKOUT = '4-checkout.html'
 ARROW = '<svg class="chev" aria-hidden="true" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg>'
 NOTES = ['1 year money back guarantee', '$9.99 shipping today', 'Cancel any time']
 
@@ -111,30 +119,34 @@ def cta(label=CTA_TXT, notes=True, cls=''):
     n = ''
     if notes:
         n = '<ul class="cta-notes">' + ''.join(f'<li>{x}</li>' for x in NOTES) + '</ul>'
-    return f'<div class="cta-wrap {cls}"><a class="cta" href="{CHECKOUT}">{label}{ARROW}</a>{n}</div>'
+    return f'<div class="cta-wrap {cls}"><a class="cta" href="{LINKS["order"]}">{label}{ARROW}</a>{n}</div>'
 
 LOCK = '<svg aria-hidden="true" viewBox="0 0 20 20"><rect x="4" y="9" width="12" height="9" rx="2"/><path d="M7 9V6.5a3 3 0 016 0V9"/></svg>'
 
-def header(revealed, bar='top', checkout=False):
-    links = ''.join(f'<a role="link" aria-disabled="true" tabindex="0">{m}</a>' for m in MENU)
-    right = (f'<span class="secure">{LOCK}Secure checkout</span>' if checkout else
-             f'<nav class="inline-nav" aria-label="Site">{links}</nav>'
-             f'<details class="menu"><summary aria-label="Menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>'
-             f'<nav class="menu-panel" aria-label="Main menu">{links}</nav></details>')
+def nav_links(current=None):
+    return ''.join(f'<a href="{LINKS[k]}"' + (' aria-current="page"' if k == current else '') + f'>{m}</a>' for m, k in MENU)
+
+def header(revealed, bar='top', checkout=False, current=None):
+    links = nav_links(current)
+    right = (f'<span class="secure">{LOCK}Secure checkout</span>' if checkout else '')
+    right += (f'<nav class="inline-nav" aria-label="Site">{links}</nav>'
+              f'<details class="menu"><summary aria-label="Menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>'
+              f'<nav class="menu-panel" aria-label="Main menu">{links}</nav></details>')
     offer = ''
     if revealed and bar == 'top':
         offer = ('<div class="offerbar"><div class="offerbar-in">'
                  f'<img class="ob-bottle" src="{A}bottle-transparent.png" alt="">'
                  '<p class="ob-txt"><span class="ob-k">Great Again T</span><strong>First month FREE</strong></p>'
-                 f'<a class="cta cta-sm" href="{CHECKOUT}">Claim My Free Bottle{ARROW}</a></div></div>')
-    return (f'<header class="site-top"><div class="strip"><div class="strip-in">'
-            f'<img class="logo" src="{A}logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com">{right}</div></div>{offer}</header>')
+                 f'<a class="cta cta-sm" href="{LINKS["order"]}">Claim My Free Bottle{ARROW}</a></div></div>')
+    return (f'<header class="site-top{" has-secure" if checkout else ""}"><div class="strip"><div class="strip-in">'
+            f'<a class="logo-link" href="{LINKS["sales"]}"><img class="logo" src="{A}logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com"></a>'
+            f'{right}</div></div>{offer}</header>')
 
 def dock():
     return ('<div class="dock"><div class="dock-in">'
             f'<img class="dk-bottle" src="{A}bottle-transparent.png" alt="">'
             '<p class="dk-txt"><span class="ob-k">Great Again T</span><strong>First month FREE</strong><span class="dk-s">Just $9.99 shipping</span></p>'
-            f'<a class="cta cta-sm" href="{CHECKOUT}">Claim My Free Bottle{ARROW}</a></div></div>')
+            f'<a class="cta cta-sm" href="{LINKS["order"]}">Claim My Free Bottle{ARROW}</a></div></div>')
 
 SOUND = ('<div class="sound"><svg aria-hidden="true" viewBox="0 0 32 32" fill="none"><path d="M4 12h6l8-6v20l-8-6H4z" fill="currentColor"/>'
          '<path d="M23 10c4 3 4 9 0 12M27 6c7 6 7 14 0 20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>'
@@ -202,14 +214,15 @@ def studies():
     lis = ''.join(f'<li id="ref-{i + 1}">{html.escape(c)}</li>' for i, c in enumerate(CITES))
     return f'<section class="studies" id="studies"><div class="studies-in"><h2>Studies referenced in this video</h2><ol>{lis}</ol></div></section>'
 
-FOOTER = ('<footer><div class="foot-in">'
-          f'<img src="{A}logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com" class="foot-logo">'
-          '<p>SixPackAbs.com is owned and operated by Rose Digital Holdings LLC</p><p>3520 Cavu Rd, Georgetown, TX 78628</p>'
-          '<p>Support: dan@sixpackabs.com</p><div class="footer-links">'
-          + ''.join(f'<span>{m}</span>' for m in MENU) +
-          '</div><p>These statements have not been evaluated by the Food and Drug Administration. '
-          'This product is not intended to diagnose, treat, cure, or prevent any disease.</p>'
-          '<p>© 2026 SixPackAbs.com. All rights reserved.</p></div></footer>')
+def footer():
+    return ('<footer><div class="foot-in">'
+            f'<a href="{LINKS["sales"]}"><img src="{A}logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com" class="foot-logo"></a>'
+            '<p>SixPackAbs.com is owned and operated by Rose Digital Holdings LLC</p><p>3520 Cavu Rd, Georgetown, TX 78628</p>'
+            f'<p>Support: <a href="mailto:{SUPPORT}">{SUPPORT}</a></p><nav class="footer-links" aria-label="Information">'
+            + ''.join(f'<a href="{LINKS[k]}">{m}</a>' for m, k in MENU) +
+            '</nav><p>These statements have not been evaluated by the Food and Drug Administration. '
+            'This product is not intended to diagnose, treat, cure, or prevent any disease.</p>'
+            '<p>© 2026 SixPackAbs.com. All rights reserved.</p></div></footer>')
 
 def photos(kind, label='Real photos of me, not AI-generated', cap=None):
     if kind == 'before':
@@ -242,6 +255,8 @@ BADGES = ('<ul class="badges"><li><svg viewBox="0 0 24 24" aria-hidden="true"><p
 # ---------- the letter (from Dan's Doc) ----------
 exec(compile((HERE / 'letterdoc.py').read_text(), str(HERE / 'letterdoc.py'), 'exec'))
 
+exec(compile((HERE / 'infodoc.py').read_text(), str(HERE / 'infodoc.py'), 'exec'))
+
 def sec(body, cls=''):
     return f'<section class="lsec {cls}"><div class="lcol">{body}</div></section>'
 
@@ -266,7 +281,7 @@ def video_page(revealed, bar='top'):
         body += ARROWS + offer_card(idattr=' id="offer"')
     else:
         body += READ
-    body += studies() + letter() + '</main>' + FOOTER
+    body += studies() + letter() + '</main>' + footer()
     if revealed and bar == 'bottom':
         body += dock()
     cls = ('revealed ' if revealed else '') + ('bar-bottom' if bar == 'bottom' else 'bar-top')
@@ -305,11 +320,12 @@ def checkout():
     terms = ('<div class="trial"><h3>How this FREE Trial Offer Works</h3>'
              '<p>With your order today, you will receive a full 60-count bottle of Great Again T at no cost… you just pay $9.99 shipping &amp; handling plus any applicable tax.</p>'
              '<p>You will automatically be enrolled in our Monthly Savings program and will have 30 days to try Great Again T. If you choose to continue after the first free bottle we will ship you a fresh bottle every 30 days (beginning 30 days from your initial order date). Any future bottles will be billed $67 plus tax per bottle, with free shipping, until you decide to cancel.</p>'
-             '<p>You can pause, change the frequency or cancel your Monthly Savings subscription quickly and easily anytime by emailing dan@sixpackabs.com.</p></div>'
+             f'<p>You can pause, change the frequency or cancel your Monthly Savings subscription quickly and easily anytime by emailing {SUPPORT}.</p></div>'
              '<label class="check agree"><span class="box"></span>By checking this box, you are agreeing to the terms of the offer stated above.</label>'
              f'<a class="cta cta-order" href="#">Complete My Order{ARROW}<small>{LOCK}Secure 256-bit encryption</small></a>'
-             '<p class="support"><b>Ask Questions By Email</b><br><a href="mailto:dan@sixpackabs.com">dan@sixpackabs.com</a></p>'
-             '<p class="legal">By requesting your free bottle today, you agree to our terms and conditions. Charge will appear as “SIXPACKABS.COM” on your credit card/bank statement.</p>'
+             f'<p class="policy-links"><a href="{LINKS["terms"]}">Terms and Conditions</a><a href="{LINKS["privacy"]}">Privacy Policy</a><a href="{LINKS["shipping"]}">Shipping and Returns</a></p>'
+             f'<p class="support"><b>Ask Questions By Email</b><br><a href="mailto:{SUPPORT}">{SUPPORT}</a></p>'
+             f'<p class="legal">By requesting your free bottle today, you agree to our <a href="{LINKS["terms"]}">terms and conditions</a>. Charge will appear as “SIXPACKABS.COM” on your credit card/bank statement.</p>'
              '<p class="fine">Important: Please read all supporting material before use.</p>'
              '<p class="fine">†These statements have not been evaluated by the Food and Drug Administration. Individual results may vary. '
              'This product is not intended to diagnose, treat, cure, or prevent any disease.</p>')
@@ -325,17 +341,64 @@ def checkout():
              'Your money back guarantee is good for a full YEAR after you receive your shipment.</p></div></div></div></section>')
     body = (header(False, checkout=True) + '<main class="co"><div class="co-grid">'
             '<div class="co-left">' + choose + '<p class="newonly">Your first bottle is free. You pay only $9.99 shipping today.</p></div>'
-            '<div class="co-right">' + form_ship + step(2, 'Order summary') + summary + form_pay + terms + '</div></div></main>' + helps + FOOTER)
+            '<div class="co-right">' + form_ship + step(2, 'Order summary') + summary + form_pay + terms + '</div></div></main>' + helps + footer())
     return page('Great Again T | Checkout', body, 'checkout')
+
+# ---------- quiz (the approved contest design D quiz; only its menu, links and wording come from here) ----------
+QUIZ_Q = ['Are you over 40 and want to lose belly fat and build muscle?',
+          'If a few simple food swaps could naturally increase your T, would you try them?',
+          'If there was a way to get your energy and drive back without spending more time in the gym, would that interest you?',
+          'Would you like to learn the science-based ways to naturally boost your T?']
+
+def quiz():
+    h = (HERE / 'quiz_src.html').read_text()
+    a, b = h.index('<nav aria-label="Main menu">'), h.index('</nav>', h.index('<nav aria-label="Main menu">'))
+    h = h[:a] + '<nav aria-label="Main menu">' + nav_links() + h[b:]
+    h = h.replace('<img src="assets/logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com">',
+                  f'<a href="{LINKS["sales"]}"><img src="{A}logo/sixpackabs-logo-horizontal-gold.svg" alt="SixPackAbs.com"></a>', 1)
+    h = h.replace('location.href="2-before-offer.html"', f'location.href="{LINKS["sales"]}"')
+    h = h.replace('.menu nav a{display:flex;align-items:center;min-height:48px;font-size:16px;',
+                  '.menu nav a{display:flex;align-items:center;min-height:44px;font-size:16px;')
+    h = h.replace('</style>', QUIZ_CSS + '</style>', 1)
+    h = h.replace('</section><script>', '</section>' + QUIZ_FOOT.replace('{links}', ''.join(f'<a href="{LINKS[k]}">{m}</a>' for m, k in MENU))
+                  .replace('{support}', SUPPORT) + '<script>', 1)
+    for q in QUIZ_Q:
+        assert q in h, q
+    return h
+
+QUIZ_CSS = (
+    '.brand a{display:flex}.menu nav a{cursor:pointer}'
+    '.quiz-foot{padding:22px 24px 30px;border-top:1px solid #dce1d8;background:#f7f8f5;color:#56605c;font-size:12px;line-height:1.6}'
+    '.quiz-foot nav{display:flex;flex-wrap:wrap;gap:8px 16px;margin:0 0 14px}.quiz-foot a{color:inherit;text-underline-offset:3px}'
+    '.quiz-foot p+p{margin-top:8px}'
+    '@media(min-width:768px){body{background:#172322}main{max-width:620px;min-height:0;margin:48px auto;border-radius:10px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}'
+    '.brand{height:64px;padding:0 24px}.brand img{width:200px;height:32px}.menu nav{top:64px}'
+    '.quiz-content{padding:36px 44px 40px;min-height:0}.quiz h1{font-size:32px;min-height:150px}.answer{min-height:66px;font-size:19px}}'
+)
+QUIZ_FOOT = ('<footer class="quiz-foot"><nav aria-label="Information">{links}</nav>'
+             '<p>SixPackAbs.com is owned and operated by Rose Digital Holdings LLC, 3520 Cavu Rd, Georgetown, TX 78628. Support: {support}</p>'
+             '<p>These statements have not been evaluated by the Food and Drug Administration. '
+             'This product is not intended to diagnose, treat, cure, or prevent any disease.</p></footer>')
+
+# ---------- the nine information pages ----------
+def info_page(key, title, main):
+    body = header(False, current=key) + main + footer()
+    return page(f'{title} | SixPackAbs.com', body, 'info-page')
 
 def build():
     if '--no-export' not in sys.argv:
         export_doc()
+        export_info_doc()
+    (HERE / '1-quiz.html').write_text(quiz())
     (HERE / '2-before-offer.html').write_text(video_page(False))
     (HERE / '3-after-offer.html').write_text(video_page(True))
     (HERE / '3b-after-offer-bottom-bar.html').write_text(video_page(True, 'bottom'))
     (HERE / '4-checkout.html').write_text(checkout())
-    print('built 4 pages')
+    for key, name, fn, title, main in info_pages():
+        (HERE / fn).write_text(info_page(key, title, main))
+    print('built 5 funnel pages and 9 information pages')
+
+FUNNEL = ['1-quiz.html', '2-before-offer.html', '3-after-offer.html', '3b-after-offer-bottom-bar.html', '4-checkout.html']
 
 BANNED = re.compile(r'testosterone|\bdrugs?\b(?! Administration)|needle|prescription|inject|\bTRT\b|estrogen|aromatase|diabetes|cardiovascular|osteoporosis|\bdie\b|passing away|depress|steroid', re.I)
 
@@ -374,7 +437,8 @@ def check():
     assert '[P]' not in text and '[' not in ltext, 'bracket text on the page'
     n_btn = letter_html.count('<a class="cta" ')
     assert n_btn == 5, ('buttons in the letter', n_btn)
-    for f in ['2-before-offer.html', '3-after-offer.html', '3b-after-offer-bottom-bar.html', '1-quiz.html', '4-checkout.html']:
+    info_files = [fn for _, _, _, fn in INFO_PAGES]
+    for f in FUNNEL + info_files:
         t_, a_ = page_text((HERE / f).read_text())
         raw = (HERE / f).read_text()
         scripts = ' '.join(re.findall(r'<script[^>]*>(.*?)</script>', raw, flags=re.S))
@@ -382,9 +446,60 @@ def check():
         assert not bad, (f, 'Google Ads words', bad)
         dash = [c for c in '—–' if c in t_ + a_]
         assert not dash, (f, 'dashes', dash)
+        # every menu and footer link opens a page that exists, and all nine are on every page
+        hrefs = set(re.findall(r'href="([^"#:]+\.html)"', raw))
+        dead = sorted(h for h in hrefs if not (HERE / h).exists())
+        assert not dead, (f, 'dead links', dead)
+        gone = [fn for fn in info_files if raw.count(f'href="{fn}"') < 2]
+        assert not gone, (f, 'not linked from both the menu and the footer', gone)
+    assert SUPPORT in (HERE / '4-checkout.html').read_text() and 'dan@sixpackabs.com' not in (HERE / '4-checkout.html').read_text()
+    for need in ('terms', 'privacy', 'shipping'):
+        co = (HERE / '4-checkout.html').read_text()
+        assert f'class="policy-links"' in co and LINKS[need] in co[co.index('class="policy-links"'):co.index('class="policy-links"') + 400], need
+    n_info = check_info()
     unused = [p for p, _ in STYLE if p not in STYLE_HIT]
     print(f'PASS: {len(COPY)} Doc paragraphs on the page in order, word for word; no gold or [P] text; 5 buttons; '
-          f'no Google Ads words or em/en dashes on 5 pages.' + (f' Unmatched style prefixes: {unused}' if unused else ''))
+          f'no Google Ads words or em/en dashes on {len(FUNNEL) + len(info_files)} pages; every menu and footer link opens its page.'
+          + (f' Unmatched style prefixes: {unused}' if unused else ''))
+    print(f'PASS: {n_info} Doc paragraphs on the 9 information pages, each on its page in order, word for word; '
+          'no gold text, brackets, buy buttons or sales elements.')
+
+def check_info():
+    pages = {k: (fn, main) for k, _, fn, _, main in info_pages()}
+    total = 0
+    for key, (fn, _) in pages.items():
+        raw = (HERE / fn).read_text()
+        main = raw[raw.index('<main class="info"'):raw.index('</main>')]
+        text, attrs = page_text(main)
+        pos, missing = 0, []
+        for c in INFO_COPY[key]:
+            k = text.find(c, pos)
+            if k < 0:
+                missing.append(c[:70])
+            else:
+                pos = k + len(c)
+        assert not missing, (fn, 'Doc paragraphs missing or out of order', missing)
+        dup = [c[:50] for c in INFO_COPY[key] if len(c) > 40 and text.count(c) != 1]
+        assert not dup, (fn, 'paragraph on the page more than once', dup)
+        assert '[' not in text and ']' not in text, (fn, 'bracket text on the page')
+        assert 'date this page is published' not in raw, fn
+        for sales in ('class="cta', 'class="offer', 'offerbar', 'class="seal', 'class="study', 'class="player', 'story-', 'class="burst'):
+            assert sales not in re.sub(r'<style.*?</style>', '', raw, flags=re.S), (fn, 'sales element on an information page', sales)
+        # nothing on the page that is not the Doc's words, apart from the form and the two pictures
+        form = re.search(r'<form class="info-form".*?</form>', main, flags=re.S)
+        assert bool(form) == (key == 'contact'), (fn, 'contact form')
+        left = page_text(main.replace(form.group(0), ' ') if form else main)[0]
+        for c in sorted(INFO_COPY[key], key=len, reverse=True):
+            left = left.replace(c, ' ', 1)
+        left = re.sub(r'\s+', ' ', left).strip()
+        assert not left, (fn, 'text that is not in the Doc', left[:200])
+        if form:
+            ft = page_text(form.group(0))[0]
+            for label in ('Name', 'Email', 'Order number (optional)', 'Topic', 'Message', 'Send Message', 'We reply within 1 to 2 business days.'):
+                assert label in ft, (fn, 'form label', label)
+            assert form.group(0).count('<option>') == 5, 'five topics'
+        total += len(INFO_COPY[key])
+    return total
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == 'check':

@@ -487,3 +487,80 @@ svg.seal{display:block;width:104px;height:104px;flex-shrink:0;filter:drop-shadow
 .sc-tile figcaption{text-align:center;font-weight:800;color:var(--ink);font-size:16px;padding:8px 6px 12px}
 .sc-tile.less{opacity:.92}
 .swappair .swapcard{margin:12px 0 0}
+
+/* ---------- 2026-11-17 build: real links in the header, menu and footer ---------- */
+.logo-link{display:flex;align-items:center}
+.menu-panel a{min-height:46px}
+.menu-panel a[aria-current],.inline-nav a[aria-current]{font-weight:700}
+.inline-nav a[aria-current]{color:var(--gold-l)}
+footer a{color:inherit}
+.footer-links a{text-decoration:underline;text-underline-offset:3px}
+.has-secure .secure{margin-left:auto}
+.has-secure .menu{margin-left:2px}
+.policy-links{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px;margin-top:18px;font-size:14px}
+.policy-links a{color:var(--body);text-underline-offset:3px}
+.legal a{color:inherit}
+@media (max-width:420px){.has-secure .secure{font-size:12.5px;gap:5px;white-space:nowrap}.has-secure .logo{width:132px}.has-secure .strip-in{gap:10px}}
+.menu-panel{z-index:5}
+@media (min-width:768px){.menu-panel{left:auto;right:0;width:340px;border-left:1px solid #ebe7da;border-radius:0 0 0 8px}}
+/* nine links need room: the row of links shows from 1280 px, the menu button below that */
+@media (min-width:1024px){.inline-nav{display:none}.menu{display:block}.inline-nav a{cursor:pointer}.inline-nav a:hover{color:#fff}}
+@media (min-width:1280px){.inline-nav{display:flex;gap:20px}.inline-nav a{font-size:14px;white-space:nowrap}.menu{display:none}
+  .has-secure .secure{margin-left:28px;order:2}.has-secure .inline-nav{order:1}}
+
+/* ---------- information pages (.info): the letter's look with nothing that sells ---------- */
+.info{background:#fff;color:var(--body);padding:34px 20px 56px}
+.info-col{max-width:680px;margin:0 auto}
+.info h1{font-size:27px;line-height:1.18;font-weight:800;letter-spacing:-.5px;color:var(--ink);text-wrap:balance}
+.info-rule{border:0;height:1px;background:var(--gold);margin:16px 0 22px}
+.info p{font-size:18px;line-height:1.6}
+.info-col>*+p{margin-top:16px}
+.info h2{font-size:21px;line-height:1.25;font-weight:800;letter-spacing:-.3px;color:var(--ink);margin-top:40px;text-wrap:balance}
+.info h3{font-size:18px;line-height:1.35;font-weight:700;color:var(--ink);margin-top:26px}
+.info h2+h3{margin-top:16px}
+.info-col>h2+p,.info-col>h3+p{margin-top:8px}
+.info ul{margin-top:12px;padding-left:22px;font-size:18px;line-height:1.55}
+.info li+li{margin-top:8px}
+.info li::marker{color:var(--gold-d)}
+.info a{color:#475d62;text-underline-offset:3px;overflow-wrap:anywhere}
+.info p.info-date{color:var(--muted);font-size:16px}
+.info-step b{color:var(--ink)}
+.info-box{margin-top:14px;padding:18px 18px 18px 14px;background:var(--paper);border:1px solid #c9d0c9;border-radius:8px}
+.info-box ul{margin-top:0}
+.info-box li{color:var(--ink)}
+.info p.info-fda{margin-top:36px;padding-top:18px;border-top:1px solid var(--line);font-size:15px;line-height:1.55;color:var(--muted)}
+.info-label{margin:22px 0 6px;border:1px solid #d9d2c0;border-radius:6px;overflow:hidden;background:#f2ecdf}
+.info-label img{width:100%;height:auto}
+.info-founder{margin:14px 0 4px}
+.info-founder img{width:168px;height:168px;border-radius:8px;object-fit:cover}
+.info-form{margin-top:16px;display:grid;gap:14px;padding:20px 18px;background:var(--paper);border:1px solid var(--line);border-radius:8px}
+.info-field{display:grid;gap:6px}
+.info-field label{font-size:15px;font-weight:600;color:var(--ink)}
+.info-field label span{font-weight:400;color:var(--muted)}
+.info-field input,.info-field select,.info-field textarea{width:100%;min-height:48px;padding:10px 12px;border:1px solid #c3cac5;border-radius:6px;background:#fff;font:inherit;font-size:16px;color:var(--ink)}
+.info-field textarea{min-height:130px;resize:vertical}
+.info-field input:focus-visible,.info-field select:focus-visible,.info-field textarea:focus-visible,.info-send:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.info-send{justify-self:start;min-height:50px;padding:12px 26px;border:0;border-radius:6px;background:var(--green);color:#fff;font:inherit;font-weight:700;font-size:17px;cursor:pointer}
+.info .info-formline{font-size:15px;color:var(--muted);margin:0}
+.info-formok{padding:14px 16px;border-radius:6px;background:#edf4ee;border:1px solid #c6dcc9;color:var(--ink);font-weight:600}
+.info-formerr{padding:14px 16px;border-radius:6px;background:#fbeeec;border:1px solid #ecc9c3;color:var(--ink);font-weight:600}
+@media (min-width:768px){
+  .info{padding:50px 32px 76px}
+  .info-col{max-width:640px}
+  .info h1{font-size:33px}
+  .info h2{font-size:24px;margin-top:46px}
+  .info-form{padding:26px 24px}
+  .info-founder img{width:200px;height:200px}
+}
+@media (min-width:1024px){
+  .info{padding:64px 24px 92px}
+  .info-col{max-width:720px}
+  .info p,.info ul{font-size:19px}
+  .info h1{font-size:37px}
+  .info h2{font-size:26px}
+  .info h3{font-size:20px}
+  .info p.info-date{font-size:17px}
+  .info p.info-fda{font-size:16px}
+  .info-label{max-width:560px}
+}
+.secure{white-space:nowrap}

@@ -86,7 +86,26 @@ parts['DESK'] = (fig(d_fold, 'Desktop, first screen after the offer appears', 'd
 parts['CHECKOUT'] = (fig(c_phone, 'Phone checkout, whole page', tall=True) + fig(c_tab, 'Tablet checkout, whole page', 'wide', tall=True)
                      + fig(c_desk, 'Desktop checkout, whole page', 'desk', tall=True))
 
-import sys; sys.path.insert(0, str(HERE)); import gen
+# the nine compliance pages: phone first, then tablet, then desktop (each opens full length on a tap)
+INFO = [('questions', 'Questions'), ('how-it-works', 'How It Works'), ('ingredients', 'Ingredients'), ('shipping-returns', 'Shipping and Returns'),
+        ('contact', 'Contact'), ('about', 'About Us'), ('privacy', 'Privacy Policy'), ('terms', 'Terms and Conditions'), ('disclaimer', 'Disclaimer')]
+def info_shots(pre, width, cls, label):
+    out = ''
+    for f, name in INFO:
+        segs_ = sorted(glob.glob(str(CAP / 'info' / f'{pre}-{f}-full-*.jpg')))
+        out += fig(stack(segs_, f'i-{pre}-{f}.jpg', width), f'{name}, {label}', cls, tall=True)
+    return out
+parts['INFO_PHONE'] = info_shots('p', 390, '', 'phone')
+parts['INFO_TABLET'] = info_shots('t', 768, 'wide', 'tablet')
+parts['INFO_DESK'] = info_shots('d', 1440, 'desk', 'desktop')
+parts['INFO_LINKS'] = ''.join(('<a class="main"' if i == 0 else '<a') + f' href="p-{f}.html">{name}</a>' for i, (f, name) in enumerate(INFO))
+menu_open = save(CAP / 'info' / 'p-menu-open.jpg', 'i-menu-open.jpg', 390)
+foot = save(CAP / 'info' / 'p-footer.jpg', 'i-footer.jpg', 390)
+co_links = save(CAP / 'info' / 'p-checkout-links.jpg', 'i-checkout-links.jpg', 390)
+parts['INFO_NAV'] = (fig(menu_open, 'The menu on every page: all nine, in the Doc\'s order') + fig(foot, 'The footer on every page, with the same nine links')
+                     + fig(co_links, 'Checkout: Terms, Privacy and Shipping links by the button'))
+
+import sys; sys.path.insert(0, str(HERE)); sys.argv = sys.argv[:1] + ['--no-export']; import gen
 import json as _j
 parts['COMPLIANCE'] = ''.join(f'<li><span class="was">{html.escape(o)}</span> <span class="arrow" aria-hidden="true">to</span> <span class="now">{html.escape(n)}</span></li>' for o, n in _j.load(open(HERE.parent / 'docx/compliance_edits.json')))
 parts['EDITS'] = ''.join(f'<li><span class="was">{html.escape(o)}</span> <span class="arrow" aria-hidden="true">to</span> <span class="now">{html.escape(n)}</span><small>{html.escape(w)}</small></li>' for _, o, n, w in gen.EDITS)
@@ -101,7 +120,7 @@ BACK = ('<a id="back-to-review" href="index.html" style="position:fixed;left:12p
         'box-shadow:0 4px 14px rgba(0,0,0,.25);font:600 14px Archivo,Arial,sans-serif;text-decoration:none">'
         '<svg width="16" height="16" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg>Back to the review</a>'
         '<script>try{if(window.self!==window.top&&new URLSearchParams(location.search).has("frame"))document.getElementById("back-to-review").remove()}catch(e){}</script>')
-for f in ['1-quiz.html', '2-before-offer.html', '3-after-offer.html', '3b-after-offer-bottom-bar.html', '4-checkout.html']:
+for f in ['1-quiz.html', '2-before-offer.html', '3-after-offer.html', '3b-after-offer-bottom-bar.html', '4-checkout.html'] + [f'p-{x}.html' for x, _ in INFO]:
     h = (HERE / f).read_text()
     h = h.replace('</body>', BACK.replace('{b}', '96' if f.startswith('3b') else '14') + '</body>')
     (OUT / f).write_text(h)
