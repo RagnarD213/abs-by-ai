@@ -9,7 +9,8 @@
     "assistant::Bring packages in",
     "assistant::Assemble bar",
     "assistant::Transfer all bar related items to assembled bar shelf",
-    "assistant::Clean up bar shelf box, plastic, and stryofoam"
+    "assistant::Clean up bar shelf box, plastic, and stryofoam",
+    "assistant::Dishes"
   ],
   "log": {
     "health::Shower": [
@@ -245,6 +246,7 @@
     "assistant::Bring packages in": "2026-11-17",
     "assistant::Assemble bar": "2026-11-17",
     "assistant::Transfer all bar related items to assembled bar shelf": "2026-11-17",
-    "assistant::Clean up bar shelf box, plastic, and stryofoam": "2026-11-17"
+    "assistant::Clean up bar shelf box, plastic, and stryofoam": "2026-11-17",
+    "assistant::Dishes": "2026-11-17"
   }
 }
