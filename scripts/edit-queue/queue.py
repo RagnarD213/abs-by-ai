@@ -47,7 +47,7 @@ LAUNCHABLE = ("frames_approved", "ready")   # frames_approved arrives with Phase
 LOCK = os.path.join(DIR, ".jobs.lock")
 RCLONE = os.path.expanduser("~/bin/rclone")
 DRIVE_REMOTE = os.environ.get("EDIT_QUEUE_DRIVE_REMOTE", "gdrive_backup:").rstrip(":") + ":"
-DRIVE_PATH = DRIVE_REMOTE + "Abs By AI automation/edit-queue-status.json"   # Drive file id 1RX-GqepEKqB1LgJqJFRyRU2lOJMnRFgg
+DRIVE_PATH = DRIVE_REMOTE + "Abs By AI automation/edit-queue-status.json"   # Drive file id 1eCS26zmSuh5weNasVTrAVpHO7xfg8rAU (since 2026-11-15)
 DB_FIELDS = ("id", "list", "group", "sub", "title", "roll", "size", "file", "claudeModel", "claude",
              "codexModel", "codex", "state", "note", "order", "updated", "by", "rev", "editor", "needs")
 EDITORS = {"claude": "Claude", "codex": "Codex", "muhammad": "Muhammad", "zeeshan": "Zeeshan", "waleed": "Waleed"}

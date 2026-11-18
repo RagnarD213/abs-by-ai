@@ -16,6 +16,7 @@ Dan wants one fast answer: when will it finish. **Read-only.** Do not start, sto
 
 Check in this order and use the first that gives a real rate:
 
+0. **The ETA tool (2026-11-18):** `python3 .claude/skills/_shared/eta/eta.py show` prints what the Edit Queue page shows for every edit on both Macs (from the plan and steps each session reports). If the job has a range there, start from it and refine with 1 or 2 below.
 1. **Running command with progress output:** read its output file or log (ffmpeg `time=` / `speed=`, Whisper, upload percent, test count). ETA = remaining work / measured speed. Take two readings a few seconds apart if the log shows only a position.
 2. **Render queue:** `renderq.py status` shows slots, waiters and the job's step. If the job is waiting, the ETA is queue wait plus its own run time; say which part is which. If edit slots are full (`editcap.py status`), say it is waiting for a slot and who holds them.
 3. **Your own task list** (`update_plan` steps): steps left times how long finished steps actually took this session. Only if nothing in 1 or 2 applies.

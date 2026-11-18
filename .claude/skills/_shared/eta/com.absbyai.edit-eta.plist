@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!-- Edit Queue ETA refresh: every 10 minutes on the M6. Plain script, no AI. Uploads only when something changed
+     (or every 30 minutes). Template: install.sh fills __ROOT__, __HOME__, __PYTHON__. -->
+<plist version="1.0"><dict>
+  <key>Label</key><string>com.absbyai.edit-eta</string>
+  <key>ProgramArguments</key><array>
+    <string>__PYTHON__</string><string>__ROOT__/.claude/skills/_shared/eta/eta.py</string><string>refresh</string>
+  </array>
+  <key>WorkingDirectory</key><string>__ROOT__</string>
+  <key>StartInterval</key><integer>600</integer>
+  <key>RunAtLoad</key><true/>
+  <key>ProcessType</key><string>Background</string>
+  <key>LowPriorityIO</key><true/>
+  <key>Nice</key><integer>10</integer>
+  <key>EnvironmentVariables</key><dict>
+    <key>PATH</key><string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:__HOME__/bin</string>
+  </dict>
+  <key>StandardOutPath</key><string>__HOME__/Library/Logs/absbyai-edit-eta.log</string>
+  <key>StandardErrorPath</key><string>__HOME__/Library/Logs/absbyai-edit-eta.log</string>
+</dict></plist>
