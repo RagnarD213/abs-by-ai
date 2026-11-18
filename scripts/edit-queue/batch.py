@@ -400,7 +400,8 @@ def drive_probe(folders=None):
             r['passed']=ok
             if not ok:r['error']='read back differs'
         except Exception as exc:
-            r.update(passed=False,error=type(exc).__name__+': '+str(exc))
+            # Stable text: the folder is named by its label, never the random probe file name.
+            r.update(passed=False,error=type(exc).__name__+': '+(getattr(exc,'strerror',None) or str(exc)))
         finally:
             for leftover in (moved,sub and sub/'probe.txt'):
                 try:leftover and leftover.unlink()
@@ -628,23 +629,24 @@ def start_blockers(snap, start_block=None, batch=None):
           if r.get('status')=='queued' and not r.get('held') and (batch is None or n==batch)]
     held=[(n,k,r) for n,d in snap.get('batches',{}).items() for k,r in d.get('jobs',{}).items()
           if r.get('status')=='queued' and r.get('held') and (batch is None or n==batch)]
-    reasons=[];global_block=False
+    reasons=[];kinds=[];global_block=False
     if not c.get('enabled'):
-        global_block=True
+        global_block=True;kinds.append('starts-off')
         reasons.append('new starts are switched off'+(' since '+when(c['stopped']) if c.get('stopped') else '')+
                        ' (a chat runs batch.py start NAME to switch them on)')
     if not pre:
-        global_block=True;reasons.append('no safety check (preflight) has passed yet')
+        global_block=True;kinds.append('no-preflight');reasons.append('no safety check (preflight) has passed yet')
     elif not pre.get('passed'):
-        global_block=True
+        global_block=True;kinds.append('preflight-failed')
         reasons.append('the last safety check ('+when(pre.get('at'))+') failed: '+'; '.join(pre.get('problems') or ['no reason saved']))
     if start_block:
-        global_block=True;reasons.append(start_block)
+        global_block=True;kinds.append('start-block');reasons.append(start_block)
     off=[(n,k,r) for n,k,r in rows if not snap['batches'][n].get('enabled')]
     if off and not global_block:
-        reasons.append('these batches were never switched on: '+', '.join(sorted({n for n,_,_ in off})))
+        kinds.append('batch-off');reasons.append('these batches were never switched on: '+', '.join(sorted({n for n,_,_ in off})))
     stuck=rows if global_block else off
-    return dict(count=len(stuck),reasons=reasons if stuck else [],
+    return dict(count=len(stuck),reasons=reasons if stuck else [],kinds=kinds if stuck else [],
+                keys=sorted(r['id']+'-R'+str(r['round']) for _,_,r in stuck),
                 jobs=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+')' for _,_,r in stuck],
                 held=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+'): '+r['held'].get('reason','') for _,_,r in held])
 
@@ -749,7 +751,8 @@ def alert_events(snap, doc):
                 what='needs your answer' if r['status']=='needs-dan' else 'is blocked; next: '+(o.get('owner') or editor_name(r))
                 events[r['status']+':'+n+':'+k+':'+str(int(r.get('ended') or 0))]=r.get('title',r['id'])+' ('+r['id']+' R'+str(r['round'])+') '+what
     if doc.get('headline'):
-        sig=hashlib.sha1(json.dumps([doc['not_starting']['count'],doc['not_starting']['reasons']]).encode()).hexdigest()[:12]
+        # Same stuck rounds for the same kinds of reason = the same event, however the wording drifts.
+        ns=doc['not_starting'];sig=hashlib.sha1(json.dumps([ns.get('keys'),ns.get('kinds')]).encode()).hexdigest()[:12]
         events['not-starting:'+sig]=doc['headline']
     return events
 

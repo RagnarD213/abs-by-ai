@@ -123,7 +123,7 @@ class BackgroundFileAccess(Base):
         try:
             results=b.drive_probe(self.folders(locked,Path(self.tmp.name)/'missing'))
         finally:locked.chmod(0o700)
-        self.assertFalse(results[0]['passed']);self.assertIn('PermissionError',results[0]['error'])
+        self.assertFalse(results[0]['passed']);self.assertEqual(results[0]['error'],'PermissionError: Permission denied')
         self.assertFalse(results[1]['passed']);self.assertIn('not mounted',results[1]['error'])
     def test_launchd_context_records_and_interactive_does_not_count(self):
         good=Path(self.tmp.name)/'good';good.mkdir()
@@ -231,12 +231,18 @@ class OneShotAlerts(Base):
         state=b.read(self.home/'alerts.json')
         [event]=[e for e in state['events'].values() if not e.get('seeded')]
         self.assertTrue(event['sent']);self.assertIn('not verifiable',event['screen_delivery'])
+        # New wording for the same stuck round and the same kind of reason does not ring again.
+        b.handle(dict(op='preflight',proof=dict(passed=False,at=time.time(),problems=['m2 probe file .absbyai-batch-probe-1234'])))
+        b.report(self.snap())
+        b.handle(dict(op='preflight',proof=dict(passed=False,at=time.time(),problems=['m2 probe file .absbyai-batch-probe-5678'])))
+        b.report(self.snap())
+        self.assertEqual(len(self.notes),2)
         # A new decision for Dan rings once more; the old condition does not ring again.
         self.start(name);c=self.claim()
         b.handle(dict(op='outcome',batch=name,key=k,token=c['row']['claim']['token'],host='m2',
                       outcome=dict(status='needs-dan',question='Approve?',link='http://127.0.0.1:9809/')))
         b.report(self.snap());b.report(self.snap())
-        self.assertEqual(len(self.notes),2);self.assertIn('needs your answer',self.notes[1][1])
+        self.assertEqual(len(self.notes),3);self.assertIn('needs your answer',self.notes[2][1])
     def test_first_run_does_not_ring_for_old_rows(self):
         self.here.return_value='m6'
         name,k=self.enqueue();self.start(name);c=self.claim()
