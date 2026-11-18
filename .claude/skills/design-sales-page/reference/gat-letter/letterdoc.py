@@ -107,19 +107,20 @@ def swapcard(*sides):
 
 def image_for(d, sec):
     t = d.lower()
+    # Round 8 (Dan, 2026-11-18): back to the film graphics for the three top swaps, without his head (r8/nohead.py)
     if 'egg whites' in t:
-        return swapcard(('food-egg-whites.jpg', 'less', 'Egg Whites'), ('food-whole-eggs.jpg', 'more', 'Whole Eggs'))
+        return swapimg('swap-eggs-nohead.jpg', 'Less: egg whites. More: whole eggs.')
     if 'butter' in t:
-        return swapcard(('food-olive-oil.jpg', 'more', 'Olive Oil'), ('food-butter.jpg', 'less', 'Butter'))
+        return swapimg('swap-oil-nohead.jpg', 'More: olive oil. Less: butter.')
     if 'chicken breast' in t:
-        s = swapcard(('food-steak.jpg', 'more', 'Steak'), ('food-chicken.jpg', 'less', 'Chicken Breast'))
+        s = swapimg('swap-steak-nohead.jpg', 'More: steak. Less: chicken breast.')
         if '5x' in d:
             s += '<p class="statline"><b>5x</b> the zinc in sirloin steak, ounce for ounce</p>'
         return s
-    if 'protein shake' in t:
-        return tagimg(['shake.jpg', 'bar.jpg'], 'less', 'Protein shake and protein bar')
+    if 'protein shake' in t:      # one graphic with both, labelled (r8/shakebar.py)
+        return swapimg('swap-shake-bar.jpg', 'Less: protein shake and protein bar', 'solo')
     if 'baked potato' in t:
-        return tagimg(['potato.jpg'], 'more', 'Big baked potato')
+        return tagimg(['potato-restaurant.jpg'], 'more', 'Big baked potato with butter, sour cream and chives')
     if 'tongkat' in t:
         return f'<figure class="rootimg"><img src="{A}film/tongkat.jpg" alt="Tongkat ali root"></figure>'
     if 'ginseng' in t:

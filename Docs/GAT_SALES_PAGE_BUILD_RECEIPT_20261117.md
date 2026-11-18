@@ -48,6 +48,14 @@ Shopify copies the first shipment's rate onto the subscription ("Recurring shipm
 - Side effect: the regular product page now shows the monthly plan as $57.01 plus $9.99 shipping (still $67). To undo: plan price back to $67, the sentence back, `trialPlanPrice` 6700.
 - The other route (Great Again T always ships free, first $9.99 as a "Shipping and handling" cart line) was not built.
 
+## Round 8 (Dan's notes, 2026-11-18), live and on the review page
+
+1. The three top food-swap graphics use the film stills again, with his head painted out (`refine/r8/nohead.py`; originals `assets/swap-*.jpg` untouched).
+2. "Eat less of this": one graphic in the same film look with a protein shake and a protein bar, each labelled (`r8/shakebar.py`). The two cut-outs were generated on the ChatGPT subscription (prompts in `r8/`); the Google image tool was not used this time because it runs in Dan's Chrome while Grokbot was testing checkout there.
+3. Baked potato: new restaurant-style picture (`assets/film/potato-restaurant.jpg`, same route).
+4. A small grey "Buy just one bottle - $97" button under the last two buy buttons only. It opens the order page with the one-bottle option already chosen (`?option=single`). Checked live.
+No change to the order page, checkout, plan, discount or pixel, so Grokbot's test orders do not need repeating.
+
 ## Left to do
 
 1. Two real test orders (free month and one bottle), then cancel the test subscription and orders. Needs a card: Codex or Grokbot, `Handoffs/handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`.

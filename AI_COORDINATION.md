@@ -33,7 +33,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 # ACTIVE
 
-**GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-17:Claude.** Next: test orders (handoff in README), Dan's review. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
+**GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-18:Claude.** Round 8 live. Next: Grokbot test orders; one-page checkout handoff in README. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
 
 **RO-39:PAUSED-BY-DAN:2026-11-18:Codex:M2.** Progress saved, production stopped, slots released. No automatic restart. `Docs/RO39_PAUSE_20261118.md`.
 

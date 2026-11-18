@@ -22,11 +22,11 @@
   }
 
   /* every buy button reports where it sits */
-  $$('a.cta').forEach(function (a) {
+  $$('a.cta, a.cta2').forEach(function (a) {
     a.addEventListener('click', function () {
       var sec = a.closest('[data-sec]');
       var pos = a.closest('.offerbar') ? 'top-bar' : a.closest('#offer') ? 'offer-under-video' : sec ? 'letter-' + sec.getAttribute('data-sec') : 'other';
-      track('gat_button_click', { position: pos, revealed: body.classList.contains('revealed') });
+      track('gat_button_click', { position: pos, option: a.classList.contains('cta2') ? 'single' : 'trial', revealed: body.classList.contains('revealed') });
     });
   });
 

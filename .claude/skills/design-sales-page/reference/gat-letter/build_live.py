@@ -157,7 +157,7 @@ button.cta[disabled]{opacity:.6;cursor:wait}
 
 # ---------------------------------------------------------------- assets
 ASSET_RE = re.compile(r'(src|href)="assets/([^"]+)"')
-IMG_MAX = {'food/': 520, 'film/': 1000, 'story-': 932, 'yt-3min-abs.jpg': 1440, 'bottle-transparent.png': 500,
+IMG_MAX = {'swap-shake-bar.jpg': 1100, 'food/': 520, 'film/': 1000, 'story-': 932, 'yt-3min-abs.jpg': 1440, 'bottle-transparent.png': 500,
            'label-supplement-facts.png': 1040}
 
 
