@@ -86,7 +86,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
 **GATUpsell3(WV-06):IN-PRODUCTION:2026-11-18:Claude,M2.** Resumed by Dan. EDL done, piece A keyed; keying B-M, then first minute and R1 page. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
-**GATUpsell4(WV-07):QUEUED-ENABLED:2026-11-18:Claude:M2.** Waits for an M2 slot. `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
+**GATUpsell4(WV-07):REGISTERED-NOT-STARTING:2026-11-18:Claude:M2.** Starts off; preflight fails (Full Disk Access). Next: after grant, `batch.py start chat-WV-07-R1`. Brief `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
@@ -335,6 +335,8 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **RO-05 salad - QUEUED 2026-09-30, Claude.** Oct 18: fire `handoff-20260930-ro05-captions-and-article-after-release.md`.
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
+
+**OvernightBatchRepair:WAITING-GRANT:2026-11-18:Claude.** Repair transferred from Codex by handoff-20261118-overnight-batch-start-and-permission-fixes. Six fixes live on both Macs; Codex review running. Next: Codex/Grokbot Full Disk Access grant, then Dan names three pilot videos. `Docs/OVERNIGHT_BATCH_REPAIRS_20261118.md`.
 
 **OvernightBatch:N1-REVIEW:2026-11-16:Codex01a1dfd6.** Four-first-reviews;1-recovery-pass;slots-released. NeedsDan:picks. Unattended-pass-blocked:drive-access/M6-space. Next:Dan-picks,then-infrastructure-fixes. `Docs/OVERNIGHT_BATCH_NIGHT1_20261116.md`.
 
