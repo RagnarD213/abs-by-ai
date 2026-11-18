@@ -1,17 +1,29 @@
-# Gemini CLI install receipt, 2026-11-17 (INCOMPLETE: blocked)
+# Gemini CLI install receipt, 2026-11-17 (DONE, using Antigravity `agy`)
 
-Handoff: `Handoffs/handoff-20261117-install-gemini-cli-both-macs.md`. Owner of this run: Claude.
+Handoff: `Handoffs/handoff-20261117-install-gemini-cli-both-macs.md`. Run by Claude. Dan approved the switch to Antigravity in chat after the first attempt was blocked.
 
-## What was done
-- `@google/gemini-cli` 0.68.0 (the latest npm release) installed on the M6 (`~/.npm-global/bin/gemini`) and the M2 (`~/.npm-global/bin/gemini`). On the M2 `gemini` is not on the PATH of a plain `ssh m2` shell; a wrapper must add `~/.npm-global/bin` and `/usr/local/bin`.
-- M6 signed in with "Login with Google" as Dan's gmail account (oauth files written in `~/.gemini/`, mode 0600). **Not signed in on the M2** (pointless, see below).
+## Result
+Both Macs answer text, still and video prompts through `.claude/skills/_shared/gemini-cli/gemini.sh`, signed in with Dan's Google account (danroseconsulting@gmail.com) on the subscription login, with `GEMINI_API_KEY` unset and paid-key mode refused by the wrapper. Wrapper and README are on GitHub `main` (commit `ff04b7d`); the M2 checkout received them through `checkout-sync.py`.
 
-## What failed
-Every request through the signed-in CLI fails with `IneligibleTierError: UNSUPPORTED_CLIENT` ("This client is no longer supported for Gemini Code Assist for individuals ... migrate to the Antigravity suite", `https://antigravity.google`). 0.68.0 is the newest release, so a personal Google login cannot run `gemini -p` at all. The subscription route for this tool is closed. No text, still or video smoke test could run, and no wrapper was written.
+## What changed from the handoff
+`@google/gemini-cli` 0.68.0 (latest) installed on both Macs and signed in on the M6, but every call fails with `IneligibleTierError: UNSUPPORTED_CLIENT` (personal Google accounts are refused; Google points to Antigravity). So the working tool is Google's **Antigravity CLI `agy` 1.5.10** (`~/.local/bin/agy`, both Macs, installed from Google's official script, checksum verified). The `gemini` binaries stay installed but unused. The M6 installer appended a PATH line to `~/.zshrc`; the M2's was not added (the wrapper does not need it).
 
-## Options found (none taken without Dan)
-1. **Antigravity CLI (`agy`)**, Google's official replacement, with `agy -p`, `--output-format json`, ACP. I installed it on the M6 from Google's official script (`curl -fsSL https://antigravity.google/cli/install.sh | bash`, checksum verified): `agy` 1.5.10 at `~/.local/bin/agy`; the installer appended a PATH line to `~/.zshrc`. I stopped at its Google sign-in approval (the automatic permission check blocked clicking Allow, because the handoff authorized the Gemini CLI, not Antigravity). Not installed on the M2. Whether it bills against Dan's Google AI subscription is unconfirmed.
-2. **Gemini CLI with `GEMINI_API_KEY`** (metered API). The handoff forbids making this the default or switching to it silently.
+## Sign-in
+- M6: Google OAuth, browser flow approved in Dan's Chrome. M2: same, over SSH with the printed URL and code (headless keychain worked for later non-interactive calls).
+- Plan limits (`agy -p "/usage"`): separate weekly and five-hour limits for "Gemini Models" and "Claude and GPT models", 100% and 99% at first check.
 
-## Next step
-Dan chooses 1 or 2. For 1: approve the Antigravity sign-in, then repeat the M2 install and sign-in (`agy` prints a URL and code flow over SSH), write `gemini-cli/` wrapper around `agy -p`, run the three smoke tests on both Macs, push. Leftovers to remove if option 1 is rejected: `~/.local/bin/agy`, `~/.gemini/antigravity-cli`, the PATH line in `~/.zshrc`, the M6 `~/.gemini/oauth_creds.json`.
+## Smoke tests (wrapper, project folder, outputs in `tmp/gemini-cli-smoke-<mac>/`)
+| | M6 | M2 |
+|---|---|---|
+| text ("READY and the model name") | OK, 21 s, "READY, Gemini 4 Carbon" | OK, 14 s, same |
+| still (frame from the 20 s app video) | OK, 22 s | OK, 29 s |
+| video (20 s 1080x1920 `public/ad-assets/app-supplement-audit-results_20s_1080x1920_muted.mp4`, timestamped list) | OK, 60 s, accurate list | OK, 71 s |
+
+The still on the M6 used a frame of the RA-16 review film (outdoor pool shot). The video is a finished 1080x1920 asset, not a review film (no 1080p review short was handy).
+
+## Things that went wrong and the fixes
+- First wrapper used `--mode plan`; the agent then wrote a plan file instead of answering. Removed; the prompt is prefixed to answer only and not touch files.
+- Default model with no `-m` is Gemini 4 Carbon (medium). Not frozen; see `agy models`.
+
+## Not done
+Wiring Gemini into review checks or clip-library logging (next step, per the handoff).

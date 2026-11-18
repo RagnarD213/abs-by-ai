@@ -11,7 +11,6 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Install the Gemini command-line tool on both Macs](handoff-20261117-install-gemini-cli-both-macs.md), 2026-11-17. **OPEN: Dan fires now; Codex newest Sol (GPT-6.2 Sol) medium, M6.** Install on M6 and M2, sign in with the Google AI subscription (not the paid key), shared wrapper, smoke tests on both Macs, receipt.
 - [Social engagement after ManyChat: post-specific questions and follow tests](handoff-20261117-social-engagement-after-manychat.md), 2026-11-17. **Implemented.** Verified 194 schedules across four platforms. Live comment and metric checks await release. Results review December 16. [Receipt](../output/social-engagement-20261117/receipt.md).
 
 - [Edit order: 8/28 then 9/23 shoots, then clear them off the Extreme](handoff-20261117-edit-queue-828-then-923-then-clear-extreme.md), 2026-11-17. **OPEN: Dan fires each in order; Claude Opus 5.5 high for the five edits, Sonnet 5.5 medium for the two clear steps.** M100s, Pushup Masterclass, clear 8/28; AI Job, Wispr Flow, Robot Lawn Mower, clear 9/23. Five 8/28 ads and VSL 2 cancelled.
