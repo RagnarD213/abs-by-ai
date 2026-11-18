@@ -1,6 +1,17 @@
 CONTENT (SFL). Man Boobs SFL R2.
 
-# Current state, November 16, 2026
+# Current state, November 18, 2026
+
+R2 first vertical review is with Dan (needs his picks). Three actual 1080x1920 drafts in the parent's look and voice, colour choices
+L1/L2/L3 on matching frames and level-matched voice choices V1/V2/V3, each title with its full transcript: http://127.0.0.1:9816/
+(M6, root `/Users/danrrose/Projects/_edit_work/SL-36/round2/review`). Record with hashes and checks:
+`/Users/danrrose/Projects/_edit_work/SL-36/round2/R2-RECORD.json`; recipe `.claude/skills/shorts/reference/softblue-sl36/`.
+Drafts: Short 1 bc67d2c9 (52.4 s), Short 2 70e386f0 (41.4 s), Short 3 750cde19 (40.5 s). Audio gate PASS (verbatim), hair PASS, frame
+steps clean, transcripts match; the reused AI clips A1/A6/A7 passed fresh re-checks. Known for the next build: Short 3's first bar
+starts ~3 frames before its cut. Next: apply Dan's colour/voice picks and notes, rebuild, then the full delivery gate, watch pass and the
+runner's independent review. No upload, schedule or spend. Editor stays Claude Opus 5.5 high (job now on the M6 internal drive).
+
+# State on November 16, 2026 (historical)
 
 R1 exists and Dan's exact stage decisions are saved. The authorized R2 is registered and enabled through the existing M2 Claude batch path, queued for capacity; queue receipt is tracked in `Docs/FOUR_CONTENT_R2_CONTINUATION_20261116.md`. Do not start a duplicate or execute the historical R1 starter below.
 
