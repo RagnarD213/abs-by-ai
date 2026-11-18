@@ -425,6 +425,13 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take trash out",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
