@@ -84,7 +84,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
-**GATUpsell3(WV-06):PAUSED-BY-DAN:2026-11-18:Claude,M2.** EDL done, piece A keyed; nothing running, slot/priority released, batch terminal. Resume only when Dan asks. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
+**GATUpsell3(WV-06):IN-PRODUCTION:2026-11-18:Claude,M2.** Resumed by Dan. EDL done, piece A keyed; keying B-M, then first minute and R1 page. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
 **GATUpsell4(WV-07):QUEUED-ENABLED:2026-11-18:Claude:M2.** Waits for an M2 slot. `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
