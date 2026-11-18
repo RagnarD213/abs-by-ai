@@ -5,10 +5,12 @@ metadata:
   node_type: memory
   type: feedback
   originSessionId: e872385e-a790-4974-8aca-fbd16df0d64a
-  modified: 2026-10-20
+  modified: 2026-11-17
 ---
 
-**Design, 2026-11-17 (Dan):** website, landing, sales page, quiz, cart and checkout design defaults to Codex GPT-6 Astra high, run with the Codex CLI; Claude designs only when Dan asks. He wants Claude usage kept for video editing. See [[design-astra-first]]. The "Design" line under Opus below is superseded for page and website design.
+**GPT-6.2, 2026-11-17 (Dan):** Use Sol 6.2 Medium at Standard speed for routine Codex work and Astra 6.2 High for new designs. The first cut of the next new, unowned reaction Short is a one-job Astra 6.2 High trial against the locked R5 format. Review the result with Dan before moving more editing off Claude. Follow the current `AGENTS.md` routing when older entries below differ.
+
+**Design, 2026-11-17 (Dan):** website, landing, sales page, quiz, cart and checkout design defaults to Codex GPT-6.2 Astra High, run with the Codex CLI; Claude designs only when Dan asks. He wants Claude usage kept for video editing. See [[design-astra-first]]. The "Design" line under Opus below is superseded for page and website design.
 
 **Fable 5.2, 2026-11-09:** supersedes the Fable 5.1 lines below for hard coding, risky-code review and a 3-round video-reviewer trial; see AGENTS.md Model routing and [[fable-5-2-release]]. Editorial work stays on Opus.
 
@@ -22,7 +24,7 @@ metadata:
 
 Dan: "Let's change these recommendations to always use the newest GPT model unless there is some very strong reason not to".
 
-Default to the newest GPT model available to Dan for every GPT recommendation, handoff and newly requested GPT task. Verify official guidance and actual client availability at recommendation time. Current default: GPT-6.1 Sol, verified October 20, 2026. Select effort using the task table below; the Arms & Shoulders full-film assembly uses high effort.
+Default to the newest GPT model available to Dan for every GPT recommendation, handoff and newly requested GPT task. Verify official guidance and actual client availability at recommendation time. Current routine default: GPT-6.2 Sol, verified November 17, 2026. Select effort using the task table below; the Arms & Shoulders full-film assembly uses high effort.
 
 An older GPT model needs strong current evidence of a task-specific advantage or required capability, or a confirmed regression in the newest model. Explain the reason directly. An old skill, saved model number, established recipe, habit or untested claim is not sufficient. This rule supersedes all older GPT version pins and automatic Astra/Sol/Luna category assignments below or in other project guidance. Claude routing remains as recorded.
 

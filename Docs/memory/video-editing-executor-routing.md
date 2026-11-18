@@ -5,6 +5,8 @@ metadata:
   type: project
 ---
 
+**Next new reaction Short (Dan, 2026-11-17):** Trial Codex GPT-6.2 Astra High on the first cut of the next new, unowned reaction Short using the locked R5 format. Review the result before moving any further editing off Claude. See `AGENTS.md` for the current routing.
+
 **Green-screen routing (Dan, 2026-10-27, replaces the 10-25 "Codex owns green-screen" rule): no fixed AI.** Dan, after Claude's RO-24 round 3: "I've changed my mind about that rule of doing green screen on Codex because this edit was so good. I haven't tested Codex yet, but let's not have any rule for which one. Codex is untested, but I think Claude is our likely champion for long-form green screen, probably Codex for the short form." A video stays with the AI it started on. For a NEW green-screen job recommend Claude (Opus 5.5 high) for long-form and Codex (newest Sol high) for reaction Shorts: his lean, not a rule. Codex is untested on long-form green-screen. Reactions keep the locked R5 format in [[greenscreen-reaction-format]]; long-form backgrounds use the locked template in [[green-screen-background-cycle]].
 
 

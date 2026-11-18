@@ -85,3 +85,15 @@ Dan: **"I want something that's either hip hop or electronic. I'm not decided on
 - Silent-checks slip: the Flow player auto-played the first new track at full volume for about 25 seconds before it was muted (the player does not use page audio elements, so the script mute did nothing). Fix for next time: drag the player's volume slider to zero before the first Generate.
 - Still open from the interview: where AI music may go given the YouTube/TikTok AI flag (default unchanged), and whether the final theme keeps lyrics or is cut as an instrumental sting.
 - Next: Dan picks hooks; then full songs (verses written around the winning hook, 3 takes), then the 3 to 5 s sting and 10 to 15 s intro cut from the winner. Bulk generating before Nov 29.
+
+## 2026-11-18, later: Dan rejects the hooks; round 2 (verse plus hook, flowing rap)
+
+Dan on the 15 hooks: **"These are all extremely bad. These sound like AI slop ... They're not as good as version 2.0 or Do It Tired."** **"I don't like a lot of the rewriting the code and references to computers and AI. I want to remove that from my channel branding, and I don't want these songs to refer to AI."** On "Forty-one and I'm finally in control": **"that's obsolete by next year, and that is about me and not the prospect."** On the sound: **"it's just shouting ... It's not like flowing rapping ... I want something more like the version 2.0, where it actually sounds good and not just a bunch of shouting over the beat."** Best lyrics of the batch: "Outwork Yesterday" ("still not very good, and I hate the way it sounds"). He allowed modelling a real rapper's voice style if needed.
+
+- Cause of the shouting: the round 1 prompt asked for an "aggressive" vocal and a "gang-chant shouted by a crowd". Removed.
+- What the references do (both transcribed offline): calm spoken opening, long verse lines with rhymes inside the line, a short melodic hook; the verse carries the song. Round 2 copies that shape with original words.
+- Made: four pieces (Outwork Yesterday, Nobody's Coming, The Old You, Made Not Born), each spoken intro + 8-line verse + hook, second person, no tech words, no age. Two voice prompts with no artist named: smooth articulate storytelling rap; calm deep measured voice. 88 bpm, length 1:15. 12 takes generated, 7 cleanest shown.
+- Files: `Media/flow-music/20261118-r2/` (same layout). Review page: http://127.0.0.1:8799/ . Round 1 hook page :8798 is superseded.
+- Checks that ran: loudness, range, true peak, Whisper transcript. No listening pass; whether the voice flows is unverified. Dropped takes: Old You storytelling (the voice said the word "spoken"), Made Not Born storytelling 1 (stray ad-libs), others with skipped lines.
+- Not tried yet: naming a real rapper in the Flow prompt. Hold it for round 3 if these voices still miss.
+- Next: Dan picks; then a full song from the winner and the sting and intro cuts.

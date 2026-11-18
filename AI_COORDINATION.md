@@ -101,7 +101,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**FlowMusic:HOOK-PICKS:2026-11-18:Claude.** 15 sung hooks on :8798. Next: Dan picks, then full songs. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
+**FlowMusic:R2-PICKS:2026-11-18:Claude.** Hooks rejected; 7 verse-plus-hook takes on :8799. Next: Dan picks, then full song. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
 
 
 
