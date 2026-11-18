@@ -33,6 +33,7 @@ Gate 17 is the one Joint Vigor never ran (reviews C, E and F each noted the miss
 | Defect class | Joint Vigor example | Found in | Caught now by |
 |---|---|---|---|
 | Picture shorter than the sound | block 1's picture ended 2 s early | block 1 | gate 6 |
+| Flash at a chunk or opening join | a 4-frame CLOSE flash at the opening seam | block 1 (editor's own frame check) | gate 7, plus a frame strip across every chunk join and the opening seam |
 | See-through coat | hand shadows on the white coat read as holes on the grey plate | block 1 | `coat_scan.py` + compositor `coat_lift` (PIPELINE step 1) |
 | Stock fallback left in a story scene | wedding shown with unrelated stock | block 1, A9, C S3 | gate 4; AI needs for a story scene queued first |
 | Caption timing drift | captions late after 5:32 | block 1 | forced alignment (PIPELINE step 3), gate 13 |
