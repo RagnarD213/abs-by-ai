@@ -39,13 +39,11 @@ through Flow's agent. Click the settings chip at the right of the prompt box (it
 
 - **Video** (not Image), then **Frames** (not Ingredients).
 - Orientation from the clip's `aspect`: 16:9 or 9:16.
-- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite`, `quality` or `omni` (`quality` only on a clip whose job entry records `dan_asked`; otherwise use Fast and report it) (`omni` = **Omni 1.1 Flash**). Since 2026-10-21 a job often mixes models (a Veo clip `A3` and its Omni twin `A3o`, see README "Which model and how many takes"): **re-check the dropdown before EVERY submit** and switch it to that clip's model; it is not a set-once setting in a mixed job. Omni's length: use the clip's `seconds` (4, 6, 8 or 10); Veo Frames mode stays 8 s.
+- Model dropdown: **Veo 3.1 - Fast** unless the clip says `lite`, `quality` or `omni` (`quality` only on a clip whose job entry records `dan_asked`; otherwise use Fast and report it) (`omni` means the currently available Flash version, recorded explicitly in the job). Since 2026-10-21 a job often mixes models (a Veo clip `A3` and its Omni twin `A3o`, see README "Which model and how many takes"): **re-check the dropdown before EVERY submit** and switch it to that clip's model; it is not a set-once setting in a mixed job. Select the clip’s requested duration from the current menu and verify the actual exported frame count; availability differs by model/version.
 - Count **x1**.
 - Read the "Generating will use N credits" line. Press Escape.
 
-Frames mode on Veo 3.1 Fast always makes an 8-second 720p clip; there is no 4 or 6 s choice. The edit trims to the
-clip's `seconds`. Flow has no negative-prompt field: the `negative` text is not sent (the prompts already say what must
-not happen).
+Observed November 17, 2026 on Ultra: **Veo 3.1 Fast Frames offered 4, 6 and 8 seconds with both START and END assigned**. Fast showed 10 credits at both 4 and 8 seconds. The tested 4-second native export contained 94 frames at 24 fps (3.916667 seconds); preserve those actual frames without padding. **Omni 1.2 Flash** was available and showed 12 credits for 4 seconds and 24 for 8 seconds; tested native exports contained 96 and 192 frames respectively at 24 fps. These observations supersede the older fixed-eight-second note. Recheck model, duration and live price before every submission, rather than assuming these options persist. Flow has no negative-prompt field: the `negative` text is not sent (the prompts already say what must not happen).
 
 ## 4. Upload the job's frames (once per job)
 
