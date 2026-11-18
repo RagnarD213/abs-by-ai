@@ -73,6 +73,14 @@ def suggest(hosts,now):
     if all(d['used']>=d['cap'] for d in (a,b)):return ['wait','Queue additional edits','Both Macs have all their edit slots in use. Existing work gets the next opening.']
     return ['wait','Queue additional edits','M2: '+reasons[0]+'. M6: '+reasons[1]+'.']
 
+ETA_FILE=Path.home()/'Projects/Claude/Projects/Abs By AI/tmp/edit-queue-export/edit-queue-eta.json'
+def eta_file():
+    # Finish-time ranges (Dan, 2026-11-18): written by .claude/skills/_shared/eta/eta.py refresh every 10 minutes.
+    try:
+        d=json.loads(ETA_FILE.read_text())
+        return {'jobs':d.get('jobs',{}),'checked':d.get('checked',''),'generated':d.get('generated',0)}
+    except (OSError,ValueError,AttributeError):return {'jobs':{},'checked':'','generated':0}
+
 class Store:
     def __init__(self,cache,collect=None,clock=lambda:time.clock_gettime(time.CLOCK_MONOTONIC)):
         self.lock=threading.Lock();self.cache=cache;self.clock=clock;self.collect=collect or (lambda h: observe.observe(h) if h=='m6' else remote())
@@ -114,7 +122,7 @@ class Store:
             hosts, requests, pending, shared, titles = desk_records.reconcile(hosts)
             hosts['m6']['sharedLine']=shared
             return dict(hosts=hosts,advice=suggest(hosts,time.time()),now=time.time(),
-                        reviews=requests,unconfirmed=pending,shared=shared,titles=titles)
+                        reviews=requests,unconfirmed=pending,shared=shared,titles=titles,eta=eta_file())
 
 class Handler(http.server.BaseHTTPRequestHandler):
     def log_message(self,*a):pass

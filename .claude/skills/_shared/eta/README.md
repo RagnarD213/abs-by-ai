@@ -1,6 +1,8 @@
-# Edit ETA: what the Edit Queue page shows for each running edit (Dan, 2026-11-18)
+# Edit ETA: finish times on the edit desk and the Edit Queue page (Dan, 2026-11-18)
 
-Dan asked "ETA?" in chat many times a day. Now the Edit Queue page
+Dan asked "ETA?" in chat many times a day. Now the **edit desk** (http://127.0.0.1:8976/, Dan's main view: an ETA
+line under every edit, read from `tmp/edit-queue-export/edit-queue-eta.json` by `scripts/edit-dashboard/server.py`)
+and the Edit Queue page
 (https://claude.ai/artifact/1r1T8Znf96XH24zHZhybHs) shows a **Running now** panel and an ETA line on each job row,
 rechecked every 10 minutes by a plain script. No AI tokens, no messages, nothing at night but a quiet file update.
 
@@ -24,8 +26,12 @@ rechecked every 10 minutes by a plain script. No AI tokens, no messages, nothing
 - **Waiting for an edit slot (#2 in line)**: editcap waiting.
 - **May be stuck: no activity for 52 min**: no editcap heartbeat, no progress update and nothing rendering for 45
   min. A stalled edit stops showing a countdown.
-- **Running, no ETA reported yet**: the edit holds a slot but never ran `eta.py plan` (sessions started before
-  2026-11-18 or skipping the rule).
+- **Not before about 7:40 PM** (`render queue only`): the editor has not reported a plan, so the floor is its queued
+  and running render steps, each timed by that job's own recent render history.
+- **Working, no ETA reported yet**: no plan and nothing in the render queue.
+- A plan disappears an hour after its edit leaves editcap with nothing rendering. Do not change `editcap.py` for
+  this: the edit desk recognizes scheduler files by their exact fingerprint (`policy.json`), and an edit there makes
+  the desk say "Installed scheduler version needs checking" (happened 2026-11-18, reverted).
 
 ## Estimate method
 

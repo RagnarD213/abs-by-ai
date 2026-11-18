@@ -32,6 +32,7 @@ RCLONE = os.path.expanduser("~/bin/rclone")
 DRIVE_REMOTE = os.environ.get("EDIT_QUEUE_DRIVE_REMOTE", "gdrive_backup:").rstrip(":") + ":"
 DRIVE_PATH = DRIVE_REMOTE + "Abs By AI automation/edit-queue-eta.json"
 OUT = REPO / "tmp" / "edit-queue-export" / "edit-queue-eta.json"
+ORPHAN_S = 60 * 60     # a plan with no edit slot and no render work for this long belongs to a finished edit
 STALL_MIN = 45          # no sign of life for this long and nothing rendering -> "may be stuck"
 PUSH_EVERY_S = 30 * 60  # re-upload at least this often even if nothing changed (page shows "checked at")
 
@@ -233,6 +234,28 @@ def _json_cmd(argv, timeout=60):
         return None
 
 
+RQ_HISTORY = Path(os.environ.get("GATE_DIR") or "/tmp/absbyai-renderq") / "history.jsonl"
+
+
+def render_medians():
+    """{(project, pool): median seconds} from the render queue's own history; (None, pool) = any project."""
+    try:
+        lines = RQ_HISTORY.read_text().splitlines()[-3000:]
+    except OSError:
+        return {}
+    by = {}
+    for line in lines:
+        try:
+            h = json.loads(line)
+        except ValueError:
+            continue
+        if h.get("dur", 0) <= 1:
+            continue
+        for key in ((h.get("project"), h.get("pool")), (None, h.get("pool"))):
+            by.setdefault(key, []).append(h["dur"])
+    return {k: statistics.median(v[-12:]) for k, v in by.items() if len(v) >= (1 if k[0] is None else 2)}
+
+
 def local_view(now=None):
     """Everything this Mac knows, as plain JSON: progress estimates, edit slots, render activity."""
     now = now or time.time()
@@ -242,19 +265,26 @@ def local_view(now=None):
         hist = HISTORY.read_text().splitlines()[-2000:]
     except OSError:
         hist = []
+    med = render_medians()
     render = {}
     for s in rq.get("slots", []):
         if s.get("held"):
             info = s.get("info", {})
-            j = (info.get("display_job") or info.get("group") or "").replace("work:", "")
-            r = render.setdefault(j, dict(running=0, waiting=0, wait_min=0, label=""))
+            j = (info.get("project") or info.get("display_job") or info.get("group") or "").replace("work:", "")
+            r = render.setdefault(j, dict(running=0, waiting=0, wait_min=0, label="", work_min=0.0))
             r["running"] += 1
             r["label"] = info.get("label", "")[:80]
+            m = med.get((j, s.get("pool")), med.get((None, s.get("pool")), 300.0))
+            el = now - info.get("start", now)
+            r["work_min"] += max(m - el, 0.2 * m) / 60.0
     for w in rq.get("waiting", []):
         j = (w.get("project") or w.get("display_job") or w.get("group") or "").replace("work:", "")
-        r = render.setdefault(j, dict(running=0, waiting=0, wait_min=0, label=""))
+        r = render.setdefault(j, dict(running=0, waiting=0, wait_min=0, label="", work_min=0.0))
         r["waiting"] += 1
         r["wait_min"] = max(r["wait_min"], round(w.get("eta_s", 0) / 60.0))
+        r["work_min"] += med.get((j, w.get("pool")), med.get((None, w.get("pool")), 300.0)) / 60.0
+    for r in render.values():
+        r["work_min"] = round(r["work_min"] + (r["wait_min"] if not r["running"] else 0))
     jobs = {}
     for f in DIR.glob("*.json") if DIR.exists() else []:
         try:
@@ -298,13 +328,30 @@ def clock(ts, to=1):
     return datetime.datetime.fromtimestamp(ts).strftime("%-I:%M %p")
 
 
-def span(lo, hi):
+def _dayword(ts, now):
+    d, today = datetime.date.fromtimestamp(ts), datetime.date.fromtimestamp(now or ts)
+    if d == today:
+        return ""
+    if d - today == datetime.timedelta(1):
+        return "tomorrow "
+    return datetime.date.fromtimestamp(ts).strftime("%a ")
+
+
+def when(ts, now=None):
+    """'3:40 PM', 'tomorrow 9:15 AM', 'Fri 12:55 PM' (rounded to 5 minutes)."""
+    return _dayword(ts, now) + clock(ts, 5)
+
+
+def span(lo, hi, now=None):
     a, b = clock(lo, 5), clock(hi, 5)
-    if a == b:
-        return a
-    if a[-2:] == b[-2:] and datetime.date.fromtimestamp(lo) == datetime.date.fromtimestamp(hi):
-        a = a[:-3]
-    return "{} to {}".format(a, b)
+    same_day = datetime.date.fromtimestamp(lo) == datetime.date.fromtimestamp(hi)
+    if a == b and same_day:
+        return when(lo, now)
+    if same_day:
+        if a[-2:] == b[-2:]:
+            a = a[:-3]
+        return _dayword(lo, now) + "{} to {}".format(a, b)
+    return "{} to {}".format(when(lo, now), when(hi, now))
 
 
 def _round(m):
@@ -319,13 +366,15 @@ def describe(job, macs, now):
         r = (v.get("render") or {}).get(job) or {}
         if not e and not p:
             continue
+        if p and not e and not r and now - (p.get("updated") or 0) > ORPHAN_S:
+            continue                     # edit finished (slot released) and nothing is rendering: old plan, not shown
         state = (e or {}).get("state")
         title = (e or {}).get("title", "")
         base = dict(job=job, mac=mac, title=title)
         if state == "with-dan":
             since = (e or {}).get("since")
-            when = " since " + _day(since, now) if since else ""
-            return dict(base, kind="dan", text="Waiting on you" + when, detail="your review or picks")
+            since_txt = " since " + _day(since, now) if since else ""
+            return dict(base, kind="dan", text="Waiting on you" + since_txt, detail="your review or picks")
         if state == "waiting":
             pos = (v.get("waiting_order") or []).index(job) + 1 if job in (v.get("waiting_order") or []) else None
             return dict(base, kind="slot", text="Waiting for an edit slot" + (" (#{} in line)".format(pos) if pos else ""))
@@ -335,16 +384,18 @@ def describe(job, macs, now):
             return dict(base, kind="stuck", text="May be stuck: no activity for {}".format(_ago(quiet)),
                         detail=(p or {}).get("step_name", ""))
         if not p:
-            text = "Running, no ETA reported yet"
-            if r.get("running"):
-                text += " (rendering now)"
-            return dict(base, kind="noplan", text=text)
+            work = r.get("work_min") or 0
+            if work >= 1:
+                # No plan from the session: the render steps it has queued give a floor, never the whole story.
+                steps = r.get("running", 0) + r.get("waiting", 0)
+                return dict(base, kind="floor", text="Not before about " + when(now + 60 * work, now),
+                            detail="{} render step{} left in the queue, about {} of render time; the editor has not "
+                                   "reported the rest of its plan".format(steps, "" if steps == 1 else "s", _dur(work)),
+                            confidence="render queue only", low=round(now + 60 * work), high=round(now + 60 * work))
+            return dict(base, kind="noplan", text="Working, no ETA reported yet",
+                        detail="No render steps queued and no plan reported by the editor")
         lo, hi = now + 60 * p["low_min"], now + 60 * p["high_min"]
-        rng = clock(lo, 5) if p["high_min"] - p["low_min"] < 6 else span(lo, hi)
-        day = datetime.date.fromtimestamp(hi) != datetime.date.fromtimestamp(now)
-        if day:
-            rng += " (" + ("tomorrow" if datetime.date.fromtimestamp(hi) - datetime.date.fromtimestamp(now) == datetime.timedelta(1)
-                           else datetime.date.fromtimestamp(hi).strftime("%a")) + ")"
+        rng = when(lo, now) if p["high_min"] - p["low_min"] < 6 else span(lo, hi, now)
         detail = "Step {} of {}: {}".format(p["step"], p["of"], p["step_name"])
         if p.get("retries"):
             detail += " · redoing after a failed check" + (" ({})".format(p["retry_note"]) if p.get("retry_note") else "")
@@ -363,6 +414,11 @@ def _day(ts, now):
     return d.strftime("%b %-d")
 
 
+def _dur(m):
+    m = int(round(m))
+    return "{} min".format(m) if m < 60 else "{} h {:02d} min".format(m // 60, m % 60)
+
+
 def _ago(m):
     return "{} min".format(int(m)) if m < 90 else "{:.1f} h".format(m / 60.0)
 
@@ -375,7 +431,7 @@ def combine(macs, now=None):
             if j not in names:
                 names.append(j)
     rows = [d for d in (describe(j, macs, now) for j in names) if d]
-    order = {"eta": 0, "stuck": 1, "noplan": 2, "slot": 3, "dan": 4}
+    order = {"eta": 0, "floor": 0, "stuck": 1, "noplan": 2, "slot": 3, "dan": 4}
     rows.sort(key=lambda d: (order.get(d["kind"], 9), d.get("high", 0)))
     return dict(schema=1, generated=round(now), checked=clock(now),
                 macs={k: bool(v) for k, v in macs.items()}, jobs={d["job"]: d for d in rows}, order=[d["job"] for d in rows])
@@ -397,15 +453,20 @@ def refresh(force=False):
     except (OSError, ValueError):
         pass
     same = old and {k: v for k, v in old.items() if k not in ("generated", "checked")} == body
-    fresh = old and time.time() - old.get("generated", 0) < PUSH_EVERY_S
+    mark = OUT.with_suffix(".uploaded")          # last successful Drive upload
+    fresh = mark.exists() and time.time() - mark.stat().st_mtime < PUSH_EVERY_S
+    tmp = OUT.with_suffix(".tmp")                 # always refreshed locally: the edit desk reads it every minute
+    tmp.write_text(json.dumps(data, ensure_ascii=False))
+    os.replace(tmp, OUT)
     if same and fresh and not force:
         print("no change; not uploaded")
         return data
-    OUT.write_text(json.dumps(data, ensure_ascii=False))
     if os.environ.get("ETA_NO_DRIVE"):
         return data
     try:
         r = subprocess.run([RCLONE, "copyto", str(OUT), DRIVE_PATH], capture_output=True, text=True, timeout=120)
+        if r.returncode == 0:
+            mark.touch()
         print("uploaded" if r.returncode == 0 else "upload FAILED: " + r.stderr[:200])
     except Exception as e:
         print("upload FAILED:", e)

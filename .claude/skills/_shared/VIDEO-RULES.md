@@ -1563,14 +1563,14 @@ something that we can publish."* Every point below is a standing rule for every 
 
 Dan asked for ETAs in chat many times a day; each ask costs tokens and interrupts the edit. Now every edit reports
 its plan and steps with one cheap command, and a plain script (no AI) on the M6 turns that, the render queue and
-the edit slots of both Macs into a time range on the Edit Queue page every 10 minutes. Claude and Codex, both Macs.
+the edit slots of both Macs into a time range on the edit desk (http://127.0.0.1:8976/) and the Edit Queue page every 10 minutes. Claude and Codex, both Macs.
 
 - **After `editcap.py acquire` succeeds, post the plan for this round:** `python3 .claude/skills/_shared/eta/eta.py
   plan <JOB> "Take map:20" "Key 14 pieces:180" "Build film:60" "Checks:20" "Review page:10"` (step name, colon,
   honest minutes). Use the same step names as earlier rounds and jobs so the tool learns real times.
 - **Each new step:** `eta.py step <JOB> <N>`. **A redo after a failed check:** `eta.py retry <JOB> "why"`.
 - **When you can measure it** (render percent, pieces done), `eta.py left <JOB> <minutes>` makes the range tight.
-- `editcap.py release` clears the ETA by itself. Run these on the Mac doing the work (`resume.py run` for the other Mac).
+- A plan disappears by itself an hour after the edit releases its slot. Run these on the Mac doing the work (`resume.py run` for the other Mac).
 - Never wait or poll for this, and never report ETAs in chat unprompted: the page is the report. `/eta` still answers
   a direct question. Tool and estimate method: `.claude/skills/_shared/eta/README.md`.
 

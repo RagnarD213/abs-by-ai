@@ -542,12 +542,6 @@ def release(job, review=False, ctx=None, today=None, handoff_at=None, question=N
             job_priority.update('release',job,reason='with Dan' if review else 'finished')
             import storage
             storage.consume(job)
-            try:   # the job's ETA ends when its slot does (Edit Queue page, 2026-11-18); never blocks a release
-                sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "eta"))
-                import eta as _eta
-                _eta.cmd_done(job)
-            except Exception:
-                pass
             settle(reg, now, rq, cal)
             _save(reg)
             wakes = pending_wakes(reg)

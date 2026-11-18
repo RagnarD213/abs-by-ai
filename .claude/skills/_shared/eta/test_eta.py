@@ -111,6 +111,14 @@ class Rows(unittest.TestCase):
                                         render={"WV-05": dict(running=1)})}, now=T0)
         self.assertEqual(d["jobs"]["WV-05"]["kind"], "noplan")
 
+    def test_floor_from_render_queue(self):
+        d = eta.combine({"m2": self.mac(edits={"WV-04": dict(state="active", last_seen=T0)},
+                                        render={"WV-04": dict(running=1, waiting=6, work_min=95)})}, now=T0)
+        row = d["jobs"]["WV-04"]
+        self.assertEqual(row["kind"], "floor")
+        self.assertIn("7 render steps", row["detail"])
+        self.assertIn("1 h 35 min", row["detail"])
+
     def test_eta_row_and_order(self):
         prog = dict(low_min=30, high_min=60, mid_min=40, basis="estimate", step=2, of=3, step_name="Key",
                     retries=0, retry_note="", updated=T0)
@@ -125,7 +133,17 @@ class Rows(unittest.TestCase):
     def test_span_reads_naturally(self):
         import datetime as dt
         lo = dt.datetime(2026, 11, 18, 15, 28).timestamp(); hi = dt.datetime(2026, 11, 18, 16, 14).timestamp()
-        self.assertEqual(eta.span(lo, hi), "3:30 to 4:15 PM")
+        self.assertEqual(eta.span(lo, hi, lo), "3:30 to 4:15 PM")
+        now = dt.datetime(2026, 11, 18, 17, 0).timestamp()
+        a = dt.datetime(2026, 11, 19, 23, 0).timestamp(); b = dt.datetime(2026, 11, 20, 12, 55).timestamp()
+        self.assertEqual(eta.span(a, b, now), "tomorrow 11:00 PM to Fri 12:55 PM")
+        self.assertEqual(eta.span(lo + 86400, hi + 86400, lo), "tomorrow 3:30 to 4:15 PM")
+
+    def test_finished_edit_plan_is_dropped(self):
+        prog = dict(low_min=30, high_min=60, mid_min=40, basis="estimate", step=2, of=3, step_name="Key",
+                    retries=0, retry_note="", updated=T0 - 3 * 3600)
+        d = eta.combine({"m6": self.mac(progress={"WV-05": prog})}, now=T0)
+        self.assertNotIn("WV-05", d["jobs"])
 
     def test_unreachable_mac_is_harmless(self):
         d = eta.combine({"m6": self.mac(), "m2": {}}, now=T0)
