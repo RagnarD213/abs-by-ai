@@ -11,7 +11,9 @@ import { join } from 'node:path';
 
 const [outDir, base = 'http://localhost:8787'] = process.argv.slice(2);
 if (!outDir) { console.error('usage: browser-proof.mjs <outDir> [baseUrl]'); process.exit(2); }
-if (!/^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(base)) { console.error('local proof server only'); process.exit(2); }
+const mode = process.env.GAT_PROOF || 'orders';
+// Orders and account actions are typed only into the local proof server. GAT_PROOF=look just opens pages and takes pictures.
+if (mode !== 'look' && !/^http:\/\/(localhost|127\.0\.0\.1):\d+$/.test(base)) { console.error('local proof server only'); process.exit(2); }
 mkdirSync(outDir, { recursive: true });
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const SIZES = { phone: { w: 390, h: 844, mobile: true, dsf: 2 }, tablet: { w: 768, h: 1024, mobile: true, dsf: 1 }, desktop: { w: 1440, h: 900, mobile: false, dsf: 1 } };
@@ -142,8 +144,26 @@ async function account(sizeName, link, label) {
   return out;
 }
 
-const mode = process.env.GAT_PROOF || 'orders';
-if (mode === 'orders') {
+if (mode === 'look') {
+  // GAT_PROOF=look  node browser-proof.mjs <outDir> https://shop.sixpackabs.com/pages   : no typing, no orders
+  const results = [];
+  for (const sizeName of ['phone', 'tablet', 'desktop']) {
+    for (const [label, path, wait] of [['onepage', '/great-again-t-order?onepage=1', `document.querySelectorAll('.stripe iframe').length >= 3`], ['classic', '/great-again-t-order', `document.getElementById('co-go') !== null`]]) {
+      const b = await browser(SIZES[sizeName]);
+      const out = { size: sizeName, page: label };
+      try {
+        await b.go(base + path); await b.waitFor(wait, 30000, label); await sleep(1500);
+        Object.assign(out, JSON.parse(await b.ev(`JSON.stringify({ op: document.body.classList.contains('op'), testBar: !!document.querySelector('.op-test'), cardFields: document.querySelectorAll('.stripe iframe').length,
+          payShown: getComputedStyle(document.getElementById('op-pay')).display !== 'none', classicShown: getComputedStyle(document.getElementById('co-go')).display !== 'none',
+          shippingShown: document.getElementById('op-first').offsetParent !== null, error: document.getElementById('co-err').hidden ? '' : document.getElementById('co-err').textContent,
+          sideScroll: document.documentElement.scrollWidth > innerWidth, noindex: !!document.querySelector('meta[name=robots][content*=noindex]') })`)));
+        await b.shot(`live-${sizeName}-${label}`);
+      } catch (e) { out.error = e.message; }
+      b.close(); results.push(out);
+    }
+  }
+  console.log(JSON.stringify(results));
+} else if (mode === 'orders') {
   const results = [];
   results.push(await run('phone', 'trial', { decline: true }));
   results.push(await run('tablet', 'single', { decline: true, apt: 'Unit 4' }));
