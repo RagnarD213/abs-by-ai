@@ -411,6 +411,13 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
