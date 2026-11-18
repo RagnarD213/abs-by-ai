@@ -7,7 +7,8 @@
     "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4",
     "assistant::Change sheets on bed",
     "assistant::Bring packages in",
-    "assistant::Assemble bar"
+    "assistant::Assemble bar",
+    "assistant::Transfer all bar related items to assembled bar shelf"
   ],
   "log": {
     "health::Shower": [
@@ -241,6 +242,7 @@
     "money::Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4": "2026-10-05",
     "assistant::Change sheets on bed": "2026-10-11",
     "assistant::Bring packages in": "2026-11-17",
-    "assistant::Assemble bar": "2026-11-17"
+    "assistant::Assemble bar": "2026-11-17",
+    "assistant::Transfer all bar related items to assembled bar shelf": "2026-11-17"
   }
 }
