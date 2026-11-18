@@ -71,7 +71,11 @@ class Handler(http.server.SimpleHTTPRequestHandler):
             request = json.loads(self.rfile.read(n) or b'{}')
         except ValueError:
             request = {}
-        result = open_fullscreen(self.directory, request)
+        target = dans_mac_ssh()
+        if target and isinstance(request, dict):
+            result = forward_fullscreen(target, self.server.server_address[1], request)
+        else:
+            result = open_fullscreen(self.directory, request)
         body = json.dumps(result).encode()
         self.send_response(200 if result.get('ok') else 400)
         self.send_header('Content-Type', 'application/json')
@@ -185,6 +189,43 @@ def open_fullscreen(directory, request, launch=None):
             return {'ok': False, 'error': f'{name} did not open: {error}'}
         return {'ok': True, 'player': name, 'file': Path(real).name, 't': round(t, 2)}
     return {'ok': False, 'error': 'no video player app found (VLC or QuickTime Player)'}
+
+
+def dans_mac_ssh():
+    """Two Macs (2026-11-18, WV-04 R2: "The full-screen viewing option still isn't working"): on the headless M2, VLC
+    would open where nobody can see it. hosts.json gives the M2 `mirror_reviews_to: m6`; return that Mac's ssh name so
+    the click is handed to the M6's mirrored copy of the same page (same port, same files). None on the M6 or elsewhere.
+    Pages run from runtime copies of this file, so hosts.json is looked up beside it and in the project folder."""
+    for d in (Path(__file__).with_name('editroute'),
+              Path.home() / 'Projects/Claude/Projects/Abs By AI/.claude/skills/_shared/editroute'):
+        if not (d / 'hostcfg.py').is_file():
+            continue
+        try:
+            spec = importlib.util.spec_from_file_location('abs_review_hostcfg', d / 'hostcfg.py')
+            hc = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(hc)
+            cfg = hc.load()
+            to = (hc.host(None, cfg) or {}).get('mirror_reviews_to')
+            return ((cfg.get('hosts') or {}).get(to) or {}).get('ssh') if to else None
+        except Exception:
+            return None
+    return None
+
+
+def forward_fullscreen(ssh_name, port, request, run=None):
+    """Ask Dan's Mac to open the same review video full screen (its review server's own /__fullscreen)."""
+    body = json.dumps({'src': request.get('src'), 't': request.get('t'), 'page': request.get('page')})
+    cmd = ['/usr/bin/ssh', '-o', 'BatchMode=yes', '-o', 'ConnectTimeout=4', ssh_name,
+           f"curl -s -m 20 -X POST -H 'Content-Type: application/json' --data-binary @- http://127.0.0.1:{int(port)}/__fullscreen"]
+    try:
+        r = (run or subprocess.run)(cmd, input=body, capture_output=True, text=True, timeout=30)
+        out = json.loads(r.stdout or '{}')
+    except Exception as error:
+        return {'ok': False, 'error': f"could not reach Dan's Mac ({ssh_name}): {error}"}
+    if not isinstance(out, dict) or 'ok' not in out:
+        return {'ok': False, 'error': f"Dan's Mac ({ssh_name}) did not answer: {(r.stderr or r.stdout)[:200]}"}
+    out['forwarded_to'] = ssh_name
+    return out
 
 
 class Server(socketserver.ThreadingMixIn, http.server.HTTPServer):
