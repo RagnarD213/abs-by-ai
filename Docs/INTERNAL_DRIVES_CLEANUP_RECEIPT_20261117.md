@@ -40,3 +40,8 @@ Handoff: `Handoffs/handoff-20261117-clear-internal-drives.md`. Goal was 250 GB f
 - **M6 `~/M2-transfer/staging` (28 GB, 153,585 files): REMOVED.** The Seagate copy (`/Volumes/Expansion/_m6_staging_archive/m2-transfer-20261117/staging/`, copied over SSH on the M2) matches: same file count (153,585) and a full `rsync -anc` checksum dry run listed only permission-flag lines (files, directories, symlinks), no content differences.
 - M6 free now 179 GB (started at 58). M2 free 110 GB (started at 51). The 250 GB target is still not met.
 - **Still open:** M2 CHROMA-FABLE-TEST + GRAPHICS-FABLE-TEST (about 28 GB). The Extreme task's jobarchive run still holds the lock; the retry loop on M2 (`/tmp/dl/ja-m2.log`) keeps trying every 2 minutes. Handoff `Handoffs/handoff-20261117-finish-internal-drives-cleanup.md` now covers only this move.
+
+## Update 2026-11-18 16:30 CST
+- The Extreme task's lock cleared, so `jobarchive.py run --approved CHROMA-FABLE-TEST,GRAPHICS-FABLE-TEST` ran on the M2 and moved nothing: the nightly tool's review guard (which an approval does not override) refuses both folders because two registered review pages still point at them: 9461 (GRAPHICS-FABLE-TEST, registered Nov 9) and 9462 (CHROMA-FABLE-TEST, registered Nov 9). Both pages are live (HTTP 200) and not on the board or in Dan's decisions.
+- Nothing was deleted or retired. To finish (about 28 GB): Dan says whether the Fable chroma and graphics test reviews are done; then retire both pages (`review_retire.py`), re-run the same command on the M2.
+- Free space now: M6 118 GB, M2 102 GB (both fell since yesterday: WV-05 added 33 GB on M6, Flow work on M2).
