@@ -232,10 +232,16 @@ globals collide under one unittest-discovery process; fixture routers never quer
   the agent itself can create, write, rename and delete in `Videos to Review/`, the internal work folder and each
   mounted `/Volumes/{Extreme,Expansion}/_edit_work` (a drive counts only if it is really mounted; a leftover
   folder at an unmounted path never passes, and an absent share does not block internal work). It runs in a child
-  of the agent's own Python with a 60-second deadline, inside one fixed `.absbyai-batch-probe` folder whose
-  leftovers are cleared next time. `batch.py drive-probe --launchd` asks this Mac's agent and waits. Preflight
+  of the agent's own Python with a 60-second deadline, inside a per-Mac `.absbyai-batch-probe-<mac>` folder (never
+  a link; cleanup removes only its own two file names). Required on every Mac: Videos to Review, the internal work
+  folder and the Extreme work folder; Expansion is reported but does not block. Status reads only the saved
+  record and needs all four steps on a mounted volume for each required folder; it never touches a drive. `batch.py drive-probe --launchd` asks this Mac's agent and waits. Preflight
   requires each Mac's agent to answer that exact request and pass every folder it needs at the same resolved
   path; a cached pass is not enough. A chat's shell passing proves nothing; only the agent's record counts.
+- **Ledger unreachable versus a local fault.** Only a failure to reach the M2 ledger is reported as global; any
+  other tick fault stops only that Mac's claims. Receipts give real states (`NOT WAITING: ... DELIVERED`,
+  `CAN START LATER: ... after <time>`) and count paused groups. Takeover actions name the exact round
+  (`batch.py takeover JOB --round N`).
 - **Per-Mac start gates.** Each tick sends its own start gate with its observation. Reports and receipts on either
   Mac judge each round by its placement: an M2-only round is stuck if the M2 is gated or silent for ten minutes,
   an either-Mac round only if both are.
@@ -259,7 +265,12 @@ globals collide under one unittest-discovery process; fixture routers never quer
   file); otherwise it stays blocked. The editor's submitted candidate is saved before the repair; the repair may
   change only the evidence fields (bytes, files and gate evidence are compared), must exit cleanly, and resumes as
   a repair, never a new edit, after an allowance pause or a lost runner. Every blocked row names an owner and a
-  plain next action.
+  plain next action. A repair counts only once accepted (clean exit, fresh marker, nothing protected changed,
+  per-file gate stamps included); an unaccepted repair is rechecked against the editor's submission on resume.
+  A gate FAIL becomes Dan's question only from each delivered file's own current FAIL stamp, with a disposition
+  for every failing row. Known limits: whether a disposition truly matches one of Dan's approvals, and whether a
+  "$0, no paid provider" reason is true, are shown to Dan rather than proven; a change of cause during one
+  stuck episode does not ring again.
 - **Holds.** `batch.py hold BATCH KEY --reason '...'` keeps a queued round registered but never started and out of
   the not-starting count; `unhold` releases it.
 - `editroute.py pick/wait` refuse job names that start with `-` and print help for `-h/--help`.

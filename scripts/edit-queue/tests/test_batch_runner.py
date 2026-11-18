@@ -62,6 +62,11 @@ class WorkerTests(unittest.TestCase):
             self.assertIn('Change only these fields',prompt);self.assertIn('A gate FAIL stays a FAIL',prompt)
             self.repairs=getattr(self,'repairs',0)+1
             if self.mode=='repair-allowance' and self.repairs==1:return 1,'You hit your usage limit',.01
+            if self.mode=='repair-swap-allowance' and self.repairs==1:
+                # Writes valid costs AND points delivery at another export, then hits the limit before its marker.
+                info=b.read(self.wd/'DELIVERY.json');other=self.wd/'older-pass.mp4';other.write_bytes(b'older passing export')
+                info.update(files=[str(other)],review_copy=str(other),gate='PASS',paid_provider_costs=[{'provider':'none','usd':0,'reason':'none used'}])
+                b.write(self.wd/'DELIVERY.json',info);return 1,'You hit your usage limit',.01
             if self.mode=='repair-lost' and self.repairs==1:raise r.SessionInterrupted('runner lost during repair')
             info=b.read(self.wd/'DELIVERY.json')
             info['paid_provider_costs']=[{'provider':'none','usd':0,'reason':'no paid provider used this round'}]
@@ -74,7 +79,7 @@ class WorkerTests(unittest.TestCase):
             return (1 if self.mode=='repair-exit' else 0),'repaired',.01
         if role=='batch-editor' and self.mode in ('quality-hold','quality-hold-nochoices'):
             page=self.review/'index.html';page.write_text('first review')
-            b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'needs-dan','question':'Hold for another audio pass, or approve?',
+            b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'needs-dan','kind':'quality','question':'Hold for another audio pass, or approve?',
                     'finding':'early decay 83 ms against 80','choices':([] if self.mode=='quality-hold-nochoices' else ['Hold for another audio pass','Approve an exception in the gate rules']),
                     'review_root':str(self.review),'review_port':9850,'evidence':[{'path':str(page),'sha256':r.sha256(page)}]})
             return 0,'held',.01
@@ -90,8 +95,12 @@ class WorkerTests(unittest.TestCase):
                 info.update(gate='PASS',revision_count=1,approved_elements=['Colour B (Dan)'],generation_spend_usd=0,paid_provider_costs=[],
                             reuse={n:{'status':'not_applicable','reason':'fixture'} for n in ('scenes','audio','transcript','assets')})
             if self.mode=='repair-gate':info['gate']='FAIL'
-            if self.mode in ('gate-documented','gate-partial','gate-draft'):
+            if self.mode in ('gate-documented','gate-partial','gate-draft','gate-stale'):
                 gate=self.wd/'delivery-gate.json';gate.write_text(json.dumps({'file':self.video.name,'result':'FAIL'}))
+                rows={'audio:stamp':{'ok':False,'detail':'tone row fails on the bass lift'},'framing:no_wide_level':{'ok':False,'detail':'portrait rule'},
+                      'captions:sync':{'ok':True,'detail':'ok'}}
+                Path(str(self.video)+'.deliver_gate.json').write_text(json.dumps({'verdict':'PASS' if self.mode=='gate-stale' else 'FAIL',
+                     'sha256':r.sha256(self.video),'rows':rows}))
                 info.update(gate='DRAFT' if self.mode=='gate-draft' else 'FAIL',gate_json=str(gate),
                             gate_failures="['audio:stamp: tone fails on the bass lift Dan picked', 'framing:no_wide_level: portrait rule']",
                             gate_failure_dispositions=("{'audio:stamp': 'Dan picked Voice B'}" if self.mode=='gate-partial' else
@@ -233,6 +242,15 @@ class EvidenceRepairAndDecisionTests(WorkerTests):
         self.assertEqual(row['status'],'needs-dan',row.get('outcome'))
         self.assertIn('2 row(s) (audio:stamp, framing:no_wide_level)',row['outcome']['question'])
         self.assertIn('bass lift',row['outcome']['finding']);self.assertNotIn('review-batch-1',self.roles())
+    def test_stale_pass_stamp_never_becomes_a_question(self):
+        self.real();self.mode='gate-stale';_,row=self.execute()
+        self.assertEqual(row['status'],'blocked')
+    def test_interrupted_repair_that_swapped_the_film_is_refused_on_resume(self):
+        self.real();self.mode='repair-swap-allowance';_,row=self.execute()
+        self.assertEqual(row['status'],'queued')
+        self.resume();_,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('changed more than evidence format',row['outcome']['reason'])
+        self.assertNotIn('review-batch-1',self.roles());self.assertEqual(self.roles().count('batch-editor'),1)
     def test_partly_documented_gate_fail_stays_blocked(self):
         self.real();self.mode='gate-partial';_,row=self.execute()
         self.assertEqual(row['status'],'blocked')

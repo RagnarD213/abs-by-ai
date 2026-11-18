@@ -20,9 +20,12 @@ import eq_common as eq
 eq.unshadow();b=eq.sibling('batch')
 
 
+FULL=['create','write','rename','delete']
+
+
 def passing_probe(home,host='m2',folders=None,request=None):
     b.write(Path(home)/'drive-probe-launchd.json',dict(at=time.time(),host=host,context='launchd',passed=True,request=request,
-            interpreter='/usr/bin/python3',folders=folders or [dict(label='Videos to Review',passed=True)]))
+            interpreter='/usr/bin/python3',folders=folders or [dict(label='Videos to Review',passed=True,steps=FULL,resolved='/x',mounted=True)]))
 
 
 class Base(unittest.TestCase):
@@ -172,53 +175,78 @@ class SourceCheckThroughTheStartDecision(Base):
 
 
 class BackgroundFileAccess(Base):
-    """Findings 1, 3, 4."""
+    """Findings 1, 3, 4 and the verification round's probe defects."""
     def folders(self,*items):return [('f'+str(i),Path(x),True,False) for i,x in enumerate(items)]
-    def test_probe_uses_one_private_folder_and_clears_earlier_leftovers(self):
-        a=self.root/'Videos to Review';a.mkdir();(a/b.PROBE_DIR).mkdir();(a/b.PROBE_DIR/'stuck.txt').write_text('old')
+    def good(self,request=None):
+        passing_probe(self.home,request=request)
+    def test_probe_uses_a_per_mac_folder_and_clears_only_its_own_files(self):
+        a=self.root/'Videos to Review';a.mkdir();box=a/(b.PROBE_DIR+'-m2');box.mkdir();(box/'probe.txt').write_text('old')
         link=self.root/'linked';link.symlink_to(a)
         [r]=b.drive_probe(self.folders(link))
-        self.assertTrue(r['passed']);self.assertEqual(r['steps'],['create','write','rename','delete'])
-        self.assertEqual(r['cleared_leftovers'],[str(a.resolve()/b.PROBE_DIR/'stuck.txt')]);self.assertEqual(list(a.iterdir()),[])
-    def test_denied_folder_fails_by_label_and_records_leftovers(self):
+        self.assertTrue(r['passed']);self.assertEqual(r['steps'],FULL)
+        self.assertEqual(r['cleared_leftovers'],[str(a.resolve()/(b.PROBE_DIR+'-m2')/'probe.txt')]);self.assertEqual(list(a.iterdir()),[])
+    def test_unrelated_files_in_the_probe_folder_are_never_removed(self):
+        a=self.root/'Videos to Review';a.mkdir();box=a/(b.PROBE_DIR+'-m2');box.mkdir();(box/'review.mp4').write_text('keep')
+        [r]=b.drive_probe(self.folders(a))
+        self.assertFalse(r['passed']);self.assertEqual((box/'review.mp4').read_text(),'keep')
+    def test_probe_folder_that_is_a_link_is_refused(self):
+        a=self.root/'Videos to Review';a.mkdir();elsewhere=self.root/'reviews';elsewhere.mkdir();(elsewhere/'probe.txt').write_text('keep')
+        (a/(b.PROBE_DIR+'-m2')).symlink_to(elsewhere)
+        [r]=b.drive_probe(self.folders(a))
+        self.assertFalse(r['passed']);self.assertIn('is a link',r['error']);self.assertEqual((elsewhere/'probe.txt').read_text(),'keep')
+    def test_two_macs_never_share_a_probe_folder(self):
+        a=self.root/'shared';a.mkdir()
+        self.assertTrue(b.drive_probe(self.folders(a),host='m6')[0]['passed']);self.assertTrue(b.drive_probe(self.folders(a),host='m2')[0]['passed'])
+    def test_denied_folder_fails_by_label(self):
         locked=self.root/'locked';locked.mkdir();locked.chmod(0o500)
         try:[r]=b.drive_probe(self.folders(locked))
         finally:locked.chmod(0o700)
-        self.assertFalse(r['passed']);self.assertEqual(r['error'],'PermissionError: Permission denied');self.assertEqual(r['leftovers'],[])
+        self.assertFalse(r['passed']);self.assertEqual(r['error'],'PermissionError: Permission denied')
     def test_missing_root_is_created_where_the_allocator_would(self):
         root=self.root/'internal/_edit_work'
         [r]=b.drive_probe([('internal work folder',root,True,True)])
         self.assertTrue(r['passed']);self.assertTrue(root.is_dir())
-    def test_leftover_folder_at_an_unmounted_volume_never_passes(self):
+    def test_unmounted_volume_is_skipped_and_never_counts_as_tested(self):
         stale=self.root/'Volumes/Extreme/_edit_work';stale.mkdir(parents=True)
         with patch.object(b,'volume_root',return_value=str(self.root/'Volumes/Extreme')):
-            [r]=b.drive_probe([('Extreme work folder',stale,True,True)])
-        self.assertFalse(r['passed']);self.assertIn('drive not mounted',r['error'])
-    def test_absent_share_does_not_block_this_mac(self):
-        with patch.dict(os.environ,EDIT_BATCH_PROBE_FOLDERS=json.dumps([dict(label='Videos to Review',path=str(self.root/'vtr')),
-                         dict(label='Extreme work folder',path='/Volumes/NoSuchDrive-absbyai/_edit_work',required=False)])):
-            results=b.drive_probe()
-        self.assertTrue(all(r['passed'] for r in results))
+            [r]=b.drive_probe([('Videos to Review',stale,True,True)])
+        self.assertFalse(r['passed']);self.assertTrue(r['skipped']);self.assertIn('drive not mounted',r['error'])
+        # Even a record claiming passed without the four steps on a mounted volume does not satisfy status.
+        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True,mounted=False,steps=[],resolved=str(stale))])
+        self.assertIn('not fully tested',b.launchd_probe_status()['problem'])
+    def test_status_never_touches_the_drives(self):
+        self.good()
+        with patch.object(b.os.path,'ismount',side_effect=AssertionError('touched a mount')),\
+             patch.object(b.os.path,'realpath',side_effect=AssertionError('touched a path')):
+            self.assertTrue(b.launchd_probe_status()['ok'])
     def test_launchd_context_records_and_interactive_does_not_count(self):
         with patch.dict(os.environ,XPC_SERVICE_NAME='application.com.apple.Terminal'):self.assertIsNone(b.maybe_probe())
         self.assertFalse(b.launchd_probe_status()['ok'])
         with patch.dict(os.environ,XPC_SERVICE_NAME=b.AGENT_LABEL):doc=b.maybe_probe()
-        self.assertEqual(doc['context'],'launchd');self.assertTrue(doc['passed']);self.assertTrue(b.launchd_probe_status()['ok'])
+        self.assertEqual(doc['context'],'launchd');self.assertTrue(doc['passed'],doc);self.assertTrue(b.launchd_probe_status()['ok'])
+    def test_answered_request_is_not_rerun_by_the_timed_check(self):
+        b.write(self.home/'drive-probe-request.json',dict(id='A',at=time.time()))
+        with patch.dict(os.environ,XPC_SERVICE_NAME=b.AGENT_LABEL):
+            self.assertEqual(b.maybe_probe()['request'],'A')
+            d=b.read(self.home/'drive-probe-launchd.json');d['at']-=b.PROBE_EVERY_S+5;b.write(self.home/'drive-probe-launchd.json',d)
+            self.assertEqual(b.maybe_probe()['request'],'A')            # timed check keeps the answered id
+            self.assertIsNone(b.maybe_probe())                          # and does not treat A as pending again
     def test_cached_pass_with_no_answer_to_a_fresh_request_fails(self):
-        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True,resolved=os.path.realpath(self.root/'vtr'))],request='old')
-        status=b.launchd_probe_status(request_id='new')
-        self.assertFalse(status['ok']);self.assertIn('did not answer a fresh',status['problem'])
+        self.good(request='old')
+        self.assertIn('did not answer a fresh',b.launchd_probe_status(request_id='new')['problem'])
         self.assertTrue(b.launchd_probe_status(request_id='old')['ok'])
     def test_empty_or_incomplete_records_fail(self):
         b.write(self.home/'drive-probe-launchd.json',dict(at=time.time(),passed=False,folders=[]))
         self.assertFalse(b.launchd_probe_status()['ok'])
-        passing_probe(self.home,folders=[dict(label='Extreme work folder',passed=True)])
+        passing_probe(self.home,folders=[dict(label='Extreme work folder',passed=True,steps=FULL,resolved='/x')])
         self.assertIn('Videos to Review (not checked by the background agent)',b.launchd_probe_status()['problem'])
-    def test_moved_folder_since_the_check_fails(self):
-        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True,resolved='/Volumes/Expansion/old place')])
-        self.assertIn('moved since the check',b.launchd_probe_status()['problem'])
+    def test_extreme_is_required_by_default(self):
+        with patch.dict(os.environ,{},clear=False):
+            os.environ.pop('EDIT_BATCH_PROBE_FOLDERS',None)
+            passing_probe(self.home,folders=[dict(label=l,passed=True,steps=FULL,resolved='/x') for l in ('Videos to Review','internal work folder')])
+            self.assertIn('Extreme work folder (not checked',b.launchd_probe_status()['problem'])
     def test_preflight_fails_when_a_mac_does_not_answer(self):
-        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True,resolved=os.path.realpath(self.root/'vtr'))],request='old')
+        self.good(request='old')
         remote=dict(host='m6',dirty=[],launcher_ok=True,canary=dict(passed=True,rows=[1,2,3,4]),hashes={},digest='d',commit='c',drive_probe=dict(ok=True))
         local=dict(remote,host='m2',drive_probe=b.launchd_probe_status(request_id='fresh'))
         with patch.object(b,'fingerprints',return_value=local),patch.object(b,'remote',return_value=remote):
@@ -229,21 +257,25 @@ class BackgroundFileAccess(Base):
         with patch.object(b,'PROBE_TIMEOUT_S',1),patch.object(b.subprocess,'Popen',side_effect=lambda c,**k:real(['/bin/sleep','30'],**k)):
             doc=b.record_probe('launchd')
         self.assertFalse(doc['passed']);self.assertIn('timed out after 1 s',doc['folders'][0]['error'])
+        self.assertIn('all folders',b.launchd_probe_status()['problem'])
     def test_real_probe_child_runs_under_a_deadline(self):
         doc=b.record_probe('launchd')
-        self.assertTrue(doc['passed'],doc);self.assertEqual(doc['folders'][0]['label'],'Videos to Review')
+        self.assertTrue(doc['passed'],doc);self.assertEqual(doc['folders'][0]['steps'],FULL)
     def test_stale_probe_is_refused(self):
-        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True)])
-        d=b.read(self.home/'drive-probe-launchd.json');d['at']-=7*3600;b.write(self.home/'drive-probe-launchd.json',d)
+        self.good();d=b.read(self.home/'drive-probe-launchd.json');d['at']-=7*3600;b.write(self.home/'drive-probe-launchd.json',d)
         self.assertIn('older than six hours',b.launchd_probe_status()['problem'])
 
 
-FIXTURE_WORKER='''import json,os,sys,time
+FIXTURE_WORKER='''import json,os,subprocess,sys,time
 sys.path.insert(0,sys.argv[1]);import eq_common as eq;eq.unshadow();b=eq.sibling('batch')
+b.kick=lambda other=False:None          # never touch a real LaunchAgent from a test
 owned=b.read(sys.argv[2]);row=owned['row'];token=row['claim']['token']
 assert b.update('heartbeat',owned['batch'],owned['key'],token,fields=dict(pid=os.getpid(),birth=b.identity(os.getpid()),phase='fixture editing'))
-time.sleep(1.0)        # the M6 "drops" here too: every ssh keeps failing
-b.kick(other=True)     # like the real runner; must not matter
+first=subprocess.run(['ssh','m6','true']).returncode       # M6 connected at the start
+open(sys.argv[3],'w').close()                                # ... then the M6 drops mid-job
+time.sleep(.5)
+second=subprocess.run(['ssh','m6','true']).returncode
+assert (first,second)==(0,255),(first,second)
 b.update('outcome',owned['batch'],owned['key'],token,outcome=dict(status='delivered',verdict='SHIP',link='http://127.0.0.1:9850/'),timing={})
 '''
 
@@ -252,11 +284,12 @@ class RealFixtureWorkerOnM2(Base):
     """Finding 11: a real child process, launched directly by a real M2 tick, starts and finishes with the M6 unreachable."""
     def test_m2_fixture_job_starts_and_finishes_with_the_m6_unreachable(self):
         bin_=self.root/'bin';bin_.mkdir();log=self.root/'ssh-calls.log'
-        (bin_/'ssh').write_text('#!/bin/sh\necho "$@" >> '+str(log)+'\necho "ssh: connect to host m6: Operation timed out" >&2\nexit 255\n');(bin_/'ssh').chmod(0o755)
+        drop=self.root/'m6-dropped'
+        (bin_/'ssh').write_text('#!/bin/sh\necho "$@" >> '+str(log)+'\n[ -e '+str(drop)+' ] || exit 0\necho "ssh: connect to host m6: Operation timed out" >&2\nexit 255\n');(bin_/'ssh').chmod(0o755)
         script=self.root/'fixture_worker.py';script.write_text(FIXTURE_WORKER)
         env={'PATH':str(bin_)+':'+os.environ['PATH'],'EDIT_BATCH_HOME':str(self.home),'EDITROUTE_HOST':'m2'}
         self.use(patch.dict(os.environ,env))
-        self.use(patch.object(b,'worker_command',side_effect=lambda claim:([sys.executable,'-B',str(script),str(PKG),str(claim)],False)))
+        self.use(patch.object(b,'worker_command',side_effect=lambda claim:([sys.executable,'-B',str(script),str(PKG),str(claim),str(drop)],False)))
         real_run=subprocess.run
         def fake_run(command,**kwargs):
             if 'editcap.py' in ' '.join(map(str,command)):return subprocess.CompletedProcess(command,0,json.dumps(dict(cap=3,in_use=[],renderq={})),'')
@@ -264,7 +297,7 @@ class RealFixtureWorkerOnM2(Base):
         self.use(patch.object(b.subprocess,'run',side_effect=fake_run))
         self.use(patch.object(b,'fingerprints',return_value=dict(host='m2',dirty=[],digest='proof',hashes={},launcher_ok=True,canary={},commit='c')))
         self.use(patch.object(b,'observe_local',return_value={}))
-        passing_probe(self.home,folders=[dict(label='Videos to Review',passed=True,resolved=os.path.realpath(self.root/'vtr'))])
+        passing_probe(self.home)
         name,k=self.enqueue(placement='m2');self.start(name)
         b.tick()
         deadline=time.time()+20
@@ -273,7 +306,7 @@ class RealFixtureWorkerOnM2(Base):
         self.assertEqual(row['status'],'delivered',row)
         calls=log.read_text() if log.exists() else ''
         self.assertNotIn('runner.py',calls)                # no launch through any other Mac
-        self.assertIn('kickstart',calls)                   # the fixture really tried the unreachable M6 and carried on
+        self.assertEqual(calls.count('m6 true'),2)         # connected, then dropped mid-job; the worker carried on
 
 
 class BlockedRowsAndDecisions(Base):
@@ -285,7 +318,7 @@ class BlockedRowsAndDecisions(Base):
             if self.snap()['batches'][name]['jobs'][k]['status']=='queued':c=self.claim()
         row=self.snap()['batches'][name]['jobs'][k]
         self.assertEqual(row['status'],'blocked');self.assertEqual(row['outcome']['owner'],'Codex')
-        self.assertIn('Open a new Codex chat for Real Exercise Demos Batch 5 (REALDEMOS-B05)',row['outcome']['next_action'])
+        self.assertIn('Open a new Codex chat for Real Exercise Demos Batch 5 (REALDEMOS-B05 R1)',row['outcome']['next_action'])
         b.report(self.snap())
         line=[x for x in (self.home/'morning-report.md').read_text().splitlines() if 'REALDEMOS' in x][0]
         self.assertIn('NEXT (Codex): Open a new Codex chat',line)
@@ -330,7 +363,7 @@ class EpisodeAlerts(Base):
         self.enqueue();b.handle(dict(op='stop'))
         b.report(self.snap());b.report(self.snap())
         b.handle(dict(op='preflight',proof=dict(passed=False,at=time.time(),problems=['probe file 1234'])));b.report(self.snap())
-        self.assertEqual(len(self.notes),1);self.assertIn('3 Ways To Lose Fat (DS-51 R2): will not start',self.notes[0][1])
+        self.assertEqual(len(self.notes),1);self.assertIn('DS-51 R2 WILL NOT START (3 Ways To Lose Fat)',self.notes[0][1])
         [event]=[e for e in b.read(self.home/'alerts.json')['events'].values()]
         self.assertTrue(event['sent']);self.assertIn('not verifiable',event['screen_delivery'])
     def test_clear_and_recur_rings_again(self):
@@ -350,7 +383,7 @@ class EpisodeAlerts(Base):
         self.assertEqual(self.notes,[])
         b.write(self.home/'alerts.json',dict(created=time.time(),events={},episodes={}))
         b.report(self.snap());b.report(self.snap())
-        self.assertEqual(len(self.notes),1);self.assertIn('needs your answer',self.notes[0][1])
+        self.assertEqual(len(self.notes),1);self.assertIn('DS-51 R2 NEEDS YOU',self.notes[0][1])
     def test_long_messages_record_only_what_was_shown(self):
         for i in range(6):self.enqueue('chat-X'+str(i),'DS-'+str(60+i),title='A rather long recognizable video title number '+str(i))
         b.handle(dict(op='stop'));result=b.report(self.snap())['alert']
@@ -372,6 +405,50 @@ class EpisodeAlerts(Base):
         b.write(self.home/'alerts.json',dict(created=time.time(),events={}))
         self.enqueue();b.handle(dict(op='stop'));b.report(self.snap())
         self.assertEqual(self.notes,[])
+
+
+class VerificationRoundFixes(Base):
+    def test_coordinator_unreachable_is_global_but_a_local_fault_is_only_this_mac(self):
+        a,_=self.enqueue('chat-A','DS-51',2,placement='m2');c,_=self.enqueue('chat-B','DS-50',2,placement='m6',title='Sleep')
+        self.start(a);self.start(c);self.gates();b.save_snapshot(self.snap())
+        self.here.return_value='m6'
+        with patch.object(b,'maybe_probe'),patch.object(b,'flush_outbox'),patch.object(b,'fingerprints',return_value=dict(dirty=[],digest='proof')),\
+             patch.object(b,'observe_local',side_effect=subprocess.TimeoutExpired('editcap',30)):
+            doc=b.tick()
+        self.assertIn('Sleep (DS-50 R2)',doc['headline']);self.assertNotIn('DS-51',doc['headline'])
+        self.assertIn("M6: this Mac's last check failed",doc['headline'])
+        with patch.object(b,'maybe_probe'),patch.object(b,'flush_outbox'),patch.object(b,'fingerprints',return_value=dict(dirty=[],digest='proof')),\
+             patch.object(b,'observe_local',return_value={}),patch.object(b,'rpc',side_effect=b.CoordinatorUnreachable('ssh timed out')):
+            doc=b.tick()
+        self.assertIn('M2 ledger unreachable',doc['headline']);self.assertIn('DS-51',doc['headline'])
+    def test_takeover_action_names_the_exact_round(self):
+        name,k=self.enqueue();self.start(name)
+        for _ in range(3):
+            c=self.claim()
+            b.handle(dict(op='outcome',batch=name,key=k,token=c['row']['claim']['token'],host='m2',backoff_s=0,
+                          outcome=dict(status='deferred-start',reason='executor missing',retry_kind='executor')))
+            c2=b.control();c2.pop('host_backoff',None);b.write(self.home/'control.json',c2)
+        self.enqueue('chat-DS-51-R3','DS-51',3)
+        row=self.snap()['batches'][name]['jobs'][k]
+        self.assertIn('batch.py takeover DS-51 --round 2',row['outcome']['next_action'])
+        self.assertEqual(b.handle(dict(op='takeover',job='DS-51',round=2,host='m6'))['round'],2)
+    def test_finished_batch_is_not_reported_as_queued(self):
+        name,k=self.enqueue();self.start(name);self.gates();c=self.claim()
+        b.handle(dict(op='outcome',batch=name,key=k,token=c['row']['claim']['token'],host='m2',outcome=dict(status='delivered',link='l')))
+        status=b.startability(name)
+        self.assertFalse(status['can_start']);self.assertEqual(status['start_status'],'NOT WAITING: DS-51 R2 DELIVERED.')
+        self.assertNotEqual(b.receipt(name)['receipt'],'queued')
+    def test_paused_group_is_counted_as_not_starting(self):
+        name,_=self.enqueue();self.start(name);self.gates()
+        self.cfg['paused_groups']=[dict(group=eq.group_of('DS-51'),executor='claude',reason='circuit breaker test')]
+        self.assertIn('paused group (circuit breaker test)',b.startability(name)['start_status'])
+    def test_allowance_wait_says_it_will_start_later(self):
+        name,k=self.enqueue();self.start(name);self.gates()
+        c=b.control();c['executor_backoff']={'claude':dict(until=time.time()+3600,reason='limit')};b.write(self.home/'control.json',c)
+        self.assertTrue(b.startability(name)['start_status'].startswith('CAN START LATER: DS-51 R2 after'))
+    def test_fresh_alert_ledger_rings_the_first_live_incident(self):
+        self.here.return_value='m6';self.enqueue();b.handle(dict(op='stop'));b.report(self.snap())
+        self.assertEqual(len(self.notes),1);self.assertTrue(self.notes[0][1].startswith('DS-51 R2 WILL NOT START'))
 
 
 class DeskFallback(Base):
