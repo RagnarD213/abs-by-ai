@@ -336,7 +336,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **STOP Deadlifting clip - NEEDS DAN 2026-09-20, Codex.** R3 review copy in shared Drive folder `1dXUbQajUzM-uO_Xl92telO0qsa-Ob7uV`: full head visible, bar path rises once. Next: Dan approves R3 or names corrections.
 
-**OvernightBatchRepair:WAITING-GRANT:2026-11-18:Claude.** Repair transferred from Codex by handoff-20261118-overnight-batch-start-and-permission-fixes. Six fixes live on both Macs; Codex review running. Next: Codex/Grokbot Full Disk Access grant, then Dan names three pilot videos. `Docs/OVERNIGHT_BATCH_REPAIRS_20261118.md`.
+**OvernightBatchRepair:WAITING-GRANT:2026-11-18:Claude.** Transferred from Codex by handoff-20261118-overnight-batch-start-and-permission-fixes. Fixes and two Codex review rounds closed, live on both Macs. Next: Codex/Grokbot Full Disk Access grant, then Dan names three pilot videos. `Docs/OVERNIGHT_BATCH_REPAIRS_20261118.md`.
 
 **OvernightBatch:N1-REVIEW:2026-11-16:Codex01a1dfd6.** Four-first-reviews;1-recovery-pass;slots-released. NeedsDan:picks. Unattended-pass-blocked:drive-access/M6-space. Next:Dan-picks,then-infrastructure-fixes. `Docs/OVERNIGHT_BATCH_NIGHT1_20261116.md`.
 

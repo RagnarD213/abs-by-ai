@@ -51,6 +51,36 @@ From the main folder, each file in its own process: edit-queue 182 (`test_batch`
 - **REALDEMOS-B05 R1 and WV-07 R1** stay registered and disabled; re-enable only after the grant passes and the owners and Dan want them.
 - **Pilot (three videos):** waits for the grant, then Dan's three video names and his go.
 
-## Independent review
+## Independent review and fixes
 
-Codex GPT-6.2 Sol High, read-only, started by Claude: [overnight-batch-review-20261118/CODEX-REVIEW.md](overnight-batch-review-20261118/CODEX-REVIEW.md). Outcome and fixes: see the section below.
+Codex GPT-6.2 Sol High, read-only, started by Claude: [CODEX-REVIEW.md](overnight-batch-review-20261118/CODEX-REVIEW.md), verdict FIX FIRST, 11 findings. All 11 fixed in `90058c7`:
+
+1. Preflight now needs each Mac's agent to answer the exact fresh request and pass every folder it needs at the same resolved path; empty, incomplete or moved records fail.
+2. Each Mac's start gate travels with its tick observation; reports and receipts judge each round by its placement; a Mac silent for ten minutes counts as stuck; an unreachable ledger is named.
+3. Drives count only when really mounted (a leftover folder at an unmounted `/Volumes` path never passes; an absent share does not block internal work); allocator roots are created.
+4. One fixed probe folder whose leftovers are cleared next time; the probe runs in a child of the agent's own Python with a 60-second deadline.
+5. The editor's submitted candidate is saved before any repair; an allowance pause or lost runner resumes the repair, never the whole edit.
+6. A repair may change only the evidence fields: files, bytes and gate evidence are compared; it must exit 0; a $0 cost row needs a reason.
+7. A gate FAIL becomes Dan's question only with a literal FAIL, gate evidence naming the delivered file, and a disposition for every failing row.
+8. The report shows the exact finding and choices; a quality decision without both is refused; the third start failure gives a working takeover action.
+9. Alerts are per-round episodes: clearing and recurring rings again, partial resolution does not; rows that ended before the rollout do not ring.
+10. Only the events shown in a notification are recorded as sent; the desk's M6 card shows the alert lines with an "Open the full overnight report" link (`/batch-report`), verified live on the M6 desk.
+11. New tests: a real fixture worker launched directly by an M2 tick with every SSH call failing, from start to delivered; a dirty checkout through the real start decision; the real delivery validator through the repair. Tests are fenced from the real Macs (a first draft read, never wrote, the real M2 ledger; it was confirmed unchanged).
+
+Live recheck after `90058c7` (5:22 p.m.): both agents answered fresh requests and fail exactly the three drive folders; preflight fails only on those; the M6 report's first line and the desk card show the not-starting alert. The alert ledger migrated to episodes without ringing again.
+
+Tests after the fixes, main folder: edit-queue 208 (`test_batch_repairs` 39, `test_batch_runner` 49), editroute 58, desk 20, editcap 29/29, all OK. `test_batch_runner`'s real-process interruption case (unchanged code, a half-second timer) failed twice in about ten runs while all six render cores were busy, and passed otherwise.
+
+Codex verification of the fixes: [CODEX-VERIFY.md](overnight-batch-review-20261118/CODEX-VERIFY.md), verdict FIX FIRST: most items partly fixed, plus new defects. Closed in `8abd966`:
+
+- **Repair can no longer deliver a different cut after a pause.** A repair counts only once accepted (exit 0, fresh marker, no protected change, per-file gate stamps included); an unaccepted repair is rechecked against the editor's submission on resume. Reproduced as a test (swap + allowance pause, then resume: blocked, no reviewer, editor ran once).
+- **Gate questions come from each delivered file's own current FAIL stamp**, with a disposition for every failing row; a stale PASS stamp is refused.
+- **Probe:** per-Mac folder, never a link, cleanup removes only its own two file names; a skipped or unmounted drive never counts; status reads only the saved record and never touches a drive; Extreme is required on both Macs, Expansion is reported but does not block; an answered request is not re-run.
+- **Only an unreachable M2 ledger is global;** any other tick fault stops only that Mac's claims. Takeover actions name the exact round (`--round N`).
+- **Receipts give real states** (delivered, running, later after an allowance wait, paused group). A fresh alert ledger rings the first incident; alert text leads with job, round and status.
+- **The fixture worker never touches launchctl**, and proves the M6 connected at the start and dropping mid-job.
+- Resumed repair time is charged only for the current claim.
+
+Accepted limits, shown to Dan rather than proven: whether each gate disposition matches a real approval of his, and whether a "$0, no paid provider" reason is true. A change of cause during one stuck episode does not ring again. No third review was run: the pilot is the next real proof.
+
+Final state, 5:37 p.m.: both Macs on `8abd966`. Live probe and preflight fail only on Videos to Review and the Extreme work folder on both Macs (the missing grant). Main-folder tests: edit-queue 220 (`test_batch_repairs` 49, `test_batch_runner` 51), editroute 58, desk 20, editcap 29/29, all OK. Also fixed: the edit desk's "scheduler version needs checking" warning (reviewed `editroute.py` digest added to the desk policy on both Macs, `7590c10`).
