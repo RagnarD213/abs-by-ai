@@ -84,7 +84,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
-**GATUpsell1(WV-04):R1-REVIEWED:2026-11-16:Claude,M2.** R2 waits on handoff Dan fires.
+**GATUpsell1(WV-04):R2-REVIEW:2026-11-18:Claude,M2.** Review http://127.0.0.1:9813/; awaiting Dan. `/Volumes/Expansion/_edit_work/WV-04/round2/ROUND-2-NOTES.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
@@ -267,7 +267,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - 2026-11-14, Codex/Claude.** Nine shoots, including the 11/13 shoot (30 files, 281.0 GB), verified on Seagate and Google Drive against Extreme. Temporary monitor removed; nightly 8 pm copy-only routine remains active. Extreme originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - 2026-11-17, Codex/Claude.** Nine shoots verified on Seagate and Drive; 8 pm copy-only routine active. Extreme has 826 GiB free. Originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
