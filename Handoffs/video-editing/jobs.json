@@ -5270,15 +5270,16 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 1 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-04-great-again-t-upsell-1-prepaid-packs.md`: cut \"Great Again T Upsell 1: Prepaid Packs\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 1 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-04-great-again-t-upsell-1-prepaid-packs.md`: cut \"Great Again T Upsell 1: Prepaid Packs\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
+   "state": "delivered",
    "note": "R1 first-minute review page http://127.0.0.1:9812/ (awaiting Dan's picks)",
    "order": 233,
-   "updated": "2026-11-16",
+   "updated": "2026-11-18",
    "by": "Claude",
-   "rev": 3,
+   "rev": 4,
    "syncedRev": 3,
    "editor": "Claude",
-   "needs": ""
+   "needs": "",
+   "review_ready_at": 1795000664.61775
   },
   {
    "id": "WV-05",
