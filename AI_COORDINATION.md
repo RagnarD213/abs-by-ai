@@ -87,7 +87,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GATUpsell3(WV-06):QUEUED-M2:2026-11-18:Claude.** No production yet; batch chat-WV-06-R1 waits for an M2 slot, switch-on retrying (M6 scheduler file unpushed). Next: first review page.
 **GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
 **GATUpsell4(WV-07):QUEUED-ENABLED:2026-11-18:Claude:M2.** Waits for an M2 slot. `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
-**GATUpsell1(WV-04):R3-WAITING-SLOT:2026-11-18:Claude,M2.** Priority 2 after VSL; next M2 slot. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
+**GATUpsell1(WV-04):R3-PAUSED-BY-DAN:2026-11-18:Claude,M2.** Not started; resume only when Dan says. `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PAUSED-20261118.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
