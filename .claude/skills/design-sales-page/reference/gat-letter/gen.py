@@ -110,7 +110,8 @@ LINKS = {'quiz': '1-quiz.html', 'sales': '2-before-offer.html', 'order': '4-chec
          'questions': 'p-questions.html', 'how': 'p-how-it-works.html', 'ingredients': 'p-ingredients.html',
          'shipping': 'p-shipping-returns.html', 'contact': 'p-contact.html', 'about': 'p-about.html',
          'privacy': 'p-privacy.html', 'terms': 'p-terms.html', 'disclaimer': 'p-disclaimer.html'}
-SUPPORT = 'support@sixpackabs.com'   # the compliance Doc's address (mailbox made 2026-11-17, forwards to Dan)
+SUPPORT = 'dan@sixpackabs.com'   # Dan's choice for the footer and checkout. The compliance Doc's own text says support@sixpackabs.com
+                                 # (mailbox made 2026-11-17, forwards to Dan); the two differ until Dan picks one.
 CTA_TXT = 'Claim My Free Month’s Supply'
 ARROW = '<svg class="chev" aria-hidden="true" viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg>'
 NOTES = ['1 year money back guarantee', '$9.99 shipping today', 'Cancel any time']
@@ -452,7 +453,7 @@ def check():
         assert not dead, (f, 'dead links', dead)
         gone = [fn for fn in info_files if raw.count(f'href="{fn}"') < 2]
         assert not gone, (f, 'not linked from both the menu and the footer', gone)
-    assert SUPPORT in (HERE / '4-checkout.html').read_text() and 'dan@sixpackabs.com' not in (HERE / '4-checkout.html').read_text()
+    assert SUPPORT in (HERE / '4-checkout.html').read_text()
     for need in ('terms', 'privacy', 'shipping'):
         co = (HERE / '4-checkout.html').read_text()
         assert f'class="policy-links"' in co and LINKS[need] in co[co.index('class="policy-links"'):co.index('class="policy-links"') + 400], need

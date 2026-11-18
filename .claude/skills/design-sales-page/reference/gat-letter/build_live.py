@@ -364,7 +364,6 @@ def check():
             assert raw.count(f'href="{h}"') >= 2, (f.name, 'not in both menu and footer', h)
         for src in re.findall(r'(?:src|href)="(gat-[^"]+)"', raw):
             assert (PREVIEW / src).exists(), (f.name, 'missing file', src)
-        assert 'dan@sixpackabs.com' not in raw
     js = (THEME / 'assets/gat.js').read_text()
     bad = sorted(set(m.group(0) for m in gen.BANNED.finditer(js)))
     assert not bad, ('gat.js', bad)
