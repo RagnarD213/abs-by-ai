@@ -65,3 +65,4 @@ Per Mac and per folder: pass or fail, the time, and the last line of each `drive
 
 - M6, Nov 18 5:49 PM Central, granted by Dan himself (Python.app and python3.9): Videos to Review PASS; internal work folder PASS; Extreme work folder PASS; Expansion work folder PASS. Last line: `PASS m6 background agent: every folder: create, write, rename, delete`.
 - M2: not granted yet.
+- **Nov 18, ~5:57 p.m. (Claude):** M2 still `FAIL` after Dan's grant and an agent restart. M2's Full Disk Access list holds `.../Versions/3.9/bin/python3.9` and `com.apple.python3` (Python.app), both on, but not the agent's own program `/Applications/Xcode.app/Contents/Developer/usr/bin/python3`. Add that one, restart the agent, re-probe.
