@@ -35,7 +35,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-17:Claude.** Next: test orders (handoff in README), Dan's review. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
 
-**RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
+**RO-39:PAUSED-BY-DAN:2026-11-18:Codex:M2.** Progress saved, production stopped, slots released. No automatic restart. `Docs/RO39_PAUSE_20261118.md`.
 
 **CLIPLIB-V2:REVIEW:2026-11-18:Codex:M2.** 14 X1 whole frame pairs approved; 6 UNDECIDED held. 33 motion submissions produced 32 native videos and one refunded technical failure; 346 of 5,000 credits used, 0 reserved. All 38 provider files (32 native, 6 exports) archived with fresh original/M2/archive/Drive SHA verification. Fourteen exact-file candidates from thirteen selected scenes passed picture gates/fresh review and are on :9875; the old bag motion remains rejected. One simpler replacement whole frame pair is checked and ready on :9876, awaiting a new Dan pick before motion; its comparison branch failed both allowed versions. 231 raw stills preserved. M6 remains with Joint Vigor. No Dan motion approval or usable keeper IDs. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
@@ -87,7 +87,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GATUpsell3(WV-06):QUEUED-M2:2026-11-18:Claude.** No production yet; batch chat-WV-06-R1 waits for an M2 slot, switch-on retrying (M6 scheduler file unpushed). Next: first review page.
 **GATUpsell2(WV-05):R1-IN-PROGRESS:2026-11-18:Claude,M6.** Take map, key, build. Next: R1 review page.
 **GATUpsell4(WV-07):QUEUED-ENABLED:2026-11-18:Claude:M2.** Waits for an M2 slot. `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
-**GATUpsell1(WV-04):R3-PAUSED-BY-DAN:2026-11-18:Claude,M2.** Not started; resume only when Dan says. `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PAUSED-20261118.md`.
+**GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
