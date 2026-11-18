@@ -1,0 +1,247 @@
+<title>Great Again T Page</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+/* Layout: one column, phone first. Each section: heading, a line of explanation, a strip of screenshots (tap to enlarge). */
+:root{
+  --bg:#EEF1F0; --surface:#FFFFFF; --ink:#141A19; --muted:#56625F; --line:#D3DAD7; --chip:#E3E8E6;
+  --accent:#1F6A5A; --pick:#1D6B3F; --pick-bg:#E3F1E8; --gold:#9B8150;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif; --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#101615; --surface:#19211F; --ink:#ECF1EF; --muted:#9DAAA6; --line:#2D3835; --chip:#25302D;
+  --accent:#7CCDB7; --pick:#82D6A4; --pick-bg:#173123; --gold:#D8BE86; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#101615; --surface:#19211F; --ink:#ECF1EF; --muted:#9DAAA6; --line:#2D3835; --chip:#25302D;
+  --accent:#7CCDB7; --pick:#82D6A4; --pick-bg:#173123; --gold:#D8BE86; color-scheme:dark }
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.55;margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding-block:24px 72px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:30px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.12;text-wrap:balance}
+h1{font-size:clamp(28px,6vw,42px);font-weight:800;letter-spacing:-.01em}
+h2{font-size:clamp(22px,4vw,28px);font-weight:800}
+h3{font-size:18px;font-weight:700}
+p{margin:0;max-width:68ch}
+a{color:var(--accent);font-weight:600}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.top{display:flex;flex-direction:column;gap:10px}
+.top p{font-size:17px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 0 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.card>h2,.card>p,.card>ul,.card>ol,.card>.links,.card>table,.card>.pickrow,.card>.twocol{margin-left:18px;margin-right:18px}
+.card>p{color:var(--ink)}
+.note{color:var(--muted);font-size:15px}
+.pv-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:0 18px}
+.pv-tabs button{font:600 15px var(--body);min-height:44px;padding:8px 14px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.pv-tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.pv-tabs button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.phone{margin:4px auto 0;width:min(406px,calc(100% - 20px));border:8px solid #11171a;border-radius:34px;overflow:hidden;background:#000;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.phone iframe{display:block;width:100%;height:min(780px,78vh);border:0;background:#fff}
+.qh{margin:6px 18px 0;font-size:18px}
+.reveal-t{border-collapse:collapse;font-size:15px;width:calc(100% - 36px);max-width:560px}
+.reveal-t th,.reveal-t td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+.reveal-t th{font-size:13px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.reveal-t tr.win td{background:var(--pick-bg);font-weight:600}
+.badge{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:7px;background:var(--ink);color:var(--bg);font:800 15px var(--display)}
+.win .badge{background:var(--pick)}
+.strip{display:flex;gap:14px;overflow-x:auto;padding:2px 18px 10px;align-items:flex-start;scroll-snap-type:x proximity}
+.shot{margin:0;flex:0 0 220px;display:flex;flex-direction:column;gap:7px;scroll-snap-align:start}
+.shot.wide{flex-basis:340px}
+.shot.desk{flex-basis:min(620px,86vw)}
+.zoom{all:unset;display:block;cursor:zoom-in;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--chip);position:relative}
+.zoom:focus-visible,.btn:focus-visible,.opt:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.zoom img{display:block;width:100%;height:auto}
+.zoom.crop{max-height:480px}
+.desk .zoom.crop{max-height:520px}
+.more{position:absolute;left:0;right:0;bottom:0;padding:26px 10px 10px;font-size:13px;font-weight:600;text-align:center;color:#fff;background:linear-gradient(transparent,rgba(10,14,18,.85))}
+figcaption{font-size:13.5px;line-height:1.35;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;gap:8px}
+.links a{display:inline-flex;align-items:center;min-height:44px;padding:8px 14px;border:1px solid var(--line);border-radius:9px;background:var(--bg);text-decoration:none;color:var(--ink);font-size:15px}
+.links a.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+ol.dec,ul.list{padding-left:22px;display:flex;flex-direction:column;gap:10px;margin-top:0;margin-bottom:0}
+ol.dec li,ul.list li{max-width:72ch}
+.edits{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;margin-top:0;margin-bottom:0}
+.edits li{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15px}
+.edits .was{text-decoration:line-through;color:var(--muted)}
+.edits .arrow{color:var(--muted);font-size:13px;margin:0 4px}
+.edits .now{font-weight:600}
+.edits small{display:block;color:var(--muted);font-size:13px;margin-top:3px}
+.pickrow{display:flex;flex-wrap:wrap;gap:10px}
+.opt{display:flex;align-items:center;gap:10px;min-height:48px;padding:10px 14px;border:2px solid var(--line);border-radius:10px;cursor:pointer;font-weight:600}
+.opt input{width:20px;height:20px;accent-color:var(--pick)}
+.opt:has(input:checked){border-color:var(--pick);background:var(--pick-bg)}
+textarea{margin:0 18px;width:calc(100% - 36px);min-height:130px;font:15px/1.45 var(--body);padding:10px 12px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:0 18px}
+.btn{font:600 16px var(--body);min-height:46px;border-radius:10px;padding:10px 18px;border:1px solid var(--ink);background:var(--ink);color:var(--bg);cursor:pointer}
+#out{margin:0 18px;width:calc(100% - 36px);min-height:110px;font:14px/1.45 var(--body);padding:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(8,10,13,.92);overflow:auto;padding:calc(56px + env(safe-area-inset-top,0px)) 12px calc(24px + env(safe-area-inset-bottom,0px));cursor:zoom-out}
+#lb img{display:block;margin:0 auto;max-width:min(100%,1440px);height:auto;border-radius:10px}
+#lb img.narrow{max-width:min(100%,430px)}
+#lbx{position:fixed;top:calc(10px + env(safe-area-inset-top,0px));right:calc(12px + env(safe-area-inset-right,0px));font:600 15px var(--body);padding:9px 16px;border-radius:9px;border:0;background:#fff;color:#111;cursor:pointer;z-index:51}
+</style>
+
+<div class="wrap">
+  <div class="top">
+    <span class="kicker">Round 6 · Your revisions and the Google Ads pass · phone first</span>
+    <h1>Great Again T Page</h1>
+    <p>Round 6 has your revisions: a more appetizing steak in both food-swap pictures, the YouTube player from the 3-minute ab video with the subscriber and view counts circled, the before and after labels moved under the photos, subtle salt-and-pepper hair and a little age on the after photos and the founder avatar (now the Abs By AI avatar), and a Google Ads pass on the letter (every edit listed below, made in your Doc). The check still confirms every line of your Doc is on the page once, in order, with no Google Ads words.</p>
+  </div>
+
+  
+
+  <section class="card" aria-labelledby="h-prev">
+    <h2 id="h-prev">Phone preview</h2>
+    <p>This is the real page at phone size. Scroll inside it, and pick a version with the buttons. On "Bottom bar", scroll down a little and the dark bar is pinned to the bottom of the phone screen.</p>
+    <div class="pv-tabs" role="tablist" aria-label="Which page to preview">
+      <button type="button" role="tab" aria-selected="true" data-src="3-after-offer.html">Top bar</button>
+      <button type="button" role="tab" aria-selected="false" data-src="3b-after-offer-bottom-bar.html">Bottom bar</button>
+      <button type="button" role="tab" aria-selected="false" data-src="2-before-offer.html">Before the offer</button>
+      <button type="button" role="tab" aria-selected="false" data-src="1-quiz.html">Quiz</button>
+      <button type="button" role="tab" aria-selected="false" data-src="4-checkout.html">Checkout</button>
+    </div>
+    <div class="phone"><iframe id="pv" title="Phone preview of the sales page" src="3-after-offer.html?frame=1" loading="lazy"></iframe></div>
+  </section>
+
+  
+
+  <section class="card" aria-labelledby="h-phone">
+    <h2 id="h-phone">1. The full page on a phone</h2>
+    <p>Order: logo strip, headline and video, the text under the video, the offer card once the video reaches it, the 31 studies, then the letter from L1 to L22 and the footer. Your photos, study cards and pictures sit where the Doc puts them. One picture, the $97 store listing, is a grey block until it exists (see Decisions).</p>
+    <div class="links">
+      <a class="main" href="3-after-offer.html">Open the live page (offer showing)</a>
+      <a href="2-before-offer.html">Before the offer appears</a>
+      <a href="3b-after-offer-bottom-bar.html">With the bottom bar</a>
+      <a href="1-quiz.html">Start from the quiz</a>
+      <a href="4-checkout.html">Checkout</a>
+    </div>
+    <div class="strip">{{PHONEKEY}}{{PHONE}}</div>
+  </section>
+
+  <section class="card" aria-labelledby="h-letter">
+    <h2 id="h-letter">What changed from round 4</h2>
+    <ul class="list">
+      <li>The letter is built from your Doc, not the VSL script: re-exported fresh for this build, every black paragraph placed in order. Your edits in the Doc carry straight over next time.</li>
+      <li>New letter headline and subheadline (L1), so "Prefer to read?" lands on a start.</li>
+      <li>Your subheads, numbered blocks (Food Swap #1 and #2, T Boosting Nutrient #1 and #2, T Boosting Root #1 to #3) and bold lead-ins into the next subhead.</li>
+      <li>High T and low T as a green and a red card; the potato as a real picture reveal; photos of tongkat ali, ginseng and maca from the film; a red X list for "every supplement I found had problems".</li>
+      <li>Five buttons in the letter instead of nine. The offer card in the price section now comes after you explain the free month and the $67.</li>
+      <li>Guarantee block with the gold seal, and two always-open question cards with your questions as headings.</li>
+      <li>A clothed headshot from the VSL kitchen for the founder card and sign-off (round 4 used a shirtless photo).</li>
+      <li>Google Ads wording on every page: no full word for T, the study list without paper titles, 12 study cards instead of 14, the replacement therapy question off the page, the quiz's second question now says "T".</li>
+    </ul>
+  </section>
+
+  <section class="card" aria-labelledby="h-ads">
+    <h2 id="h-ads">Google Ads edits to the letter (round 6)</h2>
+    <p>I read the letter the way a Google Ads policy reviewer would and changed only the lines they could object to: promised results and timeframes, "proven", a disease-risk line, claims about other customers the product cannot have yet, effortless muscle gain, and the most direct bedroom lines. No numbers about fat loss or muscle gain remain. The edits are made in your Google Doc, so the Doc and the page match. Revert any of them there.</p>
+    <ul class="edits">{{COMPLIANCE}}</ul>
+  </section>
+
+  <section class="card" aria-labelledby="h-tab">
+    <h2 id="h-tab">2. Tablet</h2>
+    <p>The same page at 768 px wide. The video sits in a large player box with a blurred fill on each side. The offer card is in two columns, the studies are in two journal-style columns, and the letter is a comfortable reading column.</p>
+    <div class="strip">{{TABLET}}</div>
+  </section>
+
+  <section class="card" aria-labelledby="h-desk">
+    <h2 id="h-desk">3. Desktop, V Shred's layout</h2>
+    <p>The page sits on a full-width photo background with a centred dark green card holding the two-line headline. Under it is a 16:9 player box with the vertical video centred inside, and blurred fill instead of black bars, so a 16:9 edit can drop into the same box later. The menu links show in the header. On a 1440 x 900 screen, the headline, the offer bar and the whole video fit on the first screen.</p>
+    <div class="strip">{{DESK}}</div>
+  </section><section class="card" aria-labelledby="h-bar">
+    <h2 id="h-bar">Offer bar (settled: top)</h2>
+    <p>You chose the top bar inside the header. Shown here for reference; the bottom bar is still in the preview tabs.</p>
+    <div class="strip">{{BAR}}</div>
+    <div class="pickrow" role="radiogroup" aria-label="Which offer bar">
+      <label class="opt"><input type="radio" name="bar" value="Top bar inside the header" checked> Top bar inside the header (recommended)</label>
+      <label class="opt"><input type="radio" name="bar" value="Bottom bar"> Bottom bar</label>
+    </div>
+  </section>
+
+  <section class="card" aria-labelledby="h-co">
+    <h2 id="h-co">4. Checkout, modelled on Healthy Back's</h2>
+    <p>Same order as Healthy Back, except a small bottle sits in each option: a choice box with the free month pre-selected, the offer line, 1 Shipping, 2 Order summary ($0.00 plus $9.99 shipping), 3 Payment, "How this FREE Trial Offer Works", the agreement tick box, then the big orange button. Under the form are the product checkmarks, the guarantee and the footer. On desktop the choice box stays on the left and the form runs on the right.</p>
+    <div class="strip">{{CHECKOUT}}</div>
+  </section>
+
+  <section class="card" aria-labelledby="h-hb">
+    <h2 id="h-hb">Healthy Back's checkout, and your checkout questions</h2>
+    <div class="strip">{{HB}}</div>
+    <h3 class="qh">The big bottle at the top</h3>
+    <p>Done your way (round 4.1): the big bottle on top is gone, and each option row has its small bottle again. Both options and the shipping form now start higher on the first screen. Healthy Back uses one big bottle with plain rows; we go the other way on purpose.</p>
+    <h3 class="qh">The one-bottle, one-time option</h3>
+    <p>Healthy Back does give a no-subscription choice, and it's the first box in their list: "Buy 1 Get 1 Free + Free Shipping", a one-time $59 (crossed out $139.90, "Save $80.90"), with the free trial bottle pre-selected underneath. So their decoy is a one-time bundle, not a single bottle. Ours follows your script: one bottle, one time, $97, the price you say dabblers pay. It shows the subscription price as clearly better, and it gives men who won't take a subscription something to buy. I recommend keeping it. If you'd rather copy Healthy Back exactly, the alternative is a one-time two-bottle bundle with free shipping, which needs a price from you.</p>
+    <h3 class="qh">Healthy Back's tick box and fine print</h3>
+    <p>Round 4.1: copied word for word from Healthy Back, with only our details swapped in: Great Again T, 60-count, $9.99 shipping, $67 a bottle after the first 30 days, "SIXPACKABS.COM" on the statement, and dan@sixpackabs.com where they give their phone number ("Ask Questions By Email", since nobody orders by email). Three swaps I picked, so tell me if you want different: their "SmartShip Savings" program is called "Monthly Savings"; their $3.95 shipping on later bottles is "free shipping", which matches your $67 a month price; and I kept the line "not intended to diagnose, treat, cure, or prevent any disease" after their FDA sentence.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-fix">
+    <h2 id="h-fix">The study list without paper titles</h2>
+    <p>Same 31 studies, same order and numbers. Each entry is now authors (first three, then et al.), journal, year, volume, pages, DOI and PubMed number. Two journal names hold a word from your Google Ads list (both are "J Steroid Biochem"), so studies 5 and 6 show no journal name; their DOI and PubMed number still identify them.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-who">
+    <h2 id="h-who">Who made each design</h2>
+    <table class="reveal-t">
+      <thead><tr><th>Design</th><th>Made by</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td><span class="badge">A</span></td><td>Claude Opus 5.5</td><td>High</td></tr>
+        <tr><td><span class="badge">B</span></td><td>Codex GPT-6 Astra</td><td>High</td></tr>
+        <tr><td><span class="badge">C</span></td><td>Claude Fable 5.2</td><td>High</td></tr>
+        <tr class="win"><td><span class="badge">D</span></td><td>Codex GPT-6 Astra (winner)</td><td>High</td></tr>
+        <tr><td><span class="badge">E</span></td><td>Claude Opus 5.5</td><td>High</td></tr>
+        <tr><td><span class="badge">F</span></td><td>Claude Fable 5.2</td><td>High</td></tr>
+      </tbody>
+    </table>
+    <p class="note">Both green-quiz designs you liked, B and D, were Astra's. It's Astra's first design win.</p>
+  </section>
+
+  <section class="card" aria-labelledby="h-dec">
+    <h2 id="h-dec">Decisions for you</h2>
+    <p><b>Settled:</b> offer bar at the top inside the header; the gold seal; $9.99 shipping; dan@sixpackabs.com as the contact; small bottles in each checkout option; Healthy Back's terms with our details.</p>
+    <p><b>Defaults I built (change any in your notes):</b></p>
+    <ol class="dec">
+      <li>The study list shows no paper titles, and studies 5 and 6 show no journal name either.</li>
+      <li>The two risk statistics, study cards 23 and 24, and the replacement therapy question are off the page.</li>
+      <li>The letter headline and subheadline in L1 are my combination of your phrases. Rewrite them in the Doc if you like.</li>
+      <li>One picture is a grey block: the $97 store listing (the live shop lists Great Again T at $47, and the film has no listing graphic). The channel picture is a fresh screenshot of the SixPackAbs.com channel (@sixpackshortcuts, 4.46M subscribers) with the count circled in gold.</li>
+    </ol>
+    <p><b>Still open from the Doc (Part E):</b></p>
+    <ol class="dec">
+      <li>How to cancel: the terms say "Cancel any time" but not how.</li>
+      <li>The [P] placeholder words: read link, sound box, terms box, button label, notes under buttons, photo captions, founder title, footer.</li>
+      <li>Olive oil: the opening shows the butter and olive oil swap, and the letter never comes back to it. It needs two or three sentences from you if you want it paid off.</li>
+      <li>Reviews: the section is built and hidden until real buyer reviews exist.</li>
+      <li>One-time option at checkout: I kept "One bottle, one time, $97".</li>
+    </ol>
+  </section>
+
+  <section class="card" aria-labelledby="h-notes">
+    <h2 id="h-notes">Your notes</h2>
+    <textarea id="notes" aria-label="Your notes on this round" placeholder="What to change, keep or cut"></textarea>
+    <div class="bar"><button type="button" class="btn" id="copy">Copy my notes</button></div>
+    <textarea id="out" readonly hidden aria-label="Your notes, ready to paste into the chat"></textarea>
+  </section>
+</div>
+
+<div id="lb" hidden><button type="button" id="lbx">Close</button><img id="lbi" alt=""></div>
+
+<script>
+(function(){
+  var KEY='gat-r3-notes', notes=document.getElementById('notes'), out=document.getElementById('out');
+  try{var v=localStorage.getItem(KEY);if(v)notes.value=v}catch(e){}
+  notes.addEventListener('input',function(){try{localStorage.setItem(KEY,notes.value)}catch(e){}});
+  document.getElementById('copy').addEventListener('click',function(){
+    var btn=this,bar=document.querySelector('input[name=bar]:checked');
+    var text=['Great Again T page, round 3 notes:','Offer bar: '+(bar?bar.value:'not chosen'),notes.value.trim()].filter(Boolean).join('\n');
+    out.value=text;out.hidden=false;
+    function fb(){out.focus();out.select();btn.textContent='Select all and copy the box below'}
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(function(){btn.textContent='Copied. Paste it into the chat'},fb)}else fb()}catch(e){fb()}
+  });
+  var pv=document.getElementById('pv'),tabs=[].slice.call(document.querySelectorAll('.pv-tabs button'));
+  tabs.forEach(function(b){b.addEventListener('click',function(){tabs.forEach(function(x){x.setAttribute('aria-selected',x===b?'true':'false')});pv.src=b.dataset.src+'?frame=1'})});
+  var lb=document.getElementById('lb'),lbi=document.getElementById('lbi');
+  document.addEventListener('click',function(e){var z=e.target.closest('.zoom');if(z){lbi.src=z.dataset.src;lbi.alt=z.getAttribute('aria-label');
+      lbi.className=z.closest('.desk,.wide')?'':'narrow';lb.hidden=false;lb.scrollTop=0;return}
+    if(!lb.hidden&&(e.target===lb||e.target.id==='lbx'||e.target===lbi))lb.hidden=true});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.hidden=true});
+})();
+</script>
