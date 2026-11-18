@@ -20,11 +20,11 @@ Until both Macs pass, the queue refuses to start any edit (this is deliberate).
 System Settings > Privacy & Security > Full Disk Access > "+" > press Cmd-Shift-G > paste the path > Open > make sure its switch is ON. Add both entries on each Mac (the agent launches the first; macOS runs the second).
 
 **M6 (Dan's Mac, user `danrrose`):**
-1. `/Library/Developer/CommandLineTools/usr/bin/python3`
+1. `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9` (the real file; `/Library/Developer/CommandLineTools/usr/bin/python3` is only a shortcut to it)
 2. `/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app`
 
 **M2 Pro (headless, user `danielrose`, reach it with Screen Sharing; from the M6 the SSH name is `m2`):**
-1. `/Applications/Xcode.app/Contents/Developer/usr/bin/python3`
+1. `/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/bin/python3.9` (the real file; `/Applications/Xcode.app/Contents/Developer/usr/bin/python3` is only a shortcut to it)
 2. `/Applications/Xcode.app/Contents/Developer/Library/Frameworks/Python3.framework/Versions/3.9/Resources/Python.app`
 
 Full Disk Access cannot be granted from a shell command; it needs the System Settings window (Screen Sharing on the M2).
