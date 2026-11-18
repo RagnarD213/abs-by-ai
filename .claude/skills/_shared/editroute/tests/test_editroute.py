@@ -11,6 +11,7 @@ import sys
 import tempfile
 import time
 import unittest
+import unittest.mock
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -610,6 +611,33 @@ class PushThroughSharedDrive(unittest.TestCase):
         self.assertEqual(len(self.copied), 1)
         self.assertIn("Docs/note.md -> m6:", out)
 
+
+
+class JobNameGuard(unittest.TestCase):
+    """2026-11-18: `pick --help` put a job named "--help" in the waiting line."""
+    def setUp(self):
+        self.called = []
+        self.patches = [unittest.mock.patch.object(er, "_forward", side_effect=lambda a: self.called.append(a) or 0),
+                        unittest.mock.patch.object(er, "cmd_pick", side_effect=lambda *a, **k: self.called.append(a) or 0),
+                        unittest.mock.patch.object(er, "cmd_wait", side_effect=lambda *a, **k: self.called.append(a) or 0)]
+        for x in self.patches:
+            x.start()
+    def tearDown(self):
+        for x in self.patches:
+            x.stop()
+    def test_help_prints_usage_and_touches_nothing(self):
+        for argv in (["pick", "--help"], ["wait", "-h"], ["pick", "DS-51", "--help"]):
+            self.assertEqual(er.main(argv), 0)
+        self.assertEqual(self.called, [])
+    def test_dash_names_and_unknown_flags_are_refused_before_forwarding(self):
+        for argv in (["pick", "--bogus"], ["wait", "-x"], ["pick"], ["wait"]):
+            with self.assertRaises(SystemExit) as stop:
+                er.main(argv)
+            self.assertIn("editroute.py", str(stop.exception.code))
+        self.assertEqual(self.called, [])
+    def test_real_job_still_routes(self):
+        er.main(["pick", "DS-51", "--kind", "SFC", "--round", "2"])
+        self.assertEqual(len(self.called), 1)
 
 if __name__ == "__main__":
     unittest.main()

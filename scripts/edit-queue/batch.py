@@ -24,8 +24,17 @@ import hostcfg
 
 HOME = Path(os.environ.get('EDIT_BATCH_HOME') or Path.home()/'.absbyai-batch')
 SHARED = Path(eq.ROOT)/'.claude/skills/_shared'
-SOURCE_ROOTS = ['.claude/skills/_shared/'+n for n in ('editroute','editcap','renderq')] + ['scripts/edit-queue','scripts/edit-dashboard']
+# Only what the scheduler and its workers execute or read at run time (2026-11-18): the edit desk, tests,
+# docs, fixtures and snapshots no longer stop starts, so another session's unsaved edits there are harmless.
+SOURCE_ROOTS = ['.claude/skills/_shared/'+n for n in ('editroute','editcap','renderq')] + ['scripts/edit-queue']
+RUNTIME_DOCS = {'scripts/edit-queue/preamble.md','scripts/edit-queue/reviewer-brief.md'}  # read into every session prompt
+RUNTIME_SUFFIXES = ('.py','.json','.sh','.plist','.js','.c')
+NON_RUNTIME_DIRS = {'tests','test','fixtures','testdata','__pycache__','approved-clips'}
 TERMINAL = {'delivered','delivered-unreviewed','needs-dan','blocked','taken-over'}
+AGENT_LABEL = 'com.absbyai.edit-queue'
+PROBE_EVERY_S = 1800        # background file-access check: every 30 min, or at once on request
+PROBE_MAX_AGE_S = 6*3600    # preflight refuses an older check
+EDITOR_NAMES = {'claude':'Claude','codex':'Codex'}
 NAME = re.compile(r'^[A-Za-z0-9][A-Za-z0-9_-]{0,95}$')
 JOB = re.compile(r'^(?:[A-Z]{2,8}|REALDEMOS)-[A-Z0-9-]+$')
 class TransportError(RuntimeError):pass
@@ -113,6 +122,17 @@ def snapshot():
     return result
 
 
+def editor_name(row):
+    return EDITOR_NAMES.get((row or {}).get('executor'),'Claude')
+
+
+def takeover_action(row, what='finish it'):
+    """A next action a non-coder can follow: who opens which chat, and what the chat does."""
+    job=(row or {}).get('id','this video');title=(row or {}).get('title') or job
+    return ('Open a new '+editor_name(row)+' chat for '+title+' ('+job+'), have it take over the saved work '
+            '(batch.py takeover '+job+') and '+what+'. Nothing is lost; the work folder is kept.')
+
+
 def finish(row, outcome):
     status=outcome.get('status')
     if status not in TERMINAL: raise ValueError('invalid terminal outcome')
@@ -121,6 +141,9 @@ def finish(row, outcome):
     if status=='blocked' and not outcome.get('next_action'): raise ValueError('blocked needs next action')
     if status=='needs-dan' and not (outcome.get('question') and outcome.get('link')):
         raise ValueError('needs Dan requires a question and review link')
+    if status=='blocked' and not outcome.get('owner'):
+        # Every blocked row names who acts next (2026-11-18); the editor that owns the video by default.
+        outcome=dict(outcome,owner=editor_name(row))
     row.update(status=status, outcome=outcome, ended=time.time())
     row.pop('claim',None)
 
@@ -199,7 +222,7 @@ def handle(req):
                 state=read(p/'state.json')
                 if not state['enabled']:continue
                 for k,r in state['jobs'].items():
-                    if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']):
+                    if r['status']=='queued' and r['not_before']<=now and r['placement'] in ('any',req['host']) and not r.get('held'):
                         if eq.paused_reason(r['id'],r['executor'],eq.load_config()):continue
                         if r['id'] in req.get('unavailable',[]):continue
                         if r.get('host_defer',{}).get(req['host'],0)>now:continue
@@ -219,6 +242,24 @@ def handle(req):
             brief=(p/'briefs'/(k+'.md')).read_bytes()
             if hashlib.sha256(brief).hexdigest()!=row['brief_sha256']:raise ValueError('stored brief changed')
             return dict(batch=p.name,key=k,row=row,brief=base64.b64encode(brief).decode())
+        if op in ('hold','unhold'):
+            # Dan's explicit pause of one queued round: it keeps its registration and never starts until released.
+            p,manifest,state=load_batch(req['batch']);row=state['jobs'][req['key']]
+            if row['status']!='queued':raise ValueError('only a queued round can be held or released')
+            if op=='hold':
+                if not req.get('reason'):raise ValueError('a hold needs the reason')
+                row['held']=dict(at=now,by=req.get('by','Dan'),reason=req['reason'])
+            else:row.pop('held',None)
+            write(p/'state.json',state);return row
+        if op=='reclassify':
+            # One-time correction of a blocked row whose real state is a decision for Dan (2026-11-18 rules).
+            p,manifest,state=load_batch(req['batch']);row=state['jobs'][req['key']]
+            if row['status']!='blocked':raise ValueError('only a blocked row can be reclassified')
+            new=dict(req['outcome'],reclassified=dict(at=now,why=req.get('why','')))
+            if new.get('status') not in ('needs-dan','blocked'):raise ValueError('reclassify to needs-dan or blocked only')
+            prior=dict(row['outcome']);ended=row.get('ended')
+            finish(row,new);row['prior_outcome']=prior;row['blocked_at']=ended
+            write(p/'state.json',state);return row
         if op=='takeover':
             found=[]
             for p in batches():
@@ -260,7 +301,8 @@ def handle(req):
                     row.update(status='queued',not_before=now+delay,last_start_error=outcome['reason'])
                     if claim.get('workdir'):row.update(placement=claim['owner'],workdir=claim['workdir'])
                     row.pop('claim',None)
-                else:finish(row,dict(status='blocked',reason='start failed three times: '+outcome['reason'],next_action='Resolve the recorded capacity, storage or executor problem'))
+                else:finish(row,dict(status='blocked',reason='start failed three times: '+outcome['reason'],owner=editor_name(row),
+                                     next_action='The edit never got going. Open a new '+editor_name(row)+' chat, fix the start problem named here, then switch this batch back on (batch.py start).'))
             elif outcome['status']=='paused-for-allowance':
                 attempted=outcome.get('attempted',True)
                 row['allowance_tries']+=int(attempted)
@@ -275,7 +317,8 @@ def handle(req):
                                placement=claim['owner'],workdir=claim.get('workdir'),resume_phase=claim.get('phase'))
                     row.setdefault('allowance_pauses',[]).append(dict(at=now,until=row['not_before']))
                     row.pop('claim',None)
-                else:finish(row,dict(status='blocked',reason='allowance exhausted after three attempts',next_action='Resume after allowance is restored'))
+                else:finish(row,dict(status='blocked',reason='allowance exhausted after three attempts',owner='Dan',
+                                     next_action='The '+editor_name(dict(executor=next_executor))+' allowance ran out three times. When it is back, tell any chat to resume this edit; the saved work continues.'))
             else:finish(row,outcome)
         elif op=='recover':
             if req['pid_alive'] or req.get('session_alive'):return row
@@ -284,12 +327,25 @@ def handle(req):
                 row.update(status='queued',resumes=row['resumes']+1,placement=claim['owner'],
                            workdir=claim.get('workdir'),not_before=now,resume_phase=claim.get('phase'))
                 row.pop('claim',None)
-            else:finish(row,dict(status='blocked',reason='runner exited without an outcome after one recovery',next_action='Inspect retained work and resume with batch.py takeover'))
+            else:finish(row,dict(status='blocked',reason='runner exited without an outcome after one recovery',owner=editor_name(row),
+                                 next_action=takeover_action(row,'finish the edit from where it stopped')))
         else:raise ValueError('unknown operation '+op)
         write(p/'state.json',state);return row
 
 
-def fingerprints():
+def scheduler_file(name):
+    """True for a tracked file the scheduler or a worker runs or reads; tests, docs and snapshots are not."""
+    if name in RUNTIME_DOCS:return True
+    parts=name.split('/');base=parts[-1]
+    if NON_RUNTIME_DIRS.intersection(parts[:-1]):return False
+    if not base.endswith(RUNTIME_SUFFIXES):return False
+    stem=base.rsplit('.',1)[0]
+    if base in ('scoreboard.json','review-snapshot.html') or 'snapshot' in stem:return False
+    if stem.startswith(('test_','selftest')) or stem.endswith('_test') or 'bench' in stem:return False
+    return True
+
+
+def fingerprints(fresh_probe=False):
     """Bind installed source bytes to pushed Git objects, not the shared checkout's dirty HEAD."""
     files=subprocess.check_output(['git','ls-tree','-rz','origin/main','--',*SOURCE_ROOTS],cwd=eq.ROOT)
     hashes={};dirty=[]
@@ -297,7 +353,7 @@ def fingerprints():
         if not record:continue
         meta,name=record.split(b'\t',1);mode,typ,blob=meta.decode().split();name=name.decode()
         p=Path(eq.ROOT)/name
-        if p.suffix not in ('.py','.json','.sh','.plist','.md','.js','.css','.html','.c') or p.name in ('scoreboard.json','review-snapshot.html'):continue
+        if not scheduler_file(name):continue
         if not p.exists():dirty.append(name+': missing');continue
         data=os.readlink(p).encode() if mode=='120000' and p.is_symlink() else p.read_bytes()
         gitsha=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
@@ -306,20 +362,120 @@ def fingerprints():
     canary=read(HOME/'canary-latest.json',{})
     digest=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
     launcher_ok=(canary.get('launcher_sha256')==hashlib.sha256(Path(eq.__file__).read_bytes()).hexdigest() and canary.get('executors_sha256')==hashlib.sha256(json.dumps(eq.load_config()['executors'],sort_keys=True).encode()).hexdigest())
+    if fresh_probe:request_launchd_probe()
     return dict(host=here(),launcher_ok=launcher_ok,hashes=hashes,digest=digest,dirty=dirty,canary=canary,
+                drive_probe=launchd_probe_status(),
                 commit=subprocess.check_output(['git','rev-parse','origin/main'],cwd=eq.ROOT,text=True).strip())
 
 
+# ---- Background file access (2026-11-18). The launchd Python, not a chat's shell, must be able to use the
+# drives: on Nov 17-18 it could not write the M2 work drive or the M6's Videos to Review folder.
+def probe_folders():
+    override=os.environ.get('EDIT_BATCH_PROBE_FOLDERS')
+    if override:return [(f['label'],Path(f['path']),bool(f.get('required',True))) for f in json.loads(override)]
+    internal=Path(os.environ.get('GATE_INTERNAL_WORK') or Path.home()/'Projects/_edit_work')
+    folders=[('Videos to Review',Path(eq.ROOT)/'Videos to Review',True),('internal work folder',internal,True),
+             ('Extreme work folder',Path('/Volumes/Extreme/_edit_work'),True)]
+    if Path('/Volumes/Expansion').is_dir():folders.append(('Expansion work folder',Path('/Volumes/Expansion/_edit_work'),True))
+    return folders
+
+
+def drive_probe(folders=None):
+    """Create, write, rename and delete inside each folder exactly as a worker would."""
+    results=[]
+    for label,folder,required in (probe_folders() if folders is None else folders):
+        r=dict(label=label,path=str(folder),required=required,steps=[])
+        tag='.absbyai-batch-probe-'+uuid.uuid4().hex;sub=moved=None
+        try:
+            real=Path(os.path.realpath(folder));r['resolved']=str(real)
+            if not real.is_dir():
+                r.update(passed=not required,error='folder missing or drive not mounted');results.append(r);continue
+            sub=real/tag;sub.mkdir();r['steps'].append('create')
+            f=sub/'probe.txt'
+            with f.open('w') as h:h.write('absbyai batch probe\n');h.flush();os.fsync(h.fileno())
+            r['steps'].append('write')
+            moved=real/(tag+'.txt');os.replace(f,moved);r['steps'].append('rename')
+            ok=moved.read_text()=='absbyai batch probe\n'
+            moved.unlink();moved=None;sub.rmdir();sub=None;r['steps'].append('delete')
+            r['passed']=ok
+            if not ok:r['error']='read back differs'
+        except Exception as exc:
+            r.update(passed=False,error=type(exc).__name__+': '+str(exc))
+        finally:
+            for leftover in (moved,sub and sub/'probe.txt'):
+                try:leftover and leftover.unlink()
+                except OSError:pass
+            try:sub and sub.rmdir()
+            except OSError:pass
+        results.append(r)
+    return results
+
+
+def launchd_context():
+    return os.environ.get('XPC_SERVICE_NAME')==AGENT_LABEL
+
+
+def process_executable(pid=None):
+    try:
+        out=subprocess.run(['/bin/ps','-p',str(pid or os.getpid()),'-o','comm='],capture_output=True,text=True,timeout=5)
+        return out.stdout.strip() or None
+    except (OSError,subprocess.SubprocessError):return None
+
+
+def record_probe(context=None):
+    context=context or ('launchd' if launchd_context() else 'interactive')
+    folders=drive_probe()
+    doc=dict(at=time.time(),host=here(),context=context,interpreter=sys.executable,
+             real_interpreter=os.path.realpath(sys.executable),process=process_executable(),pid=os.getpid(),
+             passed=all(f['passed'] for f in folders),folders=folders)
+    write(HOME/('drive-probe-'+context+'.json'),doc)
+    return doc
+
+
+def maybe_probe():
+    """Run from the launchd tick: a fresh check on request, every 30 minutes, or 5 minutes after a failure."""
+    if not launchd_context():return None
+    last=read(HOME/'drive-probe-launchd.json',{});request=read(HOME/'drive-probe-request.json',{})
+    age=time.time()-last.get('at',0)
+    if request.get('at',0)>last.get('at',0) or age>PROBE_EVERY_S or (not last.get('passed') and age>300):
+        return record_probe('launchd')
+    return None
+
+
+def launchd_probe_status(now=None):
+    now=now or time.time();doc=read(HOME/'drive-probe-launchd.json',{})
+    if not doc:return dict(ok=False,problem='no background file-access check has run yet on this Mac')
+    failed=[f['label']+' ('+f.get('error','failed')+')' for f in doc.get('folders',[]) if not f.get('passed')]
+    if failed:problem='the background agent cannot use: '+'; '.join(failed)
+    elif now-doc.get('at',0)>PROBE_MAX_AGE_S:problem='the background file-access check is older than six hours'
+    else:problem=None
+    return dict(ok=not problem,problem=problem,at=doc.get('at'),interpreter=doc.get('interpreter'),
+                real_interpreter=doc.get('real_interpreter'),process=doc.get('process'))
+
+
+def request_launchd_probe(wait_s=75):
+    """Ask this Mac's own launchd agent for a fresh check, then wait for its answer."""
+    asked=time.time();write(HOME/'drive-probe-request.json',dict(at=asked))
+    kick()
+    deadline=asked+wait_s
+    while time.time()<deadline:
+        if read(HOME/'drive-probe-launchd.json',{}).get('at',0)>=asked:return True
+        time.sleep(2)
+    return False
+
+
 def preflight():
-    local=fingerprints();other='m2' if here()=='m6' else 'm6'
-    remote_fp=remote(other,['fingerprints'])
+    local=fingerprints(fresh_probe=True);other='m2' if here()=='m6' else 'm6'
+    remote_fp=remote(other,['fingerprints','--fresh-probe'],timeout=150)
     problems=[]
     for fp in (local,remote_fp):
         if fp['dirty']:problems.append(fp['host']+' source differs from pushed main: '+', '.join(fp['dirty']))
+        probe=fp.get('drive_probe') or {}
+        if not probe.get('ok'):problems.append(fp['host']+' '+(probe.get('problem') or 'background file-access check missing'))
         if not fp['launcher_ok'] or not fp['canary'].get('passed') or len(fp['canary'].get('rows',[]))!=4:problems.append(fp['host']+' real-session canary incomplete')
     if local['hashes']!=remote_fp['hashes']:problems.append('scheduler hashes differ between Macs')
     proof=dict(passed=not problems,at=time.time(),digest=local['digest'],problems=problems,
-               hosts={f['host']:dict(commit=f['commit'],canary=f['canary'].get('id')) for f in (local,remote_fp)})
+               hosts={f['host']:dict(commit=f['commit'],canary=f['canary'].get('id'),drive_probe=f.get('drive_probe')) for f in (local,remote_fp)})
     rpc('preflight',proof=proof);return proof
 
 
@@ -461,6 +617,45 @@ def reconcile(snap):
                 subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'release',row['id']],capture_output=True,timeout=30)
 
 
+def when(t):
+    return time.strftime('%b %-d %-I:%M %p',time.localtime(t)) if t else 'an unknown time'
+
+
+def start_blockers(snap, start_block=None, batch=None):
+    """Why queued rounds will not start, in plain words. Empty reasons means they can start."""
+    c=snap.get('control',{}) or {};pre=c.get('preflight') or {}
+    rows=[(n,k,r) for n,d in snap.get('batches',{}).items() for k,r in d.get('jobs',{}).items()
+          if r.get('status')=='queued' and not r.get('held') and (batch is None or n==batch)]
+    held=[(n,k,r) for n,d in snap.get('batches',{}).items() for k,r in d.get('jobs',{}).items()
+          if r.get('status')=='queued' and r.get('held') and (batch is None or n==batch)]
+    reasons=[];global_block=False
+    if not c.get('enabled'):
+        global_block=True
+        reasons.append('new starts are switched off'+(' since '+when(c['stopped']) if c.get('stopped') else '')+
+                       ' (a chat runs batch.py start NAME to switch them on)')
+    if not pre:
+        global_block=True;reasons.append('no safety check (preflight) has passed yet')
+    elif not pre.get('passed'):
+        global_block=True
+        reasons.append('the last safety check ('+when(pre.get('at'))+') failed: '+'; '.join(pre.get('problems') or ['no reason saved']))
+    if start_block:
+        global_block=True;reasons.append(start_block)
+    off=[(n,k,r) for n,k,r in rows if not snap['batches'][n].get('enabled')]
+    if off and not global_block:
+        reasons.append('these batches were never switched on: '+', '.join(sorted({n for n,_,_ in off})))
+    stuck=rows if global_block else off
+    return dict(count=len(stuck),reasons=reasons if stuck else [],
+                jobs=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+')' for _,_,r in stuck],
+                held=[r.get('title','')+' ('+r['id']+' R'+str(r['round'])+'): '+r['held'].get('reason','') for _,_,r in held])
+
+
+def headline(blockers):
+    if not blockers['count']:return None
+    n=blockers['count']
+    return ('NOT STARTING: '+str(n)+' queued edit'+('s' if n!=1 else '')+' will not start until this is fixed. '+
+            'Why: '+'; '.join(blockers['reasons'])+'. Waiting: '+', '.join(blockers['jobs'])+'.')
+
+
 def report(snap, error=None):
     """Saved on M6 every tick, including when the M2 link is down."""
     groups={x:[] for x in ('Checked','Unreviewed','Needs Dan','Blocked','Unknown (Mac unreachable)','Queued / Running')}
@@ -481,7 +676,13 @@ def report(snap, error=None):
             item=dict(batch=name,job=r['id'],round=r['round'],title=r['title'],host=owner,status=r['status'],
                       reason='owner unreachable' if unknown else o.get('reason') or o.get('question') or o.get('verdict') or c.get('phase') or r.get('last_start_error') or ('paused-for-allowance until '+str(r['not_before']) if r['not_before']>now else r['status']),
                       link=link,link_verified=verified,timing=r.get('timing',{}),allowance_pauses=r.get('allowance_pauses',[]),idle_slot_minutes_sampled=r.get('idle_slot_minutes',0),queue_wait_s=max(0,r.get('first_started',now)-r['queued_at']))
-            if r['status']=='needs-dan':item['waiting_s']=now-r.get('ended',now)
+            if r['status']=='needs-dan':
+                item['waiting_s']=now-r.get('ended',now)
+                if o.get('choices'):item['reason']=str(item['reason'])+' Choices: '+'; '.join(map(str,o['choices']))
+            if r['status']=='blocked' and not unknown:
+                item['owner']=o.get('owner') or editor_name(r)
+                item['reason']=str(item['reason'])+' NEXT ('+item['owner']+'): '+str(o.get('next_action','not recorded'))
+            if r['status']=='queued' and r.get('held'):item['reason']='Held: '+r['held'].get('reason','')
             groups[group].append(item)
     lost=[]
     if here()=='m6':
@@ -500,9 +701,17 @@ def report(snap, error=None):
                     if not any(observed):lost.append(j+' LOST: promoted without editcap entry after 10 minutes')
         except (OSError,ValueError,KeyError):pass
     outbox_errors=[read(p).get('_error') for p in (HOME/'outbox').glob('*.json') if read(p).get('_error')]
-    doc=dict(outbox_errors=outbox_errors,at=now,start_block=snap.get('start_block'),enabled=snap.get('control',{}).get('enabled',False),error=error,groups=groups,lost=lost)
+    blockers=start_blockers(snap,snap.get('start_block'))
+    head=headline(blockers)
+    alerts=[x for x in [head,
+                        (str(len(groups['Needs Dan']))+' video(s) need your answer') if groups['Needs Dan'] else None,
+                        (str(len(groups['Blocked']))+' video(s) blocked; each names who acts next') if groups['Blocked'] else None,
+                        ('Status unknown: '+error) if error else None] if x]
+    doc=dict(outbox_errors=outbox_errors,at=now,start_block=snap.get('start_block'),enabled=snap.get('control',{}).get('enabled',False),
+             error=error,groups=groups,lost=lost,headline=head,not_starting=blockers,alerts=alerts,report=str(HOME/'morning-report.md'))
     write(HOME/'morning-report.json',doc)
-    lines=['# Overnight edit report','',time.strftime('%Y-%m-%d %H:%M:%S %Z'),'', 'New starts: '+('enabled' if doc['enabled'] else 'disabled')]
+    lines=([head,''] if head else [])+['# Overnight edit report','',time.strftime('%Y-%m-%d %H:%M:%S %Z'),'', 'New starts: '+('enabled' if doc['enabled'] else 'disabled')]
+    if blockers['held']:lines+=['','Held by Dan (not counted as waiting): '+'; '.join(blockers['held'])]
     if error:lines+=['',error]
     if outbox_errors:lines+=['','Outcome sync waiting: '+ '; '.join(outbox_errors)]
     if doc['start_block']:lines+=['','New starts blocked: '+doc['start_block']]
@@ -514,19 +723,68 @@ def report(snap, error=None):
             lines.append('| '+r['title'].replace('|','/')+' ('+r['job']+' R'+str(r['round'])+') | '+str(r['host'])+' | '+str(r['reason']).replace('|','/')+' | '+link+' |')
     lines+=['',*lost]
     (HOME/'morning-report.md').write_text('\n'.join(lines)+'\n')
+    try:doc['alert']=send_alerts(snap,doc)
+    except Exception as exc:doc['alert']=dict(error=str(exc) or type(exc).__name__)
     return doc
 
 
+def applescript(text):
+    return '"'+str(text).replace('\\','\\\\').replace('"','\\"')+'"'
+
+
+def notify(title, message):
+    """A local notification on this Mac. Delivery to the screen cannot be confirmed from launchd; the edit
+    desk shows the same alert lines as the fallback."""
+    script='display notification '+applescript(message[:240])+' with title '+applescript(title[:80])+' sound name "Glass"'
+    run=subprocess.run(['/usr/bin/osascript','-e',script],capture_output=True,text=True,timeout=20)
+    return dict(method='osascript display notification',rc=run.returncode,stderr=(run.stderr or '')[-300:])
+
+
+def alert_events(snap, doc):
+    events={}
+    for n,d in snap.get('batches',{}).items():
+        for k,r in d.get('jobs',{}).items():
+            if r.get('status') in ('blocked','needs-dan'):
+                o=r.get('outcome') or {}
+                what='needs your answer' if r['status']=='needs-dan' else 'is blocked; next: '+(o.get('owner') or editor_name(r))
+                events[r['status']+':'+n+':'+k+':'+str(int(r.get('ended') or 0))]=r.get('title',r['id'])+' ('+r['id']+' R'+str(r['round'])+') '+what
+    if doc.get('headline'):
+        sig=hashlib.sha1(json.dumps([doc['not_starting']['count'],doc['not_starting']['reasons']]).encode()).hexdigest()[:12]
+        events['not-starting:'+sig]=doc['headline']
+    return events
+
+
+def send_alerts(snap, doc):
+    """One notification per new event, recorded in alerts.json and never repeated. M6 only."""
+    if here()!='m6':return None
+    path=HOME/'alerts.json';state=read(path)
+    events=alert_events(snap,doc)
+    if state is None:
+        # First run: earlier blocked/needs-Dan rows were already reported elsewhere; record, do not ring.
+        state=dict(created=time.time(),events={e:dict(text=t,at=time.time(),seeded=True) for e,t in events.items() if not e.startswith('not-starting:')})
+    fresh=[(e,t) for e,t in events.items() if e not in state['events'] or
+           (not state['events'][e].get('sent') and not state['events'][e].get('seeded') and state['events'][e].get('tries',0)<3)]
+    if not fresh:
+        write(path,state);return dict(sent=0)
+    title='Edit queue: '+(str(len(fresh))+' new alerts' if len(fresh)>1 else 'needs attention')
+    body=' | '.join(t for _,t in fresh)+' | Report: ~/.absbyai-batch/morning-report.md'
+    try:result=notify(title,body)
+    except Exception as exc:result=dict(method='osascript display notification',rc=-1,stderr=str(exc))
+    for e,t in fresh:
+        prior=state['events'].get(e,{})
+        state['events'][e]=dict(text=t,at=time.time(),sent=result['rc']==0,tries=prior.get('tries',0)+1,delivery=result,
+                                screen_delivery='not verifiable from the background; edit desk shows the alert')
+    write(path,state)
+    return dict(sent=len(fresh),result=result)
+
+
 def worker_command(claim_path):
-    """Reach M2 through the existing M2->M6->M2 keys and its drive-capable SSH login."""
-    argv=[sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_path)]
-    if here()=='m2':
-        target=hostcfg.host('m2').get('ssh','m2')
-        bridge=hostcfg.host('m6').get('ssh','m6')
-        remote='cd '+shlex.quote(str(eq.ROOT))+' && exec '+shlex.join(argv)
-        onward=['ssh','-oBatchMode=yes','-oConnectTimeout=3',target,remote]
-        return ['ssh','-oBatchMode=yes','-oConnectTimeout=3',bridge,shlex.join(onward)], True
-    return argv, False
+    """Both Macs launch the runner directly from their own launchd agent (2026-11-18).
+
+    The old M2 -> M6 -> M2 SSH hop made every M2 edit depend on the M6 staying awake. Drive access now comes
+    from the agent's own Full Disk Access grant, and preflight plus every tick refuse to start anything until
+    that Mac's background file-access check passes. The returned PID is the runner itself."""
+    return [sys.executable,str(Path(eq.HERE)/'runner.py'),'--batch',str(claim_path)], False
 
 
 def worker_spawn_fields(proc, via_ssh):
@@ -541,11 +799,16 @@ def tick():
         try:fcntl.flock(lock,fcntl.LOCK_EX|fcntl.LOCK_NB)
         except BlockingIOError:return dict(busy=True)
         try:
+            try:maybe_probe()
+            except Exception as exc:print('file-access check failed to run:',exc,flush=True)
             flush_outbox()
             snap=rpc('tick',host=here(),observation=observe_local());save_snapshot(snap)
             reconcile(snap)
             fp=fingerprints()
-            start_block=('installed source differs from pushed main: '+', '.join(fp['dirty'])) if fp['dirty'] else ('scheduler changed since preflight' if snap['control'].get('enabled') and fp['digest']!=snap['control'].get('preflight',{}).get('digest') else None)
+            probe=launchd_probe_status()
+            start_block=(('installed source on the '+here().upper()+' differs from pushed main: '+', '.join(fp['dirty'])) if fp['dirty'] else
+                         ('scheduler changed since preflight' if snap['control'].get('enabled') and fp['digest']!=snap['control'].get('preflight',{}).get('digest') else
+                          (here().upper()+': '+probe['problem'] if not probe['ok'] else None)))
             if not start_block:
                 while True:
                     cap=subprocess.run([sys.executable,str(SHARED/'editcap/editcap.py'),'status','--json'],capture_output=True,text=True,timeout=30)
@@ -567,6 +830,7 @@ def tick():
                     finally:log.close()
             snap=rpc('snapshot');save_snapshot(snap)
             if start_block:snap['start_block']=start_block
+            write(HOME/'start-block.json',dict(at=time.time(),host=here(),start_block=start_block))
             doc=report(snap)
             print('Batch tick:',here(),'new starts',snap['control'].get('enabled',False),flush=True)
             return doc
@@ -611,18 +875,42 @@ def enqueue(name,path):
     result=rpc('enqueue',batch=name,jobs=jobs,briefs=briefs,digest=fingerprints()['digest'])
     kick(other=True)
     result['receipt']='registered; waiting for both Macs to log this batch'
+    result.update(startability(name))
     return result
+
+
+def startability(name, snap=None):
+    """Whether anything will actually launch this batch now. A chat is never told 'queued' when nothing will."""
+    snap=snap or rpc('snapshot')
+    local=read(HOME/'start-block.json',{})
+    fresh_local=local.get('start_block') if time.time()-local.get('at',0)<900 else None
+    blockers=start_blockers(snap,fresh_local,batch=name)
+    if not snap.get('batches',{}).get(name):
+        return dict(can_start=False,start_status='WILL NOT START: batch '+name+' is not registered.')
+    if blockers['count']:
+        return dict(can_start=False,blockers=blockers['reasons'],
+                    start_status='WILL NOT START: '+'; '.join(blockers['reasons'])+'. It stays registered; nothing will launch it until that is fixed.')
+    held=[r for r in snap['batches'][name]['jobs'].values() if r.get('held')]
+    if held:return dict(can_start=False,start_status='WILL NOT START: held by Dan ('+held[0]['held'].get('reason','')+').')
+    return dict(can_start=True,start_status='CAN START: starts are on and the safety check passed; it begins when a slot on its Mac is free.')
 
 
 def receipt(name):
     snap=rpc('snapshot');d=snap['batches'][name]
     observed=all(d.get('ticks',{}).get(h,0)>=d['manifest']['created'] for h in ('m2','m6'))
-    return dict(batch=name,receipt='queued' if observed else 'registered; waiting for both ticks',enabled=d['enabled'],ticks=d['ticks'],jobs=list(d['jobs']))
+    can=startability(name,snap)
+    text=('queued' if can['can_start'] else 'logged by both Macs but '+can['start_status']) if observed else 'registered; waiting for both ticks'
+    return dict(batch=name,receipt=text,enabled=d['enabled'],ticks=d['ticks'],jobs=list(d['jobs']),**can)
 
 
 def main():
     ap=argparse.ArgumentParser(description=__doc__);sub=ap.add_subparsers(dest='cmd',required=True)
-    sub.add_parser('_rpc');sub.add_parser('fingerprints');sub.add_parser('preflight');sub.add_parser('tick');sub.add_parser('stop');sub.add_parser('status')
+    sub.add_parser('_rpc');sub.add_parser('preflight');sub.add_parser('tick');sub.add_parser('stop');sub.add_parser('status')
+    p=sub.add_parser('fingerprints');p.add_argument('--fresh-probe',action='store_true')
+    p=sub.add_parser('drive-probe',help='check background file access; --launchd asks this Mac\'s agent and waits')
+    p.add_argument('--launchd',action='store_true')
+    p=sub.add_parser('hold');p.add_argument('batch');p.add_argument('key');p.add_argument('--reason',required=True)
+    p=sub.add_parser('unhold');p.add_argument('batch');p.add_argument('key')
     p=sub.add_parser('enqueue');p.add_argument('batch');p.add_argument('manifest')
     p=sub.add_parser('enqueue-chat');p.add_argument('job');p.add_argument('--brief',required=True)
     p.add_argument('--round',type=int,required=True);p.add_argument('--title',required=True)
@@ -635,7 +923,17 @@ def main():
     p=sub.add_parser('guard');p.add_argument('job')
     args=ap.parse_args()
     if args.cmd=='_rpc':result=handle(json.load(sys.stdin))
-    elif args.cmd=='fingerprints':result=fingerprints()
+    elif args.cmd=='fingerprints':result=fingerprints(fresh_probe=args.fresh_probe)
+    elif args.cmd=='drive-probe':
+        if args.launchd:
+            answered=request_launchd_probe(wait_s=90)
+            result=dict(answered=answered,record=read(HOME/'drive-probe-launchd.json',{}),status=launchd_probe_status())
+            print(json.dumps(result,indent=2))
+            print(('PASS' if result['status']['ok'] else 'FAIL')+' '+here()+' background agent: '+(result['status']['problem'] or 'every folder: create, write, rename, delete')
+                  +('' if answered else ' (agent did not answer within 90 s; shown result is the last saved one)'))
+            return 0 if result['status']['ok'] and answered else 2
+        result=record_probe('interactive')
+    elif args.cmd in ('hold','unhold'):result=rpc(args.cmd,batch=args.batch,key=args.key,reason=getattr(args,'reason',None),by='Dan')
     elif args.cmd=='preflight':result=preflight()
     elif args.cmd=='tick':result=tick()
     elif args.cmd=='enqueue':result=enqueue(args.batch,args.manifest)
@@ -645,7 +943,9 @@ def main():
                                   executor=args.executor,need_gb=args.need_gb,target=args.target,chroma=args.chroma,
                                   brief=str(Path(args.brief).resolve()))]))
         result=enqueue('chat-'+args.job+'-R'+str(args.round),spec)
-    elif args.cmd=='receipt':result=receipt(args.batch)
+        print(json.dumps(result,indent=2));print(result['start_status']);return 0
+    elif args.cmd=='receipt':
+        result=receipt(args.batch);print(json.dumps(result,indent=2));print(result['start_status']);return 0
     elif args.cmd=='start':
         proof=preflight()
         if not proof['passed']:raise RuntimeError('; '.join(proof['problems']))

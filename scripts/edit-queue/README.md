@@ -224,13 +224,31 @@ globals collide under one unittest-discovery process; fixture routers never quer
 
 ## Explicit overnight batches (2026-11-15)
 
-M2 workers launch through the existing M2 to M6 to M2 SSH connections, returning to the same Mac.
-M2 does not have a self-login key; the already configured M6 key supplies the existing M2 login.
-A November 17 exact-folder
-probe confirmed launchd's Python could not access the external work drive even after its folder
-existed, while the SSH login could. No privacy grant or drive permission is changed. The transport
-PID is recorded separately; the worker's own heartbeat records its actual M2 PID for recovery.
-M6 worker launches remain direct. Admission, claims, storage reserves and review rules are unchanged.
+**November 18 repairs** (receipt `Docs/OVERNIGHT_BATCH_REPAIRS_20261118.md`):
+
+- **Direct launches on both Macs.** The M2 to M6 to M2 SSH hop is gone; an M2 edit no longer needs the M6 awake.
+  Drive access comes from Full Disk Access for the exact Python the `com.absbyai.edit-queue` agent runs.
+- **Background file-access check.** Every launchd tick re-checks (every 30 minutes, or at once on request) that
+  the agent itself can create, write, rename and delete in `Videos to Review/`, the internal work folder and each
+  mounted `/Volumes/{Extreme,Expansion}/_edit_work`. `batch.py drive-probe --launchd` asks this Mac's agent and
+  waits. Preflight requires a passing, under-six-hour check on both Macs; a tick refuses to claim on its own Mac
+  while its check fails. A chat's shell passing proves nothing; only the agent's record counts.
+- **Narrow source check.** Only files the scheduler and workers run or read (`.py .json .sh .plist .js .c` plus
+  `preamble.md`, `reviewer-brief.md`) under editroute, editcap, renderq and edit-queue. The edit desk, tests,
+  READMEs, benches, fixtures and snapshots no longer block starts. Real scheduler drift still blocks and is named.
+- **Loud when nothing will start.** If any queued round cannot start (starts off, failed safety check, a start
+  block), the morning report's first line says `NOT STARTING:` with the count, reasons and videos.
+  `enqueue-chat` and `receipt` end with `CAN START` or `WILL NOT START: why`; "queued" is never said otherwise.
+- **One alert per event on the M6.** A blocked row, a needs-Dan row or the not-starting condition sends one local
+  notification (recorded in `~/.absbyai-batch/alerts.json`, never repeated, failed sends retried at most three
+  times). Screen delivery cannot be confirmed from launchd, so the edit desk's M6 card shows the same lines.
+- **No dead ends.** A failed mandatory check with nothing approved left to try ends `needs-dan` with the finding,
+  choices and review link. A delivery whose only problem is evidence format gets exactly one repair session by the
+  same editor in the same folder. A gate FAIL is never repaired away: documented against Dan's picks it becomes his
+  question; otherwise it stays blocked. Every blocked row names an owner and a plain next action.
+- **Holds.** `batch.py hold BATCH KEY --reason '...'` keeps a queued round registered but never started and out of
+  the not-starting count; `unhold` releases it.
+- `editroute.py pick/wait` refuse job names that start with `-` and print help for `-h/--help`.
 
 The named batch is installed **disabled** on both Macs. General backlog discovery remains blocked by `PAUSE`.
 Dan's first test night begins only after he says go. A passed launcher canary is readiness evidence, not a video delivery.
@@ -241,7 +259,7 @@ Dan's first test night begins only after he says go. A passed launcher canary is
 - `batch.py stop`: one M2 control file stops new starts on both Macs, including backlog discovery. Existing workers finish. An unreachable M6 cannot claim anything new; it keeps its running work and saves outcomes locally until it can sync.
 - `batch.py status`: authoritative M2 state. `~/.absbyai-batch/morning-report.md` and `.json` on the M6 are saved every two-minute tick, including unknown/unreachable owners.
 - `batch.py takeover JOB`: required before a chat resumes batch-owned work. Claimed work cannot be taken over, including an unreachable owner. A queued or terminal round can be taken over; keep its saved work folder.
-- A chat that must wait copies a self-contained brief and uses `batch.py enqueue-chat JOB --round N --brief /absolute/brief.md --title 'Recognizable title' --size S --kind SFC --executor codex --need-gb 10 --target 'first review'`. It does not run `editroute.py wait`. Registration is not a running editor. If new starts are disabled, explicitly report that the work is queued and disabled.
+- A chat that must wait copies a self-contained brief and uses `batch.py enqueue-chat JOB --round N --brief /absolute/brief.md --title 'Recognizable title' --size S --kind SFC --executor codex --need-gb 10 --target 'first review'`. It does not run `editroute.py wait`. Registration is not a running editor. Its last line says CAN START or WILL NOT START with the reason; relay that line to Dan word for word.
 
 A spec contains `{"jobs":[{"id":"DS-106","round":1,"title":"Protein Snack Can","size":"S","order":1,"kind":"SFC","executor":"claude","need_gb":20,"target":"first review only","chroma":true,"brief":"brief.md"}]}`.
 Brief paths are relative to the spec or absolute. Preserve the film's existing editor. Placement is fixed at enqueue:
@@ -270,6 +288,8 @@ are hidden by both the register and desk. Other unmatched reviews stay visible w
 
 Tests: run each `scripts/edit-queue/tests/test_*.py` in its own Python process; several legacy tests set import-time
 environment overrides and cannot safely share one `unittest discover` interpreter. Batch tests use temporary ledgers.
+Run them from the main project folder: in a scratch `git worktree` (core.symlinks is false here) two legacy
+`test_runner_end_to_end` cases fail on untouched main as well.
 
 Independent Fable 5.2 review and repair receipts: `Docs/overnight-batch-review-20261115/` and
 `Docs/OVERNIGHT_BATCH_IMPLEMENTATION_20261115.md`. The 31 ledger and 18 worker tests include real process-group

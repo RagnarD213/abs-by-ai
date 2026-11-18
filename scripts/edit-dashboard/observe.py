@@ -295,6 +295,13 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
     if host=='m6' and out.get('route'):
         route_ids = out['route']['line'] + sum(out['route']['reserved'].values(),[])
         out['route']['titles'] = {j:desk_records.title(j,catalog) for j in route_ids}
+    if host=='m6':
+        # Overnight batch alerts (2026-11-18): the same lines the M6 notification carries, shown on the desk
+        # because a background notification's delivery to the screen cannot be confirmed.
+        try:
+            morning=json.loads((home/'.absbyai-batch'/'morning-report.json').read_text())
+            if now-float(morning.get('at',0))<900:out['alerts']=[str(x) for x in morning.get('alerts') or []][:6]
+        except (OSError,ValueError,TypeError,AttributeError):pass
     if host=='m2':
         directory=home/'.absbyai-batch'
         if directory.is_dir():

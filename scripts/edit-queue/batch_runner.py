@@ -33,6 +33,27 @@ def review_verdict(path, expected_hashes=None, started_ns=None):
     return None
 
 
+# Evidence-format errors one automatic repair session may fix (2026-11-18). Anything else, including a
+# delivery gate FAIL, is substantive and is never "repaired" by rewriting evidence.
+FORMAT_ERRORS = ('DELIVERY approved_elements','DELIVERY reuse','DELIVERY paid_provider_costs','paid_provider_costs row',
+                 'DELIVERY generation_spend_usd','revision_count must equal')
+
+
+def split_delivery_errors(errors):
+    fmt=[e for e in errors if e.startswith(FORMAT_ERRORS)]
+    return fmt,[e for e in errors if e not in fmt]
+
+
+def documented_gate_hold(info, substantive):
+    """A gate FAIL whose every failing row the editor documented against an approved choice is Dan's call."""
+    if not substantive or any('DELIVERY gate must be PASS' not in e for e in substantive):return None
+    dispositions=info.get('gate_failure_dispositions')
+    failures=info.get('gate_failures')
+    if not dispositions or not failures:return None
+    return dict(finding=failures if isinstance(failures,str) else json.dumps(failures)[:1500],
+                dispositions=dispositions if isinstance(dispositions,str) else json.dumps(dispositions)[:1500])
+
+
 class StartupWait(RuntimeError):
     def __init__(self,reason,kind='capacity'):
         super().__init__(reason);self.kind=kind
@@ -168,7 +189,10 @@ Use 1080p review exports. Automated checks stay silent; leave every owner player
 On a genuine choice write BATCH-OUTCOME.json with schema 1, token "{token}", status "needs-dan", question,
 review_root (absolute managed review folder), review_port (reserved using editroute free-port), and evidence
 listing the review file path and sha256. Include the first-review page. Never wait or poll for Dan.
-On a technical block write BATCH-OUTCOME.json with token "{token}", status "blocked", reason and next_action.
+If a mandatory quality check still fails and nothing approved is left to try, do not write blocked: write needs-dan
+with the exact finding (finding), the choices Dan has (choices, a list) and the review page. Never change a threshold.
+On a technical block write BATCH-OUTCOME.json with token "{token}", status "blocked", reason, owner (Dan, Claude or Codex)
+and next_action written so a non-coder knows who does what next.
 On a complete candidate write DELIVERY.json using the existing scripts/edit-queue/preamble.md final delivery schema,
 plus review_root and review_port. Write BATCH-OUTCOME.json with token "{token}", status "candidate".
 The final delivery must have every existing gate and self-check on the exact file. The runner starts the independent reviewer.
@@ -190,7 +214,8 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
             if not marker or marker.get('token')!=token:raise RuntimeError('editor exited '+str(code)+' without a fresh outcome file')
             if code!=0:raise RuntimeError('editor exited '+str(code)+'; candidate not accepted')
             if marker.get('status')=='blocked':
-                outcome=dict(status='blocked',reason=marker['reason'],next_action=marker['next_action']);return 0
+                outcome=dict(status='blocked',reason=marker['reason'],next_action=marker['next_action'],
+                             owner=marker.get('owner') or b.editor_name(row));return 0
             if marker.get('status')=='needs-dan':
                 review_location(marker)
                 evidence=marker.get('evidence',[])
@@ -198,13 +223,53 @@ Full renders obey the existing budget. Stop exploration at the soft deadline. Pr
                 for file in evidence:
                     if r.sha256(file['path'])!=file['sha256']:raise ValueError('review evidence hash mismatch')
                 outcome=dict(status='needs-dan',question=marker['question'],link='http://127.0.0.1:'+str(marker.get('review_port',''))+'/',evidence=evidence)
+                for extra in ('finding','choices'):
+                    if marker.get(extra):outcome[extra]=marker[extra]
                 try:outcome['link']=review_link(marker)
                 except (OSError,RuntimeError,subprocess.SubprocessError):
                     outcome['pending_review']=dict(review_root=marker['review_root'],review_port=marker['review_port'])
                 return 0
             if marker.get('status')!='candidate':raise ValueError('invalid editor outcome')
             info=b.read(wd/'DELIVERY.json',{})
-            errors=r.validate_delivery(info,str(wd),packet,cfg,'frames_approved' if row.get('assets_approved') else 'ready')
+            launch_state='frames_approved' if row.get('assets_approved') else 'ready'
+            errors=r.validate_delivery(info,str(wd),packet,cfg,launch_state)
+            fmt,substantive=split_delivery_errors(errors)
+            if fmt and int(checkpoint.get('format_repairs',0))<1:
+                # Exactly one repair by the same editor in the same folder; it may fix evidence format only.
+                checkpoint['format_repairs']=1;b.write(checkpoint_path,checkpoint)
+                repair=f'''Read AGENTS.md and {wd}/DELIVERY.json. You edited {row['title']} ({jobid}) round {row['round']} in {wd}.
+The batch runner rejected only the FORMAT of your delivery evidence. Fix exactly these items in DELIVERY.json:
+{chr(10).join('- '+e for e in fmt)}
+Do not edit, render, re-time or regrade the film. Do not change any gate result, threshold, approval or file hash.
+A gate FAIL stays a FAIL: leave gate and gate_failures as measured. For unknown costs add a row
+{{"provider":"none","usd":0,"reason":"no paid provider used this round"}} or an unavailable row with a reason.
+Then rewrite BATCH-OUTCOME.json with token "{token}" and status "candidate". Do not ask Dan anything.'''
+                if marker_path.exists():marker_path.replace(wd/('BATCH-OUTCOME.before-repair-'+token+'.json'))
+                progress(phase='evidence format repair')
+                remaining=max(.25,min(1.0,float(budget['hours_allowed'])-edit_h))
+                code,tail,repair_h=session(executor,repair,'batch-format-repair',remaining)
+                edit_h+=repair_h;checkpoint['edit_hours']=hours_used+edit_h;b.write(checkpoint_path,checkpoint)
+                if code!=0 and r.classify_failure(code,tail,cfg)=='usage_limited':
+                    outcome=dict(status='paused-for-allowance',reason='editor usage limit during evidence repair',executor=executor);return 0
+                marker=b.read(marker_path)
+                if not marker or marker.get('token')!=token or marker.get('status')!='candidate':
+                    raise ValueError('evidence format repair did not return a fresh candidate; remaining: '+'; '.join(fmt[:4]))
+                info=b.read(wd/'DELIVERY.json',{})
+                errors=r.validate_delivery(info,str(wd),packet,cfg,launch_state)
+                fmt,substantive=split_delivery_errors(errors)
+            hold=None if fmt else documented_gate_hold(info,substantive)
+            if hold:
+                review_location(info)
+                outcome=dict(status='needs-dan',
+                             question=('The finished film fails its delivery gate on rows the editor says conflict with your '
+                                       'approved choices. Approve it as is, or ask for a fix of those rows?'),
+                             finding=hold['finding'],dispositions=hold['dispositions'],
+                             choices=['Approve as is (the failing rows follow your picks)','Ask for a fix of the failing rows'],
+                             link='http://127.0.0.1:'+str(info.get('review_port',''))+'/')
+                try:outcome['link']=review_link(info)
+                except (OSError,RuntimeError,subprocess.SubprocessError):
+                    outcome['pending_review']=dict(review_root=info['review_root'],review_port=info['review_port'])
+                return 0
             if errors:raise ValueError('candidate evidence incomplete: '+'; '.join(errors[:6]))
             review_location(info)
             candidate_stamps(info['files'])
@@ -264,14 +329,18 @@ Disclose unsupported checks and genuine uncertainty. Return one consolidated rev
     except r.SessionCleanupFailed as exc:
         pending_cleanup=True
         progress(phase='session cleanup waiting; claim retained')
-        outcome=dict(status='blocked',reason=str(exc),next_action='Wait for exact session exit before recovery')
+        outcome=dict(status='blocked',reason=str(exc),owner='Queue (automatic)',
+                     next_action='Nothing for Dan yet: the queue waits for the old editor session to exit, then recovers it by itself.')
     except StartupWait as exc:
         outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__,retry_kind=exc.kind)
     except Exception as exc:
         if not session_started and isinstance(exc,(OSError,RuntimeError,subprocess.SubprocessError)):
             outcome=dict(status='deferred-start',reason=str(exc) or type(exc).__name__,retry_kind='infrastructure')
         else:
-            outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,next_action='Inspect retained files and worker log; use batch.py takeover to resume in chat')
+            what=('fix what the check names; the film files are kept' if 'candidate evidence' in str(exc)
+                  else 'finish the edit from where it stopped')
+            outcome=dict(status='blocked',reason=str(exc) or type(exc).__name__,owner=b.editor_name(row),
+                         next_action=b.takeover_action(row,what))
     finally:
         stop.set();thread.join(timeout=5)
         outcome=b.normalize_outcome(outcome)

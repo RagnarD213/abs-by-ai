@@ -32,21 +32,15 @@ class BatchTests(unittest.TestCase):
         self.cfg=eq.load_config();self.cfg['paused_groups']=[]
         self.c=patch.object(eq,'load_config',return_value=self.cfg);self.c.start()
     def tearDown(self):self.c.stop();self.h.stop();self.p.stop();self.tmp.cleanup()
-    def test_m2_worker_uses_existing_ssh_with_literal_claim_path(self):
-        import shlex
+    def test_m2_worker_launches_directly_without_the_m6(self):
         claim=self.home/"claim with ' spaces.json"
-        with patch.object(b.hostcfg,'host',side_effect=lambda h:{'ssh':h}):
-            command,via_ssh=b.worker_command(claim)
-        self.assertTrue(via_ssh)
-        self.assertEqual(command[:4],['ssh','-oBatchMode=yes','-oConnectTimeout=3','m6'])
-        onward=shlex.split(command[-1])
-        self.assertEqual(onward[:4],['ssh','-oBatchMode=yes','-oConnectTimeout=3','m2'])
-        self.assertEqual(shlex.split(onward[-1].split(' && exec ',1)[1])[-1],str(claim))
+        command,via_ssh=b.worker_command(claim)
+        self.assertFalse(via_ssh)
+        self.assertEqual(command,[sys.executable,str(Path(b.eq.HERE)/'runner.py'),'--batch',str(claim)])
+        self.assertFalse(any('ssh' in part or part in ('m6','m2') for part in command))
         class Process:pid=4321
-        with patch.object(b,'identity',return_value='transport-birth'):
-            fields=b.worker_spawn_fields(Process(),True)
-        self.assertEqual(fields,{'transport_pid':4321,'transport_birth':'transport-birth'})
-        self.assertNotIn('pid',fields)
+        with patch.object(b,'identity',return_value='runner-birth'):
+            self.assertEqual(b.worker_spawn_fields(Process(),via_ssh),{'pid':4321,'birth':'runner-birth'})
 
     def test_m6_worker_keeps_direct_launch_and_runner_identity(self):
         with patch.object(b,'here',return_value='m6'):
@@ -73,8 +67,13 @@ class BatchTests(unittest.TestCase):
         self.enqueue();self.assertIsNone(self.claim())
         self.assertNotEqual(b.receipt('night')['receipt'],'queued')
         for host in ('m2','m6'):b.handle(dict(op='tick',host=host,observation={}))
-        self.assertEqual(b.receipt('night')['receipt'],'queued')
-        self.assertFalse(b.receipt('night')['enabled'])
+        # Logged by both Macs but switched off: never told "queued" (2026-11-18).
+        receipt=b.receipt('night')
+        self.assertNotEqual(receipt['receipt'],'queued');self.assertFalse(receipt['can_start'])
+        self.assertTrue(receipt['start_status'].startswith('WILL NOT START: new starts are switched off'))
+        self.assertFalse(receipt['enabled'])
+        self.start()
+        self.assertEqual(b.receipt('night')['receipt'],'queued');self.assertTrue(b.receipt('night')['can_start'])
     def test_exactly_one_owner_under_competing_processes(self):
         self.enqueue();self.start()
         ctx=multiprocessing.get_context('fork');q=ctx.Queue()

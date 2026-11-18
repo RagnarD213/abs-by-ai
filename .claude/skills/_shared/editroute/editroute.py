@@ -1254,6 +1254,22 @@ def _opts(rest, names):
     return o, pos
 
 
+KNOWN_FLAGS = {"pick": {"--kind": True, "--round": True, "--chroma": False, "--host": True, "--move": False, "--dry-run": False,
+                        "--json": False, "--queue": False, "--priority": False, "--need-gb": True},
+               "wait": {"--max-hours": True}}
+
+
+def bad_job_name(rest, cmd):
+    """The usage error for a missing job, an unknown flag, or a job name that starts with '-'."""
+    _, pos = _opts(rest, KNOWN_FLAGS[cmd])
+    if not pos:
+        return "usage: editroute.py {} JOB ...".format(cmd)
+    for x in pos:
+        if x.startswith("-"):
+            return "editroute.py {}: '{}' is not a job name (job names never start with '-')".format(cmd, x)
+    return None
+
+
 def main(argv):
     if not argv or argv[0] in ("-h", "--help", "help"):
         print(__doc__)
@@ -1271,6 +1287,13 @@ def main(argv):
         o, _ = _opts(rest, {"--json": False})
         return cmd_status(bool(o.get("--json")))
     if cmd in ("pick", "wait"):
+        # A job name never starts with "-": `pick --help` once put a job called "--help" in the waiting line.
+        if any(x in ("-h", "--help") for x in rest):
+            print(__doc__)
+            return 0
+        bad = bad_job_name(rest, cmd)
+        if bad:
+            sys.exit(bad)
         f = _forward(argv)
         if f is not None:
             return f

@@ -57,7 +57,17 @@ class WorkerTests(unittest.TestCase):
             return subprocess.CompletedProcess(command,0,str(self.wd)+'\n','')
         return subprocess.CompletedProcess(command,0,'','')
     def fake_session(self,executor,cfg,wd,prompt,log,role,timeout,**kwargs):
-        self.sessions.append((executor,role))
+        self.sessions.append((executor,role));self.prompts=getattr(self,'prompts',{});self.prompts[role]=prompt
+        if role=='batch-format-repair':
+            self.assertIn('paid_provider_costs',prompt);self.assertIn('A gate FAIL stays a FAIL',prompt)
+            b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'candidate'})
+            return 0,'repaired',.01
+        if role=='batch-editor' and self.mode=='quality-hold':
+            page=self.review/'index.html';page.write_text('first review')
+            b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'needs-dan','question':'Hold for another audio pass, or approve?',
+                    'finding':'early decay 83 ms against 80','choices':['Hold for another audio pass','Approve an exception in the gate rules'],
+                    'review_root':str(self.review),'review_port':9850,'evidence':[{'path':str(page),'sha256':r.sha256(page)}]})
+            return 0,'held',.01
         if role=='batch-editor':
             if self.mode=='interrupted':raise r.SessionInterrupted('signal test')
             if self.mode=='cleanup':raise r.SessionCleanupFailed('session still alive')
@@ -65,6 +75,9 @@ class WorkerTests(unittest.TestCase):
             if self.mode=='allowance':return 1,'usage limit',.01
             info=dict(files=[str(self.video)],review_copy=str(self.video),review_root=str(self.review),review_port=9850)
             if self.mode=='bad-link':info.pop('review_root')
+            if self.mode=='gate-documented':
+                info.update(gate='FAIL',gate_failures="['audio:stamp: tone fails on the bass lift Dan picked']",
+                            gate_failure_dispositions="{'audio:stamp': 'Known house mismatch on Dan\'s Voice B pick'}")
             b.write(self.wd/'DELIVERY.json',info)
             b.write(self.wd/'BATCH-OUTCOME.json',{'token':self.token,'status':'candidate'})
             if self.mode=='offline':self.offline=True
@@ -160,5 +173,58 @@ print('session group stopped and interruption propagated')
 ''')
             run=subprocess.run([sys.executable,str(script),str(PKG),tmp],capture_output=True,text=True,timeout=20)
             self.assertEqual(run.returncode,0,run.stdout+run.stderr)
+
+
+class EvidenceRepairAndDecisionTests(WorkerTests):
+    """2026-11-18: one automatic evidence-format repair; quality dead ends end with a question for Dan."""
+    FORMAT='DELIVERY paid_provider_costs must be a non-empty list (use an unavailable row when unknown)'
+    GATE="DELIVERY gate must be PASS before independent review (got 'FAIL')"
+    def validations(self,*answers):
+        answers=list(answers);calls=[]
+        def validate(*args,**kwargs):
+            calls.append(1);return answers.pop(0) if answers else []
+        self.patches.append(patch.object(r,'validate_delivery',side_effect=validate));self.patches[-1].start()
+        return calls
+    def test_format_error_gets_exactly_one_repair_then_ships(self):
+        calls=self.validations([self.FORMAT],[])
+        _,row=self.execute()
+        self.assertEqual(row['status'],'delivered')
+        self.assertEqual([x[1] for x in self.sessions],['batch-editor','batch-format-repair','review-batch-1'])
+        self.assertEqual(len(calls),2)
+    def test_format_error_that_survives_repair_blocks_with_owner_and_plain_action(self):
+        self.validations([self.FORMAT],[self.FORMAT],[self.FORMAT])
+        _,row=self.execute()
+        self.assertEqual(row['status'],'blocked')
+        self.assertEqual([x[1] for x in self.sessions].count('batch-format-repair'),1)
+        self.assertEqual(row['outcome']['owner'],'Claude')
+        self.assertIn('Open a new Claude chat for Man Boobs Shorts (SL-36)',row['outcome']['next_action'])
+    def test_documented_gate_fail_after_repair_is_a_question_not_a_block(self):
+        self.mode='gate-documented'
+        self.validations([self.GATE,self.FORMAT],[self.GATE])
+        _,row=self.execute()
+        self.assertEqual(row['status'],'needs-dan')
+        self.assertIn('Approve it as is',row['outcome']['question'])
+        self.assertIn('bass lift',row['outcome']['finding'])
+        self.assertEqual(len(row['outcome']['choices']),2)
+        self.assertNotIn('review-batch-1',[x[1] for x in self.sessions])
+        self.assertEqual(self.released,1)
+    def test_undocumented_gate_fail_is_still_a_fail_and_gets_no_repair(self):
+        self.validations([self.GATE])
+        _,row=self.execute()
+        self.assertEqual(row['status'],'blocked');self.assertIn('gate must be PASS',row['outcome']['reason'])
+        self.assertNotIn('batch-format-repair',[x[1] for x in self.sessions])
+    def test_failed_quality_check_with_nothing_left_ends_needs_dan_with_choices(self):
+        self.mode='quality-hold'
+        _,row=self.execute()
+        self.assertEqual(row['status'],'needs-dan')
+        self.assertEqual(row['outcome']['finding'],'early decay 83 ms against 80')
+        self.assertEqual(row['outcome']['choices'][0],'Hold for another audio pass')
+        self.assertTrue(row['outcome']['link'])
+    def test_editor_instructions_route_quality_dead_ends_to_dan(self):
+        self.mode='quality-hold';self.execute()
+        prompt=self.prompts['batch-editor']
+        self.assertIn('nothing approved is left to try, do not write blocked: write needs-dan',prompt)
+        self.assertIn('Never change a threshold',prompt)
+        self.assertIn('owner (Dan, Claude or Codex)',prompt)
 
 if __name__=='__main__':unittest.main()
