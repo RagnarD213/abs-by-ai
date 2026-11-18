@@ -1,3 +1,11 @@
+## Advertised videos: no Zepbound or GLP-1 imagery in title, description, thumbnail or ad text (Dan, 2026-11-18)
+
+Standing rule, Claude and Codex. Never put "Zepbound", other GLP-1 or drug names, needles, syringes, pens, vials or pharmacy imagery in the title, description, thumbnail or ad text of any video that is or will be advertised (Google disapproved these ads for restricted drug terms). Use a neutral title and thumbnail from the start. Change them to name the drug only once the video is no longer advertised. Full rule: AGENTS.md, same heading. Memory: `ads-no-drug-terms-in-metadata`.
+
+## GPT-6.2 routing (Dan, 2026-11-17)
+
+Follow the [project model routing](AGENTS.md#gpt-62-routing-dan-2026-11-17). Route routine Codex work to GPT-6.2 Sol and new design to GPT-6.2 Astra High. The next new, unowned reaction Short is an Astra 6.2 High trial using the locked R5 format. Review its result with Dan before moving more editing off Claude. Keep current Claude edits with their owners and use the existing Claude editorial and escalation assignments.
+
 ## Shorts from long-form: review vertical drafts first (Dan, 2026-11-16)
 
 No separate horizontal selection previews for Shorts cut from long-form. The first review goes directly to actual 1080x1920 vertical drafts with colour-correction options, playable level-matched voice choices, normal captions/graphics/clip treatment, and each title with its full word-for-word transcript. The approved parent's look and voice may be the recommended baseline, but do not hide the alternatives. This supersedes the October 20 exemption from new look/voice choices. Segment selection can happen on the vertical review; the old Step 2 wording is not a mandatory stop before proposed vertical drafts.
@@ -131,7 +139,7 @@ Most of Dan's prompts are dictated through Wispr Flow, not typed. If an instruct
 
 ## Multi-AI design process and SixPackAbs lock (Dan, 2026-11-03)
 
-For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. On the Great Again T sales page (2026-11-17) Astra was the clear winner over Fable and Opus; design now defaults to Codex Astra (AGENTS.md, "Design work: Astra first"). SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
+For substantial design contests, use `Docs/DESIGN_CONTEST_WORKFLOW.md`: independent proposals from multiple AIs, one shared comparison, Dan’s specific feedback, cross-AI adoption of the strongest contributions, then an exact approved design lock. Respect explicit authorization requirements before launching or messaging other tasks. Dan judged Gemini strongest in the supplement contest, Claude second for scientific clarity, Codex good at coordination but very poor at design, and Grokbot without a significant contribution. Preserve this candid result rather than equating checklist completion with quality. On the Great Again T sales page (2026-11-17) Astra was the clear winner over Fable and Opus; new design now defaults to Codex GPT-6.2 Astra High (AGENTS.md, "Design work: Astra first"). SixPackAbs packaging is locked in `Contest/approved/DESIGN-LOCK.md`; production handoffs and verified supplier templates are in `Handoffs/sixpackabs-production-20261103/`.
 
 ## Meal showcases: appetizing food and visible photos (Dan, 2026-11-14)
 

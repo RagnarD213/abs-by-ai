@@ -171,6 +171,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
 - [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
 - [M6 network drive drops](m6-network-drive-drops.md): 11-16: M6 edits on M2 drives die when the share drops; keepalive + throttled copies
+- [Ads: no drug terms in metadata](ads-no-drug-terms-in-metadata.md): 11-18 advertised videos never show Zepbound/GLP-1/needle/vial in title, description, thumbnail, ad text; neutral title until ads end
 - [Vertical Shorts first; B-roll colour checks](shorts-vertical-first-broll-final-check.md): 11-16 actual vertical drafts plus look/voice choices, no horizontal selection exports; inspect every final B-roll insert
 - [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
