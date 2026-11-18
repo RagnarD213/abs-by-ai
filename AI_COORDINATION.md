@@ -37,7 +37,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **RO-39:QUEUED-ENABLED:2026-11-16:Codex:M2.** First review only; C1914 Tesla, no render yet. Batch chat-RO-39-R1; stop before full film; docs push waits on live edits. `Docs/RO39_R1_QUEUE_RECEIPT_20261116.md`.
 
-**CLIPLIB-V2:ACTIVE:2026-11-17:Codex:M2.** 14 X1 whole frame pairs approved; 6 UNDECIDED held. 33 motion submissions produced 32 native videos and one refunded technical failure; 346 of 5,000 credits used, 0 reserved. All 38 provider files (32 native, 6 exports) archived with fresh original/M2/archive/Drive SHA verification. Thirteen exact-file candidates from twelve selected scenes passed picture gates/fresh review and are on :9875; two selected scenes still in checks. M6 remains with Joint Vigor. No Dan motion approval or usable keeper IDs. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
+**CLIPLIB-V2:ACTIVE:2026-11-17:Codex:M2.** 14 X1 whole frame pairs approved; 6 UNDECIDED held. 33 motion submissions produced 32 native videos and one refunded technical failure; 346 of 5,000 credits used, 0 reserved. All 38 provider files (32 native, 6 exports) archived with fresh original/M2/archive/Drive SHA verification. Fourteen exact-file candidates from thirteen selected scenes passed picture gates/fresh review and are on :9875; the bag scene still in checks. M6 remains with Joint Vigor. No Dan motion approval or usable keeper IDs. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
 **REALDEMOS-B04:PAUSED-BY-DAN:2026-11-17:Codex01a1e613:M2.** Dan is low on allowance. Automatic start removed; no active worker or rendered demos. Resume only when Dan asks.
