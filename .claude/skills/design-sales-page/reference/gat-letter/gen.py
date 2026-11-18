@@ -129,8 +129,7 @@ def nav_links(current=None):
 def header(revealed, bar='top', checkout=False, current=None):
     links = nav_links(current)
     right = (f'<span class="secure">{LOCK}Secure checkout</span>' if checkout else '')
-    right += (f'<nav class="inline-nav" aria-label="Site">{links}</nav>'
-              f'<details class="menu"><summary aria-label="Menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>'
+    right += (f'<details class="menu"><summary aria-label="Menu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></svg></summary>'
               f'<nav class="menu-panel" aria-label="Main menu">{links}</nav></details>')
     offer = ''
     if revealed and bar == 'top':
@@ -237,14 +236,15 @@ def photos(kind, label='Real photos of me, not AI-generated', cap=None):
 def swapimg(name, alt, cls=''):
     return f'<figure class="swapimg {cls}"><img src="{A}{name}" alt="{alt}"></figure>'
 
-ONE_BOTTLE = 'Buy just one bottle - $97'      # Dan, 2026-11-18: small grey second button under the last two buy buttons only
+ONE_BOTTLE = 'Buy just one bottle - $97'      # Dan, 2026-11-18: small grey second button under every buy button in the letter.
+                                            # Not on the pinned top bar and not on the offer card right under the video.
 
 def one_bottle_buttons(letter_html):
-    """Adds the small one-bottle button after the last two buy buttons of the letter."""
+    """Adds the small one-bottle button after every buy button of the letter (the top bar and the card under the video are outside it)."""
     marks = [m.end() for m in re.finditer(r'<div class="cta-wrap [^"]*"><a class="cta" .*?</a>(?:<ul class="cta-notes">.*?</ul>)?', letter_html, flags=re.S)]
-    assert len(marks) >= 2, len(marks)
+    assert len(marks) == 5, len(marks)
     link = f'<a class="cta2" href="{LINKS["order"]}?option=single">{ONE_BOTTLE}</a>'
-    for at in sorted(marks[-2:], reverse=True):
+    for at in sorted(marks, reverse=True):
         letter_html = letter_html[:at] + link + letter_html[at:]
     return letter_html
 
@@ -447,7 +447,8 @@ def check():
     assert not leaked, ('gold text on the page', leaked)
     assert '[P]' not in text and '[' not in ltext, 'bracket text on the page'
     n_btn = letter_html.count('<a class="cta" ')
-    assert pg.count('class="cta2"') == 2 and letter_html.count(ONE_BOTTLE) == 2, 'one-bottle button under the last two buy buttons only'
+    top = re.sub(r'<style.*?</style>', '', pg[:pg.index('<div class="letter"')], flags=re.S)
+    assert pg.count('class="cta2"') == 5 and letter_html.count(ONE_BOTTLE) == 5 and 'cta2' not in top, 'one-bottle button under every letter buy button, none on the top bar or the card under the video'
     ltext = ltext.replace(ONE_BOTTLE, ' ')
     assert n_btn == 5, ('buttons in the letter', n_btn)
     info_files = [fn for _, _, _, fn in INFO_PAGES]

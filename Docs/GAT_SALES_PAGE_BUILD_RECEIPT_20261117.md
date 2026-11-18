@@ -55,6 +55,7 @@ Shopify copies the first shipment's rate onto the subscription ("Recurring shipm
 3. Baked potato: new restaurant-style picture (`assets/film/potato-restaurant.jpg`, same route).
 4. A small grey "Buy just one bottle - $97" button under the last two buy buttons only. It opens the order page with the one-bottle option already chosen (`?option=single`). Checked live.
 No change to the order page, checkout, plan, discount or pixel, so Grokbot's test orders do not need repeating.
+5. Later the same day: the small one-bottle button now sits under every buy button in the letter (all five), still not on the pinned top bar or the offer card under the video; and the nine page links are inside the hamburger menu at every screen size, desktop included (the row of links in the header is gone).
 
 ## Left to do
 
