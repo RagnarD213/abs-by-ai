@@ -16,6 +16,7 @@ After the existing quality and approval steps, register every clean used or unus
 
 Library filing is a required completion check, not a later cleanup task. Reconcile every successful generation output in the job manifest against a source-archive entry and every cleared keeper against a permanent library ID. Verify local and Drive copies by file hashes, the source register and the current human catalog; record the output count, archive references, keeper IDs and verification receipt in the job's final report. Before pausing for review, archive all outputs already generated. A failed/missing collection or mirror stays explicitly incomplete with its exact output IDs and next action; do not claim the job fully filed or complete. No extra permission is needed for this filing. This supersedes older instructions to save only clips used in approved edits or to omit rejected takes entirely. See `.claude/skills/_shared/cliplib/README.md`.
 
+
 ## Preserve clean source footage; editors choose final length (Dan, 2026-11-15)
 
 For reusable clips, approval pages and clip-library handoffs, keep the full take when it is clean. Trim only obvious junk, resets or visible AI/physics/text errors. Do not automatically shorten footage to 2–5 seconds or another target. Keep valid setup, action, follow-through and natural reactions so the final video editor can choose the length in context.
