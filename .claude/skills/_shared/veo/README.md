@@ -38,7 +38,7 @@ and there aren't per-clip generation costs."*
   Dan the better one, or both if they are close.
 - **Generate with BOTH Veo and Omni** (queue the Omni twin as `<ID>o`, e.g. `A3` fast + `A3o` omni, same frames and
   prompt) when the clip needs any of:
-  1. one continuous shot longer than 8 s (Omni goes to 10 s; Veo Frames mode is fixed at 8 s);
+  1. one continuous shot longer than the currently available Fast duration; check the live Omni duration menu too (the old fixed-eight-second Fast note is obsolete);
   2. a short 4 or 6 s clip where the action must fill the length;
   3. a fix to one detail of an existing clip Dan otherwise likes (Omni can edit a clip from an instruction; still
      generate a fresh Veo take of the same shot alongside it);
@@ -54,6 +54,8 @@ and there aren't per-clip generation costs."*
   logged. `veo.py picks` prints the running scorecard; the monthly model watch reads it.
 - **New models from any company** are tracked by the monthly watch: `Docs/VIDEO_MODEL_WATCH.md` (baseline, test rules,
   standard frame pairs, `bakeoff.py` blind-page builder, verdicts).
+
+**Current UI observation, November 17, 2026:** Fast Frames with both approved START/END offered 4, 6 and 8 seconds; tested Fast 4-second exports contained 94 frames at 24 fps, and Fast displayed 10 credits at 4 and 8 seconds. Omni 1.2 Flash displayed 12 credits at 4 seconds and 24 credits at 8 seconds, and exported 96/192 frames at 24 fps. Record the actual model version and frame count, never pad to the requested label, and re-read current options/prices. The historical tables below are not current availability guarantees. See `FLOW-RUNBOOK.md`.
 
 ## Subscription upgraded (Dan, 2026-10-20)
 
@@ -105,7 +107,7 @@ The background agent itself is not free: the 5-clip test used about 205,000 Sonn
 - **Veo still fails hand-and-object continuity often.** RO-14 (2026-10-20): about 20 takes (Fast, paid, Quality) for five
   food/prop gags; no full take passed (nuggets merge, a knife becomes a fork, a donut box refills, a straw slides, a lifted
   scale doubles its display). START/END frames whose prop geometry cannot connect (a display on the near corner on the floor,
-  on top when held) make it worse. Plan clean 2 to 3 s windows from the start, or frames that need no object to change.
+  on top when held) make it worse. Prefer frames whose action has simple, consistent prop geometry. Preserve every clean native frame and all maximal separate clean ranges; do not impose an automatic 2–3 second crop.
 
 ## Traps (SL-06 R6, 2026-10-21): natural holds of a person
 
