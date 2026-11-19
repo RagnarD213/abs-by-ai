@@ -35,6 +35,12 @@ const PROTECTED = new Set(pausedByDan.map(r => r.adGroupAd.resourceName));
 const namePrefix = `AT · ${release.title} · yt:`;
 const firstReleaseDay = release.main.slice(0, 10);
 const DESTINATION = 'https://absbyai.com/start';
+const COPY_MASK = [
+  'demand_gen_video_responsive_ad.headlines',
+  'demand_gen_video_responsive_ad.long_headlines',
+  'demand_gen_video_responsive_ad.descriptions',
+  'final_urls',
+].join(',');
 
 function domain(url) {
   return new URL(url).hostname.replace(/^www\./, '');
@@ -85,7 +91,7 @@ async function videoAssets(videoId) {
   return rows.map(r => r.asset.resourceName).sort();
 }
 
-function readPlacements(account, plans, assets) {
+function readPlacements(account, plans, assets, corrections) {
   const placements = [];
   for (const r of account.rows.filter(r => r.adGroupAd.ad.name?.startsWith(namePrefix))) {
     const { ad, status, resourceName, policySummary } = r.adGroupAd;
@@ -93,14 +99,20 @@ function readPlacements(account, plans, assets) {
     assert(plan, `Unexpected RO-28 ad ${ad.id} in group ${r.adGroup.id}`);
     assert(!placements.some(x => x.key === plan.key), `Duplicate RO-28 placement for ${plan.key}`);
     assert.equal(status, 'ENABLED', `${plan.key} RO-28 status`);
-    for (const field of Object.keys(COPY)) {
-      assert.deepEqual(ad.demandGenVideoResponsiveAd[field].map(x => x.text).sort(), [...COPY[field]].sort(), `${plan.key} ${field}`);
-    }
-    assert.deepEqual(ad.finalUrls, plan.template.finalUrls, `${plan.key} final URLs`);
     const [video] = ad.demandGenVideoResponsiveAd.videos;
     assert(ad.demandGenVideoResponsiveAd.videos.length === 1 && assets.includes(video.asset), `${plan.key} YouTube asset`);
     const inventory = video.adVideoAssetInfo?.adVideoAssetInventoryPreferences;
     assert(inventory?.inFeedPreference && !inventory.inStreamPreference && !inventory.shortsPreference, `${plan.key} in-feed inventory`);
+    const sameCopy = Object.entries(COPY).every(([field, lines]) =>
+      JSON.stringify((ad.demandGenVideoResponsiveAd[field] || []).map(x => x.text).sort()) === JSON.stringify([...lines].sort()));
+    const sameUrl = ad.finalUrls?.length === 1 && ad.finalUrls[0] === DESTINATION;
+    if (!sameCopy || !sameUrl) {
+      assert(corrections && !PROTECTED.has(resourceName), `${plan.key} ad copy or final URL does not match`);
+      const copy = Object.fromEntries(Object.entries(COPY).map(([field, lines]) => [field, lines.map(text => ({ text }))]));
+      corrections.push({ adOperation: { update: {
+        resourceName: ads.rn.ad(ad.id), demandGenVideoResponsiveAd: copy, finalUrls: [DESTINATION],
+      }, updateMask: COPY_MASK } });
+    }
     placements.push({ key: plan.key, campaign: plan.campaign, adGroupId: plan.adGroupId, adId: ad.id,
       resourceName, status, name: ad.name, finalUrls: ad.finalUrls, asset: video.asset, policySummary });
   }
@@ -141,7 +153,10 @@ async function run(videoId, dryRun, journal) {
   const [account, assets] = await Promise.all([readAccount(), videoAssets(videoId)]);
   const plans = targetPlan(account, videoId);
   const before = accountStatus(account);
-  const existing = readPlacements(account, plans, assets);
+  // If an older worker reaches the same public upload first, finish its exact
+  // placements in place so a deploy overlap cannot create a second set.
+  const corrections = [];
+  const existing = readPlacements(account, plans, assets, dryRun ? null : corrections);
   if (dryRun) assert.equal(existing.length, 0, 'Dry-run must exercise all seven creates');
   const issued = !dryRun && fs.existsSync(journal) ? JSON.parse(fs.readFileSync(journal, 'utf8')) : null;
   if (issued) {
@@ -156,18 +171,19 @@ async function run(videoId, dryRun, journal) {
     ops.push({ assetOperation: { create: { resourceName: videoAsset, name: `yt ${videoId}`,
       youtubeVideoAsset: { youtubeVideoId: videoId } } } });
   }
+  const firstAdOp = ops.length;
   for (const plan of missing) {
     ops.push(createOp({ ...plan, cid: ads.CID, set: COPY, videoAsset, isShort: false }));
   }
   const pauses = dryRun ? [] : pauseNewWorkerAds(account, plans);
-  ops.push(...pauses);
+  ops.push(...corrections, ...pauses);
   const meta = { note: `RO-28 Got Abs paid engagement: ${videoId}`, reason: 'ro28-release' };
   let mutation = null;
   if (ops.length) {
     await ads.mutate(ops, { ...meta, dryRun: true });
     if (!dryRun) {
       mutation = (await ads.mutate(ops, { ...meta, tries: 0 })).results;
-      const newAds = mutation.slice(!assets.length && missing.length ? 1 : 0, ops.length - pauses.length);
+      const newAds = mutation.slice(firstAdOp, firstAdOp + missing.length);
       fs.writeFileSync(journal + '.tmp', JSON.stringify({ videoId, ads: [...(issued?.ads || []), ...newAds] }) + '\n');
       fs.renameSync(journal + '.tmp', journal);
     }
