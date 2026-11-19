@@ -44,6 +44,35 @@ def read(p):
     return json.loads(raw(p)[0])
 
 
+HUB_PAGES = Path.home()/'Library/Application Support/AbsByAI Review Hub/pages'
+DEFAULT_QUESTION = 'Ready for your review: open the page and give your notes or approval.'
+
+
+def hub_review(job, pages=HUB_PAGES):
+    """Newest registered review page whose folder belongs to this job (2026-11-19).
+
+    Editors sometimes release for review without --question/--link; the review hub
+    still records each page's folder, so the desk can show the real link."""
+    want = str(job).upper()
+    best = None
+    try:
+        names = os.listdir(pages)
+    except OSError:
+        return None
+    for name in names:
+        if not re.fullmatch(r'\d{2,5}\.json', name):
+            continue
+        try:
+            entry = read(pages/name)
+            mtime = os.lstat(pages/name).st_mtime
+        except (OSError, ValueError):
+            continue
+        parts = [x.upper() for x in Path(str(entry.get('root', ''))).parts]
+        if want in parts and (best is None or mtime > best[0]):
+            best = (mtime, int(entry['port']))
+    return 'http://127.0.0.1:%d/' % best[1] if best else None
+
+
 def memo(p, fn):
     st=p.stat()
     stamp=st.st_ino,st.st_mtime_ns,st.st_size
@@ -262,6 +291,11 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
         if e['state']=='finished':continue
         if e['state']=='with-dan' and (ident,e.get('since')) in desk_records.CLOSED:continue
         if e['state']=='with-dan' and review_handoff.completed(e,catalog.get(ident)):continue
+        # A later round of the same video (same title, registered after this handoff)
+        # supersedes the older review, e.g. Joint Vigor R4 once R5 started (2026-11-19).
+        if e['state']=='with-dan' and e.get('title') and any(
+                o is not e and o.get('state')!='finished' and str(o.get('title','')).lower()==e['title'].lower()
+                and o.get('registered',0)>e.get('since',0) for o in reg.values()):continue
         j=resolve(ident); a=job(j)
         if j not in ('DS-98','Unidentified project') and e.get('title'):a['title']=desk_records.title(j,catalog,e['title']) or j
         stage=e['state']
@@ -272,8 +306,8 @@ def observe(host,repo=None,tmp=Path('/tmp'),home=None,clock=time.time):
             record = catalog.get(ident,{})
             if record.get('state') not in ('draft_review','delivered'):
                 record = {}
-            a.update(desk_records.review_fields(e.get('question') or record.get('review_question'),
-                                                e.get('link') or record.get('review_url')))
+            link = e.get('link') or record.get('review_url') or hub_review(ident)
+            a.update(desk_records.review_fields(e.get('question') or record.get('review_question') or DEFAULT_QUESTION, link))
         a['lastWork']=max(e.get(k,0) for k in ('registered','active_since','last_seen','waiting_since'))
         a['states'].append(stage); a['parked']|=bool(e.get('reservation_parked')); a['urgent']|=bool(e.get('priority')) or j in urgent
     for j,held,cores,urgent in rows or []:
