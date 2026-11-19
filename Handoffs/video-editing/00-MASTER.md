@@ -277,13 +277,13 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 ### 1C5 · 11/13 shoot, green screen (added 2026-11-14)
 Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and sales videos are ADs; the rest is CONTENT.
 
-RO-39 first review is queued and enabled on M2, waiting for capacity; no render yet. [Queue receipt](../../Docs/RO39_R1_QUEUE_RECEIPT_20261116.md). Full film waits for Dan’s first-review choices.
+RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; all production slots released; no automatic restart. [Pause record](../../Docs/RO39_PAUSE_20261118.md).
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | IN PROGRESS | L |
 | [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | IN PROGRESS | M |
-| [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | IN PROGRESS | M |
+| [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | DELIVERED: awaiting Dan | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | IN PROGRESS | M |
 | [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | IN PROGRESS | M |
 | [RA-17](RA-17-great-again-t-l01-eat-more-of-this-less-of-this.md) | Great Again T L01: Eat More Of This, Less Of This | C1913 + C1911 + C1905 | READY | M |
@@ -305,7 +305,7 @@ RO-39 first review is queued and enabled on M2, waiting for capacity; no render 
 | [RA-33](RA-33-great-again-t-s11-3-signs-your-testosterone-is-dropping.md) | Great Again T S11: 3 Signs Your Testosterone Is Dropping | C1906 | READY | S |
 | [RA-34](RA-34-great-again-t-s13-how-to-keep-your-gut-after-40.md) | Great Again T S13: How To Keep Your Gut After 40 | C1906 | READY | S |
 | [RA-35](RA-35-great-again-t-s21-the-frog-study-in-45-seconds.md) | Great Again T S21: The Frog Study In 45 Seconds | C1906 | READY | S |
-| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | IN PROGRESS | L |
+| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | BLOCKED | L |
 | [RO-40](RO-40-im-41-if-i-were-25-again-this-is-exactly-how-id-get-in-shape.md) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. | C1914 + C1915 | READY | L |
 | [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | READY | L |
 | [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |

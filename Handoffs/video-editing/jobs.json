@@ -5299,15 +5299,16 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 2 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md`: cut \"Great Again T Upsell 2: Eternal Burn AM/PM\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 2 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md`: cut \"Great Again T Upsell 2: Eternal Burn AM/PM\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
+   "state": "delivered",
    "note": "11/13 shoot, C1904 13:45-30:31",
    "order": 234,
-   "updated": "2026-11-18",
-   "by": "Claude",
-   "rev": 2,
+   "updated": "2026-11-19",
+   "by": "",
+   "rev": 3,
    "syncedRev": 2,
    "editor": "Claude",
-   "needs": ""
+   "needs": "",
+   "review_ready_at": 1795068492.603828
   },
   {
    "id": "WV-06",
@@ -5768,15 +5769,15 @@
    "claude": "CONTENT (LFC). Name this chat \"I Crashed My Tesla LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md`: cut \"I Crashed My Tesla Because I Didn't Trust FSD\" from the 11/13 green-screen shoot, rolls C1914. Use /longform-edit (long-form green-screen standard: `.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (LFC). Name this chat \"I Crashed My Tesla LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md`: cut \"I Crashed My Tesla Because I Didn't Trust FSD\" from the 11/13 green-screen shoot, rolls C1914. Use `$long-form-content-edit` with the long-form green-screen standard (`.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "November 16: first-review round registered as chat-RO-39-R1, enabled M2 queue, waiting for capacity. No production or review delivery yet. Brief RO-39-r1-queued-production-20261116.md; stop for Dan before full render.",
+   "state": "blocked",
+   "note": "November 18: paused at Dan's request for higher-priority videos. Worker and all RO-39 render steps stopped; progress saved in /Volumes/Extreme/_edit_work/RO-39/PAUSED_BY_DAN.json and r1/RESUME.md. No automatic restart or review delivery.",
    "order": 256,
    "updated": "2026-11-18",
-   "by": "codex",
-   "rev": 3,
+   "by": "Codex",
+   "rev": 4,
    "syncedRev": 3,
    "editor": "Codex",
-   "needs": ""
+   "needs": "Paused by Dan. Resume only when Dan explicitly requests it."
   },
   {
    "id": "RO-40",
