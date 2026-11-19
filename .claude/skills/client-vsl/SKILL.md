@@ -34,6 +34,12 @@ publishing.
 - **The client's casting rule is a gate**, written into `STYLE-LOCK.md` and audited over the whole film before every
   review (Joint Vigor: Caucasian seniors everywhere, Japanese people and settings only where the script mentions Japan
   or Okinawa).
+- **Every client feedback doc is a checklist the finished film must pass** (Joint Vigor, 2026-11-19: R4 reused the
+  trial lead as "approved by Eric" when only Dan had approved it, so Eric's Feedback 1 notes and his no-TSL-images rule
+  never reached the full film). Copy every note into `FEEDBACK-CHECKLIST.md` with its current film time; only the
+  client's own written words make footage "client approved"; carry every client rule (casting, no TSL images except
+  studies and proof) into every block brief; the final reviewer gets the client's docs and marks each item with a
+  timestamp.
 - **Every AI picture of a person carries the "Dramatization" chip** top left, clear of faces, on every frame it shows,
   including crops and client-supplied AI images. Product, ingredient, study and illustration shots do not.
 - **No em or en dashes in any on-screen text, page copy or client message.** Page builders assert it.
