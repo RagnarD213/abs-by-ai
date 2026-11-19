@@ -5816,13 +5816,15 @@
    "claude": "CONTENT (LFC). Name this chat \"I Ranked 15 \"Healthy\" LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md`: cut \"I Ranked 15 \"Healthy\" Foods From Actually Healthy To Basically Candy\" from the 11/13 green-screen shoot, rolls C1915. Use /longform-edit (long-form green-screen standard: `.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "CONTENT (LFC). Name this chat \"I Ranked 15 \"Healthy\" LFC R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md`: cut \"I Ranked 15 \"Healthy\" Foods From Actually Healthy To Basically Candy\" from the 11/13 green-screen shoot, rolls C1915. Use `$long-form-content-edit` with the long-form green-screen standard (`.claude/skills/longform-edit/reference/longform-greenscreen-standard/README.md`). Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "ready",
-   "note": "11/13 shoot, C1915 4:37-15:55",
+   "state": "blocked",
+   "note": "Paused by Dan 2026-11-19; slot released. Takes picked, cut list built (7:38), key recipe set up. Resume note: M6 ~/Projects/_edit_work/RO-41/RESUME.md",
    "order": 258,
-   "updated": "2026-11-14",
+   "updated": "2026-11-19",
    "by": "Claude",
-   "rev": 1,
-   "syncedRev": 1
+   "rev": 3,
+   "syncedRev": 1,
+   "editor": "Claude",
+   "needs": "Dan asks to resume (paused 11-19)"
   },
   {
    "id": "RO-42",

@@ -307,7 +307,7 @@ RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; al
 | [RA-35](RA-35-great-again-t-s21-the-frog-study-in-45-seconds.md) | Great Again T S21: The Frog Study In 45 Seconds | C1906 | READY | S |
 | [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | BLOCKED | L |
 | [RO-40](RO-40-im-41-if-i-were-25-again-this-is-exactly-how-id-get-in-shape.md) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. | C1914 + C1915 | READY | L |
-| [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | READY | L |
+| [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | BLOCKED | L |
 | [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |
 | [RO-43](RO-43-7-fitness-rules-that-are-completely-made-up.md) | 7 Fitness Rules That Are Completely Made Up | C1915 | READY | L |
 | [DS-106](DS-106-the-best-protein-snack-costs-2-and-comes-in-a-can.md) | The Best Protein Snack Costs $2 And Comes In A Can | C1908 + C1907 | READY | S |
