@@ -285,7 +285,7 @@ RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; al
 | [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | IN PROGRESS | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | DELIVERED: awaiting Dan | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | IN PROGRESS | M |
-| [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | IN PROGRESS | M |
+| [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | DRAFT: asset choices waiting for Dan | M |
 | [RA-17](RA-17-great-again-t-l01-eat-more-of-this-less-of-this.md) | Great Again T L01: Eat More Of This, Less Of This | C1913 + C1911 + C1905 | READY | M |
 | [RA-18](RA-18-great-again-t-l02-3-healthy-foods-that-are-killing-your-test.md) | Great Again T L02: 3 "Healthy" Foods That Are Killing Your Testosterone | C1913 + C1905 | READY | M |
 | [RA-19](RA-19-great-again-t-l03-the-1-diet-food-killing-your-testosterone.md) | Great Again T L03: The 1 "Diet" Food Killing Your Testosterone | C1910 | BLOCKED | M |

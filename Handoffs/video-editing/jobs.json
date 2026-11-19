@@ -5346,15 +5346,18 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 4 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-07-great-again-t-upsell-4-abs-by-ai.md`: cut \"Great Again T Upsell 4: Abs By AI\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 4 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-07-great-again-t-upsell-4-abs-by-ai.md`: cut \"Great Again T Upsell 4: Abs By AI\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "11/13 shoot, C1904 44:43-54:50. Owner: Claude chat 'GAT Upsell 4 AD R1' on the M6 (took over held batch row chat-WV-07-R1, 2026-11-19)",
+   "state": "draft_review",
+   "note": "11/13 shoot, C1904 44:43-54:50. Round 1 first review delivered 2026-11-19 on the M6 (http://127.0.0.1:9878/); film sha256 d6822361. Not approved. Full film waits for Dan's reply.",
    "order": 236,
    "updated": "2026-11-19",
    "by": "Claude",
-   "rev": 3,
-   "syncedRev": 3,
+   "rev": 4,
+   "syncedRev": 4,
    "editor": "Claude",
-   "needs": ""
+   "needs": "",
+   "review_ready_at": 1795086583.800354,
+   "review_question": "Round 1 (first 78 s + every graphic in context): colour, voice, the meal-plan line, key and graphics by ID",
+   "review_url": "http://127.0.0.1:9878/"
   },
   {
    "id": "RA-17",
