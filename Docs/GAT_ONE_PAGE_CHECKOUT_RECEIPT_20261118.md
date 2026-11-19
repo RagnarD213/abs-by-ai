@@ -2,10 +2,10 @@
 
 Handoff executed up to the live step: `Handoffs/handoff-20261118-gat-one-page-checkout.md`. Website and payment build, no edit slot. Spend: $0 (Stripe test mode, no real charges, no AI generation).
 
-**State: built, deployed and proven end to end in Stripe TEST mode. Hidden from visitors. Dan has not reviewed it yet. No live key is set.**
+**State (2026-11-18, 6:10 PM Central): LIVE MODE IS ON, still hidden from visitors at `?onepage=1`. Waiting on Grokbot's two real card orders, then the switch-over. See "Go live" at the bottom.**
 The two-step flow (our page, then Shopify checkout with `FREEMONTH`) is untouched and is what every visitor still gets.
 
-- Test page: https://shop.sixpackabs.com/pages/great-again-t-order?onepage=1 (test card 4242 4242 4242 4242, any future date, any CVV)
+- Hidden live page: https://shop.sixpackabs.com/pages/great-again-t-order?onepage=1 (REAL charges since 2026-11-18 5:56 PM Central; never type a test card there)
 - Review page (phone, tablet, desktop, the six emails): https://claude.ai/artifact/13HpHVHTeBsqDZCz7t11qn (built by `scripts/gat/build-review.py`)
 - What is left (sender domain, live keys, two real card orders, switch over): `Handoffs/handoff-20261118-gat-one-page-checkout-go-live.md`
 
@@ -73,3 +73,29 @@ Not proven, on purpose: a real card, a real Shopify order with the real variant,
 ## Undo
 
 Set `CFG['onePage'] = 'off'`, build, deploy (the form disappears; nothing else changes). Remove the `GAT_STRIPE_*` settings on Railway to switch the server off. Delete the two Shopify pages, uninstall the app `gat-order-sync`, delete the Stripe test webhook, drop the three `gat_` tables.
+
+## Go live (2026-11-18, Claude Fable 5.2, its own task)
+
+Dan split the go-live handoff: Claude does everything except the two real card orders, which are Grokbot's (`Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md`).
+
+### Part A, done before any real order
+
+| What | Result |
+|---|---|
+| Stripe live keys | Railway `GAT_STRIPE_SECRET_KEY` and `GAT_STRIPE_PUBLISHABLE_KEY` now hold the live keys of the existing account (`acct_1TemLD...`, the same values as `STRIPE_SECRET_KEY` / `STRIPE_PUBLISHABLE_KEY`). `GAT_TEST_KEY` deleted. |
+| Live webhook | `we_1UdIfSAC3gM1rghl4GUmOvKc` to `https://absbyai.com/api/gat/stripe-webhook`, API version 2023-10-16, the five events. Its signing secret is in Railway `GAT_STRIPE_WEBHOOK_SECRET` and in the local cache as `GAT_STRIPE_WEBHOOK_SECRET_LIVE` (the test secret keeps its old name there). The test-mode webhook `we_1UdHnW...` still exists in test mode and is harmless. |
+| Live mode confirmed | `https://absbyai.com/api/gat/config` said `"mode":"live"` with a `pk_live` key at 5:56 PM Central. An unsigned call to the webhook is refused (400), an order from another website is refused. |
+| Live page, look only | `GAT_PROOF=look` at phone, tablet and desktop: `?onepage=1` shows the form with three card fields and no TEST MODE bar; without it the page is the two-step flow; no sideways scroll; still `noindex`. |
+| The two webhooks on one Stripe account | Checked in code: the Abs By AI webhook ignores Great Again T invoices and subscriptions (it looks them up in the members table), and the Great Again T webhook ignores Abs By AI ones (it looks them up in `gat_orders` / `gat_subscriptions`). Neither can touch the other's customers. |
+| Stripe's own customer emails (read in the dashboard, nothing changed) | Settings > Business > Customer emails: **Successful payments ON, Refunds ON.** Billing > Subscriptions and emails: trial reminder OFF, upcoming renewals OFF, **expiring cards ON, failed card payments ON**, failed bank debits OFF, "manage subscription" link ON (Stripe customer portal). Abs By AI members rely on Stripe's receipts (the app does not send its own), so nothing was turned off. |
+
+Open from Part A:
+
+1. **Stripe receipts in the Abs By AI name.** Because "Successful payments" is on, a Great Again T buyer will get Stripe's receipt (headed Abs By AI) next to our own order email, and Stripe's failed-payment and expiring-card emails too. The two real orders will show exactly what arrives. Fix that leaves Abs By AI members alone: keep the buyer's email off the Stripe customer record (our own emails already cover the receipt, the reminder and the failed-payment notice), or a separate Stripe account for SixPackAbs. Do before launch; it does not block the test orders.
+2. **Order emails still come from `orders@absbyai.com`.** Resend is not signed in in Dan's Chrome (resend.com/login), and the Railway mail key cannot add domains. Once signed in: add `sixpackabs.com`, add its DNS records at WordPress.com (root MX untouched), verify, make a sending key for that domain, set `GAT_RESEND_API_KEY` and `GAT_FROM`.
+3. The server running at the moment of the switch to live was commit `2ac3eda`, one behind the card-update page fix `c4c137d`, which was still in Railway's queue (about 40 minutes behind). Only the "update my card" button on the account page is affected until it lands.
+
+### Part B (after Grokbot reports): not done yet
+
+Verify both orders from the records (Stripe, Shopify, `gat_charges`, PostHog), confirm the cancel, refunds and Supliful stop, then set `CFG['onePage'] = 'on'`, build, deploy and verify.
+
