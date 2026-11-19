@@ -12,6 +12,25 @@ chains. Quick jobs over two minutes are flagged in status. RENDERQ_CORES is an a
 OS-enforced limit: nested pools and native-library/encoder threads still require compliant sizing.
 Status skips filesystem job scans and reports budget blocks instead of misleading zero-second ETAs.
 
+## Max wait for light and quick steps, 2026-11-19
+
+On the M2, 2026-11-18, 2-core `framecheck/gate.py` steps waited 190 to 540 minutes while 4-core heavy keys that
+joined later waited 20 to 60 (`events.log`). Two causes, both lane-local: with the v5 features off the light lane
+kept room for a heavy step whenever one waited (`legacy heavy reservation`), with them on it refused to take cores a
+heavy step could fit (`protecting a fitting heavy opening`); and a chain's next heavy step asks within milliseconds
+while small waiters look every 0.2 s, so heavy won every freed opening. The memory gate was not the cause: it closes
+every lane alike.
+
+Now a light or quick waiter older than `STARVE_S` (20 min; `GATE_STARVE_S`) is **starving**: it goes first in its
+own lane, skips the heavy reservation and the loan rules (it needs only its own cores), and a heavy waiter that joined
+after it waits while starting both would not fit (`why`: "a light step waiting ... goes first"). Unchanged: the core
+budget, memory, settling, drive caps, running work, and a `--priority` or urgent heavy step still going first. A
+starving step whose lane is full, or whose video is held back (M6 reservation, editcap parked), keeps nothing. The
+legacy reservation now counts only heavy waiters that could start (not ones behind a full drive). Grants are logged
+as `starved` events. Rollout: only tickets made by this code (`max_wait` in the ticket) count as starving. A waiter
+that loaded the older code keeps its old rules (it would refuse the cores), so heavy steps never idle cores for it;
+it gets the fix only when it is restarted by its owner. Tests: `editroute/tests/test_renderq_starvation.py`, selftest case 9b.
+
 ## Two Macs, 2026-11-14
 
 Each Mac has its own queue. The core budget comes from `../editroute/hosts.json`: the M6 hands out 6 of its 12
@@ -135,7 +154,7 @@ first `review_server.py PORT DIR`.
 
 ## Files
 
-`renderq.py` (library and CLI), `ffshim.py` (wrapper entry), `selftest.py` (`renderq.py selftest`, 54 checks),
+`renderq.py` (library and CLI), `ffshim.py` (wrapper entry), `selftest.py` (`renderq.py selftest`, 59 checks),
 `drives.json` (per-drive caps and their measurements), `drivebench.py` (measures a drive), `bench.py` (30 dummy jobs:
 queue vs two at a time vs all at once), `bench10.py` (ten real steps through two versions of the queue: before and
 after; `--two` adds the same steps two at a time with no queue, plus kernel CPU and swap per run), `realbuild.py` (a small real build from the shared pipeline pieces, for timing). Install or remove the

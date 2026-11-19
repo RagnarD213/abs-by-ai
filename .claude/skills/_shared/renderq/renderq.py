@@ -128,6 +128,8 @@ IDLE_WINDOW_S = 4.0                     # cpu_idle()'s window (status only since
 SETTLE_S = 15.0                         # past the floor: nothing started in this pool (or heavy) this recently
 RESERVE_S = 0.6                         # a slot just let go stays with its build this long (its next step)
 GRACE_S = 120                           # a video that let a slot go this recently is a continuation
+STARVE_S = 1200.0                       # a light/quick step waiting this long takes the next freed cores before any
+                                        # heavy step that joined after it (2026-11-19: frame checks waited 3-9 h)
 POLL_HEAD_S = 0.2
 POLL_S = 1.0
 NICE = 10
@@ -161,20 +163,90 @@ def _eligible(t, states, unmanaged, borrowing=False):
         return False
     if t['pool']=='heavy' and drive_full(info_drives(t), drive_load(states), drive_caps()):
         return False
-    return not budget_check(t['pool'], states, unmanaged) and not _borrow_reason(t, states, unmanaged)
+    return not budget_check(t['pool'], states, unmanaged) and not _lane_reason(t, states, unmanaged)
 
 
 def _fair_order(tickets, states, pool=None):
     """Rank eligible tickets. Counters advance on actual grants, never polling."""
     counts=_read(DIR/'fairness.json')
     active={project(s['info'].get('group')) for s in states if s['held'] and s['pool']=='heavy'}
+    now=time.time()
     def key(t):
         j=project(t.get('group')); due=counts.get(j,{}).get('skips',0)>=2
         urgent=t.get('priority') or job_priority.urgent(j)
         repeat=pool=='heavy' and j in active
-        return (0 if due else 1, 0 if urgent else 1, 1 if repeat else 0,
-                0 if t.get('group') in _active_groups(states) and pool!='quick' else 1,t['seq'])
+        starving=_starving(t,now)
+        return (0 if due else 1, 0 if urgent else 1, 0 if starving else 1, t.get('created',0) if starving else 0,
+                1 if repeat else 0, 0 if t.get('group') in _active_groups(states) and pool!='quick' else 1,t['seq'])
     return sorted(tickets,key=key)
+
+
+# ------------------------------------------------------------------------------------------------ max wait
+# Lanes used to compete only inside themselves. A 4-core heavy step that finished was replaced by the next heavy
+# waiter (a chain's next step asks within milliseconds; small waiters look every 0.2 s), and the light lane also
+# kept room for a heavy step whenever one waited. On the M2, 2026-11-18, 2-core frame checks waited 3 to 9 hours
+# while heavy keys that joined later waited 20 to 60 minutes. Now a light/quick step that has waited STARVE_S
+# takes the next freed cores before any heavy step that joined after it. Running work is never touched, drive
+# caps, the core budget, memory and settling still apply to everyone, and a --priority heavy step still goes first.
+def _starve_s():
+    return float(os.environ.get("GATE_STARVE_S") or STARVE_S)
+
+
+def _starving(t, now=None):
+    """A light or quick waiter past the max wait. Only tickets from this code (`max_wait`): a waiter that loaded
+    older code still refuses cores while a heavy step waits, so heavy steps must not leave cores idle for it."""
+    if t.get('pool') not in ('light', 'quick') or not t.get('created') or not t.get('max_wait'):
+        return False
+    return (now or time.time()) - float(t['created']) >= _starve_s()
+
+
+def _parked(group):
+    """editcap parked this video's whole edit: its steps cannot start, so nobody keeps cores for them."""
+    try:
+        reg = _read(Path(os.environ.get('EDITCAP_DIR') or '/tmp/absbyai-editcap') / 'registry.json')
+        e = reg.get('edits', {}).get(project(group), {})
+        return bool(e.get('reservation_parked') and e.get('state') not in ('active', 'promoted'))
+    except Exception:
+        return False
+
+
+def _starving_small(states, before=None, tickets=None):
+    """Starving light/quick waiters that could actually start (their lane has a free slot, their video is not held
+    back), oldest first. `before`: only those that joined before this time."""
+    now, sizes = time.time(), pool_sizes()
+    out = []
+    for t in (_tickets() if tickets is None else tickets):
+        if not _starving(t, now) or (before is not None and float(t['created']) >= float(before)):
+            continue
+        if sum(1 for s in states if s['pool'] == t['pool'] and s['held']) >= sizes[t['pool']][1]:
+            continue
+        if job_priority.blocked(t.get('group')) or _parked(t.get('group')):
+            continue
+        out.append(t)
+    return sorted(out, key=lambda t: t['created'])
+
+
+def _starve_reason(ticket, states, unmanaged, tickets=None):
+    """Heavy only: keep the freed cores for an older light/quick step that has waited past the max."""
+    if ticket.get('pool') != 'heavy':
+        return ''
+    if ticket.get('priority') or job_priority.urgent(ticket.get('group')):
+        return ''
+    small = _starving_small(states, before=ticket.get('created') or time.time(), tickets=tickets)
+    if not small:
+        return ''
+    used, budget = cores_in_use(states, unmanaged), core_budget()
+    if used + allowance('heavy') + allowance(small[0]['pool']) <= budget:
+        return ''                                       # room for both: the heavy step does not delay it
+    s = small[0]
+    return 'cores: a {} step waiting {} ({}) goes first; it joined before this one'.format(
+        s['pool'], _fmt(time.time() - float(s['created'])), (s.get('label') or '?')[:60])
+
+
+def _lane_reason(ticket, states, unmanaged):
+    """What keeps a ticket out beyond its own lane's budget check: the small-lane heavy reservation or loan rules,
+    or (heavy) an older starving small step."""
+    return _borrow_reason(ticket, states, unmanaged) or _starve_reason(ticket, states, unmanaged)
 
 
 def _record_opening(chosen, eligible):
@@ -188,14 +260,16 @@ def _record_opening(chosen, eligible):
 def _borrow_reason(ticket, states, unmanaged):
     """Both small lanes share one loan per otherwise eligible heavy's core wait."""
     if ticket['pool']=='heavy':return ''
+    if _starving(ticket):return ''                         # past the max wait: it only needs its own cores
+    heavy=[t for t in _tickets('heavy') if not job_priority.blocked(t.get('group'))
+           and not drive_full(info_drives(t),drive_load(states),drive_caps())]
     if not feature('borrowing'):
         # Compatible installation while old loaded processes drain: preserve the
         # previous light reservation; quick remains as it was until activation.
-        if ticket['pool']=='light' and _tickets('heavy') and cores_in_use(states,unmanaged)+allowance('light')+allowance('heavy')>core_budget():
+        # Only for a heavy waiter that could start (not one parked behind its full drive).
+        if ticket['pool']=='light' and heavy and cores_in_use(states,unmanaged)+allowance('light')+allowance('heavy')>core_budget():
             return 'cores: legacy heavy reservation (borrowing not activated)'
         return ''
-    heavy=[t for t in _tickets('heavy') if not job_priority.blocked(t.get('group'))
-           and not drive_full(info_drives(t),drive_load(states),drive_caps())]
     if not heavy:return ''
     used=cores_in_use(states,unmanaged); budget=core_budget()
     if used+allowance(ticket['pool'])+allowance('heavy')<=budget:return ''
@@ -1037,13 +1111,17 @@ def _active_groups(states):
 def _rank(tickets, states, pool=None):
     if feature("fairness"):
         return _fair_order(tickets, states, pool)
+    now = time.time()
+
+    def starving(t):                                        # past the max wait: first in its lane, oldest first
+        return (0, float(t["created"])) if _starving(t, now) else (1, 0)
     if pool == "quick":                                     # short steps: plain first come, first served, so a
-        return sorted(tickets, key=lambda t: (0 if t.get("priority") else 1, t["seq"]))   # build's loop never hogs it
+        return sorted(tickets, key=lambda t: starving(t) + (0 if t.get("priority") else 1, t["seq"]))   # build's loop never hogs it
     groups = _active_groups(states)
 
     def key(t):
         cls = 0 if t.get("priority") else (1 if t.get("group") in groups else 2)
-        return (cls, t["seq"])
+        return starving(t) + (cls, t["seq"])
     return sorted(tickets, key=key)
 
 
@@ -1067,7 +1145,7 @@ class Ticket(object):
                          priority=bool(priority), seq=self.seq, created=time.time(), cwd=os.getcwd()[:200],
                          session=_session(), pipe=pipe, drives=self.drives, scheduler_version=SCHEDULER_VERSION,
                          display_job=display_job(group), project=project(group), expected_s=float(os.environ.get("GATE_EXPECT_S") or 0),
-                         recipe=os.environ.get("GATE_RECIPE", ""))
+                         recipe=os.environ.get("GATE_RECIPE", ""), max_wait=True)
         name = "{}.{:010d}.{}.json".format(pool, self.seq, os.getpid())
         tmp = DIR / "queue" / (".tmp." + name)
         with open(tmp, "w") as f:
@@ -1168,7 +1246,7 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             return None, 0
         mine = [s for s in states if s["pool"] == pool]
         unmanaged = _unmanaged(states)
-        reason = budget_check(pool, states, unmanaged) or _borrow_reason(ticket.info, states, unmanaged)
+        reason = budget_check(pool, states, unmanaged) or _lane_reason(ticket.info, states, unmanaged)
         if reason:
             if ticket.info.get('blocked') != reason:
                 ticket.info['blocked'] = reason
@@ -1195,7 +1273,10 @@ def _admit(ticket, pool, group, idle=None, pipe=False):          # idle: unused 
             if feature('fairness'):
                 _record_opening(ticket.info, eligible)
             loans=_read(DIR/'borrowing.json')
-            if pool=='heavy':
+            if pool!='heavy' and _starving(ticket.info, now):
+                ticket.info['starved']=round(now-ticket.info['created'],1)   # its turn, not a loan
+                _log('starved', group=group, label=ticket.info['label'], pool=pool, waited=ticket.info['starved'])
+            elif pool=='heavy':
                 for w in all_tickets:
                     if project(w.get('group'))==project(group):loans.pop(str(w['seq']),None)
             else:
@@ -2193,7 +2274,16 @@ def explain(query=None):
                         len(ahead), "" if len(ahead) == 1 else "s", pool,
                         "; the line itself waits for: " + gate if gate else "")
                 else:
-                    r = gate or "nothing: it starts at its next look (under a second)"
+                    r = (gate or _lane_reason(t, states, unmanaged)
+                         or "nothing: it starts at its next look (under a second)")
+                if _starving(t):
+                    r += " [waited past {}: goes before heavy steps that joined later]".format(_fmt(_starve_s()))
+                elif pool == "heavy" and "goes first" not in r and not (t.get("priority") or
+                                                                         job_priority.urgent(t.get("group"))):
+                    older = _starving_small(states, before=t.get("created") or time.time(), tickets=tickets)
+                    if older:
+                        r += " [then {} light/quick step{} waiting past {} go{} first]".format(
+                            len(older), "" if len(older) == 1 else "s", _fmt(_starve_s()), "es" if len(older) == 1 else "")
                 out.append("{} #{} {} [{}], waiting {}: {}".format(pool, n, t.get("label", "?"), t.get("group", ""),
                                                                    _ago(t.get("created")), r))
     if not out:

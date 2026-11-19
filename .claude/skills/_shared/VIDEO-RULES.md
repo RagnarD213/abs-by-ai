@@ -1615,6 +1615,10 @@ the edit slots of both Macs into a time range on the edit desk (http://127.0.0.1
   600 frames), `clipcheck.py` on clips of 15 s or less, HyperFrames graphics of 10 s or less. An 8 s AI clip's frame
   dump, trim or clip check starts at once. Why: earlier that day 1-second frame dumps waited up to 21 min and
   21-second clip checks up to 73 min behind 10-minute renders.
+- **Max wait for light and quick steps (2026-11-19):** a light or quick step (frame check, clip check, Whisper) that has
+  waited 20 minutes takes the next freed cores before any heavy step that joined after it. Why: on the M2, 2026-11-18,
+  2-core frame checks waited 3 to 9 hours while 4-core keys that joined later took every opening, which held up the
+  review pages that needed them. `renderq.py why` marks such a step. Tunable: `STARVE_S` / `GATE_STARVE_S`.
 - **Per-drive caps:** each drive runs at most its cap of heavy steps at once, Extreme 2, Expansion 3, internal 6,
   Seagate 2 until measured (`renderq/drives.json`, measured with `renderq/drivebench.py`). A waiter whose drive is full
   steps aside and the next job on another drive goes first. `renderq.py drives` shows each drive's load and free space.

@@ -334,6 +334,26 @@ def main():
         got = [s[0] for s in starts(log)]
         check("a video already running goes before one not yet started", got == ["V1a", "V1b", "V2a"], got)
 
+        # 9b. max wait (2026-11-19): a light step past GATE_STARVE_S takes freed cores before a later heavy step.
+        # Before the fix the later heavy C took A's 4 cores and the light step waited for B too (M2: 3 to 9 hours).
+        d = root / "starve"
+        log = root / "starve.log"
+        e = env_for(d, heavy="2:4", light="1:3", GATE_BUDGET=8, GATE_STARVE_S=1.5)
+        spawn([PY, RQ, "run", "--group", "A", "--"] + stamp_cmd(log, "A", 3.0), e)
+        spawn([PY, RQ, "run", "--group", "B", "--"] + stamp_cmd(log, "B", 7.0), e)
+        wait_for(lambda: len(starts(log)) == 2, 10)
+        spawn([PY, RQ, "run", "--light", "--group", "L", "--"] + stamp_cmd(log, "L", 0), e)
+        time.sleep(2.0)
+        spawn([PY, RQ, "run", "--group", "C", "--label", "later heavy", "--"] + stamp_cmd(log, "C", 0), e)
+        time.sleep(0.6)
+        w = subprocess.run([PY, RQ, "why", "later heavy"], env=e, capture_output=True, text=True).stdout
+        wait_for(lambda: len(starts(log)) == 4, 20)
+        s = dict((n, t) for n, t in starts(log))
+        check("a light step past the max wait gets freed cores before a heavy step that joined later",
+              s.get("L", 99e9) < s.get("C", 0) and s.get("L", 99e9) < s.get("B", 0) + 6.5, s)
+        check("... and `why` says the later heavy step waits for it", "go" in w and "first" in w
+              and "waiting past" in w, w)
+
         # 10. classification of real command lines from the pipeline
         cls = [
             ("-version", "exempt"),
