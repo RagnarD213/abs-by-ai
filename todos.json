@@ -382,70 +382,80 @@
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-17",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 8
     },
     {
       "text": "Transfer all bar related items to assembled bar shelf",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 9
     },
     {
       "text": "Clean up bar shelf box, plastic, and stryofoam",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 10
     },
     {
       "text": "Replace robot mop water",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 11
     },
     {
       "text": "Dishes",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 12
     },
     {
       "text": "Fold laundry",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 13
     },
     {
       "text": "Make bed",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 14
     },
     {
       "text": "Take trash out",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 15
     },
     {
       "text": "Vacuum bedroom",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 16
     },
     {
       "text": "Sweep outdoor entry way",
       "priority": "unassigned",
       "recurring": false,
       "addedAt": "2026-11-18",
-      "addedBy": "assistant"
+      "addedBy": "assistant",
+      "boardRank": 17
     }
   ],
   "handoffs": [
