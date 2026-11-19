@@ -134,6 +134,19 @@ times, no fix notes). It marks every ledger row PASS or FAIL with a time; any FA
 receipts. Brief: [reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md). Dan sees
 the film only after a SHIP (or with the open items listed).
 
+## Models and effort (set 2026-11-19 after the Joint Vigor miss; Dan can change it)
+Checked against the session records: only the round 2 session ever opened Eric's feedback doc. The round 3 chat and the
+round 4 plan (both Fable 5.2) and the round 4 build (Opus 5.5 high) each had his link and "read all of it" in front of
+them and none opened it; seven Fable high reviews were never given it. Model and effort were not the variable. The
+input was. So:
+- **Build, plans, handoffs, block agents: Opus 5.5 high.** Do not move them to Fable or raise effort to buy safety.
+- **Ledger completeness audit: a fresh Fable 5.2 agent at medium effort** every time a client doc or long message has
+  been itemized. Give it ONLY the client's source copies and `client_ledger.py report --for reviewer`; it lists every
+  instruction that has no item. Minutes of work, and it covers the one thing the gate cannot see (a note never logged).
+- **Whole-film review: Fable 5.2 high**, with the client's sources ([reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md)).
+- Never add rounds or effort to make up for a missing input. A round that does not have the client's words cannot find
+  what the client asked for, at any model or effort.
+
 ## Dan's review page
 `_shared/review_server.py <PORT> <DIR>` (byte-range seeking, silent-check and owner hand-off injected, Full screen opens
 the file in VLC through `/__fullscreen`). The page opens with **"What <client> asked for"**: every ledger row in his
