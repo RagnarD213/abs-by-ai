@@ -108,3 +108,16 @@ Dan on round 2: **"the lyrics here are better, but it's still real bad. This isn
 - Reference-audio route: Flow refused the 60 s "Version 2.0" excerpt ("This audio might violate our prohibited use policy and can't be uploaded") and offered "Create a similar original track". Taken; the Producer made 2 takes of Outwork Yesterday from the text request alone. Take 2 measured best of the round (punch 36.3, 2.9 words a second). Do not retry reference uploads of released songs.
 - Shown to Dan (5 takes, levelled with ffmpeg loudnorm to about -11 LUFS, -1 dBTP; masters in `20261118-r3/mastered/`): Outwork Yesterday ref-2 and hype-1, Nobody's Coming hype-1, The Old You hype-1, Made Not Born hype-1 (hook slightly slurred). Review page: http://127.0.0.1:8800/ . Pages :8798 and :8799 superseded.
 - Honest limit: numbers moved toward the references but nobody has listened; no text prompt has yet matched the references' drum punch (best 36 against 51 for Version 2.0). If round 3 still misses, the remaining levers are naming a real rapper's style in the prompt (Dan allowed it) and trying another generator for the vocal.
+
+## 2026-11-19: round 3 and six paper hooks rejected; licensing outreach widened
+
+Dan on round 3: best of the three rounds but "I don't like the sound of it, and the lyrics are not good enough." On six new paper hooks (Before Photo, Quit Tomorrow, Last Day One, Boring Wins, Prove Me Right, Already There): **"absolutely awful. This is AI slop ... I don't think you're capable of coming up with a good hook here."** He proposed a remix or slight variation of the two references and asked for hooks written that way, plus ten licensing comments at $200.
+
+- Limits found: Flow will not take either reference as remix audio (upload refused 11-18). A near word-for-word rewrite of their lyrics needs the creator's permission; without it Claude models only the pattern with new words.
+- Neither video page lists usage terms or a contact. "Do It Tired" (Mind Over Chaos, @MindOverChaos85, 7.1K subscribers, 4.6M views on the song) is active in its own comments.
+- **Ten comments posted from @danrosefit, 2026-11-19, $200 offer, no email, wording varied:**
+  - Mind Over Chaos, about "Do It Tired": `fI5T5gfXljA` (the song), `yuZhA2J-EzE`, `EKKulAxpeRU`, `TJ6WUGry-tc`, `8RjZQ6lDsjI`.
+  - Street Delight Records, about "Version 2.0": `5T_XCm8edvA`, `mVrT_2o2ujM`, `POzjzNKi2y8`, `V56cFiPCOFo`, `WDOdAvctxVs`.
+  - All ten showed on the page signed in. Signed-out check minutes later (yt-dlp, newest comments): visible on `fI5T5gfXljA`, `yuZhA2J-EzE`, `TJ6WUGry-tc`, `mVrT_2o2ujM`, `V56cFiPCOFo`; not visible on the other five (likely held for the creator's review). Do not repost; more near-identical comments risk a spam flag.
+- Four pattern-modelled hooks given to Dan in chat (Go Anyway, Finish Ugly, The Rebuild, Second Wind). No audio made.
+- Open: Suno trial for the sound (new account, about $10 a month) needs Dan's yes. Next check on replies: 2026-11-22.
