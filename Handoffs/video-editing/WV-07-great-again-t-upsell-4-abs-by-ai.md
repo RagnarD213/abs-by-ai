@@ -2,7 +2,7 @@ AD (Great Again T upsell video). Task name: `GAT Upsell 4 AD R1`.
 
 # WV-07: Great Again T Upsell 4: Abs By AI
 
-**Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
+**Round 1 in production on the M6 (2026-11-19, Claude chat "GAT Upsell 4 AD R1", took over the held batch row chat-WV-07-R1).** Job folder `~/Projects/_edit_work/WV-07` (M6 internal; verified local copy of the C1904 range in `src/`, `src/MAPPING.json`). Take map `plan/take_map.md`; whole cut 4:41 (`film/work/edl/edl_tight.json`). Round 1 = first 78 s + every later graphic in context. Not approved, uploaded or scheduled.
 
 ## Style for the upsells (Dan, 2026-11-16, from his Upsell 1 round 1 review)
 
