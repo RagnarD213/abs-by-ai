@@ -86,7 +86,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
-**GATUpsell3(WV-06):IN-PRODUCTION:2026-11-18:Claude,M2.** Resumed by Dan. EDL done, piece A keyed; keying B-M, then first minute and R1 page. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
+**GATUpsell3(WV-06):R1-WITH-DAN:2026-11-19:Claude,M2.** Round 1 page http://127.0.0.1:9879/ (M2+M6); slot released; last key pieces and audio recheck finish in background. Next: Dan's reply starts the full build. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell2(WV-05):R2-WAITING-SLOT:2026-11-19:Claude,M6.** Round 2 prepped (CTA, breaths, 8 cards, AI briefs); waiting for an M6 edit slot (auto-start armed). `~/Projects/_edit_work/WV-05/round2-plan/`.
 **GATUpsell4(WV-07):R1-WITH-DAN:2026-11-19:Claude,M6.** Round 1 page http://127.0.0.1:9878/; slot released; remaining key pieces run in background. Next: Dan's reply starts the full build. `~/Projects/_edit_work/WV-07/round1/ROUND-1-NOTES.md`.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
@@ -208,7 +208,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Love Handles HOLD 2026-10-30, Codex01a188fd.** Setup complete; approved middle thumbnail installed. Automatic waitlist, four slots needed. No Dan action. `Docs/RO30_SETUP_RECEIPT_20261030.md`.
 
 
-**Brief:2026-11-18:Codex.** Edition/image verified; Shopify unavailable; maintenance incomplete.
+**Brief:2026-11-19:Codex.** Edition/image verified; Shopify unavailable; maintenance incomplete.
 
 
 **DS-01 HOLD 2026-10-27, Claude.** Waitlist, Jan 28. `Docs/DS01_SETUP_RECEIPT_20261027.md`
@@ -272,7 +272,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **Video Views - HANDOFF 2026-10-07, Codex.** `24321429584`: $2 CPV, $5/day, zero spend. Thumbnail: `Handoffs/handoff-20261007-belly-fat-emergency-thumbnail-replacement.md`. Next: Oct 8 spend check.
 
-**Nightly footage - 2026-11-17, Codex/Claude.** Nine shoots verified on Seagate and Drive; 8 pm copy-only routine active. Extreme has 826 GiB free. Originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
+**Nightly footage - 2026-11-18, Codex/Claude.** Nine shoots verified on Seagate and Drive; 8 pm copy-only routine active. Extreme free space varies with editing jobs; check before new ingest. Originals retained; deletion paused. Next: keep copying new shoots and decide a separate offload step. Detail: `Handoffs/handoff-20261005-claude-nightly-footage-offload.md`.
 
 **Codex revisions recovery - OPEN 2026-10-05, Codex.** Tool fixes and test Doc delivered; external video judge failed the known case. Fresh passes: 0. Next: eligible short plus sealed Claude Doc, then complete motion/AI coverage and blind comparison. Keep Claude editorial default. Detail: `Handoffs/results-20261005-codex-revisions-quality-recovery.md`.
 
