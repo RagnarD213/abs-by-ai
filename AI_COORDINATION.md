@@ -88,7 +88,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
 **GATUpsell3(WV-06):IN-PRODUCTION:2026-11-18:Claude,M2.** Resumed by Dan. EDL done, piece A keyed; keying B-M, then first minute and R1 page. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell2(WV-05):R1-WITH-DAN:2026-11-19:Claude,M6.** Round 1 page http://127.0.0.1:9877/; slot released. Remaining key pieces run in background. Next: Dan's reply starts the full build. `~/Projects/_edit_work/WV-05/round1/ROUND-1-NOTES.md`.
-**GATUpsell4(WV-07):REGISTERED-NOT-STARTING:2026-11-18:Claude:M2.** Starts off; preflight fails (Full Disk Access). Next: after grant, `batch.py start chat-WV-07-R1`. Brief `Handoffs/video-editing/WV-07-R1-queue-brief.md`.
+**GATUpsell4(WV-07):IN-PRODUCTION:2026-11-19:Claude,M6.** Owner: chat "GAT Upsell 4 AD R1" (batch row taken over). Job `~/Projects/_edit_work/WV-07`. Next: round 1 page.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
