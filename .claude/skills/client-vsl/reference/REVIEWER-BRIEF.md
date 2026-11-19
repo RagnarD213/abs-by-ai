@@ -7,7 +7,9 @@ background. If Dan's Fable allowance is low, use `ra-reviewer` on Opus 5.5 high 
 **Give it:** the delivered masters (captioned and clean at the locked pace) and the SRT, their sha256 (from `gates.json`),
 the master script, `STYLE-LOCK.md`, the "Visual rules" section of the blocks brief, `_shared/VIDEO-RULES.md` (headings
 plus the B-roll grading, cutaway, AI disclosure, AI clip fault and scene/freeze sections), and the previous review in
-full. For a narrow re-check (only after a clean whole-film review), also the previous master to diff against.
+full. **And the client's side:** his word-for-word source copies (`<job>/client/`) and the output of
+`client_ledger.py report <job> --for reviewer` (his words, where, our claimed film time; no fix notes). Joint Vigor's six
+reviews never saw the client's feedback doc and passed a film that ignored it. For a narrow re-check (only after a clean whole-film review), also the previous master to diff against.
 
 **Never give it:** the editor's receipts, fix lists, STATUS.md, TIME-LOG.md, the editor's own check sheets, or your
 opinion of what is fixed.
@@ -19,6 +21,12 @@ opinion of what is fixed.
 > master script [path], and from [VIDEO-RULES.md path] its headings plus the B-roll grading, cutaway, AI disclosure, AI
 > clip fault and scene/freeze sections. The previous review is [path]: verify every item in it against the new file and
 > say fixed, not fixed or new problem.
+>
+> The client's own instructions are in [client/ folder] and listed in [ledger report path]. Read his documents
+> yourself first; then, for EVERY row of the report, find the place in the film and mark it PASS or FAIL with the exact
+> time and what you see. Judge against his words, not against our plan or style lock. Check whole-film rules over the
+> whole film. If you find an instruction in his documents that is missing from the report, that is a MUST. If anything
+> is described as approved by the client and you cannot find his words saying so, that is a MUST.
 >
 > Check at least: container and hashes; the whole picture by full decode with an explicit BT.709 matrix (per-frame luma,
 > black, flashes, isolated frames, freezes, every shot of 10 frames or fewer as a strip, first and last frame of every
@@ -32,10 +40,13 @@ opinion of what is fixed.
 > Write [job]/asm/REVIEW-[letter].md: how you checked, what passed, every earlier item, findings as MUST (breaks a rule
 > or would embarrass Dan with the client), SHOULD and NIT, each with the exact time at the locked pace, frame number,
 > what is wrong and a concrete fix, then "Not verified" (everything you could not check, including that nobody
-> listened), then a defect list, then one line: VERDICT: SHIP or VERDICT: DOES NOT SHIP. SHIP means zero MUST.
+> listened), then a defect list, then a table "Client ledger" with every row id, PASS or FAIL, the film time and one
+> line of evidence, then one line: VERDICT: SHIP or VERDICT: DOES NOT SHIP. SHIP means zero MUST and zero ledger FAIL.
 
 ## After the review
 - Any MUST: fix every MUST and SHOULD (or record why a SHOULD stays, for Dan), run the whole-film sweeps again
   ([GATES.md](GATES.md)), one re-finish, all gates, a NEW reviewer. Do not show Dan a DOES NOT SHIP film unless he asks.
 - SHIP: Dan's page with the remaining SHOULDs listed as "For Dan's call", slot released `--review`.
+- Record every ledger verdict: `client_ledger.py review <job> L<n> --result pass|fail --at <time> --by REVIEW-<x>`.
+  A `done` on an item clears its old verdict, so every fix is re-verified by the next reviewer.
 - Log the review in `TIME-LOG.md` with its start, end and verdict.

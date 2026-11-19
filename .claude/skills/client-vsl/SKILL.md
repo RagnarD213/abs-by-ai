@@ -6,8 +6,9 @@ description: Edit a CLIENT's long-form direct-response VSL (front-end or upsell/
 # Client VSL edit (Social Response Marketing)
 
 The method that produced the Joint Vigor VSL (Goldenroots Naturals, client Eric, Upwork): 59:35 at 1.1x, uncut master
-script, Fable review F = SHIP, Dan approved 2026-11-18. Every future client VSL meets that bar. The finished masters are
-the reference: [reference/QUALITY-BAR.md](reference/QUALITY-BAR.md).
+script, Fable review F = SHIP, Dan approved 2026-11-18. That film is the TECHNICAL bar
+([reference/QUALITY-BAR.md](reference/QUALITY-BAR.md)). It is also the film that missed the client's written feedback:
+a film that passes every technical gate and fails the client ledger is a failed film.
 
 **Category: AD (client VSL).** Write it on the first line of the task, every handoff and every receipt. Task names:
 `<Product> VSL AD R<round>` (for example `Joint Vigor VSL AD R4`). These are agency jobs: the Abs By AI release
@@ -15,8 +16,10 @@ calendars, Blotato, YouTube, thumbnails, setup handoff and "no new Abs By AI ads
 publishing.
 
 ## Read first, every job
-1. This file, then the reference file for the round you are on (table at the bottom).
-2. The job folder's `STYLE-LOCK.md` (from round 4 on) and `STATUS.md`. Job notes live in the private SRM repo:
+1. This file, [reference/CLIENT-LEDGER.md](reference/CLIENT-LEDGER.md), then the reference file for the round you are
+   on (table at the bottom).
+2. The client's own thread and docs, to the newest message, then `client_ledger.py gate <job> --stage plan`. Then the
+   job folder's `CLIENT-LEDGER.json`, `STYLE-LOCK.md` (from round 4 on) and `STATUS.md`. Job notes live in the private SRM repo:
    `~/Projects/Claude/Projects/Social Response Marketing/clients/<client>/<job>/`. Media and builds live in
    `renderq.py workdir` (Joint Vigor: `/Volumes/Extreme/_edit_work/SRM-goldenroots-jointvigor/`).
 3. `.claude/skills/_shared/VIDEO-RULES.md` sections: B-roll correction in the finished film, AI clip filing, Google
@@ -34,12 +37,22 @@ publishing.
 - **The client's casting rule is a gate**, written into `STYLE-LOCK.md` and audited over the whole film before every
   review (Joint Vigor: Caucasian seniors everywhere, Japanese people and settings only where the script mentions Japan
   or Okinawa).
-- **Every client feedback doc is a checklist the finished film must pass** (Joint Vigor, 2026-11-19: R4 reused the
-  trial lead as "approved by Eric" when only Dan had approved it, so Eric's Feedback 1 notes and his no-TSL-images rule
-  never reached the full film). Copy every note into `FEEDBACK-CHECKLIST.md` with its current film time; only the
-  client's own written words make footage "client approved"; carry every client rule (casting, no TSL images except
-  studies and proof) into every block brief; the final reviewer gets the client's docs and marks each item with a
-  timestamp.
+- **The client ledger gates every step. This is the first rule, not one of many** (Joint Vigor, 2026-11-19: Eric's
+  feedback doc on the trial lead never reached the full film, although we told him three times it would; full analysis
+  and the method in [reference/CLIENT-LEDGER.md](reference/CLIENT-LEDGER.md)). Every instruction the client writes and
+  every promise we send goes into `CLIENT-LEDGER.json` in his exact words the turn it arrives
+  (`tools/client_ledger.py`). Run `gate --stage plan` at the start of every round and every new chat, `--stage build`
+  before the first render, `--stage review` before the reviewer, `--stage deliver` before Dan's page and before any
+  send. A failing gate stops the work; never argue with it, close the items.
+- **Read the client's thread yourself at the start of every round**, to its newest message, and fetch every doc he has
+  linked again (he edits them after sending). A handoff, plan or style lock is our summary and has already lost
+  something; it never replaces his words.
+- **"Approved by the client" means his own written words, quoted in the ledger.** A paid milestone, Dan's approval,
+  "sounds good" and silence are not approval. The trial lead is our draft: his feedback on it is a build list for the
+  full film, and the lead is rebuilt from that list, never reused.
+- **His notes that need no option still need an owner.** Anything he asks for that is not an A/B choice (more B-roll,
+  no sales-letter images, timestamp fixes) is shown back to him on the next review page under "Also changing, no
+  choice needed", and is a row in every brief.
 - **Every AI picture of a person carries the "Dramatization" chip** top left, clear of faces, on every frame it shows,
   including crops and client-supplied AI images. Product, ingredient, study and illustration shots do not.
 - **No em or en dashes in any on-screen text, page copy or client message.** Page builders assert it.
@@ -64,11 +77,11 @@ and Seagate drives; when the M6 edits there, run the keepalive and throttle big 
 ## The rounds (detail: [reference/ROUNDS.md](reference/ROUNDS.md))
 | Round | What the client sees | Lock written |
 |---|---|---|
-| 0 Intake | One short message asking only for what is missing | `PLAN.md` |
-| 1 Trial | The finished first ~5 minutes (the lead), captioned + clean + SRT, for the $5 milestone | approved lead = visual vocabulary |
+| 0 Intake | One short message asking only for what is missing | `PLAN.md`, `CLIENT-LEDGER.json` from the brief |
+| 1 Trial | The finished first ~5 minutes (the lead), captioned + clean + SRT, for the $5 milestone | nothing: the lead is our draft until he approves it in writing; his feedback on it is itemized into the ledger |
 | 2 Style options | A page with one pick per area: opening, set/framing, pace, music, callouts, mechanism animation | picks |
-| 3 Key visuals + script cuts | Replacement options for anything he asked to change, 10 to 15 key-visual stills, cut options as tracked-change Docs | `STYLE-LOCK.md` (first step of R4) |
-| 4 Full build | The whole uncut film (or the version he names), captioned + clean + SRT, VTurb reveal time | |
+| 3 Key visuals + script cuts | Replacement options for anything he asked to change, 10 to 15 key-visual stills, cut options as tracked-change Docs | `STYLE-LOCK.md` (first step of R4): his picks plus every open ledger item |
+| 4 Full build | The whole uncut film (or the version he names), with the lead rebuilt from his feedback, captioned + clean + SRT, VTurb reveal time, and his notes answered one by one | |
 | 5 Split-test cut | The same edit with the approved cuts lifted out, its own reveal time | |
 | 6 Upsells, vertical | Each upsell/OTO version; the mobile vertical from the version he names | |
 
@@ -76,7 +89,8 @@ Internal reviews by Dan come before every client round. Two revision rounds per 
 anything beyond is a new quote.
 
 ## The full build (detail: [reference/PIPELINE.md](reference/PIPELINE.md))
-1. `STYLE-LOCK.md` written from the picks before anything renders.
+1. `STYLE-LOCK.md` written from the picks AND every open ledger item before anything renders; `gate --stage build`
+   passes on the lock and the blocks brief.
 2. Opening rebuilt from the original layers with the picked clips.
 3. House chroma key over the whole spokesperson roll (start it first; it is the longest machine step).
 4. Dialogue foundation: master-order EDL, last clean complete take, film-time words at 1x, `MAP.md` with blocks, VO
@@ -89,12 +103,16 @@ anything beyond is a new quote.
 8. Cards built in code in the approved card style, contain-fitted above the caption band.
 9. Render chunks picture-only (captioned and clean in one pass, frame exact), assemble with the timing shifts, finish
    once: 1.1x pace, music laid over the whole film in one pass and ducked to the measured targets, -13.5 LUFS.
-10. Gates, receipt, Dan's review page, fresh Fable review. Fix, re-finish once, repeat until SHIP.
-11. Deliver captioned + clean + SRT (Drive folder, public link, hashes checked) with the VTurb reveal time.
+10. Gates (ledger `--stage review` first), receipt, fresh Fable review that marks every ledger row, Dan's review page.
+    Fix, re-finish once, repeat until SHIP and every ledger row has a reviewer PASS.
+11. `gate --stage deliver` passes. Deliver captioned + clean + SRT (Drive folder, public link, hashes checked) with the
+    VTurb reveal time and the note-by-note answer to his feedback.
 
 ## Quality gates (detail and the defect list: [reference/GATES.md](reference/GATES.md))
 Run every one of these on the delivered masters BEFORE the reviewer sees them. Each exists because a Joint Vigor review
 found its defect class:
+- **client ledger** (`client_ledger.py gate`): every client instruction done with a frame from the master, or waived in
+  his own words; no "approved by the client" claim without his quote; thread swept in the last 24 hours;
 - frame counts and video = audio length at 1x and paced; loudness; seam scan on every EDL join; music dropouts;
 - per-frame luma (isolated dark frames, dark runs, one-frame flashes) and black/freeze detection;
 - **BT.709 decode check after any patch round** (patch tools that decode as BT.601 darken the film 2 to 3% per round);
@@ -110,14 +128,18 @@ found its defect class:
 - every B-roll insert colour corrected and checked as a frame pulled from the final master.
 
 **Reviewer:** a fresh Claude Fable 5.2 high-effort agent (`Agent`, `model: "fable"`) on the WHOLE film every round
-until it returns SHIP, given only the delivered files, the master script, `STYLE-LOCK.md`, the visual rules and the
-previous review. Never the editor's receipts. Brief: [reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md). Dan sees
+until it returns SHIP, given the delivered files, the master script, `STYLE-LOCK.md`, the visual rules, the previous
+review, **the client's own source copies and `client_ledger.py report --for reviewer`** (his words and our claimed film
+times, no fix notes). It marks every ledger row PASS or FAIL with a time; any FAIL is a MUST. Never the editor's
+receipts. Brief: [reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md). Dan sees
 the film only after a SHIP (or with the open items listed).
 
 ## Dan's review page
 `_shared/review_server.py <PORT> <DIR>` (byte-range seeking, silent-check and owner hand-off injected, Full screen opens
-the file in VLC through `/__fullscreen`). The page has a button whose text is exactly `Full screen`, chapter links to
-every changed spot and cut point, the revision list at paced film time, and "For a human ear" (what nobody has heard).
+the file in VLC through `/__fullscreen`). The page opens with **"What <client> asked for"**: every ledger row in his
+words with a chapter link to where it is now in the film and the reviewer's verdict, so Dan can check the client's notes
+without remembering them. It has a button whose text is exactly `Full screen`, chapter links to every changed spot and
+cut point, the revision list at paced film time, and "For a human ear" (what nobody has heard).
 Builder model: Joint Vigor `asm/make_review_r2.py` (kit copy in the job folder, see PIPELINE.md). Test it at 800 and
 1150 px in the side pane, hand over with `beginChecks()` then `handoff()`.
 
@@ -128,6 +150,7 @@ on the next job; Joint Vigor did not.
 ## Reference files
 | File | Use it for |
 |---|---|
+| [reference/CLIENT-LEDGER.md](reference/CLIENT-LEDGER.md) | The ledger method, when to run each command, and the Joint Vigor miss cause by cause |
 | [reference/ROUNDS.md](reference/ROUNDS.md) | Client round structure, review-page building and hosting on review.socialresponsemarketing.com, client message rules |
 | [reference/STYLE-LOCK-TEMPLATE.md](reference/STYLE-LOCK-TEMPLATE.md) | The per-job lock file |
 | [reference/PIPELINE.md](reference/PIPELINE.md) | Every build step with the tool that does it (Joint Vigor kit paths) |

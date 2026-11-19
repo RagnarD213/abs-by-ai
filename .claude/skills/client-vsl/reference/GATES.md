@@ -8,6 +8,7 @@ reviewer sees the film**; the reviewer should be finding judgement calls, not de
 ## The gates, in run order
 | # | Gate | Tool (Joint Vigor kit, `claude-r4/...`) | Pass |
 |---|---|---|---|
+| 0 | **Client ledger** | `.claude/skills/client-vsl/tools/client_ledger.py gate <job> --stage build` (before the first render), `--stage review` (before the reviewer), `--stage deliver` (before Dan's page and any send) | PASSED line in the receipt. Every client instruction done with a frame from the master and a reviewer PASS, or waived in his own words; no unsupported "approved by the client"; thread swept within 24 h |
 | 1 | Plan lint | `build/lint_plans.py` all plans | no still over 5 s in VO, no source reused within 90 s (keyed by file NAME, not path), no missing asset |
 | 2 | Casting audit, whole film | `build/casting_audit.py --master <clean 1.1x> --out asm/castN` then read every sheet by eye | every featured person fits the client's casting rule; professionals and background listed for Dan |
 | 3 | Dramatization chip sweep | native-size crops of the top-left corner on the first and last frame of every AI shot of people (Joint Vigor: `asm/checkE/chip/`) | every AI clip, AI still, AI testimonial and client-supplied AI image of people carries the chip, clear of faces |
@@ -32,6 +33,7 @@ Gate 17 is the one Joint Vigor never ran (reviews C, E and F each noted the miss
 ## What each review found, and the check that now catches it
 | Defect class | Joint Vigor example | Found in | Caught now by |
 |---|---|---|---|
+| **The client's written feedback not applied** | Eric's 19 timestamp notes on the trial lead and his no-sales-letter-images rule: lead reused as "approved by Eric", 80 such images in the film, reviews never saw his doc | the client, the day after delivery | gate 0; [CLIENT-LEDGER.md](CLIENT-LEDGER.md) |
 | Picture shorter than the sound | block 1's picture ended 2 s early | block 1 | gate 6 |
 | Flash at a chunk or opening join | a 4-frame CLOSE flash at the opening seam | block 1 (editor's own frame check) | gate 7, plus a frame strip across every chunk join and the opening seam |
 | See-through coat | hand shadows on the white coat read as holes on the grey plate | block 1 | `coat_scan.py` + compositor `coat_lift` (PIPELINE step 1) |
@@ -68,6 +70,10 @@ Gate 17 is the one Joint Vigor never ran (reviews C, E and F each noted the miss
 | Client-supplied generated people unchipped | the customer wall of generated people holding the bottle | E S8, F3 | gate 3; ask the client whether his AI images are dramatizations |
 
 ## Process lessons (fewer rounds next time)
+- A reviewer line such as "I could not establish whether the client approved this" (Joint Vigor review F said it three
+  times) is a stop: answer it from the ledger before Dan sees the film. It was the last warning before the miss.
+- No check may measure the new film against an earlier cut of ours as "approved" (Joint Vigor's `approved_check_r4.py`
+  and block 1's "58 of 58 cuts matched" proved the film matched the un-revised trial).
 - Run a full-film reviewer on the first finished block: it caught four systematic faults before blocks 2 to 4 rendered.
 - Every fix round: fix ALL items (MUST and SHOULD), then run the whole-film sweeps (casting, chips, luma, BT.709) again,
   not only the changed spots. Joint Vigor's D and E MUSTs were classes C's fixes could have swept.

@@ -1,5 +1,11 @@
 # The quality bar: Joint Vigor R4 masters (approved by Dan 2026-11-18)
 
+**Technical bar only (2026-11-19).** These masters passed every picture, sound and caption gate and Dan's review, and
+still failed the client: his written feedback on the trial lead was never applied and 80 sales-letter images he asked
+us not to reuse are in them ([CLIENT-LEDGER.md](CLIENT-LEDGER.md)). Use them to calibrate finish quality, never as
+proof of what a client wants, and never as "client approved" footage. The R5 masters replace them here once Eric
+approves that film in writing.
+
 Dan: "excellent... I want all future VSLs to be up to the standard." Fable review F: SHIP (0 MUST). Folder:
 `/Volumes/Extreme/_edit_work/SRM-goldenroots-jointvigor/claude-r4/asm/out/` (after the job goes idle, in
 `/Volumes/Expansion/_finished_edit_jobs/<mac>-extreme/SRM-goldenroots-jointvigor/`). Receipt: `RECEIPT-R2.md` there.

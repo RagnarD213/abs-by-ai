@@ -3,6 +3,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Google subscription first](veo-subscription-first.md): 11-08 Claude + Codex video and image attempts on Google/Flow; paid API only after recorded subscription failure
 ## Working with Dan
 - Agency (SRM) work: 11-02: Upwork, outreach, no-calls rule and SRM email memory live in the Social Response Marketing project (`~/Projects/Claude/Projects/Social Response Marketing`)
+- [Client ledger gates client work](client-ledger-gates-client-work.md): 11-19: every client instruction itemized in his exact words the turn it arrives; client_ledger.py gate before build, review and any send; never 'approved by client' without his quote
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Do the clicks yourself](do-the-clicks-yourself.md): 11-05 standing rule: checkout/buy = do every step up to payment (Continue, shipping address); hand Dan only payment
 - [Do the next step, contact support](do-the-next-step-and-contact-support.md): 11-05: do it yourself, open vendor support chat/tickets proactively (like ChatGPT); only hard limits stay Dan's

@@ -5,7 +5,16 @@ Each round below is what Joint Vigor actually did, with the change Dan would mak
 `SPLIT-PANELS-R3.md`, `HANDOFF-R3-KEY-VISUALS.md`, `TRANSCRIPT-CUTS-R3.md`, `R4-PLAN.md`, `STYLE-LOCK.md`, `STATUS.md`,
 `CLIENT-MESSAGE-*.md`). Build folders: `/Volumes/Extreme/_edit_work/SRM-goldenroots-jointvigor/claude-r1..r4/`.
 
+## Every round, first step (added 2026-11-19 after the Joint Vigor miss)
+Read the client's thread yourself to its newest message, fetch every doc he has linked again and `recheck` it, itemize
+anything new into the ledger, `sweep`, then `client_ledger.py gate <job> --stage plan`
+([CLIENT-LEDGER.md](CLIENT-LEDGER.md)). The round's plan is written from the ledger report, not from the previous
+handoff. Joint Vigor planned each round from the last handoff plus his newest message: the 19 timestamp notes were one
+sentence by round 2, gone by round 3, and his no-sales-letter-images rule was gone by round 4.
+
 ## Round 0: intake and plan
+- `client_ledger.py init`, then register the brief and every doc it links that carries instructions (Joint Vigor: the
+  brief and his Joint Genesis editing-references doc) and itemize them.
 - Download everything the brief links (spokesperson camera, VO, master + camera + VO scripts, reference VSLs, the
   client's sales page and order page). Verify each download against Drive. Transcribe the start of camera and VO
   offline (Whisper) to find the recording order and slates.
@@ -36,6 +45,9 @@ Goal: one usable, captioned first five minutes that shows the client you can mak
 6. Deliver after Dan approves: captioned MP4, clean MP4, SRT in one Drive folder (anyone with the link, MD5 checked,
    opened logged out), plus the client message, through the trial milestone. Ask the client to fund the next milestone;
    verify it is funded before building beyond the lead.
+7. **When his feedback on the lead arrives, itemize it before replying** (one ledger item per note, his words). The
+   reply answers by item, and every "I'll do that" in it becomes a `promise` item once sent. A paid or approved
+   milestone closes the payment, not the notes: the lead stays our draft and is rebuilt from his notes in round 4.
 
 Joint Vigor: 13:05 to 21:46 CT on 11-06, five internal passes (R1 to R5B), Dan chose version B (full testimonials).
 
@@ -52,6 +64,10 @@ the thing being chosen. Joint Vigor's areas and what Eric picked:
 | Callouts | F1 red punch-in, F2 bold kinetic words, F3 subtle side card | F1 |
 | Mechanism animation | V1 the client's requested fix, V2 a second take (split ordinary vs product layer) | V2 |
 
+- **A last section, "Also changing, no choice needed":** every open ledger note and rule that has no option on the
+  page, in plain words (Joint Vigor should have listed: real B-roll in place of sales-letter images, Caucasian seniors
+  throughout, each timestamp fix, three testimonials, the friend's expression). The client sees his notes carried and
+  can correct our reading; we cannot forget them, because the page builder reads them from the ledger.
 - Pace projection: script words (Joint Vigor 8,026, 3,682 before the reveal line), measured spokesperson rate on the trial
   (121.3 wpm, 128.0 wpm with pauses over 0.30 s tightened), runtime and reveal at each speed. State the trade-off plainly
   in the message (1.3x was the only speed inside his 45 to 50 minutes).
@@ -80,14 +96,16 @@ Three sections on one page:
    generated. A study the sources cannot find is marked "to confirm", never invented.
 
 Joint Vigor builder: `claude-r3/work/build_page2.py` (`--all` client page, `--dan` Dan's), key-visual cards
-`claude-r3/kv/kv_cards.py`. The client's answer is the input to `STYLE-LOCK.md`
+`claude-r3/kv/kv_cards.py`. The client's answer, together with every open ledger item, is the input to `STYLE-LOCK.md`
 ([STYLE-LOCK-TEMPLATE.md](STYLE-LOCK-TEMPLATE.md)), written as the first step of round 4. Revised key visuals he did not
 approve go to Dan as a quick look (blind A/B if both AIs made one) and never hold the edit.
 
 ## Round 4: the full build
-See [PIPELINE.md](PIPELINE.md). Promise a date with a day of padding (Joint Vigor: promised end of Thursday, delivered
+See [PIPELINE.md](PIPELINE.md). The lead is rebuilt from his feedback items, not carried over from the trial; reuse only
+the pieces he praised or picked, each tied to its ledger item. Promise a date with a day of padding (Joint Vigor: promised end of Thursday, delivered
 Wednesday). Re-estimate from block 1's measured time on day one and tell Dan the same day if the date is at risk. No
-review page goes to the client before the full film. Delivery message: the folder link, the runtime and the exact VTurb
+review page goes to the client before the full film. Delivery message: `gate --stage deliver` PASSED first, then the
+folder link, his notes answered one by one with the new film time of each (`report --for client`), the runtime and the exact VTurb
 reveal time, the cut version's projected length and reveal, what the casting and Dramatization treatment is, a request
 for timestamped revisions from the captioned version, the number of included revision rounds, and what comes next.
 
@@ -133,5 +151,7 @@ for timestamped revisions from the captioned version, the number of included rev
   exactly what to do next ("tap the one you like, then Copy my picks and paste it here"), what happens after, "Dan".
 - Answer each of his notes by its item number, say what changes in plain words, never argue. Flag a number you got
   wrong earlier yourself (Joint Vigor R3: the 190 words were computed for 1.3x, not 1.1x).
-- Before writing a delivery message, re-read the thread for promises made (Joint Vigor: the vertical, three upsell
-  versions, two revision rounds, the date).
+- Before writing any message, sweep the thread and run the ledger gate for the stage. Promises live in the ledger as
+  `promise` items (Joint Vigor: the vertical, three upsell versions, two revision rounds, the date, "every timestamp
+  note", "I'll check the reference you added before I start"), so none depends on someone re-reading the thread.
+- Never tell a client a note "will be applied throughout" unless that same turn it is a ledger item with an owner.

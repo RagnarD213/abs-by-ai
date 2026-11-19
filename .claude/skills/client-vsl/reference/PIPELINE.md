@@ -13,7 +13,9 @@ Times in plans, words and EDLs are **film time at 1x**. The pace (1.1x) is appli
 film is at g * 1001 / 30000 s (29.97 fps); renders are frame exact so chunks concatenate without a seam.
 
 ## 0. Lock and set up (first hour)
-- `STYLE-LOCK.md` from the picks ([STYLE-LOCK-TEMPLATE.md](STYLE-LOCK-TEMPLATE.md)), copy it into the job folder.
+- Sweep the client thread, `client_ledger.py gate <job> --stage plan` ([CLIENT-LEDGER.md](CLIENT-LEDGER.md)).
+- `STYLE-LOCK.md` from the picks and every open ledger item ([STYLE-LOCK-TEMPLATE.md](STYLE-LOCK-TEMPLATE.md)), copy it
+  into the job folder. Before the first render: `gate --stage build --brief STYLE-LOCK.md BLOCKS-BRIEF.md`.
 - Edit slot, workdir, `TIME-LOG.md` (one line per milestone, with the clock time; the quoting numbers come from it).
 - Opening: re-render from the ORIGINAL layers with the picked clips (`claude-r2/work/d_opening.py`), not from a published
   review file. Check heads clear the on-screen words (Joint Vigor: C1 shrink 0.95 then 0.90).
@@ -37,7 +39,9 @@ film is at g * 1001 / 30000 s (29.97 fps); renders are frame exact so chunks con
    dropped; pauses tightened. Output `edl_r4.json`, `takes_r4.json`.
 4. `build_dialogue_r4.py`: per-source gains (Joint Vigor: camera +4.0 dB, VO +3.2, testimonials levelled per clip to
    -18 LUFS), the approved voice treatment, whole-film normalisation (Joint Vigor dialogue: -16.2 LUFS, -1.5 dBTP).
-5. `approved_check_r4.py`: the client-approved lead is reproduced field for field (sample difference ~1e-7).
+5. `approved_check_r4.py` compares the DIALOGUE of the trial lead with the new foundation (sample difference ~1e-7):
+   use it only for sound, and only for lines the client did not ask to change. Joint Vigor wrongly treated the whole
+   lead, pictures included, as client approved; the lead's pictures are rebuilt from his feedback items.
 6. `join_scan_r4.py` (noise steps, clicks, level steps across every cut), `edge_check_r4.py` (any cut inside speech),
    `flags_r4.py` (misreads, ad-libs, dropped words, all listed in `RECEIPT.md` with line numbers), Whisper spot checks.
 7. `map_r4.py` writes `MAP.md` and `map.json`: four blocks of about 15 minutes on section boundaries, the VO passages
@@ -57,7 +61,8 @@ film is at g * 1001 / 30000 s (29.97 fps); renders are frame exact so chunks con
 - One shared brief ([BLOCKS-BRIEF-TEMPLATE.md](BLOCKS-BRIEF-TEMPLATE.md); Joint Vigor's is `claude-r4/BLOCKS-BRIEF.md`),
   one agent per block (Opus 5.5 high), started as soon as the dialogue map exists. Each writes only `blocks/bN/`:
   `plan_bN.json`, `SOURCES.md`, `plan_bN_sheet.jpg`, `RECEIPT.md`.
-- Plan schema (from the approved lead's `claude-r1/cut/plan_r5b.json`): base events `[t, type, ...]` with `cam`
+- Each block planner gets its ledger rows in the brief and returns `LEDGER.md` (id, film time, what was done).
+- Plan schema (from the trial lead's `claude-r1/cut/plan_r5b.json`): base events `[t, type, ...]` with `cam`
   CLOSE/MEDIUM alternating on every camera span, `hf` graphic .mov with in-point, `clip` (AI, reviewed), `img` (client
   image), `stock` (id + in-point), `split`, `ugc`; overlays `[t0, t1, overlay.mov]`; `callouts`; `stock_files` or
   `stock_paths` maps; `needs_ai` entries (prompt + stock fallback); `needs_build` cards.
@@ -136,10 +141,13 @@ film is at g * 1001 / 30000 s (29.97 fps); renders are frame exact so chunks con
 ## 11. Receipt, review page, review
 - `asm/make_receipt_asm.py` writes `RECEIPT-R2.md`: files with frames, duration and sha256; gates; fix by fix; the
   revision list at 1.1x; cut points; "For a human ear"; gate notes; what was not done.
-- `asm/make_review_r2.py --port <PORT>` builds Dan's page; serve with `_shared/review_server.py <PORT> <DIR>`; release
+- `client_ledger.py done` for every item with a frame pulled from the master, then `gate --stage review`.
+- `asm/make_review_r2.py --port <PORT>` builds Dan's page (first section: `client_ledger.py report <job>`, each row a
+  chapter link); serve with `_shared/review_server.py <PORT> <DIR>`; release
   the slot `--review`; start a fresh Fable reviewer ([REVIEWER-BRIEF.md](REVIEWER-BRIEF.md)). Loop until SHIP.
 
 ## 12. Deliver
+- `client_ledger.py gate <job> --stage deliver` PASSED, pasted into the receipt and the message draft.
 - Captioned + clean + SRT at the locked pace in a Drive folder (anyone with the link), each file's hash checked after
   upload, opened logged out. Client message drafted with the VTurb reveal time (first frame of the product on the spoken
   product word: Joint Vigor 28:27.75 at 1.1x).
