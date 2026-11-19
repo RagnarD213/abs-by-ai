@@ -103,7 +103,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**FlowMusic:R3-PICKS:2026-11-18:Claude.** R1, R2 rejected; 5 high-energy takes on :8800. Next: Dan picks, then full song. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
+**FlowMusic:LICENSE-ASK+HOOKS:2026-11-19:Claude.** R1-R3 audio rejected. 10 $200 licensing comments posted (5 public, 5 held). Next: check replies 11-22; Dan rules on 4 paper hooks, Suno. `Docs/FLOW_MUSIC_BRIEF_20261107.md`.
 
 
 
