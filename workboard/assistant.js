@@ -23,10 +23,12 @@ function createAssistant({read,write,lock,onTodos=()=>{}}){
    if(next.some(t=>t.text.toLowerCase()===p.text.trim().toLowerCase()))throw new BoardError('That task is already on the list.',409);
    if(!(Object.hasOwn(priorities,p.priority)))throw new BoardError('Choose an existing priority.');
    next.push({text:p.text.trim(),priority:p.priority,recurring:false,addedAt:new Date().toISOString().slice(0,10)});
-   if(tasks.some(t=>Number.isInteger(t.boardRank)))next=ordered(next).map((t,i)=>({...t,boardRank:i}));
+   if(p.index!=null){const t=next.at(-1),rest=ordered(next).filter(x=>x!==t);if(!Number.isInteger(p.index)||p.index<0)throw new BoardError('Invalid position.');rest.splice(Math.min(p.index,rest.length),0,t);next=rest.map((t,i)=>({...t,boardRank:i}));}
+   else if(tasks.some(t=>Number.isInteger(t.boardRank)))next=ordered(next).map((t,i)=>({...t,boardRank:i}));
   }else{
    const t=next.find(t=>t.text===p.text);if(!t)throw new BoardError('Task not found.',404);
    if(p.action==='priority'){if(!(Object.hasOwn(priorities,p.priority)))throw new BoardError('Choose an existing priority.');t.priority=p.priority;}
+   else if(p.action==='describe'){if(typeof p.why!=='string'||p.why.length>5000)throw new BoardError('Keep the description under 5,000 characters.');if(p.why.trim())t.why=p.why.trim();else delete t.why;}
    else if(p.action==='move'){const sorted=ordered(next),rest=sorted.filter(x=>x!==t);if(!Number.isInteger(p.index)||p.index<0||p.index>rest.length)throw new BoardError('Invalid position.');rest.splice(p.index,0,t);next=rest.map((t,i)=>({...t,boardRank:i}));}
    else throw new BoardError('Unknown assistant action.');
   }
