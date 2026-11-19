@@ -317,11 +317,18 @@
   ],
   "assistant": [
     {
+      "text": "Clean up junk room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-19",
+      "boardRank": 0
+    },
+    {
       "text": "Assemble bar",
       "priority": "key",
       "recurring": false,
       "addedAt": "2026-11-17",
-      "boardRank": 0
+      "boardRank": 1
     },
     {
       "text": "Load dishwasher",
@@ -332,42 +339,42 @@
         4
       ],
       "addedAt": "2026-08-09",
-      "boardRank": 1
+      "boardRank": 2
     },
     {
       "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
-      "boardRank": 2
+      "boardRank": 3
     },
     {
       "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
       "priority": "high",
       "recurring": false,
       "addedAt": "2026-10-06",
-      "boardRank": 3
+      "boardRank": 4
     },
     {
       "text": "Spray weeds with roundup",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-08-03",
-      "boardRank": 4
+      "boardRank": 5
     },
     {
       "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
       "priority": "med",
       "recurring": false,
       "addedAt": "2026-09-01",
-      "boardRank": 5
+      "boardRank": 6
     },
     {
       "text": "Clean exterior of all windows",
       "priority": "low",
       "recurring": false,
       "addedAt": "2026-08-08",
-      "boardRank": 6
+      "boardRank": 7
     },
     {
       "text": "Find coffee table for living room and have Daniel review it",
@@ -375,7 +382,7 @@
       "recurring": false,
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
-      "boardRank": 7
+      "boardRank": 8
     },
     {
       "text": "Bring packages in",
@@ -383,7 +390,7 @@
       "recurring": false,
       "addedAt": "2026-11-17",
       "addedBy": "assistant",
-      "boardRank": 8
+      "boardRank": 9
     },
     {
       "text": "Transfer all bar related items to assembled bar shelf",
@@ -391,7 +398,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 9
+      "boardRank": 10
     },
     {
       "text": "Clean up bar shelf box, plastic, and stryofoam",
@@ -399,7 +406,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 10
+      "boardRank": 11
     },
     {
       "text": "Replace robot mop water",
@@ -407,7 +414,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 11
+      "boardRank": 12
     },
     {
       "text": "Dishes",
@@ -415,7 +422,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 12
+      "boardRank": 13
     },
     {
       "text": "Fold laundry",
@@ -423,7 +430,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 13
+      "boardRank": 14
     },
     {
       "text": "Make bed",
@@ -431,7 +438,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 14
+      "boardRank": 15
     },
     {
       "text": "Take trash out",
@@ -439,7 +446,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 15
+      "boardRank": 16
     },
     {
       "text": "Vacuum bedroom",
@@ -447,7 +454,7 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 16
+      "boardRank": 17
     },
     {
       "text": "Sweep outdoor entry way",
@@ -455,13 +462,6 @@
       "recurring": false,
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
-      "boardRank": 17
-    },
-    {
-      "text": "Clean up junk room",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-19",
       "boardRank": 18
     }
   ],
