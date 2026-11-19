@@ -456,6 +456,13 @@
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
       "boardRank": 17
+    },
+    {
+      "text": "Clean up junk room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-19",
+      "boardRank": 18
     }
   ],
   "handoffs": [
