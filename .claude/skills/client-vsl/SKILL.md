@@ -134,6 +134,17 @@ times, no fix notes). It marks every ledger row PASS or FAIL with a time; any FA
 receipts. Brief: [reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md). Dan sees
 the film only after a SHIP (or with the open items listed).
 
+**Second blind reviewer before anything goes to the client (Joint Vigor, 2026-11-19).** The R5 head passed the reviewer
+above after three rounds (ALL PASS); a second fresh agent that saw ONLY the client's source files, the final film and the
+trial film then found 2 visible glitches (a stray mark and two pointer lines in the praised animation, likely added by a
+later fix) and 7 near-misses on the client's own notes (his 2:29 red highlight visible 0.3 s, a casting doubt, possible
+stills). Why the first missed them: it saw our claimed film times (anchoring), judged presence not visibility (a highlight
+"exists" = PASS), and later rounds re-checked the fixes rather than the whole file. So, on every client delivery: after
+the SHIP, one more brand-new agent (no plans, no ledger, no earlier reviews, no claimed times) samples the WHOLE final file
+every 2 s plus densely around each client timestamp, and judges each note as the client would see it at speed (on screen
+long enough to read, clearly the right people, moving footage not stills). Any FAIL or UNSURE is fixed, then that same
+blind pass runs again on the fixed file. Never tell Dan "passed, ready to send" on one reviewer's word.
+
 ## Models and effort (set 2026-11-19 after the Joint Vigor miss; Dan can change it)
 Checked against the session records: only the round 2 session ever opened Eric's feedback doc. The round 3 chat and the
 round 4 plan (both Fable 5.2) and the round 4 build (Opus 5.5 high) each had his link and "read all of it" in front of
