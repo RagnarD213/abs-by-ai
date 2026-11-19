@@ -16,7 +16,8 @@
     "assistant::Make bed",
     "assistant::Take trash out",
     "assistant::Vacuum bedroom",
-    "assistant::Sweep outdoor entry way"
+    "assistant::Sweep outdoor entry way",
+    "assistant::Clean up junk room"
   ],
   "log": {
     "health::Shower": [
@@ -259,6 +260,7 @@
     "assistant::Make bed": "2026-11-17",
     "assistant::Take trash out": "2026-11-17",
     "assistant::Vacuum bedroom": "2026-11-17",
-    "assistant::Sweep outdoor entry way": "2026-11-17"
+    "assistant::Sweep outdoor entry way": "2026-11-17",
+    "assistant::Clean up junk room": "2026-11-19"
   }
 }
