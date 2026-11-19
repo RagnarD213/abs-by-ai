@@ -46,3 +46,18 @@ Dan authorized the seven paid placements on Nov 18. M6 LaunchAgent `com.absbyai.
 - On Nov 18, Google Ads account `342-717-0837` accepted `dryRun` for seven enabled ad creates with an existing public video asset, and for seven enabled ad creates plus a new public video asset. It also accepted the overlap fallback’s copy and final URL fields in a dry run. The replacement ID becomes available at release. Live readback before and after the ad-create dry runs showed zero enabled ads across the five campaigns, all 45 ads on Dan’s list paused, and tier 2’s target CPA and CPC fields at 50,000 micros.
 - The title was removed from the general skip list. The scheduled M6 job owns this upload. The regular worker creates fresh placements for other videos in these campaigns as paused from midnight Nov 19 through noon Nov 21 Central. If an older worker version is still active at launch, M6 reconciles its fresh placements for this upload and pauses any new competing ads from that worker.
 - Live verification will add the YouTube ID, timestamp and all seven Google Ads IDs below and push the receipt. The job reads back the ad copy, asset, final URLs, enabled statuses, protected pauses and tier 2 bid. Detailed evidence is under `~/Projects/_edit_work/ro28-got-abs-setup/`. The original release check still handles the noon socials and site.
+
+<!-- ro28-paid-live:start -->
+Live readback at 2026-11-19T16:03:10.387Z for the released video. [Public YouTube upload](https://www.youtube.com/watch?v=2Y09ApQdAHE)
+All seven listed ads were the only enabled ads in the five campaigns. All 45 ads from Dan’s pause list still read as paused. Geo tier 2’s target CPA and CPC fields both read 50,000 micros.
+
+| Suffix | Campaign | Ad group | Google Ads ID | Status | Final URL |
+| --- | --- | --- | --- | --- | --- |
+| rmktg-site | 24316408288 | 200887799219 | 832171834952 | ENABLED | https://absbyai.com/start |
+| rmktg-yt | 24316408288 | 209156230708 | 832171834955 | ENABLED | https://absbyai.com/start |
+| tier1 | 24163535721 | 206274722584 | 832171834946 | ENABLED | https://absbyai.com/start |
+| tier2 | 24122099676 | 197884856303 | 832171834943 | ENABLED | https://absbyai.com/start |
+| us | 24422704023 | 201123318425 | 832171834949 | ENABLED | https://absbyai.com/start |
+| us-rmktg-site | 24437265255 | 201297112505 | 832171834958 | ENABLED | https://absbyai.com/start |
+| us-rmktg-yt | 24437265255 | 197223280930 | 832171834961 | ENABLED | https://absbyai.com/start |
+<!-- ro28-paid-live:end -->
