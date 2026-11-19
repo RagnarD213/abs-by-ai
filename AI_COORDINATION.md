@@ -1,4 +1,4 @@
-**Got Abs? (RO-28) | SCHEDULED 2026-11-18, Codex.** Nov 19 Central. YouTube 7163158 at 10 AM Central. Facebook 7163160, Instagram 7163161, TikTok 7163163 at noon Central. X1. Next: verify public release, noon guard and site page. [Receipt](Docs/RO28_GOT_ABS_SETUP_RECEIPT_20261118.md).
+**Got Abs? (RO-28) | SCHEDULED 2026-11-18, Codex.** Nov 19 Central. YouTube 7163158 at 10 AM. M6 submits seven dry-run-validated ads once public. Live ad readback, noon socials and site page pending. [Receipt](Docs/RO28_GOT_ABS_SETUP_RECEIPT_20261118.md).
 
 **DS-34 HOLD 2026-11-14, Codex.** Setup complete; A installed; Jan11-9AM shared waitlist. Next: automatic top-up. `Docs/DS34_SETUP_COMPLETION_20261114.md`.
 
