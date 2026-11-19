@@ -14,6 +14,7 @@
 
 const engine = require('./engine.js');
 const { fetchVideos } = require('./feed.js');
+const ro28 = require('../../blotato/configs/ro28-got-abs.json');
 
 // Where every new video gets an ad. Tier 1 and tier 2 have one enabled ad group each; the
 // remarketing campaign 24316408288 has two, so its targets name the group. (Until 2026-10-25
@@ -37,6 +38,18 @@ const MAX_FAILURES = 12;            // per video, then it is left alone and repo
 const LOCK_KEY = 71630927;          // pg advisory lock id for this job
 
 const IN_FEED_ONLY = { inFeedPreference: true, inStreamPreference: false, shortsPreference: false };
+const RO28_PAUSE_FROM = Date.parse('2026-11-19T00:00:00-06:00');
+const RO28_PAUSE_UNTIL = Date.parse('2026-11-21T12:00:00-06:00');
+
+// M6 owns the scheduled RO-28 launch and exact-copy readback. During its release
+// window the normal worker still builds ads for other videos in the paused library.
+function isRO28Release(video, published) {
+  return video.title === ro28.title && published >= Date.parse(ro28.main) - 120000;
+}
+
+function newAdStatus(now) {
+  return now >= RO28_PAUSE_FROM && now < RO28_PAUSE_UNTIL ? 'PAUSED' : 'ENABLED';
+}
 
 // Pure: which (video, campaign) pairs still need an ad.
 // videos: feed rows; existing: Set of `${key}:${videoId}` that already have an ad in any status.
@@ -46,6 +59,7 @@ function missing({ videos, existing, now, startDate, skiplist }) {
   for (const v of videos) {
     const t = new Date(v.published).getTime();
     if (!(t >= floor)) continue;
+    if (isRO28Release(v, t)) continue;
     if (engine.isSkipped(v, skiplist)) continue;
     const keys = Object.keys(TARGETS).filter(k => !existing.has(`${k}:${v.id}`));
     if (keys.length) out.push({ video: v, keys });
@@ -158,11 +172,12 @@ function start({ pool, db, writeHeadlinesFor, config, ads = require('../api/clie
           for (const key of keys) {
             const tpl = await templateFor(key);
             const name = engine.testAdName(video.id, key, now, video.title);
-            const op = createOp({ cid: ads.CID, adGroupId: tpl.adGroupId, name, set, template: tpl, videoAsset: asset, isShort: !!video.isShort });
+            const status = newAdStatus(now);
+            const op = createOp({ cid: ads.CID, adGroupId: tpl.adGroupId, name, set, template: tpl, videoAsset: asset, isShort: !!video.isShort, status });
             const r = await ads.mutate([op], { note: `instant: new video ${video.id} → ${key}`, reason: 'ytads-instant' });
             const adId = String(r.results[0] || '').split('~').pop();
             done.add(`${key}:${video.id}`);
-            await db.event(video.id, key, adId, 'created', { name, attempt: 1, via: 'instant', status: 'ENABLED', inFeedOnly: !video.isShort,
+            await db.event(video.id, key, adId, 'created', { name, attempt: 1, via: 'instant', status, inFeedOnly: !video.isShort,
               templateAdId: tpl.templateAdId, headlines: set.headlines, longHeadlines: set.longHeadlines, descriptions: set.descriptions });
             console.log(`YTADS instant: created ${name} (${adId})`);
           }
@@ -189,4 +204,4 @@ function start({ pool, db, writeHeadlinesFor, config, ads = require('../api/clie
   return { tick };
 }
 
-module.exports = { start, missing, createOp, keyFor, CAMPAIGNS, TARGETS, LOOKBACK_HOURS };
+module.exports = { start, missing, createOp, keyFor, CAMPAIGNS, TARGETS, LOOKBACK_HOURS, newAdStatus };
