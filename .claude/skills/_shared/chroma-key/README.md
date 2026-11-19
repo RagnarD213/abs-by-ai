@@ -139,3 +139,14 @@ Find a unique exact RGB-pixel match near the reported offset, then verify every 
   much darker than the plate (Y < 0.78 x plate) within 110 px of the seed; convex hull per group made solid, and stage 1 keeps the
   UNdespilled source colour inside it. Hair, glasses and edges stay on the unchanged house maths. A keylib change invalidates every
   keyonce stamp, so decide this before keying.
+
+## Two traps from Great Again T Upsell 4 on the M6 (2026-11-19, WV-07, portrait C1904)
+
+- **Copying a range of a Sony XAVC roll for local work:** `ffmpeg -ss T -i C1904.MP4 -c copy out.mov` writes a file nothing can
+  decode ("No start code is found"), and `-c copy` to `.mp4` refuses the camera's `pcm_s16be` audio. Copy the video alone to
+  `.mp4` (`-map 0:v:0 -c copy`) and the lav to a separate WAV, then PROVE the frame offset: match one local frame against the roll
+  by pixel difference (it was exact one frame after the nominal seek: local frame 0 = roll frame 79721, not 2660.000 s). Record it in
+  `src/MAPPING.json` and map times in the recipe's decode helper (`common.py loc()`), so piece times stay in roll seconds.
+- **Short pieces fail the 200-frame guards.** `stage15_temporal.py` (MIN_FRAMES, default 200) and `export_plate.py` refuse a cache of
+  200 frames or fewer, so a 104-198 frame piece keys in stage 1 and then dies. Set `MIN_FRAMES=$((N - 1))` per piece in the chain
+  (the exact frame count is tested separately); `export_plate.py` reads the same variable in WV-07's recipe.
