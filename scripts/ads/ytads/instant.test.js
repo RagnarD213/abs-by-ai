@@ -1,7 +1,7 @@
 'use strict';
 // node scripts/ads/ytads/instant.test.js — every new video must reach all seven targets (Dan 2026-10-18; US 2026-11-03; US remarketing 2026-11-07).
 const assert = require('assert');
-const { missing, keyFor, createOp, TARGETS } = require('./instant.js');
+const { missing, keyFor, createOp, TARGETS, newAdStatus } = require('./instant.js');
 
 assert.deepStrictEqual(Object.keys(TARGETS), ['tier2', 'tier1', 'us', 'rmktg-site', 'rmktg-yt', 'us-rmktg-site', 'us-rmktg-yt']);
 assert.strictEqual(keyFor('24437265255', '201297112505'), 'us-rmktg-site');
@@ -20,4 +20,12 @@ assert.deepStrictEqual(got[0].keys, ['us', 'rmktg-site', 'rmktg-yt', 'us-rmktg-s
 const op = createOp({ cid: '1', adGroupId: '2', name: 'n', set: { headlines: ['h'], longHeadlines: ['l'], descriptions: ['d'] },
   template: { businessName: 'b', finalUrls: ['u'], logoImages: ['a'], callToActions: [] }, videoAsset: 'x', isShort: false, status: 'PAUSED' });
 assert.strictEqual(op.adGroupAdOperation.create.status, 'PAUSED');
+const release = { id: 'ro28test001', title: 'Got Abs? You need to see this.', published: '2026-11-19T16:00:00Z' };
+const onRelease = new Date('2026-11-19T16:01:00Z');
+const inputs = { now: onRelease, startDate: '2026-09-03', skiplist: [], existing: new Set() };
+assert.deepStrictEqual(missing({ ...inputs, videos: [release] }), []);
+assert.strictEqual(missing({ ...inputs, videos: [{ ...release, title: 'Rear Delt Flys' }] }).length, 1);
+assert.strictEqual(newAdStatus(new Date('2026-11-19T06:00:00Z')), 'PAUSED');
+assert.strictEqual(newAdStatus(onRelease), 'PAUSED');
+assert.strictEqual(newAdStatus(new Date('2026-11-21T18:00:00Z')), 'ENABLED');
 console.log('instant.test.js: ok');

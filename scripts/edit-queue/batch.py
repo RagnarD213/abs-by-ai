@@ -384,6 +384,7 @@ PROBE_FILES = ('probe.txt','probe-renamed.txt')   # the only names cleanup ever 
 # Videos to Review, which is checked on its own.
 REQUIRED_PROBE_LABELS = ('Videos to Review','internal work folder','Extreme work folder')
 PROBE_TIMEOUT_S = 60
+PROBE_ANSWER_S = 180   # the agent wakes every two minutes and kickstart cannot interrupt a running tick
 
 
 def volume_root(path):
@@ -525,7 +526,7 @@ def launchd_probe_status(now=None, request_id=None):
                 real_interpreter=doc.get('real_interpreter'),process=doc.get('process'))
 
 
-def request_launchd_probe(wait_s=75):
+def request_launchd_probe(wait_s=PROBE_ANSWER_S):
     """Ask this Mac's own launchd agent for a fresh check, then wait for its answer. Returns the request id."""
     request=dict(id=uuid.uuid4().hex,at=time.time());write(HOME/'drive-probe-request.json',request)
     kick()
@@ -537,8 +538,13 @@ def request_launchd_probe(wait_s=75):
 
 
 def preflight():
-    local=fingerprints(fresh_probe=True);other='m2' if here()=='m6' else 'm6'
-    remote_fp=remote(other,['fingerprints','--fresh-probe'],timeout=150)
+    # Both Macs answer their fresh file-access request at the same time, so a busy Mac cannot double the wait.
+    import concurrent.futures
+    other='m2' if here()=='m6' else 'm6'
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+        pending=pool.submit(remote,other,['fingerprints','--fresh-probe'],None,PROBE_ANSWER_S+90)
+        local=fingerprints(fresh_probe=True)
+        remote_fp=pending.result()
     problems=[]
     for fp in (local,remote_fp):
         if fp['dirty']:problems.append(fp['host']+' source differs from pushed main: '+', '.join(fp['dirty']))
@@ -1093,13 +1099,13 @@ def main():
         print(json.dumps(drive_probe(host=args.host)));return 0
     elif args.cmd=='drive-probe':
         if args.launchd:
-            request_id=request_launchd_probe(wait_s=90)
+            request_id=request_launchd_probe()
             status=launchd_probe_status(request_id=request_id)
             answered=read(HOME/'drive-probe-launchd.json',{}).get('request')==request_id
             result=dict(answered=answered,record=read(HOME/'drive-probe-launchd.json',{}),status=status)
             print(json.dumps(result,indent=2))
             print(('PASS' if result['status']['ok'] else 'FAIL')+' '+here()+' background agent: '+(result['status']['problem'] or 'every folder: create, write, rename, delete')
-                  +('' if answered else ' (agent did not answer within 90 s; shown result is the last saved one)'))
+                  +('' if answered else ' (agent did not answer within '+str(PROBE_ANSWER_S)+' s; shown result is the last saved one)'))
             return 0 if result['status']['ok'] and answered else 2
         result=record_probe('interactive')
     elif args.cmd in ('hold','unhold'):result=rpc(args.cmd,batch=args.batch,key=args.key,reason=getattr(args,'reason',None),by='Dan')

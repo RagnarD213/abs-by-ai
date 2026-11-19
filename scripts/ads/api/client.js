@@ -134,13 +134,13 @@ async function whoami() {
 // validateOnly:true — Google runs the full validation (policy, field rules, the Demand Gen
 // traps) and changes nothing; that is the preview the Ads Script editor used to give.
 // Every call, dry or live, OK or failed, is written to ytads_events.
-async function mutate(ops, { cid = CID, dryRun = false, partialFailure = false, note = null, reason = 'api', log = true } = {}) {
+async function mutate(ops, { cid = CID, dryRun = false, partialFailure = false, note = null, reason = 'api', log = true, tries } = {}) {
   if (!Array.isArray(ops) || !ops.length) throw new Error('mutate needs a non-empty array of operations');
   const problems = lintOps(ops);
   if (problems.length) throw new Error('refused before sending (known Google Ads traps):\n  - ' + problems.join('\n  - '));
   const body = { mutateOperations: ops, partialFailure, validateOnly: !!dryRun };
   let response, error;
-  try { response = await post(`${BASE}/customers/${cid}/googleAds:mutate`, body, { cid }); }
+  try { response = await post(`${BASE}/customers/${cid}/googleAds:mutate`, body, { cid, tries }); }
   catch (e) { error = e; }
   if (log) await ledger(dryRun ? 'api:validate' : (error ? 'api:error' : 'api:mutate'),
                         { reason, note, cid, ops, response: response || null, error: error ? (error.body || String(error.message)) : null });
