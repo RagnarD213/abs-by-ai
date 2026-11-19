@@ -2,10 +2,9 @@
 
 Handoff executed up to the live step: `Handoffs/handoff-20261118-gat-one-page-checkout.md`. Website and payment build, no edit slot. Spend: $0 (Stripe test mode, no real charges, no AI generation).
 
-**State (2026-11-18, 6:10 PM Central): LIVE MODE IS ON, still hidden from visitors at `?onepage=1`. Waiting on Grokbot's two real card orders, then the switch-over. See "Go live" at the bottom.**
-The two-step flow (our page, then Shopify checkout with `FREEMONTH`) is untouched and is what every visitor still gets.
+**State (2026-11-19, 1:10 PM Central): LIVE FOR EVERYONE on the order page (Stripe live mode, `CFG['onePage'] = 'on'`). `?classic=1` brings back the two-step Shopify checkout. The funnel is still not launched (noindex, no ads). Open: the two real test orders are not refunded or cancelled yet (Grokbot), and Stripe sends its own receipt in the Abs By AI name. See "Go live" at the bottom.**
 
-- Hidden live page: https://shop.sixpackabs.com/pages/great-again-t-order?onepage=1 (REAL charges since 2026-11-18 5:56 PM Central; never type a test card there)
+- Live order page: https://shop.sixpackabs.com/pages/great-again-t-order (REAL charges since 2026-11-18 5:56 PM Central; never type a test card there). Two-step fallback: add `?classic=1`.
 - Review page (phone, tablet, desktop, the six emails): https://claude.ai/artifact/13HpHVHTeBsqDZCz7t11qn (built by `scripts/gat/build-review.py`)
 - What is left (sender domain, live keys, two real card orders, switch over): `Handoffs/handoff-20261118-gat-one-page-checkout-go-live.md`
 
@@ -95,7 +94,41 @@ Open from Part A:
 2. **Order emails still come from `orders@absbyai.com`.** Resend is not signed in in Dan's Chrome (resend.com/login), and the Railway mail key cannot add domains. Once signed in: add `sixpackabs.com`, add its DNS records at WordPress.com (root MX untouched), verify, make a sending key for that domain, set `GAT_RESEND_API_KEY` and `GAT_FROM`.
 3. The server running at the moment of the switch to live was commit `2ac3eda`, one behind the card-update page fix `c4c137d`, which was still in Railway's queue (about 40 minutes behind). Only the "update my card" button on the account page is affected until it lands.
 
-### Part B (after Grokbot reports): not done yet
+Part A items 2 and 3 above are closed: see the sender row below; the card-update fix `c4c137d` deployed overnight.
 
-Verify both orders from the records (Stripe, Shopify, `gat_charges`, PostHog), confirm the cancel, refunds and Supliful stop, then set `CFG['onePage'] = 'on'`, build, deploy and verify.
+### Part B, 2026-11-19: the two real orders, the sender, the switch
 
+**The two real orders (Grokbot, 2026-11-18 about 6:21 and 6:25 PM Central), checked from the records, not from a report:**
+
+| | Free month | One bottle |
+|---|---|---|
+| Shopify order | #1030 | #1031 |
+| Stripe charge | $9.99, statement text `SIXPACKABS.COM` | $97.00, statement text `SIXPACKABS.COM` |
+| Stripe invoice | `in_1UdJ6MAC3gM1rghlbdYK2AvP` (shipping $9.99 + trial line $0) | `in_1UdJA2AC3gM1rghlG7m6CavM` |
+| Monthly plan | $67.00 every 30 days (`gat_monthly_6700`), in trial, first charge December 18, 2026 | none |
+| Shopify | Paid, not a test order, real variant `68049477796162`, bottle $0.00 + shipping $9.99, tags `gat-one-page`, `gat-first` | Paid, not a test order, real variant, $97.00, free shipping, tags `gat-one-page`, `gat-single` |
+| Supliful | Shopify timeline: "Fulfillment of 1 item was requested from Supliful Fulfillment", then "Supliful accepted the request" two seconds later. Status In progress | Same, accepted one second later. Status In progress |
+| `gat_charges` | `first`, 999, `done`, emailed | `single`, 9700, `done`, emailed |
+| Order email | Arrived in the inbox, "Your free bottle of Great Again T is on the way (order #1030)", from orders@absbyai.com (the sender at the time) | Arrived, "Your Great Again T order #1031", same sender |
+| PostHog | one `gat_purchase`, flow `one-page`, 9.99 | one `gat_purchase`, flow `one-page`, 97 |
+
+**Supliful receiving an order made this way is now proven** (the one thing test mode could not show). Supliful's own dashboard was not seen by Claude; the proof is Shopify's timeline entry that Supliful accepted each request.
+
+Not as planned:
+
+1. **The undo is NOT done (checked 2026-11-19 12:50 PM Central).** Neither charge is refunded, the monthly plan is still in trial, both Shopify orders are still open and In progress with no shipment recorded. Refunds and cancels are Grokbot's (dashboard work); an undo-only prompt is in `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md`.
+2. No declined-card attempt shows in Stripe for either customer, so the wrong-CVV check was probably skipped on the live page (it passed in test mode).
+3. **Stripe's own receipt went out for both orders**, "Your receipt from Abs By AI #2844-6305" and "#2996-2191", from Stripe's invoice address with the sender name Abs By AI. A real buyer would get it next to our order email. Pre-launch fix (not done, needs Dan's yes because it changes payment code): keep the buyer's email off the Stripe customer record, or a separate Stripe account.
+
+**Order emails from orders@sixpackabs.com (done 2026-11-19):**
+
+- Resend: domain `sixpackabs.com` added (North Virginia, us-east-1) and Verified. Codex added it and read the records through Dan's signed-in Chrome; Claude added the DNS at WordPress.com: TXT `resend._domainkey`, CNAME `send` to `send.forge.rmta.net`, CNAME `rsend` to `rsend.forge.rmta.net`. Root MX, root SPF, `_dmarc` and every other record untouched.
+- Key: `gat-orders-sixpackabs`, Sending access, sixpackabs.com only. Dan pressed Add himself (Codex's computer use will not create a key without a person's confirmation, and it refused a Full access key outright; plan around that). The value is in Railway `GAT_RESEND_API_KEY` and the local cache under the same name.
+- Railway `GAT_FROM` is `SixPackAbs.com <orders@sixpackabs.com>`. Proof: a setup test sent with the new key from orders@sixpackabs.com to support@sixpackabs.com arrived in the inbox. The old absbyai.com key is refused for sixpackabs.com (403), so the new key is required. No real order has gone out with the new sender yet.
+
+**The switch (2026-11-19, about 1:00 PM Central):**
+
+- `CFG['onePage'] = 'on'` in `refine/build_live.py`, `python3 build_live.py --no-export` (PASS: 14 pages, copy checks), `gen.py`, `page.css`, `letterdoc.py`, `infodoc.py` matched the gat-letter copies, `./deploy_live.sh`. Only three generated files changed (`assets/gat.js`, `assets/gat-pay.js`, `layout/gat.liquid`); theme repo commit `499449a`. `build_live.py` copied to the gat-letter folder.
+- Live, look only, at phone, tablet and desktop: `/pages/great-again-t-order` shows the form with three card fields and no TEST MODE bar; `?classic=1` shows the two-step flow; `?option=single` shows the form; no sideways scroll; still `noindex`. `LAUNCHED` is still False.
+
+Trap found on the way: the Claude Chrome extension in this task was attached to a different Chrome than the one on Dan's screen, so a sign-in Dan did could not be used and he could not see "the tab". Check which Chrome the extension drives (open a marked address, look for it with `osascript` in Dan's Chrome) before asking him to sign in anywhere.

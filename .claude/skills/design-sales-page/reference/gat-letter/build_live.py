@@ -53,7 +53,7 @@ CFG = {
                               # shipping to each $67 refill until the shop's shipping is fixed). True opens it to everyone.
     'video': None,            # {'phone': url, 'desk': url, 'poster': url} once Great Again T VSL (WV-03) is approved
     'revealAt': 0,            # seconds into the film where Dan says "So if you already know you want this"
-    'onePage': 'preview',     # the one-page order form (pay on our page through Stripe; server: gat-checkout.js in the app repo).
+    'onePage': 'on',          # the one-page order form (pay on our page through Stripe; server: gat-checkout.js in the app repo).
                               # 'off': never. 'preview': only at /pages/great-again-t-order?onepage=1. 'on': for everyone, and
                               # ?classic=1 brings back the two-step Shopify checkout (the fallback).
     'api': 'https://absbyai.com',   # where gat-checkout.js runs

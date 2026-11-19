@@ -58,13 +58,17 @@ No change to the order page, checkout, plan, discount or pixel, so Grokbot's tes
 5. Later the same day: the small one-bottle button now sits under every buy button in the letter (all five), still not on the pinned top bar or the offer card under the video; and the nine page links are inside the hamburger menu at every screen size, desktop included (the row of links in the header is gone).
 6. Evening: on desktop the three top graphics are bottom-aligned so they line up under headings of different lengths; "41 years old" under Dan's name on the founder card and the sign-off (`FOUNDER_AGE` in `gen.py`, not in the Doc); the $97 store listing grey block replaced by a real screenshot of the live listing in a phone frame (`assets/store-listing-97.jpg`). Deployed as three files only (sales template, stylesheet, the picture), because the one-page checkout session now owns `build_live.py`, `onepage.py` and `live/gat*.js`.
 
-## One-page order form (2026-11-18): built and proven in test mode, not live
+## One-page order form: LIVE for everyone since 2026-11-19 (funnel still not launched)
+
+2026-11-19: the order page now shows the one-page form to everyone in Stripe live mode; `?classic=1` brings back the two-step Shopify checkout described above, which stays in place as the fallback. Two real orders (#1030 at $9.99 with the $67 monthly plan, #1031 at $97.00) went through and Supliful accepted both; they still need refunding and cancelling (Grokbot). Order emails are set to come from orders@sixpackabs.com. Details: `Docs/GAT_ONE_PAGE_CHECKOUT_RECEIPT_20261118.md`, "Go live". The paragraph below is the 2026-11-18 build note.
+
+### Build note (2026-11-18)
 
 Dan asked to pay on one page with no second Shopify checkout step. Built the same day: card fields from Stripe on our order page, every paid charge becomes a paid Shopify order, our own thank-you page, order emails, the 7-day reminder and an account page (cancel, skip a month, update card). It is hidden at `/pages/great-again-t-order?onepage=1` in Stripe test mode; everything above (the two-step flow, `FREEMONTH`, the $57.01 plan, the Shopify pixel) is untouched and stays as the fallback. The funnel is now 14 pages (`great-again-t-thank-you`, `great-again-t-account`). Full receipt: `Docs/GAT_ONE_PAGE_CHECKOUT_RECEIPT_20261118.md`. Going live: `Handoffs/handoff-20261118-gat-one-page-checkout-go-live.md`.
 
 ## Left to do
 
-1. Two real test orders (free month and one bottle), then cancel the test subscription and orders. Needs a card: Codex or Grokbot, `Handoffs/handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`.
+1. Refund and cancel the two real one-page test orders #1030 and #1031 (Grokbot, undo-only prompt in `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md`). The older two-step test-order handoff (`handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`) now covers only the `?classic=1` fallback.
 2. Video: when Great Again T VSL (WV-03) is approved, set `CFG['video']` and `revealAt` (the second Dan says "So if you already know you want this").
 3. Launch day: `LAUNCHED = True` (removes noindex), rebuild, deploy.
 5. The 7-day reminder email before the first $67 charge is built into the one-page order form (test mode, see above); the two-step Shopify flow still has none; Dan's Part C items in the compliance Doc; the two label differences (directions and warnings wording).
