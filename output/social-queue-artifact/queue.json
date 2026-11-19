@@ -1,34 +1,7 @@
 {
-"generated": "2026-11-18T12:26:04+00:00",
+"generated": "2026-11-19T12:26:21+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "6213010",
-"platform": "youtube",
-"when": "2026-11-18T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "I already have abs, and I still take Zepbound. I want to keep the weight off, and the research on health benef",
-"batch": ""
-},
-{
-"id": "5912322",
-"platform": "facebook",
-"when": "2026-11-18T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop kettlebell deadlifting like this. Bell out in front, you end up bending over to reach it.",
-"batch": ""
-},
-{
-"id": "5912320",
-"platform": "instagram",
-"when": "2026-11-18T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "Stop kettlebell deadlifting like this. Bell out in front, you end up bending over to reach it.",
-"batch": ""
-},
 {
 "id": "6463978",
 "platform": "facebook",
@@ -66,30 +39,39 @@
 "batch": ""
 },
 {
-"id": "6213006",
+"id": "7163158",
+"platform": "youtube",
+"when": "2026-11-19T16:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "I already have abs. What I care about now is keeping the weight off and thinking about my health long term. I\u2019",
+"batch": ""
+},
+{
+"id": "7163160",
 "platform": "facebook",
 "when": "2026-11-19T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I already have abs, and I still take Zepbound. Here's why.",
+"text": "I already have abs. What I care about now is keeping the weight off and thinking about my health long term.",
 "batch": ""
 },
 {
-"id": "6213007",
+"id": "7163161",
 "platform": "instagram",
 "when": "2026-11-19T18:00:00.000Z",
 "kind": "Reel",
 "slides": 1,
-"text": "I already have abs, and I still take Zepbound. Here's why.",
+"text": "I already have abs. What I care about now is keeping the weight off and thinking about my health long term.",
 "batch": ""
 },
 {
-"id": "6213008",
+"id": "7163163",
 "platform": "tiktok",
 "when": "2026-11-19T18:00:00.000Z",
 "kind": "Video",
 "slides": 1,
-"text": "I already have abs, and I still take Zepbound. Here's why.",
+"text": "I already have abs. What I care about now is keeping the weight off and thinking about my health long term.",
 "batch": ""
 },
 {
@@ -1017,6 +999,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "I got abs in my 20s, lost them in my 30s, and got them back at 40.",
+"batch": ""
+},
+{
+"id": "7187763",
+"platform": "facebook",
+"when": "2026-12-08T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The number one mistake with fasting is breaking your fast with alcohol.",
+"batch": ""
+},
+{
+"id": "7187766",
+"platform": "instagram",
+"when": "2026-12-08T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "The number one mistake with fasting is breaking your fast with alcohol.",
+"batch": ""
+},
+{
+"id": "7187768",
+"platform": "tiktok",
+"when": "2026-12-08T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The number one mistake with fasting is breaking your fast with alcohol.",
+"batch": ""
+},
+{
+"id": "7187770",
+"platform": "youtube",
+"when": "2026-12-08T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "The number one mistake with fasting is breaking your fast with alcohol.",
 "batch": ""
 },
 {
