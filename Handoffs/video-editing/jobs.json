@@ -2532,14 +2532,15 @@
    "codexModel": "GPT-6 Sol, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-28-why-zepbound-improves-your-health-even-if-youre-ripped.md` with `$long-form-content-edit`. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "uploaded",
-   "note": "Dan approved exact R5 and R2 design3. All four Blotato schedules saved/read back: YouTube6213010 Nov18 9AM Central; Facebook6213006, Instagram6213007, TikTok6213008 Nov19 noon. Receipt Docs/RO28_SETUP_RECEIPT_20261029.md.",
+   "note": "Got Abs? re-edit, X1. Verified Blotato Nov 19 Central: YouTube 7163158 at 10 AM, Facebook 7163160, Instagram 7163161 and TikTok 7163163 at noon subject to public YouTube. Docs/RO28_GOT_ABS_SETUP_RECEIPT_20261118.md.",
    "needs": "",
    "order": 112,
-   "updated": "2026-10-29",
-   "rev": 10,
+   "updated": "2026-11-18",
+   "rev": 11,
    "syncedRev": 10,
    "editor": "Claude",
-   "by": "Codex"
+   "by": "Codex",
+   "completed_at": 1795047069.550922
   },
   {
    "id": "DS-33",

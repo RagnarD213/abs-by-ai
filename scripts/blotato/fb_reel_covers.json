@@ -1730,5 +1730,13 @@
     "w": 1080,
     "h": 1920,
     "approval": "Dan approved X5 R2 on 2026-11-16"
+  },
+  {
+    "schedule": "7163160",
+    "when": "2026-11-19T18:00:00.000Z",
+    "match": "I already have abs. What I care about now is keeping the weight off and thinking about my health long term.",
+    "cover": "/Users/danrrose/Projects/Claude/Projects/Abs By AI/scripts/blotato/fb_covers/ro28-got-abs-x1.jpg",
+    "w": 1280,
+    "h": 720
   }
 ]

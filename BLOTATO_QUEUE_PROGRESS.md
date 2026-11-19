@@ -1,3 +1,7 @@
+## Got Abs? You need to see this. (RO-28 re-edit), scheduled November 18, 2026
+
+Release Thursday November 19. YouTube 7163158 at 10 AM Central. Facebook 7163160, Instagram 7163161, TikTok 7163163 at noon Central. X1 Studio portrait. Saved queue, timestamps, captions and covers verified. Noon posts depend on public YouTube. The 9 AM Rear Delt Flys Short stays in place. [Receipt](Docs/RO28_GOT_ABS_SETUP_RECEIPT_20261118.md).
+
 ## DONE: Smaller Plates Reaction (DS-108), November 16, 2026
 
 Revised X5 R2 approved. All four saved/read-back schedules: January 23, 2027 at6PM Central; FB7058491, IG7058492, TikTok7058493, YouTube7058494. Caption/target and actual saved media hashes verified. Keyword FOOD; original live-action film, no synthetic-footage flag. Approved covers registered on both Macs; pinned question saved for shared post-release routine. [Receipt](Docs/DS108_SETUP_RECEIPT_20261116.md). No waiting list required, no direct YouTube holding upload.
