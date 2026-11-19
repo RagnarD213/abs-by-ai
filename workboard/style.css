@@ -26,3 +26,8 @@
 .top-controls{flex:0 1 auto;width:100%;justify-content:flex-start}@media(min-width:700px){.top-controls{width:auto;justify-content:flex-end}}@media(max-width:1199px) and (min-width:700px){.topbar{flex-wrap:wrap}.top-controls{flex:1 1 600px}}
 
 .completion-reward[popover]{margin:0;width:100vw;height:100dvh;max-width:none;max-height:none;border:0;padding:0;color:inherit}.completion-reward[popover]::backdrop{background:transparent}
+.quick-opts{display:flex;gap:6px;width:100%;margin:6px 0}.quick-opts select{flex:1;min-width:0}
+.assistant-task{cursor:pointer}
+.drag-ghost{opacity:.92;transform:rotate(1.5deg);box-shadow:0 14px 34px #000a!important;cursor:grabbing}
+.drop-mark{height:4px;border-radius:3px;background:#b9d69d;margin:-4px 0 8px}
+.card{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}

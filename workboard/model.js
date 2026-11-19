@@ -1,6 +1,8 @@
 'use strict';
 const {randomUUID} = require('node:crypto');
 const colors = ['slate','green','amber','blue','rose','purple'];
+const priorities = ['key','high','med','low','unassigned'];
+function priority(v){if(v==null||v==='')return 'unassigned';if(!priorities.includes(v))throw new BoardError('Choose an existing priority.');return v;}
 class BoardError extends Error { constructor(message, status=400) { super(message); this.status=status; } }
 function text(value, max, required=false) {
   if(typeof value !== 'string' || value.length>max || (required && !value.trim())) throw new BoardError('Please check the text length and required fields.');
@@ -43,14 +45,14 @@ function mutate(input, action, p={}, file) {
     case 'card.create': {
       const l=list(p.listId);if(l.archived)throw new BoardError('Restore this list first.');
       if(board.cards.length>=2000)throw new BoardError('This board supports up to 2,000 cards, including archived cards.');
-      const c={id:randomUUID(),listId:l.id,title:text(p.title,200,true),description:'',labels:[],dueDate:'',checklist:[],comments:[],attachments:[],archived:false,createdAt:date,updatedAt:date};if(board.personalVersion)c.plannedFor=planDate(p.plannedFor);board.cards.push(c);target=c.id;note=`Created card: ${c.title}`;break;
+      const c={id:randomUUID(),listId:l.id,title:text(p.title,200,true),description:'',labels:[],dueDate:'',checklist:[],comments:[],attachments:[],archived:false,createdAt:date,updatedAt:date};if(board.personalVersion)c.plannedFor=planDate(p.plannedFor);c.priority=priority(p.priority);board.cards.push(c);if(p.index!=null){const dest=board.cards.filter(x=>x.listId===l.id&&!x.archived&&x.id!==c.id);const ordered=move([...dest,c],c,Math.min(p.index,dest.length));const ids=new Set(ordered.map(x=>x.id));board.cards=[...board.cards.filter(x=>!ids.has(x.id)),...ordered];}target=c.id;note=`Created card: ${c.title}`;break;
     }
     case 'card.update': {
       const c=card(p.id);editable(c);c.title=text(p.title,200,true);c.description=text(p.description,20000);
       if(!Array.isArray(p.labels)||p.labels.length>12)throw new BoardError('Use at most 12 labels.');
       c.labels=p.labels.map(l=>({name:text(l.name,40,true),color:colors.includes(l.color)?l.color:'slate'}));
       if(typeof p.dueDate!=='string'||(p.dueDate && (!/^\d{4}-\d{2}-\d{2}$/.test(p.dueDate)||!Number.isFinite(Date.parse(p.dueDate))||new Date(p.dueDate).toISOString().slice(0,10)!==p.dueDate)))throw new BoardError('Choose a valid due date.');
-      c.dueDate=p.dueDate;c.updatedAt=date;target=c.id;note=`Updated card: ${c.title}`;break;
+      c.dueDate=p.dueDate;if(p.priority!==undefined)c.priority=priority(p.priority);c.updatedAt=date;target=c.id;note=`Updated card: ${c.title}`;break;
     }
     case 'card.move': {
       const c=card(p.id);editable(c);const l=list(p.listId);if(l.archived)throw new BoardError('Restore the destination list first.');
@@ -71,4 +73,4 @@ function mutate(input, action, p={}, file) {
   board.activity.unshift({id:randomUUID(),at:date,text:note,cardId:target});board.activity=board.activity.slice(0,500);
   return {board,target,removedFile};
 }
-module.exports={initial,mutate,BoardError,colors};
+module.exports={initial,mutate,BoardError,colors,priorities};

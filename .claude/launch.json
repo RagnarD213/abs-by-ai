@@ -107,6 +107,14 @@
         "scripts/gat/local-proof-server.js"
       ],
       "port": 8787
+    },
+    {
+      "name": "workboard-preview",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "workboard/tests/preview.js"
+      ],
+      "port": 8842
     }
   ]
 }
