@@ -282,7 +282,7 @@ RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; al
 | job | video | rolls | status | size |
 |---|---|---|---|---|
 | [WV-03](WV-03-great-again-t-vsl.md) | Great Again T VSL | C1903 | IN PROGRESS | L |
-| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | IN PROGRESS | M |
+| [WV-04](WV-04-great-again-t-upsell-1-prepaid-packs.md) | Great Again T Upsell 1: Prepaid Packs | C1904 | DELIVERED: awaiting Dan | M |
 | [WV-05](WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md) | Great Again T Upsell 2: Eternal Burn AM/PM | C1904 | BLOCKED | M |
 | [WV-06](WV-06-great-again-t-upsell-3-electro-creatine.md) | Great Again T Upsell 3: Electro-Creatine | C1904 | DRAFT: asset choices waiting for Dan | M |
 | [WV-07](WV-07-great-again-t-upsell-4-abs-by-ai.md) | Great Again T Upsell 4: Abs By AI | C1904 | DRAFT: asset choices waiting for Dan | M |
