@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Joint Vigor VSL: Codex owns it until Thu 11-26](handoff-20261120-joint-vigor-to-codex.md), 2026-11-20. **OPEN: fire now in Dan's Codex app; GPT-6.2 Sol xhigh, fast mode.** Gate, page, Eric draft, then the full film.
 - [GAT Upsell 2 (WV-05) round 2: transfer to Codex](handoff-20261120-wv05-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** Paused before the full-draft render; cards, audio and wives-clip takes ready.
 - [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
 - [Great Again T VSL (WV-03) round 8: transfer to Codex](handoff-20261120-wv-03-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** All 173 pieces keyed; full-film render left running unattended (section 0 of 6 at handoff); next: gates, independent review, round 8 page.
