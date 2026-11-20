@@ -2266,16 +2266,17 @@
    "claude": "Read `Handoffs/video-editing/00-RULES.md`, then execute `Handoffs/video-editing/RO-20-invest-more-in-your-health.md`: re-edit Why You Should Invest More In Your Health from scratch on the current round method (PRE-RENDER-APPROVAL: graphics, AI frames and first minute for Dan's approval before any full render). Do not reuse the old edit.",
    "codexModel": "GPT-6 Astra, high",
    "codex": "Read `Handoffs/video-editing/00-RULES.md` (Codex column + environment table), then execute `Handoffs/video-editing/RO-20-invest-more-in-your-health.md` with `$long-form-content-edit`. Re-edit from scratch; do not reuse the old edit.",
-   "state": "finalized",
-   "note": "Dan finalized R4 on 2026-10-20",
+   "state": "uploaded",
+   "note": "Queued in Blotato 2026-11-20 for Dec 9",
    "by": "Claude",
    "order": 102,
    "sub": "",
-   "updated": "2026-10-20",
-   "rev": 19,
-   "syncedRev": 19,
+   "updated": "2026-11-20",
+   "rev": 20,
+   "syncedRev": 20,
    "editor": "Claude",
-   "needs": ""
+   "needs": "",
+   "completed_at": 1795177526.5766468
   },
   {
    "id": "SL-10",
@@ -5305,7 +5306,7 @@
    "updated": "2026-11-19",
    "by": "Claude",
    "rev": 4,
-   "syncedRev": 2,
+   "syncedRev": 4,
    "editor": "Claude",
    "needs": ""
   },

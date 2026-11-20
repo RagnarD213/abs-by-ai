@@ -378,7 +378,11 @@
   "added": "2026-10-22",
   "after": "scripts/blotato/configs/ro19-my-first-spray-tan.json",
   "kitchen": true,
-  "planned": "2026-12-08 18:00"
+  "planned": "2026-12-08 18:00",
+  "queued": {
+   "date": "2026-11-20",
+   "main": "2026-12-09T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro20-invest-in-your-health.json",
@@ -386,7 +390,11 @@
   "job": "RO-20",
   "label": "Why You Should Invest More In Your Health",
   "added": "2026-10-20",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-20",
+   "main": "2026-12-09T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ds20-five-levels-of-pushups.json",
