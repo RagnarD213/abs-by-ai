@@ -4,7 +4,7 @@ CONTENT (LFC). Task name: `I Crashed My Tesla LFC R1`.
 
 **Filmed source ready for editing.** Registered 2026-11-14 from the 11/13 shoot. Not edited, rendered, approved, uploaded or scheduled.
 
-**Paused by Dan on November 18, 2026.** Progress is preserved on M2 in `/Volumes/Extreme/_edit_work/RO-39/PAUSED_BY_DAN.json` and `r1/RESUME.md`. Production processes and render/edit slots were released. Do not restart automatically; wait for Dan’s explicit resume instruction. No checked first-review delivery or full-film approval exists.
+**Resumed by Dan on M2, November 20, 2026.** Original chat reclaimed the edit slot and started the saved finishing chain. K01–K15 are preserved; K16–K30 remain to process. The chain finishes contextual previews and checks. No checked first-review delivery or full-film approval exists yet. The earlier pause checkpoint is retained as history.
 
 ## Read first
 
