@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
+
 - [Storyblocks subscription for client footage](handoff-20261120-storyblocks-subscription.md), 2026-11-20. **OPEN: fire now; Codex GPT-6.2 Sol high or Grokbot.** Unlimited All Access annual, $288; Dan authorized; account + password + card.
 
 - [RO-28 "Got Abs? You need to see this.": thumbnail, upload, new ads](handoff-20261118-ro28-got-abs-reedit-setup.md), 2026-11-18. **OPEN: fire now (film approved); Codex GPT-6.2 Sol high.** Neutral title/thumbnail/ads, no drug terms; old 7 ads removed.
