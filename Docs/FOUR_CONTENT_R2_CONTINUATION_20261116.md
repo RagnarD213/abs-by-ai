@@ -4,6 +4,8 @@ November 16, 2026. Coordinator: Codex chat `01a1e6c4-75e1-7f63-aa18-1d82105f8da1
 
 ## Current stage
 
+**November 20 latest:** three R2 review pages are available; Lose Fat R2 is resumed and enabled on M2, waiting for capacity. [Current review links and verification](FOUR_CONTENT_R2_RESUMED_20261120.md).
+
 **November 17 update:** none of the four R2s started overnight. Production capacity is full and storage independently fails admission. See [the resume check](FOUR_CONTENT_R2_RESUME_20261117.md) for the verified requirements.
 
 All four R2s have one named, enabled batch registration with executor `claude` and placement `m2`. At the recorded check they are queued, with zero production attempts and no claim. M2 production capacity is full with unrelated edits; their claims and waiting order were preserved. Revised R2 review pages do not yet exist. R1 links are historical and are not presented as revised output.
