@@ -484,6 +484,13 @@
       "recurring": false,
       "addedAt": "2026-11-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take recycling to curb",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
