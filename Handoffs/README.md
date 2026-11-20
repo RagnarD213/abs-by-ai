@@ -11,6 +11,11 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [GAT Upsell 2 (WV-05) round 2: transfer to Codex](handoff-20261120-wv05-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** Paused before the full-draft render; cards, audio and wives-clip takes ready.
+- [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
+- [Great Again T VSL (WV-03) round 8: transfer to Codex](handoff-20261120-wv-03-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** All 173 pieces keyed; full-film render left running unattended (section 0 of 6 at handoff); next: gates, independent review, round 8 page.
+
+
 - [RO-28 "Got Abs? You need to see this.": thumbnail, upload, new ads](handoff-20261118-ro28-got-abs-reedit-setup.md), 2026-11-18. **OPEN: fire now (film approved); Codex GPT-6.2 Sol high.** Neutral title/thumbnail/ads, no drug terms; old 7 ads removed.
 
 - [Social engagement after ManyChat: post-specific questions and follow tests](handoff-20261117-social-engagement-after-manychat.md), 2026-11-17. **Implemented.** Verified 194 schedules across four platforms. Live comment and metric checks await release. Results review December 16. [Receipt](../output/social-engagement-20261117/receipt.md).
@@ -37,7 +42,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 - [Great Again T Upsell 1: Prepaid Packs (GAT Upsell 1 AD R3) transfer to Codex](handoff-20261120-wv04-transfer-to-codex.md), 2026-11-20. **OPEN: Dan fires after his ChatGPT upgrade is live; Codex GPT-6.2 Sol high, on the M2.** Round 3 paused unchecked (R3e film); checks, one fresh review, then deliver the round 3 page. Replaces the executed R2 handoff.
 - [Great Again T Upsell 3: Electro-Creatine (GAT Upsell 3 AD R2) transfer to Codex](handoff-20261120-wv06-transfer-to-codex.md), 2026-11-20. **OPEN: Dan fires after his ChatGPT upgrade is live and he has given his round 1 picks; Codex GPT-6.2 Sol high, on the M2.** Round 1 page http://127.0.0.1:9879/ waits on 5 picks; then the full film.
 
-- [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
+- [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **EXECUTED by Claude through keying; rest moves to Codex (see the 2026-11-20 transfer).** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
 - [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **EXECUTED.** Both corrected covers approved; uploads, backups and metadata verified. Shared waitlist January19,2027 at6PM Central, not a live schedule. [Receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
