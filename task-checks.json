@@ -20,7 +20,8 @@
     "assistant::Clean up junk room",
     "assistant::Laundry",
     "assistant::Dishes 11/20",
-    "assistant::Detailing; polishing, wiping mirrors, dusting, misc."
+    "assistant::Detailing; polishing, wiping mirrors, dusting, misc.",
+    "assistant::Take recycling to curb"
   ],
   "log": {
     "health::Shower": [
@@ -267,6 +268,7 @@
     "assistant::Clean up junk room": "2026-11-19",
     "assistant::Laundry": "2026-11-20",
     "assistant::Dishes 11/20": "2026-11-20",
-    "assistant::Detailing; polishing, wiping mirrors, dusting, misc.": "2026-11-20"
+    "assistant::Detailing; polishing, wiping mirrors, dusting, misc.": "2026-11-20",
+    "assistant::Take recycling to curb": "2026-11-20"
   }
 }
