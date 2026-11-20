@@ -19,7 +19,8 @@
     "assistant::Sweep outdoor entry way",
     "assistant::Clean up junk room",
     "assistant::Laundry",
-    "assistant::Dishes 11/20"
+    "assistant::Dishes 11/20",
+    "assistant::Detailing; polishing, wiping mirrors, dusting, misc."
   ],
   "log": {
     "health::Shower": [
@@ -265,6 +266,7 @@
     "assistant::Sweep outdoor entry way": "2026-11-17",
     "assistant::Clean up junk room": "2026-11-19",
     "assistant::Laundry": "2026-11-20",
-    "assistant::Dishes 11/20": "2026-11-20"
+    "assistant::Dishes 11/20": "2026-11-20",
+    "assistant::Detailing; polishing, wiping mirrors, dusting, misc.": "2026-11-20"
   }
 }
