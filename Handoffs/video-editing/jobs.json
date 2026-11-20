@@ -5300,15 +5300,15 @@
    "claude": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 2 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md`: cut \"Great Again T Upsell 2: Eternal Burn AM/PM\" from the 11/13 green-screen shoot, rolls C1904. Use /ad-edit. Key with the approved house chroma key. Best take of every line, first-review approvals before the full render, every gate, independent audit, deliver, send me the review copy, update the queue.",
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 2 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md`: cut \"Great Again T Upsell 2: Eternal Burn AM/PM\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
-   "state": "in_progress",
-   "note": "Round 2 building on the M2 (moved from the M6 at Dan's request, 2026-11-19)",
+   "state": "blocked",
+   "note": "Paused mid round 2 on the M2; resume notes in round2-plan/RESUME.md",
    "order": 234,
-   "updated": "2026-11-19",
+   "updated": "2026-11-20",
    "by": "Claude",
-   "rev": 4,
-   "syncedRev": 4,
+   "rev": 5,
+   "syncedRev": 5,
    "editor": "Claude",
-   "needs": ""
+   "needs": "Dan says resume (paused by Dan 2026-11-20)"
   },
   {
    "id": "WV-06",
