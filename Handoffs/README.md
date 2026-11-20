@@ -11,6 +11,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Storyblocks subscription for client footage](handoff-20261120-storyblocks-subscription.md), 2026-11-20. **OPEN: fire now; Codex GPT-6.2 Sol high or Grokbot.** Unlimited All Access annual, $288; Dan authorized; account + password + card.
+
 - [RO-28 "Got Abs? You need to see this.": thumbnail, upload, new ads](handoff-20261118-ro28-got-abs-reedit-setup.md), 2026-11-18. **OPEN: fire now (film approved); Codex GPT-6.2 Sol high.** Neutral title/thumbnail/ads, no drug terms; old 7 ads removed.
 
 - [Social engagement after ManyChat: post-specific questions and follow tests](handoff-20261117-social-engagement-after-manychat.md), 2026-11-17. **Implemented.** Verified 194 schedules across four platforms. Live comment and metric checks await release. Results review December 16. [Receipt](../output/social-engagement-20261117/receipt.md).
