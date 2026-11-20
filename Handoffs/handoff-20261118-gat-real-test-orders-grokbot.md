@@ -61,3 +61,22 @@ Steps 1 to 3 are done: free month is Shopify order #1030 ($9.99, monthly plan $6
 > Read `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md` in the Abs By AI project and do only the undo described under "Status 2026-11-19": in the Stripe dashboard refund the two November 18 payments with statement text SIXPACKABS.COM ($9.99 and $97.00) in full and cancel the $67 Great Again T subscription; in Shopify admin (store 1yar3v-ie) cancel orders #1030 and #1031 without a second refund; in Supliful stop both orders so nothing ships. Dan authorizes every step, including the refunds and cancellations. Do not use the Stripe API for the refunds, do not change prices, settings or page copy, and keep secrets out of repo files. Report what was done for each order.
 
 Claude can also do this undo itself in the dashboards once Dan says yes to the two refund amounts in Claude's go-live task.
+
+## Status 2026-11-20, 8:52 AM Central (Claude, from the records): the undo is half done
+
+This replaces the 2026-11-19 status above. The two prompts above are out of date: use the ones below.
+
+- **Done:** the $67 monthly plan was cancelled on 2026-11-19 at 1:29 PM Central (cancel email sent). No December charge will happen.
+- **Done, but only on paper:** on 2026-11-19 at 5:03 PM Central a refund was recorded on each Shopify order ($9.99 on #1030, $97.00 on #1031). These orders were paid in Stripe, outside Shopify, so a Shopify refund moves no money. **In Stripe both charges still read succeeded, refunded $0.00.**
+- **Tried and refused:** at 5:02 PM Central Shopify asked Supliful to cancel both orders and Supliful declined both. Both orders still read "In progress" with no shipment recorded, so two bottles will ship to Dan unless Supliful support stops them.
+- Not done: no declined-card attempt shows in Stripe (step 4). The Shopify orders are not cancelled (they cannot be while Supliful holds them).
+
+### What is left, Grokbot (self-contained, fire now)
+
+> Finish undoing two real test orders for Dan Rose on his own shop (SixPackAbs.com). Dan authorizes every step, including the refunds; do not stop to ask him. The orders were placed on November 18, 2026: Shopify #1030 ($9.99) and Shopify #1031 ($97.00). The monthly plan is already cancelled and Shopify already shows both orders as refunded, but that Shopify refund moved no money, because the orders were paid in Stripe. (1) In the Stripe dashboard (the account shown as "Abs By AI", live mode) find the two payments from November 18 with statement text SIXPACKABS.COM, $9.99 and $97.00, and refund each in full. Do NOT refund anything again in Shopify. (2) In Supliful's dashboard find the two orders (Shopify #1030 and #1031). Shopify's cancel request was declined. If Supliful still lets you cancel them, cancel both; if not, message Supliful support from Dan's account and ask them to stop both orders before they ship. If they have shipped, say so. (3) Report what you did for each order and anything that could not be undone. Do not change prices, settings, page copy or any other order.
+
+### What is left, Codex (GPT-6.2 Sol, high)
+
+> Read `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md` in the Abs By AI project and do only what the section "Status 2026-11-20" says is left: in the Stripe dashboard (not the API) refund in full the two November 18 payments with statement text SIXPACKABS.COM, $9.99 and $97.00; do not refund again in Shopify (it already shows both as refunded, on paper only); in Supliful try to cancel the two orders for Shopify #1030 and #1031, and if the dashboard will not, ask Supliful support from Dan's account to stop them before they ship. Dan authorizes every step, including the refunds. Do not change prices, settings or page copy, and keep secrets out of repo files. Report what was done for each order.
+
+Claude can also do the two Stripe refunds itself in the dashboard once Dan says yes to the two amounts in Claude's go-live task.
