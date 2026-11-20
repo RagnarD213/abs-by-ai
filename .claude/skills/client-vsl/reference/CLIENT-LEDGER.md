@@ -36,7 +36,7 @@ target is what shipped.
 | **Fix landed in the finished master** | `done ID --at <film time> --evidence <frame pulled from the master>`. |
 | **Before the reviewer** | `gate --stage review`. Give the reviewer `report --for reviewer` plus the client's source copies. |
 | **Reviewer verdicts** | `review ID --result pass|fail --at T --by REVIEW-x` for every row. A fail is a MUST. |
-| **Before Dan's page and before any client send** | `gate --stage deliver`. Paste its PASSED line into the receipt and the message draft. A send without it is not allowed. |
+| **Before Dan's page and before any client send** | `gate --stage deliver --file FILE --rows ROWS.json`. Paste its PASSED line into the receipt and the message draft. A send without it is not allowed. |
 
 ## Item rules
 - **Exact words only.** Never paraphrase a client note into the ledger; `add` refuses a quote it cannot find in the

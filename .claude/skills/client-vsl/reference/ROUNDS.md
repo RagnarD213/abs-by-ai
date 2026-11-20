@@ -104,7 +104,7 @@ approve go to Dan as a quick look (blind A/B if both AIs made one) and never hol
 See [PIPELINE.md](PIPELINE.md). The lead is rebuilt from his feedback items, not carried over from the trial; reuse only
 the pieces he praised or picked, each tied to its ledger item. Promise a date with a day of padding (Joint Vigor: promised end of Thursday, delivered
 Wednesday). Re-estimate from block 1's measured time on day one and tell Dan the same day if the date is at risk. No
-review page goes to the client before the full film. Delivery message: `gate --stage deliver` PASSED first, then the
+review page goes to the client before the full film. Delivery message: `gate --stage deliver --file FILE --rows ROWS.json` PASSED first, then the
 folder link, his notes answered one by one with the new film time of each (`report --for client`), the runtime and the exact VTurb
 reveal time, the cut version's projected length and reveal, what the casting and Dramatization treatment is, a request
 for timestamped revisions from the captioned version, the number of included revision rounds, and what comes next.

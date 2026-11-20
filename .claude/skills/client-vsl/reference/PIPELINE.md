@@ -147,7 +147,7 @@ film is at g * 1001 / 30000 s (29.97 fps); renders are frame exact so chunks con
   the slot `--review`; start a fresh Fable reviewer ([REVIEWER-BRIEF.md](REVIEWER-BRIEF.md)). Loop until SHIP.
 
 ## 12. Deliver
-- `client_ledger.py gate <job> --stage deliver` PASSED, pasted into the receipt and the message draft.
+- `client_ledger.py gate <job> --stage deliver --file FILE --rows ROWS.json` PASSED, pasted into the receipt and the message draft.
 - Captioned + clean + SRT at the locked pace in a Drive folder (anyone with the link), each file's hash checked after
   upload, opened logged out. Client message drafted with the VTurb reveal time (first frame of the product on the spoken
   product word: Joint Vigor 28:27.75 at 1.1x).
