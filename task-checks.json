@@ -21,7 +21,8 @@
     "assistant::Laundry",
     "assistant::Dishes 11/20",
     "assistant::Detailing; polishing, wiping mirrors, dusting, misc.",
-    "assistant::Take recycling to curb"
+    "assistant::Take recycling to curb",
+    "assistant::Take trash bin to curb"
   ],
   "log": {
     "health::Shower": [
@@ -269,6 +270,7 @@
     "assistant::Laundry": "2026-11-20",
     "assistant::Dishes 11/20": "2026-11-20",
     "assistant::Detailing; polishing, wiping mirrors, dusting, misc.": "2026-11-20",
-    "assistant::Take recycling to curb": "2026-11-20"
+    "assistant::Take recycling to curb": "2026-11-20",
+    "assistant::Take trash bin to curb": "2026-11-20"
   }
 }
