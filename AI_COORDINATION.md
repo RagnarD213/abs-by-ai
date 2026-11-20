@@ -93,7 +93,6 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GATUpsell3(WV-06):PAUSED-BY-DAN:2026-11-20:Claude,M2.** R1 page http://127.0.0.1:9879/ waits for Dan; nothing running, no slot or priority. Resume only when Dan says. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell2(WV-05):PAUSED-BY-DAN:2026-11-20:Claude,M2.** Round 2 stopped mid-render; slot released; no automatic restart. Resume: `/Volumes/Extreme/_edit_work/WV-05/round2-plan/RESUME.md` (PAUSED section).
 **GATUpsell4(WV-07):PAUSED-BY-DAN:2026-11-20:Claude,M6.** R2 paused mid-build; slot released, nothing auto-restarts. Resume only when Dan asks: `~/Projects/_edit_work/WV-07/round2-plan/RESUME.md`.
-**GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
 
 **GAT-ad-scripts:DAN-CONFIRMING-S13/S21:2026-11-12:Claude.**19-final-in-Doc;L18-not-set-up;quiz-must-return-plan-before-quiz-ads-run.
 
