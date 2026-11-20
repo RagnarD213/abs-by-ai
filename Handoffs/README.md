@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [GAT Upsell 2 (WV-05) round 2: transfer to Codex](handoff-20261120-wv05-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** Paused before the full-draft render; cards, audio and wives-clip takes ready.
 - [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
 
 
