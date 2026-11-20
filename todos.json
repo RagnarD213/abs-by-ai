@@ -491,6 +491,13 @@
       "recurring": false,
       "addedAt": "2026-11-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take trash bin to curb",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
