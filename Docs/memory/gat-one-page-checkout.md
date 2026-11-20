@@ -26,3 +26,6 @@ Built 2026-11-18 for Dan ("pay all on one page... eliminate the two-step checkou
 **Why:** the next session touching this checkout, or testing any SixPackAbs order flow, needs these traps before it spends money or ships a test bottle.
 
 **How to apply:** any work on the Great Again T order page, its payments, upsells on the saved card, or Shopify order tests. Related: [[gat-live-funnel-build]], [[supliful-shopify-linking]], [[repo-is-public]].
+
+**Refunds on one-page orders are made in Stripe, never in Shopify (learned 2026-11-20).** These orders are paid in Stripe and only recorded in Shopify by the `gat-order-sync` app, so pressing Refund in the Shopify admin marks the order refunded and moves no money. On the two real test orders (#1030, #1031) Shopify read "Refunded" while Stripe still showed $0.00 refunded. Also: Supliful declined Shopify's cancel request about 22 hours after the order, so an order that must not ship has to be stopped in Supliful within minutes, or through Supliful support.
+**How to apply:** for any refund request on a Great Again T one-page order, refund in the Stripe dashboard first, then record it in Shopify; check Stripe, not Shopify, before telling Dan money went back.
