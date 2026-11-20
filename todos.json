@@ -498,6 +498,13 @@
       "recurring": false,
       "addedAt": "2026-11-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Pool care tutorial",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
