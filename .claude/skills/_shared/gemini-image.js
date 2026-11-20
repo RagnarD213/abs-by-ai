@@ -12,7 +12,7 @@
  *
  * Usage:
  *   node gemini-image.js generate --prompt-file p.txt --out o.jpg \
- *        [--image in.jpg] [--tier draft|final] [--model M] [--env keys.env]
+ *        [--image in.jpg[,ref2.png,...]] [--tier draft|final] [--model M] [--env keys.env]
  *
  *   node gemini-image.js batch-submit  --spec jobs.json [--tier draft|final] [--model M]
  *   node gemini-image.js batch-status  --job <batches/xyz>
@@ -68,8 +68,10 @@ const mimeOf = (p) => (/\.png$/i.test(p) ? 'image/png' : /\.webp$/i.test(p) ? 'i
  *  would have produced. */
 function buildRequest(promptFile, imageFile) {
   const parts = [{ text: fs.readFileSync(promptFile, 'utf8') }];
-  if (imageFile) {
-    parts.push({ inline_data: { mime_type: mimeOf(imageFile), data: fs.readFileSync(imageFile).toString('base64') } });
+  // --image may list several reference files separated by commas (2026-11-20: frame pairs with
+  // product renders and an identity reference); they are attached in the order given.
+  for (const f of (imageFile ? String(imageFile).split(',').filter(Boolean) : [])) {
+    parts.push({ inline_data: { mime_type: mimeOf(f), data: fs.readFileSync(f).toString('base64') } });
   }
   return {
     contents: [{ parts }],
