@@ -20,9 +20,12 @@ The ledger is `<job>/CLIENT-LEDGER.json` in the PRIVATE client job folder. No cl
   sweep    JOB --through REF --client-messages N              the whole thread was read to its newest message
   lint     JOB FILE...              "approved by <client>" claims must cite an approval item, e.g. [L12]
   gate     JOB --stage plan|build|review|deliver [--brief FILE ...] [--max-age-hours 24]
+                Delivery requires --file FILE (repeat for every variant) and --rows ROWS.json.
   report   JOB --for dan|reviewer|client
 """
 import argparse, datetime, hashlib, json, os, re, sys
+
+from delivery_gate import require_receipt
 
 TYPES = ("note", "rule", "promise", "approval", "question")
 KINDS = ("brief", "doc", "message", "picks", "ours")
@@ -259,9 +262,23 @@ def cmd_gate(a):
             elif i["status"] == "done" and not (i.get("film_time") and os.path.isfile(i.get("evidence", ""))):
                 fail.append(f"{i['id']} marked done without a film time and an existing evidence frame")
     if a.stage == "deliver":
-        for i in live:
-            if i["status"] == "done" and i.get("review", {}).get("result") != "pass":
+        done = [i for i in live if i["status"] == "done"]
+        for i in done:
+            if i.get("review", {}).get("result") != "pass":
                 fail.append(f"{i['id']} has no PASS from the independent reviewer ({i['where']})")
+        if not a.file or not a.rows:
+            fail.append("delivery needs --file FILE for every video being sent and --rows ROWS.json")
+        else:
+            for video in a.file:
+                try:
+                    receipt, _ = require_receipt(video, a.rows, job=a.job)
+                    verified = receipt["checks"]["rows"]["verified"]
+                    for i in done:
+                        if (i["type"] != "approval"
+                                and norm(verified.get(i["id"], {}).get("client_words", "")) != norm(i["quote"])):
+                            fail.append(f"{video}: no exact-file verification of ledger item {i['id']}")
+                except ValueError as error:
+                    fail.append(str(error))
     if fail:
         print(f"CLIENT LEDGER GATE FAILED ({a.stage}), {len(fail)} problem(s):")
         for f in fail:
@@ -326,7 +343,8 @@ def main():
       (["--client-messages"], dict(required=True, type=int)))
     c("lint", cmd_lint, (["files"], dict(nargs="+")))
     c("gate", cmd_gate, (["--stage"], dict(required=True, choices=("plan", "build", "review", "deliver"))),
-      (["--brief"], dict(nargs="*")), (["--max-age-hours"], dict(type=float, default=24)))
+      (["--brief"], dict(nargs="*")), (["--max-age-hours"], dict(type=float, default=24)),
+      (["--file"], dict(action="append")), (["--rows"], {}))
     c("report", cmd_report, (["--for"], dict(dest="to", default="dan", choices=("dan", "reviewer", "client"))))
     a = p.parse_args()
     a.fn(a)

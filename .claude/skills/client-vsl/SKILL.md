@@ -27,6 +27,8 @@ publishing.
    queue, edit cap, two Macs. `_shared/PRE-RENDER-APPROVAL.md` for the round method.
 
 ## Hard rules for every client VSL
+- **Delivery gate (2026-11-20): nothing reaches Dan's page or the client without delivery_gate.py passing on the exact file. Never skip a gate to save usage; run reviews on Codex or Gemini instead.**
+  See [delivery gate inputs and commands](tools/DELIVERY-GATE.md).
 - **Nothing goes to the client without Dan's approval in his own words.** Draft every client message in
   `CLIENT-MESSAGE-<round>-DRAFT.md`, mark it SENT with the story id after Dan says to send. No calls. Dan's voice:
   short, plain, first name sign-off "Dan", no em or en dashes ([reference/ROUNDS.md](reference/ROUNDS.md), "Client
@@ -59,8 +61,8 @@ publishing.
 - **Generation:** Google Flow on Dan's subscription first (Nano Banana Pro stills 0 credits, Veo 3.1 Fast 10 credits a
   take), Codex image subscription as the alternative, paid API only after a recorded subscription failure. Stock
   (Pexels, Pixabay, free licences) before AI. Every AI take is filed in the clip library before the job closes.
-- **Silent checks only** for sound; say plainly that nobody has listened. Dan's review page is handed over paused with
-  sound ready.
+- **Silent checks on our Macs.** The independent reviewer must inspect the moving video and its audio together.
+  Record whether a person listened or a model processed the audio. Hand Dan the review page paused with sound ready.
 - **One owner.** The orchestrator session owns the job; helpers and block agents write only inside their own folder.
 
 ## Before the first production step
@@ -103,10 +105,10 @@ anything beyond is a new quote.
 8. Cards built in code in the approved card style, contain-fitted above the caption band.
 9. Render chunks picture-only (captioned and clean in one pass, frame exact), assemble with the timing shifts, finish
    once: 1.1x pace, music laid over the whole film in one pass and ducked to the measured targets, -13.5 LUFS.
-10. Gates (ledger `--stage review` first), receipt, fresh Fable review that marks every ledger row, Dan's review page.
-    Fix, re-finish once, repeat until SHIP and every ledger row has a reviewer PASS.
-11. `gate --stage deliver` passes. Deliver captioned + clean + SRT (Drive folder, public link, hashes checked) with the
-    VTurb reveal time and the note-by-note answer to his feedback.
+10. Run the ledger review gate and the independent reviews. Run the delivery gate on the exact export and page rows.
+    Fix any failures and repeat on the new export before building Dan's page.
+11. `gate --stage deliver --file FILE --rows ROWS.json` passes for every video variant. Deliver captioned + clean + SRT
+    (Drive folder, public link, hashes checked) with the VTurb reveal time and note-by-note answer to his feedback.
 
 ## Quality gates (detail and the defect list: [reference/GATES.md](reference/GATES.md))
 Run every one of these on the delivered masters BEFORE the reviewer sees them. Each exists because a Joint Vigor review
@@ -132,7 +134,8 @@ until it returns SHIP, given the delivered files, the master script, `STYLE-LOCK
 review, **the client's own source copies and `client_ledger.py report --for reviewer`** (his words and our claimed film
 times, no fix notes). It marks every ledger row PASS or FAIL with a time; any FAIL is a MUST. Never the editor's
 receipts. Brief: [reference/REVIEWER-BRIEF.md](reference/REVIEWER-BRIEF.md). Dan sees
-the film only after a SHIP (or with the open items listed).
+the film only after a SHIP and a passing exact-file delivery receipt. Use Codex or Gemini when the reviewer cannot
+inspect the whole moving film with audio.
 
 **Second blind reviewer before anything goes to the client (Joint Vigor, 2026-11-19).** The R5 head passed the reviewer
 above after three rounds (ALL PASS); a second fresh agent that saw ONLY the client's source files, the final film and the
@@ -141,8 +144,8 @@ later fix) and 7 near-misses on the client's own notes (his 2:29 red highlight v
 stills). Why the first missed them: it saw our claimed film times (anchoring), judged presence not visibility (a highlight
 "exists" = PASS), and later rounds re-checked the fixes rather than the whole file. So, on every client delivery: after
 the SHIP, one more brand-new agent (no plans, no ledger, no earlier reviews, no claimed times) samples the WHOLE final file
-every 2 s plus densely around each client timestamp, and judges each note as the client would see it at speed (on screen
-long enough to read, clearly the right people, moving footage not stills). Any FAIL or UNSURE is fixed, then that same
+with audio and checks densely around each client timestamp. It judges each note as the client would see it at speed,
+including whether text stays up long enough to read, the people are right, and the footage moves. Any FAIL or UNSURE is fixed, then that same
 blind pass runs again on the fixed file. Never tell Dan "passed, ready to send" on one reviewer's word.
 
 ## Models and effort (set 2026-11-19 after the Joint Vigor miss; Dan can change it)

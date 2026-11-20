@@ -8,7 +8,7 @@ reviewer sees the film**; the reviewer should be finding judgement calls, not de
 ## The gates, in run order
 | # | Gate | Tool (Joint Vigor kit, `claude-r4/...`) | Pass |
 |---|---|---|---|
-| 0 | **Client ledger** | `.claude/skills/client-vsl/tools/client_ledger.py gate <job> --stage build` (before the first render), `--stage review` (before the reviewer), `--stage deliver` (before Dan's page and any send) | PASSED line in the receipt. Every client instruction done with a frame from the master and a reviewer PASS, or waived in his own words; no unsupported "approved by the client"; thread swept within 24 h |
+| 0 | **Client ledger** | `.claude/skills/client-vsl/tools/client_ledger.py gate <job> --stage build` (before the first render), `--stage review` (before the reviewer), `--stage deliver --file FILE --rows ROWS.json` (before Dan's page and any send) | PASSED line in the receipt. Every client instruction done with a frame from the master and a reviewer PASS, or waived in his own words; no unsupported "approved by the client"; thread swept within 24 h |
 | 1 | Plan lint | `build/lint_plans.py` all plans | no still over 5 s in VO, no source reused within 90 s (keyed by file NAME, not path), no missing asset |
 | 2 | Casting audit, whole film | `build/casting_audit.py --master <clean 1.1x> --out asm/castN` then read every sheet by eye | every featured person fits the client's casting rule; professionals and background listed for Dan |
 | 3 | Dramatization chip sweep | native-size crops of the top-left corner on the first and last frame of every AI shot of people (Joint Vigor: `asm/checkE/chip/`) | every AI clip, AI still, AI testimonial and client-supplied AI image of people carries the chip, clear of faces |
