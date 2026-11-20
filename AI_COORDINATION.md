@@ -87,7 +87,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **GreatAgainT-VSL-R8(WV-03):IN-PROGRESS:2026-11-16:Claude,M2.** Frames, motion, full film running. Next: R8 page.
 **GATUpsell3(WV-06):R1-WITH-DAN:2026-11-19:Claude,M2.** Round 1 page http://127.0.0.1:9879/ (M2+M6); slot released; last key pieces and audio recheck finish in background. Next: Dan's reply starts the full build. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
-**GATUpsell2(WV-05):R2-WAITING-SLOT:2026-11-19:Claude,M6.** Round 2 prepped (CTA, breaths, 8 cards, AI briefs); waiting for an M6 edit slot (auto-start armed). `~/Projects/_edit_work/WV-05/round2-plan/`.
+**GATUpsell2(WV-05):R2-IN-PROGRESS:2026-11-19:Claude,M2.** Moved to the M2 at Dan's request; M2 slot held. Building cards, E02 motion, new AI frame pairs, full film. `/Volumes/Extreme/_edit_work/WV-05/round2-plan/RESUME.md`.
 **GATUpsell4(WV-07):R1-WITH-DAN:2026-11-19:Claude,M6.** Round 1 page http://127.0.0.1:9878/; slot released; remaining key pieces run in background. Next: Dan's reply starts the full build. `~/Projects/_edit_work/WV-07/round1/ROUND-1-NOTES.md`.
 **GATUpsell1(WV-04):R3-IN-PROGRESS:2026-11-18:Claude,M2.** Priority 2 after VSL; slot held. Plan `/Volumes/Expansion/_edit_work/WV-04/round3-plan/PLAN.md`.
 
