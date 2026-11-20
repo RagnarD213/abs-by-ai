@@ -13,6 +13,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [GAT Upsell 2 (WV-05) round 2: transfer to Codex](handoff-20261120-wv05-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** Paused before the full-draft render; cards, audio and wives-clip takes ready.
 - [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
+- [Great Again T VSL (WV-03) round 8: transfer to Codex](handoff-20261120-wv-03-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** All 173 pieces keyed; full-film render left running unattended (section 0 of 6 at handoff); next: gates, independent review, round 8 page.
 
 
 - [RO-28 "Got Abs? You need to see this.": thumbnail, upload, new ads](handoff-20261118-ro28-got-abs-reedit-setup.md), 2026-11-18. **OPEN: fire now (film approved); Codex GPT-6.2 Sol high.** Neutral title/thumbnail/ads, no drug terms; old 7 ads removed.
@@ -40,7 +41,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [GAT Upsell 1 AD R2](video-editing/WV-04-round-2-revisions.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 1 reviewed: Matched colour, House bass; full-screen product shot with ingredients at 0:52; larger key-point cards; sofa pair recast (after guy, younger wife); cleaner than the VSL, more camera, fewer AI clips; builds the whole upsell.
 
-- [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **OPEN: Dan fires; Claude Opus 5.5 high, chat on the M2.** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
+- [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **EXECUTED by Claude through keying; rest moves to Codex (see the 2026-11-20 transfer).** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
 
 - [Self-Driving Car SFC Setup](handoff-20261116-ds30-self-driving-car-setup.md), 2026-11-16. **EXECUTED.** Both corrected covers approved; uploads, backups and metadata verified. Shared waitlist January19,2027 at6PM Central, not a live schedule. [Receipt](../Docs/DS30_SETUP_RECEIPT_20261116.md).
