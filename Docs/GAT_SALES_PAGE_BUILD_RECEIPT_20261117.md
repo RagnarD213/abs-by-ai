@@ -68,7 +68,7 @@ Dan asked to pay on one page with no second Shopify checkout step. Built the sam
 
 ## Left to do
 
-1. Refund and cancel the two real one-page test orders #1030 and #1031 (Grokbot, undo-only prompt in `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md`). The older two-step test-order handoff (`handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`) now covers only the `?classic=1` fallback.
+1. Finish the undo of the two real one-page test orders #1030 and #1031: as of 2026-11-20 the monthly plan is cancelled and Shopify shows both refunded, but Stripe has not returned the $9.99 and $97.00 (a Shopify refund moves no money on these orders) and Supliful declined to cancel, so the bottles are set to ship. What is left is in `Handoffs/handoff-20261118-gat-real-test-orders-grokbot.md`. The older two-step test-order handoff (`handoff-20261117-gat-funnel-finish-shipping-pixel-test-order.md`) now covers only the `?classic=1` fallback.
 2. Video: when Great Again T VSL (WV-03) is approved, set `CFG['video']` and `revealAt` (the second Dan says "So if you already know you want this").
 3. Launch day: `LAUNCHED = True` (removes noindex), rebuild, deploy.
 5. The 7-day reminder email before the first $67 charge is built into the one-page order form (test mode, see above); the two-step Shopify flow still has none; Dan's Part C items in the compliance Doc; the two label differences (directions and warnings wording).
