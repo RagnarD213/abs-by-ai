@@ -463,6 +463,13 @@
       "addedAt": "2026-11-18",
       "addedBy": "assistant",
       "boardRank": 18
+    },
+    {
+      "text": "Laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
