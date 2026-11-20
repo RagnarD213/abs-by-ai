@@ -470,6 +470,13 @@
       "recurring": false,
       "addedAt": "2026-11-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Dishes 11/20",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
