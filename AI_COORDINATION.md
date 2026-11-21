@@ -37,12 +37,12 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 **GAT-funnel:LIVE-NOT-LAUNCHED:2026-11-18:Claude.** Round 8 live. Next: Grokbot test orders; one-page checkout handoff in README. `Docs/GAT_SALES_PAGE_BUILD_RECEIPT_20261117.md`.
 
-**RO-39:PAUSED-BY-DAN:2026-11-18:Codex:M2.** Progress saved, production stopped, slots released. No automatic restart. `Docs/RO39_PAUSE_20261118.md`.
+**RO-39:IN-PROGRESS:2026-11-20:Codex:M2.** Resumed by Dan; reuse 15 completed keys, finish first-review previews/checks. Full render waits for choices. `Docs/RO39_RESUME_20261120.md`.
 
 **CLIPLIB-V2:REVIEW:2026-11-18:Codex:M2.** 14 X1 whole frame pairs approved; 6 UNDECIDED held. 33 motion submissions produced 32 native videos and one refunded technical failure; 346 of 5,000 credits used, 0 reserved. All 38 provider files (32 native, 6 exports) archived with fresh original/M2/archive/Drive SHA verification. Fourteen exact-file candidates from thirteen selected scenes passed picture gates/fresh review and are on :9875; the old bag motion remains rejected. One simpler replacement whole frame pair is checked and ready on :9876, awaiting a new Dan pick before motion; its comparison branch failed both allowed versions. 231 raw stills preserved. M6 remains with Joint Vigor. No Dan motion approval or usable keeper IDs. `Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md`.
 
 
-**REALDEMOS-B04:PAUSED-BY-DAN:2026-11-17:Codex01a1e613:M2.** Dan is low on allowance. Automatic start removed; no active worker or rendered demos. Resume only when Dan asks.
+**REALDEMOS-B04:REVIEW:2026-11-21:Codex01a1e613:M2.** Five checked demos/copy: http://127.0.0.1:9818/. Await Dan, including pull-up camera crop. Store after approval; no live install.
 
 
 **DS-109:SETUP:** DONE. Four schedules verified Jan14,2027 at6PM Central: YT7055960 FB7055957 IG7055958 TT7055959. Revised B approved. Receipt Docs/DS109_SETUP_RECEIPT_20261116.md. No owner action or edit slot; public release pending.
@@ -79,7 +79,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 
 
 
-**DS-98 three-way blind edit: ROUND 2 IN PRODUCTION ON M2, 2026-11-16.** Dan requested the move. M2 holds the edit slot; the M6 starter was withdrawn. [Round 2 handoff](Handoffs/video-editing/DS-98-round-2-full-film-revisions.md). New checked films will be delivered together.
+**DS-98 three-way blind edit: WAITING FOR DAN, 2026-11-20.** All three Round 2 films passed independent checks. [Checked Round 2 review and changed ranges](http://127.0.0.1:18901/) delivered to the originating chat. M2 edit slot released for review; R1 preserved. No final approval, upload or scheduling. [Round 2 handoff](Handoffs/video-editing/DS-98-round-2-full-film-revisions.md).
 
 
 
@@ -91,6 +91,8 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **GATUpsell1(WV-04):R3-WITH-DAN:2026-11-20:Codex,M2.** R3e independently reviewed. Page http://127.0.0.1:9937/; VLC copy verified; slot released. Next: Dan’s AI and graphic picks plus checkbox image and wording.
 **GATUpsell3(WV-06):PAUSED-FOR-CODEX-TRANSFER:2026-11-20:Claude,M2.** Slot released, nothing running. R1 page http://127.0.0.1:9879/ waits for Dan. Handoff `Handoffs/handoff-20261120-wv06-transfer-to-codex.md`.
 **GATUpsell3(WV-06):R1-WITH-DAN:2026-11-19:Claude,M2.** Round 1 page http://127.0.0.1:9879/ (M2+M6); slot released; last key pieces and audio recheck finish in background. Next: Dan's reply starts the full build. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
+**GATUpsell4(WV-07):ROUND-2-WITH-DAN:2026-11-20:Codex,M6.** Full 4:40 review at http://127.0.0.1:12807/. Independent picture pass. Audio and vertical ad checks have open flags. Slot released. Next: Dan reviews revisions and recipe photos. `~/Projects/_edit_work/WV-07/round2/ROUND-2-DELIVERY.md`.
+**GATUpsell1(WV-04):PAUSED-BY-DAN:2026-11-20:Claude,M2.** Progress saved, production stopped, slot released. No automatic restart. `/Volumes/Expansion/_edit_work/WV-04/round3-plan/RESUME.md`.
 **GATUpsell4(WV-07):PAUSED-FOR-CODEX-TRANSFER:2026-11-20:Claude,M6.** Slot released, nothing auto-restarts. Next: Codex Sol high after Dan's ChatGPT upgrade: `Handoffs/handoff-20261120-wv07-transfer-to-codex.md`.
 **GATUpsell3(WV-06):PAUSED-BY-DAN:2026-11-20:Claude,M2.** R1 page http://127.0.0.1:9879/ waits for Dan; nothing running, no slot or priority. Resume only when Dan says. `/Volumes/Extreme/_edit_work/WV-06/RESUME.md`.
 **GATUpsell4(WV-07):PAUSED-BY-DAN:2026-11-20:Claude,M6.** R2 paused mid-build; slot released, nothing auto-restarts. Resume only when Dan asks: `~/Projects/_edit_work/WV-07/round2-plan/RESUME.md`.
@@ -205,7 +207,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **DS-02/03/07/11 HOLD 2026-10-27, Claude.** Waitlist Feb 4-25 2027. `Docs/DS02_03_07_11_SETUP_RECEIPT_20261027.md`
 
 
-**DS-20 HOLD 2026-10-28, Codex.** A installed; Dec10 9AM Central approved, waitlisted. DS05 corrected R4 approved and queued same day5PM. Daily top-up queues DS20. `Docs/DS20_SETUP_RECEIPT_20261028.md`.
+**DS-20 - QUEUED 2026-11-21, Claude.** YouTube Thu Dec 10 9 AM. Then: captions, article check.
 
 
 

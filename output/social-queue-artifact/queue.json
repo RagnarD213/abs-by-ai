@@ -1,61 +1,7 @@
 {
-"generated": "2026-11-20T12:25:23+00:00",
+"generated": "2026-11-21T12:26:16+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "5909603",
-"platform": "facebook",
-"when": "2026-11-20T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
-"batch": ""
-},
-{
-"id": "5909604",
-"platform": "instagram",
-"when": "2026-11-20T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
-"batch": ""
-},
-{
-"id": "5909605",
-"platform": "tiktok",
-"when": "2026-11-20T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
-"batch": ""
-},
-{
-"id": "5909607",
-"platform": "youtube",
-"when": "2026-11-20T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "If you're in your 20s, stop chasing women and build your value.",
-"batch": ""
-},
-{
-"id": "5912326",
-"platform": "facebook",
-"when": "2026-11-20T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 4,
-"text": "Carbs at night make you fat? This group lost more. Most of their carbs at dinner, 6 months.",
-"batch": ""
-},
-{
-"id": "5912324",
-"platform": "instagram",
-"when": "2026-11-20T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 4,
-"text": "Carbs at night make you fat? This group lost more. Most of their carbs at dinner, 6 months.",
-"batch": ""
-},
 {
 "id": "5910004",
 "platform": "facebook",
@@ -1044,6 +990,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Most guys think making money comes first and getting in shape can wait. That's totally the wrong way to think.",
+"batch": ""
+},
+{
+"id": "7294502",
+"platform": "facebook",
+"when": "2026-12-10T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here are the five levels of pushups and how to figure out which one is right for you.",
+"batch": ""
+},
+{
+"id": "7294503",
+"platform": "instagram",
+"when": "2026-12-10T15:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Here are the five levels of pushups and how to figure out which one is right for you.",
+"batch": ""
+},
+{
+"id": "7294504",
+"platform": "tiktok",
+"when": "2026-12-10T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here are the five levels of pushups and how to figure out which one is right for you.",
+"batch": ""
+},
+{
+"id": "7294505",
+"platform": "youtube",
+"when": "2026-12-10T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Here are the five levels of pushups and how to figure out which one is right for you.",
 "batch": ""
 },
 {

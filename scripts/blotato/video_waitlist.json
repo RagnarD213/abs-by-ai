@@ -410,7 +410,11 @@
    "timezone": "America/Chicago",
    "exception": "Two dedicated Shorts on December10; separate release times selected to avoid conflicts"
   },
-  "note": "Dan approved same-day release with DS05. Keep 9AM Central and existing waiting-list order; cover A installed, all assets uploaded and verified."
+  "note": "Dan approved same-day release with DS05. Keep 9AM Central and existing waiting-list order; cover A installed, all assets uploaded and verified.",
+  "queued": {
+   "date": "2026-11-21",
+   "main": "2026-12-10T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro20b-what-to-cut.json",
