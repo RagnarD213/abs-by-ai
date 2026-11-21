@@ -1,0 +1,4 @@
+{"shot": "RO-08 A6 round 2 take (A6-t1.mp4); no note from Dan, shipped in round 3 from 1.6 s on",
+ "intent": "Dark kitchen at night, locked-off wide shot. He sneaks to the fridge, opens it (its light floods the room), loads his arms with food and walks off with it.",
+ "camera": "locked",
+ "may_change": {"fridge_doors_and_inside": [1380, 0, 1780, 1000]}}

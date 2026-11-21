@@ -1,0 +1,16 @@
+{
+  "caseId": "heavier-male__dramatic",
+  "arm": "current",
+  "condition": "heavier",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "desc": "Heavier male",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 6396,
+  "safetyRetry": false,
+  "promptChars": 4383,
+  "image": "heavier-male__dramatic__current.jpg",
+  "ts": "2026-08-07T22:41:25.854Z"
+}

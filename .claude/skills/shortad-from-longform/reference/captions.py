@@ -1,0 +1,362 @@
+#!/usr/bin/env python3
+"""Word-timed burned captions, rendered with PIL so the typography matches the graphics.
+
+Not libass: Manrope ships as a VARIABLE font and libass takes the default instance, so
+ASS captions come out Regular while every graphic in the build is ExtraBold. Rendering
+them the same way the plates are rendered keeps one type system.
+
+Captions are SUPPRESSED wherever a graphic carries its own words (bullets, title cards,
+statements, the CTA pill). Two competing text systems in a 1080-wide frame is unreadable,
+and the bullets paraphrase the very sentence being spoken.
+"""
+import hashlib, json, os, re, subprocess, sys
+sys.path.insert(0, '.')
+sys.path.insert(0, '/Users/danielrose/Documents/Claude/Projects/Abs By AI/.claude/skills/_shared')
+from PIL import Image, ImageDraw, ImageFilter
+import vlib, beats as BT
+from motionlib import font, text_size
+
+FF = "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video_edit/bin/ffmpeg"
+VW, VH = 1080, 1920
+CAP_Y  = vlib.CAP_Y
+F      = font(64, "ExtraBold")
+MAXW   = VW - 150
+GROUP_MAX = 22          # characters; ~3 words -- a phone reads a short chunk, not a line
+# the lit word: his olive on a master rebuild, Soft Blue Light cyan on a sheet build (beats.STYLE)
+LIT = (104, 197, 255) if getattr(BT, 'STYLE', 'olive') == 'softblue' else vlib.OLIVE
+
+# Whisper mis-heard three words in this roll. They are HIS words on screen, so a
+# mis-transcription burned into the captions is a spelling mistake in the ad.
+# Whisper mis-heard six things on this roll. They are HIS words on screen, so a
+# mis-transcription burned into the captions is a spelling mistake in the ad.
+FIX = {('your','gold','picture'):    ('your','goal','picture'),
+       ('hit','your','golden.'):     ('hit','your','goal.'),
+       ('number','of','a','chart,'): ('number','on','a','chart,'),
+       ('time','of','debt,'):        ('time','of','day,'),
+       ('in','Seconds'):             ('in','seconds.'),
+       ('6packabs','.com'):          ('6PackAbs.com',''),
+       ('nutritionist','and','diet'):('nutritionists','and','diet'),
+       # the kit's from-raw build (our own Whisper pass on our own mix, 2026-09-18, raw judge 3): two mis-hearings
+       # of "six-pack", one article, and Whisper's split of a hyphenated word into "six -pack" / "38 -year"
+       ('six','fat','abs.'):         ('six-pack','abs.',''),
+       ('six','back','abs,'):        ('six-pack','abs,',''),
+       # Ad 8 (kit autofill, 2026-09-28, judged junk_card at 61.6 s): "with defined six pack abs" heard as "the fine"
+       ('the','fine','six','pack'):  ('defined','','six-pack',''),
+       ('uses','a','specific'):      ('uses','the','specific'),
+       # Ad 10 (kit autofill round 3, 141.9 s): "a real plan and it'll build you one" heard as "on" (Flash ASR too; Pro hears one)
+       ('build','you','on'):         ('build','you','one.'),
+       # Ad 8 (kit autofill round 4, 47.8 s): "but 'get in shape' is fog" heard as "getting shape" (Gemini Pro by ear)
+       ('but','getting','shape','is'): ('but','get in','shape','is'),
+       # Ad 10 has spoken full stops here; without punctuation the three-word
+       # caption groups burn visible run-ons across the sentence boundaries.
+       ('story','really','is',"It's"): ('story','really','is.',"It's"),
+       ('being','unhealthy',"It's"):   ('being','unhealthy.',"It's"),
+       ("you're",'a','dad','But'):      ("you're",'a','dad.','But'),
+       ('family','already','eats','So'): ('family','already','eats.','So'),
+       ('two','dinners','snap','a'):     ('two','dinners.','Snap','a'),
+       ('for','you','No','weighing'):   ('for','you.','No','weighing'),
+       ("don't",'have','bad','week','It'):("don't",'have.','Bad','week?','It'),
+       ('off','completely','and',"here's"):('off','completely.','And',"here's"),
+       ("here's",'what','changes','your'):("here's",'what','changes:','Your'),
+       ('wife','notices','your','kids'): ('wife','notices.','Your','kids'),
+       ('kids','see','it','And'):        ('kids','see','it.','And'),
+       ('you','differently','and',"you'll"):('you','differently.','And',"you'll"),
+       ('years','younger','So','generate'):('years','younger.','So','generate'),
+       ('actually','have','Tap','the'):  ('actually','have.','Tap','the'),
+       # Ad 10's approved delivery says "it was AI"; Whisper split the initialism into
+       # an article and pronoun, which burned the junk caption "it was a I".
+       ('was','a','I'):              ('was','AI',''),
+       ('six','-pack'):              ('six-pack',''),
+       ('38','-year','-old'):        ('38-year-old','',''),      # the 3-token form first: patterns apply in this order
+       ('38','-year'):               ('38-year',''),
+       ('woo','-woo'):               ('woo-woo','')}
+
+def load_words(source='words_ctc.json'):
+    """Caption words with their timings. ⚠ WHISPER'S OWN WORD TIMESTAMPS ARE ~130 ms EARLY ON THIS MIX
+    (sd 150, p90 +295 ms against a CTC forced alignment; 289 of 875 words off by more than 150 ms) --
+    that is the 'highlighted word does not match what is said' Dan rejected 2026-09-08. The timings
+    now come from align_ctc.py (wav2vec2 CTC forced alignment of the same words to his mix); the
+    Whisper JSON is only the source of the WORDS."""
+    import os
+    if source and os.path.exists(source):
+        d = json.load(open(source))
+        out = [(w['word'].strip(), float(w['start']), float(w['end'])) for w in d if w['word'].strip()]
+        n = 0   # the FIX map was applied before alignment, so no re-application here
+        print(f'caption timings: {source} ({len(out)} words, CTC forced alignment)')
+        return out
+    d = json.load(open('ref.whisper.json'))
+    out = []
+    for s in d['segments']:
+        for w in s.get('words', []):
+            t = w['word'].strip()
+            if t: out.append((t, float(w['start']), float(w['end'])))
+    n = 0
+    for i in range(len(out)):
+        for src, dst in FIX.items():
+            k = len(src)
+            if tuple(x[0] for x in out[i:i+k]) == src:
+                for j, word in enumerate(dst):
+                    out[i+j] = (word, out[i+j][1], out[i+j][2])
+                n += 1
+    out = [w for w in out if w[0]]
+    print(f'transcription fixes applied: {n}')
+    return out
+
+def suppressed():
+    """Where captions must not run: graphics that carry their own words, plus any beat
+    explicitly flagged caps=False (a card with a kicker or a caption).
+
+    ⚠ IN A CUTDOWN THIS LIST IS READ FROM `mute.json`, WRITTEN BY THE CUTDOWN BUILDER (2026-09-12).
+    The builder maps the MASTER's spans through the range plan; the generated cut beat sheet maps
+    the BEATS. Those two agree to within a few milliseconds -- and a few milliseconds is enough,
+    because groups() treats a word starting within 0.15 s of a span as muted. On this cutdown the
+    card beat read 2.936 in the generated sheet against 2.950 in the builder, which muted one extra
+    word: the render burned 103 caption states and `caption_sync_check.py`, re-deriving the
+    grouping from THIS function, graded 104 and reported three "misses" on captions that are
+    correct on the frame. One file, written once, read by both."""
+    import os as _os, json as _json
+    _m = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'mute.json')
+    if _os.path.exists(_m):
+        return [tuple(x) for x in _json.load(open(_m))]
+    tl, ov = BT.timeline()
+    # Lower thirds AND CTA pills print words of their own, so they mute the captions for
+    # their duration exactly as the bullet screens do. Missing 'cta' here ran the captions
+    # straight through all three pills -- "With Abs" overprinted by "to generate an image".
+    return [(b['t0'], b['t1']) for b in tl + ov
+            if b['kind'] in BT.NO_CAPS_KINDS or b['kind'] in ('lt','cta') or b.get('caps') is False]
+
+def groups(words, mute):
+    # ⚠ THE MUTE SLACK MUST NOT REACH ACROSS A CUTDOWN SEAM (2026-09-12, Ad 1 square audit 2).
+    # A word is treated as muted if it starts within [a - 0.15, b + 0.02] of a suppressed span --
+    # slack that stops a caption flashing on the first or last frames of a graphic. At a SEAM the
+    # graphic is not there any anymore: the next range's picture is a different part of the film.
+    # Measured on this cutdown: the first CTA pill's mute ends exactly on the 34.10 s seam and its
+    # +0.05 swallowed "You're" at 34.133, so the line read "more attractive to" while the audio
+    # said "You're more attractive to women". SEAMS is [] on a master, so nothing outside a
+    # cutdown changes. It lives HERE, not in the cutdown builder, because caption_sync_check.py
+    # re-derives the grouping from this same function -- a fix applied in only one of the two
+    # makes the gate grade a grouping the render never had (it read 99.0 % on correct captions).
+    _seams = sorted(getattr(BT, 'SEAMS', []) or [])
+
+    def muted(t):
+        for a, b in mute:
+            lo, hi = a - 0.15, b + 0.02   # 0.02 < one frame: the word right after a lower third is captioned (Ad 8 66.61 s "That", kit autofill round 4)
+            # ⚠ COMPARE WITH A TOLERANCE. A span clamped to a range edge and the seam itself are
+            # computed by two different sums (dst0 + (a1 - src0) vs the next range's dst0) and came
+            # out 1e-5 apart on this cut -- so an exact `s >= b` never matched, the slack stayed at
+            # b + 0.05, and "You're" was muted again after the rule moved here. 1 ms is far below
+            # the 50 ms slack this is clamping and far above the float noise.
+            EPS = 1e-3
+            for s in _seams:
+                if s >= b - EPS: hi = min(hi, s); break
+            for s in reversed(_seams):
+                if s <= a + EPS: lo = max(lo, s); break
+            if lo <= t <= hi: return True
+        return False
+    def ends_after(w):
+        """The end of the span a word STARTS under, when most of the word plays after it (Ad 10 138.66 s: "30" of
+        "30 minutes in the garage" began 0.18 s before the window closed and was never captioned, kit autofill
+        round 6). The word is then captioned from the span's end, but only when that is at most 0.10 s after the
+        word starts (the delivery gate's caption sync bound is 120 ms: "30" shown 212 ms late failed it); a longer
+        overlap is fixed by the kit ending the graphic before the word (build_kit.py)."""
+        for a, b in mute:
+            if a - 0.15 <= w[1] <= b + 0.02 and b + 0.034 - w[1] <= 0.10 and w[2] > b + 0.10 and (w[2] - b) >= 0.5 * (w[2] - w[1]) \
+                    and not any(a2 <= b + 0.034 < b2 for a2, b2 in mute if (a2, b2) != (a, b)) \
+                    and not any(s_ > b - 1e-3 and s_ < w[2] for s_ in _seams):
+                return b
+        return None
+    gs, cur = [], []
+    for w in words:
+        if muted(w[1]):
+            e_ = ends_after(w)
+            if e_ is None:
+                if cur: gs.append(cur); cur = []
+                continue
+            if cur: gs.append(cur); cur = []
+            w = (w[0], round(e_ + 0.034, 3), w[2])
+        # never carry a group across a full stop: "life. You're more" reads as a mistake
+        if cur and cur[-1][0].rstrip().endswith(('.', '?', '!')):
+            gs.append(cur); cur = [w]; continue
+        cand = cur + [w]
+        if len(' '.join(x[0] for x in cand)) > GROUP_MAX and cur:
+            gs.append(cur); cur = [w]
+        elif cur and w[1] - cur[-1][2] > 0.55:
+            gs.append(cur); cur = [w]
+        else:
+            cur = cand
+    if cur: gs.append(cur)
+    # a lone short word left on screen for a few frames before a graphic takes the captions away reads as a stray
+    # tick ("I" for 6 frames before the "I used AI" lower third, Ad 10 23.1 s, kit autofill gate round judge)
+    def stray(g):
+        if len(g) != 1:
+            return False
+        w = g[0]
+        if any(0 <= a - 0.15 - w[1] <= 0.35 for a, b in mute):
+            return True
+        # ... or the last word of a sentence whose other words a graphic covered ("age." alone for 0.7 s after the
+        # "It works around your injuries" lower third, Ad 10 144.3 s)
+        if not any(0 <= w[1] - b <= 0.35 for a, b in mute):
+            return False
+        i = next((k for k, x in enumerate(words) if x[1] == w[1] and x[0] == w[0]), None)
+        prev = words[i - 1] if i else None
+        # the word before it was hidden by the graphic and belongs to the same sentence: this one is its orphan
+        return prev is not None and muted(prev[1]) and not prev[0].rstrip().endswith(('.', '?', '!'))
+    gs = [g for g in gs if not stray(g)]
+    return gs
+
+def render(gs, out='captions.mov', capdir='cap', stops=None, edges=None):
+    os.makedirs(capdir, exist_ok=True)
+    blank = f'{capdir}/_blank.png'
+    if not os.path.exists(blank):
+        Image.new("RGBA", (VW, VH), (0, 0, 0, 0)).save(blank)
+    entries, states, n, t = [], [], 0, 0.0
+    # HARD STOPS (2026-09-10, lesson A6.14): a line's last word is held up to 0.8 s, and that hold must never run into a
+    # graphic that mutes the captions nor across a cutdown seam (beats.SEAMS, when the build defines it).
+    if stops is None:
+        stops = [a_ for a_, b_ in suppressed()] + list(getattr(BT, 'SEAMS', []))
+    STOPS = sorted(set(stops))
+    # A bottom card that LIFTS the captions (beats.CAP_LIFTS) is a hard stop for a line still sitting at the normal
+    # height when the card comes up: "really trying." was held 0.8 s and sat on the "How I Eat" card for six frames
+    # (RO-10 vertical, 4:08.9, the gate's captions:graphic_clearance at -105 px). A line that is itself lifted is clear.
+    LIFT_STOPS = sorted(a_ for a_, b_, y_ in getattr(BT, 'CAP_LIFTS', []))
+    # THE HOLD NEVER BRIDGES A PICTURE CHANGE. A line's last word is held after he has finished saying it; when the
+    # picture changes inside that hold, the old line sat on the first frames of the new shot ("full year." for two
+    # frames on the return from the salad card, RO-10 59 s cut judge, 0:13.11). The hold ends at the change. `edges`:
+    # the picture boundaries on this file's own timeline (a cutdown passes its mapped ones); default, the beat sheet's.
+    if edges is None:
+        edges = [b_['t0'] for b_ in BT.timeline()[0]]
+    PIC_EDGES = sorted(set(round(float(e_), 4) for e_ in edges))
+    next_start = {id(g): (gs[i+1][0][1] if i + 1 < len(gs) else None) for i, g in enumerate(gs)}
+    for g in gs:
+        txt = ' '.join(x[0] for x in g)
+        # a bottom card (the 9:16 side list / cycle) lifts the captions above itself for as long as it is up
+        cap_y = next((int(y_) for a_, b_, y_ in getattr(BT, 'CAP_LIFTS', []) if a_ - 0.15 <= g[0][1] < b_), CAP_Y)
+        if g[0][1] - t > 0.02:
+            entries.append((blank, g[0][1] - t)); t = g[0][1]
+        for k, (w, ws, we) in enumerate(g):
+            # The file name carries the state's CONTENT (line text + lit word), not just its sequence number: a changed
+            # grouping renumbers every state, and a name keyed on the number alone silently reused the previous run's
+            # pictures -- wrong words burned over correct timings (lesson A6.24, caught in stills 2026-09-10).
+            p = f"{capdir}/c{n:05d}_{hashlib.md5(f'{txt}|{k}|{cap_y}|{LIT}'.encode()).hexdigest()[:10]}.png"; n += 1
+            if not os.path.exists(p):
+                im = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
+                d = ImageDraw.Draw(im)
+                # ⚠ BASELINE, NOT TOP. PIL's "t" anchor is the ascender line OF THE STRING
+                # IT IS GIVEN, so drawing one word at a time aligns each by its own top:
+                # every word without an ascender drops below its neighbours and the line
+                # reads as broken. And the advance must be getlength(), which counts the
+                # trailing space -- getbbox() ignores it, so the words crowd and drift left
+                # of their own shadow. Both faults shipped in an earlier attempt.
+                BASE = cap_y + F.getmetrics()[0]
+                tw = F.getlength(txt)
+                x = int((VW - tw) // 2)
+                sh = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
+                ImageDraw.Draw(sh).text((x, BASE), txt, font=F, fill=(0, 0, 0, 235), anchor="ls")
+                im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(9)))
+                im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(3)))
+                cx = float(x)
+                for j, (ww, _, _) in enumerate(g):
+                    col = LIT if j == k else (255, 255, 255)
+                    d.text((int(cx), BASE), ww, font=F, fill=col + (255,), anchor="ls")
+                    cx += F.getlength(ww + ' ')
+                im.save(p)
+            if k == len(g) - 1:
+                # The LAST word of a line stays lit until the next line starts (or 0.8 s, whichever is
+                # sooner) instead of dropping at its own acoustic end: a 40 ms 'on' used to flash for one
+                # frame and vanish, which reads as the highlight skipping the word (Dan, 2026-09-08).
+                nxt = next_start.get(id(g))
+                hold = max(we, ws + 0.12)                       # at least 120 ms on screen
+                end = min(nxt, max(hold, min(nxt, we + 0.8))) if nxt is not None else we + 0.3
+                end = max(end, ws + 1.0/29.97)                  # never zero, never past the next line
+                stop = next((s_ for s_ in STOPS if s_ > ws + 1e-3), None)
+                if stop is not None: end = max(min(end, stop), ws + 1.0/29.97)
+                if cap_y == CAP_Y:
+                    lstop = next((s_ for s_ in LIFT_STOPS if s_ > ws + 1e-3), None)
+                    if lstop is not None: end = max(min(end, lstop), ws + 1.0/29.97)
+                edge = next((e_ for e_ in PIC_EDGES if e_ > max(we, ws + 0.12) + 1e-3), None)
+                if edge is not None and edge < end: end = edge
+                end = min(end, max(BT.DUR, ws + 1.0/29.97))      # never past the end of the picture
+            else:
+                end = g[k + 1][1]
+            start = max(ws, t)
+            # ⚠ NO LIT WORD SHORTER THAN THREE FRAMES (kit9x16, 2026-09-17). A word the aligner squeezed against the
+            # next one ('you.' 66.322 -> 'But' 66.36) was lit for ONE frame: imperceptible, and the delivery gate
+            # reads the state as absent from the delivered pixels. The next word starts up to 0.06 s late instead,
+            # inside the 120 ms sync tolerance.
+            duration = max(0.10, end - start)
+            entries.append((p, duration))
+            states.append(dict(_e=len(entries) - 1, name=f"caption-{n-1:05d}", word=w,
+                               beat=[round(start, 4), round(start + duration, 4)],
+                               speech=[round(ws, 4), round(we, 4)],
+                               image=os.path.abspath(p), pos=[0, 0], scale=1.0,
+                               image_sha256=hashlib.sha256(open(p, 'rb').read()).hexdigest()))
+            t = max(start + duration, end, t)
+    # ⚠ QUANTISE EVERY BOUNDARY TO THE FRAME GRID BEFORE WRITING THE LIST (kit9x16, 2026-09-17). Durations written
+    # to 4 decimals and summed by the concat demuxer drift: by 109 s the stream ran more than a frame early, so a
+    # three-frame word ('and' 109.757-109.857) showed the NEXT word at its own midpoint and the delivery gate read
+    # the state as absent (corr 0.56 = right line, wrong lit word). Boundaries are now frame indices; each entry
+    # lasts a whole number of frames; the manifest records the quantised beat the pixels actually carry.
+    FPS_ = 30000/1001
+    bounds, T_ = [0.0], 0.0
+    for _, d in entries:
+        T_ += d; bounds.append(T_)
+    fidx = [int(round(b * FPS_)) for b in bounds]
+    for k in range(1, len(fidx)):                       # every entry keeps at least one frame
+        if fidx[k] <= fidx[k-1]: fidx[k] = fidx[k-1] + 1
+    entries = [(p, (fidx[k+1] - fidx[k]) / FPS_) for k, (p, _) in enumerate(entries)]
+    for st in states:
+        k = st.pop('_e')
+        st['beat'] = [round(fidx[k] / FPS_, 4), round(fidx[k+1] / FPS_, 4)]
+    # ⚠ ONE HARD-LINKED PNG PER OUTPUT FRAME, encoded as an image sequence at 30000/1001 (kit9x16 round 4). The
+    # concat demuxer keeps image timestamps in image2's 1/25 s timebase, so every `duration` is quantised to 40 ms
+    # and a third of the word switches landed ONE FRAME EARLY (measured: switches at 1094/1095, 3949/3950,
+    # 4805/4806 against the manifest). A frame sequence has no timestamps to round: frame k is state(k).
+    seqdir = f'{capdir}/frames'
+    if os.path.isdir(seqdir):
+        subprocess.run(['rm', '-rf', seqdir], check=True)      # not shutil.rmtree: exFAT's ._ AppleDouble files trip it
+    # ⚠ The frame sequence lives on the INTERNAL disk when the build is on exFAT (the Extreme SSD): exFAT has no hard
+    # links, and every symlink there costs a whole 2 MB cluster, so one 4:34 ad's sequence took 16 GB and filled the
+    # drive (Ad 6, 2026-10-02). On APFS a symlink is a few bytes.
+    try:
+        os.makedirs(seqdir); probe = f'{seqdir}/.probe'
+        os.link(os.path.abspath(entries[0][0]), probe); os.remove(probe)
+    except OSError:
+        subprocess.run(['rm', '-rf', seqdir], check=True)
+        import hashlib as _h
+        seqdir = os.path.expanduser('~/.cache/absbyai/capseq_' + _h.md5(os.path.abspath(capdir).encode()).hexdigest()[:10])
+        subprocess.run(['rm', '-rf', seqdir], check=True)
+        os.makedirs(seqdir)
+    for k, (p, _) in enumerate(entries):
+        for n_ in range(fidx[k], fidx[k+1]):
+            try:
+                os.link(os.path.abspath(p), f'{seqdir}/{n_:06d}.png')
+            except OSError:                                   # exFAT (the Extreme SSD) has no hard links
+                os.symlink(os.path.abspath(p), f'{seqdir}/{n_:06d}.png')
+    total_frames = fidx[-1]
+    with open(f'{capdir}/list.txt', 'w') as f:
+        for p, d in entries:
+            f.write(f"file '{os.path.abspath(p)}'\nduration {d:.6f}\n")
+        # ⚠ THE TRAILING `file` LINE IS RENDERED, AND IT MUST BE THE BLANK (skill [S1].6).
+        # The concat demuxer needs one more `file` after the last `duration`, and writing the
+        # last caption STATE there re-showed its lit word past its own planned end: measured on
+        # this build, "six pack abs," printed across the closing CTA pill's "With Abs" for 7
+        # frames (master f6936-6942, 231.43-231.63 s) -- in the master AND in the cutdown, whose
+        # caption stream ends at the same pill. The plan was right (cap/list.txt ends at 231.400,
+        # the pill's own mute start); only the trailing repeat was wrong. The lesson was written
+        # up on the Ad 2 square and never applied in code. A blank, held, then repeated.
+        f.write(f"file '{os.path.abspath(blank)}'\nduration 0.5000\n")
+        f.write(f"file '{os.path.abspath(blank)}'\n")
+    # Machine-readable compositor truth. plan_build.py binds this manifest to the delivered file;
+    # the gate then verifies these exact PNG/highlight states in the delivered pixels.
+    json.dump(dict(version=1, frame_size=[VW, VH], caption_states=states),
+              open(f'{capdir}/manifest.json', 'w'), indent=1)
+    subprocess.run([FF, '-v', 'error', '-y', '-framerate', '30000/1001', '-start_number', '0', '-i', f'{seqdir}/%06d.png',
+                    '-frames:v', str(total_frames), '-r', '30000/1001', '-c:v', 'qtrle', '-pix_fmt', 'argb', out], check=True)
+    print(f'{len(gs)} groups, {n} word states -> {out}')
+
+if __name__ == '__main__':
+    ws = load_words(); mute = suppressed()
+    gs = groups(ws, mute)
+    kept = sum(len(g) for g in gs)
+    print(f'words {len(ws)}  captioned {kept}  suppressed {len(ws)-kept} under graphics')
+    render(gs)

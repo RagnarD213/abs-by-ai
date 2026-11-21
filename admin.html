@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Abs by AI</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #0f1115; color: #f2f4f8; line-height: 1.5;
+      display: flex; justify-content: center; padding: 32px 16px;
+    }
+    .wrap { width: 100%; max-width: 640px; }
+    h1 { font-size: 22px; margin: 0 0 4px; }
+    .sub { color: #9aa3b2; font-size: 14px; margin: 0 0 24px; }
+    .card { background: #171a21; border: 1px solid #262b36; border-radius: 12px; padding: 20px; margin-bottom: 20px; }
+    label { display: block; font-size: 13px; color: #c3cad6; margin: 0 0 6px; font-weight: 600; }
+    input[type=email], input[type=password], input[type=text] {
+      width: 100%; padding: 11px 12px; font-size: 15px; border-radius: 8px;
+      border: 1px solid #303643; background: #0f1115; color: #f2f4f8; margin-bottom: 14px;
+    }
+    button {
+      font: inherit; font-weight: 700; border: 0; border-radius: 8px; padding: 11px 18px;
+      background: #4f7cff; color: #fff; cursor: pointer;
+    }
+    button:hover { background: #3d6bf0; }
+    button.secondary { background: #262b36; color: #dbe1ea; }
+    button.secondary:hover { background: #2f3542; }
+    button.danger { background: #b33b3b; color: #fff; padding: 6px 12px; font-size: 13px; }
+    button.danger:hover { background: #9c3030; }
+    button:disabled { opacity: .5; cursor: default; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    th, td { text-align: left; padding: 9px 8px; font-size: 14px; border-bottom: 1px solid #262b36; }
+    th { color: #9aa3b2; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+    .msg { font-size: 14px; padding: 10px 12px; border-radius: 8px; margin-bottom: 14px; display: none; }
+    .msg.err { display: block; background: #3a1c1c; color: #ffb4b4; border: 1px solid #5a2a2a; }
+    .msg.ok  { display: block; background: #14301f; color: #8fe6b3; border: 1px solid #235a3a; }
+    .pwbox {
+      display: none; margin-bottom: 14px; padding: 12px; border-radius: 8px;
+      background: #1a2438; border: 1px solid #2c3c5c;
+    }
+    .pwbox code { font-size: 15px; font-weight: 700; word-break: break-all; }
+    .pwbox .note { font-size: 12px; color: #9aa3b2; margin-top: 6px; }
+    .row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    .muted { color: #9aa3b2; font-size: 13px; }
+    .hidden { display: none !important; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Abs by AI — Admin</h1>
+    <p class="sub">Manage free beta accounts (permanent, full membership access).</p>
+
+    <!-- LOGIN VIEW -->
+    <div id="loginView" class="card">
+      <div id="loginMsg" class="msg"></div>
+      <form id="loginForm">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="username" required>
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button id="loginBtn" type="submit">Log in</button>
+      </form>
+    </div>
+
+    <!-- NOT-ADMIN VIEW -->
+    <div id="denyView" class="card hidden">
+      <div class="msg err" style="display:block">This account doesn't have admin access.</div>
+      <button class="secondary" onclick="logout()">Log out</button>
+    </div>
+
+    <!-- PANEL VIEW -->
+    <div id="panelView" class="hidden">
+      <div class="card">
+        <div class="topbar">
+          <strong>Create beta account</strong>
+          <button class="secondary" onclick="logout()">Log out</button>
+        </div>
+        <div id="createMsg" class="msg"></div>
+        <div id="pwbox" class="pwbox">
+          <div>Temp password: <code id="pwval"></code></div>
+          <button class="secondary" style="margin-top:8px" onclick="copyPw()">Copy</button>
+          <div class="note">Shown only once — copy it now and send it to the tester.</div>
+        </div>
+        <form id="createForm">
+          <label for="newEmail">Email</label>
+          <input id="newEmail" type="email" autocomplete="off" required>
+          <label for="newPassword">Password <span class="muted">(optional — generated if blank)</span></label>
+          <input id="newPassword" type="text" autocomplete="off" placeholder="leave blank to auto-generate">
+          <button id="createBtn" type="submit">Create beta account</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <strong>Current beta members</strong>
+        <div id="listMsg" class="msg"></div>
+        <table>
+          <thead><tr><th>Email</th><th>Created</th><th></th></tr></thead>
+          <tbody id="memberRows"></tbody>
+        </table>
+        <p id="emptyNote" class="muted hidden" style="margin-top:12px">No beta members yet.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Separate token key so it never collides with the app's absbyai_session_token.
+    const ADMIN_TOKEN_KEY = 'absai_admin_token';
+    let token = localStorage.getItem(ADMIN_TOKEN_KEY) || null;
+
+    const $ = id => document.getElementById(id);
+    function show(view) {
+      $('loginView').classList.toggle('hidden', view !== 'login');
+      $('denyView').classList.toggle('hidden', view !== 'deny');
+      $('panelView').classList.toggle('hidden', view !== 'panel');
+    }
+    function setMsg(el, text, kind) {
+      el.textContent = text || '';
+      el.className = 'msg' + (text ? ' ' + kind : '');
+    }
+    async function api(method, path, body) {
+      const res = await fetch(path, {
+        method,
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { 'Authorization': 'Bearer ' + token } : {}),
+        },
+        ...(body ? { body: JSON.stringify(body) } : {}),
+      });
+      let data = {};
+      try { data = await res.json(); } catch (e) {}
+      return { status: res.status, ok: res.ok, data };
+    }
+
+    function logout() {
+      token = null;
+      localStorage.removeItem(ADMIN_TOKEN_KEY);
+      show('login');
+    }
+
+    // Load the member list; also doubles as the admin-authorization check.
+    async function loadPanel() {
+      const r = await api('GET', '/api/admin/beta-members');
+      if (r.status === 401) { logout(); return; }
+      if (r.status === 403) { show('deny'); return; }
+      if (r.status === 503) { show('login'); setMsg($('loginMsg'), 'Admin is not configured on the server.', 'err'); return; }
+      if (!r.ok) { setMsg($('listMsg'), r.data.error || 'Could not load members.', 'err'); show('panel'); return; }
+      show('panel');
+      renderMembers(r.data.members || []);
+    }
+
+    function renderMembers(members) {
+      const tbody = $('memberRows');
+      tbody.innerHTML = '';
+      $('emptyNote').classList.toggle('hidden', members.length > 0);
+      for (const m of members) {
+        const tr = document.createElement('tr');
+        const created = m.created_at ? new Date(m.created_at).toLocaleDateString() : '';
+        const emailTd = document.createElement('td'); emailTd.textContent = m.email;
+        const dateTd = document.createElement('td'); dateTd.textContent = created;
+        const actionTd = document.createElement('td');
+        const btn = document.createElement('button');
+        btn.className = 'danger'; btn.textContent = 'Revoke';
+        btn.onclick = () => revoke(m.email);
+        actionTd.appendChild(btn);
+        tr.append(emailTd, dateTd, actionTd);
+        tbody.appendChild(tr);
+      }
+    }
+
+    async function revoke(email) {
+      if (!confirm('Revoke beta access for ' + email + '? Their membership becomes inactive.')) return;
+      const r = await api('DELETE', '/api/admin/beta-members/' + encodeURIComponent(email));
+      if (r.ok) { setMsg($('listMsg'), 'Revoked ' + email + '.', 'ok'); loadPanel(); }
+      else { setMsg($('listMsg'), r.data.error || 'Could not revoke.', 'err'); }
+    }
+
+    // ── Login ──
+    $('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setMsg($('loginMsg'), '', '');
+      $('loginBtn').disabled = true;
+      const r = await api('POST', '/api/auth/login', {
+        email: $('email').value.trim(), password: $('password').value,
+      });
+      $('loginBtn').disabled = false;
+      if (!r.ok) { setMsg($('loginMsg'), r.data.error || 'Login failed.', 'err'); return; }
+      token = r.data.token;
+      localStorage.setItem(ADMIN_TOKEN_KEY, token);
+      $('password').value = '';
+      loadPanel();
+    });
+
+    // ── Create ──
+    $('createForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setMsg($('createMsg'), '', '');
+      $('pwbox').style.display = 'none';
+      $('createBtn').disabled = true;
+      const email = $('newEmail').value.trim();
+      const password = $('newPassword').value;
+      const r = await api('POST', '/api/admin/beta-members', {
+        email, ...(password ? { password } : {}),
+      });
+      $('createBtn').disabled = false;
+      if (!r.ok) { setMsg($('createMsg'), r.data.error || 'Could not create.', 'err'); return; }
+      const verb = r.data.created ? 'Created' : 'Granted beta access to';
+      setMsg($('createMsg'), verb + ' ' + r.data.email + '.', 'ok');
+      $('createForm').reset();
+      if (r.data.tempPassword) {
+        $('pwval').textContent = r.data.tempPassword;
+        $('pwbox').style.display = 'block';
+      }
+      loadPanel();
+    });
+
+    function copyPw() {
+      const text = $('pwval').textContent;
+      navigator.clipboard?.writeText(text);
+    }
+
+    // Boot: if we already have a token, try the panel; otherwise show login.
+    if (token) loadPanel(); else show('login');
+  </script>
+</body>
+</html>

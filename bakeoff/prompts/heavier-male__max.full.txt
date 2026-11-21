@@ -1,0 +1,29 @@
+Transform this subject into a peak-condition natural bodybuilder at 8-10% body fat with the physique of a fitness magazine cover model. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. Reduce total body fat dramatically across the entire frame: the midsection, lower belly, flanks, chest, arms, and legs must all show substantial fat loss. Carve a deeply etched six-pack with sharp separation between each ab block, a pronounced vertical midline groove, and visible intercostal striations across the ribcage. This is a whole-body recomposition — the transformation must be striking and obvious at a glance.
+
+BODY TRANSFORMATION:
+- Reduce to 8-10% body fat, targeting the natural bodybuilder (off-stage) archetype — lean, defined, athletic, and sculpted without competition vascularity or extreme dryness
+- Carve a deeply defined six-pack with sharp separation between each upper and lower ab block, a sharp vertical midline groove running the full length of the abdomen, and visible intercostal definition across the ribcage
+- Widen the shoulders visibly, making the shoulder caps rounder and more prominent with clear pec-delt separation and a defined, sculpted chest — create a strong V-taper / inverted-triangle silhouette whose shoulder-to-waist ratio is immediately striking compared to the input
+- Define the arms with a prominent bicep peak, clear tricep sweep, and visible forearm muscularity — the entire arm must look substantially more toned and carved than the input
+- Tighten and define the obliques and waist, narrowing the midsection noticeably, especially from the navel downward — eliminate softness at the sides and flanks
+- Render all definition with real light-and-shadow contrast — each ab block catching light with a distinct shadow in the groove beside it, never flat lines drawn on skin
+- Tighten the legs visibly: quad definition across the thigh, reduced inner-thigh softness, and a leaner overall leg line
+- Skin must appear taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic, natural look, explicitly NOT an oiled or greasy bodybuilder-stage appearance
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+SKIN TONE RULES: Add a warm sun-kissed bronze tan — approximately 2 shades deeper than the natural skin tone. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID:
+- any alteration to face, identity, apparent ethnicity, or age
+- heavily oiled, greasy, wet, or sweat-drenched skin
+- exaggerated or cartoonish proportions
+- cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body
+- an output identical or nearly identical to the input — visible change is required
+- bulging veins or competition vascularity
+- comically oversized muscles
+- spray-on abs that look digitally pasted on
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

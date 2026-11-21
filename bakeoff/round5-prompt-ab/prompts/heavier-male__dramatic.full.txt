@@ -1,0 +1,20 @@
+Transform this man into a lean leading-man physique at 9-11% body fat. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. Reduce overall body fat substantially across the entire torso, midsection, arms, and lower body. Carve sharp ab definition, tighten the waist, and sculpt a clean V-taper by narrowing the midsection while building modest shoulder width. The result should read as an athletic, naturally lean man — not inflated or stage-ready, but visibly fit and sculpted.
+
+• Render a sharp, deeply defined six-pack with clear separation between each ab block, catching light with distinct shadows in the grooves — not flat lines drawn on skin
+• Carve visible oblique definition and a tight, tapered waist — no softness at the sides or lower abdomen
+• Build a clean V-taper: shoulders reading clearly broader than the waist, achieved primarily by tightening the waist and adding only modest upper-back and shoulder width — lean-athlete proportions with clear pec-delt separation
+• Define the arms with a visible bicep peak and tricep sweep, noticeably more sculpted than the input
+• Tighten the chest with clear pec definition and a sharp sternum line
+• Render skin taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic look, explicitly NOT an oiled bodybuilder-stage appearance
+• Reduce overall body fat from the legs, thighs, and lower body so the entire physique reads as lean and athletic
+• Model the new muscle with real light-and-shadow contrast — allow deeper shadows inside the ab separations, oblique lines, and V-cut, and brighter highlights across the ab blocks, chest, and shoulders
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+Preserve the subject's exact natural skin tone from the input photo — the same colour, the same warmth, the same depth. Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth, and do NOT darken or lighten the skin. The only permissible difference is the healthy look that comes from the light modelling the new muscle; the skin colour itself must be identical to the input.
+
+AVOID: any alteration to face, identity, apparent ethnicity, or age; heavily oiled, greasy, wet, or sweat-drenched skin; exaggerated or cartoonish proportions; any tan, bronzing, golden cast, or darkening of the skin versus the input photo; an airbrushed, plastic, or rendered look; cropping, zooming, re-framing, or changing camera distance; an output identical or nearly identical to the input; bulging veins or competition vascularity; bodybuilder-scale mass — an inflated chest, boulder shoulders, blown-up arms, or heavily flared lats; comically oversized muscles; spray-on abs that look digitally pasted on.
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

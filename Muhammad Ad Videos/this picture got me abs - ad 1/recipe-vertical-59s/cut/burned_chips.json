@@ -1,0 +1,142 @@
+{
+ "ai_goal_plain": {
+  "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_goal_plain.png",
+  "pos": [
+   180,
+   1226
+  ],
+  "located": [
+   [
+    180,
+    1226
+   ],
+   [
+    180,
+    1226
+   ],
+   [
+    180,
+    1226
+   ]
+  ],
+  "rendered_template_ncc": [
+   null,
+   null,
+   null
+  ],
+  "spread": [
+   0,
+   0
+  ],
+  "beat": [
+   0.0,
+   2.9363
+  ],
+  "how": "crop"
+ },
+ "ai_women_pool": {
+  "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_women_pool.png",
+  "pos": [
+   416,
+   1257
+  ],
+  "located": [
+   [
+    416,
+    1257
+   ],
+   [
+    416,
+    1257
+   ],
+   [
+    416,
+    1257
+   ]
+  ],
+  "rendered_template_ncc": [
+   0.8325,
+   0.8244,
+   0.85
+  ],
+  "spread": [
+   0,
+   0
+  ],
+  "beat": [
+   34.1675,
+   35.5127
+  ],
+  "how": "render30"
+ },
+ "ai_respect_gym": {
+  "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_respect_gym.png",
+  "pos": [
+   416,
+   1257
+  ],
+  "located": [
+   [
+    416,
+    1256
+   ],
+   [
+    416,
+    1257
+   ],
+   [
+    416,
+    1257
+   ]
+  ],
+  "rendered_template_ncc": [
+   0.93,
+   0.9303,
+   0.9304
+  ],
+  "spread": [
+   0,
+   1
+  ],
+  "beat": [
+   35.5127,
+   36.8627
+  ],
+  "how": "render30"
+ },
+ "ai_beachrun": {
+  "chip": "/Volumes/Extreme/_edit_work/AV-01/cut/plan_assets/chip_ai_ai_beachrun.png",
+  "pos": [
+   416,
+   1257
+  ],
+  "located": [
+   [
+    416,
+    1251
+   ],
+   [
+    416,
+    1257
+   ],
+   [
+    416,
+    1257
+   ]
+  ],
+  "rendered_template_ncc": [
+   0.9122,
+   0.8429,
+   0.869
+  ],
+  "spread": [
+   0,
+   6
+  ],
+  "beat": [
+   36.8627,
+   37.8044
+  ],
+  "how": "render30"
+ }
+}

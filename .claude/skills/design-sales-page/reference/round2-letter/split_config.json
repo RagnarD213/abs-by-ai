@@ -1,0 +1,9 @@
+{"heights": {"phone": "m/h_phone.json", "desk": "m/h_desk.json"},
+ "breaks": ["revolution", "fiveways", "hack5"],
+ "files": {"phone": ["R2-Letter.dc.html", "R2-Letter-2.dc.html", "R2-Letter-3.dc.html", "R2-Letter-4.dc.html"],
+           "desk": ["R2-Desktop-1.dc.html", "R2-Desktop-2.dc.html", "R2-Desktop-3.dc.html", "R2-Desktop-4.dc.html"]},
+ "titles": {"phone": ["Phone 1 of 4 · top of page to The Old Way", "Phone 2 of 4 · A Revolution In Technology to Introducing Abs By AI",
+                      "Phone 3 of 4 · The Five Ways, AI Hacks 1 to 4", "Phone 4 of 4 · AI Hack 5, plans, questions, final button"],
+            "desk": ["Desktop 1 of 4 · top of page to The Old Way", "Desktop 2 of 4 · A Revolution In Technology to Introducing Abs By AI",
+                     "Desktop 3 of 4 · The Five Ways, AI Hacks 1 to 4", "Desktop 4 of 4 · AI Hack 5, plans, questions, final button"]},
+ "out": {"phone": "split_phone.json", "desk": "split_desk.json"}}

@@ -1,0 +1,68 @@
+{
+ "title": "Carousel Picks Batch 1 R2",
+ "lede": "Round 2: every revision you asked for, 16 carousels plus the cheat sheet. Your approved posts are already scheduled (list at the bottom). Ticked means I queue it after Nov 9, alternating formats. Untick anything that still needs work, add notes in chat, then tap <b>Copy my picks</b> and paste it.",
+ "decisions": [],
+ "singles": [
+  {
+   "id": "cheat-01-protein-per-100-calories",
+   "note": "<h3>Protein cheat sheet</h3><p class='why'>Same chart with the small real photo of you. Per your new rule I took the tiny face avatar out of the footer. You didn't say yes or no last round, so here it is again.</p><div class='opts' data-key='P2'><label class='opt'><input type='radio' name='P2' id='P2-yes' value='yes' checked> <span>Queue it</span></label><label class='opt'><input type='radio' name='P2' id='P2-no' value='no'> <span>Not yet</span></label></div>"
+  }
+ ],
+ "sections": [
+  {
+   "heading": "The Fix",
+   "intro": "The five you asked to change.",
+   "ranking": "ranking-r2-the-fix.md",
+   "ids": [
+    "fix-09-bicep-curl-swing",
+    "fix-04-kettlebell-between-legs",
+    "fix-07-plank-butt-up",
+    "fix-05-toe-touch",
+    "fix-08-push-up"
+   ]
+  },
+  {
+   "heading": "Receipts",
+   "intro": "Rebuilt to be more visual: a big photo or AI image of you on every cover, images on the study slides, tips slides, larger text. The five you kept.",
+   "ranking": "ranking-r2-receipts.md",
+   "ids": [
+    "receipts-06-sleep",
+    "receipts-02-metabolism",
+    "receipts-05-too-old",
+    "receipts-04-light-weights",
+    "receipts-11-carbs-at-night"
+   ]
+  },
+  {
+   "heading": "Steal My Workout",
+   "intro": "The six you asked to change. All workout photos brightened.",
+   "ranking": "ranking-r2-workout.md",
+   "ids": [
+    "workout-02-five-minutes",
+    "workout-04-home-arms",
+    "workout-03-kettlebell",
+    "workout-09-ab-wheel",
+    "workout-08-v-taper",
+    "workout-07-lower-abs"
+   ]
+  }
+ ],
+ "unticked": [],
+ "notes": {
+  "receipts-11-carbs-at-night": "The cover and study images are AI-generated and labelled where the rule requires it."
+ },
+ "shootlist": [
+  "shootlist-the-fix.md",
+  "shootlist-workout.md"
+ ],
+ "decided": [
+  "<b>Already scheduled (Instagram and Facebook, 5 PM):</b> Fri Oct 23 C1 jump rope (last slide now shows the big photo of you), Mon Oct 26 C2 crunches, Wed Oct 28 your real ab workout (3 moves, 10 reps, 3 rounds) in place of C3, Fri Oct 30 towel row, Mon Nov 2 commercial break, Wed Nov 4 deadlift look up, Fri Nov 6 side laterals, Mon Nov 9 V-sit twist.",
+  "C3 came off Oct 28 because it put the name Spiderman plank on a knee-to-elbow move. Your real ab workout replaced it. Say the word and C3 goes back.",
+  "All 26 old green studio posts are off the schedule and saved in a reserve list, freeing 42 spots for videos.",
+  "New rule applied everywhere: the last slide shows a large shirtless studio photo of you, never just your face.",
+  "Cut for good this round: protein per meal, breakfast, six meals, kidneys, diet soda. On hold until filmed: ab wheel fix, gym arms, the deadlift swap workout.",
+  "Receipts AI images (7 made with Codex, two were retries): you in bed, a tired man, a fit 90-year-old, you with a giant bowl of pasta, a police officer eating pasta."
+ ],
+ "eyebrow": "Carousels batch 1 \u00b7 Round 2",
+ "decisions_heading": "Quick call"
+}

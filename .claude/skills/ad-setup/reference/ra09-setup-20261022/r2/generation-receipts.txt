@@ -1,0 +1,6 @@
+B_16x9 {"ok":true,"out":"B_16x9.png","width":1920,"height":1080,"codex_tokens":15946}
+C_16x9 {"ok":true,"out":"C_16x9.png","width":1920,"height":1080,"codex_tokens":15830}
+B_9x16 {"ok":true,"out":"B_9x16.png","width":1080,"height":1920,"codex_tokens":22014}
+C_9x16 {"ok":true,"out":"C_9x16.png","width":1080,"height":1920,"codex_tokens":15897}
+A_16x9 {"ok":true,"out":"A_16x9.png","width":1920,"height":1080,"codex_tokens":22344}
+A_9x16 {"ok":true,"out":"A_9x16.png","width":1080,"height":1920,"codex_tokens":35615}

@@ -1,0 +1,18 @@
+{
+  "video": "RO-17 3 Healthy Foods That Made Me Fat",
+  "cap_usd": 15.0,
+  "cap_note": "AI generation cap for a long-form content video (Dan 2026-10-13); Gemini quality review under its own $5 standing authorization",
+  "round2": {
+    "gemini_listen_usd_est": 0.60,
+    "gemini_listen_note": "verbatim restart listen, 4 chunks of 190 s, gemini-3.1-pro-preview",
+    "gemini_voice_trials_usd_est": 0.15,
+    "gemini_voice_trials_note": "3 blind trials, B vs B+1.5 dB vs B+3 dB at 120 Hz",
+    "codex_images": 29,
+    "codex_images_usd": 0.0,
+    "codex_note": "ChatGPT subscription via codex-image.sh: 16 AI frames, 10 redraws, carton, mango and chicken-cup stills",
+    "veo_usd": 0.0,
+    "pexels_usd": 0.0
+  },
+  "generation_spent_toward_cap_usd": 0.0,
+  "unknown": "none"
+}

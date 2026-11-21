@@ -1,0 +1,686 @@
+{
+  "category": "AD",
+  "job": "RA-13 R2",
+  "initial_verdict": "DOES NOT SHIP",
+  "initial_open_defects": [
+    {
+      "id": "CTA_ABS",
+      "formats": [
+        "9x16",
+        "16x9"
+      ],
+      "t": 51.9853,
+      "native_frame": 1558,
+      "item": "label_over_face",
+      "observation": "CTA panel covers Dan lower abs. Its text is locked; placement needs repair.",
+      "evidence": [
+        "native/9-CTA-f1558.png",
+        "native/16-CTA-f1558.png"
+      ]
+    }
+  ],
+  "review_scope": "Fresh independent complete-film actual audio/video input to Gemini at4fps high resolution, separate native-rate sequential scan and all66 individual sheet/strip/pair visual judgments. Not a human playback watch. No editor notes/history/self-review read.",
+  "references": [
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/example pictures/dan by pool.png",
+      "sha256": "c65698bf5a648b9e8f76d8f46a36267942dea312fc29a130dba3d0d707d4c81a"
+    },
+    {
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/codex-video-trial/assets/ad/simulated-dan-sunglasses-to-pool/ad8-sunglasses-to-pool-approved-action-v1.mp4",
+      "sha256": "579482d451cb2452999abc3e6678c7f1cd0c0b352a58d34897641bcfd0b40e43"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ro06/round6/phone/app-tour-screens-432x920.mp4",
+      "sha256": "8ef06d8305100bf8443bd1800f9c3c575dfd492bd5bb27902ea7fb0b18847061"
+    }
+  ],
+  "native_decode": {
+    "9": {
+      "sha256": "a3d87f94671f2e0cbcf3bb37c638945e8cdf4957a2c378be6d1e3718cb79ff07",
+      "frames_sequentially_decoded": 1616,
+      "dimensions_seen": [
+        [
+          1920,
+          1080
+        ]
+      ],
+      "fps": 29.97002997002997,
+      "frozen": [
+        {
+          "t": 19.95,
+          "seconds": 0.63,
+          "inside_declared": true
+        },
+        {
+          "t": 21.72,
+          "seconds": 0.57,
+          "inside_declared": true
+        },
+        {
+          "t": 23.09,
+          "seconds": 0.43,
+          "inside_declared": true
+        },
+        {
+          "t": 23.56,
+          "seconds": 0.43,
+          "inside_declared": true
+        },
+        {
+          "t": 24.36,
+          "seconds": 0.57,
+          "inside_declared": true
+        }
+      ],
+      "groups": {
+        "freeze0": [
+          605,
+          606,
+          607,
+          608,
+          609
+        ],
+        "freeze1": [
+          657,
+          658,
+          659,
+          660,
+          661
+        ],
+        "freeze2": [
+          696,
+          697,
+          698,
+          699,
+          700
+        ],
+        "freeze3": [
+          711,
+          712,
+          713,
+          714,
+          715
+        ],
+        "freeze4": [
+          737,
+          738,
+          739,
+          740,
+          741
+        ],
+        "ending": [
+          1611,
+          1612,
+          1613,
+          1614,
+          1615
+        ]
+      },
+      "dimensions_seen_order": "height,width (NumPy frame shape)"
+    },
+    "16": {
+      "sha256": "7753d39b7d322a699ee3b91804333521e844e4d1cb374125b0cc3de8889bd102",
+      "frames_sequentially_decoded": 1616,
+      "dimensions_seen": [
+        [
+          1080,
+          1920
+        ]
+      ],
+      "fps": 29.97002997002997,
+      "frozen": [
+        {
+          "t": 36.34,
+          "seconds": 0.4,
+          "inside_declared": true
+        }
+      ],
+      "groups": {
+        "freeze0": [
+          1093,
+          1094,
+          1095,
+          1096,
+          1097
+        ],
+        "ending": [
+          1611,
+          1612,
+          1613,
+          1614,
+          1615
+        ]
+      },
+      "dimensions_seen_order": "height,width (NumPy frame shape)"
+    }
+  },
+  "freeze_dispositions": [
+    {
+      "format": "9",
+      "t": 19.95,
+      "seconds": 0.63,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "approved dan by pool.png static goal",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene.",
+      "evidence": "native/9-freeze0-consecutive.jpg"
+    },
+    {
+      "format": "9",
+      "t": 21.72,
+      "seconds": 0.57,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "approved dan by pool.png static goal",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene.",
+      "evidence": "native/9-freeze1-consecutive.jpg"
+    },
+    {
+      "format": "9",
+      "t": 23.09,
+      "seconds": 0.43,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "approved dan by pool.png static goal",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene.",
+      "evidence": "native/9-freeze2-consecutive.jpg"
+    },
+    {
+      "format": "9",
+      "t": 23.56,
+      "seconds": 0.43,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "approved dan by pool.png static goal",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene.",
+      "evidence": "native/9-freeze3-consecutive.jpg"
+    },
+    {
+      "format": "9",
+      "t": 24.36,
+      "seconds": 0.57,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "approved dan by pool.png static goal",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene.",
+      "evidence": "native/9-freeze4-consecutive.jpg"
+    },
+    {
+      "format": "16",
+      "t": 36.34,
+      "seconds": 0.4,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "B0544 macro tracker meal-photo upload screen",
+      "observation": "Static meal image and upload controls before Analyze Meal; no moving/talking presenter visible. Full scene proceeds into analysis result.",
+      "evidence": "native/16-freeze0-consecutive.jpg"
+    }
+  ],
+  "scene_review": [
+    {
+      "format": "9",
+      "scene": "P1",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/9-P1-scene.jpg",
+      "observation": "Real heavier Dan in sunglasses appears inside upright phone; scan line, progress and outside real chip. Same approved real-before identity as independent simulation."
+    },
+    {
+      "format": "9",
+      "scene": "goal",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/9-goal-scene.jpg",
+      "observation": "Exact independently specified lean Dan by pool, same man; AI chip clear below photo."
+    },
+    {
+      "format": "9",
+      "scene": "A1",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/9-A1-scene.jpg",
+      "observation": "Same pool goal with scanning line, body fat/fat to lose/muscle to gain bars, plan band; no numbers; AI chip clear."
+    },
+    {
+      "format": "9",
+      "scene": "P2",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/9-P2-scene.jpg",
+      "observation": "Phone home slides to AI-labelled push-up demonstration, then salmon meal image and775cal result. No banned screen."
+    },
+    {
+      "format": "16",
+      "scene": "P1",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/16-P1-scene.jpg",
+      "observation": "Real heavier Dan in sunglasses appears inside upright phone; scan line, progress and outside real chip. Same approved real-before identity as independent simulation."
+    },
+    {
+      "format": "16",
+      "scene": "goal",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/16-goal-scene.jpg",
+      "observation": "Exact independently specified lean Dan by pool, same man; AI chip clear below photo."
+    },
+    {
+      "format": "16",
+      "scene": "A1",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/16-A1-scene.jpg",
+      "observation": "Same pool goal with scanning line, body fat/fat to lose/muscle to gain bars, plan band; no numbers; AI chip clear."
+    },
+    {
+      "format": "16",
+      "scene": "P2",
+      "entrance_interior_exit": "observed",
+      "evidence": "native/16-P2-scene.jpg",
+      "observation": "Phone home slides to AI-labelled push-up demonstration, then salmon meal image and775cal result. No banned screen."
+    },
+    {
+      "format": "9",
+      "scene": "lockscreen",
+      "beat": [
+        25.1585,
+        28.3617
+      ],
+      "status": "observed",
+      "observation": "Live NEAR presenter retained through lockscreen clause; no phone required under locked plan.",
+      "evidence": "findings9-final.json"
+    },
+    {
+      "format": "9",
+      "scene": "changing-plan",
+      "beat": [
+        38.9723,
+        46.5799
+      ],
+      "status": "observed",
+      "observation": "Live FAR then NEAR presenter through plan adjustment/injured/gym clauses; no missing illustration.",
+      "evidence": "findings9-final.json"
+    },
+    {
+      "format": "9",
+      "scene": "CTA",
+      "beat": [
+        51.3794,
+        53.9205
+      ],
+      "status": "observed",
+      "observation": "Approved CTA wording readable, clear of face/abs and captions after scoped repair. Native finalhands settle naturally.",
+      "evidence": "findings9-final.json"
+    },
+    {
+      "format": "16",
+      "scene": "lockscreen",
+      "beat": [
+        25.1585,
+        28.3617
+      ],
+      "status": "observed",
+      "observation": "Live NEAR presenter retained through lockscreen clause; no phone required under locked plan.",
+      "evidence": "findings16-final.json"
+    },
+    {
+      "format": "16",
+      "scene": "changing-plan",
+      "beat": [
+        38.9723,
+        46.5799
+      ],
+      "status": "observed",
+      "observation": "Live FAR then NEAR presenter through plan adjustment/injured/gym clauses; no missing illustration.",
+      "evidence": "findings16-final.json"
+    },
+    {
+      "format": "16",
+      "scene": "CTA",
+      "beat": [
+        51.3794,
+        53.9205
+      ],
+      "status": "observed",
+      "observation": "Approved CTA wording readable, clear of face/abs and captions after scoped repair. Native finalhands settle naturally.",
+      "evidence": "findings16-final.json"
+    }
+  ],
+  "audio": {
+    "full_media_review": "No clipped word, pop, click, duplicate take or seam level discontinuity heard by actual-media reviewer. All nine declared joins assessed.",
+    "declared_audio_joins": [
+      2.2694,
+      14.3474,
+      16.1104,
+      16.4494,
+      25.1584,
+      28.1614,
+      33.6004,
+      42.6094,
+      46.5794
+    ],
+    "native_join28_16": "Both pairs show natural hand/face progression, no same-framing reset. Presenter continues continuously through28.36 picture cut.",
+    "caption_comparison": "Actual-media reviewer transcribed complete film and reported word-for-word match first30s and throughout. Native sheets agree.",
+    "measured_exact_file": {
+      "from": "matching current audio-gate stamps, checked directly",
+      "lufs": -14.3,
+      "true_peak_dbtp": -1.9,
+      "tone": "FAIL mean2.621dB max5.41dB versus reference",
+      "floor": "FAIL first band3.8dB below reference versus3dB margin",
+      "voice_choice": "lighter-bass locked; no unauthorized change made"
+    }
+  },
+  "tradeoffs": [
+    "Goal photo intentionally held about9.24s after phone; it is the independently specified AI pool still, not frozen live presenter.",
+    "Phone and goal are boxed to retain whole phone/content and disclosures above captions.",
+    "Horizontal phone is small in spacious field, content identity still visible; no missing scene.",
+    "Vertical crop preserves hair but outer arm tips can touch the lateral edges during broad gestures, within locked crop. No asymmetric spare-room framing defect confirmed."
+  ],
+  "automated_gate_status": "All required exact-file gates completed on unchanged repaired hashes. Delivery2.6.0 and audio2.0.0 retain FAIL. Both formats fail audio:stamp for tone/floor.9x16 splice_visibility fails1/10actual cuts at42.61s (25.51 versus p99 25.211).16x9 fails approved FAR headheight23.6% versus27% minimum and splice_visibility2/10actual cuts at2.27/42.61s (36.80/39.19 versus p99 36.447). Native review independently clears those deliberate scale cuts. No pending checks, no threshold changes, zero open media defects; release remains blocked by numerical failures.",
+  "reviewer_runtime": {
+    "codex_model": "unavailable",
+    "codex_tokens": "unavailable",
+    "codex_wall_time": "unavailable",
+    "gemini_receipt": "full-media-review.receipt.json",
+    "gemini_model": "gemini-3.1-pro-preview",
+    "gemini_usage": {
+      "promptTokenCount": 117354,
+      "candidatesTokenCount": 1328,
+      "totalTokenCount": 121554,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 608
+        },
+        {
+          "modality": "VIDEO",
+          "tokenCount": 116746
+        }
+      ],
+      "thoughtsTokenCount": 2872,
+      "serviceTier": "standard"
+    },
+    "estimated_review_usd": "under1 total for these three review calls; actual billing unavailable",
+    "actual_billed_usd": null,
+    "all_receipts": [
+      "full-media-review.receipt.json",
+      "repaired9-media-review.receipt.json",
+      "repaired16-media-review.receipt.json"
+    ],
+    "gemini_total_usage": {
+      "promptTokenCount": 234500,
+      "candidatesTokenCount": 1725,
+      "thoughtsTokenCount": 5594,
+      "totalTokenCount": 241819
+    }
+  },
+  "current_media_verdict": "SHIP",
+  "current_delivery_verdict": "DOES NOT SHIP: all required exact-file gates completed; numerical failures retained, zero pending checks",
+  "gate_snapshot": "final-gate-snapshot.json",
+  "gate_versions": {
+    "delivery": "2.6.0",
+    "audio": "2.0.0",
+    "verified_current_in_code": true
+  },
+  "ai_clip_questions": {
+    "B0544 push-up": {
+      "cause_and_effect": "Pass: man maintains floor contact and performs push-up; no vanishing prop or unexplained action observed at playback sampling.",
+      "sound_off_readability": "Clearly a push-up demonstration.",
+      "supports_line": "Supports workout feature while paired meal flow supports nutrition plan."
+    },
+    "pool_goal": {
+      "cause_and_effect": "Intentional static photo; no AI motion requested or implied.",
+      "sound_off_readability": "A lean pool goal picture.",
+      "supports_line": "Shows generating and then analysing the same goal image."
+    }
+  },
+  "source_reference_observation": "B0544 independent original frames0,60,105,195,225 viewed individually; same home, salmon meal upload/analyse and AI-labelled push-up as delivered phone. Approved simulation frames0,89,178 and original dan by pool.png viewed individually. Before identity, final goal and labels reconcile.",
+  "locked_choices_and_flags": {
+    "colour": "B brighter natural refs256/289 viewed individually; candidate coherent with those references",
+    "vertical_crop": "Locked738x1312 and630x1120; hair retained, calm tracking visually",
+    "horizontal_crop": "Locked2144x1206 and1728x972, fixed center1080 and close top1260; no visible pan",
+    "horizontal_wide_gate": "FAIL smallest headheight23.6% versus27% minimum. Locked approved crop retained, not silently reclassified PASS.",
+    "cuts": "Native2.269and42.609both have deliberate FAR/NEAR scale steps; no naked splice.28.161audio join has continuous native picture and is excluded from actual picture cuts. Corrected final inventory has10actual cuts per format with no floating duplicates. Retained numerical splice FAIL:9x16 one cut,16x9 two cuts."
+  },
+  "open_media_defects": [],
+  "resolved_defects": [
+    {
+      "id": "CTA_ABS",
+      "original_status": "DOES NOT SHIP",
+      "repair": "CTA moved into clear shorts region vertically and clear left pool region horizontally",
+      "verification": "All changed images individually observed, complete repaired actual files reviewed through supported media input, final native frames1611-1615 separately checked."
+    }
+  ],
+  "final_candidates": {
+    "9": {
+      "sha256": "2f10b36412e1890c8618161c628725876cce1f794e329bc5c31e7f49abaa90ed",
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/final/why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4",
+      "native_frames": 1616,
+      "duration_seconds": 53.920533,
+      "fps": "30000/1001"
+    },
+    "16": {
+      "sha256": "453c6f10bcb7142f6065c7344e8b91fa0b29a088b301d245a450f4a9a4752d5a",
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/final/why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4",
+      "native_frames": 1616,
+      "duration_seconds": 53.920533,
+      "fps": "30000/1001"
+    }
+  },
+  "final_watch": {
+    "9": {
+      "findings": "findings9-final.json",
+      "images": 37,
+      "carried_identical": 33,
+      "new_individually_opened": 4,
+      "clean": 9,
+      "expected": 28,
+      "defects": 0,
+      "native_boundaries": 17,
+      "frozen_candidates": 5,
+      "frozen_disposed": 5,
+      "black": [],
+      "unexplained_jumps": []
+    },
+    "16": {
+      "findings": "findings16-final.json",
+      "images": 37,
+      "carried_identical": 32,
+      "new_individually_opened": 5,
+      "clean": 9,
+      "expected": 28,
+      "defects": 0,
+      "native_boundaries": 17,
+      "frozen_candidates": 1,
+      "frozen_disposed": 1,
+      "black": [],
+      "unexplained_jumps": []
+    }
+  },
+  "evidence_totals": {
+    "required_scene_roles": 14,
+    "checked_scene_roles": 14,
+    "final_native_watch_images": 74,
+    "original_watch_images_individually_opened": 66,
+    "cta_repair_images_individually_opened": 6,
+    "final_inventory_additions_individually_opened": 9,
+    "native_freeze_candidates": 6,
+    "disposed_freeze_candidates": 6,
+    "declared_audio_joins_heard": 9,
+    "native_final_boundary_pairs_and_strips": 34,
+    "unresolved_media_defects": 0
+  },
+  "native_extra_sheet_verdicts": [
+    {
+      "image": "native/9-P1-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/9-goal-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/9-A1-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/9-P2-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/16-P1-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/16-goal-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/16-A1-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/16-P2-scene.jpg",
+      "verdict": "expected",
+      "observation": "Entrance/interior/exit contents reconcile with independent reference and moving narration context."
+    },
+    {
+      "image": "native/9-freeze0-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene."
+    },
+    {
+      "image": "native/9-freeze1-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene."
+    },
+    {
+      "image": "native/9-freeze2-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene."
+    },
+    {
+      "image": "native/9-freeze3-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene."
+    },
+    {
+      "image": "native/9-freeze4-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Exactly the approved still person photo; no live presenter visible. Captions advance during scene."
+    },
+    {
+      "image": "native/16-freeze0-consecutive.jpg",
+      "verdict": "expected",
+      "observation": "Static meal image and upload controls before Analyze Meal; no moving/talking presenter visible. Full scene proceeds into analysis result."
+    },
+    {
+      "image": "native/9-ending-consecutive.jpg",
+      "verdict": "defect",
+      "observation": "Original CTA overlap with abs; repaired in exact final as independently checked in final watch ending strip."
+    },
+    {
+      "image": "native/16-ending-consecutive.jpg",
+      "verdict": "defect",
+      "observation": "Original CTA overlap with abs; repaired in exact final as independently checked in final watch ending strip."
+    }
+  ],
+  "ending_conflict_resolution": "Gemini follow-ups described pointing in final frame and approximated CTA entrance51.25s. Native strips establish actual entrance near51.385s and final settled hands. Native evidence controls; no resulting defect.",
+  "final_watch_judgment": "Both final exact watch logs judged37/37images and17/17inspection points, zero open media defects",
+  "final_numerical_gate_results": {
+    "checks_complete": true,
+    "pending_checks": [],
+    "media_verdict": "SHIP",
+    "release_verdict": "DOES NOT SHIP",
+    "failed_rows": {
+      "9x16": [
+        {
+          "key": "audio:stamp",
+          "ok": false,
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver",
+          "value": {},
+          "na": null,
+          "review": null
+        },
+        {
+          "key": "cut:splice_visibility",
+          "ok": false,
+          "detail": "1/10 joins above the file's own p99 ceiling (25.21): [(42.61, 25.51)]",
+          "value": {
+            "bare": [
+              [
+                42.61,
+                25.51
+              ]
+            ],
+            "p99": 25.211,
+            "joins": 10
+          },
+          "na": null,
+          "review": null
+        }
+      ],
+      "16x9": [
+        {
+          "key": "audio:stamp",
+          "ok": false,
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver",
+          "value": {},
+          "na": null,
+          "review": null
+        },
+        {
+          "key": "framing:no_wide_level",
+          "ok": false,
+          "detail": "6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]",
+          "value": {
+            "smallest": [
+              46.5,
+              0.23583500000000002
+            ],
+            "wide": [
+              [
+                0.0,
+                0.23778
+              ],
+              [
+                39.0,
+                0.23963
+              ],
+              [
+                46.5,
+                0.23583500000000002
+              ]
+            ],
+            "min_frac": 0.27
+          },
+          "na": null,
+          "review": null
+        },
+        {
+          "key": "cut:splice_visibility",
+          "ok": false,
+          "detail": "2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]",
+          "value": {
+            "bare": [
+              [
+                2.27,
+                36.8
+              ],
+              [
+                42.61,
+                39.19
+              ]
+            ],
+            "p99": 36.447,
+            "joins": 10
+          },
+          "na": null,
+          "review": null
+        }
+      ]
+    },
+    "inventory_correction": "10 actual picture cuts per format; audio-only28.16 and floating duplicates removed. No media or detector threshold changed."
+  }
+}

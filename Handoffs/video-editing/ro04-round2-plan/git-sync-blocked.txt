@@ -1,0 +1,6 @@
+2026-10-17: safe-push exited 2 after committing own board claim as 514f12e. Ahead 67 / behind 43. No push or deployment verified.
+Blocking live files: .claude/skills/_shared/qc_corpus/corpus.json; scripts/blotato/fb_reel_covers.json; staged scripts/blotato/configs/ro25-wasted-my-life.json; staged scripts/blotato/video_waitlist.json; staged sixpackabs/articles/TBD-ro25-wasted-my-life.md.
+Also listed stale: Codex Ad Videos/ai took my job - RA-16/R4 production/recipe/r4_save_records.py; Docs/DAN_DECISIONS.md.
+Preserve all unrelated edits. Own 17 corpus entries appended with locking, and separately saved as corpus-own-additions.json; do not commit the whole shared corpus with someone else's changes. No commits on top until blocked merge clears.
+
+Final retry also exited 2 on the same files plus the updated own AI_COORDINATION.md entry. No new task-record commits were made on top of that block. Handoffs/video-editing/ro04-round2-plan contains the pending durable records; exact copies are backed up under the public Round 2 records folder.

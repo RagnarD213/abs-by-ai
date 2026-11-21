@@ -1,0 +1,40 @@
+{
+ "_note": "Take spans for RA-05, anchored to PHRASES in the C1664 word list (188-304 s). Hook = one unbroken take incl. the first 'Seriously, I'll show you how' (script wording). 'It'll determine' take 2 (take 1 ran straight into a restart). 'And once you have your goal picture' take 2. CTA 'Tap the button below' take 2 (last). LENGTH: the full script is 61.3 s airtight, over 0:59. R3 is split to drop 'AI is a transformative technology ... change your body with AI too.' (L6). FULL=1 edl_spec_full.json keeps it.",
+ "ranges": [
+  {
+   "name": "R1",
+   "lines": "L1-L2",
+   "after": 207.5,
+   "from": "we all know ai can generate an image",
+   "to": "seriously ill show you how"
+  },
+  {
+   "name": "R2",
+   "lines": "L3-L5a",
+   "after": 226.0,
+   "from": "the first step is generating yourself with your dream body",
+   "to": "based on your goal"
+  },
+  {
+   "name": "R3",
+   "lines": "L5b-L7",
+   "after": 246.5,
+   "from": "itll determine how much fat",
+   "to": "could change your life"
+  },
+  {
+   "name": "R4",
+   "lines": "L8-L9a",
+   "after": 276.5,
+   "from": "and once you have your goal picture",
+   "to": "so take the first step"
+  },
+  {
+   "name": "R5",
+   "lines": "L9b",
+   "after": 292.0,
+   "from": "tap the button below",
+   "to": "dream body real"
+  }
+ ]
+}

@@ -1,0 +1,30 @@
+{
+  "adNumber": 6,
+  "label": "Ad 6 You're Not Too Old",
+  "videos": [
+    { "youtubeId": "Je2yvk00SHE", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "You're Not Too Old To Get Fit",
+      "Getting Fit After 40",
+      "An AI Fitness Plan At 40",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose explains how he rebuilt his fitness at 40 with a plan he could follow.",
+      "A 40-year-old dad shows the training plan and daily system he uses himself.",
+      "AI workout planning explained by a guy who put the plan into practice at 40."
+    ],
+    "descriptions": [
+      "Daniel Rose shows the workout and nutrition system he follows as a 40-year-old dad.",
+      "A practical AI fitness plan built around your age, schedule, equipment and starting point.",
+      "See how a 40-year-old dad uses AI to plan workouts, meals and weekly adjustments."
+    ]
+  }
+}

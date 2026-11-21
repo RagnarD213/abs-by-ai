@@ -1,0 +1,73 @@
+{
+ "job": "RA-05",
+ "round_answered": 1,
+ "date": "2026-10-14",
+ "page": "http://127.0.0.1:8805/",
+ "dan_verbatim": "Okay, revisions: in the first 3 seconds, I want to show the full generation functionality, but very sped up, so that the after shows for a full second at the end. It goes through adding the photo and then loading in less than 2 seconds, so that they can visibly see the after on screen. For length, don't cut any of the lines, but just accelerate the video as necessary to get it under 60 seconds. The claim lines are fine. The run is spoken. For the two AI clip ideas, let's make the first one with the guy on the couch. For the second one, though, I don't want to make that. I want to instead use the clip that we already made at the beginning of the start VSL for the A variation, where it's like the body scan identifying the body parts with things pointing to it. Use that instead of your second idea. Give me the handoff for the next round.",
+ "items": [
+  {
+   "id": "OPENING",
+   "verdict": "changed",
+   "choice": "neither A nor B as built: the full app generation from frame 0, very sped up (adding the photo, then loading, in under 2 s), then the after alone on screen for at least 1.0 s, all inside the first 3 s",
+   "words": "in the first 3 seconds, I want to show the full generation functionality, but very sped up, so that the after shows for a full second at the end. It goes through adding the photo and then loading in less than 2 seconds, so that they can visibly see the after on screen.",
+   "scope": "opening card 0 to about 3.2 s (to the end of 'six-pack abs,' after the speed-up)",
+   "next": "build from B0049, same man; never the crop screen, never 'Meet the new you' (26.8-27.6 s), never the email form"
+  },
+  {
+   "id": "LENGTH",
+   "verdict": "changed",
+   "choice": "no line cut; speed the whole film up just enough to land under 60 s (job doc ceiling 0:59)",
+   "words": "For length, don't cut any of the lines, but just accelerate the video as necessary to get it under 60 seconds.",
+   "files": {
+    "edl_spec_full.json": "46231d6d2377bf1be26c6174997b0cc3a985d5087265c9a269b8a1042aeb1923"
+   },
+   "next": "every line in = 62.1 s; a uniform 1.06x (pitch kept) gives about 58.6 s"
+  },
+  {
+   "id": "CLAIMS",
+   "verdict": "approved",
+   "choice": "A: keep both claim lines as filmed",
+   "words": "The claim lines are fine. The run is spoken.",
+   "note": "'The run is spoken' read as a dictation slip for 'they run as spoken' (Wispr Flow)."
+  },
+  {
+   "id": "AI_COUCH",
+   "verdict": "approved-concept",
+   "choice": "Steps out of the phone (the guy on the couch)",
+   "words": "let's make the first one with the guy on the couch.",
+   "scope": "concept only: START and END frames next, no motion until Dan approves the frames",
+   "motion_authorized": false,
+   "new_frames_before_motion": true
+  },
+  {
+   "id": "AI_TAILOR",
+   "verdict": "rejected",
+   "choice": "Robot tailor is not made",
+   "words": "For the second one, though, I don't want to make that."
+  },
+  {
+   "id": "SCAN",
+   "verdict": "approved",
+   "choice": "reuse the start VSL version A opening clip: the body scan with callouts (library A0044) under 'It will see exactly where you need to gain muscle and tailor your workout program', replacing the curls clip B1",
+   "words": "I want to instead use the clip that we already made at the beginning of the start VSL for the A variation, where it's like the body scan identifying the body parts with things pointing to it. Use that instead of your second idea.",
+   "files": {
+    "/Volumes/Extreme/_edit_work/wv01-edit/round4/motion/SCAN-readable.mp4": "68ef87d8c63ac0b6c1a357ec5f6748bb2e2d231f4403896abeec559fc2f4ba31"
+   },
+   "library": "A0044 (same file, sha matches)"
+  },
+  {
+   "id": "LOOK_FROM_RA14",
+   "verdict": "approved-elsewhere",
+   "choice": "framing F2 (converted: close 648x1152, wide 810x1440), colour C2 brighter gold (re-baked for C1664), voice WITH the bass lift, analysis card in the Soft Blue HyperFrames template",
+   "words": "RA-14, 2026-10-14: \"Let's go with a wider crop, the recommended crop. Go with the brighter golden skin, the recommended color. Redo the analysis card in our graphics in soft blue light with our hyperframes. Make that standardized with the rest of our videos. Let's do the voice with a bass lift.\"",
+   "source": "/Volumes/Extreme/_edit_work/ra14/round3-plan/decisions.json",
+   "files": {
+    "framing_choice.json": "38ee6870595e84942d3d1ec686256eab931e9b41aaee9b168c2098e81519117b",
+    "grade.json": "5c6afef7ee85ed09c40e569ff254397358866f6c50abf334be110fb9f6abfa8e",
+    "colour/luts/ra05_C2_brighter_gold.cube": "910440d9553814e1593421f66274fdd6311e3e58ac85dc31f33ba1367ee69b3d"
+   }
+  }
+ ],
+ "unchanged_from_round1": "takes, captions (with the two word fixes), lower thirds L1 L2, lock screen K1, app tour T1, physique poses B2, button C1, end hold. Not rejected; not approved in words either.",
+ "spend_usd": 0.0
+}

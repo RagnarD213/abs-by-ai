@@ -1,0 +1,233 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/cut.json",
+      "sha256": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3",
+      "actual": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/words_out.json",
+      "sha256": "c9980f6cf29221d29e3e6df8787743602d1f9723624febd3c866da8a9a452097",
+      "actual": "c9980f6cf29221d29e3e6df8787743602d1f9723624febd3c866da8a9a452097"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/plan_resolved.json",
+      "sha256": "02519b0c69b20df43499cdb9f20c4641efd206176e66eb96fbf3e034cc61cfb7",
+      "actual": "02519b0c69b20df43499cdb9f20c4641efd206176e66eb96fbf3e034cc61cfb7"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav",
+      "sha256": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1",
+      "actual": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+      "sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+      "actual": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+      "actual": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+      "sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+      "role": "G01 mov",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "227"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G02.mov",
+      "sha256": "a96228b49670b4d30bfb75851f1bb6003d92f0a6677defac382954c2812a00bc",
+      "role": "G02 mov",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "159"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G02_mask.mov",
+      "sha256": "8bb4edb12e234131bb60041891cad14a8d0fb8f3ce7c0032ff9d75f14f6ecdc5",
+      "role": "G02 mask",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "159"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G03.mov",
+      "sha256": "d0fcc8cdd960f250006564f5217455409f23373f5ba9ada701e0e4d6b193084d",
+      "role": "G03 mov",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "143"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G03_mask.mov",
+      "sha256": "ff1efaf42d7031794c96c27ba2cc693eb1047589401974fc55ce2ab40069b0ef",
+      "role": "G03 mask",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "143"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+      "sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+      "role": "D01 mov",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "frames": "144"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+      "sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+      "role": "G01 mov",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "227"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02.mov",
+      "sha256": "85f029544e91d2af0a6b01769eae506c9fd43472d645bc865af02026123de49d",
+      "role": "G02 mov",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "159"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02_mask.mov",
+      "sha256": "43a9a42299344d87e424fac9d0e5622bde5aef3b25a778ec245cf8b602202fbc",
+      "role": "G02 mask",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "159"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03.mov",
+      "sha256": "a616553520885b3037f7cb2325780422bb9af8dfd0aa012e747874e427265bc4",
+      "role": "G03 mov",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "143"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03_mask.mov",
+      "sha256": "eaecfa3cc7791c9374011149b0338107d280a7d69f1ab4c972ddc824cae240d3",
+      "role": "G03 mask",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "143"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+      "role": "D01 mov",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "frames": "144"
+    }
+  ],
+  "frames": 1765,
+  "fps": "30000/1001",
+  "duration": 58.89216666666667,
+  "last_word_end": 58.73853183064271,
+  "native_segments": [
+    {
+      "id": "P01",
+      "n0": 0,
+      "n1": 284,
+      "framing": "far",
+      "src0": 163.35
+    },
+    {
+      "id": "P02",
+      "n0": 284,
+      "n1": 451,
+      "framing": "near",
+      "src0": 176.14371671760043
+    },
+    {
+      "id": "P03",
+      "n0": 451,
+      "n1": 581,
+      "framing": "far",
+      "src0": 188.56547971703452
+    },
+    {
+      "id": "P05",
+      "n0": 725,
+      "n1": 757,
+      "framing": "far",
+      "src0": 199.45723457838145
+    },
+    {
+      "id": "P07",
+      "n0": 983,
+      "n1": 1139,
+      "framing": "far",
+      "src0": 224.10385046972272
+    },
+    {
+      "id": "P08",
+      "n0": 1139,
+      "n1": 1390,
+      "framing": "near",
+      "src0": 230.04645542727786
+    },
+    {
+      "id": "P09",
+      "n0": 1390,
+      "n1": 1523,
+      "framing": "far",
+      "src0": 239.68269801924163
+    },
+    {
+      "id": "P10",
+      "n0": 1523,
+      "n1": 1593,
+      "framing": "near",
+      "src0": 244.78979070741372
+    },
+    {
+      "id": "P11",
+      "n0": 1593,
+      "n1": 1710,
+      "framing": "far",
+      "src0": 251.03352370118844
+    },
+    {
+      "id": "P12",
+      "n0": 1710,
+      "n1": 1765,
+      "framing": "near",
+      "src0": 255.64547741935482
+    }
+  ],
+  "new_asset_selection": false,
+  "source": "C1668 original read-only; approved R3 components unchanged"
+}

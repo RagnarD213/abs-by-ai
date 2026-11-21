@@ -1,0 +1,51 @@
+{
+ "shot": "RO-18 A9 Nobody at work has to know",
+ "start_frame": "A9-start.png",
+ "intent": "A modern open-plan office. START: a man in a light blue shirt leans far back in his chair, feet up on the desk, hands behind his head, smiling, an open laptop in front of him. END: his boss, an older man in a dark grey suit holding a coffee mug, has walked in from the left and stands behind him looking down with a raised eyebrow; the man has snapped upright, feet on the floor, both hands on the SAME laptop's keyboard, typing with a serious face. The laptop, desk items and office do not move.",
+ "hands": {
+  "right": "behind his head in START; on the keyboard in END",
+  "left": "behind his head in START; on the keyboard in END"
+ },
+ "may_change": {
+  "the_man": [
+   380,
+   80,
+   1620,
+   941
+  ],
+  "the_boss_walks_in": [
+   0,
+   0,
+   700,
+   941
+  ],
+  "revealed_behind_his_feet": [
+   1250,
+   300,
+   1672,
+   941
+  ]
+ },
+ "still": {
+  "laptop_base_left_on_desk": [
+   330,
+   820,
+   450,
+   900
+  ],
+  "left_mug": [
+   0,
+   630,
+   130,
+   800
+  ],
+  "left_notebook": [
+   90,
+   700,
+   330,
+   790
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame or the body changes pose completely); people are declared may_change boxes and the reviewer judges bodies. Pen cup and plant at the right were partly hidden by his feet in START, so they are declared as revealed (may_change)"
+}

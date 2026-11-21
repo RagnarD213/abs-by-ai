@@ -1,0 +1,860 @@
+{
+ "note": "Retired Codex studio photo posts (Dan, 2026-10-21/22). Use ONLY if the Mon/Wed/Fri image queue would otherwise run dry. Media URLs are Blotato-hosted; image files and studio27_state.json are untouched.",
+ "posts": {
+  "S05-B": {
+   "caption": "Meal prep is one way I make food simpler. You don't need to invent a different lunch every day. Pick a few meals you enjoy and decide how you'll have them ready. Variety can come from rotating your favorites.",
+   "title": "FEWER DECISIONS",
+   "images": [
+    {
+     "relative_path": "images/S05-B-01.jpg",
+     "sha256": "48f6aa3cecc6fb8b89dcaf26bdd4d634be562e2ccd49b220bccd37f1c26fc6c1",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cc0f0d17-3546-4090-99ee-22ba02a33193.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119930",
+     "wasScheduledAt": "2026-10-30T22:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5819e6f0-f86a-4598-80d8-eba6b9cae90c.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825759",
+     "wasScheduledAt": "2026-10-30T22:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d895caa4-b4c5-4732-b293-268cc47fe74f.jpeg"
+     ]
+    }
+   }
+  },
+  "S08-C": {
+   "caption": "Missing Monday doesn't make Tuesday disappear. Name what got in the way, choose your next opening and make one useful preparation now. Swipe for a practical restart, then save the final checklist.",
+   "title": "I missed Monday.",
+   "images": [
+    {
+     "relative_path": "images/S08-C-01.jpg",
+     "sha256": "669573124b918978555d9ba9216c34c92f831566c7add2340e2e3fa88f41d499",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6c458f0b-8046-408e-81be-8808c21817d7.jpg"
+    },
+    {
+     "relative_path": "images/S08-C-02.jpg",
+     "sha256": "84c1abff617a9cd926e7fd584be6d8cba185c08de989724d9c8d0e36be24f07b",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f5b10a5a-de15-4204-abb1-2a882e3dd34c.jpg"
+    },
+    {
+     "relative_path": "images/S08-C-03.jpg",
+     "sha256": "51a664b93a18f6e4a437ce22b33cf1578829dd1b58557c9a445dacab58eb89e8",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/05fd39b0-0668-42e3-b295-bb9ec2639150.jpg"
+    },
+    {
+     "relative_path": "images/S08-C-04.jpg",
+     "sha256": "bdc635c343d27e6e5758e3e5911a7b0b119bca92a7f62b8b1d006becac45eb6b",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0b80fddc-e383-4e33-9701-08801555f545.jpg"
+    },
+    {
+     "relative_path": "images/S08-C-05.jpg",
+     "sha256": "3742b0d3fec15aaa43fd838cf0162fe3948efe36bc18d49b3ceb68658ea94da1",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/46f2b6d1-4350-4dac-9d6c-1009b72aaa02.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119953",
+     "wasScheduledAt": "2026-11-02T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c6de83cc-7e15-434f-bcfe-44b5146297c5.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cffd5adf-d99a-4a1e-9be3-8e69439ecd48.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d4707946-2f34-4299-b81e-e69ad3b1f09f.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8e29441b-aca8-4cd1-b11e-5a1930e824ab.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/16fb8e74-8e77-4359-b917-46db7a53dfdc.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825760",
+     "wasScheduledAt": "2026-11-02T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/625679fe-dcf3-423c-90f9-dc4c91754aed.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/de5e324c-f4de-4827-a434-dd36a090a687.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f9a99434-566e-422c-8f54-4ee90a41a686.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c370a566-6eaf-4265-8416-cc095d22e5f0.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9ec1fcaf-4e32-4739-9772-4337a0ea4e7f.jpeg"
+     ]
+    }
+   }
+  },
+  "S06-A": {
+   "caption": "Too busy to train? Look at the whole appointment, including packing and travel. If the commute is the obstacle, try a home session from a plan you already know. Put that version on the calendar and prepare the space ahead of time.",
+   "title": "TOO BUSY\nTO TRAIN?",
+   "images": [
+    {
+     "relative_path": "images/S06-A-01.jpg",
+     "sha256": "10fa90bf8ca4ddc0fca042600b81ece2a900658d16d092e2ec7232f40cca14b6",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/420eb637-1751-4748-8f7d-d57c04aab9bb.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119911",
+     "wasScheduledAt": "2026-11-04T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/314106fa-068d-4ca6-85fd-795ac628fd6f.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119961",
+     "wasScheduledAt": "2026-11-04T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e66dcc79-7e09-4fec-93f1-ec57d15a1d16.jpeg"
+     ]
+    }
+   }
+  },
+  "S07-B": {
+   "caption": "Make lunch easier before the week starts. Pick two familiar meals, check what you need and decide how they will be ready. Use the last slide as your planning checklist. What lunch would you put on repeat?",
+   "title": "LUNCH,\nPLANNED.",
+   "images": [
+    {
+     "relative_path": "images/S07-B-01.jpg",
+     "sha256": "68f8162f743fe42d37e42005b9f81e3519e7045c3885e5dbc98a4833670b8118",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a7640dae-bfae-4ef5-b01a-f5c2f9d3f83f.jpg"
+    },
+    {
+     "relative_path": "images/S07-B-02.jpg",
+     "sha256": "4c33bd67c0c428c1a8c51b59dfeac0abd6ed95b7051f9f8bb9b353385fe75a95",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e507575f-b0f0-4225-bf0a-69dec6667af6.jpg"
+    },
+    {
+     "relative_path": "images/S07-B-03.jpg",
+     "sha256": "59957a91a241502d2ad0631e91825b55854afb98576190eab1eddceb50c94b7b",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/950ece96-d7a8-4d2f-a6f9-c22004a2b8eb.jpg"
+    },
+    {
+     "relative_path": "images/S07-B-04.jpg",
+     "sha256": "4e04df418d896d72c701a61ffdfbb6f612519f03d5ea2ab455a8e9a6df1fffa7",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/eac05f05-21ee-4af8-852d-49ade2dfc0ab.jpg"
+    },
+    {
+     "relative_path": "images/S07-B-05.jpg",
+     "sha256": "d92f00afe41a18fd05f44b95b5bdb4a6be4664d8deb99276d6b4c98dab0e6616",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bcbb87be-9a54-4727-afab-52633c3c67d8.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119932",
+     "wasScheduledAt": "2026-11-06T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/924801db-7daa-44dc-a130-dfbb31395bb2.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b60e5f24-1bca-4953-bc0b-394faeb60f5e.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/654b497c-83f3-4628-a0d9-1cb54a119122.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/000b6467-18d1-4a82-ad7f-265fa11c69a3.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c4998e71-fd75-4c5d-9e23-921f98927e81.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825761",
+     "wasScheduledAt": "2026-11-06T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/13657019-cb90-492f-abae-b5072b37c67e.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f86ddf9f-b9c4-4ada-817d-80ddfc7de4be.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/754be14f-2e3c-48f0-8152-a29fc5dd3374.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/94806272-758d-4cb6-aa2d-88f04e466df7.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fe584848-6f3a-402c-8508-7022f237e208.jpeg"
+     ]
+    }
+   }
+  },
+  "S09-C": {
+   "caption": "Martial arts can challenge your cardio and help you burn calories. Weight training builds and maintains muscle. Make room for both in your week, with enough recovery between hard sessions. Getting leaner also depends on what you eat, so give your food plan the same attention as your training.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "TRAIN HARD.\nLIFT TOO.",
+   "images": [
+    {
+     "relative_path": "images/S09-C-01.jpg",
+     "sha256": "57dbbed609be99dd19c62f9556227ede4d1054fa0cba0d28332e10149964604f",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1e2ab706-a0f0-4974-89bd-ec4be4d9d842.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119950",
+     "wasScheduledAt": "2026-11-09T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a0f39ad3-308a-4a6d-9421-fbd67d6b6a18.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825762",
+     "wasScheduledAt": "2026-11-09T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/666c20f8-537d-4524-a720-1bb4ae71d6bc.jpeg"
+     ]
+    }
+   }
+  },
+  "S05-A": {
+   "caption": "I built a home gym and still use a gym membership. I like having options. If the drive is the reason your workout never happens, start with a plan you can do at home. Make the place fit the time you actually have.",
+   "title": "MAKE TIME",
+   "images": [
+    {
+     "relative_path": "images/S05-A-01.jpg",
+     "sha256": "2251134bbfedda7194eda150fd1d2feecaee1a6af713063eb4ef1726466e5efe",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/32783f7a-3d15-4b60-8cd8-6fa757af19a3.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119921",
+     "wasScheduledAt": "2026-11-11T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a7c1de28-5235-4a37-965e-210554203d4e.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119965",
+     "wasScheduledAt": "2026-11-11T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1db0ac65-2f9a-465f-be5a-7f6b6e92cb6d.jpeg"
+     ]
+    }
+   }
+  },
+  "S08-A": {
+   "caption": "You don't have to wait for a perfect free hour to put a workout in your calendar. Start by finding the time you have, choose an appropriate session from a plan you know, and prepare the space. A home option can remove the commute.",
+   "title": "I need a free hour.",
+   "images": [
+    {
+     "relative_path": "images/S08-A-01.jpg",
+     "sha256": "033bc914d9ba4dbc3354fecd206c455849bb05f252dfa5f7ee3848e6caf99f6f",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c3549446-5f8b-48b1-8ee6-386456b766bd.jpg"
+    },
+    {
+     "relative_path": "images/S08-A-02.jpg",
+     "sha256": "c5680c7d0439cf1a569786fc3fe49a0b7826f78e8cb987b7a6187230e4a6bb31",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5719b7cb-b013-4375-9d63-a40b131da3d5.jpg"
+    },
+    {
+     "relative_path": "images/S08-A-03.jpg",
+     "sha256": "cd53df109c0950697c84a653f719f9103255be84b079016ac857f75d463cd625",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bc9f1063-d17a-4ea4-a3fc-0fd7c8493376.jpg"
+    },
+    {
+     "relative_path": "images/S08-A-04.jpg",
+     "sha256": "9812cc04f18ac7371620f75bfa03c58ebbee3645c9df1ea0394a0a7fa7b3ca21",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/90f66617-a3ca-4721-89aa-c2da92e1cdff.jpg"
+    },
+    {
+     "relative_path": "images/S08-A-05.jpg",
+     "sha256": "c2c24c1081eaeb0dc81556058a575c3771ff8a458ccef7c6b70b78ffe61c0779",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/052008df-97bc-4d56-be51-603cd217baa9.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119916",
+     "wasScheduledAt": "2026-11-13T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6910d819-f485-4125-bed3-69e423be87cb.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d76aec5b-d271-4b41-a6c0-46af34494bfc.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/597cf7ef-dee1-4fdb-b768-a67706ceb46a.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/63d62b5d-f223-4354-9386-bcc28dcdcb6f.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d6db94cf-3489-43f6-9137-f38e92fb4338.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119963",
+     "wasScheduledAt": "2026-11-13T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/073ecb46-65b4-4414-b386-b5cd8cd49698.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6c85eb33-0668-4de8-b8d4-d59b2972d356.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/52e59621-39b9-42a9-b72d-6c8d100719f6.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d4b66929-7584-4535-98ae-393544903458.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ec46ca8b-61c4-4f77-a8c8-89c5b979b100.jpeg"
+     ]
+    }
+   }
+  },
+  "S06-B": {
+   "caption": "Lunch sorted means fewer decisions in the middle of the day. Choose two lunches you enjoy, check the ingredients or order details, and decide which days you'll use them. Keep another easy option for the day your plan changes.",
+   "title": "LUNCH.\nSORTED.",
+   "images": [
+    {
+     "relative_path": "images/S06-B-01.jpg",
+     "sha256": "a9da6a104ad0cab343032cc1f86570c9b9dad8fed54d904e4580679f9200a6bb",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b3dc299a-8f48-4ca9-a1aa-7fee1cd4b825.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119940",
+     "wasScheduledAt": "2026-11-16T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/55a353bd-7244-4255-bab1-2d3f58f77f0a.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825763",
+     "wasScheduledAt": "2026-11-16T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/30d88e70-e027-40e6-b8ed-5cb6f9e6784a.jpeg"
+     ]
+    }
+   }
+  },
+  "S07-C": {
+   "caption": "Your backup plan should be specific enough to use on a busy day. Name the obstacle, choose an alternative and write down when you'll switch. Save the checklist and fill it in before you need it.",
+   "title": "YOUR\nPLAN B.",
+   "images": [
+    {
+     "relative_path": "images/S07-C-01.jpg",
+     "sha256": "423369269b63691b37a5b3872da4fee99885836e016cf2bd6078d07e81de68ee",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f39bda72-94a5-4956-abd9-92fabcf4adc0.jpg"
+    },
+    {
+     "relative_path": "images/S07-C-02.jpg",
+     "sha256": "8a9781a48f0144ca29a83818c7c4b15fd37bf54b553d8fb8d8ed64054bdf40cf",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/18b0d43f-cc4a-4247-9211-f10c5abd52e5.jpg"
+    },
+    {
+     "relative_path": "images/S07-C-03.jpg",
+     "sha256": "96fe0796715aad7aba3bbc9266224eb560c49d80c89f5a7deadb29f8cfadb8b0",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/80b0d66b-8caa-43bb-8f27-34677d4b5a00.jpg"
+    },
+    {
+     "relative_path": "images/S07-C-04.jpg",
+     "sha256": "83b023319f65306769243657615b68385bbfe5faf9c74336c4be012c70d9f2b6",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e0c25da3-7283-483a-9eb4-daccb5ac14dc.jpg"
+    },
+    {
+     "relative_path": "images/S07-C-05.jpg",
+     "sha256": "e6833c7742290defd845557cf0cf1585e3e1f9bb8e5967470709ed9854b1c972",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/03e0ab3a-6dd5-4371-bae5-960d53a86e4f.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119946",
+     "wasScheduledAt": "2026-11-18T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/60d40d0b-eeb9-462b-8dea-bbbcd562ce76.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/07768397-a2be-46ef-b2c4-c92e95f89c79.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/82298392-3b9d-4d2f-8f6c-d68b7b6d1766.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/773e17df-57ec-475f-b10e-9d0c0bca0cd6.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/093301c5-d01b-4c42-83af-0631c0dca9d7.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825764",
+     "wasScheduledAt": "2026-11-18T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bad302dd-6164-4aa6-ba46-088959d8458d.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ced3ae36-9b02-4307-84e6-0266d2ac9e76.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fc0f58a0-60f5-44bf-9348-c9958fb1d28f.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5b95ad8c-0907-4512-a2ad-fa5a66e113a1.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5428817a-095b-42d7-b102-929d2a280b8e.jpeg"
+     ]
+    }
+   }
+  },
+  "S09-B": {
+   "caption": "Lunch gets easier when the decision is already made. Choose a meal you enjoy, get the ingredients or order in place, and keep a second option for busy days. You do not need a brand-new menu every afternoon. You need something you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "LUNCH.\nHANDLED.",
+   "images": [
+    {
+     "relative_path": "images/S09-B-01.jpg",
+     "sha256": "419e83094dbab48d6c64da5ffe36728afd1f1a1d3b51b0fd79c7ce3a940c2cfa",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c8ba7300-decc-4b1d-b4ae-8906e95d27ec.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119942",
+     "wasScheduledAt": "2026-11-20T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8214dd14-647a-4660-98f7-4f326bb295cd.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825766",
+     "wasScheduledAt": "2026-11-20T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b1234319-773a-45d9-9b2e-f75b1f849c46.jpeg"
+     ]
+    }
+   }
+  },
+  "S05-C": {
+   "caption": "A missed day needs a next step, not a speech about starting your whole life over. Pick the next available time. Get your things ready. Give yourself a clear place to begin again.",
+   "title": "START AGAIN",
+   "images": [
+    {
+     "relative_path": "images/S05-C-01.jpg",
+     "sha256": "f3e40f91297f9a9663b34934374b1b8fd9c90ae9a04b138454de614215fdfd11",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb89ef9a-250f-4656-9c40-72b6dc467a07.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119948",
+     "wasScheduledAt": "2026-11-23T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb24d5f3-50e9-43ac-865a-7128bbd768f1.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825767",
+     "wasScheduledAt": "2026-11-23T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1d9ce07d-c46b-435a-9764-25d636e46023.jpeg"
+     ]
+    }
+   }
+  },
+  "S01-A": {
+   "caption": "Put your next workout on the calendar before the week fills up. Pick the time, the place and what you plan to do. If the trip to the gym keeps stopping you, choose a home option. What time is your next session?",
+   "title": "Put your workout on the calendar",
+   "images": [
+    {
+     "relative_path": "images/S01-A-01.jpg",
+     "sha256": "22632d3534ce42c62ac9f2588200f3dc19ba4c0555d3b78e5fe2c6d9c141b387",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/144aa4b4-a016-49af-8b87-229d3b9668dd.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119908",
+     "wasScheduledAt": "2026-11-25T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ee193160-7775-49ef-9031-3e3e854c0ee4.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119956",
+     "wasScheduledAt": "2026-11-25T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/598a08c4-7cf7-4348-85cc-45745ef144a5.jpeg"
+     ]
+    }
+   }
+  },
+  "S03-A": {
+   "caption": "Choose your workout before you arrive. Save the plan, get your clothes ready and decide when you need to leave. Keep the first decision at the gym about doing the session, not scrolling for a different one.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "The workout starts before you arrive",
+   "images": [
+    {
+     "relative_path": "images/S03-A-01.jpg",
+     "sha256": "ee35c083867d0db45e16a86fbbc9fd87355da9682f44ecd15042eaae20a71e0f",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/393d7705-510d-472f-987e-fc5bb33455ff.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119910",
+     "wasScheduledAt": "2026-11-27T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/70a2f8fb-7a37-425c-b4ca-091323dde437.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119960",
+     "wasScheduledAt": "2026-11-27T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/09df80df-f302-41e9-b74b-fed3589d19a5.jpeg"
+     ]
+    }
+   }
+  },
+  "S02-A": {
+   "caption": "Give lunch a place in your training plan. Decide what you'll eat and where it will come from before you head out. Prepared food, something from home or a planned order: pick an option you can repeat.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Make lunch the easy decision",
+   "images": [
+    {
+     "relative_path": "images/S02-A-01.jpg",
+     "sha256": "dd5aa14e0696996b3554e53c4a3f7323889818421c0b249701ece9d96a09941c",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a7b4a246-e6c0-486a-93bc-d097ea4708e3.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119914",
+     "wasScheduledAt": "2026-11-30T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dc084e24-b721-4038-bd9d-1e27010bede5.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119962",
+     "wasScheduledAt": "2026-11-30T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4c2c2d83-3eee-4aaa-b71f-41c801be6b93.jpeg"
+     ]
+    }
+   }
+  },
+  "S04-A": {
+   "caption": "Choose a training setting you want to come back to. Then make the practical part clear: when you're going, what you're doing and how you'll get there. The setting can change. The appointment still matters.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Choose a place you want to train",
+   "images": [
+    {
+     "relative_path": "images/S04-A-01.jpg",
+     "sha256": "0055c97c7bfb9559701a385cb655d381ad6a28b1c46aa0a6d74522023f9b0146",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/da480a92-10b9-42ea-9714-1a7c9d5a2aca.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119919",
+     "wasScheduledAt": "2026-12-02T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a6a11c75-6ea9-4525-bd3c-39a12652a903.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5119964",
+     "wasScheduledAt": "2026-12-02T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0affc99a-ee69-4939-a835-8a41b39c866d.jpeg"
+     ]
+    }
+   }
+  },
+  "S03-B": {
+   "caption": "I have a home gym and I still pay for a gym membership. The point is having an option that works with your life. If the commute keeps getting in the way, take it out of the plan and start at home.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "A plan that fits your life",
+   "images": [
+    {
+     "relative_path": "images/S03-B-01.jpg",
+     "sha256": "b5a082335a1cfbdece73c87688c298373f869c52b40da71f1f6d567de6ef7509",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4550c8c3-6b32-47c0-a3be-02930b4d4cf8.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119926",
+     "wasScheduledAt": "2026-12-04T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/06143486-7fee-43a6-b42d-fb4fca85aeb2.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825768",
+     "wasScheduledAt": "2026-12-04T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b49c1bdb-d15c-4173-b92c-c2697975bd03.jpeg"
+     ]
+    }
+   }
+  },
+  "S02-B": {
+   "caption": "I use a meal prep service. Having food ready removes one more decision from a busy day. You can do the same kind of planning with food you prepare yourself. Choose the meals, get them ready and know what's for lunch before you're hungry.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Fewer food decisions",
+   "images": [
+    {
+     "relative_path": "images/S02-B-01.jpg",
+     "sha256": "bcf682387e15d28463be7d3a0b4b584ceb660d6f1c534ee7a56e5b585079e9da",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/cc072782-5652-4b78-b4ef-7a4551313732.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119929",
+     "wasScheduledAt": "2026-12-07T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f9dfd46f-96f4-4288-b9ca-18cc2cb87338.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825769",
+     "wasScheduledAt": "2026-12-07T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/944081a0-b51b-4115-9894-71693239da51.jpeg"
+     ]
+    }
+   }
+  },
+  "S04-B": {
+   "caption": "Before you head out, decide what you'll eat when you get home. Put a meal in place or choose your order ahead of time. It is one less thing to figure out when you're tired and hungry.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Sort dinner before you head out",
+   "images": [
+    {
+     "relative_path": "images/S04-B-01.jpg",
+     "sha256": "95950c9158e91333422aaa7c80341de5c9585e8b43630f55554e6c002cf20e3d",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a68729d5-acf8-42b1-b85a-4bd1341423d8.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119935",
+     "wasScheduledAt": "2026-12-09T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8614403c-c3f2-4217-9e9e-1ae206023137.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825770",
+     "wasScheduledAt": "2026-12-09T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a27d171e-9999-40ba-bcae-fe99252f5aa6.jpeg"
+     ]
+    }
+   }
+  },
+  "S01-B": {
+   "caption": "Make tomorrow's lunch a decision you handle today. Pick something you already like, check what you have and get it ready. A prepared meal can help when cooking is the part that keeps falling through. What's your easiest repeat lunch?",
+   "title": "Make the next meal easier",
+   "images": [
+    {
+     "relative_path": "images/S01-B-01.jpg",
+     "sha256": "8d88cc3a87e313c3bc599afd03204de9ea4a26a88e0cebd8afbd15df2aa548d2",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5854f497-f499-48f5-944f-308d847cb27e.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119943",
+     "wasScheduledAt": "2026-12-11T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7e8e608d-859b-4474-ba57-eac303894b95.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825774",
+     "wasScheduledAt": "2026-12-11T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8beebeb8-a2ca-4900-8a46-a8420f0aae89.jpeg"
+     ]
+    }
+   }
+  },
+  "S04-C": {
+   "caption": "Martial arts can burn calories, challenge your cardio and give you a reason to keep showing up. It is a great way to stay active, build fitness and support getting leaner. But I would not use it as a replacement for weight training. Lifting builds and maintains the muscle you want to keep as you lose fat. Pair the two, leave room to recover, and keep your food intake aligned with your goal. Train your conditioning and your strength.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Train martial arts. Lift weights too.",
+   "images": [
+    {
+     "relative_path": "images/S04-C-01.jpg",
+     "sha256": "8cda3084d5e0c3277ddb0e94ae460c07d77c1b8ecc23b2063356df054face94f",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a3935ca9-8682-4599-b8bb-7face3578882.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119945",
+     "wasScheduledAt": "2026-12-14T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a7c92159-a350-4241-8b8a-8194aae76d9c.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825776",
+     "wasScheduledAt": "2026-12-14T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b8b43edb-1b7b-41cd-ac96-aa9c45f18235.jpeg"
+     ]
+    }
+   }
+  },
+  "S01-C": {
+   "caption": "Missed a workout? Leave that day where it is. Look at the next opening in your calendar and choose a session you can actually do. You don't need a new Monday to make the next decision.",
+   "title": "Missed a day? Keep going",
+   "images": [
+    {
+     "relative_path": "images/S01-C-01.jpg",
+     "sha256": "4198c4e2cd76c4115f5779ab84c9e0ccf4435fbd0d1343c5063551ca731cfacd",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/41b5e954-0dcf-4817-9eac-a2ba280759ff.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119947",
+     "wasScheduledAt": "2026-12-16T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3306579f-f3d5-4529-8509-dec9e969bf3f.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825777",
+     "wasScheduledAt": "2026-12-16T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7d04e4f3-c179-4b2c-9ca0-4e5dec9e4cf6.jpeg"
+     ]
+    }
+   }
+  },
+  "S02-C": {
+   "caption": "You don't have to throw away the whole week because the plan changed. Look at the days you still have. Choose one thing you can put back in place today, then decide when you'll do it.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Give the week a second chance",
+   "images": [
+    {
+     "relative_path": "images/S02-C-01.jpg",
+     "sha256": "989478b1d49b240e2eacc06e7b4e2e4b3f6a685f5a48cf6fc6df88f80411ed66",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f2e6bb0e-437f-420d-b2f2-27935a6b926d.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119952",
+     "wasScheduledAt": "2026-12-18T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c8300488-d217-47c5-a1e2-ab8484a8dc0e.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825778",
+     "wasScheduledAt": "2026-12-18T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a8b64fd3-ec10-4f5b-a1bd-5a160c93495e.jpeg"
+     ]
+    }
+   }
+  },
+  "S03-C": {
+   "caption": "The last session is already done, or it didn't happen. Either way, the next one still needs a plan. Pick the time and place. If your schedule changed, change the appointment with it.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "Your next session still counts",
+   "images": [
+    {
+     "relative_path": "images/S03-C-01.jpg",
+     "sha256": "f0b0d9b450b634aac6f408e7d1501eede1b38a773519651f02835bd40a707946",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/56018265-5347-4bf8-a2fc-a23553382f47.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119955",
+     "wasScheduledAt": "2026-12-21T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/36232484-cc2b-47be-a7d1-084b8bfdeb21.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825779",
+     "wasScheduledAt": "2026-12-21T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1f0af789-153c-411b-ae89-bb893fb568ea.jpeg"
+     ]
+    }
+   }
+  },
+  "S08-B": {
+   "caption": "Repeating a lunch you enjoy is a planning choice. You can still rotate meals and ingredients across the week. Pick two familiar options, make a shopping or ordering list and keep a backup for the day you need it.",
+   "title": "Every meal must be different.",
+   "images": [
+    {
+     "relative_path": "images/S08-B-01.jpg",
+     "sha256": "5c16236ec16e644fd067493750c5ccc9445d2d3244d72a85752f533fab32a7a3",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4d93177c-e966-45ef-bf61-7bbb87f05dac.jpg"
+    },
+    {
+     "relative_path": "images/S08-B-02.jpg",
+     "sha256": "ba456989e5a4e0cf44ec087957a6a015167a0a8a533204cf174eef57237a5ab2",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/11573728-af2c-44ad-acda-74e45b36b1ca.jpg"
+    },
+    {
+     "relative_path": "images/S08-B-03.jpg",
+     "sha256": "991efba091a1a83e583627dac5a0743f80ed220fd0f3aeed009de6e6c5b99f8f",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b2ca4c80-b620-4094-9be2-48bbc1b1f9be.jpg"
+    },
+    {
+     "relative_path": "images/S08-B-04.jpg",
+     "sha256": "fa62f79affc165f70cab3660b102d4731f3334125d14077eac17fce6111373c6",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2115d00e-a49d-45af-bc58-4cfcac41c4cc.jpg"
+    },
+    {
+     "relative_path": "images/S08-B-05.jpg",
+     "sha256": "4f45214e22cf25e7a92d9f6521ce60635b8ce239393b2956ea61e26b7a3c6293",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/739fb22f-f1e5-4852-9ff3-d2323560e7ad.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119927",
+     "wasScheduledAt": "2026-12-23T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1f8fa760-2267-4a1d-a157-493bc86861c3.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0a53fdbe-5bcc-4d5f-aae2-bc3e47303e7f.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6b58fb6f-e2ab-4cb4-9882-cb4679dbe93b.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0e4132fa-1e0e-4747-a987-aa639f14d50d.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1ace1cd2-c8b9-4ae4-801d-7da509cace92.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825755",
+     "wasScheduledAt": "2026-12-23T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/9003d650-04c3-4a6e-b051-dc98c765293d.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8b992923-58d6-4727-a659-cede50c7cadc.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b15071da-3201-4d83-887f-33f5830f301e.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a926cb3f-e51b-45ab-a35e-491d397a8373.jpeg",
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7f9766f0-f950-4ef1-ac46-2c1a5d00fb6b.jpeg"
+     ]
+    }
+   }
+  },
+  "S09-A": {
+   "caption": "Make strength training an appointment you can keep. Choose the time, save the workout and get your space ready. If getting to the gym is the obstacle, have a home option ready. The useful plan is the one that fits into your actual day.\n\nReal studio photograph of me. The background was created with AI.",
+   "title": "MAKE TIME.\nGET STRONG.",
+   "images": [
+    {
+     "relative_path": "images/S09-A-01.jpg",
+     "sha256": "41ac1da98916626f40b053b816d658b7db538bafe637f93d6047e1a2336c0a62",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a9879738-7b52-4902-a099-1993896c72d3.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119924",
+     "wasScheduledAt": "2026-12-25T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4edf061a-f94f-45ac-9319-5d0eb6456458.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825756",
+     "wasScheduledAt": "2026-12-25T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8c3cae76-75d2-4ce7-aa08-c008a4b71884.jpeg"
+     ]
+    }
+   }
+  },
+  "S06-C": {
+   "caption": "Missed a day? Decide what happens next. Open the calendar, choose a realistic time and set out what you need. If that time falls through, use the backup you picked in advance. The next action is the useful part.",
+   "title": "MISSED\nA DAY?",
+   "images": [
+    {
+     "relative_path": "images/S06-C-01.jpg",
+     "sha256": "bc2fe6ae2a1c5eb4ba30b667889639f683921fbf2117a0ceadd62e97337bf324",
+     "uploaded_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/474a36c3-ed09-4dc2-ab9b-653a685180a7.jpg"
+    }
+   ],
+   "removed": {
+    "67203": {
+     "scheduleId": "5119944",
+     "wasScheduledAt": "2026-12-28T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3921f703-f2e2-43f5-91a9-f528fe907016.jpeg"
+     ]
+    },
+    "47105": {
+     "scheduleId": "5825757",
+     "wasScheduledAt": "2026-12-28T23:00:00.000Z",
+     "mediaUrls": [
+      "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/46aac923-fdf7-4e04-822e-71c0d0670d08.jpeg"
+     ]
+    }
+   }
+  }
+ },
+ "c3": {
+  "note": "C3 Steal My Workout 01 (approved R1, but its 'Spiderman plank' is not Dan's move). Replaced on Oct 28 by workout-06. Re-create from igtemplate_batch.json.",
+  "removed": {
+   "67203": {
+    "scheduleId": "5870969",
+    "wasScheduledAt": "2026-10-28T22:00:00.000Z"
+   },
+   "47105": {
+    "scheduleId": "5870972",
+    "wasScheduledAt": "2026-10-28T22:00:00.000Z"
+   }
+  }
+ }
+}

@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/wastedlife-short1_why-adhd-meds-backfire-long-term.mp4",
+  "slug": "sl18-short1",
+  "campaign": "wasted-my-life",
+  "title": "Why ADHD Meds Backfire Long Term",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5be366dd-1c44-4663-9950-5333f785393b.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/67fe8f22-a3fc-401d-8126-8cb27c99308c.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7f74565c-64b1-470d-89c6-c1e0a4765be4.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/adb11e5d-52a4-4087-b00a-e25a10f2db07.jpg",
+  "main": "2026-10-26T14:00:00.000Z",
+  "keyword": "ABS",
+  "ai_generated": true,
+  "hook": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.",
+  "body": "I'm not a doctor, so talk to yours about the safest way to come off it, but don't wait. I took Vyvanse, Adderall, and Adderall XR for about five years in my late 20s and early 30s, and when I first took it I thought it turned me into Superman, I was more productive than I'd ever been and I made more money than I ever had before. When you take Adderall, you get more productive for a few hours, but you don't sleep as well that night and you don't get proper nutrition, so you're less productive the next day and you take more. This cycle just keeps going until you need Adderall just to function the way you used to without it, and eventually even on a high dose you're not as productive as you were before you ever took it.",
+  "close": "Leave a comment to let me know if you've ever taken Adderall or another ADHD drug, and how it worked for you long term.",
+  "tags": "#Adderall #ADHD #Productivity #Sleep #AbsByAI",
+  "youtube_description": "If you're on Adderall or any ADHD drug, quit today, because in the long term it backfires.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=wasted-my-life&utm_content=sl18-short1\n\nI'm not a doctor, so talk to yours about the safest way to come off it, but don't wait. I took Vyvanse, Adderall, and Adderall XR for about five years in my late 20s and early 30s, and when I first took it I thought it turned me into Superman, I was more productive than I'd ever been and I made more money than I ever had before. When you take Adderall, you get more productive for a few hours, but you don't sleep as well that night and you don't get proper nutrition, so you're less productive the next day and you take more. This cycle just keeps going until you need Adderall just to function the way you used to without it, and eventually even on a high dose you're not as productive as you were before you ever took it.\n\nFull video on my channel: I'm 41. I Wasted My Life. https://www.youtube.com/watch?v=xyi-B_5tccw\n\nSome clips in this video are AI-generated.\n\n#ADHD #Adderall #Productivity #Sleep #Shorts",
+  "pinned_comment": "I took Vyvanse, Adderall and Adderall XR for about five years. Have you ever taken an ADHD drug?",
+  "parent_config": "ro25-wasted-my-life.json",
+  "media_sha256": {
+    "master": "130d3c14ba3c2e1894f60f2f439337cb0f521951d0a625a5887d69b9d108794e",
+    "tiktok": "9f616ab4469f932ddf5ff4965a76205b89f94487707ceb6c7c62f39114c977a2",
+    "ig": "77cde6483e5b3313b6c713d2b69956e88bd643db5e3e3c08d5cdaed8376fa5ec",
+    "yt": "8fb7b6efc6042cf50836ac024d8f10992bab1d1de4e75cb58f84a1706368280a"
+  }
+}

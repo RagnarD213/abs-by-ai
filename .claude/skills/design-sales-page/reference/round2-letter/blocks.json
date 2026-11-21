@@ -1,0 +1,942 @@
+[
+{
+"tag": "h1",
+"html": "<strong>Abs By AI sales letter: AI Got Me Abs at 40</strong>",
+"text": "Abs By AI sales letter: AI Got Me Abs at 40"
+},
+{
+"tag": "p",
+"html": "<em>Draft v1, 2026-09-28. Adapted from VSL Version A for the Round 2 landing page (video, offer, letter). Regular text is the copy that appears on the page. Bracketed gold lines are layout and image notes, not page copy. Edit anything directly; to move or cut a section, write a bracketed note like [DAN: CUT THIS] or [DAN: MOVE BELOW S7]. Layout mockup: https://claude.ai/artifact/PWHpGMcvUWFSp3yR83dCru</em>",
+"text": "Draft v1, 2026-09-28. Adapted from VSL Version A for the Round 2 landing page (video, offer, letter). Regular text is the copy that appears on the page. Bracketed gold lines are layout and image notes, not page copy. Edit anything directly; to move or cut a section, write a bracketed note like [DAN: CUT THIS] or [DAN: MOVE BELOW S7]. Layout mockup: https://claude.ai/artifact/PWHpGMcvUWFSp3yR83dCru"
+},
+{
+"tag": "p",
+"html": "<strong>Sticky top bar:</strong> 7-Day Free Trial · $0 today · [Start Free Trial]",
+"text": "Sticky top bar: 7-Day Free Trial · $0 today · [Start Free Trial]"
+},
+{
+"tag": "h2",
+"html": "<strong>S1 · Headline</strong>",
+"text": "S1 · Headline"
+},
+{
+"tag": "p",
+"html": "<strong>HEADLINE:</strong>",
+"text": "HEADLINE:"
+},
+{
+"tag": "p",
+"html": "<strong>I Fired My Personal Trainer And Used AI To Get Abs Instead</strong>",
+"text": "I Fired My Personal Trainer And Used AI To Get Abs Instead"
+},
+{
+"tag": "p",
+"html": "<strong>SUBHEADLINE: I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs.</strong>",
+"text": "SUBHEADLINE: I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs."
+},
+{
+"tag": "h2",
+"html": "<strong>S2 · Video</strong>",
+"text": "S2 · Video"
+},
+{
+"tag": "p",
+"html": "<strong>[16:9 player, poster of Dan's face, muted autoplay, \"Tap to turn on sound\" overlay]</strong>",
+"text": "[16:9 player, poster of Dan's face, muted autoplay, \"Tap to turn on sound\" overlay]"
+},
+{
+"tag": "p",
+"html": "Make sure your sound is on. Prefer to read? The whole story is below.",
+"text": "Make sure your sound is on. Prefer to read? The whole story is below."
+},
+{
+"tag": "h2",
+"html": "<strong>S3 · Offer card 1</strong>",
+"text": "S3 · Offer card 1"
+},
+{
+"tag": "p",
+"html": "<strong>Try Abs By AI Free For 7 Days</strong>",
+"text": "Try Abs By AI Free For 7 Days"
+},
+{
+"tag": "p",
+"html": "Here’s What You Get When You Start Your Free 7-Day Trial…",
+"text": "Here’s What You Get When You Start Your Free 7-Day Trial…"
+},
+{
+"tag": "li",
+"html": "<strong>Your AI goal picture:</strong> Motivate yourself to train with an AI image of yourself with the exact body and abs you want. Make it your phone lockscreen, and lock in.",
+"text": "Your AI goal picture: Motivate yourself to train with an AI image of yourself with the exact body and abs you want. Make it your phone lockscreen, and lock in."
+},
+{
+"tag": "li",
+"html": "<strong>A personalized AI workout plan: </strong>Our AI analyzes your current picture, your goal, and the answers to a few quick questions. Then it generates a personalized workout plan just for you, built to close the gap between your current picture and your goal picture.",
+"text": "A personalized AI workout plan: Our AI analyzes your current picture, your goal, and the answers to a few quick questions. Then it generates a personalized workout plan just for you, built to close the gap between your current picture and your goal picture."
+},
+{
+"tag": "li",
+"html": "<strong>AI calorie tracking: </strong>Snap a picture of your food, and instantly track your calories and macros. No weighing, no calculating, and no hassle!",
+"text": "AI calorie tracking: Snap a picture of your food, and instantly track your calories and macros. No weighing, no calculating, and no hassle!"
+},
+{
+"tag": "li",
+"html": "<strong>Delicious, healthy meal prep recipes: </strong>Our AI analyzes your goal, your favorite healthy foods, and the foods you don’t like. Then it creates delicious, easy-to-make meal prep recipes built around your tastes.",
+"text": "Delicious, healthy meal prep recipes: Our AI analyzes your goal, your favorite healthy foods, and the foods you don’t like. Then it creates delicious, easy-to-make meal prep recipes built around your tastes."
+},
+{
+"tag": "li",
+"html": "<strong>AI Sleep Coaching: </strong>Improve your sleep and recovery with personalized sleep feedback. Integrates with your sleep tracker data from Oura Ring, Whoop, and Apple Watch.<strong>[Start My 7-Day Free Trial]</strong>",
+"text": "AI Sleep Coaching: Improve your sleep and recovery with personalized sleep feedback. Integrates with your sleep tracker data from Oura Ring, Whoop, and Apple Watch.[Start My 7-Day Free Trial]"
+},
+{
+"tag": "p",
+"html": "<em>$0 today - try it free for a full 7 days. Cancel anytime in the app in two taps.</em>",
+"text": "$0 today - try it free for a full 7 days. Cancel anytime in the app in two taps."
+},
+{
+"tag": "h2",
+"html": "<strong>S4 · A note from Dan Rose</strong>",
+"text": "S4 · A note from Dan Rose"
+},
+{
+"tag": "p",
+"html": "<em>Founder, Abs By AI. Personal trainer for over 20 years.</em> [face crop]",
+"text": "Founder, Abs By AI. Personal trainer for over 20 years. [face crop]"
+},
+{
+"tag": "p",
+"html": "[[IMG images/image10.png]]",
+"text": "[[IMG images/image10.png]]"
+},
+{
+"tag": "p",
+"html": "[CLAUDE: USE THIS FOR AVATAR IMAGE. CROP FROM HAIR TO SLIGHTLY BELOW BELT]\n",
+"text": "[CLAUDE: USE THIS FOR AVATAR IMAGE. CROP FROM HAIR TO SLIGHTLY BELOW BELT]\n"
+},
+{
+"tag": "p",
+"html": "Hi, I’m Dan. In today’s video and article, I want to tell you the wild story of how I finally lost my stubborn belly…and got the six pack abs I always wanted at the age of 40.",
+"text": "Hi, I’m Dan. In today’s video and article, I want to tell you the wild story of how I finally lost my stubborn belly…and got the six pack abs I always wanted at the age of 40."
+},
+{
+"tag": "p",
+"html": "How did I do it?\n\nBelieve it or not, it was by FIRING my personal trainer and nutritionist - and replacing them with an AI app.",
+"text": "How did I do it?\n\nBelieve it or not, it was by FIRING my personal trainer and nutritionist - and replacing them with an AI app."
+},
+{
+"tag": "p",
+"html": "Today I want to teach you the five AI techniques that I used to get in the best shape of my life. I promise these are going to surprise you…ESPECIALLY the last one.",
+"text": "Today I want to teach you the five AI techniques that I used to get in the best shape of my life. I promise these are going to surprise you…ESPECIALLY the last one."
+},
+{
+"tag": "p",
+"html": "But before I teach you the five AI tactics, there’s something you should know. I wasn’t always in this kind of shape.",
+"text": "But before I teach you the five AI tactics, there’s something you should know. I wasn’t always in this kind of shape."
+},
+{
+"tag": "p",
+"html": "In fact, just a few years ago…",
+"text": "In fact, just a few years ago…"
+},
+{
+"tag": "p",
+"html": "[CLAUDE: NEW SECTION",
+"text": "[CLAUDE: NEW SECTION"
+},
+{
+"tag": "p",
+"html": "I Had A Bloated, Flabby, 200 lb Dad Bod!",
+"text": "I Had A Bloated, Flabby, 200 lb Dad Bod!"
+},
+{
+"tag": "p",
+"html": "This was me just a few years ago.",
+"text": "This was me just a few years ago."
+},
+{
+"tag": "p",
+"html": "[SHOW 3 DAN BEFORE IMAGES, 1 SHIRTLESS, 2 WITH SHIRT ON]",
+"text": "[SHOW 3 DAN BEFORE IMAGES, 1 SHIRTLESS, 2 WITH SHIRT ON]"
+},
+{
+"tag": "p",
+"html": "[REAL IMAGES LABEL]",
+"text": "[REAL IMAGES LABEL]"
+},
+{
+"tag": "p",
+"html": "At 38, I was constantly busy and stressed out as hell.",
+"text": "At 38, I was constantly busy and stressed out as hell."
+},
+{
+"tag": "p",
+"html": "I was raising my daughter, and trying my hardest to be a good dad for her.",
+"text": "I was raising my daughter, and trying my hardest to be a good dad for her."
+},
+{
+"tag": "p",
+"html": "At the same time, I was running my own online business. And I was working non-stop.",
+"text": "At the same time, I was running my own online business. And I was working non-stop."
+},
+{
+"tag": "p",
+"html": "Between work, family, and all my other obligations, it seemed like I had no time or energy to work out.",
+"text": "Between work, family, and all my other obligations, it seemed like I had no time or energy to work out."
+},
+{
+"tag": "p",
+"html": "The result? I steadily gained fat year after year. Until at 38, I had a bloated, weak, out-of-shape dad bod. \nI felt tired constantly. I didn’t like the way I looked with my shirt off. And I didn’t like the feeling that my health and vitality were rapidly declining.",
+"text": "The result? I steadily gained fat year after year. Until at 38, I had a bloated, weak, out-of-shape dad bod. \nI felt tired constantly. I didn’t like the way I looked with my shirt off. And I didn’t like the feeling that my health and vitality were rapidly declining."
+},
+{
+"tag": "p",
+"html": "The way I looked in those pictures was embarrassing. But what made it even more embarrassing was…",
+"text": "The way I looked in those pictures was embarrassing. But what made it even more embarrassing was…"
+},
+{
+"tag": "p",
+"html": "I Taught Millions Of Men How To Get Abs - Then I Fell Off Myself!",
+"text": "I Taught Millions Of Men How To Get Abs - Then I Fell Off Myself!"
+},
+{
+"tag": "p",
+"html": "My first channel, SixPackAbs.com, was one of the most viewed fitness channels in the history of YouTube.",
+"text": "My first channel, SixPackAbs.com, was one of the most viewed fitness channels in the history of YouTube."
+},
+{
+"tag": "p",
+"html": "[CLAUDE: INSERT SCREENSHOT OF DAN FROM M-100S VIDEO HERE. AT END, SHIRTLESS, LOOKING RIPPED, SMILING, FOCUS AND CAMERA CENTERED ON DAN]",
+"text": "[CLAUDE: INSERT SCREENSHOT OF DAN FROM M-100S VIDEO HERE. AT END, SHIRTLESS, LOOKING RIPPED, SMILING, FOCUS AND CAMERA CENTERED ON DAN]"
+},
+{
+"tag": "p",
+"html": "Our videos taught millions of men how to get abs. In my twenties, I devoted my life to fitness, and I got in the best shape of my life up to that point.",
+"text": "Our videos taught millions of men how to get abs. In my twenties, I devoted my life to fitness, and I got in the best shape of my life up to that point."
+},
+{
+"tag": "p",
+"html": "[CLAUDE: INSERT SCREEN CAPTURE VIDEO OF DAN FROM INSANE 1 MIN AB WORKOUT SIXPACKABS.COM VIDEO https://www.youtube.com/watch?v=GJHDRlepMTM Take it from around where this screenshot is. Try to get one where I have a better facial expression and where I look more ripped, if possible, but it should be from around this duration. Enhance and touch up this screenshot to make me look more ripped and to upscale the video to make this look higher quality.]",
+"text": "[CLAUDE: INSERT SCREEN CAPTURE VIDEO OF DAN FROM INSANE 1 MIN AB WORKOUT SIXPACKABS.COM VIDEO https://www.youtube.com/watch?v=GJHDRlepMTM Take it from around where this screenshot is. Try to get one where I have a better facial expression and where I look more ripped, if possible, but it should be from around this duration. Enhance and touch up this screenshot to make me look more ripped and to upscale the video to make this look higher quality.]"
+},
+{
+"tag": "p",
+"html": "What we taught guys at SixPackAbs.com <em>worked. </em>It helped countless men around the world lose their belly fat. And I personally used it to get abs myself in my twenties.",
+"text": "What we taught guys at SixPackAbs.com worked. It helped countless men around the world lose their belly fat. And I personally used it to get abs myself in my twenties."
+},
+{
+"tag": "p",
+"html": "But the problem was…",
+"text": "But the problem was…"
+},
+{
+"tag": "p",
+"html": "The Old Way Of Getting In Shape Doesn’t Work For Busy Men Like Us With Career And Family Responsibilities",
+"text": "The Old Way Of Getting In Shape Doesn’t Work For Busy Men Like Us With Career And Family Responsibilities"
+},
+{
+"tag": "p",
+"html": "The old-fashioned way of getting in shape worked just fine for me in my twenties.",
+"text": "The old-fashioned way of getting in shape worked just fine for me in my twenties."
+},
+{
+"tag": "p",
+"html": "Back then, I could make working out the main focus of my life. I could meal prep religiously every week, and spend all the time I wanted doing it. And like most younger guys, I had a metabolism that made it possible to get lean even when I was making a lot of mistakes.",
+"text": "Back then, I could make working out the main focus of my life. I could meal prep religiously every week, and spend all the time I wanted doing it. And like most younger guys, I had a metabolism that made it possible to get lean even when I was making a lot of mistakes."
+},
+{
+"tag": "p",
+"html": "But as I got older, I found staying in shape got much HARDER…",
+"text": "But as I got older, I found staying in shape got much HARDER…"
+},
+{
+"tag": "p",
+"html": "First of all, my metabolism slowed down. Even if I ate the same things that I did when I was younger, I still gained fat.",
+"text": "First of all, my metabolism slowed down. Even if I ate the same things that I did when I was younger, I still gained fat."
+},
+{
+"tag": "p",
+"html": "Second, I got slammed with business and career stress. I was working all the time, and I couldn’t work out or eat clean like I used to.",
+"text": "Second, I got slammed with business and career stress. I was working all the time, and I couldn’t work out or eat clean like I used to."
+},
+{
+"tag": "p",
+"html": "And finally, I had a ton of other responsibilities on top of that. My family. My relationship. The causes and organizations I wanted to support. Medical issues I had to deal with. The list went on and on.",
+"text": "And finally, I had a ton of other responsibilities on top of that. My family. My relationship. The causes and organizations I wanted to support. Medical issues I had to deal with. The list went on and on."
+},
+{
+"tag": "p",
+"html": "Maybe you can relate. \n\nDoes it feel like you’re so slammed with responsibilities that making time to work out and eat right is nearly impossible?\n\nIf you feel that way, you’re not alone. That’s how MOST hard-working, regular guys like us feel.",
+"text": "Maybe you can relate. \n\nDoes it feel like you’re so slammed with responsibilities that making time to work out and eat right is nearly impossible?\n\nIf you feel that way, you’re not alone. That’s how MOST hard-working, regular guys like us feel."
+},
+{
+"tag": "p",
+"html": "The truth is, the old way of getting in shape works just fine for college kids. But it doesn’t work for guys like us.",
+"text": "The truth is, the old way of getting in shape works just fine for college kids. But it doesn’t work for guys like us."
+},
+{
+"tag": "p",
+"html": "That’s why “dad bods” are the norm - and why it’s so rare to see busy career men with six pack abs.",
+"text": "That’s why “dad bods” are the norm - and why it’s so rare to see busy career men with six pack abs."
+},
+{
+"tag": "p",
+"html": "After a few years of struggle, I saw the old way of getting in shape wasn’t going to work for me anymore. And I knew I had to find a smarter, better approach.",
+"text": "After a few years of struggle, I saw the old way of getting in shape wasn’t going to work for me anymore. And I knew I had to find a smarter, better approach."
+},
+{
+"tag": "p",
+"html": "And fortunately for me…",
+"text": "And fortunately for me…"
+},
+{
+"tag": "p",
+"html": "There Was A Revolution In Technology That Made A Smarter Approach To Fat Loss Possible!",
+"text": "There Was A Revolution In Technology That Made A Smarter Approach To Fat Loss Possible!"
+},
+{
+"tag": "p",
+"html": "Right when I was at my flabbiest and unhealthiest point…I discovered AI.",
+"text": "Right when I was at my flabbiest and unhealthiest point…I discovered AI."
+},
+{
+"tag": "p",
+"html": "I started using AI in my business. And I saw firsthand the technology lived up to the hype.",
+"text": "I started using AI in my business. And I saw firsthand the technology lived up to the hype."
+},
+{
+"tag": "p",
+"html": "I started using AI to code my website for me…to do my accounting…and to automate a ton of the routine work that had been plaguing me.",
+"text": "I started using AI to code my website for me…to do my accounting…and to automate a ton of the routine work that had been plaguing me."
+},
+{
+"tag": "p",
+"html": "And it dramatically improved my business life.",
+"text": "And it dramatically improved my business life."
+},
+{
+"tag": "p",
+"html": "I was getting more done and making more money. Best of all, AI helped me work less. So now that I had a bit of free time, I started thinking…",
+"text": "I was getting more done and making more money. Best of all, AI helped me work less. So now that I had a bit of free time, I started thinking…"
+},
+{
+"tag": "h1",
+"html": "<strong>Why Wasn’t I Using This Amazing New Technology To Get In Shape?\n</strong>",
+"text": "Why Wasn’t I Using This Amazing New Technology To Get In Shape?\n"
+},
+{
+"tag": "p",
+"html": "Everyone agrees - AI is the most transformational technology of our lifetimes.",
+"text": "Everyone agrees - AI is the most transformational technology of our lifetimes."
+},
+{
+"tag": "p",
+"html": "It’s changing the world RIGHT NOW. Not in some distant future - the technology is here TODAY to do nearly everything that humans can do, but better.",
+"text": "It’s changing the world RIGHT NOW. Not in some distant future - the technology is here TODAY to do nearly everything that humans can do, but better."
+},
+{
+"tag": "p",
+"html": "So I asked myself…could AI do a better job than my personal trainer?\n\nCould AI design me better meals than a human nutritionist?\n\nAnd could AI act as my all-in-one fitness coach, coordinating my exercise, nutrition, sleep, and everything else I needed to get in shape?\n\nI got real excited about the idea. So I went to ChatGPT, asked it to make me a personalized fitness plan, and…",
+"text": "So I asked myself…could AI do a better job than my personal trainer?\n\nCould AI design me better meals than a human nutritionist?\n\nAnd could AI act as my all-in-one fitness coach, coordinating my exercise, nutrition, sleep, and everything else I needed to get in shape?\n\nI got real excited about the idea. So I went to ChatGPT, asked it to make me a personalized fitness plan, and…"
+},
+{
+"tag": "p",
+"html": "<strong>My First AI Fitness Plan Turned Out Absolutely Awful!</strong>",
+"text": "My First AI Fitness Plan Turned Out Absolutely Awful!"
+},
+{
+"tag": "p",
+"html": "[CLAUDE: INSERT CHATGPT FAILING TO CREATE A GOOD WORKOUT PLAN ON LAPTOP IMAGE HERE. USED IN VSL TO GENERATE CLIP. MADE BY CODEX]",
+"text": "[CLAUDE: INSERT CHATGPT FAILING TO CREATE A GOOD WORKOUT PLAN ON LAPTOP IMAGE HERE. USED IN VSL TO GENERATE CLIP. MADE BY CODEX]"
+},
+{
+"tag": "p",
+"html": "The first plan ChatGPT made for me was truly terrible.",
+"text": "The first plan ChatGPT made for me was truly terrible."
+},
+{
+"tag": "p",
+"html": "Generic chicken and broccoli meal plans, with worse tasting meals than what I was already eating.",
+"text": "Generic chicken and broccoli meal plans, with worse tasting meals than what I was already eating."
+},
+{
+"tag": "p",
+"html": "Generic workout plans, far worse than what a human trainer could create.",
+"text": "Generic workout plans, far worse than what a human trainer could create."
+},
+{
+"tag": "p",
+"html": "And it basically just told me to “try to relax” and “do my best” when it came to sleep.",
+"text": "And it basically just told me to “try to relax” and “do my best” when it came to sleep."
+},
+{
+"tag": "p",
+"html": "Most people would have given up here. But I didn’t. I knew that AI could create a superior fitness plan for me and help me get in shape. I just had to put in the work.",
+"text": "Most people would have given up here. But I didn’t. I knew that AI could create a superior fitness plan for me and help me get in shape. I just had to put in the work."
+},
+{
+"tag": "p",
+"html": "So I locked in, and…",
+"text": "So I locked in, and…"
+},
+{
+"tag": "p",
+"html": "<strong>I Devoted My Life To Creating The Ultimate AI Fitness Coach</strong>",
+"text": "I Devoted My Life To Creating The Ultimate AI Fitness Coach"
+},
+{
+"tag": "p",
+"html": "I subscribed to five different frontier AI models, spending over $1000 a month on AI subscriptions and API credits.",
+"text": "I subscribed to five different frontier AI models, spending over $1000 a month on AI subscriptions and API credits."
+},
+{
+"tag": "p",
+"html": "After my morning workout, I spent the rest of the day prompting and re-prompting AI.",
+"text": "After my morning workout, I spent the rest of the day prompting and re-prompting AI."
+},
+{
+"tag": "p",
+"html": "\nI obsessively studied the newest models and how to use them.",
+"text": "\nI obsessively studied the newest models and how to use them."
+},
+{
+"tag": "p",
+"html": "And I discovered something important.",
+"text": "And I discovered something important."
+},
+{
+"tag": "p",
+"html": "<strong>Different AI models are good at different parts of the fitness journey</strong>",
+"text": "Different AI models are good at different parts of the fitness journey"
+},
+{
+"tag": "p",
+"html": "One was great at creating a workout plan customized for my goals, injuries, and equipment.",
+"text": "One was great at creating a workout plan customized for my goals, injuries, and equipment."
+},
+{
+"tag": "p",
+"html": "Another one was great at tracking calories.",
+"text": "Another one was great at tracking calories."
+},
+{
+"tag": "p",
+"html": "Another could design the perfect meal plan, and create delicious healthy recipes that fit my daily calorie budget.",
+"text": "Another could design the perfect meal plan, and create delicious healthy recipes that fit my daily calorie budget."
+},
+{
+"tag": "p",
+"html": "And another AI model made an incredible sleep coach.",
+"text": "And another AI model made an incredible sleep coach."
+},
+{
+"tag": "p",
+"html": "<strong>By combining five different frontier AI models - and using the right types of prompts for each - I was able to create the ultimate AI fitness coach.</strong>",
+"text": "By combining five different frontier AI models - and using the right types of prompts for each - I was able to create the ultimate AI fitness coach."
+},
+{
+"tag": "p",
+"html": "My AI fitness coach changed my life. It took me from a soft, flabby dad bod at 38 to the abs I always wanted at 40.",
+"text": "My AI fitness coach changed my life. It took me from a soft, flabby dad bod at 38 to the abs I always wanted at 40."
+},
+{
+"tag": "p",
+"html": "But my AI coach had a few downsides…",
+"text": "But my AI coach had a few downsides…"
+},
+{
+"tag": "p",
+"html": "First, it cost me over $1000 a month in AI subscriptions.",
+"text": "First, it cost me over $1000 a month in AI subscriptions."
+},
+{
+"tag": "p",
+"html": "Second, it was difficult and complicated to use.",
+"text": "Second, it was difficult and complicated to use."
+},
+{
+"tag": "p",
+"html": "And finally, it just took up a ton of my time.",
+"text": "And finally, it just took up a ton of my time."
+},
+{
+"tag": "p",
+"html": "So I decided to build my own app to do everything my AI fitness coach could do. Something simple to use, without the subscription costs, and without the endless prompting.",
+"text": "So I decided to build my own app to do everything my AI fitness coach could do. Something simple to use, without the subscription costs, and without the endless prompting."
+},
+{
+"tag": "p",
+"html": "Once I had my AI coach in his own app, my results got FAR better. And working with my coach got far easier.",
+"text": "Once I had my AI coach in his own app, my results got FAR better. And working with my coach got far easier."
+},
+{
+"tag": "p",
+"html": "That’s when a few friends started asking me…",
+"text": "That’s when a few friends started asking me…"
+},
+{
+"tag": "p",
+"html": "<strong>How Did You Get In Such Good Shape At 40?</strong>",
+"text": "How Did You Get In Such Good Shape At 40?"
+},
+{
+"tag": "p",
+"html": "That’s when I showed them my app - and I got a few of them using it as well.",
+"text": "That’s when I showed them my app - and I got a few of them using it as well."
+},
+{
+"tag": "p",
+"html": "And they got incredible results with my AI fitness coach too!",
+"text": "And they got incredible results with my AI fitness coach too!"
+},
+{
+"tag": "p",
+"html": "Multiple guys I knew lost their belly fat that had been plaguing them for years, and got in better shape than they were in their twenties.",
+"text": "Multiple guys I knew lost their belly fat that had been plaguing them for years, and got in better shape than they were in their twenties."
+},
+{
+"tag": "p",
+"html": "After seeing how it helped my friends, I knew I had to share it with other guys too. ",
+"text": "After seeing how it helped my friends, I knew I had to share it with other guys too. "
+},
+{
+"tag": "p",
+"html": "<strong>Introducing Abs By AI: The Ultimate AI Fitness Coach</strong>",
+"text": "Introducing Abs By AI: The Ultimate AI Fitness Coach"
+},
+{
+"tag": "p",
+"html": "[CLAUDE: SHOW ABS BY AI HOMESCREEN IMAGE]",
+"text": "[CLAUDE: SHOW ABS BY AI HOMESCREEN IMAGE]"
+},
+{
+"tag": "p",
+"html": "So I partnered with an expert AI developer, and we spent months polishing the app.",
+"text": "So I partnered with an expert AI developer, and we spent months polishing the app."
+},
+{
+"tag": "p",
+"html": "Then we spent a few more months beta testing it with real guys and fixing everything they ran into.",
+"text": "Then we spent a few more months beta testing it with real guys and fixing everything they ran into."
+},
+{
+"tag": "p",
+"html": "And now I’m proud to offer you the ultimate AI fitness coaching app. It got me abs at 40, and now you can try it for yourself.",
+"text": "And now I’m proud to offer you the ultimate AI fitness coaching app. It got me abs at 40, and now you can try it for yourself."
+},
+{
+"tag": "p",
+"html": "Let me walk you through Abs By AI, and the five ways it’ll help you finally lose your stubborn belly fat. ",
+"text": "Let me walk you through Abs By AI, and the five ways it’ll help you finally lose your stubborn belly fat. "
+},
+{
+"tag": "h1",
+"html": "<strong>The Five Ways Abs By AI Helps You Lose Your Stubborn Belly Fat</strong>",
+"text": "The Five Ways Abs By AI Helps You Lose Your Stubborn Belly Fat"
+},
+{
+"tag": "p",
+"html": "Now, you might be thinking: \"Come on. Can a chatbot really get me better results than a human trainer or a nutrition coach?\"",
+"text": "Now, you might be thinking: \"Come on. Can a chatbot really get me better results than a human trainer or a nutrition coach?\""
+},
+{
+"tag": "p",
+"html": "Most people don't think it can. But they're dead wrong.",
+"text": "Most people don't think it can. But they're dead wrong."
+},
+{
+"tag": "p",
+"html": "I'm about to prove it to you - by showing you exactly what AI did for me.",
+"text": "I'm about to prove it to you - by showing you exactly what AI did for me."
+},
+{
+"tag": "h1",
+"html": "<strong>AI Hack #1: AI Got Me Back In The Gym</strong>",
+"text": "AI Hack #1: AI Got Me Back In The Gym"
+},
+{
+"tag": "p",
+"html": "The very first thing I did was have AI generate a picture of what I'd look like if I lost my belly fat and got six pack abs.",
+"text": "The very first thing I did was have AI generate a picture of what I'd look like if I lost my belly fat and got six pack abs."
+},
+{
+"tag": "p",
+"html": "<strong>[SHOW DAN'S AI GOAL IMAGE ON A PHONE LOCKSCREEN. \"AI-GENERATED\" LABEL ON]</strong>",
+"text": "[SHOW DAN'S AI GOAL IMAGE ON A PHONE LOCKSCREEN. \"AI-GENERATED\" LABEL ON]"
+},
+{
+"tag": "p",
+"html": "Not a fitness model with my head pasted on. ME. My face. My body. Just leaner, with abs.",
+"text": "Not a fitness model with my head pasted on. ME. My face. My body. Just leaner, with abs."
+},
+{
+"tag": "p",
+"html": "I made it my phone lockscreen. And I looked at it dozens of times a day, every single day, for over a year.",
+"text": "I made it my phone lockscreen. And I looked at it dozens of times a day, every single day, for over a year."
+},
+{
+"tag": "p",
+"html": "Let's be honest. You already know how to lose your belly fat. Knowledge isn't the problem. Motivation is.",
+"text": "Let's be honest. You already know how to lose your belly fat. Knowledge isn't the problem. Motivation is."
+},
+{
+"tag": "p",
+"html": "And NOTHING motivates you like seeing yourself with abs.",
+"text": "And NOTHING motivates you like seeing yourself with abs."
+},
+{
+"tag": "p",
+"html": "A picture of a fitness model, your brain files under \"fantasy.\" A picture of YOU with abs, your brain files under \"possible.\" And once it's possible, not having it starts to bother you.",
+"text": "A picture of a fitness model, your brain files under \"fantasy.\" A picture of YOU with abs, your brain files under \"possible.\" And once it's possible, not having it starts to bother you."
+},
+{
+"tag": "p",
+"html": "There's actually a Stanford study on this. People who watched a virtual version of themselves exercising reported about an hour more exercise the next day than people who watched a stranger. (Fox &amp; Bailenson, Stanford, 2009)",
+"text": "There's actually a Stanford study on this. People who watched a virtual version of themselves exercising reported about an hour more exercise the next day than people who watched a stranger. (Fox & Bailenson, Stanford, 2009)"
+},
+{
+"tag": "p",
+"html": "That picture is what finally got me back in the gym, and meal prepping every Sunday - after two years of excuses.",
+"text": "That picture is what finally got me back in the gym, and meal prepping every Sunday - after two years of excuses."
+},
+{
+"tag": "h1",
+"html": "<strong>AI Hack #2: AI Audited My Workouts - And Found BIG Problems</strong>",
+"text": "AI Hack #2: AI Audited My Workouts - And Found BIG Problems"
+},
+{
+"tag": "p",
+"html": "I thought my workout plan was good. I was a trainer! But when I had AI check my routine against the actual scientific research, it found problems I had never seen.",
+"text": "I thought my workout plan was good. I was a trainer! But when I had AI check my routine against the actual scientific research, it found problems I had never seen."
+},
+{
+"tag": "p",
+"html": "[SHOW APP SCREEN: THE AI TRAINER READING THE BEFORE AND GOAL PICTURES]",
+"text": "[SHOW APP SCREEN: THE AI TRAINER READING THE BEFORE AND GOAL PICTURES]"
+},
+{
+"tag": "p",
+"html": "First, I was doing body-part splits. Chest day. Back day. Arm day. AI moved me to total-body workouts, so every muscle gets trained multiple times a week. That's what the research says builds more muscle and burns more fat in the same amount of time.",
+"text": "First, I was doing body-part splits. Chest day. Back day. Arm day. AI moved me to total-body workouts, so every muscle gets trained multiple times a week. That's what the research says builds more muscle and burns more fat in the same amount of time."
+},
+{
+"tag": "p",
+"html": "Second - and this was the big one - it analyzed my before picture and my goal picture, and identified the exact body parts that were lagging. It told me which exercises to do more of, which to do less of, and rebuilt my routine around closing that gap.",
+"text": "Second - and this was the big one - it analyzed my before picture and my goal picture, and identified the exact body parts that were lagging. It told me which exercises to do more of, which to do less of, and rebuilt my routine around closing that gap."
+},
+{
+"tag": "p",
+"html": "Third, I had a couple of nagging injuries. It gave me substitute exercises I had never even thought of, so I could train hard around them.",
+"text": "Third, I had a couple of nagging injuries. It gave me substitute exercises I had never even thought of, so I could train hard around them."
+},
+{
+"tag": "p",
+"html": "<strong>[SHOW APP SCREEN: A WORKOUT DAY - THE ONE-TAP SWAP ON AN EXERCISE]</strong>",
+"text": "[SHOW APP SCREEN: A WORKOUT DAY - THE ONE-TAP SWAP ON AN EXERCISE]"
+},
+{
+"tag": "p",
+"html": "And if the squat rack was taken, or I was stuck at home with a pair of dumbbells, it gave me a substitution instantly.",
+"text": "And if the squat rack was taken, or I was stuck at home with a pair of dumbbells, it gave me a substitution instantly."
+},
+{
+"tag": "p",
+"html": "Those are just a few examples. AI improved my workouts in dozens of small ways. And together, those small improvements made a HUGE difference.",
+"text": "Those are just a few examples. AI improved my workouts in dozens of small ways. And together, those small improvements made a HUGE difference."
+},
+{
+"tag": "p",
+"html": "My first AI workout plan was generic slop. But once I got it right, it improved my results more than any human trainer ever did.",
+"text": "My first AI workout plan was generic slop. But once I got it right, it improved my results more than any human trainer ever did."
+},
+{
+"tag": "h1",
+"html": "<strong>AI Hack #3: AI Tracks My Calories For Me</strong>",
+"text": "AI Hack #3: AI Tracks My Calories For Me"
+},
+{
+"tag": "p",
+"html": "Here's the truth about losing weight. Tracking your calories is the single most effective way to do it. Nearly every fitness model and every bodybuilder does it.",
+"text": "Here's the truth about losing weight. Tracking your calories is the single most effective way to do it. Nearly every fitness model and every bodybuilder does it."
+},
+{
+"tag": "p",
+"html": "But before AI, tracking calories was basically impossible for regular guys like us.",
+"text": "But before AI, tracking calories was basically impossible for regular guys like us."
+},
+{
+"tag": "p",
+"html": "You had to weigh everything you ate. Look up ten ingredients. Add it all up. Normal guys like me and you were never going to do that.",
+"text": "You had to weigh everything you ate. Look up ten ingredients. Add it all up. Normal guys like me and you were never going to do that."
+},
+{
+"tag": "p",
+"html": "<strong>[SHOW APP SCREEN: MEAL PHOTO, THEN THE ITEMIZED CALORIES AND PROTEIN (THE SALMON MEAL CLIP)]</strong>",
+"text": "[SHOW APP SCREEN: MEAL PHOTO, THEN THE ITEMIZED CALORIES AND PROTEIN (THE SALMON MEAL CLIP)]"
+},
+{
+"tag": "p",
+"html": "Now AI does all the work. You take a picture of your food, and in seconds, you've got your calories and your protein.",
+"text": "Now AI does all the work. You take a picture of your food, and in seconds, you've got your calories and your protein."
+},
+{
+"tag": "p",
+"html": "No weighing. No calculating. Basically no effort. Just take a picture, and your macros are tracked.",
+"text": "No weighing. No calculating. Basically no effort. Just take a picture, and your macros are tracked."
+},
+{
+"tag": "p",
+"html": "And here's the thing. Once I actually started tracking my calories, THAT'S when I started losing weight. Not before. That's when the scale finally started moving.",
+"text": "And here's the thing. Once I actually started tracking my calories, THAT'S when I started losing weight. Not before. That's when the scale finally started moving."
+},
+{
+"tag": "h1",
+"html": "<strong>AI Hack #4: AI Fixed My Meal Prep</strong>",
+"text": "AI Hack #4: AI Fixed My Meal Prep"
+},
+{
+"tag": "p",
+"html": "Setting a calorie target is one thing. Sticking to it is another. And I was getting bored out of my mind eating the same chicken, rice and broccoli every single week.",
+"text": "Setting a calorie target is one thing. Sticking to it is another. And I was getting bored out of my mind eating the same chicken, rice and broccoli every single week."
+},
+{
+"tag": "p",
+"html": "So I talked to my AI about it. It asked me my calorie goal, my protein goal, my favorite foods, the foods I can't stand, and how much time I've got to cook.",
+"text": "So I talked to my AI about it. It asked me my calorie goal, my protein goal, my favorite foods, the foods I can't stand, and how much time I've got to cook."
+},
+{
+"tag": "p",
+"html": "<strong>[SHOW APP SCREEN: THE NUTRITIONIST INTAKE, THEN THE THREE MEAL PREP RECIPES]</strong>",
+"text": "[SHOW APP SCREEN: THE NUTRITIONIST INTAKE, THEN THE THREE MEAL PREP RECIPES]"
+},
+{
+"tag": "p",
+"html": "And it gave me amazing recipes for my weekly meal prep. Far, far better than anything I'd ever made.",
+"text": "And it gave me amazing recipes for my weekly meal prep. Far, far better than anything I'd ever made."
+},
+{
+"tag": "p",
+"html": "Simple to make. Actually delicious. Cheaper than what I was eating before. And all inside my calorie budget - so I kept losing weight without feeling like I was on a diet.",
+"text": "Simple to make. Actually delicious. Cheaper than what I was eating before. And all inside my calorie budget - so I kept losing weight without feeling like I was on a diet."
+},
+{
+"tag": "p",
+"html": "Listen - you're not a professional chef. But AI is. Once it knows your preferences, you'll be amazed at how great healthy food can taste.",
+"text": "Listen - you're not a professional chef. But AI is. Once it knows your preferences, you'll be amazed at how great healthy food can taste."
+},
+{
+"tag": "h1",
+"html": "<strong>AI Hack #5: AI Fixed My Sleep (This Is The One That Surprised Me)</strong>",
+"text": "AI Hack #5: AI Fixed My Sleep (This Is The One That Surprised Me)"
+},
+{
+"tag": "p",
+"html": "AI massively improved my sleep. And once you've got your sleep locked in, you won’t believe how much easier it is to lose your belly fat.",
+"text": "AI massively improved my sleep. And once you've got your sleep locked in, you won’t believe how much easier it is to lose your belly fat."
+},
+{
+"tag": "p",
+"html": "I've struggled with sleep my whole life. So every morning, I started talking to my AI sleep coach about how to fix it.",
+"text": "I've struggled with sleep my whole life. So every morning, I started talking to my AI sleep coach about how to fix it."
+},
+{
+"tag": "p",
+"html": "It gave me solid feedback at first. But once I uploaded the data from my Oura ring, it really started changing my life.",
+"text": "It gave me solid feedback at first. But once I uploaded the data from my Oura ring, it really started changing my life."
+},
+{
+"tag": "p",
+"html": "<strong>[SHOW APP SCREEN: SLEEP COACH - A TRACKER SCREENSHOT GOES IN, THE MORNING BRIEFING COMES OUT]</strong>",
+"text": "[SHOW APP SCREEN: SLEEP COACH - A TRACKER SCREENSHOT GOES IN, THE MORNING BRIEFING COMES OUT]"
+},
+{
+"tag": "p",
+"html": "It showed me how glycine, a little-known amino acid, could improve sleep for somebody with my numbers. It showed me exactly how my late-night eating was wrecking my sleep, and gave me strategies to control it. My bedtime, alcohol, what time of day I worked out - it found things I never would have connected.",
+"text": "It showed me how glycine, a little-known amino acid, could improve sleep for somebody with my numbers. It showed me exactly how my late-night eating was wrecking my sleep, and gave me strategies to control it. My bedtime, alcohol, what time of day I worked out - it found things I never would have connected."
+},
+{
+"tag": "p",
+"html": "And better sleep meant more energy in the gym, less hunger, and faster fat loss.",
+"text": "And better sleep meant more energy in the gym, less hunger, and faster fat loss."
+},
+{
+"tag": "h1",
+"html": "<strong>Try Abs By AI Free For 7 Days</strong>",
+"text": "Try Abs By AI Free For 7 Days"
+},
+{
+"tag": "p",
+"html": "I know Abs By AI can change your life. That's why I want you to try the FULL app, completely free, for seven days - before you pay anything.",
+"text": "I know Abs By AI can change your life. That's why I want you to try the FULL app, completely free, for seven days - before you pay anything."
+},
+{
+"tag": "p",
+"html": "Generate your goal image. Build your AI workout plan. Snap a picture of your next meal, and see for yourself how easy calorie tracking gets.",
+"text": "Generate your goal image. Build your AI workout plan. Snap a picture of your next meal, and see for yourself how easy calorie tracking gets."
+},
+{
+"tag": "p",
+"html": "If you love it, access to everything in the app is just $19.99 a month. And if it's not for you, cancel anytime with two taps.",
+"text": "If you love it, access to everything in the app is just $19.99 a month. And if it's not for you, cancel anytime with two taps."
+},
+{
+"tag": "p",
+"html": "<strong>[PLAN PICKER, SAME AS S10: Monthly $19.99 (pre-selected), 7 days free then $19.99/month · Annual $69.99, SAVE 71%, 7 days free then $69.99/year]</strong>",
+"text": "[PLAN PICKER, SAME AS S10: Monthly $19.99 (pre-selected), 7 days free then $19.99/month · Annual $69.99, SAVE 71%, 7 days free then $69.99/year]"
+},
+{
+"tag": "p",
+"html": "<strong>[BUTTON: Start My 7-Day Free Trial]</strong>",
+"text": "[BUTTON: Start My 7-Day Free Trial]"
+},
+{
+"tag": "p",
+"html": "<em>7-DAY FREE TRIAL · THEN $19.99/MO · RENEWS UNTIL YOU CANCEL · CANCEL ANYTIME IN TWO TAPS</em>",
+"text": "7-DAY FREE TRIAL · THEN $19.99/MO · RENEWS UNTIL YOU CANCEL · CANCEL ANYTIME IN TWO TAPS"
+},
+{
+"tag": "h2",
+"html": "<strong>S10 · Offer card 2 (plan picker)</strong>",
+"text": "S10 · Offer card 2 (plan picker)"
+},
+{
+"tag": "p",
+"html": "<strong>Your Trainer, Nutritionist, Meal Planner And Sleep Coach. One App.</strong>",
+"text": "Your Trainer, Nutritionist, Meal Planner And Sleep Coach. One App."
+},
+{
+"tag": "p",
+"html": "Pick a plan. Both start with 7 days free.",
+"text": "Pick a plan. Both start with 7 days free."
+},
+{
+"tag": "li",
+"html": "Monthly (pre-selected): 7 days free, then $19.99/month",
+"text": "Monthly (pre-selected): 7 days free, then $19.99/month"
+},
+{
+"tag": "li",
+"html": "Annual, SAVE 71%: 7 days free, then $69.99/year (about $5.83/month)",
+"text": "Annual, SAVE 71%: 7 days free, then $69.99/year (about $5.83/month)"
+},
+{
+"tag": "p",
+"html": "Today $0 → Day 5 reminder email → Day 7 first charge, unless you cancel",
+"text": "Today $0 → Day 5 reminder email → Day 7 first charge, unless you cancel"
+},
+{
+"tag": "p",
+"html": "<strong>[Start My 7-Day Free Trial]</strong>",
+"text": "[Start My 7-Day Free Trial]"
+},
+{
+"tag": "p",
+"html": "Renews automatically at the plan price until you cancel. Cancel anytime in the app in two taps. Cancel before day 7 and you are never charged.",
+"text": "Renews automatically at the plan price until you cancel. Cancel anytime in the app in two taps. Cancel before day 7 and you are never charged."
+},
+{
+"tag": "h2",
+"html": "<strong>S11 · Let Me Be Straight With You</strong>",
+"text": "S11 · Let Me Be Straight With You"
+},
+{
+"tag": "p",
+"html": "<strong>Close this page, and nothing changes.</strong> Another year goes by. The shirt stays on at the pool. You tell yourself \"next summer.\" I told myself that two years in a row.",
+"text": "Close this page, and nothing changes. Another year goes by. The shirt stays on at the pool. You tell yourself \"next summer.\" I told myself that two years in a row."
+},
+{
+"tag": "p",
+"html": "<strong>Or tap the button.</strong> Tonight, a picture of you with abs is your lock screen. Tomorrow morning you have a workout built for your body and meals you actually want to eat. For the first time in years, you want to do it. That is what this did for me at 40, and I have never felt better.",
+"text": "Or tap the button. Tonight, a picture of you with abs is your lock screen. Tomorrow morning you have a workout built for your body and meals you actually want to eat. For the first time in years, you want to do it. That is what this did for me at 40, and I have never felt better."
+},
+{
+"tag": "p",
+"html": "<strong>[AFTER PHOTO #2: the pool shot. Chip clear of face and abs.]</strong>",
+"text": "[AFTER PHOTO #2: the pool shot. Chip clear of face and abs.]"
+},
+{
+"tag": "p",
+"html": "<em>My results. Yours depend on your training, eating and sleep.</em>",
+"text": "My results. Yours depend on your training, eating and sleep."
+},
+{
+"tag": "h2",
+"html": "<strong>S12 · Questions Guys Ask</strong>",
+"text": "S12 · Questions Guys Ask"
+},
+{
+"tag": "li",
+"html": "<strong>How much is it?</strong> Nothing for 7 days. After that, $19.99 a month or $69.99 a year. That's it.",
+"text": "How much is it? Nothing for 7 days. After that, $19.99 a month or $69.99 a year. That's it."
+},
+{
+"tag": "li",
+"html": "<strong>Is there a catch?</strong> No. Cancel in the app in two taps before day 7 and you pay nothing.",
+"text": "Is there a catch? No. Cancel in the app in two taps before day 7 and you pay nothing."
+},
+{
+"tag": "li",
+"html": "<strong>Is the goal picture real?</strong> No. It is an AI-generated picture of the goal you choose, made from your photo. It is for motivation. It is not a prediction or a guarantee of any result.",
+"text": "Is the goal picture real? No. It is an AI-generated picture of the goal you choose, made from your photo. It is for motivation. It is not a prediction or a guarantee of any result."
+},
+{
+"tag": "li",
+"html": "<strong>Are the body numbers a medical measurement?</strong> No. Body fat, fat to lose and goal weight are visual estimates based on published body-fat ranges. Talk to a doctor before changing your diet or training.",
+"text": "Are the body numbers a medical measurement? No. Body fat, fat to lose and goal weight are visual estimates based on published body-fat ranges. Talk to a doctor before changing your diet or training."
+},
+{
+"tag": "li",
+"html": "<strong>I'm a beginner and I don't have a gym.</strong> Fine. Tell the trainer your level and your equipment, even a pair of dumbbells at home, and it builds around that. Every exercise has a swap.",
+"text": "I'm a beginner and I don't have a gym. Fine. Tell the trainer your level and your equipment, even a pair of dumbbells at home, and it builds around that. Every exercise has a swap."
+},
+{
+"tag": "li",
+"html": "<strong>iPhone or Android?</strong> Both. It runs in your phone's browser today, nothing to install. (Change when the stores list the app.)",
+"text": "iPhone or Android? Both. It runs in your phone's browser today, nothing to install. (Change when the stores list the app.)"
+},
+{
+"tag": "li",
+"html": "<strong>Who is this NOT for?</strong> If you want results without training or eating better, this isn't it. The AI does the planning and tracking. You still do the work.",
+"text": "Who is this NOT for? If you want results without training or eating better, this isn't it. The AI does the planning and tracking. You still do the work."
+},
+{
+"tag": "h2",
+"html": "<strong>S13 · Final CTA + footer</strong>",
+"text": "S13 · Final CTA + footer"
+},
+{
+"tag": "p",
+"html": "<strong>See Yourself With Abs. Then Let AI Help You Make It Real.</strong>",
+"text": "See Yourself With Abs. Then Let AI Help You Make It Real."
+},
+{
+"tag": "p",
+"html": "<strong>[Start My 7-Day Free Trial]</strong>",
+"text": "[Start My 7-Day Free Trial]"
+},
+{
+"tag": "p",
+"html": "$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps.",
+"text": "$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps."
+},
+{
+"tag": "p",
+"html": "I'll see you inside. Dan",
+"text": "I'll see you inside. Dan"
+},
+{
+"tag": "p",
+"html": "<em>Goal images are AI-generated visualizations, not photographs or predictions. Body numbers are visual estimates, not medical measurements (sources). Results vary. Consult a doctor before changing your diet or exercise.</em>",
+"text": "Goal images are AI-generated visualizations, not photographs or predictions. Body numbers are visual estimates, not medical measurements (sources). Results vary. Consult a doctor before changing your diet or exercise."
+},
+{
+"tag": "p",
+"html": "Terms · Privacy · Refunds · Disclaimer · Contact",
+"text": "Terms · Privacy · Refunds · Disclaimer · Contact"
+},
+{
+"tag": "p",
+"html": "<strong>Sticky bottom CTA (mobile, after first scroll):</strong> Start My 7-Day Free Trial",
+"text": "Sticky bottom CTA (mobile, after first scroll): Start My 7-Day Free Trial"
+}
+]

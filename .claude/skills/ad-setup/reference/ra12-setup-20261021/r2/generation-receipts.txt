@@ -1,0 +1,12 @@
+B_16x9 {"ok":true,"out":"B_16x9.png","width":1920,"height":1080,"codex_tokens":29624}
+A_9x16 {"ok":true,"out":"A_9x16.png","width":1080,"height":1920,"codex_tokens":20976}
+A_16x9 {"ok":true,"out":"A_16x9.png","width":1920,"height":1080,"codex_tokens":22766}
+C_16x9 {"ok":true,"out":"C_16x9.png","width":1920,"height":1080,"codex_tokens":15814}
+B_9x16 {"ok":true,"out":"B_9x16.png","width":1080,"height":1920,"codex_tokens":20938}
+C_9x16 {"ok":true,"out":"C_9x16.png","width":1080,"height":1920,"codex_tokens":18210}
+5a6abc48d070c0539f7eaaba643f40cd16d4331c86e2ff1952e33cb0473e0832  key-to-abs_r2-A-vault-gold-key-studio-blue-11 | 16x9.jpg
+c7b777de9ce07ab89c9d7609a6faf4c27a3f278ed8e71d4616a0966c9acc1782  key-to-abs_r2-A-vault-gold-key-studio-blue-11 | 9x16.jpg
+8ca01fd0a6226b7c21ee8c65135ff324cad9604c4de17a94b6cf1ce55cc0e115  key-to-abs_r2-B-glow-frame-yellow-bands-studio-blue-222 | 16x9.jpg
+cdbc28da587d03c93647144065f6510da07d233cb7523ffe85aa789e23ab3d2b  key-to-abs_r2-B-glow-frame-yellow-bands-studio-blue-222 | 9x16.jpg
+b8901e6697e9fd250a6d3ed635149fe3c49847721705919dd188868b47f5859d  key-to-abs_r2-C-chrome-key-orange-room-studio-blue-145 | 16x9.jpg
+1cd62ea6471b8f99962fc771cbe1de9fef88d424cbb228916bb23f3eea51a31c  key-to-abs_r2-C-chrome-key-orange-room-studio-blue-145 | 9x16.jpg

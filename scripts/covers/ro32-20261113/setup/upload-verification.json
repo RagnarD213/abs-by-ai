@@ -1,0 +1,36 @@
+{
+  "main": {
+    "file": "/Users/danielrose/Projects/_edit_work/RO32-setup/publish/ro32-main-1080p.mp4",
+    "sha256": "df21407c90a94ab4df1f86506020ea54d54fe6239b9e7ce0c1ee8f349c43b691",
+    "bytes": 163248308,
+    "frames": 8307,
+    "fps": "30000/1001",
+    "duration": 277.1769,
+    "size": [
+      1920,
+      1080
+    ],
+    "audio_packets": "12994",
+    "audio_payload_sha256": "29c81ea4f106d966300723e95832dac51ffd7fe74b249fc9ebb4f9df02ed1d29",
+    "audio_payload_identical_to_master": true,
+    "sampled_640px_ssim": 0.992041,
+    "ok": true
+  },
+  "instagram": {
+    "file": "/Users/danielrose/Projects/_edit_work/RO32-setup/publish/ro32-instagram-1080p.mp4",
+    "sha256": "f574a33f0edeac75ace8a5f725ff87171230822701e86c95e281a66c094bd394",
+    "bytes": 69763802,
+    "frames": 8307,
+    "fps": "30000/1001",
+    "duration": 277.1769,
+    "size": [
+      1920,
+      1080
+    ],
+    "audio_packets": "12994",
+    "audio_payload_sha256": "29c81ea4f106d966300723e95832dac51ffd7fe74b249fc9ebb4f9df02ed1d29",
+    "audio_payload_identical_to_master": true,
+    "sampled_640px_ssim": 0.983879,
+    "ok": true
+  }
+}

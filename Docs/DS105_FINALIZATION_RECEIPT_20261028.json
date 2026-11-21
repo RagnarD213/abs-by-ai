@@ -1,0 +1,78 @@
+{
+  "job": "DS-105",
+  "round": 4,
+  "approved": true,
+  "approvalDate": "2026-10-28",
+  "approvalWords": "This looks good. Let's finalize it and write the Codex handoff for covers, upload, and setup.",
+  "finalized": true,
+  "masterSha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+  "threeCopiesVerified": true,
+  "files": [
+    {
+      "name": "Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "bytes": 67977674,
+      "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "extreme": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "driveId": "14kLhhiH3qTXmeQqWVdHYwf3yvfURLXlg",
+      "driveHashes": {
+        "md5": "ea9bc4744092c170045ce33a4d18161a",
+        "sha1": "72a5671e7746f7c60ddc4651db71468e11692e81",
+        "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2"
+      },
+      "verified": true
+    },
+    {
+      "name": "captions.srt",
+      "bytes": 4310,
+      "sha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1",
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/captions.srt",
+      "extreme": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/captions.srt",
+      "driveId": "1NnyJSmhtj2hvcJp3A4jM33aOZweT0upm",
+      "driveHashes": {
+        "md5": "eb1461f77a326bc56cc445276a112eee",
+        "sha1": "510ef3908039c8cec6b012f6d935e595ea5c8204",
+        "sha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1"
+      },
+      "verified": true
+    },
+    {
+      "name": "approval.json",
+      "bytes": 1150,
+      "sha256": "a31c819446c7de8070c63da3b7bafaf3a2f4de20f915753d9c58e132a790fee0",
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/approval.json",
+      "extreme": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/approval.json",
+      "driveId": "1f-w1dm-9utJmDRSCNYJLuDwHV1qCCCjm",
+      "driveHashes": {
+        "md5": "6789d9425d9c72719c3acdad2e31f761",
+        "sha1": "4e0f97b0735a86e544756ceac1c3ec4998195a50",
+        "sha256": "a31c819446c7de8070c63da3b7bafaf3a2f4de20f915753d9c58e132a790fee0"
+      },
+      "verified": true
+    }
+  ],
+  "driveFolderLink": "https://drive.google.com/open?id=1aipysGk8h0rexXO41XKFRKmNlfZ1DAr2",
+  "sharing": "Anyone-with-link folder URL issued by rclone link under standing Drive-sharing rule; children inherit parent access.",
+  "backupLog": "/Volumes/Extreme/_edit_work/DS-105/round4/evidence/final-drive-backup.log",
+  "driveListProof": "/Volumes/Extreme/_edit_work/DS-105/round4/evidence/final-drive-list-verified.json",
+  "captionCues": 88,
+  "captionLastEnd": 63.81,
+  "gate": "FAIL30PASS/3FAIL/6NOTMEASURED/4NA, retained not rewritten",
+  "coverStatus": "not started",
+  "platformUploads": "not started",
+  "scheduling": "not started",
+  "handoff": "Handoffs/handoff-20261028-ds105-mouthpiece-covers-and-setup-codex.md",
+  "setupExecutor": "Codex, GPT-6.1 Sol high currently supported",
+  "queueState": "finalized",
+  "queueRev": 8,
+  "driveStatusUploadVerified": true,
+  "artifactDbMirror": "unavailable; next supported sync pending",
+  "reviewServicesRemoved": [
+    9274,
+    9275
+  ],
+  "vlcReviewCopyRemoved": true,
+  "originalRoundsRetained": true,
+  "setupHandoffWritten": true,
+  "setupStarted": false
+}

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-16",
+  "url": "http://127.0.0.1:8976/",
+  "scope": "Review panel player repair only. Media and approvals unchanged.",
+  "changes": [
+    "Fresh video element on clip selection releases the previous decoder.",
+    "Scroll selected player into view before source load and playback.",
+    "Preload and poster prevent an empty initial player.",
+    "Explicit play/pause, reload and separate-clip controls.",
+    "Seek clamps to the last decodable frame instead of the exact endpoint."
+  ],
+  "browser_checks": [
+    "Reproduced black G01 16x9 before repair with readyState 4.",
+    "Confirmed original and served video SHA256 match.",
+    "Confirmed ffmpeg picture at the reported black position.",
+    "Played D01 9x16 and G01 16x9 with visible changing video frames.",
+    "Paused G01 at 8.115088 seconds after forward seek, readyState 4, with picture visible.",
+    "Rewound and sought forward with picture retained."
+  ],
+  "page_sha256": "a9cafa3bece402de9a6e961b60a057d96863bdfa74aedcdeb42c02dd37a2446d",
+  "http_range": {
+    "status": 206,
+    "bytes": 1024,
+    "content_range": "bytes 0-1023/1572932"
+  }
+}

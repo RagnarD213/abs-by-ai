@@ -1,0 +1,143 @@
+{
+  "round": 2,
+  "runs": [
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/asset-context-answer.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 27588,
+        "candidatesTokenCount": 554,
+        "totalTokenCount": 31064,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 301
+          },
+          {
+            "modality": "VIDEO",
+            "tokenCount": 27287
+          }
+        ],
+        "thoughtsTokenCount": 2922,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    },
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/self-review9.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 58685,
+        "candidatesTokenCount": 391,
+        "totalTokenCount": 61072,
+        "promptTokensDetails": [
+          {
+            "modality": "VIDEO",
+            "tokenCount": 58373
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 312
+          }
+        ],
+        "thoughtsTokenCount": 1996,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    },
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/self-review16.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 58685,
+        "candidatesTokenCount": 366,
+        "totalTokenCount": 61832,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 312
+          },
+          {
+            "modality": "VIDEO",
+            "tokenCount": 58373
+          }
+        ],
+        "thoughtsTokenCount": 2781,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    },
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/independent-audit/full-media-review.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 117354,
+        "candidatesTokenCount": 1328,
+        "totalTokenCount": 121554,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 608
+          },
+          {
+            "modality": "VIDEO",
+            "tokenCount": 116746
+          }
+        ],
+        "thoughtsTokenCount": 2872,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    },
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/independent-audit/repaired9-media-review.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 58573,
+        "candidatesTokenCount": 107,
+        "totalTokenCount": 59975,
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 200
+          },
+          {
+            "modality": "VIDEO",
+            "tokenCount": 58373
+          }
+        ],
+        "thoughtsTokenCount": 1295,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    },
+    {
+      "receipt": "/Volumes/Extreme/_edit_work/ra13/round2/independent-audit/repaired16-media-review.receipt.json",
+      "model": "gemini-3.1-pro-preview",
+      "usage": {
+        "promptTokenCount": 58573,
+        "candidatesTokenCount": 290,
+        "totalTokenCount": 60290,
+        "promptTokensDetails": [
+          {
+            "modality": "VIDEO",
+            "tokenCount": 58373
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 200
+          }
+        ],
+        "thoughtsTokenCount": 1427,
+        "serviceTier": "standard"
+      },
+      "actual_billed_usd": null
+    }
+  ],
+  "asset_audit_estimated_usd": 0.044352,
+  "actual_billed_usd": null,
+  "generation_spend_usd": 0,
+  "batch_estimate_usd_upper_bound": 3,
+  "estimate_note": "Initial batch estimate under $2 plus under $1 for independent/focused repair review. This is an estimate, not a bill. Actual provider billing unavailable. Editor and independent Codex runtime token usage unavailable.",
+  "limits": "Gemini full media was attached at requested4fps high resolution. Native all-frame scans, sheets, consecutive boundary pairs/strips, and independently sampled freeze contexts are separate evidence."
+}

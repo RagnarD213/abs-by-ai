@@ -1,0 +1,5115 @@
+{
+  "scope": "Complete CONTENT SFC R4. Scripted take with exact specified Bill Maher sentences first. R3 key, Balanced voice and warm grade locked. No new AI imagery.",
+  "target_frames": 1944,
+  "target_seconds": 64.8648,
+  "evidence_contract": {
+    "version": 2,
+    "video_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b"
+  },
+  "joins": [
+    19.619600000000002,
+    32.399033333333335,
+    42.50913333333333,
+    60.6606
+  ],
+  "audio_joins": [
+    19.619600000000002,
+    55.74739999999997
+  ],
+  "covered": [
+    [
+      0,
+      19.619600000000002
+    ],
+    [
+      42.50913333333333,
+      60.6606
+    ]
+  ],
+  "punch": [
+    [
+      0,
+      19.619600000000002,
+      "WATCH"
+    ],
+    [
+      19.619600000000002,
+      32.399033333333335,
+      "NEAR"
+    ],
+    [
+      32.399033333333335,
+      42.50913333333333,
+      "TIGHT"
+    ],
+    [
+      42.50913333333333,
+      60.6606,
+      "BMI"
+    ],
+    [
+      60.6606,
+      64.8648,
+      "NEAR"
+    ]
+  ],
+  "punch_covered": [
+    true,
+    false,
+    false,
+    true,
+    false
+  ],
+  "graphics": [
+    {
+      "name": "G01",
+      "beat": [
+        0,
+        19.619600000000002
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G01.mov"
+    },
+    {
+      "name": "G02",
+      "beat": [
+        32.6474,
+        37.8474
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G02.mov"
+    },
+    {
+      "name": "G03",
+      "beat": [
+        42.5094,
+        60.657366700000026
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G03.mov"
+    },
+    {
+      "name": "G04",
+      "beat": [
+        61.007399999999976,
+        64.86220000000004
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G04.mov"
+    }
+  ],
+  "ai_inserts": [],
+  "real_photos": [],
+  "cards": [],
+  "words": [
+    {
+      "w": "But",
+      "t": 0.0,
+      "e": 0.36,
+      "src": "whisper",
+      "source": "Actual original-audio ASR and listening confirmation"
+    },
+    {
+      "w": "let",
+      "t": 0.09,
+      "e": 0.344,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "me",
+      "t": 0.344,
+      "e": 0.598,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "ask",
+      "t": 0.598,
+      "e": 0.852,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "you",
+      "t": 0.852,
+      "e": 1.106,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "this.",
+      "t": 1.106,
+      "e": 1.36,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Have",
+      "t": 1.79,
+      "e": 2.1042857142857145,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "you",
+      "t": 2.1042857142857145,
+      "e": 2.4185714285714286,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "ever",
+      "t": 2.4185714285714286,
+      "e": 2.732857142857143,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "seen",
+      "t": 2.732857142857143,
+      "e": 3.047142857142857,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "a",
+      "t": 3.047142857142857,
+      "e": 3.361428571428571,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "fat",
+      "t": 3.361428571428571,
+      "e": 3.675714285714286,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "90-year-old?",
+      "t": 3.675714285714286,
+      "e": 3.99,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Scary,",
+      "t": 8.99,
+      "e": 9.290000000000001,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "isn't",
+      "t": 9.290000000000001,
+      "e": 9.59,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "it?",
+      "t": 9.59,
+      "e": 9.89,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Healthy",
+      "t": 15.4,
+      "e": 15.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "at",
+      "t": 15.9,
+      "e": 16.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "any",
+      "t": 16.4,
+      "e": 16.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "weight",
+      "t": 16.9,
+      "e": 17.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "is",
+      "t": 17.4,
+      "e": 17.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "an",
+      "t": 17.9,
+      "e": 18.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "unchallenged",
+      "t": 18.4,
+      "e": 18.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "lie.",
+      "t": 18.9,
+      "e": 19.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Bill",
+      "t": 19.76740000000018,
+      "e": 20.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "Maher",
+      "t": 20.087400000000116,
+      "e": 20.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 20.427400000000034,
+      "e": 20.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right.",
+      "t": 20.687400000000025,
+      "e": 20.967399999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "There",
+      "t": 21.327400000000125,
+      "e": 21.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 21.52740000000017,
+      "e": 21.74739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "no",
+      "t": 21.74739999999997,
+      "e": 21.907400000000052,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "such",
+      "t": 21.907400000000052,
+      "e": 22.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "thing",
+      "t": 22.12740000000008,
+      "e": 22.347400000000107,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "as",
+      "t": 22.347400000000107,
+      "e": 22.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "being",
+      "t": 22.48739999999998,
+      "e": 22.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 22.64740000000006,
+      "e": 22.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 22.927400000000034,
+      "e": 23.107400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "any",
+      "t": 23.107400000000098,
+      "e": 23.26740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "size.",
+      "t": 23.26740000000018,
+      "e": 23.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "And",
+      "t": 23.967399999999998,
+      "e": 24.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 24.22739999999999,
+      "e": 24.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 24.36740000000009,
+      "e": 24.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overfat",
+      "t": 24.607400000000098,
+      "e": 25.047400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right",
+      "t": 25.047400000000152,
+      "e": 25.28740000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "now,",
+      "t": 25.28740000000016,
+      "e": 25.547400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "it's",
+      "t": 25.74739999999997,
+      "e": 25.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "comforting",
+      "t": 25.927400000000034,
+      "e": 26.307400000000143,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 26.307400000000143,
+      "e": 26.547400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tell",
+      "t": 26.547400000000152,
+      "e": 26.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "yourself",
+      "t": 26.72739999999999,
+      "e": 27.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 27.067400000000134,
+      "e": 27.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 27.24739999999997,
+      "e": 27.38740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 27.38740000000007,
+      "e": 27.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 27.52740000000017,
+      "e": 27.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 27.64740000000006,
+      "e": 27.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 27.88740000000007,
+      "e": 28.047400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "any",
+      "t": 28.047400000000152,
+      "e": 28.207400000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "size.",
+      "t": 28.207400000000007,
+      "e": 28.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "But",
+      "t": 28.52740000000017,
+      "e": 29.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 29.12740000000008,
+      "e": 29.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 29.427400000000034,
+      "e": 29.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 29.687400000000025,
+      "e": 29.827400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lie",
+      "t": 29.827400000000125,
+      "e": 30.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 30.02740000000017,
+      "e": 30.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 30.36740000000009,
+      "e": 30.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lie",
+      "t": 30.607400000000098,
+      "e": 30.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 30.927400000000034,
+      "e": 31.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "literally",
+      "t": 31.24739999999997,
+      "e": 31.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "killing",
+      "t": 31.607400000000098,
+      "e": 31.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you.",
+      "t": 31.98739999999998,
+      "e": 32.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "That's",
+      "t": 32.64740000000006,
+      "e": 33.04740000000015,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "why",
+      "t": 33.04740000000015,
+      "e": 33.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 33.187400000000025,
+      "e": 33.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "need",
+      "t": 33.34740000000011,
+      "e": 33.447400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 33.447400000000016,
+      "e": 33.567400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "treat",
+      "t": 33.567400000000134,
+      "e": 33.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 33.72739999999999,
+      "e": 33.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "belly",
+      "t": 33.86740000000009,
+      "e": 34.04740000000015,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 34.04740000000015,
+      "e": 34.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "as",
+      "t": 34.30740000000014,
+      "e": 34.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "an",
+      "t": 34.62740000000008,
+      "e": 34.74739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "emergency",
+      "t": 34.74739999999997,
+      "e": 35.26740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "because",
+      "t": 35.26740000000018,
+      "e": 35.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 35.947400000000016,
+      "e": 36.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "future",
+      "t": 36.14740000000006,
+      "e": 36.447400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 36.447400000000016,
+      "e": 36.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "going",
+      "t": 36.72739999999999,
+      "e": 36.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 36.90740000000005,
+      "e": 37.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 37.067400000000134,
+      "e": 37.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "amazing",
+      "t": 37.22739999999999,
+      "e": 37.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 37.84740000000011,
+      "e": 38.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 38.36740000000009,
+      "e": 38.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 38.48739999999998,
+      "e": 38.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "don't",
+      "t": 38.64740000000006,
+      "e": 38.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lose",
+      "t": 38.76740000000018,
+      "e": 38.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 38.9674,
+      "e": 39.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight",
+      "t": 39.087400000000116,
+      "e": 39.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 39.22739999999999,
+      "e": 39.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "aren't",
+      "t": 39.64740000000006,
+      "e": 39.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "going",
+      "t": 39.9674,
+      "e": 40.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 40.1074000000001,
+      "e": 40.16740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 40.16740000000004,
+      "e": 40.28740000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "around",
+      "t": 40.28740000000016,
+      "e": 40.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 40.48739999999998,
+      "e": 40.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 40.64740000000006,
+      "e": 40.80740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "how",
+      "t": 40.80740000000014,
+      "e": 41.00739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "awesome",
+      "t": 41.00739999999996,
+      "e": 41.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "it",
+      "t": 41.427400000000034,
+      "e": 41.6074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "will",
+      "t": 41.6074000000001,
+      "e": 41.70740000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be.",
+      "t": 41.70740000000001,
+      "e": 41.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "So,",
+      "t": 42.4674,
+      "e": 42.6074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "on",
+      "t": 42.64740000000006,
+      "e": 42.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "screen",
+      "t": 42.84740000000011,
+      "e": 43.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right",
+      "t": 43.087400000000116,
+      "e": 43.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "now",
+      "t": 43.30740000000014,
+      "e": 43.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 43.587400000000116,
+      "e": 43.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 43.86740000000009,
+      "e": 43.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 43.98739999999998,
+      "e": 44.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 44.14740000000006,
+      "e": 44.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "BMI",
+      "t": 44.24739999999997,
+      "e": 44.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "table",
+      "t": 44.52740000000017,
+      "e": 44.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 44.947400000000016,
+      "e": 45.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tell",
+      "t": 45.14740000000006,
+      "e": 45.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 45.327400000000125,
+      "e": 45.4674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 45.4674,
+      "e": 45.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight.",
+      "t": 45.62740000000008,
+      "e": 46.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "So",
+      "t": 46.567400000000134,
+      "e": 46.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "look",
+      "t": 46.687400000000025,
+      "e": 46.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 46.90740000000005,
+      "e": 47.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 47.02740000000017,
+      "e": 47.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight,",
+      "t": 47.12740000000008,
+      "e": 47.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "look",
+      "t": 47.567400000000134,
+      "e": 47.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 47.62740000000008,
+      "e": 47.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 47.76740000000018,
+      "e": 47.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "height",
+      "t": 47.88740000000007,
+      "e": 48.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 48.12740000000008,
+      "e": 48.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "then",
+      "t": 48.62740000000008,
+      "e": 48.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 48.86740000000009,
+      "e": 49.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 49.327400000000125,
+      "e": 49.4674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 49.4674,
+      "e": 49.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight",
+      "t": 49.587400000000116,
+      "e": 49.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "or",
+      "t": 49.947400000000016,
+      "e": 50.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "obese.",
+      "t": 50.1074000000001,
+      "e": 50.40740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "If",
+      "t": 50.927400000000034,
+      "e": 51.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 51.1074000000001,
+      "e": 51.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "in",
+      "t": 51.34740000000011,
+      "e": 51.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 51.427400000000034,
+      "e": 51.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight",
+      "t": 51.52740000000017,
+      "e": 51.80740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "category,",
+      "t": 51.80740000000014,
+      "e": 52.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 52.6074000000001,
+      "e": 52.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "health",
+      "t": 52.84740000000011,
+      "e": 53.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "will",
+      "t": 53.1074000000001,
+      "e": 53.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tremendously",
+      "t": 53.30740000000014,
+      "e": 53.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "improve",
+      "t": 53.88740000000007,
+      "e": 54.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 54.48739999999998,
+      "e": 54.66740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 54.66740000000004,
+      "e": 54.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "get",
+      "t": 54.76740000000018,
+      "e": 54.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 54.90740000000005,
+      "e": 55.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 55.067400000000134,
+      "e": 55.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 55.14740000000006,
+      "e": 55.38740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight.",
+      "t": 55.38740000000007,
+      "e": 55.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "If",
+      "t": 55.947400000000016,
+      "e": 56.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 56.1074000000001,
+      "e": 56.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "on",
+      "t": 56.327400000000125,
+      "e": 56.40740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 56.40740000000005,
+      "e": 56.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "obese",
+      "t": 56.50739999999996,
+      "e": 56.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "category,",
+      "t": 56.687400000000025,
+      "e": 57.26739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "losing",
+      "t": 57.76739999999995,
+      "e": 58.02739999999994,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 58.02739999999994,
+      "e": 58.307399999999916,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 58.307399999999916,
+      "e": 58.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "literally",
+      "t": 58.587400000000116,
+      "e": 58.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 58.9674,
+      "e": 59.307399999999916,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "most",
+      "t": 59.307399999999916,
+      "e": 59.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "important",
+      "t": 59.50739999999996,
+      "e": 59.827400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "thing",
+      "t": 59.827400000000125,
+      "e": 60.02739999999994,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 60.02739999999994,
+      "e": 60.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 60.187400000000025,
+      "e": 60.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "do.",
+      "t": 60.327400000000125,
+      "e": 60.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "Subscribe",
+      "t": 61.00739999999996,
+      "e": 61.26739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 61.26739999999995,
+      "e": 61.56739999999991,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "my",
+      "t": 61.56739999999991,
+      "e": 61.66740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "channel",
+      "t": 61.66740000000004,
+      "e": 61.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 61.98739999999998,
+      "e": 62.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "learn",
+      "t": 62.187400000000025,
+      "e": 62.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "exactly",
+      "t": 62.34740000000011,
+      "e": 62.76739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "how",
+      "t": 62.76739999999995,
+      "e": 62.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 62.9674,
+      "e": 63.047399999999925,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lose",
+      "t": 63.047399999999925,
+      "e": 63.20740000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 63.20740000000001,
+      "e": 63.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "belly",
+      "t": 63.34740000000011,
+      "e": 63.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 63.50739999999996,
+      "e": 63.787399999999934,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 63.787399999999934,
+      "e": 64.18740000000003,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "get",
+      "t": 64.18740000000003,
+      "e": 64.3474000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "abs.",
+      "t": 64.3474000000001,
+      "e": 64.5673999999999,
+      "source": "C1730 roll sidecar"
+    }
+  ],
+  "transcript_words": [
+    {
+      "w": " But",
+      "t": 0.0,
+      "e": 0.36,
+      "p": null
+    },
+    {
+      "w": " let",
+      "t": 0.36,
+      "e": 0.5,
+      "p": null
+    },
+    {
+      "w": " me",
+      "t": 0.5,
+      "e": 0.58,
+      "p": null
+    },
+    {
+      "w": " ask",
+      "t": 0.58,
+      "e": 0.82,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 0.82,
+      "e": 0.96,
+      "p": null
+    },
+    {
+      "w": " this.",
+      "t": 0.96,
+      "e": 1.22,
+      "p": null
+    },
+    {
+      "w": " Have",
+      "t": 1.66,
+      "e": 1.92,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 1.92,
+      "e": 2.04,
+      "p": null
+    },
+    {
+      "w": " ever",
+      "t": 2.04,
+      "e": 2.28,
+      "p": null
+    },
+    {
+      "w": " seen",
+      "t": 2.28,
+      "e": 2.66,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 2.66,
+      "e": 2.82,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 2.82,
+      "e": 3.1,
+      "p": null
+    },
+    {
+      "w": " 90",
+      "t": 3.1,
+      "e": 3.48,
+      "p": null
+    },
+    {
+      "w": " year",
+      "t": 3.48,
+      "e": 3.66,
+      "p": null
+    },
+    {
+      "w": " old?",
+      "t": 3.66,
+      "e": 4.04,
+      "p": null
+    },
+    {
+      "w": " Scary,",
+      "t": 8.78,
+      "e": 9.26,
+      "p": null
+    },
+    {
+      "w": " isn't",
+      "t": 9.5,
+      "e": 9.62,
+      "p": null
+    },
+    {
+      "w": " it?",
+      "t": 9.62,
+      "e": 10.68,
+      "p": null
+    },
+    {
+      "w": " Healthy",
+      "t": 15.32,
+      "e": 15.8,
+      "p": null
+    },
+    {
+      "w": " at",
+      "t": 15.8,
+      "e": 16.26,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 16.26,
+      "e": 16.54,
+      "p": null
+    },
+    {
+      "w": " weight",
+      "t": 16.54,
+      "e": 17.04,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 17.04,
+      "e": 18.02,
+      "p": null
+    },
+    {
+      "w": " an",
+      "t": 18.02,
+      "e": 18.16,
+      "p": null
+    },
+    {
+      "w": " unchallenged",
+      "t": 18.16,
+      "e": 19.14,
+      "p": null
+    },
+    {
+      "w": " lie.",
+      "t": 19.14,
+      "e": 19.54,
+      "p": null
+    },
+    {
+      "w": " Bill",
+      "t": 19.8,
+      "e": 20.08,
+      "p": null
+    },
+    {
+      "w": " Maher",
+      "t": 20.08,
+      "e": 20.44,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 20.44,
+      "e": 20.68,
+      "p": null
+    },
+    {
+      "w": " right.",
+      "t": 20.68,
+      "e": 20.96,
+      "p": null
+    },
+    {
+      "w": " There",
+      "t": 21.32,
+      "e": 21.54,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 21.54,
+      "e": 21.74,
+      "p": null
+    },
+    {
+      "w": " no",
+      "t": 21.74,
+      "e": 21.92,
+      "p": null
+    },
+    {
+      "w": " such",
+      "t": 21.92,
+      "e": 22.14,
+      "p": null
+    },
+    {
+      "w": " thing",
+      "t": 22.14,
+      "e": 22.34,
+      "p": null
+    },
+    {
+      "w": " as",
+      "t": 22.34,
+      "e": 22.5,
+      "p": null
+    },
+    {
+      "w": " being",
+      "t": 22.5,
+      "e": 22.64,
+      "p": null
+    },
+    {
+      "w": " healthy",
+      "t": 22.64,
+      "e": 22.92,
+      "p": null
+    },
+    {
+      "w": " at",
+      "t": 22.92,
+      "e": 23.1,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 23.1,
+      "e": 23.26,
+      "p": null
+    },
+    {
+      "w": " size.",
+      "t": 23.26,
+      "e": 23.58,
+      "p": null
+    },
+    {
+      "w": " And",
+      "t": 23.86,
+      "e": 24.22,
+      "p": null
+    },
+    {
+      "w": " if",
+      "t": 24.22,
+      "e": 24.38,
+      "p": null
+    },
+    {
+      "w": " you're",
+      "t": 24.38,
+      "e": 24.6,
+      "p": null
+    },
+    {
+      "w": " over",
+      "t": 24.6,
+      "e": 24.8,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 24.8,
+      "e": 25.06,
+      "p": null
+    },
+    {
+      "w": " right",
+      "t": 25.06,
+      "e": 25.3,
+      "p": null
+    },
+    {
+      "w": " now,",
+      "t": 25.3,
+      "e": 25.56,
+      "p": null
+    },
+    {
+      "w": " it's",
+      "t": 25.74,
+      "e": 25.92,
+      "p": null
+    },
+    {
+      "w": " comforting",
+      "t": 25.92,
+      "e": 26.3,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 26.3,
+      "e": 26.54,
+      "p": null
+    },
+    {
+      "w": " tell",
+      "t": 26.54,
+      "e": 26.74,
+      "p": null
+    },
+    {
+      "w": " yourself",
+      "t": 26.74,
+      "e": 27.06,
+      "p": null
+    },
+    {
+      "w": " that",
+      "t": 27.06,
+      "e": 27.24,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 27.24,
+      "e": 27.4,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 27.4,
+      "e": 27.52,
+      "p": null
+    },
+    {
+      "w": " be",
+      "t": 27.52,
+      "e": 27.64,
+      "p": null
+    },
+    {
+      "w": " healthy",
+      "t": 27.64,
+      "e": 27.88,
+      "p": null
+    },
+    {
+      "w": " at",
+      "t": 27.88,
+      "e": 28.06,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 28.06,
+      "e": 28.22,
+      "p": null
+    },
+    {
+      "w": " size.",
+      "t": 28.22,
+      "e": 28.48,
+      "p": null
+    },
+    {
+      "w": " But",
+      "t": 29.0,
+      "e": 29.14,
+      "p": null
+    },
+    {
+      "w": " that",
+      "t": 29.14,
+      "e": 29.42,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 29.42,
+      "e": 29.68,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 29.68,
+      "e": 29.82,
+      "p": null
+    },
+    {
+      "w": " lie,",
+      "t": 29.82,
+      "e": 30.06,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 30.32,
+      "e": 30.38,
+      "p": null
+    },
+    {
+      "w": " that",
+      "t": 30.38,
+      "e": 30.6,
+      "p": null
+    },
+    {
+      "w": " lie",
+      "t": 30.6,
+      "e": 30.94,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 30.94,
+      "e": 31.26,
+      "p": null
+    },
+    {
+      "w": " literally",
+      "t": 31.26,
+      "e": 31.58,
+      "p": null
+    },
+    {
+      "w": " killing",
+      "t": 31.58,
+      "e": 31.98,
+      "p": null
+    },
+    {
+      "w": " you.",
+      "t": 31.98,
+      "e": 32.2,
+      "p": null
+    },
+    {
+      "w": " That's",
+      "t": 32.66,
+      "e": 33.04,
+      "p": null
+    },
+    {
+      "w": " why",
+      "t": 33.04,
+      "e": 33.18,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 33.18,
+      "e": 33.34,
+      "p": null
+    },
+    {
+      "w": " need",
+      "t": 33.34,
+      "e": 33.44,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 33.44,
+      "e": 33.56,
+      "p": null
+    },
+    {
+      "w": " treat",
+      "t": 33.56,
+      "e": 33.72,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 33.72,
+      "e": 33.88,
+      "p": null
+    },
+    {
+      "w": " belly",
+      "t": 33.88,
+      "e": 34.06,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 34.06,
+      "e": 34.32,
+      "p": null
+    },
+    {
+      "w": " as",
+      "t": 34.32,
+      "e": 34.64,
+      "p": null
+    },
+    {
+      "w": " an",
+      "t": 34.64,
+      "e": 34.76,
+      "p": null
+    },
+    {
+      "w": " emergency,",
+      "t": 34.76,
+      "e": 35.3,
+      "p": null
+    },
+    {
+      "w": " because",
+      "t": 35.58,
+      "e": 35.94,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 35.94,
+      "e": 36.14,
+      "p": null
+    },
+    {
+      "w": " future",
+      "t": 36.14,
+      "e": 36.46,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 36.46,
+      "e": 36.74,
+      "p": null
+    },
+    {
+      "w": " going",
+      "t": 36.74,
+      "e": 36.9,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 36.9,
+      "e": 37.06,
+      "p": null
+    },
+    {
+      "w": " be",
+      "t": 37.06,
+      "e": 37.24,
+      "p": null
+    },
+    {
+      "w": " amazing.",
+      "t": 37.24,
+      "e": 37.88,
+      "p": null
+    },
+    {
+      "w": " And",
+      "t": 38.18,
+      "e": 38.36,
+      "p": null
+    },
+    {
+      "w": " if",
+      "t": 38.36,
+      "e": 38.48,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 38.48,
+      "e": 38.64,
+      "p": null
+    },
+    {
+      "w": " don't",
+      "t": 38.64,
+      "e": 38.78,
+      "p": null
+    },
+    {
+      "w": " lose",
+      "t": 38.78,
+      "e": 38.96,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 38.96,
+      "e": 39.1,
+      "p": null
+    },
+    {
+      "w": " weight,",
+      "t": 39.1,
+      "e": 39.26,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 39.48,
+      "e": 39.66,
+      "p": null
+    },
+    {
+      "w": " aren't",
+      "t": 39.66,
+      "e": 39.96,
+      "p": null
+    },
+    {
+      "w": " going",
+      "t": 39.96,
+      "e": 40.1,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 40.1,
+      "e": 40.16,
+      "p": null
+    },
+    {
+      "w": " be",
+      "t": 40.16,
+      "e": 40.3,
+      "p": null
+    },
+    {
+      "w": " around",
+      "t": 40.3,
+      "e": 40.5,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 40.5,
+      "e": 40.64,
+      "p": null
+    },
+    {
+      "w": " see",
+      "t": 40.64,
+      "e": 40.8,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 40.8,
+      "e": 41.0,
+      "p": null
+    },
+    {
+      "w": " awesome",
+      "t": 41.0,
+      "e": 41.42,
+      "p": null
+    },
+    {
+      "w": " it",
+      "t": 41.42,
+      "e": 41.6,
+      "p": null
+    },
+    {
+      "w": " will",
+      "t": 41.6,
+      "e": 41.72,
+      "p": null
+    },
+    {
+      "w": " be.",
+      "t": 41.72,
+      "e": 41.9,
+      "p": null
+    },
+    {
+      "w": " So",
+      "t": 42.4,
+      "e": 42.6,
+      "p": null
+    },
+    {
+      "w": " on",
+      "t": 42.6,
+      "e": 42.84,
+      "p": null
+    },
+    {
+      "w": " screen",
+      "t": 42.84,
+      "e": 43.08,
+      "p": null
+    },
+    {
+      "w": " right",
+      "t": 43.08,
+      "e": 43.3,
+      "p": null
+    },
+    {
+      "w": " now,",
+      "t": 43.3,
+      "e": 43.6,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 43.74,
+      "e": 43.88,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 43.88,
+      "e": 44.0,
+      "p": null
+    },
+    {
+      "w": " see",
+      "t": 44.0,
+      "e": 44.14,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 44.14,
+      "e": 44.24,
+      "p": null
+    },
+    {
+      "w": " BMI",
+      "t": 44.24,
+      "e": 44.52,
+      "p": null
+    },
+    {
+      "w": " table",
+      "t": 44.52,
+      "e": 44.96,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 44.96,
+      "e": 45.12,
+      "p": null
+    },
+    {
+      "w": " tell",
+      "t": 45.12,
+      "e": 45.34,
+      "p": null
+    },
+    {
+      "w": " if",
+      "t": 45.34,
+      "e": 45.46,
+      "p": null
+    },
+    {
+      "w": " you're",
+      "t": 45.46,
+      "e": 45.62,
+      "p": null
+    },
+    {
+      "w": " overweight.",
+      "t": 45.62,
+      "e": 46.02,
+      "p": null
+    },
+    {
+      "w": " So",
+      "t": 46.58,
+      "e": 46.7,
+      "p": null
+    },
+    {
+      "w": " look",
+      "t": 46.7,
+      "e": 46.9,
+      "p": null
+    },
+    {
+      "w": " at",
+      "t": 46.9,
+      "e": 47.04,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 47.04,
+      "e": 47.12,
+      "p": null
+    },
+    {
+      "w": " weight,",
+      "t": 47.12,
+      "e": 47.38,
+      "p": null
+    },
+    {
+      "w": " look",
+      "t": 47.54,
+      "e": 47.62,
+      "p": null
+    },
+    {
+      "w": " at",
+      "t": 47.62,
+      "e": 47.76,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 47.76,
+      "e": 47.88,
+      "p": null
+    },
+    {
+      "w": " height,",
+      "t": 47.88,
+      "e": 48.14,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 48.34,
+      "e": 48.62,
+      "p": null
+    },
+    {
+      "w": " then",
+      "t": 48.62,
+      "e": 48.86,
+      "p": null
+    },
+    {
+      "w": " see",
+      "t": 48.86,
+      "e": 49.34,
+      "p": null
+    },
+    {
+      "w": " if",
+      "t": 49.34,
+      "e": 49.46,
+      "p": null
+    },
+    {
+      "w": " you're",
+      "t": 49.46,
+      "e": 49.58,
+      "p": null
+    },
+    {
+      "w": " overweight",
+      "t": 49.58,
+      "e": 49.94,
+      "p": null
+    },
+    {
+      "w": " or",
+      "t": 49.94,
+      "e": 50.1,
+      "p": null
+    },
+    {
+      "w": " obese.",
+      "t": 50.1,
+      "e": 50.4,
+      "p": null
+    },
+    {
+      "w": " If",
+      "t": 50.96,
+      "e": 51.1,
+      "p": null
+    },
+    {
+      "w": " you're",
+      "t": 51.1,
+      "e": 51.34,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 51.34,
+      "e": 51.42,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 51.42,
+      "e": 51.52,
+      "p": null
+    },
+    {
+      "w": " overweight",
+      "t": 51.52,
+      "e": 51.82,
+      "p": null
+    },
+    {
+      "w": " category,",
+      "t": 51.82,
+      "e": 52.3,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 52.72,
+      "e": 52.84,
+      "p": null
+    },
+    {
+      "w": " health",
+      "t": 52.84,
+      "e": 53.14,
+      "p": null
+    },
+    {
+      "w": " will",
+      "t": 53.14,
+      "e": 53.3,
+      "p": null
+    },
+    {
+      "w": " tremendously",
+      "t": 53.3,
+      "e": 53.9,
+      "p": null
+    },
+    {
+      "w": " improve",
+      "t": 53.9,
+      "e": 54.48,
+      "p": null
+    },
+    {
+      "w": " if",
+      "t": 54.48,
+      "e": 54.68,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 54.68,
+      "e": 54.76,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 54.76,
+      "e": 54.9,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 54.9,
+      "e": 55.06,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 55.06,
+      "e": 55.16,
+      "p": null
+    },
+    {
+      "w": " healthy",
+      "t": 55.16,
+      "e": 55.38,
+      "p": null
+    },
+    {
+      "w": " weight.",
+      "t": 55.38,
+      "e": 55.62,
+      "p": null
+    },
+    {
+      "w": " If",
+      "t": 55.96,
+      "e": 56.08,
+      "p": null
+    },
+    {
+      "w": " you're",
+      "t": 56.08,
+      "e": 56.32,
+      "p": null
+    },
+    {
+      "w": " on",
+      "t": 56.32,
+      "e": 56.4,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 56.4,
+      "e": 56.5,
+      "p": null
+    },
+    {
+      "w": " obese",
+      "t": 56.5,
+      "e": 56.7,
+      "p": null
+    },
+    {
+      "w": " category,",
+      "t": 56.7,
+      "e": 57.26,
+      "p": null
+    },
+    {
+      "w": " losing",
+      "t": 57.68,
+      "e": 58.02,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 58.02,
+      "e": 58.32,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 58.32,
+      "e": 58.58,
+      "p": null
+    },
+    {
+      "w": " literally",
+      "t": 58.58,
+      "e": 58.96,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 58.96,
+      "e": 59.3,
+      "p": null
+    },
+    {
+      "w": " most",
+      "t": 59.3,
+      "e": 59.48,
+      "p": null
+    },
+    {
+      "w": " important",
+      "t": 59.48,
+      "e": 59.78,
+      "p": null
+    },
+    {
+      "w": " thing",
+      "t": 59.78,
+      "e": 60.02,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 60.0,
+      "e": 60.16,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 60.16,
+      "e": 60.32,
+      "p": null
+    },
+    {
+      "w": " do.",
+      "t": 60.32,
+      "e": 60.5,
+      "p": null
+    },
+    {
+      "w": " Subscribe",
+      "t": 60.92,
+      "e": 61.28,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 61.28,
+      "e": 61.56,
+      "p": null
+    },
+    {
+      "w": " my",
+      "t": 61.56,
+      "e": 61.68,
+      "p": null
+    },
+    {
+      "w": " channel",
+      "t": 61.68,
+      "e": 61.96,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 61.96,
+      "e": 62.18,
+      "p": null
+    },
+    {
+      "w": " learn",
+      "t": 62.18,
+      "e": 62.34,
+      "p": null
+    },
+    {
+      "w": " exactly",
+      "t": 62.34,
+      "e": 62.66,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 62.66,
+      "e": 62.98,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 62.98,
+      "e": 63.04,
+      "p": null
+    },
+    {
+      "w": " lose",
+      "t": 63.04,
+      "e": 63.2,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 63.2,
+      "e": 63.32,
+      "p": null
+    },
+    {
+      "w": " belly",
+      "t": 63.32,
+      "e": 63.5,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 63.5,
+      "e": 63.78,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 63.78,
+      "e": 64.2,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 64.2,
+      "e": 64.32,
+      "p": null
+    },
+    {
+      "w": " abs.",
+      "t": 64.32,
+      "e": 64.56,
+      "p": null
+    }
+  ],
+  "speech_words": [
+    {
+      "w": "But",
+      "t": 0.26,
+      "e": 0.36,
+      "src": "ctc"
+    },
+    {
+      "w": "let",
+      "t": 0.4,
+      "e": 0.48,
+      "src": "ctc"
+    },
+    {
+      "w": "me",
+      "t": 0.54,
+      "e": 0.58,
+      "src": "ctc"
+    },
+    {
+      "w": "ask",
+      "t": 0.7,
+      "e": 0.8,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 0.86,
+      "e": 0.92,
+      "src": "ctc"
+    },
+    {
+      "w": "this.",
+      "t": 1.0,
+      "e": 1.16,
+      "src": "ctc"
+    },
+    {
+      "w": "Have",
+      "t": 1.8,
+      "e": 1.92,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 1.96,
+      "e": 2.02,
+      "src": "ctc"
+    },
+    {
+      "w": "ever",
+      "t": 2.16,
+      "e": 2.301,
+      "src": "ctc"
+    },
+    {
+      "w": "seen",
+      "t": 2.441,
+      "e": 2.661,
+      "src": "ctc"
+    },
+    {
+      "w": "a",
+      "t": 2.761,
+      "e": 2.801,
+      "src": "ctc"
+    },
+    {
+      "w": "fat",
+      "t": 2.901,
+      "e": 3.101,
+      "src": "ctc"
+    },
+    {
+      "w": "90-year-old?",
+      "t": 3.241,
+      "e": 3.881,
+      "src": "ctc"
+    },
+    {
+      "w": "Scary,",
+      "t": 8.944,
+      "e": 9.406,
+      "src": "ctc_bounded_original_audio"
+    },
+    {
+      "w": "isn't",
+      "t": 9.507,
+      "e": 9.828,
+      "src": "ctc_bounded_original_audio"
+    },
+    {
+      "w": "it?",
+      "t": 9.929,
+      "e": 9.969,
+      "src": "ctc_bounded_original_audio"
+    },
+    {
+      "w": "Healthy",
+      "t": 15.544,
+      "e": 15.984,
+      "src": "ctc"
+    },
+    {
+      "w": "at",
+      "t": 16.204,
+      "e": 16.244,
+      "src": "ctc"
+    },
+    {
+      "w": "any",
+      "t": 16.444,
+      "e": 16.584,
+      "src": "ctc"
+    },
+    {
+      "w": "weight",
+      "t": 16.684,
+      "e": 16.924,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 17.964,
+      "e": 18.024,
+      "src": "ctc"
+    },
+    {
+      "w": "an",
+      "t": 18.084,
+      "e": 18.124,
+      "src": "ctc"
+    },
+    {
+      "w": "unchallenged",
+      "t": 18.304,
+      "e": 19.044,
+      "src": "ctc"
+    },
+    {
+      "w": "lie.",
+      "t": 19.284,
+      "e": 19.624,
+      "src": "ctc"
+    },
+    {
+      "w": "Bill",
+      "t": 19.945,
+      "e": 20.085,
+      "src": "ctc"
+    },
+    {
+      "w": "Maher",
+      "t": 20.205,
+      "e": 20.405,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 20.605,
+      "e": 20.685,
+      "src": "ctc"
+    },
+    {
+      "w": "right.",
+      "t": 20.805,
+      "e": 21.005,
+      "src": "ctc"
+    },
+    {
+      "w": "There",
+      "t": 21.405,
+      "e": 21.565,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 21.665,
+      "e": 21.725,
+      "src": "ctc"
+    },
+    {
+      "w": "no",
+      "t": 21.825,
+      "e": 21.905,
+      "src": "ctc"
+    },
+    {
+      "w": "such",
+      "t": 22.005,
+      "e": 22.165,
+      "src": "ctc"
+    },
+    {
+      "w": "thing",
+      "t": 22.225,
+      "e": 22.385,
+      "src": "ctc"
+    },
+    {
+      "w": "as",
+      "t": 22.425,
+      "e": 22.485,
+      "src": "ctc"
+    },
+    {
+      "w": "being",
+      "t": 22.545,
+      "e": 22.705,
+      "src": "ctc"
+    },
+    {
+      "w": "healthy",
+      "t": 22.765,
+      "e": 22.985,
+      "src": "ctc"
+    },
+    {
+      "w": "at",
+      "t": 23.045,
+      "e": 23.085,
+      "src": "ctc"
+    },
+    {
+      "w": "any",
+      "t": 23.185,
+      "e": 23.305,
+      "src": "ctc"
+    },
+    {
+      "w": "size.",
+      "t": 23.365,
+      "e": 23.645,
+      "src": "ctc"
+    },
+    {
+      "w": "And",
+      "t": 24.145,
+      "e": 24.225,
+      "src": "ctc"
+    },
+    {
+      "w": "if",
+      "t": 24.285,
+      "e": 24.326,
+      "src": "ctc"
+    },
+    {
+      "w": "you're",
+      "t": 24.406,
+      "e": 24.626,
+      "src": "ctc"
+    },
+    {
+      "w": "overfat",
+      "t": 24.706,
+      "e": 25.126,
+      "src": "ctc"
+    },
+    {
+      "w": "right",
+      "t": 25.206,
+      "e": 25.366,
+      "src": "ctc"
+    },
+    {
+      "w": "now,",
+      "t": 25.426,
+      "e": 25.546,
+      "src": "ctc"
+    },
+    {
+      "w": "it's",
+      "t": 25.786,
+      "e": 25.906,
+      "src": "ctc"
+    },
+    {
+      "w": "comforting",
+      "t": 26.006,
+      "e": 26.426,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 26.486,
+      "e": 26.526,
+      "src": "ctc"
+    },
+    {
+      "w": "tell",
+      "t": 26.606,
+      "e": 26.746,
+      "src": "ctc"
+    },
+    {
+      "w": "yourself",
+      "t": 26.806,
+      "e": 27.106,
+      "src": "ctc"
+    },
+    {
+      "w": "that",
+      "t": 27.166,
+      "e": 27.266,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 27.306,
+      "e": 27.386,
+      "src": "ctc"
+    },
+    {
+      "w": "can",
+      "t": 27.446,
+      "e": 27.526,
+      "src": "ctc"
+    },
+    {
+      "w": "be",
+      "t": 27.586,
+      "e": 27.646,
+      "src": "ctc"
+    },
+    {
+      "w": "healthy",
+      "t": 27.706,
+      "e": 27.946,
+      "src": "ctc"
+    },
+    {
+      "w": "at",
+      "t": 28.006,
+      "e": 28.046,
+      "src": "ctc"
+    },
+    {
+      "w": "any",
+      "t": 28.126,
+      "e": 28.226,
+      "src": "ctc"
+    },
+    {
+      "w": "size.",
+      "t": 28.286,
+      "e": 28.546,
+      "src": "ctc"
+    },
+    {
+      "w": "But",
+      "t": 29.067,
+      "e": 29.147,
+      "src": "ctc"
+    },
+    {
+      "w": "that",
+      "t": 29.247,
+      "e": 29.467,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 29.627,
+      "e": 29.687,
+      "src": "ctc"
+    },
+    {
+      "w": "a",
+      "t": 29.747,
+      "e": 29.787,
+      "src": "ctc"
+    },
+    {
+      "w": "lie",
+      "t": 29.827,
+      "e": 30.067,
+      "src": "ctc"
+    },
+    {
+      "w": "and",
+      "t": 30.307,
+      "e": 30.387,
+      "src": "ctc"
+    },
+    {
+      "w": "that",
+      "t": 30.427,
+      "e": 30.587,
+      "src": "ctc"
+    },
+    {
+      "w": "lie",
+      "t": 30.707,
+      "e": 30.987,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 31.167,
+      "e": 31.227,
+      "src": "ctc"
+    },
+    {
+      "w": "literally",
+      "t": 31.367,
+      "e": 31.747,
+      "src": "ctc"
+    },
+    {
+      "w": "killing",
+      "t": 31.807,
+      "e": 32.047,
+      "src": "ctc"
+    },
+    {
+      "w": "you.",
+      "t": 32.087,
+      "e": 32.167,
+      "src": "ctc"
+    },
+    {
+      "w": "That's",
+      "t": 32.787,
+      "e": 33.027,
+      "src": "ctc"
+    },
+    {
+      "w": "why",
+      "t": 33.087,
+      "e": 33.168,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 33.228,
+      "e": 33.288,
+      "src": "ctc"
+    },
+    {
+      "w": "need",
+      "t": 33.368,
+      "e": 33.468,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 33.528,
+      "e": 33.568,
+      "src": "ctc"
+    },
+    {
+      "w": "treat",
+      "t": 33.608,
+      "e": 33.768,
+      "src": "ctc"
+    },
+    {
+      "w": "your",
+      "t": 33.808,
+      "e": 33.888,
+      "src": "ctc"
+    },
+    {
+      "w": "belly",
+      "t": 33.928,
+      "e": 34.128,
+      "src": "ctc"
+    },
+    {
+      "w": "fat",
+      "t": 34.188,
+      "e": 34.368,
+      "src": "ctc"
+    },
+    {
+      "w": "as",
+      "t": 34.548,
+      "e": 34.608,
+      "src": "ctc"
+    },
+    {
+      "w": "an",
+      "t": 34.708,
+      "e": 34.748,
+      "src": "ctc"
+    },
+    {
+      "w": "emergency",
+      "t": 34.828,
+      "e": 35.388,
+      "src": "ctc"
+    },
+    {
+      "w": "because",
+      "t": 35.768,
+      "e": 36.008,
+      "src": "ctc"
+    },
+    {
+      "w": "the",
+      "t": 36.048,
+      "e": 36.128,
+      "src": "ctc"
+    },
+    {
+      "w": "future",
+      "t": 36.208,
+      "e": 36.548,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 36.688,
+      "e": 36.748,
+      "src": "ctc"
+    },
+    {
+      "w": "going",
+      "t": 36.808,
+      "e": 36.968,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 37.028,
+      "e": 37.068,
+      "src": "ctc"
+    },
+    {
+      "w": "be",
+      "t": 37.128,
+      "e": 37.228,
+      "src": "ctc"
+    },
+    {
+      "w": "amazing",
+      "t": 37.448,
+      "e": 37.989,
+      "src": "ctc"
+    },
+    {
+      "w": "and",
+      "t": 38.309,
+      "e": 38.369,
+      "src": "ctc"
+    },
+    {
+      "w": "if",
+      "t": 38.429,
+      "e": 38.469,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 38.529,
+      "e": 38.629,
+      "src": "ctc"
+    },
+    {
+      "w": "don't",
+      "t": 38.669,
+      "e": 38.809,
+      "src": "ctc"
+    },
+    {
+      "w": "lose",
+      "t": 38.829,
+      "e": 38.969,
+      "src": "ctc"
+    },
+    {
+      "w": "the",
+      "t": 39.009,
+      "e": 39.089,
+      "src": "ctc"
+    },
+    {
+      "w": "weight",
+      "t": 39.129,
+      "e": 39.309,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 39.549,
+      "e": 39.629,
+      "src": "ctc"
+    },
+    {
+      "w": "aren't",
+      "t": 39.809,
+      "e": 39.969,
+      "src": "ctc"
+    },
+    {
+      "w": "going",
+      "t": 40.009,
+      "e": 40.129,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 40.149,
+      "e": 40.189,
+      "src": "ctc"
+    },
+    {
+      "w": "be",
+      "t": 40.229,
+      "e": 40.289,
+      "src": "ctc"
+    },
+    {
+      "w": "around",
+      "t": 40.349,
+      "e": 40.529,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 40.589,
+      "e": 40.649,
+      "src": "ctc"
+    },
+    {
+      "w": "see",
+      "t": 40.709,
+      "e": 40.829,
+      "src": "ctc"
+    },
+    {
+      "w": "how",
+      "t": 40.889,
+      "e": 40.989,
+      "src": "ctc"
+    },
+    {
+      "w": "awesome",
+      "t": 41.249,
+      "e": 41.509,
+      "src": "ctc"
+    },
+    {
+      "w": "it",
+      "t": 41.549,
+      "e": 41.589,
+      "src": "ctc"
+    },
+    {
+      "w": "will",
+      "t": 41.629,
+      "e": 41.769,
+      "src": "ctc"
+    },
+    {
+      "w": "be.",
+      "t": 41.809,
+      "e": 41.889,
+      "src": "ctc"
+    },
+    {
+      "w": "So,",
+      "t": 42.47,
+      "e": 42.59,
+      "src": "ctc"
+    },
+    {
+      "w": "on",
+      "t": 42.79,
+      "e": 42.85,
+      "src": "ctc"
+    },
+    {
+      "w": "screen",
+      "t": 42.93,
+      "e": 43.15,
+      "src": "ctc"
+    },
+    {
+      "w": "right",
+      "t": 43.21,
+      "e": 43.37,
+      "src": "ctc"
+    },
+    {
+      "w": "now",
+      "t": 43.43,
+      "e": 43.59,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 43.81,
+      "e": 43.87,
+      "src": "ctc"
+    },
+    {
+      "w": "can",
+      "t": 43.93,
+      "e": 43.99,
+      "src": "ctc"
+    },
+    {
+      "w": "see",
+      "t": 44.05,
+      "e": 44.15,
+      "src": "ctc"
+    },
+    {
+      "w": "a",
+      "t": 44.21,
+      "e": 44.25,
+      "src": "ctc"
+    },
+    {
+      "w": "BMI",
+      "t": 44.27,
+      "e": 44.63,
+      "src": "ctc"
+    },
+    {
+      "w": "table",
+      "t": 44.73,
+      "e": 44.99,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 45.07,
+      "e": 45.13,
+      "src": "ctc"
+    },
+    {
+      "w": "tell",
+      "t": 45.19,
+      "e": 45.35,
+      "src": "ctc"
+    },
+    {
+      "w": "if",
+      "t": 45.39,
+      "e": 45.43,
+      "src": "ctc"
+    },
+    {
+      "w": "you're",
+      "t": 45.47,
+      "e": 45.63,
+      "src": "ctc"
+    },
+    {
+      "w": "overweight.",
+      "t": 45.71,
+      "e": 46.09,
+      "src": "ctc"
+    },
+    {
+      "w": "So",
+      "t": 46.591,
+      "e": 46.691,
+      "src": "ctc"
+    },
+    {
+      "w": "look",
+      "t": 46.791,
+      "e": 46.931,
+      "src": "ctc"
+    },
+    {
+      "w": "at",
+      "t": 46.991,
+      "e": 47.031,
+      "src": "ctc"
+    },
+    {
+      "w": "your",
+      "t": 47.071,
+      "e": 47.171,
+      "src": "ctc"
+    },
+    {
+      "w": "weight,",
+      "t": 47.211,
+      "e": 47.411,
+      "src": "ctc"
+    },
+    {
+      "w": "look",
+      "t": 47.531,
+      "e": 47.651,
+      "src": "ctc"
+    },
+    {
+      "w": "at",
+      "t": 47.711,
+      "e": 47.751,
+      "src": "ctc"
+    },
+    {
+      "w": "your",
+      "t": 47.791,
+      "e": 47.911,
+      "src": "ctc"
+    },
+    {
+      "w": "height",
+      "t": 47.971,
+      "e": 48.171,
+      "src": "ctc"
+    },
+    {
+      "w": "and",
+      "t": 48.551,
+      "e": 48.611,
+      "src": "ctc"
+    },
+    {
+      "w": "then",
+      "t": 48.691,
+      "e": 48.831,
+      "src": "ctc"
+    },
+    {
+      "w": "see",
+      "t": 49.211,
+      "e": 49.351,
+      "src": "ctc"
+    },
+    {
+      "w": "if",
+      "t": 49.391,
+      "e": 49.431,
+      "src": "ctc"
+    },
+    {
+      "w": "you're",
+      "t": 49.471,
+      "e": 49.611,
+      "src": "ctc"
+    },
+    {
+      "w": "overweight",
+      "t": 49.671,
+      "e": 50.011,
+      "src": "ctc"
+    },
+    {
+      "w": "or",
+      "t": 50.171,
+      "e": 50.231,
+      "src": "ctc"
+    },
+    {
+      "w": "obese.",
+      "t": 50.291,
+      "e": 50.511,
+      "src": "ctc"
+    },
+    {
+      "w": "If",
+      "t": 51.032,
+      "e": 51.072,
+      "src": "ctc"
+    },
+    {
+      "w": "you're",
+      "t": 51.172,
+      "e": 51.332,
+      "src": "ctc"
+    },
+    {
+      "w": "in",
+      "t": 51.392,
+      "e": 51.432,
+      "src": "ctc"
+    },
+    {
+      "w": "the",
+      "t": 51.452,
+      "e": 51.512,
+      "src": "ctc"
+    },
+    {
+      "w": "overweight",
+      "t": 51.592,
+      "e": 51.932,
+      "src": "ctc"
+    },
+    {
+      "w": "category,",
+      "t": 51.992,
+      "e": 52.492,
+      "src": "ctc"
+    },
+    {
+      "w": "your",
+      "t": 52.752,
+      "e": 52.892,
+      "src": "ctc"
+    },
+    {
+      "w": "health",
+      "t": 52.992,
+      "e": 53.172,
+      "src": "ctc"
+    },
+    {
+      "w": "will",
+      "t": 53.212,
+      "e": 53.352,
+      "src": "ctc"
+    },
+    {
+      "w": "tremendously",
+      "t": 53.432,
+      "e": 54.152,
+      "src": "ctc"
+    },
+    {
+      "w": "improve",
+      "t": 54.212,
+      "e": 54.532,
+      "src": "ctc"
+    },
+    {
+      "w": "if",
+      "t": 54.612,
+      "e": 54.652,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 54.692,
+      "e": 54.752,
+      "src": "ctc"
+    },
+    {
+      "w": "get",
+      "t": 54.832,
+      "e": 54.932,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 54.992,
+      "e": 55.052,
+      "src": "ctc"
+    },
+    {
+      "w": "a",
+      "t": 55.112,
+      "e": 55.152,
+      "src": "ctc"
+    },
+    {
+      "w": "healthy",
+      "t": 55.212,
+      "e": 55.453,
+      "src": "ctc"
+    },
+    {
+      "w": "weight.",
+      "t": 55.533,
+      "e": 55.693,
+      "src": "ctc"
+    },
+    {
+      "w": "If",
+      "t": 56.013,
+      "e": 56.073,
+      "src": "ctc"
+    },
+    {
+      "w": "you're",
+      "t": 56.133,
+      "e": 56.333,
+      "src": "ctc"
+    },
+    {
+      "w": "on",
+      "t": 56.373,
+      "e": 56.413,
+      "src": "ctc"
+    },
+    {
+      "w": "the",
+      "t": 56.453,
+      "e": 56.513,
+      "src": "ctc"
+    },
+    {
+      "w": "obese",
+      "t": 56.573,
+      "e": 56.873,
+      "src": "ctc"
+    },
+    {
+      "w": "category,",
+      "t": 56.933,
+      "e": 57.433,
+      "src": "ctc"
+    },
+    {
+      "w": "losing",
+      "t": 57.833,
+      "e": 58.133,
+      "src": "ctc"
+    },
+    {
+      "w": "fat",
+      "t": 58.193,
+      "e": 58.393,
+      "src": "ctc"
+    },
+    {
+      "w": "is",
+      "t": 58.533,
+      "e": 58.593,
+      "src": "ctc"
+    },
+    {
+      "w": "literally",
+      "t": 58.753,
+      "e": 59.113,
+      "src": "ctc"
+    },
+    {
+      "w": "the",
+      "t": 59.253,
+      "e": 59.313,
+      "src": "ctc"
+    },
+    {
+      "w": "most",
+      "t": 59.393,
+      "e": 59.533,
+      "src": "ctc"
+    },
+    {
+      "w": "important",
+      "t": 59.593,
+      "e": 59.914,
+      "src": "ctc"
+    },
+    {
+      "w": "thing",
+      "t": 59.934,
+      "e": 60.054,
+      "src": "ctc"
+    },
+    {
+      "w": "you",
+      "t": 60.114,
+      "e": 60.194,
+      "src": "ctc"
+    },
+    {
+      "w": "can",
+      "t": 60.234,
+      "e": 60.334,
+      "src": "ctc"
+    },
+    {
+      "w": "do.",
+      "t": 60.394,
+      "e": 60.474,
+      "src": "ctc"
+    },
+    {
+      "w": "Subscribe",
+      "t": 61.094,
+      "e": 61.474,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 61.534,
+      "e": 61.574,
+      "src": "ctc"
+    },
+    {
+      "w": "my",
+      "t": 61.634,
+      "e": 61.694,
+      "src": "ctc"
+    },
+    {
+      "w": "channel",
+      "t": 61.754,
+      "e": 62.034,
+      "src": "ctc"
+    },
+    {
+      "w": "and",
+      "t": 62.134,
+      "e": 62.194,
+      "src": "ctc"
+    },
+    {
+      "w": "learn",
+      "t": 62.254,
+      "e": 62.394,
+      "src": "ctc"
+    },
+    {
+      "w": "exactly",
+      "t": 62.454,
+      "e": 62.834,
+      "src": "ctc"
+    },
+    {
+      "w": "how",
+      "t": 62.894,
+      "e": 62.954,
+      "src": "ctc"
+    },
+    {
+      "w": "to",
+      "t": 63.014,
+      "e": 63.054,
+      "src": "ctc"
+    },
+    {
+      "w": "lose",
+      "t": 63.114,
+      "e": 63.254,
+      "src": "ctc"
+    },
+    {
+      "w": "your",
+      "t": 63.274,
+      "e": 63.374,
+      "src": "ctc"
+    },
+    {
+      "w": "belly",
+      "t": 63.414,
+      "e": 63.574,
+      "src": "ctc"
+    },
+    {
+      "w": "fat",
+      "t": 63.634,
+      "e": 63.814,
+      "src": "ctc"
+    },
+    {
+      "w": "and",
+      "t": 64.135,
+      "e": 64.215,
+      "src": "ctc"
+    },
+    {
+      "w": "get",
+      "t": 64.275,
+      "e": 64.355,
+      "src": "ctc"
+    },
+    {
+      "w": "abs.",
+      "t": 64.455,
+      "e": 64.615,
+      "src": "ctc"
+    }
+  ],
+  "speech_words_evidence": {
+    "method": "delivered_asr",
+    "video_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+    "description": "Fresh Whisper transcript retained separately; wav2vec2 CTC acoustic alignment rerun on this exact candidate AAC audio using the independently verified complete spoken text.",
+    "transcript": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/finished-asr.json",
+    "alignment": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/words-final-ctc.json"
+  },
+  "caption_states": [
+    {
+      "id": 0,
+      "beat": [
+        0.26,
+        0.852
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-000.png",
+      "image_sha256": "ce452873e8b34a8a265b721c92e833d3d2d6c02f08bf23de1e8b2366867e3c63",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "But",
+      "word_indices": [
+        0,
+        3
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-0",
+      "text": "But let me ask"
+    },
+    {
+      "id": 1,
+      "beat": [
+        0.86,
+        1.26
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-001.png",
+      "image_sha256": "06ace235c82bd5292b1e7c64ec9ee182dc5af9b23405270f5e122a4b876939ed",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "you",
+      "word_indices": [
+        4,
+        5
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-1",
+      "text": "you this."
+    },
+    {
+      "id": 2,
+      "beat": [
+        1.801,
+        2.753
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-002.png",
+      "image_sha256": "b347ad66a30e7fd338ab777b0fabafe70517b3d1e296e7746b167a2a6c904af3",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "Have",
+      "word_indices": [
+        6,
+        9
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-2",
+      "text": "Have you ever seen"
+    },
+    {
+      "id": 3,
+      "beat": [
+        2.761,
+        3.981
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-003.png",
+      "image_sha256": "ab0891c2f879fd213945bfa993ec033eb46c827f75bf55d49fed510962ef2b1f",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "a",
+      "word_indices": [
+        10,
+        12
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-3",
+      "text": "a fat 90-year-old?"
+    },
+    {
+      "id": 4,
+      "beat": [
+        8.944,
+        9.928
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-004.png",
+      "image_sha256": "5e3baa4386acce79a517a5a2202d5daed28d2a447b280a643a8a11178de3e0f3",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "Scary,",
+      "word_indices": [
+        13,
+        15
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-4",
+      "text": "Scary, isn't it?"
+    },
+    {
+      "id": 5,
+      "beat": [
+        15.546,
+        17.026
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-005.png",
+      "image_sha256": "9debb1cbe7fca4fbfe3f493f0a3b927d551a6958c9f647125d764b0f199b9170",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "Healthy",
+      "word_indices": [
+        16,
+        19
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-5",
+      "text": "Healthy at any weight"
+    },
+    {
+      "id": 6,
+      "beat": [
+        17.966,
+        19.147
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-006.png",
+      "image_sha256": "f78a434cce51077e51b9461a45e0acbcf64190426a0a734363700bb00bfe47b5",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "is",
+      "word_indices": [
+        20,
+        22
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-6",
+      "text": "is an unchallenged"
+    },
+    {
+      "id": 7,
+      "beat": [
+        19.287,
+        19.619
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-007.png",
+      "image_sha256": "338049950abca04d98959466e70fab91c60de3923960693a23a70e8d76966cf6",
+      "pos": [
+        40,
+        850
+      ],
+      "word": "lie.",
+      "word_indices": [
+        23,
+        23
+      ],
+      "rect": [
+        40,
+        850,
+        1000,
+        142
+      ],
+      "name": "caption-7",
+      "text": "lie."
+    },
+    {
+      "id": 8,
+      "beat": [
+        19.947,
+        21.107
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-008.png",
+      "image_sha256": "d87f9f0304632b877969bc6c668b5074df8e9bf8040fedbb9013cb82c7d2a776",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "Bill",
+      "word_indices": [
+        24,
+        27
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-8",
+      "text": "Bill Maher is right."
+    },
+    {
+      "id": 9,
+      "beat": [
+        21.408,
+        22.22
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-009.png",
+      "image_sha256": "67926721f129ede1734ec5ac44050a2bd8cb15012a1b25e5c979309415f0f851",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "There",
+      "word_indices": [
+        28,
+        31
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-9",
+      "text": "There is no such"
+    },
+    {
+      "id": 10,
+      "beat": [
+        22.228,
+        23.04
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-010.png",
+      "image_sha256": "bf7f41c26c3c4bd143f1dd59f542a229c7979f1fd43d5f8385b523e3d7502502",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "thing",
+      "word_indices": [
+        32,
+        35
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-10",
+      "text": "thing as being healthy"
+    },
+    {
+      "id": 11,
+      "beat": [
+        23.048,
+        23.748
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-011.png",
+      "image_sha256": "5576f7ea6ca332310b9d5d63e5144846d02ccb87e764c209339f91d5a6afaae8",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "at",
+      "word_indices": [
+        36,
+        38
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-11",
+      "text": "at any size."
+    },
+    {
+      "id": 12,
+      "beat": [
+        24.149,
+        25.201
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-012.png",
+      "image_sha256": "61d5b52e6d51e35b27f7e97ad40c8ce33d1f26ae3ad869ae3e193f8b0277f604",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "And",
+      "word_indices": [
+        39,
+        42
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-12",
+      "text": "And if you're overfat"
+    },
+    {
+      "id": 13,
+      "beat": [
+        25.209,
+        26.481
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-013.png",
+      "image_sha256": "3063fd2cc536a5c9a1f11be9d7663a01c6d8d6ec77e21524d8e08a9eaad9cf25",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "right",
+      "word_indices": [
+        43,
+        46
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-13",
+      "text": "right now, it's comforting"
+    },
+    {
+      "id": 14,
+      "beat": [
+        26.489,
+        27.302
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-014.png",
+      "image_sha256": "36454dddbb561fb1d4b7efd5ab8799e1a27081db73744c16a083d739a7ae17e4",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "to",
+      "word_indices": [
+        47,
+        50
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-14",
+      "text": "to tell yourself that"
+    },
+    {
+      "id": 15,
+      "beat": [
+        27.31,
+        28.002
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-015.png",
+      "image_sha256": "4d227706b212a29187106e8f9768eab71824be9aed61c9f00cf7fb74d48b63f2",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "you",
+      "word_indices": [
+        51,
+        54
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-15",
+      "text": "you can be healthy"
+    },
+    {
+      "id": 16,
+      "beat": [
+        28.01,
+        28.65
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-016.png",
+      "image_sha256": "5576f7ea6ca332310b9d5d63e5144846d02ccb87e764c209339f91d5a6afaae8",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "at",
+      "word_indices": [
+        55,
+        57
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-16",
+      "text": "at any size."
+    },
+    {
+      "id": 17,
+      "beat": [
+        29.07,
+        29.823
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-017.png",
+      "image_sha256": "a51d05ecf474bf5bb93566efadecf4cc09865c2c4b46720f535f735623d008a1",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "But",
+      "word_indices": [
+        58,
+        61
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-17",
+      "text": "But that is a"
+    },
+    {
+      "id": 18,
+      "beat": [
+        29.831,
+        31.091
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-018.png",
+      "image_sha256": "ae3c54efedad13b55a32f6433c09029ae0cc78b172b0ee97ce20e20bed033585",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "lie",
+      "word_indices": [
+        62,
+        65
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-18",
+      "text": "lie and that lie"
+    },
+    {
+      "id": 19,
+      "beat": [
+        31.171,
+        32.271
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-019.png",
+      "image_sha256": "326a9caa1832275e773b9e089a97fae59b5202e0c286d08b7b42f000a2bf5f40",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "is",
+      "word_indices": [
+        66,
+        69
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-19",
+      "text": "is literally killing you."
+    },
+    {
+      "id": 20,
+      "beat": [
+        32.792,
+        33.524
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-020.png",
+      "image_sha256": "244b5d17b83eb8fbc4c54ba0856adb95ebf0b22204efd53d56442e54cfd312f9",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "That's",
+      "word_indices": [
+        70,
+        73
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-20",
+      "text": "That's why you need"
+    },
+    {
+      "id": 21,
+      "beat": [
+        33.532,
+        34.184
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-021.png",
+      "image_sha256": "c1ee6a9729296c77e600f657e44988f009cbde4482e23fd9f7c960bffeb52e95",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "to",
+      "word_indices": [
+        74,
+        77
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-21",
+      "text": "to treat your belly"
+    },
+    {
+      "id": 22,
+      "beat": [
+        34.192,
+        35.493
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-022.png",
+      "image_sha256": "06ab47b06ccbfc8e234067d2c52765f7c4be2e42a884a841df278c67bccfa2d2",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "fat",
+      "word_indices": [
+        78,
+        81
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-22",
+      "text": "fat as an emergency"
+    },
+    {
+      "id": 23,
+      "beat": [
+        35.773,
+        36.805
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-023.png",
+      "image_sha256": "cc3241e980af8ccbc06b765f609e8cb43abe342bf3183a5da144b3685519cb47",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "because",
+      "word_indices": [
+        82,
+        85
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-23",
+      "text": "because the future is"
+    },
+    {
+      "id": 24,
+      "beat": [
+        36.813,
+        38.093
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-024.png",
+      "image_sha256": "cb47d8b2f06dd0024eb4af99454cc3873b14e701d7c079f8bbf8dcaf53789880",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "going",
+      "word_indices": [
+        86,
+        89
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-24",
+      "text": "going to be amazing"
+    },
+    {
+      "id": 25,
+      "beat": [
+        38.314,
+        38.826
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-025.png",
+      "image_sha256": "ea2164a4d149538a940fc0b992cfaac3380492b5b118d69da34493900ab9ac81",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "and",
+      "word_indices": [
+        90,
+        93
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-25",
+      "text": "and if you don't"
+    },
+    {
+      "id": 26,
+      "beat": [
+        38.834,
+        39.734
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-026.png",
+      "image_sha256": "b2e302b953b011a6ea361d97a87160b3fcc538f850e0635951393b0dd743cc65",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "lose",
+      "word_indices": [
+        94,
+        97
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-26",
+      "text": "lose the weight you"
+    },
+    {
+      "id": 27,
+      "beat": [
+        39.814,
+        40.346
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-027.png",
+      "image_sha256": "da5ddcd48bb5eaf125196744a92f80af304647be700adc1f6a30a3f5af60154b",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "aren't",
+      "word_indices": [
+        98,
+        101
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-27",
+      "text": "aren't going to be"
+    },
+    {
+      "id": 28,
+      "beat": [
+        40.354,
+        41.095
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-028.png",
+      "image_sha256": "092eee7df764ffbfb1b4777c79bc5b474a1b519f89c2f02b98ca0c6ba4f37aa5",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "around",
+      "word_indices": [
+        102,
+        105
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-28",
+      "text": "around to see how"
+    },
+    {
+      "id": 29,
+      "beat": [
+        41.255,
+        41.995
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-029.png",
+      "image_sha256": "f41ba26e6881b1e3fd5c6eb156be75f29b353732fbab80bea5bbd7c34d051343",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "awesome",
+      "word_indices": [
+        106,
+        109
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-29",
+      "text": "awesome it will be."
+    },
+    {
+      "id": 30,
+      "beat": [
+        42.475,
+        43.427
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-030.png",
+      "image_sha256": "d22fa77df0c5402012835e78314e6ddc20896f2e92b179499e416d128c770a5b",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "So,",
+      "word_indices": [
+        110,
+        113
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-30",
+      "text": "So, on screen right"
+    },
+    {
+      "id": 31,
+      "beat": [
+        43.435,
+        44.208
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-031.png",
+      "image_sha256": "065721889082e122eb72d3dd682b358315dcb576b56e2f8fbe03569b9d136dde",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "now",
+      "word_indices": [
+        114,
+        117
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-31",
+      "text": "now you can see"
+    },
+    {
+      "id": 32,
+      "beat": [
+        44.216,
+        45.188
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-032.png",
+      "image_sha256": "f3adde7a7d98502059e44dd6be06ce37175ad0c6a959428e759fca3d51a9d9b6",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "a",
+      "word_indices": [
+        118,
+        121
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-32",
+      "text": "a BMI table to"
+    },
+    {
+      "id": 33,
+      "beat": [
+        45.196,
+        46.196
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-033.png",
+      "image_sha256": "69aee9baa4c06038062b7aa4c123665f56b01c1fd5fd104a0dd4102caa47372c",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "tell",
+      "word_indices": [
+        122,
+        125
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-33",
+      "text": "tell if you're overweight."
+    },
+    {
+      "id": 34,
+      "beat": [
+        46.597,
+        47.209
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-034.png",
+      "image_sha256": "5eb8df2a22fa8a957ad8dbd28cad1707a4a13cd07c35e258dee741c1ddf7e6b4",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "So",
+      "word_indices": [
+        126,
+        129
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-34",
+      "text": "So look at your"
+    },
+    {
+      "id": 35,
+      "beat": [
+        47.217,
+        47.969
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-035.png",
+      "image_sha256": "d03da8528e638ea38219f9818fa9dab84a454619c8af9918e0e548f668dd6c11",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "weight,",
+      "word_indices": [
+        130,
+        133
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-35",
+      "text": "weight, look at your"
+    },
+    {
+      "id": 36,
+      "beat": [
+        47.977,
+        49.39
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-036.png",
+      "image_sha256": "73a4709eedfa59281a1b2d18266aa0ae79127ca5c138d1a30279b1caa29398af",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "height",
+      "word_indices": [
+        134,
+        137
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-36",
+      "text": "height and then see"
+    },
+    {
+      "id": 37,
+      "beat": [
+        49.398,
+        50.29
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-037.png",
+      "image_sha256": "4643a20374615bcf499ba74af52ec00d2e685206a750aec006ca725ba08b0a57",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "if",
+      "word_indices": [
+        138,
+        141
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-37",
+      "text": "if you're overweight or"
+    },
+    {
+      "id": 38,
+      "beat": [
+        50.298,
+        50.618
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-038.png",
+      "image_sha256": "edda7bbb87287e2ae8f32499a028014c002322218a8679df8d516022cb87a84e",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "obese.",
+      "word_indices": [
+        142,
+        142
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-38",
+      "text": "obese."
+    },
+    {
+      "id": 39,
+      "beat": [
+        51.038,
+        51.59
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-039.png",
+      "image_sha256": "e5b75148e555dcce3540ef025ca129327d30fe0b236e66a361a9c58eba30e2ba",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "If",
+      "word_indices": [
+        143,
+        146
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-39",
+      "text": "If you're in the"
+    },
+    {
+      "id": 40,
+      "beat": [
+        51.598,
+        53.211
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-040.png",
+      "image_sha256": "10c6d6c3166ea3a9033179edd5b231168dff1cbd2f73cb7436acc3d13bef2078",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "overweight",
+      "word_indices": [
+        147,
+        150
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-40",
+      "text": "overweight category, your health"
+    },
+    {
+      "id": 41,
+      "beat": [
+        53.219,
+        54.691
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-041.png",
+      "image_sha256": "986df74e23e8c2718960e5e7104d77e982888cd88699a58a60877abfd6f7c097",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "will",
+      "word_indices": [
+        151,
+        154
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-41",
+      "text": "will tremendously improve if"
+    },
+    {
+      "id": 42,
+      "beat": [
+        54.699,
+        55.212
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-042.png",
+      "image_sha256": "395618c5968ef0dc20e998fb962a06ed280b79745cad2731c3d1fc2b00b89a36",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "you",
+      "word_indices": [
+        155,
+        158
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-42",
+      "text": "you get to a"
+    },
+    {
+      "id": 43,
+      "beat": [
+        55.22,
+        55.8
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-043.png",
+      "image_sha256": "b61351025d27e5c80846b9374817fb55ee7720dd930c7486df2b90f92c98a6a2",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "healthy",
+      "word_indices": [
+        159,
+        160
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-43",
+      "text": "healthy weight."
+    },
+    {
+      "id": 44,
+      "beat": [
+        56.02,
+        56.572
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-044.png",
+      "image_sha256": "197f546576435f791fcd4aec2f101bb785f916317ad32ab0892a88ad5d51b93c",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "If",
+      "word_indices": [
+        161,
+        164
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-44",
+      "text": "If you're on the"
+    },
+    {
+      "id": 45,
+      "beat": [
+        56.58,
+        58.501
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-045.png",
+      "image_sha256": "8ce9119a52d488b9a4507e9ebdf0fcec3c8b5e41926410c6c78ca569e5627b39",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "obese",
+      "word_indices": [
+        165,
+        168
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-45",
+      "text": "obese category, losing fat"
+    },
+    {
+      "id": 46,
+      "beat": [
+        58.541,
+        59.593
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-046.png",
+      "image_sha256": "fdd4846d943d063fd630832efba9ef5ea41ad4deedf16e3a153f482aa3206c26",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "is",
+      "word_indices": [
+        169,
+        172
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-46",
+      "text": "is literally the most"
+    },
+    {
+      "id": 47,
+      "beat": [
+        59.601,
+        60.393
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-047.png",
+      "image_sha256": "e5540562c9ee0e55025cd7fb5c475a5239f0133eeab467d7cb9b9efa6667af5f",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "important",
+      "word_indices": [
+        173,
+        176
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-47",
+      "text": "important thing you can"
+    },
+    {
+      "id": 48,
+      "beat": [
+        60.401,
+        60.681
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-048.png",
+      "image_sha256": "ff8b07181700fe1d6e011d6c9754b9c4227ba81527143be15e15aa71a2bd0ecf",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "do.",
+      "word_indices": [
+        177,
+        177
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-48",
+      "text": "do."
+    },
+    {
+      "id": 49,
+      "beat": [
+        61.102,
+        62.134
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-049.png",
+      "image_sha256": "3f5c6a7841c97bae3f0a58fde7f3777865288050629d2d00975f7fa08092a347",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "Subscribe",
+      "word_indices": [
+        178,
+        181
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        254
+      ],
+      "name": "caption-49",
+      "text": "Subscribe to my channel"
+    },
+    {
+      "id": 50,
+      "beat": [
+        62.142,
+        63.014
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-050.png",
+      "image_sha256": "95753c8d34aa975452c3d89d1091e223b8130c5e8d66a272125b956fd5723644",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "and",
+      "word_indices": [
+        182,
+        185
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-50",
+      "text": "and learn exactly how"
+    },
+    {
+      "id": 51,
+      "beat": [
+        63.022,
+        63.635
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-051.png",
+      "image_sha256": "b13e8ed0ca10b11abd8616785187f725e536c8465b55ea50c4798f671a60924a",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "to",
+      "word_indices": [
+        186,
+        189
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-51",
+      "text": "to lose your belly"
+    },
+    {
+      "id": 52,
+      "beat": [
+        63.643,
+        64.723
+      ],
+      "image": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/caption-states/caption-052.png",
+      "image_sha256": "7376e88f933dbc905d60b80531cd69df76696a82aeb14330d4c941170bd51c0c",
+      "pos": [
+        40,
+        1440
+      ],
+      "word": "fat",
+      "word_indices": [
+        190,
+        193
+      ],
+      "rect": [
+        40,
+        1440,
+        1000,
+        142
+      ],
+      "name": "caption-52",
+      "text": "fat and get abs."
+    }
+  ],
+  "graphic_regions": [
+    {
+      "name": "G01",
+      "beat": [
+        0,
+        19.619600000000002
+      ],
+      "rect": [
+        68,
+        635,
+        944,
+        176
+      ]
+    },
+    {
+      "name": "G02",
+      "beat": [
+        32.6474,
+        37.8474
+      ],
+      "rect": [
+        68,
+        1058,
+        944,
+        248
+      ]
+    },
+    {
+      "beat": [
+        42.5094,
+        60.657366700000026
+      ],
+      "rect": [
+        36,
+        240,
+        1008,
+        1120
+      ]
+    },
+    {
+      "beat": [
+        42.5094,
+        60.657366700000026
+      ],
+      "rect": [
+        64,
+        140,
+        952,
+        84
+      ]
+    },
+    {
+      "name": "G04",
+      "beat": [
+        61.007399999999976,
+        64.86220000000004
+      ],
+      "rect": [
+        68,
+        1130,
+        944,
+        176
+      ]
+    }
+  ],
+  "talking_head_windows": [
+    {
+      "beat": [
+        0,
+        19.619600000000002
+      ],
+      "rect": [
+        0,
+        930,
+        1080,
+        990
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "beat": [
+        19.619600000000002,
+        42.50913333333333
+      ],
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "motion": "tracking"
+    },
+    {
+      "beat": [
+        60.6606,
+        64.8648
+      ],
+      "rect": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "motion": "tracking"
+    }
+  ],
+  "srt": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/review/media/bill-maher-fat-90-year-old-r4.srt",
+  "source_audio": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/mix-untreated.wav",
+  "watch_log": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/watch/watch_pass.json",
+  "junk_report": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/prerender-junk.json",
+  "declare": {}
+}

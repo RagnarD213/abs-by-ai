@@ -1,0 +1,19 @@
+{
+  "choices": 11,
+  "new_choices": 9,
+  "unchanged_comparisons": 2,
+  "layouts": 15,
+  "new_layouts": 13,
+  "max_bytes": 491980,
+  "text_person_overlap_pixels": 0,
+  "all_image_urls_200": true,
+  "image_urls_checked": 21,
+  "source_photo_contact_sheets_inspected": true,
+  "pool_mask_inspected": true,
+  "body_below_32_percent_source_height_pixel_identical_for_age_edit": true,
+  "full_and_phone_size_visual_review": "passed after robot clearance and square phone placement fixes",
+  "generation_count": 3,
+  "paid_image_api_calls": 0,
+  "ad_video_ids_rechecked": "2026-10-01; required formats unchanged",
+  "browser_controls": "pick-to-reply and aspect switch passed; test picks cleared"
+}

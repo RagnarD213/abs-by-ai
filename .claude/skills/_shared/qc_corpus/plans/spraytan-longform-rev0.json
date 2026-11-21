@@ -1,0 +1,6 @@
+{
+  "_why": "The minimum compliance:banned_screen needs. The delivered spray-tan longform shows the app's 'Meet the new you' BEFORE/AFTER screen as a phone PiP from ~18:04; Dan's rejection names it. The build's own plan is not on disk, so only the banned SOURCE and the times into it are reconstructed here -- both are facts about the asset library, not about this file, and the scan itself still searches every delivered frame with no idea where to look.",
+  "_banned_times_from": "shortad-from-longform/reference/qc.py DEFAULTS, unchanged since 2026-09: the four moments in the app recording that show the before/after and the email-capture form.",
+  "banned_source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots/app-flow-generate-future-self.mp4",
+  "banned_times": [26.5, 27.5, 29.5, 31.0]
+}

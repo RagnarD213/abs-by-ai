@@ -1,0 +1,919 @@
+{
+ "at": "2026-10-01T21:00:12.011Z",
+ "campaignId": "24305381214",
+ "audiences": [
+  {
+   "audience": {
+    "resourceName": "customers/3427170837/audiences/361150564",
+    "id": "361150564",
+    "dimensions": [
+     {
+      "age": {
+       "ageRanges": [
+        {
+         "minAge": 25,
+         "maxAge": 54
+        }
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "gender": {
+       "genders": [
+        "MALE"
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "audienceSegments": {
+       "segments": [
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452257061"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452848282"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9453529251"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "exclusionDimension": {
+     "exclusions": [
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9480144404"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9441311426"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9469016618"
+       }
+      }
+     ]
+    },
+    "name": "RMKTG trial | MU 25-54 | site visitors 7+30+365 day | excl members"
+   }
+  },
+  {
+   "audience": {
+    "resourceName": "customers/3427170837/audiences/361150567",
+    "id": "361150567",
+    "dimensions": [
+     {
+      "age": {
+       "ageRanges": [
+        {
+         "minAge": 25,
+         "maxAge": 54
+        }
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "gender": {
+       "genders": [
+        "MALE"
+       ],
+       "includeUndetermined": true
+      }
+     },
+     {
+      "audienceSegments": {
+       "segments": [
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9452269226"
+         }
+        },
+        {
+         "userList": {
+          "userList": "customers/3427170837/userLists/9453532227"
+         }
+        }
+       ]
+      }
+     }
+    ],
+    "exclusionDimension": {
+     "exclusions": [
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9480144404"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9441311426"
+       }
+      },
+      {
+       "userList": {
+        "userList": "customers/3427170837/userLists/9469016618"
+       }
+      }
+     ]
+    },
+    "name": "RMKTG trial | MU 25-54 | youtube viewers 7+30 day | excl members"
+   }
+  }
+ ],
+ "campaign": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24305381214",
+    "status": "PAUSED",
+    "biddingStrategyType": "TARGET_CPA",
+    "targetCpa": {
+     "targetCpaMicros": "40000000"
+    },
+    "geoTargetTypeSetting": {
+     "positiveGeoTargetType": "PRESENCE"
+    },
+    "name": "[DAN] [DGEN] [TRIAL] [RMKTG] VSL page | 6 ads | US+CA | site visitors + youtube viewers",
+    "id": "24305381214"
+   },
+   "campaignBudget": {
+    "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+    "amountMicros": "10000000"
+   }
+  }
+ ],
+ "goals": [
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~PURCHASE~WEBSITE",
+    "category": "PURCHASE",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~SIGNUP~WEBSITE",
+    "category": "SIGNUP",
+    "origin": "WEBSITE",
+    "biddable": true
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~SUBSCRIBE_PAID~WEBSITE",
+    "category": "SUBSCRIBE_PAID",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~SUBMIT_LEAD_FORM~WEBSITE",
+    "category": "SUBMIT_LEAD_FORM",
+    "origin": "WEBSITE"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~ENGAGEMENT~YOUTUBE_HOSTED",
+    "category": "ENGAGEMENT",
+    "origin": "YOUTUBE_HOSTED"
+   }
+  },
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24305381214~YOUTUBE_FOLLOW_ON_VIEWS~YOUTUBE_HOSTED",
+    "category": "YOUTUBE_FOLLOW_ON_VIEWS",
+    "origin": "YOUTUBE_HOSTED"
+   }
+  }
+ ],
+ "goalLevel": [
+  {
+   "conversionGoalCampaignConfig": {
+    "resourceName": "customers/3427170837/conversionGoalCampaignConfigs/24305381214",
+    "goalConfigLevel": "CAMPAIGN"
+   }
+  }
+ ],
+ "groups": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "status": "ENABLED",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day",
+    "targetCpaMicros": "40000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "channelConfig": "CHANNEL_STRATEGY",
+      "channelStrategy": "ALL_OWNED_AND_OPERATED_CHANNELS"
+     }
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "status": "ENABLED",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day",
+    "targetCpaMicros": "40000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "channelConfig": "CHANNEL_STRATEGY",
+      "channelStrategy": "ALL_OWNED_AND_OPERATED_CHANNELS"
+     }
+    }
+   }
+  }
+ ],
+ "ads": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064679",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064679",
+     "id": "826637064679",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ra01-claude-16x9-vsl"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude 16:9 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064682",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064682",
+     "id": "826637064682",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ra01-claude-vertical-vsl"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude vertical | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064685",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064685",
+     "id": "826637064685",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad6-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 6 You're Not Too Old | Muhammad 16:9 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064688",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064688",
+     "id": "826637064688",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad10-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064691",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064691",
+     "id": "826637064691",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad10-claude-9x16-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064694",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064694",
+     "id": "826637064694",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad10-claude-9x16-59s-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064697",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064697",
+     "id": "826637064697",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad13-muhammad-16x9-r4-vsl"
+     ],
+     "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064700",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064700",
+     "id": "826637064700",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad4-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064703",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064703",
+     "id": "826637064703",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad3-muhammad-16x9-clean-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064706",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064706",
+     "id": "826637064706",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad3-claude-9x16-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064709",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064709",
+     "id": "826637064709",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad3-claude-9x16-59s-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201604959278~826637064712",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826637064712",
+     "id": "826637064712",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-yt&utm_content=ad3-claude-square-r2-1-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 1:1 R2.1 | vsl | rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144313",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144313",
+     "id": "826720144313",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ra01-claude-16x9-vsl"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude 16:9 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144316",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144316",
+     "id": "826720144316",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ra01-claude-vertical-vsl"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude vertical | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144319",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144319",
+     "id": "826720144319",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad6-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 6 You're Not Too Old | Muhammad 16:9 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144442",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144442",
+     "id": "826720144442",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad10-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144445",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144445",
+     "id": "826720144445",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad10-claude-9x16-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144448",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144448",
+     "id": "826720144448",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad10-claude-9x16-59s-vsl"
+     ],
+     "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144451",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144451",
+     "id": "826720144451",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad13-muhammad-16x9-r4-vsl"
+     ],
+     "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144454",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144454",
+     "id": "826720144454",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad4-muhammad-16x9-vsl"
+     ],
+     "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144457",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144457",
+     "id": "826720144457",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad3-muhammad-16x9-clean-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144460",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144460",
+     "id": "826720144460",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad3-claude-9x16-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144463",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144463",
+     "id": "826720144463",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad3-claude-9x16-59s-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206411886211~826720144466",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/826720144466",
+     "id": "826720144466",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-rmktg-site&utm_content=ad3-claude-square-r2-1-vsl"
+     ],
+     "name": "Ad 3 Stop Paying Human Trainers | Claude 1:1 R2.1 | vsl | rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201604959278~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201604959278~2124",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201604959278~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201604959278",
+    "id": "201604959278",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201604959278~2506984146141",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/361150567"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/206411886211~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/206411886211~2124",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/206411886211~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206411886211",
+    "id": "206411886211",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/206411886211~2502488162333",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/361150564"
+    }
+   }
+  }
+ ]
+}

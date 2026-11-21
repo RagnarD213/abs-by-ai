@@ -1,0 +1,423 @@
+﻿READ THIS FIRST - PUNCH-INS, EXERCISE CLIPS AND GRAPHICS
+Thanks for these. The videos below are in the same order as the links you sent me, so the first link is the first video here. Two of them are finished: I Was 200 Pounds At 38 and How To Make Time To Work Out are both FINALIZED, send me the high quality exports of those two. The five new exercise videos are good first cuts: real footage of me on the right lines, the scripts word for word, AbsByAI.com off the end, placeholders left for my graphics, and the limiter is on every mix now with the level at -14, which is exactly what I asked for. Three things repeat on most of the others, so here they are once.
+
+
+* **JUMP CUTS - USE THE TIGHT SHOT FROM 200 POUNDS V2 ON EVERY VIDEO**
+   * On I Was 200 Pounds At 38 V2 you got this exactly right. The tight shot there is about 30% closer than the wide, and every cut looks like a real change of shot. That is the reference. Make the tight shot on every other video the same size as the tight shot on 200 Pounds V2.
+   * On the other videos in this batch the method is right (the framing switches exactly on the cut and no shot zooms), but the tight is only 12 to 15% closer than the wide, so the two shots still look alike and I still jump position on screen. Keep the wide as it is and make the tight 25 to 30% closer. Each video below lists which shot is wide and which is tight.
+   * In the tight shots keep a small space above my hair and keep my hair below the top graphic. A one line graphic ends 250 px from the top of the frame and a two line graphic ends 315 px from the top. Slide the shot down a little where you need to, the way you did on 200 Pounds. Never shrink or move the graphic.
+* **EXERCISE CLIPS - THE WHOLE MOVEMENT IN THE PICTURE, AS BIG AS IT GOES**
+   * On an exercise video the footage of the exercise is the whole point. My hands, the dumbbells or the wheel, and my feet on a jump have to be inside the picture for the whole rep, with my head and hair in the frame at the top of the movement. On Side Laterals and Rear Delt Flys the dumbbells go off both sides of the screen at the top of every rep, on Ab Wheel the wheel rolls out of the side of the picture, and on M100s my head hits the top edge on every jump.
+   * Then make the clip as big as it goes. Full screen when the whole movement fits in a vertical crop. When it does not fit, keep the full height of the footage, crop the sides in only as far as the movement allows, and scale it to reach both edges of the screen. No card, no border, no rounded corners and no dark grid background, ever.
+   * Each video below gives the exact crop for its clips.
+* **GRAPHICS - I MADE THEM ALL FOR YOU**
+   * Every graphic for the five new videos is in the same folder as before, one new folder per video (16 to 20), with the READ ME:
+   * https://drive.google.com/drive/folders/1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk
+   * Take every placeholder off and put my files on at the times in each video's GRAPHICS list. Each file is a 1080x1920 .mov with a transparent background. Top video track, 100% scale, lined up with the frame, not moved or resized. The file name gives its start time, and each file already runs the right length.
+   * The labels are in the "0 Labels" folder, same as before: AI-GENERATED on every AI picture and AI clip for the whole time it is on screen, the real picture label on photo shoot pictures of me, never over a face or abs. Real moving footage of me gets no label.
+   * https://drive.google.com/drive/folders/17DdvvZyRthJOyGZOqmepuRu_WNevSt30
+* Everything not listed below is approved. Once these are in, these videos are finished.
+HOW TO DO HAMMER CURLS - V1
+Good first cut. Every curl on screen is real footage of me from the shoot, full screen, with no stock and no AI, and the important part is right: the mistake footage (the dumbbell tipping over sideways) comes in exactly on "The most common hammer curl mistake", and the correct form comes back exactly on "Use a lighter weight". The one-arm curls are on "one arm at a time" too. The script is all there with no dead air, the audio level is in range and the limiter is holding the peaks at -1 dB like I asked, and the framing on the camera scenes is right (bottom of the frame at my shorts, my hair just under the graphic). You also switch between a wide and a tight on every cut now, with no zoom during any shot. Keep all of that. The list below is everything, and once it is in this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS - THE TIGHT SHOT STILL NEEDS TO BE CLOSER**
+   * You have the right method: the framing switches exactly on each cut, each shot holds one framing, and my hair stays just under the graphic in both the wide and the tight. The tight is about 14% closer than the wide now, which is better than the last batch, but the two shots still look too much alike and I still jump position on screen at 0:07.2, 0:09.2, 0:44.9, 0:46.5, 0:47.3, 0:47.9, 0:48.3 and 0:48.9. Make the tight shots 25 to 30% closer than the wide. Keep the same order you have now:
+   * 0:05.7 - 0:07.2: wide
+   * 0:07.2 - 0:09.2: tight
+   * 0:09.2 - 0:09.9: wide
+   * 0:43.2 - 0:44.9: wide
+   * 0:44.9 - 0:46.5: tight
+   * 0:46.5 - 0:47.3: wide
+   * 0:47.3 - 0:47.9: tight
+   * 0:47.9 - 0:48.3: wide
+   * 0:48.3 - 0:48.9: tight
+   * 0:48.9 to the end: wide
+   * The wide stays exactly as it is now. In the tight shots keep a small space above my hair and keep my hair below the top graphic, the same as you do now. Still no zoom during a shot.
+* **CAPTIONS**
+   * The captions stay on for the whole video, which is right, but some words are missing or wrong, mostly the last word of a sentence. Fix these so every word I say is in the captions:
+   * 0:02.5: "work your brax" should be "work your bracs".
+   * 0:05.4: the captions go from "in your" straight to "So you need". Add the missing word, "arm."
+   * 0:09.9: the captions go from "how to do" straight to "Grab the". Add "them."
+   * 0:16.2: "weight held up" is followed by "and you can do", so "down" is missing. It should read "weight held up", then "and down.", then "You can do".
+   * 0:26.7: the captions go from "and the" straight to "That takes". Add "bottom."
+   * 0:33.0 - 0:34.5: "as you can." then "The entire" should be "as you can" then "the entire rep." It is one sentence, so no period after "can", a small "t" on "the", and the word "rep" added.
+   * 0:36.6: "get the most" should be "and get the most".
+   * 0:51.1: the captions end on "working for" and go off before I say the last word. Add "you." and keep it on to the end of the video.
+* **GRAPHICS**
+   * Thanks for leaving the "waiting for suitable graphics" placeholders instead of building your own. Take every placeholder off and use the graphics I made for this video, at the times in the list.
+   * There is no graphic of mine for the placeholders at 0:17.1 - 0:20.0 and 0:38.9 - 0:41.3. Leave the top plain there.
+   * The "COMMON MISTAKE" graphic has to stay on for the whole time the mistake footage is on screen, so nobody copies the wrong form. If the mistake footage moves in your next cut, move the graphic with it.
+   * 0:00.0 - 0:03.3: "How To Do HAMMER CURLS"
+      * https://drive.google.com/file/d/1KVLELBpMVdhh2rBQYvKo4wpJyHyJpCSQ/view
+   * 0:05.8 - 0:09.1: "KEY POINT: Do BOTH Types Of Curls"
+      * https://drive.google.com/file/d/1lpvSaw92YglVm5ob4GuNWEubVqUUSQDL/view
+   * 0:22.7 - 0:30.7: "COMMON MISTAKE: Weight Goes HORIZONTAL"
+      * https://drive.google.com/file/d/1zYaDke3vTmQzEiiWigNM1-PW5I1NvJMi/view
+   * 0:30.9 - 0:34.5: "DO THIS: Keep The Weight VERTICAL"
+      * https://drive.google.com/file/d/1oZE2yxQZU2GV6t-mog2fU2gCc4TI55gS/view
+   * 0:43.5 - 0:48.1: "KEY POINT: Go LIGHT, VERTICAL, SLOW"
+      * https://drive.google.com/file/d/1NnJ9LSQSHfQGkU-qTGGzwidvU1rfy0x9/view
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:00 - 0:05.7
+   * The video opens on me talking, and the hammer curls do not come on until 0:01.8. Open on the hammer curls instead: start the footage of me doing the two-arm curls right at 0:00, full screen, under "Here's how to do hammer curls", and let it run to 0:05.7, where you cut to camera scene now. Keep my audio running under it.
+   * Use a stretch where I am curling the whole time. In the piece you have now I do one rep and then stand still with the dumbbells at my sides from 0:04.0 to 0:05.3. The two-arm curls run from about 0:53 to 1:15 in the B-roll file (C1675), so there are reps you have not used yet. Do not use the same rep you have at 0:19.3 - 0:21.6.
+   * Frame it closer than it is now: my hair just below the top graphic and the bottom of the frame just above my knees, a little under the dumbbells when my arms are down. Right now my head is only about 100 px from the top of the frame in this piece, so the title graphic would sit on my face.
+   * It is real footage of me, so it gets no label.
+* 0:09.9 - 0:11.3
+   * I say "Grab the dumbbells in both hands" here, but the frame stops at my ankles, so the dumbbells on the ground are out of the picture until I have already lifted them. Use a wider framing for this piece, with my feet and the dumbbells on the ground in the frame, then cut back to the curl framing at 0:11.3 when I am standing with them. The footage has the room, my whole body and the ground are in it.
+* 0:11.3 - 0:43.0
+   * In all of the curl footage the frame runs from my head down to my ankles, so the dumbbells are small on a phone, and which way the dumbbell is pointing is the whole point of this video. Crop in closer on me by about 20-30%. Keep my hair just below the top graphic, where it is now, put the bottom of the frame just above my knees, a little under the dumbbells when my arms are down, and keep both dumbbells inside the frame for the whole rep. Hold one framing, do not zoom during the shot.
+   * STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.
+* 0:12.5 - 0:15.5
+   * I say "Curl the weight upwards, like a regular bicep curl" here, but on screen I am standing still with the dumbbells at my sides, and the first curl does not start until 0:15.5. Take the standing still part out so the first curl starts going up right on "Curl the weight upwards" at 0:12.5. Make the cut while both dumbbells are down at my sides, so it does not jump.
+   * Keep one-arm curls going from there through "You can do one arm at a time", the same as now. The footage carries on with more one-arm reps, so there is enough to fill it.
+* 0:18.4, 0:22.4 and 0:30.5
+   * At each of these the curl footage dissolves from one piece to the next at the same framing, so for about half a second there are two of me on screen with ghost dumbbells. Make these hard cuts with no dissolve, and make each cut at a moment when I am standing with both dumbbells down at my sides on both sides of the cut, so it does not jump.
+   * At 0:18.4, the two-arm curl should start going up on "or two arms at a time" (0:18.3). It does not start until 0:19.3 now.
+   * The mistake footage coming in on "The most common hammer curl mistake" and the correct form coming back on "Use a lighter weight" are exactly right, keep those on the same words.
+I WAS 200 POUNDS AT 38. THE THING THAT FIXED IT WASN'T A WORKOUT - V2
+FINALIZED - APPROVED - READY FOR HQ EXPORT
+
+
+This one is done, and you got every note. The tight shots are now clearly closer than the wide (about 30%), the switch lands right on every cut including 0:06.7, and the tight at 0:40.4 holds all the way to the app recording, so I don't jump on screen anywhere. My graphics are all in at the right times with my hair sitting under them in the tight shots, the two before pictures open the video full screen with nothing over them, and the two photo shoot pictures at 0:15.6 have the real picture label above my head where it belongs. The app recording now ends on his after picture with the AI-GENERATED label and no email box, the "What actually changed my body" captions are fixed, and the peaks are off the ceiling. Nothing further from me on this one.
+HOW TO MAKE TIME TO WORK OUT - V3
+FINALIZED - APPROVED - READY FOR HQ EXPORT
+
+
+This one is done, and you got every note. The split screen opener came out great as a moving clip: the calendar is right now (Sunday to Saturday, 1 to 31, and he crosses off the last day), the poster behind the robot is blank, the title sits above the man doing pushups with his face clear the whole time, and the AI-GENERATED label is on from the first frame. The student at 0:36 is exactly who that line is talking to, and the ripped man with the robot playing full screen at 0:39 looks great and covers the cut that was there. The cuts at 0:20.2, 0:59.1 and 1:00.6 now switch hard between tight and wide with my hair under the graphic, and my key point graphic starts at 0:27.5 where it no longer covers my face. Nothing further from me on this one.
+TOP 3 WAYS TO LOOKSMAX - V2
+Big step up, and almost everything from the last list is in. All of the caption words are fixed. My graphics are on at the right times, at full size, with my hair clear of every one of them, and the placeholders are gone. The fat dad picture is on "Back when I was 200 pounds", the "No new matches!" screen is on "online dating was basically impossible", and the three close-ups of my jawline are in with the real picture label above my head and they hold right up to "Third". The cucumber clip and the supplements clip are cropped to vertical and look great on "with your diet, and with supplements". The AI-GENERATED label is on every AI clip, and the peaks are under 0 now with the level still at -14. Keep all of that. The list is short, and once it's done this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS**
+   * You have the right method now: the framing switches exactly on every cut between takes, wide to tight to wide, on the same shots I listed, and no shot zooms. The problem is the size of the switch. The tight shot is only about 12% closer than the wide, so the two framings still look almost the same and I still jump position on screen at the cuts. Make the tight shot 25 to 30% closer than the wide (about double the punch-in you have now), and keep the wide exactly as it is. The tight shots are the same ones you have now:
+   * 0:08.0 - 0:09.8
+   * 0:11.7 - 0:12.9
+   * 0:24.5 - 0:26.6
+   * 0:29.0 - 0:29.9
+   * 0:33.5 - 0:35.0
+   * 0:40.2 - 0:41.3
+   * 0:43.3 - 0:47.1
+   * 0:48.8 - 0:49.4
+   * 0:52.8 - 0:54.0
+   * Every other camera shot stays wide. Each shot still holds one framing from its start to its end, with no zoom during the shot. In the tight shots keep a small space above my hair, and where there is a top graphic (0:08.0, 0:29.0, 0:33.5, 0:40.2 and 0:43.3) slide the shot down so my hair stays below the graphic, the same way you did in this version.
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:00 - 0:03.2
+   * The three-way split screen is the right idea, and the top and bottom clips are exactly what I asked for: the ripped guy walking away from the pool, and the guy checking his skin in the bathroom mirror. Keep both of those clips. It needs these revisions:
+   * Put the title graphic at the top of the video in its own band, not over the top clip, with the three clips below it. Right now the graphic is still over the pool clip. It covers the top of the man's head at 0:00 and touches his hair again at the end of the clip. Reduce the height of the clips to make room for the band.
+   * Use the jawline close-up for the whole middle third, from 0:00 to 0:03.2. Right now the middle third starts on the man in the bathroom mirror (the clip from 0:49.4), cuts to the jawline close-up at 0:01.3, and cuts back to the bathroom mirror at 0:02.7 with his eyes closed and his mouth open. The middle third is the jawline, so it is one clip of his face from the side for the full three seconds.
+   * Frame the jawline clip so his whole jaw and chin are inside the middle third. Right now his chin is cut off at the bottom. Run it right up to the cut at 0:03.2, because the cliff clip shows through in the middle third for one frame at the end.
+   * The AI-GENERATED label is right, keep it under the title for the whole clip. The bathroom mirror clip at 0:49.4 - 0:51.2 and the jawline clip at 0:21.7 - 0:23.5 stay exactly as they are.
+HOW TO DO REAR DELT FLYS - V1
+Good first cut. All of the exercise footage is real footage of me from the shoot, and you picked the rear delt flys out of that footage and not the side laterals. It is on the right lines too: the strict reps run under the instructions, with my arms going up right on "Raise the dumbbells out to your sides" and coming down on "lower them slowly", the heavy bouncing reps come in exactly on "The most common mistake", and you cut back to me on "Go light". The script is all there with no dead air, you used my last take of the closing line, and the audio is right at -14.3 LUFS with the limiter on and nothing hitting 0, which is what I asked for last time. The framing on the camera scenes is right (a small space above my hair, bottom of the frame at my shorts), the framing switches exactly on the cut at every cut between takes but one, with no zoom during a shot, AbsByAI.com is off the end, and leaving placeholders for my graphics was the right call. Keep all of that. The list below is short, and once it is in this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS**
+   * You have the right method: the framing switches exactly on the cut at 0:09.7, 0:11.0, 0:12.1, 0:13.1, 0:43.5, 0:44.2, 0:46.5, 0:48.5, 0:49.4 and 0:51.0, and each shot holds one framing. But the tight shot is only about 15% closer than the wide. That is better than the last batch, but the two framings still look too much alike, so I still jump position on screen at every one of those cuts. The cut at 0:03.9 has no switch at all: it is the same wide framing on both sides, so I jump there too. Make every cut between takes a hard switch between the wide and a tight punch-in that is 25 to 30% closer than the wide:
+   * 0:00 - 0:03.9: wide
+   * 0:03.9 - 0:04.6: tight
+   * 0:08.3 - 0:09.7: wide
+   * 0:09.7 - 0:11.0: tight
+   * 0:11.0 - 0:12.1: wide
+   * 0:12.1 - 0:13.1: tight
+   * 0:13.1 - 0:14.3: wide
+   * 0:41.6 - 0:43.5: wide
+   * 0:43.5 - 0:44.2: tight
+   * 0:44.2 - 0:46.5: wide
+   * 0:46.5 - 0:48.5: tight
+   * 0:48.5 - 0:49.4: wide
+   * 0:49.4 - 0:51.0: tight
+   * 0:51.0 to the end: wide
+   * The wide is the framing you have now at 0:01. Each shot holds one framing from its start to its end, with no zoom during the shot. In the tight shots keep a small space above my hair and keep my hair below the top graphic. The camera shot at 0:18.0 - 0:19.7 sits between two clips, so leave it as it is.
+* **REAR DELT FLY CLIPS - BOTH DUMBBELLS IN THE PICTURE**
+   * The crop is too tight for this exercise. In the strict reps (0:19.8 - 0:35.0) my hands and both dumbbells go off the left and right edges of the screen at the top of every rep (0:24.5, 0:26.7, 0:28.5, 0:30.7 and 0:32.8), so the top of the rep, where I say to squeeze, is never in the picture. In the bouncing reps (0:35.0 - 0:41.6) the dumbbells are half off the edges at the top of each bounce (0:36.7, 0:38.7 and 0:41.0). On both clips, scale the footage down to about 70% of the size it is now, so both dumbbells are in the picture at the top of every rep, with a small space outside each one.
+   * I checked the original footage. With my arms out, the dumbbells are about 15% wider apart than the widest full screen vertical crop of that footage, so these two clips cannot be full screen. Crop the sides in only as far as the dumbbells allow, keep the full height of the footage, and center it on the screen. The picture will reach both edges of the screen and be about 1,500 px tall. Fill the space above and below it with a blurred copy of the same footage, with no card, no border and no dark grid.
+   * Use the same size for both clips, and hold one framing from the start of each clip to its end, with no zoom during the clip. Keep the captions where they are.
+* **CAPTIONS**
+   * The captions stay on for the whole video and almost every word is right. Fix these few so they match what I say:
+   * 0:49.6: the caption says "Try reared out". I say "Try rear delt". Change it to "Try rear delt".
+   * 0:00.8 and 0:50.2: "flies" should be spelled "flys", the same as the title.
+   * 0:01.4: "Work the" should be "work the", and at 0:22.5 "With your back" should be "with your back". Both are in the middle of a sentence.
+   * 0:32.9: "then" should be "Then". It is the start of a new sentence.
+* **GRAPHICS**
+   * Thanks for leaving the "waiting for suitable graphics" placeholders instead of building your own. I made the graphics for this video. Take every placeholder off and use my files at the times in the list.
+   * There is no graphic of mine for the placeholders at 0:08.3 - 0:09.7 and 0:46.5 - 0:49.5. Leave the top plain there. My graphics at 0:11.0 and 0:20.2 go where you have no placeholder.
+   * The "COMMON MISTAKE" graphic stays on for the whole time the bouncing reps are on screen, so nobody copies the wrong form. If that clip moves in your next cut, move the graphic with it.
+   * 0:00.0 - 0:03.9: "How To Do REAR DELT FLYS"
+      * https://drive.google.com/file/d/1ZPkTxOZBWtKLTkMrqF-dwbgCq3F0qf2s/view
+   * 0:11.0 - 0:14.3: "KEY POINT: Rear Delts FIX POSTURE"
+      * https://drive.google.com/file/d/1PBlIrx5LKomCKAPoGxMQBlsdzUcY-vwm/view
+   * 0:20.2 - 0:23.4: "AT HOME: The DUMBBELL Version"
+      * https://drive.google.com/file/d/18Vxoe5_pXDkJ0t-5QlfMddTf-opLMUN8/view
+   * 0:35.0 - 0:41.4: "COMMON MISTAKE: Too HEAVY, BOUNCING It Up"
+      * https://drive.google.com/file/d/1mNHF9X3hXURczJfjW0d-qmr19cfOiiKb/view
+   * 0:41.9 - 0:44.2: "KEY POINT: LIGHT, SLOW And STRICT"
+      * https://drive.google.com/file/d/1Sq3jPMpoaa6K0IIOtFG_yH4WH1NVrsAJ/view
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:04.6 - 0:08.3
+   * The line is "Your rear delts are the back of your shoulders", but this clip is framed on the middle of the man's back and his neck, and both of his shoulders are cut off at the left and right edges of the screen. The muscle I am naming is barely in the picture. Move the crop over so the back of one whole shoulder is in the middle of the frame, full screen.
+   * If the footage does not have a whole shoulder in it, replace it with stock footage or an AI clip of a lean, muscular man (not a bodybuilder) seen from behind with his shirt off, with the back of his shoulders in the frame, full screen. If it is AI, show me the start and end frames first, in vertical 9:16, I pick before you generate, and it gets the AI-GENERATED label.
+* 0:14.3 - 0:18.0
+   * The man walking through the home gym is an AI clip of a stranger, it has no AI-GENERATED label, and I have real footage of me for this line ("Good posture from rear delt training makes the entire front of your body look better"). Replace it with 0:04.3 - 0:08.0 from this clip of me standing by the pool, full screen.
+   * https://drive.google.com/file/d/17AzTKv37dGAPNadaJ77cFo2Uin1QZLHs/view
+   * The clip is already vertical, so it fills the screen as it is. It is real footage of me, so it gets no label.
+HOW TO DO SIDE LATERALS - V1
+Good first cut. All of the exercise footage is real footage of me from the shoot, and it is on the right lines: the straight arm reps start right on "Grab a light pair of dumbbells" and run under the instructions, the elbows high clip comes in exactly on "Keep your elbows high and tilt the dumbbells", the swinging clip comes in exactly on "The most common mistake", and you cut back to me on "Go lighter". You also picked the side laterals out of that footage and not the rear delt flys. The script is all there with no dead air, the captions stay on over the footage, and the audio is right at -14.6 LUFS with the limiter on and nothing hitting 0, which is what I asked for last time. The framing on the camera scenes is right (a small space above my hair, bottom of the frame at my shorts), in the first ten seconds the framing switches exactly on every cut with no zoom during a shot, AbsByAI.com is off the end, and leaving placeholders for my graphics was the right call. Keep all of that. The list below is short, and once it is in this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS**
+   * In the first ten seconds you have the right method: the framing switches exactly on the cut at 0:03.2, 0:04.2, 0:05.4, 0:07.9 and 0:08.9, and each shot holds one framing. But the tight shot is only about 15% closer than the wide. That is better than the last batch, but the two framings still look too much alike, so I still jump position on screen. From 0:39.4 to the end there is no switch at all: the cuts at 0:43.4, 0:45.0, 0:45.7, 0:47.5 and 0:48.7 have the same wide framing on both sides, so I jump position on every one of them. Make every cut between takes a hard switch between the wide and a tight punch-in that is 25 to 30% closer than the wide:
+   * 0:00 - 0:03.2: wide
+   * 0:03.2 - 0:04.2: tight
+   * 0:04.2 - 0:05.4: wide
+   * 0:05.4 - 0:07.9: tight
+   * 0:07.9 - 0:08.9: wide
+   * 0:08.9 - 0:10.4: tight
+   * 0:39.4 - 0:43.4: wide
+   * 0:43.4 - 0:45.0: tight
+   * 0:45.0 - 0:45.7: wide
+   * 0:45.7 - 0:47.5: tight
+   * 0:47.5 - 0:48.7: wide
+   * 0:48.7 to the end: tight
+   * The wide is the framing you have now at 0:01 and 0:40. Each shot holds one framing from its start to its end, with no zoom during the shot. In the tight shots keep a small space above my hair and keep my hair below the top graphic.
+* **SIDE LATERAL CLIPS - BOTH DUMBBELLS IN THE PICTURE**
+   * The crop is too tight for this exercise. In the straight arm reps (0:10.5 - 0:24.5) my hands and the dumbbells go off the left and right edges of the screen every time my arms are out at shoulder height (for example 0:13.3, 0:16.6 and 0:20.8). In the swinging clip (0:31.7 - 0:39.1) they are off the edges for most of every swing (for example 0:32.3 and 0:34.4). A side lateral is all about where the dumbbells are, so they have to be in the picture for the whole rep. On these two clips, scale the footage down to about 70% of the size it is now, so both dumbbells are in the picture at the widest point of the rep, with a small space outside each one.
+   * I checked the original footage. With my arms out, the dumbbells are about 20% wider apart than the widest full screen vertical crop of that footage, so these two clips cannot be full screen. Crop the sides in only as far as the dumbbells allow, keep the full height of the footage, and center it on the screen. The picture will reach both edges of the screen and be about 1,500 px tall. Fill the space above and below it with a blurred copy of the same footage, with no card, no border and no dark grid.
+   * The elbows high clip at 0:24.6 - 0:31.6 already has both dumbbells in the picture the whole time. Leave that one full screen, exactly as it is.
+   * Each clip holds one framing from its start to its end, with no zoom during the clip. Keep the captions where they are.
+* **GRAPHICS**
+   * Thanks for leaving the "waiting for suitable graphics" placeholders at 0:00 - 0:03.2, 0:10.5 - 0:13.5 and 0:31.6 - 0:34.7 instead of building your own. I made the graphics for this video. Take all three placeholders off and use my files at the times in the list. Every placeholder gets a graphic of mine, and there is one more at 0:39.4 where you have no placeholder.
+   * 0:00.0 - 0:03.2: "How To Do SIDE LATERALS"
+      * https://drive.google.com/file/d/1TSwmOERNK3kU4GRm8JVnm8TYHdojq2hy/view
+   * 0:10.7 - 0:15.2: "KEY POINT: Go LIGHT On Side Laterals"
+      * https://drive.google.com/file/d/1jz-USXyiIgXTiQswjtEzRePy4_RQNWY2/view
+   * 0:31.9 - 0:34.5: "COMMON MISTAKE: SWINGING The Weight Up"
+      * https://drive.google.com/file/d/1YSah24SQUpWh6K91nEreGV9RvIrQSrFj/view
+   * 0:39.4 - 0:43.4: "KEY POINT: 15 To 20 SLOW Reps"
+      * https://drive.google.com/file/d/1YdRKTrfOFOiefGffj2nKkmB8Iz6YN1Pd/view
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:29.3
+   * The caption says "then lower" with a small t, but this is the start of a new sentence. Change it to "Then lower".
+* 0:35.7
+   * The caption says "in heave". I say "lean back and heave". Change it to "and heave".
+HOW TO USE THE AB WHEEL - V1
+Good first cut. You opened on me doing the rollout under the first line, which is exactly how I want these exercise videos to start. Every clip is real footage of me from the shoot, with no stock and no AI, and each section has its own footage: the short rollouts that stop well above the floor under "First", me on camera for "keep your body in a straight line", a separate clip for the mistake, and the full rollouts under "Third", with nothing used twice and nothing sped up. The script is all there with no dead air, the captions stay on for the whole video, AbsByAI.com is off the end, and the framing on the camera scenes is right (a small space above my hair, bottom of the frame at my shorts). The audio is right too: -14.3 LUFS with the limiter on and the peaks at -0.9, keep it exactly like that. The list below is finite, and once it is in this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **AB WHEEL CLIPS - WHEEL IN FRAME, AS BIG AS THEY GO**
+   * The ab wheel clips (0:00 - 0:02.6, 0:04.5 - 0:15.3, 0:18.6 - 0:24.6 and 0:24.7 - 0:35.1) play in a card with a border on the dark grid background, with empty space above and below. I'm side-on and the rollout is a long sideways move, so a full vertical crop would cut the wheel off, and you were right not to do that. But the card cuts the rep off anyway: the wheel and my hands go out of the left side of the card at the bottom of the rollouts (0:22.7, 0:25.6, 0:28.0, 0:30.9 and 0:33.9, and the wheel is touching the edge at 0:02.3).
+   * Move the crop to the left so the wheel and my hands stay inside the picture at the bottom of every rollout, with a small space beside the wheel. The footage has plenty of room on the left that isn't being used.
+   * Then make the clip as big as it goes: take the card border and the rounded corners off, keep the full height of the footage, crop the right side in to just behind my knees, and scale it up until it reaches both edges of the screen. It is fine if my shoes go out of the right side. The wheel, my hands, my body and my knees are what has to be in the picture.
+   * Use the same crop on all of the ab wheel clips and hold it, do not zoom during a clip. Keep the captions on the mat below me, not across my body.
+   * Cut straight into each clip. Right now each one fades up from a blur on the empty grid for about half a second (0:04.4, 0:18.5 and 0:24.7), so there is almost nothing on screen while I say "First", "The biggest" and "Third".
+* **AB WHEEL CLIPS - COLOR**
+   * The color on the ab wheel footage is pushed too far. My skin is bright orange in every clip, much more saturated than my skin in the camera scenes, and the sky in the top right corner has broken up into square blocks of two different blues. Bring the saturation down on the ab wheel footage until my skin matches the camera scenes, and leave the sky its natural pale color so the blocks are gone. The camera scenes look right, leave those as they are.
+* **JUMP CUTS**
+   * You switch the framing exactly on the cut at 0:37.4, 0:39.2, 0:41.05 and 0:41.8, with no zoom during the shots, which is the right method, and the tight is closer than it was on the last batch. But it is still only about 14% closer than the wide, so the two shots look too alike and I still jump position on screen. The cut at 0:15.8 (between "Second" and "keep your body") has no framing switch at all. Make the tight shots 25 to 30% closer than the wide, and add the switch at 0:15.8:
+   * 0:15.3 - 0:15.8: tight
+   * 0:15.8 - 0:18.5: wide
+   * 0:35.2 - 0:37.4: wide
+   * 0:37.4 - 0:39.2: tight
+   * 0:39.2 - 0:41.05: wide
+   * 0:41.05 - 0:41.8: tight
+   * 0:41.8 to the end: wide
+   * The wide is the framing you have now at 0:36, keep it exactly as it is. Each shot holds one framing from its start to its end. In the tight shots keep a small space above my hair.
+* **CAPTIONS**
+   * 0:04.5: "first start" has a small f. Change it to "First start", with a capital like "Second" and "Third".
+   * 0:14.9: "a beginer" is missing an n. Change it to "a beginner".
+   * 0:20.5: "hip sag at the botttom" has two mistakes in it. Change it to "hips sag at the bottom".
+   * 0:35.2: "endgame" is split across two captions, so the first one reads "The end" by itself, like the video is over. Put "The endgame" together on one caption, then "is a" on the next.
+* **GRAPHICS**
+   * Thanks for leaving the "waiting for suitable graphics" placeholders at 0:00 - 0:02.6, 0:04.5 - 0:07.4, 0:15.3 - 0:21.7 and 0:24.7 - 0:27.9 instead of building your own. Take the placeholders off and use the graphics I made for this video, at the times in the list. Over the ab wheel clips the graphic goes at the top of the screen as usual. If it overlaps the very top of a clip that is fine, there is only roof and sky up there.
+   * Leave the top plain at 0:02.6 - 0:04.5, 0:07.4 - 0:10.6, 0:15.3 - 0:15.8 and from 0:32.3 to the end.
+   * 0:00.0 - 0:02.6: "How To Use The AB WHEEL"
+      * https://drive.google.com/file/d/1PLYJPrJbY8o7mfN1UYQa5xT7rcws28uO/view
+   * 0:04.5 - 0:07.4: "STEP 1 OF 3: Start On Your KNEES"
+      * https://drive.google.com/file/d/1r64WwZTKg2H1rm1oPILsnQRBvvO_HxZ8/view
+   * 0:10.6 - 0:15.2: "KEY POINT: Beginners: Stop SHORT Of The Floor"
+      * https://drive.google.com/file/d/14gw5Ofq-ns-bJJAZQ6J9mTRrArLFXqik/view
+   * 0:15.8 - 0:18.5: "STEP 2 OF 3: Body In A STRAIGHT LINE"
+      * https://drive.google.com/file/d/1VaAHOgThSV9j7mj0S9klLuQOa4VJE57D/view
+   * 0:18.6 - 0:24.6: "COMMON MISTAKE: Letting Your HIPS SAG"
+      * https://drive.google.com/file/d/1ROUZlpDgCQjkJLNUQci9vSM0WM5Fl25R/view
+   * 0:24.8 - 0:27.9: "STEP 3 OF 3: Pull Back With Your ABS"
+      * https://drive.google.com/file/d/1q6IJe6pKZU3TqSpxqQ-MTZeNovDzxKeX/view
+   * 0:28.1 - 0:32.3: "KEY POINT: Go SLOW On The Way Back"
+      * https://drive.google.com/file/d/1EenCqly28Na5Idotxmr8s2EzdCQArQsY/view
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:04.5 - 0:07.3
+   * I am already rolling out here, but I am still describing the starting position ("start on your knees, with the wheel right under your shoulders"). Start this clip about 2 seconds earlier in the footage, where I set the wheel down under my shoulders, so I am kneeling in the starting position while I say that line and I start rolling out on "Roll out slow" at 0:07.6.
+   * The short rollouts that stop well above the floor are the right footage for this section. Let them keep playing through 0:15.3.
+* 0:18.6 - 0:24.6
+   * This is the clip for the mistake, but I am kneeling still at the start until 0:21.5, and I do not get to the bottom of the rollout until 0:22.5, after I have already said "letting your hips sag at the bottom" (0:20.1 - 0:21.4). Start this clip about 2 seconds later in the footage, so I am rolling out as I say "The biggest ab wheel mistake" and I am at the bottom of the rollout on "letting your hips sag at the bottom". Let the footage keep playing to 0:24.6.
+   * This footage plays only under the warning. Do not use it anywhere else in the video.
+* 0:35.2 - 0:39.2
+   * This is plain camera scene, but the line is "The endgame is a full rollout from your feet, and almost nobody on earth can do one", and I have real footage of me trying exactly that. Insert this clip here with my audio running under it, then cut back to camera scene at 0:39.2 for "Start with three sets of eight".
+   * https://drive.google.com/file/d/1dfMVO8IedtJC_ky5MuKj2M4Lv9_6aS_Z/view
+   * It is the shot you used in the $17 Ab Wheel video at 4:19 - 4:24, without the graphic on it. Use 0:00.5 - 0:02.7 of the clip, where I come up onto my feet and roll out, under "a full rollout from your feet" (0:35.2 - 0:37.4), and 0:02.7 - 0:04.5 of the clip, where I go down flat on the mat, under "almost nobody on earth can do one" (0:37.4 - 0:39.2). Accelerate footage to fit duration if you need to.
+   * It is horizontal, and here my feet are the point, so do not crop it to full vertical. Make it as large as it goes with the wheel and my shoes both inside the picture: both edges of the screen, full height of the footage kept, no border.
+   * It is real footage of me, so it gets no label.
+HOW TO DO M100S - V1
+Good first cut. You found real footage of me doing the squat jumps and opened the video on it full screen, which is what the script asks for, and the squat jump section is timed to my words: the regular squat lands on "one regular squat" and the jump on "explode off the floor", with my feet in the picture the whole time. The clips at 0:38.6 change right on "40 squat thrusts", "30 mountain climbers" and "30 squat jumps". The talking is tight with no dead air, the audio level is right and the limiter is holding the peaks at -1 dB like I asked, the framing on the camera scenes is right (bottom of the frame at my shorts, my hair just under the graphic), and you switch between a wide and a tight on every cut with no zoom during any shot. "Squat thrusts" is right in the captions, AbsByAI.com is off the end, and thanks for leaving the placeholders for my graphics. Keep all of that. The list below is everything, and once it is in this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS - THE TIGHT SHOT STILL NEEDS TO BE CLOSER**
+   * You have the right method: the framing switches exactly on each cut and each shot holds one framing. The tight is about 14% closer than the wide now, which is better than the last batch, but the two shots still look too much alike and I still jump position on screen at 0:07.2, 0:08.1, 0:10.5, 0:11.5, 0:12.4, 0:35.9, 0:45.1, 0:46.6, 0:49.4, 0:51.0 and 0:52.3. Make the tight shots 25 to 30% closer than the wide. Keep the same order you have now:
+   * 0:03.9 - 0:07.2: wide
+   * 0:07.2 - 0:08.1: tight
+   * 0:08.1 - 0:10.5: wide
+   * 0:10.5 - 0:11.5: tight
+   * 0:11.5 - 0:12.4: wide
+   * 0:12.4 - 0:14.5: tight
+   * 0:33.4 - 0:35.9: wide
+   * 0:35.9 - 0:38.6: tight
+   * 0:42.3 - 0:45.1: wide
+   * 0:45.1 - 0:46.6: tight
+   * 0:46.6 - 0:49.4: wide
+   * 0:49.4 - 0:51.0: tight
+   * 0:51.0 - 0:52.3: wide
+   * 0:52.3 to the end: tight
+   * The wide stays exactly as it is now. In the tight shots keep a small space above my hair and keep my hair below the top graphic. Still no zoom during a shot.
+* **SQUAT JUMP FOOTAGE - KEEP MY HEAD IN THE FRAME**
+   * In the squat jump footage (0:01.6 - 0:03.9, 0:28.0 - 0:33.4 and 0:40.7 - 0:42.3) my head goes right up to the top edge of the screen at the top of every jump, and when I am standing my hair is touching the graphic. Move the footage down in the frame, and pull the crop out a little if you need to, so that at the top of each jump my hair is still below the top graphic (it ends 250 px from the top of the frame) and my feet are still in the picture when I land. The footage has plenty of room above my head.
+   * STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame
+* **CAPTIONS**
+   * The captions stay on for the whole video, which is right. Fix these so every word I say is in the captions and spelled right:
+   * 0:02.8 and 0:04.6: "M100" and "M100 video" should be "M100s" and "M100s video". I say "M100s" with an s, and it is the title of the video. Check 0:42.8 ("M100 workout") and 0:51.0 ("Try M100") by ear and add the s wherever I say it.
+   * 0:06.6: "views on Youtube" should be "views on YouTube", with a capital T.
+   * 0:14.5: "first" needs a capital F, the same as "Second" and "Third".
+   * 0:18.6 - 0:19.8: "back to a push" then "up position" splits the word in half. Write "pushup" as one word and keep it together: "back to a" then "pushup position". Same thing at 0:23.4 - 0:24.2: "the push" then "up position" should be "the pushup position".
+   * 0:27.7: the count reads "Counting one" then "two three" and stops. I count "one, two, three, one", so add the last "one".
+   * 0:46.6: "My jujitsu" should be "My jiu jitsu".
+   * 0:54.0: the captions end on "work for" and go off before I say the last word. Add "you" and keep it on to the end of the video.
+* **GRAPHICS**
+   * Thanks for leaving the "waiting for suitable graphics" placeholders instead of building your own. Take every placeholder off and use the graphics I made for this video, at the times in the list. Every spot where you left a placeholder has a graphic of mine.
+   * On the split screens for the squat thrusts and the mountain climbers, the graphic goes in its own band at the top of the screen, with the clip under it, so it does not cover the clip.
+   * 0:00.0 - 0:03.9: "How To Do M100s"
+      * https://drive.google.com/file/d/1HtETNsp33YPYzBBLZudpKKHNe0flpbV-/view
+   * 0:10.5 - 0:14.4: "KEY POINT: 3 Moves, ZERO Equipment"
+      * https://drive.google.com/file/d/1bQ2RekgQ0Z4-dlLL5nLE8j-MNpJXJDVu/view
+   * 0:14.5 - 0:21.4: "EXERCISE 1 OF 3: 10 Squat THRUSTS"
+      * https://drive.google.com/file/d/1JGItEkHBU91ZMXMmggrPHGRl8zKRCVga/view
+   * 0:21.4 - 0:28.0: "EXERCISE 2 OF 3: 10 Mountain CLIMBERS"
+      * https://drive.google.com/file/d/1HjYxh7GfMMIBTZcs767UDRWpSpJO4uUf/view
+   * 0:28.0 - 0:33.3: "EXERCISE 3 OF 3: 10 Squat JUMPS"
+      * https://drive.google.com/file/d/1DqIleR7aNUxxVddvWiIbu1CRWF93H8d-/view
+   * 0:42.6 - 0:46.6: "KEY POINT: BEATS 20 Minutes Of Jogging"
+      * https://drive.google.com/file/d/1VEHvdriEkV2is45V75lAn4iRuUG1PxeC/view
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:00 - 0:01.6
+   * Opening on real footage of me is right, but the first second and a half is me picking up a kettlebell, and M100s use zero equipment. Take the kettlebell footage out and start the video on the squat jumps right at 0:00, full screen, running to 0:03.9 where you cut to camera scene now. Keep my audio running under it.
+   * Use different reps from the ones at 0:28.0 - 0:33.4, so the same jumps do not play twice. There are a lot more reps in that footage than you have used.
+   * My title graphic is on from 0:00 to 0:03.9, so keep my head below it for the whole clip, including at the top of each jump.
+   * It is real footage of me, so no label.
+* 0:04.0 - 0:07.2
+   * This is camera scene now, and it is the line where I say my original M100s video got over five million views on YouTube. Show the original video here, playing on its YouTube page, across the top part of the screen, and keep camera scene of me talking in the rest of the screen below it.
+   * https://drive.google.com/file/d/1qu2jiOfQTjbiRwrtBnGv8pUT2rYycy1C/view
+   * Use 0:00 - 0:03.2 from this clip, with its sound off. Crop it to the video player, the title under it, the channel name with "4.47M subscribers" and the "5.5M views, 15 years ago" line, with no browser bar at the top and no column of other videos on the right. That part fills the full width of the screen. The views line has to be easy to read, that is the point of the shot. In the bottom part, keep my whole head in the picture and hold one framing.
+   * It is a real video, so no label.
+* 0:14.5 - 0:21.4
+   * The squat thrust clip is another guy, and when he kicks back to the pushup position his head is at the left edge of the screen and his legs and feet are cut off at the right edge. I do squat thrusts in my original M100s video. Replace this clip with 4:13 - 4:20 from my original video:
+   * https://drive.google.com/file/d/1MmRb41uXi6FPQj2eO0k6LYZ55_jyugrE/view
+   * The original video is horizontal and low resolution (it is 15 years old), so do not blow it up to full screen. Make this a split screen: the old clip across the full width of the screen in the top part, and camera scene of me talking in the rest of the screen below it. Crop the old clip in on me so I am as big as possible, with my whole body in the picture from my feet to my head at the top of the jump.
+   * My "10 Squat THRUSTS" graphic goes in its own band at the top of the screen, above the old clip.
+   * Sound off on the old clip, my voice keeps playing. Hold one framing of me in the bottom part for the whole clip. It is real footage of me, so no label.
+* 0:21.4 - 0:28.0
+   * The mountain climber clip only shows a man's head, shoulders and arms. His legs are never in the picture, so nobody can see the knees driving to the chest, which is the whole exercise. It also plays in a card with a green border on the dark grid background, with empty space above and below. Replace it with me doing mountain climbers in my original M100s video: use 2:57 - 3:04 from this video. I'm side-on there with my hands, my knees and my feet all in the picture.
+   * https://drive.google.com/file/d/1MmRb41uXi6FPQj2eO0k6LYZ55_jyugrE/view
+   * Make this a split screen: the old clip across the full width of the screen in the top part, with my whole body in the picture from my hands to my feet, and camera scene of me talking in the rest of the screen below it. No card, no border and no grid.
+   * My "10 Mountain CLIMBERS" graphic goes in its own band at the top of the screen, above the old clip.
+   * Sound off on the old clip, my voice keeps playing. Hold one framing of me in the bottom part for the whole clip. It is real footage of me, so no label.
+* 0:36.0 - 0:38.4
+   * Here I say "Repeat this until you've hit 100 total reps", and the part about resting is missing. I did this line a second time right after it: "Rest as little as possible, then repeat until you've hit 100 total reps". Use that second take here instead, straight after "but don't stop there" and before "40 squat thrusts". It is in the raw file (C1672) at about 8:24 - 8:30.
+   * Start it on the word "Rest". I say "repeat this" in front of it, so leave that off if it cuts clean.
+   * Add the captions for it and keep the wide and tight switch going on the cuts around it.
+* 0:38.6 - 0:42.3
+   * These are the same three clips from earlier in the video played again. Make this one three-way vertical split screen: top third, middle third, and bottom third. Bring each third on as I name it, with the same timing you have now: the top third at 0:38.6, the middle third at 0:39.6 and the bottom third at 0:40.7. All of them stay on to 0:42.3, where you go back to camera scene.
+   * For the top third, show me doing squat thrusts: 4:21 - 4:25 from my original video.
+   * For the middle third, show me doing mountain climbers: 3:44 - 3:48 from my original video.
+   * For the bottom third, show me doing squat jumps, from the squat jump footage you already have. Use different reps from the ones at 0:00 and 0:28.0.
+   * https://drive.google.com/file/d/1MmRb41uXi6FPQj2eO0k6LYZ55_jyugrE/view
+   * Each third is a wide strip, so my whole body fits in it, from my feet to my head at the top of the jump. It is all real footage of me, so no label.
+3 WAYS TO REDUCE ALCOHOL - V2
+Big step up, and almost everything from the last list is in. Every caption fix is done: "get on Zepbound", "never drink liquor" then "Liquor is how a", "the liquor", the three drinks, and the four small words. My graphics are on at the right times, at full size, with the placeholders gone, and the AI-GENERATED label is on every AI picture. The pizza is on "your desire for junk food". The row of shots being filled is exactly what I wanted on "to get drunk before your body warns you", sharp and full screen. The guy having a beer by the pool is in on "I can still enjoy a drink", with his face and his abs both in frame. On the opener you put the title in its own band at the top and made the bottom clip shorter, which is the right layout. And from 0:44.8 to the end the framing now switches exactly on every cut, with no zoom in any shot. Keep all of that. The list is short, and once it's done this video is finished.
+
+
+**THROUGHOUT VIDEO**
+
+
+* **JUMP CUTS**
+   * You have the right method now from 0:44.8 to the end: the framing switches exactly on every cut, wide to tight to wide, and no shot zooms. What is left is the size of the switch. The tight shot is only about 15% closer than the wide, so the two framings still look almost the same and I still jump position on screen at the cuts. Make the tight shot 25 to 30% closer than the wide (about double the punch-in you have now), and keep the wide exactly as it is.
+   * At 0:04.6 both sides of the cut are the tight shot, so that cut is still a jump. Make 0:04.6 - 0:06.8 the wide.
+   * 0:02.7 - 0:04.6: tight
+   * 0:04.6 - 0:06.8: wide (it is tight now)
+   * 0:40.5 - 0:42.8: wide
+   * 0:44.8 - 0:45.7: wide
+   * 0:45.7 - 0:46.5: tight
+   * 0:46.5 - 0:47.1: wide
+   * 0:47.1 - 0:48.9: tight
+   * 0:48.9 - 0:49.8: wide
+   * 0:49.8 - 0:50.6: tight
+   * 0:50.6 - 0:51.8: wide
+   * 0:51.8 - 0:54.2: tight
+   * 0:54.2 to the end: wide
+   * Each shot still holds one framing from its start to its end, with no zoom during the shot. The extra punch-in you added at 0:45.7 - 0:46.5 is good, keep it. In the tight shots keep a small space above my hair, and at 0:47.1 and 0:49.8 slide the shot down so my hair stays below the key point graphic, the same way you did in this version.
+
+
+**TIMESTAMPED REVISIONS**
+
+
+* 0:00 - 0:02.7
+   * The three frames for the split screen opener are the right idea, and the layout is right: the title in its own band at the top, the three clips below it, and the bottom clip shorter. The top frame (the full glass of beer in front of him) and the middle frame (the row of shots with his hand up) are approved. It needs these revisions before you generate it:
+   * Use the same man in all three. The man sipping the can in the bottom third is a different guy from the man in the top two: lighter, wavier hair and a heavier beard. Make the bottom third the same man as the top and the middle. The plain can with no brand name on it is right, keep that.
+   * In the middle third, frame it so the row of shots sits above the captions. Right now the caption words are right on top of the shot glasses and hide most of them.
+   * Then go ahead and generate the clip, and take the "FOR VIDEO APPROVAL" text off. Top third: he looks at the beer, shrugs, and slides it away. Middle third: he waves the shots off and pushes them back. Bottom third: he takes a sip, makes a face like it tastes bad, and sets the can down. Keep his head below the title in the top third for the whole clip, and keep the AI-GENERATED label where it is now.
+* 0:34.7 - 0:40.3
+   * The frame for this clip is the right idea (a guy in a restaurant sipping a plain can, full screen), but it needs these revisions before you generate it:
+   * Frame him lower. Right now my key point graphic covers his hair and his forehead. The graphic ends 315 px from the top of the frame, so the top of his hair needs to sit below that, with his whole face and the can in frame.
+   * Use the same man as the top third of the opener, so the guy sipping the can here matches the opener.
+   * Then generate it in full screen vertical orientation, and take the "FOR VIDEO APPROVAL" text off: he takes a sip, makes a face like it tastes bad, and sets the can down. The AI-GENERATED label is good where it is, bottom right, clear of his face.
+   * The clip of the guy having a beer by the pool at 0:42.8 stays exactly as it is.

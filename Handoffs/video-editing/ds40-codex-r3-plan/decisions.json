@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-20",
+  "title": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "category": "CONTENT SFC",
+  "next_round": 3,
+  "decisions": [
+    {
+      "id": "voice-B",
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/voice-balanced.wav",
+      "sha256": "089264175840f8aa4956d98a7e8bd82d93bd8c1dcee73493d4733ae224df2a6f",
+      "verdict": "approved",
+      "dan": "Okay let's go with the balance voice. The chroma key here is not bad but is there anything else you can do to make that hair cleaner? I just feel like there's a little flickering as my hair moves around, in the parts where you can kind of see through my hair. I want you to see: is there anything you can do to make the chroma key on my hair cleaner? I feel like as it is this would be a little distracting, looking at the flicker in my hair. How can you reduce that flicker in my hair?",
+      "scope": "Balanced audio only",
+      "next_action": "Reuse exact WAV without retuning."
+    },
+    {
+      "id": "warm-color",
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/grade.py",
+      "sha256": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce",
+      "verdict": "approved",
+      "dan": "keep the warmer color",
+      "scope": "Warm grade from R1 retained in R2",
+      "next_action": "Reuse warm parameters unchanged."
+    },
+    {
+      "id": "hair-motion",
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/review/media/balanced.mp4",
+      "sha256": "622ec8a71b344a13496277ce3e7c3de17a8229d6d7d71bcea1084256273d0100",
+      "verdict": "rejected",
+      "dan": "Okay let's go with the balance voice. The chroma key here is not bad but is there anything else you can do to make that hair cleaner? I just feel like there's a little flickering as my hair moves around, in the parts where you can kind of see through my hair. I want you to see: is there anything you can do to make the chroma key on my hair cleaner? I feel like as it is this would be a little distracting, looking at the flicker in my hair. How can you reduce that flicker in my hair?",
+      "scope": "Partial rejection: fine translucent hair flicker only",
+      "next_action": "Refine hair transparency consistency; preserve body/arms, framing and approved sound/color."
+    }
+  ],
+  "motion_authorized": [],
+  "new_frames_before_motion": [],
+  "scope": "10-second widest-native-view sample only; no full Short yet",
+  "input_note": "Text visible in the screenshot composer was not treated as a submitted instruction. Audio B selection comes from the later explicit user message."
+}

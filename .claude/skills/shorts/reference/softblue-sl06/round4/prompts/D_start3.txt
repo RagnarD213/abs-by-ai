@@ -1,0 +1,30 @@
+Generate one photorealistic VERTICAL 9:16 portrait-orientation photograph (tall, like a phone video frame). It must look like a real frame of video shot on a good camera inside a real gym, not an illustration and not a glossy render.
+
+The man: he is the real man in the attached reference photos. ref1 is a sheet of four close-ups of HIS face (top row: as he looks on camera in his dark grey rectangular glasses; bottom row: the same man smiling without glasses). ref2 is three real photos of HIS shirtless body. LIKENESS IS THE MOST IMPORTANT THING: he must be instantly recognizable as this exact man, not a generic Asian man with glasses. Copy his real face: a broad face that is wide at the high cheekbones, a strong wide jaw, a short straight nose with a wide base, slightly narrow eyes that crinkle when he smiles, smile lines at the mouth, his wide toothy smile, short thick black hair with faded sides and a short, slightly messy top, his ears and his skin tone. He wears his dark grey rectangular glasses as in the top row. Age about 40. He is SHIRTLESS, wearing only plain black gym shorts (no logo); no necklace, no jewellery. Body: copy ref2 exactly: lean and shredded, not bulky, the SAME size and muscle mass as ref2, with his real defined abs and chest; do not enlarge his arms, shoulders or chest. Natural skin with a light healthy sheen, no dark specks, no freckles, no crackle texture. He is smiling at the camera with his wide, friendly smile showing his teeth, as in the bottom row of ref1, never frowning.
+
+The gym: ref3 is the gym he stands in. Use that exact gym, wall and equipment as the background: the dark charcoal wall about a metre and a half behind him, the power rack at the left edge, the cable machine at the right edge, the dumbbell rack low behind him, warm gym light, the equipment slightly soft (shallow depth of field) so the poster and the man stay sharp. He is lit brightly from the front by a soft key light, so his face, skin and abs look bright, warm and well lit like a good fitness video, while the gym behind him stays a little darker. Keep the gym behind him; do not move it in front of him. No other people, no mirrors, no screens, no other signs.
+
+The vial: a TINY single-dose medication vial, about the size of the end of his thumb (about 3 cm tall): clear glass, a small flip-off cap on top, and a small white label with the single word Zepbound printed on it in plain dark lettering. No other words, no logo, no company name on the vial. It is pinched between the tip of his thumb and the tip of his index finger, the other fingers curled into a fist. It must look small and real, not oversized.
+
+The poster: a real printed gym poster, glossy paper, fixed flat to the charcoal wall with a strip of tape at each top corner. Its design: a deep navy-blue background, a solid bright yellow band across the very top (the band is plain colour, no writing in it), a thin yellow border around the edge, and the headline below given in very large, bold, white condensed sans-serif capitals and lowercase as written, filling most of the poster, perfectly sharp and readable on a phone screen. Under the headline, one small flat yellow dumbbell icon, centred. The poster shows ONLY the exact words given below, spelled exactly as written: no other words, letters, numbers, small print, logo, website, quotation marks or fake text anywhere on it.
+
+Framing and layout (this is important): the camera is at chest height, level. He is framed from just above his head down to about his waist (the top of his shorts just visible at the bottom edge). Keep a little space above his hair. The poster, his face and the vial all sit between 13% and 70% of the frame height from the top. The bottom 27% of the picture is only his torso and abs (captions will cover it), with nothing important there.
+
+Hard requirements:
+- Each hand has exactly five normal fingers; the pinch on the vial is natural.
+- The poster text is spelled exactly as given, every letter correct, nothing added.
+- No other text, letters, numbers, logos or watermarks anywhere in the picture besides the poster headline and the word Zepbound on the vial label.
+- No syringe, no needle, no pen injector, no medicine box.
+- No hand touches his stomach.
+
+Pose: a FRONT DOUBLE BICEPS pose, facing the camera square on: both upper arms raised out to the sides at shoulder height, both elbows bent, both fists up beside his head, both biceps flexed. EACH fist pinches its own tiny Zepbound vial between thumb and index finger, labels turned toward the camera (two vials in total, one in each hand).
+On the wall on the LEFT side of the picture, beside his raised right arm: a large paper wall calendar showing one month. It has a header row of weekday names SUN MON TUE WED THU FRI SAT and a simple grid of dates 1 to 30. EVERY date in the THU column, and only that column, is circled with a thick red marker. Nothing else is circled. No month name, no pictures, no other writing.
+On the wall on the RIGHT side of the picture, beside his raised left arm: the poster, its top at about 14% and its bottom at about 45% of the frame height, about 36% of the frame width wide.
+Poster text, exactly, on four lines:
+Inject
+Zepbound
+Thursday
+evening
+The calendar and the poster are both fully visible, neither hidden behind his arms, both between 13% and 55% of the frame height. Frame him from just above his head to his waist, both fists fully in the frame with a little space around them; he fills most of the frame width, and the calendar and poster sit in the space above his shoulders and beside his head and fists.
+
+Framing for this pose (important): the camera is far enough back that BOTH arms are completely inside the picture, both elbows included, with a little space between each elbow and the edge of the frame. Nothing of his arms, fists or head leaves the frame. Frame him from a little above his hair down to just below his navel.

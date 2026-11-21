@@ -1,0 +1,84 @@
+{
+  "approval": {
+    "date": "2026-10-29",
+    "by": "Dan",
+    "words": "Let's go with 3. Approved. Go ahead and finish setting this up on all platforms.",
+    "pick": "3 / R2 A3",
+    "cover": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/Why Zepbound Improves Your Health Even If Youre Ripped/Why Zepbound Improves Your Health Even If You're Ripped - thumbnail FINAL.jpg",
+    "cover_sha256": "60cb671556f9dce7fadc8d9b53fc9362439cf2b8b488a66b4f0237df96aa5799",
+    "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/claude edited long form content/23 - Why Zepbound Improves Your Health Even If You're Ripped/Why Zepbound Improves Your Health Even If You're Ripped | claude round 5 | 16x9 | RO-28.mp4",
+    "master_sha256": "c5886ad48ebc749be02d4ad3dca0a2e11331be09dc8b3abb638dcba9028c0783",
+    "title": "Why Zepbound Improves Your Health Even If You're Ripped",
+    "thumbnail_copy": "Why Ripped Men Should Take Zepbound"
+  },
+  "release_verification": {
+    "queue_count": 200,
+    "platforms": {
+      "facebook": {
+        "schedule": "6213006",
+        "when": "2026-11-19T18:00:00.000Z",
+        "account": "47105",
+        "target_verified": true,
+        "caption_verified": true,
+        "cover_url_verified": false,
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dc2db722-fb2a-424f-8bbb-65efe05a49a1.mp4",
+        "media_sha256": "288703b7f87a9a10f44e617adff2ca05b64a00bfd7fd6ec1bbc60ea33d757b3c",
+        "bytes": 172070069,
+        "actual_hosted_media_verified": true
+      },
+      "instagram": {
+        "schedule": "6213007",
+        "when": "2026-11-19T18:00:00.000Z",
+        "account": "67203",
+        "target_verified": true,
+        "caption_verified": true,
+        "cover_url_verified": true,
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2fa242fa-c839-4875-a314-754c2c687c2b.mp4",
+        "media_sha256": "f6aa380e672f9d03c0306ca68369d501e067ee711187569a3de49cdb8e2ca9e0",
+        "bytes": 87678627,
+        "actual_hosted_media_verified": true
+      },
+      "tiktok": {
+        "schedule": "6213008",
+        "when": "2026-11-19T18:00:00.000Z",
+        "account": "58181",
+        "target_verified": true,
+        "caption_verified": true,
+        "cover_url_verified": false,
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/c4fa0ea6-1412-4d19-a497-a941701db14d.mp4",
+        "media_sha256": "a1c36f8bf2ec13052905ca6a3c6336666a0884e1c4d1534bd2f9c274796788c3",
+        "bytes": 172171688,
+        "actual_hosted_media_verified": true,
+        "actual_first_frame_pixels_match": true
+      },
+      "youtube": {
+        "schedule": "6213010",
+        "when": "2026-11-18T15:00:00.000Z",
+        "account": "46963",
+        "target_verified": true,
+        "caption_verified": true,
+        "cover_url_verified": true,
+        "actual_media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bf788491-ea91-4d5a-8ddc-053a88f849da.mp4",
+        "media_sha256": "288703b7f87a9a10f44e617adff2ca05b64a00bfd7fd6ec1bbc60ea33d757b3c",
+        "bytes": 172070069,
+        "actual_hosted_media_verified": true
+      }
+    },
+    "all_pass": true
+  },
+  "tiktok_verification": {
+    "frames_src": 11567,
+    "frames_out": 11568,
+    "audio_pkts_src": 18093,
+    "audio_pkts_out": 18093,
+    "decode_errors": "",
+    "cover_psnr": 50.21406765120658,
+    "ok": true,
+    "audio_sha256": "793566a8afab4a06ecab8b0ff257474ffc44e501db9868d55ba0dbca5cc13c84",
+    "audio_identical": true
+  },
+  "drive_folder": "https://drive.google.com/open?id=1a9E4iP0s0sfj_2-HzyVpHfnVx61XZ4du",
+  "source_md5": "7515c0747ad47dff0511d3a4f7b22ab9",
+  "article_words": 981,
+  "shorts_job": "SL-27"
+}

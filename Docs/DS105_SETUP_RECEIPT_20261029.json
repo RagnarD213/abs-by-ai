@@ -1,0 +1,252 @@
+{
+  "job": "DS-105",
+  "title": "Wear A Mouthpiece When You Work Out",
+  "date": "2026-10-29",
+  "state": "Setup complete, shared-waitlist hold; not scheduled or published",
+  "cover_approval": {
+    "picked_by": "Dan",
+    "date": "2026-10-29",
+    "words": "Approved. Go ahead and install these covers",
+    "approved_design": "Revised B, text revision B3",
+    "copy": "Wear A Mouthpiece When You Work Out.",
+    "movie_sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+    "files": {
+      "instagram": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds105/mouthpiece-instagram-approved.png",
+        "sha256": "03ffed4da329bea1d268298394a420c9b9060b467cc871b36cf7bb2405f074dc"
+      },
+      "youtube": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds105/mouthpiece-youtube-approved.png",
+        "sha256": "d8a9e123d1f7fe40e594fab162c569931350b8500adfe0d902b1462ac1ddff62"
+      },
+      "youtube_jpeg": {
+        "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds105/mouthpiece-youtube-approved.jpg",
+        "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
+        "bytes": 434755
+      }
+    }
+  },
+  "master_preserved": true,
+  "local_original_backups": [
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+      "bytes": 67977674
+    },
+    {
+      "path": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+      "bytes": 67977674
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/captions.srt",
+      "sha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1",
+      "bytes": 4310
+    },
+    {
+      "path": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/captions.srt",
+      "sha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1",
+      "bytes": 4310
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/approval.json",
+      "sha256": "a31c819446c7de8070c63da3b7bafaf3a2f4de20f915753d9c58e132a790fee0",
+      "bytes": 1150
+    },
+    {
+      "path": "/Volumes/Extreme/Short-form video content/DS-105 mouthpiece/approval.json",
+      "sha256": "a31c819446c7de8070c63da3b7bafaf3a2f4de20f915753d9c58e132a790fee0",
+      "bytes": 1150
+    }
+  ],
+  "drive_verified": {
+    "master_captions_approval_and_covers": [
+      {
+        "name": "Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+        "id": "14kLhhiH3qTXmeQqWVdHYwf3yvfURLXlg",
+        "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+        "bytes": 67977674
+      },
+      {
+        "name": "captions.srt",
+        "id": "1NnyJSmhtj2hvcJp3A4jM33aOZweT0upm",
+        "sha256": "cf49e5e153d6dd3f7dfe506fcc12d3427244035fc7bfdcdf6c90dee97d43d7d1",
+        "bytes": 4310
+      },
+      {
+        "name": "approval.json",
+        "id": "1f-w1dm-9utJmDRSCNYJLuDwHV1qCCCjm",
+        "sha256": "a31c819446c7de8070c63da3b7bafaf3a2f4de20f915753d9c58e132a790fee0",
+        "bytes": 1150
+      },
+      {
+        "name": "Approved covers/mouthpiece-instagram-approved.png",
+        "id": "16MMZWlfbrixQ-fL9lwVOrhQ5c8NIymVR",
+        "sha256": "03ffed4da329bea1d268298394a420c9b9060b467cc871b36cf7bb2405f074dc",
+        "bytes": 2097025
+      },
+      {
+        "name": "Approved covers/mouthpiece-youtube-approved.png",
+        "id": "1kq6fFsinQc7PKO8BsrascJyjLCv_z1W8",
+        "sha256": "d8a9e123d1f7fe40e594fab162c569931350b8500adfe0d902b1462ac1ddff62",
+        "bytes": 2154466
+      },
+      {
+        "name": "Approved covers/mouthpiece-youtube-approved.jpg",
+        "id": "13XrPd6Nz9Rxezj0dm3CKZpPupeS8H0iB",
+        "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
+        "bytes": 434755
+      }
+    ],
+    "tiktok": {
+      "id": "1qzqa_A-gGySb5WG08FsIojN56aqS9NH-",
+      "sha256": "f4c4efde0ad6b66833145c7ad8f11c1059e40fa430d6afd448e7dc4426eea2d9",
+      "bytes": 68147173
+    },
+    "uploaded_tiktok_first_frame_difference": 0.0
+  },
+  "uploads": {
+    "instagram": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/12a4b877-3cdb-4502-bb8d-6f73afb0ea4b.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds105/mouthpiece-instagram-approved.png",
+      "sha256": "03ffed4da329bea1d268298394a420c9b9060b467cc871b36cf7bb2405f074dc",
+      "bytes": 2097025,
+      "remote_hash_verified": true
+    },
+    "youtube_jpeg": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/05adf95b-d5a6-4394-9621-66f6b567807c.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds105/mouthpiece-youtube-approved.jpg",
+      "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
+      "bytes": 434755,
+      "remote_hash_verified": true
+    },
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/302be841-83f3-4b6f-9147-75da4f6e63f5.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-105 mouthpiece/Why I Wear A Mouthpiece For SFC R4 - final.mp4",
+      "sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+      "bytes": 67977674,
+      "remote_hash_verified": true
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dbf7cd0d-8d89-412b-a9cf-204b9e1e4101.mp4",
+      "path": "/Volumes/Extreme/_edit_work/ds105-publish/mouthpiece-tiktok-cover-first.mp4",
+      "sha256": "f4c4efde0ad6b66833145c7ad8f11c1059e40fa430d6afd448e7dc4426eea2d9",
+      "bytes": 68147173,
+      "remote_hash_verified": true
+    }
+  },
+  "tiktok_verification": {
+    "frames_src": 1917,
+    "frames_out": 1918,
+    "audio_pkts_src": 3000,
+    "audio_pkts_out": 3000,
+    "decode_errors": "",
+    "cover_psnr": 48.08251651092692,
+    "ok": true,
+    "path": "/Volumes/Extreme/_edit_work/ds105-publish/mouthpiece-tiktok-cover-first.mp4",
+    "sha256": "f4c4efde0ad6b66833145c7ad8f11c1059e40fa430d6afd448e7dc4426eea2d9",
+    "master_sha256": "061deb744eb1e83cf1917727095214c8e4ea68ffebf56d9f85042d80694eebe2",
+    "audio_identical": true
+  },
+  "uploaded_tiktok_first_frame": "Separately decoded from public upload; byte-identical PNG pixels to checked local frame",
+  "platform_preflights": [
+    {
+      "platform": "facebook",
+      "account": "47105",
+      "desired_time": "2026-12-27T00:00:00.000Z",
+      "cover_preflight": "pass",
+      "media": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/302be841-83f3-4b6f-9147-75da4f6e63f5.mp4",
+      "target": {
+        "targetType": "facebook",
+        "pageId": "1294282227094660",
+        "mediaType": "reel"
+      }
+    },
+    {
+      "platform": "instagram",
+      "account": "67203",
+      "desired_time": "2026-12-27T00:00:00.000Z",
+      "cover_preflight": "pass",
+      "media": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/302be841-83f3-4b6f-9147-75da4f6e63f5.mp4",
+      "target": {
+        "targetType": "instagram",
+        "mediaType": "reel",
+        "shareToFeed": true,
+        "coverImageUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/12a4b877-3cdb-4502-bb8d-6f73afb0ea4b.png",
+        "firstComment": "Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=mouthpiece-workout&utm_content=ds105-mouthpiece"
+      }
+    },
+    {
+      "platform": "tiktok",
+      "account": "58181",
+      "desired_time": "2026-12-27T00:00:00.000Z",
+      "cover_preflight": "pass",
+      "media": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/dbf7cd0d-8d89-412b-a9cf-204b9e1e4101.mp4",
+      "target": {
+        "targetType": "tiktok",
+        "privacyLevel": "PUBLIC_TO_EVERYONE",
+        "disabledComments": false,
+        "disabledDuet": false,
+        "disabledStitch": false,
+        "isBrandedContent": false,
+        "isYourBrand": false,
+        "isAiGenerated": false,
+        "videoCoverTimestamp": 0
+      }
+    },
+    {
+      "platform": "youtube",
+      "account": "46963",
+      "desired_time": "2026-12-27T00:00:00.000Z",
+      "cover_preflight": "pass",
+      "media": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/302be841-83f3-4b6f-9147-75da4f6e63f5.mp4",
+      "target": {
+        "targetType": "youtube",
+        "title": "Wear A Mouthpiece When You Work Out",
+        "privacyStatus": "public",
+        "shouldNotifySubscribers": true,
+        "isMadeForKids": false,
+        "containsSyntheticMedia": false,
+        "thumbnailUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/05adf95b-d5a6-4394-9621-66f6b567807c.jpg"
+      }
+    }
+  ],
+  "caption_and_metadata_file": "scripts/blotato/configs/ds105-mouthpiece.json",
+  "pinned_comment": "Do you wear a mouthpiece when you work out?",
+  "article": "Post-release existing Shorts routine; no long-form draft required",
+  "planned_release": {
+    "local": "2026-12-26T18:00:00-06:00",
+    "utc": "2026-12-27T00:00:00.000Z",
+    "no_existing_post_or_waitlist_conflict": true,
+    "phase": "3"
+  },
+  "live_schedules": {
+    "total": 196,
+    "ds105_count": 0,
+    "reason": "Older waiting-list videos keep queue order; four free post positions not consumed ahead of them"
+  },
+  "shared_waitlist": {
+    "config": "scripts/blotato/configs/ds105-mouthpiece.json",
+    "kind": "short",
+    "job": "DS-105",
+    "label": "Wear A Mouthpiece When You Work Out",
+    "added": "2026-10-29",
+    "gym": true,
+    "kitchen": false
+  },
+  "facebook_cover": {
+    "repository": "scripts/blotato/fb_covers/ds105-mouthpiece-approved.jpg",
+    "live_installer": "/Users/danielrose/.absbyai/fb-reel-covers/covers/ds105-mouthpiece-approved.jpg",
+    "sha256": "575db73575b5dbb3cd0a2d5479fc3aefeed796c752c747dfbc31581978cc226f",
+    "registry_match": "Wear a mouthpiece when you guys work out.",
+    "installed": true
+  },
+  "ai_generated_flag": false,
+  "ai_flag_reason": "Real camera film; code graphics; cover still alone does not change synthetic-video flag",
+  "original_delivery_gate": "Existing R4 numerical failures retained, no threshold or stamp changed",
+  "queue_state": "finalized, rev9, Drive status upload verified, no artifact-db sync claimed",
+  "post_release": "Existing shared cover and pinned-comment routines; actual public tiles unobserved until release",
+  "writer_route": "Usual Claude subscription writer failed due expired OAuth; fresh Codex dan-voice-writer used exact transcript and real passage prompt, then factual/hard-rule checks",
+  "paid_generation_spend": 0,
+  "no_new_automation": true
+}

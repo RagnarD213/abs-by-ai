@@ -1,0 +1,4083 @@
+{
+  "summary": {
+    "model": "claude-sonnet-5",
+    "fewShot": true,
+    "weights": {
+      "definition": 2,
+      "skin": 1,
+      "photoreal": 1,
+      "change": 0.6,
+      "bulkPenalty": 2.5,
+      "underPenalty": 1.5,
+      "borderlineId": 2
+    },
+    "exemplarCases": [
+      "dan-real__dramatic",
+      "moderate-male__max",
+      "heavier-female__max"
+    ],
+    "heldOut": {
+      "cases": 7,
+      "pairings": 41,
+      "pairingAgreement": 0.8049,
+      "pairingRaw": "33.0/41",
+      "caseAgreement": 1,
+      "caseAgreementRaw": "7/7",
+      "nwayTop1": 0.4286,
+      "nwayTop1Raw": "3/7",
+      "nwayTop2": 0.7143,
+      "nwayTop2Raw": "5/7",
+      "perCase": {
+        "lean-male__dramatic": {
+          "wins": 5,
+          "total": 5
+        },
+        "lean-male__max": {
+          "wins": 11,
+          "total": 11
+        },
+        "moderate-male__dramatic": {
+          "wins": 4,
+          "total": 5
+        },
+        "heavier-male__dramatic": {
+          "wins": 3,
+          "total": 4
+        },
+        "heavier-male__max": {
+          "wins": 6,
+          "total": 11
+        },
+        "heavier-female__dramatic": {
+          "wins": 3,
+          "total": 4
+        },
+        "heavier-male-dark__dramatic": {
+          "wins": 1,
+          "total": 1
+        }
+      }
+    },
+    "all": {
+      "cases": 10,
+      "pairings": 58,
+      "pairingAgreement": 0.8448,
+      "pairingRaw": "49.0/58",
+      "caseAgreement": 1,
+      "caseAgreementRaw": "10/10",
+      "nwayTop1": 0.5,
+      "nwayTop1Raw": "5/10",
+      "nwayTop2": 0.8,
+      "nwayTop2Raw": "8/10",
+      "perCase": {
+        "lean-male__dramatic": {
+          "wins": 5,
+          "total": 5
+        },
+        "lean-male__max": {
+          "wins": 11,
+          "total": 11
+        },
+        "moderate-male__dramatic": {
+          "wins": 4,
+          "total": 5
+        },
+        "moderate-male__max": {
+          "wins": 5,
+          "total": 5
+        },
+        "heavier-male__dramatic": {
+          "wins": 3,
+          "total": 4
+        },
+        "heavier-male__max": {
+          "wins": 6,
+          "total": 11
+        },
+        "heavier-female__dramatic": {
+          "wins": 3,
+          "total": 4
+        },
+        "heavier-female__max": {
+          "wins": 8,
+          "total": 8
+        },
+        "dan-real__dramatic": {
+          "wins": 3,
+          "total": 4
+        },
+        "heavier-male-dark__dramatic": {
+          "wins": 1,
+          "total": 1
+        }
+      }
+    },
+    "positionFlips": 8,
+    "positionFlipRate": 0.1379
+  },
+  "pairResults": [
+    {
+      "caseId": "lean-male__dramatic",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.9,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, ab definition improved, skin tone matches",
+            "lean athletic build, cut abs, skin tone close to original"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 15,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "noticeably bulkier and warmer/tanner skin than before",
+            "bigger chest/delts and tanned skin, verging on bodybuilder"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.9,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, natural skin tone, good ab definition",
+            "lean athletic build, good ab definition, skin tone matches before"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 16.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts/arms pushed past athletic toward bodybuilder mass",
+            "chest/delts/arms pushed past athletic toward bodybuilder"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.4,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 3.5,
+          "notes": [
+            "lean athletic build, modest but real change, skin tone matches",
+            "lean athletic build, abs defined, natural skin look"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 16.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "notes": [
+            "bulkier than athletic, chest/shoulders inflated, slight sheen",
+            "chest/delts/arms pushed into bodybuilder territory, slight oily sheen"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 11.1,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3.5,
+          "notes": [
+            "lean athletic tone, minor bulk increase, natural skin",
+            "lean athletic build, natural skin tone and texture, clear change"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 7.5,
+          "identity": "borderline",
+          "photoreal": 1,
+          "skin_tone": 1.5,
+          "definition": 4.5,
+          "bulk": 5,
+          "change": 5,
+          "notes": [
+            "bodybuilder mass, oiled skin, tanned, fake rendered look",
+            "bodybuilder mass, oiled skin, tanned, looks CGI"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.7,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 3.5,
+          "notes": [
+            "lean athletic build, ab definition improved, tone matches before",
+            "lean athletic build with visible abs, natural look"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 15.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4,
+          "notes": [
+            "bulkier chest/delts pushing past athletic, slightly warmer tone",
+            "deep six-pack but chest/delts inflated beyond athletic"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5.4,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, minimal skin tone shift, natural look",
+            "lean athletic build, near-matching skin tone, natural look"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 14,
+          "identity": "good",
+          "photoreal": 2.5,
+          "skin_tone": 2,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "oily/tan skin, too muscular, looks rendered",
+            "tanned skin, oiled sheen, muscle bulk beyond athletic"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular",
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": null,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3.5,
+          "notes": [
+            "subtle lean/tightening, natural skin tone, minor change",
+            "lean athletic build, natural skin, clear ab definition, minimal tone shift"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "face drifted",
+        "too muscular",
+        "too tan",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": null,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.9,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build with clear abs, skin tone matches, natural look",
+            "lean athletic build, natural skin tone, real photo look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5.2,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, deeper cut abs, natural skin tone, plausible photo",
+            "lean athletic build, good definition, natural skin tone"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 14.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 3.5,
+          "bulk": 4,
+          "change": 4.5,
+          "notes": [
+            "chest/delts/arms overbuilt past athletic, slightly warmer skin, edges toward fake",
+            "chest/delts/arms inflated past athletic, borderline bodybuilder"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, sharp abs, skin tone matches, natural look",
+            "lean athletic build, good definition, natural skin tone"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 13.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 3.5,
+          "bulk": 4,
+          "change": 4,
+          "notes": [
+            "bulkier chest/delts pushing past athletic, slightly warmer skin, less crisp abs",
+            "chest/delts bulked beyond athletic, slightly plastic look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "G",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.15,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build with sharp abs, minimal tone shift, natural look",
+            "slightly more visible change, still athletic bulk, natural skin tone"
+          ]
+        },
+        {
+          "letter": "G",
+          "model": "gemini-2.5-flash-image",
+          "variant": "condensed",
+          "score": 16.75,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 2.5,
+          "notes": [
+            "subtle change, some ab outline, skin tone matches well but looks close to before",
+            "modest lean gain, ab definition improved, skin tone matched"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.25,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "sharp six-pack, athletic frame, skin tone close to original",
+            "similar athletic definition, natural look, minor skin warming"
+          ]
+        },
+        {
+          "letter": "H",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 16.15,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4,
+          "notes": [
+            "bulkier chest/shoulders, slightly tanned and smoother skin",
+            "leaner with visible abs, athletic bulk, slight warmth increase"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.9,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 20.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, sharper abs, natural skin tone",
+            "lean athletic build, sharp abs, natural skin tone and texture"
+          ]
+        },
+        {
+          "letter": "I",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 17.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts/arms oversized past athletic, slightly warmer tone, verges on fake",
+            "chest/delts/arms inflated past athletic, slightly glossy skin"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "J",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 7.4,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, skin tone matches, natural look",
+            "lean athletic build, sharp abs, natural skin tone, slight sheen"
+          ]
+        },
+        {
+          "letter": "J",
+          "model": "seedream-4.5",
+          "variant": "full",
+          "score": 12.5,
+          "identity": "good",
+          "photoreal": 2,
+          "skin_tone": 1,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "strong orange tan and oiled/glossy skin, bulk edges toward bodybuilder",
+            "strong orange tan and oily sheen, bulk beyond athletic"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "K",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.4,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, ab definition improved, skin tone matches, natural look",
+            "lean athletic build, skin tone matches, natural look"
+          ]
+        },
+        {
+          "letter": "K",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 16,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "noticeably bigger than athletic, slight warming of skin, veiny/oiled look reduces realism",
+            "chest/delts/arms inflated past athletic, slightly plastic look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "L",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.9,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 20.1,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 3.5,
+          "notes": [
+            "lean athletic build, sharper abs, skin tone matches",
+            "lean athletic build, sharp abs, natural skin tone and texture"
+          ]
+        },
+        {
+          "letter": "L",
+          "model": "gpt-image-1.5",
+          "variant": "full",
+          "score": 16.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "notes": [
+            "chest and delts inflated past athletic, slight bronzing",
+            "chest/delts/traps oversized toward bodybuilder, slightly glossy skin"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.6,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 21.5,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "lean athletic build, sharp abs, natural skin tone",
+            "sharp abs, lean athletic build, minor tone warmth"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 14.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 3.5,
+          "bulk": 4,
+          "change": 4,
+          "notes": [
+            "noticeably bulkier chest/shoulders, edging past athletic",
+            "chest/delts bulked past athletic, slight warm cast"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 2.35,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 18.25,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, sharp abs, natural skin tone",
+            "bigger than athletic (chest/arms inflated), tanned skin, slightly plastic look"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 15.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "visible tan/bronzing and slight oily sheen versus before",
+            "lean athletic build but skin noticeably tanned and slightly shiny"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake",
+        "face drifted",
+        "too muscular"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": true,
+      "margin": 0.05,
+      "scores": [
+        {
+          "letter": "D",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 18,
+          "identity": "borderline",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "very shredded/vascular look with slight warm tint and subtly altered face, edges toward fake",
+            "great abs, athletic frame, face slightly off, mild shine"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 17.95,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4.5,
+          "notes": [
+            "natural athletic look, skin tone unchanged, solid ab definition",
+            "good likeness but chest/delts pushing past athletic"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 10.3,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 21.5,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "lean athletic build with sharp abs, skin tone matches, still looks real",
+            "lean athletic build with sharp defined six-pack, natural skin tone, clear transformation"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 11.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 1.5,
+          "bulk": 3,
+          "change": 2,
+          "notes": [
+            "minimal change, still soft midsection, not enough transformation",
+            "bulked up but belly fat remains, minimal ab definition, not enough change to midsection"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 7.05,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 20.75,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "strong abs, athletic-to-slightly-bulky chest/arms, tone matches before",
+            "sharp six-pack, athletic proportions, skin tone matches, clearly changed"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 13.7,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1.5,
+          "change": 2,
+          "notes": [
+            "barely changed from before, minimal ab definition",
+            "slightly leaner but minimal ab definition, barely changed"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change",
+        "too tan",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 10.6,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 21,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "lean athletic build with sharp abs, natural skin tone",
+            "sharp six-pack, athletic proportion, skin tone close to original"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 10.4,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 2,
+          "bulk": 4,
+          "change": 4,
+          "notes": [
+            "too bulky, abs muted, slight bronzing",
+            "chest/delts/arms overinflated, minimal ab definition"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 20.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build, clean six-pack, skin tone matches before",
+            "lean athletic build with strong ab definition, minimal tan shift"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 14.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 3.5,
+          "bulk": 4,
+          "change": 4.5,
+          "notes": [
+            "chest/delts pushed toward bodybuilder mass, slightly oiled sheen",
+            "chest/delts/arms inflated past athletic, slightly oiled look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 2.85,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.25,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, sharp abs, skin tone matches, natural look",
+            "heavier muscle mass beyond athletic, slight tan added"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 16.4,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 2.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "good definition but skin noticeably darker/bronzed than before",
+            "lean athletic build, slight warming of skin tone"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 1.05,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 16.95,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build, skin tone matches, good ab definition",
+            "bulkier than athletic, arms/chest inflated, slight warming of skin"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 15.9,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 2,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "good abs and athletic bulk but noticeably tanned/bronzed vs before",
+            "good lean athletic build but noticeably tanned/bronzed vs before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": null,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, skin tone matches, natural look",
+            "lean athletic build, minor skin warming, natural look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5.7,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 19.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build, skin tone matches, natural look",
+            "athletic lean build, natural texture, minimal skin tone shift"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 13.5,
+          "identity": "borderline",
+          "photoreal": 2.5,
+          "skin_tone": 2.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "bronzed/oily skin and bulkier, more vascular than athletic target",
+            "tanned skin, chiseled but heading toward bodybuilder mass, slightly plastic look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 4.9,
+      "scores": [
+        {
+          "letter": "C",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "notes": [
+            "natural, same face, modest athletic gain with visible abs, skin tone unchanged",
+            "lean athletic build, abs visible, skin tone matches, natural look"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 14.5,
+          "identity": "borderline",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chiseled abs but face altered and chest/delts overbuilt, slightly rendered look",
+            "chest/delts/arms inflated beyond athletic, slightly warmer skin, edges toward bodybuilder"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 7.65,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 17.25,
+          "identity": "borderline",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "strong abs but chest/shoulders pushed past lean athletic, slight face drift",
+            "lean athletic build with sharp abs, slight warm tone, mostly natural look"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 9.6,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "notes": [
+            "essentially unchanged from before",
+            "virtually identical to before, no transformation"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 17.5,
+          "identity": "borderline",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "lean athletic build, sharp abs, slight face/hair shift",
+            "lean athletic build, natural skin, clear six-pack, still looks real"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 14.5,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "abs overly deep/carved, more mass than athletic, edges toward CGI look",
+            "deep overly-defined abs and bigger frame, slightly rendered look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 4,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5",
+          "variant": "full",
+          "score": 19.75,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, strong abs, natural look, minor warmth",
+            "lean athletic six-pack, natural skin tone, slight oversized delts"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 15.75,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4.5,
+          "change": 5,
+          "notes": [
+            "chest/delts bulked beyond athletic, slightly rendered look",
+            "bulkier bodybuilder look, warmer tan tone, slightly plastic sheen"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "not enough change"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 1.7,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 19.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build, natural skin tone and texture, strong ab definition",
+            "lean athletic build, natural skin, good ab definition"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 17.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts pushed toward bodybuilder mass, slightly airbrushed",
+            "bigger chest/delts and vascularity push past athletic, slightly less real"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 0.3,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 15.75,
+          "identity": "borderline",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, skin tone matches before, natural look",
+            "background altered, tanned skin, overly bulky physique"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 15.45,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "notes": [
+            "noticeable bronzing/tan added versus before",
+            "tanned skin and bulk beyond athletic, oily sheen"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": true,
+      "margin": 0.3,
+      "scores": [
+        {
+          "letter": "D",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 16.3,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "notes": [
+            "still soft belly retained but some ab outline added, natural skin and frame",
+            "abs overlaid on residual belly fat, looks slightly pasted"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 16,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts/arms bulked beyond athletic, borderline bodybuilder",
+            "sharp six-pack but chest/delts pushed past athletic, skin slightly tanned"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 6,
+      "scores": [
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 21.5,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "sharp deep six-pack with athletic frame, close to ideal but abs slightly exaggerated",
+            "lean athletic build, deep ab cuts, skin tone matches"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 15.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts pushed toward bodybuilder mass, slightly plastic look",
+            "chest/delts inflated past athletic, slight bronzing"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "G",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 10.25,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 18.75,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, skin tone matches, natural look",
+            "still bigger than athletic but more natural skin and face match"
+          ]
+        },
+        {
+          "letter": "G",
+          "model": "flux-2-pro",
+          "variant": "full",
+          "score": 8.5,
+          "identity": "borderline",
+          "photoreal": 1.5,
+          "skin_tone": 1,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "notes": [
+            "oiled/tanned bodybuilder look, face slightly altered",
+            "tanned, oiled, bodybuilder mass, face altered"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "H",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 3,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 18.25,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "lean athletic build, natural skin tone, strong ab definition",
+            "skin tone closer to original but muscle mass edges toward overbuilt (chest/delts)"
+          ]
+        },
+        {
+          "letter": "H",
+          "model": "seedream-4.5",
+          "variant": "full",
+          "score": 15.25,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 1.5,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "noticeably tanned/bronzed skin and bulkier than athletic",
+            "strong abs but noticeably tanned/bronzed vs before"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 4.2,
+      "scores": [
+        {
+          "letter": "I",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 21.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build with sharp abs, natural look, minor warmth shift",
+            "lean athletic cut, skin tone matches, natural look"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 17,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest/delts/arms pushed past athletic into bodybuilder territory",
+            "overly bulky chest/delts, slight tan/oil sheen, background altered"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "J",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 10.15,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 19.75,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "very deep ab cuts but chest/delts pushed past lean athletic into overbuilt mass",
+            "lean athletic build with sharp abs, skin tone matches, natural looking"
+          ]
+        },
+        {
+          "letter": "J",
+          "model": "gemini-2.5-flash-image",
+          "variant": "condensed",
+          "score": 9.6,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "notes": [
+            "virtually identical to before, no visible transformation",
+            "virtually identical to before, no transformation"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "K",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake",
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 5.25,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 18.25,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 5,
+          "notes": [
+            "natural skin tone, but chest/delts pushed past lean-athlete size",
+            "lean athletic build, close to original skin tone, natural look"
+          ]
+        },
+        {
+          "letter": "K",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 13,
+          "identity": "borderline",
+          "photoreal": 2.5,
+          "skin_tone": 2,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "visible tan/bronzing, added tattoo, oversized muscle reads slightly fake",
+            "tanned skin, face slightly off, muscular past athletic, oiled look"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "L",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.4,
+      "scores": [
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro",
+          "variant": "full",
+          "score": 17,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "very cut but chest/delts pushed past lean athletic, borderline bodybuilder",
+            "very shredded but bulk creeping toward bodybuilder, slight warm tone"
+          ]
+        },
+        {
+          "letter": "L",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 14.6,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 2,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 3.5,
+          "notes": [
+            "noticeable tan added, only modest ab definition, still has visible belly",
+            "good definition but skin noticeably tanned/bronzed"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.05,
+      "scores": [
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 16.8,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "notes": [
+            "subtle ab definition, natural skin tone, minor change",
+            "visible ab outline, waist trimmed, natural tone, athletic frame"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 12.75,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 3,
+          "definition": 2.5,
+          "bulk": 2,
+          "change": 2.5,
+          "notes": [
+            "slightly warmer/tan skin than before, arms look a bit more toned",
+            "slight leaning, minor warming, still soft midsection"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 2.7,
+      "scores": [
+        {
+          "letter": "B",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 20.5,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "sharp defined abs, athletic build, minor warm cast",
+            "clear leaner athletic look, some added arm/shoulder muscle but still within athletic range"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 17.8,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "notes": [
+            "slight leaning, subtle ab shadow, skin unchanged",
+            "subtle change, some ab outline but less dramatic, very natural"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "preferredBest": true,
+      "orderDisagreement": true,
+      "margin": 0.5,
+      "scores": [
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 18.1,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "notes": [
+            "slimmer waist with some ab outline, natural skin tone",
+            "clearer waist taper and ab definition, still natural and unretouched"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 17.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "notes": [
+            "clearer ab definition and tighter waist, slight warmth added but still close to natural",
+            "slight leaning, mild ab hint, natural skin tone"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.15,
+      "scores": [
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 17.3,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "notes": [
+            "subtle ab definition, natural skin tone, modest change",
+            "visible waist slimming and slight ab outline, natural skin tone"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 11.15,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 1.5,
+          "bulk": 1,
+          "change": 1.5,
+          "notes": [
+            "minimal change, waist/arms barely altered, little ab definition",
+            "nearly identical to before, minimal change"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.9,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean natural change, ab definition visible, skin tone matches",
+            "clear ab definition, skin tone matches before, athletic not overbuilt"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 17.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 3.5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "similar leanness but slightly warmer/tanned skin tone",
+            "leaner with visible abs, slight skin warming, natural physique"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.9,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean natural change, skin tone matches, moderate ab definition",
+            "lean athletic look, skin tone matches, clear but natural change"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-2-pro",
+          "variant": "condensed",
+          "score": 14,
+          "identity": "borderline",
+          "photoreal": 3,
+          "skin_tone": 2.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "tanned skin and overly muscular arms/shoulders beyond athletic",
+            "too muscular/tan, arms and shoulders overbuilt, slight tan added"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.1,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "clear abs, natural skin tone, athletic not bulky",
+            "clear ab definition and leaner look, natural skin tone, athletic not bulky"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro",
+          "variant": "condensed",
+          "score": 17.3,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "notes": [
+            "some definition but less pronounced, subtle change",
+            "leaner waist, mild ab outline, natural, but only modest change"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.65,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.9,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean waist with clear ab definition, natural skin tone, believable photo",
+            "clear waist slimming and ab definition, athletic not overbuilt, natural tone"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 16.25,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 2.5,
+          "notes": [
+            "slight ab hint but body still close to before, minimal change",
+            "modest leaning, slight ab outline, minimal change, natural skin tone"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.2,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean waist with visible abs, natural skin tone, athletic not overdone",
+            "lean athletic build with clear ab definition, natural skin tone"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gemini-2.5-flash-image",
+          "variant": "condensed",
+          "score": 13.2,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 2,
+          "notes": [
+            "minimal change from before, slight waist trim but little ab definition",
+            "minimal change, slight ab hint only"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular",
+        "too tan"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 10.15,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 20.4,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean athletic look, natural skin tone, clear ab definition",
+            "lean natural look, matching skin tone, athletic not bulky"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-2-pro",
+          "variant": "full",
+          "score": 10.25,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 1,
+          "definition": 5,
+          "bulk": 4.5,
+          "change": 5,
+          "notes": [
+            "overly muscular, heavily tanned, oiled/vein-heavy look reads fake",
+            "tanned, oiled, over-muscled, fake-looking"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.2,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 19.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "clear ab definition, natural skin tone, athletic not overbuilt",
+            "clear athletic six-pack, natural skin tone, still feminine frame"
+          ]
+        },
+        {
+          "letter": "H",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 13.2,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 2,
+          "notes": [
+            "minimal change, only slight ab hint, waist barely tightened",
+            "minimal change, only faint ab hint"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 4.4,
+      "scores": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 20.4,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "notes": [
+            "lean natural look, ab definition visible, skin tone matches before",
+            "natural skin tone, real photo look, clear ab definition, athletic not overbuilt"
+          ]
+        },
+        {
+          "letter": "I",
+          "model": "seedream-4.5",
+          "variant": "full",
+          "score": 16,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 1,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "strong tan/bronzing not in before, muscle slightly overbuilt",
+            "strong abs but heavy bronzing/tan and dramatic lighting shift"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 2.9,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 20.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, sharp abs, skin tone matches",
+            "lean athletic build with sharp abs, skin tone matches before"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5",
+          "variant": "condensed",
+          "score": 17.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "chest and delts inflated beyond athletic, slightly warmer tone",
+            "chest/delts/arms pushed past athletic into bodybuilder territory"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.7,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 20.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4.5,
+          "notes": [
+            "lean athletic build, clean skin match, natural look",
+            "lean athletic build, sharp abs, minor skin warming, looks natural"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro",
+          "variant": "condensed",
+          "score": 13.5,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 3,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "oiled/wet skin, warmed tone, bulk pushing toward bodybuilder",
+            "oiled sheen, inflated chest/delts, slightly warmed skin - too muscular and fake-looking"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "preferredBest": false,
+      "orderDisagreement": false,
+      "margin": 3.2,
+      "scores": [
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image",
+          "variant": "full",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "notes": [
+            "lean athletic build, sharp abs, skin tone matches before",
+            "lean athletic build, minor warmth shift, good abs"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 15.7,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "notes": [
+            "chest/delts/arms pushed past athletic into bodybuilder territory",
+            "noticeably bulkier chest/delts, slight tan increase"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 6.05,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 21,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "notes": [
+            "lean athletic build, strong abs, minimal tan shift, natural look",
+            "dry natural skin, athletic-lean build with strong definition, minor warmth shift"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 14.95,
+          "identity": "good",
+          "photoreal": 2,
+          "skin_tone": 2.5,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "notes": [
+            "oiled/sweaty sheen looks fake, noticeable tan/warming vs before",
+            "oily/wet sheen and slightly bronzed, muscle size edges past athletic"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male-dark__dramatic",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "preferredBest": true,
+      "orderDisagreement": false,
+      "margin": 3.4,
+      "scores": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5",
+          "variant": "condensed",
+          "score": 18.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "notes": [
+            "lean athletic build with clear abs, minimal tan shift, still natural looking",
+            "natural photo look, still retains some belly softness but good abs emerging, athletic not overbuilt"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "nano-banana-pro",
+          "variant": "full",
+          "score": 15,
+          "identity": "good",
+          "photoreal": 2,
+          "skin_tone": 2.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "notes": [
+            "overly muscular with oiled/wet sheen and noticeably darkened, warmed skin tone",
+            "oiled/rendered look, bulk beyond athletic, slight skin darkening"
+          ]
+        }
+      ]
+    }
+  ],
+  "nwayResults": [
+    {
+      "caseId": "lean-male__dramatic",
+      "danBest": "F",
+      "danBestModel": "gemini-2.5-flash-image/full",
+      "judgeTop1": "F",
+      "judgeTop1Model": "gemini-2.5-flash-image/full",
+      "correct": true,
+      "danBestRank": 1,
+      "n": 6,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "just right"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "seedream-4.5/condensed",
+          "score": 17.95,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "looks fake"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro/full",
+          "score": 17.45,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "danAcceptable": true,
+          "danTags": []
+        },
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5/condensed",
+          "score": 15.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro/condensed",
+          "score": 14.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3,
+          "definition": 4,
+          "bulk": 4,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "flux-2-pro/condensed",
+          "score": 7,
+          "identity": "borderline",
+          "photoreal": 1,
+          "skin_tone": 1,
+          "definition": 4.5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "too muscular",
+            "looks fake"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "lean-male__max",
+      "danBest": "F",
+      "danBestModel": "nano-banana-pro/condensed",
+      "judgeTop1": "H",
+      "judgeTop1Model": "gemini-2.5-flash-image/full",
+      "correct": false,
+      "danBestRank": 2,
+      "n": 12,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "H",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 18.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "nano-banana-pro/condensed",
+          "score": 18.1,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "flux-kontext-pro/full",
+          "score": 17.15,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "L",
+          "model": "gpt-image-1.5/full",
+          "score": 16.5,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": true,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "I",
+          "model": "gpt-image-1.5/condensed",
+          "score": 16.25,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4.5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "G",
+          "model": "gemini-2.5-flash-image/condensed",
+          "score": 15.75,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 2.5,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "K",
+          "model": "flux-kontext-pro/condensed",
+          "score": 15.7,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro/full",
+          "score": 15,
+          "identity": "good",
+          "photoreal": 2.5,
+          "skin_tone": 2,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "seedream-4.5/condensed",
+          "score": 14.45,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 4.5,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "looks fake"
+          ]
+        },
+        {
+          "letter": "J",
+          "model": "seedream-4.5/full",
+          "score": 14.4,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 1,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-2-pro/condensed",
+          "score": 10,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 2,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "face drifted",
+            "looks fake",
+            "too muscular",
+            "too tan"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "danBest": "A",
+      "danBestModel": "gpt-image-1.5/condensed",
+      "judgeTop1": "A",
+      "judgeTop1Model": "gpt-image-1.5/condensed",
+      "correct": true,
+      "danBestRank": 1,
+      "n": 6,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5/condensed",
+          "score": 16.2,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "just right"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro/full",
+          "score": 15.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "flux-2-pro/condensed",
+          "score": 14.5,
+          "identity": "borderline",
+          "photoreal": 2.5,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "looks fake",
+            "face drifted",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 12.7,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 2,
+          "change": 2,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "seedream-4.5/condensed",
+          "score": 12.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 2,
+          "bulk": 3,
+          "change": 2,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-kontext-pro/condensed",
+          "score": 11.65,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 4,
+          "definition": 3,
+          "bulk": 4.5,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "moderate-male__max",
+      "danBest": "B",
+      "danBestModel": "gpt-image-1.5/condensed",
+      "judgeTop1": "B",
+      "judgeTop1Model": "gpt-image-1.5/condensed",
+      "correct": true,
+      "danBestRank": 1,
+      "n": 6,
+      "orderDisagreement": false,
+      "ranked": [
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5/condensed",
+          "score": 21.5,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 5,
+          "bulk": 3,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "just right"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "nano-banana-pro/full",
+          "score": 18.2,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3,
+          "definition": 4.5,
+          "bulk": 3,
+          "change": 4.5,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 16.1,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 2.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro/condensed",
+          "score": 13.4,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 3.5,
+          "bulk": 4,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5/condensed",
+          "score": 10.1,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3.5,
+          "definition": 2,
+          "bulk": 4,
+          "change": 3.5,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change",
+            "too tan",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-2-pro/condensed",
+          "score": 8.5,
+          "identity": "borderline",
+          "photoreal": 1,
+          "skin_tone": 1.5,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "face drifted",
+            "looks fake",
+            "too muscular"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "danBest": "A",
+      "danBestModel": "flux-kontext-pro/condensed",
+      "judgeTop1": "C",
+      "judgeTop1Model": "seedream-4.5/condensed",
+      "correct": false,
+      "danBestRank": 3,
+      "n": 5,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "C",
+          "model": "seedream-4.5/condensed",
+          "score": 18.6,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5/condensed",
+          "score": 17,
+          "identity": "good",
+          "photoreal": 2.5,
+          "skin_tone": 4,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": true,
+          "danTags": []
+        },
+        {
+          "letter": "A",
+          "model": "flux-kontext-pro/condensed",
+          "score": 16.65,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-2-pro/condensed",
+          "score": 15.5,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 9.6,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male__max",
+      "danBest": "F",
+      "danBestModel": "flux-kontext-pro/full",
+      "judgeTop1": "A",
+      "judgeTop1Model": "gpt-image-1.5/full",
+      "correct": false,
+      "danBestRank": 7,
+      "n": 12,
+      "orderDisagreement": false,
+      "ranked": [
+        {
+          "letter": "A",
+          "model": "gpt-image-1.5/full",
+          "score": 20.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4.5,
+          "bulk": 2.5,
+          "change": 4.5,
+          "danAcceptable": true,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5/condensed",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "danAcceptable": true,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "I",
+          "model": "seedream-4.5/condensed",
+          "score": 18.4,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4,
+          "definition": 4,
+          "bulk": 2.5,
+          "change": 4,
+          "danAcceptable": true,
+          "danTags": []
+        },
+        {
+          "letter": "B",
+          "model": "flux-kontext-pro/condensed",
+          "score": 16.3,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "danAcceptable": true,
+          "danTags": [
+            "skin tone right",
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro/full",
+          "score": 15.15,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "L",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 14.6,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 2,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-kontext-pro/full",
+          "score": 13.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 3,
+          "definition": 4,
+          "bulk": 4,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "nano-banana-pro/condensed",
+          "score": 13.2,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 2,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "H",
+          "model": "seedream-4.5/full",
+          "score": 12.9,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 4,
+          "bulk": 4,
+          "change": 4,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "K",
+          "model": "flux-2-pro/condensed",
+          "score": 12.7,
+          "identity": "borderline",
+          "photoreal": 3,
+          "skin_tone": 1.5,
+          "definition": 5,
+          "bulk": 4,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular",
+            "looks fake",
+            "too tan"
+          ]
+        },
+        {
+          "letter": "J",
+          "model": "gemini-2.5-flash-image/condensed",
+          "score": 9.1,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "G",
+          "model": "flux-2-pro/full",
+          "score": 8.5,
+          "identity": "borderline",
+          "photoreal": 1.5,
+          "skin_tone": 1,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "too muscular",
+            "looks fake"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "danBest": "E",
+      "danBestModel": "gpt-image-1.5/condensed",
+      "judgeTop1": "B",
+      "judgeTop1Model": "flux-2-pro/condensed",
+      "correct": false,
+      "danBestRank": 2,
+      "n": 5,
+      "orderDisagreement": false,
+      "ranked": [
+        {
+          "letter": "B",
+          "model": "flux-2-pro/condensed",
+          "score": 19.2,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 3,
+          "change": 4.5,
+          "danAcceptable": true,
+          "danTags": [
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gpt-image-1.5/condensed",
+          "score": 17.8,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "danAcceptable": false,
+          "danTags": []
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro/full",
+          "score": 15.75,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 2.5,
+          "bulk": 1.5,
+          "change": 2.5,
+          "danAcceptable": true,
+          "danTags": []
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5/condensed",
+          "score": 13.75,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 2,
+          "bulk": 2.5,
+          "change": 2.5,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 9.6,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 1,
+          "bulk": 1,
+          "change": 1,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-female__max",
+      "danBest": "G",
+      "danBestModel": "gpt-image-1.5/condensed",
+      "judgeTop1": "G",
+      "judgeTop1Model": "gpt-image-1.5/condensed",
+      "correct": true,
+      "danBestRank": 1,
+      "n": 9,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "G",
+          "model": "gpt-image-1.5/condensed",
+          "score": 20.4,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": []
+        },
+        {
+          "letter": "A",
+          "model": "nano-banana-pro/full",
+          "score": 19.1,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 3.5,
+          "bulk": 2,
+          "change": 3.5,
+          "danAcceptable": true,
+          "danTags": [
+            "too tan"
+          ]
+        },
+        {
+          "letter": "C",
+          "model": "nano-banana-pro/condensed",
+          "score": 17.8,
+          "identity": "good",
+          "photoreal": 5,
+          "skin_tone": 5,
+          "definition": 3,
+          "bulk": 2,
+          "change": 3,
+          "danAcceptable": true,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "flux-2-pro/condensed",
+          "score": 16.95,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 3,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular",
+            "looks fake"
+          ]
+        },
+        {
+          "letter": "D",
+          "model": "seedream-4.5/condensed",
+          "score": 14.75,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 2.5,
+          "bulk": 1.5,
+          "change": 2.5,
+          "danAcceptable": true,
+          "danTags": [
+            "skin tone right"
+          ]
+        },
+        {
+          "letter": "I",
+          "model": "seedream-4.5/full",
+          "score": 14.45,
+          "identity": "good",
+          "photoreal": 3,
+          "skin_tone": 2,
+          "definition": 4,
+          "bulk": 3.5,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "too tan",
+            "too muscular"
+          ]
+        },
+        {
+          "letter": "H",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 12.15,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 2,
+          "bulk": 1,
+          "change": 1.5,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "gemini-2.5-flash-image/condensed",
+          "score": 10.1,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 5,
+          "definition": 1.5,
+          "bulk": 1,
+          "change": 1,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "F",
+          "model": "flux-2-pro/full",
+          "score": 9,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 1,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular",
+            "too tan"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "danBest": "A",
+      "danBestModel": "seedream-4.5/condensed",
+      "judgeTop1": "D",
+      "judgeTop1Model": "gemini-2.5-flash-image/full",
+      "correct": false,
+      "danBestRank": 2,
+      "n": 5,
+      "orderDisagreement": true,
+      "ranked": [
+        {
+          "letter": "D",
+          "model": "gemini-2.5-flash-image/full",
+          "score": 18.1,
+          "identity": "good",
+          "photoreal": 4.5,
+          "skin_tone": 4.5,
+          "definition": 3.5,
+          "bulk": 2.5,
+          "change": 3.5,
+          "danAcceptable": false,
+          "danTags": [
+            "not enough change"
+          ]
+        },
+        {
+          "letter": "A",
+          "model": "seedream-4.5/condensed",
+          "score": 17.95,
+          "identity": "good",
+          "photoreal": 3.5,
+          "skin_tone": 4,
+          "definition": 4.5,
+          "bulk": 3.5,
+          "change": 4.5,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "just right"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "gpt-image-1.5/condensed",
+          "score": 15.25,
+          "identity": "good",
+          "photoreal": 2.5,
+          "skin_tone": 3.5,
+          "definition": 5,
+          "bulk": 4.5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular",
+            "looks fake"
+          ]
+        },
+        {
+          "letter": "E",
+          "model": "nano-banana-pro/full",
+          "score": 14.5,
+          "identity": "good",
+          "photoreal": 2,
+          "skin_tone": 3,
+          "definition": 4.5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": true,
+          "danTags": []
+        },
+        {
+          "letter": "C",
+          "model": "flux-kontext-pro/condensed",
+          "score": 10.5,
+          "identity": "borderline",
+          "photoreal": 2,
+          "skin_tone": 2.5,
+          "definition": 5,
+          "bulk": 5,
+          "change": 5,
+          "danAcceptable": false,
+          "danTags": [
+            "too muscular",
+            "looks fake"
+          ]
+        }
+      ]
+    },
+    {
+      "caseId": "heavier-male-dark__dramatic",
+      "danBest": "A",
+      "danBestModel": "seedream-4.5/condensed",
+      "judgeTop1": "A",
+      "judgeTop1Model": "seedream-4.5/condensed",
+      "correct": true,
+      "danBestRank": 1,
+      "n": 2,
+      "orderDisagreement": false,
+      "ranked": [
+        {
+          "letter": "A",
+          "model": "seedream-4.5/condensed",
+          "score": 18.9,
+          "identity": "good",
+          "photoreal": 4,
+          "skin_tone": 4.5,
+          "definition": 4,
+          "bulk": 2,
+          "change": 4,
+          "danAcceptable": false,
+          "danTags": [
+            "skin tone right",
+            "just right"
+          ]
+        },
+        {
+          "letter": "B",
+          "model": "nano-banana-pro/full",
+          "score": 16,
+          "identity": "good",
+          "photoreal": 2.5,
+          "skin_tone": 3,
+          "definition": 5,
+          "bulk": 4,
+          "change": 5,
+          "danAcceptable": true,
+          "danTags": []
+        }
+      ]
+    }
+  ]
+}

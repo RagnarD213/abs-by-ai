@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "jobId": "DS-35",
+  "title": "Dad Bod",
+  "type": "SFC",
+  "round": 3,
+  "revisionId": "01a17429-e0c3-75b3-9137-4dfaf35f39af",
+  "previousThreadId": "01a1737b-0b58-7110-b12e-e7b5daa91dda",
+  "verbatimUserText": "Okay, revisions at around 10 seconds when you have the picture of the James Bond guy: I want you to make this picture bigger. Just have one picture in the lower-left-hand corner and text pointing to this somewhere that doesn't block her face, that says, \"The Dad Bod she likes,\" with an arrow pointing to it keep that on screen until the end of the clip with audio. At 33 seconds use a picture of me where my abs look more ripped. My abs look flat in this one. Okay proceed to the next round of edits.",
+  "selected": {
+    "takes": [
+      "scripted",
+      "off_the_cuff"
+    ],
+    "colour": "B_warmvivid",
+    "voice": "C_Balanced",
+    "reactionFormat": "ds40-codex-r5"
+  },
+  "requestedChanges": [
+    {
+      "range": "about 10s to audible interview end, 15.6489667s, both takes",
+      "picture": "One larger Daniel Craig photo in lower-left; remove other simultaneous celebrity insets in this span. Preserve the later requested Seth Rogen X/Daniel Craig check comparison.",
+      "text": "The Dad Bod she likes",
+      "arrow": "Point at Daniel Craig; picture and text clear of interviewed woman face; keep on screen through interview audio end."
+    },
+    {
+      "range": "scripted second Dan photo card, 32.4657667\u201335.3019333s, around 33s",
+      "picture": "Replace existing Dan photo with a verified real photograph showing more defined abs. Do not invent or AI-alter his body."
+    }
+  ],
+  "scope": "Both complete revised Shorts for review. No winner chosen. No covers, upload, publishing or scheduling.",
+  "status": "immutable revision instructions; checkpoint goes in execution-state.json"
+}

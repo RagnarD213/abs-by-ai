@@ -1,0 +1,11 @@
+{
+  "video": "Bill Maher Fat 90-Year-Old SFC R5",
+  "approvedAtRecorded": "2026-10-23T13:19:03.561738+00:00",
+  "clientDate": "2026-10-23",
+  "approvedBy": "Dan",
+  "verbatim": "Okay this looks good. This is approved. I had Claude make the same video. Go and find that video that Claude made, the same finalized edit of this video, and show it to me side by side with this one so I can compare them",
+  "master_sha256": "3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720",
+  "master": "/Volumes/Extreme/_edit_work/DS-40-codex/round5/review/media/bill-maher-fat-90-year-old-r5.mp4",
+  "scope": "Approved exact R5 film. Comparison with Claude requested; no upload or scheduling requested.",
+  "rawChecks": "Preserved without changes; human approval does not rewrite raw gate results."
+}

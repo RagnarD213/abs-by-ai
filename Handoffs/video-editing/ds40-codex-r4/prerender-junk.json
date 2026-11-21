@@ -1,0 +1,180 @@
+{
+ "junk_report_version": "1.0.0",
+ "when": "2026-10-20T13:13:06-0500",
+ "mode": "pre-render",
+ "media": "/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.MP4",
+ "sha256": "405ee31f44ed0ac3d131820d36ff7142e844408cd8c26ac9399acaa491883271",
+ "duration": 45.24,
+ "words": 172,
+ "words_source": "sidecar:/Volumes/Extreme/10:15 dan rose fitness shoot - green screen, outdoor shorts, outdoor b roll, studio backdrop/C1730.roll/words.json",
+ "gaps": {
+  "threshold_db": -37.3,
+  "count": 37
+ },
+ "speech_level_db": -24.3,
+ "joins": [
+  36.128
+ ],
+ "pieces": [
+  {
+   "a": 1400.2322,
+   "b": 1436.36,
+   "off": 0.0,
+   "name": "scripted response"
+  },
+  {
+   "a": 1439.8,
+   "b": 1448.9148,
+   "off": 36.128,
+   "name": "scripted response"
+  }
+ ],
+ "verified": true,
+ "verify_model": "medium.en",
+ "summary": {
+  "candidates": 7,
+  "by_class": {
+   "REPEAT": 1,
+   "SWALLOWED": 4,
+   "PAUSE": 2
+  },
+  "confirmed": 0,
+  "high_unresolved": 0
+ },
+ "candidates": [
+  {
+   "cls": "REPEAT",
+   "t": 3.028,
+   "end": 8.908,
+   "measure": {
+    "gram": "healthy at any size",
+    "first": 3.03,
+    "second": 8.03,
+    "gap_s": 5.0,
+    "kind": "ANAPHORA",
+    "hesitation": false,
+    "continuation_similarity": 0.12,
+    "whole_similarity": 0.35,
+    "item_similarity": 0.0,
+    "words_between": 16
+   },
+   "action": "keep -- a deliberate rhetorical repeat (fluent, different item)",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1403.26,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "SWALLOWED",
+   "t": 9.0,
+   "end": 9.46,
+   "measure": {
+    "seconds": 0.46,
+    "word": "But",
+    "word_span": [
+     8.908,
+     9.508
+    ]
+   },
+   "action": "the word's real onset is the gap's end; the gap is dead air Whisper hid -- treat as PAUSE and cover the join",
+   "confidence": "medium",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1409.232,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "PAUSE",
+   "t": 12.52,
+   "end": 13.1,
+   "measure": {
+    "seconds": 0.58
+   },
+   "action": "keep -- breathing rhythm, not dead air",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1412.752,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "SWALLOWED",
+   "t": 18.32,
+   "end": 18.7,
+   "measure": {
+    "seconds": 0.38,
+    "word": "and",
+    "word_span": [
+     18.228,
+     18.748
+    ]
+   },
+   "action": "re-time the word to the gap's end (a timing correction, not junk)",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1418.552,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "SWALLOWED",
+   "t": 28.54,
+   "end": 28.9,
+   "measure": {
+    "seconds": 0.36,
+    "word": "and",
+    "word_span": [
+     28.508,
+     29.008
+    ]
+   },
+   "action": "re-time the word to the gap's end (a timing correction, not junk)",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1428.772,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "PAUSE",
+   "t": 40.86,
+   "end": 41.42,
+   "measure": {
+    "seconds": 0.56
+   },
+   "action": "keep -- breathing rhythm, not dead air",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1444.532,
+   "piece": "scripted response"
+  },
+  {
+   "cls": "SWALLOWED",
+   "t": 44.2,
+   "end": 44.5,
+   "measure": {
+    "seconds": 0.3,
+    "word": "and",
+    "word_span": [
+     44.168,
+     44.568
+    ]
+   },
+   "action": "re-time the word to the gap's end (a timing correction, not junk)",
+   "confidence": "low",
+   "note": "",
+   "verified": null,
+   "resolution": null,
+   "src": 1447.872,
+   "piece": "scripted response"
+  }
+ ]
+}

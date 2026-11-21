@@ -1,0 +1,9 @@
+{
+  "_note": "Videos that never run paid. Matched by YouTube id (exact) or by title pattern (regex, case-insensitive) so a video is still caught before its id is recorded here. Ab-wheel short 1 uses archival TV-infomercial footage (YouTube Long Form Video Content/abwheel-17-dollar-ab-wheel/SHORTS.md, item 2) — when it is uploaded, add its id to videoIds.",
+  "videoIds": [],
+  "titlePatterns": [
+    "ab wheel beats crunches",
+    "why i love the ab wheel",
+    "best home ab exercise"
+  ]
+}

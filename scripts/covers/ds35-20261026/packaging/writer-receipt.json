@@ -1,0 +1,45 @@
+{
+  "method": "scripts/voice/write.py --print-prompt followed by context-free clean writer subagent; Claude CLI unavailable",
+  "type": "content",
+  "format": "short",
+  "seed": "ds35-20261026",
+  "writer_agent": "/root/ds35_metadata/clean_writer",
+  "writer_context": "Only writer-prompt.txt, containing 5 selected real passages, approved transcript seed, and content-only plan. No DAN-VOICE.md or voice notes.",
+  "passages": [
+    "The Supplements I Actually Take (And Why) (2026)",
+    "Short script: Top 5 Ab Exercises (Dan's own first draft) (2026)",
+    "Short script: Does Jiu Jitsu Get You Abs? (2026)",
+    "Short script: How To Jump Rope (2026)",
+    "Short script: How To Lose The Last Ten Pounds Of Fat (2026)"
+  ],
+  "prompt_sha256": "e17aa211957a0118a4c3938b2037d9bad259eea651f832fc68b282a8d1f7c53d",
+  "metadata_sha256": "00a15e3046f8b23fa294bc9a3773a15ffe2557e9f85d86b78c7b6616b5454833",
+  "body_words": 80,
+  "youtube_description_words": 92,
+  "pinned_comment_characters": 79,
+  "voice_score": {
+    "type": "content",
+    "format": "short",
+    "words": 223,
+    "score": 4.0,
+    "line": 19.8,
+    "claude_typical": 34.1,
+    "flags": [
+      {
+        "measure": "repeat3",
+        "draft": 33.18,
+        "lo": 4.92,
+        "hi": 23.16,
+        "side": "high",
+        "weight": 0.26,
+        "overshoot": true,
+        "dan_median": 10.56
+      }
+    ],
+    "short": false
+  },
+  "hard_fail": false,
+  "copy_edits_after_draft": 0,
+  "generation_api_cost": 0,
+  "usage": "No metered generation API called. Clean subagent token usage not exposed."
+}

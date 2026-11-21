@@ -1,0 +1,70 @@
+[
+  {
+    "aspect": "9x16",
+    "id": "G02",
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G02.mov",
+    "reference_sha256": "a96228b49670b4d30bfb75851f1bb6003d92f0a6677defac382954c2812a00bc",
+    "reference_frames": [
+      0,
+      79,
+      158
+    ],
+    "output_frames": [
+      983,
+      1062,
+      1141
+    ],
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-extra/9x16-G02-approved.jpg"
+  },
+  {
+    "aspect": "9x16",
+    "id": "G03",
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G03.mov",
+    "reference_sha256": "d0fcc8cdd960f250006564f5217455409f23373f5ba9ada701e0e4d6b193084d",
+    "reference_frames": [
+      0,
+      71,
+      142
+    ],
+    "output_frames": [
+      1279,
+      1350,
+      1421
+    ],
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-extra/9x16-G03-approved.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G02",
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02.mov",
+    "reference_sha256": "85f029544e91d2af0a6b01769eae506c9fd43472d645bc865af02026123de49d",
+    "reference_frames": [
+      0,
+      79,
+      158
+    ],
+    "output_frames": [
+      983,
+      1062,
+      1141
+    ],
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-extra/16x9-G02-approved.jpg"
+  },
+  {
+    "aspect": "16x9",
+    "id": "G03",
+    "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03.mov",
+    "reference_sha256": "a616553520885b3037f7cb2325780422bb9af8dfd0aa012e747874e427265bc4",
+    "reference_frames": [
+      0,
+      71,
+      142
+    ],
+    "output_frames": [
+      1279,
+      1350,
+      1421
+    ],
+    "proof": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-extra/16x9-G03-approved.jpg"
+  }
+]

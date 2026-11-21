@@ -1,0 +1,43 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-13 Most Guys Abs",
+  "key": "ra13",
+  "targetCpa": 40.0,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "KSq1OBlWvPI",
+      "version": "Codex R3 9:16",
+      "utm": "codex-9x16"
+    },
+    {
+      "youtubeId": "cnkrWRfFsTc",
+      "version": "Codex R3 16:9",
+      "utm": "codex-16x9"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "How AI Builds Your Fitness Plan",
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "AI Workouts Built Around Your Goal",
+      "A Fitness Plan That Adapts To You"
+    ],
+    "longHeadlines": [
+      "Daniel Rose shows how AI builds workouts and nutrition plans around a clear goal.",
+      "See how a goal picture guides a personal workout and nutrition plan.",
+      "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture.",
+      "AI fitness coaching explained by a guy who did it at 40 years old.",
+      "See yourself with your goal body, then get a training and meal plan built for it."
+    ]
+  },
+  "thumbnail": "Dan selected option 3 AI Dan, same cobalt and cream layout, bold Impact type: HOW TO GET REAL ABS WITH AI. (2026-10-17)"
+}

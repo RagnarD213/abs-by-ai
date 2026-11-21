@@ -1,0 +1,28 @@
+{
+  "photo": {
+    "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-11_FINAL_PRIMARY.jpg",
+    "sha256": "b8303f4719d27c04415e84a043d4684852a4ceec769d2b6415b56a371dd0827f",
+    "original_camera_photo": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/studio shoot | 8-28-26 | dan | mindi/Portrait Shoot Thu Aug 27/ Snappr Daniel Studio Blue-11.JPG",
+    "original_sha256": "a0bc2bd1aec2c3d90bda565d2f4dbc906d4ae38e94b44e7bb4494770fd4f9edc",
+    "classification": "existing finalized retouched real studio photograph; new round makes no physique alteration",
+    "selected": "studio-blue-11; visible stronger definition than reviewed black-shorts card"
+  },
+  "craig": {
+    "path": "/Volumes/Expansion/_edit_work/DS-35/round3/assets/Daniel-source-inset.png",
+    "sha256": "2873e854d802330406779369a806729cee851bd45df4ae0d22f1151c88fe7dc3",
+    "source": "ManVsStreet original source inset, same approved R1 component; no download",
+    "film_frames": [
+      284,
+      469
+    ],
+    "text": "The Dad Bod she likes",
+    "rect": [
+      20,
+      455,
+      425,
+      428
+    ]
+  },
+  "new_assets_downloaded": [],
+  "metered_spend": 0
+}

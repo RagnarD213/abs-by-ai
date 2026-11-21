@@ -1,0 +1,81 @@
+{
+ "format": "the-fix",
+ "id": "fix-07-spiderman-plank",
+ "tag": "The Fix · 07",
+ "status": "draft R1 2026-10-21; wording source: raw roll C0223-007 (7/8 welcome shoot, 377-440 s), 10/15 shoot roll C1765 (5-minute workout script), short short4_spiderman-planks",
+ "cover": {
+  "headline": "Stop doing Spider-Man\n[y]planks like this.[/y]",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-spiderman-plank/cover.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a plank with his butt pushed high in the air"
+  },
+  "ring": [
+   225,
+   150,
+   150,
+   140
+  ],
+  "callout": "Butt up",
+  "callout_at": [
+   380,
+   120
+  ],
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-spiderman-plank/mistake.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a pike position, hips high above his shoulders"
+  },
+  "headline": "Butt way up\nin the air.",
+  "body": "Butt up in the air or back sagging, either way it's not a plank. Like the name says, you should be a plank."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-spiderman-plank/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan in a forearm plank, body straight from head to heels"
+  },
+  "headline": "Be a plank.\nPerfectly straight.",
+  "body": "Elbows down, body straight. Go up to a push-up position, then back down, staying straight the whole time. [em]Hold the tension in your abs.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-07-spiderman-plank/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan kneeling on the mat between sets"
+  },
+  "title": "3 cues",
+  "subtitle": "for Spider-Man planks",
+  "items": [
+   "Head to heels in one straight line.",
+   "Stay straight going up and coming down.",
+   "Advanced: keep your stomach sucked in the whole set."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next ab day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose plank looks like a pup tent."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}

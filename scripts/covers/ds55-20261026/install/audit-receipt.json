@@ -1,0 +1,30 @@
+{
+  "before": {
+    "cover_audit": {
+      "scheduledPosts": 188,
+      "platforms": {
+        "instagram": 56,
+        "facebook": 55,
+        "tiktok": 40,
+        "youtube": 37
+      },
+      "issues": [],
+      "note": "Queue preflight only. Public tiles still need a visual release check; TikTok timestamp alone does not verify frame-zero pixels."
+    },
+    "ad_guard": "scanned 188 scheduled posts against 38 ads and 71 ad video ids\nCLEAN \u2014 no ad content scheduled"
+  },
+  "after": {
+    "cover_audit": {
+      "scheduledPosts": 188,
+      "platforms": {
+        "instagram": 56,
+        "facebook": 55,
+        "tiktok": 40,
+        "youtube": 37
+      },
+      "issues": [],
+      "note": "Queue preflight only. Public tiles still need a visual release check; TikTok timestamp alone does not verify frame-zero pixels."
+    },
+    "ad_guard": "scanned 188 scheduled posts against 38 ads and 71 ad video ids\nCLEAN \u2014 no ad content scheduled"
+  }
+}

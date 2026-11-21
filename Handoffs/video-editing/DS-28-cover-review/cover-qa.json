@@ -1,0 +1,14 @@
+{
+  "status": "checked",
+  "checks": [
+    "10 RGB 1080x1920 files decoded",
+    "all below 2 MB",
+    "headline bounds checked in both layouts",
+    "photo sources and provenance preserved",
+    "no text over hair or faces",
+    "no website mark or real-photo labels",
+    "all five local Real-ESRGAN passes completed"
+  ],
+  "public_cover_status": "not released",
+  "selected_option": null
+}

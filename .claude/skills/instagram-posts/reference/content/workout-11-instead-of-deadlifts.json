@@ -1,0 +1,79 @@
+{
+ "format": "steal-my-workout",
+ "id": "workout-11-instead-of-deadlifts",
+ "tag": "Steal my workout",
+ "source": "Why I stopped deadlifting at 40, YouTube 9nfvwfo52Z0 (Zeeshan video 3 SRT)",
+ "cover": {
+  "headline": "I quit deadlifts.\n[y]4 lifts instead.[/y]\nSafer at 40.",
+  "cutout": {
+   "src": "Short-form video content/instagram-danrosefit/assets/workout-11-instead-of-deadlifts/cutout.webp",
+   "alt": "Dan in black trunks and glasses"
+  },
+  "swipe": "Swipe to steal it"
+ },
+ "moves": [
+  {
+   "name": "Rear delt fly",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/workout-11-instead-of-deadlifts/rear-delt.jpg",
+    "pos": "50% 45%",
+    "zoom": 1.7,
+    "label": "real",
+    "alt": "Dan bent over with dumbbells out to his sides"
+   },
+   "cues": [
+    "Machine, or dumbbells bent over.",
+    "Move in an arc. Don't row it.",
+    "Squeeze a pencil between your shoulder blades."
+   ]
+  },
+  {
+   "name": "T-bar row",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "placeholder": "Gym, side angle: Dan on the T-bar row machine with a wide grip, weight pulled to his lower chest, back flat"
+   },
+   "cues": [
+    "Load the T-bar machine and row it back.",
+    "Wide grip for width, not thickness.",
+    "Don't jerk it up with your lower back."
+   ]
+  },
+  {
+   "name": "Lat pulldown",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "placeholder": "Gym, front three-quarter angle: Dan doing wide-grip lat pulldowns, bar pulled to his upper chest, elbows driven down"
+   },
+   "cues": [
+    "Take the widest grip.",
+    "Slow, controlled pull.",
+    "Wide builds the wings of a V-taper."
+   ]
+  },
+  {
+   "name": "Leg press",
+   "dose": "2 x 6-10",
+   "dose_icon": "none",
+   "image": {
+    "placeholder": "Gym, side angle: Dan on the leg press at the bottom of a rep, knees near 90 degrees, safety stops visible, lower back flat on the pad"
+   },
+   "cues": [
+    "Set the safety stop first.",
+    "Lower to the stop.",
+    "Push back up through your heels."
+   ]
+  }
+ ],
+ "recap": {
+  "title": "Screenshot this.",
+  "note": "1 warm-up set of 12 to 15, then 2 hard sets of 6 to 10.",
+  "text": "Stay injury free and you build more muscle over the years. Tag a friend over 40 who still deadlifts.",
+  "follow": "Workouts I actually do."
+ },
+ "status": "ON HOLD (Dan 2026-10-22): needs the footage on the shoot list before it can post."
+}

@@ -1,0 +1,21 @@
+{
+ "NEAR": [
+  648,
+  1152
+ ],
+ "FAR": [
+  810,
+  1440
+ ],
+ "status": "RA-06: Dan's RA-14 pick F2 ('Let's go with a wider crop, the recommended crop', 2026-10-14) converted to C1664 by body landmark (RA-05's conversion: close ends ~70 px under the waistband, wide ~320 px under it).",
+ "ra01": {
+  "NEAR": [
+   594,
+   1056
+  ],
+  "FAR": [
+   702,
+   1248
+  ]
+ }
+}

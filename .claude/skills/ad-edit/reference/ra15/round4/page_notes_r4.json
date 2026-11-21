@@ -1,0 +1,27 @@
+{
+ "intro": "Round 4 is the finished ad in both shapes with the one change you asked for: the cardboard nutritionist cutout card is gone and you are on camera for that line. Everything else is exactly as you approved it in round 3. Same length (51.9 s), same audio, same timing for every other scene. Every delivery check and an independent review were run on these exact files. Spend on AI generation this round: $0.",
+ "files": "Full quality files (and the same files in Videos to Review for VLC): never pay a nutritionist again | claude | 9x16 | RA-15.mp4 and ... | 16x9 | RA-15.mp4, in Claude Ad Videos/never pay a nutritionist again - RA-15/.",
+ "changes": [
+  {
+   "id": "C1",
+   "name": "Cutout card out, you on camera",
+   "at": "0:39.0 to 0:43.2",
+   "watch": [
+    36.5,
+    45.5
+   ],
+   "still": 40.5,
+   "before": "a 3.5 s AI clip of a man and a cardboard nutritionist (0:39.0 to 0:42.5), then you saying \"twice.\" in a close shot.",
+   "now": "you on camera from the end of the restaurant card (0:39.0) to the lock screen card (0:43.2): \"A nutritionist charges hundreds of dollars per month and sees you twice.\" It is two shots with a size change at 0:41.7 (wide, then close), so the pause there is not a jump cut."
+  }
+ ],
+ "eye": [
+  "The cutout was the card that carried the most AI footage; with it gone the ad is 38 % cards instead of 45 %. The other seven cards are unchanged.",
+  "In the 9:16, your hands touch the side edge of the close shot for about 0.4 s somewhere in 0:41.7 to 0:43.2 (the same size and spot as round 3 s \"twice\" shot). The wide shot before it has no edge touches."
+ ],
+ "decided": [
+  "Which shot sizes: the first part (0:39.0 to 0:41.7) is the wide size because your arms are wide there; the second part (0:41.7 to 0:43.2) is the close size so the pause splice reads as a deliberate size change.",
+  "Nothing else was re-cut, re-graded or re-mixed: same cut, same audio file, same graphics, same captions timing. The 16:9 follows the same plan."
+ ],
+ "reply": "Round 4 notes:\n\n1. The cutout replacement (0:39.0 to 0:43.2):\n\n2. Anything else:\n"
+}

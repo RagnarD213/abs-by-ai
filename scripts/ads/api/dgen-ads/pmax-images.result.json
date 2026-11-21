@@ -1,0 +1,245 @@
+{
+ "at": "2026-10-02T17:48:11.578Z",
+ "images": [
+  {
+   "file": "K1-r2.jpg",
+   "asset": "customers/3427170837/assets/426330066669",
+   "name": "pmax-20261002 K1-r2",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K10-b.jpg",
+   "asset": "customers/3427170837/assets/426146441822",
+   "name": "pmax-20261002 K10-b",
+   "width": 960,
+   "height": 1200,
+   "field": "PORTRAIT_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K2-r2.jpg",
+   "asset": "customers/3427170837/assets/426146450696",
+   "name": "pmax-20261002 K2-r2",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K3-b.jpg",
+   "asset": "customers/3427170837/assets/426330057612",
+   "name": "pmax-20261002 K3-b",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K4-d.jpg",
+   "asset": "customers/3427170837/assets/426146441825",
+   "name": "pmax-20261002 K4-d",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K5-d.jpg",
+   "asset": "customers/3427170837/assets/426330066672",
+   "name": "pmax-20261002 K5-d",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K6-d.jpg",
+   "asset": "customers/3427170837/assets/426146450699",
+   "name": "pmax-20261002 K6-d",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K7-d.jpg",
+   "asset": "customers/3427170837/assets/426330038496",
+   "name": "pmax-20261002 K7-d",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K8-a.jpg",
+   "asset": "customers/3427170837/assets/426330044298",
+   "name": "pmax-20261002 K8-a",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "K9-c.jpg",
+   "asset": "customers/3427170837/assets/426146441828",
+   "name": "pmax-20261002 K9-c",
+   "width": 960,
+   "height": 1200,
+   "field": "PORTRAIT_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R1-b.jpg",
+   "asset": "customers/3427170837/assets/426330057615",
+   "name": "pmax-20261002 R1-b",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R10-e.jpg",
+   "asset": "customers/3427170837/assets/426330066675",
+   "name": "pmax-20261002 R10-e",
+   "width": 960,
+   "height": 1200,
+   "field": "PORTRAIT_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R2-b.jpg",
+   "asset": "customers/3427170837/assets/426146450702",
+   "name": "pmax-20261002 R2-b",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R3-a.jpg",
+   "asset": "customers/3427170837/assets/426330038502",
+   "name": "pmax-20261002 R3-a",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R4-a.jpg",
+   "asset": "customers/3427170837/assets/426146441834",
+   "name": "pmax-20261002 R4-a",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R5-r2.jpg",
+   "asset": "customers/3427170837/assets/426330066678",
+   "name": "pmax-20261002 R5-r2",
+   "width": 960,
+   "height": 1200,
+   "field": "PORTRAIT_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R6-r2.jpg",
+   "asset": "customers/3427170837/assets/426330044301",
+   "name": "pmax-20261002 R6-r2",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R7-c.jpg",
+   "asset": "customers/3427170837/assets/426146450705",
+   "name": "pmax-20261002 R7-c",
+   "width": 1200,
+   "height": 628,
+   "field": "MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R8-r2.jpg",
+   "asset": "customers/3427170837/assets/426330038508",
+   "name": "pmax-20261002 R8-r2",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  },
+  {
+   "file": "R9-d.jpg",
+   "asset": "customers/3427170837/assets/426330057618",
+   "name": "pmax-20261002 R9-d",
+   "width": 1200,
+   "height": 1200,
+   "field": "SQUARE_MARKETING_IMAGE",
+   "aiLabel": {
+    "status": "IS_SYNTHETIC",
+    "source": "ADVERTISER_ATTESTED"
+   }
+  }
+ ]
+}

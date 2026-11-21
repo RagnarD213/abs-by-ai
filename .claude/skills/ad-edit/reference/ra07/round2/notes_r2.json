@@ -1,0 +1,196 @@
+{
+ "spend": "$5.00 (five Kling takes at about $1 each, estimate; the Replicate invoice is the record)",
+ "locked": [
+  "Opening: the fired-trainer clip from the first frame under \"Fire your trainer now and replace him with AI\", then you on camera (your round 1 answer).",
+  "The Cheat Code settings: the wider framing, the brighter golden-skin colour, the voice with the bass lift.",
+  "Claim lines run as spoken. I1 (the sad paper) is out: you are on camera for the paper line.",
+  "Motion authorized for I2, I3a and I5 from their round 1 frames (shown moving below)."
+ ],
+ "decisions": [
+  {
+   "short": "New frames (I3b, I4a, I4b: yes / changes each)",
+   "q": "The three new frame pairs below: I3b Shoulder fix (phone, then the side lateral raise machine), I4a Out of order (now on a squat machine), I4b Hack squat instead.",
+   "opts": "A (recommended): approve all three; I make the motion next round. B: name the pair and what to change. For I4a I drew the \"leg squat machine\" as a Smith machine (a barbell on two rails) so it reads differently from the hack squat; say if you meant another machine."
+  },
+  {
+   "short": "The three clips moving (I2, I3a, I5: approve / changes)",
+   "q": "Same sheet for everyone (I2), Tweaked shoulder (I3a) and Back next week (I5), now moving, in context.",
+   "opts": "A (recommended): approve all three. B: name the clip and what to change. Each passed my check and an independent review for things that appear, vanish or make no sense."
+  },
+  {
+   "short": "First 30 seconds (approve / changes)",
+   "q": "The finished first 30 seconds at the top: the clip first, the Cheat Code look and voice, steps 1 and 2.",
+   "opts": "A (recommended): approve; round 3 builds the whole ad from here. B: changes (say what, with the time)."
+  }
+ ],
+ "first30_note": "From the fired-trainer clip to \"you'll get far better results\": the clip first, the new framing and colour, captions, 1 OF 3 with the demo and the lock screen, you on camera for the paper line, 2 OF 3 and the real workout screens, the voice with the bass lift and the music. Nothing in it is a placeholder. The whole ad waits for round 3 because three clips are still frames.",
+ "frames_note": "Made on the Codex subscription ($0), the same man as I3 and I5, each END made from its START so the camera stays put. Motion is generated only after you approve the frames, about $1 a take.",
+ "new_frames": [
+  {
+   "id": "I4a",
+   "name": "Out of order (squat machine)",
+   "after": "Right after: the Shoulder fix clip (I3b) on \"AI adjusts your plan in\".",
+   "see": "He walks toward a Smith machine squat rack with a towel over his shoulder; the yellow OUT OF ORDER sign (round 1's lettering) hangs from the bar. He stops, turns to the camera with both palms up.",
+   "move": "One take from START to END, trimmed to the walk-up, the stop and the palms-up.",
+   "cost": "About $1 (one take; a retake if it fails the check, about $1 more).",
+   "no": "You on camera, wide, for the line."
+  },
+  {
+   "id": "I3b",
+   "name": "Shoulder fix (phone, then the lateral raise machine)",
+   "after": "Right after: the Hack squat clip (I4b) on \"seconds, while human trainers\".",
+   "see": "Still holding his shoulder on the bench, he checks his phone for an alternative; then he is on the seated side lateral raise machine doing an easy rep, no wince.",
+   "move": "Two short shots joined by a cut (he changes place, so one take cannot carry it): the phone, then the easy rep. About 0.6 s each in a 1.3 s slot.",
+   "cost": "About $2 (two takes).",
+   "no": "You on camera for the line, and I4b plays on its own."
+  },
+  {
+   "id": "I4b",
+   "name": "Hack squat instead",
+   "after": "Right after: Back next week (I5) on \"leave you confused until next week.\"",
+   "see": "He walks up to the hack squat machine with a small nod; then he is in it, shoulders under the pads, mid-rep.",
+   "move": "One take from START to END, trimmed to him settling in and doing the rep.",
+   "cost": "About $1.",
+   "no": "You on camera for the line, and I3b plays on its own."
+  }
+ ],
+ "moving": [
+  {
+   "id": "I2",
+   "name": "Same sheet for everyone",
+   "take": "Take 3 of 3, its first 2.67 s.",
+   "checked": "Take 1: the loose white stack turned into a black binder by itself. Take 2: a second trainer appeared behind the clients. Both thrown out. Take 3 passed my check and the independent review; its last half second (a loose sheet appearing at his hip) is cut."
+  },
+  {
+   "id": "I3a",
+   "name": "Tweaked shoulder",
+   "take": "Take 1, its first 2.07 s. The grip on the shoulder lands on \"injured\".",
+   "checked": "The dumbbell stays in his hand all the way down. Passed my check and the independent review (some motion blur as he lowers it, normal at full speed)."
+  },
+  {
+   "id": "I5",
+   "name": "Back next week",
+   "take": "Take 1, its last 2.1 s: he reads the sign, turns and shrugs on \"until next week\".",
+   "checked": "The sign keeps its letters and position in every frame. Its first 2 s (the knock, then a long pause) do not fit the 2.1 s slot. Passed my check and the independent review."
+  }
+ ],
+ "items": [
+  {
+   "id": "H1",
+   "name": "The fired trainer",
+   "kind": "AI clip, full screen",
+   "status": "your round 1 pick: first, under the hook line",
+   "copy": "A robot spots the lifter while his trainer walks out with his box. Chip: AI-GENERATED, on the floor.",
+   "src": "Clip library A0147, from its first frame, at its own speed (3.4 of its 4.0 s)."
+  },
+  {
+   "id": "L1",
+   "name": "Signpost 1",
+   "kind": "Soft Blue lower third",
+   "status": "round 1 copy, now moving",
+   "copy": "1 OF 3 / See Your Goal Physique",
+   "src": "lower-third template"
+  },
+  {
+   "id": "P1",
+   "name": "Generating your picture",
+   "kind": "phone demo",
+   "status": "round 1 stills, now moving",
+   "copy": "The options screen, the tap, \"Rendering your goal image\" over your photo (chip: Real picture of me. Not AI-generated.), then your goal picture, AI-GENERATED.",
+   "src": "The approved self-generation demo (Ad 14 R3), approved iPhone shell, normal speed."
+  },
+  {
+   "id": "K1",
+   "name": "The lock screen",
+   "kind": "phone, built in code",
+   "status": "round 1 still, now with a slow push",
+   "copy": "Your goal picture as the lock screen, clock above your head. Chip: AI-GENERATED.",
+   "src": "Approved shell + the original goal picture."
+  },
+  {
+   "id": "L2",
+   "name": "Signpost 2",
+   "kind": "Soft Blue lower third",
+   "status": "round 1 copy, now moving",
+   "copy": "2 OF 3 / A Program Built For Your Goal",
+   "src": "lower-third template"
+  },
+  {
+   "id": "W1",
+   "name": "Your workout program",
+   "kind": "phone, real app recording",
+   "status": "round 1 stills, now moving",
+   "copy": "Monday's workout list, then the Goblet Squat sheet opens and its demo plays.",
+   "src": "Clip library B0034 from 3.0 s, normal speed."
+  },
+  {
+   "id": "I2",
+   "name": "Same sheet for everyone",
+   "kind": "AI clip, full screen",
+   "status": "new: moving for the first time",
+   "copy": "Chip: AI-GENERATED, on the wall top right.",
+   "src": "Your round 1 frames, Kling take 3."
+  },
+  {
+   "id": "L3",
+   "name": "Signpost 3",
+   "kind": "Soft Blue lower third",
+   "status": "round 1 copy, now moving",
+   "copy": "3 OF 3 / A Plan That Adjusts To Your Life",
+   "src": "lower-third template"
+  },
+  {
+   "id": "I3a",
+   "name": "Tweaked shoulder",
+   "kind": "AI clip, full screen",
+   "status": "new: moving for the first time",
+   "copy": "Chip: AI-GENERATED, top centre.",
+   "src": "Your round 1 frames, Kling take 1."
+  },
+  {
+   "id": "M1",
+   "name": "Working out at home",
+   "kind": "AI clip, full screen",
+   "status": "round 1 still, now moving",
+   "copy": "A man curls dumbbells in his living room. Chip: AI-GENERATED, top left beside his head.",
+   "src": "Clip library A0039 (approved in Ad 14 R4), 848x480 original filled to the frame."
+  },
+  {
+   "id": "I5",
+   "name": "Back next week",
+   "kind": "AI clip, full screen",
+   "status": "new: moving for the first time",
+   "copy": "Chip: AI-GENERATED, top.",
+   "src": "Your round 1 frames, Kling take 1."
+  },
+  {
+   "id": "C1",
+   "name": "The button",
+   "kind": "Soft Blue CTA button",
+   "status": "round 1 copy, now moving",
+   "copy": "Tap The Button Below / Get Started",
+   "src": "cta template"
+  }
+ ],
+ "decided": [
+  "Opening, your pick: the fired-trainer clip from its first frame under \"Fire your trainer now and replace him with AI.\" (3.4 s of its 4.0 s, its own speed, never stretched), then a hard cut to you close on \"Why are thousands\".",
+  "Framing: the Cheat Code's wider pair converted to this roll by your head size (close 738x1312, wide 918x1632). Checked side by side with the approved Cheat Code frames: you fill the frame the same way. RA-05's tighter conversion of the same pick (648/810) was tighter than the Cheat Code on both shots, so I did not use it.",
+  "Colour: the Cheat Code's golden-skin colour file as is. On this roll your face measures 117 to 120 against 113 to 120 on the approved Cheat Code frames. RA-05's re-made version for this roll came out a stop darker (91 to 96) and duller, so I did not use it.",
+  "Voice: the bass lift (+3 dB at 120 Hz) on this roll's fitted voice, same music, -14.2 LUFS. The audio check passes 11 of 12; the tone row misses by 0.36 dB at its worst band, which is the bass lift itself (the approved Cheat Code mix misses the same row).",
+  "Every pause cut on this roll is visible on its own (I measured all 16), so every one gets a size change. The three numbered points became one pattern: close on \"One,\" \"Two,\" and \"And three,\", wide for the point. The \"One,\" and \"Two,\" shots are 0.4 s each; say if they feel too quick and I will hold the close shot through the point instead.",
+  "With I1 gone, the paper line is you: close on \"A paper from your trainer that says goal,\", wide on \"lose 20 pounds, does not.\" (I1 used to hide a pause cut there).",
+  "Each signpost's headline now appears on the number you say (\"One,\" \"Two,\" \"three\"). On my first build it waited for \"AI can...\", and the glass strip sat empty over your chest for up to 0.9 s; a watch-through by Gemini caught it, I confirmed it frame by frame and fixed it.",
+  "The problem-then-fix run: Tweaked shoulder, Working out at home, Out of order, then both fixes on \"AI adjusts your plan in seconds, while human trainers\" (Shoulder fix 1.3 s, Hack squat 1.5 s), then Back next week. I did not offer each fix straight after its problem: the shoulder fix would get only \"When you get injured\" (0.8 s, under the 1.2 s minimum) and would push out the home workout clip.",
+  "The app's Swap list (T1) is out: the phone in the Shoulder fix carries \"AI adjusts your plan\".",
+  "\"Leg squat machine\" is drawn as a Smith machine (a barbell on two rails), so it reads as a different machine from the hack squat.",
+  "Shoulder fix END frame: the first version had one arm up and one down and read like a chest machine; I remade it once with both arms out to the sides.",
+  "Back next week has no follow-on clip: you said it is good as is.",
+  "Same sheet for everyone needed three takes (take 1: the stack of sheets turned into a black binder by itself; take 2: a second trainer appeared). Take 3 is clean for the part used.",
+  "The AI-GENERATED chips are placed by looking at each clip: on the wall above everyone in Same sheet for everyone (the automatic placement put it on the trainer's head), above his head in Tweaked shoulder and Back next week, beside his head in the home workout clip, on the floor in the fired-trainer clip.",
+  "The phone cards now move: the generation demo at normal speed, a slow push on the lock screen, and the real AI Trainer recording (Monday's list, then the Goblet Squat sheet and its demo).",
+  "The two library clips are upscaled with a standard resize and light sharpening. The sharper AI upscaler named in my notes is not installed on this Mac, and the 1080 copy of the fired-trainer clip from the Ad 13 build is slowed down, so I could not use it. They read slightly softer than the new clips.",
+  "Junk-footage scan of the kept takes: nothing confirmed. The two pause joins it flagged both sit on a clip cut.",
+  "Captions are round 1's, unchanged (same words and timing). They clear every graphic; every graphic clears your face by at least 373 px.",
+  "Spend: $5.00 of $10 on motion (five takes). The six frames were made on the Codex subscription ($0)."
+ ]
+}

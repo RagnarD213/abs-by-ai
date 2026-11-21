@@ -1,0 +1,253 @@
+---
+name: ad-setup
+description: Take a FINISHED ad video (usually an editor's HD final shared as a Google Drive link) all the way to running — file it in the project folder, upload it to YouTube unlisted with a description, chapters, tags, the AI-content disclosure and a clean thumbnail, then add it to the Google Ads Demand Gen conversion campaign (one ad group per landing page, its own audience, compliant copy) and record the ids. Use whenever Dan says an ad is "complete", "final", "approved", sends an HD link and asks to "upload it", "set it up", "add it to the campaign", "put it in Google Ads", or adds a new version (a vertical) of an ad already running — even if he doesn't say "/ad-setup". Reviewing a cut is /revisions; filing alone is /editor-deliveries; thumbnails alone are /youtube-packaging.
+---
+
+## Setup owner (Dan, 2026-11-07)
+
+Codex owns the complete setup for videos edited by either Claude or Codex, including images and setup files. Claude is used only when Dan explicitly requests it, for example because his Codex allowance is low; never switch automatically or infer the exception. This overrides older one-Claude handoffs and executor recommendations below. Reuse the existing setup package and preserve approvals, cover picks and publishing rules.
+
+Read `_shared/VIDEO-RULES.md` first.
+
+# /ad-setup — finished ad → YouTube → Google Ads
+
+Built 2026-09-11 on Ads 3 + 4 (Muhammad's HD finals, Dan: *"These two ads are complete. Upload them to YouTube,
+set them up with descriptions and everything we need, and add these to our campaign in Google Ads."*). Everything
+below was run end to end that day; the ids it produced are in `Docs/AD_VIDEO_IDS.md` and
+`Docs/DGEN_CONVERSION_CAMPAIGN.md`.
+
+**Permanent visibility rule (Dan, 2026-09-16): every ad video is Unlisted on YouTube, always. Never upload an ad
+as Public, never schedule it to become Public, and never create a separate Public YouTube copy.** If the ad is also
+queued on other social platforms, that does not change its YouTube visibility. Read the finished YouTube record back
+and require `privacyStatus: unlisted`; a missing or different value is a failed setup that must be corrected.
+
+**Scope — and the thing this skill used to get wrong.** This is the PAID path and the ONLY path an ad takes: an
+unlisted YouTube video that Google Ads points at. **An ad is NEVER published organically — not Facebook, not
+Instagram, not TikTok, not Blotato, not YouTube Public** (Dan, 2026-09-17; `AGENTS.md`). Until 2026-09-17 this
+paragraph said the opposite — "if cross-platform organic distribution is separately requested, queue those platforms
+through Blotato" — and that sentence is why Ad 5 ran free on four organic accounts on 09-16/17.
+
+**If the request sounds like organic distribution** ("set it up on all platforms", "put it in the Blotato queue",
+"get it on YouTube and everything else") **and the video is an ad, stop and say so**: "this is an ad — ads don't go
+organic. Do you want it posted organically anyway?" Then wait for Dan's answer. Do the ad setup meanwhile; only the
+organic half is blocked. If he says yes, record his words in `ORGANIC_OVERRIDES` in `scripts/blotato/ad_guard.py`
+before queueing anything. Always say in the report that organic posting was not done.
+
+All steps are reversible and covered by standing authorizations (analytics/ads config, bias toward action). Do not
+stop to ask. The one thing Claude never does here: enable a paused campaign (`ADS_ALLOW_ENABLE_CAMPAIGN=1` is Dan's).
+
+## 0. Preconditions — 2 minutes, never skip
+
+- **It really is an AD** (`_shared/VIDEO-RULES.md`, "Ad or organic?", Dan 2026-09-28). Read the finished file's
+  closing words. A definite "tap/click the button below" CTA = ad. A "go to AbsByAI.com" / "leave me a comment"
+  ending with no button CTA = organic → `/video-setup`, not this skill. If the handoff calls it an ad but the video
+  reads organic (or the reverse), tell Dan with the quoted line and wait before any upload. DS-18 went through this
+  skill by mistake on 2026-09-27 because nobody checked.
+
+- **It is really final.** Use the exact review export Dan explicitly called finalized as the authority. A revision
+  document is supporting history only: an old, abandoned or deliberately declined revision must never override Dan's
+  finalization of a file. If the exact finalized reference cannot be identified, say that the HD export is unverified
+  rather than judging it against an earlier draft. Drive `get_file_metadata` on the delivery link: `video/mp4`, hundreds
+  of MB, 1080p-class. A 30 MB file is normally a review proxy, not the high-quality upload master.
+- **Nobody else owns it.** Grep `AI_COORDINATION.md` for the ad. Another session building the ad's VERTICAL
+  (e.g. `/Volumes/Extreme/_edit_work/ad3-vert/`) is not a conflict — uploads and the campaign are separate.
+- **What version is this?** A first 16:9 for an ad → the full run. A new version of an ad already in the campaign
+  (a vertical, a re-cut) → steps 1, 3–5, then step 6 with one more `videos` entry (the builder reuses the groups).
+
+## 1. File the master (curl, no browser)
+
+```bash
+curl -sL -r 0-1023 "https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t" | head -c 12 | xxd -p
+#   …667479706d70… = ftyp = real video. HTML = shared only to Dan's account → /editor-deliveries Chrome recipe.
+curl -sL -o "<target>.part" "https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t"
+```
+
+Target: `<Editor> Ad Videos/<title> - ad N/<title> | <editor> | 16x9 | ad N.mp4` (title = the script title,
+lowercase, no punctuation, the "Use AI Instead" tail dropped — `stop paying human trainers`, `stop wasting money on
+supplements`). Rename from `.part` only when `stat -f %z` equals Drive's `fileSize`. Then `ffprobe` it (1920×1080,
+duration). Add a `filed` row to `.claude/skills/editor-deliveries/state.json`. The editor's audio is delivered
+untouched — no re-encode, upload the file exactly as he exported it. **But measure it and report it:**
+`ffmpeg -i <master> -af ebur128=peak=true -f null -` → integrated LUFS and true peak. Dan's rule for editor
+exports is −14 LUFS / ≤ −1.0 dBTP; a miss is Dan's call (accept, or ask the editor for a re-export), never a
+reason to process his audio and never a reason to hold the upload. Say the numbers in the report. (Ad 4 V4 HD,
+09-11: −13.9 LUFS, −0.90 dBTP, 0 clipped samples — flagged by the Ad 4 vertical session after the upload.)
+A re-export replaces the video: upload it new, add it as a second `videos` entry in the ad's config, rerun
+`dgen-add-ad.js --apply`, pause the old-video ads.
+
+## 1.5. Prove the HD export preserves the finalized cut
+
+An editor's “HD” filename is not proof that it is the finalized edit. Identify the **exact file Dan approved** from
+his message/history and compare it before filing or uploading. This is an identity check, not a fresh creative review:
+do not reopen accepted flaws, enforce later standing rules retroactively, or treat declined revision ideas as required.
+
+```bash
+python3 .claude/skills/ad-setup/scripts/compare_hd_export.py \
+  "<approved review copy.mp4>" "<new HD export.mp4>" --out "<ad folder>/hd-comparison.json"
+```
+
+The comparison requires the same timeline/frame rate, the same audio mix, and no sampled picture change above
+re-encode noise. It first checks the AAC packet payload exactly; when the HD export also raises the audio bitrate,
+it accepts only a tightly matched decoded mix (≤0.15 dB level change and ≥0.99 cosine similarity at 16 kHz mono),
+then the canonical `audio_gate.py --reference-mix <approved> --verbatim` measures the filed master. The editor-audio
+rule in step 1 still controls delivery: a small loudness/peak miss is reported, never locally processed, and does not
+by itself overturn Dan's approval or hold an otherwise authorized upload.
+It compares decoded luma after normalizing both files to the same small frame. Low-resolution review proxies can
+still create false positives around text, graphics and transitions, so any reported stretch outside the allowed
+windows gets a paired full-resolution frame inspection. A numeric FAIL is a lead to inspect, not permission to
+reject blindly; a visual mismatch is a real failure. A PASS supports “the same approved cut at higher quality”;
+it does not replace watching the exact export.
+
+If the HD file has a different edit/version number from the finalized reference, do **not** use an older review file
+and infer approval from a revision list. Locate the matching finalized review export. If it is unavailable, stop the
+identity claim and report exactly which reference is missing. If the HD differs visually from the finalized reference,
+report only the changed time ranges and say it is not a resolution-only export; do not turn that finding into a list
+of creative corrections. Dan then decides whether the changed HD itself is the new approved master.
+
+`--allow-window MM:SS-MM:SS` is only for a different task: verifying a known, explicitly approved revision between two
+versions. Never use allowed windows to make a non-identical HD export pass this resolution-only identity check.
+
+> **Current thumbnail mix (Dan, 2026-10-25):** Follow the shared five-choice rule: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. The historical clean-thumbnail recipe below does not replace this mix or actual pick approval.
+
+## 2. Title and tags
+
+- Title = the script title as Dan wrote it (`Stop Paying Human Trainers! Use AI Instead`). It is unlisted; SEO
+  does not matter, recognisability in Studio does.
+- Tags: `ab workout,abs by ai,ai fitness,six pack abs` + two topic tags.
+
+## 3. Transcript → description with chapters
+
+```bash
+node .claude/skills/ad-setup/transcribe.js "<master.mp4>" [second.mp4]     # Replicate Whisper, < 1¢, ~10 s
+```
+
+Never run local Whisper for this: another session is usually rendering, and it counts against the two-build cap.
+
+Write `<ad folder>/youtube-description.md` — `Muhammad Ad Videos/stop paying human trainers - ad 3/youtube-description.md`
+is the template:
+
+1. Two sentences in Dan's voice: the video's argument, first person.
+2. `👉 See what YOU would look like with six-pack abs — free AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-conv-adN`
+   (homepage, not /start — organic clicks stay out of the /start A/B test).
+3. One paragraph: what the viewer learns.
+4. `Chapters` — first at `0:00`, at least three, **every chapter ≥ 10 s including the last** (YouTube silently
+   drops all chapters otherwise; Ad 4's 0:41 → 0:49 had to be merged). Numbered points as `1. …`.
+5. The disclosure: *Some images in this video are AI-generated, including the "future self" picture of me. The
+   before picture and the photo-shoot photos are real. AI-generated goal images are illustrations of a possible
+   result, not a guarantee.* A supplement / medication topic adds *This video is not medical advice…*.
+
+Never the word "trick" (Dan's rule), never a result promise in the first two lines.
+
+## 4. Thumbnail choices, then the approved selection
+
+Use the 2026-10-25 five-choice mix in `_shared/VIDEO-RULES.md`: two distinct AI Dan concepts, one real pool OR studio photo, and two history-guided Codex choices. Show the five and wait for Dan's pick; generate with Codex on the subscription. The older clean-look recipe below is an optional asset reference for the real-photo choice, not a requirement to build two studio backgrounds or install a choice before approval.
+
+```bash
+python3 .claude/skills/ad-setup/ruler.py studio-gray-87 studio-white-57 --out /tmp/ruler.jpg   # then LOOK at it
+```
+
+Read where the waistband top sits and use that **+ 0.03** as `waist` (gray-87 0.675 → 0.705, white-57 0.655 → 0.685).
+Add a job to `social media graphics/youtube/thumbnails/_ad-setup-2026-09-11/build.py` (`ad`, `folder`, `lines`,
+`photo`, `waist`), run it, look at `REVIEW_ad3_ad4.jpg`. It must print ALL PASS (25 px type clearance on the finished
+file). It imports the Ad 5 clean builder — never copy that code.
+
+- Copy: a command or topic, never a result or a number (`STOP PAYING / PERSONAL / TRAINERS`). Same wording family
+  as the ad title.
+- Photo: a hands-on-hips studio frame not already used on another ad (used: blue-89, blue-173 Ad 2; blue-247,
+  white-23 Ad 5; gray-87 Ad 3; white-57 Ad 4). A 9:16 video gets a 9:16 thumbnail (/youtube-packaging rules).
+
+## 5. Upload + thumbnail + read back
+
+```bash
+node scripts/youtube/upload.js --file "<master>" --title "<title>" --description-file "<folder>/youtube-description.md" \
+  --privacy unlisted --category 26 --made-for-kids false --synthetic <true|false> --tags "<tags>" > "<folder>/youtube-upload.log" 2>&1
+node scripts/youtube/set-thumbnail.js --video <id> --file "<thumb FINAL.jpg>" --out "<build dir>/readback-<id>.jpg"
+```
+
+- Check the log's first line has channel ID `UC236gjadarHAhEhOMYNGJ9g` (currently titled *Dan Rose Fitness*) — the
+  channel ID is authoritative because the display name can change.
+- Two uploads in parallel ran at ~2.8 MB/s each (340 MB ≈ 2 min). A re-run makes a SECOND video; only re-run a
+  failed one.
+- Read back with `videos?part=status,processingDetails` until `processingStatus: succeeded`, `embeddable: true`,
+  privacy `unlisted`. Google Ads accepts the id before processing finishes, but check before you report.
+- `--synthetic true` ONLY when the ad contains realistic AI-generated footage (AI clips/scenes, AI-Dan motion, AI music).
+  An ad whose only AI content is a labeled AI goal still is `false`. Rule: `_shared/VIDEO-RULES.md` "AI label on uploads".
+
+## 6. Google Ads — the Demand Gen conversion campaign
+
+**A short ad going into the TRIAL campaign `24316364155` (every current RA- ad) uses `scripts/ads/api/dgen-trial-group.js <key>`**
+(config `dgen-ads/<key>.json`, copy `ra05.json`): one ad group per ad, target CPA checked live against a reference group,
+the reference group's Audience, final URL on absbyai.com/start, budget read before and after. Dry run, then `--apply`.
+The `dgen-add-ad.js` steps below are for the old conversion campaign. (Added 2026-10-16, RA-05.)
+
+Write `scripts/ads/api/dgen-ads/adN.json` (copy `ad3.json`), then:
+
+```bash
+node scripts/ads/api/dgen-add-ad.js scripts/ads/api/dgen-ads/adN.json            # plan + Google validateOnly dry run
+node scripts/ads/api/dgen-add-ad.js scripts/ads/api/dgen-ads/adN.json --apply    # build + read back → adN.result.json
+node scripts/ads/api/client.js policy 24243839443                                # verdicts (re-run next day)
+```
+
+What it builds (the shape Ads 1, 2, 5 have): a YouTube video asset, one `Audience` (male + unknown, 25–54 + unknown,
+the custom segments), ad groups `<label> | /start` and `<label> | home` (ENABLED, **$30 target CPA on the ad group**
+— Dan set every group to $30 on 09-11, US + CA, English, the audience), and one ad per video per group named
+`<label> | <version> | <landing>`, final URL `…?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-adN&utm_content=<version>-<start|home>`,
+logo `400941168572`, CTA `401407635767`, business name *Abs by AI*. Anything that exists by name is reused, so a
+second run is a no-op and a vertical is one more `videos` entry.
+
+**Copy (5 headlines ≤ 40, 3 long headlines ≤ 90, 3 descriptions ≤ 90).** The builder refuses any line that fails
+`scripts/ads/ytads/lint.js`, except the lines Dan wrote himself (`DAN_APPROVED` in the builder). Recipe:
+- 2 of Dan's shapes: **How I Got Abs At 40**, **How AI Got Me Abs** (approved on every ad that carries them).
+- 1–2 of his topic lines if one exists for the subject (headline-style.md: *Fire Your Personal Trainer*, *How AI
+  Fixed My Supplements*, *Audit Supplements With AI*, *The Truth About Supplements*).
+- The rest plain: what the video shows. Long headlines: *Here's why I…* / *Daniel Rose explains…*. Descriptions:
+  *Daniel Rose shows…* / *AI … explained by a guy who did it at 40 years old.*
+- **Never "Why My X Kept Failing"** — Google DISAPPROVED it as CLICKBAIT on Ad 5 (09-11). No questions, no reveal,
+  no withheld payoff, no "trick", no drug/medication/dose words (lint `medical` catches "dose").
+
+Read the campaign's current shared budget and preserve it exactly — adding ad groups must not change it. Say in the
+report that the existing budget is now shared by more ad groups. Never enable a paused campaign.
+
+**Policy, next day:** `client.js policy`. A DISAPPROVED line → rewrite ONLY that line (Dan's rule) with
+`scripts/ads/ytads/manual.js`. An ad-level `YOUTUBE_AD_REQUIREMENTS_EXAGERRATED_OR_INACCURATE_CLAIMS` with no line
+flagged = the video/thumbnail → the retry rule (memory `ad-retry-rule-and-no-trick`): tamer copy → tamer thumbnail →
+remove.
+
+## 7. Record it — same session
+
+- `Docs/AD_VIDEO_IDS.md`: a row per video (ad, version, aspect, length, link, approved, thumbnail).
+- `Docs/DGEN_CONVERSION_CAMPAIGN.md`: a dated section — ad group ids, ad ids, asset, audience, copy.
+- `state.json` filed row (step 1). Coordination board: update your own entry only.
+- Commit the scripts/configs/docs (videos and thumbnails are git-ignored), push to `main`.
+- Dashboard: the row *"Add the new finished ads to the Google Ads campaigns…"* lists several ads — check it off only
+  when every ad it names is in; otherwise say which part remains.
+
+### 7a. Edit queue: mark it UPLOADED
+
+After the Unlisted visibility is read back **and** the Demand Gen entry exists: if the video is a job on
+`Handoffs/video-editing/00-MASTER.md` (an `AV-`/`AS-` vertical or square, an `RA-` short ad), set it to `uploaded` on Dan's
+pinned Abs By AI Edit Queue page (`queue.py set <ID> uploaded` + `Artifact write_db`; procedure
+`.claude/skills/_shared/edit-queue/README.md`). A job goes `finalized` (Dan's words) → `uploaded` (this step); never
+skip straight to `uploaded` from anything but a finalized video. If you're setting up an editor's newly final 16:9
+that has no vertical/square yet, add its AV + AS jobs to the queue in the same session.
+
+## Report to Dan (plain language)
+
+Video links, what the description and thumbnail say (send the review sheet with SendUserFile), the ad groups and
+what landing pages they point to, that Google is reviewing them, the budget note, anything flagged (policy, other
+ads' problems seen in the policy report), and that organic posting was not done unless asked.
+
+## Lessons
+
+- **2026-09-11 (first run, Ads 3 + 4):** Drive direct download worked for Muhammad's HD links (shared "anyone with
+  the link") — no Chrome. Local Whisper was skipped: load average 33 with another session rendering Ad 3's vertical;
+  Replicate took 5 s per ad. The policy report run at the start showed Ad 5's *Why My Diets Kept Failing* headline
+  DISAPPROVED (CLICKBAIT) and its video limited for exaggerated claims — read other ads' verdicts before writing new
+  copy; they are the fastest signal of what Google is refusing this week.
+- **2026-09-14 (Ad 3 clean 16:9 + 9:16 + 9:16 59s):** three parallel uploads of 110–585 MB; the 585 MB one died at
+  90 % with `ERROR: fetch failed` — and **still left a video**: `J-fOMvEJwDs`, unlisted, 0 s, stuck "processing"
+  (the resumable session creates the record up front). Before re-running a failed upload, list the channel's
+  uploads (`channels?mine=true` → uploads playlist); re-upload, record the husk as do-not-use, Dan deletes it in
+  Studio (the token cannot). Two big files in parallel is the safer ceiling. Also: **the Ads dry run refuses a video
+  still processing** (`YOUTUBE_VIDEO_DURATION_NOT_DEFINED`) — poll `processingStatus: succeeded` first. A 9:16
+  thumbnail = the 16:9 design restacked (type band on top, him centred at 94 % width, waist crop), built by
+  `_ad-setup-2026-09-14-ad3-vertical/build.py` with a vertical-clearance QC.

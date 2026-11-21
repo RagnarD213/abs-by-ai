@@ -1,0 +1,14 @@
+{
+  "plain_language_checks": [
+    "Complete 1080x1920 edit: 64.86 seconds.",
+    "All 53 caption chunks appear in the picture, clear graphics by at least 52 pixels and pass the spoken-onset timing check.",
+    "Independent review: all 25 watch images, 11 transition contexts and nine freeze flags checked. No remaining confirmed edit defect.",
+    "The first caption now appears on frame 8, matching the actual opening word. All later frames and the full audio are unchanged by that repair.",
+    "Automated audio checks remain FAIL for stereo correlation, reference tone, processing flux and word-tail decay. Your locked Balanced treatment is preserved.",
+    "Other automated warnings concern the original audience pause, visual-change rate, framing measurements and the deliberate closer crop. Native evidence and review reasons are retained.",
+    "The numerical temporal hair test is unimplemented. Two generic scan rows remain unmeasured. No numerical pass is claimed for them.",
+    "Seven final Drive files have matching SHA256 hashes and public link-view permission."
+  ],
+  "independent_verdict": "Independent edit review: clear for Dan to review, with no remaining confirmed edit defect. Formal audit: DO NOT SHIP for publication while automated checks remain failed. This is a review copy awaiting your approval.",
+  "drive_folder": "https://drive.google.com/drive/folders/1OEEKzeBvMqVG6tsMlj40oelfA6FmpkKs"
+}

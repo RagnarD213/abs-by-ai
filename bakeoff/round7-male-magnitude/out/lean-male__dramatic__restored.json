@@ -1,0 +1,16 @@
+{
+  "caseId": "lean-male__dramatic",
+  "arm": "restored",
+  "condition": "very_lean",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "desc": "Lean athletic male — the case Dan tagged \"just right\" in round 1 and rejected in round 6",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 6722,
+  "safetyRetry": false,
+  "promptChars": 5161,
+  "image": "lean-male__dramatic__restored.jpg",
+  "ts": "2026-08-07T22:40:15.191Z"
+}

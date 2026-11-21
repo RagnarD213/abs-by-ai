@@ -1,0 +1,30 @@
+{
+  "adNumber": 7,
+  "label": "Ad 7 Photoshop To AI",
+  "videos": [
+    { "youtubeId": "92A3JhaU4wE", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "From Photoshop To AI",
+      "My Old Fitness Photoshop",
+      "How AI Builds A Goal Image",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Daniel Rose tells the story of an old fitness Photoshop and what AI can show today.",
+      "From a rough Photoshop in 2010 to an AI goal image built around his own starting photo.",
+      "See how Daniel uses his own photo to create a realistic fitness goal image with AI."
+    ],
+    "descriptions": [
+      "Daniel Rose compares his old fitness Photoshop with a goal image made from his own photo.",
+      "See how AI uses your photo and goal to create a visual target for a fitness plan.",
+      "A personal story about Photoshop, fitness goals and using AI to build a practical plan."
+    ]
+  }
+}

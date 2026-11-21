@@ -1,0 +1,74 @@
+{
+  "OLD": {
+    "12": {
+      "median_saturation": 0.0549,
+      "median_luma": 0.6314,
+      "near_white_fraction": 0.0795,
+      "pool_saturation": 0.4549,
+      "skin_saturation": 0.3412,
+      "white_stone_saturation": 0.0392
+    },
+    "78": {
+      "median_saturation": 0.051,
+      "median_luma": 0.6275,
+      "near_white_fraction": 0.0795,
+      "pool_saturation": 0.4431,
+      "skin_saturation": 0.1098,
+      "white_stone_saturation": 0.0392
+    }
+  },
+  "A": {
+    "12": {
+      "median_saturation": 0.0745,
+      "median_luma": 0.6157,
+      "near_white_fraction": 0.0786,
+      "pool_saturation": 0.6,
+      "skin_saturation": 0.4471,
+      "white_stone_saturation": 0.0471
+    },
+    "78": {
+      "median_saturation": 0.0667,
+      "median_luma": 0.6157,
+      "near_white_fraction": 0.0787,
+      "pool_saturation": 0.5882,
+      "skin_saturation": 0.1451,
+      "white_stone_saturation": 0.0471
+    }
+  },
+  "B": {
+    "12": {
+      "median_saturation": 0.0824,
+      "median_luma": 0.6196,
+      "near_white_fraction": 0.08,
+      "pool_saturation": 0.6667,
+      "skin_saturation": 0.498,
+      "white_stone_saturation": 0.051
+    },
+    "78": {
+      "median_saturation": 0.0784,
+      "median_luma": 0.6196,
+      "near_white_fraction": 0.0801,
+      "pool_saturation": 0.6549,
+      "skin_saturation": 0.1569,
+      "white_stone_saturation": 0.0549
+    }
+  },
+  "C": {
+    "12": {
+      "median_saturation": 0.098,
+      "median_luma": 0.6235,
+      "near_white_fraction": 0.0804,
+      "pool_saturation": 0.7412,
+      "skin_saturation": 0.549,
+      "white_stone_saturation": 0.0549
+    },
+    "78": {
+      "median_saturation": 0.0902,
+      "median_luma": 0.6235,
+      "near_white_fraction": 0.0804,
+      "pool_saturation": 0.7255,
+      "skin_saturation": 0.1804,
+      "white_stone_saturation": 0.0549
+    }
+  }
+}

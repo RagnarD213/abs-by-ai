@@ -1,0 +1,10 @@
+{
+  "round": 2,
+  "type": "cover_only",
+  "designs": 2,
+  "exact_speech_bubble": "Have you ever seen a fat 90-year-old?",
+  "background": "Actual Bill Maher excerpt, not generated",
+  "foreground": "AI Dan shirtless and overweight older clothed man, shocked at shared laptop",
+  "generation": "Codex subscription, 2 calls, no paid API",
+  "approved_video_preserved": true
+}

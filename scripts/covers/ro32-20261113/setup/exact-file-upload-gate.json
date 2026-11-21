@@ -1,0 +1,24 @@
+{
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/claude edited long form content/31 - I'm 41. Here Are The 10 Exercises I Do Every Week/FINAL_RO-32_Im-41-10-Exercises.mp4",
+  "sha256": "414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d",
+  "bytes": 766808132,
+  "gate_version": "2.6.3",
+  "original_gate_verdict": "FAIL",
+  "passing_rows": 35,
+  "failing_rows": [
+    "audio:stamp",
+    "captions:burned",
+    "captions:card_collision",
+    "cut:jump_cut"
+  ],
+  "documented_overrides": {
+    "audio:stamp": "Dan approved this exact bass-lift mix. Only tone fails; preserve approved audio without alteration.",
+    "cut:jump_cut": "Two lower-third segment boundaries in one continuous source take, C1771-W2 at4:13/4:19. Not picture jump cuts. Preserve exact approved film.",
+    "captions:card_collision": "SRT is an optional subtitle sidecar, not burned-in captions over the cards. Approved film and optional subtitles remain separate.",
+    "captions:burned": "Graphic/lower-third text detected as subtitles. Film contains no burned subtitle track; Dan approved exact graphics."
+  },
+  "authorization": "Dan exact-film approval 2026-11-13: Okay, it looks good. This is approved. Proceed to setup. User reconfirmed preserve film and documented overrides on setup resume.",
+  "admission": "ACCEPTED_WITH_DOCUMENTED_OVERRIDES",
+  "gate_or_threshold_changes": false,
+  "film_changed": false
+}

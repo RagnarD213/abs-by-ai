@@ -1,0 +1,99 @@
+{
+ "intro": "Round 3 is the full ad. It applies your round 1 answers and puts the three AI clips you approved on frames (I1, I3, I4) in moving. I5 is out and the exercise split screen stays the opener. Colour, voice, captions and the rest of the cut are round 1's, unchanged.",
+ "film": "The full-quality copy is in <b>Videos to Review</b> as <b>Best Ab Exercise AD R3 - full ad.mp4</b> for VLC. Everything below is a change since round 1, with the times to watch in this film.",
+ "changes": [
+  {
+   "id": "split",
+   "key": "split",
+   "name": "Split screen, brighter, vacuum actually happening",
+   "at": 0.6,
+   "copy": "Each exercise roll now has its own brighter grade (your brighter-gold look at more exposure). Your body measures as bright as on the talking shots or brighter, where round 1 had the plank and toe touches about 40 % darker. The vacuum panel now shows the vacuum itself for the whole panel (the same take as the DS-04 cold open): belly drawn in, ribs flared, a little closer than before, with the captions under your chin."
+  },
+  {
+   "id": "I3",
+   "key": "I3",
+   "name": "I3 body scan (new AI clip)",
+   "at": 0.7,
+   "copy": "The scan line runs from his head to his knees over \"depends on your body fat, how long you've been training, how strong your abs are\", and the outlines appear where it passes. Plays at normal speed. The old KEY POINT lower third here is gone, the scan makes that point."
+  },
+  {
+   "id": "I1",
+   "key": "I1",
+   "name": "I1 the copier (new AI clip)",
+   "at": 0.4,
+   "copy": "Two shots and a cut: the trainer slides a sheet off the copier stack and hands it to the teenager without looking up, then a closer shot of all three men reading the same sheet. Over \"That's why the generic plans that human personal trainers give you\"."
+  },
+  {
+   "id": "fail",
+   "span": [
+    14.48,
+    19.95
+   ],
+   "name": "You back on camera for \"always fail\", lower third moved",
+   "at": 0.5,
+   "copy": "You say \"always fail.\" on camera (close), then a size change and the KEY POINT \"Copy-Paste Plans Ignore Your Body\" over \"They're giving everyone the same workout plan, not tailoring it specifically for you.\""
+  },
+  {
+   "id": "voice",
+   "span": [
+    22.24,
+    23.68
+   ],
+   "name": "\"and replaced them with AI\" a little louder",
+   "at": 0.5,
+   "copy": "This phrase sat 5 dB under the first half of its sentence (in round 1 too). A small level ride on that phrase only, the same fix that worked on \"make your abs real\". Same voice, same mix everywhere else."
+  },
+  {
+   "id": "poses",
+   "span": [
+    27.56,
+    32.67
+   ],
+   "name": "Poses clip removed",
+   "at": 0.55,
+   "copy": "The B1 poses clip is out. You are on camera for \"And when a program is designed for your goals, your body, and your injuries, you'll get far better results\": wide, then a size change on the pause to the close. No other standing or posing clip there."
+  },
+  {
+   "id": "I4",
+   "key": "I4",
+   "name": "I4 robot waves goodbye (new AI clip) + new button",
+   "at": 0.7,
+   "copy": "On \"Fire your trainer and replace them with AI\": the trainer pushes the gym door open and steps out with his box, glancing back, while the robot waves the towel. The button now reads \"Tap The Button Below To / Start Training With AI\" and stays on top, over the floor, clear of both faces."
+  },
+  {
+   "id": "framing",
+   "span": [
+    2.3,
+    4.24
+   ],
+   "name": "Pair 3 shot sizes, close centred",
+   "at": 0.5,
+   "copy": "Every shot of you uses pair 3 (a little wider than round 1). The close now follows you on a tighter band: its median distance from your head centre is 0.8 to 1.2 % of the frame width on all four close shots, down from 2.8 to 4.8 % in round 1. Example here: the first close after the split screen."
+  }
+ ],
+ "clips": {
+  "I3": {
+   "name": "I3 body scan",
+   "copy": "Take 1 of 1, used whole (5.0 s, normal speed)."
+  },
+  "I1": {
+   "name": "I1 the copier",
+   "copy": "Shot 1 from take 1 (0 to 2.05 s), shot 2 from take 2 (3.10 to 4.55 s, framed closer)."
+  },
+  "I4": {
+   "name": "I4 robot waves goodbye",
+   "copy": "Take 2, 0.25 to 2.35 s (normal speed)."
+  }
+ },
+ "decided": [
+  "<b>I1 is two shots, not one take.</b> Four takes could not draw three hand-offs: each time the teenager got his sheet properly, then sheets appeared in the other two men's hands. So the clip shows the trainer handing one out, cuts to a closer shot of all three holding the same sheet, and lets the cut skip the rest.",
+  "<b>Because I1 is 3.5 s, you are back on camera for \"always fail.\"</b> (0:14.5), with the shot-size change on the next pause.",
+  "<b>I4 is the first 2.1 s of its second take.</b> Take 1's door swung back while he stood in it; take 2's door opens and he steps out, but after 2.5 s it drifts shut and he pushes it again, so that part is cut.",
+  "<b>Nothing is slowed down.</b> All three clips play at normal speed.",
+  "<b>AI-GENERATED chips placed by looking at each clip:</b> I3 on the floor beside his legs, I1 on the front desk, I4 on the floor under the captions (the towel wave fills the wall above, and the button covers the middle).",
+  "<b>The wide shot at 0:27.6 follows your lean</b> (the standard land-then-hold tracker slides a little after the cut). A still crop there would sit up to 7.6 % off centre and miss you on the first frame, so I left the tracker.",
+  "<b>The shot at 0:27.6 is the wide, not the close.</b> You lean the most on \"And when a program\"; even on the tighter band a close there sat 3 % off centre, so that one is the wide and the next shot is the close.",
+  "<b>AI spend: $7 of the ad's $10</b> (7 Kling takes: I3 x1, I4 x2, I1 x4).",
+  "<b>Independent review:</b> SHIP, no blocking items. I fixed three of its minor notes before sending this: the vacuum panel (draw-in across the whole panel, more room above your hair), and the quiet \"replaced them with AI\" phrase."
+ ]
+}

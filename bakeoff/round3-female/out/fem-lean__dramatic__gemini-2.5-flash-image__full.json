@@ -1,0 +1,18 @@
+{
+  "caseId": "fem-lean__dramatic",
+  "modelKey": "gemini-2.5-flash-image",
+  "variant": "full",
+  "label": "Gemini 2.5 Flash Image",
+  "provider": "google",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 8439,
+  "promptChars": 5428,
+  "nominalCost": 0.039,
+  "image": "fem-lean__dramatic__gemini-2.5-flash-image__full.jpg",
+  "meta": null,
+  "ts": "2026-07-27T22:57:40.124Z"
+}

@@ -1,0 +1,2777 @@
+{
+ "at": "2026-11-07T14:33:39.689Z",
+ "campaignId": "24437265255",
+ "campaign": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "status": "ENABLED",
+    "biddingStrategyType": "TARGET_CPA",
+    "targetCpa": {
+     "targetCpaMicros": "3000000"
+    },
+    "geoTargetTypeSetting": {
+     "positiveGeoTargetType": "PRESENCE"
+    },
+    "name": "[ENGAGEMENT] [DGEN] [RMKTG] US ONLY | ALL CONTENT | site visitors + youtube viewers",
+    "id": "24437265255"
+   },
+   "campaignBudget": {
+    "resourceName": "customers/3427170837/campaignBudgets/16009066922",
+    "amountMicros": "5000000"
+   }
+  }
+ ],
+ "goals": [
+  {
+   "campaignConversionGoal": {
+    "resourceName": "customers/3427170837/campaignConversionGoals/24437265255~ENGAGEMENT~YOUTUBE_HOSTED",
+    "category": "ENGAGEMENT",
+    "origin": "YOUTUBE_HOSTED",
+    "biddable": true
+   }
+  }
+ ],
+ "groups": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "status": "ENABLED",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day",
+    "targetCpaMicros": "2000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "selectedChannels": {
+       "youtubeInFeed": true,
+       "youtubeShorts": true
+      }
+     }
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "status": "ENABLED",
+    "id": "201297112505",
+    "name": "Website visitors | 7 + 30 + 365 day",
+    "targetCpaMicros": "3000000",
+    "demandGenAdGroupSettings": {
+     "channelControls": {
+      "selectedChannels": {
+       "youtubeInFeed": true,
+       "youtubeShorts": true
+      }
+     }
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2004",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2004"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2008",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2008"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2012",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2012"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2024",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2024"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2031",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2031"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2050",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2050"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2051",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2051"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2068",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2068"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2070",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2070"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2090",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2090"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2104",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2104"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2108",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2108"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2112",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2112"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2116",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2116"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2120",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2120"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2144",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2144"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2148",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2148"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2178",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2178"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2180",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2180"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2204",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2204"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2222",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2222"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2231",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2231"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2242",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2242"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2268",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2268"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2270",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2270"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2275",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2275"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2288",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2288"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2320",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2320"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2324",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2324"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2328",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2328"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2332",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2332"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2340",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2340"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2368",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2368"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2384",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2384"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2398",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2398"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2400",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2400"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2404",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2404"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2417",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2417"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2418",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2418"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2422",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2422"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2426",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2426"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2430",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2430"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2434",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2434"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2450",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2450"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2454",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2454"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2466",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2466"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2478",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2478"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2496",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2496"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2498",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2498"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2504",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2504"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2508",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2508"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2524",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2524"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2548",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2548"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2558",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2558"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2562",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2562"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2566",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2566"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2586",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2586"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2598",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2598"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2600",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2600"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2626",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2626"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2646",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2646"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2686",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2686"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2694",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2694"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2706",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2706"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2716",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2716"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2728",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2728"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2740",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2740"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2748",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2748"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2762",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2762"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2768",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2768"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2788",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2788"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2795",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2795"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2800",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2800"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2804",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2804"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2807",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2807"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2818",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2818"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2834",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2834"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2854",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2854"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2860",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2860"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2862",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2862"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2887",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2887"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2894",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2894"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2900",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2900"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~1026824",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/1026824"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/197223280930~2501309482686",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/360228120"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~1000",
+    "type": "LANGUAGE",
+    "negative": false,
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2004",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2004"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2008",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2008"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2012",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2012"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2024",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2024"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2031",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2031"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2050",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2050"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2051",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2051"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2068",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2068"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2070",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2070"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2090",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2090"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2104",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2104"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2108",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2108"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2112",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2112"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2116",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2116"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2120",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2120"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2144",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2144"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2148",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2148"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2178",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2178"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2180",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2180"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2204",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2204"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2222",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2222"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2231",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2231"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2242",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2242"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2268",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2268"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2270",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2270"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2275",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2275"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2288",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2288"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2320",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2320"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2324",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2324"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2328",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2328"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2332",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2332"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2340",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2340"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2368",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2368"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2384",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2384"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2398",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2398"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2400",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2400"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2404",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2404"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2417",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2417"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2418",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2418"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2422",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2422"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2426",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2426"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2430",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2430"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2434",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2434"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2450",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2450"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2454",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2454"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2466",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2466"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2478",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2478"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2496",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2496"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2498",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2498"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2504",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2504"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2508",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2508"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2524",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2524"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2548",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2548"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2558",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2558"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2562",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2562"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2566",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2566"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2586",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2586"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2598",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2598"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2600",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2600"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2626",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2626"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2646",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2646"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2686",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2686"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2694",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2694"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2706",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2706"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2716",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2716"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2728",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2728"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2740",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2740"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2748",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2748"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2762",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2762"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2768",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2768"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2788",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2788"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2795",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2795"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2800",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2800"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2804",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2804"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2807",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2807"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2818",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2818"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2834",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2834"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2840",
+    "type": "LOCATION",
+    "negative": false,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2854",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2854"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2860",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2860"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2862",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2862"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2887",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2887"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2894",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2894"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2900",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2900"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~1026824",
+    "type": "LOCATION",
+    "negative": true,
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/1026824"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201297112505~2557999382127",
+    "type": "AUDIENCE",
+    "negative": false,
+    "audience": {
+     "audience": "customers/3427170837/audiences/361149295"
+    }
+   }
+  }
+ ],
+ "ads": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788551",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788551",
+     "id": "830838788551",
+     "name": "truth about supplements · us-rmktg-yt"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788554",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788554",
+     "id": "830838788554",
+     "name": "AT · 8 Hours In Bed Is Not 8 Hours Of Sleep · yt:o1v3wPkNI2I · us-rmktg-yt · 2026-09-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788557",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788557",
+     "id": "830838788557",
+     "name": "AT · Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead) · yt:9nfvwfo52Z0 · us-rmktg-yt · 2026-10-11"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788560",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788560",
+     "id": "830838788560",
+     "name": "AT · I'm 41. I Wasted My Life. · yt:xyi-B_5tccw · us-rmktg-yt · 2026-10-18"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788563",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788563",
+     "id": "830838788563",
+     "name": "AT · The Biggest Ab Wheel Mistake · yt:q4xGarIzRnI · us-rmktg-yt · 2026-10-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788566",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788566",
+     "id": "830838788566",
+     "name": "AT · Do Women Like The Dad Bod? · yt:HmYBNd98KzY · us-rmktg-yt · 2026-10-31"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788569",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788569",
+     "id": "830838788569",
+     "name": "AT · How I Make My Daily Salad: 700 Calories, $4 a Bowl, Fresh for 7 Days · yt:d2gksIHPMEM · us-rmktg-yt · 2026-11-01"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~830838788572",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838788572",
+     "id": "830838788572",
+     "name": "AT · This Boring Daily Routine Got Me Abs At 41 · yt:cmuDNCaHF9M · us-rmktg-yt · 2026-11-04"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805612",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805612",
+     "id": "830838805612",
+     "name": "top 10 ab tips · us-rmktg-site"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805615",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805615",
+     "id": "830838805615",
+     "name": "AT · The Deadlift Trick That Saves Your Back · yt:D9v9POAKe_Q · us-rmktg-site · 2026-10-08"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805618",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805618",
+     "id": "830838805618",
+     "name": "AT · The Biggest Ab Wheel Mistake · yt:q4xGarIzRnI · us-rmktg-site · 2026-10-29"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805621",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805621",
+     "id": "830838805621",
+     "name": "AT · Do Women Like The Dad Bod? · yt:HmYBNd98KzY · us-rmktg-site · 2026-10-31"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805624",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805624",
+     "id": "830838805624",
+     "name": "AT · 5-Minute Home Workout: 3 Exercises, No Equipment · yt:7HGkYwrcwNk · us-rmktg-site · 2026-10-31"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~830838805627",
+    "status": "PAUSED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830838805627",
+     "id": "830838805627",
+     "name": "AT · This Boring Daily Routine Got Me Abs At 41 · yt:cmuDNCaHF9M · us-rmktg-site · 2026-11-04"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ]
+}

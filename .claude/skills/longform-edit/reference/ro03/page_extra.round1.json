@@ -1,0 +1,88 @@
+{
+ "film_len": "2:32",
+ "first_end": 65.93253333333334,
+ "intro": "\"The Vacuum: Workout Only\". Content video, long-form family (LFC). A 2:32 follow-along built from C1625: three 20-second holds with 30 seconds of rest between them, the way your Shoot 4 outline lists it. This is round 1: the plan, every graphic on its real frame, and the finished first 66 seconds. The full film is not built yet.",
+ "locked": "the poolside colour (colour A), the far and near framing with half headroom, hard cuts that change size at every join, Soft Blue Light graphics, the HyperFrames lower third, the countdown chip style from RO-02's live set, no burned captions, no AbsByAI.com end mark.",
+ "decisions": [
+  "<b>The one filmed hold is shown three times.</b> Your outline asks for 3 holds; C1625 has one. Each repeat changes size at a different moment, and set 2 opens on you starting the timer, so it does not read as a loop. <b>A (my pick):</b> keep the three repeats. <b>B:</b> one set only, about 45 seconds. <b>C:</b> hold this video until two more holds are filmed.",
+  "<b>Music.</b> The trip-hop track that is already live under your two workout videos (the V4 workout section and V5). It sits almost out of the way under your voice and comes up in the holds, the way Muhammad's does in his sets. <b>A (my pick):</b> keep it. <b>B:</b> the calm acoustic bed from RO-12. <b>C:</b> no music.",
+  "<b>Muhammad's flash on the cut into each set</b> (three in the film, silent, a third of a second). The first one is at 0:05.8 in the first minute. <b>A (my pick):</b> keep. <b>B:</b> plain cuts."
+ ],
+ "first_note": "This is the film's own sound mix: music low under your voice, up in the holds. It ends 8 seconds into set 2.",
+ "map": [
+  [
+   "0:00",
+   "Opening shot",
+   "3 seconds of the hold itself with the title chip; your first line plays under it"
+  ],
+  [
+   "0:03",
+   "You on camera",
+   "\"I'm going to time out 20 seconds on my phone timer. Here we go.\""
+  ],
+  [
+   "0:06",
+   "Set 1",
+   "20-second hold in real time, countdown chip, one form cue, ends on your phone timer's beep"
+  ],
+  [
+   "0:27",
+   "Rest, 30 seconds",
+   "you talk: deep belly breaths between sets; first thing in the morning, fasted"
+  ],
+  [
+   "0:52",
+   "Lead-in",
+   "you start the timer and put the phone down while the rest counts out"
+  ],
+  [
+   "0:57",
+   "Set 2",
+   "the same hold, near framing first, then far"
+  ],
+  [
+   "1:17",
+   "Rest, 30 seconds",
+   "you talk and show it: short breaths through your nose during the hold"
+  ],
+  [
+   "1:47",
+   "Set 3",
+   "the same hold, far then near, held a little longer on your release"
+  ],
+  [
+   "2:09",
+   "Ending",
+   "\"All right, so that's it. Let's say you're a beginner...\" then \"So go to AbsByAI.com now... I'll see you next time.\""
+  ]
+ ],
+ "decided": [
+  "<b>Structure is your outline's:</b> straight into the routine, 3 holds of 20 seconds, 30 seconds of rest. Both rests measure 30.0 seconds from the beep to the next hold.",
+  "<b>What I took from Muhammad's ab wheel workout sections:</b> a label on screen through every set (his top pill; here the countdown chip), one short form cue per set (his thin bars; here the lower third), you talking to camera between sets, a size change inside each set (his punch-ins), his flash into each set, and music that comes up in the sets and drops under your voice. No burned captions, no watermark.",
+  "<b>What I did not take:</b> his fast-forwarded sets (this is a follow-along, so every hold runs in real time), his olive graphics (Soft Blue Light is locked), and his AbsByAI.com end pill (your 10-01 rule).",
+  "<b>First 5 seconds:</b> the video opens on the hold done correctly, not on you talking. It is the same 4-second clip RO-02 used as its teaser.",
+  "<b>Rest 1 words:</b> \"When you're resting in between these vacuums, it's important that you take deep belly breaths... First thing in the morning is my recommended time... even if you don't do intermittent fasting.\"",
+  "<b>Rest 2 words:</b> \"So you actually want to be able to breathe as you're doing these vacuums... you want to take short breaths... make sure to keep breathing as you're doing the vacuum and don't run out of oxygen.\" The pause where you show the nose breath stays in.",
+  "<b>Ending:</b> the beginner line (one 20-second set every morning) and your short sign-off from the top of C1629. I left out the two-set and three-set lines because they say \"a minute to rest\" and this video rests 30 seconds.",
+  "<b>No app demo clip and no URL chip at the end.</b> You say AbsByAI.com on camera; nothing is added on screen.",
+  "<b>Form cues are your own words</b> from the main Vacuum video: \"Suck It In As HARD As You Can\", \"Belly Button THROUGH Your Spine\", \"Keep Pulling In. This Should Be HARD.\"",
+  "<b>Lower thirds in the holds sit only on the far framing,</b> so the strip is never across your waist. On the near framing it would be.",
+  "<b>Your phone timer's own \"3, 2, 1\" and beep stay in.</b> The on-screen countdown ends on the beep.",
+  "<b>Sound:</b> voice level evened between rolls (C1626 up 1.2 dB, C1624 down 1.7 dB) and a fresh EQ fit for this film's speech, both through the shared voice chain.",
+  "<b>No AI and no stock in this video. Spend: $0.</b> The YouTube AI flag will not be needed."
+ ],
+ "item_notes": {
+  "G03": "Moved to the far half of set 2 so the strip clears your waist."
+ },
+ "checks": [
+  "Rests: 29.98 and 30.02 seconds. Holds: 20.0 seconds each, ending on the beep.",
+  "Joins: 14 in the film, every one changes size or passes through the opening clip. Zero same-size joins. The 7 in the first minute checked as consecutive frames.",
+  "Hair in the first minute, every 0.25 s: lowest 34 px from the top edge, none under 24.",
+  "Words: the first minute's finished sound was transcribed again; every word of the script is there and nothing is clipped.",
+  "Audio gate on your speech alone: PASS on every row. Loudness reads -13.4 (the target is -14, give or take 1).",
+  "Audio gate on the whole mix: FAIL on 4 rows, none tuned. Three of them (tone, processing damage, word endings) read the music-only holds as if they were a voice. The fourth is loudness: the whole film reads -15.3 because the three music-only holds are quieter than your voice. Pushing the film up to -14 took 5 dB more gain and squashed your voice, so I left it.",
+  "Music track transcribed before use: zero words.",
+  "Not run yet (they run on the full film in round 2): the delivery gate, the watch pass, the independent review, subtitles, chapters, the edit sheet."
+ ],
+ "reply": "RO-03 round 1\n1. Three repeats of the one hold: A\n2. Music: A\n3. Flash into each set: A\nNotes:\n"
+}

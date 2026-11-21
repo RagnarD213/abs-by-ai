@@ -1,0 +1,117 @@
+{
+  "video": "Arms & Shoulders Workout Only",
+  "job": "RO-04",
+  "round": 2,
+  "date": "2026-10-17",
+  "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits",
+  "items": [
+    {
+      "id": "opening",
+      "verdict": "approved-with-notes",
+      "scope": "Opening content, edit, timing and audio approved; camera color and headroom remain open",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round1/Arms Shoulders Workout LFC R1 - first minute.mp4",
+          "sha256": "7c477da0d6c473e1ef01b693e6f2bee5eb3228da0cf031c44f5f4783bf36a15b"
+        }
+      ],
+      "next_action": "Preserve all but requested color and crop changes",
+      "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits"
+    },
+    {
+      "id": "colors-A-B-C",
+      "verdict": "rejected",
+      "scope": "All three colors rejected as washed out. Slightly warm B preferred only as a starting point, not approved",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-A-12.jpg",
+          "sha256": "bf58fe0c1436f30b618d123ae3785cc8a41c880cee6254b6e6e79bd19f0a3b3e"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-A-78.jpg",
+          "sha256": "a49d89b59e06a2ac93dad73e74355ab06d4bd0c575b181b2303a6f26977625fd"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-B-12.jpg",
+          "sha256": "321b7db64d70e063c377ee643e7791495802e69cb06d3f4b8d08c66c70a2dff8"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-B-78.jpg",
+          "sha256": "06dcc787416ec9998597f7b6be545d3c8021ab5c78fdbf27d3804223f871807c"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-C-12.jpg",
+          "sha256": "d03f9427b2f3914efe761802abe3c0a23ff526814a76f3d9c1ab2603361a1d53"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/colour-C-78.jpg",
+          "sha256": "654e97c555bdf09a20160fdfe7f97952d3193134173838b4ed9246ea6a228550"
+        }
+      ],
+      "next_action": "Three meaningfully richer warm options on matching frames and moving samples",
+      "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits"
+    },
+    {
+      "id": "crop-B",
+      "verdict": "approved-with-notes",
+      "scope": "Closer with headroom accepted as base; reduce space above hair about20%, not a20% whole-frame zoom",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/crop-B-12.jpg",
+          "sha256": "9f01cf9f8e3895263e130eed26dc28e799e2e976e0d1446cc139413307cc9918"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/crop-B-78.jpg",
+          "sha256": "95536efc56cf6cff7d595d7a9d0662272acbf10d30244771970abef858044a4b"
+        }
+      ],
+      "next_action": "Measure and reduce headroom; preserve hair and complete exercise action",
+      "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits"
+    },
+    {
+      "id": "G01-G05-and-audio",
+      "verdict": "approved",
+      "scope": "All other reviewed elements, including timer designs, rest treatment and original audio",
+      "assets": [
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G01.jpg",
+          "sha256": "08d9f0da4d71d9e877d0b1a3b21a92df7fab463b1de50cb428167cfb2120de1f"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G02.jpg",
+          "sha256": "2896fa5b3062f70e83d881a985f4012e018b4ae2aa52a0d867a87018d7f85523"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G03.jpg",
+          "sha256": "91541b0d63fca13bbd07baff4f95ea9d19dcdbaeb3df525f5fe2d5a30530e7ce"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G04.jpg",
+          "sha256": "aee1ab1a877d91c7c5d69f5da28b2762ede90bbf890834406acd827b986904d1"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/stills/G05.jpg",
+          "sha256": "d85de09a44926062f92aa52889018b4cdd11b5561786d3cbe10d92b7d561118c"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/context/G04-context.mp4",
+          "sha256": "f38b1bc4f93b59412ce0fc05515b6fb69f29a3c83ade56b0ebeaeeee1c719211"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/context/G05-context.mp4",
+          "sha256": "5157f5bb69352f3fb04bfcda8572c274b6aabea38f9b3b06a75d2c50256ff9e0"
+        },
+        {
+          "path": "Media/video-edits/RO-04/round1/audio/audio-AB.mp4",
+          "sha256": "be074defa1fe37e199057e450d115ac2f370f4bdac559a508ffc2396c53e0205"
+        }
+      ],
+      "next_action": "Reuse without redesign or a new approval question",
+      "dan_exact_words": "The first minute and everything is looking good except the color correction. I think slightly warm was the best but I don't like any of these options. I feel like they're all a little washed out and the colors aren't saturated or vivid enough. Give me a few more options with more saturated and vivid colors.\n\nFor the frame the closer with headroom is almost there but reduce that headroom by about 20%. Everything else looks good. Give me the handoff for the next round of edits"
+    }
+  ],
+  "motion_authorized": [],
+  "new_frames_before_motion": [],
+  "full_film_approved": false,
+  "next_deliverable": "Color and headroom revision previews only; full film after color selection"
+}

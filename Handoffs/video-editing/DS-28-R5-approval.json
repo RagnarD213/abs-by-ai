@@ -1,0 +1,55 @@
+{
+  "category": "CONTENT",
+  "type": "SFC",
+  "job": "DS-28",
+  "round": 5,
+  "date": "2026-10-17",
+  "status": "finalized",
+  "dan": "All right everything looks good. This is finalized. Give me the handoff for setup",
+  "scope": "The complete delivered R5 Short, approved in this chat. Setup handoff requested; no setup uploads or cover generation performed.",
+  "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/Meal Prep SFC R5 - complete Short.mp4",
+  "sha256": "200afaaab059109b3fc168624136c0bb074d809d521d733ffee5b94ddf4298da",
+  "bytes": 124841554,
+  "frames": 1785,
+  "fps": "30000/1001",
+  "duration": 59.5595,
+  "srt": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/Meal Prep SFC R5.srt",
+  "srt_sha256": "1e0c6077df27e05a6f22b04325269c8a0d82962ac21e8bf0ccd6ad8eebfe5d18",
+  "extreme_copy": "/Volumes/Extreme/Short-form video content/Meal Prep - DS-28/Meal Prep SFC R5 - complete Short.mp4",
+  "original_delivery": "/Volumes/Extreme/_edit_work/ds28/round5/review/Meal Prep SFC R5 - complete Short.mp4",
+  "delivery_gate": "FAIL",
+  "gate_version": "2.6.0",
+  "measured_pass": 30,
+  "fail": 6,
+  "not_applicable": 3,
+  "not_measured": 0,
+  "open_rows": [
+    {
+      "key": "audio:stamp",
+      "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on Meal Prep SFC R5 - complete Short.mp4: tone -- fix the audio, do not deliver"
+    },
+    {
+      "key": "framing:headroom",
+      "detail": "10 tracked talking holds + 6 intentional fixed-wide; per-hold min hair top [55, 199, 61, 60, 55, 55, 55, 56, 196, 52] (must sit in 30-70 normalized px inside its own window): 2 loose [(10.75, 199), (53.0, 196)], 0 tight []; median over the video 61 (max 75)"
+    },
+    {
+      "key": "framing:no_wide_level",
+      "detail": "16 talking holds; head height (hair -> chin) per hold: smallest 18.9% of its window at 41.0s (min 27.0%); 9 wide hold(s) [(5.0, 0.19208), (10.75, 0.19672), (15.25, 0.1974), (22.5, 0.19099), (28.25, 0.19229)]"
+    },
+    {
+      "key": "framing:push_coverage",
+      "detail": "9 talking holds on the dominant shot (head 19.2% of its window): per-hold median head height 18.9-19.7% = spread x1.045 (min x1.1); 0% of that talk sits >= 6 % off the dominant level; 7 hold(s) on other shots ignored"
+    },
+    {
+      "key": "cut:splice_visibility",
+      "detail": "1/18 joins above the file's own p99 ceiling (36.45): [(56.22, 36.75)]"
+    },
+    {
+      "key": "captions:sync",
+      "detail": "14 cues measured: speech starts a median -492 ms after the cue (worst -600 ms, max 120 ms)"
+    }
+  ],
+  "numerical_gate_failures_preserved": true,
+  "independent_media_defects": [],
+  "setup_handoff": "Handoffs/handoff-20261017-ds28-meal-prep-setup.md"
+}

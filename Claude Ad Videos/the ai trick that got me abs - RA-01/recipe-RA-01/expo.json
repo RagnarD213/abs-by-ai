@@ -1,0 +1,96 @@
+{
+ "reference": {
+  "face_luma": 73.3,
+  "face_chroma_ab": [
+   41.0,
+   11.0
+  ],
+  "frames": {
+   "30": {
+    "face_luma": 73.3,
+    "face_rgb": [
+     108.0,
+     65.0,
+     54.0
+    ],
+    "face_chroma_ab": [
+     41.0,
+     11.0
+    ],
+    "n": 69912
+   },
+   "60": {
+    "face_luma": 72.6,
+    "face_rgb": [
+     105.0,
+     65.0,
+     53.0
+    ],
+    "face_chroma_ab": [
+     41.0,
+     11.0
+    ],
+    "n": 49899
+   },
+   "95": {
+    "face_luma": 74.1,
+    "face_rgb": [
+     108.0,
+     66.0,
+     55.0
+    ],
+    "face_chroma_ab": [
+     41.0,
+     11.0
+    ],
+    "n": 69443
+   }
+  }
+ },
+ "tests": {
+  "1.30": {
+   "face_luma": 82.6,
+   "face_chroma_ab": [
+    30.0,
+    10.0
+   ],
+   "frames": 3,
+   "luma_err": 9.3,
+   "chroma_err": 11.0
+  },
+  "1.45": {
+   "face_luma": 88.0,
+   "face_chroma_ab": [
+    32.0,
+    10.0
+   ],
+   "frames": 3,
+   "luma_err": 14.7,
+   "chroma_err": 9.1
+  },
+  "1.60": {
+   "face_luma": 92.9,
+   "face_chroma_ab": [
+    34.0,
+    10.0
+   ],
+   "frames": 3,
+   "luma_err": 19.6,
+   "chroma_err": 7.1
+  },
+  "1.00": {
+   "face_luma": 71.0,
+   "face_chroma_ab": [
+    26.0,
+    9.0
+   ],
+   "frames": 3,
+   "note": "outside the plan's allowed test set (1.35/1.45/1.55); measured for the footage report only",
+   "luma_err": 2.3
+  }
+ },
+ "chosen": "1.30",
+ "sky_clip_pct": 0.531,
+ "tree_noise_sd_flat_patch": 14.36,
+ "why_chosen": "1.30 is the measured closest of the allowed set on FACE LUMA (err 9.3 vs 14.7 at the plan's 1.45 default and 19.6 at 1.60). Chroma is not an exposure dimension and all three sit 8-11 levels under the indoor reference's R-G, which is what an overcast pool shoot looks like."
+}

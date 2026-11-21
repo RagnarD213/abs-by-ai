@@ -1,0 +1,31 @@
+Transform this subject into a peak-condition fitness magazine cover model at 8-10% body fat with a fully visible, sharply etched six-pack. The subject must look visibly BIGGER and more muscular than in the input photo, not merely leaner — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, a thicker upper back, and noticeably thicker arms, as if he added roughly 15 pounds of lean muscle while staying lean. On top of that added size, a fully visible, sharply cut SIX-PACK is REQUIRED — all six abdominal blocks separated by crisp shadow lines, a sharp vertical midline, defined obliques, and a visible V-cut running into the waistband, with no softness left on the torso. Placed side by side with the input, the output must read as a BIGGER, more developed, dramatically leaner physique — anyone who sees this single image must recognize a peak-condition, fitness-cover physique. Do NOT output an image that could be mistaken for the original photo. The body transformation should deliver maximum visual impact while remaining anatomically realistic.
+
+BODY TRANSFORMATION:
+• Reduce body fat to 8-10% — a fitness magazine cover model archetype with complete abdominal definition and maximum muscularity
+• Sculpt a fully visible, deeply etched six-pack with all six abdominal blocks sharply separated by crisp shadow lines, a sharp vertical midline groove, defined obliques framing the waist, and a visible V-cut running into the waistband
+• Build a fuller, squarer chest with a pronounced lower-pec line and clear pec-delt separation, visibly larger than the input
+• Enlarge and round the shoulder caps dramatically — wider, more prominent, and more sculpted than the input, creating a pronounced inverted-triangle silhouette
+• Widen the lats to create an obvious V-taper from shoulder to waist — the width difference must be immediately visible side by side with the input
+• Thicken the upper back and rear delts, adding visible depth and dimension to the posterior chain
+• Increase arm size noticeably — a fuller bicep belly with a sharp peak, a clear tricep sweep, and visibly more defined separation than the input
+• Tighten and narrow the waist and obliques, especially from the navel downward — no softness at the sides, a clean athletic taper
+• Render all definition with real light-and-shadow contrast — each ab block catching light with a distinct shadow in the groove beside it, never flat low-contrast lines drawn on the skin
+• Skin taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic look, explicitly NOT an oiled bodybuilder-stage look
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+SKIN TONE RULES: Add a warm sun-kissed bronze tan — approximately 2 shades deeper than the natural skin tone. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID:
+- any alteration to face, identity, apparent ethnicity, or age
+- heavily oiled, greasy, wet, or sweat-drenched skin
+- exaggerated or cartoonish proportions
+- cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body
+- an output identical or nearly identical to the input — visible change is required
+- bulging veins or competition vascularity
+- comically oversized muscles
+- spray-on abs that look digitally pasted on
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

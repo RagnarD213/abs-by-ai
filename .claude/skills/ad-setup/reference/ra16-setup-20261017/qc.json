@@ -1,0 +1,272 @@
+[
+  {
+    "option": 1,
+    "format": "16x9",
+    "file": "option-1-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 226,
+    "text_boxes": [
+      [
+        57,
+        178,
+        604,
+        344
+      ],
+      [
+        57,
+        375,
+        582,
+        542
+      ]
+    ],
+    "person_text_clearance_px": 105.0,
+    "bytes": 315619,
+    "pass": true
+  },
+  {
+    "option": 1,
+    "format": "9x16",
+    "file": "option-1-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 335,
+    "text_boxes": [
+      [
+        136,
+        144,
+        943,
+        389
+      ],
+      [
+        152,
+        435,
+        927,
+        680
+      ]
+    ],
+    "person_text_clearance_px": 126.0,
+    "bytes": 458621,
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "16x9",
+    "file": "option-2-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 106,
+    "text_boxes": [
+      [
+        233,
+        573,
+        1225,
+        651
+      ]
+    ],
+    "person_text_clearance_px": 70.0,
+    "bytes": 264847,
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "9x16",
+    "file": "option-2-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 178,
+    "text_boxes": [
+      [
+        195,
+        1513,
+        1035,
+        1644
+      ],
+      [
+        230,
+        1658,
+        1000,
+        1789
+      ]
+    ],
+    "person_text_clearance_px": 132.0,
+    "bytes": 451621,
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "16x9",
+    "file": "option-3-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 90,
+    "text_boxes": [
+      [
+        44,
+        272,
+        413,
+        341
+      ],
+      [
+        44,
+        360,
+        379,
+        448
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 251561,
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "9x16",
+    "file": "option-3-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 200,
+    "text_boxes": [
+      [
+        130,
+        67,
+        950,
+        221
+      ],
+      [
+        168,
+        247,
+        911,
+        441
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 505484,
+    "pass": true
+  },
+  {
+    "option": 4,
+    "format": "16x9",
+    "file": "option-4-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 135,
+    "text_boxes": [
+      [
+        83,
+        205,
+        215,
+        303
+      ],
+      [
+        83,
+        313,
+        459,
+        416
+      ],
+      [
+        83,
+        426,
+        568,
+        529
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 296924,
+    "pass": true
+  },
+  {
+    "option": 4,
+    "format": "9x16",
+    "file": "option-4-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 233,
+    "text_boxes": [
+      [
+        75,
+        98,
+        1001,
+        274
+      ],
+      [
+        75,
+        292,
+        914,
+        468
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 600827,
+    "pass": true
+  },
+  {
+    "option": 5,
+    "format": "16x9",
+    "file": "option-5-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 96,
+    "text_boxes": [
+      [
+        115,
+        271,
+        521,
+        341
+      ],
+      [
+        115,
+        360,
+        489,
+        449
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 207494,
+    "pass": true
+  },
+  {
+    "option": 5,
+    "format": "9x16",
+    "file": "option-5-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 192,
+    "text_boxes": [
+      [
+        129,
+        86,
+        941,
+        225
+      ],
+      [
+        129,
+        253,
+        875,
+        431
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 460993,
+    "pass": true
+  }
+]

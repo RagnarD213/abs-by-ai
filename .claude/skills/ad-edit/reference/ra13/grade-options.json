@@ -1,0 +1,17 @@
+{
+  "A": {
+    "name": "Existing Daylight",
+    "filter": "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709,lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.15.cube:interp=tetrahedral,eq=saturation=1.25",
+    "approved": false
+  },
+  "B": {
+    "name": "Brighter Natural",
+    "filter": "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709,lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube:interp=tetrahedral,eq=saturation=1.12:gamma=1.03",
+    "approved": false
+  },
+  "C": {
+    "name": "Brightest Natural",
+    "filter": "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709,lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.60.cube:interp=tetrahedral,eq=saturation=1.08:gamma=1.05",
+    "approved": false
+  }
+}

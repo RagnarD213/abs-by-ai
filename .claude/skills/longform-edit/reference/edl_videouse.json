@@ -1,0 +1,128 @@
+{
+  "sources": {
+    "C1541": "../C1541.MP4"
+  },
+  "grade": "none",
+  "ranges": [
+    {
+      "source": "C1541",
+      "start": 0.78,
+      "end": 15.14,
+      "beat": "INTRO"
+    },
+    {
+      "source": "C1541",
+      "start": 33.7,
+      "end": 47.86,
+      "beat": "SETUP: open app"
+    },
+    {
+      "source": "C1541",
+      "start": 48.96,
+      "end": 59.96,
+      "beat": "SETUP: pick meal prep"
+    },
+    {
+      "source": "C1541",
+      "start": 60.42,
+      "end": 65.0,
+      "beat": "STEP: add photos"
+    },
+    {
+      "source": "C1541",
+      "start": 66.32,
+      "end": 68.92,
+      "beat": "STEP: greens"
+    },
+    {
+      "source": "C1541",
+      "start": 71.36,
+      "end": 72.52,
+      "beat": "STEP: use photo"
+    },
+    {
+      "source": "C1541",
+      "start": 74.6,
+      "end": 77.66,
+      "beat": "STEP: proteins"
+    },
+    {
+      "source": "C1541",
+      "start": 81.76,
+      "end": 83.48,
+      "beat": "STEP: shot"
+    },
+    {
+      "source": "C1541",
+      "start": 86.94,
+      "end": 88.12,
+      "beat": "STEP: use photo"
+    },
+    {
+      "source": "C1541",
+      "start": 88.82,
+      "end": 97.66,
+      "beat": "STEP: olive oil"
+    },
+    {
+      "source": "C1541",
+      "start": 100.86,
+      "end": 115.2,
+      "beat": "STEP: servings + context"
+    },
+    {
+      "source": "C1541",
+      "start": 117.04,
+      "end": 144.66,
+      "beat": "WHY context matters"
+    },
+    {
+      "source": "C1541",
+      "start": 146.5,
+      "end": 157.06,
+      "beat": "STEP: dictate context"
+    },
+    {
+      "source": "C1541",
+      "start": 160.64,
+      "end": 162.58,
+      "beat": "STEP: analyze"
+    },
+    {
+      "source": "C1541",
+      "start": 172.58,
+      "end": 179.52,
+      "beat": "GOTCHA: takes longer"
+    },
+    {
+      "source": "C1541",
+      "start": 201.98,
+      "end": 233.36,
+      "beat": "GOTCHA: clarifying questions"
+    },
+    {
+      "source": "C1541",
+      "start": 237.96,
+      "end": 265.62,
+      "beat": "RESULT: itemized macros"
+    },
+    {
+      "source": "C1541",
+      "start": 288.08,
+      "end": 296.32,
+      "beat": "RESULT: accuracy vs manual"
+    },
+    {
+      "source": "C1541",
+      "start": 299.58,
+      "end": 305.08,
+      "beat": "STEP: save"
+    },
+    {
+      "source": "C1541",
+      "start": 308.68,
+      "end": 340.24,
+      "beat": "RECAP: log a serving"
+    }
+  ]
+}

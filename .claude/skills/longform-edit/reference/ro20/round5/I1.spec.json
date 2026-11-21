@@ -1,0 +1,67 @@
+{
+ "shot": "RO-20C R5 I1, intro tile 'Dead Broke' (lands on 'dead broke', P4 2.99 s)",
+ "intent": "Skid Row, Los Angeles, seen in a true side profile (his head turned to the camera): shirtless ripped Dan does a kettlebell deadlift in front of his cardboard-box home among tents and carts, downtown skyline behind. START: bottom of the hip hinge, flat back, both hands on the kettlebell handle, kettlebell on the pavement by his feet. END: standing tall at lockout, the same kettlebell hanging at arms' length in front of his thighs, feet unmoved. Locked camera.",
+ "person": {
+  "anchored": [
+   "ankle"
+  ],
+  "reach": true
+ },
+ "still": {
+  "brick_windows": [
+   500,
+   120,
+   560,
+   180
+  ],
+  "palm_crown": [
+   1100,
+   60,
+   1180,
+   120
+  ],
+  "tent_right": [
+   1450,
+   480,
+   1520,
+   540
+  ],
+  "cart_left": [
+   100,
+   560,
+   170,
+   620
+  ],
+  "blanket": [
+   1000,
+   560,
+   1060,
+   620
+  ],
+  "wall_stain": [
+   100,
+   120,
+   160,
+   180
+  ]
+ },
+ "props": [
+  {
+   "name": "kettlebell_handle",
+   "box": [
+    827,
+    717,
+    863,
+    755
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "left": "grips the kettlebell handle in both frames",
+  "right": "grips the same handle in both frames"
+ },
+ "may_change": {},
+ "bounds": {},
+ "start_frame": "I1-start.png: made from the standing END frame (reverse edit), variant c of five; the other four failed leg-length or prop rows and are kept in v4/"
+}

@@ -1,0 +1,27 @@
+{
+  "category": "CONTENT",
+  "type": "SFC",
+  "jobId": "DS-47",
+  "round": 6,
+  "date": "2026-10-28",
+  "approved_by": "Dan",
+  "quote": "approved, give me the handoff for thumbnails and setup.",
+  "scope": "Exact complete R6 film approved. Prepare one Claude handoff for five cover/thumbnail choices and subsequent organic setup; stop for Dan cover pick before platform uploads or scheduling. No new editing or new task launch requested.",
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/DS-47 V-Taper Exercises/V-Taper Exercises SFC R6 - final.mp4",
+  "sha256": "4217f863f5890b1504231b0ff8ef3da1a2ebdf1f60503af210b412d30e6351e7",
+  "bytes": 530557602,
+  "duration": 59.025633,
+  "frames": 1769,
+  "reviewed_by_dan": true,
+  "gate_verdict": "FAIL",
+  "gate_version": "2.6.2",
+  "gate_fail_rows": [
+    "audio:stamp",
+    "framing:no_wide_level",
+    "cut:splice_visibility",
+    "captions:graphic_clearance",
+    "captions:sync"
+  ],
+  "new_media_uploaded": false,
+  "new_schedules_created": false
+}

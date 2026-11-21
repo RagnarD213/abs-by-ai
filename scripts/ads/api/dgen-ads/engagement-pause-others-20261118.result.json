@@ -1,0 +1,14 @@
+{
+ "at": "2026-11-18T23:58:22.667Z",
+ "enabledLeft": [],
+ "tier2": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "cpcBidMicros": "50000",
+    "targetCpaMicros": "50000"
+   }
+  }
+ ]
+}

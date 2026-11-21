@@ -1,0 +1,150 @@
+# Finished ads on YouTube: video ids for ad campaigns
+
+**Every video listed here is an AD. Ads are never published organically** — not Facebook, not Instagram, not
+TikTok, not Blotato, not YouTube Public (Dan, 2026-09-17; `AGENTS.md`). This table is the registry
+`scripts/blotato/ad_guard.py` reads to block them; keep the Ad titles in the first column accurate.
+
+Every finished ad master in `Muhammad Ad Videos/` and `Zeeshan Ad Videos/` is on the **Abs by AI**
+channel (`UC236gjadarHAhEhOMYNGJ9g`) as an **unlisted** video. Paste the link into Google Ads,
+which only takes videos that are on YouTube. Uploaded 2026-09-10 with `scripts/youtube/upload.js`,
+category 26, not made for kids, "altered or synthetic content" = yes (the ads show AI-generated
+goal images of Dan). Every video was read back after upload: processed, HD, embeddable.
+
+| Ad | Version | Aspect | Length | Link | Approved? | Thumbnail |
+|---|---|---|---|---|---|---|
+| Ad 2 Stop Wasting Money On Nutritionists | Claude vertical of Muhammad's V2 | 9:16 | 4:37 | https://youtu.be/7XgHxn59Tsg | yes (09-08) | `ad2-vertical-7XgHxn59Tsg_C-jeans-black-9x16-FINAL.jpg` (set + read back 09-10) |
+| Ad 2 Stop Wasting Money On Nutritionists | Muhammad V2 HD | 16:9 | 4:37 | https://youtu.be/Dtk5knWM7c8 | editor final | `ad2-muhammad-16x9-Dtk5knWM7c8_C-jeans-black-FINAL.jpg` (set + read back 09-10) |
+| Ad 2 Stop Wasting Money On Nutritionists | Claude 1:1 square re-layout of Muhammad's V2 | 1:1 | 4:36 | https://youtu.be/hHiPzQKTzrg | yes (approved + finalized 09-12) | `ad2-square-hHiPzQKTzrg_C-jeans-black-1x1-FINAL.jpg` (built + set + read back 09-12) |
+| Ad 1 This Picture Got Me Abs | Muhammad | 16:9 | 3:53 | https://youtu.be/lf46ytHacss | editor final — **also the interim video on `absbyai.com/start` since 2026-09-10** (`ABS_START_VIDEO` in `public/site-video.js`) | O1 dark studio (set + read back 09-10) |
+| Ad 1 This Picture Got Me Abs | Zeeshan (4K master) | 16:9 | 4:10 | https://youtu.be/1oEcwdp21Fg | editor final | O1 dark studio (set + read back 09-10) |
+| Ad 1 This Picture Got Me Abs | Claude vertical of Muhammad's | 9:16 | 3:53 | https://youtu.be/Iz0u8KHRbyE | yes (09-10) | O1 dark studio (set + read back 09-10) |
+| Ad 1 This Picture Got Me Abs | Claude vertical 59s cutdown of Muhammad's | 9:16 | 0:50 | https://youtu.be/Rk7JxYyKawg | yes — exact SHA-locked AV-01 approved + finalized 09-18; DGen campaign since 09-18 | `ad1-vertical-Iz0u8KHRbyE_O1-dark-studio-9x16-FINAL.jpg` reused; set + read back 09-18 |
+| Ad 1 This Picture Got Me Abs | Claude 1:1 square re-layout of Muhammad's | 1:1 | 3:53 | https://youtu.be/VFCQAgzNIkA | yes (approved + finalized 09-14) | `ad1-square-VFCQAgzNIkA_O1-dark-studio-1x1-FINAL.jpg` (built + set + read back 09-14) |
+| Ad 1 This Picture Got Me Abs | Claude 1:1 square 59s cutdown | 1:1 | 0:50 | https://youtu.be/C8tjH0-hPFg | yes (approved + finalized 09-14) | same file, set + read back 09-14 |
+| Ad 5 Every Diet You've Tried Failed For The Same Reason | Muhammad V3 HD | 16:9 | 3:55 | https://youtu.be/bwfSQopZy1w | editor final (09-10) — ⚠ **was made Public + posted organically on FB/IG/TikTok 09-16/17 by mistake; back to unlisted 09-17.** An ad is NEVER published organically (`AGENTS.md`, 2026-09-17). Organic posts recorded in `BLOTATO_QUEUE_PROGRESS.md` | `ad5-muhammad-16x9-bwfSQopZy1w_B2-light-backdrop-studio-white-23-FINAL.jpg` — clean look, **Dan's pick 09-10** (set + read back 09-10) |
+| Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Muhammad V4 HD | 16:9 | 4:34 | https://youtu.be/Je2yvk00SHE | yes (09-15) — DGen campaign since 09-15 | `ad6-muhammad-16x9_O1-dark-studio-studio-gray-12-FINAL.jpg` (set + maxres read back 09-15) **Since 2026-10-02: trial-campaign thumbnail 6-R3B, `Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Claude 9:16 | 9:16 | 4:34 (273.874 s master) | https://youtu.be/Yd7iVlosIkQ | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 \| 9x16 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Claude 9:16 59s | 9:16 | 0:58 (57.758 s master) | https://youtu.be/C-ThTBOPn2E | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 \| 9x16 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Claude 1:1 | 1:1 | 4:34 (273.874 s master) | https://youtu.be/3Rx5TmyUARU | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 \| 1x1 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 6 You're Not Too Old to Get Abs. I'm Proof. | Claude 1:1 59s | 1:1 | 0:58 (57.758 s master) | https://youtu.be/aCsSsYG2vKI | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 6 You're Not Too Old To Get Abs/trial-20261001/Ad 6 \| 1x1 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 7 In 2010 I Photoshopped My Face on a Fitness Model. AI Just Did It for Real. | Muhammad 09-14 re-export | 16:9 | 3:32 | https://youtu.be/92A3JhaU4wE | yes (09-15) — better re-export used by Dan's instruction; fixes the cut-off header but carries `AI-GENERATEd` at 2:48–2:51; replace when corrected | `ad7-muhammad-16x9_O1-dark-studio-studio-white-13-FINAL.jpg` (set + maxres read back 09-15) |
+| Ad 8 AI Showed Me My Two Futures | Muhammad V4 HD | 16:9 | 3:31 | https://youtu.be/HMZdiJMAI3Y | yes (09-16) — Dan reviewed the differences and explicitly finalized this HD export; DGen campaign since 09-16 | `ad8-muhammad-16x9_O1-dark-studio-studio-white-42-FINAL.jpg` (set + maxres read back 09-16) |
+| Ad 8 AI Showed Me My Two Futures | Claude 9:16 | 9:16 | 3:31 (210.877 s master) | https://youtu.be/wsNG444pkNg | yes (10-01), Demand Gen | `AI Showed Me Two Futures - vertical/ad8-claude-9x16_A-dark-studio-studio-white-42-FINAL.jpg` (set and read back 10-01) |
+| Ad 8 AI Showed Me My Two Futures | Claude 9:16 59s | 9:16 | 0:56 (56.023 s master) | https://youtu.be/DP5qT2E962o | yes (10-01), Demand Gen | Same 9:16 thumbnail (set and read back 10-01) |
+| Ad 9 I Tried to Get Abs With ChatGPT. Here's What Happened. | Muhammad V3 HD | 16:9 | 3:14 | https://youtu.be/l4myK7f-sKo | RETIRED (09-22) — replaced by `zvVk680kSfo`; not in any ad; stays up unlisted | `ad9-muhammad-16x9_O1-dark-studio-studio-white-49-FINAL.jpg` (set + maxres read back 09-16) |
+| Ad 9 I Tried to Get Abs With ChatGPT. Here's What Happened. | Muhammad round 4 HD | 16:9 | 3:14 | https://youtu.be/zvVk680kSfo | yes (09-22) — replaces `l4myK7f-sKo`; new ads approved, old ads removed | same -FINAL thumbnail, maxres read back 09-21 |
+| Ad 10 My Dad Bod at 38. My Dad Bod at 40. | Muhammad V3 HD | 16:9 | 3:02 | https://youtu.be/Sg3vcEY2P_8 | yes (09-12) — DGen campaign since 09-15 | `ad10-muhammad-16x9_O1-dark-studio-studio-gray-26-FINAL.jpg` (set + read back 09-15; maxres still propagating at first read) **Since 2026-10-02: trial-campaign thumbnail 10-R2A, `Ad 10 My Dad Bod/trial-20261001/Ad 10 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 10 My Dad Bod at 38. My Dad Bod at 40. | Claude 9:16 | 9:16 | 3:02 | https://youtu.be/4nDWFmdjzQQ | yes (09-25), Demand Gen | `ad10-claude-9x16_O1-dark-studio-studio-gray-26-FINAL.jpg` (set and read back 09-25) **Since 2026-10-02: trial-campaign thumbnail 10-R2A, `Ad 10 My Dad Bod/trial-20261001/Ad 10 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 10 My Dad Bod at 38. My Dad Bod at 40. | Claude 9:16 59s | 9:16 | 0:58 (57.124 s master) | https://youtu.be/CR4WAVmSuXY | yes (09-25), Demand Gen | Same 9:16 thumbnail (set and read back 09-25) **Since 2026-10-02: trial-campaign thumbnail 10-R2A, `Ad 10 My Dad Bod/trial-20261001/Ad 10 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 10 My Dad Bod at 38. My Dad Bod at 40. | Claude 1:1 | 1:1 | 3:02 (181.615 s master) | https://youtu.be/1q2nPYxIPu0 | yes, exact SHA-locked file approved 10-05; trial campaign | 10-R2A `Ad 10 My Dad Bod/trial-20261001/Ad 10 \| 1x1 \| FINAL.jpg` (set and served readback 10-05). Unlisted, AI use yes. |
+| Ad 10 My Dad Bod at 38. My Dad Bod at 40. | Claude 1:1 59s | 1:1 | 0:57 (57.124 s master) | https://youtu.be/3CsujW486jM | yes, exact SHA-locked file approved 10-05; trial campaign | Same 1:1 thumbnail (set and served readback 10-05). Unlisted, AI use yes. |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Muhammad V4 HD | 16:9 | 4:05 | https://youtu.be/hrQf1240kQA | RETIRED (09-22) — replaced by `-SuKGXGcbIg`; not in any ad; stays up unlisted | `ad13-muhammad-16x9_O1-dark-studio-studio-gray-41-FINAL.jpg` (set + maxres read back 09-16) |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Muhammad round 4 HD | 16:9 | 4:05 | https://youtu.be/-SuKGXGcbIg | RETIRED (10-05): all paid references replaced with Codex R4 `NQeyZ2jylVU`; old upload stays Unlisted | same -FINAL thumbnail, maxres read back 09-21 **Since 2026-10-02: trial-campaign thumbnail 13-R3B, `Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Codex R4 16x9 | 16:9 | 4:05 (244.878 s master) | https://youtu.be/NQeyZ2jylVU | yes, exact hash approved 10-05; paid setup verified | 13-R3B `Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 \| 16x9 \| FINAL.jpg`, set and served readback inspected 10-05. Unlisted, synthetic true submitted. |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Codex R4 1x1 | 1:1 | 4:05 (244.878 s master) | https://youtu.be/2-S3WVLhDsI | yes, exact hash approved 10-05; paid setup verified | 13-R3B `Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 \| 1x1 \| FINAL.jpg`, set and served readback inspected 10-05. Unlisted, synthetic true submitted. |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Codex R4 1x1-59s | 1:1 | 0:54 (54.288 s master) | https://youtu.be/W1xLK5W9l_0 | yes, exact hash approved 10-05; paid setup verified | 13-R3B `Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 \| 1x1 \| FINAL.jpg`, set and served readback inspected 10-05. Unlisted, synthetic true submitted. |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Claude 9:16 | 9:16 | 4:05 (244.878 s master) | https://youtu.be/f792V7H1Vkc | yes (10-03), trial campaign since 10-04 | Approved 13-R3B in vertical, `Ad 13 What Getting Abs Cost/trial-20261001/Ad 13 \| 9x16 \| FINAL.jpg` (set and read back 10-04). |
+| Ad 13 I Added Up What Getting Abs Was Supposed to Cost | Claude 9:16 59s | 9:16 | 0:54 (54.288 s master) | https://youtu.be/VPyHyxEkHjo | yes (10-03), trial campaign since 10-04 | Same 9:16 thumbnail (set and read back 10-04). |
+| Ad 14 I Watched 400 Workout Videos and Gained Weight | Muhammad V3 HD exact-match replacement | 16:9 | 3:18 | https://youtu.be/SGJoPjnl6AU | yes (09-16) — exact picture/timeline/audio match to approved V3; DGen replacement active | `ad14-muhammad-16x9_O1-dark-studio-studio-white-34-FINAL.jpg` (set + maxres read back 09-16) |
+| Ad 14 I Watched 400 Workout Videos and Gained Weight | Codex R4 | 16:9 | 3:48 | https://youtu.be/ACfVyQqPK08 | yes — exact SHA-locked R4 approved 09-17; uploaded Unlisted and added to DGen 09-18 | approved Ad14 dark-studio thumbnail reused; maxres read back byte-identical to Muhammad Ad14 readback 09-18 |
+| ~~Ad 14 I Watched 400 Workout Videos and Gained Weight~~ | Muhammad V3 review-grade export | 16:9 | 3:18 | https://youtu.be/z5AfM0fhcIg | **superseded 09-16** by exact-match HD `SGJoPjnl6AU`; old DGen ads PAUSED, video kept unlisted | same thumbnail (set + maxres read back 09-15) |
+| Ad 15 I Was the Dad Who Swam in a T-Shirt | Muhammad V3 HD | 16:9 | 3:27 | https://youtu.be/TqXD2dGgAPs | yes (09-16) — Dan reviewed the differences and explicitly finalized this HD export; DGen campaign since 09-16 | `ad15-muhammad-16x9_O1-dark-studio-studio-gray-21-FINAL.jpg` (set + maxres read back 09-16) |
+| Ad 15 I Was the Dad Who Swam in a T-Shirt | Muhammad round 3 HD + Claude final fixes (3:19 AI tag, 2:31 goal-image repeat replaced by camera) | 16:9 | 3:27 | https://youtu.be/5GQQHP8bpM4 | yes (09-21), replaces `TqXD2dGgAPs` (keep up unlisted until the new ads are approved, then retire) | same -FINAL thumbnail, maxres read back 09-21 |
+| RA-01 The AI Trick That Got Me Abs | Claude approved master | 9:16 | 0:57 | https://youtu.be/rfCsWNxuNV0 | yes — exact SHA-locked master approved 09-18; DGen campaign since 09-18 | `ra01-claude-9x16_O1-dark-studio-studio-blue-109-FINAL.jpg` (set + read back 09-18; O2 alternate and four-up review sheet beside it) **Since 2026-10-02: trial-campaign thumbnail RA-R2A, `RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
+| RA-01 The AI Trick That Got Me Abs | Claude approved master | 16:9 | 0:57 | https://youtu.be/OUw788sF1KY | yes — exact SHA-locked master approved 09-18; DGen campaign since 09-18 | `ra01-claude-16x9_O1-dark-studio-studio-blue-109-FINAL.jpg` (set + read back 09-18; O2 alternate and four-up review sheet beside it) **Since 2026-10-02: trial-campaign thumbnail RA-R2A, `RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| RA-01 The AI Trick That Got Me Abs | Claude approved master (AS-13) | 1:1 | 0:57 | https://youtu.be/EfoVnGyAJjk | yes, Dan approved the exact SHA-locked square 10-02 (`3e7939bc...`); trial campaign ad group `206348100928` since 10-02 | Trial-campaign thumbnail RA-R2A, `RA-01 The AI Trick That Got Me Abs/trial-20261001/RA-01 \| 1x1 \| FINAL.jpg` (set + read back 10-02). Unlisted, AI flag false (matches the other two RA-01 uploads). |
+| RA-14 The Cheat Code For Six Pack Abs | Claude R4 9:16, thumbnail A | 9:16 | 0:49 (49.45 s master, sha256 4b520fd1...) | https://youtu.be/DRhhts5i7gU | **UNUSED since 10-14:** Dan dropped the A/B before launch and kept thumbnail 3 only; ad `828015334077` REMOVED. Video stays Unlisted (Dan may delete it in Studio). | Option 2, studio-blue-187 in an 8-bit level, `RA-14 The Cheat Code For Six Pack Abs/RA-14 \| 9x16 \| thumbnail A (option 2 studio) FINAL.jpg` (set + served readback 10-14). Unlisted, AI flag true submitted (AI-Dan push-up demo 36.3-38.3 s). |
+| RA-14 The Cheat Code For Six Pack Abs | Claude R4 9:16, thumbnail B | 9:16 | 0:49 (same file) | https://youtu.be/CruqOCBcsiY | yes, same approval; same ad group (ad `828015303786`) since 10-14 | Option 3, AI Dan with a glowing controller, `RA-14 The Cheat Code For Six Pack Abs/RA-14 \| 9x16 \| thumbnail B (option 3 AI) FINAL.jpg` (set + served readback 10-14). Unlisted, AI flag true submitted. **The live RA-14 ad.** |
+| RA-05 How AI Can Get You Real Six Pack Abs | Claude R3 9:16 | 9:16 | 0:58 (58.36 s master, sha256 c0a57092...) | https://youtu.be/0DswKDBFW2E | yes, Dan approved 10-14 and accepted the 8 watch-pass findings 10-16 ("the video is good as is"); trial campaign ad group `199904676174` (ad `828398569805`) since 10-16 | Option 6, AI Dan with a hologram coach, WHY AI IS THE ULTIMATE TRAINER (Dan's pick 10-16), `RA-05 How AI Can Get You Real Six Pack Abs/RA-05 \| 9x16 \| thumbnail (option 6 AI hologram coach) FINAL.jpg` (set + maxres read back 10-16). Unlisted, AI flag true (AI couch clip 3.47-7.91 s, AI body scan 25.99-29.66 s). |
+| RA-04 Top 3 Tips For Getting Abs | Claude R5 9:16 | 9:16 | 0:58 (57.92 s, sha256 c97bd876...) | https://youtu.be/8vKyOqqbe-s | yes, Dan finalized round 5 on 10-16; trial campaign ad group `204926161127`, ad `828272644005` since 10-16 | Design B split screen (vacuum, AI salad, medicine-ball crunch photo-44), blue title, Dan approved 10-16 after one revision round, `RA-04 Top 3 Tips For Getting Abs/RA-04 \| 9x16 \| FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (realistic AI person 39.14-43.44 s, AI phone clip). |
+| RA-04 Top 3 Tips For Getting Abs | Claude R5 16:9 | 16:9 | 0:58 (57.92 s, sha256 d8d95ab3...) | https://youtu.be/wCfKZT-m1aw | yes, same approval; same ad group, ad `828398458259` since 10-16 | Design B split screen (vacuum, AI salad, medicine-ball crunch photo-44), blue title, Dan approved 10-16 after one revision round, `RA-04 Top 3 Tips For Getting Abs/RA-04 \| 16x9 \| FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (realistic AI person 39.14-43.44 s, AI phone clip). |
+| RA-06 What's The Best Ab Exercise? | Claude R4 16:9 | 16:9 | 0:46 (45.71 s, sha256 db9a35d0...) | https://youtu.be/6WRVb61mY0Y | yes, Dan approved both formats 10-16; trial campaign ad group `199908283143`, ad `828274063389` since 10-16 | Dan's split-screen design B (round 3): enhanced real frames of the stomach vacuum, V-sit twist and ab wheel, one-line yellow BEST AB EXERCISE?, Dan approved 10-16 after two revision rounds, `RA-06 Whats The Best Ab Exercise/RA-06 \| 16x9 \| thumbnail B split FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (AI body scan, copier, fired trainer, app result, robot). |
+| RA-06 What's The Best Ab Exercise? | Claude R4 9:16 | 9:16 | 0:46 (45.71 s, sha256 93fd39ba...) | https://youtu.be/CuN3CBE6ITs | yes, same approval; same ad group, ad `828320387740` since 10-16 | Dan's split-screen design B (round 3): enhanced real frames of the stomach vacuum, V-sit twist and ab wheel, one-line yellow BEST AB EXERCISE?, Dan approved 10-16 after two revision rounds, `RA-06 Whats The Best Ab Exercise/RA-06 \| 9x16 \| thumbnail B split FINAL.jpg` (set at upload 10-16). Unlisted, AI flag true submitted (AI body scan, copier, fired trainer, app result, robot). |
+| RA-15 Never Pay A Nutritionist Again | Claude R4 16:9 | 16:9 | 0:52 (51.85 s, sha256 f3ba15d6...) | https://youtu.be/Tqra4f_SEj8 | yes, Dan finalized round 4 on 10-16; trial campaign ad group `204288183347`, ad `828399044620` since 10-17 | Dan's pick 10-17 after three rounds: studio-gray-55 smirk in front of a crowd of angry nutritionists (Codex backdrop), NUTRITIONISTS DESPISE HIM on a red banner, `RA-15 Never Pay A Nutritionist Again/RA-15 \| 16x9 \| thumbnail mob red banner FINAL.jpg` (set at upload 10-17). Unlisted, AI flag true submitted (AI museum man 0.0-2.3 s, app generation of a man who is not Dan 17.5-25.0 s, fridge, steak, restaurant scenes, AI lock-screen goal picture 43.2-45.3 s). |
+| RA-15 Never Pay A Nutritionist Again | Claude R4 9:16 | 9:16 | 0:52 (51.85 s, sha256 2d990d91...) | https://youtu.be/8ZoEMD_uPZ0 | yes, same approval; same ad group, ad `828399056794` since 10-17 | Dan's pick 10-17 after three rounds: studio-gray-55 smirk in front of a crowd of angry nutritionists (Codex backdrop), NUTRITIONISTS DESPISE HIM on a red banner, `RA-15 Never Pay A Nutritionist Again/RA-15 \| 9x16 \| thumbnail mob red banner FINAL.jpg` (set at upload 10-17). Unlisted, AI flag true submitted (AI museum man 0.0-2.3 s, app generation of a man who is not Dan 17.5-25.0 s, fridge, steak, restaurant scenes, AI lock-screen goal picture 43.2-45.3 s). |
+| Ad 3 Stop Paying Human Trainers | Muhammad v6 HD, AI breath-smoke shot (1:13.5–1:18) replaced | 16:9 | 4:26 | https://youtu.be/86jbUhqBTUQ | yes (09-14) — DGen campaign since 09-14 | `ad3-muhammad-16x9_O1-dark-studio-studio-gray-87-FINAL.jpg` (set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 3 Stop Paying Human Trainers | Claude vertical (render 12) | 9:16 | 4:26 | https://youtu.be/xlC-tigurnA | yes (09-14) — DGen campaign since 09-14 | `ad3-claude-9x16_O1-dark-studio-studio-gray-87-FINAL.jpg` (built + set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 3 Stop Paying Human Trainers | Claude vertical 59s cutdown | 9:16 | 0:58 | https://youtu.be/-wTErCSi640 | yes (09-14; its −0.90 dBTP accepted) — DGen campaign since 09-14 | same 9:16 file (set + read back 09-14) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 9x16 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 3 Stop Paying Human Trainers | Claude 1:1 R2.1 square re-layout | 1:1 | 4:26 | https://youtu.be/DXRkrfvcJEM | yes — uploaded as-is at Dan's explicit 09-16 instruction; internal findings preserved; DGen campaign since 09-16 | `ad3-muhammad-16x9_O1-dark-studio-studio-gray-87-FINAL.jpg` (reused, set + read back 09-16) **Since 2026-10-02: trial-campaign thumbnail 3-R2A, `Ad 3 Stop Paying Human Trainers/trial-20261001/Ad 3 | 1x1 | FINAL.jpg` (set + read back 10-02).** |
+| ~~Ad 3 Stop Paying Human Trainers~~ | Muhammad v6 HD **with the smoke shot** | 16:9 | 4:25 | https://youtu.be/QWW1oumpNg4 | **superseded 09-14** by `86jbUhqBTUQ` — its two DGen ads PAUSED, video kept unlisted | `ad3-muhammad-16x9_O1-dark-studio-studio-gray-87-FINAL.jpg` (set + read back 09-11; O2 light alternate beside it) |
+| Ad 4 Stop Wasting Money On Supplements | Muhammad V4 HD | 16:9 | 3:59 | https://youtu.be/R08TPEtkjuQ | yes (09-10, round 3) — in the DGen conversion campaign since 09-11 (`/ad-setup`) | `ad4-muhammad-16x9_O2-light-backdrop-studio-white-57-FINAL.jpg` (set + read back 09-11; O1 dark alternate beside it) **Since 2026-10-02: trial-campaign thumbnail 4-R2A, `Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 | 16x9 | FINAL.jpg` (set + read back 10-02).** |
+| Ad 4 Stop Wasting Money On Supplements | Claude 9:16 | 9:16 | 3:59 (238.905 s master) | https://youtu.be/Sr9gux0gB5I | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 \| 9x16 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 4 Stop Wasting Money On Supplements | Claude 9:16 59s | 9:16 | 0:57 (57.190 s master) | https://youtu.be/TPlpl0LETqw | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 \| 9x16 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 4 Stop Wasting Money On Supplements | Claude 1:1 | 1:1 | 3:59 (238.905 s master) | https://youtu.be/kyrAfWkg92k | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 \| 1x1 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| Ad 4 Stop Wasting Money On Supplements | Claude 1:1 59s | 1:1 | 0:57 (57.190 s master) | https://youtu.be/eJ-dTPw40Hk | yes, Dan approved exact SHA-locked file 10-04; trial campaign | `Ad 4 Stop Wasting Money On Supplements/trial-20261001/Ad 4 \| 1x1 \| FINAL.jpg` (set and read back 10-04). Unlisted, AI use yes. |
+| ~~Ad 3 Stop Paying Human Trainers~~ | Claude vertical, FAILED UPLOAD (connection dropped at 90 %) | 9:16 | 0:00 | ~~https://youtu.be/J-fOMvEJwDs~~ | **empty husk 09-14 — do not use; Dan deletes in Studio** (re-uploaded as `xlC-tigurnA`) | — |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's | 9:16 | 4:10 | ~~https://youtu.be/rimBWjT9-oo~~ | **REJECTED 09-10 — do not use** | — |
+| ~~Ad 1 This Picture Got Me Abs~~ | Claude vertical of Zeeshan's, cutdown | 9:16 | 0:56 | ~~https://youtu.be/JOZVk4_HDwQ~~ | **REJECTED 09-10 — do not use** | — |
+
+Thumbnail files live in `social media graphics/youtube/thumbnails/<Ad folder>/` (git-ignored). Swap one with
+`node scripts/youtube/set-thumbnail.js --video <id> --file <jpg> --out readback.jpg` — it sets, waits for the
+new image to serve, and saves the read-back. A 9:16 thumbnail is served as 1280×720 with a blurred copy of
+itself filling the sides (not black bars).
+
+⚠ The two struck rows are byte-identical (sha256) to the files Dan rejected for processed audio on 2026-09-10
+(corpus entries `ad1zee-vertical-processed-audio` and `…-59s-…`). They were uploaded before that rejection
+was known. The upload token cannot delete videos, so Dan removes them in Studio. When the rebuild is
+approved, upload it as a NEW video and add a row here.
+
+Each description links `absbyai.com/start` with `utm_source=youtube&utm_medium=video_ad&utm_campaign=<slug>`
+(`ad2-claude-9x16`, `ad2-muhammad-16x9`, `ad1-muhammad-16x9`, `ad1-zeeshan-16x9`, `ad1-muhammad-claude-9x16`,
+`ad1-zeeshan-claude-9x16`, `ad1-zeeshan-claude-9x16-59s`). The ad's own final URL in Google Ads is what
+counts. The description link only matters if a viewer opens the video page.
+
+⚠ Known compliance flags (from the review notes): Muhammad's Ad 2 shows the app's email-capture
+screen at 3:12 and 3:22, and Zeeshan's Ad 1 at 3:09. Our 9:16 rebuilds inherit whatever their
+source shows.
+
+When a new ad goes final, upload it the same way and add a row here. Replacing a video means a
+new id, so the ads pointing at the old id have to be updated in Google Ads.
+
+## 2026-10-17: RA-13 Most Guys Abs R3
+
+| Ad | Version | Aspect | Length | Link | Approved? | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 9:16 | 0:54 | https://youtu.be/KSq1OBlWvPI | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-9x16.jpg, installed and read back |
+| RA-13 Why Do Most Guys Never Get Abs? | Codex R3 | 16:9 | 0:54 | https://youtu.be/cnkrWRfFsTc | yes, exact R3 finalized 10-17 | Option 3, bold HOW TO GET REAL ABS WITH AI., FINAL-16x9.jpg, installed and read back |
+
+Both Unlisted, processed and embeddable. Trial group 201534026375. Details: `Docs/RA13_SETUP_RECEIPT_20261017.md`.
+
+## 2026-10-17: RA-16 AI Took Job R4
+
+Both exact native masters uploaded unchanged and verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g. Dan selected R2 option 3, AI Dan fired with phone hologram trainer, "Fire your trainer." Both thumbnails installed and served images checked.
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-16 AI Took My Job | Codex R4 | 9:16 | 0:59 | https://youtu.be/StkalQUjWSw | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-9x16.jpg, installed/read back |
+| RA-16 AI Took My Job | Codex R4 | 16:9 | 0:59 | https://youtu.be/g8GWwOYzelM | yes, exact R4 finalized 10-17 | R2 option 3, FINAL-16x9.jpg, installed/read back |
+
+Trial group 202854620044, ads 828352448280 / 828398913310. Receipt: `Docs/RA16_SETUP_RECEIPT_20261017.md`. No organic publishing.
+
+## 2026-10-20: RA-07 Fire Your Trainer R6 (thumbnail A/B)
+
+The exact approved R6 9:16 (sha256 `ca75555c…cfae`) uploaded unchanged twice, both verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true. One thumbnail per copy for Dan's A/B (YouTube Test & Compare does not run on Shorts or unlisted videos).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-07 Fire Your Trainer | Claude R6, thumb A | 9:16 | 0:53 | https://youtu.be/bpv5HSRqzDo | yes, R6 approved 10-18 | 2b, studio-blue-28 smirk, TRAINERS DESPISE HIM, installed/read back |
+| RA-07 Fire Your Trainer | Claude R6, thumb B | 9:16 | 0:53 | https://youtu.be/AWh8cOd80Ic | yes, R6 approved 10-18 | 3b, AI Dan + robot coach, FIRE / YOUR / TRAINER, installed/read back |
+
+Trial group 204215057191, ads 828608015181 (A) / 828655819900 (B). Receipt: `Docs/RA07_SETUP_RECEIPT_20261020.md`. No organic publishing.
+
+## 2026-10-21: RA-12 The First Step To Getting Abs R2
+
+The exact approved R2 9:16 (sha256 `18728d49…b539`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI lock screen, beginner, app generation, AI trainer demo).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-12 The First Step To Getting Abs | Claude R2 | 9:16 | 0:46 | https://youtu.be/7bsTcr0vu6Y | yes, R2 approved 10-21 | Round 2 design A, real studio-blue-11 in front of an open vault with a gold key, THE KEY TO GETTING ABS, installed/read back |
+
+Trial group 202084443740, ad 828687867099. Receipt: `Docs/RA12_SETUP_RECEIPT_20261021.md`. No organic publishing.
+
+## 2026-10-22: RA-09 Do You Think AI Is Changing The World R1
+
+The exact approved R1 9:16 (sha256 `22501825…c2d2`) uploaded unchanged, verified Unlisted, processed and embeddable on channel UC236gjadarHAhEhOMYNGJ9g, synthetic=true (AI robot opener, goal pictures, app generation, analysis card, AI trainer demo, AI sling/closed gym/home workout clips).
+
+| Ad | Version | Aspect | Length | YouTube | Approved | Thumbnail |
+|---|---|---|---|---|---|---|
+| RA-09 Do You Think AI Is Changing The World | Claude R1 | 9:16 | 0:59 | https://youtu.be/RToVv-Xgfj8 | yes, R1 approved 10-22 | Round 3 design C, real pool photo-13 with natural background, USE AI TO GET REAL ABS + REAL PHOTO OF ME, NOT AI-GENERATED, installed/read back |
+
+Trial group 200913806626, ad 829196685786. Receipt: `Docs/RA09_SETUP_RECEIPT_20261022.md`. No organic publishing.

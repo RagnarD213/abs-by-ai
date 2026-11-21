@@ -1,0 +1,8 @@
+# The female subjects here are real, identifiable private individuals (authorized
+# by Dan for testing on 2026-07-27) and the GitHub repo is PUBLIC. Photos and
+# generated transformations stay out of git for the whole round — only the code,
+# the prompts, the per-cell result metadata and the blind key are committed.
+photos/
+out/*.jpg
+out/thumbs/
+out/gallery.html

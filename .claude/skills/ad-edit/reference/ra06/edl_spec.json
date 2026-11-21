@@ -1,0 +1,7 @@
+{
+ "_note": "Take spans for RA-06, anchored to PHRASES in the C1664 word list (309-372 s). The script was read once through (313.4-339.8), then the 'That's why thousands of guys...' line was re-read and the read ran on to the CTA (341.0-368.0). R1 = take 1 up to 'specifically for you'. R2 = the re-read from 'That's why thousands' (the isolated pass hears 'hired their trainer' in the first read; last clean take wins) to the end. Nothing cut from the script.",
+ "ranges": [
+  {"name": "R1", "lines": "L1-L5", "after": 312.0, "from": "whats the best exercise for getting abs", "to": "not tailoring it specifically for you"},
+  {"name": "R2", "lines": "L6-L11", "after": 340.5, "from": "thats why thousands of guys", "to": "tap the button below now to get started"}
+ ]
+}

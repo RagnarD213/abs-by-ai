@@ -1,0 +1,179 @@
+[
+  {
+    "letter": "A",
+    "file": "RO28-thumbnail-A.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "bytes": 279439,
+    "sha256": "e8d903dd0a60f6c61a5881436ab879811cc546fae6fb73a18ff51b5ea58f6635",
+    "person_text_overlap_pixels": 0,
+    "minimum_person_text_clearance_px": 43.42,
+    "text_boxes": [
+      [
+        47,
+        218,
+        475,
+        348
+      ],
+      [
+        47,
+        395,
+        284,
+        477
+      ],
+      [
+        47,
+        520,
+        547,
+        619
+      ]
+    ],
+    "pass": true
+  },
+  {
+    "letter": "B",
+    "file": "RO28-thumbnail-B.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "bytes": 237951,
+    "sha256": "0c12e8da3efb19c9ffcfb3de2390a0f938956e31c71da3f1f4b1ce706e425deb",
+    "person_text_overlap_pixels": 0,
+    "minimum_person_text_clearance_px": 75.0,
+    "text_boxes": [
+      [
+        690,
+        80,
+        1225,
+        197
+      ],
+      [
+        690,
+        225,
+        1004,
+        320
+      ],
+      [
+        690,
+        365,
+        1006,
+        463
+      ],
+      [
+        690,
+        505,
+        1202,
+        641
+      ]
+    ],
+    "pass": true
+  },
+  {
+    "letter": "C",
+    "file": "RO28-thumbnail-C.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "bytes": 173039,
+    "sha256": "624ed54def0f96dfb0f34cca8b75cfef43fd6a7fa44f74cf6dfbf0704d829a9c",
+    "person_text_overlap_pixels": 0,
+    "minimum_person_text_clearance_px": 88.0,
+    "text_boxes": [
+      [
+        650,
+        130,
+        1176,
+        230
+      ],
+      [
+        650,
+        276,
+        916,
+        338
+      ],
+      [
+        650,
+        395,
+        950,
+        465
+      ],
+      [
+        650,
+        518,
+        1119,
+        633
+      ]
+    ],
+    "pass": true
+  },
+  {
+    "letter": "D",
+    "file": "RO28-thumbnail-D.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "bytes": 453579,
+    "sha256": "da0083eddcd8827e3fc38fa53b7f6d4a42015527e93ca5e03516775de5c93579",
+    "person_text_overlap_pixels": 0,
+    "minimum_person_text_clearance_px": 22.09,
+    "text_boxes": [
+      [
+        32,
+        47,
+        633,
+        161
+      ],
+      [
+        712,
+        31,
+        1121,
+        78
+      ],
+      [
+        712,
+        104,
+        1078,
+        188
+      ]
+    ],
+    "pass": true
+  },
+  {
+    "letter": "E",
+    "file": "RO28-thumbnail-E.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "bytes": 262951,
+    "sha256": "54710bcb189b7d1cd9f65078b902e8dc1310ab32fef02430e573b1d5a3bb98b6",
+    "person_text_overlap_pixels": 0,
+    "minimum_person_text_clearance_px": 26.0,
+    "text_boxes": [
+      [
+        42,
+        336,
+        576,
+        459
+      ],
+      [
+        42,
+        469,
+        307,
+        542
+      ],
+      [
+        42,
+        572,
+        602,
+        661
+      ]
+    ],
+    "pass": true
+  }
+]

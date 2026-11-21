@@ -1,0 +1,102 @@
+<title>Monthly AI Cost</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one ledger column. Month total on top, cost lines as scaled bars, then the receipts behind them. */
+:root{
+  --bg:#f3f5f4; --surface:#ffffff; --fg:#14201c; --muted:#5d6b66; --line:#d5dcd9;
+  --sub:#1f6f5c; --usage:#c2571a; --flag:#8a6100; --flag-bg:#fbf1d3;
+  --display:"Archivo",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#101614; --surface:#18211e; --fg:#e8efec; --muted:#98a8a2; --line:#2b3733;
+  --sub:#58c2a6; --usage:#f0935a; --flag:#f0c95a; --flag-bg:#33290c; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#101614; --surface:#18211e; --fg:#e8efec; --muted:#98a8a2; --line:#2b3733;
+  --sub:#58c2a6; --usage:#f0935a; --flag:#f0c95a; --flag-bg:#33290c; color-scheme:dark }
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16px;line-height:1.5}
+.wrap{max-width:760px;margin:0 auto;padding-inline:20px;padding-block:36px 56px;display:flex;flex-direction:column;gap:32px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(52px,13vw,88px);font-weight:800;line-height:1;margin:6px 0 0;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+h2{font-size:14px;font-family:var(--mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+.split{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:14px;font-size:15px}
+.split b{font-family:var(--mono);font-weight:500}
+.dot{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:8px}
+.months{display:flex;flex-wrap:wrap;gap:8px}
+.months button{font:500 13px var(--mono);padding:6px 12px;border:1px solid var(--line);background:transparent;color:var(--fg);border-radius:4px;cursor:pointer}
+.months button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.months button:focus-visible{outline:2px solid var(--sub);outline-offset:2px}
+.rows{display:flex;flex-direction:column;gap:16px}
+.row{display:grid;grid-template-columns:1fr auto;gap:4px 16px;align-items:baseline}
+.row .name{min-width:0}
+.row .amt{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.row .track{grid-column:1/-1;height:10px;background:var(--line);border-radius:2px;overflow:hidden}
+.row .fill{height:100%;border-radius:2px}
+.row .note{grid-column:1/-1;font-size:13px;color:var(--muted)}
+.tag{font:500 11px var(--mono);background:var(--flag-bg);color:var(--flag);padding:2px 6px;border-radius:3px;margin-left:8px;white-space:nowrap}
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:6px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);white-space:nowrap}
+tr:last-child td{border-bottom:0}
+th{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+td.w{white-space:normal;min-width:180px}
+ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:14px;max-width:65ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow" id="label"></div>
+    <h1 id="total"></h1>
+    <div class="split" id="split"></div>
+  </header>
+  <div class="months" id="months" role="group" aria-label="Month"></div>
+  <section><h2>Where it went</h2><div class="rows" id="rows"></div></section>
+  <section><h2>Figures behind the total</h2><div class="scroll"><table id="tbl"></table></div></section>
+  <section><h2>How to read this</h2><ul id="notes"></ul></section>
+</div>
+
+<script>
+// One entry per month, newest last. kind: "sub" = fixed subscription, "usage" = paid on top.
+// Runbook: Docs/AI_COSTS.md
+const MONTHS = [
+ { id:"2026-09", label:"September 2026",
+   lines:[
+    {name:"Claude Max 20x subscription", kind:"sub", amount:210.00, note:"$200 plus $10.00 Texas sales tax."},
+    {name:"Codex extra usage", kind:"usage", amount:170.24, note:"Four usage resets at $42.56 each, all bought and used Sep 15 to 17."},
+    {name:"Codex subscription", kind:"sub", amount:100.00, flag:"no receipt found", note:"Your stated price. No September receipt for it is in Gmail, so tax is not included."},
+    {name:"Replicate API", kind:"usage", amount:83.95, note:"Usage for the month from Replicate's billing page. You paid in only $25.02, the rest came from credit bought in August."},
+    {name:"Google Cloud (Gemini API)", kind:"usage", amount:81.38, note:"Usage for the month from the Google Cloud billing report. You prepaid $100.00, so $18.62 carried forward."},
+    {name:"Claude extra credits", kind:"usage", amount:0, note:"Nothing beyond the subscription this month."}
+   ],
+   charges:[
+    ["Sep 1 to 30","Replicate","Usage, from the billing page",83.95],
+    ["Sep 1 to 30","Google Cloud","Gemini API usage, from the billing report",81.38],
+    ["Sep 15","OpenAI","Codex usage reset, Pro 5x",42.56],
+    ["Sep 16","OpenAI","Codex usage reset, Pro 5x",42.56],
+    ["Sep 17","OpenAI","Codex usage reset, Pro 5x",42.56],
+    ["Sep 17","OpenAI","Codex usage reset, Pro 5x",42.56],
+    ["Sep 20","Anthropic","Max plan 20x, Sep 20 to Oct 20",210.00],
+    ["n/a","OpenAI","Codex subscription (stated, no receipt)",100.00]
+   ],
+   notes:[
+    "Prepaid APIs (Replicate, Google Cloud) are counted by what you used in the month, read from each provider's own billing page. Credit reloads are not counted.",
+    "Subscriptions and Codex usage resets are counted as charged, from the receipts in your Gmail.",
+    "The Codex subscription receipt is not in this inbox. If it bills to another email or through Apple, the true figure may include tax.",
+    "Not counted: non-AI tools such as VidTao, Railway, Blotato, and all ad spend."
+   ]}
+];
+const $=id=>document.getElementById(id), usd=n=>"$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+function show(m){
+  const sum=k=>m.lines.filter(l=>!k||l.kind===k).reduce((a,l)=>a+l.amount,0), max=Math.max(...m.lines.map(l=>l.amount));
+  $("label").textContent="Total AI cost, "+m.label;
+  $("total").textContent=usd(sum());
+  $("split").innerHTML=`<span><span class="dot" style="background:var(--sub)"></span>Subscriptions <b>${usd(sum("sub"))}</b></span><span><span class="dot" style="background:var(--usage)"></span>Usage on top <b>${usd(sum("usage"))}</b></span>`;
+  $("rows").innerHTML=[...m.lines].sort((a,b)=>b.amount-a.amount).map(l=>`<div class="row"><div class="name">${l.name}${l.flag?`<span class="tag">${l.flag}</span>`:""}</div><div class="amt">${usd(l.amount)}</div><div class="track"><div class="fill" style="width:${l.amount/max*100}%;background:var(--${l.kind})"></div></div><div class="note">${l.note}</div></div>`).join("");
+  $("tbl").innerHTML="<tr><th>Date</th><th>Provider</th><th>What</th><th class='n'>Amount</th></tr>"+m.charges.map(c=>`<tr><td>${c[0]}</td><td>${c[1]}</td><td class="w">${c[2]}</td><td class="n">${usd(c[3])}</td></tr>`).join("");
+  $("notes").innerHTML=m.notes.map(n=>`<li>${n}</li>`).join("");
+  [...$("months").children].forEach(b=>b.setAttribute("aria-pressed",b.dataset.id===m.id));
+}
+$("months").innerHTML=MONTHS.map(m=>`<button id="m-${m.id}" data-id="${m.id}">${m.label}</button>`).join("");
+$("months").onclick=e=>{const m=MONTHS.find(x=>x.id===e.target.dataset.id); if(m) show(m)};
+show(MONTHS[MONTHS.length-1]);
+</script>

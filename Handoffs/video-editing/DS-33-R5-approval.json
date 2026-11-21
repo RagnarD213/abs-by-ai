@@ -1,0 +1,24 @@
+{
+ "job": "DS-33",
+ "title": "Cristiano Ronaldo Sells An Ab Belt. It's Harder Than A Workout.",
+ "upload_title": "Does Cristiano Ronaldo's Electric Shock Ab Belt Work?",
+ "round": 5,
+ "date": "2026-10-23",
+ "state": "finalized",
+ "dan": "Okay, looks good. This is approved. Give me the handoff or setup.",
+ "master": "Ronaldo Ab Belt SFC R5 - complete Short.mp4",
+ "sha256": "b78674a331cd51c6003614ea149dc89095fc1e2539406a0826a5a100f65e80d0",
+ "bytes": 62004027,
+ "srt": "Ronaldo Ab Belt SFC R5.srt",
+ "picks": {
+  "background": "A Soft Blue Light",
+  "colour": "Warm",
+  "voice": "Balanced",
+  "key": "house standard (Claude's Bill Maher R2 key)",
+  "layout": "R4 opening (Dan lower left 0.40 with laptop); R5 split with Dan in front of the ad card, ~10% overlap"
+ },
+ "review": "ROUND-5-REVIEW.md SHIP",
+ "gate": "2.6.1: 35 PASS, 4 FAIL; FAIL rows = audio tone (locked Balanced voice), captions:sync (legacy energy onset), framing:hair_top + framing:headroom (gate's person mask reads the ad's people inside the card above Dan; real hair top >= y 524)",
+ "ai_generated": false,
+ "superseded": "R3 approval of 2026-10-22 (c66ce0a6) reopened by R4/R5 notes"
+}

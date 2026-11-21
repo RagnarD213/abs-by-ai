@@ -1,0 +1,37 @@
+{
+  "job": "DS-37",
+  "round": 4,
+  "approved_date": "2026-11-03",
+  "approved_by": "Dan",
+  "words": "Okay this looks good. Proceed to setup",
+  "message_id": "01a1a1f1-1688-7841-b752-4de49e7f7e7a",
+  "chat": "01a198a1-8dfc-7a83-b999-3d8ca98e145a",
+  "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dr Mike Dial SFC R4/Dr Mike Dial SFC R4 - final off the cuff.mp4",
+  "work_master": "/Volumes/Expansion/_edit_work/DS-37/round4/review/Dr Mike Dial SFC R4 - final off the cuff.mp4",
+  "sha256": "92431f246bc27b03e0dd4fbc408062aa1b6fa65d134ffed564f940adc390ad41",
+  "bytes": 76144088,
+  "md5": "efb92ac3281d388425425eb4c6cd8107",
+  "srt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dr Mike Dial SFC R4/Dr Mike Dial SFC R4 - final off the cuff.srt",
+  "srt_sha256": "c41d0a4ea9837baf2d79e70ffa77920e18d1de6ffbba2dc0bec2bfdabdc8ff0e",
+  "category": "organic dedicated Short SFC",
+  "approved_cut": "shortened off-the-cuff R4,1.05x,pitch-preserved",
+  "picture_seconds": 59.325933,
+  "container_seconds": 59.339,
+  "size": [
+    1080,
+    1920
+  ],
+  "frames": 1778,
+  "fps": "30000/1001",
+  "locks": [
+    "Warm colour",
+    "House Bass",
+    "R5",
+    "current approved key/graphics/captions"
+  ],
+  "qa": "35PASS4FAIL4NA0pending rawoverallFAIL preserved; all4flags adjudicated; freshcompleteindependentreview0confirmedrepairs",
+  "setup_authorized": true,
+  "covers_approved": false,
+  "platform_uploaded": false,
+  "scheduled": false
+}

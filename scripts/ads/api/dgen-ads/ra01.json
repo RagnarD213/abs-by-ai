@@ -1,0 +1,32 @@
+{
+  "adNumber": "ra01",
+  "utmCampaign": "dgen-conv-ra01",
+  "label": "RA-01 AI Got Me Abs",
+  "videos": [
+    { "youtubeId": "rfCsWNxuNV0", "version": "Claude vertical", "utm": "claude-vertical" },
+    { "youtubeId": "OUw788sF1KY", "version": "Claude 16:9", "utm": "claude-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "How AI Got Me Abs",
+      "How I Got Abs At 40",
+      "AI Fitness Built Around You",
+      "A Personalized AI Fitness Plan",
+      "Use AI To Plan Your Workouts"
+    ],
+    "longHeadlines": [
+      "Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan.",
+      "AI analyzed Daniel's goal image and built a personalized workout and nutrition plan.",
+      "Daniel Rose explains how he uses AI to plan workouts, nutrition and macro tracking."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI turned his goal image into a personalized fitness plan.",
+      "AI workout and nutrition planning explained by a guy who used the system himself.",
+      "Daniel uses AI to analyze his goal, plan training and track daily macros."
+    ]
+  }
+}

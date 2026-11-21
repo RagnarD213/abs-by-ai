@@ -1,0 +1,32 @@
+Transform this subject into a genuinely shredded athlete at 9-11% body fat with extreme ab definition and a clean V-taper frame. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. This subject is already very lean, so fat-loss alone will produce a near-copy of the input, which is a failure. The headline change is EXTREME LEANNESS AND AB DEFINITION; supporting that leanness, the frame carries roughly 6 pounds more lean muscle than the input — a slightly fuller chest, slightly rounder shoulder caps, and a slightly wider back giving a clean V-taper — but he must still read as a lean natural athlete, NEVER a bodybuilder: no inflated chest, no boulder shoulders, no blown-up arms, no comic-book mass. Do NOT output an image that could be mistaken for the original photo. The target is the classic "Kino" build — lean, sharply defined, and proportional, the physique of a fit leading man rather than a competitive bodybuilder.
+
+BODY TRANSFORMATION:
+• Render a sharp, deeply etched six-pack with all six abdominal blocks fully separated by crisp shadow lines, a sharp vertical midline, defined obliques, visible serratus anterior, a tight waist, and a clear V-cut running into the waistband — no softness anywhere on the torso
+• Reduce overall body fat to 9-11%, with skin drawn tight over the muscle and a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic look, explicitly NOT an oiled bodybuilder-stage look
+• Add a slightly fuller chest with clear pec-delt separation, never an inflated barrel chest
+• Add slightly rounder shoulder caps and a slightly wider upper back to build a clean V-taper — lean-athlete proportions, never boulder shoulders or heavily flared lats
+• Tighten and narrow the waist, especially from the navel downward, with no softness at the sides — obliques carved and defined
+• Render each ab block catching light with a distinct shadow in the groove beside it, never flat low-contrast lines drawn on the skin — real light-and-shadow contrast that sculpts the physique
+• Define the arms with a clear bicep peak and tricep sweep, visibly more carved than the input
+• Skin taut and dry, with natural asymmetry and real texture — an unretouched athletic look
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+SKIN TONE RULES: Preserve the subject's exact natural skin tone from the input photo — the same colour, the same warmth, the same depth. Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth, and do NOT darken or lighten the skin. The only permissible difference is the healthy look that comes from the light modelling the new muscle; the skin colour itself must be identical to the input. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID:
+- any alteration to face, identity, apparent ethnicity, or age
+- heavily oiled, greasy, wet, or sweat-drenched skin
+- exaggerated or cartoonish proportions
+- any tan, bronzing, golden cast, or darkening of the skin versus the input photo
+- an airbrushed, plastic, or rendered look
+- cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body
+- an output identical or nearly identical to the input
+- bulging veins or competition vascularity
+- bodybuilder-scale mass — an inflated chest, boulder shoulders, blown-up arms, or heavily flared lats
+- comically oversized muscles
+- spray-on abs that look digitally pasted on
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

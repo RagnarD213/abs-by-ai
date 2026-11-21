@@ -1,0 +1,43 @@
+{
+  "title": "Arms & Shoulders Workout Only",
+  "round": 2,
+  "date": "2026-10-17",
+  "delivered_scope": "Color/crop comparison round only",
+  "full_film_built": false,
+  "color_status": "awaiting Dan",
+  "recommendation": "B",
+  "master": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute.mp4",
+  "sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f",
+  "native_md5": "1af108bf073ef7eb2b2a91be450a00f1",
+  "review_url": "http://127.0.0.1:8974/",
+  "drive_folder": "https://drive.google.com/drive/folders/1TZp50kIXBGsGNts7FJ_W6SeJ3Ma3Q5Go",
+  "drive_native": "https://drive.google.com/file/d/1cKvzhyoDw0cXVYUSap0m7-2VE-3_Mp6v/view",
+  "drive_phone": "https://drive.google.com/file/d/1W9BVjKW911SvYXSbSPeXRwyr9NK-JJGX/view",
+  "delivery_gate_version": "2.6.1",
+  "delivery_gate_verdict": "PASS",
+  "checks": {
+    "passed": 39,
+    "failed": 0,
+    "not_measured": 0,
+    "pending": 0,
+    "declared_na": 15
+  },
+  "hair_top": {
+    "min_px": 51,
+    "median_px": 76,
+    "valid": 202,
+    "samples": 239
+  },
+  "independent_review": "No open visual defect within explicit still/strip/sample scope",
+  "git": {
+    "own_claim_commit": "514f12e",
+    "push": "blocked by other active shared edits",
+    "deployment_verified": false
+  },
+  "costs": {
+    "paid_generation_usd": 0,
+    "paid_review_provider_usd": 0,
+    "exact_task_model_usage": null
+  },
+  "next_action": "Dan chooses A/B/C before full-film assembly"
+}

@@ -1,0 +1,69 @@
+{
+  "shot": "A01 Dan works at desk then breaks his fast",
+  "camera": "locked",
+  "intent": "START at dawn, clock reads 8:00am, Dan types without eating. END at 2:00pm full mid-afternoon sunlight, same Dan raises salad forkful in right hand and steadies same bowl with left. Preserve desk/laptop/mug/bowl positions, camera, clock rim and face geometry, furniture. Intentional changes declared before END generation: six hours of daylight progression across window and scene, clock hands advance CLOCKWISE from 8:00 to 2:00 (minute hand six complete turns, hour hand half-turn) during eventual motion; seated head, arms, hands and fork act naturally. Eating only after Then I break my fast begins at 2.86sec. Clip duration 6.236833sec; no speech by generated Dan.",
+  "hands": {
+    "right": "START keyboard; END holds fork from tabletop with one forkful at mouth",
+    "left": "START keyboard; END lightly steadies salad bowl at original tabletop position"
+  },
+  "may_change": {
+    "seated_head_body_and_arms": [
+      210,
+      310,
+      840,
+      1010
+    ],
+    "fork_path_to_mouth": [
+      400,
+      490,
+      1005,
+      1120
+    ],
+    "salad_surface_and_left_hand": [
+      700,
+      880,
+      965,
+      1060
+    ],
+    "dawn_to_afternoon_light": [
+      0,
+      0,
+      1026,
+      1533
+    ],
+    "clock_hands": [
+      800,
+      150,
+      930,
+      290
+    ]
+  },
+  "still": {
+    "shelf_corner": [
+      678,
+      235,
+      723,
+      320
+    ],
+    "mug_front": [
+      530,
+      960,
+      595,
+      1030
+    ],
+    "laptop_lid_corner": [
+      35,
+      790,
+      115,
+      860
+    ],
+    "clock_rim": [
+      771,
+      182,
+      790,
+      217
+    ]
+  },
+  "static": true,
+  "measurement_notes": "Seated legs hidden by desk; no reliable full body pose. Independent reviewer must measure visible upper-arm/forearm length and hand grips manually. Salad bowl stays fixed; only leaves on lifted fork may leave. Lighting changes globally by design; static texture brightness changes are intentional, all object/background geometry remains locked and must be compared independently. Clock rim/face remain fixed, hands alone turn. This declares the lighting before END, not to waive a gate failure."
+}

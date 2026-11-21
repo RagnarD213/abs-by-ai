@@ -1,0 +1,360 @@
+---
+name: editor-brief
+description: >
+  Write the job briefing document Dan sends to a freelance video editor for a BATCH of videos: the terms (never a price; the editor quotes first), links to every raw roll, the asset inventory, the scripts document, the quality standard stated as measurements, and the compliance rules. Use whenever Dan asks for a job brief, a project brief, an editor briefing, a "document for the editor", or to brief out the rest of a shoot, even if he doesn't say "/editor-brief". For reviewing a cut an editor has already delivered use /revisions; for cutting the video ourselves use /ad-edit or /longform-edit.
+---
+
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
+## Default cut and source cleanup requirements (Dan, 2026-09-29)
+
+Use [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) when specifying the editor's quality checks. Require every source/picture splice to have a clean, distinct fixed framing cut or appropriate clip cover, with no uncovered presenter pose jump or brief framing flash. Require inspection/removal of confirmed unscripted noises, empty lead-ins, unnecessary pauses and camera-away resets while preserving full words, breaths and meaningful teaching action. Include these outcomes in the brief using ordinary language; the shared reference contains methods for pipeline sessions. Existing asset/frame and full-render approvals still apply.
+
+
+# /editor-brief — the job briefing document for a freelance editor
+
+The deliverable is **always two Google Docs in Dan's Drive: the brief, and a separate scripts
+document** that ties every visual cue to the exact asset file (Dan's standing format, 2026-09-21:
+*"Let's always do the separate scripts and editing brief document like you did. I like this format"*).
+Both are written for the editor but **delivered to Dan as a draft**. Dan reads it, shares the files, and sends it himself.
+**Never contact an editor directly and never set link sharing on his behalf** — tell him
+which docs and folders need to be opened up before he sends.
+
+This skill was written from the 2026-08-27 brief for Muhammad A's 12-ad batch, which was
+itself modelled on the 2026-08-20 PAID TEST PROJECT BRIEF (`1U9T4j9xbFlKNLgF95GnXlLYvblAN8eLbgr0Zr-TULmA`).
+Read that one before writing a new brief — it is the format Dan already approved.
+
+---
+
+## THE RULE THAT MATTERS MOST: never tell an editor he is beating the others
+
+**Do not reference another editor's work in a brief unless that other editor did the job
+BETTER than the one you are writing to, and you are pointing at their video as the target
+to match.**
+
+If the other editors did *worse* — if the editor reading this is the best one Dan has —
+say nothing about them at all. Not as praise, not as context, not as a war story, and not
+buried inside a technical explanation.
+
+The reason is commercial: **an editor who learns he is the best one on the roster asks for
+more money.** Dan is negotiating the rate in the same document.
+
+This is easy to violate accidentally, because the honest way to explain a source-footage
+fault is to say who else tripped over it. On 2026-08-27 the audio section of the Muhammad
+brief ended with *"Two editors before you delivered cuts that failed on exactly this, in
+two different ways."* True, useful-sounding, and it handed him the knowledge that he is
+the one who got it right. Dan deleted it himself.
+
+**Write the fault as a property of the equipment, full stop.** "The rolls carry two
+microphones hard-panned against each other. Use the right channel only." No history, no
+comparison, no "unlike others". The instruction is exactly as actionable without it.
+
+The one legitimate direction to reference another editor: **when their cut IS the standard**
+— which is the normal case when Dan asks a new editor to match an approved reference. Then
+name it, link it, and measure it.
+
+---
+
+## What goes in the document
+
+Sections, in this order. Skip a section only if it genuinely does not apply.
+
+### 1. Framing paragraph
+What this batch is, and — if he has worked for Dan before — that his own earlier video is
+the standard. One paragraph. Tell him to work only from this doc and the script doc it
+links, so nothing gets pulled from the wrong folder.
+
+### 2. The terms: NO price (Dan, 2026-09-21)
+**Never put a rate, a batch total or a bonus in the brief.** Dan's words: *"Don't put an initial
+offer in there. I prefer to let him make the first offer, then negotiate from there."* Whoever names
+the first number anchors the negotiation, so the brief asks the editor to quote.
+
+What the section does contain, so he can quote accurately: the video count, how many can start now
+versus wait on assets, the expected finished length of each, how many revision rounds are included,
+and a request to **quote a per-video price and a date for the whole batch**. Tell him to send the first
+one or two videos and wait for notes before doing the rest, then deliver one at a time rather than
+holding the batch: the same note then does not repeat across the batch. If Dan later agrees a bonus
+in the negotiation, he adds it himself; any bonus date is judged on FIRST delivery (Lesson 7).
+
+### 3. What you are delivering, per video
+Container, resolution, aspect ratio, captions, colour, audio, music.
+
+**State the aspect ratio as an exclusion, not just a request** — "16:9 only, do not build
+vertical versions; we make the 9:16 ourselves from your finished file." Otherwise a
+conscientious editor doubles his own work and then wants paying for it.
+
+### 4. The standard, as measurements
+Link the reference cut. Then give the numbers, because "make it as good as the last one" is
+not a specification and cannot be argued about at delivery. Measure the reference and quote:
+pacing / dead air, insert-and-graphic coverage as a % of runtime, punch-in count and the
+interval between framing changes, what graphics exist, music tempo, and the audio master
+(LUFS and true peak). See /ad-edit and /longform-edit for how these get measured.
+
+**Three calls every brief states (Dan, 2026-09-11, all three from Zeeshan's ab wheel follow-along).** Put them in
+this section in plain words, with the numbers:
+- **Tight framing.** Crop to the top of his hair: a small margin above his head and at the sides, never a wide shot
+  with empty space above and around him. The looser of the two framings still has little headroom, and in a workout
+  the frame holds the whole rep tightly. Dan's words on the loose cut: "Crop in closer by 20-30%". **The numbers
+  (Dan's locked standard, 2026-09-08):** the top of his hair sits about **4 % of the frame height below the top
+  edge** (roughly 40 px in a 1080p frame — between 30 and 70 px on every shot, never under 20); **two framings only**,
+  a closer one from his hair to his belly button and a wider one from his hair to his shorts line — never a shot
+  with his knees in it; his head on the centre line, not off to one side. We measure the delivered file on exactly
+  these numbers, so quote them rather than "tight".
+- **The mic comes down during live sets.** Turn it down about 80% (−14 dB) while he is doing a set, so the grunting,
+  the breathing and the equipment stay audible but sit clearly under his voice (5–14 dB quieter than his talking).
+  Back to full level the moment he talks.
+- **Workout music is upbeat and high energy**: electronic, hip-hop or rock, never chill, relaxing or elevator-like.
+  Pixabay only, and never a track whose page says "Content ID Registered".
+
+### 4b. Graphics: send the locked style, or lock it first (Dan, 2026-09-27)
+Dan: *"we're wasting a lot of time, both with human and AI editors, where we don't have a locked graphic style. They
+render the whole video, then we change the graphic, then we render it again. I want to lock graphic styles before the
+videos go forward."*
+- **Style locked for this format** (check `_shared/GRAPHICS-STANDARDS.md`; Soft Blue Light and the Motivation lower
+  third are locked for all videos as of 2026-09-26): put the locked graphics IN the brief. Link the moving reference
+  files and still frames of each component (title/top graphic, lower third, key point, numbered chip, label chips), and
+  say "build every graphic in this style; do not invent new ones". Share the files so he can open them.
+- **No locked style for this format** (a new format, or one Dan has never approved): the brief's FIRST deliverable is a
+  graphics lock, not a video. He sends variations of the recurring graphics on ONE video's frames: his own style, one
+  imitating our locked style, and two significantly different styles of his choice ("masculine, bold, modern and
+  trustworthy"). Dan picks, then the batch is cut in the chosen style. Say plainly that no full video is rendered
+  until the style is locked.
+
+### 4c. AI clips: start and end frames before any motion (Dan, 2026-09-27)
+- Every new AI clip the editor makes is shown to Dan as **start and end frames first, in the video's orientation**
+  (9:16 for shorts), plus a one-line description of the action. Dan picks, then the editor generates the motion.
+  Unapproved motion is not paid for as a revision. Existing clips we supply need no approval.
+- **AI opening clips:** Dan frequently (not always) wants a video to open on an AI-generated clip. Where the script
+  allows one, the brief lists two or three opener concepts per video in the scripts doc cue, for frame approval like
+  any other AI clip.
+
+### 5. Raw footage table
+One row per video: number, title, roll id, raw length, script word count, **expected finished
+runtime**, and a direct Drive link.
+
+- **Derive the roll→video mapping from evidence, not from a handoff table.** Transcribe a
+  probe of each roll (`probes.json` from `probe_identify.py` already exists for the 8/14
+  shoot) and read the slates. Handoff tables get copied forward and go stale.
+- Get raw durations with `ffprobe` on the local rolls, not from Drive metadata.
+- Get Drive file ids with the Drive MCP: `search_files` with `parentId = '<shootFolderId>'`.
+- **Compute expected runtime from the reference's OWN ratio**, not from a generic wpm figure:
+  the reference ad was 610 script words finishing at 3:52.8, so ≈157 words per finished
+  minute *including* its inserts and holds. Label it a guide, not a target.
+- Say plainly that every roll contains repeated takes, slates, resets and director chatter,
+  and that picking the take is the first job. Add: **the slated take is not automatically the
+  right one** — on Ad 1 take 1 beat the slated take 2.
+
+### 6. The scripts document (always a separate doc)
+Link it from the brief, and explain how to read it. The format Dan approved on 2026-09-21
+(Muhammad's dedicated-shorts batch, `1SzBTPp-tSjpIRjvKKsHNKduDhwpgqrNZ77hxAAPypaQ`):
+- One heading per video (`DS-01 · Title`), **each video starting on a new page**.
+- Under the heading, one line: the raw roll(s) as Drive links with the time range, the expected
+  finished length, and the status (READY, or WAIT FOR <the missing asset>).
+- The script itself: regular text is spoken; **bold `[bracketed]` lines are visual cues** and are
+  not spoken.
+- **Directly under each cue, indented, a green `USE:` line** linking the exact file(s) for that cue
+  with timecodes ("C1676 at 1:18 to 1:28"), plus the rule that applies (AI label, real-picture
+  label, crop, which part of a recording is banned). A red **`NOT FILMED YET:`** line where nothing
+  exists, saying whether stock is allowed or the beat is held on Dan.
+- **Line breaks everywhere (Dan, 2026-09-21):** a blank line between the status line and the script,
+  between every cue and its `USE:` line and the script around them, and between every paragraph of
+  the spoken script. The first version shipped as one wall of text and needed a separate fix session.
+  See Mechanics for why the HTML import strips the spacing and how to keep it.
+
+The asset links under each cue are the most useful part of the whole brief: an editor does not know
+what footage, AI clips or app recordings already exist. Find them before writing (Mechanics).
+
+### 7. Assets — three sub-sections, and the third is the important one
+1. **The core folder**, file by file, each with a direct link, what it is, the rule attached
+   to it (AI label / no AI label / "Results are not guaranteed." / never beside the before
+   picture), and **which video numbers call for it**. That last column is what turns a folder
+   into a work plan.
+2. **Extra clips and photos.**
+3. **⚠ Assets that do not exist yet.** Walk every bracketed cue in every script and list what
+   nobody has generated or shot. Instruct him to **flag the timecode rather than substitute
+   stock**, and to never screenshot a concept illustration out of the script doc and use it as
+   a finished asset. Missing assets are usually the thing that actually blocks a batch — surface
+   them to Dan in chat too, because generating them is a separate session's work that has to
+   happen before the editor reaches those videos.
+
+### 8. Source-footage faults
+Anything wrong with the rolls themselves that the editor cannot be expected to know. For every
+Jeff shoot that is the **two-mic fault** — but the wiring differs per shoot, so **generate this
+paragraph from measurement, not memory**: run `.claude/skills/_shared/audio/pick_lav.py` on two or
+three of that shoot's rolls and write what it reports. 8/3 and 8/14 rolls: one 2-channel stream,
+right = close lav, left = a room mic 7.5–8.2 ms behind it, polarity-inverted and clipped on the ad
+rolls → "use the right channel only, as mono, discard the left." 8/28 rolls: FOUR mono tracks,
+lav on track 2 (`a:1`), far mic on track 1, tracks 3–4 silent → "use audio track 2 only, as mono."
+Summing them combs the voice and costs ~4 dB on any phone speaker.
+
+Then the spec line, stated as the measurement it is: **"the finished audio must pass
+`.claude/skills/_shared/audio/audio_gate.py` against Muhammad's reference"** — ≈ −14 LUFS,
+≤ −1 dBTP, one centred voice, no comb, room ≤ 80 ms early decay, tone within 1.2 dB of the
+reference. Link the gate's A/B clip (his three sentences, then ours) so the editor can hear the
+target rather than read it.
+
+Written as equipment background. **No editor history.** (See the rule at the top.)
+
+### 9. Hard rules — compliance
+Numbered, with the consequence stated once at the top ("breaking these gets the ad account
+suspended, so an ad that breaks one has to be recut"). The standing set:
+no side-by-side before/after in any frame (cut sequentially instead); never show the app's
+email-capture form; never show the in-app before/after screen; AI-GENERATED label on every AI
+visual, large, upper-left, **never over Dan's face**; "Results are not guaranteed." on the real
+physique photographs AND the rule that **a before and after picture are the SAME PERSON** (Dan, 2026-09-12 — never one
+person's before against another's after) AND the burned label "Real picture of me — not AI-generated" on every real picture of Dan shown as a
+result (Dan, 2026-09-11 — viewers were taking his real photos for AI; the two labels are mutually exclusive, and NEITHER EVER COVERS HIS FACE OR HIS ABS — above his head, off to one side, or anywhere his body is not, never at a fixed height on the frame; Dan, 2026-09-12); no drug or medication brand names in any graphic even if Dan says one
+aloud; nothing fake — no mocked-up app screens or third-party apps standing in for ours.
+
+### 10. Delivery and questions
+Folder, filename convention (`ad<number>_16x9.mp4`), a 720p review copy alongside each master
+so Dan can watch on his phone, and one line per video on any deviation and why. **Also ask for the music
+track's name and link with every delivery**: the reviewer cannot hear the bed under the camera sound, and the genre
+tag on the track page is how a chill bed gets caught before Dan hears it.
+Close with "ask before you guess" — a missing asset costs one message, a wrong one costs a
+revision round.
+
+---
+
+## Write goals, not tool steps
+
+Same rule as /revisions: Dan's editors work with AI editing tools, not a fixed NLE. Never
+prescribe a menu path. State the outcome and leave the method to them.
+
+## Tone
+
+Direct, concrete, no flattery and no filler. Every claim about the standard is a number.
+Every asset is a link. **Never write anything that reads as an assessment of the editor's
+standing relative to anyone else.**
+
+---
+
+## Mechanics
+
+**Count the videos yourself from the script document — do not trust the number in the ask.**
+Dan asked for "the 14 scripts remaining"; the batch-1 doc has 13 ad scripts (Ads 1–10, 13, 14,
+15 — **11 and 12 do not exist**) and one was already edited, so it was 12. The number drives the
+money, so correct it before writing anything and confirm the new total with him.
+
+**Find the existing assets first, per cue.** Before writing, run two research subagents in
+parallel (talking videos, exercise videos): read every bracketed cue, then search the whole asset
+library for material that fits it: finished videos, earlier shoots' raw rolls (with timecodes, from
+contact sheets), `Media/`, the AI clips on `/Volumes/Extreme/_edit_work/` build folders, app
+recordings, downloaded Pexels stock, Dan's photos. Each returns cue → file → timecode → Drive ID or
+"not in Drive" → rule caveat, and the true holes. Upload every useful local-only file into ONE new
+Drive folder for the batch (`rclone copy -L` from a staging folder of renamed symlinks, file names
+prefixed with the video numbers that use them), then `rclone lsjson -R` for the IDs. The 2026-09-21
+build (all generator code) is in `/Volumes/Extreme/_edit_work/muhammad-shorts-brief/`: reuse it.
+
+**Build the scripts doc by GENERATING it, not by copying the old doc.** Write a Python generator
+that reads the script text, prints each video's heading and status line, and under each cue inserts
+the `USE:` note from a per-cue map. Two traps:
+1. **Google's HTML import sets paragraph spacing to 0**, so plain `<p>` lines land flush against
+   each other. Emit an empty paragraph `<p><br></p>` after every paragraph (status line, cue, `USE:`
+   line, each spoken paragraph), and `<h2 style="page-break-before:always">` for every video after
+   the first.
+2. **If the source scripts doc carries embedded cue images** that exist nowhere else, a text rebuild
+   loses them. Link the original doc's section under the heading, or copy the doc and edit in
+   Chrome instead (copy with `copy_file`, open in Dan's real Chrome, click the start of a heading,
+   scroll without touching the outline pane, shift+click the next heading, Delete).
+
+**Import big docs with rclone, not the MCP.** `create_file` needs the whole HTML in the tool call; a
+22-script doc is ~65 KB. Instead: wrap the HTML in `<html><head><meta charset="utf-8"></head><body>`,
+put it alone in a folder, and run
+`~/bin/rclone copy <dir> gdrive: --drive-root-folder-id=0AFYhPET_BWanUk9PVA --drive-import-formats html --drive-export-formats html`
+(without `--drive-export-formats html` it errors "can't convert .html to .docx"). Read the new ID
+from `rclone lsjson`. Build the scripts doc first, then the brief, because the brief links the
+scripts doc's ID.
+
+**Small docs can use Drive MCP `create_file`, `contentMimeType: text/html`.** HTML converts
+cleanly to a Doc including tables, `rowspan`, links and nested lists. Use `text/markdown` only
+when the doc has no tables — markdown tables do not survive.
+- Keep the footage table to **five or six columns**. Seven made the title column wrap to six
+  lines per row and spill across pages.
+- `update_file` is **metadata-only** and cannot rewrite a body: to fix a doc, `create_file`
+  again and `trash_file` the first.
+
+**Verify in the browser before reporting** — open the doc and check the tables and the rowspan
+cells actually rendered.
+
+**Sharing is Dan's.** The new docs and the shoot folder are private to his Drive on creation.
+Tell him to open all of them to the editor before sending, or every link in the brief 404s.
+
+---
+
+## Lessons
+
+1. **Never state or imply that other editors did worse.** 2026-08-27: the audio section ended
+   with "two editors before you delivered cuts that failed on exactly this" and Dan deleted it —
+   *"I want to avoid giving away that he did a better job than the other editors… to avoid giving
+   away that he can ask for more money."* Reference another editor **only** when their cut is the
+   standard being matched. The full rule is at the top of this file.
+2. **Count the scripts, don't take the count on faith.** The ask said 14; it was 12. Ads 11 and 12
+   were never written and Ad 1 was already delivered.
+3. **Generate the scripts doc with asset links under every cue** (2026-09-21, replaced the old
+   copy-and-delete method). If the source doc has embedded images that exist nowhere else, keep
+   them reachable (Mechanics, trap 2).
+4. **The in-app browser pane is not signed into Google.** Docs editing has to go through Claude in
+   Chrome. Discovering this costs a round trip if you start in the wrong browser.
+5. **Clicking the Docs outline pane moves the text cursor**, which destroys a selection anchor you
+   were about to shift+click against. Scroll with the mouse instead.
+6. **The asset gap is usually the real blocker and it is invisible until you read every cue.** Five
+   of the twelve ads called for AI gag clips that have never been generated. A brief that only
+   lists what exists reads as complete and then stalls the editor mid-batch. Walk the cues, list
+   the holes, and tell Dan in chat as well as in the doc.
+7. **If Dan agrees a bonus later, its deadline is judged on FIRST delivery, and say so.** Otherwise
+   revision rounds silently put the bonus out of reach and the editor stops trusting the offer.
+8. **Say which aspect ratios NOT to build.** Our vertical comes free from `/shortad-from-longform`;
+   paying an editor to also cut 9:16 buys a style Dan has not approved, from burned-in graphics that
+   cannot be reframed back to wide.
+9. **No price in the brief (Dan, 2026-09-21).** The 09-21 shorts brief proposed $25 a short and a
+   $100 bonus; Dan: let the editor make the first offer, then negotiate. Ask for a per-video quote
+   and a batch date instead.
+10. **Blank lines between every paragraph in generated docs (Dan, 2026-09-21).** The HTML import
+   drops paragraph spacing; the first scripts doc read as one wall of text and needed a fix session.
+11. **Per-cue asset links are what the editor values most.** Dan asked for existing AI clips and
+   B-roll tied to the exact video because editors don't know what exists. Two research agents found
+   70 placements across 22 shorts, including footage everyone thought was never filmed.
+12. **Never edit a live Doc by typing into Find and replace through Chrome automation.** 2026-09-21: clicks
+   on the dialog's fields by `ref` did not take focus, so `cmd+a` + typing selected and replaced the WHOLE
+   document body. It was recovered with `cmd+z` in the doc. **The safe way to change text in a live Doc,
+   keeping Dan's edits and the doc ID:** export it as HTML (Drive API `files/<id>/export?mimeType=text/html`
+   with rclone's token from `rclone config dump`), change only the target text in that HTML, then strip the
+   list classes (`<ul class=...>` to `<ul>`, delete the `lst-kix` CSS rules) or every bullet and number comes
+   back as a plain paragraph, and write it back with `PATCH upload/drive/v3/files/<id>?uploadType=media`
+   (`Content-Type: text/html`). Then diff the plain-text export against a pre-edit export (only the intended
+   lines may differ) and compare counts of tables, links, headings and lists in the HTML. The Docs API is not
+   enabled on rclone's client project. Retry on Drive's per-minute quota 403s with an until-loop.
+
+---
+
+## Posting the job on Upwork
+
+Dan often wants an Upwork job posted from the same brief, and the editor invited to it.
+
+**Never paste the Drive links or the brief itself into the job posting.** A public Upwork post
+publishes the raw footage, the asset library and the scripts to anyone browsing. Summarise the
+work and the terms, and say the full brief is shared on acceptance. Dan sends the docs directly.
+
+**Check for an existing contract first.** If the editor already has an active contract with a
+"fund a new milestone" prompt on the dashboard, adding a milestone there is less friction than a
+new job — no proposal step, relationship and history intact. Say so in one sentence, then do what
+Dan asked.
+
+The flow is 6 steps: title → description → skills → scope → location → budget → review →
+finalize. Settings that fit a batch like this: **Short term project**, scope **Medium**,
+**1 to 3 months**, **Expert level**, not contract-to-hire, **Worldwide**, **Fixed price** at the
+total Dan and the editor agreed (any bonus lives in the description, not the budget field), and
+**"Post as standard for free"** — the **$29.99 Featured** upsell buys reach that is pointless when
+you are inviting one named person, and it is a purchase.
+
+To invite: job → **View proposals** → **INVITE FREELANCERS** → **My Hires** tab → *Invite to Job*.
+Replace Upwork's default "Hello! I'd like to invite you..." with a real note naming the terms.
+
+⚠ **Upwork's job-post SPA ignores coordinate clicks.** Every button, radio and label has to be
+clicked by `ref` from `find`/`read_page`. Radios often need the **label text** element
+(`generic "Medium"`), not the `radio` element, and a radio can read `checked:false` in JavaScript
+immediately after a successful click because the step re-renders — trust the next screenshot, not
+the DOM probe. `form_input` silently no-ops on the budget field; click it and type instead.

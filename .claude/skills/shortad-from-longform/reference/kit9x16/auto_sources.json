@@ -1,0 +1,96 @@
+{
+ "about": "Where auto_content.py looks for the CLEAN original of a picture it finds in an editor's master, and what each place tells it about provenance. prov: real = Dan's real photos/footage, ai = AI-generated, app = product screens, by-name = decided from the file name (auto_content.NAME_RULES), none = unknown (a physique picture from here escalates). Order is priority: on a tie (same picture in two files) the larger file wins, then the earlier source. by-name-else-real = a build's own asset folder, where every AI file is named as AI (ai_*.mp4). curated_crop: Dan-approved crops of real photos (head and stomach framed); a crop that lies wholly inside the matched picture replaces it.",
+ "sources": [
+  {
+   "dir": "/Volumes/Extreme/_edit_work/kit9x16/approved_crops",
+   "prov": "real",
+   "curated_crop": true
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images",
+   "prov": "by-name"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots",
+   "prov": "app"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage",
+   "prov": "real"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/05 AI Images and Gag Graphics",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/06 Dan Photo Shoot Stills",
+   "prov": "real"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos",
+   "prov": "real",
+   "top_only": true
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/abs by ai images",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/abs by ai gemini clips",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/dan future visualizations",
+   "prov": "ai"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets",
+   "prov": "by-name"
+  },
+  {
+   "dir": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/B roll",
+   "prov": "real"
+  },
+  {
+   "dir": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets",
+   "prov": "by-name-else-real"
+  },
+  {
+   "dir": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD",
+   "prov": "by-name"
+  }
+ ],
+ "exclude_substrings": [
+  "IG-4x5",
+  "_cutouts",
+  "Frowning Photos",
+  "_variations",
+  "_speedo-crops",
+  "_recipes",
+  "/._"
+ ],
+ "still_ext": [
+  ".jpg",
+  ".jpeg",
+  ".png",
+  ".webp"
+ ],
+ "video_ext": [
+  ".mp4",
+  ".mov"
+ ],
+ "banned_screens": {
+  "source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD/09_CLIP_app-generate-future-self.mp4",
+  "times": [
+   26.5,
+   27.5,
+   29.5,
+   31.0
+  ],
+  "about": "the app recording that holds the banned screens (email capture, in-app before/after); the delivery gate's compliance:banned_screen scans every delivered vertical for them (the Ad 3 vertical convention)"
+ }
+}

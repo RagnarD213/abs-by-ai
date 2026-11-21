@@ -1,0 +1,992 @@
+{
+ "segments": [
+  {
+   "t0": 0.0,
+   "t1": 6.4064,
+   "type": "side",
+   "why": "round 3: Dan wanted the sled clip replaced; pull-ups, full body, sit left of him and nothing is blocked (four other options on the page)",
+   "clip": {
+    "id": "pullups_full",
+    "src": "/Volumes/Expansion/_edit_work/RO-37/round3/bgclips3/pullups_full.mp4",
+    "windows": [
+     [
+      0.0,
+      8.8
+     ]
+    ],
+    "zoom": 1.0,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   },
+   "id": "BG01"
+  },
+  {
+   "t0": 8.4084,
+   "t1": 20.520500000000002,
+   "type": "side",
+   "why": "round 4: captain's chair leg raises, a favorite, not used elsewhere, nobody else in frame: sharp beside him until the wall (Dan: footage, no pictures)",
+   "id": "BG02",
+   "clip": {
+    "id": "B0584",
+    "src": "/Volumes/Expansion/_edit_work/RO-37/round4/bgclips4/B0584.mp4",
+    "windows": [
+     [
+      0.0,
+      13.5
+     ]
+    ],
+    "zoom": 1.0,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  },
+  {
+   "t0": 20.520500000000002,
+   "t1": 28.7621,
+   "type": "wall",
+   "why": "right after the opening montage (template: floating cards, then the photo wall)",
+   "photos": [
+    "photos/g06.jpg",
+    "photos/g07.jpg",
+    "photos/g08.jpg",
+    "photos/g09.jpg",
+    "photos/g10.jpg",
+    "photos/g11.jpg",
+    "photos/g12.jpg",
+    "photos/g13.jpg",
+    "photos/g14.jpg",
+    "photos/g15.jpg",
+    "photos/g16.jpg",
+    "photos/g17.jpg",
+    "photos/g18.jpg",
+    "photos/g19.jpg",
+    "photos/g20.jpg",
+    "photos/g21.jpg",
+    "photos/g22.jpg",
+    "photos/g23.jpg",
+    "photos/g24.jpg",
+    "photos/g25.jpg",
+    "photos/g26.jpg",
+    "photos/g27.jpg",
+    "photos/g28.jpg",
+    "photos/g29.jpg"
+   ],
+   "id": "BG03"
+  },
+  {
+   "t0": 28.7621,
+   "t1": 38.772099999999995,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0673",
+    "src": "bgclips/B0673.mp4",
+    "windows": [
+     [
+      14.0,
+      27.69
+     ]
+    ]
+   },
+   "id": "BG04"
+  },
+  {
+   "t0": 38.772099999999995,
+   "t1": 47.2806,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0723",
+    "src": "bgclips/B0723.mp4",
+    "windows": [
+     [
+      14.25,
+      28.2
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG05"
+  },
+  {
+   "t0": 47.2806,
+   "t1": 55.7223,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0631",
+    "src": "bgclips/B0631.mp4",
+    "windows": [
+     [
+      6.14,
+      14.68
+     ]
+    ]
+   },
+   "id": "BG06"
+  },
+  {
+   "t0": 55.7223,
+   "t1": 68.5685,
+   "type": "side",
+   "why": "round 4: cables at the high pulley, a favorite, not used elsewhere: replaces the picture cards (Dan: keep them out of the first minute)",
+   "id": "BG07",
+   "clip": {
+    "id": "B0660",
+    "src": "/Volumes/Expansion/_edit_work/RO-37/round4/bgclips4/B0660.mp4",
+    "windows": [
+     [
+      0.0,
+      14.0
+     ]
+    ],
+    "zoom": 1.0,
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  },
+  {
+   "t0": 68.5685,
+   "t1": 80.24680000000001,
+   "type": "bigtype",
+   "why": "he says the number (15 MINUTES / IS EASY)",
+   "lines": [
+    "15 MINUTES",
+    "IS EASY"
+   ],
+   "line_times": [
+    68.71820000000001,
+    68.96820000000001
+   ],
+   "id": "BG08",
+   "mov": "/Volumes/Expansion/_edit_work/RO-37/round2/hf/bg/BG08.mov",
+   "max_w": 680
+  },
+  {
+   "t0": 80.24680000000001,
+   "t1": 89.15570000000001,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0699",
+    "src": "bgclips/B0699.mp4",
+    "windows": [
+     [
+      0.97,
+      9.98
+     ]
+    ]
+   },
+   "id": "BG09"
+  },
+  {
+   "t0": 89.15570000000001,
+   "t1": 100.60050000000001,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0626",
+    "src": "bgclips/B0626.mp4",
+    "windows": [
+     [
+      14.73,
+      29.16
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG10"
+  },
+  {
+   "t0": 100.60050000000001,
+   "t1": 104.5712,
+   "type": "corner",
+   "why": "round 3: the key on this shot's fast hands could not be made clean, so Dan goes small (his rule)",
+   "clip": {
+    "id": "B0651",
+    "src": "bgclips/B0651.mp4",
+    "windows": [
+     [
+      12.25,
+      24.19
+     ]
+    ]
+   },
+   "id": "BG11c"
+  },
+  {
+   "t0": 104.5712,
+   "t1": 112.2455,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0651",
+    "src": "bgclips/B0651.mp4",
+    "windows": [
+     [
+      16.220699999999994,
+      24.19
+     ]
+    ]
+   },
+   "id": "BG11"
+  },
+  {
+   "t0": 112.2455,
+   "t1": 122.22210000000001,
+   "type": "wall",
+   "why": "commentary: a wall of stills from his gym footage scrolling behind him",
+   "photos": [
+    "photos/g36.jpg",
+    "photos/g37.jpg",
+    "photos/g38.jpg",
+    "photos/g39.jpg",
+    "photos/g00.jpg",
+    "photos/g01.jpg",
+    "photos/g02.jpg",
+    "photos/g03.jpg",
+    "photos/g04.jpg",
+    "photos/g05.jpg",
+    "photos/g06.jpg",
+    "photos/g07.jpg",
+    "photos/g08.jpg",
+    "photos/g09.jpg",
+    "photos/g10.jpg",
+    "photos/g11.jpg",
+    "photos/g12.jpg",
+    "photos/g13.jpg",
+    "photos/g14.jpg",
+    "photos/g15.jpg",
+    "photos/g16.jpg",
+    "photos/g17.jpg",
+    "photos/g18.jpg",
+    "photos/g19.jpg"
+   ],
+   "id": "BG12"
+  },
+  {
+   "t0": 122.22210000000001,
+   "t1": 127.2942,
+   "type": "corner",
+   "why": "round 3: reviewer: Dan small on empty blue repeated the blank-space complaint; a gym clip fills the scene (the faint 5 MINUTES type is gone, he says it)",
+   "clip": {
+    "id": "B0665",
+    "src": "bgclips/B0665.mp4",
+    "windows": [
+     [
+      0.4,
+      16.9
+     ]
+    ]
+   },
+   "id": "BG13"
+  },
+  {
+   "t0": 127.2942,
+   "t1": 131.79829999999998,
+   "type": "side",
+   "why": "round 3: reviewer: Dan small on empty blue repeated the blank-space complaint; a gym clip fills the scene (the faint 5 MINUTES type is gone, he says it)",
+   "clip": {
+    "id": "B0665",
+    "src": "bgclips/B0665.mp4",
+    "windows": [
+     [
+      5.4720999999999975,
+      16.9
+     ]
+    ]
+   },
+   "id": "BG13b"
+  },
+  {
+   "t0": 131.79829999999998,
+   "t1": 137.2702,
+   "type": "corner",
+   "why": "round 3: the key on this shot's fast hands could not be made clean, so Dan goes small (his rule)",
+   "clip": {
+    "id": "B0655",
+    "src": "bgclips/B0655.mp4",
+    "windows": [
+     [
+      16.8,
+      33.3
+     ]
+    ]
+   },
+   "id": "BG14c"
+  },
+  {
+   "t0": 137.2702,
+   "t1": 141.8417,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0655",
+    "src": "bgclips/B0655.mp4",
+    "windows": [
+     [
+      22.271900000000006,
+      33.3
+     ]
+    ]
+   },
+   "id": "BG14"
+  },
+  {
+   "t0": 141.8417,
+   "t1": 148.4817,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0669",
+    "src": "bgclips/B0669.mp4",
+    "windows": [
+     [
+      12.75,
+      25.19
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG15"
+  },
+  {
+   "t0": 151.6849,
+   "t1": 153.2865,
+   "type": "soft",
+   "why": "under 2.5 s between full-screen items: a calm background",
+   "clip": {
+    "id": "B0637",
+    "src": "bgclips/B0637.mp4",
+    "windows": [
+     [
+      9.24,
+      18.19
+     ]
+    ]
+   },
+   "id": "BG16"
+  },
+  {
+   "t0": 156.5898,
+   "t1": 168.13466666666667,
+   "type": "list",
+   "why": "a side list is up: the moving field, Dan right (your approved test layout)",
+   "id": "BG17"
+  },
+  {
+   "t0": 168.13466666666667,
+   "t1": 177.34386666666668,
+   "type": "bigtype",
+   "why": "he says the number (15 MINUTES / WHOLE WORKOUT)",
+   "lines": [
+    "15 MINUTES",
+    "WHOLE WORKOUT"
+   ],
+   "line_times": [
+    168.28496666666666,
+    168.53496666666666
+   ],
+   "id": "BG18",
+   "mov": "/Volumes/Expansion/_edit_work/RO-37/round2/hf/bg/BG18.mov",
+   "max_w": 680
+  },
+  {
+   "t0": 177.34386666666668,
+   "t1": 185.55206666666666,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0579",
+    "src": "bgclips/B0579.mp4",
+    "windows": [
+     [
+      15.0,
+      29.7
+     ]
+    ]
+   },
+   "id": "BG19"
+  },
+  {
+   "t0": 185.55206666666666,
+   "t1": 198.26476666666667,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0611",
+    "src": "bgclips/B0611.mp4",
+    "windows": [
+     [
+      11.88,
+      24.69
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG20"
+  },
+  {
+   "t0": 198.26476666666667,
+   "t1": 205.10486666666668,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0720",
+    "src": "bgclips/B0720.mp4",
+    "windows": [
+     [
+      18.0,
+      35.7
+     ]
+    ]
+   },
+   "id": "BG21"
+  },
+  {
+   "t0": 207.57406666666668,
+   "t1": 218.08456666666666,
+   "type": "corner",
+   "why": "right after his C06 gym clip: it keeps rolling, Dan talks from the corner (footage: B0624 from 0.4 s)",
+   "clip": {
+    "id": "B0624",
+    "src": "bgclips/B0624.mp4",
+    "windows": [
+     [
+      0.4,
+      39.71
+     ]
+    ]
+   },
+   "id": "BG22"
+  },
+  {
+   "t0": 218.08456666666666,
+   "t1": 231.23096666666666,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0665",
+    "src": "bgclips/B0665.mp4",
+    "windows": [
+     [
+      17.13,
+      33.97
+     ]
+    ]
+   },
+   "id": "BG23"
+  },
+  {
+   "t0": 231.23096666666666,
+   "t1": 244.77796666666666,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then) (editor: focus moved onto the rider so he sits left of you)",
+   "clip": {
+    "id": "B0566",
+    "src": "bgclips/B0566.mp4",
+    "windows": [
+     [
+      16.58,
+      33.7
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.66,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG24"
+  },
+  {
+   "t0": 244.77796666666666,
+   "t1": 248.24796666666668,
+   "type": "corner",
+   "why": "round 3: the key on this shot's fast hands could not be made clean, so Dan goes small (his rule)",
+   "clip": {
+    "id": "B0566",
+    "src": "bgclips/B0566.mp4",
+    "windows": [
+     [
+      30.126999999999995,
+      33.7
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.66,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG24c"
+  },
+  {
+   "t0": 252.95266666666666,
+   "t1": 260.7271666666667,
+   "type": "list",
+   "why": "a side list is up: the moving field, Dan right (your approved test layout)",
+   "id": "BG25"
+  },
+  {
+   "t0": 260.7271666666667,
+   "t1": 272.3053666666667,
+   "type": "bigtype",
+   "why": "he says the number (STILL 15 MIN / NO EXTRA TIME)",
+   "lines": [
+    "STILL 15 MIN",
+    "NO EXTRA TIME"
+   ],
+   "line_times": [
+    260.8769666666667,
+    261.1269666666667
+   ],
+   "id": "BG26",
+   "mov": "/Volumes/Expansion/_edit_work/RO-37/round2/hf/bg/BG26.mov",
+   "max_w": 680
+  },
+  {
+   "t0": 272.3053666666667,
+   "t1": 282.48216666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0673",
+    "src": "bgclips/B0673.mp4",
+    "windows": [
+     [
+      14.0,
+      27.69
+     ]
+    ]
+   },
+   "id": "BG27"
+  },
+  {
+   "t0": 282.48216666666667,
+   "t1": 292.5922666666667,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0723",
+    "src": "bgclips/B0723.mp4",
+    "windows": [
+     [
+      14.25,
+      28.2
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG28"
+  },
+  {
+   "t0": 292.5922666666667,
+   "t1": 306.4394666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0631",
+    "src": "bgclips/B0631.mp4",
+    "windows": [
+     [
+      0.73,
+      14.68
+     ]
+    ]
+   },
+   "id": "BG29"
+  },
+  {
+   "t0": 306.4394666666667,
+   "t1": 320.5535666666667,
+   "type": "cards",
+   "why": "commentary: stills from his gym footage drifting as cards around him",
+   "photos": [
+    "photos/g20.jpg",
+    "photos/g21.jpg",
+    "photos/g22.jpg",
+    "photos/g23.jpg",
+    "photos/g24.jpg",
+    "photos/g25.jpg"
+   ],
+   "id": "BG30"
+  },
+  {
+   "t0": 320.5535666666667,
+   "t1": 331.3977666666667,
+   "type": "bigtype",
+   "why": "he says the number (2 HOURS / GONE IN 3 WEEKS)",
+   "lines": [
+    "2 HOURS",
+    "GONE IN 3 WEEKS"
+   ],
+   "line_times": [
+    320.7035666666667,
+    320.9535666666667
+   ],
+   "id": "BG31",
+   "mov": "/Volumes/Expansion/_edit_work/RO-37/round2/hf/bg/BG31.mov",
+   "max_w": 680
+  },
+  {
+   "t0": 331.3977666666667,
+   "t1": 335.5015666666667,
+   "type": "corner",
+   "why": "round 3: the key on this shot's fast hands could not be made clean, so Dan goes small (his rule)",
+   "clip": {
+    "id": "B0699",
+    "src": "bgclips/B0699.mp4",
+    "windows": [
+     [
+      0.4,
+      9.98
+     ],
+     [
+      0.4,
+      9.98
+     ]
+    ]
+   },
+   "id": "BG32c"
+  },
+  {
+   "t0": 335.5015666666667,
+   "t1": 341.1074666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0699",
+    "src": "bgclips/B0699.mp4",
+    "windows": [
+     [
+      4.503799999999979,
+      9.98
+     ]
+    ]
+   },
+   "id": "BG32"
+  },
+  {
+   "t0": 341.1074666666667,
+   "t1": 349.1821666666667,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0626",
+    "src": "bgclips/B0626.mp4",
+    "windows": [
+     [
+      14.73,
+      29.16
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG33"
+  },
+  {
+   "t0": 352.4520666666667,
+   "t1": 362.3953666666667,
+   "type": "corner",
+   "why": "right after his C10 gym clip: it keeps rolling, Dan talks from the corner (footage: B0693 from 4.3 s)",
+   "clip": {
+    "id": "B0693",
+    "src": "bgclips/B0693.mp4",
+    "windows": [
+     [
+      4.28,
+      11.98
+     ],
+     [
+      0.4,
+      11.98
+     ]
+    ]
+   },
+   "id": "BG34"
+  },
+  {
+   "t0": 362.3953666666667,
+   "t1": 369.3022666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0651",
+    "src": "bgclips/B0651.mp4",
+    "windows": [
+     [
+      12.25,
+      24.19
+     ]
+    ]
+   },
+   "id": "BG35"
+  },
+  {
+   "t0": 369.3022666666667,
+   "t1": 372.9392666666667,
+   "type": "closeup",
+   "why": "the full-frame pool close-up, used rarely",
+   "id": "BG36"
+  },
+  {
+   "t0": 372.9392666666667,
+   "t1": 381.1807666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0655",
+    "src": "bgclips/B0655.mp4",
+    "windows": [
+     [
+      16.8,
+      33.3
+     ]
+    ]
+   },
+   "id": "BG37"
+  },
+  {
+   "t0": 381.1807666666667,
+   "t1": 391.4243666666667,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0669",
+    "src": "bgclips/B0669.mp4",
+    "windows": [
+     [
+      12.75,
+      25.19
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG38"
+  },
+  {
+   "t0": 391.4243666666667,
+   "t1": 404.0703666666667,
+   "type": "list",
+   "why": "a side list is up: the moving field, Dan right (your approved test layout)",
+   "id": "BG39"
+  },
+  {
+   "t0": 404.0703666666667,
+   "t1": 415.2147666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0637",
+    "src": "bgclips/B0637.mp4",
+    "windows": [
+     [
+      6.94,
+      18.19
+     ]
+    ]
+   },
+   "id": "BG40"
+  },
+  {
+   "t0": 415.2147666666667,
+   "t1": 424.42396666666673,
+   "type": "wall",
+   "why": "commentary: a wall of stills from his gym footage scrolling behind him",
+   "photos": [
+    "photos/g26.jpg",
+    "photos/g27.jpg",
+    "photos/g28.jpg",
+    "photos/g29.jpg",
+    "photos/g30.jpg",
+    "photos/g31.jpg",
+    "photos/g32.jpg",
+    "photos/g33.jpg",
+    "photos/g34.jpg",
+    "photos/g35.jpg",
+    "photos/g36.jpg",
+    "photos/g37.jpg",
+    "photos/g38.jpg",
+    "photos/g39.jpg",
+    "photos/g00.jpg",
+    "photos/g01.jpg",
+    "photos/g02.jpg",
+    "photos/g03.jpg",
+    "photos/g04.jpg",
+    "photos/g05.jpg",
+    "photos/g06.jpg",
+    "photos/g07.jpg",
+    "photos/g08.jpg",
+    "photos/g09.jpg"
+   ],
+   "id": "BG41"
+  },
+  {
+   "t0": 424.42396666666673,
+   "t1": 439.9061666666667,
+   "type": "soft",
+   "why": "commentary: his gym footage softened behind him",
+   "clip": {
+    "id": "B0710",
+    "src": "bgclips/B0710.mp4",
+    "windows": [
+     [
+      0.4,
+      10.21
+     ],
+     [
+      0.4,
+      10.21
+     ]
+    ]
+   },
+   "id": "BG42"
+  },
+  {
+   "t0": 439.9061666666667,
+   "t1": 452.6521666666667,
+   "type": "side",
+   "why": "his gym clip sharp behind him, Dan to the side (template: now and then)",
+   "clip": {
+    "id": "B0579",
+    "src": "bgclips/B0579.mp4",
+    "windows": [
+     [
+      15.0,
+      29.7
+     ]
+    ],
+    "zoom": 1.22,
+    "focus": [
+     0.5,
+     0.45
+    ],
+    "out_focus": [
+     0.36,
+     0.45
+    ]
+   },
+   "id": "BG43"
+  },
+  {
+   "t0": 452.6521666666667,
+   "t1": 461.0939666666667,
+   "type": "list",
+   "why": "a side list is up: the moving field, Dan right (your approved test layout)",
+   "id": "BG44"
+  },
+  {
+   "t0": 461.0939666666667,
+   "t1": 462.92916666666673,
+   "type": "soft",
+   "why": "under 2.5 s between full-screen items: a calm background",
+   "clip": {
+    "id": "B0611",
+    "src": "bgclips/B0611.mp4",
+    "windows": [
+     [
+      12.5,
+      24.69
+     ]
+    ]
+   },
+   "id": "BG45"
+  },
+  {
+   "t0": 462.92916666666673,
+   "t1": 466.39926666666673,
+   "type": "closeup",
+   "why": "the full-frame pool close-up, used rarely",
+   "id": "BG46"
+  },
+  {
+   "t0": 469.96946666666673,
+   "t1": 473.70656666666673,
+   "type": "corner",
+   "why": "right after his C11 gym clip: it keeps rolling, Dan talks from the corner (footage: B0574 from 0.4 s)",
+   "clip": {
+    "id": "B0574",
+    "src": "bgclips/B0574.mp4",
+    "windows": [
+     [
+      0.4,
+      16.72
+     ]
+    ]
+   },
+   "id": "BG47"
+  }
+ ],
+ "round": 4
+}

@@ -1,0 +1,31 @@
+{
+ "shot": "RO-17 A7",
+ "start_frame": "A7-start.png",
+ "intent": "Evening dinner table. A hungry man, napkin tucked in, rubs his hands above a plate covered by a silver dome; knife and fork lie on the table either side. END: he holds the lifted dome up in one hand, the other hand flat on the table; the plate holds one broccoli floret; knife and fork unchanged; his face falls.",
+ "hands": {
+  "left": "rubbing hands in START, lifts the dome in END",
+  "right": "rubbing hands in START, flat on the table in END"
+ },
+ "may_change": {
+  "plate_and_dome_on_plate": [
+   520,
+   480,
+   1130,
+   820
+  ],
+  "dome_lifted": [
+   980,
+   280,
+   1440,
+   680
+  ],
+  "man": [
+   380,
+   0,
+   1460,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "may_change also declares the people: MediaPipe's person mask misses most of the body in this frame (dark, or several people), so the static check would read the people as background"
+}

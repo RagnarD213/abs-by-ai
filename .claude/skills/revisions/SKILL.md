@@ -1,0 +1,1770 @@
+---
+name: revisions
+description: Review a video cut delivered by an editor (human or a cheaper-model pipeline session) and produce a revisions document in Dan's exact format — timestamped, with specific directions, specific replacement text, and direct links to the exact assets to use. Use whenever Dan shares a video (usually a Google Drive link) and asks to "review it", "give revisions", "write up revision notes", or "check the editor's cut" — even if he doesn't say "/revisions". Also use it for STATUS CHECKS on an editor's batch ("did he make the revisions?", "what's still outstanding?", "he says he sent everything — is anything left?") and whenever Dan needs a paste-ready message written to an editor in his voice. For revising videos OUR pipeline will re-render itself, /ad-edit and /longform-edit remain the execution skills; this skill produces the review document.
+---
+
+## Silent checks and owner handoff (Dan, 2026-10-28)
+
+Follow `AGENTS.md` and `_shared/VIDEO-RULES.md`: use **Start silent checks** before managed-player tests (or `?review_mode=automation`), verify muted playback/source changes/recovery, then use **Finish checks for owner**. Cancel pending playback/recovery, pause every player and verify paused BEFORE enabling normal audio, without starting playback or changing the chosen volume. A failure stays muted. Dan's next deliberate Play must include sound without another unmute click; later automated checks re-enter silent mode. Preserve narration, exported media and native controls. Use non-speaker inspection and report limits honestly; silent/numerical tests are not an audible listen. This supersedes permanent muted owner defaults and adds no permission step.
+
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
+Read `_shared/VIDEO-RULES.md` first.
+
+**Audit 2026-10-20: rules that now govern.** Older text below that disagrees is superseded. Each rule lives in `_shared/VIDEO-RULES.md` unless another home is named.
+- No em dashes in revision docs or editor messages: they are outward-facing (AGENTS.md "No em dashes in outward-facing writing", narrowed 2026-10-20).
+- Real-photo label reads "Real photo of me, not AI-generated" / "Real photos of me, not AI-generated" ("Real-photo labels include touched-up photographs", 2026-10-17).
+- Graphics are Soft Blue Light and move for their whole screen time; the style is locked for every format, so no style-lock variations round ("All new or revised video graphics move in Soft Blue Light HyperFrames", 2026-10-17; GRAPHICS-STANDARDS.md).
+- Title capitalization on graphic copy; FULL CAPS on a word is rare ("Capital letters in graphics", 2026-10-09; "First-round options and AI ideas", 2026-10-16).
+- Transition sounds are judged; sounds on graphics fail ("Sound effects on transitions", 2026-10-08).
+- Every picture slot carries the picture and its link (rule 59, 2026-10-05).
+- The render queue enforces the build cap: start every job, never hand-limit ("Video builds: the render queue", 2026-10-20).
+- ffmpeg only from `Media/video_edit/bin/`, the render-queue wrapper (same section, 2026-10-20).
+- Review docs are written on Opus 5.5 high; a session executing the fixes defaults to Sol high, `gpt-6.1-sol` ("Video rounds start automatically", 2026-10-20).
+- Still images only through `_shared/codex-image.sh` (AGENTS.md "Image generation goes through Codex", 2026-10-01).
+- AI disclosure is the AI-GENERATED chip (lesson 47 build, lesson 48 placement).
+- A picture that contradicts or misses its line, or junk footage between takes, is an item on any round (rule 76, 2026-10-16).
+- Every AI clip gets the three sense questions ("AI clips that make no physical sense, or do not show the line, never reach Dan", 2026-10-13/14).
+- Cutaway rules: "Junk footage between takes is never a cutaway" (10-16), "Never a shot of Dan just standing around" (10-14), "never use the clip of Dan on his phone" (10-11), "Jump rope footage" (10-09), "A cutaway shows the thing he is naming" (10-10), "All B-roll is colour corrected" (10-11), "Stumbles inside a kept take get fixed" (10-20).
+- Drive files are anyone-with-link (AGENTS.md "Google Drive sharing: always public", 2026-09-24).
+
+**Round 4 and later: one minor leftover is accepted, not sent back (Dan, 2026-10-10).** *"This is an example of
+something on round 4 that we can just accept for something minor like this. I would have requested that change in
+round 1, or if there are other things. If there was only this one change, I think we should accept something minor
+like that on round 4 and subsequent rounds."* Never for the rule-76 classes (a picture that contradicts or misses its
+line, junk footage between takes): those are items on any round. When a round 4 or later cut has only minor things left, write the
+finalized line, no item, and list the leftovers in the summary under "For Dan's call". A minor item rides along only
+when something that truly needs a round is also in the doc. A standing rule missed for under a second counts as minor.
+Full rule and the worked case: calibration pass 12 (long-form round 4, rules 71-75).
+
+**Human editors near the end of a job: tolerate small things, from round 2 on (Dan, 2026-11-02).** *"Some of your
+revisions were a little bit too nitpicky... we should be a little bit less nitpicky, especially as we're going towards
+the end of a job... If this was AI, I would do another round because there's no cost. That way, he doesn't give us a
+low rating... if this was something we were editing, then I would change his stuff. But because it's... a human
+editing it, we want to be a little more tolerant of very small things at the end of a job."* Muhammad round 2
+(Jiu Jitsu, Last Ten Pounds, Battle Ropes): Dan deleted a label-wording swap that was the only item on Jiu Jitsu, a
+thinner-than-ideal pen and turned-away abs on an AI start frame, an opener crop that was 20% wider than asked, and
+two 0.3 s fades that showed a brief double image; he finalized two of the three. He kept a missing key point graphic,
+a last word still cut off, an AI opener not yet generated, panels short of the screen edges, and (riding along on that
+needed round) the label swap and three caption commas. The test for a human editor's late round: write an item only
+when something is missing, broken, cut off or clearly wrong to a viewer at normal speed, or a rule-76 class. Crop
+percentages, transition polish, label wording, frame tweaks and anything a viewer would not notice go under "For Dan's
+call" with a paste-ready line, never in the doc, and ride along only when the video already needs a round. A video
+whose only items are of that kind gets the finalized line. Our own pipeline edits keep the full standard: fix them.
+
+**The first 5 seconds get their own pass (Dan, 2026-10-08).** *"For the shorts and for content generally, I want to pay
+more attention to the first 5 seconds. I want to get more ideas for AI-generated clips in the first 5 seconds... request
+AI clips, put in something we already made, or put in something attention-getting in the beginning more often...
+Sometimes we just start with a camera scene, but I feel like you should look for more opportunities... putting more
+effort into the first 5 seconds."* Before writing any video's section, write down what is on screen from 0:00 to 0:05
+and try to beat it, in this order: a clip we already have (clip library, AI or real), the most attention-getting
+picture from later in the same video moved to the front (the exercise done correctly, the finished result, the
+before picture), then a new AI clip concept (frames first). A plain camera open stays only when it is truly the
+strongest thing available, and then the summary says why in one line. A script cue that says "cold open on Dan" does
+not settle it. Procedure and his own item wording: calibration pass 11. Every summary carries a "FIRST 5 SECONDS" line
+per video.
+
+**Sections follow the editor's link order (Dan, 2026-10-08).** *"Put the revisions in the document in the same order
+that Muhammad gives me the links in the chat. If they send a folder, put them from top to bottom in the order that the
+files appear in the folder... I had to search around and match the top link to something that was 3 or 4 reviews down
+in the document."* The first link in the editor's message is the first video section in the doc, the second link the
+second, and so on; an earlier message comes before a later one. For a Drive folder drop (Zeeshan), use the order the
+files appear in the folder, top to bottom. Never regroup by round, by job number, by new versus revised, or by how
+much is wrong. Duplicate links take the position of their first appearance. The summary table and the paste-ready
+message use the same order. Batch generators (`gen.py`) take an explicit ordered list, never a sorted glob.
+
+**No AbsByAI.com end mark (Dan, 2026-10-01):** never write an item asking for the AbsByAI.com mark at the end of a video,
+even where the script cues it (VIDEO-RULES).
+
+**Graphics for an editor's shorts: we build them (Dan, 2026-10-01, look APPROVED: "Graphics look good... If the graphics
+are off, let's just generate the graphics").** When an editor's graphics are not our Soft Blue Light style, or are wrong,
+do not write items asking him to restyle them and do not run a "lock the style" variations round (this replaces rule 46
+for editors' shorts). Build every graphic the finished video needs and link each file in the doc. Procedure: workflow
+step 6b. Recipe: `revisions/reference/shorts-graphics-kit/`.
+
+**Picture slots always carry the picture's link and a name (Dan, 2026-10-05).** *"For the one below that we said
+'images below,' I don't see the images. Make sure that whenever you're sending them, put in 'before pictures' or 'after
+pictures.' You put in the link to the image."* Never leave an empty "image below" slot. Every picture beat gets a
+sub-bullet per picture, labelled "Before picture" or "After picture", with a direct Drive link to the exact file; pick
+the pictures yourself (the deck-chair shirtless before, the two shirt-on fat dad pictures, real pool or studio after
+pictures) and Dan swaps them if he wants others. This replaces the empty-slot instruction in calibration rules 26 and 48.
+
+**Transition sounds are judged, not banned (Dan, 2026-10-08).** *"Not all sound effects are bad, just the ones that we used
+previously that didn't work... use a little bit more judgment and subtlety with sound effects rather than just saying no
+sound effects on transitions as a blanket rule."* He kept the low, soft swoosh an editor put on his zoom transitions and
+deleted our item asking for it off. Never write a sound item because a rule says so: write one only when the sound is
+harsh, loud, mistimed, over a word, or fired on graphics. Unsure: one line in the summary under "For Dan's call" with a
+timecode, nothing in the doc. Full rule and the measured reference: `_shared/VIDEO-RULES.md`, "Sound effects on
+transitions". Calibration pass 11a (rule 64a).
+
+**Our B-roll and AI clip library first (Dan, 2026-10-01).** *"Always look for ways to use B-roll in our videos. Generally,
+it's better to use B-roll than stock or AI clips when we have the B-roll... look through our existing AI clips library
+and look for opportunities to use those clips before requesting a new one."* Every review runs the library pass in
+workflow step 6. Order of preference for any picture beat: our real B-roll of Dan, then an existing AI clip of ours,
+then stock, and a NEW AI clip only when nothing in the library fits.
+
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
+For a review-only task, report each required repair with timecodes. Do not re-render the video or send anything to the editor; the graphics kit (step 6b) and the paste-ready message drafts are still produced.
+
+# /revisions — review a delivered cut and write Dan-style revision notes
+
+The deliverable is a **Google Doc in Dan's Drive**, written in Dan's voice and format,
+**as a draft for Dan's review** — Dan reads it and forwards the link to the editor
+himself. Never send anything to the editor directly. Also save a markdown copy in
+`revision docs/` in the project folder (repo is public — nothing sensitive in it).
+
+**ALWAYS CONFIRM WHO THE EDITOR IS AND WHICH ROUND THIS IS BEFORE WRITING.** Dan runs
+tryouts where several editors cut the SAME script, so a new cut of a video you have
+already reviewed is usually a DIFFERENT editor's first attempt, not round 2 of the same
+one. Getting this wrong makes the doc read as "you ignored my last notes" to someone who
+has never seen them. If the cut arrives as a bare Drive link, ask.
+
+**Write goals, not tool steps.** Dan's editors work with AI editing tools, not a fixed NLE.
+Never prescribe a program's menu path ("In Premiere: Modify → Audio Channels"). State the
+outcome — "the finished audio must come from the RIGHT channel only, as mono" — and leave
+the method to them. A named-tool instruction reads as ignorance of how they work.
+
+Two audiences, same skill:
+- **Human editor** (default): plain-language, tool-agnostic directions, links to assets,
+  no jargon, no file paths on Dan's machine.
+- **Pipeline session** (an /ad-edit or /longform-edit session executing the fixes):
+  same document plus exact source timecodes, local asset paths, and script names.
+  When the cut is a pipeline session's output, write BOTH layers: the human-readable item and,
+  indented under it, the machine-actionable detail. The session executing the fixes runs under
+  VIDEO-RULES "Video rounds start automatically" (2026-10-20; Sol high by default).
+
+## Dan's document format (learned from his own revision docs)
+
+- Title: video name + editor + round number ("Video 1 revisions - Waleed - round 1").
+  **Round numbers are per EDITOR, not per video** — during a tryout, three editors can each
+  be on their own round 1 of the same script.
+- A **THROUGHOUT VIDEO** section FIRST for anything not tied to one timecode, in
+  \*\*BOLD ALL CAPS\*\* headers, each with sub-bullets. Rules he repeats every round
+  live here (capitalization, crops, disclosure labels).
+- Then a flat list of **timestamped items** in play order. Each item: the timecode
+  (single `0:14` or range `1:41 - 1:52`), what to change, and — critical — the
+  **specific replacement**: the exact text to put in a graphic, the exact asset with a
+  direct Drive link, or exact source timecodes to pull ("Insert 0:57 - 1:02 from this
+  video"). "Accelerate footage to fit duration" is the standard instruction when a
+  replacement is longer than its slot.
+- Give the on-screen POSITION of graphics (lower third, upper right corner, top two
+  thirds / lower third splits, full screen).
+- Exact text is quoted verbatim; capitalization instruction: Title Capitalization on
+  all graphics, "don't use the capitalization I have in this document".
+- For AI clips to be generated: give DIRECTIONS for what to generate, don't generate
+  it. If we already have a matching asset, link that exact asset instead.
+- Why-explanations appear only when the rule is new ("Why this is important: …").
+- New standing rules get flagged: "For all future videos, …" / "Hard rule for future videos: …".
+- **STANDING RULE blocks (Dan, 2026-09-10).** Muhammad edits with an AI tool, so a rule stated the same way every
+  time gets learned and stops needing repeating. Every item that violates a standing rule gets, as its LAST
+  sub-bullet, a bold line beginning `STANDING RULE:` — one or two sentences, the rule plus the why — and the
+  same line is repeated under every item in every ad where it applies (Dan pasted the before/after rule into
+  four ads and the goal-image rule into five). Use the canonical wordings in "Standing rules to check" below
+  verbatim; do not paraphrase them per ad.
+- **Bold the key change in every item.** The item is one diagnostic sentence, then the action in bold (the
+  replacement, the removal, the exact text), then the timing. Dan bolded "**Replace it with the bad Photoshop with
+  my face on the bodybuilder's body**" and cut a five-sentence 0:00 item down to "Take the logo out." plus the rule
+  plus "Remove all graphics from this duration, just make this plain camera scene". A reader skimming the bold
+  should be able to do the edit.
+- **A finished ad gets one bold line under its H2** — Dan's own wording since 2026-09-15:
+  `FINALIZED - APPROVED - HQ EXPORT DELIVERED` when the high-quality export is in hand, or
+  `FINALIZED - APPROVED - NEEDS HQ EXPORT FOR UPLOAD` when it is not (these replace the older
+  "APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT"). Then the credit paragraph if the round earned one, and
+  nothing else — no THROUGHOUT, no items. **Dan decides which line**; see calibration rule 39.
+
+## Calibration from Dan's edits — the doc must need ZERO changes (2026-09-03)
+
+Dan's stated goal: he stops re-watching the cut and re-editing our doc; it goes to the editor as
+written. These rules come from diffing our markdown copies of the Ad 3, 4 and 5 reviews (Muhammad,
+batch 2) against the Google Doc after Dan edited it. Every item in every future doc is checked
+against them before delivery (workflow step 7). Ads 2 and earlier in the same doc are Dan's own
+notes — the register to match: "Remove this clip, use camera scene", "Replace with 0:00 - 0:05 from
+this clip", "Insert these images full screen one after another with motion effect".
+
+**Things he ADDED — defects we missed:**
+
+1. **Transcribe every text graphic and check every word against the script AND the ad's subject.**
+   Ad 3's bullet panel said "nutrition coach" — Ad 2's vocabulary, the template carried over — and
+   our contact-sheet pass missed it; Dan added `2:08 Change "nutrition coach" to "personal trainer"`.
+   Batch editors reuse graphic templates between ads, so the previous ad's nouns are a specific
+   error class. Method: crop every panel/chip/card at full resolution, write its text out, compare
+   to the transcript line under it and to the subject of THIS ad. Typos, wrong words, mixed
+   capitals, a noun from the other ad — each is an item with the exact replacement text.
+2. **Check EXITS, not only entries.** Ad 3 round 2: the phone mockup stayed up after the
+   assessment clip ended; Dan added `3:22 Remove phone graphic from screen at this point`. For
+   every insert and overlay, find the frame where it should leave and confirm it does; a frame
+   element that lingers into the next beat is an item.
+3. **Never cut before-imagery straight into after-imagery — the camera scene goes between.**
+   Ad 5: our fat-dad pictures at 0:09 - 0:14 ran into "this is what I look like today" at 0:14.
+   Dan shortened the insert to 0:09 - 0:12 and added "Briefly show camera scene again before
+   showing after pictures (avoid showing before and after pictures back to back)". Back-to-back
+   is a sequential before/after and reads the same to Google as a side-by-side. Check every
+   before→after adjacency in the timeline INCLUDING the ones our own inserts would create, and
+   give the before insert an end time that leaves ~2 s of camera before the after visual.
+4. **Check panel composition, not just content.** Ad 5 0:17: the header sat at the top of the panel
+   and the one bullet in the bottom third with dead space between; Dan added "Move text up to
+   center of graphic, rather than bottom". Text block vertically centred in its panel, header and
+   bullets together, nothing jammed against an edge.
+
+**Things he CHANGED — our directions were mis-calibrated:**
+
+5. **A directed new clip is always "stock footage or AI clip".** Dan added "or AI clip" to both of
+   our "Insert stock footage of …" items in Ad 5. Write "Insert stock footage or an AI clip of …"
+   and, when the AI label rule is not already in THROUGHOUT, "if it is AI, it gets the label".
+6. **The casting rule is for the man the viewer is meant to be; antagonists are cast as the
+   caricature.** Ad 4 0:43 influencer: we wrote "White or Asian man, 30 - 50, in shape"; Dan
+   rewrote it to "fitness influencer bro … Man around 20 years old in good shape, but who looks
+   douchey." Fat trainer, influencer bro, the "somebody else" whose plan you downloaded — cast them
+   as what the script mocks. Aspirational or identification shots (a man training, cooking, the
+   fitness-model line, the dad at the kitchen table) — white or Asian, 30 - 50, in shape. A neutral
+   prop shot (a man opening a pill bottle, Ad 4 2:06) is not a swap item on its own; if the casting
+   rule needs restating, one line in THROUGHOUT covers it.
+7. **State the requirement; diagnose the person on screen only when it is the reason and you
+   verified it at full resolution.** Ad 5 2:42: Dan struck "Same problem, he has the dad bod the ad
+   is selling against." and kept only "In shape white or Asian man, 30 - 50, cooking a healthy
+   meal". He kept "he is an average build" (0:58) and "He is 60 and obese" (2:29) because those were
+   accurate and were the reason for the swap. A guessed body judgement costs credibility with the
+   editor; an unmistakable one is the argument.
+8. **Only fix what is wrong against the script or a rule; the editor's own header labels are his.**
+   Ad 5 0:17: we asked for the header "IN TODAY'S EPISODE" to become "IN THE NEXT FEW MINUTES"
+   ("this is an ad, not an episode"); Dan deleted that and kept only the bullet-text fix, which was
+   a real error against the script. Header/label wording is an item only when it is misspelled,
+   mis-capitalised, or contradicts the script or a rule — never because we would have worded it
+   differently.
+
+**Things he DELETED — items that should not have been written:**
+
+9. **Do not pad a line that already has a correct asset.** Ad 3 2:40: one photo-shoot picture was
+   on "this is what I look like today"; we asked for three more from the reference folder. Dan cut
+   the item. An item must fix something — wrong asset, missing asset, rule violation, dead
+   stretch, wrong text, bad exit. "More of the same" is not a fix.
+10. **Do not force an asset onto a line it does not literally match, and do not stack before
+    imagery.** Ad 4 2:16: we put the heavier-Dan couch clip on "a cabinet full of supplements and
+    still getting fat", directly ahead of the before picture and two fat-dad photos at 2:20 — four
+    "before" visuals in seven seconds, none of them a cabinet of supplements. Dan cut it. One
+    before beat per section, on the line that names it.
+11. **Not every dead stretch gets a bullet build.** Ad 5 2:17 - 2:29 ("built for someone else …
+    different work hours, a different budget, a different body, foods you honestly hate"): we wrote
+    a four-bullet build of that list straight after the CTA build at 2:05; Dan cut it and kept the
+    other eight fills. Every fill he kept puts a benefit, a hook or a claim on screen ("It adjusts
+    your calories", "Built around steak", "It stopped being a wish"). Do not put a list of negatives
+    on screen, and let the beat right after the CTA build sit on camera. If two builds would land
+    within ~15 s of each other, keep the one that carries a benefit.
+
+### Calibration pass 2 — Dan's edits to the 2026-09-08 batch (Ads 3–8, Zeeshan r3, Waleed r3)
+
+Dan's verdict on the batch: "very good, you got most of the major things", with one correction: **too many
+calls for graphics.** His rule, in his words: a graphic goes in when it adds value; 10 to 20 seconds of just
+him talking is fine when a graphic would not contribute anything; **but when in doubt, put it in — a graphic
+is easy for the editor to remove, and sometimes the idea is good.** So the error to avoid is the reflexive
+fill, not the occasional judgement call. The diff of what he cut (method: lesson 34) makes the line precise:
+
+12. **A text chip earns its place by stating an outcome or benefit in his positive voice.** Kept: "It stopped
+    being a struggle" → "It started to feel easy" (twice), "You get the picture AND the plan", "The two-picture
+    trick that made my motivation automatic". Cut, regardless of gap length (7 s and 12 s alike): anything that
+    paraphrases or quotes the sentence being spoken, a list of negatives, a question chip, a "2" added to the
+    editor's numbered chips, a two-line near-verbatim restatement (that is a subtitle). Text-chip fills went 5
+    kept of 14; picture and clip fills went 4 of 4. **Budget about two added text chips per ad** and choose
+    the two strongest benefit lines instead of filling every stretch you list.
+13. **Bullet builds are the heaviest form and get cut first** (0 of 2 new builds survived), and **never direct
+    a panel that already exists in another ad of the batch** — the Ad 6 "IT ADAPTS TO YOU" build was Ad 3's
+    panel, and the Ad 6 "Day 1 / Day 4 / Day 10" chips were Ad 5's device. Each ad gets its own graphics.
+14. **App screens are repairs, not fills.** Every app screen that REPLACED a wrong visual survived; all three
+    meal-plan / workout screens dropped into a talking-head gap were cut. Direct an app screen only where the
+    line names the app doing something and the picture on screen is wrong or missing.
+15. **The VISUAL DENSITY paragraph must not promise a fill per stretch, and no item may point at another
+    ("fix in the 0:00 item below").** Dan deletes items without repairing cross-references: Ads 6, 7 and 8
+    went out listing stretches whose fills were gone, Ad 6's THROUGHOUT pointed at a deleted item, and Ad 3
+    still said "Four things are left" after he cut one. Write every item self-contained and count nothing.
+16. **A truncated lower third is a chip, not a defect.** Ad 3 R3's "…let your AI trainer help" item asked the
+    editor to complete it into the spoken sentence; Dan cut it — completing it would make a subtitle. Do not
+    ask to lengthen a chip.
+17. **Check the hero asset against the literal script claim, not the concept.** Ad 7's title is "I Photoshopped
+    MY FACE on a Fitness Model"; the editor's gag image did not use Dan's face and we praised it. Dan added
+    "Swap this for an AI clip of my before picture's face on a bodybuilder's body" and propagated "(with MY
+    FACE …)" into both callbacks of the asset. When a hook asset is corrected, correct every callback in the
+    same doc.
+18. **On-screen text must stand alone.** Dan replaced "it's far better at it than ChatGPT…" (our item only
+    fixed the capital I) with "Abs by AI is FAR BETTER at generating your fitness goal image than ChatGPT or
+    any general purpose AI". A panel whose pronoun has no referent for a viewer reading it cold is a text
+    item, with the product and the claim named and the superlative in caps — rule 8's "leave his wording"
+    yields here. (Caps narrowed: FULL CAPS only where the word truly carries the emphasis, VIDEO-RULES "Capital letters
+    in graphics", 2026-10-09.)
+19. **The proof on a "got the abs" line is two real pool-shoot after photos, the same two as the previous
+    ads — not the AI goal image, and not four stills.** Ad 8: he swapped our goal-image beat for "Show TWO
+    after pictures from pool photo shoot here, same as used in previous ads" and cut our four-photo run to
+    two. Two stills per beat; split a longer set across two beats; reuse the batch's after photos.
+20. **Typography consistency is part of the text-panel pass.** He added "The spacing between letters on
+    calories is different from the other words" under our capital-I item — check tracking, weight and size
+    of every chip against its neighbours, not just the words.
+21. **In a closing round, do not add a footage request for a mild picture/line mismatch.** Zeeshan r3: a
+    kneeling rollout under the line about the standing variation was cut as an item; "none of it is new
+    work" has to be true. **American spelling always** (COLOUR → COLOR was his only edit to Waleed's doc).
+
+### Calibration pass 3 — Dan's edits to the 2026-09-09 batch (Ad 3 r4, Ad 5 r3, Ad 6 r2, Ad 7 r2, Ads 9/10/13/14 r1)
+
+Dan's verdict: "pretty good", with one big correction — **too picky on audio in rounds 2 and 3** — plus the two
+format rules above (STANDING RULE blocks, bold the key change). The diff (method: lesson 34) makes it precise:
+
+22. **Late-round audio: once it sounds right, stop asking.** He deleted the whole audio block on Ad 5 r3 (−14.0 LUFS,
+    true peak −0.2), Ad 6 r2 (−13.7, −0.8, tone and NR off) and Ad 7 r2 (−13.6, −0.7, NR off), and kept it on Ad 3 r4
+    (−15.3 LUFS, 0.0 dBTP with 35 clipped samples) and on every round-1 cut. The line: on a round ≥ 2, audio is an
+    item ONLY if the level is outside −14 ±1, or the true peak is at/over 0 with clipped samples, or the mic/room is
+    wrong. Tone, the artifacts row and a ceiling at −0.7/−0.8 dBTP are round-1 notes, never a reason for another
+    round. If audio was the only thing left, the section is the APPROVED line (Ad 5).
+23. **Do not itemise the end hold.** Every "hold the last frame ~2 s" item was deleted (Ads 5, 6, 7, 9, 10, 14 — holds of
+    0.2 to 1.2 s). The only end item that survived is Ad 13's, where the button LEFT while he was still saying "get
+    started". Rule: an end item exists only if the button or the picture cuts off before the last word ends.
+24. **Fills are still being cut.** Ad 9's one benefit chip (2:08) went, and so did the phone-lock-screen asset swap at
+    1:52 (the goal image on the card is fine on that line) and Ad 13's "$1,000+/Month" chip replacing his two verbatim
+    hook chips (his skip-stopper chips are his). Round-1 fills: none unless a 15 s+ stretch has nothing and the chip
+    is a benefit. Never replace an editor's own hook chips with ours.
+25. **App / phone demos are a one-line fix plus the rule, and the fix is a link.** Dan replaced both Ad 10 demo items
+    (a paragraph each about the upload being a stranger) with the same block: "The real app recording is the right
+    thing here, keep it. But it ends on the Generating screen and never pays off. … end on that recording's own
+    after picture alone … Small AI-GENERATED tag on it" + the recording link + STANDING RULE. Write that block, link
+    the recording, and let the link carry the "whose photo" fix. **But the identity check is still ours to do:** he
+    ADDED an item we missed on Ad 14 — "2:00 - 2:07 Use this photo for before picture in clip. The script says 'my
+    body, my photo' but the before picture isn't me." Check the before picture inside every phone/app clip against the
+    real before picture at full res (lesson 10 in reverse) and, when it is not Dan, one line + the before-picture link.
+26. Historical (superseded 2026-10-05 by rule 59 for picks and slots: we pick and link every picture). **After-photo beats: two real photos, Dan picks which.** He struck the item asking for the script's specific
+    "trees, hands on hips" still (any real after photo satisfies the cue), kept "Show TWO pictures here" but removed
+    our picks and links, leaving empty image slots he fills himself, and wrote "use these ones, different from
+    before" on the second beat. Rule: itemise count (two) and label (none), write "images below" with two empty
+    sub-bullets, do not choose the stills, and never repeat the pair used in an earlier beat of the same ad. The
+    "used my family as an excuse" line takes the two fat-dad-with-daughter photos, not the before picture.
+27. **Adjacency inside or beside an approved AI asset is not an item.** Ad 7 0:26: the phone clip (heavier me holding
+    the ripped picture) running into real ripped me on the mat was cut — after→after is fine, and the heavier/ripped
+    pair inside that clip is the approved asset itself.
+28. **A bullet panel mid-build is not a composition defect.** Ad 10 2:07 ("first bullet at the top with dead space
+    until the second comes in") was cut; rule 4 applies to a finished, static panel only.
+29. **Logo item = "take the logo out" + STANDING RULE + "camera scene".** Do not design the replacement title chip
+    (Ad 14 0:00: our two-line title and "drop the lower third" were cut; he wants plain camera scene there).
+30. **Missed defect to add to the pass:** the before picture inside the Ad 14 phone clip at 2:00 was not Dan (rule 25).
+    Nothing else was added, so the picture pass is otherwise calibrated.
+
+### Calibration pass 4 — Dan's edits to Zeeshan's content-batch video 1, round 1 (2026-09-11, a workout follow-along)
+
+He added three THROUGHOUT items to our doc, all of them things we measured and then credited instead of flagging:
+
+31. **Framing is checked on every cut, workout sets included, against the hair-anchored standard** (memory
+    `framing-standard-hair-anchored`). He added "**Crop in closer by 20-30% throughout the video**": in the wide shot no excess
+    space above the head or to the sides, in the tight shot almost as tight as possible without cutting him off. Our pass
+    confirmed that a wide / punch-in / wide pattern existed and never judged how big he was in the frame.
+    `reference/framing.py` now measures it (step 3).
+32. **The effort sound in a live set is NOT "right because it matches the raw clip".** We proved the camera track ran under
+    the sets at the same gain as his talking and credited it; he added "**Reduce volume of my mic by 80% while I am actively
+    doing sets. Keep volume the same when I am talking**". Grunts at their natural level (momentary −9 LUFS against −14 to −16
+    for speech) are too loud for him. `reference/sets_level.py` measures it (step 1): the effort peaks must sit 5-14 dB
+    under the talking level; within 5 dB of it (or above), write his item plus the STANDING RULE below.
+33. **Judge the music bed's genre and energy against the video type, not only its level.** We credited "the music sitting under
+    my voice where it should" (the level was right); he added "**Change music to this music track**" plus the rule below. For a
+    workout, a bed that is chill or elevator-like is an item even at the perfect level. Supply the replacement link yourself
+    (Pixabay, not Content ID registered: the track page must NOT show "Content ID Registered"), and check the genre tag. A
+    "trip-hop" or "lofi" tag is chill however high its BPM.
+34. **When he adds an item that contradicts a credit sentence, fix the credit sentence in the same pass.** His 80% item sat
+    under our line "the wheel and my breathing sit at the same level as my talking, which is exactly right".
+
+### Calibration pass 5 — Dan's rulings on Ad 7 round 3 and Ad 10 round 2 (2026-09-11): WHOSE generation is on screen
+
+Dan's verdict on the batch: "you got this pretty dialed, but one error you keep making is that it is sometimes
+appropriate to use the AI-generated strangers instead of myself." Three rules come out of it, and they replace the
+blanket "the man in the phone must be Dan" reading of pass-3 rule 25:
+
+35. **The SCRIPT's subject decides whose generation is on screen — read the sentence under the demo before writing a
+    word.** Dan's own framing: "When I reference myself in the script, like me generating, then we should use myself.
+    At other times, if I'm talking about the prospect generating, then we should use one of the AI-generated
+    strangers."
+    - **His line** ("I made mine", "my photo", "this picture got me abs", "I uploaded"): the phone shows HIS before
+      picture (`11Qb559-mqga9FznIpC8tgxLLfz1BUKQX`) and the demo ends on HIS goal image with the AI-GENERATED tag.
+    - **The prospect's line** ("you upload a picture of where you're at now", "generate your future self image",
+      "so generate yours"): it is SUPPOSED to be somebody else. Keep the man the recording uploads and end on an AI
+      after picture of THAT man, labeled. Do not write an identity item at all — the correct note is only about what
+      the demo ends on. Ad 7 3:25.5 and the Ad 10 demos are the worked examples; Ad 7's 2:00 demo is the his-line case.
+    - Say which case applies in the item, so the editor learns the pattern instead of the exception.
+36. **A different generated person in every ad — never the same image twice across the batch** (Dan, 2026-09-11:
+    "I want a different image in every ad, either one that we already made or, if we don't have it, then just generate
+    those images and provide him with that"). Every stranger is in the prospect's demographic (white or Asian man,
+    30–50, lean-with-abs after, never a bodybuilder; the before is American-average with a small belly). Before
+    directing a new one, check what already exists (the reference-ad folder, `Media/ad-assets/`, the benefit/dad clips
+    folder) and reuse it ONLY if no other ad in the batch is using it; otherwise generate the picture yourself with `_shared/codex-image.sh` (IMAGE-GENERATION.md), upload
+    it (lesson 44) and link the file. Track which ad got which person so two ads never share a face.
+37. **The Photoshop gag is not before/after imagery, and neither is a stranger's photo inside a demo.** Dan deleted
+    the Ad 7 1:53 item twice — "I did delete on purpose because it's not really a before and after." The adjacency
+    rule protects REAL before and after pictures of Dan and genuine transformation reveals. An obviously-fake gag
+    image (his face badly pasted on a bodybuilder), or the upload photo inside an app recording, does not trigger it.
+    Do not spend an item on those adjacencies.
+
+### Calibration pass 6 — Dan's edits to the 2026-09-15 batch (Ads 7, 8, 13, 15 and the two finalized)
+
+Seven cuts, five reviewed. Dan deleted six items and one whole section, changed two status lines, and kept every item
+about label construction, compliance and demo identity. What the deletions say:
+
+38. **Three of four AI-artifact items were wrong** — the protocol that fixes it is in step 3b above, and it is the
+    highest-value change in this pass. He kept the one where an object became a different object.
+39. **Dan's status lines, verbatim, and HE decides which one:** `FINALIZED - APPROVED - HQ EXPORT DELIVERED` when the
+    high-quality export is already in hand, `FINALIZED - APPROVED - NEEDS HQ EXPORT FOR UPLOAD` when it is not. These
+    REPLACE "APPROVED - FINALIZED - READY FOR HIGH QUALITY EXPORT" and "FINALIZED - NO FURTHER REVISIONS NEEDED".
+    **Do not infer which from the file.** We measured Ad 14's export at 3.0 Mbps against the batch's usual 10 and wrote
+    that it still owed its HD; Dan marked it HQ EXPORT DELIVERED, and marked Ad 7 — a 10 Mbps, 284 MB file — as still
+    needing one. State the bitrate and size in the SUMMARY as a measurement and let him set the line.
+40. **A FINALIZED ad is not reopened for a cosmetic defect.** Ad 7's re-export fixed a headline running off frame and
+    introduced "AI-GENERATEd" — one letter's case, inside a 3 s chip. We wrote a one-item round 5; Dan deleted the
+    section and stamped it finalized. Once an ad is finalized, only a compliance break, the wrong person, the wrong
+    asset or something that makes it unusable reopens it. Anything smaller is a line in the summary, for him.
+41. **Never itemise how long a picture holds** — the extension of rule 23 to the whole timeline, not just the end. Ad 15
+    3:03.5: the after picture was up half a second, gone before his line ended; deleted. Insert duration is the editor's
+    rhythm. The only picture-timing item left is a line that plays with nothing on screen at all.
+42. **On a late round, a defect that has been on screen unchanged since a round Dan reviewed is HIS call, not a new
+    item.** Ad 13 round 3: the "SIXPACKSHORTCUTS.CO" watermark burned into his own old-show footage, and the missing AI
+    label on the supplement-bowls picture (an open question from round 2) — both deleted, both already known to him and
+    named in earlier sections of his own doc. Put that class in the summary. A compliance break, or a rule he made since
+    the last round, is the exception and stays an item.
+43. **What he kept, every time:** a label built wrong (italic, sentence case, in square brackets, on a see-through band
+    instead of the black pill chip — three ads in one batch), a before picture running into an after picture, a demo
+    that shows the wrong person for the line under it, and text panels that do not match the script.
+
+### Calibration pass 7: Dan's edits to Muhammad's first dedicated shorts (DS-01/02/03, 2026-09-27)
+
+Doc `1cz-DY55xJ70wtAsZmVbsnDFQKEXC8R9xiGH3pVcyxCc`, md copy `revision docs/short-form-content-and-ads-revisions-muhammad-9-26-26.md`.
+He kept audio, caption words, the empty-screen items, bigger b-roll and the clean spiderman clip. He deleted all three
+title-bar items and our face-picture block, and added an AI opener to two videos and a graphics-lock step. His
+instruction with it: *"frequently, but not always, I want these to start off with an AI-generated clip… lock the
+graphic style first before editing any videos."*
+
+44. **Look for an AI-generated opening clip on every video, and write one in when it fits.** He added a 0:00 opener to
+    Getting Abs (a linked clip: "Use 0:02 - 0:05 from this clip") and to Supplements. Not every video: a strong cold
+    open on camera can stay. When it fits, the item is **three concepts for the editor to render as start and end
+    frames, not a finished clip**: two specific concepts that literally show the video's subject, plus "1 additional
+    concept of your choice, significantly different from the other two". His Supplements wording is the template:
+    *"Show me start and end frames for these intro variation AI clips. I will choose the one to generate from your
+    start and end frames. Be sure all start and end frames are generated in vertical 9:16 orientation"* (or 16:9 for a
+    horizontal video). If an existing AI clip in the library already fits, link it with the source range instead.
+45. **Every AI clip, for human editors as well as our pipeline, is approved as start and end frames before the motion
+    is generated** (Dan, 2026-09-27). Any item that directs a NEW AI clip says "show me the start and end frames first,
+    I pick before you generate", with the orientation. VIDEO-RULES "Video clip generation budget and frame approval"
+    now binds editors too.
+46. Historical (superseded 2026-10-01 and 2026-10-17: Soft Blue Light is locked for every format and we build the editor's graphics, step 6b; VIDEO-RULES "All new or revised video graphics move in Soft Blue Light HyperFrames"). **When the format has no locked graphic style, lock it BEFORE fixing graphics.** On one video (the first in the
+    batch), direct variations of the recurring graphic (for shorts, the top text graphic) to build a template for the
+    whole format. His item: *"Show me 4 different variations for top text graphics for this video, to develop a template
+    to use in all short form content: Existing graphic / Blue liquid glass graphics imitating this style / 2 other
+    significantly different graphic styles of your choice. Should look masculine, bold, modern, and trustworthy."* Every
+    other graphic item in the batch then ends with "Wait until the graphic style is locked before making this" (he wrote
+    it under every graphic item in the other two videos). **Do not itemise cosmetic fixes to a graphic in an unlocked
+    style** (our three "the first line of the title bar can't be read" items were all deleted, since the bar is being
+    replaced). How to tell whether a style is locked: `_shared/GRAPHICS-STANDARDS.md` lists the locked families; an
+    editor's own style on a format Dan has never approved is not locked. When it IS locked, link the locked references
+    in the doc (moving examples, not a description) and write items against them.
+47. **Shorts: key points go in the top graphic, above the head, over camera scene, not as full-screen graphic cards.**
+    He replaced the Supplements full-screen section cards (0:10, 0:15, 0:30) with "camera scene, with top graphic above
+    my head" and changed "key point here" to "key point top graphic here".
+48. Historical in part (superseded 2026-10-05 by rule 59: we pick and link the pictures; the no-adjacency-item part stands). **Organic shorts follow the script's picture cue, and Dan picks the pictures.** Getting Abs' script cued the before
+    and after face photos "full frame, sequential". He deleted our block (face crop, camera scene between, one after
+    picture, the real-picture label and both STANDING RULE lines) and wrote "Show these two images, one after another"
+    with his own two images pasted in, plus a face close-up he chose for 0:19. So on an organic short: no Google Ads
+    adjacency item where the script itself asks for sequential pictures, and a picture beat gets empty image slots for
+    him (rule 26), not our picks or crops. The Google Ads rules still apply to anything that is, or will run as, an ad.
+
+### Calibration pass 8: Dan's edits to Muhammad's second shorts batch (DS-05/06 V2, DS-07/09/10/11/13 V1, 2026-10-01)
+
+Doc `1ib0VbJ3dqnqci-8seSpzR2DNf0-kKolWlyVe_-flWus`, md copy `revision docs/shorts-revisions-muhammad-10-1-26.md`. He kept
+every jump-cut, fill-the-screen, caption and food-match item. He added seven AI-clip items of his own, deleted three of
+ours, then asked for our graphics and a B-roll pass. What that teaches:
+
+49. **Every dedicated short gets an AI opener item, and Dan writes it as ONE finished concept, not three options.** He
+    added a 0:00 - 0:03 opener to five of seven videos; our draft had proposed none ("the on-camera cold open is strong").
+    Rule 44's "not every video" now leans hard toward yes: write the opener unless the video already opens on a picture
+    he approved. His forms, to copy:
+    - **A list video ("Top 3 Ways", "3 Unexpected Ways", "How To Make Time": three points) opens on a three-way split
+      screen**: *"Insert an AI-generated clip here, which is a three-way vertical split screen: top third, middle third,
+      and bottom third. Each third will show one of the three ways to..."* then one sub-bullet per third describing a
+      literal little scene for that point (a ripped man doing pushups in his house; a calendar titled "Workout Calendar"
+      with every day checked off; a man photographing a supplement and throwing it in the trash).
+    - **A single-idea video opens on one scene that dramatizes the title**: the lean man walking past a miserable fat
+      millionaire in a Lamborghini with a woman attracted to him; a lean man weighing himself on a scale and smiling.
+    - **Reuse a third of the opener later, full screen**: *"This can be the same clip as what you use in the beginning,
+      but just generate this in full screen vertical orientation here."* When a point's own beat has a weak or wrong clip,
+      point it at that point's panel from the opener instead of directing a second new clip.
+    - He wrote these without the "show me start and end frames first" line. Rule 45 still stands for our own items; do
+      not append it to an item he wrote.
+50. **The man in his AI clips is "a ripped, lean man with six-pack abs", "not a bodybuilder", "a Kinobody body type",
+    and never an actual known person.** He flagged our approved 0:08 beach clip because the man looked like a specific
+    well-known fitness figure: *"Use a similar body type and generate a similar clip, but don't make the face his
+    face."* Check every AI person against recognizable fitness personalities and celebrities at full resolution; a
+    lookalike is an item. When describing a body type by naming someone, add "not him exactly".
+51. **Cast the clip for the audience of THAT line.** DS-09's homework line had a child and a toy robot; he replaced it:
+    *"a college-aged man doing schoolwork. We're talking to people who are college-aged and not small children."* And
+    on the white-collar line he replaced a stressed dad with a ripped man doing curls while a robot works at a computer:
+    the picture shows the BENEFIT (he is free to train), not the problem.
+52. **He will overrule a script cue for the open.** DS-06's script opens on the 30% picture; our round 1 item enforced
+    it, the editor complied, and Dan then wrote "0:00 - 0:03 Use camera scene". Do not write a "the script opens on a
+    picture" item again; the first three seconds are his face or an AI opener. When his edit contradicts a credit
+    sentence of ours, fix the sentence (rule 34).
+53. **Deleted: every AbsByAI.com mark item** (now a standing rule, top of this file) **and a title-bar spelling item**
+    ("Workout At Home" on a graphic we were about to replace). Do not itemise wording on a graphic that is being
+    replaced by ours; fix it in our graphic.
+54. **He edits the doc WHILE the session is still working.** His edits landed between our first upload and the rebuild.
+    Before any regeneration or in-place update of a doc: export it (`.../export?format=txt`), `cmp` against the export
+    saved right after our last write, and merge every difference of his VERBATIM into the section files first. Repeat
+    the `cmp` immediately before the upload.
+
+### Calibration pass 9: Dan's edits to Muhammad's shorts round of 2026-10-02 (six updated cuts)
+
+Doc `1AR_8AeBzwhTuGelBlz1IRPcvKi5MHr-HT2kUTQ29o6s`, md copy `revision docs/shorts-revisions-muhammad-10-2-26.md`. Three
+edits in a 17,700 character doc; every jump-cut list, AI-artifact item, caption item and clip swap went out untouched,
+and so did the opening section that explained the one fault repeated on every video.
+
+55. **One leftover same-framing jump cut does not hold a round 3 video open.** DS-05 V3 had everything done except the
+    cut at 0:16.9, and we wrote a one-item section. Dan deleted the section and stamped it finalized. This is rule 40
+    reaching a video that is not finalized yet: on round 3 or later, when the ONLY thing left is one or two jump cuts
+    (or anything else a viewer would not stop on), write the finalized line and put the leftover in the summary under
+    "For Dan's call". Several jump cuts on a round 2 are still items, he kept all of those. (The 10-10 rule starts
+    acceptance at round 4; Dan to confirm whether round 3 holds for leftover jump cuts.)
+56. **His status line on a shorts review copy is `FINALIZED - APPROVED - READY FOR HQ EXPORT`.** He typed this over our
+    "NEEDS HQ EXPORT FOR UPLOAD" wording. Use it when the delivered file is a low-bitrate review copy and the export is
+    still owed. He still decides the line (rule 39).
+57. **Frames that need changes are "the right idea but need revisions", never "good, go ahead".** We wrote "The frames
+    for the supplement clip are good, go ahead and generate it" and then listed three changes; he rewrote the opening.
+    Say "good, go ahead" only when the frames are approved exactly as they are. Run `_shared/framecheck/gate.py` and a
+    fresh `frame-reviewer` on the pair before writing a go-ahead (our own pipeline standard since 2026-10-14); Dan to
+    confirm it binds editor frames.
+58. **A title graphic never sits over a split-screen opener's top panel: it gets its own band.** Our title covered the
+    face of the man in the top third, and we asked for him to be framed lower. Dan added the fix he wanted as the FIRST
+    line of the item: *"Put graphic at top of video, not above top clip so it doesn't block it. Reduce height of bottom
+    clip to accommodate this."* So on any three-way split opener, direct the layout that way from the start: title
+    graphic in a clear band at the top, the three panels below it, the bottom panel shortened to make the room.
+
+### Calibration pass 10: Dan's edits to Muhammad's shorts first cuts of 2026-10-05
+
+Doc `1FUg4oPmdlyiRqG_jUWOvyaNTC0AQq9JUSL2-_qcjTxg`, live copy `revision docs/shorts-revisions-muhammad-10-5-26.live-as-sent.txt`.
+His verdict: "pretty good", he liked the AI clips and the three-way split opener for every three-tip video. One fault.
+
+59. **Never write "images below", "this image" or "use this picture" without the picture actually in the doc.** This
+    REPLACES the empty-slot habit of rules 26 and 48. Dan: *"whenever we say put in this image, the image is actually
+    there for him to put in."* Pick the photos yourself (finalized pool shoot, never a frowning one, Speedo rule),
+    crop them to 9:16, upload to the kit folder's pictures subfolder, and put BOTH the Drive link and the inline image
+    under the item. Before delivery grep the doc for "image", "picture below" and "images below" and confirm each has
+    a picture. Mechanics: `replaceAllText` a marker in, `read_doc`, then `deleteContentRange` + `insertInlineImage`
+    (uri `https://drive.google.com/uc?export=view&id=<id>`, 250 pt tall) from the last marker to the first, with
+    `requiredRevisionId`; new URLs need `updateTextStyle` link (a replaced URL keeps its OLD link target).
+60. **His before picture for an organic short is the shirt-on "fat dad" photos**, cropped to phone shape on him
+    (`before-photo-candidates/fat dad pic - standing.JPG` and `- on ride.JPG`; cropped copies in the kit folder,
+    "15 Pictures"). He put two of them on the 200 Pounds open in place of the shirtless deck-chair picture, and one on
+    Looksmax. No top graphic over them (his head is at the top of the frame).
+61. **A jawline or face beat gets three specific close-ups, not one.** He asked for "3 specific jawline images".
+62. **He replaced a whole run of wrong-sport stock clips with one picture of his own** (jiu jitsu video: the AI opener
+    and both judo items deleted, "Insert this image full screen" with his own photo). When the subject is HIS sport or
+    history, ask him for a real photo in the summary before directing new AI or stock clips.
+63. **Crop-in numbers on exercise B-roll: he cut our "40 to 50%" to "20-30%, the most you can while still keeping rope
+    action visible".** Lean conservative when the equipment needs the frame.
+
+### Calibration pass 11a: Dan's edit to a long-form round 2 (Getting Abs At 40 vs 25, 2026-10-08)
+
+Doc `1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw`, live copy `revision docs/abs-at-40-vs-25-revisions-zeeshan-round2-10-8-26.live-as-sent.txt`.
+One edit in a 6,400 character section: he deleted the whoosh item and its STANDING RULE line. His verdict: "Overall, I
+agree with these revisions." Everything else went out untouched.
+
+64a. **A transition sound is not an item because a rule says so.** The editor added a zoom transition with a swoosh on
+    about 18 cuts. We measured it correctly and then asked for it off under the 09-23 "no swipe sound, ever" rule. Dan:
+    *"I thought the sound effect to use on transition actually worked, and in fact, this is something that I want to try
+    on Claude and Codex edits in the future."* The 09-23 ban was about one sound (our bright, hissy sweep near 4 kHz, on
+    graphics, 83 times in an ad). This one is low and soft (centred near 230 Hz), about 9 dB under his voice, and tied
+    to a picture move. Measure a sound to describe it to Dan, then judge it by ear criteria: low or bright, under the
+    voice or over it, on a picture move or on a graphic, few or constant. The round 1 doc's own line ("No swipe, whoosh
+    or riser when a graphic or a transition comes in") overreached on transitions; do not repeat it.
+65a. **Do not invent a STANDING RULE line.** The deleted line ("No swipe, whoosh or riser sound on any graphic or
+    transition, in any video") was not one of the canonical wordings; it turned a rule about one sound into a blanket
+    rule in Dan's name. Only the canonical lines go in a doc as STANDING RULE. A new one needs his words first. The two
+    other new lines in that doc were kept and are now canonical (same-size cuts, the label off my face and abs).
+66a. **What he kept, which confirms the rest:** small pose-matched jump cuts on a round 2 are still items; a zoom or blur
+    laid over a same-size cut is still a jump cut; a removal asked for in round 1 and not done stays an item even after
+    its first reason has gone (the 8:40 clip); a new label is checked on the brightest clip; a lower third may not
+    cover an app screen; the template that is right gets "approved and locked" in the doc so the editor stops changing it.
+
+### Calibration pass 11: Dan's edits to Muhammad's exercise shorts and revised cuts (2026-10-08)
+
+Doc `1m54-PuVT4zeS7bbBsp67Xfim-GqZ99dlLRQorwToIZo`, first draft `revision docs/shorts-revisions-muhammad-10-8-26.md`, live
+copy `...10-8-26.live-as-sent.txt`. Nine sections, 52,000 characters; he deleted three things, added seven, and kept
+every jump-cut block, crop item, caption list, the old-footage split screens and the conditional "go ahead and
+generate" lines. His headline note is the first-5-seconds rule at the top of this file.
+
+64. **The first 5 seconds are reviewed as their own deliverable on every video.** We kept the camera cold open on Side
+    Laterals and Rear Delt Flys because the script said "COLD OPEN, tight on Dan"; he added an opener to both. Rule 52
+    again: the script's cue for the open never settles it. For each video list the candidates (library clip, a later
+    clip from the same cut, a new AI concept) and write the best one in. More AI opener ideas, more often; "sometimes
+    that doesn't make sense" is the exception and gets a reason in the summary.
+65. **An exercise how-to opens on the exercise done correctly.** His item, to copy: *"0:00 - 0:03 Start video with clip
+    of me doing rear delt flies correctly. Same clip as used at 0:24 - 0:27, but make sure wide crop with visible
+    dumbbells is used. Cut back to camera scene for when I say 'Here's how to do them.'"* About 3 seconds, the strict
+    reps, the crop that shows the whole movement, back to camera scene on the next sentence. Reusing the correct-form
+    clip from later in the same cut is fine for the opener (he pointed at it himself).
+66. **A raw exercise roll holds mistake takes the script never cues, and we credited one as correct form.** Side
+    Laterals 0:25 - 0:31: we praised "the elbows high clip" landing on "Keep your elbows high"; it was his demo of the
+    mistake of NOT raising the elbows. He replaced it: *"This clip was meant to show a mistake of not raising your
+    elbows. Use a clip where my elbows are raised above dumbbells and arms are more extended."* Lesson 61 says never
+    call his form wrong; this is the other half: never credit a take as right from the picture alone. Transcribe the
+    raw roll's own audio around every take (he says what each take is before he does it), map each take to right or
+    wrong, and where the roll does not say, list the take under "For Dan's call" instead of crediting it. When he
+    adds an item that contradicts our credit sentence, fix the sentence in the live doc (rule 34; done here).
+67. **Mistake beats get a red arrow and a red MISTAKE graphic.** He added *"Add a red arrow pointing to my lower back
+    to highlight the mistake"* under the hips-sagging clip and *"Add red bottom graphic that says - MISTAKE: Going
+    Too Fast"* on a second mistake we had not signposted. Our reviewer had decided the arrows were not needed. On
+    every mistake clip direct a red arrow at the body part or equipment that shows the mistake (VIDEO-RULES,
+    "Exercise demonstration timing and visual cues"), and look for every mistake the footage shows, not only the one
+    the script names. Our blue "COMMON MISTAKE" top strip does not replace either.
+68. **Do not ask for the same AI man across the thirds of a split opener or across clips.** Both "use the same man"
+    lines on Reduce Alcohol were deleted. Casting type is the rule (lean, ripped, 30-50, not a bodybuilder, nobody
+    recognizable); identity matching between generic AI people is not an item.
+69. **Dissolves between takes of exercise footage are the editor's.** The Hammer Curls item asking for hard cuts in
+    place of three half-second dissolves (a "ghost double") was deleted. A transition between two B-roll takes is his
+    rhythm, like a picture's hold time (rules 23, 41).
+70. **Old low-resolution footage of his is welcome, with an upscale ask.** He kept every item sending his 15-year-old
+    640x360 M100s video in place of stock strangers and added, THROUGHOUT: *"AI UPSCALING: Use AI tools to upscale all
+    M100s clips from my old Six Pack Shortcuts video that you use in this video so they look good on a large
+    screen."* When directing archive footage under about 1080p, write that line in.
+
+### Calibration pass 12a: Dan's edit to Muhammad's round 2 and 3 shorts (2026-10-10)
+
+Doc `1oluIHk9Q2Oj8MnowiDrMGHmKGrjKqyV1fgzeyqQ5MdM`, first draft `revision docs/shorts-revisions-muhammad-10-10-26.md`, live copy
+`...10-10-26.live-as-sent.txt`. Three sections, two with one item each. Both items were the same class: a clip under
+an instruction was one of his announced mistake takes (lesson 75). He deleted one and kept the other. His words: *"The
+only change I made was to accept the side laterals video. I thought that was good enough for a subsequent editing
+round. That's the type of thing I would have requested if there was a first round... I do agree with you on the
+rounded back and the rear delt video. That would be a good example of the type of thing to request in the next round
+versus the type of thing to leave in."*
+
+71a. **On round 2 or later, a wrong take is an item only when a viewer watching once would see that the form is wrong.**
+    Proof from the roll's sound that a take is a mistake take is enough for an item on round 1. On a later round it
+    is not enough by itself.
+    - DELETED, section stamped finalized: Side Laterals 0:24.6 - 0:31.7, his "elbows not high enough" take under
+      "Keep your elbows high". The reps are straight arm side laterals with the dumbbells a little above the elbows.
+      It reads as a normal side lateral, and only the roll announcement says otherwise. This was his answer even
+      though the clip was the editor's reply to Dan's own round 1 item.
+    - KEPT: Rear Delt Flys 0:27.9 - 0:35.0, his "back round" take: head down and back rounded for seven seconds, right
+      after he says "Keep your back as flat as possible". Anybody sees it, and it contradicts the sentence before it.
+      Kept even though it had been on screen since round 1 and we raised it late (the wrong-asset exception in rules
+      40 and 42 held).
+    - How to apply: for each mistake take found on a later round, put the take and the correct take side by side at
+      the top of a rep and ask whether the difference shows without being told. Obvious, or it contradicts the
+      spoken line in a way the picture makes plain: item. Subtle (a few degrees of elbow, a little more bend): no
+      item, finalize if nothing else is left, and list it under "For Dan's call" with the proof still and a
+      paste-ready line. This is rule 55 (one leftover does not hold a late round open) applied to takes.
+72a. **His status line this time was `FINALIZED & APPROVED`**, typed over our whole section, with no credit paragraph
+    and no HQ export wording. He still decides the line (rule 39). When he finalizes a section, fix every sentence
+    elsewhere in the doc that still counts that video as open (the opening section said "one clip left on each of
+    the other two"); done here with `replaceAllText` through the Docs connector so his own text is untouched.
+
+### Calibration pass 12: Dan's edit to a long-form round 4 (Getting Abs At 40 vs 25, 2026-10-10)
+
+Doc `1AHErd86NwRtFG4-Ul_ICpEyZfsD3jr5JTjdc3MoOsGw`, first draft `revision docs/abs-at-40-vs-25-revisions-zeeshan-round4-10-10-26.md`,
+live copy `...round4-10-10-26.live-as-sent.txt`. The editor had done every round 3 item except one: when he moved the
+real picture label to the upper left he dropped it from the first after picture, which is on screen 0.6 seconds. We
+wrote a one-item round 4 with the STANDING RULE line. Dan deleted the whole section, typed `FINALIZED & APPROVED` in its
+place, and kept the "template approved and locked" block with its two notes for the next videos.
+
+71. **On round 4 or later, a lone minor item is not written. The video is finalized.** His words are at the top of this
+    file. This widens rules 40, 42 and 55: it holds even when the leftover breaks a standing rule of his, as long as it
+    is minor (a label missing for under a second, one letter's case, one small jump cut, a size a little off). The
+    test is not "is a rule broken" but "would a viewer stop on it". What still gets an item on any round: the wrong
+    person or asset, a Google Ads compliance break in something that runs as an ad, a missing or wrong section,
+    anything that makes the video unusable.
+72. **A minor item rides along only when a real item already forces the round.** *"I would have requested that change
+    in round 1, or if there are other things."* So on round 4+: first list what truly needs a round. If that list is
+    empty, finalize and put every minor leftover in the summary under "For Dan's call". If it is not empty, the minor
+    ones go in with it.
+73. **His status line on this long-form was `FINALIZED & APPROVED`.** He still picks the wording (rule 39). When our
+    review ends in "finalize", write the section in that form from the start: the heading, one credit paragraph, the
+    finalized line, and nothing that says an item is left.
+74. **Minor leftovers that matter for the editor's template go in a "for the next videos" block, with "No need to
+    change it in this video".** He kept that block untouched. It teaches the fix without holding the video.
+75. **When he deletes the last item, fix our sentences that still promise one** (rule 34 again). The intro still said
+    "One small thing is left" and the close still asked for a new export; both were corrected in the live doc in the
+    same session, before the message went out.
+
+### Calibration pass 13: Dan's edits to Muhammad's round 3 and 4 shorts and an HD export (2026-10-16)
+
+Doc `1MSGEToSR_tXDndUVFaFNF0oNQxwLHlB6mggTOPn0pP0`, first draft `revision docs/shorts-revisions-muhammad-10-15-26.md`. We
+finalized all six. Dan kept three finalized and reopened three: *"you did a good job accepting a few of the videos, but
+there were a few critical things you missed here... on the one hand, we're not being too picky about small things in these
+final rounds of revisions, but for things like this, which are significant, I would like to request a change."*
+
+76. **A picture that contradicts the line, or does not show it, is significant on ANY round, including an HD export of an
+    approved cut.** What he reopened:
+    - Fat Millionaire HD, 0:10.4 - 0:14.4: his fat deck-chair before picture under "First, it is rarer. About 8% of men
+      are millionaires", with the "Six-Pack Abs Are 4X RARER" key point over it. Dan had stamped this cut FINALIZED himself
+      in round 3; we checked only that the HD matched it frame for frame. *"Using that fat picture of me when I said
+      having six-pack abs... is a significant error."* He asked for a full screen card (our build) in its place.
+    - Weigh Daily V3, 0:42.8 - 0:45.2: the clip of him drinking water, looking down, between takes (VIDEO-RULES, "Junk
+      footage between takes"). *"This is just junk footage."*
+    - Top 3 Ways V3, 0:06.4 - 0:08.1: the AI after picture full screen under "Then set it as your lock screen". He wants it
+      on an iPhone as its lock screen, so the picture shows the idea in the line.
+    - How to apply: on every round, and on every HD light check, write one line per picture beat (photo, clip, AI
+      picture, app screen): the words under it and what the picture shows. An approved cut, an earlier round and a
+      frame-identical HD prove nothing about this (VIDEO-RULES "Scene-content and freeze review"). Rule 71a's "would a
+      viewer see it" test is for form details and small leftovers; it never clears a picture that says the opposite of
+      the sentence, a between-takes shot, or a picture that leaves out the thing the line names.
+77. **Once one significant item opens a round, the smaller upgrades ride along (rule 72, confirmed).** With those three
+    open he also changed the closing top graphic on two of them: *"I wouldn't have requested that graphic if that was the
+    only thing wrong with the video, but given that we're already requesting the revisions, I think it makes sense."*
+78. **The last top graphic is the takeaway, not the title again.** Both times the editor repeated the title as the closing
+    graphic; Dan replaced it with eyebrow `THE LESSON` and a one-line takeaway in his words ("Focus On Getting Abs First,
+    Then Money Later", "AI Is The Ultimate Tool For Getting Six-Pack Abs"). When a round is already open, write that item
+    (and build the graphic, step 6b) wherever the closing graphic repeats the title. (Dan, 2026-10-20: the eyebrow stays in
+    CAPITALS; that is the standard. The point line stays title case.)
+
+**Dan's vocabulary — use his words:** "camera scene" (the talking head), "motion effect" (the
+Ken Burns move on stills), "accelerate footage to fit duration", "clip", "bro", "douchey". A simple
+item is one line in that register; keep the longer form only where the editor needs exact text,
+exact timing or an exact link.
+
+## The message Dan pastes to the editor — write it as Dan, not as a summary
+
+Every `.summary.md` ends with a paste-ready message. Dan sends these verbatim, so the message is a
+deliverable in its own right and it is judged on voice, not just accuracy. His instruction
+(2026-09-18): *"My goal is that when he sees this, he thinks I really wrote it, and I didn't just
+paste in Claude output without really caring about what he's doing."* The detail in these messages
+is already right; what gets rewritten is the tone.
+
+**The rules:**
+
+1. **Open "Hey <name>,"** and answer whatever he actually said first, in one clause. If he asked a
+   question or made a fair point, concede it plainly ("no confusion at all, the HD files came
+   through fine") before any notes.
+2. **Lead with specific praise, naming the exact thing.** Not "nice work" — "the app demo at 2:23 is
+   fixed, and that's exactly what I was after: the goal image paying off inside the phone instead of
+   cutting out to full screen." Dan compliments the editor by describing what he did, which proves
+   Dan actually watched it.
+3. **Prose, ad by ad, never a bulleted checklist.** One short paragraph per ad. A bulleted list of
+   findings is the single biggest tell that a message was generated.
+4. **His status words, undiluted.** "Ad 8: FINALIZED." not "Ad 8 looks finished to me". Hedges read
+   as someone who did not check.
+5. **Contractions and plain words.** "that's sorted", "nothing further from me on this one", "it just
+   needs", "that's on me", "one thing left and it's small". No "additionally", "regarding",
+   "please ensure", no em-dash-per-sentence rhythm, no summarising adverbs.
+6. **Take the blame when the fault is Dan's** — a clip he supplied, a note he forgot to paste. He does
+   this unprompted and it is a large part of why his editors stay.
+7. **Say the list is finite.** "That's the whole list", "once these are in we're finished" — a
+   fixed-price editor quits when the loop looks unbounded (lesson 18 below).
+8. **Close with gratitude and the exact ask back.** What to send, on which ads, in what format.
+9. **Never mention Claude, a review, a check, a gate or a measurement as an actor.** Dan watched it.
+   See the `revision-docs-in-dans-voice` memory.
+
+**Calibrated against his own edits (2026-09-18).** He took a draft of this message, changed "this one
+looks finished to me" to "Ad 8: FINALIZED" (we now write it with a colon, no em dash), and added a closing line the draft had no equivalent of:
+*"Overall, these videos are looking excellent, and once these final small changes are made, they'll
+all be set. Thanks for doing a great job with this batch."* Both changes point the same way — more
+certainty, more warmth. Write the batch-level compliment in yourself; do not leave it for him to add.
+
+**Worked opening/closing in his register:**
+
+> Hey Muhammad, no confusion at all, the HD files came through fine. I went back through all four of
+> them properly this afternoon, and honestly you've done more than I gave you credit for, so let me
+> clear this up ad by ad.
+>
+> Ad 8: FINALIZED. Both titles are exactly right, the real photo text is sitting above all four
+> pictures the way I wanted it, and you cropped the towel picture so it has room to breathe. Nothing
+> further from me on this one.
+>
+> […ad by ad…]
+>
+> That's the whole list. These are looking excellent, and once these last small things are in, the batch
+> is set. Send me fresh HD exports of 9, 13 and 15 when they're done and we're finished. Really
+> appreciate the work on this one.
+
+## Status checks: the LIVE doc is the ask, not our copy
+
+When Dan asks whether revisions were made — a status check rather than a new review — **read the
+current Google Doc before anything else.** He deletes items he does not want and adds his own after
+the doc is written, so `revision docs/*.md` and the `.summary.md` files are drafts, not the request.
+Check the delivered file against only the items still in the doc, and tell Dan which ones he removed,
+since a deleted item may still be a real defect he has chosen to live with.
+
+Also check whether the editor's newest export is a **later version than the cut we reviewed** —
+compare a couple of the doc's own timestamps against the new file. On 2026-09-18 Muhammad's HD
+exports already satisfied most of Ads 8/9/13/15's round-3 lists, because the lists had been written
+against stale review proxies; he was right to ask why he was being sent notes he had already done.
+
+Mechanics: `read_file_content` on the doc id. The Muhammad batch doc is 200k+ characters, so it comes
+back as a tool-results file — slice the `## **AD n — ROUND n` sections out with python instead of
+reading it whole. Verify items by pulling frames at the doc's timestamps
+(`ffmpeg -ss <t> -i <file> -frames:v 1`, plus `fps=…,tile=6x4` contact sheets to find a moved shot).
+Use the ffmpeg in `Media/video_edit/bin/` (step 0): it is the render-queue wrapper (VIDEO-RULES "Video builds: the render
+queue", 2026-10-20).
+
+## Edit queue status — when Dan finalizes a queue job in review
+
+If the cut under review is a job on `Handoffs/video-editing/00-MASTER.md` (our own or Codex's build: `RA-`, `DS-`, `RO-`,
+`SL-`, `AV-`, `AS-` IDs) and Dan says it is **finalized / approved**, set that job to `finalized` on his pinned Abs By AI
+Edit Queue page in the same session. A revision round sent back is `in_progress`. Never `uploaded` (that's
+`/ad-setup` / `/video-setup`). An editor's own 16:9 final isn't a queue job, but if its finalization means an ad now owes
+vertical/square versions, add its AV/AS jobs. Procedure: `.claude/skills/_shared/edit-queue/README.md`. On finalization also
+delete that video's `Videos to Review/` copies and stop its review page (VIDEO-RULES "Review videos also go in `Videos to Review/`", 2026-10-08).
+
+## Review workflow
+
+For evidence receipts and blind benchmark freezes, use [REVIEW_EVIDENCE.md](reference/REVIEW_EVIDENCE.md). It documents tooling and coverage records only; this skill remains the editorial authority. A complete record is not an editorial pass.
+
+0. **Fetch.** Drive file IDs come from the URL. Download with
+   `rclone backend copyid gdrive: <FILEID> <dest>` into the scratchpad (his links no longer download with
+   gdown, lesson 74a(d)); `python3 -m gdown --folder` only to list a folder drop (lesson 54). `ffmpeg`/`ffprobe` are NOT on PATH — use the static builds in
+   `Media/video_edit/bin/`.
+1. **Audio first — run the shared standard on the editor's file, so the doc quotes the same numbers
+   we hold ourselves to** (2026-09-02; `reference/echo_check.py` and `reference/chan_align.py` are now shims):
+
+       python3 .claude/skills/_shared/audio/pick_lav.py CUT.mp4 --analyse
+       python3 .claude/skills/_shared/audio/audio_gate.py CUT.mp4 --no-stamp --ab AB_his-vs-editor.mp4
+
+   `pick_lav --analyse` prints every stream/channel with SNR, decay, EDT, clipping, and the pairwise
+   lag + polarity — it handles 2-channel files AND the 8/28 four-track rolls (the old `chan_align.py`
+   exited "not stereo — nothing to compare" on those, so the review gate reported nothing wrong).
+   `audio_gate` measures the delivered file against Muhammad's ad on the ten rows Dan rejects on
+   (image, comb, room, tone, floor, dryness, loudness, spread, true peak, silence/length). Quote the
+   FAIL rows with their numbers in the doc, in editor-friendly words, and attach the A/B clip. The
+   signatures to recognise:
+   - L/R strongly correlated at 0 lag but echo peak ~7–8 ms in speech ⇒ the editor
+     **summed the two camera mics** (right = lav, left = room mic ~2.6 m away; the
+     comb filter is baked in and un-EQ-able). The fix must happen at the source:
+     rebuild the voice from the RIGHT channel only, as mono. State that as the outcome,
+     not as a menu path. Full background: /longform-edit
+     Step 0.4. Write this as the #1 THROUGHOUT item in editor-friendly words.
+   - Two mics hard-panned (raw pair shipped): `pick_lav` reads a strong pair peak at ±7–8 ms,
+     zero-lag near 0, and the gate's L/R row fails. Two mics summed: L/R ≈ +1.0 but the gate's comb
+     row fails (ripple ≈ 1.1 dB vs his 0.54). Roomy: the EDT row (>80 ms; his 40).
+   - Loudness and true peak are gate rows (−14 ±1 LUFS, ≤ −1.0 dBTP). Editors have shipped
+     −8 LUFS / +2.5 dBTP with audible clipping.
+   - Music bed: noise floor p5 above ≈ −45 dB in speech gaps *suggests* one; our shoots' raw
+     floor is ≈ −53 dB. **This heuristic false-positives on an over-loud, hard-limited master** —
+     confirm with per-band gap spectra on the lav channel before claiming a bed exists.
+   - **Workout videos (live sets): measure the effort sound against the talking** (calibration rule 32):
+
+         python3 .claude/skills/revisions/reference/sets_level.py CUT.mp4 --whisper CUT.json
+
+     Transcribe with `--word_timestamps True` for this: after music, segment starts snap to Whisper's 30 s windows
+     and swallow the end of a set. Target: the grunting, breathing and equipment are audible but clearly under the
+     voice, with the effort peaks (p95 momentary) **5-14 dB under the talking level**. LOUD (within 5 dB, or above
+     it) is Dan's "reduce volume of my mic by 80% while I am actively doing sets" item plus the workout-sets STANDING
+     RULE. BURIED (max more than 20 dB under) is the explainer round-3 "no sound in the sets" item. Zeeshan's ab
+     wheel follow-along read +2.2 to +5.4 dB ABOVE the talking (single grunts +10 to +12 dB): all three sets LOUD,
+     and Dan rejected it. His approved ab wheel explainer (09-09) read -6.9 to -9.9 dB: all three OK. The 5 dB line
+     sits between the two, and Dan's "80%" on the rejected cut lands at about -9 to -12 dB. The script measures in
+     the 250-4000 Hz band, where grunting lives. Full-band, the explainer's set 2 false-alarmed on the music's bass.
+2. **Transcribe** with local Whisper `small` (segment timestamps are enough) — this
+   maps every script beat to a timecode for the doc.
+3. **Look at every second.** Extract frames at 1/2s, montage into labeled contact
+   sheets (~60 frames per sheet), and READ them: catalog every insert, graphic,
+   stock clip, label, and typo with its timecode. Zoom into anything suspicious.
+   Then two passes the contact sheet cannot do (calibration rules 1, 2, 4): crop every
+   text panel at full resolution and transcribe it word for word against the script;
+   and for every insert/overlay, extract the frame after its line ends and confirm it
+   has left the screen. Note the vertical placement of text inside each panel.
+   Then **measure the framing** (calibration rule 31). The contact sheet shows it, and a reviewer still missed it:
+
+       python3 .claude/skills/revisions/reference/framing.py CUT.mp4 --sheet framing_sheet.jpg
+
+   Per shot it reports the empty frame above and beside Dan and how far the shot could be cropped in without
+   cutting him off. LOOSE = an upright shot with more than 8% of the frame above his head, or with his knees in
+   frame (the banned full-body wide), or a movement shot that could be cropped in 15% or more. Write Dan's item with
+   the number ("Crop in closer by about 30%") plus the framing STANDING RULE, and LOOK at the proof sheet (a pose
+   miss is reported as NO SUBJECT, never passed). Zeeshan's follow-along: 10 of 13 camera shots LOOSE (every wide
+   could crop in 24-35%, every talking shot had his knees in frame); the tight punch-ins on the rollouts were
+   already full width and read OK, which is right, because cropping them further would cut the rep off.
+3b. **AI-ARTIFACT PASS — every AI-generated shot, frame by frame, looking for the thing that gives it away**
+   (Dan, 2026-09-14). The 1/2 s contact sheet above CANNOT see these, and it did not: Ad 3's story clip shows a man
+   exhaling in a bathroom and the MIRROR FOGS OVER with breath smoke (1:16, 76.6–78.1 s). It survived five
+   revision rounds of Muhammad's cut, our own vertical rebuild, five audits and a 237-boundary watch pass, because it
+   lives in one corner of the frame for 1.5 s and grows slowly. Dan caught it on the finished vertical: *"He exhales,
+   and there's smoke coming out when he exhales"* — anything *"that just give[s] away that this is AI-generated and
+   make[s] it seem like it's not a real clip"* is an item.
+   **How:** list every AI shot's span (the AI-GENERATED labels mark them; also any shot you cannot verify as real
+   footage). For each one extract CONSECUTIVE frames at full resolution — at least 8 fps across the whole shot, all
+   frames of its last 2 s — and read them as strips, then crop and re-read the small regions the eye skips: mirrors
+   and glass, faces and mouths, hands, anything the person holds, the background behind them, screens and text.
+   Image-to-video generations (Kling, Veo) degrade LATE: Ad 3's fog starts 3.4 s into a 5.0 s shot, so a first-second
+   check passes a shot that breaks at the end. Optional second opinion: send the AI shots to Gemini with this checklist
+   (standing authorization, AGENTS.md, ≤ $5 per batch without asking) — but a Gemini "clean" never overrules your own
+   frames, and every artifact it reports is confirmed at full resolution before it becomes an item.
+   **Then the three sense questions on every AI clip, at playback speed** (VIDEO-RULES "AI clips that make no physical
+   sense, or do not show the line, never reach Dan", 2026-10-13/14): cause and effect; with the sound off, would a
+   stranger say what it shows; does it show the line. A failure is an item even with no frame artifact.
+   **The giveaways to check on every AI shot:**
+   - **Breath, steam, smoke, mist or fog with no physical cause** — visible exhales indoors, mirrors or glass fogging
+     on a breath, steam off food or drinks that should not steam, smoke from nothing.
+   - **Hands and held objects** — extra, merging or missing fingers; a hand passing through or fusing with a phone,
+     cup, towel or dumbbell; objects that change shape, size or colour mid-shot.
+   - **Faces** — the person's identity drifting across the shot, melting or smearing features in motion, mushy teeth
+     or tongue, eyes that do not track or blink oddly, lips moving with no speech.
+   - **Mirrors, reflections and shadows** — a reflection that does not match the body (wrong pose, wrong timing,
+     wrong direction), missing or doubled reflections, shadows falling the wrong way or sliding.
+   - **Bodies and movement** — rubbery limbs, joints bending wrongly, a belly or build changing size mid-shot, plastic
+     skin, hair or clothing morphing, weightless or looped movement, sudden speed ramps.
+   - **Scene physics** — objects appearing, vanishing or duplicating; walls, door frames or floors warping; liquids
+     that do not pour or splash right; lighting that pulses or highlights that slide.
+   - **Text and screens** — gibberish letters on phones, signs, labels, books and packaging; UI that melts.
+   - **Background people** — melting or duplicated faces, bodies merging.
+   **⚠ CONFIRMING ONE — the false-positive protocol (Dan, 2026-09-15). Four artifacts went out in one batch and only
+   ONE was real.** Dan watched all four: he kept the Ad 8 coffee pot (*"Great job catching that… I missed that"*) and
+   deleted the other three — Ad 8's gym handshake ("their hands merge into one fingerless lump"), Ad 8's beach run ("a
+   glowing orange smudge welded to his stomach"), Ad 13's robot trainer ("the robot's forearm and his arm are one
+   limb"). *"There were a few clips where you identified issues, but I watched it, and there wasn't really any issue."*
+   **What separated the real one:** a DISCRETE OBJECT CHANGED IDENTITY over the shot — a glass jug became a metal moka
+   pot became a short pot, a jacket became a smear — provable by naming the object in two clearly-readable frames.
+   **What all three false ones were:** momentary OVERLAP or LIGHT, judged from single frames of small, blurred or
+   occluded regions. Before an artifact becomes an item it passes all of these:
+   - **Watch it at speed, not as stills.** Cut the shot out at full resolution and read it at its true frame rate, then
+     say what a viewer watching once would see. Frame-level strangeness that disappears at playback speed is not an item.
+   - **The occlusion test** (the number-one false positive). When two things touch or cross — a handshake, a spotter's
+     arm over a lifter's arm, a hand around a cup — real 1080p footage with motion blur ALSO looks merged. It is an item
+     only if the impossible shape persists while the two things are clearly SEPARATE, or a hand, finger or limb is
+     missing or doubled in a still, unoccluded, in-focus view.
+   - **The light test.** A glow, flare, bloom, hot specular on sweaty skin or sun through haze is not an artifact, and it
+     tracks the body because the light is ON the body — that is not evidence. It is an item only if the glow has a hard
+     edge that hides texture underneath and stays when the subject turns away from the light.
+   - **The two-frame identity test** (the one that found the real one). Name the object, pick two clearly-readable
+     frames, and write what it is in each. If you cannot name it confidently in both frames, you do not have an item.
+   - **Full resolution only** — never from the 2 fps sheet, a 320 px frame or a scaled strip.
+   - **Tier the giveaways.** TIER A, always an item: breath fog/steam with no cause, gibberish text on a screen or sign,
+     a face's identity drifting, an object becoming a different object, a limb or finger count changing, a reflection
+     that contradicts the body. TIER B, only if it survives every test above: merged hands or limbs, blurry background
+     faces, plastic skin, a glow, a small oddity at the frame edge.
+   - **Dan's instruction stands: when in doubt, still put it in** — *"I would rather have it in there and delete it than
+     not have it."* The protocol is for cutting the obvious misses, not for going quiet. But EVERY AI-artifact item is
+     also listed in the summary file under **"AI CLIPS FLAGGED — watch before forwarding"**, one line each: timecode,
+     what to look at, and CONFIRMED (tier A, or the two-frame test) or POSSIBLE (tier B), so deleting one costs Dan a
+     glance. Say when the clip is one of Dan's OWN assets (the "AI clips for Muhammad" folder, a supplied story clip) —
+     it is then live in other ads and his to replace centrally.
+   **The item** (Dan's voice, directions not generation, calibration rule 5): the timecode, what gives it away in plain
+   words, and the fix — *"At 1:16, the AI clip shows smoke coming out of his mouth when he exhales and the mirror
+   fogging up. Replace this shot with a version without the smoke: regenerate it, or use stock footage or an AI clip
+   of the same moment."* Link the shot's raw file and its start frame when the asset library has them, so the editor
+   can regenerate from the same image. Add the AI REALISM standing rule line (below) as its last sub-bullet.
+4. **Compare against the approved references in VIDEO-RULES**: "Sound effects on transitions" (2026-10-08; never on
+   graphics), "Approved graphics and layout standards" and "All new or revised video graphics move in Soft Blue Light
+   HyperFrames" (2026-10-17), colour per lesson 59 (a lifted, milky grade is the fault). Pause-free pacing and a music
+   bed about 20 dB under the voice still hold.
+   **Judge the music's genre, not only its level** (calibration rule 33). For a workout or live-set video the bed
+   must be upbeat and high energy: electronic, hip-hop or rock. Chill, lofi, trip-hop, ambient, corporate or
+   "elevator" music is an item at any level. The reviewer cannot hear it under the camera sound, so ask the editor
+   for the track name (the brief asks for it with every delivery) and read its genre and mood tags. If the track is
+   unknown or not clearly high energy, write Dan's "Change music to this music track" item with a replacement link
+   found by the recipe in the asset library, plus the workout-music STANDING RULE. Dan's rule: when in doubt, put it in.
+5. **Check every standing rule** (below). Each violation becomes an item; new
+   classes of violation also get a "hard rule for future videos" line.
+6. **Library pass: our B-roll first, then our existing AI clips, then stock, new AI last** (Dan, 2026-10-01). For every
+   video, walk the transcript line by line against the clip library (`Media/clip-library/catalog.json`, 635 clips on
+   2026-10-01: `B####` real footage and stock, `A####` AI clips; previews `Media/clip-library/contact/<ID>.jpg`; Drive ids
+   in the catalog) and write an item wherever a library clip beats what is on screen:
+   - a line that is plain camera scene and names something we have footage of (Dan cooking, training, drinking water,
+     his supplement counter, app screen recordings);
+   - a stock or AI clip of a stranger where real footage of Dan fits the literal words;
+   - before ANY "stock footage or an AI clip" direction, an existing `A####` clip that already shows it.
+   ⚠ `clip_library.py find` returns almost nothing for multi-word queries. Search one keyword at a time, or load
+   `catalog.json` and filter descriptions yourself. LOOK at the contact preview before proposing a clip, give the source
+   range inside the clip's catalogued duration, and check `width`/`height` (A0043 is 848x480: unusable full screen).
+   No clip twice in a video, and track clips across the batch so two videos do not share one. Real moving footage of
+   Dan gets no label; AI clips get AI-GENERATED. A clip cut from one of our finished videos may carry that video's burned
+   label or key point: say how to crop it out, or pick another. Still no padding (rule 9): two to five additions per
+   short, none over a strong on-camera line or the closing call to action. Only direct new AI generation when nothing
+   fits, and say in the summary what was searched.
+6b. **Graphics: build them when the editor's are off** (Dan, 2026-10-01). Inventory every graphic the FINISHED video
+   needs after the revisions (title, numbered section signposts, key points, info chips, label spans) as
+   `<name>.graphics.json` (format: `reference/shorts-graphics-kit/GRAPHICS_REQUEST.md`; have the reviewer of each cut
+   write it, with `hair_top_px` measured on full-resolution frames). Then `reference/shorts-graphics-kit/kit.py <name>
+   --render` (copy the folder into the batch work dir; it expects `out/<name>.graphics.json` beside it). What it makes:
+   the approved Motivation lower third, moved to the TOP of a 1080x1920 frame at 0.875 scale (x 60..1020, top at 96 px,
+   or raised so its bottom clears Dan's hair by 28 px), eyebrow + one or two lines, on a denser tint (rgba 14,40,70 at
+   0.86) because an editor's overlay cannot blur the footage under it; one transparent Apple Animation `.mov` per
+   graphic at its true duration, named `g04_0m10_3s_keypoint.mov`, plus a settled PNG. `labels.py` makes the
+   AI-GENERATED and real-photo chips (top, below-top-graphic, chip-only). Its real chip still prints "Real picture of me,
+   not AI-generated": the wording must be "Real photo(s) of me, not AI-generated" (2026-10-17), so do not send that chip
+   until the script is updated. Verify before sending that each kit graphic keeps moving for its whole duration, not only
+   its entrance (VIDEO-RULES 2026-10-17). Rules that bit:
+   - Text: title capitalization; FULL CAPS on a word only where it truly carries the emphasis (VIDEO-RULES "Capital
+     letters in graphics", 2026-10-09, and 2026-10-16). Eyebrow capitals pending Dan (rule 78). A numbered
+     chip that echoes the spoken sentence becomes a signpost (eyebrow "REASON 2 OF 3", text the 2 to 4 word name).
+     Two lines at most over camera scene (about 30 characters a line); the builder asserts the strip clears his hair.
+   - Never two top strips at once. No AbsByAI.com mark. No brand drug name in a graphic until Dan rules.
+   - HyperFrames renders are untagged BT.601: the builder converts to RGB qtrle, do not hand an editor the raw ProRes.
+   - Prove it: composite every PNG over its own frame of the cut into one proof image and send it to Dan.
+   - Upload with `rclone copy` to one public Drive folder (a subfolder per video, `stills/`, `0 Labels/`, `READ ME.txt`),
+     set anyone-with-link on the folder, `rclone lsjson -R` for the file ids, and generate a GRAPHICS list per video
+     (time, text, link) plus one opening section of the doc explaining how to use the files. Graphic items in the doc
+     then say "I made this graphic for you" instead of describing a graphic to build.
+7. **Self-check the draft against the calibration section above — the doc goes to the
+   editor as written, Dan does not re-review.** For every item confirm: it fixes something
+   wrong (not an upgrade of something acceptable); the asset matches the literal words under
+   it; it creates no before→after adjacency; a directed clip says "stock footage or AI clip";
+   casting is aimed at the aspirational figure, antagonists at the caricature; any body
+   judgement was verified at full resolution; no header wording is itemised on taste; every
+   insert has an exit; every text panel was transcribed. Then walk the timeline once more
+   for the two things Dan added on top of ours: lingering graphics and before→after cuts.
+   Then the pass-2 checks (rules 12–21): every added text chip states a benefit, about two per ad, none
+   restating the line, none a list of negatives or a question; no bullet build or device copied from another
+   ad in the batch; no app screen used as a gap fill; no item cross-references another and no item count in
+   the prose; the hero asset matches the script's literal claim; American spelling throughout.
+   Then the pass-3 checks (rules 22–30): on a round ≥ 2, audio is an item only for level outside −14 ±1, peaks at 0
+   with clipping, or the wrong mic/room — otherwise the audio block is deleted, and an ad with nothing else left gets
+   the APPROVED line instead of a section; no end-hold item unless the button leaves before the last word; every
+   rule violation carries its bold STANDING RULE sub-bullet in the canonical wording; the key change in every item is
+   bolded; app/phone demo items are the one-line block + recording link; every phone/app before picture was
+   identity-checked against Dan; every picture beat names Before/After picture with its Drive link and the inline image (rule 59).
+   Then the pass-4 checks (rules 31-34) on any cut with a talking head or live sets: `framing.py` ran and every
+   LOOSE shot is an item with its crop-in number; `sets_level.py` ran on a workout and a LOUD or BURIED verdict is an
+   item; the music's genre was checked and a workout bed is upbeat and high energy; no credit sentence contradicts
+   an item.
+   Then the AI-artifact check (step 3b, Dan 2026-09-14): EVERY AI shot was read as consecutive full-resolution frames,
+   including all of its last 2 s, with mirrors, mouths, hands, held objects, backgrounds and screens cropped and read on
+   their own; every giveaway is an item with its timecode and the AI realism STANDING RULE line. **And every one of
+   those items passed the false-positive protocol** (step 3b, Dan 2026-09-15): watched at playback speed at full
+   resolution, not called off an occlusion or a light, named in two clearly-readable frames if it is an object, tiered
+   A or B — and every one is repeated in the summary's "AI CLIPS FLAGGED — watch before forwarding" block as CONFIRMED
+   or POSSIBLE, marked when the clip is one of Dan's own assets.
+   Then the pass-6 checks (rules 38–43): the finalized line is Dan's current wording and the bitrate went in the summary
+   as a measurement rather than a conclusion; no section reopens an ad Dan has FINALIZED for anything cosmetic; no item
+   about how long a picture holds; nothing raised late that has been on screen unchanged since a round he reviewed.
+   Then the pass-7 checks (rules 44–48): the opening was considered for an AI clip, and where one fits there are three
+   concepts to render as start/end frames in the video's orientation; every new AI clip asks for start and end frames
+   first; the locked Soft Blue Light references are linked and the graphics are built by us (step 6b); shorts
+   key points are top graphics over camera scene; organic picture beats follow the script, with the pictures picked and linked (rule 59).
+   Then the pass-11a check (rule 64a): no transition-sound item because a rule says so.
+   Then the pass-11 checks (rules 64-70): the first 5 seconds of every video were written down and an opener item is
+   in unless the open is already the strongest picture available (reason in the summary's FIRST 5 SECONDS line); an
+   exercise video opens on the exercise done correctly; no take is credited as correct form unless the raw roll's
+   audio says so; every mistake clip has a red arrow and a red MISTAKE graphic directed; no "same AI man" item, no
+   item about a dissolve between B-roll takes; archive footage carries the upscale line; sections are in the
+   editor's link order.
+   Then the pass-12 check (rules 71-75) on any round 4 or later: sort what is left into "needs a round" and "minor".
+   If nothing needs a round, the section is the finalized form with no item, the minor leftovers are in the summary
+   under "For Dan's call", and template notes say "No need to change it in this video". Rule 71a governs wrong takes on
+   rounds 2 and later.
+   Then the pass-13 checks (rules 76-78): one line per picture beat (the words under it against what it shows); a
+   picture that contradicts or misses its line, or junk between takes, is an item on any round; the closing top graphic
+   is a takeaway, not the title.
+8. **Write the Google Doc** by lesson 68 (Drive API with rclone's token: create, then replace in place) or lesson 71
+   (Docs connector, a new round at the top), and set it anyone-with-link reader (AGENTS.md "Google Drive sharing:
+   always public", 2026-09-24). Run `grep -c '—'` on the markdown first: it must be 0.
+   Keep Dan's `\*\*…\*\*` literal-asterisk look for THROUGHOUT headers. Save the
+   markdown copy in `revision docs/`.
+9. **Report to Dan** with the Doc link, the top findings, and anything that needs his
+   call. He forwards it.
+
+## Standing rules to check every review (Dan's accumulated rulings)
+
+- **Audio**: the `_shared/audio` gate rows above — lav only (per `pick_lav`, never "right channel"
+  on an 8/28 roll), no comb, room ≤ 80 ms, −14 LUFS, true peak ≤ −1.0 dBTP.
+- **Compliance (Google Ads)**: NO before and after in one frame, ever — side-by-sides,
+  two-panels with an arrow, the app's "Meet the new you" reveal; NO before-imagery cut
+  straight into after-imagery (camera scene between them, calibration rule 3); NO
+  morph/transformation-in-one-shot; NO body-shaming — belly-fat grabs, pinches, zooms;
+  NO email-capture form on screen.
+- **AI realism** (Dan, 2026-09-14): no AI shot may show a giveaway that it is AI — breath smoke or a fogging mirror
+  on an exhale, melting hands or faces, morphing objects, gibberish text, mismatched reflections. Checked by the
+  step 3b AI-artifact pass, frame by frame, never from the contact sheet. A disclosure label does not excuse an
+  artifact: the clip is labelled AI, but it must still read as a plausible real moment.
+- **AI clips: frames first** (Dan, 2026-09-27): every new AI clip, from any editor, is shown to Dan as start and end
+  frames in the video's orientation, and generated only after he picks. **AI opener**: consider one on every video
+  (calibration rule 44).
+- **Graphic style**: Soft Blue Light is locked for every format; we build the editor's graphics (step 6b). See VIDEO-RULES
+  "All new or revised video graphics move in Soft Blue Light HyperFrames" (2026-10-17). Rule 46 is historical.
+- **Disclosure**: the AI-GENERATED chip on every AI visual, full duration, built as lesson 47 and placed as lesson 48
+  (never over his face or abs).
+- **Brand graphics**: Soft Blue Light, moving for the whole screen time, title capitalization. See GRAPHICS-STANDARDS.md
+  and VIDEO-RULES "All new or revised video graphics move in Soft Blue Light HyperFrames" (2026-10-17).
+- **Casting**: the man the viewer is meant to be is white or Asian, 30–50,
+  shredded-not-bulky, no unmanly outfits. Antagonists (influencer bro, fat trainer) are
+  cast as the caricature the script mocks; neutral prop shots are not swap items
+  (calibration rule 6). New clips are always "stock footage or AI clip" (rule 5).
+- **Product truth**: real app screens and the real generation flow only — never
+  invented dashboards or generic AI-app mockups. End cards / demo flows end on the
+  after picture ALONE.
+- **Demo identity** (Dan, 2026-09-11, calibration rules 35–36): the person inside a phone or app demo follows the
+  SCRIPT — Dan's own line gets Dan's before picture and Dan's goal image; a line about the prospect generating gets an
+  AI-generated stranger, kept from the recording and ended on an after picture of that same man. Every ad in a batch
+  uses a DIFFERENT generated person, always in the prospect's demographic; reuse an existing image only if no other ad
+  has it, otherwise generate it with `_shared/codex-image.sh` and hand the editor the file.
+- **Presentation**: no raw black pillarboxing of 9:16 assets (brand card or blurred
+  fill); a wide/tight change of about 25-30% at each talking-head cut (lesson 73, rule 63); no dead air > 0.3s; every
+  insert and overlay leaves when its line ends (rule 2); text centred in its panel
+  (rule 4, finished panels only); the end is an item ONLY if the button or picture cuts off before the last
+  word ends (rule 23) — never for a short hold.
+- **Framing** (Dan, 2026-09-08 and 2026-09-11): hair-anchored and tight, with a small margin above his hair and at
+  the sides; never the full-body wide on a talking shot; movement shots hold the whole rep tightly. Measured by
+  `reference/framing.py` (step 3) on an editor's cut. The locked numbers (hair ≥ 20 px from the top edge, per hold
+  30–70 px, median ≤ 75 px at 1080p, two levels, centred, a push schedule) are the delivery gate's `framing:` rows
+  (`_shared/deliver/checks/framing.py`, 2026-09-12); a cut our own pipeline is going to re-render is graded on
+  those, and `python3 .claude/skills/_shared/deliver/checks/framing.py CUT.mp4 --sheet framing_proof.jpg` prints
+  the same per-hold numbers for a human editor's cut when a "crop in" item needs a measurement behind it.
+- **Workout audio** (2026-09-11): during live sets the mic comes down (Dan: "by 80%", about −14 dB), so the effort
+  sounds stay audible but sit 5-14 dB under the talking; back to full level when he talks. Measured by
+  `reference/sets_level.py` (step 1).
+- **Workout music** (2026-09-11): upbeat and high energy, electronic / hip-hop / rock, never chill or elevator-like;
+  Pixabay only, never a track whose page says "Content ID Registered".
+- **Canonical STANDING RULE wordings (Dan's own, 2026-09-10 — paste verbatim, bold, as the last sub-bullet of
+  every item that violates one, in every ad it applies to):**
+  - `STANDING RULE: do not show before and after images on screen at the same time, or immediately before and after each other. Always break them up with camera scene footage or something else to avoid having the ad suspended for violating Google Ads policies.`
+  - `STANDING RULE: Always show the AI generated goal image in clips where I am talking about generation functionality. Always label goal image at the end AI generated`
+  - `STANDING RULE: Do not put AI generated label on real photos, only AI generated photos. All pictures from pool photo shoot used as after photos are real photos. Pool picture of me that is used as AI generated example is the only pool photo that is AI generated, the rest are real.`
+  - Historical (superseded 2026-10-08 by the label-placement line below, wording by VIDEO-RULES "Real-photo labels include touched-up photographs", 2026-10-17): the 09-11 real-picture label line. Do not paste it.
+  - `STANDING RULE (Dan, 2026-09-12): A before and after picture are the SAME PERSON. Never one person's before against another's after -- in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, it gets generated for THEM, never composited.`
+  - `STANDING RULE: Make all AI generated clips of someone who is supposed to look like the successful prospect someone who looks like this. White or Asian man with abs, 30-50. Not fat, not bodybuilder muscular.`
+  - `STANDING RULE: Use a guy who looks like this to illustrate "before" unsuccessful prospect. White or Asian male 30-50 in American average shape, with small belly`
+  - `STANDING RULE: Do not use logos of other companies in our ads. Names of other companies are OK`
+  - Audio (write it the same way each time, round 1 or when the level/peaks are wrong): `STANDING RULE: Every finished mix reads -14 LUFS integrated with a limiter on the finished mix at -1 dBTP true peak, nothing at 0, one mic, no heavy noise reduction on a dry recording.`
+  - Workout sets (Dan, 2026-09-11): `STANDING RULE: Keep audio during workout sets, but if grunting is extremely loud and blowing out mic reduce volume significantly to avoid this becoming annoying to the viewer.`
+  - Workout music (Dan, 2026-09-11): `STANDING RULE: Use upbeat, high energy music for workouts. Consider electronic, hip-hop, and rock. Avoid any music that is chill, relaxing, or which sounds like elevator music`
+  - AI realism (built from Dan's own 09-14 wording): `STANDING RULE: Check every AI clip frame by frame for anything that gives away that it is AI-generated and makes it seem like it's not a real clip, like smoke coming out when someone exhales. Replace or regenerate any shot that has one.`
+  - Headroom (Dan's own words, 2026-09-14): `STANDING RULE: Do not crop out the top of my head or hair, leave a small amount of space above my hair so the top of my hair does not go out of frame`
+  - Framing (built from Dan's own 09-11 item wording): `STANDING RULE: Crop in closer. In the wide shot, avoid excessive space above my head and towards the sides. In the tight shot, leave only a small amount of space above me and to the sides, almost as tight as possible without me going out of frame.`
+  - Same-size cuts (kept by Dan, 2026-10-08): `STANDING RULE: A cut between two shots of the same size always reads as a jump. Change the shot size at the cut, or cover it with a clip. A transition or a zoom effect does not fix it.`
+  - Label placement (kept by Dan, 2026-10-08; label wording updated to VIDEO-RULES "Real-photo labels include touched-up photographs", 2026-10-17): `STANDING RULE: Every real after picture of me carries the label "Real photo of me, not AI-generated" ("Real photos of me, not AI-generated" on a group). The label never covers my face or my abs. Put it above my head, in a corner, or anywhere my body is not.`
+- **Cutaways** (check every one): VIDEO-RULES "Junk footage between takes is never a cutaway" (2026-10-16), "Never a shot
+  of Dan just standing around" (2026-10-14), "never use the clip of Dan on his phone" (2026-10-11), "Jump rope footage"
+  (2026-10-09), "A cutaway shows the thing he is naming" (2026-10-10), "All B-roll is colour corrected" (2026-10-11),
+  "Stumbles inside a kept take get fixed" (2026-10-20), and library order "Clip library first" (2026-10-01).
+- **Transition sounds** (Dan, 2026-10-08): judged, not banned. No canonical STANDING RULE line exists for sound effects; do not write one.
+- **Swearing** (Dan, 2026-09-29): my on-camera swearing always stays. Never write an item, a question or a summary line about cutting or keeping it.
+- **Voice input caveat**: Dan dictates; if a quoted correction seems odd, check the
+  transcript audio before flagging his script wording as a "typo".
+
+## Asset library (already uploaded to Dan's Drive — link these, don't re-upload)
+
+- Folder **"00 ASSETS USED IN THE REFERENCE AD"** (`10veL4yDYVaaDh1q_2VKJObfa-YpGEW_A`):
+  01 hook/endcard pool after-image, 02 before-picture 200lb, 03 heavier-Dan couch AI
+  clip, 04–07 photo-shoot stills, 08 crude-photoshop gag clip, 09 REAL
+  app-generate-future-self screen recording (use ~0:03–0:26; cut before its
+  side-by-side ending), 10–12 REAL app screens (assessment / Monday workout / meal plan).
+- Folder **"AI clips for Muhammad"** (`1bO1mZAk0ii9c-m45-YhSYmuYq_qPIpvm`): the four
+  Veo benefit/dad clips — attractive-to-women (pool), men-respect-you (gym),
+  feel-better (beach run), busy-dad (kitchen) — plus two real fat-dad photos.
+- Local-only extras (Seagate `/Volumes/Extreme/_edit_work/ad1-8-14/assets_v1/`):
+  `stats_scan.mp4` (scan+stats animation), `p_phone_mock.jpg` (lock-screen mockup).
+  For human editors, direct them to REBUILD these natively in brand colors (better
+  than compositing our render); only offer the files if Dan wants.
+- List a Drive folder's contents with the Drive MCP:
+  `search_files` query `parentId = '<folderId>'`.
+- **Generated people in use — one per ad, never repeated (2026-09-11, calibration rule 36).** Keep this list current:
+  Dan's own goal image `1-8QAfoeAIt52fswKhFvg6ep1i4iqLGGu` (only for HIS generation lines); the app recording's Asian
+  man, after picture `13_AFTER_ai-generated_app-demo-man.jpg` = `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp` (Ad 7's closing
+  demo, 2026-09-11 — do not reuse it in another ad). Anything else has to be generated with `_shared/codex-image.sh`: prospect demographic, white or
+  Asian man 30-50, lean with abs for an after, American-average with a small belly for a before, then uploaded by
+  lesson 44 and linked in the item.
+- **Music for a workout video: the replacement recipe (2026-09-11).** Pixabay only (licence settled: commercial,
+  no attribution). Most popular workout tracks there are Content ID registered, so check every candidate: the
+  search listing shows a small shield beside the duration of a registered track, and its page says "Content ID
+  Registered" (WebFetch reads it; no such text = not registered). Accept genre electronic / hip-hop / rock with mood
+  energetic; reject "Laid Back", "Smooth", lofi, trip-hop, corporate and ambient. Instrumental, and as long as the
+  video or loopable. Current pick: "Energy Gym Thunder" (knox-gym, rock, 3:32, AI-generated, not registered),
+  <https://pixabay.com/music/rock-energy-gym-thunder-538872/>. Dan listens before it goes out. NOT for workouts: our
+  cleared bed `Media/music beds/rhythmical-melodic-syncopation-triphop-130bpm-pixabay-10091.mp3` (trip-hop; a
+  talking-content bed).
+
+## Lessons
+
+1. **Google Drive web upload cannot be automated from the Chrome extension.** ⚠ **SUPERSEDED
+   2026-09-11 — it CAN: use the synthetic-drop recipe in `/findassets` §6 (lesson 44).** The
+   file input is created transiently and clicked natively; synthetic DragEvent drops
+   are ignored (Drive reads `webkitGetAsEntry`, null for scripted DataTransfer), and
+   a prototype-click hook did not catch it. Check whether the asset already exists in
+   Drive FIRST (it usually does — earlier sessions uploaded the ad1 set); for genuinely
+   new small files use Drive MCP `create_file` with base64; for big files ask Dan to
+   drag-drop, or convert the item into a "rebuild it natively" direction.
+2. **The delivered export can hide the audio defect**: if L/R are identical the editor
+   already summed the mics — cross-channel analysis alone says "fine"; only the
+   autocorrelation echo peak reveals it. Always run both (echo_check.py does).
+3. **Drive UI menus mis-click** (items shift between opens). Keyboard shortcuts are
+   reliable: in Drive, `ctrl+c` then `f` = new folder. Screenshot fresh before any
+   menu click.
+4. Historical (superseded 2026-10-08 and 2026-10-17: shorts carry burned captions; graphics per step 4). Muhammad-reference measured targets, for pacing/music checks: zero gaps ≥ 0.25s,
+   music ~−20 dB under voice (floor p5 ≈ −40 dB), luma median ~67, no burned captions.
+5. **A new cut of a video you already reviewed is usually a DIFFERENT editor, not round 2.** Dan runs
+   tryouts where several editors cut the same script. On 2026-08-25 a cut of Video 1 was reviewed as
+   "round 2" for the previous editor; it was Waleed's FIRST cut and had to be rewritten from scratch.
+   Confirm the editor's name and round before writing a word — the framing changes every section,
+   and "you didn't do what I asked" aimed at someone who never got the notes is the worst possible
+   first contact. Open a first-round doc by crediting what already works ("keep this"), then the fixes.
+6. **The two-mic source fault produces DIFFERENT symptoms per editor — test for both.** Editor A's
+   Video 1 cut had L and R *identical* (they summed the mics before export). Waleed's cut of the same
+   script shipped the **raw two-mic stereo pair** instead — L/R correlation **−0.72 at −7.8 ms**,
+   polarity inverted, mono fold-down losing ~4 dB of voice. `echo_check.py` catches the first and
+   reads the second as merely "channels differ". The decisive test is a **best-fit delay+gain
+   alignment residual** (< −12 dB ⇒ one mic; ≈ −3 dB ⇒ two genuinely different mics) plus a **mono
+   fold-down penalty** in the 300–3400 Hz voice band. Both are in `chan_align.py`; run it on every
+   cut from every editor. Until an editor is told, they cannot know — write it as source-rig
+   background, not as a complaint.
+7. **Always measure integrated loudness and true peak, every round.** This cut shipped at
+   **−8.04 LUFS / +2.53 dBTP with 166k clipped samples in L**. Nothing in the picture review would
+   have surfaced it, and it is the kind of defect that survives to upload.
+8. **Do not infer "music bed" from the noise floor alone.** A hard-limited over-loud master pushes
+   the inter-word floor to ≈ −31 dB, which trips the "floor above −45 dB ⇒ music" heuristic with no
+   music present. Confirm with per-band gap spectra on the LAV channel (a real bed at −20 dB under
+   voice reads ≈ −30 dB in 80–500 Hz; this cut read −56 to −61 dB) and check the floor's *variance* —
+   a bed is constant, room noise is not.
+9. **Check that the right asset is on the right line, not just that an asset is present.** The
+   single worst finding this round was the **crude-photoshop gag image used as the hook** at 0:00
+   ("this picture got me abs") and again at 2:37 ("the picture that motivated me") — correct only at
+   1:04, the photoshop line. Read the transcript against each insert; a technically-clean insert on
+   the wrong sentence is worse than a missing one.
+10. **Verify who is on screen before writing about it.** Dan is Asian; a reviewer working from
+    stills can wrongly conclude a cut features a different presenter. Cross-check against
+    `Short-form video content/instagram-danrosefit/profile-photo_danrosefit_1080.jpg` before
+    claiming casting problems.
+11. **Drive MCP `update_file` is metadata-only** — it cannot rewrite a Doc's body. To fix a
+    conversion glitch, `create_file` again and `trash_file` the first. Also: a literal `*` inside a
+    `**bold**` run (e.g. `**… "*AI Generated" …**`) breaks the markdown→Docs conversion; escape it
+    as `\*` or reword.
+12. **Read the Upwork/message thread BEFORE writing a round-2 doc.** On 2026-08-30 Waleed delivered
+    a "final video" whose picture was byte-for-byte his first cut. The thread settled the framing:
+    Dan *had* sent the round-1 doc and Waleed *had* acknowledged it — but every message in both
+    directions for the five days after was about audio only. So the doc leads with "our conversation
+    narrowed to audio" instead of "you ignored my notes". Same facts, opposite outcome for whether
+    the editor stays. Establish (a) was the doc actually sent, (b) what has been discussed since,
+    (c) what the editor believes the remaining scope is.
+13. **Frame-diff the new cut against the previous delivery — it is the decisive measurement for
+    "were the revisions applied".** `ffmpeg -i old -i new -filter_complex
+    "[0:v]scale=320:180,format=gray[a];[1:v]scale=320:180,format=gray[b];[a][b]blend=all_mode=difference,
+    signalstats,metadata=print:key=lavfi.signalstats.YAVG:file=diff.txt"`. Waleed's read **0.144
+    mean / 0.547 max luma levels across all 8,012 frames, zero above 2.0** — pure re-encode noise.
+    Identical frame count and identical duration to the microsecond corroborate it. This turns
+    "you didn't do the revisions" from an accusation into a number, which is both fairer and harder
+    to argue with. It also means **every timecode in the previous doc is still exactly valid** — say
+    so, it makes the re-do feel far smaller to the editor.
+14. **`_edit_work/<job>/C1591.wav` is a 16 kHz MONO Whisper input, not the camera audio.** Panning
+    `c0=c1` off it returns silence and every spectral comparison reads exactly zero correlation. The
+    real two-channel 48 kHz audio is in the camera `.MP4`. `ffprobe` the channel count before
+    trusting any raw-file comparison.
+15. **Music can only ADD energy, never subtract — so a measured HF deficit against the raw file is
+    always real attenuation, whatever the bed is doing.** Useful because the bed contaminates the
+    band ratios: on this cut it sat only 7.7 dB below the mix at 3.5–6k and 4.8 dB at 6–9k, so the
+    measured −2.6 dB HF cut understated a true voice cut nearer −3.5 dB. Quote the conservative
+    number; it cannot be argued down. Measure the bed's per-band contribution (speech-frame vs
+    gap-frame band energy) before attributing any boost to EQ — a low-end lift *can* be the bed.
+16. **When an editor draws a scope line, concede the subjective half and keep the objective half.**
+    Waleed's covering note declared further audio work to be "specialist audio-post… spectral
+    matching, multiband processing, professional mastering". Contesting that invites a walk-off.
+    The doc instead reframed the three remaining audio items as what they measurably are — a limiter
+    ceiling, a fader move, and one tonal note explicitly marked "your call" — and let the clipping
+    stand on its own (**6,333 samples pinned at full scale, up from 2,426**), because a sample at
+    0 dBFS is not a matter of taste. Give the editor a way to comply without retracting anything.
+17. **`whisper` shells out to `ffmpeg` by name.** Without the static build on `PATH` the transcribe
+    call fails and writes an EMPTY transcript rather than erroring visibly. Check the output has
+    lines before using it. **scipy is not installed on this Mac** — write the alignment and band
+    analysis with numpy only (`np.correlate` plus cumulative-sum sliding normalisation works fine).
+18. **Retention is part of the deliverable when Dan says so.** Alongside the doc, write the
+    paste-ready messages: one to send, one for a scope pushback, one nudge. The thing that makes a
+    fixed-price freelancer quit is believing the revision loop is unbounded — state explicitly that
+    nothing in the doc is new, that the list ends the job, and that there is more paid work behind
+    it. Advise Dan **not to release a funded milestone** before the outstanding work lands; it is
+    the only structural leverage left.
+19. **When the editor's OWN earlier cuts already have the right sound, measure those and make them the
+    target.** Muhammad's Ad 3 (2026-09-01) shipped the raw two-mic pair (L/R −0.72 at −7.85 ms,
+    inverted) while his Ad 1 and Ad 2 measured as one mic (residual −18 to −26 dB). "Do exactly what you
+    did on Ad 1 and Ad 2" lands better than any explanation, and it is provably achievable by him.
+    Compare speech-band spectra too: the bare right channel is ~6 dB duller above 2.5 kHz than his
+    Ad 1 mix, so say "add the same top-end back" or the single-mic fix will sound worse to him.
+20. **"Add it to this doc" = append a new H2 section in the SAME bullet format, via the osascript HTML
+    clipboard + cmd+v at the end of the doc (click the last line, End, Return x3 to leave the list).
+    Set the clipboard IMMEDIATELY before the paste** — a concurrent session overwrote it between set
+    and paste and a stray file path landed in Dan's doc; cmd+z, re-set, paste again, then verify by
+    Drive read-back. Check the pasted section AND that the previous section is byte-unchanged.
+21. **Asset folder for the trainer-ad AI clips is `1ZO4wukehoHAwnRRyDyFKm4hFtXMYF2Ex`** (8 s hook
+    cutdown `1Io6XQlkym21ufR2aUZz_dc_j0tU_2VMC`, 35 s story `1mW5nEDjDbPCJUJGtjHUCrGqRVsX-Lhie`); the
+    real app screens (trainer assessment `1wFsyT9eKeUVzDcF0L7bbAPn5DSAVdRIs`, workout day
+    `11AS0LYjs-LfUPuhhVqGdAtiN1sjkJ02j`) are in the reference-ad folder, and the installed exercise
+    demos are public at `https://absbyai.com/exercise-demos/<id>.mp4` — link them, never re-upload.
+    The trainer-assessment screen shows the GOAL image alone, so it is the clean replacement whenever
+    an editor puts the app's "Meet the new you" side-by-side on screen (three editors have now).
+
+22. **Every revision doc is written as Dan, first person, and never says Claude wrote any of it (Dan,
+    2026-09-02).** No "Claude's additions", no "reviewed by Claude", no split between his items and ours.
+    When Dan has already typed a few items into the doc, absorb them into the full list in the same voice
+    and format — rewrite his bullets in the doc's style rather than leaving them as a separate block — so
+    a reader cannot tell which items he typed and which were measured. The editor is to believe Dan did
+    every revision personally. Same rule for the markdown copy and the section headers.
+
+23. **Round 2 of Muhammad's Ad 3 (2026-09-02) — three measurements that decided the doc.** (a) *Which mic
+    did the editor use?* Cross-correlate the new cut's mono against EACH channel of the previous delivery
+    with an FFT over a ±2 s lag window — his V2 matched V1-RIGHT at +0.89 to +0.91 and V1-LEFT at −0.7,
+    at a constant +13.7 ms (a re-conform offset; under a frame, not a sync fault). A ±12.5 ms sample-loop
+    search returned ~0.2 and would have said "unknown source". (b) *Same duration to the microsecond does
+    NOT mean the picture is unchanged* — he replaced inserts in place; the frame-diff was 27 mean with the
+    only quiet stretches being the two "keep" clips. Read the diff as a map of what changed, not just a
+    changed/unchanged verdict. (c) His masters sit at −18 LUFS (Ad 1 −18.2, Ad 2 −19.1, V2 −18.4), so the
+    gate's loudness row fails on every cut of his; the doc asked for −14 with a limiter rather than
+    "match Ad 1" again. His review copies are 854×480 (Ad 2's was too); the 1080p comes with the final,
+    so ask for it, don't flag it as a defect.
+24. **Google Docs paste inherits the cursor line's character style.** The round-2 section landed entirely
+    bold because the last empty paragraph carried bold from the previous section (the B button was lit).
+    Look at the toolbar before cmd+v; if B is active press cmd+b first. cmd+z removes the whole paste
+    cleanly. Also: `cmd+End` does nothing in Docs on a Mac — `cmd+ArrowDown` goes to the end.
+
+25. **Getting a NEW small clip to the editor when the Drive uploader cannot be driven (2026-09-02).** Base64
+    through the Drive MCP is a token trap (a 1.8 MB clip is ~2.5 M characters in one tool call — never do
+    it), and Drive's web uploader still exposes no file input to `file_upload`. The route that works:
+    drop the muted clip in `public/ad-assets/` (gitignore exception `!public/ad-assets/*.mp4`, keep each
+    under ~3 MB), commit, push, wait for the Railway deploy, and link
+    `https://absbyai.com/ad-assets/<name>.mp4` in the doc — the exercise demos already ship this way.
+    Only Dan's own footage that is going into a public ad anyway; the repo is public.
+26. **Dan's real supplement stack is on camera for the whole 03 supplements longform**
+    (`claude edited long form content/03 - …/CUT_v1_graded_NO-GRAPHICS.mp4`, no lower thirds). A bottom-band
+    crop panned across the counter (`crop=1280:720:x='(in_w-1280)*t/5.5':y=340` → 1080p) makes clean
+    product B-roll with his face out of frame; the pan is at `Media/ad-assets/batch1-ads/clips/`.
+27. **In Google Docs, `cmd+End` did nothing through the extension; `cmd+ArrowDown` jumps to the end of the
+    document.** The last line of a Muhammad doc has been a plain paragraph, so no Return x3 was needed —
+    screenshot first and read the toolbar's list button before pressing Return.
+28. **A script can hand the editor ONE app clip for a whole section, and he will lay it under the first
+    line of that section.** Ad 4's supplement-audit scroll ran under "upload a picture… generate a future
+    self", not under "take a photo of your supplements" seven seconds later. Walk every app screen against
+    the exact sentence it plays under, the same as lesson 9 for images.
+29. **Whisper is a Python module here, not a command: `python3 -m whisper CUT.mp4 --model small --language en
+    --output_format json`** with `Media/video_edit/bin` on PATH. A bare `whisper` call fails silently inside a
+    backgrounded shell (lesson 17's empty transcript, again). Also: in zsh, `echo ==== X` errors ("= not found")
+    because a leading `=` is filename expansion — quote separators. Both cost a rerun on Ad 5 (2026-09-03).
+30. **Peaks at 0 dBTP on a −19 LUFS master can be the VOICE, not the SFX.** Ad 5 measured −18.9 LUFS with 58
+    separate seconds touching 0 and 1,800 clipped samples; per-second peak scan (numpy on the mono decode)
+    showed plain talking-head seconds (1:36, 1:40, 1:52, no whoosh) at +2.4 dB. Ad 4's whoosh-only finding does
+    not generalise — always run the per-second scan and name the quiet seconds in the doc, so the editor puts
+    a limiter on the mix rather than just turning the SFX down.
+31. **The SCRIPT can contradict a standing rule — the rule wins, and say so in the doc.** Ad 5's script cue
+    for the closing app clip reads "the app's own before/after reveal screen — in-product footage is the one
+    place a before/after pair is safe". It is not (Dan's rulings on Ads 2, 3 and 4). The doc told Muhammad to
+    ignore the note; the scripts doc itself still needs correcting. Read every bracketed cue against the
+    rules list before assuming the editor got it wrong.
+32. **Two new layouts that are still a before/after in one frame:** a two-panel with an ARROW between heavier
+    Dan and ripped Dan (Ad 5, 1:27 — the editor split a single AI clip into panels), and any belly-grab /
+    pinch stock close-up (Ad 5, 1:11 — body-shaming under Google's weight-loss policy). Both are now in the
+    standing rules. The fix for the arrow panel is to play the clip full frame in one panel, not to drop it.
+33. **Appending to Muhammad's batch doc: `reference/md_to_docs_clipboard.py <md>` builds the nested-list HTML
+    and sets the clipboard in one step** (the `markdown` package is not installed; a hand-rolled converter
+    mangled Dan's `\*\*` headers twice before the tree version). Then in Docs: click in the body,
+    `cmd+ArrowDown`, check B is off, `cmd+v`, and verify with a Drive `read_file_content` read-back that the
+    new H2 is there and the previous sections are unchanged. Pasted H2s land black while Dan's are blue —
+    cosmetic, he has not objected.
+34. **2026-09-03 calibration pass.** Dan asked for the skill to learn from his edits so he can stop
+    re-reviewing. Method that worked: keep the markdown copy byte-exact at delivery, read the Doc back
+    with Drive `read_file_content` after he has edited it, and diff section by section — every
+    addition is a missed defect, every rewrite a mis-calibrated direction, every deletion an item that
+    should not exist. The findings are the calibration section at the top; repeat the diff after every
+    doc he touches and fold new rules in there, not here. ⚠ Two adjacent Ad 4 items (2:06 pill-bottle
+    swap, 2:16 couch clip) vanished together while the THROUGHOUT still says the 2:06 clip "needs to be
+    swapped (see below)" — flagged to Dan as a possible block deletion.
+
+35. **Batch sweep of 8 editor cuts in one session (2026-09-08) — the recipe that worked.** Downloads by `gdown` into
+    `/Volumes/Extreme/_edit_work/revisions-<date>/dl/`, then ONE prep script per cut (`prep.sh`, copy at `/Volumes/Extreme/_edit_work/revisions-0908/prep.sh`: ffprobe, `pick_lav
+    --analyse`, `audio_gate --no-stamp --ab`, per-second peak scan, silencedetect, scene count, mean luma, 2 fps frames →
+    labelled 10×6 contact sheets, Whisper small) started all at once as `renderq.py run --group <batch> -- bash prep.sh` (the render queue holds the cap, VIDEO-RULES
+    "Video builds: the render queue", 2026-10-20; `xargs -P 2` is historical), and one reviewer subagent per
+    cut launched the moment its prep finishes, all reading a shared `BRIEF.md` that points at the skill and the work dir (start from `reference/BRIEF_template.md`, which carries the pass-3 rules).
+    Each subagent writes `out/<name>.md` (the section, in the `md_to_docs_clipboard.py` dialect) and `out/<name>.summary.md`
+    (scorecard + paste-ready Upwork message). Muhammad's six sections were concatenated and pasted in ONE cmd+v at the end
+    of his doc; read-back showed the old text byte-intact and all six headings. Traps: the editors' earlier review copies
+    are NOT re-downloadable with gdown ("can't retrieve" = permission) — compare V2→V3 item by item instead; a previous
+    delivery you only need audio numbers from should be gate-only (skip whisper/frames); Whisper throughput collapsed from
+    150 to 8 frames/s when the Mac was swapping (load 60, 4.7 GB swap from other sessions) — nothing to fix, just expect
+    the last two cuts to take as long as the first six; Docs would not render in the extension until the load fell.
+36. **Insert a round at the TOP of a doc (Zeeshan's convention):** click at the start of the first heading, `cmd+Left`,
+    `Return`, `Up`, `cmd+alt+0` (Normal text, so the paste does not inherit Heading 1), confirm B is off, set the clipboard,
+    `cmd+v`. The pasted H2 lands bold; the old first heading is untouched.
+37. **Dan asked for the review sweep with "do not message him yet" — the deliverable is the docs plus the messages in chat.**
+    Confirm sent-status from the Upwork room text (`get_page_text` on the room URL with `companyReference=…&sidebar=true`;
+    a bare room URL redirected to the most recent room), not from Gmail — Upwork's notification emails only carry the
+    editor's side and are 90 KB of tracking links each.
+38. **Editors "fix" clipping by turning the mix down (Ad 5 V2 landed at −29.7 LUFS) and "fix" an email screen by deleting
+    the whole after-picture screen (Ad 3 V3).** When the previous round asked for two things on one element, check that the
+    fix for one did not remove the other; write the fix as an ordered recipe (limiter first, then lift; hold the screen at
+    the top, do not scroll) so the next attempt cannot go the wrong way again.
+39. **Batch 3 (2026-09-09, eight Muhammad cuts) — three things to check before reviewing anything.** (a) **md5 every
+    re-delivered link against the previous download.** His "AD 02 v2" link was the Ad 4 v2 file byte for byte and his "AD 08"
+    link was the unchanged 09-07 file — Drive `get_file_metadata` (title + modifiedTime) plus an md5 against the 0908 `dl/`
+    copy settled both in a minute; reviewing either as a new cut would have produced a doc for a video that does not exist.
+    (b) **Once the level lands, the next failure is over-done noise reduction.** Six of eight cuts failed the gate's
+    `artifacts` row (flux ×1.17–1.29 of Ad 1, HF swirl ×1.15–1.31) on rooms already at 32–40 ms; write it as "watery /
+    underwater top end, back it off, gaps only, no de-reverb", never as a number the editor cannot meter. (c) **Check the
+    doc's own links before blaming the editor.** Dan's Ad 7 item linked the plain before picture under the "bad Photoshop"
+    slot, so Muhammad put the before picture there; the round-2 doc owns the link in Dan's voice ("the link I gave you was
+    wrong, which is on me"). Also: the SFX can bypass a limiter placed on the voice track (Ad 3 v4: voice capped at −2.6 dB,
+    whoosh at +0.02) — say "limiter on the finished mix, the last thing before export". Recipe as in lesson 35; a full batch of
+    eight took 25 min of prep (then two at a time by hand; now the render queue sets the pace, 2026-10-20; load 8–28) and one subagent per cut at ~220–310k tokens each.
+
+40. **Batch 4 (2026-09-10, seven Muhammad cuts) — the app recording is a STRANGER, and a "final HD" gets a gate + frame-diff, not
+    a review.** (a) The only real app screen recording in the asset library — `example generation video.MP4`
+    (`1fwRGtoHh4oTlwfQZ0gItY3Oj7DZPkN6P`, the link Dan pasted into his Ad 8 / 10 items) is byte-identical (62,300,869 bytes) to
+    `09_CLIP_app-generate-future-self.mp4` in the reference-ad folder, and the photo it uploads is a heavier, older man who is
+    NOT Dan (checked side by side against `02_BEFORE-PICTURE_dan-200lb.png` and his profile photo). So every phone demo in the
+    batch carries a stranger as the before picture, and there is no "recording of my own upload" to link — a reviewer that
+    writes "use this recording of my own upload instead" is wrong (Ad 15's first draft did). The correct item is Dan's own Ad 14
+    form: "the before picture inside the phone is not me" + **Use this photo for the before picture in the clip** + the
+    `02_BEFORE-PICTURE` link + the goal-image STANDING RULE. Three subagents independently called the man a stranger, which is
+    what lesson 10 warns against — so the check that settled it was a four-panel strip (real before, the recording's upload
+    frame, `ai_warning_heavier.png`, profile photo) read once. (b) A delivered "V3 HD" of an APPROVED cut is not a review: run
+    the gate and `framediff.sh` (copies in `/Volumes/Extreme/_edit_work/revisions-0908/` and `revisions-0912m/`) against the approved review copy. Ad 5's read frame-identical (mean diff 0.53, max 1.27 — pure
+    re-encode noise), 1080p at 10 Mbps, −14.0 LUFS at exactly −1.0 dBTP, every gate row PASS except the un-measurable
+    `do_no_harm` (needs our own untreated baseline; declare it, don't hide it). Nothing goes in the doc; it goes in Dan's
+    message and the delivery filing. (c) Muhammad delivers from two Drive accounts (`wadeededitteam@` and
+    `sharkimageryproduction@` — Ad 8 v1, Ad 8 v2 and Ad 15 came from the second); an unfamiliar owner is not a different editor.
+    (d) Once his level lands, rounds 2+ are picture-only and go fast: six reviewers at 210–250k tokens each, 4–8 minutes
+    apiece, and two of six came back as the APPROVED form with zero items. The doc paste (six sections, 25 KB HTML, 72 bullets)
+    verified as an exact-prefix read-back in one go.
+
+41. **A workout-only cut (Zeeshan, content batch video 1, 2026-09-11) — three checks the standard pass misses.** (a) The gate's
+    20 s + 120 s window lands inside the live sets, so its tone / floor / artifacts rows grade music and wheel noise, not the
+    voice — do not quote them. Prove the brief's "keep the camera sound under the sets" item instead by cross-correlating the
+    cut against the raw clip (FFT over ±4 s, least-squares gain): the track under all three sets read +0.2 to +1.0 dB of the
+    raw lav at correlation 0.8–0.98, the same gain as his talking, so it is present and unprocessed. (b) Outdoor wide shots
+    carry crew gear: a gold reflector swung across set 2 for 1.5 s (1:49.1–1:50.6) and read as a smudge on the 2 fps sheet —
+    zoom any colour intrusion at a frame edge. (c) A close the editor stopped early often has a clean pickup after an
+    interruption: C1633's plane pause (6:37–6:53, lav RMS rising −51 → −31 dB and falling) was followed by Dan re-saying the
+    line and finishing the pitch. Run word-timestamped Whisper on the raw pickup and hand the editor the exact range. Also:
+    Zeeshan names deliveries by his own running count ("Video 3.mp4" was batch video 1) and shared this one as a single file,
+    not in his folders — identify the video by its content and his Upwork message, never by the file name.
+
+42. **Editing a section in the Doc after Dan has typed a `[CLAUDE - …]` note (2026-09-11) — three traps, two of
+    them destructive.** (a) **`cmd+f` followed by `type` does not reach the find box**: the keystrokes land in the
+    DOCUMENT at the cursor (this session typed "INSERT IMAGE FOR HIM" into the middle of the Ad 3 section). Click the
+    find field first, or navigate with the left-hand outline panel, which is safer. (b) **`cmd+z` to undo that stray
+    typing also removed chunks of the section pasted EARLIER in the same Docs session** — Ad 7's whole 1:53 item and
+    Ad 10's entire TIMESTAMPED REVISIONS block (both app-demo items) vanished, silently, nowhere near the cursor. So:
+    keep the post-paste Drive read-back on disk, and after ANY undo, read the doc back and diff against it before
+    doing anything else. Restoring is easy from the `out/*.md` copies (type the small block, paste the big one).
+    (c) **Replacing his note in place works**: triple-click the bullet, `cmd+\` (clear formatting, or his bold carries
+    into your text), type the prose, `cmd+b` around the key change, `Return`+`Tab` for the link sub-bullet (URL plus a
+    trailing space auto-links), `Return`+`shift+Tab`+`cmd+\` for the STANDING RULE line. The Drive markdown export
+    renders those typed bold lines as `**\*\*…\*\***` — an export artifact, not literal asterisks; confirm by zooming
+    the page, not by reading the export.
+43. **The app recording's own after picture is an asset, and the man in it is ASIAN** (2026-09-11). In
+    `example generation video.MP4` the "Download Your Future Self" screen at 0:29–0:33 shows his AI after image.
+    Crop the card at full res — the picture only, never the screen, which carries the banned email-capture form —
+    and it is the right ending for any demo Dan wants to keep as somebody else's generation rather than his:
+    `13_AFTER_ai-generated_app-demo-man.jpg` = `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`, in the reference-ad folder.
+    Dan's call on Ad 7 round 3: keep the stranger in the closing demo, end it on HIS after picture, not Dan's goal image.
+44. **Drive upload is solved — `/findassets` §6, not base64** (2026-09-11; supersedes lessons 1 and 25 for files under
+    10 MB). Open the destination folder in Chrome, inject an `input[type=file]`, `file_upload` the local path into it,
+    then dispatch dragenter→dragover→drop **once** on `document.querySelector('[role="grid"] [role="row"]')`, verify by
+    listing the folder by `parentId` (twice — indexing lags), remove the input. An 89 KB JPEG landed exactly once and
+    inherited the folder's "anyone with the link" sharing, so no `share_file` call was needed. Do NOT push base64
+    through `create_file` for anything but a few KB, and do not put a third party's likeness in `public/ad-assets/` —
+    that repo is public; Drive is the right home for it.
+45. **`framediff.txt` gives FALSE NEGATIVES on small graphics — never score an item off it (2026-09-12).** It reported
+    Ad 14's 0:00–0:20 as UNCHANGED, yet the red YouTube play button had been removed in that stretch: a small
+    high-contrast logo on a 1080p frame averages under the 2.0 luma threshold once both frames are scaled to 320×180.
+    Read the diff only as a MAP of where the editor worked (Ad 6's was decisive: 3:20–4:33 byte-identical proved he
+    never went near the missing 4:10 label), and verify every ask on its own full-resolution frames. It is also
+    useless outright when the resolutions differ — Ad 7 and Ad 10 came back as 1080p exports of 480p review copies,
+    and upscaling noise marked Ad 10's entire running time as "changed" (mean 4.1). **Identical frame count and
+    duration to the microsecond means nothing either way**: all four cuts in this batch matched their predecessor
+    exactly and three of them had real picture changes.
+46. **He GENERALIZES a fix to every beat that looks like the one you fixed — so say what must NOT change (2026-09-12).**
+    Ad 7 round 3 asked for Dan's before picture in the 2:00 demo and explicitly said to LEAVE the 3:25.5 closing demo
+    as the other man's generation; round 4 came back with both demos identical, Dan's photo and Dan's goal image in
+    each, so the prospect line "so generate your future self image" was illustrated with Dan's own generation. The
+    same shape appeared unprompted in Ad 14 (the closing flow uploads the recording's stranger and ends on Dan's goal
+    image — one man's before against another's after). When an item changes one of two similar beats, name the other
+    one in the same item, say it stays as it is, and give the rule behind the difference in one line so the pattern is
+    learnable rather than an exception to memorise.
+47. **Introduce a NEW label by specifying how it is BUILT, not just what it says (2026-09-12).** "Same chip style as
+    the AI-GENERATED tag" produced, in two ads independently, an italic sentence-case caption inside literal square
+    brackets on a see-through band overflowing both edges of the picture — against the AI tag's bold upright caps on
+    a solid black rounded pill sitting inside the picture. Both are "a label low on the frame", and his is not
+    unreasonable; it is just not the same chip. Spell out the construction the first time: solid black rounded pill,
+    bold upright capitals, same size, inside the bottom edge of the picture, not italic, no brackets. Check the new
+    label against the old one at full resolution in the round that introduces it, and write the item identically in
+    every ad of the batch so the two labels cannot drift apart.
+48. ⚠ **A LABEL ON A PICTURE OF DAN MAY NOT COVER HIS FACE OR HIS ABS (Dan, 2026-09-12).** *"The label will not
+    block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my
+    abs in all of these after pictures."* This SUPERSEDES "inside the bottom edge of the picture" in lesson 47 and
+    every earlier "low on the frame / at the shorts line" wording — those are what put the chip across his lower
+    abs. When reviewing a cut: **look at every labelled picture of Dan and flag any label touching his face or his
+    midsection**, and say where it should go instead (above his head, off to one side, or the largest band his body
+    does not occupy). The reason is the whole point of the picture — an after photo exists to show the physique, so
+    a label over the abs cancels the shot it is labelling. The chip's CONSTRUCTION (lesson 47) is unchanged; only
+    where it sits has changed.
+49. ⚠ **AI ARTIFACTS HIDE WHERE A CONTACT SHEET CANNOT LOOK — read every AI shot frame by frame (Dan, 2026-09-14).**
+    Ad 3's trainer-vs-robot story (1:16, 76.6–78.1 s on his timeline) shows a man exhaling at a bathroom mirror and the
+    mirror FOGGING with breath smoke. It went through five rounds of Muhammad's revisions, our own 9:16 rebuild, five
+    independent audits and a 237-boundary watch pass, and nobody flagged it: it sits in the mirror corner, not on the
+    man, and it grows over 1.5 s, so no single half-second thumbnail looks wrong. Dan saw it the first time he watched
+    the finished vertical at full size: *"He exhales, and there's smoke coming out when he exhales… things that just
+    give away that this is AI-generated and make it seem like it's not a real clip."* The source is a 5.04 s Kling v3
+    image-to-video shot (`Media/ad-assets/batch1-ads/shots/s3.mp4`), and the fog starts 3.4 s in — **image-to-video
+    shots degrade toward their END**, so a check of a clip's opening passes a clip that breaks later. Step 3b is the
+    procedure; the checklist there is the set of giveaways to look for, not the only ones.
+
+50. **Two checks a workout-demo cut needs that the tools miss (Zeeshan, arms & shoulders video 2, 2026-09-14).**
+    (a) **`framing.py` cannot see a crop that is too TIGHT on an overhead move.** It reported every triceps shot as
+    "top 0%, could crop in 0%" — the same reading as a well-framed shot — while the crop cut the dumbbell, his hands and
+    the top of his head off on every overhead rep, including the chair safety demo the brief called the most valuable
+    40 seconds. For every shot where a limb or weight goes above his head, look at the frame at the TOP of the rep and
+    compare it with the raw clip (`/Volumes/Extreme/abs by ai 8:3 jeff chagrin shoot/main camera/` for the 3 Aug rolls).
+    (b) **Time the live round against what he says on camera.** He says "30 seconds per exercise"; the cut ran each
+    exercise about 20 s, with no timer. A 1 fps sheet of the raw clip settles the true set lengths in one image. Also
+    read every safety-section chip against his exact words: "Go Down As Far As Possible" dropped his "safely" and told
+    viewers to do the thing he was warning against.
+51. **Measure the RAW's headroom before writing any crop item (Dan, arms & shoulders video 2, 2026-09-14).** Dan deleted
+    our "crop in closer by 20-30%" item and added *"Do not crop out the top of my head or hair, leave a small amount of
+    space above my hair"*, then asked whether the raw had room. It mostly did not: `python3 -m deliver.checks.framing
+    <RAW.MP4> --json out.json` (run from `.claude/skills/_shared`, the file uses relative imports) read the hair top
+    at a median of 0-2 px on C1582-C1585 and 85 px on C1586. On a 1080p shoot framed with the head at the edge, a crop
+    can only come from the bottom and sides, and "crop in" makes the cut look more cropped. Our first draft also claimed
+    the raw triceps clip had "plenty of room above me" off a 1 fps contact sheet; at full resolution the dumbbell leaves
+    the top of the RAW frame too. Never state what the raw holds from a thumbnail. Measure it, or look at full-resolution
+    frames at the top of the rep.
+52. ⚠ **DAN'S DICTATION OVERWRITES THE CLIPBOARD — set it and paste in the very next action (2026-09-15).** Lesson 20
+    said a concurrent session can overwrite the clipboard between set and paste; the real cause is usually Wispr Flow,
+    which copies whatever Dan dictates anywhere on the machine. A paste four tool calls after `md_to_docs_clipboard.py`
+    put a sentence of Dan's dictation into Muhammad's doc instead of the sections. Recovery is clean: `cmd+z` once, then
+    re-run the converter and `cmd+v` as the immediately following call. Do the browser work FIRST (open the doc, click
+    into the body, `cmd+ArrowDown`, check the B button is off), and only then set the clipboard. After any undo, verify
+    the whole doc, not just the cursor area (lesson 42b).
+53. **Verify a paste with a text export, not a screenshot (2026-09-15).** `curl -sL
+    "https://docs.google.com/document/d/<ID>/export?format=txt" -o after.txt` costs nothing, needs no Drive call, and a
+    one-line `b.startswith(a)` against the pre-paste export proves every earlier word is byte-identical and lists the
+    new headings. Keep the pre-paste export on disk; the same file is what the next session diffs against to learn from
+    Dan's edits (lesson 34). It is also how a false "the doc looks fine" screenshot gets caught.
+54. **An editor's folder drop: list it with `gdown --folder`, and md5 every sidecar across folders (2026-09-18).** The
+    Drive MCP's `search_files parentId = '<id>'` returns `{}` for a folder an editor shared — it cannot see folder drops
+    (memory `zeeshan-delivery-includes-srt`). `python3 -m gdown --folder "<folder url>"` lists AND downloads it in one
+    call. Then md5 the small files across the two folders before reading anything: Zeeshan's arms & shoulders folder
+    contained the **deadlift video's** `.srt`, byte-identical to the one in the deadlift folder, so the two-word .srt fix
+    from the previous round was silently unanswered. This is lesson 39a (md5 the re-delivered video) extended to the
+    sidecars — the .srt, the music mp3 and the thumbnail are where a wrong-file drop hides, because nobody opens them.
+55. ⚠ SEE 66: a NO from this test is not proof. **Envelope cross-correlation settles "which track is this?" to a yes or a no (2026-09-18).** Log-envelope at 400 Hz,
+    mean-removed, slid over the candidate with a cumulative-sum normalised correlation
+    (`revisions-20260918/music_match.py`): the real match read **r = +0.941** with the implied track start agreeing to
+    1.5 s across two overlapping windows; every non-match read **r = 0.06–0.16** with offsets that did not line up. The
+    0.14–0.39 "match" quoted in the 09-17 round-3 doc was a ducked bed measured over short windows — use 60–80 s windows
+    and check the offsets agree, not just the peak. That is what identified the live-round bed as knox-gym "Energy Gym
+    Thunder" and cleared it. **A bed's presence is a separate measurement**: gap floor p5 and the 80–500 Hz energy in the
+    quietest 10 % of frames (`gapfloor.py`). Our raw floor is ≈ −53 dB; a bed puts it at −37 to −40 dB. So "he changed
+    the track" and "there is still a track" are two different findings, and you can report both without the file.
+56. **`metadata=print` writes at info level, so `-v error` silently produces an EMPTY luma/scenes file (2026-09-18).**
+    The batch prep script has shipped with `-v error` on those two ffmpeg calls for weeks; they wrote 0 bytes and the
+    reviewer then had no brightness or scene data and did not notice. Use `-hide_banner -nostats` and let the level
+    default, or the check did not run (VIDEO-RULES: a check that did not run is a failure, not a pass).
+57. ⚠ **`revisions/reference/framing.py` CANNOT tell "perfectly tight" from "hair cut off", and a credit written off it
+    has now been wrong twice (2026-09-18).** On Zeeshan's deadlift video it reported "top 0%, could crop in 0% -> OK" on
+    all 55 camera shots and the review credited the framing in Dan's voice — *"every camera shot has a small margin above
+    my hair… do not change any of the crops."* Dan's reply: *"My hair is going out of the frame."* He was right: the
+    delivery gate's own check (`python3 -m deliver.checks.framing <file> --json out.json`, run from
+    `.claude/skills/_shared`) read **hair top median 0 px, p95 15 px, 74 % of frames at 0** against a standard of ≥ 20 px.
+    `framing.py` measures EMPTY FRAME ABOVE HIM and calls zero of it fine; the gate measures HAIR TOP IN PIXELS, which is
+    the thing Dan looks at. **Never credit or fail framing off `framing.py` alone — run the gate check too, and quote its
+    hair-top numbers.** Thirteen hand-picked top-strip crops also passed; a 15-point strip of `crop=1920:150:0:0` across
+    the whole video showed the hair sliced flat on 13 of 15. Sample the whole timeline, not the moments you chose.
+58. **Before writing a "crop in" or "he cropped too tight" item, measure the RAW the same way — it is often the camera
+    (2026-09-18).** Lesson 51 said measure the raw's headroom; this adds the crop factor. On the deadlift video the raw
+    (7/8 rolls C1487/C1488, Rec.709 10-bit 4:2:2 at 47 Mbps — that shoot is NOT S-Log3) read **head height median 408 px
+    against the delivered 401 px**: the editor barely cropped at all, and the raw itself is at hair-top median 0 with p95
+    30 px. So the fault is the camera framing, there is nothing to recover, and an item telling the editor to fix it
+    would be unexecutable. Map a cut time to a raw roll time by audio cross-correlation (`revisions-20260918/findraw.py`,
+    8 kHz mono, FFT-free `np.correlate` over the whole roll; a real match reads r ≈ 0.8–0.9, a wrong roll ≈ 0.1), then
+    compare the two frames' top strips side by side at full resolution.
+59. **The colour diagnosis that worked, with the reference numbers (2026-09-18).** Dan: *"the color correction, to me,
+    doesn't look as good as the other videos, but I'm not sure if this is due to the way this is filmed."* Measure four
+    things on matched frames — RAW, the delivered cut, and Muhammad's Ad 1 16:9 as the reference look
+    (`revisions-20260918/colstats.py`): **Y p1 (black point), median Y, % of pixels clipped at the top, and a face patch's
+    Y / R−B / saturation.** The deadlift video read black point **22** against the raw's 15 and Muhammad's **2**, median
+    51 → 82 (a ~30-level global lift), clipping **0.00 % → 1.30 %** — but the face read Y 81.6, R−B +37.0, sat 36.1 %
+    against Muhammad's 74.3 / +34.7 / 34.1 %. **So the skin was right and the picture around it was lifted, milky and
+    clipping**, which is a completely different note from "the grade is wrong", and it is the note Dan agreed with. Then
+    PROVE it: regrade one raw frame (`curves=all='0/0 0.06/0.012 0.235/0.30 0.50/0.56 0.83/0.88 1/1',eq=saturation=0.95`
+    landed black point 3.4, face sat 35.0 %, clipping 0.02 %) and send Dan a three-up still plus a 10 s moving
+    side-by-side. A moving comparison is what he judges on; a still alone is not enough.
+60. **Look in the editor's FOLDER and his MESSAGE for the music track before asking for it (Dan, 2026-09-18).** Zeeshan
+    put `knox-gym-energy-gym-thunder-538872.mp3` in both delivery folders and named it in his message, and the doc still
+    asked "send me the name of the track under the talking" because envelope correlation showed that track only under the
+    live round. Dan deleted the item: *"Make sure you're looking in the folder and the messages for the name of the music
+    track, to not give this unnecessary feedback."* **A track he supplied is answered once it is checked for Content ID —
+    if it is clean, there is no item, even if a second unidentified bed is also in the mix.** Raise a second bed only if
+    something measurable is actually wrong with it.
+61. ⚠ **DO NOT call an exercise's form wrong from a low frame rate or an overhead angle — it is a false positive
+    (Dan, 2026-09-18).** The deadlift video's 8:10 - 8:16.5 dumbbell clip was written up as "a bent over ROW, which is the
+    exact mistake I warn about eight seconds later". Dan deleted it and said so plainly: *"This is actually a rear delt
+    fly. You got that wrong. That is not a bent-over row. This is a rear delt fly, just done in the unconventional way."*
+    Read from above, a single-arm rear delt raise and a single-arm row look almost identical — the arm goes back and up in
+    both, and the difference is elbow angle and the arc of the hand, which a 2 fps strip cannot resolve. **A form call is
+    only an item when the movement is unambiguous at playback speed from a side or front angle**, and an unconventional
+    variation of a movement is still that movement. This is the false-positive protocol (step 3b) applied to exercise
+    form: name what makes it wrong in two clearly-readable frames, or do not write it. Dan does the exercises; on form
+    he is the authority and a wrong call costs credibility with him and with the editor.
+62. ⚠ SUPERSEDED IN PART BY 66: never report an "unidentified" track from our own tests. **A track the editor supplied answers only the sections it is actually under — say WHICH sections are still unknown
+    (Dan, 2026-09-18).** Lesson 60 had this half right. After Dan deleted the music item, the correlation numbers went to
+    him in chat and he put it straight back: *"Good catch with that music. Add that note back in. I thought that was the
+    only music track in there, but just add in the specific music that wasn't identified into the document."* So the
+    item is not "send me the track name" — it is **"'Energy Gym Thunder' is the track under the live round, 8:19 - 9:55,
+    and that one is clean; there is a DIFFERENT track under 0:00 - 8:19 and 9:55 to the end, send me that one too."**
+    Name the clean track, name its span, name the unidentified track's span, and say the clean one stays as it is.
+63. **NO EM DASHES, in the doc or in the message (Dan, 2026-09-18; narrowed 2026-10-20 to outward-facing text, and revision docs and editor messages are outward-facing, so the count stays 0).** Dan: *"Em dashes are a major giveaway of Claude
+    output. I want you to have a standing rule for all of our writing that we never, ever, ever use an em dash in any
+    writing. No em dashes ever."* The revision doc carries HIS name, and he does not use them, so a doc full of them
+    reads to the editor as pasted AI output. The first pass of the 09-18 Zeeshan doc had 34 of them and they were all
+    rewritten out. Do not substitute an en dash either: use a comma, a colon, parentheses, or two sentences. A hyphen in
+    a compound word and a numeric range ("8:19 - 9:55") are fine. **Run `grep -c '—' <file>` on the markdown before the
+    clipboard step and on the paste-ready message before it goes in the summary. It must be 0.** The standing rule is in
+    `AGENTS.md`; memory `no-em-dashes`. Related: lesson 22 (the doc is written as Dan, first person, always).
+64. **The editor message is half the length you first write it (Dan, 2026-09-18).** His note on the first draft: *"Make
+    the message to Zeeshan a little bit briefer. Make it about half the length of what you wrote and still communicate
+    those key points."* The shape that survived: one line of thanks, a short paragraph closing out the finished video, a
+    short paragraph crediting the new one with something specific that proves he watched it, the doc link, then "three
+    big things" as three short paragraphs, one line for the rest, and one paragraph for anything Dan is HANDING the
+    editor rather than asking for. Details live in the doc, not the message. Do not restate timecodes the doc already
+    carries, and do not list more than three priorities.
+65. **The editor message: warmer praise, big picture only, and never name another editor (Dan's edits, 2026-09-18).**
+    Dan rewrote three things in the Zeeshan message and kept the result as the model (it is saved verbatim in
+    `revision docs/zeeshan-batch-9-18-26.summary.md`). (a) **Praise runs hotter than the doc does.** "The deadlift video
+    is a good first cut." became *"The deadlift video is a real good first cut!"* and the sign-off gained *"Thanks!"*.
+    The exclamation marks are his. Be enthusiastically complimentary when the editor has actually done something well;
+    the measured register belongs in the doc, not the message. (b) **Never name one editor to another.** "next to
+    Muhammad's ad" became *"next to my primary editor's ad"*, and the same swap was made inside the doc's colour item.
+    Zeeshan has no idea who Muhammad is, so the name is noise to him. **Check every doc and message for another
+    editor's name before delivering** (`grep -n 'Muhammad\|Zeeshan\|Waleed'` on anything going to a different one).
+    (c) **No nitpicks in the message.** He deleted the "AI Personal Traniner" callout and the entire paragraph about the
+    archive clip Claude had cut for him: *"avoid mentioning very nitpicky small edits in these types of messages… Those
+    are in the document. The message is really only for the big-picture things that we need to communicate, not the
+    tiny tactical things."* Even an asset Dan is HANDING the editor does not need a paragraph if the doc carries it.
+66. ⚠ **Our music tests can prove a track IS there. They cannot prove a track is NOT there (2026-09-22).** Rounds 2 and 3
+    of Zeeshan's arms and shoulders video told him a third, unidentified track ran under the talking. There was none. His
+    "no music" export, subtracted from the full export, left exactly the trip hop track (r 0.99) under the talking and
+    Energy Gym Thunder (r 0.999) under the live round. Three things went wrong: (a) the envelope test (55) cannot see a
+    flat, quiet bed at -27 dB under a loudened voice-over, and "no match" was read as "not this track"; (b) the positive
+    control mixed the track back in at -15 to -25 dB, louder than his real -27 dB, and even at -25 dB it read r 0.155,
+    inside the noise range of the real windows, so it proved nothing and was reported as proof; (c) "a bed is present"
+    (gap floor) was treated as evidence of a DIFFERENT bed. It only ever showed that A bed was there. Dan: this cost the
+    editor real time over a problem that did not exist.
+    **The rule:** (1) If the editor names a clean track, believe him unless a test POSITIVELY identifies a different one.
+    A failure to match is "unconfirmed", never an item. (2) If a claim still matters for Content ID, the only test is
+    subtraction: ask for the same export with the music muted, subtract it sample for sample, and match the difference
+    against his named tracks (waveform correlation, not envelope; `/Volumes/Extreme/_edit_work/music-check-20260922/chk.py`).
+    One export request costs him two minutes; a disputed item costs him three rounds. (3) Any positive control must be run
+    at or below the editor's stated level, and must read clearly apart from the noise, or it is not reported. (4) Before
+    telling an editor he is wrong a second time on the same point, show Dan the evidence and its weakest link first.
+67. **When Dan asks us to "build him a file he can drop in", hand the editor a graphics kit, not a description (2026-09-28,
+    Zeeshan Video 4).** Shared Drive folder "Zeeshan Soft Blue Light graphics kit" (`1ispvFqk9CAv-WqZ_hBgVed3cedRWBLGJ`), builder
+    scripts in `/Volumes/Extreme/_edit_work/revisions-20260928/kit/` and `/Volumes/Extreme/_edit_work/revisions-20260928/ouraapp/phone.py`. What worked: (a) a finished ProRes
+    422 HQ of the graphic ON HIS OWN export, named with its start timecode or frame, for any stretch he does not need to touch;
+    (b) an Apple Animation (qtrle) alpha overlay for stretches where his old chips are burned in, with a STILL wall patch
+    ("plate") covering the gap the 280 px presenter shift opens on the left, and "move my shot right by exactly 280 px" in the
+    doc; qtrle, not ProRes 4444 (3.3 GB vs 781 MB), and never live footage inside the alpha (2.5 GB vs 300 MB); (c) a READ ME
+    Google Doc with every size, color and timing; (d) the example image pasted under each doc item. Simulate his workflow
+    (pad the shifted clip, overlay the alpha) before shipping. Traps: an odd crop height (955) is rounded to 954 by ffmpeg, so
+    a raw reader expecting 955 rows rolls the picture; the Drive rclone copy of a multi-GB ProRes 4444 never finishes, kill and
+    re-encode; and **Google Docs find traps, again (lesson 42a):** a `triple_click` on the find box when it has closed selects a
+    DOCUMENT paragraph, and typing replaced one of our own new paragraphs; `form_input` into the find box does not trigger a
+    search, so the following Return lands in the doc and split a line. Only `left_click` on the find box's ref, `cmd+a`, zoom to
+    confirm focus, then type. After any browser session in a doc, diff a text export of the whole doc against the pre-edit
+    export (whitespace-normalised) before reporting. Python 3.9's newest yt-dlp (2025.10.14) is now blocked by YouTube; the
+    standalone `yt-dlp_macos` from the official GitHub release works (kept in `revisions-20260928/ouraapp/`).
+68. **A seven-short batch in one session (2026-10-01): the recipe.** Prep script per cut run one at a time (then; now start them all and let the render
+    queue pace them, 2026-10-20. The Mac was at load 90 from other sessions; whisper is the slow step), one reviewer agent per cut reading a shared `BRIEF.md`
+    (`/Volumes/Extreme/_edit_work/revisions-20261001/muhammad/BRIEF.md` is the shorts version of the template), then
+    the SAME agents re-used by message for the graphics inventory and the library pass (they keep their context, each
+    follow-up cost about 30 to 90 seconds). The doc is created and later replaced IN PLACE through the Drive API with
+    rclone's token: multipart `files.create` with `mimeType: application/vnd.google-apps.document` and a `text/markdown`
+    body, then `PATCH /upload/drive/v3/files/<id>?uploadType=media` to regenerate it under the same link, then a
+    permission POST `{type: anyone, role: reader}`. No browser, no clipboard. `muhammad/gen.py` is the generator.
+    Share the work dir: another session was using `revisions-20261001/` at the same time, so work in a subfolder
+    named for the editor.
+69. **`gateframing` returns 0 samples, or measures the wrong person, on a short with picture inserts** (it read the AI
+    man in the body fat pictures as Dan). On shorts, read hair-top off ruled full-resolution frames of camera shots and
+    say so.
+70. **A clip we supply is checked against the LINES before it is linked.** The dating app clip handed over on 09-29 ran
+    heavy man first, lean man second, the opposite of the script; the editor inserted it as told and round 2 had to
+    own the mistake and give the swap. Before linking any multi-beat clip, write down which seconds go under which
+    words.
+71. **Adding a round at the top of an existing doc: the Docs connector, not rclone's token (2026-10-02).** rclone's
+    Google project has the Docs API disabled (403 SERVICE_DISABLED), so only Drive calls work with its token. Run
+    `python3 .claude/skills/revisions/reference/doc_insert_top_requests.py <section.md>` to print the batchUpdate
+    requests (insert at index 1, reset to normal text, heading, bold runs, nested bullets from tabs) and pass them to
+    the Docs connector's `update_doc`. Export the doc as text before and after and confirm the new export ends with
+    the old one byte for byte.
+72. **Read every on-screen number in an AI clip against the spoken number (2026-10-02).** Zeeshan's Tesla clip was
+    approved from its start and end frames; the generated motion ran the speed readout up to 190 while Dan says "I was
+    going 120". The fix that needs no regeneration: use the part of the clip before the number goes wrong and slow it
+    to fill the slot. Also check the AI label's exit frame by frame at a flash transition: his hung on 5 frames onto
+    the camera scene after three clips.
+73. **First cuts of new shorts now arrive with "waiting for suitable graphics" placeholders, and duplicate links (2026-10-05).**
+    Muhammad stopped building his own graphics once the kit existed: every new short carries placeholder pills where he
+    wants ours. So a first-cut review always includes the graphics inventory and the kit build in the same session; put
+    all three reviewer outputs (section, summary, `graphics.json`) and the library pass in ONE brief
+    (`/Volumes/Extreme/_edit_work/revisions-20261005/muhammad/BRIEF.md`) to save the follow-up rounds. md5 the downloads
+    first: 11 links were 8 files. New folders go into the SAME Drive kit folder (`1L2Y1EfJTG4rYZNNtQXVieq4x2qbzENvk`,
+    numbered on from the last), and `gen.py` there merges each list into the section's own GRAPHICS bullet. `kit.py`'s
+    hair assertion fails on his tighter framings: it now warns, and the doc's opening section tells him where a one line
+    (250 px) and two line (315 px) graphic ends so he frames the hair below it. His new repeat fault: he switches wide
+    and tight on the cut, but the tight is only 4 to 10% closer; measure the ratio and ask for 25 to 30%.
+74. **Round 2 of a long-form: two checks that paid off, and one trap (Zeeshan Video 5, 2026-10-08).**
+    (a) **Sort the previous round's jump cuts with stacked strips**: for each listed time, 8 frames at 4 fps from the cut,
+    round 1 on top and round 2 underneath. Each lands in one of four bins: now a wide/tight change, now under a clip,
+    same size with a transition laid on top, untouched. A zoom or blur transition over a same-size cut is not a fix
+    (CUT-CONTINUITY-QC). Before LISTING a cut in round 1, check that both sides are the same size: the 10-05 list of 29
+    included cuts that were already tight to wide.
+    (b) **An added sound effect can be measured, not guessed.** When the new mix is the previous round's lav channel plus
+    changes (check first: 16 kHz mono against each old channel, here r 0.996 at zero lag against the right), subtract
+    them. Bursts in the leftover are what changed. Sign test: correlate a burst with each mix; it sits in round 2 if it
+    correlates with round 2 and not round 1 (added), and the reverse if it was removed. Same-sample test: the bursts
+    match each other at r 0.9 or more. This found a swoosh on 18 new transitions and proved the lower-third sounds had
+    been taken out. ⚠ Finding a sound is not a reason to ask for it off: Dan KEPT this one (calibration rule 64a). The
+    measurement goes in the summary so he knows what was added. A new label style is also checked on the BRIGHTEST clip it sits on (plain white text vanished on a
+    gym window).
+    (c) ⚠ **Never `pkill -f` a whisper or ffmpeg command line.** A concurrent revisions session runs the identical
+    command from the same prep template; this killed the other session's transcript mid-run and it had to be
+    regenerated. Stop your own step by PID: `pgrep -P <your prep.sh pid>`.
+74a. **Exercise how-to shorts, nine cuts in one session (2026-10-08): four things that bit.** (a) **Measuring the punch-in:
+    the burned captions and our own top graphic are identical on both sides of a cut, so a whole-frame feature match
+    reads "scale 1.000, no change" on a cut that is 30% closer.** Mask to the band between about y 330 and y 900, or
+    measure head width in pixels on full-resolution frames, and look at the two frames side by side before quoting a
+    number. (b) **When one cut in the batch already has the right punch-in, make it the reference** (lesson 19): his
+    200 Pounds V2 tight was 30% closer while every other cut was 12 to 15%, so the doc's opening section says "match
+    the tight shot from 200 Pounds V2" instead of repeating a percentage he has now missed twice. (c) **A wide
+    exercise cannot fill 9:16.** Measure the span of the movement in the RAW at native resolution (dumbbells out at
+    shoulder height on the 8/28 4K rolls: 1380 to 1450 px against a widest full-height vertical window of 1215 px).
+    When the span is wider than that window the item is "full width, full height kept, blurred fill above and
+    below", with the number; when it fits, full screen. (d) Prep traps: `silencedetect` under `-v error` writes an
+    empty file (same class as lesson 56, use `-hide_banner -nostats`); Whisper can die without an error when the Mac
+    is loaded, so check `cut16k.json` exists before starting that cut's reviewer; his links no longer download with
+    gdown, use `rclone backend copyid gdrive: <id> <dest>` (in zsh split a "id name" pair with `${=p}`). Work dir:
+    `/Volumes/Extreme/_edit_work/revisions-20261008/muhammad/` (BRIEF.md there is the exercise-short version).
+75. ⚠ **Exercise B-roll rolls: Dan announces every take, and the roll sound is nearly silent. Boost it and read it before
+    crediting or directing ANY exercise clip (2026-10-10).** Roll C1676 (8/28, side laterals and rear delt flys) sits at
+    -72 dB, so its sidecar says "no speech" and two reviews mapped its takes by picture. Boosted
+    (`ffmpeg -af "highpass=f=120,volume=48dB,alimiter=limit=0.9"`, then Whisper `small` with `--word_timestamps True
+    --condition_on_previous_text False`; without that flag it repeats one sentence for minutes), it reads "side laterals,
+    done right", then four named mistakes, "rear delt flys, done right", then three named mistakes. Only ONE set of each
+    exercise is correct. What it cost: Rear Delt Flys V1 and V2 ran the "back round" mistake take for seven seconds under
+    "Raise the dumbbells" (round 1 called the stretch "one continuous piece" of the correct take: it was two takes
+    joined by a dissolve), and Side Laterals V2 answered Dan's "this clip is a mistake" item with a different mistake
+    take. Procedure on every exercise video, every round: (a) transcribe the boosted roll and write the take map
+    (announcement time, his words, take range); (b) map every exercise clip in the cut to the roll with
+    `reference/rawmatch.py CUT RAW 'a-b,...' T0 T1` and read the per-frame line for a mid-clip jump; (c) a clip under
+    an instruction must be a "done right" take, a mistake take only under the line naming that mistake; on round 2 or later
+    this is an item only when a viewer would see the wrong form (calibration rule 71a), otherwise it goes under "For Dan's call"; (d) the item
+    gives the raw range to use and where the rep should land on the words, and the doc's opening section gives the
+    editor the take map so he can pick right himself. C1676's map is in
+    `revision docs/shorts-revisions-muhammad-10-10-26.summary.md`. This is rule 66 (calibration pass 11) made mechanical.
+    Also new: `reference/cuts.py VIDEO OUTDIR` prints, for every hard cut, the background scale across the cut (the
+    true punch-in ratio, graphics and captions masked), the eye-distance ratio, and the hair top on both sides, plus
+    in-shot zoom and the lowest hair top per shot. It replaced a reviewer agent per cut on a three-short round 2.
+76. **An "HD files for everything" message is not all HD exports of approved cuts: sort the links first (2026-10-12).** Muhammad
+    sent nine "HD files". Four were HD exports of approved cuts, one was the open video's new round, and four were new
+    rounds of videos nobody had approved (two of them at review size). Dan believed eight were approved. Read every
+    file name and size before anything else, and build a table: approved version or new version, review size or HD
+    size. An HD export of an approved cut gets the light check only (same frame count, then subtract every frame from
+    the approved copy at 540x960: re-encode noise reads an average under 3 and a largest pixel difference under about
+    40 of 255; a changed caption or graphic reads over 100). `light.sh` and `fd.py` in
+    `/Volumes/Extreme/_edit_work/revisions-20261012/muhammad/` do it in about 20 seconds a file. A new version gets a
+    real round check against the live doc. He also labels dedicated shorts "AD 08", "Ad 09" (his own running count for
+    DS-08 and DS-09): classify by the closing words, never by his label, before anything ad-related is planned.
+77. **Check the kit folder against the whole batch, and answer a status question from the whole batch (2026-10-13).**
+    Three of Muhammad's 22 shorts (the first three, reviewed 09-27 before the kit existed) were told to wait for the
+    graphic lock and never got a kit folder. Nobody noticed for 16 days, and they sat unreturned into his bonus
+    deadline. At every round list the kit folder (`rclone lsd --drive-root-folder-id <kit id> gdrive:`) against the
+    brief's video table and name any video with no folder in the summary. When Dan asks "is everything done" or "did
+    he earn the bonus", count from the brief's full video table and read the whole Upwork room, where the terms and
+    any deadline change live (his side is not in Gmail). The room loads newest first in a reversed scroller: set
+    `.scroll-wrapper.custom-scrollbar` `scrollTop = -scrollHeight` in a loop until the first date is old enough, then
+    `get_page_text`. `javascript_tool` output is cut at about 1,000 characters, so read with `get_page_text`. Build
+    trap from the same day: `nice` in front of `kit.py --render` kills the HyperFrames render
+    (`uv_os_setpriority EACCES`). Run it at normal priority. A kit for an old cut reuses that cut's prep
+    (`revisions-20260926/dl` and `work`); the 10-13 kit and its `gen.py` are in `revisions-20261013/muhammad/`.

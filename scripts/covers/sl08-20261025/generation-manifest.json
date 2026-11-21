@@ -1,0 +1,420 @@
+{
+ "model": "gpt-6.1-sol",
+ "effort": "high",
+ "modelAvailabilityEvidence": "Current supported model catalog in the Codex app tool schema, 2026-10-25; 25 successful helper calls recorded below",
+ "billing": "Codex ChatGPT subscription, no paid image API",
+ "count": 25,
+ "reportedCodexTokens": 543246,
+ "jobs": [
+  {
+   "key": "s1",
+   "which": "pool",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s1-pool.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-pool.png",
+   "ref": [],
+   "sha256": "9beb1f5c36ad3d44e558dd863bc47af793be64e0e66bfea279714d58204d72a7",
+   "bytes": 2223697,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-pool.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 19995
+   }
+  },
+  {
+   "key": "s1",
+   "which": "studio",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s1-studio.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-studio.png",
+   "ref": [],
+   "sha256": "81ed512a9fe5e907ae4d79053e70aeaa6b77d7face373a3a3263db19383d0bbb",
+   "bytes": 2000001,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-studio.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 18742
+   }
+  },
+  {
+   "key": "s1",
+   "which": "c",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s1-c.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-c.png",
+   "ref": [
+    "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-59_FINAL_PRIMARY.jpg"
+   ],
+   "sha256": "382b920aaa6d17dabad4db92896192d57ff7fd7a4ac238498c8ae61765540bf6",
+   "bytes": 1995654,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-c.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 38947
+   }
+  },
+  {
+   "key": "s1",
+   "which": "d",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s1-d.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-d.png",
+   "ref": [],
+   "sha256": "a5ead01061375ed39dc2e7216c55065691c11c531691d13ec8dc762dc7308a9f",
+   "bytes": 2165702,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-d.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 19753
+   }
+  },
+  {
+   "key": "s1",
+   "which": "e",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s1-e.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-e.png",
+   "ref": [],
+   "sha256": "ac3e08085e9f85c6c4079a718d8d4b57a57e63a984e000b7461124bf2a76032e",
+   "bytes": 2210343,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s1-e.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 15145
+   }
+  },
+  {
+   "key": "s2",
+   "which": "pool",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s2-pool.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-pool.png",
+   "ref": [],
+   "sha256": "f1bd8e5c6eb79343ff6e6a3e26e9a3b8675ab10bf7b0fff3044008edeaab62b5",
+   "bytes": 2109361,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-pool.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 27195
+   }
+  },
+  {
+   "key": "s2",
+   "which": "studio",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s2-studio.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-studio.png",
+   "ref": [],
+   "sha256": "45d1b8e8dad4195c80c9f31b5cfc2c8e7183769f880726b726c74d700e46028e",
+   "bytes": 2184893,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-studio.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 14810
+   }
+  },
+  {
+   "key": "s2",
+   "which": "c",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s2-c.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-c.png",
+   "ref": [
+    "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-67_FINAL_PRIMARY.jpg"
+   ],
+   "sha256": "c1ce609cac759884c67cf3aa349d089b3dc2380d4602e356c6b5fedae808185e",
+   "bytes": 1934663,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-c.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 25662
+   }
+  },
+  {
+   "key": "s2",
+   "which": "d",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s2-d.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-d.png",
+   "ref": [],
+   "sha256": "cda228713c5f16087bba303522db399a242d0da4daeb109db8ad8bb01703316e",
+   "bytes": 2391479,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-d.png",
+    "width": 940,
+    "height": 1672,
+    "codex_tokens": 16123
+   }
+  },
+  {
+   "key": "s2",
+   "which": "e",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s2-e.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-e.png",
+   "ref": [],
+   "sha256": "79ee5159e858fb4469101ce7e767991f32f777f896e3d1b9d2e9d8b30bab5763",
+   "bytes": 2496704,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s2-e.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 20619
+   }
+  },
+  {
+   "key": "s3",
+   "which": "pool",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s3-pool.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-pool.png",
+   "ref": [],
+   "sha256": "52836cee1eae2ede96307592152ef572e610e7cd4b726c211979e6bece26f248",
+   "bytes": 2199742,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-pool.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 19862
+   }
+  },
+  {
+   "key": "s3",
+   "which": "studio",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s3-studio.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-studio.png",
+   "ref": [],
+   "sha256": "8dcbd57cb24bb48b9fd052e32080416450de57cdf04a42aa2b93df9cba0e8403",
+   "bytes": 2015988,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-studio.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 12793
+   }
+  },
+  {
+   "key": "s3",
+   "which": "c",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s3-c.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-c.png",
+   "ref": [
+    "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-110_FINAL_PRIMARY.jpg"
+   ],
+   "sha256": "a17f2dcf4ca4a0d76d3fe67a903cbe39eb4038e43fa1054a61cb3c185cdb7617",
+   "bytes": 1839506,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-c.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 25434
+   }
+  },
+  {
+   "key": "s3",
+   "which": "d",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s3-d.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-d.png",
+   "ref": [],
+   "sha256": "a48a9d55f5a5743ac7c9cfc113f4183ee4556838dfa3932ff6cce1ace89fd2ed",
+   "bytes": 2455903,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-d.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 14519
+   }
+  },
+  {
+   "key": "s3",
+   "which": "e",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s3-e.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-e.png",
+   "ref": [],
+   "sha256": "1a547f95f342d1186b4e80353b12b75b0e131858af1e616824ea676a60aca419",
+   "bytes": 2067132,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s3-e.png",
+    "width": 940,
+    "height": 1672,
+    "codex_tokens": 15148
+   }
+  },
+  {
+   "key": "s4",
+   "which": "pool",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s4-pool.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-pool.png",
+   "ref": [],
+   "sha256": "5d39c4984831ad64984fb0a36a7bff17d96f347dfd23b543ccad414088a95523",
+   "bytes": 2256069,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-pool.png",
+    "width": 940,
+    "height": 1672,
+    "codex_tokens": 14594
+   }
+  },
+  {
+   "key": "s4",
+   "which": "studio",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s4-studio.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-studio.png",
+   "ref": [],
+   "sha256": "407227214809cb65ed918a576b0f912a9aaf943a6496bf67e58b0cf744e0483e",
+   "bytes": 1959675,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-studio.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 21233
+   }
+  },
+  {
+   "key": "s4",
+   "which": "c",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s4-c.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-c.png",
+   "ref": [
+    "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-192_FINAL_PRIMARY.jpg"
+   ],
+   "sha256": "08232470b1d0c423e8daa5d38b29880eaf3bda841f60f456655397d5710ba8a8",
+   "bytes": 1809182,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-c.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 28246
+   }
+  },
+  {
+   "key": "s4",
+   "which": "d",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s4-d.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-d.png",
+   "ref": [],
+   "sha256": "1223d2e2449a5d3912a0e1fcfecce20b9bd85692d89ff871cd935cf683451f3c",
+   "bytes": 2445670,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-d.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 30081
+   }
+  },
+  {
+   "key": "s4",
+   "which": "e",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s4-e.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-e.png",
+   "ref": [],
+   "sha256": "b684f2cec2f7c68acbe0b1a8ab2be7efadc629c41edd1b3726bbae0af1a95fd7",
+   "bytes": 2468319,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s4-e.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 13247
+   }
+  },
+  {
+   "key": "s5",
+   "which": "pool",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s5-pool.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-pool.png",
+   "ref": [],
+   "sha256": "f2f3edee474f7f8eaa3da9f99fd6ab7749ac6435fcb1edc44c2720e9f5591ec6",
+   "bytes": 1936126,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-pool.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 26380
+   }
+  },
+  {
+   "key": "s5",
+   "which": "studio",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s5-studio.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-studio.png",
+   "ref": [],
+   "sha256": "b61150153d70dfbb2618d437c6ae00bfddc252e6aec6ceb7e6680d697828f02d",
+   "bytes": 1794399,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-studio.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 39741
+   }
+  },
+  {
+   "key": "s5",
+   "which": "c",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s5-c.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-c.png",
+   "ref": [
+    "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-49_FINAL_PRIMARY.jpg"
+   ],
+   "sha256": "5737a1ddae31a39709040f26b28b24e511fefc37bd9357b64d5897bd5640a2d4",
+   "bytes": 1802093,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-c.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 23558
+   }
+  },
+  {
+   "key": "s5",
+   "which": "d",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s5-d.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-d.png",
+   "ref": [],
+   "sha256": "5545d2d7b622ddc73ef4a650bad7916fc89fccf0b092e1d8d460a23e12510b71",
+   "bytes": 2165022,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-d.png",
+    "width": 940,
+    "height": 1672,
+    "codex_tokens": 20977
+   }
+  },
+  {
+   "key": "s5",
+   "which": "e",
+   "prompt": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/prompts/s5-e.txt",
+   "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-e.png",
+   "ref": [],
+   "sha256": "72e4f67ff469139d5ef47f7d22dd97dc61cc4f6f0f0b7460269deea5e5c61991",
+   "bytes": 1852554,
+   "result": {
+    "ok": true,
+    "out": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/assets/gen/s5-e.png",
+    "width": 941,
+    "height": 1672,
+    "codex_tokens": 20442
+   }
+  }
+ ]
+}

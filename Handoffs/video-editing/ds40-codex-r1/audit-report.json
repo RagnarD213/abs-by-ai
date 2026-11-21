@@ -1,0 +1,63 @@
+{
+  "video_title": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "video_type": "CONTENT SFC",
+  "scope": "10.01-second green-screen key, audio, and color calibration only",
+  "candidate": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/review/media/sample.mp4",
+  "sha256": "874c8363a832bb20a57453a74d6b5da808886524b6013d12a06ea8f1b2eddceb",
+  "verdict": "ready-for-Dan",
+  "qualification": "Ready for Dan to assess this limited calibration sample, with four audio reference checks disclosed as failures. It is not a passed final-delivery master or an approved complete Short.",
+  "methods": [
+    "Verified the exact sample SHA256 and 1080x1920, 29.97 fps, 10.01-second watch manifest.",
+    "Opened every watch image: one sheet covering 0.00-9.01 seconds; no boundary strips exist because the sample is continuous.",
+    "Decoded the exact candidate sequentially and opened 20 native-resolution frames at 0.5-second intervals from 0.0 through 9.5 seconds.",
+    "Viewed native-resolution dark-background frames at 0.0, 1.0, 5.0, 8.0, and 9.98 seconds and inspected hair, glasses, shoulders, and hands in native-pixel crops at 5.0 seconds.",
+    "Used Gemini 2.5 Flash on the full moving sample with audio, a blind candidate-versus-original audio comparison, and the full moving dark-edge diagnostic. Review calls cost $0.004600 total and are recorded in review-costs.jsonl.",
+    "Read the sample's matching audio gate JSON and checked its objective rows. No sound was played aloud on the Mac."
+  ],
+  "watch_images": {
+    "clean": 1,
+    "expected": 0,
+    "defect": 0,
+    "findings_file": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/audit/findings.json"
+  },
+  "image_assessment": {
+    "candidate_light_background": "Framing and color look consistent. Hair stays clear of the top border. Face, glasses, skin, shoulders, and hands remain recognizable. No conspicuous green leak, bright halo, transparent face or fingers, or matte flicker was confirmed in the intended light composite.",
+    "dark_diagnostic": "The high-contrast dark field reveals a very thin dark/purple contour at portions of the hair and a mild olive tint near the glasses arm/temple. These are subtle at native resolution. I did not confirm the dark video model's blanket claims of broad green spill, rough shoulder and ear outlines, or disappearing fingers. Moving fingers soften from camera motion in the source. No material key defect was identified for this light-background calibration sample.",
+    "temporal_stability": "The full moving-video pass found no visual key failure or hair contact with the frame top. The watch scan found no black, frozen, or jump frames; exact half-second frames show continuous pose changes."
+  },
+  "speech_assessment": {
+    "transcript": "That's why you need to treat your belly fat as an emergency because the future is going to be amazing and if you don't lose the weight you aren't going to be around to see how awesome it will be.",
+    "beginning_end": "The initial 'That's' and final 'be' are present and intelligible; no clipped word was found.",
+    "lip_sync": "No drift or visible mouth/speech offset found in the full moving-video review.",
+    "heard_defects": "The full-video audio review found no specific audible issue. A second blind audio comparison did not identify boom, harshness, dullness, muffling, cut consonants, or damaged word tails in the candidate. These perception judgments do not override the numeric gate failures."
+  },
+  "objective_numeric_failures": [
+    {
+      "key": "comb",
+      "measured": "1.03 dB spectral ripple",
+      "limit": "at most 0.89 dB, the reference plus 0.35 dB"
+    },
+    {
+      "key": "tone",
+      "measured": "4.08 dB mean absolute error, 8.28 dB maximum",
+      "limit": "at most 1.2 dB mean and 2.5 dB maximum"
+    },
+    {
+      "key": "dryness",
+      "measured": "5.4 dB drop 64 ms after a word",
+      "limit": "at least 5.9 dB, reference minus 1.5 dB"
+    },
+    {
+      "key": "spread",
+      "measured": "4.9 dB speech spread, 1.9 LU LRA",
+      "limit": "at least 5.2 dB speech spread, reference minus 3.0 dB"
+    }
+  ],
+  "taste_or_minor_observations": [
+    "The plain light field is deliberate calibration material; captions, music, graphics, and editorial inserts are outside Dan's request.",
+    "The small olive tone by the glasses arm is a close-inspection edge observation on dark contrast, not a confirmed green-screen leak in the intended composite.",
+    "The gate's tone target is a fixed reference comparison. The full-clip audio reviews did not establish an audible problem that maps to its four failing rows."
+  ],
+  "tradeoff": "The key retains fine hair and hand detail on the planned light background. A darker composite makes a narrow edge contour easier to see. Further edge erosion could remove natural fine detail, so the dark diagnostic alone does not justify a rebuild of this calibration sample.",
+  "approval": "No user approval inferred or granted."
+}

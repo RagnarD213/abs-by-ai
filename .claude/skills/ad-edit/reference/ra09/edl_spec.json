@@ -1,0 +1,26 @@
+{
+ "_note": "RA-09 take map on C1666 (one read of the script, 9.6-80.2 s), anchored to PHRASES. R1: the hook through 'get six pack abs' (9.6-20.8). The first attempt of the next sentence ('I'm not just talking about an', 20.8-22.5) stops; R2 is the clean restatement from 23.24 s to the end ('to get started'). Isolated 8 s windows: see tx/win8.json. ROUND 1 REVIEW (independent, 2026-10-21): R2 starts after the mouth click at 23.26-23.30 s (EDGE_OVERRIDE R2.start=23.50, 'I'm' onset 23.54); R3 starts after the lip noise at 64.30 s (R3.start=64.35, 'Got' onset 64.40): the reviewer measured a +14.6 dB low-band thump at that join.",
+ "ranges": [
+  {
+   "name": "R1",
+   "lines": "hook: do you think AI is changing the world + promise",
+   "after": 7.9,
+   "from": "do you think ai is changing",
+   "to": "get six pack abs"
+  },
+  {
+   "name": "R2",
+   "lines": "not just a picture + how it works + steps + life gets in the way",
+   "after": 23.0,
+   "from": "im not just talking about an",
+   "to": "to solve every problem"
+  },
+  {
+   "name": "R3",
+   "lines": "got injured + gym + whatever problem + CTA",
+   "after": 60.0,
+   "from": "got injured",
+   "to": "now to get started"
+  }
+ ]
+}

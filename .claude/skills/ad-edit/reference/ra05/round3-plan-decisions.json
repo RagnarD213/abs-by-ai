@@ -1,0 +1,56 @@
+{
+ "job": "RA-05",
+ "round_answered": 2,
+ "date": "2026-10-14",
+ "page": "http://127.0.0.1:8808/",
+ "dan_verbatim": "Start and end frames for the couch clip are approved. Everything in the new opening looks good.\n\nFor the start frame VSL clip, I would like you to essentially reproduce this in a vertical format so that his body occupies the full vertical frame. You can put the notes maybe on the top or the bottom. I like that body scan there, but I want it in a vertical format.\n\nYes, we can keep the 1.06x speedup. Give me the handoff for the next round.",
+ "items": [
+  {
+   "id": "COUCH",
+   "verdict": "approved",
+   "choice": "START and END frames approved for motion",
+   "words": "Start and end frames for the couch clip are approved.",
+   "files": {
+    "round2/frames/couch_START.png": "4d4773381a6c431490ca09208c2ba4ee790a06a8f6dec6fdd2a048f3e079451f",
+    "round2/frames/couch_END.png": "54315a6a0af8a97d844cadf6dc0b1f980b989d518de6afac01eb0a47d129989d"
+   },
+   "scope": "frames approved; motion authorized from exactly these two frames (two shots joined by a cut)",
+   "motion_authorized": true,
+   "new_frames_before_motion": false
+  },
+  {
+   "id": "OPEN",
+   "verdict": "approved",
+   "choice": "the sped-up generation opening as built",
+   "words": "Everything in the new opening looks good.",
+   "files": {
+    "round2/cards_9x16/open.mp4": "ad11958532e154b4a827dd302c6f315eea108244b359b213330346762dbee915",
+    "round2/s06_open.py": "162f79b8e9ea19e3c15b869f1ef7338b74f7ad122e36515e1c39d2ea693f3c5a"
+   }
+  },
+  {
+   "id": "SCAN",
+   "verdict": "changed",
+   "choice": "keep the body scan, but rebuild it VERTICAL: his body fills the full 9:16 frame, the notes (callouts) on the top or the bottom",
+   "words": "For the start frame VSL clip, I would like you to essentially reproduce this in a vertical format so that his body occupies the full vertical frame. You can put the notes maybe on the top or the bottom. I like that body scan there, but I want it in a vertical format.",
+   "note": "'start frame VSL clip' read as 'start VSL clip' (Wispr Flow): the A0044 body scan from the /start VSL version A.",
+   "files": {
+    "round2/cards_9x16/scan.mp4": "0e3c98baa93a31e2abe8c05d75311662c19ea4e1863aeb7443a6659960957acb",
+    "/Volumes/Extreme/_edit_work/wv01-edit/round4/motion/SCAN-readable.mp4": "68ef87d8c63ac0b6c1a357ec5f6748bb2e2d231f4403896abeec559fc2f4ba31"
+   },
+   "next": "new vertical treatment shown as a still on its frame and moving in context in round 3"
+  },
+  {
+   "id": "SPEED",
+   "verdict": "approved",
+   "choice": "keep 1.06x (58.36 s)",
+   "words": "Yes, we can keep the 1.06x speedup.",
+   "files": {
+    "round2/mix.wav": "3857ef27e0e391678c1df5188a1ad2f6ea2afcdcf2dc52573f3d7d488129e4a4",
+    "round2/cut.json": "3e7410a0fb7d2a2ea40621161c8bd8851f195250cb06be3b545239db1f8a221e"
+   }
+  }
+ ],
+ "unchanged_from_round1": "A1 analysis card, LT1, LT2, K1, T1, B2 poses, CTA button, end hold: shown in round 2, no notes.",
+ "spend_usd": 0.0
+}

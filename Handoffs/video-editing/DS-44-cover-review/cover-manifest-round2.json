@@ -1,0 +1,259 @@
+{
+  "job": "DS-44",
+  "round": 2,
+  "status": "awaiting-dan-pick",
+  "headline": "Alex Hormozi's Weight Loss Mental Shift",
+  "dan_words": "New design. Split screen of Hormozi and fat guy in video. Title: Alex Hormozi's Weight Loss Mental Shift. 3 design variations",
+  "sources": {
+    "hormozi": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/assets/interview-49.5s-hormozi.png",
+    "caller": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/assets/interview-30.0s-caller.png"
+  },
+  "generation": "none (real frames)",
+  "designs": {
+    "A": "Hormozi on top, caller below, full-width halves; black centre band with yellow rules, yellow ALEX HORMOZI'S over white WEIGHT LOSS MENTAL SHIFT in Impact",
+    "B": "Diagonal split with a red slash, Hormozi upper left, caller lower right; headline low on a dark fade in Manrope, second line yellow",
+    "C": "Two portrait panels side by side with a white gutter on navy; Futura name line above, Weight Loss / Mental Shift below with a red rule, Mental Shift in red"
+  },
+  "outputs": [
+    {
+      "option": "A",
+      "layout": "youtube",
+      "design": "Hormozi on top, caller below, full-width halves; black centre band with yellow rules, yellow ALEX HORMOZI'S over white WEIGHT LOSS MENTAL SHIFT in Impact",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/youtube/A-hormozi-mental-shift-cover.jpg",
+      "bytes": 450798,
+      "sha256": "5f7f5390c26f9bd2b8f638bef40c31def884a173a42d4d6a78abda0c4db7236d",
+      "text_boxes": [
+        [
+          196,
+          866,
+          885,
+          957
+        ],
+        [
+          42,
+          979,
+          1038,
+          1054
+        ]
+      ],
+      "faces": [
+        [
+          389,
+          39,
+          732,
+          499
+        ],
+        [
+          311,
+          1126,
+          770,
+          1570
+        ]
+      ]
+    },
+    {
+      "option": "A",
+      "layout": "instagram",
+      "design": "Hormozi on top, caller below, full-width halves; black centre band with yellow rules, yellow ALEX HORMOZI'S over white WEIGHT LOSS MENTAL SHIFT in Impact",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/instagram/A-hormozi-mental-shift-cover.jpg",
+      "bytes": 419346,
+      "sha256": "37acb54f652fc063b49cbe2ef65ba5d18197eb8ea22d4296f3db05af665d484b",
+      "text_boxes": [
+        [
+          196,
+          899,
+          885,
+          990
+        ],
+        [
+          42,
+          1012,
+          1038,
+          1087
+        ]
+      ],
+      "faces": [
+        [
+          496,
+          269,
+          753,
+          614
+        ],
+        [
+          311,
+          1159,
+          770,
+          1603
+        ]
+      ]
+    },
+    {
+      "option": "B",
+      "layout": "youtube",
+      "design": "Diagonal split with a red slash, Hormozi upper left, caller lower right; headline low on a dark fade in Manrope, second line yellow",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/youtube/B-hormozi-mental-shift-cover.jpg",
+      "bytes": 399533,
+      "sha256": "a496917e1f02c5f0c4c3813b1933a254bd2e0517eeebc5e1386b7997e2397492",
+      "text_boxes": [
+        [
+          60,
+          1411,
+          822,
+          1490
+        ],
+        [
+          60,
+          1510,
+          690,
+          1614
+        ],
+        [
+          60,
+          1634,
+          690,
+          1713
+        ]
+      ],
+      "faces": [
+        [
+          181,
+          50,
+          619,
+          637
+        ],
+        [
+          461,
+          704,
+          1059,
+          1282
+        ]
+      ]
+    },
+    {
+      "option": "B",
+      "layout": "instagram",
+      "design": "Diagonal split with a red slash, Hormozi upper left, caller lower right; headline low on a dark fade in Manrope, second line yellow",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/instagram/B-hormozi-mental-shift-cover.jpg",
+      "bytes": 380813,
+      "sha256": "4cae52612a97a425652d59397b6caaa7d514252c8f3045544ff71c5325dfef91",
+      "text_boxes": [
+        [
+          60,
+          1298,
+          822,
+          1377
+        ],
+        [
+          60,
+          1397,
+          690,
+          1501
+        ],
+        [
+          60,
+          1521,
+          690,
+          1600
+        ]
+      ],
+      "faces": [
+        [
+          334,
+          277,
+          662,
+          718
+        ],
+        [
+          536,
+          768,
+          984,
+          1202
+        ]
+      ]
+    },
+    {
+      "option": "C",
+      "layout": "youtube",
+      "design": "Two portrait panels side by side with a white gutter on navy; Futura name line above, Weight Loss / Mental Shift below with a red rule, Mental Shift in red",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/youtube/C-hormozi-mental-shift-cover.jpg",
+      "bytes": 353898,
+      "sha256": "68afe61af0b5f87d671df7ed6271a9eeb1dcae398d6e526f19401a23a9ae3348",
+      "text_boxes": [
+        [
+          118,
+          161,
+          963,
+          249
+        ],
+        [
+          130,
+          1452,
+          951,
+          1591
+        ],
+        [
+          128,
+          1617,
+          953,
+          1728
+        ]
+      ],
+      "faces": [
+        [
+          71,
+          428,
+          462,
+          953
+        ],
+        [
+          599,
+          394,
+          1066,
+          846
+        ]
+      ]
+    },
+    {
+      "option": "C",
+      "layout": "instagram",
+      "design": "Two portrait panels side by side with a white gutter on navy; Futura name line above, Weight Loss / Mental Shift below with a red rule, Mental Shift in red",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round2/instagram/C-hormozi-mental-shift-cover.jpg",
+      "bytes": 324802,
+      "sha256": "cabc40f05f950f6eda64298984dfa0837e71a051b52d045aab74fdea9d27ed0e",
+      "text_boxes": [
+        [
+          118,
+          343,
+          963,
+          431
+        ],
+        [
+          130,
+          1289,
+          951,
+          1428
+        ],
+        [
+          128,
+          1454,
+          953,
+          1565
+        ]
+      ],
+      "faces": [
+        [
+          119,
+          518,
+          413,
+          912
+        ],
+        [
+          658,
+          493,
+          1008,
+          831
+        ]
+      ]
+    }
+  ]
+}

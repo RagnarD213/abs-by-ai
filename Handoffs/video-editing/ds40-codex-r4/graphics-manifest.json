@@ -1,0 +1,80 @@
+[
+  {
+    "id": "G01",
+    "a": 0,
+    "b": 19.619600000000002,
+    "template": "lower-third",
+    "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G01.mov",
+    "mask": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G01_mask.mov",
+    "kind": "glass",
+    "band": [
+      622,
+      870
+    ],
+    "box": [
+      68,
+      635,
+      1012,
+      811
+    ],
+    "lines": 1,
+    "words": "Bill Maher | Real Time (HBO)"
+  },
+  {
+    "id": "G02",
+    "a": 32.6474,
+    "b": 37.8474,
+    "template": "lower-third",
+    "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G02.mov",
+    "mask": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G02_mask.mov",
+    "kind": "glass",
+    "band": [
+      1045,
+      1365
+    ],
+    "box": [
+      68,
+      1058,
+      1012,
+      1306
+    ],
+    "lines": 2,
+    "words": "Treat Your Belly Fat As An Emergency"
+  },
+  {
+    "id": "G03",
+    "a": 42.5094,
+    "b": 60.657366700000026,
+    "template": "media-card",
+    "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G03.mov",
+    "table": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/bmi-table.png",
+    "hole": [
+      36,
+      240,
+      1008,
+      1120
+    ],
+    "words": "BMI Table: Height And Weight"
+  },
+  {
+    "id": "G04",
+    "a": 61.007399999999976,
+    "b": 64.86220000000004,
+    "template": "lower-third",
+    "mov": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G04.mov",
+    "mask": "/Volumes/Extreme/_edit_work/DS-40-codex/round4/hf/renders/G04_mask.mov",
+    "kind": "glass",
+    "band": [
+      1117,
+      1365
+    ],
+    "box": [
+      68,
+      1130,
+      1012,
+      1306
+    ],
+    "lines": 1,
+    "words": "Subscribe To The Channel"
+  }
+]

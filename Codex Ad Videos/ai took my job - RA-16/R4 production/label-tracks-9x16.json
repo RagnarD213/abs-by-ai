@@ -1,0 +1,87 @@
+[
+  {
+    "kind": "real",
+    "beat": [
+      19.386033333333334,
+      22.7227
+    ],
+    "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-9x16-real-0.png",
+    "image_sha256": "0137d9fb45568820263df12ced47edfdca51b4d6960d355932d982f0a33cf91c",
+    "rect": [
+      146,
+      1260,
+      788,
+      80
+    ],
+    "visibility": "full",
+    "sample_times": [
+      21.062708333333333
+    ],
+    "search_px": 4,
+    "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "source_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39"
+  },
+  {
+    "kind": "ai",
+    "beat": [
+      22.7227,
+      22.789433333333335
+    ],
+    "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-9x16-ai-100.png",
+    "image_sha256": "a18bd872bb806b215af23c68668e7e3f6e5f5b9cb4673e621183dbd4d2468de0",
+    "rect": [
+      365,
+      1260,
+      350,
+      80
+    ],
+    "visibility": "full",
+    "sample_times": [
+      22.764408333333332
+    ],
+    "search_px": 4,
+    "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "source_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39"
+  },
+  {
+    "kind": "ai",
+    "beat": [
+      22.789433333333335,
+      24.190833333333334
+    ],
+    "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-9x16-ai-102.png",
+    "image_sha256": "de2796462b340f77766a4460ba4099c5c1c30e60f229fdfb92420666e665c65f",
+    "rect": [
+      365,
+      1230,
+      350,
+      80
+    ],
+    "visibility": "full",
+    "sample_times": [
+      23.498475
+    ],
+    "search_px": 4,
+    "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+    "source_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39"
+  },
+  {
+    "kind": "ai",
+    "beat": [
+      25.258566666666667,
+      32.79943333333333
+    ],
+    "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-9x16-analysis.png",
+    "image_sha256": "a59ebdaac64e3a7d7ca8a42578d4605fe0c55e13e68ea1b20de525a09874c598",
+    "rect": [
+      394,
+      906,
+      290,
+      64
+    ],
+    "visibility": "full",
+    "search_px": 4,
+    "source": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+    "source_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff"
+  }
+]

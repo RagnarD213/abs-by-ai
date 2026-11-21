@@ -1,0 +1,914 @@
+{
+ "ads": [
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~828708118277",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828708118277",
+     "id": "828708118277",
+     "name": "AT · Stop Swinging Your Bicep Curls · yt:FLamzXGwSCM · tier2 · 2026-10-20"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~829362598282",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829362598282",
+     "id": "829362598282",
+     "name": "AT · How To Make Time To Work Out · yt:MWp0qSmYEyM · tier2 · 2026-10-23"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~829904876059",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829904876059",
+     "id": "829904876059",
+     "name": "AT · Stop Cooking Your Meals: Use A Meal Prep Service · yt:Inp5SSPxZjs · tier2 · 2026-10-29"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~830119595029",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830119595029",
+     "id": "830119595029",
+     "name": "AT · Do Women Like The Dad Bod? · yt:HmYBNd98KzY · tier2 · 2026-10-31"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~830474196128",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830474196128",
+     "id": "830474196128",
+     "name": "AT · Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier. He's Rig… · yt:Zt8zD6cuYAQ · tier2 · 2026-11-03"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~831221833358",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831221833358",
+     "id": "831221833358",
+     "name": "AT · Track A Week Of Meals From 1 Photo · yt:dF815bjBy1Q · tier2 · 2026-11-10"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~831695905154",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831695905154",
+     "id": "831695905154",
+     "name": "AT · The $20 Salad You Can Make For $4 · yt:wVsyBxoT85M · tier2 · 2026-11-14"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24122099676",
+    "id": "24122099676"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197884856303~831954548789",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831954548789",
+     "id": "831954548789",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · tier2 · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~827231088896",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/827231088896",
+     "id": "827231088896",
+     "name": "AT · Try To Knee Yourself In The Face · yt:bi_fpkW-3eE · tier1 · 2026-10-06"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~827496369029",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/827496369029",
+     "id": "827496369029",
+     "name": "AT · The Deadlift Trick That Saves Your Back · yt:D9v9POAKe_Q · tier1 · 2026-10-08"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~827574552630",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/827574552630",
+     "id": "827574552630",
+     "name": "AT · The Back Move You Can Do With A Towel · yt:qH9YRoH2PpM · tier1 · 2026-10-10"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~827748286526",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/827748286526",
+     "id": "827748286526",
+     "name": "AT · Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead) · yt:9nfvwfo52Z0 · tier1 · 2026-10-11"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~828006053744",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828006053744",
+     "id": "828006053744",
+     "name": "AT · You Always Have Three Minutes · yt:1k518M3EKps · tier1 · 2026-10-13"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~828338589555",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828338589555",
+     "id": "828338589555",
+     "name": "AT · How To Do Side Laterals · yt:distZH0Jv2Y · tier1 · 2026-10-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~828537043574",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828537043574",
+     "id": "828537043574",
+     "name": "AT · I'm 41. I Wasted My Life. · yt:xyi-B_5tccw · tier1 · 2026-10-18"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~829437534689",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829437534689",
+     "id": "829437534689",
+     "name": "AT · How To Make Time To Work Out · yt:MWp0qSmYEyM · tier1 · 2026-10-23"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~829884173021",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829884173021",
+     "id": "829884173021",
+     "name": "AT · How To Keep Your Muscle While You Lose Fat · yt:96LV9DEKf-s · tier1 · 2026-10-28"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~829985762537",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829985762537",
+     "id": "829985762537",
+     "name": "AT · Stop Cooking Your Meals: Use A Meal Prep Service · yt:Inp5SSPxZjs · tier1 · 2026-10-29"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~831657291090",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831657291090",
+     "id": "831657291090",
+     "name": "AT · Reacting to Celebrity Diets · yt:cbWKs5CuQd0 · tier1 · 2026-11-15"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24163535721",
+    "id": "24163535721"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/206274722584",
+    "id": "206274722584",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | ALL COUNTRIES | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/206274722584~831954617216",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831954617216",
+     "id": "831954617216",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · tier1 · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "id": "24316408288"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~831657291108",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831657291108",
+     "id": "831657291108",
+     "name": "AT · Reacting to Celebrity Diets · yt:cbWKs5CuQd0 · rmktg-site · 2026-11-15"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "id": "24316408288"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~831790006930",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831790006930",
+     "id": "831790006930",
+     "name": "AT · Let AI Do Your Homework So You Have Time To Work Out · yt:lX7sXAYHR50 · rmktg-site · 2026-11-16"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "id": "24316408288"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200887799219",
+    "id": "200887799219",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200887799219~831954628757",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831954628757",
+     "id": "831954628757",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · rmktg-site · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "id": "24316408288"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~831731930859",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831731930859",
+     "id": "831731930859",
+     "name": "AT · Let AI Do Your Homework So You Have Time To Work Out · yt:lX7sXAYHR50 · rmktg-yt · 2026-11-16"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24316408288",
+    "id": "24316408288"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/209156230708",
+    "id": "209156230708",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/209156230708~831874672945",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831874672945",
+     "id": "831874672945",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · rmktg-yt · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376445",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376445",
+     "id": "830511376445",
+     "name": "AT · Try To Knee Yourself In The Face · yt:bi_fpkW-3eE · us · 2026-10-06"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376463",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376463",
+     "id": "830511376463",
+     "name": "AT · I'm 41. I Wasted My Life. · yt:xyi-B_5tccw · us · 2026-10-18"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830511376475",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830511376475",
+     "id": "830511376475",
+     "name": "AT · 5-Minute Home Workout: 3 Exercises, No Equipment · yt:7HGkYwrcwNk · us · 2026-10-31"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830549394888",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830549394888",
+     "id": "830549394888",
+     "name": "AT · How To Use The Ab Wheel · yt:PqXvo2unfDo · us · 2026-11-05"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~830709524842",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/830709524842",
+     "id": "830709524842",
+     "name": "AT · Start With 5 Minutes Every Morning · yt:20JdMm1GAOU · us · 2026-11-06"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~831343041102",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831343041102",
+     "id": "831343041102",
+     "name": "AT · 3 Ways To Reduce Alcohol · yt:gmOZ_9DVQF4 · us · 2026-11-12"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~831557812542",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831557812542",
+     "id": "831557812542",
+     "name": "AT · The $20 Salad You Can Make For $4 · yt:wVsyBxoT85M · us · 2026-11-14"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24422704023",
+    "id": "24422704023"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201123318425",
+    "id": "201123318425",
+    "name": "[DAN] [DGEN] [ENGAGEMENT] MU 18-65+, UA | US ONLY | ALL CONTENT"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201123318425~831818908755",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831818908755",
+     "id": "831818908755",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · us · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831752907027",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831752907027",
+     "id": "831752907027",
+     "name": "AT · Try To Knee Yourself In The Face · yt:bi_fpkW-3eE · us · 2026-10-06"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831752907030",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831752907030",
+     "id": "831752907030",
+     "name": "AT · I'm 41. I Wasted My Life. · yt:xyi-B_5tccw · us · 2026-10-18"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831752907039",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831752907039",
+     "id": "831752907039",
+     "name": "AT · 5-Minute Home Workout: 3 Exercises, No Equipment · yt:7HGkYwrcwNk · us · 2026-10-31"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831810900211",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831810900211",
+     "id": "831810900211",
+     "name": "AT · 3 Ways To Reduce Alcohol · yt:gmOZ_9DVQF4 · us · 2026-11-12"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831810900238",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831810900238",
+     "id": "831810900238",
+     "name": "AT · Reacting to Celebrity Diets · yt:cbWKs5CuQd0 · us · 2026-11-15"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831889548842",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831889548842",
+     "id": "831889548842",
+     "name": "AT · How To Use The Ab Wheel · yt:PqXvo2unfDo · us · 2026-11-05"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831889548863",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831889548863",
+     "id": "831889548863",
+     "name": "AT · Start With 5 Minutes Every Morning · yt:20JdMm1GAOU · us · 2026-11-06"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831889548875",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831889548875",
+     "id": "831889548875",
+     "name": "AT · The $20 Salad You Can Make For $4 · yt:wVsyBxoT85M · us · 2026-11-14"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197223280930",
+    "id": "197223280930",
+    "name": "YouTube viewers | watched any video 7 + 30 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/197223280930~831954629486",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831954629486",
+     "id": "831954629486",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · us-rmktg-yt · 2026-11-17"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~831339659975",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831339659975",
+     "id": "831339659975",
+     "name": "AT · Does Cristiano Ronaldo's Electric Shock Ab Belt Work? · yt:Tr15cWt4Gq8 · us-rmktg-site · 2026-11-11"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~831657291114",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831657291114",
+     "id": "831657291114",
+     "name": "AT · Reacting to Celebrity Diets · yt:cbWKs5CuQd0 · us-rmktg-site · 2026-11-15"
+    }
+   }
+  },
+  {
+   "campaign": {
+    "resourceName": "customers/3427170837/campaigns/24437265255",
+    "id": "24437265255"
+   },
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201297112505",
+    "id": "201297112505",
+    "name": "Website visitors | 7 + 30 + 365 day"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201297112505~831818847531",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/831818847531",
+     "id": "831818847531",
+     "name": "AT · Keep Your Salads Fresh For 7 Days · yt:WaGITX2UfQU · us-rmktg-site · 2026-11-17"
+    }
+   }
+  }
+ ],
+ "tier2": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/197884856303",
+    "id": "197884856303",
+    "cpcBidMicros": "10000",
+    "targetCpaMicros": "10000"
+   }
+  }
+ ]
+}

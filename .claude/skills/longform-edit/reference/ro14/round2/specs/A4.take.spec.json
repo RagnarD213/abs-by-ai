@@ -1,0 +1,63 @@
+{
+ "shot": "RO-14 A4 Dessert for two (v3 pair) (motion take, 1920x1080)",
+ "intent": "Candle-lit restaurant, a couple at a table for two. START: the fit man (left, dark shirt) with a small bowl of salad; the heavier woman (right, burgundy dress) smiles and slides a white plate toward him with her near hand; on the plate one slice of chocolate layer cake and one dessert fork. END: the plate sits just right of his salad bowl, which has not moved; the same cake slice, same size, with one forkful missing from its tip; she holds that same fork with the bite out to his mouth, smiling; the plate has no fork; he looks at the bite, tempted and resigned.",
+ "camera": "locked",
+ "may_change": {
+  "the_man": [
+   0,
+   0,
+   942,
+   918
+  ],
+  "the_woman_and_her_arm": [
+   712,
+   0,
+   1920,
+   1010
+  ],
+  "cake_plate_path": [
+   620,
+   849,
+   1240,
+   1033
+  ]
+ },
+ "still": {
+  "salad_bowl": [
+   80,
+   838,
+   459,
+   999
+  ],
+  "candle": [
+   482,
+   895,
+   620,
+   1056
+  ],
+  "wine_glass_left": [
+   11,
+   597,
+   138,
+   803
+  ],
+  "wine_glass_right": [
+   1700,
+   597,
+   1826,
+   803
+  ]
+ },
+ "props": [
+  {
+   "name": "cake",
+   "box": [
+    735,
+    895,
+    919,
+    987
+   ]
+  }
+ ],
+ "note": "frame spec boxes scaled 1672x941 -> 1920x1080; people are may_change boxes (legs out of frame); props added for the take"
+}

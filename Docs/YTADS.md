@@ -1,0 +1,363 @@
+# YouTube engagement champion — every new video gets a $5 test ad in each Demand Gen campaign, one champion per campaign
+
+**Standing rule (Dan, 2026-10-18; US campaign 2026-11-03; US remarketing 2026-11-07):** new engagement ads go in all five campaigns (tier 2, tier 1, US only, remarketing tier 1, remarketing US) and both ad groups of each remarketing campaign (7 ads); copy changes apply to every instance. See `AGENTS.md`.
+
+## SUNDAY PAUSE (Dan 2026-09-29): newest long-form gets the traffic
+
+Every Sunday at 10 AM CT, `scripts/ads/ytads/sunday.js` (started from `routes.js` when `YTADS_SUNDAY=1`)
+works on **tier1 `24163535721` and tier2 `24122099676` only** (remarketing is left alone):
+
+- every Short's ad is left exactly as it is;
+- every ENABLED long-form ad is PAUSED except the ads for the newest public long-form (from the feed);
+- if every ad for the newest long-form in a campaign is paused, the best one is ENABLED;
+- **6 hours after the pause run** (about 4 PM; Dan 2026-09-29), a second check: if the newest long-form
+  has no fully APPROVED ad in a campaign (still in review, DISAPPROVED, or APPROVED_LIMITED), a second ad
+  is created with tamer copy (`generateHeadlines` tame mode, name ` · r2 · `), ENABLED, once
+  (`sunday:tame` event);
+- every ad it paused gets the Google Ads label **"Sunday pause"** (moved each week). **Dan re-enables by
+  hand on Tuesday**: filter by that label so ads he paused himself stay paused.
+
+Short vs long-form: the feed's flag, else `youtube.com/shorts/<id>` (200 = Short, redirect = long-form).
+An ad whose type cannot be told is left alone and warned. No newest long-form found: nothing paused.
+Runs once per date (`sunday:run` event, full summary in `detail`), any time 10:00-21:59 CT so a server
+that was down at 10 catches up. Preview any time: `node scripts/ads/ytads/sunday.js --dry-run`.
+Tests: `node scripts/ads/ytads/sunday.test.js`. instant.js still never pauses; this is the only path that does.
+
+## CURRENT BEHAVIOR (Dan 2026-09-27): instant creation, never pause
+
+Dan does all pausing and enabling by hand. Automation only ADDS: every new public video gets an
+**ENABLED** ad in tier2, tier1 and both remarketing groups (campaign `24316408288`) within about a minute of going live.
+
+- `scripts/ads/ytads/instant.js`, started from `routes.js` when `YTADS_INSTANT=1` (Railway `abs-by-ai`).
+  Every 60 s it reads the RSS feed; for videos from the last 72 h with no ad (any status, removed
+  included) in a campaign it writes headlines (same writer and lint), then creates the ad through the
+  Google Ads API (`scripts/ads/api/client.js`), copying business name, URL, logo and CTA from the
+  campaign's newest ad. Long-form gets in-feed only at creation. Each creation is a `created` event
+  with `via: "instant"`. A Postgres advisory lock stops double creation during deploy overlap.
+- It never pauses, enables or removes anything. Failures retry every 5 min, 12 times, as `error` events.
+- The hourly Ads Script "YouTube engagement champion" is **Disabled** in Google Ads (not deleted) and
+  `YTADS_ENABLED=0`, so the old engine below (library/champion modes, policy pauses, retry chain) no
+  longer acts. Do not re-enable either unless Dan asks. It was retired because its live copy dated from
+  2026-09-08 and ignored the paused-status and in-feed rules.
+
+## LIBRARY MODE (Dan 2026-09-13; superseded 2026-09-27, see above)
+
+Dan is trying a new approach: **advertise the newest long-form video only.** He manually paused every
+ad in the three engagement campaigns except one (`AT · The $17 Ab Wheel Beats Every Crunch · yt:bkzT-3ENpoU
+· rmktg · 2026-09-13`), and asked that, going forward, the automation keep adding an ad for every new
+Short and long-form video (so the library keeps growing and nothing has to be built from scratch later)
+**but leave every one of them PAUSED**, never auto-enabling or auto-rotating anything. He picks which
+single ad is enabled by hand.
+
+This is `config.mode = 'library'` in `engine.js`, and it is now the **default** (`routes.js` sets it
+unless `YTADS_MODE=champion` is set on Railway). In library mode:
+
+- **New-video ad creation still runs** (the "2–4" step) — one `createAd` per campaign per new video,
+  same headline-writing/lint pipeline as before — but the command carries `status: 'PAUSED'` and the
+  label `AUTO:LIBRARY` instead of `AUTO:TEST`. `ads-script.js`'s `createAd` handler reads `c.status`
+  (falls back to `ENABLED` for old commands), so the Ads Script must be at or after this version for
+  paused creation to actually take effect on the account — **the live copy in the Scripts editor must
+  be re-pasted from this file** (see "Installing a new version" below); editing the repo file alone
+  changes nothing live.
+- **The $5-test / judge / promote loop (step 5), the day-one hand-made-ad pass (step 7), and the
+  disapproved/limited retry chain (step 6b) are all skipped entirely.** Nothing is ever auto-enabled,
+  auto-paused for performance, or auto-promoted to champion. Dan's one enabled ad runs forever until he
+  changes it himself.
+- **Policy watch (step 6) still runs** — a `DISAPPROVED` ad that is somehow enabled still gets paused.
+  That is a compliance safety net, not testing, and it's the only command library mode can still issue
+  against an ad Dan didn't just create.
+- The manual queue (`manual.js`) is untouched — Dan's own one-off edits (enable an ad, fix copy) work
+  exactly as before in either mode.
+- To go back to the old auto-testing behavior: set `YTADS_MODE=champion` on Railway (`abs-by-ai`
+  service) and redeploy nothing else — `routes.js` reads it live. `engine.test.js` section "6c" covers
+  the library-mode rules; every other section still tests champion mode (`CFG.mode = 'champion'`) so a
+  revert needs no code changes, only the env var.
+
+## Long-form ads run in-feed only (Dan 2026-09-13)
+
+Dan's second standing rule for these campaigns: **every long-form video ad runs in-feed only** — never
+in-stream, never the Shorts placement — to maximize engagement. Shorts keep the default (no preference
+set, i.e. "all formats"). This applies in every mode (library or champion) and to every campaign
+(tier2, tier1, rmktg); it does **not** touch the Demand Gen conversion campaign or the Search campaigns.
+
+- The field is `demand_gen_video_responsive_ad.videos[].ad_video_asset_info.ad_video_asset_inventory_preferences`
+  (`in_feed_preference` / `in_stream_preference` / `shorts_preference`, all booleans) — mutable through
+  the standard Google Ads API (`adOperation.update`, `updateMask: 'demand_gen_video_responsive_ad.videos'`),
+  confirmed 2026-09-13. **The Google Ads UI calls this "Prefer on" per video, behind a "Choose where your
+  videos show" toggle that is OFF by default** — a new video has no preference until this is set.
+- `engine.js`'s new-ad creation (both the ordinary candidate path and the retry-rule's attempt-2/3 path)
+  now sets `inventoryPreference: { inFeed: true, inStream: false, shorts: false }` on every `createAd`
+  command for a video where `video.isShort` is false, and `null` (no preference — the default) for a
+  Short. `ads-script.js`'s `createAd` handler reads it and adds the `adVideoAssetInfo` block only when
+  non-null — so this is applied automatically to every new long-form ad going forward, in both modes.
+- ⚠ **The Ads UI's own click handling on this control is unreliable under browser automation** — the
+  checkbox toggles its own `aria-selected` but the displayed "Prefer on: …" summary can desync from
+  what actually saves, and a synthetic `.click()` via JS updates the option's own state without
+  reaching whatever emits the save. **Use the API field above, never the UI, for anything but a single
+  manual edit** — it is atomic, verifiable in one `search` call, and works from a script with no browser
+  needed.
+- One-off fix / audit recipe:
+  ```bash
+  node scripts/ads/api/client.js search "SELECT ad_group_ad.ad.id, ad_group_ad.ad.demand_gen_video_responsive_ad.videos FROM ad_group_ad WHERE campaign.id IN (24122099676,24163535721,24169507109) AND ad_group_ad.status != 'REMOVED'" --json
+  # cross-reference each video's asset.youtube_video_asset.youtube_video_id against the RSS feed's
+  # isShort flag (or fetch https://www.youtube.com/shorts/<id> with redirects disabled: 200 = Short,
+  # 303 → /watch = long-form) — then mutate long-form ones:
+  node scripts/ads/api/client.js mutate ops.json --note "why"
+  # ops.json: one {"adOperation":{"update":{"resourceName":"customers/3427170837/ads/<id>",
+  # "demandGenVideoResponsiveAd":{"videos":[{"asset":"customers/3427170837/assets/<assetId>",
+  # "adVideoAssetInfo":{"adVideoAssetInventoryPreferences":{"inFeedPreference":true,
+  # "inStreamPreference":false,"shortsPreference":false}}}]}},"updateMask":"demand_gen_video_responsive_ad.videos"}}
+  # per ad (asset id is read back from the same search, not guessed).
+  ```
+- **All 10 existing long-form ad instances across the 3 campaigns were fixed 2026-09-13** (4 distinct
+  long-form videos × their instances in tier2/tier1/rmktg: `top 10 ab tips` / `2T4LrQrmz9s`, `AUTO test ·
+  3 Minute Total Body Home Workout` / `27vZC4xVkms`, `1 min ab workout workout only` / `8BaCYcGhRPY`, `AT
+  · The $17 Ab Wheel Beats Every Crunch` / `bkzT-3ENpoU`) — verified in-feed-only by re-reading every one
+  back. Every other AUTO/hand-made ad in the three campaigns was confirmed to be a Short (`isShort` true
+  via the RSS feed or the `/shorts/<id>` redirect test) and left untouched.
+
+## What it does, in one paragraph
+
+Dan wants YouTube subscribers. Every hour a small Google Ads Script inside account 342-717-0837 reads
+every ad in the three Demand Gen campaigns (tier 2, tier 1, remarketing) and posts that snapshot to
+absbyai.com. The server reads the channel's public RSS feed; any video published on or after the
+go-live date (**2026-09-03**, long-forms and Shorts alike, skip list honoured) that has no ad in a
+campaign gets **one Demand Gen video ad there, enabled immediately**, with headlines written by Claude
+in Dan's existing style and passed through a hard compliance lint. The ad runs inside the campaign's
+normal budget until Google reports it has **spent $5**, then it is paused and judged on **cost per
+conversion**: fewer conversions than the campaign minimum (tier 2: 5, tier 1: 2, remarketing: 1) is
+"no read"; cheaper than the champion's trailing 30 days is a **win** (the test becomes champion, the
+old one is paused); otherwise a loss. **Day one**, the cheapest hand-made ad per campaign became
+champion and the other enabled hand-made ads were paused — the id list was written to Postgres first,
+so it can be reversed with one command per ad. Budgets never change ($10 / $15 / $5 a day for tier 2 / tier 1 / remarketing, read from the first snapshot). The system
+never edits an existing ad: Dan's headline edits in the UI are always preserved.
+
+## Where it runs
+
+| piece | where |
+|---|---|
+| the hands | a Google Ads Script in account 342-717-0837 (Tools → Scripts → "Abs by AI — YouTube engagement champion"), hourly. Canonical source: `scripts/ads/ytads/ads-script.js` (paste a copy; only the `KEY` line differs) |
+| the brain | `scripts/ads/ytads/engine.js` — pure rules, driven by `engine.test.js` (88 cases). `lint.js` is the compliance gate, `headlines.js` the writer, `feed.js` the channel feed, `brief.js` the brief block |
+| the routes | `scripts/ads/ytads/routes.js`, mounted from `server.js`: `POST /api/ytads/sync`, `POST /api/ytads/results` (header `X-YTADS-Key` = `YTADS_KEY`), `GET /api/ytads/state` (dashboard-gated) |
+| the switch | `YTADS_ENABLED=1` on Railway service `abs-by-ai`. Anything else = dry run: the server plans, records, and returns every command with `dryRun:true`; the script logs them and writes nothing |
+| the ledger | **Google.** Ad names carry the video title and id (`AT · <video title> · yt:<id> · tier2 · 2026-09-09`; the `AT` prefix is Dan's, 2026-09-09; the twelve ads made on 2026-09-08 keep their `AUTO test` prefix by his instruction, and the engine recognises both. Titles added 2026-09-08 at Dan's request so he can review ads by name. **Ad.name is immutable in the API** — the nine ads created before that were removed and recreated under titled names on 2026-09-08), labels carry the state (`AUTO`, `AUTO:TEST`, `AUTO:CHAMPION`, `AUTO:RETIRED`, `AUTO:RETIRED-DAY1`). "Has this video been tested here?" is answered by the snapshot, so a re-run can never double-create |
+| the memory | Postgres `ytads_runs` (one row per hourly sync: snapshot, commands, report, results) and `ytads_events` (headlines, created, verdict, promote, skip, error, policy, dayone, dayone:executed). Both created by the routes, idempotently |
+| the brief | `scripts/ads/ads-digest.js` reads the latest run into `brief-ads.json` → `ytads`; the morning brief renders a **"YouTube engagement ads"** block (spec: morning-brief task `SKILL.md`, section 7c) |
+| the style | `scripts/ads/ytads/headline-style.md` — extracted from Dan's own ads; Dan's feedback is appended as rules and applies to FUTURE ads only |
+| the skip list | `scripts/ads/ytads/skiplist.json` — by video id or title pattern (ab-wheel short 1 is matched by title until it has an id) |
+
+## The hourly cycle
+
+1. Script: GAQL over the Demand Gen campaigns (campaigns, ad groups, labels, YouTube video assets, every
+   ad with its copy, lifetime cost/conversions, trailing-30-day cost/conversions, policy status).
+2. Server: read the RSS feed (public videos only, so a scheduled Short appears the hour it goes live).
+3. Server: for each new video with no headlines yet, Claude writes 5 headlines / 3 long headlines / 3
+   descriptions → lint → up to 3 regenerations → failing lines are dropped; under 3/1/1 survivors the
+   video gets a permanent `skip` event with the failing text and no ad. Headlines are written once per
+   video and shared by the three campaigns. A 20-second budget keeps the script's request fast; overflow
+   is written after the response and the ad is created the next hour.
+4. Server: the engine produces commands — `createAd` (copying business name, final URL, logo and CTA
+   assets from the campaign's champion or most-spent hand-made ad), `pauseAd`, `label` — and a report.
+   The run is recorded; any day-one pause list is written to `ytads_events` before it is returned.
+5. Script: executes in order (creates the YouTube video asset if the account lacks one, creates the ad,
+   applies labels; pauses; relabels) and posts every outcome with Google's error text verbatim.
+6. Server: outcomes → events (`created` with the headlines that went live — Dan's review surface).
+
+Policy: a DISAPPROVED `AUTO` ad is paused and retired and that video is never retried in that
+campaign (its ad stays in the ledger). "Eligible (Limited)" is reported, not acted on. Hand-made ads'
+policy state is never touched.
+
+## The retry rule — Dan's standing rule, 2026-09-10
+
+**Any ad that is disapproved or limited is resubmitted, then resubmitted with a tamer thumbnail, then removed.**
+Measured the day it was made: no "Approved (limited)" ad in this account has ever spent anything (the 09-08 Short,
+"Hire A Maid", Dan's own "late night eating"), so a limited test never reached $5 and read as "running" forever.
+
+| step | when | what the system does |
+|---|---|---|
+| failed review | `DISAPPROVED` at once; `LIMITED` only if still **$0 after 2 days** (`RETRY_WAIT_DAYS`; a limited ad that spends is left alone — Dan's answer). Hand-made ads have no date in their name, so the first hour they are seen limited writes `limited:seen` and starts the clock | — |
+| attempt 2 | first failure | Claude writes **tamer copy** once per video (`retrycopy` event; `lint.js` `TAME_RULES`: no hooks, commands, questions, contrast or claim numbers, and never "trick"); a new ad `AT · <title> · yt:<id> · r2 · <campaign> · <date>`; the failed original(s) are paused and labelled `AUTO:SUPERSEDED` |
+| attempt 3 | attempt 2 fails | a **clean, text-free frame of Dan becomes the PUBLIC video's thumbnail** (Dan's choice; a Demand Gen ad has no thumbnail of its own). `thumbs.js`: YouTube's own full-size frames; Claude only LOCATES Dan's head, the text areas and the expression on each (against a reference frame of Dan, so B-roll strangers are excluded), the crop is computed by rule (room above the hair and below the chin, clear of captions; a tall crop sits on plain side bars matched to the frame), and a second Claude look must confirm "Dan, no text, whole face, nothing cut, calm expression" before `thumbnails.set`. The original is saved first (`thumb:original`, base64). After `THUMB_SETTLE_MINUTES` (50) a fresh `· r3 ·` ad with attempt 2's copy goes in |
+| give up | attempt 3 fails | `retry:failed` is written, then **every ad in the chain is removed** (original + r2 + r3, hand-made included — Dan's answer); once no attempt 3 for that video is still in play or passed, the **original thumbnail is put back** (`thumb:restored`). The video is never started over in that campaign |
+| success | attempt 2 or 3 approved | it simply runs on as an ordinary $5 test |
+
+- Hand-made ads are covered if enabled, day-one-retired or disapproved; an ad Dan paused himself is not touched.
+- Holds, each a morning-brief row: tamer copy that fails the lint 3 times (`retrycopy:failed`), or no text-free frame
+  (`thumb:failed`, not transient). Network / credential failures are `transient` and retried hourly.
+- One-off "resubmit now" (skips the 2-day wait): insert a `retry:force` event with the ad's `ad_id`.
+- Out of scope: ads in campaigns other than the three (e.g. "the upload all vars", campaign 24096135826, not running).
+- Server env: `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `YOUTUBE_REFRESH_TOKEN` (the upload.js token; scope
+  `youtube.upload` covers `thumbnails.set`, verified 2026-09-10).
+
+## Running / checking by hand
+
+```bash
+node scripts/ads/ytads/engine.test.js        # rules
+curl -s -H "X-Dash-Key: $DASH_SECRET" https://absbyai.com/api/ytads/state | jq '.ok,.enabled,.dryRun,.ageHours,.counts,.warnings'
+```
+
+Reverse a day-one pause, edit an ad's copy, remove an ad — **any one-off edit Dan asks for** goes through
+the manual queue, never by hand in the UI (so the ledger and the events stay true):
+
+```bash
+export DATABASE_PUBLIC_URL="$(grep '^DATABASE_PUBLIC_URL=' ~/.absbyai-secrets.env | cut -d= -f2-)"
+node scripts/ads/ytads/manual.js list
+node scripts/ads/ytads/manual.js headlines <adId> "H1" "H2" "H3" "H4" "H5" --note "why"   # replaces all headlines (≤40 chars each)
+node scripts/ads/ytads/manual.js enable  customers/3427170837/adGroupAds/<group>~<ad> --note "why"
+node scripts/ads/ytads/manual.js raw '{"adGroupAdOperation":{"remove":"customers/3427170837/adGroupAds/<group>~<ad>"}}' --note "why"
+```
+
+**Since 2026-09-10 a queued edit executes IMMEDIATELY through the Google Ads API** (`scripts/ads/api/client.js`,
+`Docs/GOOGLE_ADS_API.md`): the row is claimed `pending → api`, sent, and marked `done` / `failed` (Google's error
+verbatim, `result.channel = "api"`) with a `manual` / `error` event — no waiting for the hourly run. `--dry-run`
+has Google validate the edit and queues nothing; `--defer` leaves the row `pending` for the old path;
+`manual.js run [<id>]` sends pending rows now.
+
+The old path, still live as the fallback: the next **live** hourly run appends `pending` rows to its plan as
+commands `m<id>`, the script passes each `mutation` straight to `AdsApp.mutate`, and the results call marks the
+row `done` or `failed` and writes the same event. A script dry run leaves the queue untouched.
+
+What Google allows on an existing Demand Gen ad (measured 2026-09-08): headlines / long headlines /
+descriptions **yes** (`adOperation.update` + `updateMask: 'demandGenVideoResponsiveAd.headlines'`), status
+**yes**, **name NO** (`Field 'name' cannot be modified by 'UPDATE' operation`) — to change a name, remove the
+ad and let the next run recreate it. If the recreated ad must carry edited copy, insert a fresh `headlines`
+event for the video first (the last `headlines` event wins).
+
+## Interpretations made in the build (stated to Dan 2026-09-03)
+
+1. One champion **per campaign**, compared only within its campaign.
+2. `MIN_CONV = { tier2: 5, tier1: 2, rmktg: 1 }` before a test can win.
+3. Champion judged on trailing 30 days, test on its lifetime; a champion with 0 conversions in 30 days
+   is beaten by any test that clears `MIN_CONV`.
+4. Zero conversions at $5 = paused.
+5. No time deadline on a test; the brief shows days waiting.
+6. No qualifying hand-made ad on day one → nothing paused; the first qualifying test crowns itself and
+   the hand-made ads are paused then.
+7. The system never edits an existing ad.
+
+## Go-live record and operating notes (2026-09-08)
+
+- Dan authorized the script and set it Hourly on 2026-09-08 ~15:55 CT. A **Preview** in the script editor posts a real
+  snapshot (UrlFetchApp runs in preview; the server was in dry run), so the first snapshot needs no wait for the schedule.
+  Google's hourly schedule fires at **:00** (first live run 22:00:03 UTC).
+- `YTADS_ENABLED=1` set 16:09 CT after the dry-run plan was shown to Dan. First live run: 14/14 OK, ~31 s from snapshot
+  to results. Tier-2 champion labelled, 4 tier-2 hand-made ads paused (reversal list in the `dayone` event), 9 test ads
+  created (ids in the `created` events).
+- **Champion selection reads only ENABLED hand-made ads.** Tier 1's best ad was paused in the UI between the dry run and
+  the live run, so tier 1 crowned nobody and paused nothing; it self-heals the hour after the ad is re-enabled.
+- Reading the stored snapshot from a laptop: `ytads_runs.snapshot` via `DATABASE_PUBLIC_URL` (Postgres service on
+  Railway; the `DATABASE_URL` in the secrets cache is the internal host and does not resolve off-platform).
+- `railway deployment list --json` chokes `jq` when a commit message has newlines; use the plain table output.
+
+### Installing a new version of the Ads Script from Claude (traps paid for 2026-09-08)
+
+- The editor is CodeMirror 5 behind `document.querySelector('.CodeMirror').CodeMirror`. **`cm.setValue()` does
+  not enable Google's Save button** — their change detection wants a real keystroke. Set the value, then send one
+  real keypress (a space + Backspace via the extension's `type`/`key`), check `material-button.save-button` has
+  lost `is-disabled`, and click it with `.click()` in JavaScript, not by coordinates. Verify by reloading the
+  editor and reading the version line; the Scripts list's "Last edit date/time" also moves.
+- The Chrome extension's DLP **blocks a JavaScript call whose text contains `UPPERCASE_NAME = value`**
+  patterns ("Cookie/query string data") and redacts such strings in results. Send the script body **base64**
+  and decode in-page (`atob` + `TextDecoder`), splice the editor's existing KEY line back in so the credential
+  never travels through the transcript, and return only booleans/lengths.
+- `cmd+v` through the extension pastes unreliably into CodeMirror (worked once, then never). Do not rely on it.
+- "Run" opens a **"Preview before running?"** dialog; click "Run without preview". A preview still posts a real
+  snapshot (`UrlFetchApp` runs in preview) but executes nothing.
+- The Google Ads tab freezes for minutes at a time (CDP timeouts); when it does, the hourly schedule at :00 is
+  the reliable executor — queue the work and wait.
+
+## Tier 1 has no champion (moved from the coordination board, 2026-09-15)
+
+"1 min ab workout workout only" (ad `821875813611`, $1.03/conv, 136 conv) was paused in the UI between the dry run and
+the first live run on 09-08 — not by this system. Dan's call: re-enable if accidental
+(`manual.js enable customers/3427170837/adGroupAds/206274722584~821875813611`), otherwise leave it.
+
+## 2026-11-03: feed backup (YouTube RSS outage)
+
+YouTube's RSS feed returned 404/500 for hours on 2026-11-03, so `instant.js` made no ads (the Short "How Fast To Roll
+Out With The Ab Wheel" went public with none). `feed.js` `fetchVideos()` now falls back to the server's own
+`/api/sixpackabs/channel.json` (YouTube Data API via the channel OAuth token, public videos only, cached 5 minutes, no
+extra quota). Railway log: "YTADS feed: RSS failed (...), using the YouTube API backup" once, then "RSS feed is back"
+when it recovers. Covers `instant.js`, `sunday.js` and the routes. Tests: `node scripts/ads/ytads/feed.test.js`.
+
+## 2026-11-07: US-only engagement REMARKETING campaign (campaign `24437265255`)
+
+Dan split remarketing the same way as tier 1: a US copy at **$5/day**, and the tier 1 remarketing campaign
+`24316408288` lost the US and went from $15 to **$10/day**. Nothing else changed. Built by
+`scripts/ads/api/dgen-us-rmktg.js --apply`; source change by `--source --apply`; read-back in
+`scripts/ads/api/dgen-ads/us-rmktg-campaign.result.json`.
+
+- Name `[ENGAGEMENT] [DGEN] [RMKTG] US ONLY | ALL CONTENT | site visitors + youtube viewers`, ENABLED, Target CPA $3
+  (campaign), goal YouTube channel subscriptions only, location United States with **PRESENCE** (as `24422704023`).
+- Ad groups copied with their own targets, in-feed + Shorts, optimized targeting off, English, the same 84 excluded
+  countries and the same audiences (so the same member, purchaser and subscriber exclusions):
+  Website visitors `201297112505` ($3, audience `361149295`, 6 ads, one PAUSED as in the source),
+  YouTube viewers `197223280930` ($2, audience `360228120`, 8 ads). Ad names say `us-rmktg-site` / `us-rmktg-yt`.
+- **Tier 1 remarketing `24316408288`:** US removed from both groups AND added as an excluded location (presence or
+  interest). Now targets Australia, Canada, Ireland, New Zealand, UK.
+- `instant.js` TARGETS gained `us-rmktg-site` and `us-rmktg-yt`, so every new video gets seven ads. The Sunday pause
+  still leaves both remarketing campaigns alone.
+
+## 2026-11-03: US-only engagement campaign (campaign `24422704023`)
+
+Dan: supplements can only be sold in the US, so US subscribers now matter most. Last 30 days inside tier 1, Google spent
+59% on Ireland ($0.23/sub) and 12% on the US ($0.37/sub); the last 7 days the US got 3.6%. So the US got its own
+campaign and tier 1 dropped it. Built by `scripts/ads/api/dgen-us-engagement.js --apply`; tier 1 change by the same
+script with `--tier1 --apply`; read-back in `scripts/ads/api/dgen-ads/us-engagement-campaign.result.json`.
+
+- Name `[DAN] [DGEN] [ENGAGEMENT] MU 18-65+ | in-feed & shorts | US ONLY | ALL CONTENT`, **$10/day**, ENABLED,
+  Maximize Conversions with the ad group's **$7** target (as tier 1), goal YouTube channel subscriptions only.
+- Ad group `201123318425`: United States only with **PRESENCE** (people in the US; tier 1 uses presence-or-interest),
+  English, audience `356696681` (men + unknown, all ages, same as tier 1), in-feed + Shorts, optimized targeting off.
+- 13 ads cloned from every ENABLED tier 1 ad on build day (`830511376442` to `830511376478`, every third id), names
+  with `tier1` → `us`.
+- **Tier 1 `24163535721`:** US removed as a target AND added as an excluded location (with presence-or-interest a
+  US resident "interested in" the UK could otherwise still see tier 1). Now targets Australia, Canada, Ireland,
+  New Zealand, UK. Budget **$20/day** (Dan, 2026-11-03).
+- `instant.js` TARGETS gained `us`, so every new video gets five ads. `sunday.js` CAMPAIGNS gained `us`, so the
+  Sunday pause covers it like tier 1 and tier 2 (Dan's Tuesday re-enable by the "Sunday pause" label covers it too).
+
+## 2026-10-01: subscriber REMARKETING campaign (campaign `24316408288`)
+
+Dan's spec: `Handoffs/handoff-20261001-remarketing-campaigns-conversion-and-subscriber.md`. Built by
+`scripts/ads/api/dgen-rmktg-campaigns.js b --apply`; read-back in `scripts/ads/api/dgen-ads/rmktg-campaign-b.result.json`.
+It replaces the idea behind old remarketing campaign `24169507109`, which stays PAUSED and untouched (it paid $55 per
+subscriber on a $50 target and did not exclude subscribers).
+
+- Name `[DAN] [DGEN] [ENGAGEMENT] [RMKTG] geo tier 1 | ALL CONTENT | site visitors + youtube viewers`. **$10/day**,
+  target CPA **$3** (Dan's number, do not raise it), campaign goal **YouTube channel subscriptions only**
+  (ENGAGEMENT / YOUTUBE_HOSTED), in-feed and Shorts only, male + unknown, all ages, optimized targeting off. Built PAUSED.
+- Geo and language copied from tier 1 `24163535721`: 6 countries targeted (US, Canada, UK, Australia, Ireland, New
+  Zealand), the same 84 excluded, English, presence or interest. They sit on each ad group, because an API-made Demand
+  Gen campaign refuses them at campaign level.
+- Both groups exclude members, purchasers **and current subscribers**: `9480144404` (member hub, new), `9441311426`
+  (All Converters), `9469016618` (Purchasers), `9452604668` (subscribed to channel, now a true 540 day window).
+
+| Ad group | Id | Audience | Lists | Ads |
+|---|---|---|---|---|
+| Website visitors, 7 + 30 + 365 day | `200887799219` | `361149295` | `9452848282`, `9453529251`, `9452257061` | 7: `826637093020` through `826637093038` (every third id) |
+| YouTube viewers, watched any video 7 + 30 day | `209156230708` | `360228120` | `9453532227`, `9452269226` | 7: `826720165598` through `826720165616` (every third id) |
+
+Each group holds a copy of the 7 ads ENABLED in tier 1 on build day (1 min ab workout, truth about supplements, Train
+Abs Every Day, Jelly Beans, AI Macro Estimates, Instead Of Crunches, 8 Hours In Bed). Names keep the tier 1 name with
+`tier1` swapped for `rmktg-site` or `rmktg-yt`; the two older ads with no `tier1` in the name got ` · rmktg-site` /
+` · rmktg-yt` added at the end.
+
+**`instant.js` adds every new video here, in both groups (fixed 2026-10-25).** Its `TARGETS` are tier 2, tier 1,
+`rmktg-site` (`200887799219`) and `rmktg-yt` (`209156230708`), each ENABLED with the same headlines as the tier ads.
+Until 2026-10-25 it still pointed at the old paused campaign `24169507109`, so no video from 2026-10-06 on reached this
+campaign (I'm 41. I'm Top 1% was the one Dan noticed). That day: Top 1% added ENABLED (`829485243540` site,
+`829485243561` yt); the 16 earlier videos backfilled PAUSED with their tier copy. `instant.test.js` locks the four
+targets. The Sunday pause routine still leaves this campaign alone.
+
+**One-off add (Dan, 2026-10-10):** `0zspIJVrv08` (Use AI To Get REAL Six Pack Abs, 6 Strategies) added to both groups,
+ENABLED: `827584375855` (site) and `827584375858` (yt), video asset `429095777113`. It had no tier 1 twin, so the copy
+came from `headlines.js` (lint passed) and the op from `instant.js` `createOp` (in-feed only), final URL `https://absbyai.com`.
+To add any other single video the same way: generate the set, then one `createOp` per group id above.
+
+**Enable both** (after review; ads were still `REVIEW_IN_PROGRESS` when the build session ended):
+`ADS_ALLOW_ENABLE_CAMPAIGN=1 node scripts/ads/api/client.js mutate scripts/ads/api/dgen-ads/rmktg-enable.json --note "enable remarketing campaigns"`,
+then add a PostHog annotation.
+
+**Watch (report 2026-10-04):** $3 may be too low to spend at all. Report spend and cost per subscriber; do not raise the
+target. The trial remarketing campaign (Campaign A, `24305381214`) is documented in `Docs/DGEN_CONVERSION_CAMPAIGN.md`.

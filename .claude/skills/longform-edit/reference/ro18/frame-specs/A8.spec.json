@@ -1,0 +1,63 @@
+{
+ "shot": "RO-18 A8 Essays by hand",
+ "start_frame": "A8-start.png",
+ "intent": "A dorm room late at night. START: a heavyset student in a hoodie writes an essay by hand on a yellow legal pad, exhausted, under a desk lamp; stacks of textbooks, crumpled paper, an open chip bag and an energy drink can around him. END: he has put the SAME pen down on the legal pad and raises his writing hand, fingers spread, shaking out a cramp, wincing. Everything else stays put.",
+ "hands": {
+  "right": "writes with the pen in START; raised and spread (pen set down on the pad) in END",
+  "left": "rests on the desk in both frames"
+ },
+ "may_change": {
+  "the_student": [
+   380,
+   30,
+   1360,
+   800
+  ],
+  "pen_on_pad": [
+   500,
+   640,
+   980,
+   850
+  ]
+ },
+ "still": {
+  "lamp": [
+   60,
+   120,
+   340,
+   330
+  ],
+  "books_left": [
+   0,
+   330,
+   300,
+   760
+  ],
+  "books_right": [
+   1320,
+   340,
+   1672,
+   941
+  ],
+  "can": [
+   330,
+   520,
+   450,
+   760
+  ],
+  "chips": [
+   1080,
+   580,
+   1310,
+   790
+  ],
+  "poster": [
+   600,
+   0,
+   860,
+   130
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame or the body changes pose completely); people are declared may_change boxes and the reviewer judges bodies"
+}

@@ -1,0 +1,43 @@
+{
+ "B": {
+  "median": 4.5,
+  "sd": 118.3,
+  "n": 90,
+  "weighted_shot_offset": 5.2,
+  "worst_shot": [
+   "B-p0-s02",
+   9.0
+  ],
+  "shots": {
+   "B-p0-s00": 3.4,
+   "B-p0-s01": 4.5,
+   "B-p0-s02": 9.0
+  },
+  "frames_over70": 38,
+  "frames_over110": 30,
+  "none": 0,
+  "clip_left_px": 691.0,
+  "clip_right_px": 704.0,
+  "ok": true
+ },
+ "G": {
+  "median": -3.4,
+  "sd": 79.7,
+  "n": 120,
+  "weighted_shot_offset": 10.6,
+  "worst_shot": [
+   "G-p0-s00",
+   21.4
+  ],
+  "shots": {
+   "G-p0-s00": 21.4,
+   "G-p1-s00": -5.6
+  },
+  "frames_over70": 37,
+  "frames_over110": 22,
+  "none": 0,
+  "clip_left_px": 701.0,
+  "clip_right_px": 779.0,
+  "ok": true
+ }
+}

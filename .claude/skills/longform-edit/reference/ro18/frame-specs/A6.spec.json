@@ -1,0 +1,99 @@
+{
+ "shot": "RO-18 A6 Robot mower, kettlebell on the patio",
+ "start_frame": "A6-start.png",
+ "intent": "A sunny suburban backyard. START: a white robot lawn mower drives across the lawn in the mid-ground; a fit man on the stone patio is at the bottom of a kettlebell swing, the bell between his knees. END: the SAME mower has driven further to the right along its stripe; the man is at the top of the swing, arms straight out, the SAME kettlebell at chest height. Fence, trees, lawn and patio do not move.",
+ "hands": {
+  "right": "on the kettlebell handle in both frames",
+  "left": "on the kettlebell handle in both frames"
+ },
+ "rigid": [
+  {
+   "name": "mower",
+   "what": "the robot mower body moves along its stripe as one piece",
+   "parts": {
+    "mower_front": [
+     1180,
+     505,
+     1265,
+     560
+    ],
+    "mower_wheel": [
+     1090,
+     515,
+     1135,
+     565
+    ],
+    "mower_top": [
+     1110,
+     490,
+     1200,
+     520
+    ]
+   },
+   "guide": [
+    1080,
+    535,
+    1670,
+    535
+   ],
+   "move_px": [
+    60,
+    520
+   ],
+   "extent": [
+    1080,
+    485,
+    1290,
+    575
+   ]
+  }
+ ],
+ "may_change": {
+  "the_man": [
+   580,
+   0,
+   1020,
+   900
+  ],
+  "mower_path": [
+   1080,
+   470,
+   1672,
+   600
+  ]
+ },
+ "still": {
+  "fence_left": [
+   100,
+   230,
+   450,
+   320
+  ],
+  "tree_left": [
+   0,
+   0,
+   120,
+   420
+  ],
+  "planter": [
+   110,
+   560,
+   270,
+   800
+  ],
+  "patio_chair": [
+   0,
+   600,
+   110,
+   941
+  ],
+  "house_roof": [
+   1450,
+   60,
+   1672,
+   160
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame or the body changes pose completely); people are declared may_change boxes and the reviewer judges bodies. The man stands up at the top of the swing, so his box runs to the top of the frame"
+}

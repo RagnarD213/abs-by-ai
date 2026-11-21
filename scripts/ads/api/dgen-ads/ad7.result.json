@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-15T23:30:39.944Z",
+ "results": [
+  "customers/3427170837/assets/421486048157",
+  "customers/3427170837/audiences/358684278",
+  "customers/3427170837/adGroups/200289025116",
+  "customers/3427170837/adGroupCriteria/200289025116~2840",
+  "customers/3427170837/adGroupCriteria/200289025116~2124",
+  "customers/3427170837/adGroupCriteria/200289025116~1000",
+  "customers/3427170837/adGroupCriteria/200289025116~2528857830924",
+  "customers/3427170837/adGroupAds/200289025116~824919205805",
+  "customers/3427170837/adGroups/203111703551",
+  "customers/3427170837/adGroupCriteria/203111703551~2840",
+  "customers/3427170837/adGroupCriteria/203111703551~2124",
+  "customers/3427170837/adGroupCriteria/203111703551~1000",
+  "customers/3427170837/adGroupCriteria/203111703551~2499821883106",
+  "customers/3427170837/adGroupAds/203111703551~824919205814"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200289025116",
+    "id": "200289025116",
+    "name": "Ad 7 Photoshop To AI | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200289025116~824919205805",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824919205805",
+     "id": "824919205805",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad7&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 7 Photoshop To AI | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/203111703551",
+    "id": "203111703551",
+    "name": "Ad 7 Photoshop To AI | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/203111703551~824919205814",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824919205814",
+     "id": "824919205814",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad7&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 7 Photoshop To AI | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

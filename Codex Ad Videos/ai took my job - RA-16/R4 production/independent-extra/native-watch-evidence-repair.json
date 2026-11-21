@@ -1,0 +1,62 @@
+[
+  {
+    "aspect": "9x16",
+    "image": "strip_010_00-42.66_G03_in___graphic_regions_in.jpg",
+    "old_image_sha256": "10baf912c94a5f7d0ce0e5192435891caaf3be821c271dcf7e0503c19e93f49e",
+    "sha256": "a4ef564a1150b889ff074bbc61fb6497c7af98ffd0449e44b90a121fffd8254e",
+    "video_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+    "method": "Full sequential decode with trim by native frame index1277..1281. Replaced G03 strip/pair after native sequential evidence contradicted the seek-based grab near caption repair. Original tool image retained in independent-extra.",
+    "frames": [
+      1277,
+      1278,
+      1279,
+      1280,
+      1281
+    ]
+  },
+  {
+    "aspect": "9x16",
+    "image": "pair_010_00-42.66.jpg",
+    "old_image_sha256": "6d477bc31fa966a7fc5a14c2b5b914cd09a32523718485985370b844333b272f",
+    "sha256": "2624c73a6c4aeab257ec3fb9c243b5dc90924c51dbc33e06f5d82cbb06a20271",
+    "video_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+    "method": "Full sequential decode with trim by native frame index1277..1281. Replaced G03 strip/pair after native sequential evidence contradicted the seek-based grab near caption repair. Original tool image retained in independent-extra.",
+    "frames": [
+      1277,
+      1278,
+      1279,
+      1280,
+      1281
+    ]
+  },
+  {
+    "aspect": "16x9",
+    "image": "strip_010_00-42.66_G03_in___graphic_regions_in.jpg",
+    "old_image_sha256": "e10bf452190c44aea627754611514d1a33cb21f1e6fcc8c3c58c1b6269bfc225",
+    "sha256": "59a32bd8fbad4462e4db60edfaf569649b75fba00ac88f56b101a4696487e341",
+    "video_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+    "method": "Full sequential decode with trim by native frame index1277..1281. Replaced G03 strip/pair after native sequential evidence contradicted the seek-based grab near caption repair. Original tool image retained in independent-extra.",
+    "frames": [
+      1277,
+      1278,
+      1279,
+      1280,
+      1281
+    ]
+  },
+  {
+    "aspect": "16x9",
+    "image": "pair_010_00-42.66.jpg",
+    "old_image_sha256": "567fa528355f0a1f09a39b1c5dcfef60f9dea69f6d1bd2617dd4bc89306fbd9c",
+    "sha256": "11f65df58447b635a2ead9ff65145e6a1b358c60355cce6c0776a5973b019df1",
+    "video_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+    "method": "Full sequential decode with trim by native frame index1277..1281. Replaced G03 strip/pair after native sequential evidence contradicted the seek-based grab near caption repair. Original tool image retained in independent-extra.",
+    "frames": [
+      1277,
+      1278,
+      1279,
+      1280,
+      1281
+    ]
+  }
+]

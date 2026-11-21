@@ -1,0 +1,171 @@
+{
+ "version": 1,
+ "gate_version": "2.0.0",
+ "file": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/review/media/sample.mp4",
+ "sha256": "874c8363a832bb20a57453a74d6b5da808886524b6013d12a06ea8f1b2eddceb",
+ "size": 12863236,
+ "gated_at": "2026-10-19 17:11:45",
+ "reference": {
+  "name": "this picture got me abs | muhammad | 16x9.mp4",
+  "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+ },
+ "synthetic": false,
+ "profile": null,
+ "window": [
+  0.2002,
+  8.01
+ ],
+ "limits": {
+  "corr": 0.97,
+  "comb_margin": 0.35,
+  "edt": 80.0,
+  "tone_mean": 1.2,
+  "tone_max": 2.5,
+  "floor": 3.0,
+  "dry": 1.5,
+  "artifact_x": 1.1,
+  "harm_x": 1.35,
+  "lufs": -14.0,
+  "lufs_tol": 1.0,
+  "spread": 3.0,
+  "tp": -1.0,
+  "silent": 0,
+  "length": 0.1,
+  "vb_med": 0.1,
+  "vb_sec": 0.5,
+  "vb_image": 0.01,
+  "vb_lufs": 0.3,
+  "vb_lra": 0.3
+ },
+ "rows": [
+  {
+   "key": "lr_corr",
+   "ok": true,
+   "text": "one voice: L/R correlation +1.0000 (>= +0.97)",
+   "value": 1.0
+  },
+  {
+   "key": "comb",
+   "ok": false,
+   "text": "no comb: spectral ripple 1.03 dB vs his 0.54 (<= his + 0.35)",
+   "value": 1.034
+  },
+  {
+   "key": "edt",
+   "ok": true,
+   "text": "dry room: early decay 45 ms (<= 80; his 40)",
+   "value": 45.3
+  },
+  {
+   "key": "tone",
+   "ok": false,
+   "text": "tone: mean |err| 4.08 dB (<= 1.2), max 8.28 (<= 2.5)",
+   "value": {
+    "mean": 4.076,
+    "max": 8.284,
+    "bands": [
+     13.69,
+     14.0,
+     11.12,
+     6.68,
+     5.8,
+     -1.75,
+     -3.62,
+     -9.35,
+     -16.51,
+     -20.08
+    ]
+   }
+  },
+  {
+   "key": "floor",
+   "ok": true,
+   "text": "clean between words: voice-over-floor [29.3, 33.5, 25.6] vs his [27.6, 34.7, 28.0] (diff [1.7, -1.2, -2.3], >= -3.0)",
+   "value": [
+    29.29,
+    33.5,
+    25.63
+   ]
+  },
+  {
+   "key": "artifacts",
+   "ok": true,
+   "text": "no processing damage: flux 0.089 (his 0.072; the untreated recording reads 0.090, so processing added none of it), HF swirl 0.902 (his 0.835); each <= his x1.1 unless the untreated recording already carried it",
+   "value": {
+    "flux": 0.0889,
+    "sfm": 0.2736,
+    "swirl": 0.9016,
+    "gap": 32.4066,
+    "carried": {
+     "flux": 0.0897
+    }
+   }
+  },
+  {
+   "key": "do_no_harm",
+   "ok": true,
+   "text": "no worse than untreated: flux 0.089 vs untreated 0.090 (x0.99), swirl 0.902 vs untreated 0.905 (x1.00), both <= x1.35 (untreated EDT 68.0 ms)   [reported, not gated: gap x1.06, sfm x0.92]",
+   "value": {
+    "ratios": {
+     "flux": 0.991,
+     "sfm": 0.918,
+     "swirl": 0.997,
+     "gap": 1.063
+    },
+    "untreated": {
+     "flux": 0.0897,
+     "sfm": 0.298,
+     "swirl": 0.9046,
+     "gap": 30.4797
+    }
+   }
+  },
+  {
+   "key": "dryness",
+   "ok": false,
+   "text": "words stop cleanly: drop 5.4 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+   "value": 5.39
+  },
+  {
+   "key": "lufs",
+   "ok": true,
+   "text": "loudness: -14.10 LUFS (-14.0 +/-1.0)",
+   "value": -14.1
+  },
+  {
+   "key": "spread",
+   "ok": false,
+   "text": "not crushed: speech spread p90-p10 4.9 dB vs his 8.2 (>= his - 3.0); LRA 1.9 LU (his 3.5)",
+   "value": {
+    "spread": 4.91,
+    "lra": 1.9
+   }
+  },
+  {
+   "key": "tp",
+   "ok": true,
+   "text": "no clipping: true peak -2.40 dBTP (<= -1.0)",
+   "value": -2.4
+  },
+  {
+   "key": "silence",
+   "ok": true,
+   "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+   "value": {
+    "dead": 0,
+    "quiet": 0
+   }
+  },
+  {
+   "key": "length",
+   "ok": true,
+   "text": "audio 10.010 s vs picture 10.010 s (within 0.1 s)",
+   "value": {
+    "audio": 10.01,
+    "video": 10.01
+   }
+  }
+ ],
+ "verdict": "FAIL",
+ "ab": null
+}

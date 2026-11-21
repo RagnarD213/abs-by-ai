@@ -1,0 +1,84 @@
+{
+  "shot": "D01 stacked sardines versus chips and crackers",
+  "camera": "locked",
+  "intent": "Two stacked panels, same Dan identity. Both lean top Dan and heavier bottom Dan are shirtless in START and END, with same physiques. START top lean ripped Dan holds sardine tin in left hand and fork with sardine piece near mouth in right. END he leans his head down and forward toward the SAME stationary fork and takes a bite. Both arms, elbows, hands, fork and tin positions remain fixed. START bottom fat Dan holds chip below mouth in right hand, left on table. END he leans head down and forward toward stationary chip and takes a bite. Both arms, elbows, hands, chip, chip bowl, cracker plate and remaining food stay fixed. Only head, neck and mouth move, small natural seated lean. No camera movement or body-size change. Duration2.30sec, no speech.",
+  "hands": {
+    "top_right": "holds fork absolutely unchanged in both frames",
+    "top_left": "holds tin absolutely unchanged in both frames",
+    "bottom_right": "holds chip absolutely unchanged in both frames",
+    "bottom_left": "rests on table unchanged"
+  },
+  "may_change": {
+    "top_head_and_neck": [
+      365,
+      25,
+      660,
+      375
+    ],
+    "bottom_head_and_neck": [
+      360,
+      765,
+      675,
+      1100
+    ]
+  },
+  "still": {
+    "top_tin_corner": [
+      555,
+      458,
+      610,
+      485
+    ],
+    "top_window_frame": [
+      920,
+      45,
+      945,
+      130
+    ],
+    "bottom_chip_bowl_rim": [
+      360,
+      1260,
+      430,
+      1290
+    ],
+    "cracker_plate_corner": [
+      660,
+      1345,
+      710,
+      1365
+    ],
+    "bottom_left_hand": [
+      765,
+      1280,
+      815,
+      1315
+    ],
+    "top_fork_hand": [
+      300,
+      270,
+      355,
+      330
+    ],
+    "top_elbow": [
+      215,
+      490,
+      260,
+      535
+    ],
+    "bottom_chip_hand": [
+      355,
+      1040,
+      405,
+      1080
+    ],
+    "bottom_elbow": [
+      220,
+      1230,
+      270,
+      1280
+    ]
+  },
+  "static": true,
+  "measurement_notes": "Two seated people, legs off screen. Reviewer measures both visible upper-arm/forearm lengths and finger counts manually; full-body pose detector cannot certify stacked layout. Tin remains stable, no food piles vanish; only a piece bitten at mouth may change.",
+  "annotation_correction": "R4 spec written before END: shirtless R4 START is authority for fixed arms, hands, torso, food and background. Only heads, necks and mouths move forward/down to bite."
+}

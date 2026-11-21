@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next Shoot: New Clips To Select</title>
+<style>
+  :root { --bg:#f4f6f9; --card:#fff; --ink:#14181f; --mute:#5b6676; --line:#dfe4ec; --blue:#1f5fd0; --blue-soft:#e8f0fe;
+          --green:#157a3c; --green-soft:#e3f5ea; --red:#b42318; --red-soft:#fdeceb; --amber:#8a5a00; --amber-soft:#fff4d6; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#0f1318; --card:#181e26; --ink:#eef2f7; --mute:#9aa6b6; --line:#2a3340; --blue:#7fb0ff; --blue-soft:#1a2a45;
+            --green:#6fd79a; --green-soft:#14301f; --red:#ff8f85; --red-soft:#3a1a18; --amber:#ffd27a; --amber-soft:#3a2d10; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  .wrap { max-width:1280px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:30px; line-height:1.15; margin:0 0 6px; letter-spacing:-0.02em; }
+  h2 { font-size:23px; margin:44px 0 4px; letter-spacing:-0.01em; }
+  .sub { color:var(--mute); margin:0 0 18px; }
+  .panel { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px 20px; }
+  .panel h3 { margin:0 0 8px; font-size:17px; }
+  .panel ul { margin:0; padding-left:20px; }
+  .panel li { margin:5px 0; }
+  .grid { display:grid; grid-template-columns:1fr; gap:16px; margin-top:16px; }
+  @media (min-width:980px) { .grid { grid-template-columns:1fr 1fr; } }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; }
+  .card.killed { opacity:.42; }
+  .card.picked { border-color:var(--green); box-shadow:0 0 0 2px var(--green) inset; }
+  .card .body { padding:14px 16px 16px; }
+  .num { font-size:12px; font-weight:700; color:var(--mute); letter-spacing:.08em; text-transform:uppercase; }
+  .title { font-size:19px; font-weight:750; line-height:1.25; margin:3px 0 8px; }
+  .tag { display:inline-block; font-size:11.5px; font-weight:700; padding:2px 8px; border-radius:999px; margin-right:6px; letter-spacing:.03em; }
+  .tag.right { background:var(--green-soft); color:var(--green); }
+  .tag.wrong { background:var(--red-soft); color:var(--red); }
+  .tag.plain { background:var(--blue-soft); color:var(--blue); }
+  .tag.check { background:var(--amber-soft); color:var(--amber); }
+  .player { position:relative; aspect-ratio:16/9; background:#000; cursor:pointer; }
+  .player img, .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; object-fit:cover; }
+  .player .play { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; }
+  .player .play span { background:rgba(0,0,0,.72); color:#fff; font-weight:700; padding:10px 16px; border-radius:999px; font-size:15px; }
+  .clipline { font-size:13.5px; color:var(--mute); margin:0 0 10px; }
+  .clipline a { color:var(--blue); font-weight:600; }
+  .lbl { font-size:11.5px; font-weight:700; color:var(--mute); letter-spacing:.07em; text-transform:uppercase; margin:12px 0 2px; }
+  .card p { margin:0 0 4px; }
+  .card ul { margin:2px 0 0; padding-left:19px; }
+  .card li { margin:3px 0; }
+  .quote { font-size:13.5px; color:var(--mute); font-style:italic; }
+  .note { font-size:13.5px; background:var(--amber-soft); color:var(--amber); border-radius:8px; padding:7px 10px; margin-top:10px; }
+  .broll { font-size:13.5px; background:var(--blue-soft); color:var(--ink); border-radius:8px; padding:7px 10px; margin-top:10px; }
+  .row { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  button { font:inherit; font-size:14px; font-weight:650; border-radius:9px; border:1px solid var(--line); background:var(--card); color:var(--ink); padding:7px 12px; cursor:pointer; }
+  button.on.keep { background:var(--green-soft); color:var(--green); border-color:var(--green); }
+  button.on.kill { background:var(--red-soft); color:var(--red); border-color:var(--red); }
+  button.sel { border-color:var(--green); color:var(--green); }
+  button.on.sel { background:var(--green); color:#fff; border-color:var(--green); }
+  button.primary { background:var(--blue); color:#fff; border-color:var(--blue); }
+  textarea { width:100%; min-height:190px; font:14px/1.45 ui-monospace, Menlo, monospace; border-radius:10px; border:1px solid var(--line); background:var(--bg); color:var(--ink); padding:12px; margin-top:8px; }
+  .card.locked { border-color:var(--green); }
+  .tag.lock { background:var(--green-soft); color:var(--green); }
+  .jump { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 0; }
+  .jump a { color:var(--blue); font-weight:650; text-decoration:none; }
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap"></div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+// Built by .claude/skills/reaction-clips/reference/page.py. Edit the JSON and rebuild; do not edit this file by hand.
+const DATA = {"title": "Next Shoot: New Clips To Select", "sub": "Clips found for the Next Shoot Outlines, 2026-11-12. Select the ones you want; anything you don't select is out.", "port": 11841, "decisions": ["<b>B06 smaller plates:<\/b> no celebrity on video says it; the Profit First author is the real source.", "<b>D15:<\/b> no Clavicular clip saying one rep in the tank was found; Doucette's stand-in is here.", "<b>The nine C reaction clips<\/b> are already chosen and are not on this page."], "sections": [{"id": "b06", "heading": "B06 Smaller Plates (reaction Short)", "sub": "No big celebrity on video says it. This is the real source of the line you remember: the Profit First author.", "label": "Reaction Short", "pick": true, "reply_label": "B06", "items": [{"t": "Profit First Author Says Get Smaller Plates. He's Right.", "v": "right", "id": "-8O2Rw8moHs", "segs": [[358, 372]], "src": "TEDx Talks, Mike Michalowicz, \"Profit first is better for entrepreneurs than G.A.A.P.\"", "views": "79K views", "words": "Starts on \"he said what we need to do for health is get smaller plates\". Ends on \"with his wooden teeth\".", "what": "Mike Michalowicz, author of Profit First, repeats what a fitness expert told him: smaller plates. He uses it as the analogy for his money system.", "pts": ["Lesson: buy smaller plates; the same portion looks like a meal."], "note": "Not a household name. Alternate if you want a celebrity: Wendy Williams, Entertainment Tonight KyiVs3iS-P0 (not yet checked)."}]}, {"id": "d15", "heading": "D15 Should You Train to Failure?", "sub": "Cutler confirmed. No clip of Clavicular saying to leave one rep in the tank was found; the closest is below.", "label": "Long reaction", "pick": true, "reply_label": "D15", "items": [{"t": "Jay Cutler Never Trained To Failure", "v": "plain", "id": "VW9hnJL9UZE", "segs": [[0, 7]], "src": "Renaissance Periodization, \"Jay Cutler Never Trained to Failure\"", "views": "680K views", "words": "Starts on \"Jay Cutler was on a podcast\". Ends on \"I never trained to failure ever in my career\".", "what": "Dr. Mike sets it up, then Cutler's own line.", "pts": ["Lesson: failure depends on who you are; Cutler's failure is real failure."]}, {"t": "Greg Doucette Mocks Clavicular's Training", "v": "plain", "id": "YN_NYiW0a6E", "segs": [[556, 566]], "src": "Greg Doucette, \"Juicing My Pants Reviewing Clavicular's Workout\"", "views": "317K views", "words": "Starts on \"Bro goes to the gym, does sets of four, maybe five reps\". Ends on \"only trains once a month\".", "what": "Doucette's words about Clavicular, not Clavicular's own. Stand-in until a real Clavicular clip is found.", "pts": ["Lesson: most guys who think they hit failure have five reps left."], "note": "Not Clavicular speaking. Tell me if you know where he said it."}]}, {"id": "d04", "heading": "D04 Worst Gym Mistakes", "sub": "Silent fail clips. Each card: the fail, then the machine that makes it impossible.", "label": "Long reaction", "pick": true, "reply_label": "D04", "items": [{"t": "Fail 1: Squat stuck at the bottom, he ends face down under the bar", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[587, 593]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Squat stuck at the bottom, he ends face down under the bar.", "pts": ["Lesson: leg press: the sled stops, nothing lands on you"]}, {"t": "Fail 2: Loaded bar off the floor drags him over backward", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[307, 314]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Loaded bar off the floor drags him over backward.", "pts": ["Lesson: leg press and hamstring curl"]}, {"t": "Fail 3: Bench with no collars: plate slides, bar tips, he's pinned", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[348, 355]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Bench with no collars: plate slides, bar tips, he's pinned.", "pts": ["Lesson: chest press machine"]}, {"t": "Fail 4: Bench bar tilts and the plates slide", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[382, 387]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Bench bar tilts and the plates slide.", "pts": ["Lesson: chest press machine or chest flies"]}, {"t": "Fail 5: Deadlift with hips too low, then he collapses", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[356, 363]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Deadlift with hips too low, then he collapses.", "pts": ["Lesson: hamstring curl, glute bridge machine, T-bar row"]}, {"t": "Fail 6: Snatch: bar crashes down behind him", "v": "wrong", "id": "JxgwVez4DuM", "segs": [[172, 181]], "src": "FailArmy", "views": "3M views", "words": "No speech: check by eye.", "what": "Snatch: bar crashes down behind him.", "pts": ["Lesson: lat pulldown and side laterals"]}, {"t": "Fail 7: Red onesie squat collapse, plates spill", "v": "wrong", "id": "LRr17X-hlwA", "segs": [[60, 72]], "src": "FailArmy 2.0", "views": "502K views", "words": "No speech: check by eye.", "what": "Red onesie squat collapse, plates spill.", "pts": ["Lesson: leg press and glute bridge machine"]}, {"t": "Fail 8: Heavy squat bailed in the rack", "v": "wrong", "id": "LRr17X-hlwA", "segs": [[1023, 1035]], "src": "FailArmy 2.0", "views": "502K views", "words": "No speech: check by eye.", "what": "Heavy squat bailed in the rack.", "pts": ["Lesson: leg press"]}, {"t": "Fail 9: Loaded bar crashes down and bounces", "v": "wrong", "id": "LRr17X-hlwA", "segs": [[275, 287]], "src": "FailArmy 2.0", "views": "502K views", "words": "No speech: check by eye.", "what": "Loaded bar crashes down and bounces.", "pts": ["Lesson: leg press and hamstring curl"]}]}, {"id": "d05", "heading": "D05 Arguments Against Zepbound", "sub": "Each card is one objection. Note: three Jillian Michaels clips; you passed on her once as boring.", "label": "Long reaction", "pick": true, "reply_label": "D05", "items": [{"t": "Objection 1: Muscle loss: 40% of the weight lost is lean mass.", "v": "wrong", "id": "ZwJJuy_IQYU", "segs": [[180, 196]], "src": "Bikman, Diary Of A CEO Clips", "views": "864K views", "words": "Starts on \"for every six pounds of fat a person was losing\". Ends on \"including muscle and bone\".", "what": "Muscle loss: 40% of the weight lost is lean mass.", "pts": ["Lesson: half true; lift every day and eat protein first."]}, {"t": "Objection 2: You'll gain it all back.", "v": "wrong", "id": "nlC7rDjnfnw", "segs": [[132, 151]], "src": "Jillian Michaels, Club Random", "views": "134K views", "words": "Starts on \"you can't get off of it ever\". Ends on \"yo-yo dieting on crack\".", "what": "You'll gain it all back.", "pts": ["Lesson: true if you quit cold; stay on a low dose."]}, {"t": "Objection 3: Fix your diet instead, plus side effects.", "v": "wrong", "id": "zpyibQvpjcw", "segs": [[68, 89]], "src": "Jillian Michaels, NewsNation", "views": "75K views", "words": "Starts on \"You can lose weight by eating less\". Ends on \"vision problems\".", "what": "Fix your diet instead, plus side effects.", "pts": ["Lesson: I fixed my diet and still sat at 190 for a year."]}, {"t": "Objection 4: It stops working.", "v": "wrong", "id": "nlC7rDjnfnw", "segs": [[80, 93]], "src": "Jillian Michaels, Club Random", "views": "134K views", "words": "Starts on \"now we're 18 months into it and you will plateau\". Ends on \"let me Google that for you\".", "what": "It stops working.", "pts": ["Lesson: it's a dial: raise the dose a step and eat a little less."]}, {"t": "Objection 5: It makes you want to do everything less.", "v": "wrong", "id": "qX9nQ40mSMY", "segs": [[41, 57]], "src": "RFK Jr.", "views": "62K views", "words": "Starts on \"the EU is right now investigating\". Ends on \"makes you want to do everything less\".", "what": "It makes you want to do everything less.", "pts": ["Lesson: true, and that's the point: less alcohol, less sugar."]}, {"t": "Objection 6: Cost.", "v": "wrong", "id": "qX9nQ40mSMY", "segs": [[59, 80]], "src": "RFK Jr.", "views": "62K views", "words": "Starts on \"we're spending $1600 a month on this drug\". Ends on \"$3 trillion a year\".", "what": "Cost.", "pts": ["Lesson: price it the way you buy it."]}, {"t": "Objection 7: It's a lifelong drug.", "v": "wrong", "id": "zpyibQvpjcw", "segs": [[843, 861]], "src": "Calley Means, NewsNation", "views": "75K views", "words": "Starts on \"this is on the box, a lifetime drug\". Ends on \"lifetime recurring annuity\".", "what": "It's a lifelong drug.", "pts": ["Lesson: true, and fine: a low dose for life."]}, {"t": "Objection 8: You'll stop wanting to exercise.", "v": "wrong", "id": "ZwJJuy_IQYU", "segs": [[473, 489]], "src": "Bikman, Diary Of A CEO Clips", "views": "864K views", "words": "Starts on \"you also are not interested as much in exercise\". Ends on \"drinking with the boys\".", "what": "You'll stop wanting to exercise.", "pts": ["Lesson: wrong for me: seven days a week."]}, {"t": "Objection 9: Eat better instead of taking a drug.", "v": "wrong", "id": "qX9nQ40mSMY", "segs": [[111, 126]], "src": "RFK Jr.", "views": "62K views", "words": "Starts on \"in Denmark they do not recommend it\". Ends on \"so addicted to drugs\".", "what": "Eat better instead of taking a drug.", "pts": ["Lesson: the drug is what made eating better stick."]}, {"t": "Objection 10: It's cheating.", "v": "wrong", "id": "zpyibQvpjcw", "segs": [[359, 380]], "src": "Jillian Michaels, NewsNation", "views": "75K views", "words": "Starts on \"we can facilitate 15% weight loss\". Ends on \"diarrhea, constipation\".", "what": "It's cheating.", "pts": ["Lesson: a tool is not cheating."]}]}, {"id": "d07", "heading": "D07 Hormozi's Fitness Rules", "sub": "One rule per card.", "label": "Long reaction", "pick": true, "reply_label": "D07", "items": [{"t": "Rule 1: If you can't do it for a decade, don't do it for a day.", "v": "right", "id": "jYY4FDzf4p0", "segs": [[52, 64]], "src": "MoreMozi", "views": "19K views", "words": "Starts on \"there's a few things that matter\". Ends on \"don't do it for a day\".", "what": "If you can't do it for a decade, don't do it for a day.", "pts": ["Lesson: pick habits you can keep for ten years."]}, {"t": "Rule 2: One gram of protein per pound.", "v": "wrong", "id": "fxyhIXZ6Yog", "segs": [[82, 94]], "src": "Alex Hormozi", "views": "738K views", "words": "Starts on \"here's step three, you multiply your weight\". Ends on \"means 200 grams of protein\".", "what": "One gram of protein per pound.", "pts": ["Lesson: about 0.6 grams per pound is enough."], "noembed": true}, {"t": "Rule 3: Cutting calories = body weight x 10.", "v": "plain", "id": "fxyhIXZ6Yog", "segs": [[58, 72]], "src": "Alex Hormozi", "views": "738K views", "words": "Starts on \"let's say I'm a 200 lb guy\". Ends on \"2,000 calories\".", "what": "Cutting calories = body weight x 10.", "pts": ["Lesson: your verdict."], "noembed": true}, {"t": "Rule 4: Hit protein first, the rest is free.", "v": "plain", "id": "fxyhIXZ6Yog", "segs": [[149, 167]], "src": "Alex Hormozi", "views": "738K views", "words": "Starts on \"here's the magic of how this works\". Ends on \"that's 880 calories\".", "what": "Hit protein first, the rest is free.", "pts": ["Lesson: eat the protein first at every meal."], "noembed": true}, {"t": "Rule 5: Same breakfast and lunch every day.", "v": "right", "id": "fxyhIXZ6Yog", "segs": [[200, 213]], "src": "Alex Hormozi", "views": "738K views", "words": "Starts on \"I eat the same breakfast and lunch every day\". Ends on \"grab a Quest Bar at the airport\".", "what": "Same breakfast and lunch every day.", "pts": ["Lesson: decide your meals before you're hungry."], "noembed": true}, {"t": "Rule 6: Track what you eat.", "v": "right", "id": "jYY4FDzf4p0", "segs": [[268, 278]], "src": "MoreMozi", "views": "19K views", "words": "Starts on \"if you don't track what you eat\". Ends on \"you don't even have data\".", "what": "Track what you eat.", "pts": ["Lesson: weigh in every morning."]}, {"t": "Rule 7: Two pounds of meat a day, dessert on top.", "v": "plain", "id": "jYY4FDzf4p0", "segs": [[106, 121]], "src": "MoreMozi", "views": "19K views", "words": "Starts on \"I eat two pounds of meat a day\". Ends on \"dessert in excess of my calories\".", "what": "Two pounds of meat a day, dessert on top.", "pts": ["Lesson: your verdict."]}, {"t": "Rule 8: Progressive overload on machines.", "v": "right", "id": "jYY4FDzf4p0", "segs": [[129, 139]], "src": "MoreMozi", "views": "19K views", "words": "Starts on \"training has been progressive overload\". Ends on \"almost two decades\".", "what": "Progressive overload on machines.", "pts": ["Lesson: machines and cables, not barbells."]}]}, {"id": "d08", "heading": "D08 Bodybuilder's Circuit (Fit Father Project)", "sub": "One video, about 41K views. Pick the moments you want to react to.", "label": "Long reaction", "pick": true, "reply_label": "D08", "items": [{"t": "Moment 1: Bodybuilders with muscle who get winded doing simple things.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[12, 23]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"And then I looked around and I saw so many bodybuilders\". Ends on \"they didn't have fitness\".", "what": "Bodybuilders with muscle who get winded doing simple things.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 2: He used to train body-part splits.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[0, 12]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"When I was a younger man, I was super into bodybuilding\". Ends on \"a shoulder day\".", "what": "He used to train body-part splits.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 3: Over 40, train for your next 40 years.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[34, 48]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"and so you want to train in a way\". Ends on \"you want general fitness\".", "what": "Over 40, train for your next 40 years.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 4: The circuit: six exercises back to back.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[44, 58]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"We're going to train the whole body using a pair of dumbbells\". Ends on \"which you absolutely need\".", "what": "The circuit: six exercises back to back.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 5: Five rounds, about 30 minutes, about 300 reps.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[261, 276]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"You would rest for 2 minutes maybe\". Ends on \"50 reps on each of those motions\".", "what": "Five rounds, about 30 minutes, about 300 reps.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 6: Training for longevity, no gym needed.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[300, 320]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"Point of showing you this workout is\". Ends on \"No gym needed\".", "what": "Training for longevity, no gym needed.", "pts": ["Lesson: your verdict on this point."]}, {"t": "Moment 7: His close: get it in, do the work.", "v": "plain", "id": "VwTeS5voWP4", "segs": [[321, 336]], "src": "Fit Father Project, Dr. Baldi", "views": "41K views", "words": "Starts on \"And so, the message here is that fitness\". Ends on \"in your own life\".", "what": "His close: get it in, do the work.", "pts": ["Lesson: your verdict on this point."]}]}, {"id": "d09", "heading": "D09 Celebrity Diets", "sub": "One celebrity per card. Pick the ten you want.", "label": "Long reaction", "pick": true, "reply_label": "D09", "items": [{"t": "The Rock: Cheat meal: pancakes and sushi together.", "v": "plain", "id": "-aWeIZxfT4E", "segs": [[91, 104]], "src": "Tonight Show", "views": "1.9M views", "words": "Starts on \"I'm into pancakes. I'm into sushi\". Ends on \"you got to give it a shot\".", "what": "Cheat meal: pancakes and sushi together.", "pts": ["Lesson: a cheat day wrecks a normal guy's week."]}, {"t": "Mark Wahlberg: Trained twice a day, 8 meals, then switched to fasting.", "v": "plain", "id": "zwDw9ptpk_o", "segs": [[146, 163]], "src": "Men's Health", "views": "2.9M views", "words": "Starts on \"I learned the hard way\". Ends on \"eating at the right times\".", "what": "Trained twice a day, 8 meals, then switched to fasting.", "pts": ["Lesson: skip breakfast."]}, {"t": "Jason Momoa: Buttery spaghetti, eggs and caviar for breakfast.", "v": "plain", "id": "2rsyrVlZGP0", "segs": [[150, 164]], "src": "Men's Health", "views": "417K views", "words": "Starts on \"My also my guilty breakfast\". Ends on \"That's the banger\".", "what": "Buttery spaghetti, eggs and caviar for breakfast.", "pts": ["Lesson: real food, no shakes, but not this."]}, {"t": "Bryan Johnson: Every calorie has to fight for its life.", "v": "plain", "id": "foa9ZhtyrfM", "segs": [[41, 56]], "src": "Bryan Johnson", "views": "1.3M views", "words": "Starts on \"we've identified what the clinically relevant dose is\". Ends on \"in history\".", "what": "Every calorie has to fight for its life.", "pts": ["Lesson: make every calorie earn its place."]}, {"t": "Erling Haaland: 6,000 calories of heart, liver, raw milk, steak.", "v": "plain", "id": "FV0B26YYCqA", "segs": [[2, 20]], "src": "Aventura Australia (narrator, not Haaland)", "views": "361K views", "words": "Starts on \"This Norwegian football superstar\". Ends on \"massive tomahawk steaks\".", "what": "6,000 calories of heart, liver, raw milk, steak.", "pts": ["Lesson: elite athletes only."], "note": "Narrator, not Haaland. "}, {"t": "Michael Phelps: 8,000 to 10,000 calories a day.", "v": "plain", "id": "2-6tagN27Q4", "segs": [[8, 24]], "src": "Mashable Deals", "views": "2.2M views", "words": "Starts on \"when I was in high school\". Ends on \"it was brutal for me\".", "what": "8,000 to 10,000 calories a day.", "pts": ["Lesson: you don't swim five hours a day."]}, {"t": "Jennifer Aniston: No breakfast, 16 hour fast.", "v": "plain", "id": "lLqtWLL5pXw", "segs": [[90, 110]], "src": "adamtanswell (talk show re-upload)", "views": "793K views", "words": "Starts on \"intermittent fasting. Yeah, that's the no breakfast\". Ends on \"sixteen hours\".", "what": "No breakfast, 16 hour fast.", "pts": ["Lesson: fast until 2 PM."], "note": "Check by eye that Aniston is speaking. "}, {"t": "Arnold Schwarzenegger: He backed off meat and animal protein.", "v": "plain", "id": "jFk-L7Wcg0g", "segs": [[134, 152]], "src": "Men's Health", "views": "27M views", "words": "Starts on \"Now I eat more, you know, like oatmeal\". Ends on \"the only way you get big and strong\".", "what": "He backed off meat and animal protein.", "pts": ["Lesson: your verdict."]}, {"t": "Tom Brady: Half your body weight in ounces of water.", "v": "plain", "id": "XIPbMNnH2mI", "segs": [[98, 115]], "src": "KPIX CBS News Bay Area", "views": "211K views", "words": "Starts on \"those electrolytes in there\". Ends on \"yeah, probably more\".", "what": "Half your body weight in ounces of water.", "pts": ["Lesson: your water habit."]}, {"t": "Henry Cavill: After a harsh cut, a whole apple pie and a huge pizza.", "v": "plain", "id": "lN10c2AGSFo", "segs": [[51, 63]], "src": "Entertainment Tonight (2013)", "views": "12K views", "words": "Starts on \"well I had a couple of breaks without shooting\". Ends on \"an enormous pizza\".", "what": "After a harsh cut, a whole apple pie and a huge pizza.", "pts": ["Lesson: a crash diet ends in a binge."]}]}, {"id": "d10", "heading": "D10 Planet Fitness (your verdict: hated for a reason)", "sub": "Two clips per source video at most in the final cut.", "label": "Long reaction", "pick": true, "reply_label": "D10", "items": [{"t": "Judgement free means you only attract the insecure.", "v": "right", "id": "5-jIV3R2v5I", "segs": [[379, 393]], "src": "SunnyV2", "views": "10.1M views", "words": "Starts near \"by keeping the judgmental people away you only attract the insecure\". Ends near \"absolute peak performance\".", "what": "Judgement free means you only attract the insecure.", "pts": ["Lesson: train where effort is normal."]}, {"t": "You go to a gym to train around other people.", "v": "right", "id": "PUJ4J2BQgCM", "segs": [[83, 94]], "src": "Joe Bartolozzi", "views": "Planet Fitness explainer", "words": "Starts near \"part of the appeal of going to a gym\". Ends near \"pizza and donuts\".", "what": "You go to a gym to train around other people.", "pts": ["Lesson: the people matter more than the equipment."]}, {"t": "Judgement free, unless you're in shape.", "v": "right", "id": "5-jIV3R2v5I", "segs": [[352, 368]], "src": "SunnyV2", "views": "10.1M views", "words": "Starts near \"judgement free\". Ends near \"unless you're someone in shape\".", "what": "Judgement free, unless you're in shape.", "pts": ["Lesson: the only one they judge is the guy trying."]}, {"t": "Monthly pizza day. It's Pizza Hut.", "v": "right", "id": "dDusnIqziFI", "segs": [[81, 94]], "src": "Papa Meat", "views": "2.7M views", "words": "Starts near \"Like every month they have a pizza day\". Ends near \"what is this?\".", "what": "Monthly pizza day. It's Pizza Hut.", "pts": ["Lesson: pizza night tells you who the gym is for."]}, {"t": "Pizza at a gym is like AA meetings in a bar.", "v": "right", "id": "5-jIV3R2v5I", "segs": [[463, 483]], "src": "SunnyV2", "views": "10.1M views", "words": "Starts near \"pizza at a gym\". Ends near \"meetings in a bar\".", "what": "Pizza at a gym is like AA meetings in a bar.", "pts": ["Lesson: pick a gym that wants you to change."]}, {"t": "Leg press sign: no bodybuilders, four plates max.", "v": "right", "id": "PUJ4J2BQgCM", "segs": [[95, 109]], "src": "Joe Bartolozzi", "views": "Planet Fitness explainer", "words": "Starts near \"we do not cater to bodybuilders\". Ends near \"four plates\".", "what": "Leg press sign: no bodybuilders, four plates max.", "pts": ["Lesson: they told you who they want."]}, {"t": "The lunk alarm.", "v": "right", "id": "5-jIV3R2v5I", "segs": [[167, 183]], "src": "SunnyV2", "views": "10.1M views", "words": "Starts near \"lunk alarm\". End by eye.", "what": "The lunk alarm.", "pts": ["Lesson: a siren for training hard."], "note": "End by eye."}, {"t": "Member kicked out for breathing hard and grunting.", "v": "right", "id": "dDusnIqziFI", "segs": [[447, 460]], "src": "Papa Meat", "views": "2.7M views", "words": "Starts near \"kicked out\". End by eye.", "what": "Member kicked out for breathing hard and grunting.", "pts": ["Lesson: your verdict."], "note": "End by eye."}, {"t": "A gym owner on memberships built on no-shows.", "v": "right", "id": "PUJ4J2BQgCM", "segs": [[673, 690]], "src": "Joe Bartolozzi", "views": "Planet Fitness explainer", "words": "Starts near \"memberships\". Ends near \"never showing up\".", "what": "A gym owner on memberships built on no-shows.", "pts": ["Lesson: be the member they lose money on."]}]}], "reply_title": "NEXT SHOOT CLIP PICKS", "reply_help": "Tap Select on every clip you want. Anything you don't select is out."};
+
+// Opened as a file, YouTube refuses to play inside the page (error 153). Jump to the served copy of this page.
+const SERVED = "http://127.0.0.1:" + DATA.port + "/";
+const AS_FILE = !/^https?:$/.test(location.protocol);
+if (AS_FILE) fetch(SERVED + "__review_health", {mode:"no-cors"}).then(() => location.replace(SERVED + location.hash)).catch(() => {});
+
+const fmt = s => Math.floor(s/60) + ":" + String(s%60).padStart(2,"0");
+const el = (tag, cls, html) => { const e=document.createElement(tag); if(cls) e.className=cls; if(html!=null) e.innerHTML=html; return e; };
+const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const tagFor = v => v==="right" ? '<span class="tag right">RIGHT</span>' : v==="wrong" ? '<span class="tag wrong">WRONG</span>' : v ? '<span class="tag plain">MY SPIN</span>' : "";
+const total = r => r.segs.reduce((a,x) => a + x[1] - x[0], 0);
+const span = r => r.segs.map(x => fmt(x[0]) + " to " + fmt(x[1])).join(", then ");
+const killed = {};
+const picked = {};
+// Dan, 2026-11-12: "I click on the ones that I want to select rather than the ones I want to kill, because most of
+// them I'm going to be killing." A pick section now has a Select button and an untouched card is NOT selected.
+// "mode": "kill" on a section keeps the old page (Kill buttons, untouched cards are keeps).
+const selectMode = sec => sec.mode !== "kill";
+
+// Plays each piece of the clip in order, inside the page.
+function play(p, r) {
+  p.innerHTML = ""; p.onclick = null; p.style.cursor = "default";
+  if (!(window.YT && YT.Player)) {
+    const f = document.createElement("iframe"); f.allow = "autoplay; encrypted-media; picture-in-picture"; f.allowFullscreen = true;
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    f.setAttribute("src", "https://www.youtube.com/embed/" + r.id + "?start=" + r.segs[0][0] + "&end=" + r.segs[0][1] + "&autoplay=1&rel=0");
+    p.appendChild(f); return;
+  }
+  const d = document.createElement("div"); p.appendChild(d); let i = 0;
+  const pl = window.lastPlayer = new YT.Player(d, { videoId:r.id, playerVars:{ start:r.segs[0][0], end:r.segs[0][1], autoplay:1, rel:0 },
+    events:{ onStateChange:e => { if (e.data === 0 && ++i < r.segs.length) pl.loadVideoById({ videoId:r.id, startSeconds:r.segs[i][0], endSeconds:r.segs[i][1] }); } } });
+}
+
+function killBtn(sec, i, card) {
+  const set = killed[sec.id];
+  const b = el("button", "kill", "Kill");
+  b.onclick = () => { set.has(i) ? set.delete(i) : set.add(i);
+    b.classList.toggle("on", set.has(i)); b.textContent = set.has(i) ? "Killed (undo)" : "Kill"; card.classList.toggle("killed", set.has(i)); reply(); };
+  return b;
+}
+
+function pickBtn(sec, i, card) {
+  if (!selectMode(sec)) return killBtn(sec, i, card);
+  const set = picked[sec.id];
+  const b = el("button", "sel", "Select");
+  b.onclick = () => { set.has(i) ? set.delete(i) : set.add(i);
+    b.classList.toggle("on", set.has(i)); b.textContent = set.has(i) ? "Selected (undo)" : "Select"; card.classList.toggle("picked", set.has(i)); reply(); };
+  return b;
+}
+
+function card(sec, r, i) {
+  const c = el("div", "card" + (sec.locked ? " locked" : ""));
+  const b = el("div", "body");
+  const tags = (sec.locked ? '<span class="tag lock">LOCKED</span>' : "") + tagFor(r.v) + (r.note ? '<span class="tag check">NOTE</span>' : "");
+  let start = null;
+  if (r.id) {
+    const url = "https://www.youtube.com/watch?v=" + r.id + (r.segs[0][0] ? "&t=" + r.segs[0][0] + "s" : "");
+    const p = el("div", "player");
+    const im = document.createElement("img"); im.loading = "lazy"; im.alt = "";
+    im.setAttribute("src", "https://i.ytimg.com/vi/" + r.id + "/hqdefault" + ".jpg");
+    p.appendChild(im);
+    p.appendChild(el("div", "play", "<span>&#9654; Play the clip, " + total(r) + " seconds" + (r.noembed ? " (opens YouTube)" : "") + "</span>"));
+    start = () => { if (AS_FILE || r.noembed) window.open(url, "_blank"); else play(p, r); };
+    p.onclick = start;
+    c.appendChild(p);
+    b.innerHTML =
+      '<div class="num">' + esc(sec.label) + " " + (i+1) + "</div>" +
+      '<div class="title">' + esc(r.t) + "</div><div>" + tags + "</div>" +
+      '<div class="lbl">The clip</div>' +
+      '<p class="clipline"><a target="_blank">Opens at ' + fmt(r.segs[0][0]) + "</a>. " + span(r) + " (" + total(r) + " seconds). " + esc(r.src) + ". " + esc(r.views) + ".</p>" +
+      '<p class="quote">' + esc(r.words) + "</p>" +
+      '<div class="lbl">What it is</div><p>' + esc(r.what) + "</p>" +
+      '<div class="lbl">Your reaction</div><ul>' + r.pts.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
+      (r.note ? '<div class="note">' + esc(r.note) + "</div>" : "");
+    b.querySelector(".clipline a").setAttribute("href", url);
+  } else {
+    b.innerHTML =
+      '<div class="num">' + esc(sec.label) + " " + (i+1) + "</div>" +
+      '<div class="title">' + esc(r.t) + "</div><div>" + tags + "</div>" +
+      "<ul>" + r.pts.map(x => "<li>" + esc(x) + "</li>").join("") + "</ul>" +
+      (r.br ? '<div class="broll"><b>B-roll.</b> ' + esc(r.br) + "</div>" : "") +
+      (r.note ? '<div class="note">' + esc(r.note) + "</div>" : "");
+  }
+  const row = el("div", "row");
+  if (sec.pick) row.appendChild(pickBtn(sec, i, c));
+  if (start) { const rp = el("button", "", "Replay"); rp.onclick = start; row.appendChild(rp); }
+  if (row.children.length) b.appendChild(row);
+  c.appendChild(b);
+  return c;
+}
+
+const wrap = document.getElementById("wrap");
+if (AS_FILE) {
+  const n = el("div", "note"); n.style.margin = "0 0 14px"; n.style.fontSize = "15px";
+  n.textContent = "This copy was opened as a file, so play buttons open YouTube in a new tab. To play the clips inside the page, open ";
+  const l = document.createElement("a"); l.textContent = SERVED; l.setAttribute("href", SERVED); n.appendChild(l);
+  wrap.appendChild(n);
+}
+wrap.appendChild(el("h1", "", esc(DATA.title)));
+wrap.appendChild(el("p", "sub", esc(DATA.sub)));
+const panel = el("div", "panel", "<h3>What I decided (overrule anything)</h3><ul>" + DATA.decisions.map(x => "<li>" + x + "</li>").join("") + "</ul>");
+const jump = el("div", "jump");
+DATA.sections.forEach(sec => { const a = el("a", "", esc(sec.heading) + " (" + sec.items.length + ")"); a.setAttribute("href", "#" + sec.id); jump.appendChild(a); });
+const ja = el("a", "", "Reply box"); ja.setAttribute("href", "#reply"); jump.appendChild(ja);
+panel.appendChild(jump); wrap.appendChild(panel);
+
+DATA.sections.forEach(sec => {
+  killed[sec.id] = new Set(); picked[sec.id] = new Set();
+  const h = el("h2", "", esc(sec.heading)); h.id = sec.id; wrap.appendChild(h);
+  if (sec.sub) wrap.appendChild(el("p", "sub", esc(sec.sub)));
+  const g = el("div", "grid"); sec.items.forEach((r, i) => g.appendChild(card(sec, r, i))); wrap.appendChild(g);
+});
+
+const rh = el("h2", "", "Reply"); rh.id = "reply"; wrap.appendChild(rh);
+const rp = el("div", "panel", '<p style="margin:0">' + esc(DATA.reply_help) + '</p><textarea id="reply-box"></textarea><div class="row"><button class="primary" id="copy">Copy reply</button></div>');
+wrap.appendChild(rp);
+
+let notes = "";
+function reply() {
+  const box = document.getElementById("reply-box");
+  const cur = box.value.split("NOTES:");
+  if (cur.length > 1) notes = cur.slice(1).join("NOTES:").replace(/^\n/, "");
+  let out = DATA.reply_title + "\n";
+  DATA.sections.filter(s => s.pick).forEach(sec => {
+    if (selectMode(sec)) {
+      const s = [...picked[sec.id]].sort((a,b)=>a-b).map(x=>x+1);
+      out += sec.reply_label + ": selected " + (s.length ? s.join(", ") : "none yet") + " (of " + sec.items.length + "; everything else is out)\n";
+      return;
+    }
+    const k = [...killed[sec.id]].sort((a,b)=>a-b).map(x=>x+1);
+    const keep = []; for (let j=1;j<=sec.items.length;j++) if(!k.includes(j)) keep.push(j);
+    out += sec.reply_label + ": keep " + (keep.length ? keep.join(", ") : "none") + "\n  kill " + (k.length ? k.join(", ") : "none") + "\n";
+  });
+  (DATA.reply_lines || []).forEach(x => out += x + "\n");
+  box.value = out + "NOTES:\n" + notes;
+}
+reply();
+document.getElementById("copy").onclick = e => { const box = document.getElementById("reply-box"); box.select();
+  navigator.clipboard.writeText(box.value).then(() => { e.target.textContent = "Copied"; setTimeout(() => e.target.textContent = "Copy reply", 1500); }); };
+</script>
+</body>
+</html>

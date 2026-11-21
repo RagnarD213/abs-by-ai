@@ -1,0 +1,8 @@
+{
+  "method": "clean writer subagent, no prior conversation",
+  "agent": "/root/ds55_clean_metadata",
+  "prompt_sha256": "95a1c6206e1fa183a925f2cf3c8eb8e510a7f3fc167f84d9a4b09a29a8b7359e",
+  "metadata_sha256": "66617713634528c8170625ef7a8235b818d837c4db9136d16304dcff58f01d7e",
+  "hard_voice_check": "PASS",
+  "owner_changes": "Added organic root links, tags and per-platform formatting; no stylistic rewrite"
+}

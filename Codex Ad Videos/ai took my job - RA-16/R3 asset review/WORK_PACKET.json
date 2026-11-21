@@ -1,0 +1,113 @@
+{
+  "job": "RA-16",
+  "category": "AD",
+  "round": 3,
+  "requested_changes": [
+    "Preserve approved color B, medium crop pair 1, intro and warm-bass voice.",
+    "QA the eight already rendered D01/G01/G02/G03 contexts.",
+    "Fix horizontal G01 caption/AI-label collision before review.",
+    "Remove baked demo captions and apply one caption layer on the common timeline. Preserve approved phone, image and label sequence.",
+    "Complete remaining asset approval, then build both formats <=59 seconds.",
+    "Final vertical tracking must land at each actual cut and return, with native hair clearance.",
+    "Run final exact-file gates, complete chronological review and independent full-candidate review."
+  ],
+  "approved_elements": [
+    {
+      "id": "P01-9x16-B-far",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-far.mp4",
+      "sha256": "bfb7074d01f368df21722694639adb2f79f42999cff837f3bde2a95348dbb213",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    },
+    {
+      "id": "P01-9x16-B-near",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-9x16-B-near.mp4",
+      "sha256": "07774ea20c8943042f34bbb75b878256af35ac812a82eb34c7b338e3dcaa0844",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    },
+    {
+      "id": "P01-16x9-B-far",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-far.mp4",
+      "sha256": "6c1bef38372814a20f45851c0a64b9a72c07b266635c34831d202931ebc4e9c9",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    },
+    {
+      "id": "P01-16x9-B-near",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/context/P01-16x9-B-near.mp4",
+      "sha256": "3dd0351aaf48d2c6ff681f3a54bb99aa4d71df99a05c30f7b22c8a383a7de8b1",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    },
+    {
+      "id": "B-225.2-far",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-far.jpg",
+      "sha256": "e7a7b7472ae92fc5de51c77eaad5757f29924cdff282a461797fc1d69b69778f",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    },
+    {
+      "id": "B-225.2-near",
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/stills/B-225.2-near.jpg",
+      "sha256": "d7a36d105394a142ea52af2ff413ddaff099ff2663e8acef7ae53a79ba76ae6e",
+      "verdict": "approved",
+      "approver": "Dan",
+      "scope": "Color B and medium/closer crop pair 1; intro look and content shown on the R2 page",
+      "next_action": "Preserve these choices; continue remaining asset review"
+    }
+  ],
+  "approved_audio": {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav",
+    "sha256": "00eef07fc0028d1a1632151f740207366a27ecc9b3d6e7b346f8c39f1b8922d1",
+    "processing": "No reprocessing; fixed warm-bass mismatch remains tone FAIL."
+  },
+  "cut": {
+    "path": "/Volumes/Extreme/_edit_work/ra16/round2/cut.json",
+    "sha256": "2d3d48cd8ec0f29a43859482a8d8e07fa55285bfb2ac3f2ea8a221f2a3c79ae3",
+    "speed": 1.1147707979626484,
+    "retained_source_seconds": 65.66,
+    "removed": [
+      "And it is completely free",
+      "while human trainers leave you confused until next week"
+    ]
+  },
+  "target": {
+    "frames": 1765,
+    "fps": "30000/1001",
+    "seconds": 58.89216666666667,
+    "formats": [
+      [
+        1080,
+        1920
+      ],
+      [
+        1920,
+        1080
+      ]
+    ],
+    "last_mapped_word_end": 58.73853183064271,
+    "mapped_tail_margin": 0.15363483602396144
+  },
+  "remaining_approval": [],
+  "full_assembly_authorized": true,
+  "publishing_authorized": false,
+  "asset_repair_scope": {
+    "D01": "Clean demo picture in both formats, captions applied once.",
+    "G01": "Single-layer demo tail in both contexts; horizontal analysis captions below AI label.",
+    "G02": "Horizontal context includes repaired analysis-card tail.",
+    "G03": "Unchanged."
+  },
+  "next_round": 4,
+  "approval_record": "/Volumes/Extreme/_edit_work/ra16/round3/round4-plan/decisions.json"
+}

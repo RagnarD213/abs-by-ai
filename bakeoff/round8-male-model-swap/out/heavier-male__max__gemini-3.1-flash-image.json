@@ -1,0 +1,22 @@
+{
+  "caseId": "heavier-male__max",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-3.1-flash-image",
+  "modelLabel": "Nano Banana 2 (gemini-3.1-flash-image, GA)",
+  "variant": "full",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 7708,
+  "safetyRetry": false,
+  "promptChars": 4411,
+  "nominalCost": 0.067,
+  "image": "heavier-male__max__gemini-3.1-flash-image.jpg",
+  "ts": "2026-08-09T20:42:39.509Z"
+}

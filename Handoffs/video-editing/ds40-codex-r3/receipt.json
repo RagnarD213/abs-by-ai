@@ -1,0 +1,54 @@
+{
+  "title": "Bill Maher Asks If You've Ever Seen A Fat 90-Year-Old. He's Right.",
+  "type": "CONTENT SFC",
+  "round": 3,
+  "state": "sample ready for Dan review, full edit not started",
+  "review_url": "http://127.0.0.1:9031/",
+  "drive_folder": "https://drive.google.com/drive/folders/1B162kFjEdHizvnL3-HU-bJY3zJNNwSS2",
+  "source_start_s": 1413.0116,
+  "frames": 300,
+  "fps": "30000/1001",
+  "duration_s": 10.01,
+  "locked": [
+    "Balanced audio B, exact AAC copied",
+    "warmer grade recipe unchanged",
+    "widest native view, laptop kept"
+  ],
+  "sample_gate": {
+    "pass": 37,
+    "fail": 1,
+    "not_measured": 1,
+    "not_applicable": 18,
+    "failure": "approved Balanced comb/tone",
+    "not_measured_reason": "zero edit boundaries cannot satisfy watch gate"
+  },
+  "review_cost_usd": 0.089616,
+  "subscription_usage": "unavailable",
+  "failed_400_call": "No usage returned; no charge measured",
+  "limitations": "Minor enlarged halo/edge flicker around 8.5s; temporal edge quality gate unimplemented; no all-pass claim",
+  "files": {
+    "sample": {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/sample.mp4",
+      "bytes": 9881039,
+      "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1"
+    },
+    "phone": {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/phone.mp4",
+      "bytes": 1541634,
+      "sha256": "1c22d4e9fbda034028be96126d7cb056ae147c77fdc07de454d5225adc14e86b"
+    },
+    "hair": {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/hair.mp4",
+      "bytes": 7941650,
+      "sha256": "89d1e7eead74f5f0d2cf22956823c5fcef1335f9b39b89716970946c83dd4fc9"
+    },
+    "dark": {
+      "path": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/dark.mp4",
+      "bytes": 9685062,
+      "sha256": "7feff3e5dd55309250a7ba0b579ee1debd41b28c5b9ae33616654aa430148cf4"
+    }
+  },
+  "approved": false,
+  "publication_uploaded": false,
+  "scheduled": false
+}

@@ -1,0 +1,361 @@
+{
+  "scope": "Dan requested a 10-second wide hair-flicker revision only. Balanced voice, warmer color, full native framing locked. No full edit.",
+  "target_seconds": 10.01,
+  "target_frames": 300,
+  "joins": [],
+  "audio_joins": [],
+  "covered": [],
+  "punch": [
+    [
+      0,
+      10.01,
+      "NEAR"
+    ]
+  ],
+  "graphics": [],
+  "ai_inserts": [],
+  "real_photos": [],
+  "cards": [],
+  "words": [
+    {
+      "w": "That's",
+      "t": 0.2484,
+      "e": 0.6484
+    },
+    {
+      "w": "why",
+      "t": 0.6484,
+      "e": 0.7884
+    },
+    {
+      "w": "you",
+      "t": 0.7884,
+      "e": 0.9484
+    },
+    {
+      "w": "need",
+      "t": 0.9484,
+      "e": 1.0484
+    },
+    {
+      "w": "to",
+      "t": 1.0484,
+      "e": 1.1684
+    },
+    {
+      "w": "treat",
+      "t": 1.1684,
+      "e": 1.3284
+    },
+    {
+      "w": "your",
+      "t": 1.3284,
+      "e": 1.4684
+    },
+    {
+      "w": "belly",
+      "t": 1.4684,
+      "e": 1.6484
+    },
+    {
+      "w": "fat",
+      "t": 1.6484,
+      "e": 1.9084
+    },
+    {
+      "w": "as",
+      "t": 1.9084,
+      "e": 2.2284
+    },
+    {
+      "w": "an",
+      "t": 2.2284,
+      "e": 2.3484
+    },
+    {
+      "w": "emergency",
+      "t": 2.3484,
+      "e": 2.8684
+    },
+    {
+      "w": "because",
+      "t": 2.8684,
+      "e": 3.5484
+    },
+    {
+      "w": "the",
+      "t": 3.5484,
+      "e": 3.7484
+    },
+    {
+      "w": "future",
+      "t": 3.7484,
+      "e": 4.0484
+    },
+    {
+      "w": "is",
+      "t": 4.0484,
+      "e": 4.3284
+    },
+    {
+      "w": "going",
+      "t": 4.3284,
+      "e": 4.5084
+    },
+    {
+      "w": "to",
+      "t": 4.5084,
+      "e": 4.6684
+    },
+    {
+      "w": "be",
+      "t": 4.6684,
+      "e": 4.8284
+    },
+    {
+      "w": "amazing",
+      "t": 4.8284,
+      "e": 5.4484
+    },
+    {
+      "w": "and",
+      "t": 5.4484,
+      "e": 5.9684
+    },
+    {
+      "w": "if",
+      "t": 5.9684,
+      "e": 6.0884
+    },
+    {
+      "w": "you",
+      "t": 6.0884,
+      "e": 6.2484
+    },
+    {
+      "w": "don't",
+      "t": 6.2484,
+      "e": 6.3684
+    },
+    {
+      "w": "lose",
+      "t": 6.3684,
+      "e": 6.5684
+    },
+    {
+      "w": "the",
+      "t": 6.5684,
+      "e": 6.6884
+    },
+    {
+      "w": "weight",
+      "t": 6.6884,
+      "e": 6.8284
+    },
+    {
+      "w": "you",
+      "t": 6.8284,
+      "e": 7.2484
+    },
+    {
+      "w": "aren't",
+      "t": 7.2484,
+      "e": 7.5684
+    },
+    {
+      "w": "going",
+      "t": 7.5684,
+      "e": 7.7084
+    },
+    {
+      "w": "to",
+      "t": 7.7084,
+      "e": 7.7684
+    },
+    {
+      "w": "be",
+      "t": 7.7684,
+      "e": 7.8884
+    },
+    {
+      "w": "around",
+      "t": 7.8884,
+      "e": 8.0884
+    },
+    {
+      "w": "to",
+      "t": 8.0884,
+      "e": 8.2484
+    },
+    {
+      "w": "see",
+      "t": 8.2484,
+      "e": 8.4084
+    },
+    {
+      "w": "how",
+      "t": 8.4084,
+      "e": 8.6084
+    },
+    {
+      "w": "awesome",
+      "t": 8.6084,
+      "e": 9.0284
+    },
+    {
+      "w": "it",
+      "t": 9.0284,
+      "e": 9.2084
+    },
+    {
+      "w": "will",
+      "t": 9.2084,
+      "e": 9.3084
+    },
+    {
+      "w": "be.",
+      "t": 9.3084,
+      "e": 9.5084
+    }
+  ],
+  "source_audio": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/lav.wav",
+  "watch_log": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/watch-hair/watch_pass.json",
+  "declare": {
+    "style:coverage": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "style:change_rate": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "framing:push_coverage": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "captions:burned": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "captions:card_collision": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "captions:sync": "Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+    "audio:click_at_joins": "This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing.",
+    "cut:splice_visibility": "This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing.",
+    "captions:graphic_clearance": "Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round.",
+    "captions:within_runtime": "Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round.",
+    "compliance:banned_screen": "No app screen or screenshot is used. Every frame is camera footage of Dan on a flat technical test background.",
+    "framing:headroom": "Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test.",
+    "framing:no_wide_level": "Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test.",
+    "framing:centering": "Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test."
+  },
+  "transcript_words": [
+    {
+      "w": "That's"
+    },
+    {
+      "w": "why"
+    },
+    {
+      "w": "you"
+    },
+    {
+      "w": "need"
+    },
+    {
+      "w": "to"
+    },
+    {
+      "w": "treat"
+    },
+    {
+      "w": "your"
+    },
+    {
+      "w": "belly"
+    },
+    {
+      "w": "fat"
+    },
+    {
+      "w": "as"
+    },
+    {
+      "w": "an"
+    },
+    {
+      "w": "emergency,"
+    },
+    {
+      "w": "because"
+    },
+    {
+      "w": "the"
+    },
+    {
+      "w": "future"
+    },
+    {
+      "w": "is"
+    },
+    {
+      "w": "going"
+    },
+    {
+      "w": "to"
+    },
+    {
+      "w": "be"
+    },
+    {
+      "w": "amazing."
+    },
+    {
+      "w": "And"
+    },
+    {
+      "w": "if"
+    },
+    {
+      "w": "you"
+    },
+    {
+      "w": "don't"
+    },
+    {
+      "w": "lose"
+    },
+    {
+      "w": "the"
+    },
+    {
+      "w": "weight,"
+    },
+    {
+      "w": "you"
+    },
+    {
+      "w": "aren't"
+    },
+    {
+      "w": "going"
+    },
+    {
+      "w": "to"
+    },
+    {
+      "w": "be"
+    },
+    {
+      "w": "around"
+    },
+    {
+      "w": "to"
+    },
+    {
+      "w": "see"
+    },
+    {
+      "w": "how"
+    },
+    {
+      "w": "awesome"
+    },
+    {
+      "w": "it"
+    },
+    {
+      "w": "will"
+    },
+    {
+      "w": "be."
+    }
+  ]
+}

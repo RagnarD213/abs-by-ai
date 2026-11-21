@@ -1,0 +1,56 @@
+{
+ "today_towel": {
+  "box": [
+   256,
+   150,
+   644,
+   56
+  ],
+  "window": [
+   11.45,
+   12.4
+  ],
+  "kind": "real",
+  "frames": 11,
+  "clearance_contact_px": 0,
+  "negative_control_contact_px": 29497,
+  "presence_min_corr": 0.99977,
+  "ok": true
+ },
+ "today_trees": {
+  "box": [
+   48,
+   150,
+   248,
+   136
+  ],
+  "window": [
+   12.4,
+   13.347
+  ],
+  "kind": "real",
+  "frames": 10,
+  "clearance_contact_px": 0,
+  "negative_control_contact_px": 33728,
+  "presence_min_corr": 0.9997,
+  "ok": true
+ },
+ "after_reveal": {
+  "box": [
+   268,
+   176,
+   276,
+   48
+  ],
+  "window": [
+   18.512,
+   20.712
+  ],
+  "kind": "ai",
+  "frames": 23,
+  "clearance_contact_px": 0,
+  "negative_control_contact_px": 13248,
+  "presence_min_corr": 0.99974,
+  "ok": true
+ }
+}

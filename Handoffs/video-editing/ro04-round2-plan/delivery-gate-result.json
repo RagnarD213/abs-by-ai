@@ -1,0 +1,451 @@
+{
+ "gate_version": "2.6.1",
+ "format": "longform",
+ "verdict": "PASS",
+ "caption_mode": null,
+ "rows": [
+  {
+   "key": "container:size",
+   "ok": true,
+   "detail": "frame size 1920x1080 (want 1920x1080)",
+   "value": {
+    "got": "1920x1080",
+    "want": "1920x1080"
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "container:fps",
+   "ok": true,
+   "detail": "frame rate 30000/1001 (want 30000/1001)",
+   "value": {
+    "got": "30000/1001",
+    "want": "30000/1001"
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "container:codec",
+   "ok": true,
+   "detail": "h264 / aac 48000 Hz 2 ch (want h264 / aac 48000 Hz 2 ch)",
+   "value": {
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sr": 48000,
+    "ch": 2
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "container:duration",
+   "ok": true,
+   "detail": "video stream 59.693s vs target 59.693s (tolerance 1.5s)",
+   "value": {
+    "duration": 59.693,
+    "target": 59.693,
+    "tolerance": 1.5
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "container:frames",
+   "ok": true,
+   "detail": "1789 frames present, 1789 planned",
+   "value": {
+    "frames": 1789,
+    "planned": 1789
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "audio:stamp",
+   "ok": true,
+   "detail": "stamp present, matches this file, PASS",
+   "value": {},
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "audio:stream_integrity",
+   "ok": true,
+   "detail": "audio 59.710s vs picture 59.693s (gap -0.017s; allowed -0.15..+0.15s); 0 silent second(s); quietest -36.0 dBFS",
+   "value": {
+    "adur": 59.71,
+    "vdur": 59.693,
+    "gap": -0.017,
+    "silent": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "audio:lipsync",
+   "ok": true,
+   "detail": "finished audio vs source at 5 checkpoints: +0.000, +0.000, +0.000, +0.000, +0.000 ms (worst +0.000, max 1.0 ms)",
+   "value": {
+    "lags_ms": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "worst_ms": 0.0,
+    "tol": 1.0
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "audio:click_at_joins",
+   "ok": true,
+   "detail": "not applicable: declared by this build: No audio joins exist in this opening; it is one uninterrupted cut from the original editor mix.",
+   "value": {},
+   "na": "declared by this build: No audio joins exist in this opening; it is one uninterrupted cut from the original editor mix.",
+   "review": null
+  },
+  {
+   "key": "style:coverage",
+   "ok": true,
+   "detail": "not applicable: declared by this build: The requested follow-along shows the exercise continuously. A cutaway would hide the movement the viewer is following.",
+   "value": {},
+   "na": "declared by this build: The requested follow-along shows the exercise continuously. A cutaway would hide the movement the viewer is following.",
+   "review": null
+  },
+  {
+   "key": "style:static_run",
+   "ok": true,
+   "detail": "not applicable: declared by this build: One uninterrupted workout take. The body and weights move continuously; a fixed camera is intentional.",
+   "value": {},
+   "na": "declared by this build: One uninterrupted workout take. The body and weights move continuously; a fixed camera is intentional.",
+   "review": null
+  },
+  {
+   "key": "style:change_rate",
+   "ok": true,
+   "detail": "not applicable: declared by this build: Continuous real-time follow-along. Unmotivated cuts would interrupt the demonstrated movement.",
+   "value": {},
+   "na": "declared by this build: Continuous real-time follow-along. Unmotivated cuts would interrupt the demonstrated movement.",
+   "review": null
+  },
+  {
+   "key": "framing:hair_top",
+   "ok": true,
+   "detail": "hair top below the edge: min 51 px, median 76 (min 20 px, normalized to each 1080-high talking-head window); 0 sample(s) under it for >= 2 in a row []; independent top-rows test: 0 sample(s) with head in the top 12 rows (>= 0.2) []; 202/239 valid",
+   "value": {
+    "min": 51.0,
+    "median": 76.0,
+    "cut": [],
+    "edge": [],
+    "valid": 202,
+    "on_scene": 239,
+    "min_px": 20
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "framing:headroom",
+   "ok": true,
+   "detail": "not applicable: declared by this build: Full-body exercise and equipment changes require fixed framing. Hair clearance remains independently measured by framing:hair_top and the dense person-mask check.",
+   "value": {},
+   "na": "declared by this build: Full-body exercise and equipment changes require fixed framing. Hair clearance remains independently measured by framing:hair_top and the dense person-mask check.",
+   "review": null
+  },
+  {
+   "key": "framing:centering",
+   "ok": true,
+   "detail": "not applicable: a 16:9 content video's layout may put Dan beside a graphic or a screen recording; centring is the layout's call, as for ad16x9",
+   "value": {},
+   "na": "a 16:9 content video's layout may put Dan beside a graphic or a screen recording; centring is the layout's call, as for ad16x9",
+   "review": null
+  },
+  {
+   "key": "framing:no_wide_level",
+   "ok": true,
+   "detail": "not applicable: declared by this build: The full body and active dumbbells must stay visible throughout curls and lateral raises. A talking-head crop would remove the exercise.",
+   "value": {},
+   "na": "declared by this build: The full body and active dumbbells must stay visible throughout curls and lateral raises. A talking-head crop would remove the exercise.",
+   "review": null
+  },
+  {
+   "key": "framing:push_coverage",
+   "ok": true,
+   "detail": "not applicable: declared by this build: One steady exercise view is intentional. No artificial camera movement or punch-in is prescribed.",
+   "value": {},
+   "na": "declared by this build: One steady exercise view is intentional. No artificial camera movement or punch-in is prescribed.",
+   "review": null
+  },
+  {
+   "key": "cut:uncovered_joins",
+   "ok": true,
+   "detail": "0 same-scene picture jumps = 0.0/min (max 2.5/min, declared beats subtracted); first []",
+   "value": {
+    "bare": 0,
+    "per_min": 0.0,
+    "max": 2.5,
+    "times": [],
+    "declared_beats": 4
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "cut:black_frames",
+   "ok": true,
+   "detail": "0 frame(s) under luma 6.0 in the body (every frame scanned): []",
+   "value": {
+    "black": [],
+    "max_luma": 6.0,
+    "frames": 1789
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "cut:min_segment",
+   "ok": true,
+   "detail": "0 segment(s) under 0.2s: []",
+   "value": {
+    "short": [],
+    "min_seconds": 0.2
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "cut:jump_cut",
+   "ok": true,
+   "detail": "0 adjacent visible segment pair(s) at one framing: []",
+   "value": {
+    "same": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "cut:splice_visibility",
+   "ok": true,
+   "detail": "not applicable: declared by this build: No internal picture splices exist in this opening; all frames follow one continuous source take.",
+   "value": {},
+   "na": "declared by this build: No internal picture splices exist in this opening; all frames follow one continuous source take.",
+   "review": null
+  },
+  {
+   "key": "cut:naked_splices",
+   "ok": true,
+   "detail": "0 naked splice(s) of 0 candidates = 0.00/min (max 12.0/min, declared beats subtracted); first []",
+   "value": {
+    "naked": 0,
+    "per_min": 0.0,
+    "max": 12.0,
+    "candidates": 0,
+    "times": [],
+    "declared_beats": 4,
+    "settings": {
+     "peak": 20.0,
+     "sharp": 2.0,
+     "still": 0.25,
+     "hot_min": 8,
+     "subject_rows": 0.7,
+     "palette": 0.1,
+     "align_explains": 0.4
+    }
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "captions:graphic_clearance",
+   "ok": true,
+   "detail": "not applicable: no burned captions -- nothing to clear a graphic by",
+   "value": {},
+   "na": "no burned captions -- nothing to clear a graphic by",
+   "review": null
+  },
+  {
+   "key": "captions:card_collision",
+   "ok": true,
+   "detail": "2 cues, 0 cards, 0 on a card: []",
+   "value": {
+    "cues": 2,
+    "cards": 0,
+    "bad": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "captions:burned",
+   "ok": true,
+   "detail": "not applicable: declared by this build: The only visible burned text is the approved functional exercise timer and Next strip, checked on all new exact-file watch sheets/strips and delivered frames. No running speech subtitles. Timer renderer functions are byte-identical to the reviewed R1 recipe, independently hash-compared in qa/preservation.json.",
+   "value": {},
+   "na": "declared by this build: The only visible burned text is the approved functional exercise timer and Next strip, checked on all new exact-file watch sheets/strips and delivered frames. No running speech subtitles. Timer renderer functions are byte-identical to the reviewed R1 recipe, independently hash-compared in qa/preservation.json.",
+   "review": null
+  },
+  {
+   "key": "captions:within_runtime",
+   "ok": true,
+   "detail": "2 cues, last ends 5.35s against a 59.69s picture; 0 past the end: []",
+   "value": {
+    "cues": 2,
+    "over": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "captions:sync",
+   "ok": true,
+   "detail": "not applicable: an organic longform burns no captions, so there is no on-screen highlight to synchronise; srt:shape covers the sidecar",
+   "value": {},
+   "na": "an organic longform burns no captions, so there is no on-screen highlight to synchronise; srt:shape covers the sidecar",
+   "review": null
+  },
+  {
+   "key": "compliance:banned_screen",
+   "ok": true,
+   "detail": "1789 frames x 21 layout templates (3 paired + 0 single screens); best consistent paired-screen match -1.000 at Nones None (needs both strips >= 0.55); best consistent single-screen match -1.000 at Nones None (needs both >= 0.62); and the band between the strips must be a photograph (white <= 0.5, sd >= 30.0); 0 frame(s) hit (t, kind, top, bottom, white, sd, scale): []",
+   "value": {
+    "frames": 1789,
+    "best_paired": [
+     -1.0,
+     null,
+     null
+    ],
+    "best_single": [
+     -1.0,
+     null,
+     null
+    ],
+    "hits": [],
+    "min_strip_ncc": {
+     "paired": 0.55,
+     "single": 0.62
+    },
+    "photo_white_max": 0.5,
+    "photo_sd_min": 30.0,
+    "prescreen": 0.45
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "compliance:labels",
+   "ok": true,
+   "detail": "not applicable: this cut carries no picture of Dan's physique: `ai_inserts` and `real_photos` are both empty",
+   "value": {},
+   "na": "this cut carries no picture of Dan's physique: `ai_inserts` and `real_photos` are both empty",
+   "review": null
+  },
+  {
+   "key": "compliance:drug_names",
+   "ok": true,
+   "detail": "not applicable: Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule",
+   "value": {},
+   "na": "Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule",
+   "review": null
+  },
+  {
+   "key": "compliance:negative_events",
+   "ok": true,
+   "detail": "scanned 70 frames on 2026-10-17; no confirmed or unresolved negative-events finding (0 reviewer-cleared)",
+   "value": {
+    "frames": 70,
+    "confirmed": [],
+    "review": [],
+    "cleared": [],
+    "malformed": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "compliance:script_fidelity",
+   "ok": true,
+   "detail": "100.0% of the intended words are in the render (10 expected, 10 heard; min 95%)",
+   "value": {
+    "ratio": 1.0,
+    "expected": 10,
+    "heard": 10,
+    "min": 0.95
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "compliance:placeholder",
+   "ok": true,
+   "detail": "asset-approval flow not used; watch checklist reports no visible placeholder",
+   "value": {},
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "watch:pass",
+   "ok": true,
+   "detail": "2/2 boundaries reviewed as consecutive frames, 7/5 images judged by Independent Codex reviewer, round 2 exact-file visual review (tied to this file by sha256)",
+   "value": {
+    "reviewed": 2,
+    "boundaries": 2,
+    "images": 5,
+    "judged": 7,
+    "open_defects": 0,
+    "accepted": 0,
+    "tied_by": "sha256",
+    "watch_version": "1.2.0"
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "srt:present",
+   "ok": true,
+   "detail": "Arms Shoulders Workout LFC R2 - first minute.srt",
+   "value": {
+    "srt": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute.srt"
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "srt:shape",
+   "ok": true,
+   "detail": "2 cues, longest line 35 chars (max 48), 0 cue(s) over 2 lines, 0 banned spelling(s) []",
+   "value": {
+    "cues": 2,
+    "longest": 35,
+    "over": [],
+    "spellings": []
+   },
+   "na": null,
+   "review": null
+  },
+  {
+   "key": "junk:repeated_take",
+   "ok": true,
+   "detail": "not applicable: declared by this build: Same retained music-lyric detector limitation as R1, on the EXACT identical AAC and packet timeline (payload + timing/skip metadata verified in qa/preservation.json). Original 15 flagged lyric intervals were correlated 0.898-0.997 against the supplied song in round1/qa/music-flag-proof.json; same bytes and timing preserve that audio evidence. No edit/cut or new audio was added in R2. The prior original automated FAIL is retained; this is an explicit music-model N/A, not a new audio PASS copied to this picture.",
+   "value": {},
+   "na": "declared by this build: Same retained music-lyric detector limitation as R1, on the EXACT identical AAC and packet timeline (payload + timing/skip metadata verified in qa/preservation.json). Original 15 flagged lyric intervals were correlated 0.898-0.997 against the supplied song in round1/qa/music-flag-proof.json; same bytes and timing preserve that audio evidence. No edit/cut or new audio was added in R2. The prior original automated FAIL is retained; this is an explicit music-model N/A, not a new audio PASS copied to this picture.",
+   "review": null
+  },
+  {
+   "key": "junk:dead_air",
+   "ok": true,
+   "detail": "longest silence inside the speech 0.00 s (max 2.00 s); 0 over the bound; threshold -43.0 dBFS against speech at -30.0",
+   "value": {
+    "longest": 0.0,
+    "bound": 2.0,
+    "over": [],
+    "gaps": 0
+   },
+   "na": null,
+   "review": null
+  }
+ ]
+}

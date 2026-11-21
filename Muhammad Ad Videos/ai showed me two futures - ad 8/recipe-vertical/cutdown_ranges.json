@@ -1,0 +1,48 @@
+{
+ "ranges": [
+  [
+   0.0,
+   12.854
+  ],
+  [
+   132.969,
+   160.257
+  ],
+  [
+   175.418,
+   183.199
+  ],
+  [
+   202.912,
+   210.877
+  ]
+ ],
+ "seconds": 55.888,
+ "sentences": [
+  [
+   0,
+   2
+  ],
+  [
+   33,
+   38
+  ],
+  [
+   42,
+   43
+  ],
+  [
+   48,
+   50
+  ]
+ ],
+ "story": "AI showed me two pictures of what I might look like in five years. One was a warning, one was a goal. Here's how I avoided the nightmare scenario and got the abs I always dreamed of at the age of 40. A few years ago, I was a busy, stressed out dad with no motivation. I knew exactly what I was supposed to do and I did none of it. Nothing worked until I generated that picture and put it on my lock screen. I looked at it dozens of times a day, every day for over a year. And that's what gave me the fire to train consistently, to meal prep every week and to track my calories. This picture helped me so much that I built an app that does exactly this. And the picture of you with abs is only step one. Once you generate it, our AI builds you a personalized workout and nutrition plan to make it real. You get the picture and you get the plan that makes it real. So pick your future. Tap the button below to get started.",
+ "why": "hook\nproblem, AI demo, and payoff\napp features\nCTA",
+ "model": "gemini-3.1-pro-preview",
+ "text": [
+  "AI showed me two pictures of what I might look like in five years. One was a warning, one was a goal. Here's how I avoided the nightmare scenario and got the abs I always dreamed of at the age of 40.",
+  "A few years ago, I was a busy, stressed out dad with no motivation. I knew exactly what I was supposed to do and I did none of it. Nothing worked until I generated that picture and put it on my lock screen. I looked at it dozens of times a day, every day for over a year. And that's what gave me the fire to train consistently, to meal prep every week and to track my calories. This picture helped me so much that I built an app that does exactly this.",
+  "And the picture of you with abs is only step one. Once you generate it, our AI builds you a personalized workout and nutrition plan to make it real.",
+  "You get the picture and you get the plan that makes it real. So pick your future. Tap the button below to get started."
+ ]
+}

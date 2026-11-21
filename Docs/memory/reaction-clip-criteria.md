@@ -1,0 +1,53 @@
+---
+name: reaction-clip-criteria
+description: "Reaction clips: Dan watches candidates before any script; hooks in seconds, big name, controversial, real lesson, under 15 s (25 max), obviously fitness (10-12)"
+metadata:
+  node_type: memory
+  type: feedback
+  originSessionId: 83bb3ba3-7a98-4eee-9170-aec5c4a7fa8d
+  modified: 2026-10-12T21:58:55.230Z
+---
+
+Dan's rules for picking a clip for a green screen reaction short (given 2026-10-12, after he kept 6 of 20 from the
+first batch for the 10/17 shoot):
+
+1. **The clip must grab attention in its first seconds.** "If we put this person to sleep with the clip that we're
+   reacting to, they'll never even see me talk." This is the most important rule. Start the clip on the punch line,
+   never on a wind-up.
+2. **Heavily prefer a big name:** a celebrity or a high-profile influencer whose views he can piggyback on. No
+   no-names. A smaller creator is allowed only when the clip is highly relevant AND attention-getting AND carries a
+   real lesson (his example: Dr. Mike Israetel calling tirzepatide a dial for your appetite).
+3. **Controversial beats balanced.** A clip where the person says "somewhat good, somewhat bad" is dead ("he's not
+   really saying anything"). The person must take a hard position.
+4. **There must be a valuable lesson Dan can teach in the short.** No lesson, no short. The viewer needs a purpose
+   for watching his reaction, and Dan must not be "just in the background while the video plays".
+5. **The point of the clip lands in under 15 seconds. 25 seconds is the maximum** (he set the maximum later the
+   same day).
+6. **It must be obvious why a fitness channel is reacting to it.** A viewer who thinks "why is a fitness guy
+   reacting to this?" is gone. Killed for this: mewing, leg lengthening surgery, Warren Buffett's Cokes.
+7. **Relevant to the average guy, not to Dan.** Killed: Hugh Jackman dehydrating for a shirtless scene.
+8. **Nothing dated.** Killed: the Ab Circle Pro infomercial.
+
+His benchmark: **Bill Maher saying fat shaming should make a comeback.** "This was the best one you chose...
+attention-getting, from a known celebrity, controversial. I want more like this."
+
+**Why:** the first batch was picked for topic fit and a clean verdict. Most clips were dull openers from people the
+viewer does not know or care about, so 14 of 20 died.
+
+**How to apply:** use the `/reaction-clips` skill (Dan asked for it on 2026-10-12 to make the process repeatable). It
+holds these rules, the log of both rounds, the tools and the review page with a working player. Filter on rules 1 to 4
+before anything else, and say the name and the view count on each card. Round 2, picked by these rules, kept 8 of 20:
+he said it was "substantially better" but "some were still a little boring, some didn't have a good lesson". Kept from batch 1:
+Ronaldo's ab belt, fake ab surgery, dad bod street interview, Bill Maher, Dr. Mike on tirzepatide, Oatzempic. He likes
+reacting to Alex Hormozi and to Planet Fitness as ideas, but wanted better clips of both. Related:
+[[shorts-reason-to-watch]], [[shorts-organic-research]], [[execute-dans-explicit-picks]].
+
+## Clips first, script second (Dan, 2026-10-12, merged 2026-11-01)
+
+Dan, 2026-10-12, after watching the reaction clips scripted for the 10/17 shoot and killing 18 of 30: "going forward, we'll pick the specific clips, and I'll watch them before making this. I'm seeing now that a lot of what you chose is boring or not relevant." What a reaction video needs, in his words: "a very attention-getting or controversial clip, ideally under 20 seconds, ideally from a big influencer or celebrity people care about", and "some type of good lesson I can teach them in 45 seconds, where I'm not just watching it, and then there's no point in watching my reaction to it."
+
+He also said "Learn from all the things that I told you to eliminate here." (The dictation then reads "choose ones like the things I killed here"; my reading is that he means the opposite: do not choose clips like those.)
+
+**Why:** 40-odd scripts were written around clips nobody had watched, and most of the clips turned out to be explainers, routines or lists with nothing to react to. Scripts, teleprompter docs and PromptSmart then had to be redone.
+
+**How to apply:** for any reaction video or short, find candidate clips first, put them on a review page with a pick and alternates, and write a script only for a clip he has kept. The list of what he killed and kept, with his reasons, is in `/teleprompterscripts` ("What Dan killed"); the rule is in `_shared/WRITING-RULES.md` section 4. Related: [[shorts-reason-to-watch]], [[video-outline-style]], [[filming-docs-after-final-polish]].

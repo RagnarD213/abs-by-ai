@@ -1,0 +1,148 @@
+{
+ "at": "2026-09-12T19:56:24.674Z",
+ "results": [
+  "customers/3427170837/assets/420294626051",
+  "customers/3427170837/adGroupAds/200136997156~824523055421",
+  "customers/3427170837/adGroupAds/199420011265~824523055424"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011265",
+    "id": "199420011265",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011265~824221872412",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824221872412",
+     "id": "824221872412",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011265",
+    "id": "199420011265",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011265~824221872415",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824221872415",
+     "id": "824221872415",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-9x16-home"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad vertical | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011265",
+    "id": "199420011265",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011265~824523055424",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824523055424",
+     "id": "824523055424",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-square-home"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad square | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200136997156",
+    "id": "200136997156",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200136997156~824304139676",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824304139676",
+     "id": "824304139676",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200136997156",
+    "id": "200136997156",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200136997156~824304139679",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824304139679",
+     "id": "824304139679",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-9x16-start"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad vertical | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200136997156",
+    "id": "200136997156",
+    "name": "Ad 2 Stop Wasting Money On Nutritionists | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200136997156~824523055421",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824523055421",
+     "id": "824523055421",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad2&utm_content=muhammad-square-start"
+     ],
+     "name": "Ad 2 Stop Wasting Money On Nutritionists | Muhammad square | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

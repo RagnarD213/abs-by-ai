@@ -1,0 +1,32 @@
+{
+  "verified_at": "2026-10-25T17:21:37.975211-05:00",
+  "review_url": "http://127.0.0.1:9241/",
+  "status": "final_paired_page_verified",
+  "actual_browser": "Codex in-app browser",
+  "page_title": "Dad Bod \u00b7 SFC R3",
+  "checks": [
+    "Both final paired cards and revision ranges visibly correct",
+    "Both actual 540p players readyState4, 540x960, durations57.524133/61.094367, no media error",
+    "Scripted0:09 and0:31 buttons seek correctly; native seek33.587228 displays exact revised real studio photo",
+    "Off The Cuff0:09 button and actual playback verified, native14.489628 visibly displays larger Craig photo/label/arrow and hair overlap",
+    "Both actual final players play and pause; final reload leaves both time0, paused, unmuted, autoplayfalse",
+    "Final served1080p/540p/SRT/voiceAB GET/HEAD and byte-range hashes pass per http-final-v4.json"
+  ],
+  "picture_proof": "/Volumes/Expansion/_edit_work/DS-35/round3/proofs/final-review-page.png",
+  "picture_proof_sha256": "90a930937fe0a28b033a35bc89258d1a2d9d334616603aa801764319af97744a",
+  "scope": "Playback/control and actual displayed picture verification; no fresh heard acoustic review claimed.",
+  "files": [
+    {
+      "take": "scripted",
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-scripted.mp4",
+      "sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+      "independent_report_sha256": "009e7cc20159c4ae2507135cfdb7de7d7398228921f0857da0057051096d8421"
+    },
+    {
+      "take": "off_the_cuff",
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-off_the_cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "independent_report_sha256": "fcbbf5b452200366b80c6818f6ac3e410cbc029ae80c2afa79e902453fb89cc8"
+    }
+  ]
+}

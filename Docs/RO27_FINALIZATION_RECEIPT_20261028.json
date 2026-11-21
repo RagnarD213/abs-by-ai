@@ -1,0 +1,163 @@
+{
+  "job": "RO-27",
+  "date": "2026-10-28",
+  "approval": {
+    "category": "CONTENT (LFC)",
+    "job": "RO-27",
+    "title": "Boring Abs At 40",
+    "scriptTitle": "It's Boring, But It Got Me Abs At 40",
+    "round": 5,
+    "date": "2026-10-28",
+    "recordedAt": "2026-10-28T13:52:25.698709+00:00",
+    "dan": "Okay this is approved. Give me the handoff or setup",
+    "scope": "Exact complete R5 film reviewed on :9357 approved. Editing finished; one Claude thumbnails/setup handoff requested. No film rebuild or new thumbnail approval implied.",
+    "master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.mp4",
+    "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec",
+    "bytes": 216405614,
+    "frames": 14417,
+    "fps": "30000/1001",
+    "duration": 481.04723333333334,
+    "resolution": "1920x1080",
+    "locks": [
+      "Colour C",
+      "Voice B",
+      "safe fixed crops",
+      "exact approved AI source ranges",
+      "neighbour retained",
+      "fridge/prepared-meals and phone-goal removed for camera",
+      "finished October23 Colour C gym and preacher sources"
+    ],
+    "automaticGate": "Genuine2.6.1FAIL retained:34PASS5FAIL0NOTMEASURED. Creative approval is separate; no new synthetic PASS or threshold changes. Raw findings/adjudication remain adjacent.",
+    "realistic_ai_footage": true,
+    "uploaded": false,
+    "scheduled": false,
+    "thumbnail": "Not generated or approved",
+    "driveBackup": "Setup must upload and verify the final delivery folder"
+  },
+  "copies_verified": [
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.mp4",
+      "bytes": 216405614,
+      "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec"
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.srt",
+      "bytes": 15120,
+      "sha256": "07628c6201d33548357c5dcf89ded0725ea812f5920c8218aaad8988560eddc2"
+    },
+    {
+      "path": "/Volumes/Extreme/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.mp4",
+      "bytes": 216405614,
+      "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec"
+    },
+    {
+      "path": "/Volumes/Extreme/Codex Content Videos/Boring Abs At 40 - RO-27/Boring Abs At 40 | codex | 16x9 | RO-27.srt",
+      "bytes": 15120,
+      "sha256": "07628c6201d33548357c5dcf89ded0725ea812f5920c8218aaad8988560eddc2"
+    }
+  ],
+  "srt_sha256": "07628c6201d33548357c5dcf89ded0725ea812f5920c8218aaad8988560eddc2",
+  "video_stream": {
+    "codec_name": "h264",
+    "width": 1920,
+    "height": 1080,
+    "r_frame_rate": "30000/1001",
+    "nb_frames": "14417",
+    "duration": "481.047233"
+  },
+  "audio_stream": {
+    "codec_name": "aac",
+    "sample_rate": "48000",
+    "channels": 2,
+    "duration": "481.047000"
+  },
+  "driveBackup": "Not uploaded/verified in finalization; setup must complete it",
+  "reviewCleanup": {
+    "temporaryCopies": [
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R1 - Opening Draft.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R1 - Opening Draft.mp4",
+        "sha256": "e8d1c04017c29f4095b93bca35b0eca8ddfe0a35ae7c97fe0220a01da70df8cb"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R1 - What I Stopped Doing Context.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R1 - What I Stopped Doing Context.mp4",
+        "sha256": "5776660d39be3aa1a58f4697b78ef4da42157927b658d58caf5e40f666a068e7"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R2 - F05 narrated context.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R2 - F05 narrated context.mp4",
+        "sha256": "df799751258ab8c9d532e1793741668e8f326897240a94d0a550e55d4b32ff76"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R2 - first minute.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R2 - first minute.mp4",
+        "sha256": "0d0144b8496d4a15ba1a50bc06811acbcbc3ee7126d94505d5bc4d8db64f38e6"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R3 - first minute storyboard.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R3 - first minute storyboard.mp4",
+        "sha256": "5b225d297d46afb1bcb27dc31be50082867a6084c45f8d86cf2ce7b644b7df93"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R4 - revised first minute.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R4 - revised first minute.mp4",
+        "sha256": "1ad892bdd66c2a16a7f22eecd29dfe0852ad62935f683c94c2a7ac2762be0be7"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R5 - full film.mp4",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R5 - full film.mp4",
+        "sha256": "903b9913061a152f5c8cac326971a69b430e53eb489ed6cf6a7c6855a0d469ec"
+      },
+      {
+        "removedTemporary": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Boring Abs At 40 LFC R5 - full film.srt",
+        "preserved": "/Volumes/Extreme/_edit_work/ro27/round5/retired-vlc-copies/Boring Abs At 40 LFC R5 - full film.srt",
+        "sha256": "07628c6201d33548357c5dcf89ded0725ea812f5920c8218aaad8988560eddc2"
+      }
+    ],
+    "managedReviewServices": [
+      {
+        "port": 8932,
+        "source": "/Volumes/Extreme/_edit_work/ro27/round1/review",
+        "exit": 0,
+        "output": "Removed review service and its local page cache on 8932. Original delivery files retained.\n"
+      },
+      {
+        "port": 9050,
+        "source": "/Volumes/Extreme/_edit_work/ro27/round2/review",
+        "exit": 0,
+        "output": "Removed review service and its local page cache on 9050. Original delivery files retained.\n"
+      },
+      {
+        "port": 9237,
+        "source": "/Volumes/Extreme/_edit_work/ro27/round3/review",
+        "exit": 0,
+        "output": "Removed review service and its local page cache on 9237. Original delivery files retained.\n"
+      },
+      {
+        "port": 9357,
+        "source": "/Volumes/Extreme/_edit_work/ro27/round4/review",
+        "exit": 0,
+        "output": "Removed review service and its local page cache on 9357. Original delivery files retained.\n"
+      }
+    ],
+    "originalRoundEvidencePreserved": true,
+    "finalMasterAndSrtVerified": true
+  },
+  "setup": "Handoff only, no thumbnails/upload/schedules",
+  "corpus_entry": "ro27-r5-full-film-approved-20261028",
+  "approvedAiLibrary": {
+    "assetIds": "A0211-A0220",
+    "count": 10,
+    "driveCopiesUploaded": true,
+    "sheetRefreshExit": 0,
+    "evidence": "R5/final-ai-library-registration/result.json"
+  },
+  "editQueue": {
+    "RO-27": "finalized rev5",
+    "SL-26": "ready rev1,registered only,unattended false",
+    "DriveStatusUpload": "Both queue mutations uploaded successfully"
+  },
+  "setupHandoff": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Handoffs/handoff-20261028-ro27-boring-abs-at-40-thumbnails-and-setup.md",
+  "completedAt": "2026-10-28T14:02:09.341343+00:00"
+}

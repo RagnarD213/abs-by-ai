@@ -1,0 +1,289 @@
+{
+ "at": "2026-09-14T20:09:53.610Z",
+ "results": [
+  "customers/3427170837/assets/421227330534",
+  "customers/3427170837/assets/421227329091",
+  "customers/3427170837/adGroupAds/199420011065~824641889488",
+  "customers/3427170837/adGroupAds/199420011065~824641889491",
+  "customers/3427170837/adGroupAds/202965542111~824641889494",
+  "customers/3427170837/adGroupAds/202965542111~824641889497"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824179684062",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684062",
+     "id": "824179684062",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824179684065",
+    "status": "PAUSED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684065",
+     "id": "824179684065",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=zeeshan-16x9-start"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Zeeshan 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824179684068",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684068",
+     "id": "824179684068",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=muhammad-9x16-start"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Muhammad vertical | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824329225648",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824329225648",
+     "id": "824329225648",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=zeeshan-16x9-start-r2"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Zeeshan 16:9 | /start | r2"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824641889488",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824641889488",
+     "id": "824641889488",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=claude-square-start"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Claude square | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199420011065",
+    "id": "199420011065",
+    "name": "Ad 1 This Picture Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199420011065~824641889491",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824641889491",
+     "id": "824641889491",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=claude-square-59s-start"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Claude square 59s | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824179684200",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684200",
+     "id": "824179684200",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824179684203",
+    "status": "PAUSED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684203",
+     "id": "824179684203",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=zeeshan-16x9-home"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Zeeshan 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824179684206",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824179684206",
+     "id": "824179684206",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=muhammad-9x16-home"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Muhammad vertical | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824329225651",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824329225651",
+     "id": "824329225651",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=zeeshan-16x9-home-r2"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Zeeshan 16:9 | home | r2"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEWED"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824641889494",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824641889494",
+     "id": "824641889494",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=claude-square-home"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Claude square | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202965542111",
+    "id": "202965542111",
+    "name": "Ad 1 This Picture Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202965542111~824641889497",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824641889497",
+     "id": "824641889497",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad1&utm_content=claude-square-59s-home"
+     ],
+     "name": "Ad 1 This Picture Got Me Abs | Claude square 59s | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

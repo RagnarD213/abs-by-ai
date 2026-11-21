@@ -1,0 +1,79 @@
+{
+ "format": "receipts",
+ "id": "receipts-08-breakfast",
+ "tag": "Receipts · 08",
+ "cover": {
+  "headline": "Breakfast isn't\nthe secret to\nweight loss.\n[hl]309 people tested it.[/hl]",
+  "sub": "Eat it or skip it. Same result.",
+  "polaroid": {
+   "image": {
+    "src": "Short-form video content/instagram-danrosefit/assets/receipts-08-breakfast/plate.jpg",
+    "pos": "50% 60%",
+    "label": "ai",
+    "alt": "Eggs, bacon, toast, orange juice and coffee"
+   },
+   "caption": "Eat it if you want it."
+  }
+ },
+ "study": {
+  "headline": "Adults trying to lose weight were told to eat breakfast, skip it, or got no advice. For 16 weeks.",
+  "stats": [
+   {
+    "n": "309",
+    "label": "adults"
+   },
+   {
+    "n": "16",
+    "label": "weeks"
+   },
+   {
+    "n": "3",
+    "label": "groups"
+   }
+  ],
+  "rows": [
+   {
+    "label": "Told to eat breakfast",
+    "result": "No extra loss",
+    "tone": "neutral"
+   },
+   {
+    "label": "Told to skip breakfast",
+    "result": "No extra loss",
+    "tone": "neutral"
+   }
+  ],
+  "note": "Every group lost under 1 kg on average. The advice made no difference.",
+  "source": "Dhurandhar et al., American Journal of Clinical Nutrition, 2014"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: the bagel",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/bagel.jpg",
+   "pos": "50% 50%",
+   "label": "ai",
+   "alt": "Everything bagel with cream cheese on a black plate"
+  },
+  "caption": "Breakfast or not.",
+  "headline": "The day's total decides."
+ },
+ "verdict": {
+  "headline": "Breakfast is\n[y]optional.[/y]\nYour calories aren't.",
+  "body": "Eat in the morning if it keeps you full. Skip it if you're not hungry.",
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/receipts-08-breakfast/cut-studio-blue-188.webp",
+   "label": "real",
+   "alt": "Dan now, shirtless in yellow shorts and glasses"
+  }
+ },
+ "works": {
+  "items": [
+   "Not hungry in the morning? Skip it.",
+   "If you eat breakfast, make it protein.",
+   "Judge your day by the total, not the first meal."
+  ],
+  "headline": "Skip it or eat it.\n[hl]Both work.[/hl]",
+  "save": "Save this for the next time someone tells you breakfast is the most important meal."
+ },
+ "status": "Cut by Dan 2026-10-22 (batch 1 round 1 review). Kept for reference; do not queue."
+}

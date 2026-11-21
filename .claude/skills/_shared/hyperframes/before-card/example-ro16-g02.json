@@ -1,0 +1,9 @@
+[
+  {"id": "g02", "a": 19.12, "b": 24.36, "photo": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/dan_before_200lb.jpg",
+   "label": "Real picture of me. Not AI-generated.",
+   "eyebrow": ["TWO YEARS AGO", 19.30],
+   "headline": [["200 lb", 20.44], ["at 5'7\"", 21.50]],
+   "count": {"value": "200", "from": 0, "dur": 0.55},
+   "detail": ["No abs.", 22.80],
+   "sweep": 21.05, "push": 1.07, "drift": -8}
+]

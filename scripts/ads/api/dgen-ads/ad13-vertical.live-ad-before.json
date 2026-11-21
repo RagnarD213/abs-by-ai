@@ -1,0 +1,81 @@
+[
+  {
+    "adGroup": {
+      "resourceName": "customers/3427170837/adGroups/204553316830",
+      "status": "ENABLED",
+      "id": "204553316830",
+      "name": "Ad 13 The Cost Of Getting Abs"
+    },
+    "adGroupAd": {
+      "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+      "status": "ENABLED",
+      "ad": {
+        "resourceName": "customers/3427170837/ads/826635661894",
+        "id": "826635661894",
+        "finalUrls": [
+          "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=muhammad-16x9-r4-vsl"
+        ],
+        "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl",
+        "demandGenVideoResponsiveAd": {
+          "headlines": [
+            {
+              "text": "Fire Your Personal Trainer"
+            },
+            {
+              "text": "Human Trainers Hate This AI"
+            },
+            {
+              "text": "Human Trainers Despise Him"
+            },
+            {
+              "text": "How I Got Abs At 40"
+            },
+            {
+              "text": "How AI Got Me Abs"
+            }
+          ],
+          "longHeadlines": [
+            {
+              "text": "I added up what trainers, nutritionists and supplements cost me. See what AI does instead"
+            },
+            {
+              "text": "Trainers despise this AI fitness app. See why men are replacing their trainer with AI."
+            },
+            {
+              "text": "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+            }
+          ],
+          "descriptions": [
+            {
+              "text": "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead."
+            },
+            {
+              "text": "I struggled with belly fat until I discovered how to use an AI trainer to get abs."
+            },
+            {
+              "text": "See what getting abs was supposed to cost me, and how AI does the same job for less."
+            }
+          ],
+          "videos": [
+            {
+              "asset": "customers/3427170837/assets/423865478571"
+            }
+          ],
+          "logoImages": [
+            {
+              "asset": "customers/3427170837/assets/400941168572"
+            }
+          ],
+          "businessName": {
+            "text": "Abs by AI"
+          },
+          "callToActions": [
+            {
+              "asset": "customers/3427170837/assets/401407635767"
+            }
+          ]
+        }
+      }
+    }
+  }
+]

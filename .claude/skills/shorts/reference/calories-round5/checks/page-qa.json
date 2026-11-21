@@ -1,0 +1,12 @@
+{
+  "new_port": 9042,
+  "old_panels_operated": false,
+  "muted_playback": true,
+  "seeking_back_0_5_and_forward_1_7": true,
+  "correct_images_update": true,
+  "left_paused_muted": true,
+  "http": "index200, narration and full images206",
+  "body_caption_clearance": "actual caption bounding boxes below lower abdomen; see final-overlay-QA.json",
+  "narration": "sample-exact original2.3023s PCM prefix",
+  "approved_fasting_R4_hashes_preserved": true
+}

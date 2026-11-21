@@ -1,0 +1,41 @@
+{
+ "intro": "Round 1 of the Self-Driving Car Short, cut from your 9/23 roll C1720. The whole Short is built (62.0 seconds). It reuses the looks you approved on AI Homework (same roll, same set), so the only real choices are colour and voice. Everything else is listed below for you to overrule.",
+ "questions": [
+  "Colour: keep C, Warm vivid (your AI Homework pick, in the film), or switch to B or A?",
+  "Voice: keep V1, the house bass lift (in the film), or switch to V2, V3 or V4?",
+  "Anything to change in the clips or graphics below? (The robotaxi clip and the cost card are the ones I would look at first.)"
+ ],
+ "locked": "Reused from AI Homework, same roll and set: the tight head-and-chest shot, caption style and the voice method (tone fitted to this take plus the bass lift). The wide shot is your camera's original portrait frame (your November 15 rule), so no crop options.",
+ "listen": "Same passage for every option (\"The average American spends about an hour a day in the car ... that time is yours again.\"), all within 0.4 dB of each other. V4 is the raw clip-on mic at the same loudness, for reference.",
+ "clips": {
+  "tesla1": "Opener: a Tesla on Full Self-Driving, the wheel turning by itself (Pexels 33016018, free)",
+  "traffic": "California freeway from an overpass (Pexels 37051769, free)",
+  "tesla2": "Another Tesla on self-driving, the driver's hands off the wheel (Pexels 32024439, free)",
+  "phone": "Man listening on a work call while being driven (Pexels 5636178, free)",
+  "laptop": "Man on a laptop in a car (Pexels 39343985, free)",
+  "robotaxi": "Driverless Zoox robotaxi pod crossing an intersection, crop follows it (Pexels 32000333, free)",
+  "austin": "Austin skyline over Lady Bird Lake (Pexels 27811282, free)"
+ },
+ "decided": [
+  "Takes: the last clean take of every line. The look-away line is your final take (\"The Tesla does check you're watching the road, but you can look away from the road for significant amounts of time and go on your phone or look at another screen.\"). The cost line is your final $47,000 versus $48,000 take, not the earlier $57,000 tries.",
+  "Cut for length: the second half of that final take (\"You can go on your laptop, go on your phone for up to 30 seconds at a time, and then you just have to glance at the road every now and then.\"). With it the Short runs 67 seconds, over the 66-second ceiling. Say \"put it back\" and I will trim elsewhere.",
+  "\"Focus and energy you have left for working\": that is what you said (the script read \"working out\"). It is the only take, and it still makes sense, so it stays as filmed and captioned.",
+  "First 5 seconds: a Tesla driving itself, the wheel turning with no hands, under \"If you're too busy to work out, I've got the solution\", then you on camera for \"trade in your car for a cheaper one that drives itself.\" A moving self-driving shot beats a plain camera open. It is stock (Pexels): the Tesla footage in the Oura review film turned out to be this same stock clip, not your car. If you film your own Tesla on Full Self-Driving (it is on the next-shoot list), it will replace this.",
+  "No new AI clips: stock covers every line that needs a picture, so nothing was generated and nothing needs an AI label. $0 spent.",
+  "Robotaxi: a driverless Zoox pod covers \"somewhere with robotaxis\". Then a real Austin skyline aerial covers \"like here in Austin, you might not need to own a car at all.\" The Zoox clip was filmed in Las Vegas, so it never sits under \"Austin\". I found no free clip of an Austin robotaxi; the Waymo clip had a \"Jimmy Kimmel Live\" sign in it, so it was dropped.",
+  "Stock checked for location: two traffic clips were dropped (one looked like Istanbul, one had Cape Town plates). The one in the film is a California freeway. The work-call clip starts where the man only listens, so no stranger mouths words over your voice.",
+  "Tight shot: a slightly tighter window than AI Homework's, so the lamp bulb is no longer cut off at the bottom edge. Your headroom is unchanged.",
+  "Joins between takes: a 20 ms fade at every join. The cut before \"And a Tesla isn't a rich guy's car\" no longer lands mid-breath, and \"Kelley Blue Book\" now gets a natural pause before it.",
+  "Each stock source is used once. The \"a car that drives you everywhere\" line stays on you (wide shot), because the only other self-driving clip was the opener's source again.",
+  "Three stock clips were filmed at 24 frames a second. Played at the Short's 30, they stuttered on every fifth frame. Each now plays every frame once, about a quarter faster: the Austin aerial, the laptop and the work call. Nothing is blended or held.",
+  "Cost card: a full-screen Soft Blue card (the compare-card template is new; this is its first time in front of you) that prints only the numbers you say, with Kelley Blue Book named as the source. The Tesla panel rises as you say \"Kelley Blue Book\" and its price lands on \"$47,000\". The Camry panel rises on \"a base Camry\" and lands on \"$48,000\".",
+  "Two key-point lower thirds, written to sum up the point rather than repeat your words, placed in the empty backdrop above your head on the wide shots (not across your body): \"The Cost Of Driving: 7 Hours A Week You Could Spend Training\" and \"The Payoff: Hours Back Every Week, More Energy Left For You\".",
+  "Every join between takes sits under B-roll or the card, or changes between the wide and tight shot. No jump cuts.",
+  "B-roll and the card cover about 48% of the Short (the minimum is 30%). Stock is graded toward your studio look: the daylight clips were flat and washed out, so they got deeper midtones and more colour.",
+  "No cover image (that is a separate Codex task).",
+  "\"Cost on a base Model 3\": that is what you said in the final take (the script read \"cost to own\"). The card's label reads \"5-Year Cost To Own\".",
+  "Wide shot = your camera's full original frame (your November 15 rule). Your head fills about 18% of the frame height there, about the same as AI Homework's approved wide. Tell me if you want it tighter."
+ ],
+ "checks": [],
+ "reply": "1. Colour: \n2. Voice: \n3. Changes: "
+}

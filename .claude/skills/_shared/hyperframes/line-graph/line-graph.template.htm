@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light LINE GRAPH: a hand-drawn style line that climbs and falls on the words that describe it, over a
+         baseline, on the moving field. Built 2026-10-20 for SL-18 (RO-25's "My Mentor's Productivity Sketch", G02, rebuilt
+         for a 9:16 short's picture area); geometry from build.py. Rising segments are cyan, falling ones red, as in the film. */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root { --cyan: rgb(104, 197, 255); --white: rgb(244, 250, 255); --muted: rgb(157, 184, 207); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: rgb(5, 13, 28); }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #field { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      #accent { position: absolute; height: 8px; border-radius: 3px; background: var(--cyan); transform-origin: 0% 50%; }
+      #eyebrow { color: var(--cyan); letter-spacing: 2px; }
+      #title { color: var(--white); }
+      #foot { color: var(--muted); font-weight: 400; }
+      #plot { position: absolute; left: 0; top: 0; overflow: visible; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <canvas id="field" width="__W__" height="__H__"></canvas>
+      <div id="group">
+        <div id="accent"></div>
+        <div id="eyebrow" class="t"></div>
+        <div id="title" class="t"></div>
+        <div id="foot" class="t"></div>
+        <svg id="plot" width="__W__" height="__H__" viewBox="0 0 __W__ __H__"></svg>
+        <div id="labels"></div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const $ = id => document.getElementById(id);
+      const NS = "http://www.w3.org/2000/svg";
+      const mk = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); return e; };
+      // ---------- the moving Soft Blue field (softblue.field, same formula as compare-card / title-card) ----------
+      const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      const FS = Math.min(CW, CH) / 1080, SX = CW / (1920 * FS), SY = CH / (1080 * FS);
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * SY * (yy - gy) * SY / .35, kyv = (yy - hy) * SY * (yy - hy) * SY / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * SX * (xx - gx) * SX / .18 + gyv)), k = Math.exp(-((xx - hx) * SX * (xx - hx) * SX / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, CW, CH);
+      }
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      drawField(0);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: () => drawField(clock.t) }, 0);
+      const g = $("group"); Object.assign(g.style, { position: "absolute", left: "0px", top: "0px", width: px(CW), height: px(CH) });
+      // ---------- header: accent bar, eyebrow, title, footnote (the film's approved copy) ----------
+      const place = (e, x, y) => Object.assign(e.style, { left: px(x), top: px(y) });
+      const acc = $("accent"); Object.assign(acc.style, { left: px(CFG.accent[0]), top: px(CFG.accent[1]), width: px(CFG.accent[2]) });
+      const eb = $("eyebrow"); place(eb, CFG.eyebrow.x, CFG.eyebrow.y); eb.style.fontSize = px(CFG.eyebrow.px); eb.textContent = CFG.eyebrow.s;
+      const ti = $("title"); place(ti, CFG.title.x, CFG.title.y); ti.style.fontSize = px(CFG.title.px); ti.textContent = CFG.title.s;
+      const ft = $("foot"); place(ft, CFG.foot.x, CFG.foot.y); ft.style.fontSize = px(CFG.foot.px); ft.textContent = CFG.foot.s;
+      tl.fromTo(acc, { scaleX: 0 }, { scaleX: 1, duration: 0.45, ease: "power2.out" }, 0.05);
+      tl.fromTo(eb, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 0.08);
+      tl.fromTo(ti, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 0.16);
+      tl.fromTo(ft, { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 0.5);
+      // ---------- axes, baseline and labels ----------
+      const P = CFG.plot, svg = $("plot");
+      const axes = mk("path", { d: `M ${P.x0} ${P.ytop} L ${P.x0} ${P.yaxis} L ${P.x1} ${P.yaxis}`, fill: "none", stroke: "rgb(153,193,218)", "stroke-width": P.axis_w, "stroke-linecap": "round", "stroke-linejoin": "round" });
+      const base = mk("line", { x1: P.x0, y1: P.ybase, x2: P.x1, y2: P.ybase, stroke: "rgb(79,115,143)", "stroke-width": P.base_w, "stroke-dasharray": "14 10" });
+      svg.appendChild(axes); svg.appendChild(base);
+      const L = $("labels");
+      CFG.labels.forEach(lb => {
+        const e = document.createElement("div"); e.className = "t"; e.textContent = lb.s; e.style.fontSize = px(lb.px);
+        e.style.color = lb.c === "cyan" ? "rgb(104,197,255)" : "rgb(244,250,255)"; e.style.fontWeight = lb.bold ? 700 : 400; place(e, lb.x, lb.y); L.appendChild(e);
+        tl.fromTo(e, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "sine.out" }, 0.45);
+      });
+      const alen = (P.yaxis - P.ytop) + (P.x1 - P.x0);
+      axes.setAttribute("stroke-dasharray", alen); tl.fromTo(axes, { attr: { "stroke-dashoffset": alen } }, { attr: { "stroke-dashoffset": 0 }, duration: 0.7, ease: "power2.out" }, 0.2);
+      tl.fromTo(base, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "sine.out" }, 0.55);
+      // ---------- the line: each segment draws from its start time to its end time (the words that describe it) ----------
+      const glowF = mk("filter", { id: "glow", x: "-20%", y: "-20%", width: "140%", height: "140%" });
+      const blur = mk("feGaussianBlur", { stdDeviation: 6, result: "b" }); glowF.appendChild(blur);
+      const merge = mk("feMerge", {}); merge.appendChild(mk("feMergeNode", { in: "b" })); merge.appendChild(mk("feMergeNode", { in: "SourceGraphic" })); glowF.appendChild(merge);
+      const defs = mk("defs", {}); defs.appendChild(glowF); svg.appendChild(defs);
+      const head = mk("circle", { r: P.dot_r, cx: CFG.points[0][0], cy: CFG.points[0][1], fill: "rgb(244,250,255)", filter: "url(#glow)", opacity: 0 });
+      CFG.segments.forEach((s, k) => {
+        const a = CFG.points[k], b = CFG.points[k + 1], up = b[1] < a[1];
+        const len = Math.hypot(b[0] - a[0], b[1] - a[1]);
+        const ln = mk("line", { x1: a[0], y1: a[1], x2: b[0], y2: b[1], stroke: up ? "rgb(104,197,255)" : "rgb(235,64,64)", "stroke-width": P.line_w,
+                                "stroke-linecap": "round", "stroke-dasharray": len, "stroke-dashoffset": len, filter: "url(#glow)", opacity: 0 });
+        svg.appendChild(ln);
+        const dur = Math.max(0.12, s.b - s.a);
+        tl.set(ln, { opacity: 1 }, s.a);                    // hidden until it starts: a round cap on a zero-length dash draws a stray dot
+        tl.to(ln, { attr: { "stroke-dashoffset": 0 }, duration: dur, ease: "sine.inOut" }, s.a);
+        tl.fromTo(head, { attr: { cx: a[0], cy: a[1] } }, { attr: { cx: b[0], cy: b[1] }, duration: dur, ease: "sine.inOut", immediateRender: false }, s.a);
+      });
+      svg.appendChild(head);
+      tl.fromTo(head, { opacity: 0 }, { opacity: 1, duration: 0.3 }, Math.max(0, CFG.segments[0].a - 0.3));
+      // the line's moving end keeps breathing for the whole time on screen, and the whole card drifts (VIDEO-RULES 2026-10-17)
+      const breathe = Math.max(1, Math.floor((D - 0.4) / 0.9));
+      tl.fromTo(head, { attr: { r: P.dot_r } }, { attr: { r: P.dot_r * 1.6 }, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: breathe - 1 }, 0.4);
+      tl.fromTo(g, { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

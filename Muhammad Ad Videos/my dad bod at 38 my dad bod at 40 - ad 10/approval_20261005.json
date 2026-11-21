@@ -1,0 +1,20 @@
+{
+ "approved": "2026-10-05",
+ "by": "Dan",
+ "words": "Okay, these are approved. Give me the handoff document for Codex to set these up and add them to YouTube and Google Ads.",
+ "decisions": {
+  "open points from the square review (phone-holding man crop, the uncaptioned 40, the deck-chair opener, flare, label styles)": "not raised; the files are approved as delivered"
+ },
+ "files": [
+  {
+   "file": "my dad bod at 38 my dad bod at 40 | claude | 1x1 | ad 10.mp4",
+   "sha256": "f2c98162b8aa3ced8abeeeacf6008fa22bd856e80d17912aa626ac1e18ca22eb"
+  },
+  {
+   "file": "my dad bod at 38 my dad bod at 40 | claude | 1x1 59s | ad 10.mp4",
+   "sha256": "fa7c29462157ef9cda50eb8c45f5065e61a83d3c064aee9777782752109bf480"
+  }
+ ],
+ "jobs": ["AS-06"],
+ "reviews": ["ROUND-2-REVIEW-square-full.md (SHIP)", "ROUND-2-REVIEW-square-cutdown.md (SHIP)"]
+}

@@ -1,0 +1,22 @@
+{
+  "caseId": "fem-pale__max",
+  "modelKey": "seedream-4.5",
+  "variant": "condensed",
+  "label": "Seedream 4.5 (edit)",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 14997,
+  "geminiSafetyRetry": false,
+  "promptChars": 1335,
+  "nominalCost": 0.04,
+  "image": "fem-pale__max__seedream-4.5__condensed.jpg",
+  "meta": {
+    "predictTime": 14.351991969,
+    "predictionId": "1abjff2jwhrmy0czncfsj82x80"
+  },
+  "ts": "2026-07-28T23:46:39.223Z"
+}

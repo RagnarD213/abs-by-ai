@@ -1,0 +1,21 @@
+{
+  "caseId": "fem-lean__max",
+  "modelKey": "seedream-4.5",
+  "variant": "condensed",
+  "label": "Seedream 4.5 (edit)",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 22405,
+  "promptChars": 1098,
+  "nominalCost": 0.04,
+  "image": "fem-lean__max__seedream-4.5__condensed.jpg",
+  "meta": {
+    "predictTime": 21.037392587,
+    "predictionId": "pynjmpqgjdrmy0czmq68x4qjkc"
+  },
+  "ts": "2026-07-27T22:58:40.886Z"
+}

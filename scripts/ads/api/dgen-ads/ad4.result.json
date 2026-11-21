@@ -1,0 +1,67 @@
+{
+ "at": "2026-09-11T19:16:02.064Z",
+ "results": [
+  "customers/3427170837/assets/419938098517",
+  "customers/3427170837/audiences/358994450",
+  "customers/3427170837/adGroups/202812319169",
+  "customers/3427170837/adGroupCriteria/202812319169~2840",
+  "customers/3427170837/adGroupCriteria/202812319169~2124",
+  "customers/3427170837/adGroupCriteria/202812319169~1000",
+  "customers/3427170837/adGroupCriteria/202812319169~2501972291278",
+  "customers/3427170837/adGroupAds/202812319169~824427753506",
+  "customers/3427170837/adGroups/203842477407",
+  "customers/3427170837/adGroupCriteria/203842477407~2840",
+  "customers/3427170837/adGroupCriteria/203842477407~2124",
+  "customers/3427170837/adGroupCriteria/203842477407~1000",
+  "customers/3427170837/adGroupCriteria/203842477407~2499225533929",
+  "customers/3427170837/adGroupAds/203842477407~824427753800"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202812319169",
+    "id": "202812319169",
+    "name": "Ad 4 Stop Wasting Money On Supplements | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202812319169~824427753506",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824427753506",
+     "id": "824427753506",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad4&utm_content=muhammad-16x9-start"
+     ],
+     "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/203842477407",
+    "id": "203842477407",
+    "name": "Ad 4 Stop Wasting Money On Supplements | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/203842477407~824427753800",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/824427753800",
+     "id": "824427753800",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ad4&utm_content=muhammad-16x9-home"
+     ],
+     "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

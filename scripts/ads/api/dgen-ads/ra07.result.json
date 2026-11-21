@@ -1,0 +1,206 @@
+{
+ "at": "2026-10-20T21:19:43.474Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/204215057191",
+  "customers/3427170837/adGroupCriteria/204215057191~2840",
+  "customers/3427170837/adGroupCriteria/204215057191~2124",
+  "customers/3427170837/adGroupCriteria/204215057191~1000",
+  "customers/3427170837/adGroupCriteria/204215057191~2498784755180",
+  "customers/3427170837/assets/431801701184",
+  "customers/3427170837/adGroupAds/204215057191~828608015181",
+  "customers/3427170837/assets/431991144405",
+  "customers/3427170837/adGroupAds/204215057191~828655819900"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204215057191",
+    "status": "ENABLED",
+    "id": "204215057191",
+    "name": "RA-07 Fire Your Trainer",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204215057191~828608015181",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828608015181",
+     "id": "828608015181",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra07&utm_content=claude-9x16-thumbA-vsl"
+     ],
+     "name": "RA-07 Fire Your Trainer | Claude R6 9:16 thumbA | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Fire Your Trainer"
+       },
+       {
+        "text": "Fire Your Personal Trainer"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "An AI Workout Coach That Adapts"
+       },
+       {
+        "text": "Workout Plans Built Around Your Goal"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Here's why thousands of guys are replacing their personal trainer with AI."
+       },
+       {
+        "text": "Daniel Rose explains three things an AI workout coach can do that a trainer cannot."
+       },
+       {
+        "text": "AI designs a workout plan for your goal and adjusts it when life gets in the way."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows why guys are using AI as their workout coach."
+       },
+       {
+        "text": "See how AI builds a personalized workout program around your goal."
+       },
+       {
+        "text": "AI coaching explained by a guy who did it at 40 years old."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431801701184"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204215057191",
+    "status": "ENABLED",
+    "id": "204215057191",
+    "name": "RA-07 Fire Your Trainer",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204215057191~828655819900",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828655819900",
+     "id": "828655819900",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra07&utm_content=claude-9x16-thumbB-vsl"
+     ],
+     "name": "RA-07 Fire Your Trainer | Claude R6 9:16 thumbB | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Fire Your Trainer"
+       },
+       {
+        "text": "Fire Your Personal Trainer"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "An AI Workout Coach That Adapts"
+       },
+       {
+        "text": "Workout Plans Built Around Your Goal"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Here's why thousands of guys are replacing their personal trainer with AI."
+       },
+       {
+        "text": "Daniel Rose explains three things an AI workout coach can do that a trainer cannot."
+       },
+       {
+        "text": "AI designs a workout plan for your goal and adjusts it when life gets in the way."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows why guys are using AI as their workout coach."
+       },
+       {
+        "text": "See how AI builds a personalized workout program around your goal."
+       },
+       {
+        "text": "AI coaching explained by a guy who did it at 40 years old."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431991144405"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204215057191~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204215057191~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204215057191~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204215057191~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

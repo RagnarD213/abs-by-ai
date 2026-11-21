@@ -1,0 +1,75 @@
+import os
+import tempfile
+import time
+import unittest
+from datetime import datetime, timedelta
+from pathlib import Path
+from unittest.mock import patch
+
+from scripts.backup import nightly_footage as backup
+
+
+class CopyOnlyDriveTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.shoot = Path(self.temp.name) / "abs by ai test shoot"
+        self.shoot.mkdir()
+        self.raw = self.shoot / "camera.mp4"
+        self.raw.write_bytes(b"raw footage fixture")
+        old = time.time() - 3600
+        os.utime(self.raw, (old, old))
+        (self.shoot / backup.READY_MARKER).touch()
+        os.utime(self.shoot, (old, old))
+        self.config = {"drive": self.shoot.name, "raw": ["."]}
+        self.deadline = datetime.now(backup.TZ) + timedelta(hours=1)
+
+    def test_copy_verifies_and_never_removes_source(self):
+        state = {"shoots": {}}
+        with patch.object(backup, "eligible_shoots", return_value=[(self.shoot, self.config)]), \
+             patch.object(backup, "rclone_transfer") as transfer, \
+             patch.object(backup, "run_command") as command, \
+             patch.object(backup, "save_state"):
+            self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 0)
+            self.assertTrue(self.raw.exists())
+            self.assertIn("drive_verified", state["shoots"][self.shoot.name])
+            self.assertEqual(transfer.call_count, 1)
+            self.assertEqual(command.call_count, 1)
+            self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 0)
+            self.assertEqual(transfer.call_count, 1)
+
+    def test_failed_verification_keeps_source_and_no_success_state(self):
+        state = {"shoots": {}}
+        with patch.object(backup, "eligible_shoots", return_value=[(self.shoot, self.config)]), \
+             patch.object(backup, "rclone_transfer", side_effect=RuntimeError("checksum mismatch")), \
+             patch.object(backup, "save_state"):
+            self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 1)
+        self.assertTrue(self.raw.exists())
+        self.assertNotIn("drive_verified", state["shoots"][self.shoot.name])
+
+    def test_recent_folder_waits_even_when_camera_file_has_old_timestamp(self):
+        os.utime(self.shoot, None)
+        state = {"shoots": {}}
+        with patch.object(backup, "eligible_shoots", return_value=[(self.shoot, self.config)]), \
+             patch.object(backup, "rclone_transfer") as transfer:
+            self.assertEqual(backup.copy_only_to_drive(state, self.deadline, False), 0)
+        transfer.assert_not_called()
+        self.assertTrue(self.raw.exists())
+
+
+class ShootDiscoveryTests(unittest.TestCase):
+    def test_date_first_shoot_is_included_without_photo_folders(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory)
+            dated = source / "10:15 dan rose fitness shoot - studio and outdoor"
+            dated.mkdir()
+            (source / "Photo Shoots").mkdir()
+            (source / "Abs By AI Photo Shoots").mkdir()
+            with patch.object(backup, "SOURCE", source), patch.object(backup, "mounted", return_value=True):
+                shoots = backup.eligible_shoots()
+            self.assertEqual([(path.name, config) for path, config in shoots],
+                             [(dated.name, {"drive": dated.name, "raw": ["."]})])
+
+
+if __name__ == "__main__":
+    unittest.main()

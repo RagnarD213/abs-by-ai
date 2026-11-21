@@ -1,0 +1,75 @@
+{
+ "shot": "RO-18 A4 Roll out of bed",
+ "start_frame": "A4-start.png",
+ "intent": "A bright bedroom in the morning. START: a man in a grey t-shirt lies awake in bed under a white duvet; a blue yoga mat lies flat on the floor beside the bed. END: he has rolled off the bed onto the mat and holds a straight push-up position on it, hands on the mat, smiling at the camera; the duvet is pulled back and drapes over the bed edge. The bed frame, the mat, the nightstand, the lamp and the room do not move.",
+ "hands": {
+  "right": "under the pillow edge in START; flat on the mat in END",
+  "left": "under the duvet in START; flat on the mat in END"
+ },
+ "may_change": {
+  "man_in_bed": [
+   540,
+   120,
+   960,
+   340
+  ],
+  "man_on_mat": [
+   200,
+   250,
+   1600,
+   800
+  ],
+  "duvet": [
+   870,
+   150,
+   1672,
+   780
+  ],
+  "pillows": [
+   380,
+   110,
+   1100,
+   330
+  ]
+ },
+ "still": {
+  "nightstand": [
+   160,
+   300,
+   450,
+   640
+  ],
+  "lamp": [
+   250,
+   60,
+   390,
+   300
+  ],
+  "window_left": [
+   0,
+   0,
+   150,
+   420
+  ],
+  "dresser": [
+   1360,
+   170,
+   1672,
+   212
+  ],
+  "wicker_basket": [
+   0,
+   450,
+   180,
+   690
+  ],
+  "mat_left_end": [
+   210,
+   720,
+   420,
+   800
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out; END composited: the man (body mask grown 30 px) and the white bedding (by its own outline) from the generated END, everything else (mat, floor, furniture) from START"
+}

@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/video-list",
+	"title": "SixPackAbs: More free videos",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "A list of long-form videos after the featured one.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"type": {
+			"type": "string",
+			"default": "long"
+		},
+		"count": {
+			"type": "number",
+			"default": 5
+		},
+		"offset": {
+			"type": "number",
+			"default": 1
+		},
+		"heading": {
+			"type": "string",
+			"default": "More free videos"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

@@ -1,0 +1,366 @@
+[
+  {
+    "id": "1A",
+    "file": "ro12-1A.jpg",
+    "concept": "POOL PHOTO",
+    "source": "photo-125_FINAL_PRIMARY.jpg; generated supporting pool background",
+    "text_clearance_px": 124,
+    "hair_headroom_px": 108,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 493542,
+    "sha256": "5fc8cff690afc887120ecf27a4a11e9cd00aee8c5ad0e91ae44ffef2719e384a"
+  },
+  {
+    "id": "1B",
+    "file": "ro12-1B.jpg",
+    "concept": "POOL PHOTO",
+    "source": "photo-125_FINAL_PRIMARY.jpg; generated supporting pool background",
+    "text_clearance_px": 147,
+    "hair_headroom_px": 108,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 491956,
+    "sha256": "b91b6dd27b7d43f3dd56239dfe24bbc6118f0a8816057c6d077cfb7844b5ebb4"
+  },
+  {
+    "id": "1C",
+    "file": "ro12-1C.jpg",
+    "concept": "POOL PHOTO",
+    "source": "photo-125_FINAL_PRIMARY.jpg; generated supporting pool background",
+    "text_clearance_px": 153,
+    "hair_headroom_px": 81,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 459665,
+    "sha256": "8be40ebe334e590f0caffab1d077321bd586d6f7efedc3e79842ba16aed27b23"
+  },
+  {
+    "id": "1D",
+    "file": "ro12-1D.jpg",
+    "concept": "POOL PHOTO",
+    "source": "photo-125_FINAL_PRIMARY.jpg; generated supporting pool background",
+    "text_clearance_px": 149,
+    "hair_headroom_px": 141,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 467025,
+    "sha256": "45cc3f0b00fd484a4e98d6640624c8302c0ddf821ec868f3fd2f8844aab8584d"
+  },
+  {
+    "id": "1E",
+    "file": "ro12-1E.jpg",
+    "concept": "POOL PHOTO",
+    "source": "photo-125_FINAL_PRIMARY.jpg; generated supporting pool background",
+    "text_clearance_px": 114,
+    "hair_headroom_px": 70,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 414408,
+    "sha256": "183dbd0e9e4a1749614a1b9cfedfe73a619f60509ecc32311941dc4559565a8c"
+  },
+  {
+    "id": "2A",
+    "file": "ro12-2A.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 374,
+    "hair_headroom_px": 16,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 293966,
+    "sha256": "05ffbf23bf88c9f823750f8ddb912f11dcd1939b1b8e88ce0eddac69d0e829bb"
+  },
+  {
+    "id": "2B",
+    "file": "ro12-2B.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 378,
+    "hair_headroom_px": 20,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 286427,
+    "sha256": "890659561d13c915c3965b70e7c2cfd0208c81204967c2e3e598a1dbf9e0d3f7"
+  },
+  {
+    "id": "2C",
+    "file": "ro12-2C.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 426,
+    "hair_headroom_px": 20,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 283424,
+    "sha256": "889af42eeaa3a5cb385e54954cf5393a1ef4ce15b7bd7e19e0fa09e76c0ef05c"
+  },
+  {
+    "id": "2D",
+    "file": "ro12-2D.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 399,
+    "hair_headroom_px": 58,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 283635,
+    "sha256": "fa660c973e1c283686c5082f31d3669a23037a0721832c586548bd1c9c9b1ac2"
+  },
+  {
+    "id": "2E",
+    "file": "ro12-2E.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 406,
+    "hair_headroom_px": 16,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 282432,
+    "sha256": "f3d57089d1189fc2193af3e039793482390a856eef4cdbbf6c86fbd90dd91b93"
+  },
+  {
+    "id": "3A",
+    "file": "ro12-3A.jpg",
+    "concept": "STUDIO: TIMING + PROTEIN",
+    "source": "studio-blue-109_CUTOUT.png",
+    "text_clearance_px": 271,
+    "hair_headroom_px": 29,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 372441,
+    "sha256": "69160ae2b35fab1eda9ba74b4554cd63a4dd806e94b1be1aa539d5cdac8424b0"
+  },
+  {
+    "id": "3B",
+    "file": "ro12-3B.jpg",
+    "concept": "STUDIO: TIMING + PROTEIN",
+    "source": "studio-blue-109_CUTOUT.png",
+    "text_clearance_px": 279,
+    "hair_headroom_px": 29,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 365160,
+    "sha256": "2d5ae8a4bfb8ccf4c8cc27d7773339a23f6595e1fda9db1705cadd64a514bdc1"
+  },
+  {
+    "id": "3C",
+    "file": "ro12-3C.jpg",
+    "concept": "STUDIO: TIMING + PROTEIN",
+    "source": "studio-blue-109_CUTOUT.png",
+    "text_clearance_px": 314,
+    "hair_headroom_px": 20,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 359953,
+    "sha256": "7e1cf032dd31c2ed2f6b693bbf28da0920f3805c9e1aa52f9c600fd750c90e11"
+  },
+  {
+    "id": "3D",
+    "file": "ro12-3D.jpg",
+    "concept": "STUDIO: TIMING + PROTEIN",
+    "source": "studio-blue-109_CUTOUT.png",
+    "text_clearance_px": 288,
+    "hair_headroom_px": 66,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 362107,
+    "sha256": "ce82d03aa5492c448fec7d08bf2c365ad2a8c0307056dee130f309754fd6894b"
+  },
+  {
+    "id": "3E",
+    "file": "ro12-3E.jpg",
+    "concept": "STUDIO: TIMING + PROTEIN",
+    "source": "studio-blue-109_CUTOUT.png",
+    "text_clearance_px": 292,
+    "hair_headroom_px": 16,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 357105,
+    "sha256": "45dd35900bb3e4a1de98b3f6a0df5ec320f5a124693e14f7ca1bffddf03ecf2e"
+  },
+  {
+    "id": "4A",
+    "file": "ro12-4A.jpg",
+    "concept": "AUTHENTIC VIDEO FRAME",
+    "source": "approved master at 00:00.000",
+    "text_clearance_px": 298,
+    "hair_headroom_px": 167,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 238164,
+    "sha256": "5b985de0d0007fd19e238845b1434fe12cdda19d50e783990f2560d9dc19eab0"
+  },
+  {
+    "id": "4B",
+    "file": "ro12-4B.jpg",
+    "concept": "AUTHENTIC VIDEO FRAME",
+    "source": "approved master at 00:00.000",
+    "text_clearance_px": 301,
+    "hair_headroom_px": 167,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 234392,
+    "sha256": "440ed639237a0186dcf51cdf2053756eb4037f81f8701eb684d07c439d79cdf4"
+  },
+  {
+    "id": "4C",
+    "file": "ro12-4C.jpg",
+    "concept": "AUTHENTIC VIDEO FRAME",
+    "source": "approved master at 00:00.000",
+    "text_clearance_px": 333,
+    "hair_headroom_px": 142,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 232289,
+    "sha256": "71d93239efadf7d4dc317e260f07738de1d8a4bb34cff72c742755432c5b9543"
+  },
+  {
+    "id": "4D",
+    "file": "ro12-4D.jpg",
+    "concept": "AUTHENTIC VIDEO FRAME",
+    "source": "approved master at 00:00.000",
+    "text_clearance_px": 312,
+    "hair_headroom_px": 197,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 232767,
+    "sha256": "1bc455736dd9066bcccd2d09246bf671244a9baca3cabe6cd746a43734660312"
+  },
+  {
+    "id": "4E",
+    "file": "ro12-4E.jpg",
+    "concept": "AUTHENTIC VIDEO FRAME",
+    "source": "approved master at 00:00.000",
+    "text_clearance_px": 272,
+    "hair_headroom_px": 131,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 227967,
+    "sha256": "bfd4c6f3f86b014fb79c79db46670dc2b1c8c9eab5063f1448fc72c2568702b7"
+  },
+  {
+    "id": "5A",
+    "file": "ro12-5A.jpg",
+    "concept": "DESIGNER CHOICE: REAL NOW PHOTO",
+    "source": "real NOW photo from approved video: photo-180_FINAL_PRIMARY copy.png",
+    "text_clearance_px": 326,
+    "hair_headroom_px": 53,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 294849,
+    "sha256": "8807d4528f5d3d26e71af5c821757443e1e33151aded811a6f53c8df343149c8"
+  },
+  {
+    "id": "5B",
+    "file": "ro12-5B.jpg",
+    "concept": "DESIGNER CHOICE: REAL NOW PHOTO",
+    "source": "real NOW photo from approved video: photo-180_FINAL_PRIMARY copy.png",
+    "text_clearance_px": 333,
+    "hair_headroom_px": 53,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 287723,
+    "sha256": "75b0b73aa129e47843306fb12e74e22285f672e748da549da6a2007ad582efeb"
+  },
+  {
+    "id": "5C",
+    "file": "ro12-5C.jpg",
+    "concept": "DESIGNER CHOICE: REAL NOW PHOTO",
+    "source": "real NOW photo from approved video: photo-180_FINAL_PRIMARY copy.png",
+    "text_clearance_px": 345,
+    "hair_headroom_px": 23,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 287453,
+    "sha256": "734b409342cb482994dd9fe260aa92a57c8bd01f6d7418682470502493aaa42c"
+  },
+  {
+    "id": "5D",
+    "file": "ro12-5D.jpg",
+    "concept": "DESIGNER CHOICE: REAL NOW PHOTO",
+    "source": "real NOW photo from approved video: photo-180_FINAL_PRIMARY copy.png",
+    "text_clearance_px": 340,
+    "hair_headroom_px": 89,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 285540,
+    "sha256": "c26e2336a4baaec9e85a147954f8540ff6e47ddf9434e1441910ec1747f4551c"
+  },
+  {
+    "id": "5E",
+    "file": "ro12-5E.jpg",
+    "concept": "DESIGNER CHOICE: REAL NOW PHOTO",
+    "source": "real NOW photo from approved video: photo-180_FINAL_PRIMARY copy.png",
+    "text_clearance_px": 316,
+    "hair_headroom_px": 16,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 285783,
+    "sha256": "e11e88590c73d34e12a03cd46f1ae9a0dc797d3141c21eafec70c836c0d02d35"
+  },
+  {
+    "id": "2A GLP-1",
+    "file": "ro12-2A-GLP1.jpg",
+    "concept": "STUDIO: VIAL + SYRINGE",
+    "source": "studio-white-90_CUTOUT.png",
+    "text_clearance_px": 374,
+    "hair_headroom_px": 16,
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 285562,
+    "sha256": "f3d57b16a694aeec8e882852d2458df790e3b382bd94a551116d01b7c8923b7d"
+  }
+]

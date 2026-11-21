@@ -1,0 +1,57 @@
+{
+ "shot": "RO-14 A4 Dessert for two (v3 pair)",
+ "start_frame": "A4-start.png",
+ "intent": "Candle-lit restaurant, a couple at a table for two. START: the fit man (left, dark shirt) with a small bowl of salad; the heavier woman (right, burgundy dress) smiles and slides a white plate toward him with her near hand; on the plate one slice of chocolate layer cake and one dessert fork. END: the plate sits just right of his salad bowl, which has not moved; the same cake slice, same size, with one forkful missing from its tip; she holds that same fork with the bite out to his mouth, smiling; the plate has no fork; he looks at the bite, tempted and resigned.",
+ "hands": {
+  "right": "his: out of sight below the table edge in both frames",
+  "left": "hers (near hand): slides the plate in START; rests on the table in END. Her far hand holds the fork in END."
+ },
+ "still": {
+  "salad_bowl": [
+   70,
+   730,
+   400,
+   870
+  ],
+  "candle": [
+   420,
+   780,
+   540,
+   920
+  ],
+  "wine_glass_left": [
+   10,
+   520,
+   120,
+   700
+  ],
+  "wine_glass_right": [
+   1480,
+   520,
+   1590,
+   700
+  ]
+ },
+ "may_change": {
+  "the_man": [
+   0,
+   0,
+   820,
+   800
+  ],
+  "the_woman_and_her_arm": [
+   620,
+   0,
+   1672,
+   880
+  ],
+  "cake_plate_path": [
+   540,
+   740,
+   1080,
+   900
+  ]
+ },
+ "note": "person block left out (legs out of frame); both people are declared may_change boxes and the reviewer judges the bodies",
+ "bounds": {}
+}

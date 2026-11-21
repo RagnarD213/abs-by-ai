@@ -1,0 +1,46 @@
+{
+ "NEAR": [
+  594,
+  1056
+ ],
+ "FAR": [
+  738,
+  1312
+ ],
+ "status": "Dan's RA-14 pick F2 (2026-10-14: 'Let's go with a wider crop, the recommended crop.'; C1667 close 576x1024, wide 720x1280) converted to C1668 by body height (person mask: 953 px vs 937 at 1080 scale, x1.017), bottoms kept on the same body landmark. Round 1 shows F1/F3 beside it (outdoor rule).",
+ "options": {
+  "F1": {
+   "name": "A little tighter",
+   "NEAR": [
+    558,
+    992
+   ],
+   "FAR": [
+    684,
+    1216
+   ]
+  },
+  "F2": {
+   "name": "Your RA-14 pick (wider)",
+   "NEAR": [
+    594,
+    1056
+   ],
+   "FAR": [
+    738,
+    1312
+   ]
+  },
+  "F3": {
+   "name": "Wider still",
+   "NEAR": [
+    630,
+    1120
+   ],
+   "FAR": [
+    774,
+    1376
+   ]
+  }
+ }
+}

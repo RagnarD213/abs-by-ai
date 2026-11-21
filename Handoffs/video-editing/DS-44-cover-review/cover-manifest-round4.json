@@ -1,0 +1,175 @@
+{
+  "job": "DS-44",
+  "round": "round4",
+  "status": "awaiting-dan-approval (revised pick: show before install)",
+  "variants": {
+    "A394": "corner-dan-A394-shocked.png",
+    "A206": "corner-dan-A206-oh.png"
+  },
+  "outputs": [
+    {
+      "variant": "A394",
+      "layout": "youtube",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/youtube/A-A394-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 466221,
+      "sha256": "8523a8f6b073571d6cdcc6d1a37caef6b897a0151d91653dca9d91f89a4ee057",
+      "text_boxes": [
+        [
+          196,
+          866,
+          885,
+          957
+        ],
+        [
+          42,
+          979,
+          1038,
+          1054
+        ]
+      ],
+      "faces": [
+        [
+          389,
+          39,
+          732,
+          499
+        ],
+        [
+          491,
+          1126,
+          950,
+          1570
+        ],
+        [
+          172,
+          1366,
+          361,
+          1565
+        ]
+      ]
+    },
+    {
+      "variant": "A394",
+      "layout": "instagram",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/instagram/A-A394-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 443989,
+      "sha256": "98c649262e42cb072283e3f0e9f74e384c44cd60f334e4e39e0550d9d53a4cc0",
+      "text_boxes": [
+        [
+          196,
+          899,
+          885,
+          990
+        ],
+        [
+          42,
+          1012,
+          1038,
+          1087
+        ]
+      ],
+      "faces": [
+        [
+          496,
+          269,
+          753,
+          614
+        ],
+        [
+          491,
+          1159,
+          950,
+          1603
+        ],
+        [
+          172,
+          1366,
+          361,
+          1565
+        ]
+      ]
+    },
+    {
+      "variant": "A206",
+      "layout": "youtube",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/youtube/A-A206-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 467037,
+      "sha256": "2fb365c85a41a5853fee014462a450e288fbb0542fb42fe5a7109aacd2652411",
+      "text_boxes": [
+        [
+          196,
+          866,
+          885,
+          957
+        ],
+        [
+          42,
+          979,
+          1038,
+          1054
+        ]
+      ],
+      "faces": [
+        [
+          389,
+          39,
+          732,
+          499
+        ],
+        [
+          491,
+          1126,
+          950,
+          1570
+        ],
+        [
+          120,
+          1355,
+          310,
+          1558
+        ]
+      ]
+    },
+    {
+      "variant": "A206",
+      "layout": "instagram",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/round4/instagram/A-A206-hormozi-mental-shift-corner-cover.jpg",
+      "bytes": 445056,
+      "sha256": "4eac42c4fe167e8fbedfd988fb00728f3c5121624093e452bc3ec10bbe0a19f9",
+      "text_boxes": [
+        [
+          196,
+          899,
+          885,
+          990
+        ],
+        [
+          42,
+          1012,
+          1038,
+          1087
+        ]
+      ],
+      "faces": [
+        [
+          496,
+          269,
+          753,
+          614
+        ],
+        [
+          491,
+          1159,
+          950,
+          1603
+        ],
+        [
+          120,
+          1355,
+          310,
+          1558
+        ]
+      ]
+    }
+  ]
+}

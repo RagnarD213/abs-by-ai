@@ -1,0 +1,65 @@
+{
+  "verdict": "PASS",
+  "scope": "Editor isolated-asset context review; current short-ad whole-video rule applied. Not Dan final approval.",
+  "reviewer": "Codex editor with actual-media Gemini support",
+  "support": "/Volumes/Extreme/_edit_work/ra13/round2/asset-context-answer.md",
+  "media": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/headroom-before-context - REVIEW 540p.mp4",
+      "sha256": "e403db646bb52d0bde7495d4c283d847502a35a09f9cc7768955f3dc9eec57c3"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._headroom-before-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/headroom-after-context - REVIEW 540p.mp4",
+      "sha256": "0700631f28c144cf6a81a2850c697a69a8e50e3643d93ebd3832650caaa8d5dd"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._headroom-after-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/A1-9x16-context - REVIEW 540p.mp4",
+      "sha256": "2ba795c9baf1d51285567d08de052a6084372893b10e8628dcec13fe8751ff67"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._A1-9x16-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/A1-16x9-context - REVIEW 540p.mp4",
+      "sha256": "ed855b44faea758b4f011c26b26b227470ed1ad5d3c6da4d7a43446a4150834c"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._A1-16x9-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/P1-context - REVIEW 540p.mp4",
+      "sha256": "2d3e8d9a4e285d582e02115a12457c8858ee41e8a49c44c0320bbbe7cca1a24d"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._P1-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/P2-context - REVIEW 540p.mp4",
+      "sha256": "52743be3c9e4313b276796377a2d1f2cb623401877c4b34c294b89b878c87ab4"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra13/round2/context/._P2-context - REVIEW 540p.mp4",
+      "sha256": "3a740bd4f20bb383f490129c67d5ee5a11274c69a41d99ad51d3528df6c656f8"
+    }
+  ],
+  "dispositions": {
+    "L1": "Rejected and removed",
+    "P3": "Rejected and removed",
+    "P1": "Approved shared source; full placement starts at AI solution turn to cover brief presenter island",
+    "A1": "Current shared template, source-word drivers reanchored with CTC",
+    "P2": "Existing approved app tour, workout then meal analysis",
+    "CTA": "Shared template and recorded copy"
+  },
+  "limits": "Complete candidate, exact-file gates and independent audit remain pending."
+}

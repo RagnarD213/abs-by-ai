@@ -1,0 +1,20 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/subscribe-button",
+	"title": "SixPackAbs: Subscribe button",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Red Subscribe-on-YouTube pill.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {
+		"placement": {
+			"type": "string",
+			"default": "card"
+		}
+	},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

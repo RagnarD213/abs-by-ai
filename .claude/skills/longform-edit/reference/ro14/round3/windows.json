@@ -1,0 +1,120 @@
+{
+ "_note": "24 fps takes; frames A:B inclusive; seconds = film slot length. Why each window: README in motion/WINDOWS.md",
+ "A1": {
+  "frames": [
+   0,
+   128
+  ],
+  "slot": 5.34,
+  "take": "A1-r3-twoshot-b.mp4",
+  "dir": "/Volumes/Extreme/_edit_work/RO-14/round3/veo",
+  "start_t": 0.0005,
+  "partial": true,
+  "why": "round 3 (Dan 2026-10-21: run it longer so it is clear the scale is broken). Every take of the floor lift failed (about 30 across Veo Fast, Quality, Omni, paid), so two shots joined by a cut: shot 1 = round 2's reviewed window (A1-flow-t1-rugfix frames 31-92: on the scale, face falls, steps off, bends, grips it; FB-A1-31-92 PASS),, then a 1.2x cut-in (crop 1600x900+160+0) on A1to-flow-t1 frames 120-186 (Omni 1.1 Flash from the SAME approved START frame, so the same man; standing with the scale, frowning, taps the display; camera locked; clipcheck PASS). Version A (shot 2 from the END frame) failed: a different man."
+ },
+ "A2": {
+  "frames": [
+   87,
+   127
+  ],
+  "slot": 6.06,
+  "why": "picks one nugget off the kid's plate over the bin and eats it (the honest pick-up the reviewer named); on 'chicken nuggets you eat standing over the trash can'",
+  "t1_status": "FAIL review: one nugget eaten, a second merges and vanishes, bite before the bite. Retake A2r2 queued",
+  "take": "A2r3-flow-t1.mp4",
+  "start_t": 158.59,
+  "partial": true
+ },
+ "A3": {
+  "frames": [
+   38,
+   137
+  ],
+  "slot": 4.13,
+  "why": "hammer raised, one smash, coins spill, big laugh, fist pump (reviewer: 38-137 holds the fist-pump laugh 2 frames longer)",
+  "take": "A3-flow-t1.mp4"
+ },
+ "A4": {
+  "frames": [
+   138,
+   188
+  ],
+  "slot": 6.68,
+  "why": "she holds the bite out to his mouth, he is tempted (reviewer: one fork, cake unchanged); on 'She orders a dessert, she wants the pizza'",
+  "t1_status": "FAIL review: table knife turns into a second fork (f84-137), bite never leaves the cake. Retake A4r2 queued",
+  "take": "A4-flow-t1.mp4",
+  "start_t": 213.38,
+  "partial": true
+ },
+ "A5": {
+  "frames": [
+   78,
+   191
+  ],
+  "slot": 5.82,
+  "why": "Veo 3.1 Quality take: one salad, laughter stops, all stare, the far-left man picks up one wing; starts after the raised-hands beat (reviewer PASS); R2 review: starts at take frame 78 (film 288.45), after the man in blue emerges from behind the waiter's arm as a different man (take frames ~58-72)",
+  "t1_status": "FAIL review: wing doubles and changes hands (f69-85), TVs melt (f38-48), fingerless hand at the end. Retake A5r2 queued",
+  "take": "A5q-flow-t1.mp4",
+  "start_t": 288.45,
+  "partial": true
+ },
+ "A6": {
+  "frames": [
+   84,
+   135
+  ],
+  "slot": 5.16,
+  "why": "he bites the donut, eyes closed in defeat; nothing in the box changes inside the window; ends on 'eventually you lose'",
+  "take": "A6-flow-t1.mp4",
+  "start_t": 375.9,
+  "partial": true
+ },
+ "A7": {
+  "frames": [
+   102,
+   151
+  ],
+  "slot": 6.45,
+  "why": "lips on the straw, sipping in bliss, cup in both hands (between the straw slide at 95-101 and the level rise at 152-160); on 'They're just drinking a thousand calories per day'",
+  "take": "A7-flow-t1.mp4",
+  "start_t": 139.0,
+  "partial": true
+ },
+ "A1_r2": {
+  "frames": [
+   31,
+   92
+  ],
+  "slot": 4.97,
+  "why": "on the scale looking down, frowning, steps off, bends and grips it; ends before the lift (frames 98-112 morph); rug frozen in code; ends on frame 92 (reviewer FB-A1: the scale deforms from frame 93)",
+  "t1_status": "FAIL review: scale doubles its display and melts during the lift (f98-112); rug redraws. Retake A1r2 queued",
+  "take": "A1-flow-t1-rugfix.mp4",
+  "start_t": 0.0005,
+  "partial": true
+ },
+ "A1_r3_rejected_lift": {
+  "frames": [
+   0,
+   128
+  ],
+  "slot": 5.34,
+  "why": "round 3 (Dan 2026-10-21: run it longer so it is clear the scale is broken): A1t-flow-t1 (Veo 3.1 Fast, START frame only), camera locked in code (motion/stabilize.py removes a 2.4 % creep); frowns, steps off beside the scale, lifts it, stares and taps the display; the locked file holds take frames 12-140 (aligned to frame 140: hair clears the top by 20 px or more, the top 24 px of early frames are extended wall); ends at take frame 140, before the scale doubles at 148",
+  "take": "A1t-flow-t1-stab.mp4",
+  "dir": "/Volumes/Extreme/_edit_work/RO-14/round3/veo",
+  "start_t": 0.0005,
+  "partial": true,
+  "status": "FAIL review motion/reviews/A1t-t1-stab-review.md: heel inside the scale corner, scale lifted out through it, second display"
+ },
+ "A1_r3_rejected_twoshot_a": {
+  "frames": [
+   0,
+   128
+  ],
+  "slot": 5.34,
+  "take": "A1-r3-twoshot.mp4",
+  "dir": "/Volumes/Extreme/_edit_work/RO-14/round3/veo",
+  "start_t": 0.0005,
+  "partial": true,
+  "why": "round 3 (Dan 2026-10-21: run it longer so it is clear the scale is broken). Every take of the floor lift failed (about 30 across Veo Fast, Quality, Omni, paid), so two shots joined by a cut: shot 1 = round 2's reviewed window (A1-flow-t1-rugfix frames 31-92: on the scale, face falls, steps off, bends, grips it; FB-A1-31-92 PASS), then a cut-in (1.35x crop 1422x800+417+0) on A1uo-flow-t2 frames 18-84 (Omni 1.1 Flash from the approved A1 END frame: holding the scale at his chest, frowning, taps the display; camera moved 1 px; clipcheck PASS). Assembled file: 62 + 67 frames at 24 fps.",
+  "status": "FAIL review motion/reviews/A1-r3-twoshot-review.md: the man changes at the cut (shot 2 was made from the END frame), halo, soft 1.35x cut-in"
+ }
+}

@@ -1,0 +1,290 @@
+{
+ "title": "10/17 shoot: reaction clips",
+ "intro": "What is left after your 10/12 cuts, with the exact times now in the shoot doc, plus three new retatrutide clips to choose from.",
+ "decided": [
+  "Your one decision here is the retatrutide clip. My pick is the VladTV one, because it starts on \"I advocate for retatrutide\" and stays on it. Press \"Use this one\" on another if you like it better, or tell me to kill the short.",
+  "I have not touched the Retatrutide script. Once you choose, I put the clip in, check the script still fits it and stays under 66 seconds, and rebuild the teleprompter.",
+  "Two more I looked at and left off: his line \"My favorite thing is going to be retatrutide\" (strong, but I could only find it on a 4,000 view reaction channel with music over it), and Bradley Martyn's podcast, where he says he takes 15 mg (771,000 views, but he trails off into other drugs).",
+  "Everything else on this page is already decided and in the shoot doc, the Reaction Clips document and the teleprompter. One card each, to watch from.",
+  "Taken out on your word: Charles Barkley, the doctor's Ozempic face clip, the Elon Musk posts, and nine shorts (Worst Ab Workouts, the Zepbound doctor, and the Clavicular GLP-1, Nose Job, Hammer, Tan, Sunscreen, Supplements and Eyebrows shorts).",
+  "Bryan Johnson: you did not say keep or kill, and every clip but the opener was dead, so I took the whole video out of this shoot. The script is saved if you want it back.",
+  "The Tracy Morgan quote and the cortisol TikTok have nothing to pick."
+ ],
+ "check_title": "Script lines the clips do not back up (your call: change the line, change the clip, or leave it)",
+ "check": [
+  "Sharon Osbourne: the script says 42 pounds in about four months. The E! clip says 42 pounds in a year.",
+  "Meghan Trainor: the two quotes in the script (\"we don't lose muscle...\" and \"We stay in the gym\") are not in this ET video. It only reads out her post saying she used Mounjaro.",
+  "Oprah: the script says 20 pounds and \"a lifetime thing\". In this video she says she gained 15 pounds, and \"a lifetime thing\" is not said."
+ ],
+ "sections": [
+  {
+   "title": "How Losing Fat Changed My Face",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "FACE-1",
+     "label": "Clavicular, first clip",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 554,
+       "end": 582,
+       "first_words": "So, like the gym was kind of something",
+       "last_words": "I was like yeah okay that makes sense.",
+       "text": "So, like the gym was kind of something that looks minned me at the start. And the reason I started doing looks maxing was because I was on these forums and then there was a lot of like the black pill influence like looks maxers coming into the spaces and just that overlap like wait a second guys we're doing all this gym selling and you know dedicating all our time maybe our priorities are wrong maybe we should be focused on the face. I was like yeah okay that makes sense.",
+       "why": "He says the gym made him look worse at first, and that looksmaxxers on the forums made him think the priority should be the face instead of all the time in the gym."
+      }
+     ]
+    },
+    {
+     "slot": "FACE-2",
+     "label": "Clavicular, second clip (the 70% line)",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1414,
+       "end": 1434,
+       "first_words": "So if you're able to really like shred",
+       "last_words": "of softmaxing is quite literally just being lean.",
+       "text": "So if you're able to really like shred yourself down to that 101 12 mark uh that facial angularity that you gain is going to serve you so well. So that's the easiest thing that you could do as well. And that's going to largely be about like 70% of what you could accomplish in terms of softmaxing is quite literally just being lean.",
+       "why": "He says shredding down to a low body fat gives you facial angularity, and that about 70% of what softmaxxing can do is quite literally just being lean."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Reacting To Celebrity Ozempic Transformations",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CEL-1",
+     "label": "Sharon Osbourne",
+     "source": "E! News",
+     "video_id": "oZTHGIoqwI4",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 0,
+       "end": 28,
+       "first_words": "why Sharon Osborne is cautioning others against using",
+       "last_words": "100 lb and I don't want to be",
+       "text": "why Sharon Osborne is cautioning others against using OIC solely for weight loss the Osborne's Alum who says she lost 42 pounds on the type 2 diabetes injectable medication in a year gives an update on her progress which she says has crossed a line Sharon tells the Daily Mail in an interview published November 17th I'm too gaunt and I can't put any weight on I want to because I feel I'm too skinny I'm under 100 lb and I don't want to be",
+       "why": "Carries all three facts Dan repeats right after it: the 42 pounds, too gaunt and can't put any weight on, and under 100 lb, and it opens by naming her and the drug."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-3",
+     "label": "Fat Joe",
+     "source": "Page Six",
+     "video_id": "XkGHIKXLShA",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 0,
+       "end": 20,
+       "first_words": "it looks like Fat Joe is now skinny",
+       "last_words": "only have two pieces of your favorite stuff",
+       "text": "it looks like Fat Joe is now skinny Joe the all the way up rapper confessed to using OIC after shedding 200 lbs in a recent interview with US Weekly Joe credited the type 2 diabetes drug while sharing his tips and tricks to losing weight saying quote OIC says you may only have two pieces of your favorite stuff",
+       "why": "The headline itself: he confessed to using Ozempic after losing 200 lbs, which is the fact Dan states right after the clip."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-4",
+     "label": "Amy Schumer",
+     "source": "The Howard Stern Show",
+     "video_id": "unx1EuJ8t9s",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 65,
+       "end": 87,
+       "first_words": "I tried it and I was vomiting and",
+       "last_words": "head off the pillow so what's the point",
+       "text": "I tried it and I was vomiting and I'm in bed and I my son's like can you like play tag and I'm like I can I was like shriveling I lost 30 lbs so quick I looked great and I couldn't lift my head off the pillow so what's the point",
+       "why": "Amy herself says the two things Dan repeats: she lost 30 lbs fast and could not lift her head off the pillow."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-5",
+     "label": "Meghan Trainor",
+     "source": "Entertainment Tonight",
+     "video_id": "DNTlfd8Cbk4",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 28,
+       "end": 46,
+       "first_words": "She writes, \"No, I don't look like I",
+       "last_words": "Mangaro, to help me after my second pregnancy.\"",
+       "text": "She writes, \"No, I don't look like I did 10 years ago. I've been on a journey to be the healthiest, strongest version of myself for my kids and for me. Yes, I used science and support, shout out to Mangaro, to help me after my second pregnancy.\"",
+       "why": "The only place in the video where Mounjaro is named, in her own written words, along with healthiest, strongest version of myself."
+      }
+     ]
+    },
+    {
+     "slot": "CEL-7",
+     "label": "Oprah",
+     "source": "Oprah, with Serena Williams",
+     "video_id": "g7pw3MJ7QVE",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 3208,
+       "end": 3224,
+       "first_words": ">> Yeah, I tried I tried to beat",
+       "last_words": "last year, >> and I gained 15 pounds.",
+       "text": ">> Yeah, I tried I tried to beat this, remember? Cuz I said, \"No, I'm going to beat it. I'm going to prove to you that I can do it without it.\" And so I went for like a year uh took myself off the medications for a year, last year, >> and I gained 15 pounds.",
+       "why": "The strongest clip in the video, 16 seconds before the window opens: she says she took herself off the medication for a year and gained 15 pounds."
+      }
+     ]
+    },
+    {
+     "info": "Tracy Morgan: no clip. His Tonight Show quote goes on screen as text."
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Looks Matter More Than Personality. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-LOOKS",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 215,
+       "end": 233,
+       "first_words": "How much would you say looks matters compared",
+       "last_words": "hobbies vastly different if you're good-looking versus not.",
+       "text": "How much would you say looks matters compared to something like personality? um it matters so much more because your personality is correlated with your looks via the halo effect, right? So, people are going to perceive your personality, your interests, your hobbies vastly different if you're good-looking versus not.",
+       "why": "Asked how much looks matter compared to personality, he says they matter so much more, because people judge your personality, interests and hobbies by whether you are good-looking."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Getting Lean Is 70% Of Softmaxxing. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-LEAN",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 1414,
+       "end": 1434,
+       "first_words": "So if you're able to really like shred",
+       "last_words": "of softmaxing is quite literally just being lean.",
+       "text": "So if you're able to really like shred yourself down to that 101 12 mark uh that facial angularity that you gain is going to serve you so well. So that's the easiest thing that you could do as well. And that's going to largely be about like 70% of what you could accomplish in terms of softmaxing is quite literally just being lean.",
+       "why": "He says shredding down to a low body fat gives you facial angularity, and that about 70% of what softmaxxing can do is quite literally just being lean."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Recommends Retatrutide. He's Wrong.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-RETA",
+     "label": "Clavicular on retatrutide: new clip",
+     "source": "Three candidates where he talks only about retatrutide. Times are from the captions, good to a second or two.",
+     "video_id": "GRHcYzsTvlM",
+     "options": [
+      {
+       "rank": "recommended",
+       "video_id": "GRHcYzsTvlM",
+       "source": "VladTV, \"Clavicular Breaks Down Looksmaxxing Methods to Get Taller & Lose Weight (Part 7)\", 37,000 views",
+       "start": 102,
+       "end": 115,
+       "first_words": "Well, I advocate for retatrutide",
+       "last_words": "only agonizing the GLP-1 receptor.",
+       "text": "Well, I I advocate for retatride, which is a little bit different. A little bit different. Uh, so that's a triple agonist, so it hits three receptors versus ompic is a a single agonist only agonizing the GLP1 receptor.",
+       "why": "Opens on \"I advocate for retatrutide\", then says why he thinks it beats Ozempic. One topic, 13 seconds. Vlad repeats \"a little bit different\" once."
+      },
+      {
+       "rank": "alt1",
+       "video_id": "al13dc8reXg",
+       "source": "Sean Hannity, \"Is 'Looksmaxxing' Ruining Gen Z? (ft. Clavicular)\", 124,000 views",
+       "start": 1842,
+       "end": 1851,
+       "first_words": "But yeah, no GLP-1s have been very well researched",
+       "last_words": "and reta is extremely safe.",
+       "text": "But yeah, no GLP1s have been very well researched and rea is extremely safe.",
+       "why": "The bluntest claim to disagree with: \"reta is extremely safe\". 9 seconds. The start falls in the middle of a caption line, so the first second needs setting by ear."
+      },
+      {
+       "rank": "alt2",
+       "video_id": "GRHcYzsTvlM",
+       "source": "VladTV, same video",
+       "start": 277,
+       "end": 290,
+       "first_words": "Yeah, that's why Retta is a lot better",
+       "last_words": "And it works. It does.",
+       "text": "Yeah, that that's why Retta is uh a lot better, you know, because you're not going to deal with as severe nausea. Okay. Are you on that right now? Yeah. Okay. And it works. It does.",
+       "why": "He says it is a lot better, that he is on it, and that it works. 13 seconds. Vlad's two short questions are inside it."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Clavicular Says Hair Is Life. He's Right.",
+   "set": "Green screen",
+   "slots": [
+    {
+     "slot": "CLV-HAIR",
+     "label": "Clavicular",
+     "source": "Clavicular on The Iced Coffee Hour",
+     "video_id": "PQaMZceY-0I",
+     "options": [
+      {
+       "rank": "recommended",
+       "start": 6569,
+       "end": 6578,
+       "first_words": "Yeah. Hairstyle. Yeah. Hair transplant. Hair is life.",
+       "last_words": "you have no hair, you have no life.",
+       "text": "Yeah. Hairstyle. Yeah. Hair transplant. Hair is life. And if you have no hair, you have no life.",
+       "why": "Going down his tier list he reaches hair transplant and says hair is life, and if you have no hair, you have no life."
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Cortisol Belly Is Real, But TikTok Has It Wrong",
+   "set": "Dark green backdrop",
+   "slots": [
+    {
+     "info": "The cortisol cocktail TikTok. Main: @ebbymoyer (3.5 million views). Backup: @jezebel511. TikTok does not play in the player here, so these open in a new tab. Say in your reply if you want the backup.",
+     "links": [
+      [
+       "Main",
+       "https://www.tiktok.com/@ebbymoyer/video/7260977070203931950"
+      ],
+      [
+       "Backup",
+       "https://www.tiktok.com/@jezebel511/video/7525072235103554846"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

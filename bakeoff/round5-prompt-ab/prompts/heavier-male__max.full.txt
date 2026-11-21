@@ -1,0 +1,32 @@
+Transform this man into a shredded, elite-level athlete at 8-10% body fat. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. This is a complete physique overhaul: strip away all excess fat, carve deep muscle definition across the entire torso, and build a lean, powerful V-taper silhouette. Target the archetype of a Hollywood action-star in peak condition — muscular but natural, athletic rather than bodybuilder-massive.
+
+BODY TRANSFORMATION:
+- Reduce overall body fat dramatically across the entire torso, chest, shoulders, arms, back, waist, and midsection — a radical drop that completely changes the silhouette and reveals the musculature underneath
+- Carve a deeply etched six-pack with sharp, individual ab blocks separated by dark shadow grooves; each block must catch light distinctly, with visible intercostal separation between the ribs and a pronounced V-cut running down to the waistline
+- Tighten and narrow the waist substantially — reduce the midsection to a lean, tapered core with visible oblique definition and no softness at the sides or lower belly
+- Build a clean, athletic V-taper by narrowing the waist while adding modest, natural shoulder and upper-back width — broad shoulders reading clearly wider than the waist, with sharp pec-delt separation and a sculpted chest
+- Define the arms with a prominent bicep peak and full tricep sweep; visible striations and muscle separation from shoulder to wrist, with no softness or looseness
+- Render all muscle definition with real light-and-shadow contrast — deep shadows in the ab grooves, oblique lines, and muscle separations; bright highlights across the ab blocks, chest, and shoulders so the physique is sculpted by light
+- Skin taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic, natural look, explicitly NOT an oiled or competition-stage appearance
+- Sharpen the jawline and neck definition as the body fat drops, revealing a cleaner facial structure while keeping the face itself identical
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+Preserve the subject's exact natural skin tone from the input photo — the same colour, the same warmth, the same depth. Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth, and do NOT darken or lighten the skin. The only permissible difference is the healthy look that comes from the light modelling the new muscle; the skin colour itself must be identical to the input.
+
+AVOID:
+- any alteration to face, identity, apparent ethnicity, or age
+- heavily oiled, greasy, wet, or sweat-drenched skin
+- exaggerated or cartoonish proportions
+- any tan, bronzing, golden cast, or darkening of the skin versus the input photo
+- an airbrushed, plastic, or rendered look
+- cropping, zooming, re-framing, or changing camera distance
+- an output identical or nearly identical to the input
+- bulging veins or competition vascularity
+- bodybuilder-scale mass — an inflated chest, boulder shoulders, blown-up arms, or heavily flared lats
+- comically oversized muscles
+- spray-on abs that look digitally pasted on
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

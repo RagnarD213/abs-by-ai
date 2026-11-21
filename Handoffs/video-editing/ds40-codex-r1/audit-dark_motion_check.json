@@ -1,0 +1,30 @@
+{
+  "concrete_defects": [
+    {
+      "defect": "Green spill/fringing on hair edges, particularly noticeable on the top and sides.",
+      "seconds": "0:00 - 0:10"
+    },
+    {
+      "defect": "Slight green spill/halo around the glasses frames, especially visible when the subject moves their head.",
+      "seconds": "0:00 - 0:10"
+    },
+    {
+      "defect": "Rough cutout edges and slight green spill on the ear edges, more prominent on the right ear.",
+      "seconds": "0:00 - 0:10"
+    },
+    {
+      "defect": "Minor green spill and slightly rough edges on the shoulder lines, particularly when the shoulders move.",
+      "seconds": "0:00 - 0:10"
+    },
+    {
+      "defect": "Flicker and slight green spill on the moving fingers, causing them to appear less defined.",
+      "seconds": "0:00 - 0:02, 0:07 - 0:09"
+    }
+  ],
+  "mild_non_blocking_edge_observations": [
+    "The overall key has a slightly soft, almost feathered edge, which contributes to some of the fringing.",
+    "There's a subtle, almost imperceptible glow around the subject's silhouette at times, suggesting a slight halo effect."
+  ],
+  "edge_quality_stable_while_subject_moves": false,
+  "verdict_normal_light_background": "The exact same key would likely be acceptable against a normal light background, but the subtle green spill and rough edges would still be present and potentially noticeable upon close inspection. While less glaring than on a dark background, these imperfections would still detract from a perfectly clean composite. Further refinement of the key is recommended for optimal results."
+}

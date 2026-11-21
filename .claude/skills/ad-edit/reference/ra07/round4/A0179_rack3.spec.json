@@ -1,0 +1,54 @@
+{
+ "shot": "RA-07 round 4 A1 piece 1 (third window): A0179 frames 0-34 (the man with the broken arm walks into the gym toward the squat rack)",
+ "start_frame": "A0179.mp4 frame 0 (1080x1920); the still boxes are on parts that never move (camera locked)",
+ "intent": "A man in a grey t-shirt and navy shorts, his left forearm in a white cast inside a navy sling, walks through a busy gym toward a loaded barbell on a black power rack with an unimpressed, sour look; his right arm swings at his side. The rack, bar, plates and benches do not move. Other gym members in the far background move on their own. The camera is locked. This window ends before he reaches the rack and before his hand goes to his hip.",
+ "person": {
+  "reach": false
+ },
+ "camera": "locked",
+ "still": {
+  "rack_upright": [
+   820,
+   200,
+   870,
+   330
+  ],
+  "plate_rim": [
+   640,
+   470,
+   720,
+   560
+  ],
+  "bench_top": [
+   610,
+   830,
+   700,
+   880
+  ],
+  "base_foot": [
+   630,
+   1340,
+   700,
+   1385
+  ]
+ },
+ "may_change": {
+  "bg_lifter": [
+   0,
+   500,
+   220,
+   880
+  ],
+  "bg_woman": [
+   240,
+   540,
+   340,
+   780
+  ]
+ },
+ "hands": {
+  "right": "hanging and swinging at his side, empty",
+  "left": "forearm in a white cast inside a navy sling in every frame"
+ },
+ "bounds": {}
+}

@@ -1,0 +1,36 @@
+{
+  "id": "ds40-r3-approved-20261020",
+  "date": "2026-10-20",
+  "dan": "The hair looks good enough now. Keep the Balanced audio and warmer color and go ahead with the full edit.  This is a significant improvement for the hair. Let's lock this as our chroma key style. I want all the videos keyed out like this. This is a very clean key.",
+  "scope": "All future green-screen video keying, both Claude and Codex; source-specific geometry and screen calibration",
+  "reference": "/Volumes/Extreme/_edit_work/DS-40-codex/round3/review/media/sample.mp4",
+  "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+  "drive": "https://drive.google.com/file/d/17TO-EYOAOmTu5i1Ivhu7ChOQSu-u3Q09/view",
+  "approved_components": [
+    "R2 body and arm key",
+    "R3 motion-stable fine hair and continuous edge-color reconstruction"
+  ],
+  "per_video_only": [
+    "DS40 Balanced audio",
+    "DS40 warmer grade"
+  ],
+  "recipe_sha256": {
+    "round3-key_v3.py": "fc330a047cc41500971397ef75c4d2ed6787e6787bbf5681ddba9a89b62aee3b",
+    "round3-prepare.py": "5f2254fa8f16cf17a944b48b1fe8b160caf103dcd310818a10f9937f85e4d93d",
+    "round3-render.py": "235de85c4f45b71dd20d1df2fbc1ac55c9aa5c64410142c0a0cba6439eb39a02",
+    "round3-grade.py": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce",
+    "round3-key_v2.py": "807744ae731431a09380583e4e5a1db987572a49fd65532e754a7500364e39e7",
+    "round3-r1_key.py": "e9335685841be3cc5b8c0423bf201e744ddde423f56bf65ac40bdac5f8c35efd",
+    "round2-render.py": "089e7aae35c5bf1547727520855c3a07990deb2a53a2229dedcdef6d8ce29ee2",
+    "round2-audio_refine.py": "cbb05a4634e7420bdfe6072a0fe12dd5be8750e1aa90d6d2d1c3cfd179871a09",
+    "round2-audio-options.json": "f9c647345bc5b27d78b047d1c334fdb38dd316b3a2c77f57579e024a899c140b"
+  },
+  "gate_changes": false,
+  "automated_hair_gate": "key:hair_temporal_edges remains unimplemented",
+  "next_task": "Bill Maher Fat 90-Year-Old SFC R4",
+  "full_edit_authorized": true,
+  "full_edit_rendered": false,
+  "full_edit_approved": false,
+  "handoff_reason": "Major stage change from calibration to full edit, with source selection, clip assembly, captions and full QA remaining.",
+  "prior_sample_reviewed_and_approved": true
+}

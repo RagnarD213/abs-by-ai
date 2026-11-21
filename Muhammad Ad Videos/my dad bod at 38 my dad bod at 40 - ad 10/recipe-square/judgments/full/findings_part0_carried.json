@@ -1,0 +1,1495 @@
+{
+ "judge": "carried from round 2 (carried from round 2 (carried from round 2 (carried from round 2 (round 2 fresh judge part 1 (0:00 to 1:10), Opus 5.5 | round 2 fresh judge part 2 (1:10 to 2:03), Opus 5.5 | round 2 fresh judge part 3 (2:03 to end), Opus 5.5) | round 3 fresh judge A (changed images), Opus 5.5 | round 3 fresh judge B (changed images), Opus 5.5 | round 3 fresh judge C (changed images), Opus 5.5) | round 4 fresh judge 1 (changed images), Opus 5.5 | round 4 fresh judge 2 (changed images), Opus 5.5 | round 4 fresh judge 3 (changed images), Opus 5.5 | round 4 fresh pair-image judge A (pairs 000 to 058), Opus 5.5 | round 4 fresh pair-image judge B (pairs 059 to 117), Opus 5.5) | round 5 fresh judge 0 (changed images), Opus 5.5 | round 5 fresh judge 1 (changed images), Opus 5.5 | round 5 fresh judge 2 (changed images), Opus 5.5)",
+ "video": "/Users/danielrose/abs-review/as06-ad10/sq/my dad bod at 38 my dad bod at 40 | claude | 1x1 | ad 10.mp4",
+ "method": "carry_by_time.py: entries kept only for images (and their pair images) pixel-identical to the judged round",
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Before deckchair card 0-3.10 with pill under the picture; real photo burst 8.11-10.84 (red shorts, towel, park close full-bleed with 3-line chip beside, never over, the face; flag card with pill); talking head checked at 3.14, 6.0, 10.84, 12.95, 14.3, 15.95, 16.2, 18.0, 20.08, 22.0, 22.95, 23.35, 24.05: hair 30-45 px below the frame top on NEAR levels, no pops, no splice jumps. Card and lower third first/last frames clean."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 20.12,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared: NEAR punches at 12.91/15.92/18.45/23.29; What Didn't Change full card 15.92-20.12 with captions paused; white flash at 20.12 as the card fades; lower third 22.9-26.0 with captions paused."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 24.99,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Decoded f749-f1469 full size (talking head every 2 s, both full-bleed photos first/mid/last f811/835/857 and f858/879/900, In This Video card f1135/1280/1423). Lower third at 24.99 clear of face; 3-line real chips beside the head, not on face or abs; no captions on full-bleed photos; card builds line by line; NEAR/FAR steps at 33.03, 37.87 match declared punch; white flash at 47.514 declared. Park-close photo hair sits about 15 px under the top edge: tight but not cut. No edge lines."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-14.01.jpg",
+   "verdict": "clean",
+   "t": 54.221,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Kitchen stock card f1625-f1732 (54.22-57.79): first frame clean cut from Dan, no leak; last 12 frames all the clip on the card, no freeze, no Dan inside the card; white flash into Dan f1733-f1744 is the declared transition. No AI label (stock clip). Card edges clean, no black or grey lines; the dark brown strip on the card's right is the door frame inside the stock footage."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-14.01.jpg",
+   "verdict": "clean",
+   "t": 63.13,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Daughter photo cards: card 1 f1892-f1950 (63.13-65.06) hard cut from THE TRUTH card, card 2 f1951-f2012 (65.10-67.13) card-to-card cut, flash to Dan f2013-f2024. Every frame of both card tails checked: no leak, no flash inside the card, one pill each 'Real picture of me - not AI-generated' under the picture, nothing over a face. Card 2 Dan's hair meets the photo's own top edge, which is the picture's edge inside the card, not the frame edge."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_01-14.01.jpg",
+   "verdict": "expected",
+   "t": 69.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Empty dark lower-third box at 1:09.00 is the WHAT GOT ME lower third animating in (full text from 1:10); captions pause under it as declared. Zoom cut at 68.235 (f2044 to f2045) is a far-to-near punch-in, not a naked splice; hair clear of the top edge."
+  },
+  {
+   "image": "sheet_03_01-15.01_to_01-39.00.jpg",
+   "verdict": "clean",
+   "t": 75.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talking head decoded at 75.0, 76.9, 77.5, 79.0, 81.0, 82.5, 83.0, 85.0, 86.0, 87.0, 89.0, 90.2, 96.5, 98.0, 99.1: hair clear of the top edge at every level, no wide level, no arm cut with space opposite, captions clean and on screen. AI pool card 90.223-93.226 (f2704-2793) moves every frame (diff about 1.1 per frame, no repeats), one burned AI-GENERATED chip top left, no second pill, no caption. Phone card 93.226-95.395 (f2794-2858) moves every frame, one AI-GENERATED pill under the card, no caption, no leak on first or last frame."
+  },
+  {
+   "image": "sheet_03_01-15.01_to_01-39.00.jpg",
+   "verdict": "expected",
+   "t": 95.395,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared items in this sheet: CTA pill 74.1-76.9 with captions paused under it; white flash out of the phone card into the talking head at 95.395 (f2857-2862); NEAR punch levels 76.576-78.278 and 80.948-82.382 per plan."
+  },
+  {
+   "image": "sheet_04_01-40.00_to_02-03.99.jpg",
+   "verdict": "clean",
+   "t": 112.012,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | AI beach runner card f3357-f3443 (112.01-114.88): first frame clean cut from Dan, one AI-GENERATED chip (the clip's own, top left, clear of his head), no second pill; last 12 frames all moving clip, no freeze or leak; flash f3444-f3455 into Dan with the GOAL lower third. Caption absent for about the first second of the card (speech gap), then on the blue field below. Card edges clean."
+  },
+  {
+   "image": "sheet_04_01-40.00_to_02-03.99.jpg",
+   "verdict": "expected",
+   "t": 115.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash at 1:55 is declared; empty YOUR GOAL box at 1:56.02 is the lower third animating in. Full-frame real pool photos 1:46.17-1:48.53: top-left label sits beside his head, not on face or abs; clean cuts both ends. Phone-app cards 2:01-2:04 carry the real-picture pill under the phone."
+  },
+  {
+   "image": "sheet_05_02-04.99_to_02-29.02.jpg",
+   "verdict": "expected",
+   "t": 135.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | App screen with Real picture pill, AI pool picture (hair 50 px from top), How The Plan Is Built list card over the talking head with captions paused (covers tank top, not face), flash at 2:19, YOUR WORKOUTS and YOUR NUTRITION lower thirds with captions paused. A hair detector hit at 2:23.37 was checked at full res: hair is ~45 px from the top, clean."
+  },
+  {
+   "image": "sheet_07_02-55.01_to_03-01.01.jpg",
+   "verdict": "expected",
+   "t": 176.74,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | app2_form > app2_goal_clean (AI-GENERATED chip, clear of face) at 176.743, no blink; join at 177.81 inside the AI picture has no visible jump (frame-to-frame shift under 1 px)."
+  },
+  {
+   "image": "sheet_07_02-55.01_to_03-01.01.jpg",
+   "verdict": "expected",
+   "t": 178.28,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared flash into the closing talking head at 178.278, then CTA 'Get A FREE AI Image Of Yourself / With Abs' to the last frame 181.615 with captions paused; no hair at the top edge; last frames clean."
+  },
+  {
+   "image": "pair_000_00-03.14.jpg",
+   "verdict": "clean",
+   "t": 3.136,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Deck-chair before card (f0/f1/f47/f92/f93) with pill under the picture, then hard cut to talking head f94. No leak, no edge lines. Thin light-blue accent line moving along the card's top edge is the card's own progress accent, present on every card frame."
+  },
+  {
+   "image": "pair_001_00-08.11.jpg",
+   "verdict": "clean",
+   "t": 8.108,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk to full-bleed red-shorts photo at f243. f242 is clean talking head, f243 is the full photo with the 3-line chip top left beside (not over) his head; slow push updates every frame (diff 5-6). Middle f248 and last f252 clean. Note only: this chip is drawn larger than the towel and park chips."
+  },
+  {
+   "image": "pair_002_00-08.44.jpg",
+   "verdict": "clean",
+   "t": 8.442,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared photo-to-photo cut, red shorts -> towel. Full frames f243/f250/f252/f253/f258/f262: chips beside the face, not over face or abs; no leak at either edge."
+  },
+  {
+   "image": "pair_003_00-08.48.jpg",
+   "verdict": "clean",
+   "t": 8.475,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Both sides are the towel photo (plan join at 8.442 already happened one frame earlier); identical framing and chip, no pop. Decoded f243-f274: red shorts, towel, park close and flag beats each hold one layout, chips beside the head, nothing leaks at first or last frames."
+  },
+  {
+   "image": "pair_004_00-08.78.jpg",
+   "verdict": "clean",
+   "t": 8.775,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Towel photo to park photo at f263, confirmed with a no-seek sequential decode of f250-266: f262 is the towel photo whole, f263 the park photo whole, no leak, no edge lines. Chips clear of faces; hair has about 15-35 px clearance at the top edge."
+  },
+  {
+   "image": "pair_005_00-09.11.jpg",
+   "verdict": "clean",
+   "t": 9.109,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Park close full-bleed (f263-f272) -> flag card (f273). Chip left of the face; flag card with pill, slow push smooth (diff scan ~0.93/frame, no duplicates). Park photo hair ~15-20 px below the frame top: tight but not touching."
+  },
+  {
+   "image": "pair_006_00-10.84.jpg",
+   "verdict": "clean",
+   "t": 10.844,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Flag card last frame f324 (pill under picture) to talking head f325, clean hard cut. Flag card moves every frame (slow push), no freeze."
+  },
+  {
+   "image": "pair_007_00-12.91.jpg",
+   "verdict": "expected",
+   "t": 12.91,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | FAR to NEAR punch on a join; real framing change, head well inside the frame."
+  },
+  {
+   "image": "pair_008_00-14.35.jpg",
+   "verdict": "expected",
+   "t": 14.35,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:FAR is an eased zoom-out that begins here; -1 and 0 are continuous, no jump (verified with a 6 fps tile 12.5-19 s: scale reduces smoothly over about 0.5 s)."
+  },
+  {
+   "image": "pair_009_00-15.92.jpg",
+   "verdict": "expected",
+   "t": 15.92,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear framing change. card@15.916 'What Didn't Change' builds in about 0.1 s later (tile confirms 'What' fading in at 16.0 s)."
+  },
+  {
+   "image": "pair_010_00-17.50.jpg",
+   "verdict": "expected",
+   "t": 17.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:FAR is an eased zoom-out start; continuous, no jump. List card over the tank top, clear of face."
+  },
+  {
+   "image": "pair_011_00-18.45.jpg",
+   "verdict": "expected",
+   "t": 18.45,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change; list card unchanged on both sides."
+  },
+  {
+   "image": "pair_012_00-20.12.jpg",
+   "verdict": "expected",
+   "t": 20.12,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash transition: card fades out, join to FAR talk-8. Declared flash."
+  },
+  {
+   "image": "pair_013_00-22.90.jpg",
+   "verdict": "expected",
+   "t": 22.9,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same shot both sides; caption clears as the 'HOW I DID IT' lower third begins to build. Declared card in."
+  },
+  {
+   "image": "pair_014_00-23.29.jpg",
+   "verdict": "expected",
+   "t": 23.29,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change; lower third building ('I Used'), sits on the chest, clear of face."
+  },
+  {
+   "image": "pair_015_00-24.02.jpg",
+   "verdict": "expected",
+   "t": 24.02,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with FAR punch, clear scale change; lower third 'I Used AI To Get REAL ABS' complete."
+  },
+  {
+   "image": "pair_016_00-26.00.jpg",
+   "verdict": "expected",
+   "t": 26.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fading out on continuous shot; no jump."
+  },
+  {
+   "image": "pair_017_00-26.03.jpg",
+   "verdict": "clean",
+   "t": 26.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same shot both sides, lower third already gone; no glitch."
+  },
+  {
+   "image": "pair_018_00-27.06.jpg",
+   "verdict": "clean",
+   "t": 27.06,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk to red-shorts photo at f811; first f811, middle f835, last f857 all clean. At the end of the push (f857) the chip sits about 25 px left of his hair, not over the face."
+  },
+  {
+   "image": "pair_019_00-28.63.jpg",
+   "verdict": "clean",
+   "t": 28.629,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Red shorts f811-f857 -> park close f858-f900 -> talking head f901. First/middle/last frames clean, push smooth (no every-other-frame updates), chips not over face or abs. Park close hair ~15-20 px below the frame top (tight, not cut)."
+  },
+  {
+   "image": "pair_020_00-28.66.jpg",
+   "verdict": "clean",
+   "t": 28.662,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Plan join inside the park-close full-bleed photo; f858 and f859 identical layout, no pop. Chip clear of face. Hair about 15 px under the frame top, not cut."
+  },
+  {
+   "image": "pair_021_00-30.06.jpg",
+   "verdict": "clean",
+   "t": 30.063,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Park photo (f900, last) to talking head (f901): hard cut, no leak, no edge lines, framing fine."
+  },
+  {
+   "image": "pair_022_00-33.03.jpg",
+   "verdict": "expected",
+   "t": 33.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_023_00-35.27.jpg",
+   "verdict": "expected",
+   "t": 35.27,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:FAR is an eased zoom start; continuous, no jump."
+  },
+  {
+   "image": "pair_024_00-37.87.jpg",
+   "verdict": "expected",
+   "t": 37.87,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change; 'In This Video' card builds in afterwards."
+  },
+  {
+   "image": "pair_025_00-39.50.jpg",
+   "verdict": "expected",
+   "t": 39.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous; 'In This Video' card header shown, items build on the words."
+  },
+  {
+   "image": "pair_026_00-41.74.jpg",
+   "verdict": "expected",
+   "t": 41.74,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change; list card identical both sides."
+  },
+  {
+   "image": "pair_027_00-47.51.jpg",
+   "verdict": "expected",
+   "t": 47.51,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash: list card fading out, join to FAR talk-13. Declared flash."
+  },
+  {
+   "image": "pair_028_00-50.68.jpg",
+   "verdict": "expected",
+   "t": 50.68,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_029_00-52.12.jpg",
+   "verdict": "expected",
+   "t": 52.12,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous, no jump."
+  },
+  {
+   "image": "pair_030_00-54.22.jpg",
+   "verdict": "expected",
+   "t": 54.22,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | talk-13 to framed stock/AI dad-and-daughter kitchen clip on the blue card; caption sits on the blue below the frame, not on the picture. No AI giveaway visible."
+  },
+  {
+   "image": "pair_031_00-57.89.jpg",
+   "verdict": "expected",
+   "t": 57.89,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash from the kitchen card to talk-15. Declared flash."
+  },
+  {
+   "image": "pair_032_00-59.13.jpg",
+   "verdict": "expected",
+   "t": 59.13,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | talk-15 to the 'THE TRUTH' title card; frames 0 and +1 are the bare blue card background and the accent line starts drawing at +2 (strip 032), the card's normal build-in, not a black or junk frame."
+  },
+  {
+   "image": "pair_033_01-01.09.jpg",
+   "verdict": "clean",
+   "t": 61.09,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | 'join' sits under the static title card; both frames identical apart from a slow push; no glitch."
+  },
+  {
+   "image": "pair_034_01-02.50.jpg",
+   "verdict": "clean",
+   "t": 62.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | 'join' under the title card; continuous slow push, no glitch."
+  },
+  {
+   "image": "pair_035_01-03.13.jpg",
+   "verdict": "expected",
+   "t": 63.13,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Title card to framed real daughter_trip photo with 'Real picture' bar. Declared card change."
+  },
+  {
+   "image": "pair_036_01-05.10.jpg",
+   "verdict": "expected",
+   "t": 65.1,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | daughter_trip card to portrait daughter_event card; bar below the frame. Declared card change."
+  },
+  {
+   "image": "pair_037_01-07.23.jpg",
+   "verdict": "expected",
+   "t": 67.23,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash from the daughter_event card to talk-19. Declared flash."
+  },
+  {
+   "image": "pair_038_01-07.27.jpg",
+   "verdict": "clean",
+   "t": 67.27,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Inside the white flash on talk-19; continuous, no jump."
+  },
+  {
+   "image": "pair_039_01-08.23.jpg",
+   "verdict": "expected",
+   "t": 68.23,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_040_01-08.80.jpg",
+   "verdict": "expected",
+   "t": 68.8,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same shot both sides; caption suppressed as the 'WHAT GOT ME' lower third starts. Declared card in."
+  },
+  {
+   "image": "pair_041_01-10.07.jpg",
+   "verdict": "expected",
+   "t": 70.07,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous; lower third on the chest, clear of face."
+  },
+  {
+   "image": "pair_042_01-12.04.jpg",
+   "verdict": "expected",
+   "t": 72.04,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change; lower third identical both sides."
+  },
+  {
+   "image": "pair_043_01-13.10.jpg",
+   "verdict": "expected",
+   "t": 73.1,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fading out on a continuous shot; no jump."
+  },
+  {
+   "image": "pair_044_01-13.57.jpg",
+   "verdict": "expected",
+   "t": 73.57,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with FAR punch, clear scale change."
+  },
+  {
+   "image": "pair_045_01-14.10.jpg",
+   "verdict": "expected",
+   "t": 74.1,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same shot both sides; caption clears as the CTA pill begins. Declared card in."
+  },
+  {
+   "image": "pair_046_01-16.58.jpg",
+   "verdict": "expected",
+   "t": 76.58,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:NEAR is an eased zoom start, continuous; CTA pill 'Get A FREE AI Image Of Yourself With Abs' with no caption on it, clear of face."
+  },
+  {
+   "image": "pair_047_01-16.90.jpg",
+   "verdict": "expected",
+   "t": 76.9,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | CTA pill fading out on a continuous shot; no jump."
+  },
+  {
+   "image": "pair_048_01-18.28.jpg",
+   "verdict": "expected",
+   "t": 78.28,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous."
+  },
+  {
+   "image": "pair_049_01-20.95.jpg",
+   "verdict": "expected",
+   "t": 80.95,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_050_01-22.38.jpg",
+   "verdict": "expected",
+   "t": 82.38,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous; hair clear of the top edge."
+  },
+  {
+   "image": "pair_051_01-23.62.jpg",
+   "verdict": "expected",
+   "t": 83.62,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_052_01-25.45.jpg",
+   "verdict": "expected",
+   "t": 85.45,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous."
+  },
+  {
+   "image": "pair_053_01-26.25.jpg",
+   "verdict": "expected",
+   "t": 86.25,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | join with NEAR punch, clear scale change."
+  },
+  {
+   "image": "pair_054_01-28.49.jpg",
+   "verdict": "expected",
+   "t": 88.49,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Eased FAR zoom start, continuous."
+  },
+  {
+   "image": "pair_055_01-30.22.jpg",
+   "verdict": "clean",
+   "t": 90.223,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk -> ai_goal full-bleed f2704-f2793 with one AI-GENERATED chip top-left away from face; slow push steady (~1.35/frame); last frame f2793 clean, f2794 phone_goal card with its single AI-GENERATED pill."
+  },
+  {
+   "image": "pair_056_01-33.23.jpg",
+   "verdict": "clean",
+   "t": 93.226,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI pool clip (one AI-GENERATED chip, top left, clear of face) cuts to phone card with a single AI-GENERATED pill under it and no chip inside the phone, so one label per picture. Decoded f2704/2748/2792/2793/2794/2795/2856: AI clip and phone card move every frame, no stray frames; card exits through the declared white flash at 95.395."
+  },
+  {
+   "image": "pair_057_01-34.89.jpg",
+   "verdict": "clean",
+   "t": 94.895,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Join hidden under the phone card; both frames identical card, phone clip keeps moving (diff about 0.5 per frame across f2795-2856)."
+  },
+  {
+   "image": "pair_058_01-35.39.jpg",
+   "verdict": "expected",
+   "t": 95.39,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash from the phone_goal card to talk-22 FAR. Declared flash."
+  },
+  {
+   "image": "pair_059_01-39.17.jpg",
+   "verdict": "expected",
+   "t": 99.17,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to full blue card (MY LOCK SCREEN). Frame 0 is the empty card background; decoded 99.17 to 99.70: kicker and headline build in word by word from 99.23, so the blank lasts 2 frames as the card's build-in, not a black or junk frame."
+  },
+  {
+   "image": "pair_060_01-39.20.jpg",
+   "verdict": "clean",
+   "t": 99.2,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Both frames the same blank card background at the start of the text build-in (verified by decode). No change."
+  },
+  {
+   "image": "pair_061_01-42.80.jpg",
+   "verdict": "clean",
+   "t": 102.8,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the full lock-screen card; card identical both sides, nothing visible."
+  },
+  {
+   "image": "pair_062_01-43.20.jpg",
+   "verdict": "expected",
+   "t": 103.2,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card exits through a white flash into talk-24. Hair clear of the top edge."
+  },
+  {
+   "image": "pair_063_01-46.17.jpg",
+   "verdict": "expected",
+   "t": 106.17,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to real pool photo (standing). 'Real picture of me. Not AI-generated.' chip sits beside his head, clear of face and abs."
+  },
+  {
+   "image": "pair_064_01-46.21.jpg",
+   "verdict": "clean",
+   "t": 106.206,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool stand photo f3182-f3211, same photo across the card@106.173 marker; push smooth; chip beside the face. f3212 pool flex starts cleanly."
+  },
+  {
+   "image": "pair_065_01-47.17.jpg",
+   "verdict": "clean",
+   "t": 107.174,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool-stand photo to pool-flex photo. Decoded f3182/3197/3211/3212/3213/3232/3252/3253/3254: chips clear of face (checked full-size crop at f3211) and of the raised fist; both photos push every frame; clean cut back to talking head at f3254. Note: pool-flex chip is set in 2 lines while the other full-bleed chips are 3 lines; text is correct, so not called."
+  },
+  {
+   "image": "pair_066_01-47.21.jpg",
+   "verdict": "clean",
+   "t": 107.207,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool-stand photo (f3182-3211) to pool-flex photo (f3212-3253): picture and chip change together at f3212, nothing changes at f3213. Both fists inside the frame on the last frame f3253, chip clear of his head. Note only: the pool-flex chip is 2 lines ('Real picture of me. / Not AI-generated.') where the plan describes a 3-line chip; it is consistent for the whole beat, so it is not a glitch."
+  },
+  {
+   "image": "pair_067_01-48.58.jpg",
+   "verdict": "clean",
+   "t": 108.575,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool flex last frame f3253 -> talking head f3254; no pop between f3254-f3256 (same framing), CTA card fades in at 109.0 with captions paused."
+  },
+  {
+   "image": "pair_068_01-49.00.jpg",
+   "verdict": "expected",
+   "t": 109.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | CTA pill card in; caption withdraws as the pill builds. Same take continuous both sides, no join."
+  },
+  {
+   "image": "pair_069_01-51.80.jpg",
+   "verdict": "expected",
+   "t": 111.8,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | CTA pill ('Get A FREE AI Image Of Yourself / With Abs') fading out over his clasped hands and tank top (clothed, no abs). Continuous take, no join."
+  },
+  {
+   "image": "pair_070_01-52.01.jpg",
+   "verdict": "expected",
+   "t": 112.01,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to AI beach card. AI-GENERATED chip top left of the picture, clear of the face."
+  },
+  {
+   "image": "pair_071_01-54.98.jpg",
+   "verdict": "expected",
+   "t": 114.98,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | AI beach card out through a white flash into talk-29; caption 'six-pack abs' continues across."
+  },
+  {
+   "image": "pair_072_01-55.01.jpg",
+   "verdict": "expected",
+   "t": 115.01,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Flash continuing; caption steps aside as the YOUR GOAL lower third builds in."
+  },
+  {
+   "image": "pair_073_01-58.10.jpg",
+   "verdict": "expected",
+   "t": 118.1,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | YOUR GOAL lower third ('Lose The Dad Bod FOR GOOD') fades out. Continuous take."
+  },
+  {
+   "image": "pair_074_01-58.75.jpg",
+   "verdict": "expected",
+   "t": 118.75,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR; clear scale change in the 5-frame strip (head and fridge both larger), not a naked splice."
+  },
+  {
+   "image": "pair_075_02-00.19.jpg",
+   "verdict": "expected",
+   "t": 120.19,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:FAR with no join. No step at this frame (identical scale both sides); the move to FAR is eased over the next ~0.6 s. No splice."
+  },
+  {
+   "image": "pair_076_02-00.82.jpg",
+   "verdict": "expected",
+   "t": 120.82,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR; clear scale change (strip confirms), not a naked splice."
+  },
+  {
+   "image": "pair_077_02-01.82.jpg",
+   "verdict": "expected",
+   "t": 121.82,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to phone screen recording (app1 Adjust Photo); 'Real picture of me - not AI-generated' bar at the bottom, clear of the photo."
+  },
+  {
+   "image": "pair_078_02-01.86.jpg",
+   "verdict": "expected",
+   "t": 121.86,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card running; punch:FAR is on the hidden talk layer, nothing visible changes."
+  },
+  {
+   "image": "pair_079_02-02.82.jpg",
+   "verdict": "expected",
+   "t": 122.82,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Screen recording advances Adjust Photo to the form screen inside the same phone frame; label persists (photo is still the real one)."
+  },
+  {
+   "image": "pair_080_02-02.86.jpg",
+   "verdict": "clean",
+   "t": 122.86,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same form screen both sides, identical."
+  },
+  {
+   "image": "pair_081_02-04.66.jpg",
+   "verdict": "clean",
+   "t": 124.66,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the phone screen recording; scrolled form identical both sides."
+  },
+  {
+   "image": "pair_082_02-05.66.jpg",
+   "verdict": "expected",
+   "t": 125.66,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Phone recording (rendering 89%) to full-frame AI goal image with AI-GENERATED chip left of his head, clear of face."
+  },
+  {
+   "image": "pair_083_02-05.69.jpg",
+   "verdict": "clean",
+   "t": 125.692,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Both sides the AI pool clip (join one frame after the app1_form to app1_goal_clean cut at f3766). One AI-GENERATED chip, no second pill. Decoded f3681/3709/3765/3766/3767/3791/3815/3816/3817: app form card with real pill, AI clip moves every frame, hard cut to talking head f3817."
+  },
+  {
+   "image": "pair_084_02-07.06.jpg",
+   "verdict": "clean",
+   "t": 127.06,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Join hidden under the AI pool card app1_goal_clean (f3766-3816); card moves every frame, one burned chip, no pill, no caption. Last frame f3816 clean, f3817 talking head."
+  },
+  {
+   "image": "pair_085_02-07.36.jpg",
+   "verdict": "clean",
+   "t": 127.361,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | app1_goal_clean f3766-f3816 (push steady ~2.07/frame) -> talking head f3817 with How The Plan Is Built card building in; card items legible, ends in declared flash at 139.04."
+  },
+  {
+   "image": "pair_086_02-07.39.jpg",
+   "verdict": "expected",
+   "t": 127.39,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | 'How The Plan Is Built' side-list card begins fading in over his torso (clothed). Continuous."
+  },
+  {
+   "image": "pair_087_02-13.77.jpg",
+   "verdict": "expected",
+   "t": 133.77,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR under the side-list card; visible scale change (glasses ~130 to ~170 px at half res)."
+  },
+  {
+   "image": "pair_088_02-16.64.jpg",
+   "verdict": "expected",
+   "t": 136.64,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to FAR under the side-list card; visible scale change."
+  },
+  {
+   "image": "pair_089_02-19.04.jpg",
+   "verdict": "expected",
+   "t": 139.04,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Side-list card fades out and the join to talk-34 lands under a white flash (peaks 139.10 to 139.17). Borderline: the join is on the first frame of the flash ramp, framing is the same both sides and the hands snap from clasped to open through roughly 40 percent wash (head shift ~20 px). Decoded 138.97 to 139.31 at full size; the flash then whites the face out, so it reads as a flash transition, not a naked splice."
+  },
+  {
+   "image": "pair_090_02-19.07.jpg",
+   "verdict": "expected",
+   "t": 139.07,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | White flash ramping up after the join; same take."
+  },
+  {
+   "image": "pair_091_02-21.30.jpg",
+   "verdict": "expected",
+   "t": 141.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | YOUR WORKOUTS lower third in; caption steps aside."
+  },
+  {
+   "image": "pair_092_02-22.24.jpg",
+   "verdict": "expected",
+   "t": 142.24,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR under the lower third; clear scale change. Lower-third body text was still empty here; decoded 142.2 to 143.5: 'Built Around Your INJURIES' lands word by word on the words, by design."
+  },
+  {
+   "image": "pair_093_02-23.58.jpg",
+   "verdict": "expected",
+   "t": 143.58,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to FAR; clear scale change (glasses ~155 to ~125 px)."
+  },
+  {
+   "image": "pair_094_02-24.60.jpg",
+   "verdict": "expected",
+   "t": 144.6,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | YOUR WORKOUTS lower third fades out. Continuous."
+  },
+  {
+   "image": "pair_095_02-26.01.jpg",
+   "verdict": "expected",
+   "t": 146.01,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR; clear scale change."
+  },
+  {
+   "image": "pair_096_02-26.30.jpg",
+   "verdict": "expected",
+   "t": 146.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | YOUR NUTRITION lower third in; caption steps aside. Hair close to but clear of the top edge."
+  },
+  {
+   "image": "pair_097_02-27.45.jpg",
+   "verdict": "expected",
+   "t": 147.45,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch:FAR with no join; identical scale both sides (eased move). Lower-third body still building (same word-timed build as 142.2)."
+  },
+  {
+   "image": "pair_098_02-30.90.jpg",
+   "verdict": "expected",
+   "t": 150.9,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | YOUR NUTRITION lower third ('ONE Dinner For The Whole Family') fades out. Continuous."
+  },
+  {
+   "image": "pair_099_02-31.59.jpg",
+   "verdict": "expected",
+   "t": 151.59,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to food-photo B-roll insert; caption carries across."
+  },
+  {
+   "image": "pair_100_02-32.85.jpg",
+   "verdict": "clean",
+   "t": 152.85,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the B-roll insert; B-roll continuous, no jump."
+  },
+  {
+   "image": "pair_101_02-35.59.jpg",
+   "verdict": "clean",
+   "t": 155.59,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the B-roll insert; B-roll continuous, no jump."
+  },
+  {
+   "image": "pair_102_02-36.60.jpg",
+   "verdict": "expected",
+   "t": 156.6,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | B-roll out to talk; 'Snap A Photo Of Your Plate' side-list card begins."
+  },
+  {
+   "image": "pair_103_02-39.93.jpg",
+   "verdict": "expected",
+   "t": 159.93,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Side-list fades out and the join to talk-37 lands under a white flash (peaks ~159.99). Same borderline pattern as 139.04: same framing both sides, hands snap from steepled to open through a partial wash on the first ramp frame; the flash then covers the face."
+  },
+  {
+   "image": "pair_104_02-43.53.jpg",
+   "verdict": "expected",
+   "t": 163.53,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join with punch to NEAR under the BAD WEEK? lower third; clear scale change."
+  },
+  {
+   "image": "pair_105_02-44.00.jpg",
+   "verdict": "expected",
+   "t": 164.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | BAD WEEK? lower third fades out. Continuous."
+  },
+  {
+   "image": "pair_106_02-44.03.jpg",
+   "verdict": "clean",
+   "t": 164.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same take both sides, card already gone; no visible change."
+  },
+  {
+   "image": "pair_107_02-45.03.jpg",
+   "verdict": "expected",
+   "t": 165.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talk to AI card (wife notices); caption carries across; AI-GENERATED chip clear of faces."
+  },
+  {
+   "image": "pair_108_02-45.06.jpg",
+   "verdict": "clean",
+   "t": 165.06,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | AI clip continuous; punch:FAR is on the hidden talk layer."
+  },
+  {
+   "image": "pair_109_02-46.17.jpg",
+   "verdict": "clean",
+   "t": 166.17,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join on the hidden talk layer; AI clip continuous both sides."
+  },
+  {
+   "image": "pair_110_02-47.30.jpg",
+   "verdict": "expected",
+   "t": 167.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | AI clip change: wife notices to gym respect. Note (not a checklist item): caption reads 'Your kids see it.' over the gym handshake picture; no kids picture exists."
+  },
+  {
+   "image": "pair_111_02-49.47.jpg",
+   "verdict": "expected",
+   "t": 169.47,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | AI clip change: gym respect to AI beach end (the same beach character as 112.0, reused at the close by plan)."
+  },
+  {
+   "image": "pair_116_02-53.87.jpg",
+   "verdict": "expected",
+   "t": 173.87,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Screen recording advances to the form screen within the same phone frame."
+  },
+  {
+   "image": "pair_117_02-53.91.jpg",
+   "verdict": "clean",
+   "t": 173.91,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same form screen both sides."
+  },
+  {
+   "image": "pair_118_02-56.74.jpg",
+   "verdict": "expected",
+   "t": 176.74,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Phone recording (rendering 90%) to full-frame AI goal image with AI-GENERATED chip."
+  },
+  {
+   "image": "pair_119_02-57.81.jpg",
+   "verdict": "clean",
+   "t": 177.811,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Inside app2_goal_clean (f5297-f5342); join hidden under the covered picture, picture continuous (~2.07/frame), then declared flash at 178.28 into the CTA pill; CTA steady to the last frame f5442."
+  },
+  {
+   "image": "pair_120_02-58.28.jpg",
+   "verdict": "expected",
+   "t": 178.278,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI pool clip (one chip) exits through the declared white flash into the talking head and CTA. Decoded f5297/5320/5342/5343/5346/5350/5360/5400/5442: CTA pill builds in, sits on the tank top below the face, no caption over it, holds to the last frame."
+  },
+  {
+   "image": "strip_000_00-03.14_before_deckchair_out___card_0_000_out___.jpg",
+   "verdict": "clean",
+   "t": 3.136,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Before card f0-f93 (first f0, middle f45, last f93) clean with pill under the picture, no caption; hard cut to talking head at f94. Slow push has a near-still frame every 5 frames but the push is tiny (diff about 0.3) and reads as smooth."
+  },
+  {
+   "image": "strip_001_00-08.11_card_8_108_in___cards_in___covered_in___.jpg",
+   "verdict": "clean",
+   "t": 8.108,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk-1 -> red shorts full-bleed, clean single-frame cut, chip placement fine."
+  },
+  {
+   "image": "strip_002_00-08.44_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "clean",
+   "t": 8.442,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Red-shorts photo to towel photo, hard cut between two real photos, each with its 3-line chip beside the head. No leak or edge line on f252/f253."
+  },
+  {
+   "image": "strip_003_00-08.48_card_8_108_out___card_8_442_in.jpg",
+   "verdict": "clean",
+   "t": 8.475,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | The picture changes at f253 (8.442); f254 (the listed boundary) shows no second change in layout, chip or picture. No one-frame glitch."
+  },
+  {
+   "image": "strip_004_00-08.78_card_8_442_out___card_8_775_in___cards_i.jpg",
+   "verdict": "clean",
+   "t": 8.775,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Towel -> park close, clean cut, chips beside faces."
+  },
+  {
+   "image": "strip_005_00-09.11_card_8_775_out___card_9_109_in___cards_i.jpg",
+   "verdict": "clean",
+   "t": 9.109,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Park-close full-bleed to flag card with pill under the picture; clean cut f272/f273, consistent layout across the strip."
+  },
+  {
+   "image": "strip_006_00-10.84_card_9_109_out___cards_out___covered_out.jpg",
+   "verdict": "clean",
+   "t": 10.844,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Flag card f273-f324 (first f273, middle f300, last f324) with pill under the picture; cut to talking head at f325. No leak, no edge lines."
+  },
+  {
+   "image": "strip_007_00-12.91_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 12.91,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join covered by declared NEAR punch; zoom step is clearly visible, caption continuous."
+  },
+  {
+   "image": "strip_008_00-14.35_punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 14.35,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared FAR punch is an eased move (frame diff rises and falls smoothly 14.1-14.6 s, no spike at 14.348). Mouth goes from open to a closed smile across -1|0 with framing unchanged; checked exact frames, reads as natural speech inside a moving shot, not a splice (no join declared here). Doubtful but not called."
+  },
+  {
+   "image": "strip_009_00-15.92_cards_in___covered_in___join___punch_NEA.jpg",
+   "verdict": "expected",
+   "t": 15.916,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talking-head join at 15.916 now lands on the declared punch FAR>NEAR: head clearly larger at frame 0 (zoom step plainly visible in the pair), so it reads as a zoom cut, not a naked splice. Caption stops at the join and the lower third box enters at +1f."
+  },
+  {
+   "image": "strip_010_00-17.50_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 17.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | FAR punch eased; no jump. Card steady."
+  },
+  {
+   "image": "strip_011_00-18.45_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 18.45,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join covered by NEAR punch (zoom step visible), mouth closed to wide open is across a declared join with a framing change. Card steady."
+  },
+  {
+   "image": "strip_012_00-20.12_card_15_916_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "t": 20.12,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card fades out, then declared white flash covers the join and FAR punch."
+  },
+  {
+   "image": "strip_013_00-22.90_cards_in___card_22_900_in.jpg",
+   "verdict": "clean",
+   "t": 22.9,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption clears one frame before the lower third box starts; no overlap, no glitch."
+  },
+  {
+   "image": "strip_014_00-23.29_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 23.29,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under NEAR punch while the 'HOW I DID IT' lower third types in; zoom step visible."
+  },
+  {
+   "image": "strip_015_00-24.02_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 24.02,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under FAR punch; lower third stays steady across the cut."
+  },
+  {
+   "image": "strip_016_00-26.00_cards_out.jpg",
+   "verdict": "clean",
+   "t": 26.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out; captions stay paused until the next word. Clean."
+  },
+  {
+   "image": "strip_017_00-26.03_card_22_900_out.jpg",
+   "verdict": "clean",
+   "t": 26.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same lower-third exit; no leak, no glitch."
+  },
+  {
+   "image": "strip_018_00-27.06_card_27_060_in___cards_in___covered_in__.jpg",
+   "verdict": "clean",
+   "t": 27.06,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk-8 -> red shorts, clean cut."
+  },
+  {
+   "image": "strip_019_00-28.63_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "clean",
+   "t": 28.629,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Red-shorts photo to park-close photo, hard cut between real photos, chips beside heads, no edge lines. Park-close hair about 15 px under the top edge, not cut."
+  },
+  {
+   "image": "strip_020_00-28.66_card_27_060_out___card_28_629_in.jpg",
+   "verdict": "clean",
+   "t": 28.662,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Red-shorts to park at f858; f859 (listed boundary) has no further change. Park card first f858, middle f880, last f900 clean, chip clear of face."
+  },
+  {
+   "image": "strip_021_00-30.06_card_28_629_out___cards_out___covered_ou.jpg",
+   "verdict": "clean",
+   "t": 30.063,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Park close -> talk-11; talking head f901-f990 checked, consistent framing, no recentre pop, NEAR at 33.03 hair ~38 px from top."
+  },
+  {
+   "image": "strip_022_00-33.03_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 33.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under NEAR punch; zoom step of roughly 10 percent plus a blink. Visible framing change, so not naked."
+  },
+  {
+   "image": "strip_023_00-35.27_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 35.27,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | FAR punch eased; no jump."
+  },
+  {
+   "image": "strip_024_00-37.87_card_37_871_in___cards_in___covered_in__.jpg",
+   "verdict": "expected",
+   "t": 37.871,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talking-head join at 37.871 lands on the declared punch FAR>NEAR: clear zoom step in the pair (head and shoulders larger), which hides the hand and mouth change. Caption ends at the join, lower third enters at +1f. Hair well clear of the top."
+  },
+  {
+   "image": "strip_025_00-39.50_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 39.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | FAR punch eased under the card. Card title sits alone about 0.7 s before item 1 builds; declared staggered build."
+  },
+  {
+   "image": "strip_026_00-41.74_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 41.74,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under NEAR punch beneath the steady card."
+  },
+  {
+   "image": "strip_027_00-47.51_card_37_871_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "t": 47.51,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card fades out, declared white flash covers the join and FAR punch."
+  },
+  {
+   "image": "strip_028_00-50.68_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 50.68,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under NEAR punch; caption 'really is.' held across, zoom step visible."
+  },
+  {
+   "image": "strip_029_00-52.12_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 52.12,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | FAR punch eased; no jump."
+  },
+  {
+   "image": "strip_030_00-54.22_covered_in___join___talk-13_out.jpg",
+   "verdict": "clean",
+   "t": 54.221,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut from talking head to the kitchen B-roll picture card at 54.221; no flash or talking head inside the card, no stray frame, caption continues correctly."
+  },
+  {
+   "image": "strip_031_00-57.89_covered_out___join___talk-15_in.jpg",
+   "verdict": "expected",
+   "t": 57.891,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash out of the kitchen card into talking-head 15; card brightens 2 frames before, talking head under the flash at 57.891; no card frame or label carried into the talking head."
+  },
+  {
+   "image": "strip_032_00-59.13_cards_in___covered_in___talk-15_out___ca.jpg",
+   "verdict": "expected",
+   "t": 59.13,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut to 'THE TRUTH' full card; blue field for 2 frames before the accent line and text build in. Captions paused as declared."
+  },
+  {
+   "image": "strip_033_01-01.09_join.jpg",
+   "verdict": "expected",
+   "t": 61.09,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the full card; card static, no glitch."
+  },
+  {
+   "image": "strip_034_01-02.50_join.jpg",
+   "verdict": "expected",
+   "t": 62.5,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under the full card; card static, no glitch."
+  },
+  {
+   "image": "strip_035_01-03.13_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "clean",
+   "t": 63.13,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut from the THE TRUTH text card (frames 1880-1891 steady, no glitch on its last frame) to the daughter_trip photo card (frame 1892), fully formed on its first frame, correct pill 'Real picture of me - not AI-generated', no flash, no leak, no bars. Captions paused. Headroom is tight but not touching: about 10 px between his hair and the picture's top edge at 63.130, about 7 px at 65.065 after the slow push-in."
+  },
+  {
+   "image": "strip_036_01-05.10_card_63_130_out___card_65_098_in___cards.jpg",
+   "verdict": "clean",
+   "t": 65.098,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut from the landscape rollercoaster photo card (last frame 65.065) straight to the portrait mural photo card (first frame 65.098). No blink, no blue-only frame, no talking head, no restart of the same picture. Both cards carry the 'Real picture of me - not AI-generated' pill under the picture; neither label touches a face. The thin light-blue segment on each card's top border is the card's own progress accent: it sweeps left to right over the card's life and restarts at the left on the new card (checked full res at 63.130 and 65.032). First card checked 63.130-63.497 and 64.698-65.065, middle 64.097: steady slow push-in, no glitch on its first frame (hard cut in from the 'THE TRUTH' full card at 63.096)."
+  },
+  {
+   "image": "strip_037_01-07.23_cards_out___covered_out___daughter_event.jpg",
+   "verdict": "expected",
+   "t": 67.234,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash out of the second photo card into talk-19. Last card frames 67.167 and 67.200 are the card washing toward white; full-res 67.200 shows only the mural photo, the pill and the blue field, with no ghost of the talking head inside the card. 67.234 is the first talking-head frame under the flash with no card remnant. Second card checked 65.098-65.465, 66.166 and 66.833-67.200 at full res: no edge lines, no stray label, no layout change. Dan's hair meets the picture's own top edge inside the card (source photo crop, not the frame edge)."
+  },
+  {
+   "image": "strip_038_01-07.27_card_65_098_out.jpg",
+   "verdict": "expected",
+   "t": 67.267,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same declared flash, one frame later. 67.234-67.334 are all talk-19 brightening into the white flash; the card is already gone at 67.234 (the marker says 67.267, so the card actually leaves one frame earlier than the label, which is harmless). Caption 'here's the part that' resumes on the talking head at 67.334 after the card, as declared. Nothing of the card lingers and nothing of the next shot was inside the card."
+  },
+  {
+   "image": "strip_039_01-08.23_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 68.235,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join covered by a declared punch to NEAR; zoom change visible, no naked splice."
+  },
+  {
+   "image": "strip_040_01-08.80_card_68_800_in___cards_in.jpg",
+   "verdict": "clean",
+   "t": 68.802,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption drops one frame before the WHAT GOT ME lower third fades in; no leak."
+  },
+  {
+   "image": "strip_041_01-10.07_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 70.07,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch FAR shows no visible step (pair checked); no jump."
+  },
+  {
+   "image": "strip_042_01-12.04_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 72.039,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR, lower third continuous."
+  },
+  {
+   "image": "strip_043_01-13.10_cards_out___card_68_800_out.jpg",
+   "verdict": "clean",
+   "t": 73.106,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out. Pair read: head and hand move continuously, frame-difference scan shows no splice here."
+  },
+  {
+   "image": "strip_044_01-13.57_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 73.573,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch FAR. The -1 frame (73.540) differs from 73.507 more than its neighbours; full-res face crops show only his mouth opening, no splice."
+  },
+  {
+   "image": "strip_045_01-14.10_cards_in___card_74_100_in.jpg",
+   "verdict": "clean",
+   "t": 74.107,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption clears before the CTA pill fades in."
+  },
+  {
+   "image": "strip_046_01-16.58_punch_NEAR.jpg",
+   "verdict": "clean",
+   "t": 76.576,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Under the CTA; no visible step."
+  },
+  {
+   "image": "strip_047_01-16.90_cards_out___card_74_100_out.jpg",
+   "verdict": "clean",
+   "t": 76.91,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | CTA fades out cleanly."
+  },
+  {
+   "image": "strip_048_01-18.28_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 78.278,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | No visible step, no jump."
+  },
+  {
+   "image": "strip_049_01-20.95_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 80.948,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR."
+  },
+  {
+   "image": "strip_050_01-22.38_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 82.382,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | No visible step, no jump."
+  },
+  {
+   "image": "strip_051_01-23.62_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 83.617,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR."
+  },
+  {
+   "image": "strip_052_01-25.45_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 85.452,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | No visible step, no jump."
+  },
+  {
+   "image": "strip_053_01-26.25_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 86.253,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR."
+  },
+  {
+   "image": "strip_054_01-28.49_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 88.488,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | No visible step, no jump."
+  },
+  {
+   "image": "strip_055_01-30.22_ai_goal_in___card_90_223_in___cards_in__.jpg",
+   "verdict": "clean",
+   "t": 90.223,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talking head ('it was AI' caption) cuts to the AI pool clip; single AI-GENERATED chip top left, clear of face; caption pauses on the clip. No leak on f2703/f2704."
+  },
+  {
+   "image": "strip_056_01-33.23_ai_goal_out___card_90_223_out___card_93_.jpg",
+   "verdict": "clean",
+   "t": 93.226,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI pool full-bleed (one burned chip) to phone card at f2794 with a single AI-GENERATED pill; no leak either side."
+  },
+  {
+   "image": "strip_057_01-34.89_join.jpg",
+   "verdict": "expected",
+   "t": 94.895,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared join hidden under the covered phone_goal card; card content continuous through the join (diffs 0.80/0.54), single AI-GENERATED pill, card exits into the declared flash at 95.33."
+  },
+  {
+   "image": "strip_058_01-35.39_cards_out___covered_out___phone_goal_out.jpg",
+   "verdict": "expected",
+   "t": 95.395,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Phone card fades through the declared white flash into the talking head; no frozen or stray frame."
+  },
+  {
+   "image": "strip_059_01-39.17_cards_in___covered_in___join___talk-22_o.jpg",
+   "verdict": "clean",
+   "t": 99.166,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Cut to the lock-screen card; the card background shows empty for 2 frames while its text animates in (normal build-in, not a blank)."
+  },
+  {
+   "image": "strip_060_01-39.20_card_99_166_in.jpg",
+   "verdict": "clean",
+   "t": 99.199,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Kicker and headline build in; no leak."
+  },
+  {
+   "image": "strip_061_01-42.80_join.jpg",
+   "verdict": "clean",
+   "t": 102.803,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join hidden under the static text card."
+  },
+  {
+   "image": "strip_062_01-43.20_card_99_166_out___cards_out___covered_ou.jpg",
+   "verdict": "expected",
+   "t": 103.203,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash from the text card back to the talking head."
+  },
+  {
+   "image": "strip_063_01-46.17_cards_in___covered_in___join___real_pool.jpg",
+   "verdict": "clean",
+   "t": 106.173,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk ('get abs' caption) to pool-stand photo at f3182; caption gone on the card; chip beside his head, not over it."
+  },
+  {
+   "image": "strip_064_01-46.21_card_106_173_in.jpg",
+   "verdict": "clean",
+   "t": 106.173,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Talk -> pool stand photo, clean cut; same photo on both sides of the card marker."
+  },
+  {
+   "image": "strip_065_01-47.17_cards_in___cards_out___covered_in___cove.jpg",
+   "verdict": "clean",
+   "t": 107.174,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool-stand to pool-flex, hard cut between real photos, chips clear of face and fist."
+  },
+  {
+   "image": "strip_066_01-47.21_card_106_173_out___card_107_174_in.jpg",
+   "verdict": "clean",
+   "t": 107.207,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Same boundary as pair_066: picture and chip switch together at f3212; f3213 unchanged layout."
+  },
+  {
+   "image": "strip_067_01-48.58_card_107_174_out___cards_out___covered_o.jpg",
+   "verdict": "clean",
+   "t": 108.575,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Pool flex -> talk-27, clean cut, no pop on the following frames."
+  },
+  {
+   "image": "strip_068_01-49.00_cards_in___card_109_000_in.jpg",
+   "verdict": "clean",
+   "t": 109.009,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption clears, CTA pill fades in."
+  },
+  {
+   "image": "strip_069_01-51.80_cards_out___card_109_000_out.jpg",
+   "verdict": "clean",
+   "t": 111.812,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | CTA fades out."
+  },
+  {
+   "image": "strip_070_01-52.01_ai_beach_in___covered_in___join___talk-2.jpg",
+   "verdict": "clean",
+   "t": 112.012,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut from talk-27 (last frame 111.979) to the AI beach runner card at 112.012; first card frame is fully formed, correct size, no talking head leaking in, no grey or black line along the picture edge (full res 112.012). The clip's own burned 'AI-GENERATED' chip sits top left inside the picture, no second pill, as declared. First 12 card frames 112.012-112.379 steady. Runner's head has clear margin inside the card. The orange sun-flare ghost that drifts across his chest and navel is ordinary lens flare that moves with the camera, not a melting or drifting-object AI fault; hands are clean in every crop checked."
+  },
+  {
+   "image": "strip_071_01-54.98_ai_beach_out___covered_out___talk-29_in_.jpg",
+   "verdict": "expected",
+   "t": 114.982,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash out of the AI beach card into talk-29. Card frames 114.915/114.948 wash toward white with the card intact and the caption 'six-pack abs' on the blue field below it (as declared). 114.982 is the first talking-head frame, no card remnant. The caption 'six-pack abs' stays one frame (114.982) on the talking head at chest height before captions pause for the 'YOUR GOAL' lower third at 115.015; at 30 fps under the flash this reads as the caption ending on the cut, not as a glitch. Last 12 card frames 114.514-114.948 and middle 113.480 checked: no glitch."
+  },
+  {
+   "image": "strip_072_01-55.01_card_115_000_in.jpg",
+   "verdict": "expected",
+   "t": 115.015,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third 'YOUR GOAL' fades in under the declared flash (faint at 115.148, solid by 115.315); captions pause from 115.015, as declared. The headline 'Lose The Dad Bod FOR GOOD' types in at 116.28-116.48, about 1.1 s after the panel, so the panel shows the eyebrow only for that second: this is the template's text-lands-on-the-word reveal, not a missing graphic. Panel sits over his forearms and hands, clear of face; tank top covers the torso. Captions resume 'Now let me show you' by 118.7 after the panel leaves. No hair at the frame top, no edge lines."
+  },
+  {
+   "image": "strip_073_01-58.10_cards_out___card_115_000_out.jpg",
+   "verdict": "clean",
+   "t": 118.085,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out, no jump."
+  },
+  {
+   "image": "strip_074_01-58.75_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 118.752,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR."
+  },
+  {
+   "image": "strip_075_02-00.19_punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 120.187,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | No visible step, no jump."
+  },
+  {
+   "image": "strip_076_02-00.82_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 120.821,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join under declared punch NEAR."
+  },
+  {
+   "image": "strip_077_02-01.82_app1_before_in___cards_in___covered_in__.jpg",
+   "verdict": "clean",
+   "t": 121.822,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut to the app screen card with Real picture pill; no leaked talking-head frame."
+  },
+  {
+   "image": "strip_078_02-01.86_card_121_822_in___punch_FAR.jpg",
+   "verdict": "clean",
+   "t": 121.855,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Punch hidden under the app card; card steady."
+  },
+  {
+   "image": "strip_079_02-02.82_app1_before_out___app1_form_in___cards_i.jpg",
+   "verdict": "expected",
+   "t": 122.82,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | App screen recording steps from Adjust Photo to the Visualize Yourself page (declared app1_before out / app1_form in); 'Real picture of me - not AI-generated' pill continuous, clear of the phone."
+  },
+  {
+   "image": "strip_080_02-02.86_card_121_822_out___card_122_823_in.jpg",
+   "verdict": "expected",
+   "t": 122.86,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card pill handover card@121.822 to card@122.823: same pill text and position, no flicker."
+  },
+  {
+   "image": "strip_081_02-04.66_join.jpg",
+   "verdict": "clean",
+   "t": 124.66,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join inside the app form recording: frames continuous, no jump."
+  },
+  {
+   "image": "strip_082_02-05.66_app1_form_out___app1_goal_clean_in___car.jpg",
+   "verdict": "clean",
+   "t": 125.659,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | App form screen card (real pill) cuts to AI pool clip with its single chip; no leaked frame, no second label."
+  },
+  {
+   "image": "strip_083_02-05.69_card_122_823_out___card_125_659_in.jpg",
+   "verdict": "clean",
+   "t": 125.692,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | App form card (screen recording with scroll bursts, last frames f3763-3765 near-still, normal for a screen recording) to AI pool card at f3766; f3767 unchanged layout. AI card moves every frame."
+  },
+  {
+   "image": "strip_084_02-07.06_join.jpg",
+   "verdict": "expected",
+   "t": 127.06,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared join hidden under the covered app1_goal_clean picture; picture continuous, slight steady push, no pop."
+  },
+  {
+   "image": "strip_085_02-07.36_app1_goal_clean_out___cards_in___cards_o.jpg",
+   "verdict": "clean",
+   "t": 127.361,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI clip cuts to talking head; 'How The Plan Is Built' full card builds in from f3818 (title types on, f3830 shows 'How The Plan Is' mid-animation). Card f3990 and last frame f4166 correct, exits via declared white flash at 139.039. Card sits on the tank top, below the face."
+  },
+  {
+   "image": "strip_086_02-07.39_card_125_659_out___card_127_361_in.jpg",
+   "verdict": "clean",
+   "t": 127.394,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI pool card to talking head at f3817; side-list panel fades in from f3818 and its title and items build on the words (f3824-3880), declared side-list card 127.361-139.039, white flash out at 139.039. Panel sits over the tank top, not over face or bare abs."
+  },
+  {
+   "image": "strip_087_02-13.77_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 133.77,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch NEAR under the side-list card; join hidden by the zoom change; headroom adequate."
+  },
+  {
+   "image": "strip_088_02-16.64_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 136.64,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch FAR under the card; item 3 already on the list both sides."
+  },
+  {
+   "image": "strip_089_02-19.04_cards_out___covered_out___join___talk-34.jpg",
+   "verdict": "expected",
+   "t": 139.04,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash. The talking-head join sits 2 frames before the flash peak (luma about 192 of 218 at the cut frame), so his hands visibly change pose and the side-list card drops from about 35 percent opacity to nothing in one frame; the flash still carries it. Same pattern at 139.04, 159.93 and 178.28. Not called a defect because the flash is the declared transition."
+  },
+  {
+   "image": "strip_090_02-19.07_card_127_361_out.jpg",
+   "verdict": "expected",
+   "t": 139.07,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Same declared flash; card fully gone by 139.04, flash peaks 139.11 to 139.21."
+  },
+  {
+   "image": "strip_091_02-21.30_cards_in___card_141_300_in.jpg",
+   "verdict": "clean",
+   "t": 141.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption 'is a real plan' ends one frame before the YOUR WORKOUTS lower third starts; no overlap."
+  },
+  {
+   "image": "strip_092_02-22.24_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 142.24,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch NEAR covering a join, under the lower third."
+  },
+  {
+   "image": "strip_093_02-23.58_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 143.58,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch FAR covering a join; lower third steady."
+  },
+  {
+   "image": "strip_094_02-24.60_cards_out___card_141_300_out.jpg",
+   "verdict": "clean",
+   "t": 144.6,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out over 3 frames; no splice."
+  },
+  {
+   "image": "strip_095_02-26.01_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 146.01,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch NEAR covering a join; caption 'Everybody's got one' continuous. Headroom about 25 px at this level (tight, not touching)."
+  },
+  {
+   "image": "strip_096_02-26.30_cards_in___card_146_300_in.jpg",
+   "verdict": "clean",
+   "t": 146.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Caption ends, YOUR NUTRITION lower third begins; captions paused under it."
+  },
+  {
+   "image": "strip_097_02-27.45_punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 147.45,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch FAR, eased over several frames (no single-frame pop)."
+  },
+  {
+   "image": "strip_098_02-30.90_cards_out___card_146_300_out.jpg",
+   "verdict": "clean",
+   "t": 150.9,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out; no splice, no caption on the card."
+  },
+  {
+   "image": "strip_099_02-31.59_covered_in___join___talk-34_out.jpg",
+   "verdict": "expected",
+   "t": 151.59,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Cut to phone-photographing-plate B-roll; caption continues. Hands look natural (checked at 2 fps)."
+  },
+  {
+   "image": "strip_100_02-32.85_join.jpg",
+   "verdict": "clean",
+   "t": 152.85,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join inside the B-roll: motion continuous."
+  },
+  {
+   "image": "strip_101_02-35.59_join.jpg",
+   "verdict": "clean",
+   "t": 155.59,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Join inside the B-roll: motion continuous."
+  },
+  {
+   "image": "strip_102_02-36.60_cards_in___covered_in___covered_out___ca.jpg",
+   "verdict": "expected",
+   "t": 156.6,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Cut from B-roll to talking head; side-list card fades in; caption paused."
+  },
+  {
+   "image": "strip_103_02-39.93_card_156_600_out___card_159_926_in___car.jpg",
+   "verdict": "expected",
+   "t": 159.93,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared white flash. The talking-head join sits 2 frames before the flash peak (luma about 192 of 218 at the cut frame), so his hands visibly change pose and the side-list card drops from about 35 percent opacity to nothing in one frame; the flash still carries it. Same pattern at 139.04, 159.93 and 178.28. Not called a defect because the flash is the declared transition."
+  },
+  {
+   "image": "strip_104_02-43.53_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 163.53,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Declared punch NEAR covering a join under the BAD WEEK? lower third."
+  },
+  {
+   "image": "strip_105_02-44.00_cards_out.jpg",
+   "verdict": "clean",
+   "t": 164.0,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Lower third fades out; no splice."
+  },
+  {
+   "image": "strip_106_02-44.03_card_159_926_out.jpg",
+   "verdict": "clean",
+   "t": 164.03,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card fully gone; continuous talking head."
+  },
+  {
+   "image": "strip_107_02-45.03_covered_in___talk-37_out___wife_notices_.jpg",
+   "verdict": "clean",
+   "t": 165.032,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Hard cut from Dan talking (164.998) to the poolside couple card (165.032). Card correct size, one burned AI-GENERATED chip top left inside the picture, no second pill, chip clear of faces. Caption 'what changes: Your' carries on the blue field below the card. The short light-blue line above the card's top edge is the declared HyperFrames specular sweep (README: 'specular line sweeps the top edge'); it travels left to right across each card and restarts per card. No leak, no stray frame, no edge line."
+  },
+  {
+   "image": "strip_108_02-45.06_punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 165.065,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | punch:FAR falls inside the covered wife_notices card beat [165.032, 167.3], so no punch is visible; the card hides it as the plan declares. Frames 165.032 and 165.065 are identical, which is the AI clip's 24-to-29.97 cadence repeat (every 5th frame repeats throughout all three AI cards), not a freeze."
+  },
+  {
+   "image": "strip_109_02-46.17_join.jpg",
+   "verdict": "expected",
+   "t": 166.166,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Talking-head join at 166.166 is covered by the wife card (declared covered beat). The AI clip runs straight through: frame change at the join is 7.49, inside the clip's normal 7 to 9 dolly motion, no restart or jump of the couple. Caption 'wife notices.' on the blue field."
+  },
+  {
+   "image": "strip_110_02-47.30_covered_in___covered_out___gym_respect_i.jpg",
+   "verdict": "clean",
+   "t": 167.3,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Clean card-to-card cut, couple card (167.267) to gym handshake card (167.300). Same card geometry both sides, one AI chip each, chip sits left of the shirtless man's head with clear space (checked full size at 167.30, 167.47, 168.37, 169.04, 169.44). No leaked frame, no edge line. Hands in the handshake read normally at full size. Caption 'Your kids see it.' stays below the card. Last frames of the couple card hold about 3 frames (cadence repeat plus one), not noticeable."
+  },
+  {
+   "image": "strip_111_02-49.47_ai_beach_end_in___covered_in___covered_o.jpg",
+   "verdict": "clean",
+   "t": 169.469,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Clean cut, gym card (169.436) to beach runner card (169.469). Runner's head well inside the picture with headroom, single AI chip top left far from his face, chip not on abs. Caption 'differently.' below the card. Card edges and corners clean on first and last frames."
+  },
+  {
+   "image": "strip_115_02-52.84_card_172_839_in___cards_in___covered_in_.jpg",
+   "verdict": "clean",
+   "t": 172.839,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Plan-internal join inside the app2_before phone card; the screen recording continues smoothly across all five frames, no pop or leak. The recording then holds nearly still from about 173.14 to 173.84 (app screen with cursor), natural for a screen recording."
+  },
+  {
+   "image": "strip_116_02-53.87_app2_before_out___app2_form_in___cards_i.jpg",
+   "verdict": "expected",
+   "t": 173.87,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Reprise of the app sequence (declared app2_before out / app2_form in); pill continuous."
+  },
+  {
+   "image": "strip_117_02-53.91_card_172_839_out___card_173_874_in.jpg",
+   "verdict": "expected",
+   "t": 173.91,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | carried: pixel-identical to the judged round (same time, same size) | Card pill handover; same text, no flicker."
+  },
+  {
+   "image": "strip_118_02-56.74_app2_form_out___app2_goal_clean_in___car.jpg",
+   "verdict": "clean",
+   "t": 176.743,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | App form to AI pool card at f5297; AI card moves every frame through f5340, then the declared white flash into the talking head at 178.278 (f5341-5345). One burned chip, no pill."
+  },
+  {
+   "image": "strip_119_02-57.81_join.jpg",
+   "verdict": "expected",
+   "t": 177.811,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | Declared join hidden under the covered app2_goal_clean picture; picture continuous, no jump."
+  },
+  {
+   "image": "strip_120_02-58.28_app2_goal_clean_out___card_176_743_out__.jpg",
+   "verdict": "expected",
+   "t": 178.278,
+   "note": "carried: pixel-identical to the judged round (same time, same size) | AI pool clip to talking head through the declared white flash; CTA follows."
+  }
+ ]
+}

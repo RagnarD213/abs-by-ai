@@ -1,0 +1,385 @@
+{
+  "job": "DS-44",
+  "category": "CONTENT",
+  "status": "awaiting-dan-pick",
+  "headline": "Why Aren't You 200 Pounds Heavier?",
+  "film_untouched": true,
+  "generation": "Codex subscription, gpt-6.1-sol high, 3 images (2 plate, 3 AI Dan, 5 Codex concept)",
+  "designs": {
+    "1": "Real pool photo as shot; white Impact line over a huge yellow stroked two-line stack, centred low over the water",
+    "2": "Real studio cutout with a red rim light in a dark Codex podcast studio; Manrope left stack, second line white on a red box",
+    "3": "AI Dan on a bathroom scale holding up a stop hand to a tower of burgers; full-width yellow band on top, black DIN Condensed",
+    "4": "Real opening frame of the Short (host full screen, Dan small lower left); white speech bubble from the host, red Arial Black",
+    "5": "Codex's concept: a red stop line taped near the top of an overfilled jar of fast food on navy; white and red Futura stacked top left"
+  },
+  "outputs": [
+    {
+      "option": 1,
+      "layout": "youtube",
+      "design": "Real pool photo as shot; white Impact line over a huge yellow stroked two-line stack, centred low over the water",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/youtube/1-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 497939,
+      "sha256": "c3158633ca6d3601005e05dc2c2fe5bb24b79afe47c513224c68890a8a007ef8",
+      "text_boxes": [
+        [
+          213,
+          1290,
+          868,
+          1383
+        ],
+        [
+          161,
+          1407,
+          919,
+          1546
+        ],
+        [
+          250,
+          1564,
+          831,
+          1701
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-247_FINAL_PRIMARY.jpg",
+        "treatment": "real photo as shot, resize/crop only",
+        "hair_face_box": null
+      }
+    },
+    {
+      "option": 1,
+      "layout": "instagram",
+      "design": "Real pool photo as shot; white Impact line over a huge yellow stroked two-line stack, centred low over the water",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/instagram/1-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 496761,
+      "sha256": "9310f0bb119e3c989a2dd34def110b9fdfc558e8e0c0b99b55c35e048c2b849a",
+      "text_boxes": [
+        [
+          213,
+          1150,
+          868,
+          1243
+        ],
+        [
+          161,
+          1267,
+          919,
+          1406
+        ],
+        [
+          250,
+          1424,
+          831,
+          1561
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-247_FINAL_PRIMARY.jpg",
+        "treatment": "real photo as shot, resize/crop only",
+        "hair_face_box": null
+      }
+    },
+    {
+      "option": 2,
+      "layout": "youtube",
+      "design": "Real studio cutout with a red rim light in a dark Codex podcast studio; Manrope left stack, second line white on a red box",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/youtube/2-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 401750,
+      "sha256": "d556c9691ddfbc53abc7b15d8d37d92aa3c7cac33877689eb780192255071e8a",
+      "text_boxes": [
+        [
+          70,
+          120,
+          889,
+          224
+        ],
+        [
+          48,
+          246,
+          989,
+          356
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-white-49_CUTOUT.png",
+        "treatment": "real cutout, resize and composite only; no AI redraw",
+        "sha256": "5f4d160cb21fd64c80535f26511c4839fc9073b119b3b67513319a47c5f7092e",
+        "crop_to_fraction": 0.74,
+        "position": [
+          74,
+          590
+        ],
+        "height": 1330,
+        "hair_face_box": [
+          369,
+          591,
+          711,
+          883
+        ]
+      }
+    },
+    {
+      "option": 2,
+      "layout": "instagram",
+      "design": "Real studio cutout with a red rim light in a dark Codex podcast studio; Manrope left stack, second line white on a red box",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/instagram/2-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 360963,
+      "sha256": "19a6b319160629bad55bc755e836dbc4db33a5833f3b3ca1ad2ab074ac31eb40",
+      "text_boxes": [
+        [
+          70,
+          320,
+          889,
+          424
+        ],
+        [
+          48,
+          446,
+          989,
+          556
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-white-49_CUTOUT.png",
+        "treatment": "real cutout, resize and composite only; no AI redraw",
+        "sha256": "5f4d160cb21fd64c80535f26511c4839fc9073b119b3b67513319a47c5f7092e",
+        "crop_to_fraction": 0.74,
+        "position": [
+          190,
+          680
+        ],
+        "height": 1000,
+        "hair_face_box": [
+          412,
+          681,
+          669,
+          900
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "youtube",
+      "design": "AI Dan on a bathroom scale holding up a stop hand to a tower of burgers; full-width yellow band on top, black DIN Condensed",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/youtube/3-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 589613,
+      "sha256": "3a499b79ae6fa8c7111dde83e5309bdea5a40f8e9ed920ad89b25108d40a7263",
+      "text_boxes": [
+        [
+          0,
+          0,
+          1080,
+          290
+        ],
+        [
+          260,
+          36,
+          821,
+          116
+        ],
+        [
+          161,
+          136,
+          919,
+          216
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "studio-white-49_FINAL_PRIMARY.jpg + R2 frame 30.6 s",
+        "hair_face_box": [
+          194,
+          377,
+          388,
+          521
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "instagram",
+      "design": "AI Dan on a bathroom scale holding up a stop hand to a tower of burgers; full-width yellow band on top, black DIN Condensed",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/instagram/3-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 544408,
+      "sha256": "2da86fbab6ef99c443802033e7fccde0d8dc6f56102197755b5013b245101344",
+      "text_boxes": [
+        [
+          0,
+          240,
+          1080,
+          520
+        ],
+        [
+          260,
+          276,
+          821,
+          356
+        ],
+        [
+          161,
+          376,
+          919,
+          456
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "studio-white-49_FINAL_PRIMARY.jpg + R2 frame 30.6 s",
+        "hair_face_box": [
+          194,
+          627,
+          388,
+          771
+        ]
+      }
+    },
+    {
+      "option": 4,
+      "layout": "youtube",
+      "design": "Real opening frame of the Short (host full screen, Dan small lower left); white speech bubble from the host, red Arial Black",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/youtube/4-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 377011,
+      "sha256": "50d550d39bde4b7960059143bd63d3dbfc6ccf6b04848f5ceeed54f1ef15040b",
+      "text_boxes": [
+        [
+          430,
+          1090,
+          1050,
+          1420
+        ]
+      ],
+      "subject": {
+        "source": "R2 master 0.4 s (real frame, no AI)",
+        "hair_face_box": [
+          40,
+          1290,
+          260,
+          1470
+        ]
+      }
+    },
+    {
+      "option": 4,
+      "layout": "instagram",
+      "design": "Real opening frame of the Short (host full screen, Dan small lower left); white speech bubble from the host, red Arial Black",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/instagram/4-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 377211,
+      "sha256": "96c9434885ca9db122bf6fb0b278271421311f06e52913c39259e9135123132a",
+      "text_boxes": [
+        [
+          430,
+          1040,
+          1050,
+          1370
+        ]
+      ],
+      "subject": {
+        "source": "R2 master 0.4 s (real frame, no AI)",
+        "hair_face_box": [
+          40,
+          1290,
+          260,
+          1470
+        ]
+      }
+    },
+    {
+      "option": 5,
+      "layout": "youtube",
+      "design": "Codex's concept: a red stop line taped near the top of an overfilled jar of fast food on navy; white and red Futura stacked top left",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/youtube/5-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 714693,
+      "sha256": "ebf16410cb04d6fb7dbbf9c16a7ded3fc1b993baf2d73041405d48313faa6796",
+      "text_boxes": [
+        [
+          70,
+          130,
+          946,
+          242
+        ],
+        [
+          70,
+          272,
+          1003,
+          399
+        ],
+        [
+          70,
+          425,
+          801,
+          550
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 5,
+      "layout": "instagram",
+      "design": "Codex's concept: a red stop line taped near the top of an overfilled jar of fast food on navy; white and red Futura stacked top left",
+      "file": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Hormozi Fat Guy - DS-44/covers/instagram/5-hormozi-fat-guy-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 650066,
+      "sha256": "8cbcc91c6e376caa309f6c6700c87b9e356addfe943442ea5f12c6f6bbe22223",
+      "text_boxes": [
+        [
+          70,
+          310,
+          946,
+          422
+        ],
+        [
+          70,
+          452,
+          1003,
+          579
+        ],
+        [
+          70,
+          605,
+          801,
+          730
+        ]
+      ],
+      "subject": null
+    }
+  ]
+}

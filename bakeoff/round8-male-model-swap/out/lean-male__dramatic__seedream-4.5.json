@@ -1,0 +1,22 @@
+{
+  "caseId": "lean-male__dramatic",
+  "photoKey": "lean-male",
+  "gender": "male",
+  "condition": "very_lean",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "seedream-4.5",
+  "modelLabel": "Seedream 4.5 (already integrated as callSeedream)",
+  "variant": "condensed",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 14421,
+  "safetyRetry": false,
+  "promptChars": 1343,
+  "nominalCost": 0.04,
+  "image": "lean-male__dramatic__seedream-4.5.jpg",
+  "ts": "2026-08-09T20:45:01.662Z"
+}

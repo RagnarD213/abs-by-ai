@@ -1,0 +1,22 @@
+{
+  "caseId": "lean-male__max",
+  "photoKey": "lean-male",
+  "gender": "male",
+  "condition": "very_lean",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "seedream-4.5",
+  "modelLabel": "Seedream 4.5 (already integrated as callSeedream)",
+  "variant": "condensed",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 17658,
+  "safetyRetry": false,
+  "promptChars": 1470,
+  "nominalCost": 0.04,
+  "image": "lean-male__max__seedream-4.5.jpg",
+  "ts": "2026-08-09T20:45:22.343Z"
+}

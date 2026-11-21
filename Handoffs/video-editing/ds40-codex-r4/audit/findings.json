@@ -1,0 +1,156 @@
+{
+  "video_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "by": "independent reviewer",
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "clean",
+      "t": 0.0,
+      "note": "Opening caption is absent at frame 7 (0.2336 s) and first appears at frame 8 (0.2669 s), matching direct delivered AAC CTC But onset 0.260 s. Bill excerpt and silent Dan reaction remain present."
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "t": 24.99,
+      "note": "Dan response, closer punch, emergency card and BMI entry present. No face or caption collision."
+    },
+    {
+      "image": "sheet_02_00-50.02_to_01-04.00.jpg",
+      "verdict": "clean",
+      "t": 50.02,
+      "note": "BMI table through its remaining spoken lines, return to Dan and subscribe end are present."
+    },
+    {
+      "image": "strip_000_00-08.34_join.jpg",
+      "verdict": "clean",
+      "t": 8.34,
+      "note": "New reencoded opening prefix joins the byte-identical original picture tail at frame 250. Native consecutive frame pair and two-second moving context show continuous Bill and Dan picture, with no exposed seam."
+    },
+    {
+      "image": "strip_001_00-17.95_join.jpg",
+      "verdict": "clean",
+      "t": 17.9513,
+      "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+    },
+    {
+      "image": "strip_002_00-19.62_G01_out___covered_out___join___punch_NEA.jpg",
+      "verdict": "expected",
+      "t": 19.6196,
+      "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+    },
+    {
+      "image": "strip_003_00-32.40_join___punch_TIGHT.jpg",
+      "verdict": "expected",
+      "t": 32.399,
+      "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+    },
+    {
+      "image": "strip_004_00-32.65_G02_in.jpg",
+      "verdict": "expected",
+      "t": 32.6474,
+      "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+    },
+    {
+      "image": "strip_005_00-37.85_G02_out.jpg",
+      "verdict": "expected",
+      "t": 37.8474,
+      "note": "Declared emergency lower third exits while the presenter continues moving."
+    },
+    {
+      "image": "strip_006_00-42.41_join.jpg",
+      "verdict": "clean",
+      "t": 42.409,
+      "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+    },
+    {
+      "image": "strip_007_00-42.51_G03_in___covered_in___graphic_regions_in.jpg",
+      "verdict": "expected",
+      "t": 42.5091,
+      "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+    },
+    {
+      "image": "strip_008_00-55.75_join.jpg",
+      "verdict": "clean",
+      "t": 55.7474,
+      "note": "Covered audio removal remains clean. Random-seek watch extraction garbles some table digits; sequential native master counter-evidence is clean, and all E tail frames are MD5-identical to D. Final ASR retains healthy weight into If you are on the obese category."
+    },
+    {
+      "image": "strip_009_01-00.66_G03_out___covered_out___graphic_regions_.jpg",
+      "verdict": "expected",
+      "t": 60.6606,
+      "note": "Expected BMI table exit to Dan. Random-seek strip/pair garbles a few digits before the cut, but sequential native frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550); E frame is MD5-identical to D."
+    },
+    {
+      "image": "strip_010_01-01.01_G04_in.jpg",
+      "verdict": "expected",
+      "t": 61.0074,
+      "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+    },
+    {
+      "image": "pair_000_00-08.34.jpg",
+      "verdict": "clean",
+      "t": 8.34,
+      "note": "New reencoded opening prefix joins the byte-identical original picture tail at frame 250. Native consecutive frame pair and two-second moving context show continuous Bill and Dan picture, with no exposed seam."
+    },
+    {
+      "image": "pair_001_00-17.95.jpg",
+      "verdict": "clean",
+      "t": 17.9513,
+      "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+    },
+    {
+      "image": "pair_002_00-19.62.jpg",
+      "verdict": "expected",
+      "t": 19.6196,
+      "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+    },
+    {
+      "image": "pair_003_00-32.40.jpg",
+      "verdict": "expected",
+      "t": 32.399,
+      "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+    },
+    {
+      "image": "pair_004_00-32.65.jpg",
+      "verdict": "expected",
+      "t": 32.6474,
+      "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+    },
+    {
+      "image": "pair_005_00-37.85.jpg",
+      "verdict": "expected",
+      "t": 37.8474,
+      "note": "Declared emergency lower third exits while the presenter continues moving."
+    },
+    {
+      "image": "pair_006_00-42.41.jpg",
+      "verdict": "clean",
+      "t": 42.409,
+      "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+    },
+    {
+      "image": "pair_007_00-42.51.jpg",
+      "verdict": "expected",
+      "t": 42.5091,
+      "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+    },
+    {
+      "image": "pair_008_00-55.75.jpg",
+      "verdict": "clean",
+      "t": 55.7474,
+      "note": "The covered audio removal is clean. This pair is a random-seek extraction and shows malformed BMI digits after the join. Sequential native full-master frames show clean digits; E tail pixels exactly match D. Preserve the pair as an extraction artifact, not a master defect."
+    },
+    {
+      "image": "pair_009_01-00.66.jpg",
+      "verdict": "expected",
+      "t": 60.6606,
+      "note": "The declared BMI exit to Dan is clean. This pair garbles some BMI digits just before the cut from random seeking, while sequential full-master frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550). E tail pixels are MD5-identical."
+    },
+    {
+      "image": "pair_010_01-01.01.jpg",
+      "verdict": "expected",
+      "t": 61.0074,
+      "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+    }
+  ]
+}

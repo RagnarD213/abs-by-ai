@@ -1,0 +1,54 @@
+[
+ {
+  "schedule": "5822390",
+  "platform": "facebook",
+  "account": "47105",
+  "scheduledAt": "2026-12-03T15:00:00.000Z",
+  "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/29d79afa-459a-478e-af9a-be6f44d19d6c.mp4",
+  "media_sha256": "69213798dd2c34fe88eace189c869d5169ca990f67e877aafde3c15d7777c2ba",
+  "cover": null,
+  "ai": null,
+  "videoCoverTimestamp": null,
+  "title": null,
+  "first_line": "If you're in college and you have no time to work out, I'm about to solve that problem for you."
+ },
+ {
+  "schedule": "5822391",
+  "platform": "instagram",
+  "account": "67203",
+  "scheduledAt": "2026-12-03T15:00:00.000Z",
+  "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1cb886e3-f48b-4b47-a8ce-7e4e4b083e84.mp4",
+  "media_sha256": "69213798dd2c34fe88eace189c869d5169ca990f67e877aafde3c15d7777c2ba",
+  "cover": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/32994fca-fb2f-4d27-b2b8-3385f6dba5fa.jpg",
+  "ai": null,
+  "videoCoverTimestamp": null,
+  "title": null,
+  "first_line": "If you're in college and you have no time to work out, I'm about to solve that problem for you."
+ },
+ {
+  "schedule": "5822392",
+  "platform": "tiktok",
+  "account": "58181",
+  "scheduledAt": "2026-12-03T15:00:00.000Z",
+  "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a90ff7cf-544e-4d91-83f5-0566c9254d52.mp4",
+  "media_sha256": "8fb0881a1c6c1f0c5382006e120684f0a486d9064332ae7a2ef98cf888bd5bdd",
+  "cover": null,
+  "ai": true,
+  "videoCoverTimestamp": 0,
+  "title": null,
+  "first_line": "If you're in college and you have no time to work out, I'm about to solve that problem for you."
+ },
+ {
+  "schedule": "5822394",
+  "platform": "youtube",
+  "account": "46963",
+  "scheduledAt": "2026-12-03T15:00:00.000Z",
+  "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ae4bb56c-e508-4268-9458-7c0383ed562b.mp4",
+  "media_sha256": "69213798dd2c34fe88eace189c869d5169ca990f67e877aafde3c15d7777c2ba",
+  "cover": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/f930d7a1-43dd-42e6-b6fb-9b5ae9412037.jpg",
+  "ai": true,
+  "videoCoverTimestamp": null,
+  "title": "Let AI Do Your Homework So You Have Time To Work Out",
+  "first_line": "If you're in college and you have no time to work out, I'm about to solve that problem for you. You're wasting hours every week on schoolwork you'll forget within a year. Let AI do that busy work instead. Use a paid Claude plan, not the free version, run what it writes through the same AI checkers your teachers use, and fix anything that gets flagged before you turn it in. Then take the hours you get back and work out every single day. You'll be shocked at how fast you get in shape once school stops eating your whole day."
+ }
+]

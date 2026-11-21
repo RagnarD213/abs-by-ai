@@ -1,0 +1,33 @@
+{
+  "job": "RO-04",
+  "title": "Arms & Shoulders Workout Only",
+  "round": 2,
+  "scope": "Color and fixed crop previews only",
+  "requested_changes": [
+    "Three richer warm colors, starting from old B",
+    "About 20% less standing headroom, same scale",
+    "First-minute preview plus matching moving comparisons and overhead check"
+  ],
+  "approved_elements": [
+    "Original opening phrase and nine-frame trim",
+    "Real-time set timing and equipment changes",
+    "Original stereo AAC",
+    "G01-G05 graphics, copy, layout and motion",
+    "Rest treatment"
+  ],
+  "full_film_built": false,
+  "color_status": "awaiting Dan",
+  "costs": {
+    "paid_generation_usd": 0,
+    "paid_review_provider_usd": 0,
+    "editor_model_tokens": null,
+    "reason": "Runtime does not expose exact task model usage."
+  },
+  "source_start": 66.6003,
+  "crop_xywh": [
+    100,
+    18,
+    1776,
+    1000
+  ]
+}

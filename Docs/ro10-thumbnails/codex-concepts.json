@@ -1,0 +1,47 @@
+[
+ {
+  "name": "The Snack Cake Paradox",
+  "image_prompt": "Create a complete photorealistic YouTube thumbnail background, 16:9, 1280x720. Dominant colour: vivid orange. On the right, show a fictional lean, shredded fitness presenter in his 40s, shirtless, framed from his full head to his waist, with natural athletic proportions rather than bulky bodybuilder muscles. He holds a plain white plate carrying two oversized golden sponge snack cakes with visible cream filling, raised near his chest. His expression is intrigued and confident, one eyebrow raised, looking directly at the viewer. Make his face and the cakes exceptionally clear at phone size. Strong studio lighting, crisp detail, simple orange backdrop, subtle shadows, realistic skin. Keep his hair completely inside the frame. Confine the man, plate and cakes to the rightmost 45% of the image. Reserve an uninterrupted light orange headline zone on the left, from x=0.05 to 0.52 and y=0.20 to 0.70, completely empty of objects and visual clutter. This zone must support large dark lettering added later. No packaging, logos, branding, medication, transformation comparisons or outcome promises. no text, no letters, no numbers anywhere in the image.",
+  "headline": "IT'S THE\nCALORIES",
+  "headline_zone": {
+   "position": "left",
+   "x": 0.05,
+   "y": 0.2,
+   "width": 0.47,
+   "height": 0.5
+  },
+  "accent_hex": "#FF6A00",
+  "text_color_hex": "#111111",
+  "includes_man": true
+ },
+ {
+  "name": "The Healthy Meal Trap",
+  "image_prompt": "Create a complete photorealistic YouTube thumbnail background, 16:9, 1280x720. Dominant colour: deep turquoise. Use a dramatic overhead food photograph with a diagonal composition. A large white salad bowl fills the lower-left portion, containing vivid leafy greens and generous, clearly visible toppings: avocado, grated cheese, nuts and glossy dressing. Beside the bowl, close to the lower centre, show a small clear glass pitcher of golden dressing and a loose pile of nuts. These additions should look appetizing and surprisingly substantial, suggesting easily overlooked calories rather than spoiled or dangerous food. Enlarge the bowl and toppings enough to remain recognizable on a phone. Directional lighting, sharp food textures, restrained lime-green accents, clean turquoise tabletop. Keep all food and props within the leftmost 55% and lower portion of the frame. Reserve a smooth, uninterrupted dark turquoise headline zone in the upper-right, from x=0.57 to 0.95 and y=0.12 to 0.55, completely empty of objects, patterns and highlights. This zone must support large white lettering added later. No people, packaging, logos, branding, medication, diet labels or outcome promises. no text, no letters, no numbers anywhere in the image.",
+  "headline": "HIDDEN\nCALORIES",
+  "headline_zone": {
+   "position": "top-right",
+   "x": 0.57,
+   "y": 0.12,
+   "width": 0.38,
+   "height": 0.43
+  },
+  "accent_hex": "#A3FF12",
+  "text_color_hex": "#FFFFFF",
+  "includes_man": false
+ },
+ {
+  "name": "The Diet Showdown",
+  "image_prompt": "Create a complete premium photographic conceptual YouTube thumbnail background, 16:9, 1280x720. Dominant colour: rich violet. Centre a large polished metal balance scale in the lower portion of the frame, photographed straight on with a slightly low camera angle. Both pans hang at exactly the same height. The left pan holds a simple recognizable arrangement of bread slices and cooked rice in a small plain bowl. The right pan holds avocado halves and a grilled salmon portion. Keep both arrangements visually substantial and readable at phone size. This is a visual metaphor comparing different diet approaches, not a literal measurement of equal food weight or calories. Use symmetrical composition, dramatic studio lighting, violet background and subtle golden-yellow rim light on the scale and food. No extra props. Keep the complete scale and both food arrangements below y=0.44, with the scale base visible and generous side margins. Reserve a smooth, uninterrupted dark violet headline zone across the top centre, from x=0.14 to 0.86 and y=0.06 to 0.38, completely empty of objects, beams, food, patterns and glare. This zone must support two centred lines of large white lettering added later. No people, measuring marks, displays, packaging, logos, branding, medication or outcome promises. no text, no letters, no numbers anywhere in the image.",
+  "headline": "CALORIES\nBEAT DIETS",
+  "headline_zone": {
+   "position": "top-centre",
+   "x": 0.14,
+   "y": 0.06,
+   "width": 0.72,
+   "height": 0.32
+  },
+  "accent_hex": "#FFD43B",
+  "text_color_hex": "#FFFFFF",
+  "includes_man": false
+ }
+]

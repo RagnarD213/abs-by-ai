@@ -1,0 +1,111 @@
+{
+ "sha256": "3e7939bcc571c9a895429278d59a40b07465c1bda76ad5c76095ae93723ecedd",
+ "verdict": "PASS",
+ "pad_px": 8,
+ "beats": [
+  {
+   "beat": "ai_hook",
+   "label": "ai",
+   "chip_rect": [
+    368,
+    69,
+    344,
+    62
+   ],
+   "frames_checked": 22,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "ai_gen",
+   "label": "ai",
+   "chip_rect": [
+    368,
+    69,
+    344,
+    62
+   ],
+   "frames_checked": 21,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "after_1",
+   "label": "real",
+   "chip_rect": [
+    152,
+    64,
+    774,
+    72
+   ],
+   "frames_checked": 7,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "after_2",
+   "label": "real",
+   "chip_rect": [
+    152,
+    64,
+    774,
+    72
+   ],
+   "frames_checked": 7,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "after_3",
+   "label": "real",
+   "chip_rect": [
+    152,
+    64,
+    774,
+    72
+   ],
+   "frames_checked": 7,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "ai_again",
+   "label": "ai",
+   "chip_rect": [
+    368,
+    69,
+    344,
+    62
+   ],
+   "frames_checked": 28,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "stats_scan",
+   "label": "ai",
+   "chip_rect": [
+    134,
+    69,
+    344,
+    62
+   ],
+   "frames_checked": 72,
+   "person_px_within_8px": 0,
+   "ok": true
+  },
+  {
+   "beat": "end_card",
+   "label": "ai",
+   "chip_rect": [
+    368,
+    69,
+    344,
+    62
+   ],
+   "frames_checked": 20,
+   "person_px_within_8px": 0,
+   "ok": true
+  }
+ ]
+}

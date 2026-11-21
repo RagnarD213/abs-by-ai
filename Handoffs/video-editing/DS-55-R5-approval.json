@@ -1,0 +1,26 @@
+{
+  "job": "DS-55",
+  "round": 5,
+  "category": "CONTENT",
+  "type": "SFC",
+  "approved_at": "2026-10-26T16:39:48.235383+00:00",
+  "client_date": "2026-10-26",
+  "dan": "Okay this looks good. Give me the handoff for setup",
+  "scope": "Exact complete R5 film approved; prepare one Claude setup handoff. Covers require Dan pick before upload or scheduling. No new edit authorized.",
+  "approved_master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+  "work_master": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4",
+  "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+  "bytes": 84474520,
+  "frames": 1644,
+  "duration": 54.8548,
+  "raw_gate_version": "2.6.2",
+  "raw_gate_verdict": "FAIL",
+  "raw_gate_failures": [
+    "audio:stamp",
+    "framing:no_wide_level",
+    "framing:push_coverage",
+    "captions:graphic_clearance",
+    "captions:sync"
+  ],
+  "raw_gate_preserved": true
+}

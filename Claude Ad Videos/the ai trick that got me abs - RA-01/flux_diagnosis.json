@@ -1,0 +1,48 @@
+{
+ "reference_flux": 0.07648603663573397,
+ "bound_flux": 0.0841,
+ "window": [
+  1.0,
+  55.590867
+ ],
+ "sfx_in_build": null,
+ "sfx_why": "this build carries no transition SFX at all (plan section 6 asked for them on card ins); so there is no SFX term in the flux and none can be removed to pass",
+ "bed": {
+  "track": "Realizer.mp3",
+  "level_db": -32
+ },
+ "measurements": {
+  "a_untreated_lav_cut": {
+   "flux": 0.09417925805631834,
+   "sfm": 0.06423786272222295,
+   "swirl": 0.9600083984038499,
+   "gap": 45.696144104003906,
+   "flux_over_bound": 1.1194,
+   "passes_bound": false
+  },
+  "b_chain_no_bed_no_sfx": {
+   "flux": 0.09658543151550186,
+   "sfm": 0.0364780640373409,
+   "swirl": 0.9530333707076452,
+   "gap": 47.875457763671875,
+   "flux_over_bound": 1.148,
+   "passes_bound": false
+  },
+  "c_chain_with_bed": {
+   "flux": 0.0933381466724369,
+   "sfm": 0.03664600991147805,
+   "swirl": 0.7952704772211632,
+   "gap": 34.928951263427734,
+   "flux_over_bound": 1.1094,
+   "passes_bound": false
+  },
+  "d_delivered_master": {
+   "flux": 0.08972764198585428,
+   "sfm": 0.03825549051226218,
+   "swirl": 0.7986381761340553,
+   "gap": 34.960205078125,
+   "flux_over_bound": 1.0665,
+   "passes_bound": false
+  }
+ }
+}

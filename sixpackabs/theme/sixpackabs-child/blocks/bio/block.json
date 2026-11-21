@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/bio",
+	"title": "SixPackAbs: Bio",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "Meet SixPackAbs.com CEO Daniel Rose.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

@@ -1,0 +1,557 @@
+{
+  "business": [
+    {
+      "text": "Analyze /start performance and decide: fold it into the VSL page or keep advertising it",
+      "priority": "high",
+      "addedAt": "2026-09-29",
+      "why": "Zero sales since 09-09 but it played an ad, not a VSL, so maybe unfair. Handoffs/handoff-20260929-start-page-performance-verdict.md"
+    },
+    {
+      "text": "Ship the VSL sales page live: C2 design + WV-01 video + sales letter, replacing /start for paid traffic",
+      "priority": "key",
+      "addedAt": "2026-09-29",
+      "why": "Dan 09-29 top priority: VSL, then sales letter, then page. Getting the real sales page up today is the big win."
+    },
+    {
+      "text": "Pick the 5 best ads and launch the VSL-page campaign",
+      "priority": "key",
+      "addedAt": "2026-09-30",
+      "why": "Dan 09-30 /prioritize: rank Demand Gen ads on cost per trial/customer, pick 5, new campaign to the VSL page, budget moved from the old campaign. Handoffs/handoff-20260930-ad-performance-pick-5-for-vsl-campaign.md"
+    },
+    {
+      "text": "Send documents to AMEX",
+      "priority": "high",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Add shipping costs to app",
+      "priority": "med",
+      "addedAt": "2026-08-03"
+    },
+    {
+      "text": "Redo AI Trainer workout program (consider manual programming)",
+      "priority": "med",
+      "why": "Hold until after the shoot — multi-day build",
+      "addedAt": "2026-08-05"
+    },
+    {
+      "text": "Make the AI Trainer recovery-aware: scale volume from last night's Oura sleep/HRV",
+      "priority": "key",
+      "why": "Watch-review 8/30: kingketo IG reel. We already hold the Oura data in Sleep Coach but the trainer ladder progresses on workout counts alone. Auto-regulation is a differentiator no photo-generator competitor has.",
+      "addedAt": "2026-08-30"
+    },
+    {
+      "text": "Review social media: comments, DMs, what posted, what is performing",
+      "priority": "med",
+      "why": "2026-09-09 AM planning — Dan's daily sweep; a session pre-pulls failed posts + comment counts",
+      "addedAt": "2026-09-09"
+    },
+    {
+      "text": "Cut 9:16 vertical ads from the finished editor cuts (Zeeshan's Ad 1 first, Muhammad's as each goes final)",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize: 'a few ads Muhammad finished that I need to make verticals from'. Ads 1+2 already have verticals; Zeeshan Ad 1 is final with none; Muhammad Ads 3-14 are still in revision rounds.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Finish the analysis screen: confirm the 3 defaults + walk it on iPhone and Android",
+      "priority": "high",
+      "why": "Dan 09-10 /prioritize. Defaults: women's height 5'4\", video slot, out-of-credits path. Native retest outstanding while Apple review is live.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Write and record a video sales letter (VSL) for /start — cold-traffic version",
+      "priority": "key",
+      "why": "Dan 09-10 /prioritize: /start needs its own conversion video; the current one is written for people who already generated.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Check the iOS App Store review status (expedited); on approval fire the RevenueCat restore audit",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Still IN_REVIEW at 09-10 ~7 PM CT (API read); expedite granted 09-10.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Choose the installer for the filming room from the Craigslist replies and book a date",
+      "priority": "high",
+      "why": "Dan 09-10 evening /prioritize. Work order: artifact 2b21b748. Memory: Craigslist hires have abandoned jobs before — prefer someone with reviews, TaskRabbit as fallback.",
+      "addedAt": "2026-09-10"
+    },
+    {
+      "text": "Have every video check read twice and hand me only the disagreements",
+      "priority": "high",
+      "why": "One mis-calibrated measurement nearly sent 13 wrong timecodes to Muhammad this week; a second reader catches it",
+      "addedAt": "2026-09-13"
+    },
+    {
+      "text": "Test DaVinci Resolve Studio as a start-to-finish AI editor on one video Muhammad already cut",
+      "priority": "high",
+      "why": "Resolve 21.1 (09-08) lets Claude Code or Codex drive real edits: cuts, grade, loudness, render. One blind test against his cut decides the $295 licence",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Get the morning brief onto iPad and phone, not just this Mac",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: he only reads the brief on this device, which is why he isn't actually using it day to day.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Rethink the website conversion process — make the cart/analysis funnel a more traditional, optimized conversion flow",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: the pay-first cart works technically but isn't converting; he wants the flow itself redesigned, not just bug-tested.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Test an app-install ad campaign (Android download CTA) instead of the current web signup flow",
+      "priority": "med",
+      "why": "Dan 09-14 /prioritize idea: a 'download the Android app' CTA might convert better than driving cold traffic to the web cart.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Schedule the next filming shoot",
+      "priority": "high",
+      "why": "Dan 09-14 /prioritize: content pipeline needs a shoot date on the calendar.",
+      "addedAt": "2026-09-14"
+    },
+    {
+      "text": "Review the Codex video-editing trial Phase 06 deliverables (two unseen videos: organic + ad)",
+      "priority": "high",
+      "why": "Dan 09-15 /prioritize ('review my Codex edits'). Private review page already built (http://127.0.0.1:8806/06-organic/review/index.html); this is a first-cut-vs-Muhammad blind comparison. Blocks Phase 07 (the Sol-model cost trial) and the Oct 9-11 subscription decision.",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Build a batch of new Instagram image content from the finalized studio-shoot photo library, using Codex",
+      "priority": "med",
+      "why": "Dan 09-15 /prioritize: wants to start producing IG image content from the studio shoot photos (370+ finalized files in 'photos/finalized social media photos/') and specifically wants this run through Codex instead of Claude to save tokens.",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Build a Shopify drop-shipping store for SixPackAbs.com, using Codex",
+      "priority": "med",
+      "why": "Dan 09-15 /prioritize: new idea, not yet scoped (no product line, budget or margin decided). Depends on the SixPackAbs rebrand-research decision delivered 09-14 (still his call) since that report sets SixPackAbs.com's positioning before a store gets built on it.",
+      "addedAt": "2026-09-15"
+    },
+    {
+      "text": "Do the hard part of the filming room setup yourself (mounting, lights, backdrop, power) — leave the finishing for Brittany Friday",
+      "priority": "key",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16: start the room today; it gates recording the website conversion videos. Work order: https://claude.ai/code/artifact/2b21b748-62f0-455f-aafb-ac9a6a23ad44"
+    },
+    {
+      "text": "Review Upwork: editor messages, deliveries and open jobs",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16 prioritize."
+    },
+    {
+      "text": "Check ad campaigns (Google Ads policy on Ads 6/7/10/14, spend and conversions; Meta)",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16. Policy re-run on the four new ads was due 09-16; Codex can run it."
+    },
+    {
+      "text": "Test HyperFrames as our motion-graphics layer: rebuild one lower-third and one full-screen panel as transparent overlays",
+      "priority": "key",
+      "addedAt": "2026-09-18",
+      "why": "HeyGen open-sourced HyperFrames (Apache-2.0, free, no per-render fees): HTML+CSS+GSAP composed by Claude Code or Codex, rendered deterministically to MP4 or a TRANSPARENT overlay via headless Chrome + FFmpeg. It ships a /motion-graphics skill for lower-thirds and kinetic type and a /talking-head-recut skill for overlaying an existing cut. Our graphics are PIL-drawn panels, which is exactly the 'slides, not moving graphics' note that got C1652 R3 rejected. Overlay-only means Dan's approved picture and the editor's audio are untouched. github.com/heygen-com/hyperframes"
+    },
+    {
+      "text": "Edit the two VSLs from the 9/23 shoot: Codex cuts the /start VSL first, Muhammad cuts the long VSL and redoes /start later",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Footage C1692-C1703 on the Seagate (Docs/SHOOT_923_FOOTAGE_REPORT.md). Install slot: window.ABS_START_VIDEO in public/site-video.js. Spec: Handoffs/handoff-20260910-start-vsl-edit-and-install.md."
+    },
+    {
+      "text": "Decide fix or fold on the AI offer: why the ads produce zero sales, cost per generation vs price, and a sales-first test before folding",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Zero paid sales so far; 09-10 Demand Gen: 17 clicks, 0 photo uploads. Decide before building a new offer."
+    },
+    {
+      "text": "Research a supplement offer: product, supplier, margins, and the SixPackAbs trademark risk, before building any store",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Gates the existing Shopify store row. Trademark: memory sixpackabs-trademark-exposure."
+    },
+    {
+      "text": "TikTok covers: fix the posts still inside the edit window and set up a daily automated cover check",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Cause and fix: Docs/TIKTOK_COVERS.md, scripts/blotato/tiktok_cover.py. Long-forms' edit windows close Sep 27/28."
+    },
+    {
+      "text": "Close the @abs.by.ai Instagram and consolidate everything to @danrosefit",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize. Audit what still posts to or depends on @abs.by.ai (Blotato mirror, /video-setup, ManyChat, Meta ads identity) first; deactivate, do not delete."
+    },
+    {
+      "text": "Grow Instagram followers and YouTube subscribers: pick one growth plan",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 prioritize."
+    },
+    {
+      "text": "Run the Opus 5.5 vs GPT-6 Sol editing bake-off: Opus 5.5 recuts the C1652 belly fat video blind against Codex's approved R4; Codex Sol recuts RO-05 salad",
+      "priority": "key",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize: wants a definitive read on whether Opus 5.5 beats GPT-6 Sol at editing. One Claude long-form build per week fits the allowance; style checkpoint before any full render (RO-05 lesson)."
+    },
+    {
+      "text": "Claim the Claude Code cloud-sessions credit (claude.ai/code/claim-credit) before Oct 7; it expires Nov 4",
+      "priority": "high",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize. Dan-only (GitHub link + claim). Credit is separate from the subscription limits and applies only to cloud sessions."
+    },
+    {
+      "text": "Finish the Victory Dashboard redo in Grokbot",
+      "priority": "med",
+      "addedAt": "2026-09-24",
+      "why": "Dan 09-24 /prioritize: in progress on the $60/mo Grokbot subscription; Grokbot also takes lower-priority tasks."
+    },
+    {
+      "text": "Buy the filming lights: 2 Amaran 200x S + 2 NEEWER 35\" parabolic softboxes + NEEWER 7 ft stand 2-pack (~$735)",
+      "priority": "high",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize. From the 09-23 footage review: face ~1.5 stops dark; big soft key light fixes it, both light the green screen. Links: amazon.com/dp/B08RMS1GZV, /B0FHH5XXCZ, /B00WS9XSSC. Then book Jeff's shoot for after delivery."
+    },
+    {
+      "text": "Get Claude pinned chats down to 1-2: finish or close each pinned session, then unpin",
+      "priority": "high",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: 9 pinned on 09-28."
+    },
+    {
+      "text": "Fix the SocialResponse account so its marketing email sends again",
+      "priority": "low",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: low priority, should be done eventually."
+    },
+    {
+      "text": "Get socialresponse.com working again",
+      "priority": "low",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize: not a priority today."
+    },
+    {
+      "text": "Build and install a new direct-response checkout page for Abs By AI (research top carts, design, code, ship)",
+      "priority": "key",
+      "why": "Dan 10-02 /prioritize: top priority. The current generic cart is weak; model it on the carts V Shred, MadMuscles, BetterMe and Noom run. Current cart: Docs/WEB_CART.md.",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "text": "Finish every video in progress in Claude: review RO-10, RO-11, RO-13, RO-16 and close each round",
+      "priority": "high",
+      "why": "Dan 10-02 /prioritize. All four wait on Dan's review (board ACTIVE).",
+      "addedAt": "2026-10-02"
+    },
+    {
+      "text": "Brainstorm a fast-cash side business: Claude + Codex doing paid jobs on Upwork and other marketplaces",
+      "priority": "high",
+      "why": "Dan 10-02 /prioritize: no revenue yet from Abs By AI; wants income now even if it does not scale.",
+      "addedAt": "2026-10-02"
+    }
+  ],
+  "health": [
+    {
+      "text": "Workout",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Supplements",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Shower",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Salad",
+      "priority": "high",
+      "recurring": true,
+      "addedAt": "2026-09-22"
+    },
+    {
+      "text": "Reorder liquid vitamin D from Athletic Greens (AG1)",
+      "priority": "med",
+      "addedAt": "2026-09-28",
+      "why": "Dan 09-28 /prioritize."
+    }
+  ],
+  "personal": [
+    {
+      "text": "Hire someone to powerwash",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-07"
+    },
+    {
+      "text": "Generate new life-visualization desktop backgrounds",
+      "priority": "med",
+      "why": "2026-08-19 planning — a couple of current ones aren't ideal",
+      "addedAt": "2026-08-19"
+    },
+    {
+      "text": "Get the Oura ring syncing again",
+      "priority": "med",
+      "addedAt": "2026-09-15",
+      "why": "Was parked in the health list; the daily health reset would have wiped it"
+    },
+    {
+      "text": "Request unemployment payment (TWC)",
+      "priority": "high",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16; money, Dan-only login."
+    },
+    {
+      "text": "Update dating profiles",
+      "priority": "med",
+      "addedAt": "2026-09-16",
+      "why": "Dan 09-16; photos in photos/dating video candidates/ and the finalized studio library."
+    }
+  ],
+  "assistant": [
+    {
+      "text": "Clean up junk room",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-19",
+      "boardRank": 0
+    },
+    {
+      "text": "Assemble bar",
+      "priority": "key",
+      "recurring": false,
+      "addedAt": "2026-11-17",
+      "boardRank": 1
+    },
+    {
+      "text": "Load dishwasher",
+      "priority": "key",
+      "recurring": true,
+      "days": [
+        0,
+        4
+      ],
+      "addedAt": "2026-08-09",
+      "boardRank": 2
+    },
+    {
+      "text": "Put all non-cardboard trash items in junk room into trash bags. Leave in spare room, do not put in trash yet",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 3
+    },
+    {
+      "text": "Cut up boxes for hedge panels behind artificial hedge, move to recycling or spare room",
+      "priority": "high",
+      "recurring": false,
+      "addedAt": "2026-10-06",
+      "boardRank": 4
+    },
+    {
+      "text": "Spray weeds with roundup",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-08-03",
+      "boardRank": 5
+    },
+    {
+      "text": "Hire contractor to powerwash deck, driveway, and house. Discuss with Dan first",
+      "priority": "med",
+      "recurring": false,
+      "addedAt": "2026-09-01",
+      "boardRank": 6
+    },
+    {
+      "text": "Clean exterior of all windows",
+      "priority": "low",
+      "recurring": false,
+      "addedAt": "2026-08-08",
+      "boardRank": 7
+    },
+    {
+      "text": "Find coffee table for living room and have Daniel review it",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-10-20",
+      "addedBy": "assistant",
+      "boardRank": 8
+    },
+    {
+      "text": "Bring packages in",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-17",
+      "addedBy": "assistant",
+      "boardRank": 9
+    },
+    {
+      "text": "Transfer all bar related items to assembled bar shelf",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 10
+    },
+    {
+      "text": "Clean up bar shelf box, plastic, and stryofoam",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 11
+    },
+    {
+      "text": "Replace robot mop water",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 12
+    },
+    {
+      "text": "Dishes",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 13
+    },
+    {
+      "text": "Fold laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 14
+    },
+    {
+      "text": "Make bed",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 15
+    },
+    {
+      "text": "Take trash out",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 16
+    },
+    {
+      "text": "Vacuum bedroom",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 17
+    },
+    {
+      "text": "Sweep outdoor entry way",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-18",
+      "addedBy": "assistant",
+      "boardRank": 18
+    },
+    {
+      "text": "Laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Dishes 11/20",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Detailing; polishing, wiping mirrors, dusting, misc.",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Take recycling to curb",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Take trash bin to curb",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    },
+    {
+      "text": "Pool care tutorial",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-20",
+      "addedBy": "assistant"
+    }
+  ],
+  "handoffs": [
+    {
+      "text": "RevenueCat restore-behavior audit (one Apple ID, multiple accounts)",
+      "doc": "Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md",
+      "status": "waiting on Apple approval",
+      "ready": false,
+      "model": "Sonnet 5, standard",
+      "addedAt": "2026-08-12",
+      "prompt": "Audit how RevenueCat handles one Apple ID being used with more than one Abs By AI account. Read `Handoffs/handoff-20260812-revenuecat-restore-behavior-audit.md` first — it has full context. Short version: on 2026-08-12 Dan made a second app account on a phone whose Apple ID already owned Monthly Membership, and Apple correctly said \"you're currently subscribed to this.\" That dialog is expected and is not a bug — but it proved one Apple ID is now pointed at two `users.id` values in RevenueCat, and nobody has ever checked which way that resolves. Depending on the project's restore/transfer setting we are exposed to either a revenue leak (one subscription unlocking unlimited accounts) or a locked-out paying customer (buys again, gets nothing). Start by reading the actual setting in RevenueCat project `355f4b52` and recording its exact on-screen wording, then work through the plan. Recommend \"transfer to the newest app user id\" to Dan rather than setting it silently. Verify the real behavior in sandbox using the accounts named in the handoff, checking the `users` rows and not the app UI — and pay particular attention to step 6, whether our webhook actually handles the transfer event, because if it does not then \"transfer\" silently behaves like \"shared\" and the task will look done while still being broken. **Do not start if the iOS app has not yet been approved by App Review.**"
+    },
+    {
+      "text": "Let users purchase before creating an account (iOS)",
+      "doc": "Handoffs/handoff-20260812-purchase-before-account.md",
+      "status": "after approval + RevenueCat audit",
+      "ready": false,
+      "model": "Opus, extended thinking",
+      "addedAt": "2026-08-12",
+      "prompt": "Make it possible to buy the Abs By AI membership on iOS *before* creating an account, then capture the account right after the purchase. Read `Handoffs/handoff-20260812-purchase-before-account.md` first — it has full context. Short version: today `handleIapSubscribe()` in `public/index.html` hard-returns to the signup screen when the user is logged out, and `server.js`'s `parseAppUserId()` deliberately rejects RevenueCat's `$RCAnonymousID:…` form, because our `users.id` is the only key the purchase webhook has to find the account to unlock. Both sides have to change together: let the purchase happen anonymously, force signup immediately after StoreKit reports success, and call `Purchases.logIn()` to alias the anonymous id onto the real one — which is RevenueCat's supported path for this exact flow. Do not \"fix\" the server guard by accepting ids you cannot map; make them resolvable instead. Pay particular attention to step 6, the user who buys and then closes the app before signing up — that is a paying customer with no access and it must be handled deliberately, not left to chance. Verify the whole matrix in sandbox on a real device against the `users` rows, not the app UI. **Two preconditions: do not start until the iOS app has been approved by App Review, and do the companion handoff `handoff-20260812-revenuecat-restore-behavior-audit.md` first, because the RevenueCat setting it audits governs exactly the aliasing operation this task relies on.**"
+    },
+    {
+      "text": "Swap Dan's phone to the public Play build",
+      "doc": "Handoffs/handoff-20260818-android-public-build-swap.md",
+      "status": "needs your Android phone on adb",
+      "ready": false,
+      "model": "Sonnet 5 or Codex mini, low",
+      "addedAt": "2026-08-18",
+      "prompt": "Read `Handoffs/handoff-20260818-android-public-build-swap.md` in the Abs By AI repo and execute it.\n\nShort version: Dan's Galaxy A14 (`adb` serial `R92W60LKM2D`) is still running the internal-testing\nbuild of `com.absbyai.app`. He has already been opted out of the test track, but Google Play on the\ndevice has not propagated it yet and the store page still says \"Abs by AI (Internal Beta)\". Poll\nthat page roughly every 20–30 minutes until the \"Internal Beta\" label is gone, then uninstall the\ntest build and install the public production build from Play, then verify the app still opens\nfull-screen with no Chrome address bar and that zero purchase controls are visible.\n\n**Critical: do NOT uninstall before Play actually offers the public version — that would leave Dan\nwith no app.** Do not run `pm clear com.android.vending`. Do not point `scripts/native-smoke-test.sh`\nat the phone (it installs a sideloaded APK and would undo the work). Make no AI calls.\n\nFirst action: run `~/Library/Android/sdk/platform-tools/adb devices -l` and confirm the phone is\nconnected. If it is not, stop and ask Dan to plug it in."
+    },
+    {
+      "text": "Fill the last 7 Instagram image-gap days (63 of 70 done)",
+      "doc": "Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md",
+      "status": "Blotato queue room from ~09-12",
+      "ready": false,
+      "model": "Sonnet 5, standard",
+      "addedAt": "2026-08-26",
+      "prompt": "Read Handoffs/handoff-20260826-danrosefit-abs-image-gap-fill.md in the Abs By AI repo and finish it. 63 of the 70 image posts are already scheduled and verified; the last 7 were blocked on Blotato's 200-post plan cap. First re-pull the live Blotato queue for @danrosefit and @abs.by.ai and confirm there are at least 7 free slots under the cap (it drains ~2 posts/day). If there are, run `scripts/blotato/iggap_fill.py --apply` (idempotent — it only schedules the missing days), then re-read the queue and verify every new post landed with the right account, time and caption. Report the final fill list. No AI generation, no production code, no deploy."
+    },
+    {
+      "text": "Fire phone handoff: delete the Ad 5 TikTok + install 2 covers",
+      "doc": "Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md",
+      "status": "phone-only — fire when you're away from the computer AND the phone",
+      "ready": true,
+      "prompt": "Read Handoffs/handoff-20260917-phone-tiktok-delete-ad5-and-install-covers.md and execute it. It is a phone-only session driven through iPhone Mirroring — my iPhone is locked and I have walked away from both it and the computer, so take over the screen and work straight through. Job A: delete the Ad 5 TikTok post 7686132607964269855 (confirm the caption reads \"Every diet you've tried failed for the same reason\" before you delete anything — it is irreversible). Job B: install the two designed covers, already in my Photos, on the Sep 12 \"milk\" and Sep 15 \"train abs\" posts, checking the crop preview keeps the headline before you save each one. If a post no longer offers Edit post / Edit cover its 7-day window has closed — stop on that post, say so, and do NOT delete-and-re-upload to get around it. Report what landed and what didn't.",
+      "model": "Sonnet 5 or Fable 5.1, medium",
+      "addedAt": "2026-09-17"
+    }
+  ]
+}

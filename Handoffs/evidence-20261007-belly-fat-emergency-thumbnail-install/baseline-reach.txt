@@ -1,0 +1,4 @@
+Browser tab: 1967267382, Title: "Video analytics - YouTube Studio", URL: "https://studio.youtube.com/video/v2R4QpnURqA/analytics/tab-reach_viewers/period-default".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
++										386 text Thumbnail impressions
+The focused UI element is 215 tab (selected, settable, boolean) Reach , Value: 1, ID: reach_viewers

@@ -1,0 +1,30 @@
+{
+ "shot": "RA-07 round 6 O1 'Out of order, phone out': one take, START to END, same locked camera",
+ "start_frame": "PH-start.png (941x1672)",
+ "intent": "A gym member in a navy t-shirt and grey shorts, a white towel over his left shoulder, stands still beside a black plate-loaded leg press, his body turned three-quarters toward the camera, feet planted. A yellow OUT OF ORDER sign hangs on a string over the top of the backrest. START: he reads the sign, head turned down toward it, both arms hanging at his sides with empty hands, his right hand beside his right shorts pocket. Motion: his right hand goes into his right shorts pocket, comes out holding a phone and lifts it in front of his chest. END: same camera, same feet, legs, hips, torso, shoulders and towel; his right elbow at his side, his right hand holding one plain black phone upright in front of his lower chest (screen toward him, only the back of the phone visible), his head tipped down to look at it, his left arm still hanging empty. He does not walk, turn or lean. The machine, the sign, the plates, the dumbbell racks and the floor do not move.",
+ "camera": "locked",
+ "person": {
+  "reach": false,
+  "anchored": ["hip", "nose"]
+ },
+ "still": {
+  "sign": [430, 705, 515, 820],
+  "plate_rim": [815, 548, 941, 620],
+  "base_foot_left": [415, 955, 485, 992],
+  "base_foot_right": [640, 1030, 745, 1068],
+  "rail_bolts": [735, 930, 800, 990],
+  "dumbbell_rack": [430, 470, 500, 540],
+  "shoe_left_of_picture": [95, 1130, 225, 1220],
+  "shoe_right_of_picture": [220, 1080, 380, 1160]
+ },
+ "props": [
+  {"name": "phone", "box": [150, 750, 230, 835], "held_by": "right",
+   "note": "START: the phone is hidden in his right shorts pocket, which is where his right hand is; END: the same hand holds it in front of his chest"}
+ ],
+ "hands": {
+  "right": "START: hanging empty beside the right shorts pocket. END: holding one plain black phone upright in front of the lower chest, thumb on its edge, four fingers behind it",
+  "left": "hanging at his side, empty, in START and END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

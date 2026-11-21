@@ -1,0 +1,116 @@
+{
+ "graphics": [
+  {
+   "id": "L1",
+   "template": "lower-third",
+   "t0": 10.677333,
+   "t1": 14.180833,
+   "config": {
+    "topic": "STEP 1",
+    "parts": [
+     [
+      "Generate Your Goal Picture",
+      11.481
+     ]
+    ],
+    "id": "L1",
+    "a": 10.677333,
+    "b": 14.180833
+   }
+  },
+  {
+   "id": "L2",
+   "template": "lower-third",
+   "t0": 18.985633,
+   "t1": 22.4224,
+   "config": {
+    "topic": "STEP 2",
+    "parts": [
+     [
+      "AI Builds Your Custom Plan",
+      19.782
+     ]
+    ],
+    "id": "L2",
+    "a": 18.985633,
+    "b": 22.4224
+   }
+  },
+  {
+   "id": "A1",
+   "template": "analysis-card",
+   "t0": 22.4224,
+   "t1": 26.593233,
+   "config": {
+    "photo": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/example pictures/dan by pool.png",
+    "label": "AI-GENERATED",
+    "reveal": [
+     24.06,
+     24.66,
+     25.4
+    ],
+    "band": [
+     "YOUR WORKOUT PLAN",
+     25.82
+    ],
+    "a": 22.4224,
+    "b": 26.593233
+   }
+  },
+  {
+   "id": "L3",
+   "template": "lower-third",
+   "t0": 30.296933,
+   "t1": 33.4334,
+   "config": {
+    "topic": "STEP 3",
+    "parts": [
+     [
+      "AI Coaches You Every Day",
+      31.223
+     ]
+    ],
+    "id": "L3",
+    "a": 30.296933,
+    "b": 33.4334
+   }
+  },
+  {
+   "id": "R1",
+   "template": "side-list",
+   "t0": 40.206833,
+   "t1": 46.4464,
+   "config": {
+    "heading": "The Cheat Code",
+    "items": [
+     "A Goal You Can See",
+     "A Plan Built Just For You",
+     "A Coach That's Always There"
+    ],
+    "reveal": [
+     41.444,
+     42.704,
+     44.484
+    ],
+    "drift": 0,
+    "id": "R1",
+    "a": 40.206833,
+    "b": 46.4464
+   }
+  },
+  {
+   "id": "C1",
+   "template": "cta",
+   "t0": 46.4464,
+   "t1": 50.4504,
+   "config": {
+    "top": "Tap The Button Below",
+    "big": "Get Started",
+    "hold_out": true,
+    "id": "C1",
+    "a": 46.4464,
+    "b": 50.4504
+   }
+  }
+ ]
+}

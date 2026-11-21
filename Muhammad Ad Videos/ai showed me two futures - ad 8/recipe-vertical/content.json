@@ -1,0 +1,365 @@
+{
+ "source": "auto_content.py from ai showed me two futures | muhammad | 16x9 | ad 8.mp4 (no editing session)",
+ "words": "m.whisper.json",
+ "dur": 210.877,
+ "cta_top": "Get A FREE AI Image Of Yourself",
+ "cta_big": "With Abs",
+ "no_caps_kinds": [
+  "cta",
+  "stmt",
+  "title",
+  "window",
+  "winmedia"
+ ],
+ "deviations": [
+  [
+   "all talking head",
+   "Recovered from the raw roll with his picture EDL; his approved audio is untouched."
+  ],
+  [
+   "photos of Dan",
+   "Where the library holds the clean original it replaces his frame (his burned label may cross the abs); the kit places its own label by measurement."
+  ],
+  [
+   "16:9 inserts",
+   "His 16:9 motion inserts are shown in the olive card rather than upscaled to full-bleed 9:16."
+  ],
+  [
+   "captions",
+   "Word-timed captions for muted feeds, suppressed under text plates and labelled pictures of Dan."
+  ]
+ ],
+ "beats": [
+  {
+   "t0": 3.971,
+   "t1": 5.606,
+   "kind": "bleed",
+   "label_kind": "ai",
+   "caps": false,
+   "media": "auto_00119",
+   "flash_after": true
+  },
+  {
+   "t0": 8.108,
+   "t1": 10.277,
+   "kind": "bleed",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00243"
+  },
+  {
+   "t0": 10.277,
+   "t1": 12.813,
+   "kind": "bleed",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00308",
+   "flash_after": true
+  },
+  {
+   "t0": 14.581,
+   "t1": 16.216,
+   "kind": "bleed",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00437"
+  },
+  {
+   "t0": 16.216,
+   "t1": 18.085,
+   "kind": "card",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00486"
+  },
+  {
+   "t0": 18.085,
+   "t1": 20.02,
+   "kind": "card",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00542",
+   "his_flash": true
+  },
+  {
+   "t0": 22.189,
+   "t1": 24.958,
+   "kind": "bleed",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00665"
+  },
+  {
+   "t0": 24.958,
+   "t1": 28.295,
+   "kind": "bleed",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_00748"
+  },
+  {
+   "kind": "window",
+   "header": "I'll show you",
+   "bullets": [
+    "The two-picture trick that made my motivation automatic.",
+    "How to generate an AI picture of YOURSELF with six-pack abs, for free so you can lock in, and finally lose your belly fat that's been bothering you so much."
+   ],
+   "t0": 28.295,
+   "t1": 43.577,
+   "his_flash": true
+  },
+  {
+   "t0": 58.592,
+   "t1": 62.963,
+   "kind": "card",
+   "label_kind": "ai",
+   "caps": false,
+   "media": "auto_01756",
+   "his_flash": true
+  },
+  {
+   "t0": 68.001,
+   "t1": 69.169,
+   "kind": "card",
+   "media": "auto_02038"
+  },
+  {
+   "t0": 69.169,
+   "t1": 70.804,
+   "kind": "card",
+   "media": "auto_02073",
+   "his_flash": true
+  },
+  {
+   "t0": 77.711,
+   "t1": 87.421,
+   "kind": "card",
+   "media": "auto_02329",
+   "his_flash": true
+  },
+  {
+   "kind": "window",
+   "header": null,
+   "bullets": [
+    "That was how I locked in.",
+    "That's how I lost my stomach fat, and finally got the six pack abs I always wanted."
+   ],
+   "t0": 92.225,
+   "t1": 97.831,
+   "his_flash": false
+  },
+  {
+   "t0": 98.198,
+   "t1": 99.366,
+   "kind": "card",
+   "label_kind": "real",
+   "caps": false,
+   "media": "auto_02943"
+  },
+  {
+   "t0": 99.366,
+   "t1": 103.503,
+   "kind": "card",
+   "media": "auto_02978",
+   "label_kind": "real",
+   "caps": false,
+   "label_spans": [
+    [
+     0.0,
+     1.401
+    ],
+    [
+     2.202,
+     4.137
+    ]
+   ]
+  },
+  {
+   "t0": 103.503,
+   "t1": 105.138,
+   "kind": "card",
+   "label_kind": "ai",
+   "caps": false,
+   "media": "auto_03102",
+   "his_flash": true
+  },
+  {
+   "t0": 111.311,
+   "t1": 115.315,
+   "kind": "card",
+   "media": "auto_03336"
+  },
+  {
+   "t0": 115.315,
+   "t1": 116.75,
+   "kind": "card",
+   "media": "auto_03456"
+  },
+  {
+   "t0": 116.75,
+   "t1": 122.122,
+   "kind": "card",
+   "media": "auto_03499",
+   "his_flash": false
+  },
+  {
+   "t0": 125.325,
+   "t1": 127.094,
+   "kind": "card",
+   "media": "auto_03756"
+  },
+  {
+   "t0": 127.094,
+   "t1": 130.097,
+   "kind": "card",
+   "media": "auto_03809",
+   "his_flash": true
+  },
+  {
+   "t0": 134.001,
+   "t1": 136.069,
+   "kind": "card",
+   "media": "auto_04016"
+  },
+  {
+   "t0": 136.069,
+   "t1": 140.007,
+   "kind": "card",
+   "media": "auto_04078",
+   "his_flash": true
+  },
+  {
+   "t0": 142.809,
+   "t1": 146.613,
+   "kind": "card",
+   "label_kind": "ai",
+   "caps": false,
+   "media": "auto_04280",
+   "his_flash": true
+  },
+  {
+   "t0": 150.384,
+   "t1": 151.985,
+   "kind": "card",
+   "media": "auto_04507"
+  },
+  {
+   "t0": 151.985,
+   "t1": 153.22,
+   "kind": "card",
+   "media": "auto_04555"
+  },
+  {
+   "t0": 153.22,
+   "t1": 154.755,
+   "kind": "card",
+   "media": "auto_04592"
+  },
+  {
+   "t0": 154.755,
+   "t1": 156.423,
+   "kind": "card",
+   "media": "auto_04638",
+   "his_flash": true
+  },
+  {
+   "kind": "window",
+   "header": null,
+   "bullets": [
+    "It's designed purely for making fitness transformation images of men like you.",
+    "It's way better at it than ChatGPT or any general purpose AI.",
+    "And it's completely free."
+   ],
+   "t0": 160.527,
+   "t1": 170.337,
+   "his_flash": true
+  },
+  {
+   "t0": 175.375,
+   "t1": 177.978,
+   "kind": "bleed",
+   "label_kind": "ai",
+   "caps": false,
+   "media": "auto_05256",
+   "flash_after": true
+  },
+  {
+   "kind": "winmedia",
+   "media": "auto_05496",
+   "t0": 183.383,
+   "t1": 190.924
+  },
+  {
+   "kind": "window",
+   "header": "Your workout plan",
+   "bullets": [
+    "Works around your injuries.",
+    "Targets your lagging body parts.",
+    "Uses the equipment you actually have."
+   ],
+   "t0": 190.924,
+   "t1": 197.297,
+   "his_flash": true
+  }
+ ],
+ "lower_thirds": [
+  {
+   "t0": 0.167,
+   "t1": 3.971,
+   "lines": [
+    "AI Showed Me Two Pictures"
+   ]
+  },
+  {
+   "t0": 44.211,
+   "t1": 46.413,
+   "lines": [
+    "Let's talk about why this",
+    "actually works."
+   ],
+   "equal": true
+  },
+  {
+   "t0": 63.03,
+   "t1": 66.567,
+   "lines": [
+    "You'll Be Filled With Motivation"
+   ]
+  },
+  {
+   "t0": 75.576,
+   "t1": 77.711,
+   "lines": [
+    "Fear Fades. It Always Does."
+   ]
+  },
+  {
+   "t0": 170.504,
+   "t1": 173.807,
+   "lines": [
+    "Abs In Less Than 10 Seconds"
+   ]
+  },
+  {
+   "t0": 204.371,
+   "t1": 206.606,
+   "lines": [
+    "You get the plan that makes it real."
+   ]
+  }
+ ],
+ "ctas": [
+  {
+   "t0": 105.305,
+   "t1": 109.309
+  },
+  {
+   "t0": 174.241,
+   "t1": 175.242
+  },
+  {
+   "t0": 208.041,
+   "t1": 210.877
+  }
+ ]
+}

@@ -1,0 +1,1345 @@
+{
+  "job": "SL-11",
+  "round": 3,
+  "date": "2026-10-29",
+  "status": "awaiting exact header design approval",
+  "request": "I like the #1 design the best but I feel like there's some room for improvement on the text. Give me three designs with the top text redone to be more attention-getting and to look more sophisticated and less basic",
+  "direction_pick": "R2 Design 1 real photo/composition; requested header revision, not approval to install",
+  "scope": "Top text and its background only. All wording retained. Every exact PNG pixel from the photo boundary to the bottom matches R2 Design 1.",
+  "designs": {
+    "1": "Midnight/champagne centered condensed headline",
+    "2": "Cobalt/yellow left-aligned geometric headline",
+    "3": "Bone/scarlet right-aligned slab-serif headline"
+  },
+  "recommendation": 2,
+  "outputs": [
+    {
+      "short": "a",
+      "platform": "instagram",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-1.png",
+      "sha256": "5473b4d88895584a129cb752470a4ecc9e8f6cc45b79309db111567ed8538e3c",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-1.jpg",
+      "jpeg_bytes": 381943,
+      "jpeg_sha256": "13acff149612f83a31b7940313a1b017e739bf721144145bf12c0e01a7e3272d",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            196,
+            273,
+            884,
+            338
+          ]
+        },
+        {
+          "text": "Stomach Vacuum",
+          "font": "condensed",
+          "size": 133,
+          "bbox": [
+            56,
+            371,
+            1024,
+            475
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-1.png",
+      "base_sha256": "ea9d3dbf82a8af9220ca6090e34af5f7af4c6e5348b57cf60e8cc3833c7df0d8",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "a",
+      "platform": "instagram",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-2.png",
+      "sha256": "91f0d83f962b27f09562538033a288a1fbbf413b9a6af6a76649886a0112bf3f",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-2.jpg",
+      "jpeg_bytes": 389175,
+      "jpeg_sha256": "df97893fa2c7ca7f879e34b9e80fb6418626d67c69d5e97559f280551ae98c60",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "manrope",
+          "size": 56,
+          "bbox": [
+            76,
+            259,
+            679,
+            316
+          ]
+        },
+        {
+          "text": "Stomach",
+          "font": "manrope",
+          "size": 113,
+          "bbox": [
+            76,
+            336,
+            581,
+            421
+          ]
+        },
+        {
+          "text": "Vacuum",
+          "font": "manrope",
+          "size": 121,
+          "bbox": [
+            76,
+            459,
+            562,
+            549
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-1.png",
+      "base_sha256": "ea9d3dbf82a8af9220ca6090e34af5f7af4c6e5348b57cf60e8cc3833c7df0d8",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "a",
+      "platform": "instagram",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-3.png",
+      "sha256": "0bd8dac64428d1a86264098f928893f4059862deae9f7e62114c7976c16022bf",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/instagram/sl11-a-header-3.jpg",
+      "jpeg_bytes": 386049,
+      "jpeg_sha256": "d80f676851e6c135ebf7ae9c006c9be385b726df08fbf0d20e1f2f48c0f4cf17",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "medium",
+          "size": 57,
+          "bbox": [
+            407,
+            267,
+            1005,
+            325
+          ]
+        },
+        {
+          "text": "Stomach",
+          "font": "slab",
+          "size": 125,
+          "bbox": [
+            434,
+            351,
+            1005,
+            447
+          ]
+        },
+        {
+          "text": "Vacuum",
+          "font": "slab",
+          "size": 131,
+          "bbox": [
+            427,
+            468,
+            1005,
+            566
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/instagram/sl11-a-real-design-1.png",
+      "base_sha256": "ea9d3dbf82a8af9220ca6090e34af5f7af4c6e5348b57cf60e8cc3833c7df0d8",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "a",
+      "platform": "youtube",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-1.png",
+      "sha256": "805a09ebcb104b8bca8075c741182efbf9d0ce4214cf051ba955187f285f84f0",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-1.jpg",
+      "jpeg_bytes": 404092,
+      "jpeg_sha256": "663ab8f9d793974f8579993875d89e3a1433a0969a0476d6a2d1abc9d7327a93",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            196,
+            87,
+            884,
+            152
+          ]
+        },
+        {
+          "text": "Stomach Vacuum",
+          "font": "condensed",
+          "size": 133,
+          "bbox": [
+            56,
+            185,
+            1024,
+            289
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-1.png",
+      "base_sha256": "1ed6b14b422c7cc58cdd80f353b59d07f60f8c30239d56435c1577c19b252b79",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "a",
+      "platform": "youtube",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-2.png",
+      "sha256": "ecf4db774f2e8b2a6d83ebdf8d176ec718913a13dd595ea21c986293eb67b2bb",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-2.jpg",
+      "jpeg_bytes": 410343,
+      "jpeg_sha256": "b5b49880c7afe06fe43d4fa8d5d5875a453254ce447f4a0bc0d1b6bbc97a7bba",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "manrope",
+          "size": 56,
+          "bbox": [
+            76,
+            73,
+            679,
+            130
+          ]
+        },
+        {
+          "text": "Stomach",
+          "font": "manrope",
+          "size": 113,
+          "bbox": [
+            76,
+            150,
+            581,
+            235
+          ]
+        },
+        {
+          "text": "Vacuum",
+          "font": "manrope",
+          "size": 121,
+          "bbox": [
+            76,
+            273,
+            562,
+            363
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-1.png",
+      "base_sha256": "1ed6b14b422c7cc58cdd80f353b59d07f60f8c30239d56435c1577c19b252b79",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "a",
+      "platform": "youtube",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-3.png",
+      "sha256": "732292865439ed772b2e08d737621ce4be0c978c257159f95f3335dfaf7e5a88",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/a/youtube/sl11-a-header-3.jpg",
+      "jpeg_bytes": 405180,
+      "jpeg_sha256": "09b1aac961d552a7a5d93d91ea6339dbbcba9d07718841d3a4f27a04b8db79fb",
+      "text": [
+        {
+          "text": "How To Do A Standing",
+          "font": "medium",
+          "size": 57,
+          "bbox": [
+            407,
+            81,
+            1005,
+            139
+          ]
+        },
+        {
+          "text": "Stomach",
+          "font": "slab",
+          "size": 125,
+          "bbox": [
+            434,
+            165,
+            1005,
+            261
+          ]
+        },
+        {
+          "text": "Vacuum",
+          "font": "slab",
+          "size": 131,
+          "bbox": [
+            427,
+            282,
+            1005,
+            380
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/a/youtube/sl11-a-real-design-1.png",
+      "base_sha256": "1ed6b14b422c7cc58cdd80f353b59d07f60f8c30239d56435c1577c19b252b79",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "instagram",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-1.png",
+      "sha256": "421e2305f143b9fb5e0643112676456edbd531c5f912e17de2c65a0567f0c6df",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-1.jpg",
+      "jpeg_bytes": 385672,
+      "jpeg_sha256": "26929513ea9818bcb12b9418ad28dd1a45b6ce16e3c98c1c9998891b9e8278e3",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            335,
+            273,
+            745,
+            338
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "condensed",
+          "size": 174,
+          "bbox": [
+            94,
+            362,
+            983,
+            498
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 52,
+          "bbox": [
+            232,
+            530,
+            848,
+            581
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-1.png",
+      "base_sha256": "42dd80ece267f5c4534b679acb523dd6a6a5a2db37219d0956a660d99b063993",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "instagram",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-2.png",
+      "sha256": "b06f8028fb6912e68ee4ded5e2f105b5bf7c0e936727bbdfb81b1c1aa50e1c4c",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-2.jpg",
+      "jpeg_bytes": 395308,
+      "jpeg_sha256": "3a5be3e085d0bbeb0160d37b968dbc32095459f08bfc559ff63ec1d2c1793f03",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "manrope",
+          "size": 77,
+          "bbox": [
+            76,
+            265,
+            569,
+            342
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "manrope",
+          "size": 134,
+          "bbox": [
+            76,
+            369,
+            855,
+            469
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 53,
+          "bbox": [
+            76,
+            530,
+            705,
+            584
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-1.png",
+      "base_sha256": "42dd80ece267f5c4534b679acb523dd6a6a5a2db37219d0956a660d99b063993",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "instagram",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-3.png",
+      "sha256": "50a61aa76e443aa166e23a8fc3bd65f9a1fb64eab998f551e8c839436dbb8b20",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/instagram/sl11-b-header-3.jpg",
+      "jpeg_bytes": 385996,
+      "jpeg_sha256": "1ca07b99f0f43b49c95b2d858ba3094bb777c39c3ce4c0a966fe09b32939fae4",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "medium",
+          "size": 65,
+          "bbox": [
+            609,
+            267,
+            1005,
+            333
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "slab",
+          "size": 132,
+          "bbox": [
+            166,
+            371,
+            1005,
+            470
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 51,
+          "bbox": [
+            398,
+            527,
+            1005,
+            578
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/instagram/sl11-b-real-design-1.png",
+      "base_sha256": "42dd80ece267f5c4534b679acb523dd6a6a5a2db37219d0956a660d99b063993",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "youtube",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-1.png",
+      "sha256": "cd0f8efcf305096cc427d18047dec8c17e880668ac15588948f64433c6d2c9af",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-1.jpg",
+      "jpeg_bytes": 407570,
+      "jpeg_sha256": "8c7cc605d1a695828bce8ebe3089f6a6b52d6c74faee8921b8a7b80ddfa0ac42",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            335,
+            87,
+            745,
+            152
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "condensed",
+          "size": 174,
+          "bbox": [
+            94,
+            176,
+            983,
+            312
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 52,
+          "bbox": [
+            232,
+            344,
+            848,
+            395
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-1.png",
+      "base_sha256": "be006290567b08aa1510c3612a99bba42704c0a9738b4e5ab92c9fce99a109f3",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "youtube",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-2.png",
+      "sha256": "aa16a13a45c49880577adfd4a15e47e2c423ebde4e61eb509b8c2ad76113348d",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-2.jpg",
+      "jpeg_bytes": 415850,
+      "jpeg_sha256": "b10035db21a23971c1e1fde4c296bceb1cc64bf654865205d0d697046da797ba",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "manrope",
+          "size": 77,
+          "bbox": [
+            76,
+            79,
+            569,
+            156
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "manrope",
+          "size": 134,
+          "bbox": [
+            76,
+            183,
+            855,
+            283
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 53,
+          "bbox": [
+            76,
+            344,
+            705,
+            398
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-1.png",
+      "base_sha256": "be006290567b08aa1510c3612a99bba42704c0a9738b4e5ab92c9fce99a109f3",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "b",
+      "platform": "youtube",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-3.png",
+      "sha256": "544666b99d3e176aaa1245c4b5801042538e1c0a492ffe590d5fbe65a7acdde8",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/b/youtube/sl11-b-header-3.jpg",
+      "jpeg_bytes": 406114,
+      "jpeg_sha256": "cb6fe4fea0e4eb6388843f11a4c8d641e6100c3a38fb8a4a6fa3a5e0502c5528",
+      "text": [
+        {
+          "text": "Stop Holding",
+          "font": "medium",
+          "size": 65,
+          "bbox": [
+            609,
+            81,
+            1005,
+            147
+          ]
+        },
+        {
+          "text": "Your Breath",
+          "font": "slab",
+          "size": 132,
+          "bbox": [
+            166,
+            185,
+            1005,
+            284
+          ]
+        },
+        {
+          "text": "During Stomach Vacuums",
+          "font": "medium",
+          "size": 51,
+          "bbox": [
+            398,
+            341,
+            1005,
+            392
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/b/youtube/sl11-b-real-design-1.png",
+      "base_sha256": "be006290567b08aa1510c3612a99bba42704c0a9738b4e5ab92c9fce99a109f3",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "instagram",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-1.png",
+      "sha256": "c222e14de2356771d9055ff861c62459dc993afeb1dedd2d43075e00203bbbcb",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-1.jpg",
+      "jpeg_bytes": 385340,
+      "jpeg_sha256": "0e526a590b47ef5bcacabaf24361765d62cf060cd6aa96d3beed98f414401601",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            306,
+            273,
+            774,
+            322
+          ]
+        },
+        {
+          "text": "20-Second Vacuum",
+          "font": "condensed",
+          "size": 120,
+          "bbox": [
+            59,
+            362,
+            1022,
+            456
+          ]
+        },
+        {
+          "text": "Every Morning",
+          "font": "medium",
+          "size": 52,
+          "bbox": [
+            365,
+            530,
+            714,
+            579
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-1.png",
+      "base_sha256": "a9446664182d74dfaff0b23c7f84291687c2c18fe285acc27008b83873556485",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "instagram",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-2.png",
+      "sha256": "9ccb0906af6caf4e1f51b2104508f21a80e1f682eaec71b13cc2eac0685cad7a",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-2.jpg",
+      "jpeg_bytes": 400751,
+      "jpeg_sha256": "2a0e1a5fceac56f893ea7106f4eb1df3b4db235daef31ac286025ae6b93cb781",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "manrope",
+          "size": 61,
+          "bbox": [
+            76,
+            259,
+            522,
+            305
+          ]
+        },
+        {
+          "text": "20-Second",
+          "font": "manrope",
+          "size": 121,
+          "bbox": [
+            76,
+            339,
+            737,
+            430
+          ]
+        },
+        {
+          "text": "Vacuum Every Morning",
+          "font": "manrope",
+          "size": 76,
+          "bbox": [
+            76,
+            490,
+            928,
+            566
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-1.png",
+      "base_sha256": "a9446664182d74dfaff0b23c7f84291687c2c18fe285acc27008b83873556485",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "instagram",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-3.png",
+      "sha256": "244b6e03b1258b3ff130975ef364e00b91cbb71890a9a4097bbe75ae7d8ff3a4",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/instagram/sl11-c-header-3.jpg",
+      "jpeg_bytes": 387924,
+      "jpeg_sha256": "060706279a1ce7bc010c1c7cc3f414e7f316dceafe3691e9d6651232160d6fd3",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "medium",
+          "size": 62,
+          "bbox": [
+            584,
+            267,
+            1005,
+            315
+          ]
+        },
+        {
+          "text": "20-Second",
+          "font": "slab",
+          "size": 130,
+          "bbox": [
+            303,
+            355,
+            1005,
+            454
+          ]
+        },
+        {
+          "text": "Vacuum Every Morning",
+          "font": "medium",
+          "size": 64,
+          "bbox": [
+            320,
+            514,
+            1005,
+            574
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/instagram/sl11-c-real-design-1.png",
+      "base_sha256": "a9446664182d74dfaff0b23c7f84291687c2c18fe285acc27008b83873556485",
+      "photo_start_y": 600,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "youtube",
+      "design": 1,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-1.png",
+      "sha256": "ba4e62ac769bf56ace58c0175d8d7642c8a54658a216257010c2797e164ce26d",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-1.jpg",
+      "jpeg_bytes": 406536,
+      "jpeg_sha256": "e58da3cf6ccba33faa166cab1d1e8f021977348c2fa48a25c8300c90174d7a1f",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "manrope",
+          "size": 64,
+          "bbox": [
+            306,
+            87,
+            774,
+            136
+          ]
+        },
+        {
+          "text": "20-Second Vacuum",
+          "font": "condensed",
+          "size": 120,
+          "bbox": [
+            59,
+            176,
+            1022,
+            270
+          ]
+        },
+        {
+          "text": "Every Morning",
+          "font": "medium",
+          "size": 52,
+          "bbox": [
+            365,
+            344,
+            714,
+            393
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-1.png",
+      "base_sha256": "7459e8c736efba4609c82470bdd591de6dad8fd0e88c8fdc722b0355379a9b9d",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "youtube",
+      "design": 2,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-2.png",
+      "sha256": "1e2891cebd90c567cffcc54738e95f6cb99dc617530a0019660e84e3c87d07a8",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-2.jpg",
+      "jpeg_bytes": 421896,
+      "jpeg_sha256": "21f5cb3f43c36aa8bc2abd0e1d99110a6409685b7a221916179e80da328a2d4e",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "manrope",
+          "size": 61,
+          "bbox": [
+            76,
+            73,
+            522,
+            119
+          ]
+        },
+        {
+          "text": "20-Second",
+          "font": "manrope",
+          "size": 121,
+          "bbox": [
+            76,
+            153,
+            737,
+            244
+          ]
+        },
+        {
+          "text": "Vacuum Every Morning",
+          "font": "manrope",
+          "size": 76,
+          "bbox": [
+            76,
+            304,
+            928,
+            380
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-1.png",
+      "base_sha256": "7459e8c736efba4609c82470bdd591de6dad8fd0e88c8fdc722b0355379a9b9d",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    },
+    {
+      "short": "c",
+      "platform": "youtube",
+      "design": 3,
+      "path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-3.png",
+      "sha256": "d8fe557d90d15a23e4a635078c75358d9bd35ea6f1d6dbaeb9a2f9cd7fd02a10",
+      "jpeg_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round3/c/youtube/sl11-c-header-3.jpg",
+      "jpeg_bytes": 407402,
+      "jpeg_sha256": "96d734dbe24c96dc17ed873e213bf535a6b50c81a5f6ea7ff015a07cb838b363",
+      "text": [
+        {
+          "text": "Start With One",
+          "font": "medium",
+          "size": 62,
+          "bbox": [
+            584,
+            81,
+            1005,
+            129
+          ]
+        },
+        {
+          "text": "20-Second",
+          "font": "slab",
+          "size": 130,
+          "bbox": [
+            303,
+            169,
+            1005,
+            268
+          ]
+        },
+        {
+          "text": "Vacuum Every Morning",
+          "font": "medium",
+          "size": 64,
+          "bbox": [
+            320,
+            328,
+            1005,
+            388
+          ]
+        }
+      ],
+      "base_path": "Short-form video content/covers/review/sl11-vacuum-20261028/round2/c/youtube/sl11-c-real-design-1.png",
+      "base_sha256": "7459e8c736efba4609c82470bdd591de6dad8fd0e88c8fdc722b0355379a9b9d",
+      "photo_start_y": 430,
+      "all_photo_pixels_identical": true,
+      "all_words_preserved": true
+    }
+  ],
+  "quality": {
+    "status": "PASS",
+    "files": 18,
+    "method": "Exact PNG photo-pixel comparison plus text masks against the matching R2 Design 1 face/body positions, which have identical photo geometry. No new perceptual audio or film check.",
+    "checks": [
+      {
+        "short": "a",
+        "design": 1,
+        "platform": "instagram",
+        "sha256": "5473b4d88895584a129cb752470a4ecc9e8f6cc45b79309db111567ed8538e3c",
+        "text_bbox": [
+          56,
+          273,
+          1018,
+          475
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "a",
+        "design": 2,
+        "platform": "instagram",
+        "sha256": "91f0d83f962b27f09562538033a288a1fbbf413b9a6af6a76649886a0112bf3f",
+        "text_bbox": [
+          76,
+          259,
+          676,
+          549
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "a",
+        "design": 3,
+        "platform": "instagram",
+        "sha256": "0bd8dac64428d1a86264098f928893f4059862deae9f7e62114c7976c16022bf",
+        "text_bbox": [
+          411,
+          267,
+          1003,
+          566
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "a",
+        "design": 1,
+        "platform": "youtube",
+        "sha256": "805a09ebcb104b8bca8075c741182efbf9d0ce4214cf051ba955187f285f84f0",
+        "text_bbox": [
+          56,
+          87,
+          1018,
+          289
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "a",
+        "design": 2,
+        "platform": "youtube",
+        "sha256": "ecf4db774f2e8b2a6d83ebdf8d176ec718913a13dd595ea21c986293eb67b2bb",
+        "text_bbox": [
+          76,
+          73,
+          676,
+          363
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "a",
+        "design": 3,
+        "platform": "youtube",
+        "sha256": "732292865439ed772b2e08d737621ce4be0c978c257159f95f3335dfaf7e5a88",
+        "text_bbox": [
+          411,
+          81,
+          1003,
+          380
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 1,
+        "platform": "instagram",
+        "sha256": "421e2305f143b9fb5e0643112676456edbd531c5f912e17de2c65a0567f0c6df",
+        "text_bbox": [
+          94,
+          273,
+          975,
+          581
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 2,
+        "platform": "instagram",
+        "sha256": "b06f8028fb6912e68ee4ded5e2f105b5bf7c0e936727bbdfb81b1c1aa50e1c4c",
+        "text_bbox": [
+          76,
+          265,
+          848,
+          584
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 3,
+        "platform": "instagram",
+        "sha256": "50a61aa76e443aa166e23a8fc3bd65f9a1fb64eab998f551e8c839436dbb8b20",
+        "text_bbox": [
+          166,
+          267,
+          1003,
+          578
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 1,
+        "platform": "youtube",
+        "sha256": "cd0f8efcf305096cc427d18047dec8c17e880668ac15588948f64433c6d2c9af",
+        "text_bbox": [
+          94,
+          87,
+          975,
+          395
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 2,
+        "platform": "youtube",
+        "sha256": "aa16a13a45c49880577adfd4a15e47e2c423ebde4e61eb509b8c2ad76113348d",
+        "text_bbox": [
+          76,
+          79,
+          848,
+          398
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "b",
+        "design": 3,
+        "platform": "youtube",
+        "sha256": "544666b99d3e176aaa1245c4b5801042538e1c0a492ffe590d5fbe65a7acdde8",
+        "text_bbox": [
+          166,
+          81,
+          1003,
+          392
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 1,
+        "platform": "instagram",
+        "sha256": "c222e14de2356771d9055ff861c62459dc993afeb1dedd2d43075e00203bbbcb",
+        "text_bbox": [
+          62,
+          273,
+          1017,
+          579
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 2,
+        "platform": "instagram",
+        "sha256": "9ccb0906af6caf4e1f51b2104508f21a80e1f682eaec71b13cc2eac0685cad7a",
+        "text_bbox": [
+          76,
+          259,
+          924,
+          566
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 3,
+        "platform": "instagram",
+        "sha256": "244b6e03b1258b3ff130975ef364e00b91cbb71890a9a4097bbe75ae7d8ff3a4",
+        "text_bbox": [
+          308,
+          267,
+          1004,
+          574
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 1,
+        "platform": "youtube",
+        "sha256": "ba4e62ac769bf56ace58c0175d8d7642c8a54658a216257010c2797e164ce26d",
+        "text_bbox": [
+          62,
+          87,
+          1017,
+          393
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 2,
+        "platform": "youtube",
+        "sha256": "1e2891cebd90c567cffcc54738e95f6cb99dc617530a0019660e84e3c87d07a8",
+        "text_bbox": [
+          76,
+          73,
+          924,
+          380
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      },
+      {
+        "short": "c",
+        "design": 3,
+        "platform": "youtube",
+        "sha256": "d8fe557d90d15a23e4a635078c75358d9bd35ea6f1d6dbaeb9a2f9cd7fd02a10",
+        "text_bbox": [
+          308,
+          81,
+          1004,
+          388
+        ],
+        "checks": {
+          "rgb_1080x1920": true,
+          "sha256": true,
+          "all_photo_pixels_identical": true,
+          "all_words_preserved": true,
+          "text_clear_of_face_and_hair": true,
+          "text_clear_of_person": true,
+          "title_stays_above_photo": true,
+          "text_safe_band": true,
+          "jpeg_under_2MB": true
+        },
+        "passed": true
+      }
+    ]
+  },
+  "served_hashes": 18,
+  "visual_review": "Inspected all three paired sheets, all nine actual 3:4 profile crops and browser comparison page. Strong hierarchy, no clipped words or face/hair/abs overlap.",
+  "photo_pixels_preserved": true,
+  "approved_videos_changed": false,
+  "new_generation": false,
+  "generation_spend_usd": 0,
+  "exact_header_picks": null,
+  "social_uploaded": false,
+  "scheduled": false,
+  "next_action": "Wait for header 1/2/3 pick per Short, then continue original authorized organic setup with the exact selected files.",
+  "review_url": "http://127.0.0.1:9301/?revision=3"
+}

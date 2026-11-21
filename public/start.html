@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>I Fired My Personal Trainer And Used AI To Get Abs Instead | Abs By AI</title>
+<meta name="description" content="I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs." />
+<!-- Paid-traffic landing page: kept out of the organic index so it never competes with / . -->
+<meta name="robots" content="noindex,follow" />
+<link rel="canonical" href="https://absbyai.com/start" />
+<meta property="og:title" content="I Fired My Personal Trainer And Used AI To Get Abs Instead" />
+<meta property="og:description" content="I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs." />
+<meta property="og:image" content="https://absbyai.com/img/letter/video-poster-wv01.jpg" />
+<meta property="og:url" content="https://absbyai.com/start" />
+<meta name="theme-color" content="#05070B" />
+<link rel="icon" type="image/png" href="/img/icon-192.png" />
+<link rel="apple-touch-icon" href="/img/icon-192.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<script>
+  // Inside the Android app (TWA) or the iOS app the purchase UI is hidden, same check as index.html.
+  (function () {
+    if ((document.referrer || '').indexOf('android-app://com.absbyai.app') === 0) { try { sessionStorage.setItem('absbyai_twa', '1'); } catch (e) {} }
+    var nativeApp = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+    try { nativeApp = nativeApp || sessionStorage.getItem('absbyai_twa') === '1'; } catch (e) {}
+    if (nativeApp) document.documentElement.classList.add('native-app');
+
+    // Video test: which film this browser gets, decided here before anything is drawn.
+    // Order: ?vid=a or ?vid=b (a forced QA view, never counted), then the arm this browser was given
+    // before, then a coin that is stored so the same film plays on every visit.
+    var VIDEOS = {"a": {"phone": "/video/wv01-a-720.mp4", "desk": "/video/wv01-a-1080.mp4", "poster": "/img/letter/video-poster-wv01.jpg", "opening": 142.14}, "b": {"phone": "/video/wv01-b-720.mp4", "desk": "/video/wv01-b-1080.mp4", "poster": "/img/letter/video-poster-wv01.jpg", "opening": 212.45}}, B_SHARE = 0.5, STORE = 'absbyai_vsl_video';
+    var arm = null, forced = false, sticky = true, ask = null;
+    try { ask = new URLSearchParams(location.search).get('vid'); } catch (e) {}
+    if (ask === 'a' || ask === 'b') { arm = ask; forced = true; }
+    else if (B_SHARE <= 0) arm = 'a';
+    else if (B_SHARE >= 1) arm = 'b';
+    else {
+      try { var had = localStorage.getItem(STORE); if (had === 'a' || had === 'b') arm = had; } catch (e) {}
+      if (!arm) {
+        arm = Math.random() < B_SHARE ? 'b' : 'a';
+        // Storage blocked: the coin is flipped again on the next page load, and the events say so.
+        try { localStorage.setItem(STORE, arm); sticky = localStorage.getItem(STORE) === arm; } catch (e) { sticky = false; }
+      }
+    }
+    var film = VIDEOS[arm];
+    window.VSL = { variant: 'letter-v1', nativeApp: nativeApp, video: arm, videoForced: forced, videoSticky: sticky, film: film };
+    var pre = document.createElement('link'); pre.rel = 'preload'; pre.as = 'image'; pre.href = film.poster;
+    document.head.appendChild(pre);
+  })();
+</script>
+<script>
+  !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]);t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+" (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys onSessionId".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+  posthog.init('phc_s3ZXKWHRFQVqK6pYRBRBKtc2ex7LL78CFMHtCfENEQrU', {api_host: 'https://us.i.posthog.com'});
+  // Every event from this browser carries the landing page, here AND in the app after the hand-off,
+  // so funnels separate this sales letter from the old /start variants. No A/B coin: tests on this
+  // page are between videos, never layouts (Dan, 2026-09-28).
+  posthog.register({ landing: 'vsl', landing_variant: 'letter-v1' });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18361229851"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18361229851');
+  // GA4 (property "Abs By AI", stream absbyai.com) rides the Ads loader above: one
+  // gtag.js, two destinations. Never add a second loader script.
+  gtag('config', 'G-1M1SY7GGKF', { send_page_view: true });
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '908268999001961');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=908268999001961&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+  ttq.load('D9V3D6JC77U31VPN3O90');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+<script>
+  // The film this browser got rides on every later event, here and in the cart. The exposure event is
+  // what a PostHog experiment on this key reads if the flag is ever created (same pattern as /start-v1).
+  posthog.register({ video_variant: VSL.video, video_forced: VSL.videoForced });
+  posthog.capture('$feature_flag_called', { $feature_flag: 'vsl-video-variant', $feature_flag_response: VSL.video, forced: VSL.videoForced });
+</script>
+<style>
+body{margin:0;font-family:'Manrope',system-ui,sans-serif;color:#05070B;background:#FFFFFF;-webkit-font-smoothing:antialiased}
+a{color:#C9302D}a:hover{color:#9E2522}
+h1,h2,h3,p,ul,ol,figure,blockquote{margin:0}
+ul,ol{padding:0;list-style:none}
+.eyebrow{font-size:13px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#C9302D}
+.hl{box-shadow:inset 0 -9px 0 rgba(201,48,45,.22)}
+.h2{font-size:26px;line-height:1.2;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+.cta{display:flex;align-items:center;justify-content:center;width:100%;min-height:58px;padding:0 18px;border:0;border-radius:12px;color:#FFFFFF;font-family:inherit;font-size:18px;font-weight:800;cursor:pointer;box-shadow:0 8px 18px rgba(5,7,11,.16)}
+.terms{font-size:14px;line-height:1.5;color:#3F444C}
+.ph{display:flex;align-items:center;justify-content:center;box-sizing:border-box;padding:14px;text-align:center;background:repeating-linear-gradient(135deg,#EDEBE6 0 10px,#E4E1DB 10px 20px);color:#3F444C;font-size:12px;font-weight:700;line-height:1.4}
+.phd{background:repeating-linear-gradient(135deg,#171B22 0 10px,#1E232B 10px 20px);color:#A9AEB6}
+.q{font-size:17px;font-weight:800;line-height:1.35}
+.a{font-size:15px;line-height:1.55;color:#3F444C}
+.letter{font-size:17px;line-height:1.65;color:#1D2127}
+.letter strong{font-weight:800;color:#05070B}
+.lead{font-weight:700;color:#05070B}
+.dark .h2{color:#FFFFFF}
+.dark .letter{color:#D5D8DD}
+.dark .letter strong,.dark .lead{color:#FFFFFF}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#1D2127}
+.chk strong{font-weight:800;color:#05070B}
+.foot a{color:#D5D8DD}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,video{max-width:100%}
+.page{display:flex;flex-direction:column;min-height:100vh;background:#FFFFFF;overflow-x:clip}
+.cta{background:#15803D;text-decoration:none;text-align:center}
+.cta:hover,.stripe-cta:hover{background:#116A33;color:#FFFFFF}
+.cta:focus-visible,.stripe-cta:focus-visible,.soundbox:focus-visible{outline:3px solid #FFD23F;outline-offset:2px}
+/* Top stripe, pinned (locked layout). Phone 60 px, desktop 64 px. */
+.stripe{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;flex-shrink:0;display:flex;height:60px;padding:0 12px 0 16px;background:#05070B;color:#FFFFFF}
+.stripe-in{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%}
+.stripe-logo{height:26px;width:auto;flex-shrink:0;filter:invert(1)}
+.stripe-right{display:flex;align-items:center;gap:10px}
+.stripe-txt{font-size:13px;font-weight:800;line-height:1.25;text-align:right}
+.stripe-txt span{font-weight:600;color:#C9CDD3}
+.stripe-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 14px;border-radius:10px;background:#15803D;color:#FFFFFF;font-size:14px;font-weight:800;white-space:nowrap;text-decoration:none}
+@media (max-width:359px){.stripe{padding:0 8px 0 10px}.stripe-logo{height:22px}.stripe-txt{font-size:11px}.stripe-cta{padding:0 10px;font-size:13px}.stripe-right{gap:8px}}
+/* Video: WV-01, muted autoplay under the tap-for-sound box (yellow, the approved default). */
+.vwrap{flex-shrink:0;display:flex;justify-content:center}
+.vbox{position:relative;width:100%;aspect-ratio:16/9;flex-shrink:0;background:#05070B;overflow:hidden}
+.vbox video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:contain;background:#05070B}
+.vdim{position:absolute;inset:0;background:rgba(5,7,11,0.28);cursor:pointer}
+.soundbox{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 22px;border:0;border-radius:14px;background:#FFD23F;color:#05070B;font-family:inherit;cursor:pointer;box-shadow:0 10px 24px rgba(5,7,11,0.35)}
+.sb-top{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sb-main{font-size:17px;font-weight:800;white-space:nowrap}
+.vbox.live .vdim,.vbox.live .soundbox{display:none}
+/* Before pictures: natural shape, same crop as the boards. */
+.before-grid{display:grid;grid-template-columns:128fr 214fr;gap:8px}
+.before-grid img{display:block;width:100%;height:auto;min-width:0;border-radius:12px;object-fit:cover;object-position:center}
+.before-grid .b1{grid-column:1/-1;aspect-ratio:350/467}
+.before-grid .b2{aspect-ratio:128/160}
+.before-grid .b3{aspect-ratio:214/160}
+/* Dan's note photo: smaller on the narrowest phones so the letter keeps a readable column beside it. */
+@media (max-width:359px){#p img.note-av{width:96px;height:112px;margin-right:12px}}
+/* Guarantee card title: one size down on the narrowest phones so "100% Money Back Guarantee" stays on one line. */
+@media (max-width:359px){#p .gcard h3{font-size:16px}}
+/* Inside the Android app: no purchase UI (memory native-app-iap-gating). */
+.app-only-note{display:none}
+html.native-app #p .app-hide-purchase{display:none !important}
+html.native-app #p .app-only-note{display:flex}
+.app-open{align-items:center;justify-content:center;width:100%;min-height:58px;border-radius:12px;background:#05070B;color:#FFFFFF;font-size:18px;font-weight:800;text-decoration:none}
+.app-open:hover{color:#FFFFFF}
+[data-k="final"] .app-open{max-width:350px;align-self:center}
+
+#p .r1{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 10px; padding: 14px 20px 14px; text-align: center}
+#p .r2{max-width: 350px; font-size: 27px; line-height: 1.16; font-weight: 800; letter-spacing: -.015em; text-wrap: balance}
+#p .r3{max-width: 350px; font-size: 16px; line-height: 1.45; font-weight: 600; color: #2B2F36; text-wrap: balance}
+#p .r4{flex-shrink: 0; display: flex; align-items: flex-start; justify-content: center; gap: 8px; padding: 12px 20px; font-size: 14px; line-height: 1.45; font-weight: 600; background: #F6F4F0}
+#p .r5{flex-shrink: 0; display: flex; justify-content: center; padding: 20px 20px 36px}
+#p .r6{display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 720px; box-sizing: border-box; padding: 22px 20px; border: 2px solid #05070B; border-radius: 16px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)}
+#p .r7{font-size: 16px; line-height: 1.45; font-weight: 700; color: #2B2F36}
+#p .r8{display: flex; align-items: center; justify-content: flex-start; gap: 8px; font-size: 14px; line-height: 1.4; font-weight: 800; color: #05070B}
+#p .r9{flex-shrink: 0; display: flex; flex-direction: column; padding: 40px 20px; background: #F6F4F0;}
+#p .r10{display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 720px; margin: 0 auto;}
+#p .r11{float: left; width: 126px; height: 147px; margin: 6px 16px 8px 0; border-radius: 14px; object-fit: cover; object-position: center top}
+#p .r12{margin-top: 18px}
+#p .r13{flex-shrink: 0; display: flex; flex-direction: column; padding: 40px 20px; background: #FFFFFF;}
+#p .r14{flex-shrink: 0; display: flex; flex-direction: column; padding: 40px 20px; background: #05070B; color: #FFFFFF;}
+#p .r15{padding: 20px; border-radius: 16px; background: #F6F4F0}
+#p .r16{font-size: 20px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r17{font-size: 21px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r18{display: flex; flex-direction: column; padding: 4px 20px; border: 2px solid #05070B; border-radius: 16px}
+#p .r19{padding: 16px 0;  font-size: 18px; line-height: 1.4; font-weight: 800; text-wrap: balance}
+#p .r20{padding: 16px 0; border-top: 1px solid #E4E1DB; font-size: 18px; line-height: 1.4; font-weight: 800; text-wrap: balance}
+#p .r21{display: flex; flex-direction: column; padding: 4px 18px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r22{font-size: 20px; line-height: 1.3; font-weight: 800; color: #FFFFFF; text-wrap: balance}
+#p .r23{display: flex; flex-direction: column; gap: 10px; padding: 16px 14px; border-radius: 14px; background: #11151B; border: 1px solid #2A2F38}
+#p .r24{font-size: 15px; line-height: 1.5; color: #E4E6EA}
+#p .r25{padding: 20px 0; border-top: 1px solid #2A2F38; border-bottom: 1px solid #2A2F38; font-size: 21px; line-height: 1.35; font-weight: 800; color: #FFFFFF; text-wrap: balance}
+#p .r26{height: 24px; width: auto; align-self: center}
+#p .r27{display: block; width: 100%; max-width: 210px; height: auto; aspect-ratio: 210 / 440; min-width: 0; border-radius: 0px; align-self: center}
+#p .r28{padding: 16px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E4E1DB; font-size: 15px; line-height: 1.5; color: #3F444C}
+#p .r29{padding: 16px; border-radius: 14px; background: #05070B; color: #FFFFFF; font-size: 15px; line-height: 1.5; font-weight: 700}
+#p .r30{display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r31{display: flex; align-items: center; justify-content: center; gap: 8px; padding: 4px 0}
+#p .r32{display: block; width: 100%; max-width: 155px; height: auto; aspect-ratio: 155 / 325; min-width: 0; border-radius: 0px; align-self: center}
+#p .r33{width: 20px; height: 20px}
+#p .r34{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 0 20px 40px; background: #FFFFFF}
+#p .r35{display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 350px}
+#p .r36{font-size: 20px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r37{display: flex; flex-direction: column; gap: 10px; align-self: center; width: 100%; max-width: 350px}
+#p .r38{display: flex; align-items: center; flex-direction: column; gap: 14px; padding: 24px 20px; text-align: center; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB;}
+#p .r39{width: 116px; height: 116px}
+#p .r40{font-size: 18px; line-height: 1.3; font-weight: 800}
+#p .r41{font-size: 15px; line-height: 1.55; color: #3F444C}
+#p .r42{flex-shrink: 0; display: flex; flex-direction: column; padding: 28px 20px 40px; background: #FFFFFF;}
+#p .r43{display: flex; flex-direction: column; gap: 16px; padding: 22px 20px; border: 2px solid #05070B; border-radius: 16px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)}
+#p .r44{padding: 18px 20px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r45{padding: 18px 20px; border-radius: 16px; background: #FFFFFF; border: 2px solid #05070B; box-shadow: 0 10px 24px rgba(5,7,11,0.08)}
+#p .r46{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 0 20px 40px; background: #F6F4F0}
+#p .r47{display: flex; flex-direction: column; gap: 18px; width: 100%; max-width: 720px; margin: 0 auto; align-items: center; text-align: center;}
+#p .r48{display: flex; flex-direction: column; gap: 8px; align-self: center; width: 100%; max-width: 350px}
+#p .r49{display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 14px; line-height: 1.4; font-weight: 800; color: #05070B}
+#p .r50{display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 20px}
+#p .r51{font-size: 16px; color: #3F444C}
+#p .r52{font-size: 24px; font-weight: 800; letter-spacing: -.01em}
+#p .r53{display: flex; flex-direction: column; gap: 8px; align-self: center; width: 100%; max-width: 350px; text-align: left}
+#p .r54{display: block; width: 100%; max-width: 350px; height: auto; aspect-ratio: 350 / 350; min-width: 0; object-fit: cover; border-radius: 14px}
+#p .r55{flex-shrink: 0; display: flex; flex-direction: column; padding: 28px 20px 32px; background: #05070B; color: #A9AEB6; font-size: 12px; line-height: 1.6}
+@media (min-width: 900px) {
+.eyebrow{font-size:14px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:#C9302D}
+.hl{box-shadow:inset 0 -12px 0 rgba(201,48,45,.22)}
+.h2{font-size:36px;line-height:1.16;font-weight:800;letter-spacing:-.01em;text-wrap:balance}
+.q{font-size:19px;font-weight:800;line-height:1.35}
+.a{font-size:17px;line-height:1.55;color:#3F444C}
+.letter{font-size:19px;line-height:1.7;color:#1D2127}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:17px;line-height:1.5;color:#1D2127}
+
+.stripe{height:64px;padding:0 40px}
+.stripe-in{max-width:1080px;margin:0 auto}
+.stripe-logo{height:34px}
+.stripe-right{gap:18px}
+.stripe-txt{font-size:16px}
+.stripe-cta{padding:0 22px;font-size:15px}
+.vbox{max-width:800px;border-radius:16px;box-shadow:0 18px 40px rgba(5,7,11,0.18)}
+.soundbox{padding:18px 30px}
+.sb-main{font-size:19px}
+.before-grid{grid-template-columns:182fr 194fr 324fr;gap:10px}
+.before-grid .b1{grid-column:auto;aspect-ratio:182/243}
+.before-grid .b2{aspect-ratio:194/243}
+.before-grid .b3{aspect-ratio:324/243}
+[data-k="final"] .app-open{max-width:480px}
+
+#p .r1{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; padding: 28px 20px 24px; text-align: center}
+#p .r2{max-width: 900px; font-size: 48px; line-height: 1.12; font-weight: 800; letter-spacing: -.015em; text-wrap: balance}
+#p .r3{max-width: 760px; font-size: 21px; line-height: 1.45; font-weight: 600; color: #2B2F36; text-wrap: balance}
+#p .r4{flex-shrink: 0; display: flex; align-items: flex-start; justify-content: center; gap: 8px; padding: 16px 0; font-size: 16px; line-height: 1.45; font-weight: 600; background: #FFFFFF}
+#p .r5{flex-shrink: 0; display: flex; justify-content: center; padding: 28px 0 72px}
+#p .r6{display: flex; flex-direction: column; gap: 16px; width: 100%; max-width: 720px; box-sizing: border-box; padding: 32px 36px; border: 2px solid #05070B; border-radius: 16px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)}
+#p .r7{font-size: 18px; line-height: 1.45; font-weight: 700; color: #2B2F36}
+#p .r8{display: flex; align-items: center; justify-content: flex-start; gap: 8px; font-size: 15px; line-height: 1.4; font-weight: 800; color: #05070B}
+#p .r9{flex-shrink: 0; display: flex; flex-direction: column; padding: 72px 0; background: #F6F4F0;}
+#p .r10{display: flex; flex-direction: column; gap: 22px; width: 100%; max-width: 720px; margin: 0 auto;}
+#p .r11{float: left; width: 156px; height: 182px; margin: 7px 22px 10px 0; border-radius: 14px; object-fit: cover; object-position: center top}
+#p .r12{margin-top: 22px}
+#p .r13{flex-shrink: 0; display: flex; flex-direction: column; padding: 72px 0; background: #FFFFFF;}
+#p .r14{flex-shrink: 0; display: flex; flex-direction: column; padding: 72px 0; background: #05070B; color: #FFFFFF;}
+#p .r15{padding: 24px 28px; border-radius: 16px; background: #F6F4F0}
+#p .r16{font-size: 24px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r17{font-size: 25px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r18{display: flex; flex-direction: column; padding: 8px 28px; border: 2px solid #05070B; border-radius: 16px}
+#p .r19{padding: 16px 0;  font-size: 21px; line-height: 1.4; font-weight: 800; text-wrap: balance}
+#p .r20{padding: 16px 0; border-top: 1px solid #E4E1DB; font-size: 21px; line-height: 1.4; font-weight: 800; text-wrap: balance}
+#p .r21{display: flex; flex-direction: column; padding: 6px 28px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r22{font-size: 24px; line-height: 1.3; font-weight: 800; color: #FFFFFF; text-wrap: balance}
+#p .r23{display: flex; flex-direction: column; gap: 10px; padding: 20px; border-radius: 14px; background: #11151B; border: 1px solid #2A2F38}
+#p .r24{font-size: 17px; line-height: 1.5; color: #E4E6EA}
+#p .r25{padding: 26px 0; border-top: 1px solid #2A2F38; border-bottom: 1px solid #2A2F38; font-size: 26px; line-height: 1.35; font-weight: 800; color: #FFFFFF; text-wrap: balance}
+#p .r26{height: 30px; width: auto; align-self: center}
+#p .r27{display: block; width: 100%; max-width: 267px; height: auto; aspect-ratio: 267 / 560; min-width: 0; border-radius: 0px; align-self: center}
+#p .r28{padding: 16px; border-radius: 14px; background: #FFFFFF; border: 1px solid #E4E1DB; font-size: 17px; line-height: 1.5; color: #3F444C}
+#p .r29{padding: 16px; border-radius: 14px; background: #05070B; color: #FFFFFF; font-size: 17px; line-height: 1.5; font-weight: 700}
+#p .r30{display: flex; flex-direction: column; gap: 8px; padding: 24px 28px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r31{display: flex; align-items: center; justify-content: center; gap: 18px; padding: 4px 0}
+#p .r32{display: block; width: 100%; max-width: 267px; height: auto; aspect-ratio: 267 / 560; min-width: 0; border-radius: 0px; align-self: center}
+#p .r33{width: 26px; height: 26px}
+#p .r34{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 0 0 72px; background: #FFFFFF}
+#p .r35{display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 480px}
+#p .r36{font-size: 23px; line-height: 1.35; font-weight: 800; text-wrap: balance}
+#p .r37{display: flex; flex-direction: column; gap: 10px; align-self: center; width: 100%; max-width: 480px}
+#p .r38{display: flex; align-items: center; flex-direction: row; gap: 28px; padding: 28px 32px; text-align: left; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB;}
+#p .r39{width: 132px; height: 132px}
+#p .r40{font-size: 24px; line-height: 1.3; font-weight: 800}
+#p .r41{font-size: 17px; line-height: 1.55; color: #3F444C}
+#p .r42{flex-shrink: 0; display: flex; flex-direction: column; padding: 64px 0 72px; background: #FFFFFF;}
+#p .r43{display: flex; flex-direction: column; gap: 16px; padding: 32px 36px; border: 2px solid #05070B; border-radius: 16px; background: #FFFFFF; box-shadow: 0 14px 30px rgba(5,7,11,0.10)}
+#p .r44{padding: 22px 26px; border-radius: 16px; background: #FFFFFF; border: 1px solid #E4E1DB}
+#p .r45{padding: 22px 26px; border-radius: 16px; background: #FFFFFF; border: 2px solid #05070B; box-shadow: 0 10px 24px rgba(5,7,11,0.08)}
+#p .r46{flex-shrink: 0; display: flex; flex-direction: column; align-items: center; padding: 0 0 72px; background: #F6F4F0}
+#p .r47{display: flex; flex-direction: column; gap: 22px; width: 100%; max-width: 720px; margin: 0 auto; align-items: center; text-align: center;}
+#p .r48{display: flex; flex-direction: column; gap: 8px; align-self: center; width: 100%; max-width: 480px}
+#p .r49{display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 15px; line-height: 1.4; font-weight: 800; color: #05070B}
+#p .r50{display: flex; flex-direction: column; align-items: center; gap: 2px; padding-top: 28px}
+#p .r51{font-size: 18px; color: #3F444C}
+#p .r52{font-size: 28px; font-weight: 800; letter-spacing: -.01em}
+#p .r53{display: flex; flex-direction: column; gap: 8px; align-self: center; width: 100%; max-width: 520px; text-align: left}
+#p .r54{display: block; width: 100%; max-width: 520px; height: auto; aspect-ratio: 520 / 520; min-width: 0; object-fit: cover; border-radius: 14px}
+#p .r55{flex-shrink: 0; display: flex; flex-direction: column; padding: 36px 0 44px; background: #05070B; color: #A9AEB6; font-size: 12px; line-height: 1.6}
+}
+@media (max-width: 899px) { #p .fit-h1{font-size:clamp(22px,6.9vw,27px)} #p .fit-sub{font-size:clamp(14px,4.1vw,16px)} }
+</style>
+</head>
+<body>
+<div id="p" class="page">
+<header data-k="stripe" class="stripe"><div class="stripe-in"><img src="/img/logo.png" alt="Abs by AI" class="stripe-logo" width="360" height="111"><div class="stripe-right app-hide-purchase"><p class="stripe-txt">7-Day Free Trial<br><span>$0 today</span></p><a class="stripe-cta js-cta" data-pos="stripe" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start Free Trial</a></div></div></header>
+<div data-k="hero" class="r1"><h1 class="fit-h1 r2">I Fired My Personal Trainer And <span class="hl">Used AI To Get Abs Instead</span></h1><p class="fit-sub r3">I Struggled To Lose My Stubborn Belly For Years. Nothing Worked…Until I Found Five Strange Ways To Use AI To Get Six Pack Abs.</p></div>
+<div data-k="video" class="vwrap"><div class="vbox" id="vbox"><video id="vsl" muted autoplay playsinline preload="metadata" aria-label="Video: Dan Rose, founder of Abs By AI"></video><script>(function () {var f = window.VSL.film, v = document.getElementById('vsl');v.poster = f.poster;function add(src, media) { var s = document.createElement('source'); s.src = src; s.type = 'video/mp4'; if (media) s.media = media; v.appendChild(s); }add(f.phone, '(max-width: 899px)'); add(f.desk);})();</script><div class="vdim" id="vdim"></div><button type="button" class="soundbox" id="soundBox"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg><span class="sb-top" id="sbTop">Your video is playing</span><span class="sb-main">Tap to turn on sound</span></button></div></div>
+<p data-k="soundline" class="r4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#05070B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 1px"><path d="M11 5 6 9H2v6h4l5 4V5z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M19 5a10 10 0 0 1 0 14"></path></svg><span><strong style="font-weight: 800">Make sure your sound is on.</strong> Prefer to read? The whole story is below.</span></p>
+<section data-k="offer1" class="r5"><div class="r6"><div style="display: flex; flex-direction: column; gap: 6px"><h2 class="h2">Try Abs By AI Free For 7 Days</h2><p class="r7">Here’s What You Get When You Start Your Free 7-Day Trial…</p></div><ul style="display: flex; flex-direction: column; gap: 14px"><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>Your AI goal picture:</strong> Motivate yourself to train with an AI image of yourself with the exact body and abs you want. Make it your phone lockscreen, and lock in.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>A personalized AI workout plan: </strong>Our AI analyzes your current picture, your goal, and the answers to a few quick questions. Then it generates a personalized workout plan just for you, built to close the gap between your current picture and your goal picture.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>AI calorie tracking: </strong>Snap a picture of your food, and instantly track your calories and macros. No weighing, no calculating, and no hassle!</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>Delicious, healthy meal prep recipes: </strong>Our AI analyzes your goal, your favorite healthy foods, and the foods you don’t like. Then it creates delicious, easy-to-make meal prep recipes built around your tastes.</span></li><li class="chk"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><polyline points="20 6 9 17 4 12"></polyline></svg><span style="min-width: 0"><strong>AI Sleep Coaching: </strong>Improve your sleep and recovery with personalized sleep feedback. Integrates with your sleep tracker data from Oura Ring, Whoop, and Apple Watch.</span></li></ul><a class="cta js-cta app-hide-purchase" data-pos="offer1" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase"><em>$0 today - try it free for a full 7 days. Cancel anytime in the app in two taps.</em></p><p class="gline app-hide-purchase r8"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><defs><linearGradient id="gm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.45" stop-color="#E3B64B"></stop><stop offset="1" stop-color="#B07A1E"></stop></linearGradient></defs><polygon points="12.0,0.0 14.3,1.9 17.2,1.2 18.5,3.9 21.4,4.5 21.4,7.5 23.7,9.3 22.4,12.0 23.7,14.7 21.4,16.5 21.4,19.5 18.5,20.1 17.2,22.8 14.3,22.1 12.0,24.0 9.7,22.1 6.8,22.8 5.5,20.1 2.6,19.5 2.6,16.5 0.3,14.7 1.6,12.0 0.3,9.3 2.6,7.5 2.6,4.5 5.5,3.9 6.8,1.2 9.7,1.9" fill="url(#gm1)"></polygon><circle cx="12" cy="12" r="8.6" fill="none" stroke="#8A5E12" stroke-width="0.7"></circle><polyline points="7.6 12.4 10.7 15.3 16.4 9.2" fill="none" stroke="#3D2A05" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg><span>365-Day Money Back Guarantee</span></p><a class="app-only-note app-open" href="/">Open Abs By AI</a></div></section>
+<section data-k="note" class="r9">
+<div class="r10">
+<div style="display: flow-root"><img loading="lazy" decoding="async" src="/img/letter/dan-note.jpg" alt="Dan Rose" class="note-av r11"><p class="letter">Hi, I’m Dan. In today’s video and article, I want to tell you the wild story of how I finally lost my stubborn belly…and got the six pack abs I always wanted at the age of 40.</p><p class="letter r12">How did I do it?</p><p class="letter r12">Believe it or not, it was by FIRING my personal trainer and nutritionist - and replacing them with an AI app.</p><p class="letter r12">Today I want to teach you the five AI techniques that I used to get in the best shape of my life. I promise these are going to surprise you…ESPECIALLY the last one.</p><p class="letter r12">But before I teach you the five AI tactics, there’s something you should know. I wasn’t always in this kind of shape.</p></div>
+<p class="letter lead">In fact, just a few years ago…</p>
+</div>
+</section>
+<section data-k="dadbod" class="r13">
+<div class="r10">
+<h2 class="h2">I Had A Bloated, Flabby, 200 lb Dad Bod!</h2>
+<p class="letter lead">This was me just a few years ago.</p>
+<div class="before-grid"><img loading="lazy" decoding="async" src="/img/letter/before-deckchair.jpg" alt="Real picture of Dan before, shirtless, in a deck chair with sunglasses" class="b1"><img loading="lazy" decoding="async" src="/img/letter/before-standing.jpg" alt="Real picture of Dan before, shirt on, with his daughter" class="b2"><img loading="lazy" decoding="async" src="/img/letter/before-ride.jpg" alt="Real picture of Dan before, shirt on, with his daughter" class="b3"></div>
+<p class="letter">At 38, I was constantly busy and stressed out as hell.</p>
+<p class="letter">I was raising my daughter, and trying my hardest to be a good dad for her.</p>
+<p class="letter">At the same time, I was running my own online business. And I was working non-stop.</p>
+<p class="letter">Between work, family, and all my other obligations, it seemed like I had no time or energy to work out.</p>
+<p class="letter">The result? I steadily gained fat year after year. Until at 38, I had a bloated, weak, out-of-shape dad bod.</p>
+<p class="letter">I felt tired constantly. I didn’t like the way I looked with my shirt off. And I didn’t like the feeling that my health and vitality were rapidly declining.</p>
+<p class="letter lead">The way I looked in those pictures was embarrassing. But what made it even more embarrassing was…</p>
+</div>
+</section>
+<section data-k="millions" class="dark r14">
+<div class="r10">
+<h2 class="h2">I Taught Millions Of Men How To Get Abs - Then I Fell Off Myself!</h2>
+<p class="letter">My first channel, SixPackAbs.com, was one of the most viewed fitness channels in the history of YouTube.</p>
+<img loading="lazy" decoding="async" src="/img/letter/sixpackabs-m100s.jpg" alt="YouTube page of the SixPackAbs.com M-100s video at 4:37, right after Dan's set" style="display: block; width: 100%; max-width: 720px; height: auto; aspect-ratio: 720 / 363; min-width: 0; border-radius: 12px; align-self: center">
+<p class="letter">Our videos taught millions of men how to get abs. In my twenties, I devoted my life to fitness, and I got in the best shape of my life up to that point.</p>
+<img loading="lazy" decoding="async" src="/img/letter/sixpackabs-3min-abs.jpg" alt="YouTube page of the SixPackAbs.com Crazy 3 Min Home Abs Workout video" style="display: block; width: 100%; max-width: 720px; height: auto; aspect-ratio: 720 / 363; min-width: 0; border-radius: 12px; align-self: center">
+<p class="letter">What we taught guys at SixPackAbs.com <em>worked. </em>It helped countless men around the world lose their belly fat. And I personally used it to get abs myself in my twenties.</p>
+<p class="letter lead">But the problem was…</p>
+</div>
+</section>
+<section data-k="oldway" class="r13">
+<div class="r10">
+<h2 class="h2">The Old Way Of Getting In Shape Doesn’t Work For Busy Men Like Us With Career And Family Responsibilities</h2>
+<p class="letter">The old-fashioned way of getting in shape worked just fine for me in my twenties.</p>
+<p class="letter">Back then, I could make working out the main focus of my life. I could meal prep religiously every week, and spend all the time I wanted doing it. And like most younger guys, I had a metabolism that made it possible to get lean even when I was making a lot of mistakes.</p>
+<p class="letter lead">But as I got older, I found staying in shape got much HARDER…</p>
+<ol style="display: flex; flex-direction: column; gap: 16px; padding: 4px 0"><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">1</span><p class="letter" style="min-width: 0">First of all, my metabolism slowed down. Even if I ate the same things that I did when I was younger, I still gained fat.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">2</span><p class="letter" style="min-width: 0">Second, I got slammed with business and career stress. I was working all the time, and I couldn’t work out or eat clean like I used to.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">3</span><p class="letter" style="min-width: 0">And finally, I had a ton of other responsibilities on top of that. My family. My relationship. The causes and organizations I wanted to support. Medical issues I had to deal with. The list went on and on.</p></li></ol>
+<p class="letter">Maybe you can relate.</p>
+<div class="r15"><p class="r16">Does it feel like you’re so slammed with responsibilities that making time to work out and eat right is nearly impossible?</p></div>
+<p class="letter">If you feel that way, you’re not alone. That’s how MOST hard-working, regular guys like us feel.</p>
+<p class="letter">The truth is, the old way of getting in shape works just fine for college kids. But it doesn’t work for guys like us.</p>
+<p class="letter">That’s why “dad bods” are the norm - and why it’s so rare to see busy career men with six pack abs.</p>
+<p class="letter">After a few years of struggle, I saw the old way of getting in shape wasn’t going to work for me anymore. And I knew I had to find a smarter, better approach.</p>
+<p class="letter lead">And fortunately for me…</p>
+</div>
+</section>
+<section data-k="revolution" class="r9">
+<div class="r10">
+<h2 class="h2">There Was A Revolution In Technology That Made A Smarter Approach To Fat Loss Possible!</h2>
+<p class="r17">Right when I was at my flabbiest and unhealthiest point…I discovered AI.</p>
+<p class="letter">I started using AI in my business. And I saw firsthand the technology lived up to the hype.</p>
+<p class="letter">I started using AI to code my website for me…to do my accounting…and to automate a ton of the routine work that had been plaguing me.</p>
+<p class="letter">And it dramatically improved my business life.</p>
+<p class="letter lead">I was getting more done and making more money. Best of all, AI helped me work less. So now that I had a bit of free time, I started thinking…</p>
+</div>
+</section>
+<section data-k="whynot" class="r13">
+<div class="r10">
+<h2 class="h2">Why Wasn’t I Using This Amazing New Technology To Get In Shape?</h2>
+<p class="letter">Everyone agrees - AI is the most transformational technology of our lifetimes.</p>
+<p class="letter">It’s changing the world RIGHT NOW. Not in some distant future - the technology is here TODAY to do nearly everything that humans can do, but better.</p>
+<div class="r18"><p class="r19">So I asked myself…could AI do a better job than my personal trainer?</p><p class="r20">Could AI design me better meals than a human nutritionist?</p><p class="r20">And could AI act as my all-in-one fitness coach, coordinating my exercise, nutrition, sleep, and everything else I needed to get in shape?</p></div>
+<p class="letter lead">I got real excited about the idea. So I went to ChatGPT, asked it to make me a personalized fitness plan, and…</p>
+</div>
+</section>
+<section data-k="awful" class="r9">
+<div class="r10">
+<h2 class="h2">My First AI Fitness Plan Turned Out Absolutely Awful!</h2>
+<img loading="lazy" decoding="async" src="/img/letter/chatgpt-laptop.jpg" alt="AI-generated image: Dan at a laptop while ChatGPT writes a generic fitness plan" style="display: block; width: 100%; max-width: 720px; height: auto; aspect-ratio: 720 / 405; min-width: 0; border-radius: 12px; align-self: center">
+<p class="letter lead">The first plan ChatGPT made for me was truly terrible.</p>
+<ul class="r21"><li style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; "><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><p class="letter" style="min-width: 0">Generic chicken and broccoli meal plans, with worse tasting meals than what I was already eating.</p></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E4E1DB;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><p class="letter" style="min-width: 0">Generic workout plans, far worse than what a human trainer could create.</p></li><li style="display: flex; gap: 12px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E4E1DB;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#C9302D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0; margin-top: 3px"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg><p class="letter" style="min-width: 0">And it basically just told me to “try to relax” and “do my best” when it came to sleep.</p></li></ul>
+<p class="letter">Most people would have given up here. But I didn’t. I knew that AI could create a superior fitness plan for me and help me get in shape. I just had to put in the work.</p>
+<p class="letter lead">So I locked in, and…</p>
+</div>
+</section>
+<section data-k="devoted" class="dark r14">
+<div class="r10">
+<h2 class="h2">I Devoted My Life To Creating The Ultimate AI Fitness Coach</h2>
+<img loading="lazy" decoding="async" src="/img/letter/five-ai-models.jpg" alt="AI-generated image: Dan at his monitors prompting five AI models" style="display: block; width: 100%; max-width: 720px; height: auto; aspect-ratio: 720 / 405; min-width: 0; border-radius: 12px; align-self: center">
+<p class="letter">I subscribed to five different frontier AI models, spending over $1000 a month on AI subscriptions and API credits.</p>
+<p class="letter">After my morning workout, I spent the rest of the day prompting and re-prompting AI.</p>
+<p class="letter">I obsessively studied the newest models and how to use them.</p>
+<p class="letter">And I discovered something important.</p>
+<h3 class="r22">Different AI models are good at different parts of the fitness journey</h3>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><div class="r23"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M6 7v10M18 7v10M3 9.5v5M21 9.5v5M6 12h12"></path></svg><p class="r24">One was great at creating a workout plan customized for my goals, injuries, and equipment.</p></div><div class="r23"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M4 8h3l2-3h6l2 3h3v11H4z"></path><circle cx="12" cy="13" r="3.5"></circle></svg><p class="r24">Another one was great at tracking calories.</p></div><div class="r23"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M7 3v7a2 2 0 0 0 2 2v9M11 3v7M9 3v7"></path><path d="M17 3c-1.7 1.3-2.5 3.3-2.5 6v4H17v8"></path></svg><p class="r24">Another could design the perfect meal plan, and create delicious healthy recipes that fit my daily calorie budget.</p></div><div class="r23"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg><p class="r24">And another AI model made an incredible sleep coach.</p></div></div>
+<p class="r25">By combining five different frontier AI models - and using the right types of prompts for each - I was able to create the ultimate AI fitness coach.</p>
+<p class="letter">My AI fitness coach changed my life. It took me from a soft, flabby dad bod at 38 to the abs I always wanted at 40.</p>
+<p class="letter lead">But my AI coach had a few downsides…</p>
+<ol style="display: flex; flex-direction: column; gap: 16px; padding: 4px 0"><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #FFFFFF; color: #05070B; font-size: 15px; font-weight: 800">1</span><p class="letter" style="min-width: 0">First, it cost me over $1000 a month in AI subscriptions.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #FFFFFF; color: #05070B; font-size: 15px; font-weight: 800">2</span><p class="letter" style="min-width: 0">Second, it was difficult and complicated to use.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #FFFFFF; color: #05070B; font-size: 15px; font-weight: 800">3</span><p class="letter" style="min-width: 0">And finally, it just took up a ton of my time.</p></li></ol>
+<p class="letter">So I decided to build my own app to do everything my AI fitness coach could do. Something simple to use, without the subscription costs, and without the endless prompting.</p>
+<p class="letter">Once I had my AI coach in his own app, my results got FAR better. And working with my coach got far easier.</p>
+<p class="letter lead">That’s when a few friends started asking me…</p>
+</div>
+</section>
+<section data-k="friends" class="r13">
+<div class="r10">
+<h2 class="h2">How Did You Get In Such Good Shape At 40?</h2>
+<p class="letter">That’s when I showed them my app - and I got a few of them using it as well.</p>
+<p class="letter lead">And they got incredible results with my AI fitness coach too!</p>
+<p class="letter">Multiple guys I knew lost their belly fat that had been plaguing them for years, and got in better shape than they were in their twenties.</p>
+<p class="letter">After seeing how it helped my friends, I knew I had to share it with other guys too.</p>
+</div>
+</section>
+<section data-k="introducing" class="r9">
+<div class="r10">
+<img loading="lazy" decoding="async" src="/img/logo.png" alt="" class="r26">
+<h2 class="h2" style="text-align: center">Introducing Abs By AI:<br><span class="hl">The Ultimate AI Fitness Coach</span></h2>
+<img loading="lazy" decoding="async" src="/img/letter/app-home.jpg" alt="The Abs By AI home screen" class="r27">
+<p class="letter">So I partnered with an expert AI developer, and we spent months polishing the app.</p>
+<p class="letter">Then we spent a few more months beta testing it with real guys and fixing everything they ran into.</p>
+<p class="letter">And now I’m proud to offer you the ultimate AI fitness coaching app. It got me abs at 40, and now you can try it for yourself.</p>
+<p class="letter lead">Let me walk you through Abs By AI, and the five ways it’ll help you finally lose your stubborn belly fat.</p>
+</div>
+</section>
+<section data-k="fiveways" class="r13">
+<div class="r10">
+<h2 class="h2">The Five Ways Abs By AI Helps You Lose Your Stubborn Belly Fat</h2>
+<p class="letter">Now, you might be thinking: "Come on. Can a chatbot really get me better results than a human trainer or a nutrition coach?"</p>
+<p class="letter lead">Most people don't think it can. But they're dead wrong.</p>
+<p class="letter">I'm about to prove it to you - by showing you exactly what AI did for me.</p>
+</div>
+</section>
+<section data-k="hack1" class="r9">
+<div class="r10">
+<div style="display: flex; flex-direction: column; gap: 8px"><p class="eyebrow">AI Hack #1</p><h2 class="h2">AI Got Me Back In The Gym</h2></div>
+<p class="letter">The very first thing I did was have AI generate a picture of what I'd look like if I lost my belly fat and got six pack abs.</p>
+<img loading="lazy" decoding="async" src="/img/letter/goal-lock-screen.jpg" alt="AI-generated: Dan's goal picture as his phone lock screen" class="r27">
+<p class="letter">Not a fitness model with my head pasted on. ME. My face. My body. Just leaner, with abs.</p>
+<p class="letter">I made it my phone lockscreen. And I looked at it dozens of times a day, every single day, for over a year.</p>
+<p class="letter">Let's be honest. You already know how to lose your belly fat. Knowledge isn't the problem. Motivation is.</p>
+<p class="r17">And NOTHING motivates you like seeing yourself with abs.</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px"><p class="r28">A picture of a fitness model, your brain files under "fantasy."</p><p class="r29">A picture of YOU with abs, your brain files under "possible."</p></div>
+<p class="letter">And once it's possible, not having it starts to bother you.</p>
+<div class="r30"><p class="letter">There's actually a Stanford study on this. People who watched a virtual version of themselves exercising reported about an hour more exercise the next day than people who watched a stranger.</p><p style="font-size: 13px; font-weight: 700; letter-spacing: .02em; color: #4A4F57">(Fox &amp; Bailenson, Stanford, 2009)</p></div>
+<p class="letter">That picture is what finally got me back in the gym, and meal prepping every Sunday - after two years of excuses.</p>
+</div>
+</section>
+<section data-k="hack2" class="r13">
+<div class="r10">
+<div style="display: flex; flex-direction: column; gap: 8px"><p class="eyebrow">AI Hack #2</p><h2 class="h2">AI Audited My Workouts - And Found BIG Problems</h2></div>
+<p class="letter">I thought my workout plan was good. I was a trainer! But when I had AI check my routine against the actual scientific research, it found problems I had never seen.</p>
+<ol style="display: flex; flex-direction: column; gap: 16px; padding: 4px 0"><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">1</span><p class="letter" style="min-width: 0">First, I was doing body-part splits. Chest day. Back day. Arm day. AI moved me to total-body workouts, so every muscle gets trained multiple times a week. That's what the research says builds more muscle and burns more fat in the same amount of time.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">2</span><p class="letter" style="min-width: 0">Second - and this was the big one - it analyzed my before picture and my goal picture, and identified the exact body parts that were lagging. It told me which exercises to do more of, which to do less of, and rebuilt my routine around closing that gap.</p></li><li style="display: flex; gap: 14px; align-items: flex-start"><span style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; margin-top: 1px; border-radius: 50%; background: #05070B; color: #FFFFFF; font-size: 15px; font-weight: 800">3</span><p class="letter" style="min-width: 0">Third, I had a couple of nagging injuries. It gave me substitute exercises I had never even thought of, so I could train hard around them.</p></li></ol>
+<div class="r31"><img loading="lazy" decoding="async" src="/img/letter/app-workout-day.jpg" alt="A workout day with AI exercise videos" class="r32"><svg viewBox="0 0 24 24" fill="none" stroke="#05070B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0" class="r33"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg><img loading="lazy" decoding="async" src="/img/letter/app-exercise.jpg" alt="An exercise page with its demo video" class="r32"></div>
+<p class="letter">And if the squat rack was taken, or I was stuck at home with a pair of dumbbells, it gave me a substitution instantly.</p>
+<p class="letter">Those are just a few examples. AI improved my workouts in dozens of small ways. And together, those small improvements made a HUGE difference.</p>
+<p class="letter lead">My first AI workout plan was generic slop. But once I got it right, it improved my results more than any human trainer ever did.</p>
+</div>
+</section>
+<section data-k="cta_h2" class="r34"><div class="r35"><a class="cta js-cta app-hide-purchase" data-pos="cta_h2" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase" style="text-align: center">$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps.</p></div></section>
+<section data-k="hack3" class="r9">
+<div class="r10">
+<div style="display: flex; flex-direction: column; gap: 8px"><p class="eyebrow">AI Hack #3</p><h2 class="h2">AI Tracked My Calories For Me</h2></div>
+<p class="letter">Here's the truth about losing weight. Tracking your calories is the single most effective way to do it. Nearly every fitness model and every bodybuilder does it.</p>
+<p class="letter">But before AI, tracking calories was basically impossible for regular guys like us.</p>
+<p class="letter">You had to weigh everything you ate. Look up ten ingredients. Add it all up. Normal guys like me and you were never going to do that.</p>
+<img loading="lazy" decoding="async" src="/img/letter/app-salmon.gif" alt="Animated: snapping a salmon plate and logging its calories and protein" class="r27">
+<p class="letter">Now AI does all the work. You take a picture of your food, and in seconds, you've got your calories and your protein.</p>
+<p class="r36">No weighing. No calculating. Basically no effort. Just take a picture, and your macros are tracked.</p>
+<p class="letter">And here's the thing. Once I actually started tracking my calories, THAT'S when I started losing weight. Not before. That's when the scale finally started moving.</p>
+</div>
+</section>
+<section data-k="hack4" class="r13">
+<div class="r10">
+<div style="display: flex; flex-direction: column; gap: 8px"><p class="eyebrow">AI Hack #4</p><h2 class="h2">AI Fixed My Meal Prep</h2></div>
+<p class="letter">Setting a calorie target is one thing. Sticking to it is another. And I was getting bored out of my mind eating the same chicken, rice and broccoli every single week.</p>
+<p class="letter">So I talked to my AI about it. It asked me my calorie goal, my protein goal, my favorite foods, the foods I can't stand, and how much time I've got to cook.</p>
+<div class="r31"><img loading="lazy" decoding="async" src="/img/letter/app-foods.jpg" alt="The AI nutritionist asking which foods you love" class="r32"><svg viewBox="0 0 24 24" fill="none" stroke="#05070B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0" class="r33"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg><img loading="lazy" decoding="async" src="/img/letter/app-taco-bowls.jpg" alt="The meal prep recipes with taco bowls picked" class="r32"></div>
+<p class="letter">And it gave me amazing recipes for my weekly meal prep. Far, far better than anything I'd ever made.</p>
+<p class="letter">Simple to make. Actually delicious. Cheaper than what I was eating before. And all inside my calorie budget - so I kept losing weight without feeling like I was on a diet.</p>
+<p class="letter">Listen - you're not a professional chef. But AI is. Once it knows your preferences, you'll be amazed at how great healthy food can taste.</p>
+</div>
+</section>
+<section data-k="cta_h4" class="r34"><div class="r35"><a class="cta js-cta app-hide-purchase" data-pos="cta_h4" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase" style="text-align: center">$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps.</p></div></section>
+<section data-k="hack5" class="dark r14">
+<div class="r10">
+<div style="display: flex; flex-direction: column; gap: 8px"><p class="eyebrow" style="color: #F07A77">AI Hack #5</p><h2 class="h2">AI Fixed My Sleep (This Is The One That Surprised Me)</h2></div>
+<p class="letter">AI massively improved my sleep. And once you've got your sleep locked in, you won’t believe how much easier it is to lose your belly fat.</p>
+<p class="letter">I've struggled with sleep my whole life. So every morning, I started talking to my AI sleep coach about how to fix it.</p>
+<p class="letter">It gave me solid feedback at first. But once I uploaded the data from my Oura ring, it really started changing my life.</p>
+<div class="r31"><img loading="lazy" decoding="async" src="/img/letter/oura-readout.jpg" alt="A sleep tracker readout of last night" class="r32"><svg viewBox="0 0 24 24" fill="none" stroke="#C9CDD3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink: 0" class="r33"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg><img loading="lazy" decoding="async" src="/img/letter/app-sleep-briefing.jpg" alt="The morning sleep briefing" class="r32"></div>
+<p class="letter">It showed me how glycine, a little-known amino acid, could improve sleep for somebody with my numbers. It showed me exactly how my late-night eating was wrecking my sleep, and gave me strategies to control it. My bedtime, alcohol, what time of day I worked out - it found things I never would have connected.</p>
+<p class="letter lead">And better sleep meant more energy in the gym, less hunger, and faster fat loss.</p>
+</div>
+</section>
+<section data-k="try" class="r9">
+<div class="r10">
+<h2 class="h2">Try Abs By AI Free For 7 Days</h2>
+<p class="letter">I know Abs By AI can change your life. That's why I want you to try the FULL app, completely free, for seven days - before you pay anything.</p>
+<p class="letter">Generate your goal image. Build your AI workout plan. Snap a picture of your next meal, and see for yourself how easy calorie tracking gets.</p>
+<p class="letter">If you love it, access to everything in the app is just $19.99 a month. And if it's not for you, cancel anytime with two taps.</p>
+<div class="r37"><a class="cta js-cta app-hide-purchase" data-pos="try" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="caps app-hide-purchase" style="font-size: 12px; line-height: 1.6; font-weight: 700; letter-spacing: .06em; color: #3F444C; text-align: center"><em>7-DAY FREE TRIAL · THEN $19.99/MO · RENEWS UNTIL YOU CANCEL · CANCEL ANYTIME IN TWO TAPS</em></p></div>
+<div class="gcard app-hide-purchase r38"><svg viewBox="0 0 200 200" role="img" aria-label="365 day money back guarantee seal" style="flex-shrink: 0; display: block; filter: drop-shadow(0 5px 9px rgba(61,42,5,0.30))" class="r39"><defs><linearGradient id="ga2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.28" stop-color="#E3B64B"></stop><stop offset="0.52" stop-color="#C08A22"></stop><stop offset="0.76" stop-color="#F4DA82"></stop><stop offset="1" stop-color="#A9741A"></stop></linearGradient><linearGradient id="gb2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF6CC"></stop><stop offset="0.45" stop-color="#EBC45C"></stop><stop offset="1" stop-color="#D2A036"></stop></linearGradient><radialGradient id="gc2" cx="0.38" cy="0.30" r="0.85"><stop offset="0" stop-color="#FFF8D6"></stop><stop offset="0.55" stop-color="#F0CD6A"></stop><stop offset="1" stop-color="#C9952C"></stop></radialGradient><path id="gt2" d="M 29,100 A 71,71 0 0 1 171,100"></path><path id="gu2" d="M 17,100 A 83,83 0 0 0 183,100"></path></defs><polygon points="100.0,1.0 108.0,8.4 117.2,2.5 123.8,11.1 133.9,7.0 138.9,16.6 149.5,14.3 152.8,24.6 163.6,24.2 165.1,34.9 175.8,36.4 175.4,47.2 185.7,50.5 183.4,61.1 193.0,66.1 188.9,76.2 197.5,82.8 191.6,92.0 199.0,100.0 191.6,108.0 197.5,117.2 188.9,123.8 193.0,133.9 183.4,138.9 185.7,149.5 175.4,152.8 175.8,163.6 165.1,165.1 163.6,175.8 152.8,175.4 149.5,185.7 138.9,183.4 133.9,193.0 123.8,188.9 117.2,197.5 108.0,191.6 100.0,199.0 92.0,191.6 82.8,197.5 76.2,188.9 66.1,193.0 61.1,183.4 50.5,185.7 47.2,175.4 36.4,175.8 34.9,165.1 24.2,163.6 24.6,152.8 14.3,149.5 16.6,138.9 7.0,133.9 11.1,123.8 2.5,117.2 8.4,108.0 1.0,100.0 8.4,92.0 2.5,82.8 11.1,76.2 7.0,66.1 16.6,61.1 14.3,50.5 24.6,47.2 24.2,36.4 34.9,34.9 36.4,24.2 47.2,24.6 50.5,14.3 61.1,16.6 66.1,7.0 76.2,11.1 82.8,2.5 92.0,8.4" fill="url(#ga2)"></polygon><circle cx="100" cy="100" r="89" fill="url(#gb2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="62" fill="url(#gc2)" stroke="#8A5E12" stroke-width="1.5"></circle><circle cx="100" cy="100" r="57" fill="none" stroke="#8A5E12" stroke-width="1" stroke-dasharray="2 3"></circle><text font-size="15.5" font-weight="800" letter-spacing="1.6" fill="#3D2A05" text-anchor="middle"><textPath href="#gt2" startOffset="50%">100% MONEY BACK</textPath></text><text font-size="15.5" font-weight="800" letter-spacing="3" fill="#3D2A05" text-anchor="middle"><textPath href="#gu2" startOffset="50%">GUARANTEE</textPath></text><polygon points="23.5,94.0 25.0,98.0 29.2,98.1 25.9,100.8 27.0,104.9 23.5,102.5 20.0,104.9 21.1,100.8 17.8,98.1 22.0,98.0" fill="#3D2A05"></polygon><polygon points="176.5,94.0 178.0,98.0 182.2,98.1 178.9,100.8 180.0,104.9 176.5,102.5 173.0,104.9 174.1,100.8 170.8,98.1 175.0,98.0" fill="#3D2A05"></polygon><text x="100" y="112" font-size="50" font-weight="800" letter-spacing="-1" fill="#3D2A05" text-anchor="middle">365</text><text x="102" y="134" font-size="17" font-weight="800" letter-spacing="4" fill="#3D2A05" text-anchor="middle">DAY</text></svg><div style="display: flex; flex-direction: column; gap: 10px; min-width: 0"><h3 class="r40">365-Day No Risk<br>100% Money Back Guarantee</h3><p class="r41">We guarantee you'll love Abs By AI or we'll refund your money.</p><p class="r41">If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked.</p></div></div>
+</div>
+</section>
+<section data-k="s10" class="r42">
+<div class="r10">
+<div class="r43"><div style="display: flex; flex-direction: column; gap: 6px"><h2 class="h2">Your Trainer, Nutritionist, Meal Planner And Sleep Coach. One App.</h2><p class="r7">Pick a plan. Both start with 7 days free.</p></div><a class="cta js-cta app-hide-purchase" data-pos="s10" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase">Monthly renews automatically at $19.99 until you cancel. Lifetime is a one-time charge of $69.99, no recurring billing. Cancel anytime in the app in two taps. Cancel before day 7 and you are never charged.</p></div>
+</div>
+</section>
+<section data-k="straight" class="r9">
+<div class="r10">
+<h2 class="h2">Let Me Be Straight With You</h2>
+<div class="r44"><p class="letter" style="color: #3F444C"><strong>Close this page, and nothing changes.</strong> Another year goes by. The shirt stays on at the pool. You tell yourself "next summer." I told myself that two years in a row.</p></div>
+<div class="r45"><p class="letter"><strong>Or tap the button.</strong> Tonight, a picture of you with abs is your lock screen. Tomorrow morning you have a workout built for your body and meals you actually want to eat. For the first time in years, you want to do it. That is what this did for me at 40, and I have never felt better.</p></div>
+</div>
+</section>
+<section data-k="cta_s11" class="r46"><div class="r35"><a class="cta js-cta app-hide-purchase" data-pos="cta_s11" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase" style="text-align: center">$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps.</p></div></section>
+<section data-k="faq" class="r13">
+<div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 720px; margin: 0 auto;">
+<h2 class="h2" style="padding-bottom: 6px">Questions Guys Ask</h2>
+<div style="display: flex; flex-direction: column"><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">How much is it?</h3><p class="a">Nothing for 7 days. After that, $19.99 a month, or a one-time charge of $69.99 for lifetime access. That's it.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">Is there a catch?</h3><p class="a">No. Cancel in the app in two taps before day 7 and you pay nothing.</p></div><div class="gfaq app-hide-purchase" style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">What if I don't like it?</h3><p class="a">We guarantee you'll love Abs By AI or we'll refund your money. If you're not happy for any reason, email us within 365 days of your first payment for a full refund. No questions asked.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">Is the goal picture real?</h3><p class="a">No. It is an AI-generated picture of the goal you choose, made from your photo. It is for motivation. It is not a prediction or a guarantee of any result.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">Are the body numbers a medical measurement?</h3><p class="a">No. Body fat, fat to lose and goal weight are visual estimates based on published body-fat ranges. Talk to a doctor before changing your diet or training.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">I'm a beginner and I don't have a gym.</h3><p class="a">Fine. Tell the trainer your level and your equipment, even a pair of dumbbells at home, and it builds around that. Every exercise has a swap.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB;"><h3 class="q">iPhone or Android?</h3><p class="a">Both. It runs in your phone's browser today, nothing to install.</p></div><div style="display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid #E4E1DB; border-bottom: 1px solid #E4E1DB;"><h3 class="q">Who is this NOT for?</h3><p class="a">If you want results without training or eating better, this isn't it. The AI does the planning and tracking. You still do the work.</p></div></div>
+</div>
+</section>
+<section data-k="final" class="r9">
+<div class="r47">
+<h2 class="h2" style="text-align: center">See Yourself With Abs. Then Let AI Help You Make It Real.</h2>
+<div class="r48"><a class="cta js-cta app-hide-purchase" data-pos="final" href="/?join=1&amp;from=vsl&amp;v=letter-v1">Start My 7-Day Free Trial</a><p class="terms app-hide-purchase" style="text-align: center">$0 today. Then $19.99/month until you cancel. Cancel anytime in two taps.</p><p class="gline app-hide-purchase r49"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" style="flex-shrink: 0"><defs><linearGradient id="gm3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCF1B8"></stop><stop offset="0.45" stop-color="#E3B64B"></stop><stop offset="1" stop-color="#B07A1E"></stop></linearGradient></defs><polygon points="12.0,0.0 14.3,1.9 17.2,1.2 18.5,3.9 21.4,4.5 21.4,7.5 23.7,9.3 22.4,12.0 23.7,14.7 21.4,16.5 21.4,19.5 18.5,20.1 17.2,22.8 14.3,22.1 12.0,24.0 9.7,22.1 6.8,22.8 5.5,20.1 2.6,19.5 2.6,16.5 0.3,14.7 1.6,12.0 0.3,9.3 2.6,7.5 2.6,4.5 5.5,3.9 6.8,1.2 9.7,1.9" fill="url(#gm3)"></polygon><circle cx="12" cy="12" r="8.6" fill="none" stroke="#8A5E12" stroke-width="0.7"></circle><polyline points="7.6 12.4 10.7 15.3 16.4 9.2" fill="none" stroke="#3D2A05" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"></polyline></svg><span>365-Day Money Back Guarantee</span></p></div>
+<a class="app-only-note app-open" href="/">Open Abs By AI</a><div class="r50"><p class="r51">I'll see you inside.</p><p class="r52">Dan</p></div>
+<figure class="r53"><div style="position: relative"><img loading="lazy" decoding="async" src="/img/letter/dan-at-40.jpg" alt="Dan Rose at 40, smiling, by the pool" class="r54"><span style="position: absolute; top: 12px; left: 12px; padding: 5px 9px; border-radius: 999px; background: rgba(5,7,11,0.82); color: #FFFFFF; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase">Real photo</span></div><figcaption style="font-size: 13px; line-height: 1.5; color: #4A4F57"><em>My results. Yours depend on your training, eating and sleep.</em></figcaption></figure>
+</div>
+</section>
+<footer data-k="footer" class="foot r55"><div style="display: flex; flex-direction: column; gap: 12px; width: 100%; max-width: 720px; margin: 0 auto"><p><em>Goal images are AI-generated visualizations, not photographs or predictions. Body numbers are visual estimates, not medical measurements (<a href="/sources">sources</a>). Results vary. Consult a doctor before changing your diet or exercise.</em></p><p><a href="/terms">Terms</a> · <a href="/privacy">Privacy</a> · <a href="/refunds">Refunds</a> · <a href="/disclaimer">Disclaimer</a> · <a href="/contact">Contact</a></p><p>© 2026 Abs By AI</p></div></footer>
+</div>
+<script>
+(function () {
+  var VSL = window.VSL;
+  var $ = function (id) { return document.getElementById(id); };
+  // Every event names the film this browser got (a or b), whether it was a forced QA view, and whether
+  // the arm could be stored.
+  var BASE = { variant: VSL.variant, video_variant: VSL.video, video_forced: VSL.videoForced, video_sticky: VSL.videoSticky };
+  function ph(ev, props) {
+    try { if (window.posthog && typeof posthog.capture === 'function') posthog.capture(ev, Object.assign({}, BASE, props || {})); } catch (e) {}
+  }
+
+  // Every buy button goes into the web checkout and carries the ad click ids and UTMs, so the
+  // trial conversion that fires in the app (handleCartComplete) is still credited to the ad.
+  var query; try { query = new URLSearchParams(location.search); } catch (e) { query = null; }
+  function checkoutUrl() {
+    var out = new URLSearchParams();
+    out.set('join', '1'); out.set('from', 'vsl'); out.set('v', VSL.variant);
+    // The film goes with the click, for browsers that drop the stored value between pages.
+    out.set('vid', VSL.video); if (VSL.videoForced) out.set('vf', '1');
+    if (query) query.forEach(function (val, key) { if (/^(utm_|gclid$|gbraid$|wbraid$|fbclid$|ttclid$|msclkid$)/.test(key)) out.set(key, val); });
+    return '/?' + out.toString();
+  }
+  var href = checkoutUrl();
+  Array.prototype.forEach.call(document.querySelectorAll('.js-cta'), function (a) {
+    a.href = href;
+    a.addEventListener('click', function () { ph('vsl_trial_cta_clicked', { position: a.dataset.pos }); });
+  });
+
+  // Video: plays muted under the sound box; a tap turns the sound on and restarts it from 0:00.
+  var v = $('vsl'), box = $('vbox'), live = false, fired = {};
+  function soundOn() {
+    if (live) return;
+    live = true;
+    box.classList.add('live');
+    v.muted = false; v.controls = true;
+    try { v.currentTime = 0; } catch (e) {}
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+    ph('vsl_sound_on', {});
+  }
+  $('soundBox').addEventListener('click', soundOn);
+  $('vdim').addEventListener('click', soundOn);
+  v.muted = true;
+  var auto = v.play();
+  // Autoplay refused (iOS low power mode, data saver): the box no longer claims the video is playing.
+  if (auto && auto.catch) auto.catch(function (e) { if (e && e.name === 'NotAllowedError') $('sbTop').style.display = 'none'; });
+  v.addEventListener('playing', function () {
+    $('sbTop').style.display = '';
+    if (!live && !fired.auto) { fired.auto = 1; ph('vsl_video_play', { kind: 'mp4', autoplay: true, muted: true }); }
+  });
+  // Progress counts only watching with sound (after the tap), so muted autoplay does not inflate it.
+  // The two films differ in length, so the percent marks do not compare between them. These do:
+  // vsl_video_watch fires at each WATCH mark of seconds really watched with sound (a skip ahead adds
+  // nothing), and vsl_opening_done fires when playback passes the end of this film's opening.
+  var WATCH = [30, 60, 120, 240, 480], watched = 0, last = null;
+  v.addEventListener('timeupdate', function () {
+    if (!live || !v.duration) return;
+    var t = v.currentTime;
+    if (last !== null && t > last && t - last < 2.5) watched += t - last;
+    last = t;
+    WATCH.forEach(function (s) { if (watched >= s && !fired['w' + s]) { fired['w' + s] = 1; ph('vsl_video_watch', { sec: s }); } });
+    if (t >= VSL.film.opening && !v.seeking && !fired.opening) { fired.opening = 1; ph('vsl_opening_done', { watched_sec: Math.round(watched) }); }
+    var pct = v.currentTime / v.duration * 100;
+    [25, 50, 75, 100].forEach(function (m) { if (pct >= m - (m === 100 ? 1.5 : 0) && !fired[m]) { fired[m] = 1; ph('vsl_video_progress', { pct: m, sound: true }); } });
+  });
+  v.addEventListener('ended', function () { if (live && !fired[100]) { fired[100] = 1; ph('vsl_video_progress', { pct: 100, sound: true }); } });
+  // The muted preview pauses while scrolled away (saves the reader's data) and resumes when back.
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (live) return;
+        if (e.isIntersecting) { var p = v.play(); if (p && p.catch) p.catch(function () {}); } else v.pause();
+      });
+    }, { threshold: 0.25 }).observe(box);
+  }
+
+  ph('vsl_landing_seen', { video_live: true, native_app: VSL.nativeApp });
+})();
+</script>
+</body>
+</html>

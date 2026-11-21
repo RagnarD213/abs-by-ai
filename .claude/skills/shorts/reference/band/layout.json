@@ -1,0 +1,60 @@
+{
+ "canvas": [
+  1080,
+  1920
+ ],
+ "note": "Graphics get their own zone. Measurement of the delivered short showed no region of the frame stays clear of Dan (best slot clear 33% of frames, 0% at worst), so the band is created rather than found. Bonus: the block upscales the 1080p source ~1.32x instead of the 1.78x a full-bleed 9:16 crop needs, so it is sharper.",
+ "band": {
+  "h": 430,
+  "headerY": 68,
+  "counterY": 150,
+  "chipX": 56,
+  "chipY": 196,
+  "chipW": 968,
+  "chipH": 150,
+  "headerFrom": 2.0
+ },
+ "block": {
+  "x": 40,
+  "y": 430,
+  "w": 1000,
+  "h": 1425
+ },
+ "wordmark": {
+  "x": 74,
+  "y": 1786
+ },
+ "sourceOverlayRight": 693,
+ "overlayNote": "The V4 source carries its own teal pills in the left third of the 16:9 frame across the whole of shot 2. They are the same information our band chips carry, so the crop is kept to the right of x=693 and they are simply excluded \u2014 never half-cropped.",
+ "cropNote": "`x` is the subject centre as a fraction of source width. Set by eye and confirmed on the preview sheet: automated centroid/silhouette detection kept locking onto the background trees or the source overlay, and this footage has only 6 shots.",
+ "shots": {
+  "0": {
+   "t": "fitcard",
+   "why": "full-screen '4 MUSCLE GROUPS OF YOUR ABS' title card \u2014 a 9:16 crop slices the text, so the whole frame is fitted into the block"
+  },
+  "1": {
+   "t": "crop",
+   "x": 0.52
+  },
+  "2": {
+   "t": "crop",
+   "x": 0.6,
+   "minX0": 710,
+   "why": "must start right of the source overlay at x=693"
+  },
+  "3": {
+   "t": "crop",
+   "x": 0.52
+  },
+  "4": {
+   "t": "fitcard",
+   "why": "plank b-roll \u2014 a horizontal pose. A 9:16 crop keeps the head and one arm and loses the straight-body line, so it stops reading as a plank; the whole frame goes in the block instead"
+  },
+  "5": {
+   "t": "crop",
+   "x": 0.52
+  }
+ },
+ "fitcardTop": 70,
+ "fitcardNote": "Fitcards sit 70px below the block top, not centred. A 1000x563 card centred in the 1425-tall block spans y 861-1424; the ASS caption band (MarginV 690) starts around y=1150, so centring drew captions across the card."
+}

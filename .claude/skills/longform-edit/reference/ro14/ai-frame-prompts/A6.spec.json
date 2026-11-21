@@ -1,0 +1,25 @@
+{
+ "shot": "RO-14 A6 Negotiating with the donut",
+ "start_frame": "A6-start.png",
+ "intent": "Office break room. START: an exhausted man with bags under his eyes and messy hair, rumpled shirt and loose tie, holds a white coffee mug in his right hand and stands over an open box of a dozen donuts, his left hand hovering above the box. END: he has taken one pink sprinkled donut from the box and is biting it, eyes closed in defeat; that donut's place in the box is empty; the mug stays in his right hand.",
+ "hands": {
+  "right": "holds the coffee mug in both frames",
+  "left": "hovers over the box in START; holds a pink donut at his mouth in END"
+ },
+ "may_change": {
+  "donut_taken_from_box": [
+   950,
+   750,
+   1230,
+   900
+  ],
+  "the_man_and_his_arm": [
+   590,
+   0,
+   1250,
+   770
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame, pose visibility under 0.15, so the bone row measures nothing); the person is a declared may_change box and the reviewer judges the body"
+}

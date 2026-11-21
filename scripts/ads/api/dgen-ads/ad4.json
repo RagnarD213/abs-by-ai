@@ -1,0 +1,30 @@
+{
+  "adNumber": 4,
+  "label": "Ad 4 Stop Wasting Money On Supplements",
+  "videos": [
+    { "youtubeId": "R08TPEtkjuQ", "version": "Muhammad 16:9", "utm": "muhammad-16x9" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1011510739", "1011514645", "1013657228"]
+  },
+  "copy": {
+    "headlines": [
+      "How AI Fixed My Supplements",
+      "Audit Supplements With AI",
+      "The Truth About Supplements",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI",
+      "Take a photo of your supplements and AI reads every label. Here's how it works.",
+      "Daniel Rose explains why he stopped taking supplement advice from influencers."
+    ],
+    "descriptions": [
+      "Many supplements are a waste of money. AI can identify which supplements you should cut.",
+      "Daniel Rose shows how AI reads the label on every supplement in his stack.",
+      "A photo of your supplement shelf is all it takes. Here's how the AI audit works."
+    ]
+  }
+}

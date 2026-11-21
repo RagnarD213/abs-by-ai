@@ -1,0 +1,37 @@
+{
+  "campaignId": "24316364155",
+  "adGroupId": "204553316830",
+  "twinAdId": "826635661894",
+  "label": "Ad 13 The Cost Of Getting Abs",
+  "videos": [
+    {
+      "youtubeId": "f792V7H1Vkc",
+      "version": "Claude 9:16",
+      "utm": "claude-9x16"
+    },
+    {
+      "youtubeId": "VPyHyxEkHjo",
+      "version": "Claude 9:16 59s",
+      "utm": "claude-9x16-59s"
+    }
+  ],
+  "copyReadBackFromLive": {
+    "headlines": [
+      "Fire Your Personal Trainer",
+      "Human Trainers Hate This AI",
+      "Human Trainers Despise Him",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "I added up what trainers, nutritionists and supplements cost me. See what AI does instead",
+      "Trainers despise this AI fitness app. See why men are replacing their trainer with AI.",
+      "AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!"
+    ],
+    "descriptions": [
+      "Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.",
+      "I struggled with belly fat until I discovered how to use an AI trainer to get abs.",
+      "See what getting abs was supposed to cost me, and how AI does the same job for less."
+    ]
+  }
+}

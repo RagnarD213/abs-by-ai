@@ -1,0 +1,42 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Took Job AD R4</title><style>*{box-sizing:border-box}body{margin:0;background:#091524;color:#eef4fa;font:16px/1.6 system-ui}main{max-width:1100px;margin:auto;padding:30px}h1{font-size:38px}h2{color:#78d7f7}.card,#dock{padding:18px;background:#13263b;border:1px solid #31465b;border-radius:12px;margin:16px 0}button{background:#15536d;color:white;border:1px solid #6bb3d0;padding:10px 14px;border-radius:8px;margin:5px;cursor:pointer}a{color:#8bdef9}video{display:block;width:100%;height:59vh;max-height:680px;object-fit:contain;background:#020810}#dock{scroll-margin-top:16px}.muted{color:#a2b4c7}#player-status:empty{display:none}@media(min-width:1300px){main{margin-left:2vw;margin-right:490px;max-width:1150px}#dock{position:fixed;top:16px;right:16px;width:450px;z-index:5}}@media(max-width:760px){main{padding:16px}h1{font-size:30px}}</style></head><body><main><p class="muted">AD / Round 4 / Complete Films</p><h1>AI Took Job</h1><p>Both complete films are 58.89 seconds. Your approved color B, crop pair 1, full intro, warm bass voice and four assets are preserved.</p><div id="dock"><b id="now">Full R4 9x16</b><video id="player" controls preload="auto" playsinline src="r4/AI Took Job AD R4 - 9x16 - REVIEW.mp4" poster="r4/R4-9x16.jpg"></video><div><label><input type="checkbox" id="mute" onchange="mutePlayback(this.checked)"> Mute</label><button onclick="togglePlayback()">Play / Pause</button><button onclick="seekBy(-3)">Back 3 Seconds</button><button onclick="seekBy(3)">Forward 3 Seconds</button><button onclick="reloadClip()">Reload Film</button><a id="open-clip" target="_blank" href="r4/AI Took Job AD R4 - 9x16 - REVIEW.mp4">Open Film Separately</a></div><p id="player-status" role="status"></p></div><section class="card"><h2>Watch The Complete Films</h2><p><button onclick="play(&quot;r4/AI Took Job AD R4 - 9x16 - REVIEW.mp4&quot;,&quot;Full R4 9x16&quot;)">Full R4 9x16</button> <a href="r4/AI Took Job AD R4 - 9x16.mp4">Native Master</a></p><p><button onclick="play(&quot;r4/AI Took Job AD R4 - 16x9 - REVIEW.mp4&quot;,&quot;Full R4 16x9&quot;)">Full R4 16x9</button> <a href="r4/AI Took Job AD R4 - 16x9.mp4">Native Master</a></p></section><section class="card"><h2>What Changed In R4</h2><p>The full ad is now assembled in both formats. The phone demonstration plays at 0:19.39-0:24.19, analysis at 0:25.26-0:32.80, the plan lower third at 0:32.80-0:38.10, and the life-changes point at 0:42.68-0:47.41. Vertical framing lands on you at each actual cut and return. Captions are applied once. The phrase &ldquo;And finally, AI adjusts&rdquo; now starts at 0:43.14 after the breath; watch 0:42-0:45 to check that repair.</p><p>For the transitions, watch 0:17-0:27, 0:30-0:40 and 0:41-0:49. This is the first complete-film review, so also watch the opening and final call to action.</p></section><section class="card"><h2>Checks And Review</h2><p>Both complete films are ready for Dan review. Editor and independent picture/audio review found no remaining correction to the film content after one early phrase caption was delayed to its audible onset. Exact native scans found no black frames, freezes, unexplained jumps or naked splices. Approved Color B, crop pair 1, intro, warm bass voice and all R3 assets are retained. Automated delivery gates remain FAIL: approved voice tone and generic style/framing/cut metrics are outside their preset bounds; the word-highlight sync test cannot score phrase captions. These results remain in the record. This is private review, with final approval and release pending.</p><p><a href="r4/final-review-status.json">Full Check And Review Record</a></p><p><a href="r4/Audio AB 9x16.mp4">Reference / Current Voice A/B (Audio AB 9x16)</a></p><p><a href="r4/Audio AB 16x9.mp4">Reference / Current Voice A/B (Audio AB 16x9)</a></p></section><section class="card"><h2>Your Review</h2><p>Approve both full films, or send timestamps and the changes you want. The R3 asset choices remain approved. Nothing has been published.</p><p>The full-quality files are also in Videos to Review for VLC.</p></section></main><script>const media=[{"src": "r4/AI Took Job AD R4 - 9x16 - REVIEW.mp4", "poster": "r4/R4-9x16.jpg", "label": "Full R4 9x16", "master": "r4/AI Took Job AD R4 - 9x16.mp4"}, {"src": "r4/AI Took Job AD R4 - 16x9 - REVIEW.mp4", "poster": "r4/R4-16x9.jpg", "label": "Full R4 16x9", "master": "r4/AI Took Job AD R4 - 16x9.mp4"}];function mutePlayback(flag){document.getElementById("player").muted=flag;}const dock=document.getElementById('dock');
+let selection=media.find(m=>m.src===document.getElementById('player').getAttribute('src'));
+let generation=0;
+const status=document.getElementById('player-status');
+function bindPlayer(v){
+  v.addEventListener('error',()=>{status.textContent='This clip could not load. Use Reload Clip to try again.';});
+  v.addEventListener('playing',()=>{status.textContent='';});
+}
+function play(src,label){
+  selection=media.find(m=>m.src===src)||{src,label};
+  const old=document.getElementById('player');
+  old.pause();
+  const v=document.createElement('video');
+  v.id='player'; v.muted=document.getElementById('mute').checked; v.controls=true; v.preload='auto'; v.playsInline=true;
+  if(selection.poster)v.poster=selection.poster;
+  v.setAttribute('aria-label',label);
+  old.replaceWith(v);
+  old.removeAttribute('src'); old.load();
+  document.getElementById('now').textContent=label;
+  document.getElementById('open-clip').href=src;
+  status.textContent='Loading clip...';
+  bindPlayer(v);
+  // Put the video surface on screen before starting its decoder. In the narrow
+  // review panel the asset buttons are below the player, outside its viewport.
+  const token=++generation;
+  requestAnimationFrame(()=>{
+    if(token!==generation)return;
+    dock.scrollIntoView({block:'start',behavior:'instant'});
+    v.src=src; v.load();
+    v.play().catch(()=>{status.textContent='Press Play to start this clip.';});
+  });
+}
+function seekBy(delta){
+ const v=document.getElementById('player');
+ if(!Number.isFinite(v.duration))return;
+ v.currentTime=Math.max(0,Math.min(v.duration-0.04,v.currentTime+delta));
+}
+function reloadClip(){play(selection.src,selection.label);}
+bindPlayer(document.getElementById('player'));
+
+function togglePlayback(){const v=document.getElementById('player');if(v.paused)v.play().catch(()=>{status.textContent='Use Reload Clip to try again.';});else v.pause();}
+</script></body></html>

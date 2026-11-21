@@ -1,0 +1,87 @@
+{
+ "shot": "SL-21 R: restaurant excuse clip (Short 1)",
+ "intent": "A fat man sits at a fine-dining table behind a lavish dinner (tomahawk steak, lobster, seafood tower, red wine), facing the camera, chest up. START: right hand holds a fork with one piece of steak just above the plate, left hand flat on the tablecloth, whiny poor-me look, mouth closed. END: both hands lifted in a helpless shrug, shoulders up; right hand still holds the same fork and steak beside his right shoulder, left hand open palm up beside his left shoulder; head tilted, eyebrows raised, mouth closed. Nothing on the table moves. The clip will be lip-synced later, so the mouth is closed in both frames.",
+ "person": {
+  "legs_hidden": {
+   "below_y": 1010
+  },
+  "compare": [
+   "head"
+  ],
+  "compare_why": "a shrug lifts the shoulders and pulls the shoulder landmarks toward the neck; hips and legs are hidden; head width (ear-to-ear and outer-eye mean) is the size measure a chest-up shrug leaves valid, and the head tilts but does not turn"
+ },
+ "still": {
+  "steak": [
+   280,
+   965,
+   660,
+   1125
+  ],
+  "lobster": [
+   500,
+   1115,
+   925,
+   1395
+  ],
+  "candle": [
+   335,
+   1215,
+   485,
+   1410
+  ],
+  "sconce_left": [
+   8,
+   145,
+   72,
+   230
+  ],
+  "sconce_right": [
+   795,
+   155,
+   850,
+   240
+  ],
+  "tower_top": [
+   0,
+   665,
+   215,
+   880
+  ],
+  "oysters": [
+   30,
+   1225,
+   290,
+   1470
+  ],
+  "knife": [
+   190,
+   1035,
+   345,
+   1160
+  ],
+  "wine": [
+   715,
+   912,
+   812,
+   955
+  ]
+ },
+ "props": [
+  {
+   "name": "fork_with_steak",
+   "box": [
+    315,
+    790,
+    475,
+    880
+   ],
+   "held_by": "right"
+  }
+ ],
+ "hands": {
+  "right": "holds the fork with one piece of steak in both frames",
+  "left": "flat on the tablecloth in START, open palm up in END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

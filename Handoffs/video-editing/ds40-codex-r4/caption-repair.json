@@ -1,0 +1,23 @@
+{
+  "prior_sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+  "first_caption_onset": 0.26,
+  "reason": "Independent final AAC CTC and native audio RMS show speech starts 0.26-0.30, while caption was at 0.000.",
+  "reencoded_picture_frames": [
+    0,
+    249
+  ],
+  "unchanged_decoded_tail_frames": 1694,
+  "all_native_tail_frame_md5_equal": true,
+  "unchanged_AAC_sha256": "0a10a6bcdeb138ea40def34e2e5a319d6bde3739541c05fac5259dcfa62d4972",
+  "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "probe": {
+    "programs": [],
+    "streams": [
+      {
+        "r_frame_rate": "30000/1001",
+        "duration": "64.864800",
+        "nb_read_frames": "1944"
+      }
+    ]
+  }
+}

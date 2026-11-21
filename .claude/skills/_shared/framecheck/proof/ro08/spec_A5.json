@@ -1,0 +1,8 @@
+{
+ "shot": "RO-08 A5 round 2 take (A5-t1.mp4, Veo 3.1 fast). Dan rejected it 2026-10-13: 'all the donuts just disappear, vaporize, and go nowhere'.",
+ "start_frame": "frame 0 of the take (= aiframes/A5-start.png); boxes in its pixels",
+ "intent": "Bright office, locked-off camera. He bites a pink donut, eats the box of donuts and muffins over an hour (the wall clock goes from nine to ten), gets sleepy and falls asleep face down on his keyboard with a half-eaten muffin in his hand.",
+ "camera": "locked",
+ "may_change": {"wall_clock": [1355, 15, 1660, 326]},
+ "props": [{"name": "pink_donut", "box": [205, 95, 330, 175], "held_by": "right", "may_leave": true, "what": "eaten"}]
+}

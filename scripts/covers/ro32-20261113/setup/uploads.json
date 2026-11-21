@@ -1,0 +1,37 @@
+{
+  "cover": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/489d481a-9c80-44a8-8f61-9ec6902ffd52.jpg",
+    "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/I'm 41. Here Are The 10 Exercises I Do Every Week/I'm 41. Here Are The 10 Exercises I Do Every Week - thumbnail FINAL.jpg",
+    "sha256": "a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9",
+    "bytes": 474224,
+    "download_verified": true
+  },
+  "main": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bb94344f-aa42-43cc-88ab-02b6dc1d40b9.mp4",
+    "path": "/Users/danielrose/Projects/_edit_work/RO32-setup/publish/ro32-main-1080p.mp4",
+    "sha256": "df21407c90a94ab4df1f86506020ea54d54fe6239b9e7ce0c1ee8f349c43b691",
+    "bytes": 163248308,
+    "download_verified": true
+  },
+  "tiktok": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/5ff99032-ad2c-4b89-a35e-7e337325b87d.mp4",
+    "path": "/Users/danielrose/Projects/_edit_work/RO32-setup/publish/ro32-tiktok-cover-first.mp4",
+    "sha256": "da0d8c0018add02c6a5f247074dc927b87c1893d68f601ea45845e87deeee03c",
+    "bytes": 163348415,
+    "download_verified": true
+  },
+  "instagram_cover": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d249a359-b031-4400-ab9b-3279968c84ab.jpg",
+    "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/I'm 41. Here Are The 10 Exercises I Do Every Week/ro32-instagram-cover-1080x1920.jpg",
+    "sha256": "371827c7cfeeaaa90b0e7a5619692d0358c33678293bea2ccf181dc293d9b344",
+    "bytes": 488164,
+    "download_verified": true
+  },
+  "instagram": {
+    "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/0e7f423b-cd1a-4267-b57b-97d56b56d19a.mp4",
+    "path": "/Users/danielrose/Projects/_edit_work/RO32-setup/publish/ro32-instagram-1080p.mp4",
+    "sha256": "f574a33f0edeac75ace8a5f725ff87171230822701e86c95e281a66c094bd394",
+    "bytes": 69763802,
+    "download_verified": true
+  }
+}

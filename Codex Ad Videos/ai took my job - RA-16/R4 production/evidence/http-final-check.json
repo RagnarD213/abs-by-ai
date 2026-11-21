@@ -1,0 +1,36 @@
+[
+  {
+    "name": "AI Took Job AD R4 - 9x16.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/100282648",
+    "bytes": 1024
+  },
+  {
+    "name": "AI Took Job AD R4 - 9x16 - REVIEW.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/9611575",
+    "bytes": 1024
+  },
+  {
+    "name": "9x16 served native master",
+    "status": 200,
+    "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+  },
+  {
+    "name": "AI Took Job AD R4 - 16x9.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/85885396",
+    "bytes": 1024
+  },
+  {
+    "name": "AI Took Job AD R4 - 16x9 - REVIEW.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/7538785",
+    "bytes": 1024
+  },
+  {
+    "name": "16x9 served native master",
+    "status": 200,
+    "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+  }
+]

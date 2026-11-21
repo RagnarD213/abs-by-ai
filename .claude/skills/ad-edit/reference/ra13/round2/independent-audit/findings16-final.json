@@ -1,0 +1,320 @@
+{
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "clean",
+      "t": 0,
+      "note": "Camera hair retained; correctly disclosed real-before phone then intentional static AI pool goal.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "t": 24.99,
+      "note": "Lockscreen and changing-plan clauses stay on live presenter; same pool goal analysis, moving push-up and meal tour visible.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "sheet_02_00-50.02_to_00-52.99.jpg",
+      "verdict": "clean",
+      "t": 51.9853,
+      "note": "Repaired CTA sits in pool space left of presenter, clear of abs and face; wording intact, separate from captions.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_000_00-02.27_cam0_out___cam1_in___join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "t": 2.27,
+      "note": "Deliberate fixed FAR to NEAR cut, different scale masks take change; hair retained.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_001_00-14.35_P1_in___P1-phone_in___cam1_out___covered.jpg",
+      "verdict": "expected",
+      "t": 14.35,
+      "note": "Presenter exits directly to phone generation screen; no exposed camera reset.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_002_00-14.95_P1-real_in___P1-real-chip_in.jpg",
+      "verdict": "expected",
+      "t": 14.95,
+      "note": "Real sunglasses-before enters phone with real-picture chip outside phone, clear of face and abs.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_003_00-15.92_P1-goal_in___P1-goal-chip_in___P1-phone_.jpg",
+      "verdict": "expected",
+      "t": 15.92,
+      "note": "Phone before cuts to same-person approved pool goal, AI chip below photo; intentional scene change.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_004_00-16.12_join.jpg",
+      "verdict": "expected",
+      "t": 16.11,
+      "note": "Audio join covered by intentional static pool goal; no camera underneath.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_005_00-16.45_join.jpg",
+      "verdict": "expected",
+      "t": 16.45,
+      "note": "Audio join covered by intentional static pool goal; no camera underneath.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_006_00-25.16_P1_out___P1-goal_out___P1-goal-chip_out_.jpg",
+      "verdict": "expected",
+      "t": 25.16,
+      "note": "Static pool goal exits directly to live NEAR presenter for lockscreen clause.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_007_00-28.16_join.jpg",
+      "verdict": "clean",
+      "t": 28.16,
+      "note": "Consecutive presenter pose changes naturally, no discontinuity at declared audio splice; full presenter run continues into card.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_008_00-28.36_cam5_out___covered_in___join___punch_CAR.jpg",
+      "verdict": "expected",
+      "t": 28.36,
+      "note": "Presenter exits directly to same pool-goal analysis with initial unfilled bars, an intentional build.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_009_00-33.60_join.jpg",
+      "verdict": "expected",
+      "t": 33.6,
+      "note": "Approved pool photo remains static, bars animate; audio seam fully covered.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_010_00-33.75_A1_out___A1-card_out___A1-goal_out___A1-.jpg",
+      "verdict": "expected",
+      "t": 33.75,
+      "note": "Analysis card exits one native frame after rounded boundary marker into phone tour; no camera island.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_012_00-38.97_P2_out___P2-phone_out___cam7_in___covere.jpg",
+      "verdict": "expected",
+      "t": 38.97,
+      "note": "Meal analysis phone exits directly to live FAR presenter.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_013_00-42.61_cam7_out___cam8_in___join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "t": 42.61,
+      "note": "Deliberate FAR to NEAR scale step, clean hair and no one-frame camera island.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_014_00-46.58_cam8_out___cam9_in___join___punch_FAR.jpg",
+      "verdict": "expected",
+      "t": 46.58,
+      "note": "Deliberate NEAR to FAR scale step, all hair retained.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_015_00-51.38_CTA_in.jpg",
+      "verdict": "clean",
+      "t": 51.38,
+      "note": "Repaired CTA fades into left pool region. Presenter continuous; hair and abs remain clear.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_000_00-02.27.jpg",
+      "verdict": "expected",
+      "t": 2.27,
+      "note": "Deliberate fixed FAR to NEAR cut, different scale masks take change; hair retained.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_001_00-14.35.jpg",
+      "verdict": "expected",
+      "t": 14.35,
+      "note": "Presenter exits directly to phone generation screen; no exposed camera reset.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_002_00-14.95.jpg",
+      "verdict": "expected",
+      "t": 14.95,
+      "note": "Real sunglasses-before enters phone with real-picture chip outside phone, clear of face and abs.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_004_00-16.12.jpg",
+      "verdict": "expected",
+      "t": 16.11,
+      "note": "Audio join covered by intentional static pool goal; no camera underneath.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_005_00-16.45.jpg",
+      "verdict": "expected",
+      "t": 16.45,
+      "note": "Audio join covered by intentional static pool goal; no camera underneath.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_006_00-25.16.jpg",
+      "verdict": "expected",
+      "t": 25.16,
+      "note": "Static pool goal exits directly to live NEAR presenter for lockscreen clause.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_007_00-28.16.jpg",
+      "verdict": "clean",
+      "t": 28.16,
+      "note": "Consecutive presenter pose changes naturally, no discontinuity at declared audio splice; full presenter run continues into card.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_008_00-28.36.jpg",
+      "verdict": "expected",
+      "t": 28.36,
+      "note": "Presenter exits directly to same pool-goal analysis with initial unfilled bars, an intentional build.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_009_00-33.60.jpg",
+      "verdict": "expected",
+      "t": 33.6,
+      "note": "Approved pool photo remains static, bars animate; audio seam fully covered.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_010_00-33.75.jpg",
+      "verdict": "expected",
+      "t": 33.75,
+      "note": "Analysis card exits one native frame after rounded boundary marker into phone tour; no camera island.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_012_00-38.97.jpg",
+      "verdict": "expected",
+      "t": 38.97,
+      "note": "Meal analysis phone exits directly to live FAR presenter.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_013_00-42.61.jpg",
+      "verdict": "expected",
+      "t": 42.61,
+      "note": "Deliberate FAR to NEAR scale step, clean hair and no one-frame camera island.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_014_00-46.58.jpg",
+      "verdict": "expected",
+      "t": 46.58,
+      "note": "Deliberate NEAR to FAR scale step, all hair retained.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "pair_015_00-51.38.jpg",
+      "verdict": "clean",
+      "t": 51.38,
+      "note": "Repaired CTA fades into left pool region. Presenter continuous; hair and abs remain clear.",
+      "evidence_method": "carried-forward actual prior observation with independently verified identical SHA256"
+    },
+    {
+      "image": "strip_011_00-35.77_join.jpg",
+      "verdict": "expected",
+      "t": 35.7693,
+      "note": "Deliberate in-phone feature cut from AI-labelled push-up to real salmon meal-upload screen; phone shell stays steady, no blank frame, missing content or naked presenter splice.",
+      "evidence_method": "new image individually opened"
+    },
+    {
+      "image": "strip_016_00-53.82_join.jpg",
+      "verdict": "clean",
+      "t": 53.82,
+      "note": "Native ending frames1611-1615: presenter settles hands naturally, hair/face/abs clear, complete final word already heard. CTA remains readable and separate from caption ink; final frame caption clears, no black/pose jump.",
+      "evidence_method": "new image individually opened"
+    },
+    {
+      "image": "pair_003_00-15.92.jpg",
+      "verdict": "expected",
+      "t": 15.9159,
+      "note": "Real sunglasses-before in phone exits to exact same-person approved static AI pool goal; respective real and AI chips remain off face and abs. Header changes explain new image hash.",
+      "evidence_method": "new image individually opened"
+    },
+    {
+      "image": "pair_011_00-35.77.jpg",
+      "verdict": "expected",
+      "t": 35.7693,
+      "note": "Deliberate in-phone feature cut from AI-labelled push-up to real salmon meal-upload screen; phone shell stays steady, no blank frame, missing content or naked presenter splice.",
+      "evidence_method": "new image individually opened"
+    },
+    {
+      "image": "pair_016_00-53.82.jpg",
+      "verdict": "clean",
+      "t": 53.82,
+      "note": "Native ending frames1611-1615: presenter settles hands naturally, hair/face/abs clear, complete final word already heard. CTA remains readable and separate from caption ink; final frame caption clears, no black/pose jump.",
+      "evidence_method": "new image individually opened"
+    }
+  ],
+  "video_sha256": "453c6f10bcb7142f6065c7344e8b91fa0b29a088b301d245a450f4a9a4752d5a",
+  "before_video_sha256": "7753d39b7d322a699ee3b91804333521e844e4d1cb374125b0cc3de8889bd102",
+  "image_sha256": {
+    "sheet_00_00-00.00_to_00-23.99.jpg": "f021f207f207acb2ee4e2f8b9374a825db44ec4597a281f5c7c75adc793abab6",
+    "sheet_01_00-24.99_to_00-49.02.jpg": "b924bfd6f86f69c50d21162ccbaf9ebbae9a9972c68097610cd880e462e79c57",
+    "sheet_02_00-50.02_to_00-52.99.jpg": "5ebd22f714c76aa5cc1252d407b5e3075239b7c06573b4260f3bf25d87810acb",
+    "strip_000_00-02.27_cam0_out___cam1_in___join___punch_NEAR.jpg": "e3a8aba4fa68ec74224379166494c658f5d65ba13a0743077d80120ddecf1907",
+    "strip_001_00-14.35_P1_in___P1-phone_in___cam1_out___covered.jpg": "8ded93301d5b5ca0856138caa9677159d69df99ea535b47c9568148e3642a657",
+    "strip_002_00-14.95_P1-real_in___P1-real-chip_in.jpg": "d5f1c57f597187d263175f7b4d2b93e8eabad76656f7d877ef98cd0eaa488797",
+    "strip_003_00-15.92_P1-goal_in___P1-goal-chip_in___P1-phone_.jpg": "38325e4fefdc987c49f1581d515102144e234478f66292dca0593dc9f81915a2",
+    "strip_004_00-16.12_join.jpg": "7e2056ccbb04014f485ee492fdcf95a23c98d10f9f9a2720b9082c60d56199dc",
+    "strip_005_00-16.45_join.jpg": "c733a5b57797bb3599ebba09fb4a17d7fe1a171ab97c37ea9981d90892fe05ae",
+    "strip_006_00-25.16_P1_out___P1-goal_out___P1-goal-chip_out_.jpg": "af8c4ac1798841d84c2b01ccae9dba235eff1f365bfe6a6eb763a3c8fa15191c",
+    "strip_007_00-28.16_join.jpg": "f1bef5ba381dd456f5dacfb771d2151c8d33f931625bbdc826678e2653dd665f",
+    "strip_008_00-28.36_cam5_out___covered_in___join___punch_CAR.jpg": "cee8b3f8485422183c4def6a7b8696a50aa38d6ca2f1f9bf93c7dd15fe5fb153",
+    "strip_009_00-33.60_join.jpg": "17633f78e78436a10a47217cc8263d565983fe8cd0e872d66da5cf64c8f30225",
+    "strip_010_00-33.75_A1_out___A1-card_out___A1-goal_out___A1-.jpg": "f5759edec759a5de91eebb027bc743b970ffeeff65db9a4ad4a634360b4b4ba4",
+    "strip_012_00-38.97_P2_out___P2-phone_out___cam7_in___covere.jpg": "fda1c89ad10f8afb9b2f2078b87238009dc569e50d509d6702f4d0da67bfdf20",
+    "strip_013_00-42.61_cam7_out___cam8_in___join___punch_NEAR.jpg": "c87534f58f975349e1042d54113964d857880b2f96b9974efd2c632f6c39f2fc",
+    "strip_014_00-46.58_cam8_out___cam9_in___join___punch_FAR.jpg": "3b9f7f2d286bef9fc61dc81c5a245f5ab9dfc0fcfc59cfeabe740072e0a852a3",
+    "strip_015_00-51.38_CTA_in.jpg": "3cc5f4e7f5471d4585ad1131f9d176fb49664dc650448b78a404a78d9651a7d4",
+    "pair_000_00-02.27.jpg": "7b093f88e9f689080805a17124bc38c11446c3c56cb697c5c52528ced6d36fc0",
+    "pair_001_00-14.35.jpg": "9fde45d8348367d1345477fb1ffceedb32e2496479497041646bfe3e56c02ca8",
+    "pair_002_00-14.95.jpg": "586ac042f6c0abd1f91db0ac33e9440285715acf696af6ebb550206f1746312e",
+    "pair_004_00-16.12.jpg": "d795301742f6ad42325c70abb7845643df9ff561429a26002c9c98e2a67d45d1",
+    "pair_005_00-16.45.jpg": "8dc950ed4dcc74a43199a4a709d3632a1655de0ce78ee5842cb9feb7c4108e46",
+    "pair_006_00-25.16.jpg": "7dba9f953f1b6cf5cf7f7795865d88b67273d5838bbc368414a2d8f346c0967b",
+    "pair_007_00-28.16.jpg": "b7ecd164ec08ff7206a070cc828dd444a3af324355b749c5ddd3a1a18ad0a3b7",
+    "pair_008_00-28.36.jpg": "94fd63646624411323266b24e71cc8fd44f46adc79a29c189a1f8d0b1100d9b5",
+    "pair_009_00-33.60.jpg": "9b42c50ec209fe3eac0323543d103c3ee01176e42fe477b071af805a028244c5",
+    "pair_010_00-33.75.jpg": "7ae4ca21592e0c07ce26a98f7faa143b28a4fcd1c840b66dc573663ba5f48ab4",
+    "pair_012_00-38.97.jpg": "21e895d6e8d3a63077a7fa76cd2625dc18e162bff25a563630283bf2262c0967",
+    "pair_013_00-42.61.jpg": "667cd47e8c31e5be3f197778d6f341fefee68924ad5487cf2ea98a9695eac737",
+    "pair_014_00-46.58.jpg": "da236d92783eccf5ee2fbea6c184a6260ff7c7b11484789d0e33c644a4578d96",
+    "pair_015_00-51.38.jpg": "96b423e1b8af45abb42e95c13a7fe27454f4cfec7f502deac8a942fad7018639",
+    "strip_011_00-35.77_join.jpg": "54a545ec3a182029b44296d930bbbb9e29a3b4d67b6dda6b7f15d89cdf070428",
+    "strip_016_00-53.82_join.jpg": "02e9919086737a97c6e622fab10ee399bfdbd2a59e9319805a164b1ca3cb31fa",
+    "pair_003_00-15.92.jpg": "b2875327643c777cfbf57289c6fd8189f78c204a6862f2b08dfa9237bf825e5c",
+    "pair_011_00-35.77.jpg": "7c22d0d3de9e8f6bc27e9f76fccd29af3533013086b9c5ad94c46ba03086591b",
+    "pair_016_00-53.82.jpg": "ce325507ff2e135d0614493fb5f56145a8ff0cd278acc6e91c1ef4442a6ad1b9"
+  },
+  "reviewer": "fresh independent Codex reviewer",
+  "native_watch_verdict": "SHIP",
+  "confirmed_defects": [],
+  "freeze_dispositions": [
+    {
+      "format": "16",
+      "t": 36.34,
+      "seconds": 0.4,
+      "inside_declared": true,
+      "verdict": "expected",
+      "component": "B0544 macro tracker meal-photo upload screen",
+      "observation": "Static meal image and upload controls before Analyze Meal; no moving/talking presenter visible. Full scene proceeds into analysis result.",
+      "evidence": "native/16-freeze0-consecutive.jpg"
+    }
+  ],
+  "gate_status": "Required exact-file delivery/audio gates still FAIL; native observation does not alter numerical result."
+}

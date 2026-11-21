@@ -1,0 +1,22 @@
+{
+  "caseId": "heavier-male__dramatic",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "seedream-4.5",
+  "modelLabel": "Seedream 4.5 (already integrated as callSeedream)",
+  "variant": "condensed",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 13430,
+  "safetyRetry": false,
+  "promptChars": 891,
+  "nominalCost": 0.04,
+  "image": "heavier-male__dramatic__seedream-4.5.jpg",
+  "ts": "2026-08-09T20:46:17.811Z"
+}

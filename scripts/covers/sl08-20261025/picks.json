@@ -1,0 +1,57 @@
+{
+  "picked_by": "Dan",
+  "date": "2026-10-25",
+  "words": "Let's go with C for all five Shorts. Go ahead and complete setup for January 4, 5, 8, 9 and 11 at 9 AM Central.",
+  "covers": {
+    "calories-short1_why-i-fast-until-2-pm-every-day": {
+      "short": "s1",
+      "title": "Why I Fast Until 2 pm Every Day",
+      "pick": "C",
+      "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/Instagram_calories-short1-why-i-fast-until-2-pm-every-day_cover-C.png",
+      "instagram_sha256": "e74c15b6b77520abdc4c76e0981df4603e9f38a17233250de87338f5a89cb4e9",
+      "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/YouTube_calories-short1-why-i-fast-until-2-pm-every-day_cover-C.jpg",
+      "youtube_sha256": "44c0ad899d61850eb5984ca1ee3a4575b381759b8bb196311f5f407acf5b6cf0",
+      "youtube_bytes": 375320
+    },
+    "calories-short2_eat-a-salad-first-to-eat-less": {
+      "short": "s2",
+      "title": "Eat a Salad First to Eat Less",
+      "pick": "C",
+      "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/Instagram_calories-short2-eat-a-salad-first-to-eat-less_cover-C.png",
+      "instagram_sha256": "fae3894673c4c7156d27d3190fdae85b5072547c191493579b9fe2758dc541c2",
+      "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/YouTube_calories-short2-eat-a-salad-first-to-eat-less_cover-C.jpg",
+      "youtube_sha256": "dd011bfea927084e75830979a23336c49d389307164ff7194c16bd68d65af7dd",
+      "youtube_bytes": 339622
+    },
+    "calories-short3_stop-drinking-your-calories": {
+      "short": "s3",
+      "title": "Stop Drinking Your Calories",
+      "pick": "C",
+      "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/Instagram_calories-short3-stop-drinking-your-calories_cover-C.png",
+      "instagram_sha256": "b663bcde21d1c795467a1405bac84cde9828c47170a2e9e2ece68fc9eda870de",
+      "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/YouTube_calories-short3-stop-drinking-your-calories_cover-C.jpg",
+      "youtube_sha256": "a78940d292908e3e151f28a6f97ccd99ebd7c10dc2e2f89a71cfe6ced8916987",
+      "youtube_bytes": 308054
+    },
+    "calories-short4_snack-on-protein-not-carbs": {
+      "short": "s4",
+      "title": "Snack on Protein, Not Carbs",
+      "pick": "C",
+      "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/Instagram_calories-short4-snack-on-protein-not-carbs_cover-C.png",
+      "instagram_sha256": "b97505adef7f38ee1bbbf7ab552323c05852bbbee66dea645bfe439fc6770d50",
+      "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/YouTube_calories-short4-snack-on-protein-not-carbs_cover-C.jpg",
+      "youtube_sha256": "8880787717c0399d8fc1dab6aa580dd122b136058ccc4e0dba8bc1e540202103",
+      "youtube_bytes": 286914
+    },
+    "calories-short5_make-fasting-easier-with-black-coffee": {
+      "short": "s5",
+      "title": "Make Fasting Easier With Black Coffee",
+      "pick": "C",
+      "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/Instagram_calories-short5-make-fasting-easier-with-black-coffee_cover-C.png",
+      "instagram_sha256": "3bc3c1cda5a39bc3cf8bdfa7ab87465edbbc1d9421d73e448137ed456e46909c",
+      "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl08/YouTube_calories-short5-make-fasting-easier-with-black-coffee_cover-C.jpg",
+      "youtube_sha256": "f24ca5d09b37ad7247013059aa3294d9f1e1c96da7f39f545426cabfc1ab1d66",
+      "youtube_bytes": 324539
+    }
+  }
+}

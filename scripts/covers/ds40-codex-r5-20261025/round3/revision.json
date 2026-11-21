@@ -1,0 +1,9 @@
+{
+  "selected_design": 1,
+  "round": 3,
+  "approved_for_installation": false,
+  "user_request": "Seamless speech-bubble tail without internal line; more words on each line and shorter bubble; Bill Maher slightly higher with face visible and tail away from face; Dan and older man slightly smaller at bottom.",
+  "quote": "Have you ever seen a fat 90-year-old?",
+  "method": "Reuse exact real Bill frame and approved-direction AI foreground; deterministic layout/vector bubble revision only",
+  "new_generation": false
+}

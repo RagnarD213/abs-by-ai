@@ -1,0 +1,82 @@
+# Asset approval and placeholder editing
+
+Use this clip-record workflow inside [PRE-RENDER-APPROVAL.md](PRE-RENDER-APPROVAL.md). The look, every graphic (as a still screenshot, then in motion), every clip and the first minute must be locked before a full render. This file does not authorize building a full placeholder film.
+
+## One early approval package
+
+The owning editor prepares one compact package and continues independent planning and isolated previews while awaiting the batch decision. Group items in timeline order and show enough context to judge each choice:
+
+- slot ID, exact in/out and spoken line or beat;
+- why the insert supports that beat;
+- AI motion: one best start frame, one matching end frame, intended action, duration and estimated new/total per-video cost;
+- stock or existing B-roll: a 0.5–15 second moving preview of the exact proposed source trim, crop and basic treatment, plus source ID/path, usage-rights evidence and hash;
+- whether the choice is new, previously approved and hash-matching, or reused without another approval.
+
+For an opener or other creative choice, offer 2-3 concepts (text first when Dan asks for ideas), then one strong frame pair per chosen concept; otherwise prefer one strong AI frame pair. AI clips pass three gates: concept, start/end frames, finished motion in context (round method, 2026-09-28). Check the approved-clip library and exact existing assets before proposing new generation. Do not resubmit an unchanged approved asset merely because a later revision touches another scene.
+
+## Durable packet
+
+Write `placeholders.json` beside the internal draft. It is the authoritative resume record, not a chat transcript. Use schema version 1 and include:
+
+```json
+{
+  "schema_version": 1,
+  "video_id": "RA-00",
+  "revision": 1,
+  "status": "approval_required",
+  "draft": {"path": "/absolute/DRAFT.mp4", "sha256": "..."},
+  "prior_paid_spend_usd": 0.0,
+  "generation_budget_usd": 5.0,
+  "items": [{
+    "id": "clip-01",
+    "type": "ai_motion",
+    "reuse_status": "new",
+    "in": 12.4,
+    "out": 16.4,
+    "duration": 4.0,
+    "spoken_beat": "...",
+    "intended_action": "...",
+    "affected_scenes": ["scene-07"],
+    "boundary_joins": ["join-06-07", "join-07-08"],
+    "start_frame": {"path": "/absolute/start.png", "sha256": "..."},
+    "end_frame": {"path": "/absolute/end.png", "sha256": "..."},
+    "preview": null,
+    "source": null,
+    "placeholder": {"label": "PLACEHOLDER — clip-01", "sha256": "..."},
+    "estimated_usd": 0.90,
+    "approval": {"status": "pending", "selected_hashes": [], "words": null,
+      "timestamp": null, "selection_fingerprint": null},
+    "final_clip": null
+  }]
+}
+```
+
+For `stock` and `existing_broll`, use `preview` and `source` records instead of start/end frames; `preview` also carries
+`preview_seconds`, while `source` carries
+`trim_in`, `trim_out`, `crop` and `rights`. Every path is absolute, contained by the work directory or an explicitly
+configured source root, and hash-checked on every read. Record Dan's exact words, timestamp, selected hashes and the
+derived selection fingerprint. A material change to timing, beat, action, scenes/joins, frame, source, trim, crop or
+rights becomes `pending` again; unchanged approved items stay approved. Partial and duplicate submissions are refused.
+The queue adds ISO-8601 `created_at` and `updated_at` fields. If prior spend is unknown,
+`prior_paid_spend_usd` is `null` and `prior_paid_spend_reason` is required; new AI motion cannot be approved until that
+cost is known. At completion, `delivery` records the final video's path/hash and the chronological watch log's
+path/hash. Each `final_clip` records its path/hash and the approved `inserted_from_fingerprint`.
+The queue also requires the existing `PRE_RENDER_CHECK.json` motion evidence for every stock/existing-B-roll preview;
+a still or a preview outside 0.5–15 seconds parks stage one before it can wait for approval.
+
+## Plans and limited draft previews
+
+Keep unresolved slots in the edit plan and short contextual auditions. A visible placeholder label identifies any pending asset in an audition. Do not render a complete placeholder film. The sample and all proposed graphics/clips are the approval deliverables, not a full rough-cut export. A preview remains DRAFT and never receives a final-delivery PASS or independent complete-film review. A draft path may be absent before a preview exists; do not fabricate a path or hash merely to satisfy an old queue workflow.
+
+## Resume after Dan's decision
+
+Do not keep an AI session alive while waiting. Persist the packet, write the queue's `DRAFT-DELIVERY.json`, and exit.
+The runner sets `draft_review`; a complete current approval batch sets `frames_approved`. Approval while stage one is
+still running updates only the packet and never changes or steals its claim.
+
+After the broader creative packet is locked as well as the clip approvals, a fresh finishing session in the same work directory and logical revision verifies the stored hashes.
+Generate AI motion only from the approved frame pair and within the remaining per-video budget. Insert the exact
+approved stock/B-roll trim. Rebuild affected scenes and boundary joins only, remove all placeholder labels, and set
+the packet to `complete` only when every item has an approved final clip hash plus hash-bound delivery/watch evidence.
+
+Then perform the ordinary full-file gates, chronological picture/audio review and one independent complete-candidate review. Report revision count, available editor/reviewer model usage, itemized paid-provider charges, and every unavailable measurement as `null` with its reason.

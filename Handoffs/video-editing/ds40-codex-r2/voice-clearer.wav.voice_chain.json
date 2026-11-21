@@ -1,0 +1,30 @@
+{
+ "version": 1,
+ "src": "/Volumes/Extreme/_edit_work/DS-40-codex/round1/lav.wav",
+ "out": "/Volumes/Extreme/_edit_work/DS-40-codex/round2/voice-clearer.wav",
+ "pull": "wav as given",
+ "untreated": {
+  "version": 1,
+  "note": "pull: wav as given",
+  "seconds": 8.01,
+  "edt_ms": 68.0,
+  "flux": 0.0897,
+  "sfm": 0.298,
+  "swirl": 0.9046,
+  "gap": 30.4797
+ },
+ "edt_raw": 68.0,
+ "dereverb": null,
+ "eq": "highpass=f=75,equalizer=f=180:t=q:w=0.8:g=-1.5,equalizer=f=450:t=q:w=0.8:g=-1.5,equalizer=f=2500:t=q:w=0.8:g=1",
+ "eq_gains": null,
+ "voice": "highpass=f=75,equalizer=f=180:t=q:w=0.8:g=-1.5,equalizer=f=450:t=q:w=0.8:g=-1.5,equalizer=f=2500:t=q:w=0.8:g=1,pan=stereo|c0=c0|c1=c0",
+ "expander": false,
+ "no_expander_because": "R1 listening found chopped word tails with expansion; Dan found the open baseline fairly decent. Preserve natural word endings.",
+ "oversample": 4,
+ "limiter_delay_samples": 240,
+ "gain_db": 11.6,
+ "lufs": -14.3,
+ "tp_pcm": -1.5,
+ "lra": 1.8,
+ "duration": 10.01
+}

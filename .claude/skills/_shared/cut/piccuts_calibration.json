@@ -1,0 +1,710 @@
+{
+ "search": 15,
+ "sets": {
+  "muhammad-ad2-trusted": [
+   {
+    "i": 7,
+    "cut": 32.9,
+    "k": 6,
+    "conf": 0.779,
+    "sim_at_his_k": 0.486,
+    "sim_at_0": 0.522,
+    "best_sim": 0.577,
+    "head_at_his_k": 18.6,
+    "head_at_0": 14.7
+   },
+   {
+    "i": 8,
+    "cut": 36.8,
+    "k": 2,
+    "conf": 0.847,
+    "sim_at_his_k": 0.488,
+    "sim_at_0": 0.478,
+    "best_sim": 0.724,
+    "head_at_his_k": 30.1,
+    "head_at_0": 28.1
+   },
+   {
+    "i": 15,
+    "cut": 61.6,
+    "k": 2,
+    "conf": 0.872,
+    "sim_at_his_k": 0.5,
+    "sim_at_0": 0.486,
+    "best_sim": 0.618,
+    "head_at_his_k": 21.8,
+    "head_at_0": 32.3
+   },
+   {
+    "i": 19,
+    "cut": 78.74,
+    "k": 3,
+    "conf": 0.815,
+    "sim_at_his_k": 0.449,
+    "sim_at_0": 0.456,
+    "best_sim": 0.553,
+    "head_at_his_k": 33.5,
+    "head_at_0": 26.1
+   },
+   {
+    "i": 23,
+    "cut": 89.96,
+    "k": -4,
+    "conf": 0.929,
+    "sim_at_his_k": 0.503,
+    "sim_at_0": 0.521,
+    "best_sim": 0.725,
+    "head_at_his_k": 17.9,
+    "head_at_0": 22.0
+   },
+   {
+    "i": 24,
+    "cut": 91.5,
+    "k": 4,
+    "conf": 0.886,
+    "sim_at_his_k": 0.472,
+    "sim_at_0": 0.424,
+    "best_sim": 0.491,
+    "head_at_his_k": 13.2,
+    "head_at_0": 3.9
+   },
+   {
+    "i": 25,
+    "cut": 96.0,
+    "k": -8,
+    "conf": 0.805,
+    "sim_at_his_k": 0.595,
+    "sim_at_0": 0.392,
+    "best_sim": 0.855,
+    "head_at_his_k": 13.4,
+    "head_at_0": 51.6
+   },
+   {
+    "i": 36,
+    "cut": 129.6,
+    "k": -8,
+    "conf": 0.817,
+    "sim_at_his_k": 0.533,
+    "sim_at_0": 0.38,
+    "best_sim": 0.603,
+    "head_at_his_k": 8.3,
+    "head_at_0": 49.5
+   },
+   {
+    "i": 37,
+    "cut": 133.096,
+    "k": 1,
+    "conf": 0.846,
+    "sim_at_his_k": 0.667,
+    "sim_at_0": 0.702,
+    "best_sim": 0.746,
+    "head_at_his_k": 13.8,
+    "head_at_0": 12.1
+   },
+   {
+    "i": 54,
+    "cut": 207.6,
+    "k": 4,
+    "conf": 0.934,
+    "sim_at_his_k": 0.496,
+    "sim_at_0": 0.459,
+    "best_sim": 0.743,
+    "head_at_his_k": 16.9,
+    "head_at_0": 24.8
+   },
+   {
+    "i": 61,
+    "cut": 234.96,
+    "k": -7,
+    "conf": 0.693,
+    "sim_at_his_k": 0.4,
+    "sim_at_0": 0.418,
+    "best_sim": 0.457,
+    "head_at_his_k": 84.0,
+    "head_at_0": 47.2
+   },
+   {
+    "i": 64,
+    "cut": 248.75,
+    "k": -3,
+    "conf": 0.825,
+    "sim_at_his_k": 0.433,
+    "sim_at_0": 0.396,
+    "best_sim": 0.551,
+    "head_at_his_k": 40.3,
+    "head_at_0": 51.8
+   },
+   {
+    "i": 65,
+    "cut": 257.9,
+    "k": -5,
+    "conf": 0.799,
+    "sim_at_his_k": 0.501,
+    "sim_at_0": 0.427,
+    "best_sim": 0.517,
+    "head_at_his_k": 51.3,
+    "head_at_0": 32.3
+   },
+   {
+    "i": 67,
+    "cut": 268.45,
+    "k": -1,
+    "conf": 0.804,
+    "sim_at_his_k": 0.647,
+    "sim_at_0": 0.683,
+    "best_sim": 0.683,
+    "head_at_his_k": 10.0,
+    "head_at_0": 8.0
+   },
+   {
+    "i": 68,
+    "cut": 273.91,
+    "k": 1,
+    "conf": 0.951,
+    "sim_at_his_k": 0.74,
+    "sim_at_0": 0.738,
+    "best_sim": 0.74,
+    "head_at_his_k": 12.1,
+    "head_at_0": 7.4
+   }
+  ],
+  "ad1-vertical-attempt1": [
+   {
+    "i": 1,
+    "cut": 2.78,
+    "sim_at_0": 0.231,
+    "best_sim": 0.411,
+    "head_at_0": 46.8
+   },
+   {
+    "i": 2,
+    "cut": 6.71,
+    "sim_at_0": 0.247,
+    "best_sim": 0.656,
+    "head_at_0": 42.9
+   },
+   {
+    "i": 3,
+    "cut": 11.5,
+    "sim_at_0": 0.399,
+    "best_sim": 0.494,
+    "head_at_0": 15.4
+   },
+   {
+    "i": 4,
+    "cut": 13.26,
+    "sim_at_0": 0.311,
+    "best_sim": 0.366,
+    "head_at_0": 80.5
+   },
+   {
+    "i": 5,
+    "cut": 22.04,
+    "sim_at_0": 0.126,
+    "best_sim": 0.315,
+    "head_at_0": 118.8
+   },
+   {
+    "i": 6,
+    "cut": 22.24,
+    "sim_at_0": 0.275,
+    "best_sim": 0.288,
+    "head_at_0": 46.2
+   },
+   {
+    "i": 7,
+    "cut": 22.67,
+    "sim_at_0": 0.378,
+    "best_sim": 0.567,
+    "head_at_0": 20.4
+   },
+   {
+    "i": 8,
+    "cut": 26.92,
+    "sim_at_0": 0.379,
+    "best_sim": 0.522,
+    "head_at_0": 59.9
+   },
+   {
+    "i": 9,
+    "cut": 28.6,
+    "sim_at_0": 0.534,
+    "best_sim": 0.536,
+    "head_at_0": 52.2
+   },
+   {
+    "i": 10,
+    "cut": 35.08,
+    "sim_at_0": 0.28,
+    "best_sim": 0.346,
+    "head_at_0": 58.2
+   },
+   {
+    "i": 11,
+    "cut": 36.99,
+    "sim_at_0": 0.603,
+    "best_sim": 0.639,
+    "head_at_0": 32.9
+   },
+   {
+    "i": 12,
+    "cut": 43.87,
+    "sim_at_0": 0.518,
+    "best_sim": 0.84,
+    "head_at_0": 58.3
+   },
+   {
+    "i": 13,
+    "cut": 50.59,
+    "sim_at_0": 0.246,
+    "best_sim": 0.495,
+    "head_at_0": 31.1
+   },
+   {
+    "i": 14,
+    "cut": 51.9,
+    "sim_at_0": 0.475,
+    "best_sim": 0.561,
+    "head_at_0": 24.0
+   },
+   {
+    "i": 15,
+    "cut": 54.86,
+    "sim_at_0": 0.224,
+    "best_sim": 0.396,
+    "head_at_0": 39.9
+   },
+   {
+    "i": 16,
+    "cut": 61.43,
+    "sim_at_0": 0.35,
+    "best_sim": 0.557,
+    "head_at_0": 107.5
+   },
+   {
+    "i": 17,
+    "cut": 63.58,
+    "sim_at_0": 0.568,
+    "best_sim": 0.779,
+    "head_at_0": 16.4
+   },
+   {
+    "i": 18,
+    "cut": 66.28,
+    "sim_at_0": 0.439,
+    "best_sim": 0.62,
+    "head_at_0": 25.3
+   },
+   {
+    "i": 19,
+    "cut": 69.02,
+    "sim_at_0": 0.434,
+    "best_sim": 0.449,
+    "head_at_0": 47.6
+   },
+   {
+    "i": 20,
+    "cut": 75.83,
+    "sim_at_0": 0.492,
+    "best_sim": 0.634,
+    "head_at_0": 20.7
+   },
+   {
+    "i": 21,
+    "cut": 77.55,
+    "sim_at_0": 0.6,
+    "best_sim": 0.646,
+    "head_at_0": 34.1
+   },
+   {
+    "i": 22,
+    "cut": 79.84,
+    "sim_at_0": 0.499,
+    "best_sim": 0.562,
+    "head_at_0": 40.2
+   },
+   {
+    "i": 23,
+    "cut": 81.02,
+    "sim_at_0": 0.411,
+    "best_sim": 0.495,
+    "head_at_0": 83.8
+   },
+   {
+    "i": 24,
+    "cut": 84.22,
+    "sim_at_0": 0.331,
+    "best_sim": 0.517,
+    "head_at_0": 55.5
+   },
+   {
+    "i": 25,
+    "cut": 84.67,
+    "sim_at_0": 0.412,
+    "best_sim": 0.412,
+    "head_at_0": 12.3
+   },
+   {
+    "i": 26,
+    "cut": 86.85,
+    "sim_at_0": 0.474,
+    "best_sim": 0.676,
+    "head_at_0": 35.3
+   },
+   {
+    "i": 27,
+    "cut": 90.9,
+    "sim_at_0": 0.457,
+    "best_sim": 0.624,
+    "head_at_0": 36.4
+   },
+   {
+    "i": 28,
+    "cut": 91.73,
+    "sim_at_0": 0.488,
+    "best_sim": 0.583,
+    "head_at_0": 56.9
+   },
+   {
+    "i": 29,
+    "cut": 97.03,
+    "sim_at_0": 0.308,
+    "best_sim": 0.475,
+    "head_at_0": 12.4
+   },
+   {
+    "i": 30,
+    "cut": 100.05,
+    "sim_at_0": 0.408,
+    "best_sim": 0.671,
+    "head_at_0": 91.8
+   },
+   {
+    "i": 31,
+    "cut": 100.46,
+    "sim_at_0": 0.203,
+    "best_sim": 0.273,
+    "head_at_0": 67.0
+   },
+   {
+    "i": 32,
+    "cut": 104.82,
+    "sim_at_0": 0.215,
+    "best_sim": 0.52,
+    "head_at_0": 21.0
+   },
+   {
+    "i": 33,
+    "cut": 106.24,
+    "sim_at_0": 0.422,
+    "best_sim": 0.629,
+    "head_at_0": 40.4
+   },
+   {
+    "i": 34,
+    "cut": 107.68,
+    "sim_at_0": 0.103,
+    "best_sim": 0.371,
+    "head_at_0": 26.9
+   },
+   {
+    "i": 35,
+    "cut": 108.55,
+    "sim_at_0": 0.333,
+    "best_sim": 0.463,
+    "head_at_0": 70.7
+   },
+   {
+    "i": 36,
+    "cut": 110.77,
+    "sim_at_0": 0.176,
+    "best_sim": 0.498,
+    "head_at_0": 19.3
+   },
+   {
+    "i": 37,
+    "cut": 113.0,
+    "sim_at_0": 0.278,
+    "best_sim": 0.518,
+    "head_at_0": 30.5
+   },
+   {
+    "i": 38,
+    "cut": 113.91,
+    "sim_at_0": 0.383,
+    "best_sim": 0.493,
+    "head_at_0": 38.2
+   },
+   {
+    "i": 39,
+    "cut": 119.87,
+    "sim_at_0": 0.393,
+    "best_sim": 0.634,
+    "head_at_0": 31.6
+   },
+   {
+    "i": 40,
+    "cut": 123.19,
+    "sim_at_0": 0.349,
+    "best_sim": 0.395,
+    "head_at_0": 57.1
+   },
+   {
+    "i": 41,
+    "cut": 126.4,
+    "sim_at_0": 0.522,
+    "best_sim": 0.615,
+    "head_at_0": 26.4
+   },
+   {
+    "i": 42,
+    "cut": 128.72,
+    "sim_at_0": 0.32,
+    "best_sim": 0.523,
+    "head_at_0": 25.5
+   },
+   {
+    "i": 43,
+    "cut": 134.86,
+    "sim_at_0": 0.333,
+    "best_sim": 0.496,
+    "head_at_0": 26.0
+   },
+   {
+    "i": 44,
+    "cut": 136.25,
+    "sim_at_0": 0.216,
+    "best_sim": 0.305,
+    "head_at_0": 85.3
+   },
+   {
+    "i": 45,
+    "cut": 141.11,
+    "sim_at_0": 0.333,
+    "best_sim": 0.414,
+    "head_at_0": 25.8
+   },
+   {
+    "i": 46,
+    "cut": 142.88,
+    "sim_at_0": 0.384,
+    "best_sim": 0.526,
+    "head_at_0": 33.3
+   },
+   {
+    "i": 47,
+    "cut": 144.12,
+    "sim_at_0": 0.207,
+    "best_sim": 0.267,
+    "head_at_0": 45.0
+   },
+   {
+    "i": 48,
+    "cut": 147.11,
+    "sim_at_0": 0.398,
+    "best_sim": 0.603,
+    "head_at_0": 87.5
+   },
+   {
+    "i": 49,
+    "cut": 148.74,
+    "sim_at_0": 0.383,
+    "best_sim": 0.491,
+    "head_at_0": 38.2
+   },
+   {
+    "i": 50,
+    "cut": 152.04,
+    "sim_at_0": 0.206,
+    "best_sim": 0.239,
+    "head_at_0": 14.0
+   },
+   {
+    "i": 51,
+    "cut": 153.61,
+    "sim_at_0": 0.554,
+    "best_sim": 0.633,
+    "head_at_0": 19.8
+   },
+   {
+    "i": 52,
+    "cut": 154.91,
+    "sim_at_0": 0.318,
+    "best_sim": 0.515,
+    "head_at_0": 40.9
+   },
+   {
+    "i": 53,
+    "cut": 159.46,
+    "sim_at_0": 0.452,
+    "best_sim": 0.551,
+    "head_at_0": 79.6
+   },
+   {
+    "i": 54,
+    "cut": 167.6,
+    "sim_at_0": 0.174,
+    "best_sim": 0.25,
+    "head_at_0": 41.3
+   },
+   {
+    "i": 55,
+    "cut": 171.71,
+    "sim_at_0": 0.446,
+    "best_sim": 0.501,
+    "head_at_0": 35.8
+   },
+   {
+    "i": 56,
+    "cut": 177.18,
+    "sim_at_0": 0.223,
+    "best_sim": 0.281,
+    "head_at_0": 58.1
+   },
+   {
+    "i": 57,
+    "cut": 179.66,
+    "sim_at_0": 0.442,
+    "best_sim": 0.482,
+    "head_at_0": 48.4
+   },
+   {
+    "i": 58,
+    "cut": 180.96,
+    "sim_at_0": 0.165,
+    "best_sim": 0.304,
+    "head_at_0": 26.0
+   },
+   {
+    "i": 59,
+    "cut": 182.99,
+    "sim_at_0": 0.524,
+    "best_sim": 0.54,
+    "head_at_0": 33.8
+   },
+   {
+    "i": 60,
+    "cut": 185.04,
+    "sim_at_0": 0.506,
+    "best_sim": 0.642,
+    "head_at_0": 36.0
+   },
+   {
+    "i": 61,
+    "cut": 187.29,
+    "sim_at_0": 0.372,
+    "best_sim": 0.548,
+    "head_at_0": 59.1
+   },
+   {
+    "i": 62,
+    "cut": 191.29,
+    "sim_at_0": 0.459,
+    "best_sim": 0.533,
+    "head_at_0": 55.2
+   },
+   {
+    "i": 63,
+    "cut": 196.12,
+    "sim_at_0": 0.215,
+    "best_sim": 0.618,
+    "head_at_0": 80.5
+   },
+   {
+    "i": 64,
+    "cut": 199.75,
+    "sim_at_0": 0.156,
+    "best_sim": 0.382,
+    "head_at_0": 85.9
+   },
+   {
+    "i": 65,
+    "cut": 205.79,
+    "sim_at_0": 0.32,
+    "best_sim": 0.376,
+    "head_at_0": 100.6
+   },
+   {
+    "i": 66,
+    "cut": 207.95,
+    "sim_at_0": 0.159,
+    "best_sim": 0.257,
+    "head_at_0": 25.5
+   },
+   {
+    "i": 67,
+    "cut": 209.84,
+    "sim_at_0": 0.494,
+    "best_sim": 0.772,
+    "head_at_0": 44.0
+   },
+   {
+    "i": 68,
+    "cut": 213.02,
+    "sim_at_0": 0.122,
+    "best_sim": 0.175,
+    "head_at_0": 141.2
+   },
+   {
+    "i": 69,
+    "cut": 216.24,
+    "sim_at_0": 0.423,
+    "best_sim": 0.515,
+    "head_at_0": 34.1
+   },
+   {
+    "i": 70,
+    "cut": 220.68,
+    "sim_at_0": 0.441,
+    "best_sim": 0.591,
+    "head_at_0": 37.5
+   },
+   {
+    "i": 71,
+    "cut": 224.01,
+    "sim_at_0": 0.202,
+    "best_sim": 0.413,
+    "head_at_0": 28.2
+   },
+   {
+    "i": 72,
+    "cut": 228.44,
+    "sim_at_0": 0.504,
+    "best_sim": 0.665,
+    "head_at_0": 17.1
+   }
+  ]
+ },
+ "summary": {
+  "his_at_k": {
+   "n": 15,
+   "median": 0.5,
+   "p10": 0.439
+  },
+  "attempt1_at_0": {
+   "n": 72,
+   "median": 0.379,
+   "p90": 0.517
+  },
+  "note": "cover_below = the midpoint of the two medians. They OVERLAP: similarity is the cover trigger, not the discriminator; the render's framing step covers every bare cut",
+  "head": {
+   "his_at_k": {
+    "n": 15,
+    "median": 17.9,
+    "p90": 46.9,
+    "max": 84.0
+   },
+   "attempt1_at_0": {
+    "n": 72,
+    "median": 39.0,
+    "p10": 19.9
+   },
+   "cover_above_px": 28.5,
+   "note": "head jump = face-box centre shift + height change, 1920-wide source px, last outgoing vs first incoming frame. cover_above_px = the midpoint of the two medians (the similarity row's rule). Not his p90: his are 16:9 cuts, and a vertical magnifies the same jump 1.78x.",
+   "separates": true
+  },
+  "midpoint": 0.439,
+  "separates": false
+ },
+ "measured": "2026-09-24 (head rows added, VQC-C); similarity rows first measured 2026-09-16"
+}

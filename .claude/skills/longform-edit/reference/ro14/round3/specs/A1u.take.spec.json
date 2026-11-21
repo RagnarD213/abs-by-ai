@@ -1,0 +1,25 @@
+{
+ "shot": "RO-14 A1 shot 2 (round 3): held scale, cut-in (Omni take from the approved A1 END frame)",
+ "intent": "Bright bathroom, locked camera. A man in a grey tee and black gym shorts, towel on his left shoulder, stands on the tile holding the white bathroom scale in both hands in front of his chest, frowning at its display; he taps the display with his right index finger, annoyed, as if it is broken. One rigid scale with one display; his feet stay put.",
+ "camera": "locked",
+ "may_change": {
+  "man_and_scale": [
+   700,
+   0,
+   1500,
+   1080
+  ]
+ },
+ "props": [
+  {
+   "name": "scale",
+   "box": [
+    860,
+    300,
+    1180,
+    560
+   ]
+  }
+ ],
+ "note": "START = round 1 approved A1-end.png (Dan approved the frame pair in round 1); window frames 12-78"
+}

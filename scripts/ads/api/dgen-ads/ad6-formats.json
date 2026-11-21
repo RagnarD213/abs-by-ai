@@ -1,0 +1,51 @@
+{
+  "campaignId": "24316364155",
+  "adGroupId": "204444440607",
+  "twinAdId": "826595554443",
+  "label": "Ad 6 You're Not Too Old",
+  "copyReadBackFromLive": {
+    "headlines": [
+      "How Men 40+ Lose Belly Fat",
+      "How To Get Abs After 40",
+      "How Busy 40+ Dads Lose Fat",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs At 40"
+    ],
+    "longHeadlines": [
+      "Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.",
+      "Korean AI prodigy discovers how to use AI to lose belly fat. Video reveals full story.",
+      "AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!"
+    ],
+    "descriptions": [
+      "You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.",
+      "I struggled with belly fat until I discovered how to use an AI trainer to get abs.",
+      "This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days."
+    ]
+  },
+  "videos": [
+    {
+      "youtubeId": "Yd7iVlosIkQ",
+      "version": "Claude 9:16",
+      "utm": "claude-vertical",
+      "sha256": "1cad0ee97cada04cdc0419d7b3dd2db02582949a816b8fabfadf1b5cbf69f900"
+    },
+    {
+      "youtubeId": "C-ThTBOPn2E",
+      "version": "Claude 9:16 59s",
+      "utm": "claude-vertical-59s",
+      "sha256": "dbadfb7a62c5bcf35b6677161b463092687ed96bb1b4001c91be9d9a8edf6b26"
+    },
+    {
+      "youtubeId": "3Rx5TmyUARU",
+      "version": "Claude 1:1",
+      "utm": "claude-square",
+      "sha256": "01dd9dc4ac47bb66182b0ff5a4c82273aacc6f769ecadcc453c0c0ce7aa74dbf"
+    },
+    {
+      "youtubeId": "aCsSsYG2vKI",
+      "version": "Claude 1:1 59s",
+      "utm": "claude-square-59s",
+      "sha256": "c8a829163ae794fd16146afae739335017ee0ddcf7d69415b661bd8801f452e7"
+    }
+  ]
+}

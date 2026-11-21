@@ -1,0 +1,25 @@
+{
+ "shot": "RO-17 A4",
+ "start_frame": "A4-start.png",
+ "intent": "A food-packing room. A worker in a white coat and hairnet tips a metal scoop of candy-coated chocolates into a glass jar of nuts and raisins that wears a green leaf sticker. END: the pour is done, the empty scoop still in the same hand above the jar, one layer of candy on top, the sticker unchanged; he grins and winks.",
+ "hands": {
+  "right": "holds the scoop in both frames",
+  "left": "steadies the jar"
+ },
+ "may_change": {
+  "jar_scoop_candy": [
+   470,
+   180,
+   960,
+   860
+  ],
+  "worker_head": [
+   770,
+   0,
+   1070,
+   270
+  ]
+ },
+ "bounds": {},
+ "note": "may_change also declares the people: MediaPipe's person mask misses most of the body in this frame (dark, or several people), so the static check would read the people as background"
+}

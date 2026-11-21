@@ -1,0 +1,90 @@
+{
+ "before_deckchair": {
+  "box": [
+   52,
+   150,
+   235,
+   133
+  ],
+  "frames": 32,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_red_shorts": {
+  "box": [
+   652,
+   162,
+   387,
+   116
+  ],
+  "frames": 17,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_towel": {
+  "box": [
+   310,
+   150,
+   422,
+   124
+  ],
+  "frames": 4,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_park_close": {
+  "box": [
+   112,
+   528,
+   235,
+   133
+  ],
+  "frames": 15,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_flag": {
+  "box": [
+   418,
+   150,
+   422,
+   124
+  ],
+  "frames": 18,
+  "contact_px": 0,
+  "ok": true
+ },
+ "ai_goal": {
+  "box": [
+   106,
+   426,
+   349,
+   56
+  ],
+  "frames": 31,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_pool_stand": {
+  "box": [
+   376,
+   150,
+   313,
+   175
+  ],
+  "frames": 11,
+  "contact_px": 0,
+  "ok": true
+ },
+ "real_pool_flex": {
+  "box": [
+   424,
+   222,
+   422,
+   124
+  ],
+  "frames": 15,
+  "contact_px": 0,
+  "ok": true
+ }
+}

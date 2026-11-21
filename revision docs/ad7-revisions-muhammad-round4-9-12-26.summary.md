@@ -1,0 +1,16 @@
+# AD 7 — ROUND 4 (Muhammad) — summary for Dan
+
+**Verdict: 2 items. NOT approved yet** — two of his three round-3 asks landed, the third came back inverted.
+
+Scorecard vs the AD 7 ROUND 3 section:
+- (a) "Real picture of me — not AI-generated" label on the real after pictures — **DONE.** On all six: the three photo shoot stills at 0:48.5 - 0:50.6 and the three at 2:20.5 - 2:24, full duration of each picture (checked entry and exit frames at full res), low on the frame, never over his face. AI pictures all still carry AI-GENERATED (0:02, 0:17, 0:27, 1:16.5, 1:29, 1:48.5, 1:57, 2:06.5, 2:48.5, 3:17.5).
+- (b) 2:00 - 2:04 first app demo uses Dan's before picture — **DONE.** The real 200 lb picture is on the Adjust Photo screen (2:01), the settings screen and the Generating screen (2:03.6), and it ends on his goal image with the AI-GENERATED tag at 2:05.4. No email screen.
+- (c) 3:25.5 - 3:28.5 closing demo keeps the other man and ends on THAT man's AI after picture — **NOT DONE, and inverted.** He applied the 2:00 fix here too: Dan's before picture on every screen (3:25.8, 3:28.3) and Dan's goal image at the end (3:28.8 - 3:29.2). So the closing demo is now a duplicate of the 2:00 demo, and the prospect line "So generate your future self image" is illustrated with Dan's own generation. The item restores the recording's man and ends on `1gFwcbYiRvoGQz1WJ7oKj-T7dRAM2zRPp`.
+
+Audio on the 1080p export: -14.20 LUFS, true peak -1.10 dBTP, 0 clipped samples, one mic (L/R +0.991), room 35 ms. No audio item (round >= 2 rule). Compliance clean: no side-by-side, no "Meet the new you", no email-capture screen, no before cut straight into after. Panels spot-checked at full res against the script, including the ChatGPT comparison panel at 2:44 — all correct.
+
+Second item (added after the Ad 10 review found the same thing, so the batch is consistent): the real-picture chip is set in italic inside square brackets on a see-through band that hangs off both edges of the picture, where the AI tag is bold upright caps on a solid black pill inside the picture — and you asked for "same chip style as the AI-GENERATED tag". The doc now carries the same THROUGHOUT item in Ad 7 and Ad 10, and Ads 6 and 14 are told to build it that way from the start.
+
+Paste-ready Upwork message:
+
+Hey Muhammad — Ad 7 round 4 is in the same doc: https://docs.google.com/document/d/1L2XJKLFrRJHKlcL4Iii70iFvZeiNNeplxYQw2aeAJ_A/edit — it is two small things. The new "Real picture of me" label is on all six photo shoot pictures in the right places, and the 2:00 app demo with my before picture and my goal image is exactly right, keep both. First, build that new label as the same chip as the AI-GENERATED tag — solid black pill, upright, not italic, no square brackets — same pictures, same timing. Second, put back the closing demo at 3:25.5: that one was meant to stay the other guy's generation, because the line over it is about the viewer generating, not me — so put the man from the recording back on the upload and Generating screens and end it on his own AI after picture (linked in the doc) instead of my goal image. That is the whole list; once it is in, Ad 7 is final and you can send the 1080p of that cut.

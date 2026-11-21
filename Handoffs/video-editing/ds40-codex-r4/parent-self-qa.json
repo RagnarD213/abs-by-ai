@@ -1,0 +1,157 @@
+{
+  "sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+  "checks": {
+    "R3 key": {
+      "sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+      "reference_unchanged": true
+    },
+    "Balanced voice": {
+      "sha256": "089264175840f8aa4956d98a7e8bd82d93bd8c1dcee73493d4733ae224df2a6f",
+      "reference_unchanged": true
+    },
+    "warm grade": {
+      "sha256": "d6d2c4cd854088f4383649f4b9929631a7f2c3d409c8dd08d1db41a916f600ce",
+      "reference_unchanged": true
+    },
+    "same_passage_voice": {
+      "aligned_correlation": 0.9985551682771016,
+      "alignment_lag_ms": -11.208333333333334,
+      "rms_gain_db": -1.2364194187339939,
+      "method": "Native 48 kHz sample comparison after bounded lag alignment; verified on D. Final E AAC is byte-identical, so this approved-profile preservation comparison remains valid."
+    },
+    "BMI_table_actual_pixels": {
+      "mean_absolute_rgb_difference_from_independent_table": 4.543039316421013,
+      "independent_table_sha256": "299e34cc27f0d672d4a26b72b7ffea7d88db17bb4913e8a74fa8df59f4dbb2ce",
+      "cells": 81
+    }
+  },
+  "freeze_dispositions": [
+    {
+      "t": 42.84,
+      "seconds": 0.5,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.033750364537766114,
+      "native_field_mean_abs_diff_max": 0.14351171381355107,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 19
+    },
+    {
+      "t": 46.71,
+      "seconds": 0.5,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.025695052007387965,
+      "native_field_mean_abs_diff_max": 0.050214105181296785,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 19
+    },
+    {
+      "t": 47.28,
+      "seconds": 0.7,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.027454554291824633,
+      "native_field_mean_abs_diff_max": 0.05223753280839895,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 25
+    },
+    {
+      "t": 48.01,
+      "seconds": 1.4,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.013635170603674541,
+      "native_field_mean_abs_diff_max": 0.05223753280839895,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 46
+    },
+    {
+      "t": 49.45,
+      "seconds": 0.87,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.01018615728589482,
+      "native_field_mean_abs_diff_max": 0.03110868085933703,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 30
+    },
+    {
+      "t": 51.08,
+      "seconds": 0.53,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.0243763973947701,
+      "native_field_mean_abs_diff_max": 0.04440021386215612,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 20
+    },
+    {
+      "t": 51.65,
+      "seconds": 1.57,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.027814474579566442,
+      "native_field_mean_abs_diff_max": 0.052425634295713036,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 51
+    },
+    {
+      "t": 57.52,
+      "seconds": 1.0,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.011918440750461747,
+      "native_field_mean_abs_diff_max": 0.055008019830854474,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 34
+    },
+    {
+      "t": 58.59,
+      "seconds": 0.6,
+      "inside_declared": true,
+      "actual_pixels": "Height/weight BMI table, continuous shared Soft Blue Light field and accent. No presenter hold.",
+      "native_field_mean_abs_diff_min": 0.011918440750461747,
+      "native_field_mean_abs_diff_max": 0.12441892680081656,
+      "identical_adjacent_native_field_frames": 0,
+      "inspected_native_pairs": 22
+    }
+  ],
+  "required_scenes": [
+    "Bill Maher original excerpt first",
+    "Dan actual silent watching",
+    "complete scripted response",
+    "G02 belly fat emergency",
+    "G03 numeric height/weight BMI table through all three lines",
+    "return to Dan with G04 subscribe"
+  ],
+  "limits": [
+    "Full continuous sampled AV parent check was on C; independent final AV review and corrected opening proof bind E.",
+    "All 1694 tail frames from250 onward and all AAC bytes are identical to D. Prior scene and freeze pixel checks remain valid by exact equality.",
+    "Numerical hair temporal test remains unimplemented. Caption gate measures chunk onsets, not individual highlights."
+  ],
+  "prior_review_sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+  "caption_repair": {
+    "prior_sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+    "first_caption_onset": 0.26,
+    "reason": "Independent final AAC CTC and native audio RMS show speech starts 0.26-0.30, while caption was at 0.000.",
+    "reencoded_picture_frames": [
+      0,
+      249
+    ],
+    "unchanged_decoded_tail_frames": 1694,
+    "all_native_tail_frame_md5_equal": true,
+    "unchanged_AAC_sha256": "0a10a6bcdeb138ea40def34e2e5a319d6bde3739541c05fac5259dcfa62d4972",
+    "final_sha256": "200c7b2b84cfba2aa0539b8d7078973b902c635d4447ffabb9e207b3307c609b",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "r_frame_rate": "30000/1001",
+          "duration": "64.864800",
+          "nb_read_frames": "1944"
+        }
+      ]
+    }
+  }
+}

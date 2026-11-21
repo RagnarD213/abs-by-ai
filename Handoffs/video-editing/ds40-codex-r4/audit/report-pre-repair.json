@@ -1,0 +1,252 @@
+{
+  "candidate": "review/media/bill-maher-fat-90-year-old-r4.mp4",
+  "sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+  "verdict": "DO NOT SHIP",
+  "actionable_verdict": "Move only the first burned caption chunk to the delivered But onset near 0.260s, then rebuild and recheck the exact new file. Keep all locked picture, key, grade and voice choices.",
+  "inspected": {
+    "watch_sheets": 3,
+    "watch_strips": 10,
+    "watch_pairs": 10,
+    "native_two_second_boundary_clips": 10,
+    "actual_boundary_inventory": 10,
+    "actual_boundaries_disposed": 10,
+    "freeze_candidates": 9,
+    "freeze_candidates_disposed": 9,
+    "source_context_frames": 9
+  },
+  "confirmed_defects": [
+    {
+      "item": "caption_sync",
+      "time": 0.0,
+      "observed": "First caption chunk is visible at 0.000, about 0.26 to 0.30 seconds before the spoken But onset.",
+      "evidence": "Final AAC direct CTC But 0.260 to 0.360; first decoded audio RMS near -50 dBFS 0.18 to 0.28, speech begins at 0.30; caption-states.json beat 0.000 to 0.852.",
+      "scope": "Opening caption timing only. No speech edit."
+    }
+  ],
+  "boundary_dispositions": [
+    {
+      "t": 17.9513,
+      "verdict": "clean",
+      "note": "Internal watching-key to continuous tail at frame 538. Bill and Dan remain continuous; no uncovered pose reset. Hair is visibly below the panel top."
+    },
+    {
+      "t": 19.6196,
+      "verdict": "expected",
+      "note": "Declared end of Bill excerpt and scene change to Dan at frame 588. Complete final word lie; title card clears before Dan fills frame."
+    },
+    {
+      "t": 32.399,
+      "verdict": "expected",
+      "note": "Declared fixed tighter punch at frame 971 on one continuous source performance. No take jump or clipped hair."
+    },
+    {
+      "t": 32.6474,
+      "verdict": "expected",
+      "note": "Declared emergency lower third enters over chest with moving accent. Face and captions clear."
+    },
+    {
+      "t": 37.8474,
+      "verdict": "expected",
+      "note": "Declared emergency lower third exits while the presenter continues moving."
+    },
+    {
+      "t": 42.409,
+      "verdict": "clean",
+      "note": "Approved R3 sample to three continuous key-tail frames at frame 1271. Pose, hands and face remain continuous."
+    },
+    {
+      "t": 42.5091,
+      "verdict": "expected",
+      "note": "Declared full BMI card enters at frame 1274. Table matches independent BMI still and is below the caption."
+    },
+    {
+      "t": 55.7474,
+      "verdict": "clean",
+      "note": "Covered audio removal at 55.7474. The watch strip contains random-seek decoder corruption of some table digits after the boundary; sequential master frames are clean. The picture stays on the same table, and final ASR has healthy weight followed by If you are on the obese category."
+    },
+    {
+      "t": 60.6606,
+      "verdict": "expected",
+      "note": "Declared BMI card exit and return to Dan at frame 1818. The watch pair and strip contain random-seek decoder corruption of table digits just before the cut; sequential full-master frame 1817 is clean (SHA256 81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550)."
+    },
+    {
+      "t": 61.0074,
+      "verdict": "expected",
+      "note": "Declared subscribe lower third enters over chest, clear of face and captions."
+    }
+  ],
+  "evidence_artifacts": [
+    {
+      "watch_images": [
+        "internal-candidate-d/watch/strips/strip_007_00-55.75_join.jpg",
+        "internal-candidate-d/watch/strips/pair_007_00-55.75.jpg",
+        "internal-candidate-d/watch/strips/strip_008_01-00.66_G03_out___covered_out___graphic_regions_.jpg",
+        "internal-candidate-d/watch/strips/pair_008_01-00.66.jpg"
+      ],
+      "observation": "Some digits appear garbled in random-seek watch extractions. This is not in the sequentially decoded master.",
+      "counter_evidence": [
+        "audit/native1817.png",
+        "audit/bmiout-montage.jpg",
+        "audit/freeze-montage.jpg"
+      ],
+      "native1817_sha256": "81f5d3a07bdf22cb93cd94ab88bc0bde3e0d367706072338cdb0c8b36427d550"
+    }
+  ],
+  "freeze_dispositions": [
+    {
+      "t": 42.84,
+      "seconds": 0.5,
+      "frame_checked": 1291,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1291.png"
+    },
+    {
+      "t": 46.71,
+      "seconds": 0.5,
+      "frame_checked": 1407,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1407.png"
+    },
+    {
+      "t": 47.28,
+      "seconds": 0.7,
+      "frame_checked": 1427,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1427.png"
+    },
+    {
+      "t": 48.01,
+      "seconds": 1.4,
+      "frame_checked": 1460,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1460.png"
+    },
+    {
+      "t": 49.45,
+      "seconds": 0.87,
+      "frame_checked": 1495,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1495.png"
+    },
+    {
+      "t": 51.08,
+      "seconds": 0.53,
+      "frame_checked": 1539,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1539.png"
+    },
+    {
+      "t": 51.65,
+      "seconds": 1.57,
+      "frame_checked": 1571,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1571.png"
+    },
+    {
+      "t": 57.52,
+      "seconds": 1.0,
+      "frame_checked": 1739,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1739.png"
+    },
+    {
+      "t": 58.59,
+      "seconds": 0.6,
+      "frame_checked": 1765,
+      "actual_pixels": "BMI height/weight table, approved static scientific content. No presenter in this scene. Dark blue Soft Blue Light field and top accent change in adjacent native frames.",
+      "disposition": "intentional still with moving field; no accidental presenter freeze",
+      "native_adjacent_image": "audit/freeze-1765.png"
+    }
+  ],
+  "required_scenes": [
+    {
+      "scene": "Bill Maher complete original sentences first with Dan silently watching",
+      "result": "present",
+      "reference": "bill-maher-source.f398.mp4 and original audio f251.webm; raw C1730 at 1354.5 and 1374.0; final ASR includes complete question, Scary, and unchallenged lie."
+    },
+    {
+      "scene": "Scripted response",
+      "result": "present",
+      "reference": "C1730 source at 1400.23, 1413.01 and 1423.12; no laptop visible after portrait crop."
+    },
+    {
+      "scene": "Animated Soft Blue Light emergency key point",
+      "result": "present",
+      "reference": "G02 at 32.6474 to 37.8474; title visible in final sheets and moving clip samples."
+    },
+    {
+      "scene": "Real height and weight BMI table through three spoken lines",
+      "result": "present",
+      "reference": "bmi-table.png SHA256 299e34cc27f0d672d4a26b72b7ffea7d88db17bb4913e8a74fa8df59f4dbb2ce; verified examples 5 foot 2 at 120 lb 21.9, 6 foot 0 at 180 lb 24.4, 6 foot 6 at 280 lb 32.4; table spans 42.509 to 60.661 and captions remain below."
+    },
+    {
+      "scene": "Return to Dan with subscribe graphic",
+      "result": "present",
+      "reference": "C1730 at 1444.7 to 1448.85; G04 begins 61.007; last ASR has full subscribe sentence."
+    }
+  ],
+  "source_fidelity": {
+    "camera_source_sha256": "405ee31f44ed0ac3d131820d36ff7142e844408cd8c26ac9399acaa491883271",
+    "camera_source_context": "audit/source-montage.jpg",
+    "bill_audio": "Original 134.000 to 153.6196 seconds retained to include complete opening and final word.",
+    "covered_audio_join": "At output 55.7474, source skips unscripted added America sentence, while the BMI table covers picture. Final ASR says healthy weight followed by If you are on the obese category. No missing word is evident in sampled AV review; zero click flags at the two audio joins.",
+    "voice": "Aligned same-passage correlation 0.998555, lag -11.2083ms, level -1.2364dB after whole-take normalization; approved Balanced recipe unchanged."
+  },
+  "hair": {
+    "review": "Light and dark diagnostic sampled every three seconds plus main native boundary clips and full-size opener. No visible hair loss, internal holes, tint seam or trail in those samples. Hair at 18.018 is below the reaction-panel seam despite hair_top gate warning.",
+    "diagnostic_image": "audit/hair-montage.jpg",
+    "numerical_temporal_hair_gate": "NOT IMPLEMENTED"
+  },
+  "captions": {
+    "state_count": 53,
+    "style": "J2 multiword chunks; word field is first word only. The onset gate does not verify each internal word.",
+    "text": "Whole final ASR and sampled video match expected response, including lower-case abs. Gemini assertion of Bill Mar at 20 seconds is refuted by full-size final frame and caption state Bill Maher is right.",
+    "opening_miss_ms": -260
+  },
+  "model_review": {
+    "provider": "Gemini",
+    "model": "gemini-2.5-flash",
+    "purpose": "independent-full-candidate-av-review",
+    "actual_usd": 0.009641,
+    "input_tokens": 19313,
+    "output_tokens": 1539,
+    "sampling": "API default video sample rate was not explicitly set; likely around 1 fps, so this does not verify native 29.97 fps motion, hair strands or every boundary.",
+    "rejected_claims": [
+      "Bill Mar caption at 20 seconds, while native pixels and caption state spell Bill Maher",
+      "Solid light-blue field behind BMI, while native pixels show a dark moving Soft Blue Light field"
+    ]
+  },
+  "raw_delivery_gate": {
+    "verdict": "FAIL",
+    "sha256": "01959f235d097b412677a5ffdb3f602d1f2729dcbc56c6f7b4d59871562283aa",
+    "failed_rows": {
+      "audio:stamp": "no valid audio-gate stamp: AUDIO GATE FAILED on bill-maher-fat-90-year-old-r4.mp4: lr_corr, tone, artifacts, do_no_harm, dryness -- fix the audio, do not deliver",
+      "audio:stream_integrity": "audio 64.863s vs picture 64.865s (gap +0.002s; allowed -0.15..+0.15s); 1 silent second(s) at [4]; quietest -53.8 dBFS",
+      "style:change_rate": "4 picture changes = 3.7/min (min 4.0/min)",
+      "framing:hair_top": "hair top below the edge: min 0 px, median 58 (min 20 px, normalized to each 1080-high talking-head window); 7 sample(s) under it for >= 2 in a row [(16.5, 2.18), (16.75, 2.18), (18.0, 0.0), (18.25, 0.0), (18.5, 0.0)]; independent top-rows test: 0 sample(s) with head in the top 12 rows (>= 0.2) []; 118/187 valid",
+      "framing:push_coverage": "3 talking holds on the dominant shot (head 36.6% of its window): per-hold median head height 36.2-38.7% = spread x1.069 (min x1.1); 0% of that talk sits >= 6 % off the dominant level; 0 hold(s) on other shots ignored",
+      "cut:splice_visibility": "2/7 joins above the file's own p99 ceiling (11.35): [(32.4, 25.78), (42.41, 78.23)]",
+      "captions:sync": "53/53 highlighted PNG word states aligned to 194 delivered-audio words (100.0%, min 97%); median +5 ms, worst -260 ms (max 120); 0 state(s) absent from delivered pixels, 1 timing miss(es)",
+      "watch:pass": "0/10 boundaries reviewed as consecutive frames, 0/13 images judged by ? (tied to this file by sha256); `inspected` is not true, only 0/10 boundaries reviewed, 13 image(s) without a verdict (first: ['sheet_00_00-00.00_to_00-23.99.jpg', 'sheet_01_00-24.99_to_00-49.02.jpg', 'sheet_02_00-50.02_to_01-04.00.jpg'])"
+    },
+    "not_measured_rows": {
+      "compliance:banned_screen": "NOT MEASURED -- `banned_source` not readable (None) -- is the asset library mounted? Without the screen itself nothing can scan for it",
+      "compliance:negative_events": "NOT MEASURED -- no `negative_events_scan` in the plan. Sample frames across the finished cut, look for close-ups of out-of-shape body parts framed with shame, and record {sha256, when, frames_checked, findings}. A certain violation you replace yourself; an unsure one you leave in and flag for Dan"
+    },
+    "note": "This snapshot predates the parent audio baseline correction and watch judgment; failures stay explicit and will be rerun on the repaired exact file."
+  },
+  "limits": [
+    "No claim of full native human playback. Image and clip samples plus one default-rate model review cover the visual audit.",
+    "The nine BMI freeze flags are declared still content with moving field; this is not a numerical temporal hair pass.",
+    "The watch pair and strip corruption near 55.75 and 60.66 is preserved as raw evidence; sequential counter-evidence is separately stored.",
+    "Dan has not approved this candidate."
+  ]
+}

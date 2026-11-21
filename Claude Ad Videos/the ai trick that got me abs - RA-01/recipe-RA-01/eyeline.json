@@ -1,0 +1,10 @@
+{
+ "method": "mediapipe FaceMesh on the graded source frames: yaw from the nose tip against the cheek-edge midpoint, pitch from the nose against the forehead-chin midpoint",
+ "yaw_deg_est": -1.3,
+ "yaw_range": [
+  -17.3,
+  7.7
+ ],
+ "pitch_deg_est": 3.7,
+ "notes": "a small consistent yaw with no drift is a teleprompter just off the lens axis; the sign says which side"
+}

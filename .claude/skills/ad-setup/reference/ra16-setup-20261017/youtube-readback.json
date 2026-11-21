@@ -1,0 +1,174 @@
+{
+  "at": "2026-10-17T19:03:44.212Z",
+  "videos": [
+    {
+      "format": "9x16",
+      "kind": "youtube#video",
+      "etag": "OBmDwI8zEldh1BLAyCysi1ud6tI",
+      "id": "StkalQUjWSw",
+      "snippet": {
+        "publishedAt": "2026-10-17T19:02:28Z",
+        "channelId": "UC236gjadarHAhEhOMYNGJ9g",
+        "title": "AI Took My Job",
+        "description": "I'm a personal trainer, and AI just took my job. I explain how AI creates a workout and nutrition plan around a personal goal, then adjusts it when life gets in the way.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra16\n\nI show how a goal picture guides the plan, how workouts and nutrition are personalized, and how AI adapts around injuries, missed gym sessions and unavailable equipment.\n\nChapters\n0:00 AI took my job\n0:20 Start with a goal picture\n0:32 Build a personal plan\n0:43 Adjust when life changes\n\nSome images in this video are AI-generated, including my pool goal picture. The starting photograph of me is real. Goal images illustrate a possible result, not a guarantee.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          },
+          "qhd": {
+            "url": "https://i.ytimg.com/vi/StkalQUjWSw/qhddefault.jpg",
+            "width": 2560,
+            "height": 1440
+          }
+        },
+        "channelTitle": "Dan Rose Fitness",
+        "tags": [
+          "AI personal trainer",
+          "ab workout",
+          "abs by ai",
+          "ai fitness",
+          "personal training",
+          "six pack abs"
+        ],
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "AI Took My Job",
+          "description": "I'm a personal trainer, and AI just took my job. I explain how AI creates a workout and nutrition plan around a personal goal, then adjusts it when life gets in the way.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra16\n\nI show how a goal picture guides the plan, how workouts and nutrition are personalized, and how AI adapts around injuries, missed gym sessions and unavailable equipment.\n\nChapters\n0:00 AI took my job\n0:20 Start with a goal picture\n0:32 Build a personal plan\n0:43 Adjust when life changes\n\nSome images in this video are AI-generated, including my pool goal picture. The starting photograph of me is real. Goal images illustrate a possible result, not a guarantee."
+        }
+      },
+      "contentDetails": {
+        "duration": "PT59S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular",
+        "hasCustomThumbnail": true
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "unlisted",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false,
+        "selfDeclaredMadeForKids": false
+      },
+      "processingDetails": {
+        "processingStatus": "succeeded",
+        "fileDetailsAvailability": "available",
+        "processingIssuesAvailability": "available",
+        "tagSuggestionsAvailability": "inProgress",
+        "editorSuggestionsAvailability": "inProgress",
+        "thumbnailsAvailability": "inProgress"
+      }
+    },
+    {
+      "format": "16x9",
+      "kind": "youtube#video",
+      "etag": "VV16r8evJ3RnIvJpb-OX1vyIWKs",
+      "id": "g8GWwOYzelM",
+      "snippet": {
+        "publishedAt": "2026-10-17T19:02:29Z",
+        "channelId": "UC236gjadarHAhEhOMYNGJ9g",
+        "title": "AI Took My Job",
+        "description": "I'm a personal trainer, and AI just took my job. I explain how AI creates a workout and nutrition plan around a personal goal, then adjusts it when life gets in the way.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra16\n\nI show how a goal picture guides the plan, how workouts and nutrition are personalized, and how AI adapts around injuries, missed gym sessions and unavailable equipment.\n\nChapters\n0:00 AI took my job\n0:20 Start with a goal picture\n0:32 Build a personal plan\n0:43 Adjust when life changes\n\nSome images in this video are AI-generated, including my pool goal picture. The starting photograph of me is real. Goal images illustrate a possible result, not a guarantee.",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/g8GWwOYzelM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/g8GWwOYzelM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/g8GWwOYzelM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/g8GWwOYzelM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/g8GWwOYzelM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "Dan Rose Fitness",
+        "tags": [
+          "AI personal trainer",
+          "ab workout",
+          "abs by ai",
+          "ai fitness",
+          "personal training",
+          "six pack abs"
+        ],
+        "categoryId": "26",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "en",
+        "localized": {
+          "title": "AI Took My Job",
+          "description": "I'm a personal trainer, and AI just took my job. I explain how AI creates a workout and nutrition plan around a personal goal, then adjusts it when life gets in the way.\n\nExplore Abs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=video_ad_description&utm_campaign=dgen-trial-ra16\n\nI show how a goal picture guides the plan, how workouts and nutrition are personalized, and how AI adapts around injuries, missed gym sessions and unavailable equipment.\n\nChapters\n0:00 AI took my job\n0:20 Start with a goal picture\n0:32 Build a personal plan\n0:43 Adjust when life changes\n\nSome images in this video are AI-generated, including my pool goal picture. The starting photograph of me is real. Goal images illustrate a possible result, not a guarantee."
+        }
+      },
+      "contentDetails": {
+        "duration": "PT59S",
+        "dimension": "2d",
+        "definition": "hd",
+        "caption": "false",
+        "licensedContent": false,
+        "contentRating": {},
+        "projection": "rectangular",
+        "hasCustomThumbnail": true
+      },
+      "status": {
+        "uploadStatus": "processed",
+        "privacyStatus": "unlisted",
+        "license": "youtube",
+        "embeddable": true,
+        "publicStatsViewable": true,
+        "madeForKids": false,
+        "selfDeclaredMadeForKids": false
+      },
+      "processingDetails": {
+        "processingStatus": "succeeded",
+        "fileDetailsAvailability": "available",
+        "processingIssuesAvailability": "available",
+        "tagSuggestionsAvailability": "inProgress",
+        "editorSuggestionsAvailability": "inProgress",
+        "thumbnailsAvailability": "inProgress"
+      }
+    }
+  ]
+}

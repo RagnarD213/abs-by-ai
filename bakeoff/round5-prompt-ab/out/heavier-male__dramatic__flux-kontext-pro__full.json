@@ -1,0 +1,28 @@
+{
+  "caseId": "heavier-male__dramatic",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "full",
+  "label": "FLUX Kontext Pro",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 10873,
+  "geminiSafetyRetry": false,
+  "promptChars": 4027,
+  "nominalCost": 0.04,
+  "image": "heavier-male__dramatic__flux-kontext-pro__full.jpg",
+  "meta": {
+    "predictTime": 10.244354535,
+    "predictionId": "dxzxjxy5t5rmr0czp1h8nws8ec"
+  },
+  "ts": "2026-07-30T00:18:21.622Z"
+}

@@ -1,0 +1,2125 @@
+{
+ "fitted": "2026-10-10",
+ "chunk_words": 300,
+ "about": "Bands (10th to 90th percentile of Dan's own 300-word pieces) for every measure that separates his text from Claude's. Numbers only, no text. Refit with voice_check.py --fit.",
+ "formats": {
+  "content/video": {
+   "measures": {
+    "and": {
+     "lo": 1.3,
+     "hi": 3.45,
+     "median": 2.23,
+     "claude_median": 3.63,
+     "auc": 0.84,
+     "weight": 0.68,
+     "claude_side": "high"
+    },
+    "questions": {
+     "lo": 0.0,
+     "hi": 0.33,
+     "median": 0.0,
+     "claude_median": 0.38,
+     "auc": 0.82,
+     "weight": 0.64,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 2.85,
+     "hi": 6.15,
+     "median": 4.13,
+     "claude_median": 6.84,
+     "auc": 0.9,
+     "weight": 0.8,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 12.6,
+     "hi": 20.92,
+     "median": 16.2,
+     "claude_median": 12.5,
+     "auc": 0.17,
+     "weight": 0.66,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 6.4,
+     "hi": 12.72,
+     "median": 8.6,
+     "claude_median": 7.95,
+     "auc": 0.34,
+     "weight": 0.32,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 45.37,
+     "hi": 77.86,
+     "median": 60.9,
+     "claude_median": 47.35,
+     "auc": 0.19,
+     "weight": 0.61,
+     "claude_side": "low"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 33.3,
+     "median": 0.0,
+     "claude_median": 22.5,
+     "auc": 0.7,
+     "weight": 0.4,
+     "claude_side": "high"
+    },
+    "w:actually": {
+     "lo": 0.0,
+     "hi": 3.27,
+     "median": 0.0,
+     "claude_median": 2.66,
+     "auc": 0.71,
+     "weight": 0.42,
+     "claude_side": "high"
+    },
+    "w:stuff": {
+     "lo": 0.0,
+     "hi": 3.26,
+     "median": 0.0,
+     "claude_median": 2.61,
+     "auc": 0.72,
+     "weight": 0.45,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 19.39,
+     "median": 6.67,
+     "claude_median": 0.0,
+     "auc": 0.28,
+     "weight": 0.43,
+     "claude_side": "low"
+    },
+    "w:gonna": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.69,
+     "weight": 0.38,
+     "claude_side": "high"
+    },
+    "w:just": {
+     "lo": 0.0,
+     "hi": 12.8,
+     "median": 5.95,
+     "claude_median": 7.84,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 3.27,
+     "hi": 20.36,
+     "median": 10.02,
+     "claude_median": 17.11,
+     "auc": 0.78,
+     "weight": 0.57,
+     "claude_side": "high"
+    },
+    "w:right": {
+     "lo": 0.0,
+     "hi": 9.8,
+     "median": 3.27,
+     "claude_median": 6.76,
+     "auc": 0.71,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "w:okay": {
+     "lo": 0.0,
+     "hi": 3.23,
+     "median": 0.0,
+     "claude_median": 2.62,
+     "auc": 0.72,
+     "weight": 0.45,
+     "claude_side": "high"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 20.33,
+     "median": 5.6,
+     "claude_median": 3.25,
+     "auc": 0.32,
+     "weight": 0.35,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 20.24,
+     "median": 6.9,
+     "claude_median": 21.05,
+     "auc": 0.83,
+     "weight": 0.66,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 27.0,
+     "hi": 52.3,
+     "median": 36.0,
+     "claude_median": 30.5,
+     "auc": 0.3,
+     "weight": 0.39,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 15.68,
+     "hi": 42.1,
+     "median": 27.8,
+     "claude_median": 49.5,
+     "auc": 0.93,
+     "weight": 0.85,
+     "claude_side": "high"
+    },
+    "start_repeat_pct": {
+     "lo": 0.0,
+     "hi": 10.5,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.31,
+     "weight": 0.38,
+     "claude_side": "low"
+    },
+    "repeat3": {
+     "lo": 4.4,
+     "hi": 13.74,
+     "median": 8.08,
+     "claude_median": 3.66,
+     "auc": 0.13,
+     "weight": 0.74,
+     "claude_side": "low"
+    },
+    "word_len": {
+     "lo": 3.96,
+     "hi": 4.48,
+     "median": 4.2,
+     "claude_median": 4.05,
+     "auc": 0.3,
+     "weight": 0.4,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 2.93,
+     "hi": 7.44,
+     "median": 4.77,
+     "claude_median": 2.35,
+     "auc": 0.23,
+     "weight": 0.54,
+     "claude_side": "low"
+    },
+    "comma": {
+     "lo": 2.96,
+     "hi": 7.6,
+     "median": 5.37,
+     "claude_median": 8.18,
+     "auc": 0.9,
+     "weight": 0.8,
+     "claude_side": "high"
+    },
+    "hedge_k": {
+     "lo": 0.0,
+     "hi": 12.87,
+     "median": 3.33,
+     "claude_median": 3.07,
+     "auc": 0.34,
+     "weight": 0.31,
+     "claude_side": "low"
+    }
+   },
+   "line": 17.4,
+   "dan_pieces": 168,
+   "claude_pieces": 18,
+   "dan_median_score": 10.7,
+   "claude_median_score": 40.2,
+   "claude_caught_pct": 100
+  },
+  "content/video-business": {
+   "measures": {
+    "and": {
+     "lo": 1.29,
+     "hi": 3.64,
+     "median": 2.3,
+     "claude_median": 3.62,
+     "auc": 0.79,
+     "weight": 0.58,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 13.29,
+     "median": 6.06,
+     "claude_median": 14.12,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:because": {
+     "lo": 0.0,
+     "hi": 6.56,
+     "median": 2.75,
+     "claude_median": 5.43,
+     "auc": 0.76,
+     "weight": 0.52,
+     "claude_side": "high"
+    },
+    "w:just": {
+     "lo": 0.0,
+     "hi": 12.92,
+     "median": 5.35,
+     "claude_median": 8.7,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 3.23,
+     "hi": 17.81,
+     "median": 9.71,
+     "claude_median": 14.49,
+     "auc": 0.79,
+     "weight": 0.58,
+     "claude_side": "high"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 20.0,
+     "median": 6.2,
+     "claude_median": 11.1,
+     "auc": 0.72,
+     "weight": 0.44,
+     "claude_side": "high"
+    },
+    "start_conj_pct": {
+     "lo": 16.7,
+     "hi": 50.0,
+     "median": 33.3,
+     "claude_median": 50.0,
+     "auc": 0.88,
+     "weight": 0.76,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 4.92,
+     "hi": 23.16,
+     "median": 10.56,
+     "claude_median": 4.35,
+     "auc": 0.25,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 51.3,
+     "hi": 64.0,
+     "median": 58.0,
+     "claude_median": 60.0,
+     "auc": 0.65,
+     "weight": 0.31,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.03,
+     "hi": 4.62,
+     "median": 4.28,
+     "claude_median": 4.14,
+     "auc": 0.33,
+     "weight": 0.33,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 3.26,
+     "hi": 9.24,
+     "median": 5.94,
+     "claude_median": 3.8,
+     "auc": 0.23,
+     "weight": 0.55,
+     "claude_side": "low"
+    },
+    "comma": {
+     "lo": 2.66,
+     "hi": 6.9,
+     "median": 4.9,
+     "claude_median": 7.28,
+     "auc": 0.84,
+     "weight": 0.68,
+     "claude_side": "high"
+    },
+    "formal_k": {
+     "lo": 0.0,
+     "hi": 8.99,
+     "median": 3.04,
+     "claude_median": 0.0,
+     "auc": 0.26,
+     "weight": 0.47,
+     "claude_side": "low"
+    }
+   },
+   "line": 19.8,
+   "dan_pieces": 367,
+   "claude_pieces": 7,
+   "dan_median_score": 11.8,
+   "claude_median_score": 34.1,
+   "claude_caught_pct": 86
+  },
+  "content/*": {
+   "measures": {
+    "and": {
+     "lo": 1.29,
+     "hi": 3.64,
+     "median": 2.3,
+     "claude_median": 3.62,
+     "auc": 0.79,
+     "weight": 0.58,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 13.29,
+     "median": 6.06,
+     "claude_median": 14.12,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:because": {
+     "lo": 0.0,
+     "hi": 6.56,
+     "median": 2.75,
+     "claude_median": 5.43,
+     "auc": 0.76,
+     "weight": 0.52,
+     "claude_side": "high"
+    },
+    "w:just": {
+     "lo": 0.0,
+     "hi": 12.92,
+     "median": 5.35,
+     "claude_median": 8.7,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 3.23,
+     "hi": 17.81,
+     "median": 9.71,
+     "claude_median": 14.49,
+     "auc": 0.79,
+     "weight": 0.58,
+     "claude_side": "high"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 20.0,
+     "median": 6.2,
+     "claude_median": 11.1,
+     "auc": 0.72,
+     "weight": 0.44,
+     "claude_side": "high"
+    },
+    "start_conj_pct": {
+     "lo": 16.7,
+     "hi": 50.0,
+     "median": 33.3,
+     "claude_median": 50.0,
+     "auc": 0.88,
+     "weight": 0.76,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 4.92,
+     "hi": 23.16,
+     "median": 10.56,
+     "claude_median": 4.35,
+     "auc": 0.25,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 51.3,
+     "hi": 64.0,
+     "median": 58.0,
+     "claude_median": 60.0,
+     "auc": 0.65,
+     "weight": 0.31,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.03,
+     "hi": 4.62,
+     "median": 4.28,
+     "claude_median": 4.14,
+     "auc": 0.33,
+     "weight": 0.33,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 3.26,
+     "hi": 9.24,
+     "median": 5.94,
+     "claude_median": 3.8,
+     "auc": 0.23,
+     "weight": 0.55,
+     "claude_side": "low"
+    },
+    "comma": {
+     "lo": 2.66,
+     "hi": 6.9,
+     "median": 4.9,
+     "claude_median": 7.28,
+     "auc": 0.84,
+     "weight": 0.68,
+     "claude_side": "high"
+    },
+    "formal_k": {
+     "lo": 0.0,
+     "hi": 8.99,
+     "median": 3.04,
+     "claude_median": 0.0,
+     "auc": 0.26,
+     "weight": 0.47,
+     "claude_side": "low"
+    }
+   },
+   "line": 19.8,
+   "dan_pieces": 367,
+   "claude_pieces": 7,
+   "dan_median_score": 11.8,
+   "claude_median_score": 34.1,
+   "claude_caught_pct": 86
+  },
+  "ads/ad-own": {
+   "measures": {
+    "contractions": {
+     "lo": 2.25,
+     "hi": 5.01,
+     "median": 3.65,
+     "claude_median": 4.98,
+     "auc": 0.7,
+     "weight": 0.41,
+     "claude_side": "high"
+    },
+    "sent_sd": {
+     "lo": 5.54,
+     "hi": 7.08,
+     "median": 6.4,
+     "claude_median": 9.3,
+     "auc": 0.85,
+     "weight": 0.71,
+     "claude_side": "high"
+    },
+    "para_words": {
+     "lo": 24.08,
+     "hi": 39.9,
+     "median": 33.7,
+     "claude_median": 43.1,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 13.94,
+     "median": 0.0,
+     "claude_median": 16.7,
+     "auc": 0.69,
+     "weight": 0.37,
+     "claude_side": "high"
+    },
+    "oneline_pct": {
+     "lo": 0.0,
+     "hi": 18.5,
+     "median": 10.0,
+     "claude_median": 0.0,
+     "auc": 0.26,
+     "weight": 0.48,
+     "claude_side": "low"
+    },
+    "w:actually": {
+     "lo": 0.0,
+     "hi": 3.18,
+     "median": 0.0,
+     "claude_median": 3.24,
+     "auc": 0.75,
+     "weight": 0.5,
+     "claude_side": "high"
+    },
+    "w:very": {
+     "lo": 0.0,
+     "hi": 6.2,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 4.7,
+     "median": 0.0,
+     "claude_median": 7.7,
+     "auc": 0.78,
+     "weight": 0.57,
+     "claude_side": "high"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 11.7,
+     "median": 5.0,
+     "claude_median": 22.7,
+     "auc": 0.88,
+     "weight": 0.77,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 25.0,
+     "hi": 35.2,
+     "median": 28,
+     "claude_median": 40,
+     "auc": 0.76,
+     "weight": 0.52,
+     "claude_side": "high"
+    },
+    "start_conj_pct": {
+     "lo": 15.26,
+     "hi": 49.42,
+     "median": 35.0,
+     "claude_median": 21.4,
+     "auc": 0.31,
+     "weight": 0.38,
+     "claude_side": "low"
+    },
+    "repeat3": {
+     "lo": 3.73,
+     "hi": 11.73,
+     "median": 7.92,
+     "claude_median": 3.07,
+     "auc": 0.13,
+     "weight": 0.75,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 56.14,
+     "hi": 66.56,
+     "median": 60.7,
+     "claude_median": 67.3,
+     "auc": 0.87,
+     "weight": 0.74,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.17,
+     "hi": 4.55,
+     "median": 4.4,
+     "claude_median": 4.17,
+     "auc": 0.29,
+     "weight": 0.42,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 4.62,
+     "hi": 8.97,
+     "median": 5.36,
+     "claude_median": 3.99,
+     "auc": 0.24,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "colon_k": {
+     "lo": 0.0,
+     "hi": 3.09,
+     "median": 0.0,
+     "claude_median": 3.09,
+     "auc": 0.71,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "ellipsis_k": {
+     "lo": 0.0,
+     "hi": 6.51,
+     "median": 3.04,
+     "claude_median": 0.0,
+     "auc": 0.24,
+     "weight": 0.53,
+     "claude_side": "low"
+    },
+    "hyphen_word_k": {
+     "lo": 0.0,
+     "hi": 3.08,
+     "median": 0.0,
+     "claude_median": 3.07,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "notxbuty_k": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    }
+   },
+   "line": 27.0,
+   "dan_pieces": 13,
+   "claude_pieces": 25,
+   "dan_median_score": 17.8,
+   "claude_median_score": 53.3,
+   "claude_caught_pct": 96
+  },
+  "ads/ad-client": {
+   "measures": {
+    "sent_sd": {
+     "lo": 4.4,
+     "hi": 7.4,
+     "median": 5.85,
+     "claude_median": 6.4,
+     "auc": 0.65,
+     "weight": 0.31,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 3.3,
+     "median": 0.0,
+     "claude_median": 1.85,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 0.0,
+     "hi": 7.89,
+     "median": 3.08,
+     "claude_median": 10.53,
+     "auc": 0.93,
+     "weight": 0.87,
+     "claude_side": "high"
+    },
+    "w:right": {
+     "lo": 0.0,
+     "hi": 3.3,
+     "median": 0.0,
+     "claude_median": 6.25,
+     "auc": 0.88,
+     "weight": 0.75,
+     "claude_side": "high"
+    },
+    "w:now": {
+     "lo": 0.0,
+     "hi": 6.63,
+     "median": 3.1,
+     "claude_median": 7.22,
+     "auc": 0.78,
+     "weight": 0.55,
+     "claude_side": "high"
+    },
+    "w:like": {
+     "lo": 0.0,
+     "hi": 9.12,
+     "median": 3.24,
+     "claude_median": 0.0,
+     "auc": 0.25,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 17.4,
+     "median": 5.3,
+     "claude_median": 12.9,
+     "auc": 0.67,
+     "weight": 0.34,
+     "claude_side": "high"
+    },
+    "start_conj_pct": {
+     "lo": 15.2,
+     "hi": 37.5,
+     "median": 26.2,
+     "claude_median": 34.2,
+     "auc": 0.67,
+     "weight": 0.34,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 2.44,
+     "hi": 12.14,
+     "median": 6.45,
+     "claude_median": 3.71,
+     "auc": 0.24,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 58.0,
+     "hi": 70.0,
+     "median": 63.65,
+     "claude_median": 69.0,
+     "auc": 0.79,
+     "weight": 0.57,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.33,
+     "hi": 4.88,
+     "median": 4.56,
+     "claude_median": 4.43,
+     "auc": 0.27,
+     "weight": 0.46,
+     "claude_side": "low"
+    },
+    "ly_k": {
+     "lo": 6.32,
+     "hi": 27.87,
+     "median": 16.05,
+     "claude_median": 11.29,
+     "auc": 0.33,
+     "weight": 0.34,
+     "claude_side": "low"
+    },
+    "dash_aside_k": {
+     "lo": 0.0,
+     "hi": 14.25,
+     "median": 3.32,
+     "claude_median": 0.0,
+     "auc": 0.13,
+     "weight": 0.73,
+     "claude_side": "low"
+    },
+    "exclaim_k": {
+     "lo": 0.0,
+     "hi": 6.5,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.33,
+     "weight": 0.35,
+     "claude_side": "low"
+    },
+    "caps_k": {
+     "lo": 0.0,
+     "hi": 22.91,
+     "median": 3.31,
+     "claude_median": 0.0,
+     "auc": 0.34,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "hedge_k": {
+     "lo": 0.0,
+     "hi": 6.62,
+     "median": 3.08,
+     "claude_median": 0.0,
+     "auc": 0.28,
+     "weight": 0.44,
+     "claude_side": "low"
+    }
+   },
+   "line": 15.6,
+   "dan_pieces": 166,
+   "claude_pieces": 8,
+   "dan_median_score": 8.6,
+   "claude_median_score": 35.1,
+   "claude_caught_pct": 100
+  },
+  "ads/*": {
+   "measures": {
+    "sent_sd": {
+     "lo": 4.4,
+     "hi": 7.4,
+     "median": 5.85,
+     "claude_median": 6.4,
+     "auc": 0.65,
+     "weight": 0.31,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 3.3,
+     "median": 0.0,
+     "claude_median": 1.85,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 0.0,
+     "hi": 7.89,
+     "median": 3.08,
+     "claude_median": 10.53,
+     "auc": 0.93,
+     "weight": 0.87,
+     "claude_side": "high"
+    },
+    "w:right": {
+     "lo": 0.0,
+     "hi": 3.3,
+     "median": 0.0,
+     "claude_median": 6.25,
+     "auc": 0.88,
+     "weight": 0.75,
+     "claude_side": "high"
+    },
+    "w:now": {
+     "lo": 0.0,
+     "hi": 6.63,
+     "median": 3.1,
+     "claude_median": 7.22,
+     "auc": 0.78,
+     "weight": 0.55,
+     "claude_side": "high"
+    },
+    "w:like": {
+     "lo": 0.0,
+     "hi": 9.12,
+     "median": 3.24,
+     "claude_median": 0.0,
+     "auc": 0.25,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 17.4,
+     "median": 5.3,
+     "claude_median": 12.9,
+     "auc": 0.67,
+     "weight": 0.34,
+     "claude_side": "high"
+    },
+    "start_conj_pct": {
+     "lo": 15.2,
+     "hi": 37.5,
+     "median": 26.2,
+     "claude_median": 34.2,
+     "auc": 0.67,
+     "weight": 0.34,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 2.44,
+     "hi": 12.14,
+     "median": 6.45,
+     "claude_median": 3.71,
+     "auc": 0.24,
+     "weight": 0.51,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 58.0,
+     "hi": 70.0,
+     "median": 63.65,
+     "claude_median": 69.0,
+     "auc": 0.79,
+     "weight": 0.57,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.33,
+     "hi": 4.88,
+     "median": 4.56,
+     "claude_median": 4.43,
+     "auc": 0.27,
+     "weight": 0.46,
+     "claude_side": "low"
+    },
+    "ly_k": {
+     "lo": 6.32,
+     "hi": 27.87,
+     "median": 16.05,
+     "claude_median": 11.29,
+     "auc": 0.33,
+     "weight": 0.34,
+     "claude_side": "low"
+    },
+    "dash_aside_k": {
+     "lo": 0.0,
+     "hi": 14.25,
+     "median": 3.32,
+     "claude_median": 0.0,
+     "auc": 0.13,
+     "weight": 0.73,
+     "claude_side": "low"
+    },
+    "exclaim_k": {
+     "lo": 0.0,
+     "hi": 6.5,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.33,
+     "weight": 0.35,
+     "claude_side": "low"
+    },
+    "caps_k": {
+     "lo": 0.0,
+     "hi": 22.91,
+     "median": 3.31,
+     "claude_median": 0.0,
+     "auc": 0.34,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "hedge_k": {
+     "lo": 0.0,
+     "hi": 6.62,
+     "median": 3.08,
+     "claude_median": 0.0,
+     "auc": 0.28,
+     "weight": 0.44,
+     "claude_side": "low"
+    }
+   },
+   "line": 15.6,
+   "dan_pieces": 166,
+   "claude_pieces": 8,
+   "dan_median_score": 8.6,
+   "claude_median_score": 35.1,
+   "claude_caught_pct": 100
+  },
+  "conversion/sales-script": {
+   "measures": {
+    "sent_mean": {
+     "lo": 14.84,
+     "hi": 21.12,
+     "median": 17.9,
+     "claude_median": 11.5,
+     "auc": 0.06,
+     "weight": 0.88,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 26.96,
+     "hi": 51.12,
+     "median": 44,
+     "claude_median": 26.7,
+     "auc": 0.16,
+     "weight": 0.68,
+     "claude_side": "low"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 28.6,
+     "auc": 0.86,
+     "weight": 0.73,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 3.27,
+     "median": 0.0,
+     "claude_median": 3.1,
+     "auc": 0.66,
+     "weight": 0.32,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 0.0,
+     "hi": 7.85,
+     "median": 3.12,
+     "claude_median": 6.56,
+     "auc": 0.72,
+     "weight": 0.45,
+     "claude_side": "high"
+    },
+    "w:now": {
+     "lo": 0.0,
+     "hi": 6.33,
+     "median": 2.88,
+     "claude_median": 3.48,
+     "auc": 0.69,
+     "weight": 0.38,
+     "claude_side": "high"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 10.86,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.34,
+     "weight": 0.33,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 10.1,
+     "median": 4.1,
+     "claude_median": 23.1,
+     "auc": 0.86,
+     "weight": 0.72,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 24.4,
+     "hi": 34.6,
+     "median": 29,
+     "claude_median": 26.0,
+     "auc": 0.3,
+     "weight": 0.4,
+     "claude_side": "low"
+    },
+    "repeat3": {
+     "lo": 3.83,
+     "hi": 12.62,
+     "median": 8.41,
+     "claude_median": 3.29,
+     "auc": 0.15,
+     "weight": 0.7,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 56.0,
+     "hi": 66.42,
+     "median": 63.3,
+     "claude_median": 66.0,
+     "auc": 0.77,
+     "weight": 0.53,
+     "claude_side": "high"
+    },
+    "word_len": {
+     "lo": 4.21,
+     "hi": 4.83,
+     "median": 4.45,
+     "claude_median": 4.29,
+     "auc": 0.23,
+     "weight": 0.54,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 4.34,
+     "hi": 10.97,
+     "median": 6.66,
+     "claude_median": 4.05,
+     "auc": 0.21,
+     "weight": 0.58,
+     "claude_side": "low"
+    },
+    "i": {
+     "lo": 0.0,
+     "hi": 6.36,
+     "median": 3.24,
+     "claude_median": 4.69,
+     "auc": 0.68,
+     "weight": 0.36,
+     "claude_side": "high"
+    },
+    "ellipsis_k": {
+     "lo": 0.0,
+     "hi": 3.3,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "hyphen_word_k": {
+     "lo": 0.0,
+     "hi": 9.16,
+     "median": 2.8,
+     "claude_median": 9.36,
+     "auc": 0.77,
+     "weight": 0.55,
+     "claude_side": "high"
+    },
+    "exclaim_k": {
+     "lo": 0.0,
+     "hi": 6.4,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.29,
+     "weight": 0.42,
+     "claude_side": "low"
+    }
+   },
+   "line": 19.6,
+   "dan_pieces": 35,
+   "claude_pieces": 24,
+   "dan_median_score": 10.0,
+   "claude_median_score": 49.1,
+   "claude_caught_pct": 100
+  },
+  "conversion/sales-video": {
+   "measures": {
+    "lists3": {
+     "lo": 0.0,
+     "hi": 0.66,
+     "median": 0.32,
+     "claude_median": 0.0,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "questions": {
+     "lo": 0.0,
+     "hi": 0.33,
+     "median": 0.0,
+     "claude_median": 0.26,
+     "auc": 0.73,
+     "weight": 0.45,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 2.46,
+     "hi": 5.53,
+     "median": 4.25,
+     "claude_median": 5.21,
+     "auc": 0.71,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 14.75,
+     "hi": 20.65,
+     "median": 17.4,
+     "claude_median": 11.15,
+     "auc": 0.0,
+     "weight": 1.0,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 6.75,
+     "hi": 11.2,
+     "median": 8.5,
+     "claude_median": 7.0,
+     "auc": 0.16,
+     "weight": 0.68,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 56.4,
+     "hi": 78.6,
+     "median": 61.9,
+     "claude_median": 41.1,
+     "auc": 0.0,
+     "weight": 1.0,
+     "claude_side": "low"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 22.5,
+     "median": 0.0,
+     "claude_median": 18.25,
+     "auc": 0.72,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "w:kind of": {
+     "lo": 0.0,
+     "hi": 1.66,
+     "median": 0.0,
+     "claude_median": 1.26,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 14.55,
+     "median": 6.6,
+     "claude_median": 4.71,
+     "auc": 0.28,
+     "weight": 0.44,
+     "claude_side": "low"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 20.0,
+     "median": 10.25,
+     "claude_median": 2.85,
+     "auc": 0.19,
+     "weight": 0.62,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 15.8,
+     "median": 5.6,
+     "claude_median": 23.3,
+     "auc": 0.96,
+     "weight": 0.93,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 28.0,
+     "hi": 43.5,
+     "median": 35.5,
+     "claude_median": 31.0,
+     "auc": 0.21,
+     "weight": 0.58,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 27.25,
+     "hi": 58.35,
+     "median": 41.05,
+     "claude_median": 37.9,
+     "auc": 0.34,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "repeat3": {
+     "lo": 5.89,
+     "hi": 14.69,
+     "median": 9.43,
+     "claude_median": 5.05,
+     "auc": 0.08,
+     "weight": 0.84,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 54.7,
+     "hi": 62.35,
+     "median": 58.0,
+     "claude_median": 65.0,
+     "auc": 0.96,
+     "weight": 0.91,
+     "claude_side": "high"
+    },
+    "long_word_pct": {
+     "lo": 3.85,
+     "hi": 9.35,
+     "median": 6.32,
+     "claude_median": 4.4,
+     "auc": 0.27,
+     "weight": 0.45,
+     "claude_side": "low"
+    },
+    "ly_k": {
+     "lo": 6.55,
+     "hi": 24.45,
+     "median": 15.87,
+     "claude_median": 13.03,
+     "auc": 0.34,
+     "weight": 0.32,
+     "claude_side": "low"
+    },
+    "i": {
+     "lo": 0.49,
+     "hi": 4.35,
+     "median": 2.09,
+     "claude_median": 2.75,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "colon_k": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 3.21,
+     "auc": 0.83,
+     "weight": 0.67,
+     "claude_side": "high"
+    },
+    "hedge_k": {
+     "lo": 0.0,
+     "hi": 9.77,
+     "median": 3.21,
+     "claude_median": 4.71,
+     "auc": 0.68,
+     "weight": 0.35,
+     "claude_side": "high"
+    }
+   },
+   "line": 20.0,
+   "dan_pieces": 36,
+   "claude_pieces": 6,
+   "dan_median_score": 9.6,
+   "claude_median_score": 56.0,
+   "claude_caught_pct": 100
+  },
+  "conversion/*": {
+   "measures": {
+    "lists3": {
+     "lo": 0.0,
+     "hi": 0.66,
+     "median": 0.32,
+     "claude_median": 0.0,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "questions": {
+     "lo": 0.0,
+     "hi": 0.33,
+     "median": 0.0,
+     "claude_median": 0.26,
+     "auc": 0.73,
+     "weight": 0.45,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 2.46,
+     "hi": 5.53,
+     "median": 4.25,
+     "claude_median": 5.21,
+     "auc": 0.71,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 14.75,
+     "hi": 20.65,
+     "median": 17.4,
+     "claude_median": 11.15,
+     "auc": 0.0,
+     "weight": 1.0,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 6.75,
+     "hi": 11.2,
+     "median": 8.5,
+     "claude_median": 7.0,
+     "auc": 0.16,
+     "weight": 0.68,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 56.4,
+     "hi": 78.6,
+     "median": 61.9,
+     "claude_median": 41.1,
+     "auc": 0.0,
+     "weight": 1.0,
+     "claude_side": "low"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 22.5,
+     "median": 0.0,
+     "claude_median": 18.25,
+     "auc": 0.72,
+     "weight": 0.43,
+     "claude_side": "high"
+    },
+    "w:kind of": {
+     "lo": 0.0,
+     "hi": 1.66,
+     "median": 0.0,
+     "claude_median": 1.26,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 14.55,
+     "median": 6.6,
+     "claude_median": 4.71,
+     "auc": 0.28,
+     "weight": 0.44,
+     "claude_side": "low"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 20.0,
+     "median": 10.25,
+     "claude_median": 2.85,
+     "auc": 0.19,
+     "weight": 0.62,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 15.8,
+     "median": 5.6,
+     "claude_median": 23.3,
+     "auc": 0.96,
+     "weight": 0.93,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 28.0,
+     "hi": 43.5,
+     "median": 35.5,
+     "claude_median": 31.0,
+     "auc": 0.21,
+     "weight": 0.58,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 27.25,
+     "hi": 58.35,
+     "median": 41.05,
+     "claude_median": 37.9,
+     "auc": 0.34,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "repeat3": {
+     "lo": 5.89,
+     "hi": 14.69,
+     "median": 9.43,
+     "claude_median": 5.05,
+     "auc": 0.08,
+     "weight": 0.84,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 54.7,
+     "hi": 62.35,
+     "median": 58.0,
+     "claude_median": 65.0,
+     "auc": 0.96,
+     "weight": 0.91,
+     "claude_side": "high"
+    },
+    "long_word_pct": {
+     "lo": 3.85,
+     "hi": 9.35,
+     "median": 6.32,
+     "claude_median": 4.4,
+     "auc": 0.27,
+     "weight": 0.45,
+     "claude_side": "low"
+    },
+    "ly_k": {
+     "lo": 6.55,
+     "hi": 24.45,
+     "median": 15.87,
+     "claude_median": 13.03,
+     "auc": 0.34,
+     "weight": 0.32,
+     "claude_side": "low"
+    },
+    "i": {
+     "lo": 0.49,
+     "hi": 4.35,
+     "median": 2.09,
+     "claude_median": 2.75,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "colon_k": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 3.21,
+     "auc": 0.83,
+     "weight": 0.67,
+     "claude_side": "high"
+    },
+    "hedge_k": {
+     "lo": 0.0,
+     "hi": 9.77,
+     "median": 3.21,
+     "claude_median": 4.71,
+     "auc": 0.68,
+     "weight": 0.35,
+     "claude_side": "high"
+    }
+   },
+   "line": 20.0,
+   "dan_pieces": 36,
+   "claude_pieces": 6,
+   "dan_median_score": 9.6,
+   "claude_median_score": 56.0,
+   "claude_caught_pct": 100
+  },
+  "products/book": {
+   "measures": {
+    "you": {
+     "lo": 1.07,
+     "hi": 8.38,
+     "median": 5.0,
+     "claude_median": 6.83,
+     "auc": 0.7,
+     "weight": 0.4,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 0.3,
+     "hi": 2.99,
+     "median": 1.38,
+     "claude_median": 4.1,
+     "auc": 0.83,
+     "weight": 0.67,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 12.68,
+     "hi": 19.12,
+     "median": 16.2,
+     "claude_median": 12.55,
+     "auc": 0.14,
+     "weight": 0.73,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 5.6,
+     "hi": 8.82,
+     "median": 7.1,
+     "claude_median": 5.85,
+     "auc": 0.21,
+     "weight": 0.58,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 39.92,
+     "hi": 91.8,
+     "median": 62.7,
+     "claude_median": 37.4,
+     "auc": 0.1,
+     "weight": 0.79,
+     "claude_side": "low"
+    },
+    "punch_pct": {
+     "lo": 0.0,
+     "hi": 20.44,
+     "median": 0.0,
+     "claude_median": 14.6,
+     "auc": 0.67,
+     "weight": 0.34,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 0.0,
+     "hi": 8.26,
+     "median": 2.94,
+     "claude_median": 5.9,
+     "auc": 0.8,
+     "weight": 0.59,
+     "claude_side": "high"
+    },
+    "w:now": {
+     "lo": 0.0,
+     "hi": 2.99,
+     "median": 0.0,
+     "claude_median": 3.95,
+     "auc": 0.79,
+     "weight": 0.58,
+     "claude_side": "high"
+    },
+    "sent_long_pct": {
+     "lo": 0.0,
+     "hi": 11.24,
+     "median": 4.3,
+     "claude_median": 0.0,
+     "auc": 0.25,
+     "weight": 0.5,
+     "claude_side": "low"
+    },
+    "sent_max": {
+     "lo": 25.0,
+     "hi": 39.0,
+     "median": 31,
+     "claude_median": 27.0,
+     "auc": 0.25,
+     "weight": 0.5,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 0.0,
+     "hi": 11.1,
+     "median": 4.3,
+     "claude_median": 17.3,
+     "auc": 0.84,
+     "weight": 0.69,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 1.76,
+     "hi": 9.94,
+     "median": 5.08,
+     "claude_median": 1.04,
+     "auc": 0.08,
+     "weight": 0.83,
+     "claude_side": "low"
+    },
+    "variety150": {
+     "lo": 55.3,
+     "hi": 68.0,
+     "median": 61.3,
+     "claude_median": 69.3,
+     "auc": 0.91,
+     "weight": 0.81,
+     "claude_side": "high"
+    },
+    "colon_k": {
+     "lo": 0.0,
+     "hi": 3.23,
+     "median": 0.0,
+     "claude_median": 2.82,
+     "auc": 0.72,
+     "weight": 0.44,
+     "claude_side": "high"
+    },
+    "ellipsis_k": {
+     "lo": 0.0,
+     "hi": 8.09,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.34,
+     "weight": 0.32,
+     "claude_side": "low"
+    },
+    "dash_aside_k": {
+     "lo": 0.0,
+     "hi": 7.68,
+     "median": 2.79,
+     "claude_median": 0.0,
+     "auc": 0.21,
+     "weight": 0.58,
+     "claude_side": "low"
+    },
+    "caps_k": {
+     "lo": 0.0,
+     "hi": 15.94,
+     "median": 2.83,
+     "claude_median": 0.0,
+     "auc": 0.25,
+     "weight": 0.5,
+     "claude_side": "low"
+    }
+   },
+   "line": 18.7,
+   "dan_pieces": 139,
+   "claude_pieces": 10,
+   "dan_median_score": 10.2,
+   "claude_median_score": 44.6,
+   "claude_caught_pct": 90
+  },
+  "products/lesson": {
+   "measures": {
+    "and": {
+     "lo": 1.25,
+     "hi": 3.22,
+     "median": 2.04,
+     "claude_median": 3.2,
+     "auc": 0.83,
+     "weight": 0.66,
+     "claude_side": "high"
+    },
+    "lists3": {
+     "lo": 0.0,
+     "hi": 0.66,
+     "median": 0.29,
+     "claude_median": 0.0,
+     "auc": 0.35,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "questions": {
+     "lo": 0.0,
+     "hi": 0.05,
+     "median": 0.0,
+     "claude_median": 0.28,
+     "auc": 0.86,
+     "weight": 0.72,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 2.3,
+     "hi": 5.45,
+     "median": 3.79,
+     "claude_median": 4.68,
+     "auc": 0.75,
+     "weight": 0.5,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 15.78,
+     "hi": 30.86,
+     "median": 20.7,
+     "claude_median": 16.5,
+     "auc": 0.19,
+     "weight": 0.63,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 7.4,
+     "hi": 34.32,
+     "median": 14.0,
+     "claude_median": 8.9,
+     "auc": 0.24,
+     "weight": 0.52,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 60.2,
+     "hi": 107.76,
+     "median": 77,
+     "claude_median": 60.7,
+     "auc": 0.23,
+     "weight": 0.54,
+     "claude_side": "low"
+    },
+    "w:actually": {
+     "lo": 0.0,
+     "hi": 3.23,
+     "median": 0.0,
+     "claude_median": 2.49,
+     "auc": 0.74,
+     "weight": 0.47,
+     "claude_side": "high"
+    },
+    "w:really": {
+     "lo": 0.0,
+     "hi": 6.47,
+     "median": 0.0,
+     "claude_median": 5.67,
+     "auc": 0.74,
+     "weight": 0.49,
+     "claude_side": "high"
+    },
+    "w:stuff": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.68,
+     "weight": 0.36,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 9.84,
+     "median": 3.19,
+     "claude_median": 10.99,
+     "auc": 0.73,
+     "weight": 0.46,
+     "claude_side": "high"
+    },
+    "w:just": {
+     "lo": 0.0,
+     "hi": 12.59,
+     "median": 4.77,
+     "claude_median": 7.63,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 6.12,
+     "hi": 22.29,
+     "median": 12.66,
+     "claude_median": 22.44,
+     "auc": 0.86,
+     "weight": 0.72,
+     "claude_side": "high"
+    },
+    "w:right": {
+     "lo": 0.0,
+     "hi": 7.09,
+     "median": 3.1,
+     "claude_median": 2.46,
+     "auc": 0.33,
+     "weight": 0.33,
+     "claude_side": "low"
+    },
+    "w:okay": {
+     "lo": 0.0,
+     "hi": 3.29,
+     "median": 0.0,
+     "claude_median": 2.83,
+     "auc": 0.7,
+     "weight": 0.41,
+     "claude_side": "high"
+    },
+    "w:well": {
+     "lo": 0.0,
+     "hi": 3.28,
+     "median": 0.0,
+     "claude_median": 2.49,
+     "auc": 0.69,
+     "weight": 0.39,
+     "claude_side": "high"
+    },
+    "sent_long_pct": {
+     "lo": 5.3,
+     "hi": 33.3,
+     "median": 16.7,
+     "claude_median": 5.3,
+     "auc": 0.26,
+     "weight": 0.49,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 13.74,
+     "median": 5.0,
+     "claude_median": 10.0,
+     "auc": 0.68,
+     "weight": 0.37,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 32.8,
+     "hi": 125.6,
+     "median": 57,
+     "claude_median": 40,
+     "auc": 0.23,
+     "weight": 0.55,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 16.7,
+     "hi": 50.0,
+     "median": 33.3,
+     "claude_median": 61.9,
+     "auc": 0.98,
+     "weight": 0.97,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 4.99,
+     "hi": 21.28,
+     "median": 11.69,
+     "claude_median": 6.52,
+     "auc": 0.22,
+     "weight": 0.56,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 4.49,
+     "hi": 10.84,
+     "median": 7.24,
+     "claude_median": 5.77,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "comma": {
+     "lo": 2.6,
+     "hi": 6.67,
+     "median": 4.59,
+     "claude_median": 6.23,
+     "auc": 0.78,
+     "weight": 0.57,
+     "claude_side": "high"
+    }
+   },
+   "line": 18.2,
+   "dan_pieces": 389,
+   "claude_pieces": 7,
+   "dan_median_score": 10.9,
+   "claude_median_score": 36.7,
+   "claude_caught_pct": 100
+  },
+  "products/*": {
+   "measures": {
+    "and": {
+     "lo": 1.25,
+     "hi": 3.22,
+     "median": 2.04,
+     "claude_median": 3.2,
+     "auc": 0.83,
+     "weight": 0.66,
+     "claude_side": "high"
+    },
+    "lists3": {
+     "lo": 0.0,
+     "hi": 0.66,
+     "median": 0.29,
+     "claude_median": 0.0,
+     "auc": 0.35,
+     "weight": 0.31,
+     "claude_side": "low"
+    },
+    "questions": {
+     "lo": 0.0,
+     "hi": 0.05,
+     "median": 0.0,
+     "claude_median": 0.28,
+     "auc": 0.86,
+     "weight": 0.72,
+     "claude_side": "high"
+    },
+    "contractions": {
+     "lo": 2.3,
+     "hi": 5.45,
+     "median": 3.79,
+     "claude_median": 4.68,
+     "auc": 0.75,
+     "weight": 0.5,
+     "claude_side": "high"
+    },
+    "sent_mean": {
+     "lo": 15.78,
+     "hi": 30.86,
+     "median": 20.7,
+     "claude_median": 16.5,
+     "auc": 0.19,
+     "weight": 0.63,
+     "claude_side": "low"
+    },
+    "sent_sd": {
+     "lo": 7.4,
+     "hi": 34.32,
+     "median": 14.0,
+     "claude_median": 8.9,
+     "auc": 0.24,
+     "weight": 0.52,
+     "claude_side": "low"
+    },
+    "para_words": {
+     "lo": 60.2,
+     "hi": 107.76,
+     "median": 77,
+     "claude_median": 60.7,
+     "auc": 0.23,
+     "weight": 0.54,
+     "claude_side": "low"
+    },
+    "w:actually": {
+     "lo": 0.0,
+     "hi": 3.23,
+     "median": 0.0,
+     "claude_median": 2.49,
+     "auc": 0.74,
+     "weight": 0.47,
+     "claude_side": "high"
+    },
+    "w:really": {
+     "lo": 0.0,
+     "hi": 6.47,
+     "median": 0.0,
+     "claude_median": 5.67,
+     "auc": 0.74,
+     "weight": 0.49,
+     "claude_side": "high"
+    },
+    "w:stuff": {
+     "lo": 0.0,
+     "hi": 0.0,
+     "median": 0.0,
+     "claude_median": 0.0,
+     "auc": 0.68,
+     "weight": 0.36,
+     "claude_side": "high"
+    },
+    "w:going to": {
+     "lo": 0.0,
+     "hi": 9.84,
+     "median": 3.19,
+     "claude_median": 10.99,
+     "auc": 0.73,
+     "weight": 0.46,
+     "claude_side": "high"
+    },
+    "w:just": {
+     "lo": 0.0,
+     "hi": 12.59,
+     "median": 4.77,
+     "claude_median": 7.63,
+     "auc": 0.67,
+     "weight": 0.33,
+     "claude_side": "high"
+    },
+    "w:so": {
+     "lo": 6.12,
+     "hi": 22.29,
+     "median": 12.66,
+     "claude_median": 22.44,
+     "auc": 0.86,
+     "weight": 0.72,
+     "claude_side": "high"
+    },
+    "w:right": {
+     "lo": 0.0,
+     "hi": 7.09,
+     "median": 3.1,
+     "claude_median": 2.46,
+     "auc": 0.33,
+     "weight": 0.33,
+     "claude_side": "low"
+    },
+    "w:okay": {
+     "lo": 0.0,
+     "hi": 3.29,
+     "median": 0.0,
+     "claude_median": 2.83,
+     "auc": 0.7,
+     "weight": 0.41,
+     "claude_side": "high"
+    },
+    "w:well": {
+     "lo": 0.0,
+     "hi": 3.28,
+     "median": 0.0,
+     "claude_median": 2.49,
+     "auc": 0.69,
+     "weight": 0.39,
+     "claude_side": "high"
+    },
+    "sent_long_pct": {
+     "lo": 5.3,
+     "hi": 33.3,
+     "median": 16.7,
+     "claude_median": 5.3,
+     "auc": 0.26,
+     "weight": 0.49,
+     "claude_side": "low"
+    },
+    "sent_short_pct": {
+     "lo": 0.0,
+     "hi": 13.74,
+     "median": 5.0,
+     "claude_median": 10.0,
+     "auc": 0.68,
+     "weight": 0.37,
+     "claude_side": "high"
+    },
+    "sent_max": {
+     "lo": 32.8,
+     "hi": 125.6,
+     "median": 57,
+     "claude_median": 40,
+     "auc": 0.23,
+     "weight": 0.55,
+     "claude_side": "low"
+    },
+    "start_conj_pct": {
+     "lo": 16.7,
+     "hi": 50.0,
+     "median": 33.3,
+     "claude_median": 61.9,
+     "auc": 0.98,
+     "weight": 0.97,
+     "claude_side": "high"
+    },
+    "repeat3": {
+     "lo": 4.99,
+     "hi": 21.28,
+     "median": 11.69,
+     "claude_median": 6.52,
+     "auc": 0.22,
+     "weight": 0.56,
+     "claude_side": "low"
+    },
+    "long_word_pct": {
+     "lo": 4.49,
+     "hi": 10.84,
+     "median": 7.24,
+     "claude_median": 5.77,
+     "auc": 0.32,
+     "weight": 0.36,
+     "claude_side": "low"
+    },
+    "comma": {
+     "lo": 2.6,
+     "hi": 6.67,
+     "median": 4.59,
+     "claude_median": 6.23,
+     "auc": 0.78,
+     "weight": 0.57,
+     "claude_side": "high"
+    }
+   },
+   "line": 18.2,
+   "dan_pieces": 389,
+   "claude_pieces": 7,
+   "dan_median_score": 10.9,
+   "claude_median_score": 36.7,
+   "claude_caught_pct": 100
+  }
+ }
+}

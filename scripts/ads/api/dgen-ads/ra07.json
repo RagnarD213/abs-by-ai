@@ -1,0 +1,43 @@
+{
+  "campaignId": "24316364155",
+  "label": "RA-07 Fire Your Trainer",
+  "key": "ra07",
+  "targetCpa": 40.0,
+  "copyTargetCpaFromAdGroup": "199824307366",
+  "audienceFromAdGroup": "206348100928",
+  "logoAsset": "400941168572",
+  "ctaAsset": "401407635767",
+  "businessName": "Abs by AI",
+  "videos": [
+    {
+      "youtubeId": "bpv5HSRqzDo",
+      "version": "Claude R6 9:16 thumbA",
+      "utm": "claude-9x16-thumbA"
+    },
+    {
+      "youtubeId": "AWh8cOd80Ic",
+      "version": "Claude R6 9:16 thumbB",
+      "utm": "claude-9x16-thumbB"
+    }
+  ],
+  "copy": {
+    "headlines": [
+      "Fire Your Trainer",
+      "Fire Your Personal Trainer",
+      "How AI Got Me Abs",
+      "An AI Workout Coach That Adapts",
+      "Workout Plans Built Around Your Goal"
+    ],
+    "longHeadlines": [
+      "Here's why thousands of guys are replacing their personal trainer with AI.",
+      "Daniel Rose explains three things an AI workout coach can do that a trainer cannot.",
+      "AI designs a workout plan for your goal and adjusts it when life gets in the way."
+    ],
+    "descriptions": [
+      "Daniel Rose shows why guys are using AI as their workout coach.",
+      "See how AI builds a personalized workout program around your goal.",
+      "AI coaching explained by a guy who did it at 40 years old."
+    ]
+  },
+  "thumbnail": "Thumbnail A/B (Dan 2026-10-20: \"Let's go with 2B and 3B. Install an A/B test with 2B and 3B.\"). The approved 9:16 uploaded twice, Unlisted: thumbA = 2b, real studio-blue-28 smirk, TRAINERS DESPISE HIM on a level yellow banner; thumbB = 3b, AI Dan fist-bumping a robot coach, FIRE / YOUR / TRAINER one word per line. YouTube Test & Compare is not available for Shorts or unlisted videos."
+}

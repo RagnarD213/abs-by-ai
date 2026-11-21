@@ -1,0 +1,98 @@
+{
+  "lean-male__dramatic:A": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "lean-male__dramatic:B": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "lean-male__dramatic:C": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  },
+  "lean-male__dramatic:D": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "lean-male__max:A": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  },
+  "lean-male__max:B": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "lean-male__max:C": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "lean-male__max:D": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "moderate-male__dramatic:A": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "moderate-male__dramatic:B": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  },
+  "moderate-male__dramatic:C": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "moderate-male__dramatic:D": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "moderate-male__max:A": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  },
+  "moderate-male__max:B": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "moderate-male__max:C": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "moderate-male__max:D": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "heavier-male__dramatic:A": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "heavier-male__dramatic:B": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "heavier-male__dramatic:C": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "heavier-male__dramatic:D": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  },
+  "heavier-male__max:A": {
+    "modelKey": "gemini-3-pro-image",
+    "baseline": false
+  },
+  "heavier-male__max:B": {
+    "modelKey": "gemini-2.5-flash-image",
+    "baseline": true
+  },
+  "heavier-male__max:C": {
+    "modelKey": "seedream-4.5",
+    "baseline": false
+  },
+  "heavier-male__max:D": {
+    "modelKey": "gemini-3.1-flash-image",
+    "baseline": false
+  }
+}

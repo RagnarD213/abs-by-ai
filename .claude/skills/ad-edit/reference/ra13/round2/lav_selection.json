@@ -1,0 +1,64 @@
+{
+ "file": "/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/C1667.MP4",
+ "duration": 419.419,
+ "window": [
+  340.0,
+  70.0
+ ],
+ "window_source": "given (--ss)",
+ "candidates": [
+  {
+   "stream": 0,
+   "channel": 0,
+   "nch": 2,
+   "rms_db": -25.7,
+   "live": true,
+   "snr_db": 45.2,
+   "dryness_db": 7.39,
+   "edt_ms": 24.0,
+   "clipped": 0
+  },
+  {
+   "stream": 0,
+   "channel": 1,
+   "nch": 2,
+   "rms_db": -25.7,
+   "live": true,
+   "snr_db": 45.2,
+   "dryness_db": 7.48,
+   "edt_ms": 24.0,
+   "clipped": 0
+  }
+ ],
+ "verdict": "dual-mono",
+ "why": "channels correlate +1.000 at lag 0 -- one signal",
+ "lav": {
+  "stream": 0,
+  "channel": 0,
+  "nch": 2,
+  "rms_db": -25.7,
+  "live": true,
+  "snr_db": 45.2,
+  "dryness_db": 7.39,
+  "edt_ms": 24.0,
+  "clipped": 0
+ },
+ "far": {
+  "stream": 0,
+  "channel": 1,
+  "nch": 2,
+  "rms_db": -25.7,
+  "live": true,
+  "snr_db": 45.2,
+  "dryness_db": 7.48,
+  "edt_ms": 24.0,
+  "clipped": 0
+ },
+ "delay_ms": null,
+ "polarity": null,
+ "pair_corr": null,
+ "version": 1,
+ "map": "0:a:0",
+ "filter": "pan=mono|c0=0.5*c0+0.5*c1",
+ "fc_label": "[0:a:0]"
+}

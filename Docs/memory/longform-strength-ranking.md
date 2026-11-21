@@ -1,0 +1,28 @@
+---
+name: longform-strength-ranking
+description: "How Dan ranks long-forms strongest to weakest for release order (studio > kitchen, scripted > off the cuff, salad and RO-20 exceptions); Sunday strongest, Wednesday weakest"
+metadata:
+  node_type: memory
+  type: feedback
+  originSessionId: cc8915b8-dcc9-4f08-92c6-7334ae3349d9
+  modified: 2026-10-28T20:00:00.000Z
+---
+
+Dan's rule of thumb for ranking long-forms for release (2026-10-16), when he moved to two long-forms a week:
+- **Sunday gets the strongest available long-form, Wednesday the weakest.**
+- Studio (10/15 dark green backdrop) is usually strongest; kitchen footage usually weakest.
+- Exceptions count: judge the topic and the footage quality too (some kitchen videos have bad lighting and audio,
+  some good; some topics are stronger).
+- Scripted (teleprompter) videos beat off-the-cuff ones.
+- The RO-05 salad video is a strong kitchen exception.
+- Weakest of all: "Invest In Your Health" (RO-20/B/C), split into three though it was never meant to be.
+- His top priorities: RO-25 "I'm 41. I Wasted My Life." and RO-26 "I'm 41. My Life Is Top 1%." take the next two Sundays.
+
+**Approved calendar (Dan, 2026-10-28, replaces the 10-17 Sunday+Wednesday calendar):** dated phases in `Docs/LONGFORM_RELEASE_CALENDAR.md` and `scripts/blotato/release_phases.py`. Phase 1 (to Nov 25) Sun+Wed, no kitchen footage except the daily salad and its Shorts; phase 2 (Nov 26 to Dec 25) Sun+Wed+Fri, kitchen films first; phase 3 (Dec 26 to Jan 31) Sun+Wed+Fri, the fat-loss/beginner/gym blitz, strongest first (Sundays strongest); phase 4 Sunday only. Dan's words: "everything released before Thanksgiving to be not in the kitchen". Kitchen is judged by frame (fridge/cabinet set), not topic: the Aug 28 talking Shorts are poolside, not kitchen. Related: [[claude-codex-major-decision-template]].
+
+**Why:** a ~33 long-form backlog at one a week would hold the best studio work until spring 2027.
+
+**How to apply:** any release-queue planning ranks every long-form with these criteria and shows Dan the proposed
+calendar in chat before changing the schedule. Related: [[video-task-sidebar-naming]].
+
+**Shorts evidence (10-17, carried over 2026-11-01 from the retired Shorts week entry; slots now follow AGENTS.md):** three of the top four channel Shorts were cut from long-forms; Thursday had the best median views (1,369), Saturday the worst (876). Each new long-form gets 3 Shorts.

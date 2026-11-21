@@ -1,0 +1,728 @@
+{
+  "total": 57.19,
+  "total_frames": 1714,
+  "timeline": [
+    {
+      "kind": "card",
+      "name": "ai_hook",
+      "a": 0.0,
+      "f0": 0,
+      "f1": 62,
+      "n": 62
+    },
+    {
+      "kind": "dan",
+      "name": "dan00",
+      "a": 2.068733,
+      "f0": 62,
+      "f1": 92,
+      "n": 30
+    },
+    {
+      "kind": "card",
+      "name": "ai_gen",
+      "a": 3.069733,
+      "f0": 92,
+      "f1": 152,
+      "n": 60
+    },
+    {
+      "kind": "card",
+      "name": "before",
+      "a": 5.071733,
+      "f0": 152,
+      "f1": 203,
+      "n": 51
+    },
+    {
+      "kind": "dan",
+      "name": "dan01",
+      "a": 6.773433,
+      "f0": 203,
+      "f1": 230,
+      "n": 27
+    },
+    {
+      "kind": "card",
+      "name": "after_1",
+      "a": 7.674333,
+      "f0": 230,
+      "f1": 249,
+      "n": 19
+    },
+    {
+      "kind": "card",
+      "name": "after_2",
+      "a": 8.3083,
+      "f0": 249,
+      "f1": 268,
+      "n": 19
+    },
+    {
+      "kind": "card",
+      "name": "after_3",
+      "a": 8.942267,
+      "f0": 268,
+      "f1": 287,
+      "n": 19
+    },
+    {
+      "kind": "card",
+      "name": "ai_again",
+      "a": 9.576233,
+      "f0": 287,
+      "f1": 369,
+      "n": 82
+    },
+    {
+      "kind": "dan",
+      "name": "dan02",
+      "a": 12.3123,
+      "f0": 369,
+      "f1": 490,
+      "n": 121
+    },
+    {
+      "kind": "dan",
+      "name": "dan03",
+      "a": 16.349667,
+      "f0": 490,
+      "f1": 570,
+      "n": 80
+    },
+    {
+      "kind": "dan",
+      "name": "dan04",
+      "a": 19.019,
+      "f0": 570,
+      "f1": 607,
+      "n": 37
+    },
+    {
+      "kind": "dan",
+      "name": "dan05",
+      "a": 20.253567,
+      "f0": 607,
+      "f1": 695,
+      "n": 88
+    },
+    {
+      "kind": "dan",
+      "name": "dan06",
+      "a": 23.189833,
+      "f0": 695,
+      "f1": 745,
+      "n": 50
+    },
+    {
+      "kind": "card",
+      "name": "stats_scan",
+      "a": 24.858167,
+      "f0": 745,
+      "f1": 957,
+      "n": 212
+    },
+    {
+      "kind": "dan",
+      "name": "dan07",
+      "a": 31.9319,
+      "f0": 957,
+      "f1": 1079,
+      "n": 122
+    },
+    {
+      "kind": "dan",
+      "name": "dan08",
+      "a": 36.002633,
+      "f0": 1079,
+      "f1": 1098,
+      "n": 19
+    },
+    {
+      "kind": "card",
+      "name": "macro",
+      "a": 36.6366,
+      "f0": 1098,
+      "f1": 1191,
+      "n": 93
+    },
+    {
+      "kind": "dan",
+      "name": "dan09",
+      "a": 39.7397,
+      "f0": 1191,
+      "f1": 1225,
+      "n": 34
+    },
+    {
+      "kind": "dan",
+      "name": "dan10",
+      "a": 40.874167,
+      "f0": 1225,
+      "f1": 1333,
+      "n": 108
+    },
+    {
+      "kind": "dan",
+      "name": "dan11",
+      "a": 44.477767,
+      "f0": 1333,
+      "f1": 1426,
+      "n": 93
+    },
+    {
+      "kind": "dan",
+      "name": "dan12",
+      "a": 47.580867,
+      "f0": 1426,
+      "f1": 1536,
+      "n": 110
+    },
+    {
+      "kind": "dan",
+      "name": "dan13",
+      "a": 51.2512,
+      "f0": 1536,
+      "f1": 1616,
+      "n": 80
+    },
+    {
+      "kind": "dan",
+      "name": "dan14",
+      "a": 53.920533,
+      "f0": 1616,
+      "f1": 1657,
+      "n": 41
+    },
+    {
+      "kind": "card",
+      "name": "end_card",
+      "a": 55.288567,
+      "f0": 1657,
+      "f1": 1714,
+      "n": 57
+    }
+  ],
+  "dur_talk": 55.555,
+  "end_hold": 1.65,
+  "has_L11": true,
+  "cards": [
+    {
+      "name": "ai_hook",
+      "kind": "ai",
+      "beat": [
+        0.0,
+        2.068733
+      ],
+      "asset": "ai",
+      "chip": "ai",
+      "frames": 62
+    },
+    {
+      "name": "ai_gen",
+      "kind": "ai",
+      "beat": [
+        3.069733,
+        5.071733
+      ],
+      "asset": "ai",
+      "chip": "ai",
+      "frames": 60
+    },
+    {
+      "name": "before",
+      "kind": "before",
+      "beat": [
+        5.071733,
+        6.773433
+      ],
+      "asset": "before",
+      "chip": null,
+      "frames": 51
+    },
+    {
+      "name": "after_1",
+      "kind": "real",
+      "beat": [
+        7.674333,
+        8.3083
+      ],
+      "asset": "after1",
+      "chip": "real",
+      "frames": 19
+    },
+    {
+      "name": "after_2",
+      "kind": "real",
+      "beat": [
+        8.3083,
+        8.942267
+      ],
+      "asset": "after2",
+      "chip": "real",
+      "frames": 19
+    },
+    {
+      "name": "after_3",
+      "kind": "real",
+      "beat": [
+        8.942267,
+        9.576233
+      ],
+      "asset": "after3",
+      "chip": "real",
+      "frames": 19
+    },
+    {
+      "name": "ai_again",
+      "kind": "ai",
+      "beat": [
+        9.576233,
+        12.3123
+      ],
+      "asset": "ai",
+      "chip": "ai",
+      "frames": 82
+    },
+    {
+      "name": "stats_scan",
+      "kind": "scan",
+      "beat": [
+        24.858167,
+        31.9319
+      ],
+      "asset": "ai",
+      "chip": "ai",
+      "frames": 212
+    },
+    {
+      "name": "macro",
+      "kind": "clip",
+      "beat": [
+        36.6366,
+        39.7397
+      ],
+      "asset": "macro",
+      "chip": null,
+      "frames": 93
+    },
+    {
+      "name": "end_card",
+      "kind": "endcard",
+      "beat": [
+        55.288567,
+        57.190467
+      ],
+      "asset": "ai",
+      "chip": "ai",
+      "frames": 57
+    }
+  ],
+  "punch": [
+    {
+      "beat": [
+        2.068733,
+        3.069733
+      ],
+      "level": "NEAR",
+      "hair_min": 1102.0,
+      "cx": 1212.0,
+      "cx_pref": 1211.5,
+      "cx_sq": 1212.0,
+      "samples": 7,
+      "gap": 0,
+      "frames": 30,
+      "face_sq": [
+        34.5,
+        69.6
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        6.773433,
+        7.674333
+      ],
+      "level": "FAR",
+      "hair_min": 1108.0,
+      "cx": 1234.3,
+      "samples": 7,
+      "face_span": 348.1,
+      "cx_pref": 1234.3,
+      "cx_moved": 0.0,
+      "gap": 1,
+      "cx16": 1088.0,
+      "cx16_from": 1,
+      "face16": [
+        51.3,
+        65.1
+      ],
+      "frames": 27,
+      "cx_sq": 1234.0,
+      "face_sq": [
+        40.5,
+        64.3
+      ]
+    },
+    {
+      "beat": [
+        12.3123,
+        16.349667
+      ],
+      "level": "NEAR",
+      "hair_min": 1104.0,
+      "cx": 1220.4,
+      "samples": 22,
+      "face_span": 444.5,
+      "cx_pref": 1220.4,
+      "cx_moved": 0.0,
+      "gap": 2,
+      "cx16": 1088.0,
+      "cx16_from": 1,
+      "face16": [
+        45.7,
+        69.2
+      ],
+      "frames": 121,
+      "cx_sq": 1220.0,
+      "face_sq": [
+        29.8,
+        71.9
+      ]
+    },
+    {
+      "beat": [
+        16.349667,
+        19.019
+      ],
+      "level": "FAR",
+      "hair_min": 1108.0,
+      "cx": 1212.0,
+      "cx_pref": 1211.9,
+      "cx_sq": 1212.0,
+      "samples": 16,
+      "gap": 2,
+      "frames": 80,
+      "face_sq": [
+        33.0,
+        67.3
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        19.019,
+        20.253567
+      ],
+      "level": "NEAR",
+      "hair_min": 1104.0,
+      "cx": 1260.0,
+      "cx_pref": 1260.8,
+      "cx_sq": 1260.0,
+      "samples": 8,
+      "gap": 2,
+      "frames": 37,
+      "face_sq": [
+        25.3,
+        65.9
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        20.253567,
+        23.189833
+      ],
+      "level": "FAR",
+      "hair_min": 1104.0,
+      "cx": 1228.0,
+      "cx_pref": 1229.3,
+      "cx_sq": 1228.0,
+      "samples": 17,
+      "gap": 2,
+      "frames": 88,
+      "face_sq": [
+        34.9,
+        71.2
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        23.189833,
+        24.858167
+      ],
+      "level": "NEAR",
+      "hair_min": 1108.0,
+      "cx": 1206.0,
+      "cx_pref": 1207.3,
+      "cx_sq": 1206.0,
+      "samples": 11,
+      "gap": 2,
+      "frames": 50,
+      "face_sq": [
+        34.5,
+        68.3
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        31.9319,
+        36.002633
+      ],
+      "level": "FAR",
+      "hair_min": 1100.0,
+      "cx": 1222.0,
+      "cx_pref": 1221.5,
+      "cx_sq": 1222.0,
+      "samples": 22,
+      "gap": 3,
+      "frames": 122,
+      "face_sq": [
+        34.6,
+        70.0
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        36.002633,
+        36.6366
+      ],
+      "level": "NEAR",
+      "hair_min": 1102.0,
+      "cx": 1236.0,
+      "cx_pref": 1237.4,
+      "cx_sq": 1236.0,
+      "samples": 6,
+      "gap": 3,
+      "frames": 19,
+      "face_sq": [
+        30.5,
+        72.3
+      ],
+      "square_fix": true
+    },
+    {
+      "beat": [
+        39.7397,
+        40.874167
+      ],
+      "level": "FAR",
+      "hair_min": 1106.0,
+      "cx": 1219.3,
+      "samples": 9,
+      "face_span": 314.3,
+      "cx_pref": 1219.3,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 7,
+      "face16": [
+        48.6,
+        63.2
+      ],
+      "frames": 34,
+      "cx_sq": 1218.0,
+      "face_sq": [
+        37.1,
+        62.3
+      ]
+    },
+    {
+      "beat": [
+        40.874167,
+        44.477767
+      ],
+      "level": "NEAR",
+      "hair_min": 1104.0,
+      "cx": 1220.6,
+      "samples": 20,
+      "face_span": 296.4,
+      "cx_pref": 1220.6,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 7,
+      "face16": [
+        49.3,
+        65.0
+      ],
+      "frames": 108,
+      "cx_sq": 1220.0,
+      "face_sq": [
+        36.3,
+        64.4
+      ]
+    },
+    {
+      "beat": [
+        44.477767,
+        47.580867
+      ],
+      "level": "FAR",
+      "hair_min": 1098.0,
+      "cx": 1218.8,
+      "samples": 17,
+      "face_span": 468.4,
+      "cx_pref": 1218.8,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 9,
+      "face16": [
+        45.6,
+        67.4
+      ],
+      "frames": 93,
+      "cx_sq": 1218.0,
+      "face_sq": [
+        32.0,
+        69.5
+      ]
+    },
+    {
+      "beat": [
+        47.580867,
+        51.2512
+      ],
+      "level": "NEAR",
+      "hair_min": 1100.0,
+      "cx": 1229.9,
+      "samples": 21,
+      "face_span": 345.7,
+      "cx_pref": 1229.9,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 9,
+      "face16": [
+        48.5,
+        66.8
+      ],
+      "frames": 110,
+      "cx_sq": 1230.0,
+      "face_sq": [
+        33.9,
+        66.6
+      ]
+    },
+    {
+      "beat": [
+        51.2512,
+        53.920533
+      ],
+      "level": "FAR",
+      "hair_min": 1102.0,
+      "cx": 1242.6,
+      "samples": 15,
+      "face_span": 371.0,
+      "cx_pref": 1242.6,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 11,
+      "face16": [
+        49.2,
+        66.5
+      ],
+      "frames": 80,
+      "cx_sq": 1242.0,
+      "face_sq": [
+        36.2,
+        65.9
+      ]
+    },
+    {
+      "beat": [
+        53.920533,
+        55.288567
+      ],
+      "level": "NEAR",
+      "hair_min": 1100.0,
+      "cx": 1235.3,
+      "samples": 9,
+      "face_span": 310.6,
+      "cx_pref": 1235.3,
+      "cx_moved": 0.0,
+      "gap": 4,
+      "cx16": 1088.0,
+      "cx16_from": 11,
+      "face16": [
+        49.8,
+        65.8
+      ],
+      "frames": 41,
+      "cx_sq": 1234.0,
+      "face_sq": [
+        35.9,
+        64.5
+      ]
+    }
+  ],
+  "cta": [
+    [
+      18.885533,
+      20.5205
+    ],
+    [
+      53.787067,
+      55.2552
+    ]
+  ],
+  "seams": [
+    {
+      "t": 11.912,
+      "what": "R1|R2"
+    }
+  ],
+  "macro_slice": {
+    "in": 40.5,
+    "out": 43.7,
+    "len": 3.1
+  },
+  "framing_notes": [],
+  "r1_beats": {
+    "ai_hook": [
+      0.0,
+      2.068733
+    ],
+    "dan_near": [
+      2.068733,
+      3.069733
+    ],
+    "ai_gen": [
+      3.069733,
+      5.071733
+    ],
+    "before": [
+      5.071733,
+      6.773433
+    ],
+    "dan_other": [
+      6.773433,
+      7.674333
+    ],
+    "after": [
+      7.674333,
+      9.576233
+    ],
+    "ai_again": [
+      9.576233,
+      12.3123
+    ]
+  },
+  "square": {
+    "levels": {
+      "NEAR": 1056,
+      "FAR": 1248
+    },
+    "note": "timeline identical to the approved 9:16; cx_sq added",
+    "fixes": [
+      "ai_gen card in at frame 92 (on the 3.07 s splice)",
+      "level change at frame 570 (19.02 s splice); holds 607-695 / 695-745 swap to FAR / NEAR",
+      "level change at frame 1079 (36.00 s splice): 957-1078 FAR, 1079-1097 NEAR"
+    ]
+  }
+}

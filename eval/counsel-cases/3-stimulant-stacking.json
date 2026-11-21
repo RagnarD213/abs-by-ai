@@ -1,0 +1,16 @@
+{
+  "decisionType": "supplement-audit",
+  "expect": "YELLOW with explicit total-caffeine math: 2 pre-workouts (350mg) + fat burner (200mg) + 3 coffees (~285mg) + 2 energy drinks (~320mg) => well past 400mg/day. Safety Officer should name the number and recommend cutting the stims, not a doctor visit.",
+  "intake": {
+    "items": [
+      { "product_name": "Pump Pre-Workout", "category": "pre-workout", "is_blend": true, "ingredients": [{ "name": "caffeine anhydrous", "dose": "175", "unit": "mg" }], "caffeine_mg_per_serving": 175, "est_monthly_cost": 40 },
+      { "product_name": "Ignite Pre-Workout", "category": "pre-workout", "is_blend": true, "ingredients": [{ "name": "caffeine anhydrous", "dose": "175", "unit": "mg" }], "caffeine_mg_per_serving": 175, "est_monthly_cost": 40 },
+      { "product_name": "Shred-X Fat Burner", "category": "fat-burner", "is_blend": true, "ingredients": [{ "name": "caffeine anhydrous", "dose": "200", "unit": "mg" }], "caffeine_mg_per_serving": 200, "est_monthly_cost": 45 }
+    ],
+    "medications": "none",
+    "budget_monthly": "$150+",
+    "max_daily_servings": "no limit",
+    "caffeine_other": "3 coffees + 2 energy drinks",
+    "stack_style": "optimize"
+  }
+}

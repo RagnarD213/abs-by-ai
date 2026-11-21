@@ -1,0 +1,116 @@
+{
+ "at": "2026-09-18T19:33:18.398Z",
+ "results": [
+  "customers/3427170837/assets/422804568080",
+  "customers/3427170837/assets/422804571407",
+  "customers/3427170837/audiences/359952376",
+  "customers/3427170837/adGroups/195593120770",
+  "customers/3427170837/adGroupCriteria/195593120770~2840",
+  "customers/3427170837/adGroupCriteria/195593120770~2124",
+  "customers/3427170837/adGroupCriteria/195593120770~1000",
+  "customers/3427170837/adGroupCriteria/195593120770~2502381343425",
+  "customers/3427170837/adGroupAds/195593120770~825172744302",
+  "customers/3427170837/adGroupAds/195593120770~825172744305",
+  "customers/3427170837/adGroups/201008893635",
+  "customers/3427170837/adGroupCriteria/201008893635~2840",
+  "customers/3427170837/adGroupCriteria/201008893635~2124",
+  "customers/3427170837/adGroupCriteria/201008893635~1000",
+  "customers/3427170837/adGroupCriteria/201008893635~2498784755180",
+  "customers/3427170837/adGroupAds/201008893635~825172744311",
+  "customers/3427170837/adGroupAds/201008893635~825172744314"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/195593120770",
+    "id": "195593120770",
+    "name": "RA-01 AI Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/195593120770~825172744302",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825172744302",
+     "id": "825172744302",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ra01&utm_content=claude-vertical-start"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude vertical | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/195593120770",
+    "id": "195593120770",
+    "name": "RA-01 AI Got Me Abs | /start",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/195593120770~825172744305",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825172744305",
+     "id": "825172744305",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ra01&utm_content=claude-16x9-start"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude 16:9 | /start"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201008893635",
+    "id": "201008893635",
+    "name": "RA-01 AI Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201008893635~825172744311",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825172744311",
+     "id": "825172744311",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ra01&utm_content=claude-vertical-home"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude vertical | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201008893635",
+    "id": "201008893635",
+    "name": "RA-01 AI Got Me Abs | home",
+    "targetCpaMicros": "30000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201008893635~825172744314",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/825172744314",
+     "id": "825172744314",
+     "finalUrls": [
+      "https://absbyai.com/?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-conv-ra01&utm_content=claude-16x9-home"
+     ],
+     "name": "RA-01 AI Got Me Abs | Claude 16:9 | home"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

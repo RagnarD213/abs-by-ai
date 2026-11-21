@@ -1,0 +1,29 @@
+{
+  "job": "RO-24",
+  "film_sha256": "950120846b3b9a3b3d7ad418995a4138a998cefb10deacd281858dfe4703e2d3",
+  "headline": "Ozempic: Ripped Or Ruined?",
+  "designs": {
+    "A": "Yellow two-line band; AI Dan twice in a bright bathroom, gaunt and wrecked vs lean, same pen.",
+    "B": "Yellow, red, black stacked blocks right; AI Dan shocked at a laptop, pen in hand, dark studio.",
+    "C": "Real studio-blue-249 photo, original person pixels; generated dark red backdrop with pen; Manrope type.",
+    "D": "White and cyan Impact on dark fade; AI Dan mid dumbbell press, pen on the bench.",
+    "E": "Gold and white condensed type; AI Dan on a red carpet in an open tuxedo, holding up the pen."
+  },
+  "image_generations": 6,
+  "paid_provider_cost_usd": 0,
+  "inspected_picks": [
+    "RO-27 FINAL",
+    "RO-10 FINAL",
+    "RO-30 sheet",
+    "SL-08 C",
+    "DS-01 B",
+    "DS-49 G"
+  ],
+  "release_plan": {
+    "youtube": "2026-11-15T09:00:00-06:00",
+    "others": "2026-11-16T12:00:00-06:00"
+  },
+  "thumbnail_approved": false,
+  "uploaded": false,
+  "scheduled": false
+}

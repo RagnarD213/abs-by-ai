@@ -1,0 +1,541 @@
+{
+  "category": "CONTENT SFC",
+  "round": "R3 candidate4",
+  "take": "scripted",
+  "video_path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-scripted.mp4",
+  "video_sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+  "video_sha256_independently_recomputed_at_start_and_end": true,
+  "review_complete": true,
+  "open_export_defects": [],
+  "independent_reviewer": "sole independent candidate4 reviewer",
+  "reviewed_at": "2026-10-25T16:13:58.088355",
+  "coverage": {
+    "native_decode": {
+      "frames": 1724,
+      "first_frame": 0,
+      "last_frame": 1723,
+      "fps": "30000/1001",
+      "size": [
+        1080,
+        1920
+      ],
+      "whole_native_adjacent_motion_scan": true
+    },
+    "image_paths": [
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_00_00-00.00_to_00-23.99.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_01_00-24.99_to_00-49.02.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_02_00-50.02_to_00-56.99.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_000_00-00.90_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_001_00-02.24_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_002_00-02.30_Silent_synced_real_corner_C1_out___Silen.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_003_00-04.87_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_004_00-06.44_Silent_synced_real_corner_C2a_out___Sile.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_005_00-07.31_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_006_00-09.48_Horizontal_Source_in___Large_watching_in.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_007_00-11.68_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_008_00-14.78_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_009_00-15.65_R3_Craig_label_out___R3_Craig_photo_arro.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_010_00-16.18_Large_watching_in_foreground_out___Respo.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_011_00-19.19_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_012_00-20.62_join.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_013_00-21.39_Horizontal_Source_out___R2_Compare_scrip.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_014_00-25.19_R2_Compare_scripted_out___T03_in___cover.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_015_00-25.49_G02_Definition_in.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_016_00-30.13_G02_Definition_out___G03_Before_disclosu.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_017_00-32.47_G03_Before_disclosure_out___G03_Before_f.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_018_00-35.30_T06_in___covered_out___join___punch_T06-.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_019_00-38.51_T06_out___T07_in___join___punch_T07-T.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_020_00-42.14_T07_out___T08_in___join___punch_T08-W.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_021_00-49.85_T08_out___T09_in___join___punch_T09-T.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_022_00-49.94_G05_Payoff_in.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_023_00-54.85_T09_out___T10_in___join___punch_T10-W.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_024_00-54.92_G05_Payoff_out___G06_Subscribe_in.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_000_00-00.90.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_001_00-02.24.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_002_00-02.30.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_003_00-04.87.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_004_00-06.44.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_005_00-07.31.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_006_00-09.48.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_007_00-11.68.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_008_00-14.78.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_009_00-15.65.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_010_00-16.18.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_011_00-19.19.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_012_00-20.62.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_013_00-21.39.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_014_00-25.19.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_015_00-25.49.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_016_00-30.13.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_017_00-32.47.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_018_00-35.30.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_019_00-38.51.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_020_00-42.14.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_021_00-49.85.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_022_00-49.94.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_023_00-54.85.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_024_00-54.92.jpg"
+    ],
+    "image_sha256": {
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_00_00-00.00_to_00-23.99.jpg": "9506313f6be4ae89739b37034761a3f3353cdedcf59dee400dc02d8b69d34962",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_01_00-24.99_to_00-49.02.jpg": "d74c577584997e9a67a6db24821ad9ae71aeef36a522376604cd825ca36ace03",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/sheets/sheet_02_00-50.02_to_00-56.99.jpg": "fc91ce8ac461041904e18e245453bfd5e22d331877bdce1321570316cfd2a0f2",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_000_00-00.90_join.jpg": "566dbe63373197a26bb34ee37bcb43ed6d3373f2599092d8142d8328af5fa477",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_001_00-02.24_join.jpg": "4e70beb0b5a2638e0909bfde992cf3f66b8bedb27ed0dade90e27953b40ef0b1",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_002_00-02.30_Silent_synced_real_corner_C1_out___Silen.jpg": "9cd40a663966ece35c65fda996d50308d64e7b788dbf11292328afe76383bbe8",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_003_00-04.87_join.jpg": "1a54175e2e0236853bc0112823f9d1390327375b12bdc73d845a9bb010ed0622",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_004_00-06.44_Silent_synced_real_corner_C2a_out___Sile.jpg": "d314704f268e2167f0ec573516bdee49b582f2e04712ca95c8f73c7cc400df46",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_005_00-07.31_join.jpg": "94069536b6ba7bbe7bce671b42ad9834a437e6d6ee48ae5b9bc24bc8a5861927",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_006_00-09.48_Horizontal_Source_in___Large_watching_in.jpg": "71643000c9a1d5061143f13f44730b8e3a6862a3c38339fd8282c7eb18528a33",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_007_00-11.68_join.jpg": "51f8bb752e82a0e1cbccd99c69c22c0255f9f7cda35e0a0412b03b464db66264",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_008_00-14.78_join.jpg": "2180c719b7b3b3410e4ec380eaa3e545d9ff0cd1db536a9cd73fab718df01570",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_009_00-15.65_R3_Craig_label_out___R3_Craig_photo_arro.jpg": "3662fd663d0def264734366a44a3906cff9e8c3900c279cf492d1724c028ea2f",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_010_00-16.18_Large_watching_in_foreground_out___Respo.jpg": "277cd668e60d9e28b54ae1c66f76697da2a2f5d10c57c8a1963fd0769821e559",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_011_00-19.19_join.jpg": "a2416379e5bc86bc42ee27e04fc50e01084344a5b08337caf7dc53d878c4d1af",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_012_00-20.62_join.jpg": "af979d623d30e395062507f44a3f3c4009c0dc5f72398dee93a4789e1f1c5bf9",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_013_00-21.39_Horizontal_Source_out___R2_Compare_scrip.jpg": "8ecb87395ee7a5caae82beacda2cc0e1a0d3f08898e626c9ecd332f8fd9140f4",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_014_00-25.19_R2_Compare_scripted_out___T03_in___cover.jpg": "d2bd1eac12ef0ed401b4e887cf6efa288b8e96e2cf4b522ac58ade84e19a3c31",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_015_00-25.49_G02_Definition_in.jpg": "18fe5ad371da96dd00debfbd43bdd433e2129fd3eeecbf0747f440b59cfff55a",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_016_00-30.13_G02_Definition_out___G03_Before_disclosu.jpg": "1c587e5a8151cf2237eb9f025845a4cf4ef6aef7797c9327ed47e0342bf3d2aa",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_017_00-32.47_G03_Before_disclosure_out___G03_Before_f.jpg": "5bc6aca3c6b8fabb3e808dbe5677bf001bdcf63326fbf086c5b3769318ab95f9",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_018_00-35.30_T06_in___covered_out___join___punch_T06-.jpg": "30fd097c8152a92178e2a9a1e16e14a049d3fba4099c8ef846514e93ba9ea088",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_019_00-38.51_T06_out___T07_in___join___punch_T07-T.jpg": "b37241ad565a9004d473b88e613a2dbdd81012ff784741bab592e154104edb15",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_020_00-42.14_T07_out___T08_in___join___punch_T08-W.jpg": "2959ce7e205c342b3e25ac87b9e3f82d7e031f7c168454f6be0e50f6e7fb4495",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_021_00-49.85_T08_out___T09_in___join___punch_T09-T.jpg": "9a83593aaa84207af234ee65a6d136e0343e2b5bf3525c5b5012b60e29e7dc0d",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_022_00-49.94_G05_Payoff_in.jpg": "cb31615b1c129f1276aa371b489a3e3014364f95819e0e41bcc0ef6f74612662",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_023_00-54.85_T09_out___T10_in___join___punch_T10-W.jpg": "06047ca06111c6db80f31176a5aaa2584eaf285224bcd550038e1de121bbbe82",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/strip_024_00-54.92_G05_Payoff_out___G06_Subscribe_in.jpg": "cdf8993972ac4fbc2818211f11557a76f229c351ba645c6dc5780512c89d9d12",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_000_00-00.90.jpg": "321fe9a0ac8e9f74350813a6bb158928143fd1cf03ac2f636a3262a1378b4f5c",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_001_00-02.24.jpg": "b02328909c97a1b7c06926d652b40d819dfbb648ad8bc2c9029d173804b5e1e4",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_002_00-02.30.jpg": "1918aa62396a31bd4353d1396cf7f38bfbe5915ce585cc7e3433376c51380c9b",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_003_00-04.87.jpg": "fb06fb3df52b1a910cdd9d7f9d3abca3cc6793cb1f766ff6424f1a9a9ba98123",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_004_00-06.44.jpg": "a5caa2be43030f0d1f2092dc66e67fe024bbb005eed7d9cd7ea33fb56cbbfab4",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_005_00-07.31.jpg": "c226630d37e18f04b64f7daa3eb4e68d94b7dab2439bd407434aee4db6f3a773",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_006_00-09.48.jpg": "9019d8ee6dbd1ca51240dc680d4518360b3224e5b1a45a209e4438a92c42c063",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_007_00-11.68.jpg": "00a816bbbe1fd6337a9e16e6e7b6942697fc6de585139a08bb35891cf52ac797",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_008_00-14.78.jpg": "d75d1fccbb0bdfa89305f9eb858558a1c69d1664d4cd050144ab8af1a8d4830c",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_009_00-15.65.jpg": "b69226a0e760f38522267aa34c09a1f1ced97907199f775b0111a31c08c3ccc0",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_010_00-16.18.jpg": "5c4c8b3a49c89837e79e64099d9b83aa47f9de8fa3654a027255b4fc9836f501",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_011_00-19.19.jpg": "b4850dadc7ff811b16809a6ed59c5195053d043b8931eb2f67d1dd992126bfe3",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_012_00-20.62.jpg": "95b6f0af3b555ddd9a812f221d5e0b0f6a7852298d6c25e1055fe1824b0b7bd6",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_013_00-21.39.jpg": "373b93c6896c303a567076255c1547a45ff7d9bc3e9107c13ab614330c1eaf5f",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_014_00-25.19.jpg": "f2e7e115cbdf0a9189b478e3f1f73c135786d0749e4da96f30f32e5c569f2cf9",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_015_00-25.49.jpg": "13a7834f5a3316c57c65de472aa1d5f1c16cbbaa78a4c067f7822368379f82ce",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_016_00-30.13.jpg": "3c05fca2dcecff7a72b26584134829f246ed56b9807badd518a389a322d373da",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_017_00-32.47.jpg": "bc64dc8dc2107159826b963785f09ad487f65255ce6b1b5b079839b90554ee4b",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_018_00-35.30.jpg": "1378f4a22fde82fe4c10d7e309d7ede733a95368d35349a7b110912cfcd95b5b",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_019_00-38.51.jpg": "657fdf563d94de1aec4edfd541fbc6e7f08d92335f1888d72352f65af7c5c850",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_020_00-42.14.jpg": "e5cdcbf02d076165d12074564116bf4ac598a378bb9ac53045e5e6b9f6adea9b",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_021_00-49.85.jpg": "8d586d10f3d2058696e589e0b92e3de3b319ac9de3fc27828261c58a7251f0eb",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_022_00-49.94.jpg": "594f3a1948ec2da425a9d1fb905509042eb911a2c8544e9587ab8af4faff7cf4",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_023_00-54.85.jpg": "e83712274790b3d6f2acb9e800b4cefd45ae03ebab2c0c44bdad53020313a4d0",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch/strips/pair_024_00-54.92.jpg": "bba3be91dfbfe1dcc12ca446bb34c471a5f9dff391fc5ce47acb7cb44e9ac787"
+    },
+    "watch_sheets": 3,
+    "watch_strips": 25,
+    "watch_pairs": 25,
+    "boundary_count": 25,
+    "watch_inspected": true,
+    "whole_chronological_contact_paths": [
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/chronological-00.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/chronological-01.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/chronological-02.jpg"
+    ],
+    "every_changed_frame_visual_ranges": [
+      [
+        280,
+        473
+      ],
+      [
+        474,
+        477
+      ],
+      [
+        478,
+        490
+      ],
+      [
+        968,
+        1062
+      ]
+    ],
+    "changed_contact_paths": [
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-00.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-01.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-02.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-03.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-04.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-05.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-06.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-07.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-08.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-09.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-10.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/changed-native-11.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/bridge-474-477.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/handover-478-490.jpg"
+    ],
+    "native_worst_and_requested_stills": [
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0058.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0076.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0090.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0099.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0131.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0158.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0249.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0281.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0411.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0418.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0455.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0499.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0505.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0616.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0879.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0284.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0350.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0417.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0425.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0443.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0468.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0484.png",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-corrected-0485.png"
+    ],
+    "caption_contact_paths": [
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/caption-contact-00.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/caption-contact-01.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/caption-contact-02.jpg",
+      "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/caption-contact-03.jpg"
+    ],
+    "caption_state_count": 84,
+    "all_exact_caption_raster_hashes_valid": true,
+    "caption_midpoints_independently_checked": 84,
+    "caption_native_onsets_independently_checked": 0,
+    "caption_order_visually_checked": true,
+    "full_human_realtime_playback_claimed": false,
+    "audio_every_packet": 2698,
+    "audio_every_decoded_stereo_byte": 16570368
+  },
+  "per_population": {
+    "corner": {
+      "stats": {
+        "n": 284,
+        "min_hair": 1304,
+        "max_hair": 1335,
+        "median_head": 218.0,
+        "min_head": 162.5,
+        "max_head": 270.0,
+        "sd_head": 15.849969019780149
+      },
+      "frame_span": [
+        0,
+        283
+      ],
+      "head_center_rule": "Intentional lower-left 0.40 corner; canvas-center rule does not apply.",
+      "metric_limit": "No corner clipping seen. Complete chronological source/corner review plus exact native extrema and immutable-source/preservation conformity support visibility. Quantitative head_x denotes the top surviving component; do not treat its spread as exact whole-head tracking.",
+      "sustained_clipping_runs_1s": []
+    },
+    "watching": {
+      "stats": {
+        "n": 201,
+        "min_hair": 594,
+        "max_hair": 674,
+        "median_head": 474.5,
+        "min_head": 344.5,
+        "max_head": 671.5,
+        "sd_head": 75.5387917344891,
+        "roi_boundary_hits": []
+      },
+      "frame_span": [
+        284,
+        484
+      ],
+      "head_center_rule": "Intentional full-camera left anchoring, not centered talking hold.",
+      "offcenter_from_canvas60_runs_1s": [
+        {
+          "first_frame": 317,
+          "last_frame": 367,
+          "start_s": 10.577233333333334,
+          "end_s": 12.278933333333333,
+          "duration_s": 1.7017
+        },
+        {
+          "first_frame": 419,
+          "last_frame": 478,
+          "start_s": 13.980633333333333,
+          "end_s": 15.982633333333334,
+          "duration_s": 2.0020000000000002
+        }
+      ],
+      "sustained_clipping_runs_1s": []
+    },
+    "response_panel": {
+      "stats": {
+        "n": 156,
+        "min_hair": 609,
+        "max_hair": 670,
+        "median_head": 518.75,
+        "min_head": 453.0,
+        "max_head": 583.5,
+        "sd_head": 28.858870950332452,
+        "roi_boundary_hits": []
+      },
+      "frame_span": [
+        485,
+        640
+      ],
+      "head_center_rule": "Larger centered response while source/title remain visible.",
+      "offcenter60_runs_1s": [],
+      "sustained_clipping_runs_1s": []
+    },
+    "full_field": {
+      "stats": {
+        "n": 814,
+        "min_hair": 72,
+        "max_hair": 168,
+        "median": -10.5,
+        "median_abs": 32.5,
+        "p95_abs": 67.5,
+        "max_abs": 116.5,
+        "sd": 38.03270730473983,
+        "over60_fraction": 0.09950859950859951,
+        "over60_runs_1s": [],
+        "headroom_outside20_to160_runs_1s": []
+      },
+      "head_center_rule": "Centered talk; transient performance leans judged in complete chronological context and native worsts.",
+      "sustained_clipping_runs_1s": []
+    }
+  },
+  "tradeoff_opinion": "Clear the requested picture revision for maintained final-gate processing. The full camera is preferable here: the arm exits at the outer canvas rather than an internal seam, at the cost of an intentionally leftward watching head and larger natural head motion. The484\u2192485 transition retains a pose change, but the visibly distinct23% scale/centering punch makes it legible as the response handover. The Craig card is large and foreground hair overlaps its torso region; his face remains unobstructed and the women interviewees remain clear through443..468.",
+  "scene_findings": [
+    "Opening real0.40 lower-left reaction and laptop retained; source interviews use native camera crops.",
+    "Watching284..484 uses full source camera at outer0/1080, visible hair foreground and live titled horizontal source; no internal arm slice.",
+    "Callout284..468: one enlarged original Craig covers baked duplicates; exact label The Dad Bod she likes and arrow clear the women interviewees. HF entrance starts as animated reveal, with text fully readable after its initial few entrance frames. It is not claimed fully opaque at284.",
+    "Original source camera transitions443..468 and exact native350/417/425/443/468 plus all478..490 reviewed; woman/Craig faces remain clear.",
+    "Response485 onward retains moving source/title behind actual foreground hair until declared panel end.",
+    "Later full-screen Seth Rogen red-X/Craig green-check comparison preserved and moving field/rim remain live.",
+    "All subsequent talk, punch changes, card copy/order, captions and complete ending were independently inspected chronologically.",
+    "Scripted973..1057: existing real studio-blue-11 image has clearly stronger visible abs and same real-photo disclosure/card/entrance/continuing field motion/timing. Green athletic shorts are visible; no newly generated physique. Every native frame968..1062 inspected."
+  ],
+  "source_components": {
+    "Daniel-source-inset.png": {
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/assets/Daniel-source-inset.png",
+      "sha256": "2873e854d802330406779369a806729cee851bd45df4ae0d22f1151c88fe7dc3",
+      "visually_opened": true
+    },
+    "Seth-source-inset.png": {
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/assets/Seth-source-inset.png",
+      "sha256": "e716162cf0f24e4dda01a49dc19d445db1aaac152e316122f171f63434eaea7f",
+      "visually_opened": true
+    },
+    "stronger-abs-studio-blue-11.jpg": {
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/assets/stronger-abs-studio-blue-11.jpg",
+      "sha256": "b8303f4719d27c04415e84a043d4684852a4ceec769d2b6415b56a371dd0827f",
+      "visually_opened": true
+    }
+  },
+  "original_source_native_samples": [
+    "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-interview-0284.png",
+    "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-interview-0350.png",
+    "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-interview-0425.png",
+    "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-interview-0443.png",
+    "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-interview-0468.png"
+  ],
+  "original_watch_camera_source": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/original-watch-camera.png",
+  "maintained_scan": {
+    "path": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/watch_pass.json",
+    "scan": {
+      "frames": 1724,
+      "fps": 29.97,
+      "median_diff": 2.527,
+      "mad": 1.142,
+      "p99": 24.65,
+      "threshold": 24.65,
+      "frozen": [],
+      "black": [],
+      "jumps": [],
+      "explained_jumps": 14
+    },
+    "naked_splices": {
+      "count": 0,
+      "per_min": 0.0,
+      "candidates": 2,
+      "naked": [],
+      "settings": {
+        "grid": "90x160",
+        "blocks": "9x16",
+        "peak": 20.0,
+        "sharp": 2.0,
+        "still": 0.25,
+        "hot_min": 8,
+        "subject_rows": 0.7,
+        "tex_min": 6.0,
+        "palette": 0.1,
+        "align_explains": 0.4,
+        "align_margin_blocks": 1
+      }
+    },
+    "freeze_candidates_disposition": "0 candidates, 0 unresolved; zero frozen runs and zero black frames from the maintained all-native scan. Independent hardcoded empty black field is not evidence."
+  },
+  "source_panel_detector_disposition": {
+    "raw": [
+      {
+        "name": "R2_SourcePanel",
+        "t": 16.86,
+        "method": "mov_alpha_corr",
+        "corr": 0.153,
+        "opaque_px": 1416960,
+        "present": false
+      }
+    ],
+    "status": "false missing diagnostic resolved by actual content",
+    "native_frame": 505,
+    "native_proof": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/worst-0505.png",
+    "finding": "Actual native sample and surrounding chronological source frames show source interview, top title, panel border/moving blue field and foreground hair clearly. Full-background alpha correlation is low because the revised content and overlaid live source/person differ from the mostly opaque reference; not an absent source/title/graphic. This is a narrow actual-content disposition, not a blanket source-cover exclusion."
+  },
+  "caption_independent": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/caption-independent.json",
+  "producer_caption_sync": {
+    "path": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/corrected-caption-sync.json",
+    "rows": [
+      {
+        "key": "captions:sync",
+        "ok": true,
+        "detail": "84/84 highlighted PNG word states aligned to 84 delivered-audio words (100.0%, min 97%); median +7 ms, worst +64 ms (max 120); 0 state(s) absent from delivered pixels, 0 timing miss(es)",
+        "value": {
+          "matched": 84,
+          "caption_words": 84,
+          "speech_words": 84,
+          "match_frac": 1.0,
+          "median_ms": 7.4,
+          "worst_ms": 64.2,
+          "absent": [],
+          "bad": []
+        }
+      }
+    ],
+    "method_limit": "planned cue-start vs inherited acoustic onsets; actual native midpoint pixels verified by maintained check"
+  },
+  "producer_full_speech": {
+    "path": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/full-speech-junk.json",
+    "rows": [
+      {
+        "key": "junk:repeated_take",
+        "ok": true,
+        "detail": "0 confirmed restart(s) in 230 words (plan:speech_words (delivered_asr)); 0 deliberate repeat(s) kept, 0 fluent re-said phrase(s) for a listen",
+        "value": {
+          "confirmed": [],
+          "listen": [],
+          "candidates": 0,
+          "words": 230,
+          "words_source": "plan:speech_words (delivered_asr)"
+        }
+      },
+      {
+        "key": "junk:dead_air",
+        "ok": true,
+        "detail": "longest silence inside the speech 0.78 s (max 1.00 s); 0 over the bound; threshold -30.0 dBFS against speech at -12.4",
+        "value": {
+          "longest": 0.78,
+          "bound": 1.0,
+          "over": [],
+          "gaps": 23
+        }
+      }
+    ],
+    "scope": "Fresh current rows; inherited all-literal230/234word delivered AAC transcript only through independently proved exact identity; no fresh ASR listening claim."
+  },
+  "audio_independent": {
+    "video_sha256": "e8548c02d99a5d187d412c8c69d40bfe4c46b651b5e50d67a1899d3e3cdc9f19",
+    "baseline_sha256": "1639325d2d767099debfbe8c12c514de41336e633c530252fb4ad2f722a64c53",
+    "packets": 2698,
+    "every_packet_hash_pts_dts_duration_size_identical": true,
+    "decoded_stereo_pcm": [
+      {
+        "sha256": "4d6b70e780f9ebebfca517d3b85637f7de424b67099d08ca257c1d1ffd90fe54",
+        "bytes": 16570368
+      },
+      {
+        "sha256": "4d6b70e780f9ebebfca517d3b85637f7de424b67099d08ca257c1d1ffd90fe54",
+        "bytes": 16570368
+      }
+    ],
+    "decoded_stereo_pcm_identical": true,
+    "auditory_scope": "No fresh heard or metered listening. Prior acoustic/listening judgments inherited only through exact packet and decoded stereo identity. Contradictory bounded R2 opinions retain uncertainty; signal preservation proves no new processing damage, not ideal room acoustics."
+  },
+  "audio_gates": {
+    "normal_final_AAC": {
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/review/media/dad-bod-r3-scripted.mp4.audio_gate.json",
+      "failed_rows": [
+        {
+          "key": "tone",
+          "text": "tone: mean |err| 3.51 dB (<= 1.2), max 9.08 (<= 2.5)",
+          "value": {
+            "mean": 3.508,
+            "max": 9.085,
+            "bands": [
+              5.1,
+              7.1,
+              9.43,
+              8.35,
+              7.26,
+              1.21,
+              -1.68,
+              -7.61,
+              -13.24,
+              -15.92
+            ]
+          }
+        }
+      ],
+      "fresh_heard": false
+    },
+    "isolated_stereo_Dan": {
+      "path": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/Dan-exact-stereo-final-AAC.wav.audio_gate.json",
+      "failed_rows": [
+        {
+          "key": "tone",
+          "text": "tone: mean |err| 3.09 dB (<= 1.2), max 7.19 (<= 2.5)",
+          "value": {
+            "mean": 3.088,
+            "max": 7.19,
+            "bands": [
+              7.15,
+              8.82,
+              10.52,
+              9.46,
+              8.45,
+              1.43,
+              -3.35,
+              -9.85,
+              -14.14,
+              -18.5
+            ]
+          }
+        }
+      ],
+      "fresh_heard": false
+    }
+  },
+  "preservation_corrob": {
+    "path": "/Volumes/Expansion/_edit_work/DS-35/round3/qa/scripted/preservation.json",
+    "scope": "Preservation proof ONLY: all unchanged timeline frames compared to locked reviewed R2. Independent R1 components and fresh exact-file scene review still required.",
+    "unchanged_frames_compared": 1438,
+    "minimum_psnr_db": 38.686913966189564,
+    "mean_absolute_rgb_delta": 2.0642559239861034
+  },
+  "measurement_files": {
+    "original_full_decode": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/rgb-analysis.json",
+    "corrected_corner": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/corner-rgb-corrected.json",
+    "corrected_panel": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/panel-rgb-corrected.json"
+  },
+  "findings_path": "/Volumes/Expansion/_edit_work/DS-35/round3/independent/scripted/findings.json",
+  "limits": [
+    "Picture review uses complete native decoding, all chronological scenes, all boundary images, every requested changed frame, native worsts and measurement scans. It is not claimed as uninterrupted real-time human playback.",
+    "Corrected panel measurement uses neutral dark residual>30RGB after independent original-source/background reconstruction, x100..950/y500..1000. It measures core hair, not alpha fringe. Worst dark-core top674 gives26px overlap below panel700; producer source-alpha28px is corroboration only. Native worsts visibly retain the foreground overlap.",
+    "The discarded panel ROI metrics and the earlier fragmented corner component numbers are not passing evidence. Corner residual12 metrics still track a surviving dark hair component; native images and unchanged source/frame conformity resolve dark-on-dark visibility, not a fabricated exact silhouette.",
+    "head_x is the midpoint of the upper component in each calibrated crop, not whole-person centroid; pose/turn motion affects it. Watching and corner populations are intentionally left anchored.",
+    "No fresh heard or paid/metred listening, ASR or MMS was run. Audio acoustic/listening judgments are inherited through exact identity, with contradictory bounded R2 opinions retained; exact identity proves no new signal damage, not perfect room acoustics.",
+    "Independent caption measurement checks all84 exact actual native midpoints, raster hashes and order. It does not independently measure all emitted cue-start edges. Producer current sync compares planned starts to inherited acoustic onsets and verifies midpoint pixels; preserved timeline, current caption states, allframe R2 conformity and exact AAC/PCM identity support unchanged timing. No specific unresolved onset concern was found. A redundant waiting onset scan was canceled before it started."
+  ],
+  "scope_no_media_plan_gate_approval_or_publication_edits": true,
+  "spend": 0
+}

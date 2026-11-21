@@ -1,0 +1,11 @@
+{
+ "format": "steal-my-workout", "id": "workout-01-home-abs", "tag": "Steal my workout",
+ "status": "posted 2026-10-28 (approved R1 C3, timers 1:00 placeholder); kept as the reference example",
+ "cover": {"headline": "3 moves.\n[y]3 minutes.[/y]\nNo gym.", "cutout": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-white-90.webp", "alt": "Dan in yellow shorts, hands on hips"}, "swipe": "Swipe to steal it"},
+ "moves": [
+  {"name": "Spiderman plank", "dose": "1:00", "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/spiderman.jpg", "pos": "40% 55%", "zoom": 1.1, "label": "real", "alt": "Dan doing a spiderman plank"}, "cues": ["Knee to the same-side elbow.", "Hips stay level with your shoulders.", "Alternate sides every rep."]},
+  {"name": "Toe-touch crunch", "dose": "1:00", "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/toetouch.jpg", "pos": "48% 45%", "zoom": 1.1, "label": "real", "alt": "Dan reaching for his shoes"}, "cues": ["Legs straight up, feet over your hips.", "Reach for your shoes. Shoulder blades leave the mat.", "Lower slowly. Don't drop."]},
+  {"name": "Plank up-down", "dose": "1:00", "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/updown.jpg", "pos": "55% 62%", "zoom": 1.2, "label": "real", "alt": "Dan pressing up from a forearm plank"}, "cues": ["Forearms to hands, one arm at a time.", "Keep your hips square. No rocking.", "Switch the lead arm every rep."]}
+ ],
+ "recap": {"title": "Screenshot this.", "text": "Do it tonight. Then tag the friend who says he has no time.", "follow": "Workouts I actually do."}
+}

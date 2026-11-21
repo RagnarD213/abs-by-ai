@@ -1,0 +1,83 @@
+[
+  {
+    "id": "A",
+    "label": "Jeans: relaxed hands",
+    "source": "studio-white-42",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-white-42_CUTOUT.png",
+    "crop_bottom_fraction": 0.885,
+    "file": "ro12-pool-R3-A.jpg",
+    "bytes": 535605,
+    "sha256": "5ce00dab2f2faf02095c36cc9955a501dd05960c2d86dbcb20cb37d1c3c29a06",
+    "text_clearance_px": 332,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  },
+  {
+    "id": "B",
+    "label": "Studio: arms at sides",
+    "source": "studio-blue-127",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-127_CUTOUT.png",
+    "crop_bottom_fraction": 0.86,
+    "file": "ro12-pool-R3-B.jpg",
+    "bytes": 520177,
+    "sha256": "02a4a482716b65b9d025b770e99d1f0e437ffc8eaf87344e53e1a85620940789",
+    "text_clearance_px": 313,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  },
+  {
+    "id": "C",
+    "label": "Studio: relaxed stance",
+    "source": "studio-blue-38",
+    "source_file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-38_CUTOUT.png",
+    "crop_bottom_fraction": 0.71,
+    "file": "ro12-pool-R3-C.jpg",
+    "bytes": 516393,
+    "sha256": "ee91d4b4f4a202c1ccf991bee8017cc6e3621ae424ac09daf36c8f1d60bc56de",
+    "text_clearance_px": 261,
+    "headroom_px": 20,
+    "portrait_pixels": "Real source, resized uniformly; no physique or face alteration",
+    "text_boxes": [
+      [
+        67,
+        74,
+        620,
+        162
+      ],
+      [
+        67,
+        186,
+        579,
+        324
+      ]
+    ]
+  }
+]

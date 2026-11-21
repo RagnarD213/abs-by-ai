@@ -1,0 +1,42 @@
+{#- Shared page shell, styles and macros for every @danrosefit post template.
+    Design units are CSS px on a 540 x 675 slide; render.py screenshots at 2x, so every number here is half the
+    1080 x 1350 pixel size (16 px here = 32 px on the posted image). -#}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{{ post.id }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E1013;--bone:#F2EEE6;--red:#D33A2C;--yellow:#FFD23F;--mute-d:#9AA1AB;--mute-l:#5B626C;--body-d:#C3C8CF;--body-l:#3A3F46}
+body{margin:0;background:#CFCBC4}
+.strip{display:flex;gap:24px;padding:32px;width:max-content}
+.slide{position:relative;width:540px;height:675px;overflow:hidden;flex:none;box-sizing:border-box}
+.hd{font-family:'Anton',Impact,sans-serif;font-weight:400;text-transform:uppercase;line-height:.96;margin:0}
+.tx{font-family:'Manrope',system-ui,sans-serif}
+.tag{font-family:'Manrope',system-ui,sans-serif;font-weight:800;font-size:16px;letter-spacing:.12em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.sq{display:block;width:10px;height:10px;background:var(--red)}
+.handle{font-family:'Manrope',system-ui,sans-serif;font-weight:700;font-size:16px}
+.lbl{position:absolute;font-family:'Manrope',system-ui,sans-serif;font-weight:600;font-size:16px;padding:4px 10px;border-radius:4px;background:rgba(14,16,19,.74);color:var(--bone);z-index:3}
+.pill{display:inline-block;font-family:'Manrope',system-ui,sans-serif;font-weight:800;font-size:16px;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:4px}
+.stamp{display:inline-block;font-family:'Manrope',system-ui,sans-serif;font-weight:800;font-size:16px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border:2px solid var(--ink);color:var(--ink)}
+.cue{display:flex;gap:12px;align-items:baseline;font-family:'Manrope',system-ui,sans-serif;font-size:19px;line-height:1.38;font-weight:600;color:var(--body-d)}
+.dot{display:block;width:8px;height:8px;background:var(--yellow);flex:none;transform:translateY(-3px)}
+.frame{position:absolute;overflow:hidden}
+.frame>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;padding:24px;box-sizing:border-box;text-align:center;
+  background:repeating-linear-gradient(135deg,#2A2E35 0 14px,#23272D 14px 28px);color:var(--yellow);font-family:'Manrope',system-ui,sans-serif}
+.ph b{font-weight:800;font-size:18px;letter-spacing:.14em;text-transform:uppercase}
+.ph span{font-weight:600;font-size:16px;line-height:1.35;color:var(--bone);max-width:400px}
+.y{color:var(--yellow)}.r{color:var(--red)}.hl{background:linear-gradient(transparent 56%,var(--yellow) 56%)}
+.em{color:var(--yellow);font-weight:800}
+.chip{display:inline-flex;align-self:flex-start;align-items:center;gap:8px;border:2px solid var(--yellow);border-radius:4px;padding:4px 12px;color:var(--yellow)}
+</style>
+</head>
+<body>
+<div class="strip">
+{% block slides %}{% endblock %}
+</div>
+</body>
+</html>

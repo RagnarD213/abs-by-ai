@@ -1,0 +1,87 @@
+{
+ "shot": "RO-20C R5 I3, intro tile 'Over $10,000 A Month' (lands on 'making over $10,000 a month', P4 4.67 s)",
+ "intent": "A luxury mansion home gym at sunset (glass walls, infinity pool, chrome dumbbells): shirtless ripped Dan curls two chrome dumbbells while a fit woman in a sports bra and leggings presses dumbbells behind him. START: his dumbbells hang at his sides, hers at her shoulders. END: his curled to his shoulders, hers pressed overhead; both stand in the same spots. Locked camera.",
+ "person": {
+  "anchored": [
+   "nose"
+  ],
+  "legs_hidden": {
+   "below_y": 900
+  },
+  "reach": false
+ },
+ "still": {
+  "rack": [
+   20,
+   470,
+   100,
+   530
+  ],
+  "squat_rack": [
+   1500,
+   200,
+   1560,
+   260
+  ],
+  "window_left": [
+   20,
+   180,
+   100,
+   240
+  ],
+  "couch": [
+   430,
+   390,
+   500,
+   430
+  ],
+  "bench_right": [
+   1530,
+   620,
+   1610,
+   660
+  ],
+  "bench_left": [
+   60,
+   740,
+   160,
+   790
+  ]
+ },
+ "props": [
+  {
+   "name": "dumbbell_right",
+   "box": [
+    460,
+    740,
+    655,
+    850
+   ],
+   "held_by": "right"
+  },
+  {
+   "name": "dumbbell_left",
+   "box": [
+    920,
+    730,
+    1110,
+    840
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "right": "holds a chrome dumbbell in both frames",
+  "left": "holds a chrome dumbbell in both frames",
+  "note": "the woman is a second person outside the pose mask; her box covers her whole press, from shoulders to overhead, per the intent"
+ },
+ "may_change": {
+  "woman": [
+   860,
+   0,
+   1270,
+   941
+  ]
+ },
+ "bounds": {}
+}

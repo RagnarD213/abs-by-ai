@@ -1,0 +1,3265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Morning Dashboard</title>
+<style>
+:root {
+--bg: #0d0d0d;
+--surface: #141414;
+--surface2: #1c1c1c;
+--border: #2a2a2a;
+--text: #f0f0f0;
+--muted: #666;
+--green: #22c55e;
+--blue: #3b82f6;
+--purple: #a855f7;
+--orange: #f97316;
+--red: #ef4444;
+--yellow: #eab308;
+--brown: #b7793f;
+--money: #22c55e;
+--health: #3b82f6;
+--rel: #a855f7;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+background: var(--bg);
+color: var(--text);
+font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+min-height: 100vh;
+overflow-x: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+padding: 18px 32px 14px;
+border-bottom: 1px solid var(--border);
+background: var(--surface);
+position: relative;
+text-align: center;
+}
+
+.header-headline {
+font-size: 32px;
+font-weight: 900;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(--text);
+line-height: 1.1;
+}
+
+.header-sub {
+font-size: 18px;
+color: var(--muted);
+margin-top: 4px;
+letter-spacing: 0.02em;
+}
+
+.header-sub.win {
+color: #21d07a;
+}
+
+.header-sub.lose {
+color: #ef4444;
+}
+
+.header-refresh {
+position: absolute;
+top: 50%;
+right: 32px;
+transform: translateY(-50%);
+}
+
+/* ── GRID ── */
+.grid {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 0;
+align-items: stretch;
+}
+
+.col {
+padding: 20px 20px 20px;
+border-right: 1px solid var(--border);
+}
+
+.col:last-child { border-right: none; }
+
+/* custom scrollbar */
+.col::-webkit-scrollbar { width: 4px; }
+.col::-webkit-scrollbar-track { background: transparent; }
+.col::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+.col-header {
+display: flex;
+align-items: center;
+gap: 8px;
+margin-bottom: 16px;
+padding-bottom: 12px;
+border-bottom: 1px solid var(--border);
+}
+
+.col-header .dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+.col-header h2 {
+font-size: 11px;
+font-weight: 700;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(--muted);
+}
+
+.col-money .dot { background: var(--money); }
+.col-health .dot { background: var(--health); }
+.col-rel .dot { background: var(--rel); }
+
+/* ── CARDS ── */
+.card {
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: 10px;
+padding: 14px 16px;
+margin-bottom: 10px;
+}
+
+.card-title {
+font-size: 10px;
+font-weight: 700;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+color: var(--muted);
+margin-bottom: 10px;
+}
+
+/* ── METRICS ROW ── */
+.metrics {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 8px;
+margin-bottom: 10px;
+}
+
+.metric {
+background: var(--surface);
+border: 1px solid var(--border);
+border-radius: 8px;
+padding: 10px;
+text-align: center;
+}
+
+.metric .val {
+font-size: 22px;
+font-weight: 700;
+line-height: 1;
+}
+
+.metric .lbl {
+font-size: 10px;
+color: var(--muted);
+margin-top: 3px;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+
+.metric .chg {
+font-size: 11px;
+margin-top: 2px;
+}
+
+.up { color: var(--green); }
+.down { color: var(--red); }
+.flat { color: var(--muted); }
+
+/* ── TODO LIST ── */
+.todo-list {
+list-style: none;
+}
+
+.todo-item {
+display: flex;
+align-items: flex-start;
+gap: 10px;
+padding: 8px 0;
+border-bottom: 1px solid var(--border);
+cursor: pointer;
+}
+
+.todo-item:last-child { border-bottom: none; }
+
+.todo-cb {
+width: 16px;
+height: 16px;
+min-width: 16px;
+border: 1.5px solid var(--border);
+border-radius: 4px;
+margin-top: 1px;
+display: flex;
+align-items: center;
+justify-content: center;
+transition: all 0.15s;
+}
+
+.todo-item.done .todo-cb {
+background: var(--green);
+border-color: var(--green);
+}
+
+.todo-item.done .todo-cb::after {
+content: '✓';
+font-size: 10px;
+color: #000;
+font-weight: 700;
+}
+
+.todo-item.done .todo-text {
+text-decoration: line-through;
+color: var(--muted);
+}
+
+.todo-text {
+font-size: 13px;
+line-height: 1.4;
+color: var(--text);
+}
+
+.todo-tag {
+font-size: 10px;
+padding: 1px 6px;
+border-radius: 4px;
+font-weight: 600;
+white-space: nowrap;
+margin-left: auto;
+align-self: center;
+}
+
+.tag-key { background: rgba(34,197,94,0.15); color: var(--green); box-shadow: 0 0 0 1px rgba(34,197,94,0.35); text-transform: uppercase; letter-spacing: 0.04em; }
+.tag-high { background: rgba(234,179,8,0.15); color: var(--yellow); }
+.tag-med { background: rgba(239,68,68,0.15); color: var(--red); }
+.tag-low { background: rgba(183,121,63,0.18); color: var(--brown); }
+/* Below Low, and deliberately neutral-looking: it means "not triaged yet",
+   not "judged unimportant". Used for tasks the assistant adds herself. */
+.tag-unassigned { background: rgba(255,255,255,0.06); color: var(--muted); box-shadow: 0 0 0 1px rgba(255,255,255,0.08); }
+.todo-item.priority-key .todo-text { font-weight: 700; }
+
+/* ── HANDOFFS TO FIRE (Dan, 2026-09-08): the launcher, not a task list ── */
+.ho-item { display: flex; flex-direction: column; gap: 4px; padding: 9px 0; border-bottom: 1px solid var(--border); }
+.ho-item:last-child { border-bottom: none; }
+.ho-top { display: flex; align-items: center; gap: 8px; }
+.ho-text { font-size: 13px; line-height: 1.4; color: var(--text); font-weight: 600; flex: 1; }
+.ho-chip { font-size: 10px; padding: 1px 7px; border-radius: 4px; font-weight: 600; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.04em; }
+.ho-chip.ready { background: rgba(34,197,94,0.15); color: var(--green); box-shadow: 0 0 0 1px rgba(34,197,94,0.35); }
+.ho-chip.wait { background: rgba(234,179,8,0.12); color: var(--yellow); }
+.ho-meta { display: flex; align-items: center; gap: 8px; row-gap: 5px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.ho-age { font-weight: 600; }
+.ho-age.stale { color: var(--red); }
+.ho-doc { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10.5px; color: var(--muted); text-decoration: none; }
+.ho-doc:hover { color: var(--text); }
+.ho-actions { display: flex; gap: 6px; margin-left: auto; }
+.ho-btn { font-size: 11px; padding: 3px 9px; border-radius: 5px; border: 1px solid var(--border); background: transparent; color: var(--text); cursor: pointer; }
+.ho-btn:hover { border-color: var(--green); color: var(--green); }
+.ho-btn.danger:hover { border-color: var(--red); color: var(--red); }
+.ho-note { font-size: 11px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+.ho-empty { font-size: 12px; color: var(--muted); padding: 8px 0; }
+
+/* ── WORK SESSION FOCUS TASKS (full-width band above the 3 columns) ── */
+.plan-band {
+background: linear-gradient(180deg, rgba(245,166,35,0.06), var(--surface));
+border-bottom: 1px solid var(--border);
+padding: 20px 32px 22px;
+}
+.plan-band-head {
+display: flex;
+align-items: baseline;
+justify-content: center;
+gap: 14px;
+margin-bottom: 16px;
+}
+.plan-band-title {
+font-size: 45px;
+font-weight: 900;
+letter-spacing: 0.02em;
+color: #21d07a;
+line-height: 1;
+text-align: center;
+}
+.plan-band-title .accent { color: #21d07a; }
+.plan-sessions {
+font-size: 16px;
+font-weight: 700;
+color: var(--muted);
+white-space: nowrap;
+}
+#plan-todos {
+min-height: 52px;
+}
+#plan-todos.drop-active {
+outline: 2px dashed rgba(245,166,35,0.5);
+outline-offset: 6px;
+border-radius: 8px;
+}
+.plan-grid {
+list-style: none;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: 6px 24px;
+}
+.plan-grid + .plan-grid {
+margin-top: 14px;
+padding-top: 14px;
+border-top: 1px dashed var(--border);
+}
+.plan-item {
+display: flex;
+align-items: center;
+gap: 12px;
+padding: 10px 14px;
+background: var(--surface2);
+border: 1px solid var(--border);
+border-radius: 10px;
+cursor: pointer;
+max-height: 159px;
+overflow: hidden;
+}
+.plan-item.done { opacity: 0.55; }
+.plan-item.done .plan-text { text-decoration: line-through; color: var(--muted); }
+.plan-item .todo-cb { width: 20px; height: 20px; min-width: 20px; }
+.plan-item:not(.done) .todo-cb { border-color: #fff; }
+.plan-item.done .todo-cb { background: var(--green); border-color: var(--green); }
+.plan-item.done .todo-cb::after { content: '✓'; font-size: 12px; color: #000; font-weight: 700; }
+.plan-text-col {
+flex: 1;
+display: flex;
+flex-direction: column;
+gap: 2px;
+min-width: 0;
+max-height: 139px;
+overflow: hidden;
+justify-content: center;
+}
+.plan-text {
+font-size: 25px;
+font-weight: 600;
+line-height: 1.3;
+color: var(--text);
+}
+.plan-why {
+font-size: 13px;
+font-weight: 500;
+line-height: 1.3;
+color: var(--muted);
+}
+.plan-item .todo-tag { font-size: 14px; }
+.plan-item.dragging { opacity: 0.4; }
+.plan-drag {
+cursor: grab;
+color: var(--muted);
+font-size: 15px;
+user-select: none;
+}
+.plan-remove {
+background: none;
+border: none;
+color: var(--muted);
+font-size: 14px;
+cursor: pointer;
+padding: 2px 4px;
+line-height: 1;
+}
+.plan-remove:hover { color: var(--red); }
+.plan-empty {
+grid-column: 1 / -1;
+color: var(--muted);
+font-size: 14px;
+padding: 14px 2px;
+}
+.todo-item[draggable="true"] { cursor: grab; }
+/* Day-of-week recurrence: the schedule chip on a task, the day picker in the
+   edit form, and the muted "not due today" footer. */
+.sched-badge {
+flex-shrink: 0; font-size: 10px; font-weight: 700; letter-spacing: .03em;
+padding: 2px 6px; border-radius: 99px; white-space: nowrap;
+background: rgba(255,255,255,.06); color: var(--muted);
+box-shadow: 0 0 0 1px rgba(255,255,255,.08);
+}
+.offday-note { opacity: .55; font-size: 12px; cursor: pointer; }
+.offday-note:hover { opacity: .8; }
+.offday-row { opacity: .5; }
+.tf-days { display: inline-flex; gap: 3px; }
+.tf-day {
+width: 22px; height: 22px; padding: 0; border-radius: 6px; cursor: pointer;
+font-family: inherit; font-size: 11px; font-weight: 700;
+background: transparent; color: var(--muted); border: 1px solid var(--border);
+}
+.tf-day.on { background: var(--accent, #21d07a); color: #062011; border-color: transparent; }
+.col.drop-out-active { background: rgba(239,68,68,0.05); }
+.stale-badge {
+font-size: 13px;
+margin-left: 2px;
+cursor: help;
+opacity: 0.85;
+}
+@media (max-width: 640px) {
+.plan-band { padding: 16px 18px 18px; }
+.plan-band-title { font-size: 24px; }
+.plan-band-head { flex-direction: column; gap: 4px; }
+.plan-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CALENDAR EVENTS ── */
+.event {
+display: flex;
+gap: 12px;
+padding: 8px 0;
+border-bottom: 1px solid var(--border);
+align-items: flex-start;
+}
+
+.event:last-child { border-bottom: none; }
+
+.event-time {
+font-size: 11px;
+color: var(--muted);
+min-width: 42px;
+padding-top: 1px;
+}
+
+.event-bar {
+width: 3px;
+min-height: 36px;
+border-radius: 2px;
+flex-shrink: 0;
+}
+
+.event-bar-money { background: var(--money); }
+.event-bar-rel { background: var(--rel); }
+
+.event-info .title {
+font-size: 13px;
+font-weight: 500;
+line-height: 1.3;
+}
+
+.event-info .sub {
+font-size: 11px;
+color: var(--muted);
+margin-top: 2px;
+}
+
+/* ── NEWS ── */
+.news-item {
+padding: 8px 0;
+border-bottom: 1px solid var(--border);
+cursor: pointer;
+}
+
+.news-item:last-child { border-bottom: none; }
+
+.news-item:hover .news-title { color: var(--blue); }
+
+.news-title {
+font-size: 12.5px;
+line-height: 1.4;
+transition: color 0.1s;
+}
+
+.news-source {
+font-size: 10px;
+color: var(--muted);
+margin-top: 3px;
+}
+
+/* ── HEALTH RINGS ── */
+.rings {
+display: flex;
+justify-content: space-around;
+align-items: center;
+padding: 8px 0;
+}
+
+.ring-wrap {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 6px;
+}
+
+.ring-svg { transform: rotate(-90deg); }
+
+.ring-label {
+font-size: 10px;
+color: var(--muted);
+text-transform: uppercase;
+letter-spacing: 0.08em;
+}
+
+.ring-val {
+font-size: 13px;
+font-weight: 600;
+text-align: center;
+}
+
+/* ── SLEEP BARS ── */
+.sleep-stages {
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.sleep-row {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.stage-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.sleep-label {
+font-size: 11px;
+color: var(--muted);
+width: 36px;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+}
+
+.sleep-bar-track {
+flex: 1;
+height: 6px;
+background: var(--border);
+border-radius: 3px;
+overflow: hidden;
+}
+
+.sleep-bar-fill {
+height: 100%;
+border-radius: 3px;
+transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sleep-val {
+font-size: 11px;
+color: var(--text);
+width: 32px;
+text-align: right;
+}
+
+/* ── SCORE BADGE ── */
+.score-badge {
+display: inline-flex;
+align-items: baseline;
+gap: 3px;
+}
+
+.score-big {
+font-size: 48px;
+font-weight: 800;
+line-height: 1;
+}
+
+.score-max {
+font-size: 18px;
+color: var(--muted);
+font-weight: 400;
+}
+
+.score-label {
+font-size: 18px;
+color: var(--muted);
+margin-top: 4px;
+}
+
+/* ── RECOVERY STATUS ── */
+.recovery-pill {
+display: inline-flex;
+align-items: center;
+gap: 6px;
+padding: 6px 14px;
+border-radius: 100px;
+font-size: 13px;
+font-weight: 600;
+margin-top: 10px;
+}
+
+.recovery-optimal { background: rgba(34,197,94,0.15); color: var(--green); border: 1px solid rgba(34,197,94,0.3); }
+.recovery-good { background: rgba(59,130,246,0.15); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+.recovery-moderate { background: rgba(234,179,8,0.15); color: var(--yellow);border: 1px solid rgba(234,179,8,0.3); }
+.recovery-poor { background: rgba(239,68,68,0.15); color: var(--red); border: 1px solid rgba(239,68,68,0.3); }
+
+/* ── OURA CONTRIBUTORS ── */
+.contrib-row {
+margin-bottom: 14px;
+}
+
+.contrib-top {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+margin-bottom: 6px;
+}
+
+.contrib-name {
+font-size: 14px;
+color: var(--text);
+}
+
+.contrib-val {
+font-size: 13px;
+color: var(--muted);
+}
+
+.contrib-val-attention {
+color: #f5a623;
+}
+
+.contrib-bar-track {
+height: 4px;
+background: rgba(255,255,255,0.08);
+border-radius: 2px;
+overflow: hidden;
+}
+
+.contrib-bar-fill {
+height: 100%;
+width: 0%;
+border-radius: 2px;
+background: #21d07a;
+transition: width 0.9s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ── SETUP NOTICE ── */
+.setup-notice {
+background: rgba(59,130,246,0.08);
+border: 1px solid rgba(59,130,246,0.2);
+border-radius: 8px;
+padding: 10px 12px;
+font-size: 11.5px;
+color: var(--muted);
+line-height: 1.5;
+}
+
+.setup-notice a {
+color: var(--blue);
+text-decoration: none;
+}
+
+/* ── LOADING / ERROR ── */
+.loading {
+font-size: 18px;
+color: var(--muted);
+text-align: center;
+padding: 20px;
+}
+
+.pulse {
+animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+0%, 100% { opacity: 1; }
+50% { opacity: 0.4; }
+}
+
+/* ── DATE BADGE ── */
+.date-block {
+display: flex;
+flex-direction: column;
+}
+
+/* ── REFRESH BTN ── */
+.refresh-btn {
+background: none;
+border: 1px solid var(--border);
+color: var(--muted);
+border-radius: 6px;
+padding: 5px 10px;
+font-size: 11px;
+cursor: pointer;
+transition: all 0.15s;
+}
+
+.refresh-btn:hover {
+border-color: var(--text);
+color: var(--text);
+}
+
+/* ── EMPTY STATE ── */
+.empty {
+font-size: 18px;
+color: var(--muted);
+padding: 12px 0;
+}
+
+/* HRV sparkline placeholder */
+.mini-chart {
+height: 32px;
+display: flex;
+align-items: flex-end;
+gap: 3px;
+padding: 4px 0;
+}
+
+.mini-bar {
+flex: 1;
+background: rgba(59,130,246,0.35);
+border-radius: 2px 2px 0 0;
+min-height: 4px;
+transition: background 0.2s;
+}
+
+.mini-bar.today {
+background: var(--blue);
+}
+
+/* ── TASK CARD HEADER (title + progress + add) ── */
+.card-head {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 8px;
+margin-bottom: 8px;
+}
+.card-head .card-title { margin-bottom: 0; }
+.assistant-link {
+color: var(--muted);
+font-size: 11px;
+text-decoration: none;
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 2px 7px;
+flex-shrink: 0;
+white-space: nowrap;
+}
+.assistant-link:hover { color: var(--text); border-color: var(--muted); }
+.assistant-timer {
+color: var(--muted);
+font-size: 11px;
+border: 1px solid var(--border);
+border-radius: 6px;
+padding: 2px 7px;
+flex-shrink: 0;
+white-space: nowrap;
+display: none;
+align-items: center;
+gap: 5px;
+}
+.assistant-timer.on {
+display: inline-flex;
+color: var(--health);
+border-color: var(--health);
+}
+.assistant-timer .dot {
+width: 6px; height: 6px; border-radius: 50%;
+background: var(--muted); flex-shrink: 0;
+}
+.assistant-timer.on .dot {
+background: var(--health);
+animation: assistant-timer-pulse 1.5s infinite;
+}
+@keyframes assistant-timer-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+/* Big timer card at the top of the Assistant Tasks card — mirrors the one
+   on absbyai.com/assistant (assistant.html .timer-card), minus the
+   start/stop button (Dan doesn't clock in/out, he's just watching) and
+   without seconds in the display. */
+.timer-card {
+background: var(--surface2); border: 1px solid var(--border);
+border-radius: 10px; padding: 18px; margin-bottom: 12px;
+text-align: center;
+}
+.timer-display {
+font-size: 36px; font-weight: 800; font-variant-numeric: tabular-nums;
+letter-spacing: 0.01em; margin-bottom: 6px; color: var(--text);
+}
+.timer-display.active { color: var(--green); }
+.timer-status {
+display: flex; align-items: center; justify-content: center; gap: 7px;
+color: var(--muted); font-size: 12.5px;
+}
+.timer-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+.timer-status.active .timer-dot { background: var(--green); animation: timer-pulse 1.5s infinite; }
+@keyframes timer-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
+.timer-today { color: var(--muted); font-size: 12px; margin-top: 14px; }
+/* Pay-out control. Deliberately quiet: it is pressed once a pay period, and
+   pressing it zeroes the running total, so it should not read as a primary
+   action sitting next to the clock. */
+.timer-paid-btn {
+margin-top: 12px; width: 100%; border: 1px solid var(--border);
+border-radius: 9px; padding: 10px; background: transparent; color: var(--text);
+font-family: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.timer-paid-btn:hover:not(:disabled) { border-color: var(--muted); }
+.timer-paid-btn:disabled { opacity: 0.5; cursor: default; }
+/* A task list becomes a drop target while a task from ANOTHER list is dragged. */
+.todo-list.list-drop-active {
+outline: 2px dashed var(--blue);
+outline-offset: 3px;
+border-radius: 8px;
+background: rgba(255,255,255,0.03);
+}
+.task-add-btn {
+background: none;
+border: 1px solid var(--border);
+color: var(--muted);
+border-radius: 6px;
+width: 22px; height: 22px;
+font-size: 15px; line-height: 1;
+cursor: pointer;
+flex-shrink: 0;
+transition: all 0.15s;
+}
+.task-add-btn:hover { border-color: var(--green); color: var(--green); }
+
+/* progress bar */
+.progress-wrap { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+.progress-track { flex: 1; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--green); border-radius: 3px; width: 0; transition: width 0.6s cubic-bezier(0.4,0,0.2,1); }
+.progress-label { font-size: 10px; color: var(--muted); white-space: nowrap; min-width: 60px; text-align: right; }
+
+/* streak badge */
+.streak {
+font-size: 10px;
+color: var(--orange);
+font-weight: 700;
+white-space: nowrap;
+margin-left: 6px;
+}
+
+/* per-row task controls (edit/delete) */
+.todo-actions { display: flex; gap: 4px; margin-left: 6px; opacity: 0; transition: opacity 0.12s; align-self: center; }
+.todo-item:hover .todo-actions { opacity: 1; }
+.todo-act {
+background: none; border: none; color: var(--muted);
+cursor: pointer; font-size: 12px; padding: 2px 3px; line-height: 1; border-radius: 4px;
+}
+.todo-act:hover { color: var(--text); background: var(--surface); }
+
+/* inline add/edit form */
+.task-form { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 10px; margin-bottom: 10px; }
+.task-form input[type=text] {
+width: 100%; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 9px; font-size: 13px; margin-bottom: 8px; font-family: inherit;
+}
+.task-form-row { display: flex; gap: 8px; align-items: center; }
+.task-form select {
+background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 6px 8px; font-size: 12px; font-family: inherit;
+}
+.task-form label { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.task-form .spacer { flex: 1; }
+.btn-sm {
+border: 1px solid var(--border); background: var(--surface2); color: var(--text);
+border-radius: 6px; padding: 6px 12px; font-size: 12px; cursor: pointer; font-family: inherit;
+}
+.btn-sm.primary { background: var(--green); color: #000; border-color: var(--green); font-weight: 700; }
+.btn-sm:hover { filter: brightness(1.1); }
+
+/* inline quick-add row (persistent, at bottom of each task list) */
+.task-add-row { display: flex; gap: 6px; align-items: center; margin-top: 10px; }
+.task-add-row input[type=text] {
+flex: 1; min-width: 0; background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 9px; font-size: 13px; font-family: inherit;
+}
+.task-add-row select {
+background: var(--bg); border: 1px solid var(--border); color: var(--text);
+border-radius: 6px; padding: 7px 6px; font-size: 11px; font-family: inherit; flex-shrink: 0;
+}
+.task-add-go {
+background: none; border: 1px solid var(--border); color: var(--muted);
+border-radius: 6px; width: 32px; height: 33px; font-size: 18px; line-height: 1;
+cursor: pointer; flex-shrink: 0; transition: all 0.15s;
+}
+.task-add-go:hover { border-color: var(--green); color: var(--green); }
+.task-add-go:disabled { opacity: 0.5; cursor: wait; }
+
+/* ── SPARKLINE / TREND ── */
+.spark { width: 100%; height: 40px; display: block; }
+.trend-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 10px; }
+.trend-cell { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 6px; text-align: center; }
+.trend-cell .tv { font-size: 14px; font-weight: 700; }
+.trend-cell .tl { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; margin-top: 1px; }
+
+/* ── CATEGORY BARS ── */
+.cat-row { margin-bottom: 7px; }
+.cat-top { display: flex; justify-content: space-between; font-size: 11px; margin-bottom: 3px; }
+.cat-name { color: var(--text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cat-amt { color: var(--muted); margin-left: 8px; flex-shrink: 0; }
+.cat-track { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
+.cat-fill { height: 100%; background: var(--orange); border-radius: 2px; width: 0; transition: width 0.7s; }
+
+/* ── WEATHER ── */
+.weather-main { display: flex; align-items: center; gap: 14px; }
+.weather-temp { font-size: 40px; font-weight: 800; line-height: 1; }
+.weather-icon { font-size: 38px; line-height: 1; }
+.weather-meta { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* ── TOASTS ── */
+#toast-wrap { position: fixed; bottom: 18px; right: 18px; z-index: 1000; display: flex; flex-direction: column; gap: 8px; }
+.toast {
+background: var(--surface2); border: 1px solid var(--border); border-left: 3px solid var(--blue);
+border-radius: 8px; padding: 10px 14px; font-size: 12.5px; color: var(--text);
+box-shadow: 0 4px 16px rgba(0,0,0,0.4); max-width: 320px;
+animation: toastIn 0.25s ease; }
+.toast.err { border-left-color: var(--red); }
+.toast.ok { border-left-color: var(--green); }
+@keyframes toastIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+/* ── SKELETON ── */
+.skel { background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 37%, var(--surface) 63%);
+background-size: 400% 100%; animation: shimmer 1.4s ease infinite; border-radius: 6px; }
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+.skel-line { height: 12px; margin: 9px 0; }
+
+/* ── PUSH BUTTON ── */
+.push-btn {
+background: none; border: 1px solid var(--border); color: var(--muted);
+border-radius: 6px; padding: 5px 10px; font-size: 11px; cursor: pointer; margin-right: 8px;
+transition: all 0.15s; }
+.push-btn:hover { border-color: var(--text); color: var(--text); }
+.push-btn.on { border-color: var(--green); color: var(--green); }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════ HEADER ════════════════════════ -->
+<div class="header">
+<div class="header-headline">VICTORY DASHBOARD</div>
+<div class="header-sub win">Execute Top Priority Tasks On This Dashboard, And You Will Become A Ripped Decamillionaire Winner</div>
+<div class="header-refresh">
+<button class="push-btn" id="push-btn" style="display:none" onclick="togglePush()">🔔 Notify me</button>
+<a class="push-btn" href="/morningbrief#wallpaper-favorites">Morning brief &amp; wallpaper favorites</a>
+<button class="refresh-btn" onclick="loadData()">↺ Refresh</button>
+</div>
+</div>
+
+<!-- ════════════════════════ WORK SESSION FOCUS TASKS ════════════════════════ -->
+<section class="plan-band" id="plan-band">
+<div class="plan-band-head">
+<div class="plan-band-title">Work Session <span class="accent">Focus Tasks</span></div>
+<div class="plan-sessions" id="plan-sessions" style="display:none"></div>
+</div>
+<div id="plan-todos">
+<ul id="plan-open-list" class="plan-grid">
+<li class="plan-empty">Loading…</li>
+</ul>
+<ul id="plan-done-list" class="plan-grid"></ul>
+</div>
+</section>
+
+<!-- ════════════════════════ GRID ════════════════════════ -->
+<div class="grid">
+
+<!-- ══ MONEY COLUMN ══ -->
+<div class="col col-money">
+<div class="col-header">
+<div class="dot"></div>
+<h2>Money</h2>
+</div>
+
+<!-- Money Tasks -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Money Tasks</div>
+</div>
+<div class="progress-wrap" id="progress-money" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-money"></div>
+<ul class="todo-list" id="business-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-money" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('money')">
+<select id="qa-pri-money" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="key">Key</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
+</select>
+<button class="task-add-go" id="qa-go-money" onclick="quickAddTask('money')" title="Add task">+</button>
+</div>
+</div>
+
+<!-- Handoffs to fire — the launcher. Rows are only ever added by a Claude session
+     on Dan's explicit ask; an executed handoff is deleted, never checked off. -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Handoffs to fire <span id="handoffs-count" style="font-weight:500"></span></div>
+</div>
+<ul class="todo-list" id="handoffs-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="ho-note">Copy = the starter prompt for a fresh Claude session. Delete once it has run. Cap 7 — past 14 days it's "fire it or kill it".</div>
+</div>
+
+<!-- App Metrics -->
+<div class="card">
+<div class="card-title">Abs By AI — App Metrics</div>
+<div id="posthog-metrics">
+<div class="metrics">
+<div class="metric">
+<div class="val up" id="metric-dau">—</div>
+<div class="lbl">DAU</div>
+<div class="chg" id="metric-dau-chg"></div>
+</div>
+<div class="metric">
+<div class="val up" id="metric-signups">—</div>
+<div class="lbl">Signups</div>
+<div class="chg" id="metric-signups-chg"></div>
+</div>
+<div class="metric">
+<div class="val" id="metric-images">—</div>
+<div class="lbl">Images</div>
+<div class="chg" id="metric-images-chg"></div>
+</div>
+</div>
+<div class="metrics" id="stripe-metrics" style="display:none;margin-bottom:0">
+<div class="metric">
+<div class="val up" id="metric-mrr">—</div>
+<div class="lbl">MRR</div>
+</div>
+<div class="metric">
+<div class="val" id="metric-rev30">—</div>
+<div class="lbl">Rev 30d</div>
+</div>
+<div class="metric">
+<div class="val" id="metric-subs">—</div>
+<div class="lbl">Subs</div>
+</div>
+</div>
+<div id="stripe-notice" class="setup-notice" style="display:none;margin-top:8px">
+Stripe not connected. Add <code>STRIPE_SECRET_KEY</code> to your Railway env vars for MRR &amp; revenue.
+</div>
+<div id="posthog-notice" class="setup-notice" style="display:none">
+PostHog not connected. Add <code>POSTHOG_API_KEY</code> and <code>POSTHOG_PROJECT_ID</code> to your Railway env vars.
+</div>
+</div>
+</div>
+
+<!-- Gmail Digest -->
+<div class="card">
+<div class="card-title">Inbox</div>
+<ul class="todo-list" id="gmail-items">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div id="gmail-notice" class="setup-notice" style="display:none;margin-top:8px">
+No Gmail digest yet — the morning brief job writes this once a day.
+</div>
+</div>
+
+<!-- Business Calendar -->
+<div class="card">
+<div class="card-title">Today's Schedule</div>
+<div id="business-calendar">
+<div class="loading pulse">Loading…</div>
+</div>
+<div id="calendar-notice" class="setup-notice" style="display:none;margin-top:8px">
+Google Calendar not connected. Add <code>GOOGLE_CLIENT_ID</code>, <code>GOOGLE_CLIENT_SECRET</code>, and <code>GOOGLE_REFRESH_TOKEN</code> to enable.
+</div>
+</div>
+
+<!-- Net Worth & Spending -->
+<div class="card">
+<div class="card-title">Net Worth & Spending</div>
+<div id="monarch-section"><div class="loading pulse">Loading…</div></div>
+<div id="monarch-notice" class="setup-notice" style="display:none">
+Monarch Money not connected. Add <code>MONARCH_EMAIL</code> and <code>MONARCH_PASSWORD</code> to Railway env vars.
+</div>
+</div>
+
+<!-- News -->
+<div class="card">
+<div class="card-title">Industry News</div>
+<div id="news-list">
+<div class="loading pulse">Loading…</div>
+</div>
+</div>
+
+</div>
+
+<!-- ══ HEALTH COLUMN ══ -->
+<div class="col col-health">
+<div class="col-header">
+<div class="dot"></div>
+<h2>Health</h2>
+</div>
+
+<!-- Health Tasks -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Health Tasks</div>
+</div>
+<div class="progress-wrap" id="progress-health" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-health"></div>
+<ul class="todo-list" id="health-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-health" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('health')">
+<select id="qa-pri-health" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="key">Key</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
+</select>
+<button class="task-add-go" id="qa-go-health" onclick="quickAddTask('health')" title="Add task">+</button>
+</div>
+</div>
+
+<!-- Assistant Tasks — delegated work. Mirrored to absbyai.com/assistant. -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Assistant Tasks</div>
+<a class="assistant-link" href="/assistant" target="_blank" title="Open the assistant's own page">her page ↗</a>
+</div>
+<div class="timer-card" id="a-timer-card" title="The assistant's work session — hours and minutes only">
+<div class="timer-display" id="a-timer-display">0h 0m</div>
+<div class="timer-status" id="a-timer-status"><span class="timer-dot"></span><span id="a-timer-status-text">Not clocked in</span></div>
+<div class="timer-today" id="a-timer-today" style="display:none"></div>
+<button class="timer-paid-btn" id="a-timer-paid" style="display:none">Mark time as paid</button>
+</div>
+<div class="progress-wrap" id="progress-assistant" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-assistant"></div>
+<ul class="todo-list" id="assistant-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-assistant" placeholder="Delegate a task…" onkeydown="if(event.key==='Enter')quickAddTask('assistant')">
+<select id="qa-pri-assistant" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="key">Key</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
+</select>
+<button class="task-add-go" id="qa-go-assistant" onclick="quickAddTask('assistant')" title="Add task">+</button>
+</div>
+</div>
+
+<!-- Sleep Score -->
+<div class="card">
+<div class="card-title">Oura — Last Night's Sleep</div>
+<div id="oura-section">
+
+<!-- Score ring + status badge -->
+<div style="display:flex;align-items:center;gap:16px;margin-bottom:14px">
+<div style="position:relative;width:90px;height:90px;flex-shrink:0">
+<svg viewBox="0 0 100 100" style="width:90px;height:90px">
+<circle cx="50" cy="50" r="42" fill="none" stroke="#222" stroke-width="9"/>
+<circle cx="50" cy="50" r="42" fill="none" stroke="#00c49a" stroke-width="9"
+stroke-linecap="round" stroke-dasharray="263.9" stroke-dashoffset="263.9"
+transform="rotate(-90 50 50)" id="oura-ring-arc"
+style="transition:stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1)"/>
+</svg>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:none">
+<div style="font-size:28px;font-weight:800;line-height:1;color:#00c49a" id="sleep-score">—</div>
+<div style="font-size:8px;color:var(--muted);letter-spacing:0.08em;margin-top:1px">/100</div>
+</div>
+</div>
+<div style="flex:1;min-width:0">
+<div style="font-size:11px;font-weight:700;letter-spacing:0.1em;margin-bottom:4px" id="oura-status-badge">—</div>
+<div style="font-size:17px;font-weight:700;line-height:1.25;margin-bottom:6px" id="oura-title">—</div>
+<div style="font-size:12px;color:var(--muted);line-height:1.45" id="oura-subtitle">—</div>
+</div>
+</div>
+
+<!-- HRV + Readiness mini row -->
+<div style="display:flex;gap:0;margin-bottom:18px;border:1px solid var(--border);border-radius:8px;overflow:hidden">
+<div style="flex:1;padding:8px 10px;border-right:1px solid var(--border)">
+<div style="font-size:16px;font-weight:700" id="hrv-val">—</div>
+<div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Avg HRV</div>
+</div>
+<div style="flex:1;padding:8px 10px">
+<div style="font-size:16px;font-weight:700" id="readiness-val">—</div>
+<div style="font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;margin-top:1px">Readiness</div>
+</div>
+</div>
+
+<!-- Contributors (matching Oura app layout) -->
+<div style="font-size:15px;font-weight:600;margin-bottom:14px">Contributors</div>
+<div id="oura-contributors">
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">Total sleep</span>
+<span class="contrib-val" id="c-total-sleep">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-total-sleep"></div></div>
+</div>
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">Efficiency</span>
+<span class="contrib-val" id="c-efficiency">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-efficiency"></div></div>
+</div>
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">Restfulness</span>
+<span class="contrib-val" id="c-restfulness">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-restfulness"></div></div>
+</div>
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">REM sleep</span>
+<span class="contrib-val" id="c-rem">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-rem"></div></div>
+</div>
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">Deep sleep</span>
+<span class="contrib-val" id="c-deep">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-deep"></div></div>
+</div>
+
+<div class="contrib-row">
+<div class="contrib-top">
+<span class="contrib-name">Latency</span>
+<span class="contrib-val" id="c-latency">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-latency"></div></div>
+</div>
+
+<div class="contrib-row" style="margin-bottom:0">
+<div class="contrib-top">
+<span class="contrib-name">Timing</span>
+<span class="contrib-val" id="c-timing">—</span>
+</div>
+<div class="contrib-bar-track"><div class="contrib-bar-fill" id="cb-timing"></div></div>
+</div>
+
+</div>
+
+<!-- 7-day trends -->
+<div id="oura-trend" style="display:none;margin-top:16px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+<div style="font-size:13px;font-weight:600">7-Day Trends</div>
+<div style="font-size:10px;color:var(--muted)" id="workout-streak"></div>
+</div>
+<svg class="spark" id="spark-sleep" viewBox="0 0 300 40" preserveAspectRatio="none"></svg>
+<div class="trend-grid">
+<div class="trend-cell"><div class="tv" id="avg-sleep">—</div><div class="tl">Sleep</div></div>
+<div class="trend-cell"><div class="tv" id="avg-readiness">—</div><div class="tl">Readiness</div></div>
+<div class="trend-cell"><div class="tv" id="avg-hrv">—</div><div class="tl">HRV</div></div>
+<div class="trend-cell"><div class="tv" id="avg-steps">—</div><div class="tl">Steps</div></div>
+</div>
+</div>
+
+<!-- Hidden elements kept for JS compatibility -->
+<span id="recovery-pill" style="display:none"></span>
+<span id="sleep-total" style="display:none"></span>
+<span id="val-rem" style="display:none"></span>
+<span id="val-deep" style="display:none"></span>
+<span id="val-light" style="display:none"></span>
+<span id="val-awake" style="display:none"></span>
+<span id="bar-rem" style="display:none"></span>
+<span id="bar-deep" style="display:none"></span>
+<span id="bar-light" style="display:none"></span>
+<span id="bar-awake" style="display:none"></span>
+
+<div id="oura-notice" class="setup-notice" style="display:none;margin-top:10px">
+Oura not connected. Add <code>OURA_ACCESS_TOKEN</code> to your Railway env vars.
+Get your token at <a href="https://cloud.ouraring.com/personal-access-tokens" target="_blank">cloud.ouraring.com</a>.
+</div>
+</div>
+</div>
+
+<!-- Apple Watch Rings -->
+<div class="card">
+<div class="card-title">Apple Watch — Today's Activity</div>
+<div id="rings-section">
+<div class="rings">
+<div class="ring-wrap">
+<svg width="70" height="70" class="ring-svg">
+<circle cx="35" cy="35" r="28" fill="none" stroke="#2a2a2a" stroke-width="7"/>
+<circle cx="35" cy="35" r="28" fill="none" stroke="#ef4444" stroke-width="7"
+stroke-dasharray="175.9" stroke-dashoffset="175.9"
+stroke-linecap="round" id="ring-move"
+style="transition:stroke-dashoffset 1s ease"/>
+</svg>
+<div class="ring-val" id="ring-move-val" style="color:#ef4444">—<br><span style="font-size:9px;color:var(--muted)">/ — CAL</span></div>
+<div class="ring-label">Move</div>
+</div>
+<div class="ring-wrap">
+<svg width="70" height="70" class="ring-svg">
+<circle cx="35" cy="35" r="28" fill="none" stroke="#2a2a2a" stroke-width="7"/>
+<circle cx="35" cy="35" r="28" fill="none" stroke="#22c55e" stroke-width="7"
+stroke-dasharray="175.9" stroke-dashoffset="175.9"
+stroke-linecap="round" id="ring-exercise"
+style="transition:stroke-dashoffset 1s ease"/>
+</svg>
+<div class="ring-val" id="ring-exercise-val" style="color:#22c55e">— min<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span></div>
+<div class="ring-label">Exercise</div>
+</div>
+<div class="ring-wrap">
+<svg width="70" height="70" class="ring-svg">
+<circle cx="35" cy="35" r="28" fill="none" stroke="#2a2a2a" stroke-width="7"/>
+<circle cx="35" cy="35" r="28" fill="none" stroke="#00bcd4" stroke-width="7"
+stroke-dasharray="175.9" stroke-dashoffset="175.9"
+stroke-linecap="round" id="ring-stand"
+style="transition:stroke-dashoffset 1s ease"/>
+</svg>
+<div class="ring-val" id="ring-stand-val" style="color:#00bcd4">— hrs<br><span style="font-size:9px;color:var(--muted)">/ 12 hrs</span></div>
+<div class="ring-label">Stand</div>
+</div>
+</div>
+
+<div id="watch-stats" style="display:flex;justify-content:space-around;margin-top:8px">
+<div style="text-align:center">
+<div style="font-size:16px;font-weight:600" id="steps-val">—</div>
+<div style="font-size:10px;color:var(--muted);text-transform:uppercase">Steps</div>
+</div>
+<div style="text-align:center">
+<div style="font-size:16px;font-weight:600" id="workout-min">—</div>
+<div style="font-size:10px;color:var(--muted);text-transform:uppercase">Workout min</div>
+</div>
+<div style="font-size:16px;font-weight:600;text-align:center">
+<div id="resting-hr">—</div>
+<div style="font-size:10px;color:var(--muted);text-transform:uppercase">Resting HR</div>
+</div>
+</div>
+
+<div id="watch-notice" class="setup-notice" style="display:none;margin-top:10px">
+Apple Watch not connected. Install <strong>Health Auto Export</strong> from the App Store to sync Apple Health data.
+Then add <code>HEALTH_WEBHOOK_SECRET</code> to your env vars.
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- ══ PERSONAL COLUMN ══ -->
+<div class="col col-rel">
+<div class="col-header">
+<div class="dot"></div>
+<h2>Personal</h2>
+</div>
+
+<!-- Personal To-Dos -->
+<div class="card">
+<div class="card-head">
+<div class="card-title">Personal Tasks</div>
+</div>
+<div class="progress-wrap" id="progress-personal" style="display:none">
+<div class="progress-track"><div class="progress-fill"></div></div>
+<div class="progress-label"></div>
+</div>
+<div id="form-personal"></div>
+<ul class="todo-list" id="personal-todos">
+<li class="loading pulse">Loading…</li>
+</ul>
+<div class="task-add-row">
+<input type="text" id="qa-text-personal" placeholder="Add task…" onkeydown="if(event.key==='Enter')quickAddTask('personal')">
+<select id="qa-pri-personal" title="Priority">
+<option value="auto">Claude's choice</option>
+<option value="key">Key</option>
+<option value="high">High</option>
+<option value="med">Med</option>
+<option value="low">Low</option>
+<option value="unassigned">Unassigned</option>
+</select>
+<button class="task-add-go" id="qa-go-personal" onclick="quickAddTask('personal')" title="Add task">+</button>
+</div>
+</div>
+
+<!-- Dating / Social Calendar -->
+<div class="card">
+<div class="card-title">Today's Dates & Plans</div>
+<div id="rel-calendar">
+<div class="loading pulse">Loading…</div>
+</div>
+<div id="rel-calendar-notice" class="setup-notice" style="display:none;margin-top:8px">
+Connect Google Calendar to pull your dating app appointments automatically.
+</div>
+</div>
+
+<!-- Weather (bottom of column) -->
+<div class="card">
+<div class="card-title">Weather</div>
+<div id="weather-section"><div class="loading pulse">Loading…</div></div>
+</div>
+
+</div>
+
+</div>
+
+<div id="toast-wrap"></div>
+
+<script>
+// ── CLOCK ──
+function updateClock() {
+const now = new Date();
+const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const h = now.getHours(), m = now.getMinutes();
+const ampm = h >= 12 ? 'PM' : 'AM';
+const h12 = h % 12 || 12;
+const mStr = String(m).padStart(2, '0');
+const clockEl = document.getElementById('clockDisplay');
+const dateEl = document.getElementById('dateDisplay');
+if (clockEl) clockEl.textContent = `${h12}:${mStr} ${ampm}`;
+if (dateEl) dateEl.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}`;
+}
+updateClock();
+setInterval(updateClock, 5000);
+
+// Register the service worker so web-push works on the dashboard page too.
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('/sw.js').catch(() => {});
+
+// ── TASK STATE (synced across devices) ──
+//   checkedTodos — sticky one-off completions (ids); stay until unchecked.
+//   taskLog      — recurring completion dates { id: [yyyy-mm-dd] } → drives
+//                  "done today" + streaks, with automatic daily reset.
+//   checkedAtMap — { id: "yyyy-mm-dd" } the day a one-off was checked off. Set by
+//                  the server on every check; used to keep a task that was
+//                  finished on an EARLIER day out of the focus band.
+//   todosState   — editable task lists {money,health,personal,assistant} of {text,priority,recurring}.
+// localStorage mirrors all of them so the UI is instant and works offline.
+let checkedTodos = new Set(JSON.parse(localStorage.getItem('checkedTodos') || '[]'));
+let taskLog = JSON.parse(localStorage.getItem('taskLog') || '{}');
+let checkedAtMap = JSON.parse(localStorage.getItem('checkedAtMap') || '{}');
+let todosState = { money: [], health: [], personal: [], assistant: [], handoffs: [] };
+
+function cacheChecks() {
+localStorage.setItem('checkedTodos', JSON.stringify([...checkedTodos]));
+localStorage.setItem('taskLog', JSON.stringify(taskLog));
+localStorage.setItem('checkedAtMap', JSON.stringify(checkedAtMap));
+}
+
+// Local (device-timezone) date helpers — daily reset must follow the user's day.
+function localToday() {
+const d = new Date();
+return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function shiftDate(str, days) {
+const [y,m,d] = str.split('-').map(Number);
+const dt = new Date(y, m-1, d); dt.setDate(dt.getDate()+days);
+return `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+}
+
+// ── SCHEDULED RECURRENCE (day-of-week) ──
+// `recurring: true` on its own still means EVERY day — that is what Dan's health
+// habits are, and it must keep working untouched. Adding `days: [0,4]` (0=Sun …
+// 6=Sat) narrows it: the task only appears on those weekdays and is off the list
+// the rest of the week, which is what "put it back on the list every Sunday"
+// means. An empty or absent `days` is daily, so old tasks are unaffected.
+const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+// Spelled out, not DAY_NAMES + "days" — that produces "Tuedays".
+const DAY_PLURAL = ['Sundays', 'Mondays', 'Tuesdays', 'Wednesdays', 'Thursdays', 'Fridays', 'Saturdays'];
+const DAY_INITIALS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+function taskDays(t) {
+const d = Array.isArray(t?.days) ? t.days.filter(n => Number.isInteger(n) && n >= 0 && n <= 6) : [];
+return d.length === 7 ? [] : d; // all seven days IS daily
+}
+function isScheduledToday(t) {
+if (!t?.recurring) return true;
+const d = taskDays(t);
+return !d.length || d.includes(new Date().getDay());
+}
+// "Sundays" / "Sundays & Thursdays" / "Every day"
+function scheduleLabel(t) {
+const d = taskDays(t);
+if (!d.length) return 'Every day';
+const names = [...new Set(d)].sort().map(n => DAY_PLURAL[n]);
+return names.length === 1 ? names[0] : names.slice(0, -1).join(', ') + ' & ' + names[names.length - 1];
+}
+// Compact chip form: "Sun" / "Sun · Thu"
+function scheduleChip(t) {
+return [...new Set(taskDays(t))].sort().map(n => DAY_NAMES[n]).join(' · ');
+}
+
+// Recurring task: "done" means completed today. One-off: in the checked set.
+function isDone(id, recurring) {
+if (recurring) return (taskLog[id] || []).includes(localToday());
+return checkedTodos.has(id);
+}
+
+// Was this one-off finished on an EARLIER day? Yesterday's wins belong in their
+// column's completed pile, not in today's focus band — so this gate keeps them
+// out of the band both today (they're already sitting in planState.order) and on
+// every future day (auto-population re-adds Key tasks each morning).
+// Recurring tasks are never "old": their done state resets each local day.
+// A completion with no recorded date predates checkedAt, so it is old by
+// definition — a task checked off today always carries today's date.
+function completedOnEarlierDay(id, recurring) {
+if (recurring) return false;
+if (!checkedTodos.has(id)) return false;
+return checkedAtMap[id] !== localToday();
+}
+
+// Consecutive-day streak, counting back from today (or yesterday if not yet done today).
+function calcStreak(id) {
+const set = new Set(taskLog[id] || []);
+let cursor = set.has(localToday()) ? localToday() : shiftDate(localToday(), -1);
+if (!set.has(cursor)) return 0;
+let n = 0;
+while (set.has(cursor)) { n++; cursor = shiftDate(cursor, -1); }
+return n;
+}
+
+// Toggles the server has not confirmed yet. Clearing these when the POST returns
+// is NOT enough: the write resolves before the stored value is readable, so a
+// sync landing in that gap serves the pre-write state and the checkbox visibly
+// flips back under the user's finger. Measured on production 2026-08-08 — the
+// write takes ~1.2s and the old value can still be read for ~2.4s after that.
+// So an entry survives until a server snapshot AGREES with it, with a hard
+// backstop so a permanently disagreeing server can't pin a value forever.
+const pendingChecks = new Map(); // id → { checked, recurring, at, inFlight }
+const PENDING_MAX_MS = 30000;
+
+// Drop pending entries the server has now confirmed (or that have aged out).
+function reconcilePendingChecks(serverChecked, serverLog) {
+const now = Date.now();
+pendingChecks.forEach((p, id) => {
+if (now - p.at > PENDING_MAX_MS) { pendingChecks.delete(id); return; }
+if (p.inFlight) return; // our write hasn't even returned yet
+const serverSays = p.recurring
+? (serverLog?.[id] || []).includes(localToday())
+: (serverChecked || []).includes(id);
+if (serverSays === p.checked) pendingChecks.delete(id);
+});
+}
+
+function applyPendingChecks() {
+pendingChecks.forEach((p, id) => {
+if (p.recurring) {
+const days = new Set(taskLog[id] || []);
+if (p.checked) days.add(localToday()); else days.delete(localToday());
+if (days.size) taskLog[id] = [...days].sort(); else delete taskLog[id];
+} else {
+if (p.checked) { checkedTodos.add(id); checkedAtMap[id] = checkedAtMap[id] || localToday(); }
+else { checkedTodos.delete(id); delete checkedAtMap[id]; }
+}
+});
+}
+
+// Replace local state with the server's source of truth, keeping our own
+// in-flight writes on top.
+function seedChecks(serverChecked, serverLog, serverCheckedAt) {
+reconcilePendingChecks(serverChecked, serverLog);
+if (Array.isArray(serverChecked)) checkedTodos = new Set(serverChecked);
+if (serverLog && typeof serverLog === 'object') taskLog = serverLog;
+if (serverCheckedAt && typeof serverCheckedAt === 'object') checkedAtMap = { ...serverCheckedAt };
+applyPendingChecks();
+cacheChecks();
+}
+
+// ── CONFETTI: celebrate task completion ──
+// Self-contained canvas burst, no external deps (works offline).
+function fireConfetti() {
+// Respect users who prefer reduced motion.
+if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+let canvas = document.getElementById('confetti-canvas');
+if (!canvas) {
+canvas = document.createElement('canvas');
+canvas.id = 'confetti-canvas';
+canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9999;';
+document.body.appendChild(canvas);
+}
+const ctx = canvas.getContext('2d');
+const dpr = window.devicePixelRatio || 1;
+// Fall back to screen dims if the layout viewport reports 0 (some embedded/headless views).
+const W = window.innerWidth || document.documentElement.clientWidth || screen.width || 1024;
+const H = window.innerHeight || document.documentElement.clientHeight || screen.height || 768;
+canvas.width = W * dpr;
+canvas.height = H * dpr;
+ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+const colors = ['#21d07a', '#00c49a', '#f5a623', '#ef4444', '#6366f1', '#ec4899', '#38bdf8'];
+const N = 140;
+const parts = [];
+for (let i = 0; i < N; i++) {
+parts.push({
+x: W / 2 + (Math.random() - 0.5) * 120,
+y: H / 2 + (Math.random() - 0.5) * 60,
+vx: (Math.random() - 0.5) * 14,
+vy: (Math.random() * -16) - 4,
+size: 5 + Math.random() * 7,
+color: colors[(Math.random() * colors.length) | 0],
+rot: Math.random() * Math.PI * 2,
+vrot: (Math.random() - 0.5) * 0.3,
+life: 0,
+});
+}
+
+const gravity = 0.4, drag = 0.985, maxLife = 140;
+let raf;
+function frame() {
+ctx.clearRect(0, 0, W, H);
+let alive = false;
+for (const p of parts) {
+p.life++;
+p.vx *= drag;
+p.vy = p.vy * drag + gravity;
+p.x += p.vx;
+p.y += p.vy;
+p.rot += p.vrot;
+const alpha = Math.max(0, 1 - p.life / maxLife);
+if (alpha > 0 && p.y < H + 50) alive = true;
+ctx.save();
+ctx.globalAlpha = alpha;
+ctx.translate(p.x, p.y);
+ctx.rotate(p.rot);
+ctx.fillStyle = p.color;
+ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+ctx.restore();
+}
+if (alive) {
+raf = requestAnimationFrame(frame);
+} else {
+cancelAnimationFrame(raf);
+ctx.clearRect(0, 0, W, H);
+}
+}
+frame();
+}
+
+async function toggleTodo(id, recurring, el) {
+const nowChecked = !isDone(id, recurring);
+if (nowChecked) fireConfetti(); // celebrate the win 🎉
+
+// Session-complete detection: checking off the LAST open focus task ends a session.
+let sessionJustCompleted = false;
+if (nowChecked) {
+const idMap = buildPlanIdMap();
+const { openIds } = planDisplaySeq(idMap);
+if (openIds.length === 1 && openIds[0] === id) sessionJustCompleted = true;
+}
+
+if (recurring) {
+const arr = new Set(taskLog[id] || []);
+if (nowChecked) arr.add(localToday()); else arr.delete(localToday());
+if (arr.size) taskLog[id] = [...arr]; else delete taskLog[id];
+} else {
+if (nowChecked) { checkedTodos.add(id); checkedAtMap[id] = localToday(); }
+else { checkedTodos.delete(id); delete checkedAtMap[id]; }
+}
+cacheChecks();
+if (sessionJustCompleted) {
+ensurePlanDay();
+planState.sessionsCompleted = (planState.sessionsCompleted || 0) + 1;
+savePlan();
+}
+renderAllTasks(); // refresh streaks + progress
+const pending = { checked: nowChecked, recurring: !!recurring, at: Date.now(), inFlight: true };
+pendingChecks.set(id, pending);
+try {
+const r = await fetch('/api/task-checks', {
+method: 'POST',
+headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ id, checked: nowChecked, recurring: !!recurring, date: localToday(), confirmUncheck: true }),
+});
+if (!r.ok) throw new Error('save failed');
+pending.inFlight = false;
+// The response body IS the post-write state, so use it as the confirming
+// snapshot. Waiting for the next broadcast instead does NOT work: our own
+// write is broadcast BEFORE its response is sent, so that frame arrives while
+// this is still in flight and is skipped — and if nothing else changes, no
+// further snapshot ever comes and the entry would keep overriding a later
+// change made on the other surface until the 30s backstop expired.
+const d = await r.json().catch(() => null);
+if (d && Array.isArray(d.checked)) seedChecks(d.checked, d.log, d.checkedAt);
+else pendingChecks.delete(id);
+renderAllTasks();
+} catch (e) {
+console.warn('task-check sync failed (kept locally):', e);
+pendingChecks.delete(id);
+}
+}
+
+// ── HELPERS ──
+function fmtMins(m) {
+if (!m || m <= 0) return '—';
+return `${Math.floor(m/60)}h ${m%60}m`;
+}
+
+function scoreColor(s) {
+if (s >= 85) return '#21d07a';
+if (s >= 70) return '#00c49a';
+if (s >= 55) return '#f5a623';
+return '#ef4444';
+}
+
+function recoveryClass(s) {
+if (s >= 85) return 'recovery-optimal';
+if (s >= 70) return 'recovery-good';
+if (s >= 55) return 'recovery-moderate';
+return 'recovery-poor';
+}
+
+function recoveryLabel(s) {
+if (s >= 85) return '🟢 Optimal — Push Hard Today';
+if (s >= 70) return '🔵 Good — Normal Training';
+if (s >= 55) return '🟡 Moderate — Take It Easy';
+return '🔴 Poor — Rest or Light Movement';
+}
+
+function fmtDollars(n) {
+if (n == null) return '—';
+const abs = Math.abs(n);
+let str;
+if (abs >= 1000000) str = `$${(abs/1000000).toFixed(2)}M`;
+else if (abs >= 1000) str = `$${(abs/1000).toFixed(1)}k`;
+else str = `$${abs.toFixed(0)}`;
+return n < 0 ? `-${str}` : str;
+}
+
+function animateRing(id, pct) {
+const circ = 175.9;
+const offset = circ - (pct / 100) * circ;
+const el = document.getElementById(id);
+if (el) setTimeout(() => el.style.strokeDashoffset = offset, 100);
+}
+
+// ── TOAST ──
+function toast(msg, type = '') {
+const wrap = document.getElementById('toast-wrap');
+if (!wrap) return;
+const el = document.createElement('div');
+el.className = `toast ${type}`;
+el.textContent = msg;
+wrap.appendChild(el);
+setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 4000);
+}
+
+// ── SPARKLINE (SVG line from a series; nulls are skipped) ──
+function sparkline(svgId, values, color = '#00c49a') {
+const svg = document.getElementById(svgId);
+if (!svg) return;
+const defined = (values || []).filter(v => v != null);
+if (defined.length < 2) { svg.innerHTML = ''; return; }
+const W = 300, H = 40, pad = 4;
+const min = Math.min(...defined), max = Math.max(...defined);
+const range = (max - min) || 1;
+const n = values.length;
+const pts = [];
+values.forEach((v, i) => {
+if (v == null) return;
+const x = pad + (n > 1 ? (i / (n - 1)) : 0) * (W - 2 * pad);
+const y = H - pad - ((v - min) / range) * (H - 2 * pad);
+pts.push([x, y]);
+});
+const d = pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(' ');
+const last = pts[pts.length - 1];
+svg.innerHTML =
+`<path d="${d}" fill="none" stroke="${color}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>` +
+`<circle cx="${last[0].toFixed(1)}" cy="${last[1].toFixed(1)}" r="2.5" fill="${color}"/>`;
+}
+
+// ── RENDER FUNCTIONS ──
+function renderGmail(data) {
+const list = document.getElementById('gmail-items');
+const notice = document.getElementById('gmail-notice');
+const items = data && Array.isArray(data.items) ? data.items : [];
+if (!items.length) {
+list.innerHTML = '';
+notice.textContent = data && data.generatedAt
+? 'Nothing new since the last check.'
+: 'No Gmail digest yet — the morning brief job writes this once a day.';
+notice.style.display = 'block';
+return;
+}
+notice.style.display = 'none';
+list.innerHTML = items.map(it => `
+<li class="todo-item" style="cursor:default">
+<div style="flex:1;min-width:0">
+<span class="todo-tag" style="margin-left:0;margin-right:6px;background:var(--border);color:var(--muted)">${escapeHtml(it.label || 'Gmail')}</span>
+<span class="todo-text" style="font-weight:600">${escapeHtml(it.subject || '(no subject)')}</span>
+<div style="font-size:11px;color:var(--muted);margin-top:2px">${escapeHtml(it.from || '')}${it.snippet ? ' — ' + escapeHtml(it.snippet) : ''}</div>
+</div>
+</li>`).join('');
+}
+
+function renderStripe(data) {
+const box = document.getElementById('stripe-metrics');
+const notice = document.getElementById('stripe-notice');
+if (!data) { box.style.display = 'none'; notice.style.display = 'block'; return; }
+notice.style.display = 'none';
+box.style.display = 'grid';
+document.getElementById('metric-mrr').textContent = fmtDollars(data.mrr);
+document.getElementById('metric-rev30').textContent = fmtDollars(data.revenue_30d);
+document.getElementById('metric-subs').textContent = data.active_subs ?? '—';
+}
+
+function renderPosthog(data) {
+if (!data) {
+document.getElementById('posthog-notice').style.display = 'block';
+document.getElementById('metric-dau').textContent = '—';
+document.getElementById('metric-signups').textContent = '—';
+document.getElementById('metric-images').textContent = '—';
+return;
+}
+const { dau, dau_chg, signups, signups_chg, images, images_chg } = data;
+document.getElementById('metric-dau').textContent = dau ?? '—';
+document.getElementById('metric-signups').textContent = signups ?? '—';
+document.getElementById('metric-images').textContent = images ?? '—';
+
+if (dau_chg != null) {
+const el = document.getElementById('metric-dau-chg');
+el.textContent = `${dau_chg > 0 ? '+' : ''}${dau_chg}%`;
+el.className = `chg ${dau_chg > 0 ? 'up' : dau_chg < 0 ? 'down' : 'flat'}`;
+}
+if (signups_chg != null) {
+const el = document.getElementById('metric-signups-chg');
+el.textContent = `${signups_chg > 0 ? '+' : ''}${signups_chg}%`;
+el.className = `chg ${signups_chg > 0 ? 'up' : signups_chg < 0 ? 'down' : 'flat'}`;
+}
+}
+
+function escapeHtml(s) {
+return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+.replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+// Stable, content-based check id: survives reorder/re-prioritize and is the same
+// across every device. Keyed by logical list + task text (not array position).
+function taskCheckId(listKey, text) {
+return `${listKey}::${text}`;
+}
+
+// Priority → tag styling, shared by the columns and Work Session Focus Tasks.
+function tagClassFor(p) {
+return p === 'key' ? 'tag-key' : p === 'high' ? 'tag-high' : p === 'med' ? 'tag-med'
+: p === 'unassigned' ? 'tag-unassigned' : 'tag-low';
+}
+function tagLabelFor(p) {
+return p === 'key' ? 'Key' : p === 'high' ? 'High' : p === 'med' ? 'Med'
+: p === 'unassigned' ? 'Unassigned' : 'Low 💩';
+}
+
+// Days between an ISO "YYYY-MM-DD" date and today (local).
+function daysSince(dateStr) {
+if (!dateStr) return 0;
+const [y, m, d] = dateStr.split('-').map(Number);
+const then = new Date(y, m - 1, d);
+const now = new Date(); now.setHours(0, 0, 0, 0);
+return Math.round((now - then) / 86400000);
+}
+
+// One-time migration: give any task missing `addedAt` today's date, so the
+// stale-task alarm has something to measure against. Triggers a save if anything changed.
+function backfillAddedAt(state) {
+let changed = false;
+const today = localToday();
+Object.keys(state).forEach(listKey => {
+(state[listKey] || []).forEach(t => {
+if (!t.addedAt) { t.addedAt = today; changed = true; }
+});
+});
+return changed;
+}
+
+// Load task lists into editable state, then render. One single Money Tasks list:
+// legacy `money` items fold in with `business`.
+function setTodos(data) {
+todosState = {
+money:     [...(data?.business || []), ...(data?.money || [])],
+health:    data?.health || [],
+personal:  data?.personal || [],
+assistant: data?.assistant || [],
+handoffs:  data?.handoffs || [],
+};
+// In-memory only, deliberately. This used to save immediately, which made the
+// page WRITE THE WHOLE TASK FILE on every load — so a tab holding a stale copy
+// clobbered the live lists just by being open. Every task carries addedAt now;
+// any real edit persists the backfill along with it.
+backfillAddedAt(todosState);
+renderAllTasks();
+}
+// Back-compat alias for existing call sites.
+function renderTodos(data) { setTodos(data); }
+
+const PRI_ORDER = { key: 0, high: 1, med: 2, low: 3, unassigned: 4 };
+const LIST_TARGETS = {
+money:     { el: 'business-todos',  progress: 'progress-money' },
+health:    { el: 'health-todos',    progress: 'progress-health' },
+personal:  { el: 'personal-todos',  progress: 'progress-personal' },
+assistant: { el: 'assistant-todos', progress: 'progress-assistant' },
+};
+
+// Lists whose not-due-today tasks are temporarily revealed. View state only —
+// never persisted, so every load starts with the clean today-only list.
+const offDayOpen = new Set();
+
+function renderAllTasks() {
+Object.keys(LIST_TARGETS).forEach(listKey => {
+const { el, progress } = LIST_TARGETS[listKey];
+renderList(listKey, todosState[listKey] || [], document.getElementById(el), progress);
+});
+renderHandoffs();
+renderPlan();
+}
+
+// ══════════════════════ HANDOFFS TO FIRE ══════════════════════
+// Row: { text, doc, status, ready, prompt, model, addedAt }. No priority and no
+// check-off on purpose — a handoff that ran gets deleted, so the list can only
+// ever hold live work. Rows are added by a Claude session when Dan asks.
+const HANDOFF_STALE_DAYS = 14;
+function handoffAgeDays(t) {
+if (!t.addedAt) return 0;
+const ms = new Date(localToday()) - new Date(t.addedAt);
+return Math.max(0, Math.round(ms / 86400000));
+}
+function renderHandoffs() {
+const el = document.getElementById('handoffs-todos');
+const count = document.getElementById('handoffs-count');
+if (!el) return;
+const rows = todosState.handoffs || [];
+if (count) count.textContent = rows.length ? `· ${rows.length}/7` : '';
+if (!rows.length) { el.innerHTML = '<li class="ho-empty">Nothing queued. A session adds a row when you ask for one.</li>'; return; }
+el.innerHTML = rows.map((t, i) => {
+const age = handoffAgeDays(t);
+const stale = age >= HANDOFF_STALE_DAYS;
+const chip = t.ready ? '<span class="ho-chip ready">Ready</span>' : `<span class="ho-chip wait">${escapeHtml(t.status || 'waiting')}</span>`;
+const docName = (t.doc || '').split('/').pop();
+const docHref = t.doc ? `https://github.com/danroseconsulting/abs-by-ai/blob/main/${encodeURI(t.doc)}` : '';
+return `<li class="ho-item" data-idx="${i}">
+<div class="ho-top"><span class="ho-text">${escapeHtml(t.text)}</span></div>
+<div class="ho-meta">
+${chip}
+<span class="ho-age${stale ? ' stale' : ''}" title="Days since it was written">${stale ? 'STALE · fire it or kill it · ' : ''}${age}d</span>
+${t.model ? `<span title="Recommended model">${escapeHtml(t.model)}</span>` : ''}
+${docHref ? `<a class="ho-doc" href="${docHref}" target="_blank" rel="noopener" title="${escapeHtml(t.doc)}">${escapeHtml(docName)}</a>` : ''}
+<span class="ho-actions">
+<button class="ho-btn" onclick="copyHandoffPrompt(${i})" title="Copy the starter prompt for a fresh Claude session">Copy prompt</button>
+<button class="ho-btn danger" onclick="deleteHandoff(${i})" title="Remove — it ran, or it's dead">Delete</button>
+</span>
+</div>
+</li>`;
+}).join('');
+}
+async function copyHandoffPrompt(idx) {
+const t = (todosState.handoffs || [])[idx];
+if (!t) return;
+const text = t.prompt || `Read ${t.doc} in the Abs By AI repo and execute it.`;
+try { await navigator.clipboard.writeText(text); toast('Starter prompt copied — paste it into a fresh session', 'ok'); }
+catch (e) { window.prompt('Copy the starter prompt:', text); }
+}
+function deleteHandoff(idx) {
+const removed = todosState.handoffs[idx];
+if (!removed) return;
+if (!confirm(`Remove "${removed.text}" from the handoffs list? (It ran, or it's dead.)`)) return;
+todosState.handoffs.splice(idx, 1);
+renderHandoffs();
+saveTodos([`handoffs::${removed.text}`]);
+toast('Handoff removed', 'ok');
+}
+
+// ══════════════════════ WORK SESSION FOCUS TASKS ══════════════════════
+// Per-day arrangement of tasks. Key tasks auto-populate; the user can drag other
+// tasks in to interleave lighter work, or drag key tasks out (they stay Key in
+// their column but won't auto-return today). Rebuilds fresh each new LOCAL day.
+//
+//   planState.order            — arranged sequence of check-ids (pinned + dragged-in)
+//   planState.excluded         — key-task ids dragged OUT today (won't auto-return)
+//   planState.sessionsCompleted — count of times the section emptied out today
+// Completion is content-id keyed (taskCheckId), so a task checked here shows done
+// in its column and vice-versa for free — no separate done-sync.
+let dragCtx = null; // { id, source: 'plan' | 'column' } during an active drag
+
+// Max OPEN (unchecked) tasks in the focus section. Completed tasks stay visible
+// underneath and don't count against this.
+const PLAN_OPEN_CAP = 7;
+
+function loadPlanLocal() {
+try {
+const p = JSON.parse(localStorage.getItem('planState') || 'null');
+if (p && typeof p === 'object' && p.date) {
+return {
+date: p.date,
+order: Array.isArray(p.order) ? p.order : [],
+excluded: Array.isArray(p.excluded) ? p.excluded : [],
+sessionsCompleted: Number.isFinite(p.sessionsCompleted) ? p.sessionsCompleted : 0,
+};
+}
+} catch (e) { /* ignore */ }
+return { date: localToday(), order: [], excluded: [], sessionsCompleted: 0 };
+}
+let planState = loadPlanLocal();
+
+function cachePlan() { localStorage.setItem('planState', JSON.stringify(planState)); }
+
+// Daily rebuild: on a new local day, clear the day's drag-ins/reorders/exclusions/count.
+function ensurePlanDay() {
+if (planState.date !== localToday()) {
+planState = { date: localToday(), order: [], excluded: [], sessionsCompleted: 0 };
+cachePlan();
+}
+}
+
+// Adopt the server's plan (cross-device sync); ensurePlanDay() then resets if stale.
+function seedPlan(server) {
+if (server && typeof server === 'object' && server.date) {
+planState = {
+date: server.date,
+order: Array.isArray(server.order) ? server.order : [],
+excluded: Array.isArray(server.excluded) ? server.excluded : [],
+sessionsCompleted: Number.isFinite(server.sessionsCompleted) ? server.sessionsCompleted : 0,
+};
+cachePlan();
+}
+ensurePlanDay();
+}
+
+async function savePlan() {
+cachePlan();
+try {
+await fetch('/api/plan', {
+method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(planState),
+});
+} catch (e) { console.warn('plan sync failed (kept locally):', e); }
+}
+
+// Map every current task to its stable check-id → { listKey, task }.
+function buildPlanIdMap() {
+const map = new Map();
+Object.keys(LIST_TARGETS).forEach(listKey => {
+(todosState[listKey] || []).forEach(task => {
+map.set(taskCheckId(listKey, task.text), { listKey, task });
+});
+});
+return map;
+}
+
+// Is this check-id currently "done" (per its task's recurring/one-off rule)?
+function isPlanIdDone(id, idMap) {
+const info = idMap.get(id);
+return info ? isDone(id, !!info.task.recurring) : false;
+}
+
+// A task finished on an earlier day never belongs in today's focus band, whether
+// it is still sitting in planState.order from the day it was completed or would
+// be auto-populated fresh this morning as a Key task. Today's completions are
+// deliberately NOT filtered — they stay visible under the open group as the
+// record of this session's wins, and drop out on their own tomorrow.
+function isPlanIdStale(id, idMap) {
+const info = idMap.get(id);
+return info ? completedOnEarlierDay(id, !!info.task.recurring) : false;
+}
+
+// The ids shown in the plan, in order: honored `order` first (skipping deleted
+// tasks), then any Key task not excluded and not already placed. Auto-included
+// Key tasks stop once the OPEN cap is reached (already-placed order items are
+// never dropped by the cap — that's enforced at add-time instead).
+function buildPlanSeq(idMap) {
+idMap = idMap || buildPlanIdMap();
+const seq = [];
+planState.order.forEach(id => {
+if (idMap.has(id) && !seq.includes(id) && !isPlanIdStale(id, idMap)) seq.push(id);
+});
+let openCount = seq.filter(id => !isPlanIdDone(id, idMap)).length;
+idMap.forEach((info, id) => {
+// Assistant tasks are delegated work, not Dan's own — they never auto-populate
+// the focus band, even at Key. Dragging one in by hand still works (it lands in
+// planState.order, which is honoured above).
+if (info.listKey === 'assistant') return;
+// Nor does a task that isn't due today — it isn't in its column either.
+if (!isScheduledToday(info.task)) return;
+// Nor one that was already finished on an earlier day — the win is recorded in
+// its column; re-adding it makes yesterday's work look like today's backlog.
+if (isPlanIdStale(id, idMap)) return;
+if (info.task.priority === 'key' && !planState.excluded.includes(id) && !seq.includes(id)) {
+const wouldBeOpen = !isPlanIdDone(id, idMap);
+if (wouldBeOpen && openCount >= PLAN_OPEN_CAP) return; // cap reached — stays Key in its column only
+seq.push(id);
+if (wouldBeOpen) openCount++;
+}
+});
+return seq;
+}
+
+// Split the sequence into open (unchecked, on top) and done (checked, below) —
+// stable within each group. Completed tasks stay visible; anything new lands
+// above them because it always lands in the open group.
+function planDisplaySeq(idMap) {
+const seq = buildPlanSeq(idMap);
+const openIds = seq.filter(id => !isPlanIdDone(id, idMap));
+const doneIds = seq.filter(id => isPlanIdDone(id, idMap));
+return { openIds, doneIds, all: [...openIds, ...doneIds] };
+}
+
+// Shrink a plan-item's text to fit inside the height-capped block (max-height
+// is set in CSS so blocks never grow past ~50% of their old tallest size).
+// Only kicks in when the text is long enough to overflow — short tasks are untouched.
+function fitPlanText(li) {
+const col = li.querySelector('.plan-text-col');
+const textEl = li.querySelector('.plan-text');
+if (!col || !textEl) return;
+const whyEl = li.querySelector('.plan-why');
+textEl.style.fontSize = '';
+if (whyEl) whyEl.style.fontSize = '';
+let size = 25;
+const minSize = 12;
+while (col.scrollHeight > col.clientHeight && size > minSize) {
+size -= 1;
+textEl.style.fontSize = size + 'px';
+if (whyEl) whyEl.style.fontSize = Math.max(10, size - 11) + 'px';
+}
+}
+
+function planItemHtml(id, idMap) {
+const info = idMap.get(id);
+const t = info.task;
+const rec = !!t.recurring;
+const done = isDone(id, rec);
+const streak = rec ? calcStreak(id) : 0;
+return `
+<li class="plan-item${done ? ' done' : ''}" draggable="true" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-done="${done ? 1 : 0}">
+<span class="plan-drag" title="Drag to reorder">⠿</span>
+<div class="todo-cb"></div>
+<div class="plan-text-col">
+<span class="plan-text">${escapeHtml(t.text)}${rec ? ' <span title="Daily" style="opacity:0.7">🔁</span>' : ''}</span>
+${t.why ? `<div class="plan-why">${escapeHtml(t.why)}</div>` : ''}
+</div>
+${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
+<span class="todo-tag ${tagClassFor(t.priority)}">${tagLabelFor(t.priority)}</span>
+<button class="plan-remove" data-act="remove" title="Remove from Work Session Focus Tasks">✕</button>
+</li>`;
+}
+
+function renderPlan() {
+const el = document.getElementById('plan-todos');
+const openEl = document.getElementById('plan-open-list');
+const doneEl = document.getElementById('plan-done-list');
+if (!el || !openEl || !doneEl) return;
+ensurePlanDay();
+const idMap = buildPlanIdMap();
+const { openIds, doneIds } = planDisplaySeq(idMap);
+
+if (!openIds.length && !doneIds.length) {
+openEl.innerHTML = '<li class="plan-empty">No focus tasks yet — pick what you\'ll knock out this block, or drag one in.</li>';
+doneEl.innerHTML = '';
+doneEl.style.display = 'none';
+} else {
+openEl.innerHTML = openIds.length
+? openIds.map(id => planItemHtml(id, idMap)).join('')
+: '<li class="plan-empty">All caught up — drag a task in to start a new session.</li>';
+doneEl.innerHTML = doneIds.map(id => planItemHtml(id, idMap)).join('');
+doneEl.style.display = doneIds.length ? '' : 'none';
+}
+
+// Current session (open) on top, previous session's finished tasks below —
+// each its own grid so they always land in separate rows, then shrink any
+// block whose text overflows the height cap.
+el.querySelectorAll('.plan-item').forEach(fitPlanText);
+
+const sessEl = document.getElementById('plan-sessions');
+if (sessEl) {
+const n = planState.sessionsCompleted || 0;
+sessEl.style.display = n > 0 ? '' : 'none';
+sessEl.textContent = `⚡ ${n} session${n === 1 ? '' : 's'} today`;
+}
+
+// Click: toggle done, or remove from plan via the ✕.
+el.onclick = (e) => {
+const li = e.target.closest('.plan-item');
+if (!li) return;
+if (e.target.closest('[data-act="remove"]')) { removeFromPlan(li.dataset.checkId); return; }
+toggleTodo(li.dataset.checkId, li.dataset.recurring === '1', li);
+};
+
+// Drag source: reorder within the plan, or drag out onto a column.
+el.ondragstart = (e) => {
+const li = e.target.closest('.plan-item');
+if (!li) return;
+dragCtx = { id: li.dataset.checkId, source: 'plan' };
+li.classList.add('dragging');
+if (e.dataTransfer) { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', li.dataset.checkId); }
+};
+el.ondragend = () => {
+el.querySelectorAll('.plan-item.dragging').forEach(x => x.classList.remove('dragging'));
+el.classList.remove('drop-active');
+dragCtx = null;
+};
+
+// Drop target: accept a column task (pin it) or reposition a plan item.
+el.ondragover = (e) => { e.preventDefault(); if (e.dataTransfer) e.dataTransfer.dropEffect = 'move'; el.classList.add('drop-active'); };
+el.ondragleave = (e) => { if (!el.contains(e.relatedTarget)) el.classList.remove('drop-active'); };
+el.ondrop = (e) => {
+e.preventDefault();
+el.classList.remove('drop-active');
+if (!dragCtx) return;
+dropIntoPlan(dragCtx.id, e.clientY);
+};
+}
+
+// Column width changes affect how the text wraps, so re-fit on resize.
+let planFitResizeTimer = null;
+window.addEventListener('resize', () => {
+clearTimeout(planFitResizeTimer);
+planFitResizeTimer = setTimeout(() => {
+document.querySelectorAll('#plan-todos .plan-item').forEach(fitPlanText);
+}, 150);
+});
+
+// Find the plan item (within the same open/done group as the dragged item) the
+// cursor is above, so we can insert before it. Keeps reordering inside its group.
+function planAfterElement(container, y, doneFlag) {
+const els = [...container.querySelectorAll(`.plan-item:not(.dragging)[data-done="${doneFlag ? 1 : 0}"]`)];
+let closest = { offset: -Infinity, element: null };
+for (const child of els) {
+const box = child.getBoundingClientRect();
+const offset = y - box.top - box.height / 2;
+if (offset < 0 && offset > closest.offset) closest = { offset, element: child };
+}
+return closest.element;
+}
+
+// Insert id into the plan at the drop position; un-exclude if it was dragged out.
+// New/dragged-in tasks always land in the OPEN group (above the done ones).
+// Blocked with a toast if the open section is already at the 7-task cap.
+function dropIntoPlan(id, clientY) {
+const idMap = buildPlanIdMap();
+if (!idMap.has(id)) return; // task no longer exists
+const { openIds, doneIds } = planDisplaySeq(idMap);
+const wouldBeOpen = !isPlanIdDone(id, idMap);
+const curOpen = openIds.filter(x => x !== id);
+const curDone = doneIds.filter(x => x !== id);
+if (wouldBeOpen && curOpen.length >= PLAN_OPEN_CAP) {
+toast('Focus is full — finish something first', 'err');
+return;
+}
+const container = document.getElementById('plan-todos');
+const afterEl = planAfterElement(container, clientY, wouldBeOpen ? 0 : 1);
+const group = wouldBeOpen ? curOpen : curDone;
+let insertIdx = afterEl ? group.indexOf(afterEl.dataset.checkId) : group.length;
+if (insertIdx < 0) insertIdx = group.length;
+group.splice(insertIdx, 0, id);
+const newOpen = wouldBeOpen ? group : curOpen;
+const newDone = wouldBeOpen ? curDone : group;
+planState.order = [...newOpen, ...newDone]; // materialize full sequence so positions stick
+planState.excluded = planState.excluded.filter(x => x !== id);
+savePlan();
+renderAllTasks();
+}
+
+// Remove from the plan. If it's a Key task, remember it as excluded so it won't
+// auto-return today (it keeps its Key status/label in its column).
+function removeFromPlan(id) {
+const idMap = buildPlanIdMap();
+planState.order = buildPlanSeq(idMap).filter(x => x !== id);
+const info = idMap.get(id);
+if (info && info.task.priority === 'key' && !planState.excluded.includes(id)) planState.excluded.push(id);
+savePlan();
+renderAllTasks();
+}
+
+// Columns are drop targets for dragging a plan item OUT.
+function initColumnDropTargets() {
+document.querySelectorAll('.grid .col').forEach(col => {
+col.addEventListener('dragover', (e) => {
+if (dragCtx && dragCtx.source === 'plan') { e.preventDefault(); col.classList.add('drop-out-active'); }
+});
+col.addEventListener('dragleave', (e) => { if (!col.contains(e.relatedTarget)) col.classList.remove('drop-out-active'); });
+col.addEventListener('drop', (e) => {
+col.classList.remove('drop-out-active');
+if (dragCtx && dragCtx.source === 'plan') { e.preventDefault(); removeFromPlan(dragCtx.id); }
+});
+});
+}
+
+function renderList(listKey, items, el, progressId) {
+if (!el) return;
+// Assistant Tasks only: finished work sinks to the bottom of the card instead of
+// sitting among the open items, so what's still outstanding reads at a glance.
+// It stays checked and visible here (that is Dan's record of what she got done)
+// until the server's 7-day sweep removes it — her own page clears it sooner.
+const doneLast = listKey === 'assistant';
+const doneRank = (t) => (doneLast && isDone(taskCheckId(listKey, t.text), !!t.recurring) ? 1 : 0);
+// A day-scheduled task is simply not on the list today. It stays reachable via
+// the footer toggle below — otherwise a Sunday task could not be edited or
+// deleted for six days at a time — and is counted so a task that has gone quiet
+// for a week never reads as one that got deleted.
+const offDay = items.filter(t => !isScheduledToday(t));
+const showOffDay = offDayOpen.has(listKey);
+const withIdx = items.map((t, i) => ({ t, i }))
+.filter(({ t }) => showOffDay || isScheduledToday(t))
+.sort((a, b) => (doneRank(a.t) - doneRank(b.t))
+|| ((PRI_ORDER[a.t.priority] ?? 3) - (PRI_ORDER[b.t.priority] ?? 3)));
+
+// Muted footer so an off-day task is visibly "scheduled", never "missing".
+// Clicking it reveals them for editing.
+const offDayNote = offDay.length
+? `<li class="empty offday-note" data-offday-toggle="${listKey}" title="${escapeHtml(offDay.map(t => t.text + ' — ' + scheduleLabel(t)).join('\n'))}">${showOffDay ? '▴ hide the ' + offDay.length + ' scheduled for another day' : `＋${offDay.length} scheduled for another day`}</li>`
+: '';
+
+if (!withIdx.length) {
+el.innerHTML = `<li class="empty">No to-dos</li>${offDayNote}`;
+} else {
+el.innerHTML = withIdx.map(({ t, i }) => {
+const rec = !!t.recurring;
+const id = taskCheckId(listKey, t.text);
+const done = isDone(id, rec);
+const streak = rec ? calcStreak(id) : 0;
+const tagClass = tagClassFor(t.priority);
+const tagLabel = tagLabelFor(t.priority);
+const age = t.addedAt ? daysSince(t.addedAt) : 0;
+const stale = !rec && t.addedAt && age >= 7;
+// Only ever true while the off-day group is expanded — dimmed so a revealed
+// task never looks like it is due today.
+const offToday = !isScheduledToday(t);
+return `
+<li class="todo-item priority-${escapeHtml(t.priority)}${done ? ' done' : ''}${offToday ? ' offday-row' : ''}" draggable="true" data-list="${listKey}" data-check-id="${escapeHtml(id)}" data-recurring="${rec ? 1 : 0}" data-idx="${i}">
+<div class="todo-cb"></div>
+<span class="todo-text">${escapeHtml(t.text)}${rec ? ` <span title="${escapeHtml(scheduleLabel(t))}" style="opacity:0.7">🔁</span>` : ''}</span>
+${rec && taskDays(t).length ? `<span class="sched-badge" title="Repeats ${escapeHtml(scheduleLabel(t))}">${escapeHtml(scheduleChip(t))}</span>` : ''}
+${streak > 1 ? `<span class="streak">🔥${streak}</span>` : ''}
+${stale ? `<span class="stale-badge" title="Added ${age} days ago — do it, delete it, or delegate it">⏳</span>` : ''}
+<span class="todo-tag ${tagClass}">${tagLabel}</span>
+<span class="todo-actions">
+<button class="todo-act" data-act="edit" title="Edit">✎</button>
+<button class="todo-act" data-act="del" title="Delete">✕</button>
+</span>
+</li>`;
+}).join('') + offDayNote;
+}
+
+// Event delegation handles checkbox toggle + edit/delete (robust vs special chars).
+el.onclick = (e) => {
+const toggle = e.target.closest('[data-offday-toggle]');
+if (toggle) {
+const k = toggle.dataset.offdayToggle;
+if (offDayOpen.has(k)) offDayOpen.delete(k); else offDayOpen.add(k);
+renderAllTasks();
+return;
+}
+const li = e.target.closest('.todo-item');
+if (!li) return;
+const actBtn = e.target.closest('.todo-act');
+if (actBtn) {
+const idx = +li.dataset.idx;
+if (actBtn.dataset.act === 'edit') showEditForm(listKey, idx);
+else if (actBtn.dataset.act === 'del') { if (confirm('Delete this task?')) deleteTask(listKey, idx); }
+return;
+}
+toggleTodo(li.dataset.checkId, li.dataset.recurring === '1', li);
+};
+
+// Drag a column task → can be dropped into Work Session Focus Tasks to pin it for today.
+el.ondragstart = (e) => {
+const li = e.target.closest('.todo-item');
+if (!li) return;
+dragCtx = { id: li.dataset.checkId, source: 'column', listKey: li.dataset.list, idx: +li.dataset.idx };
+li.classList.add('dragging');
+if (e.dataTransfer) { e.dataTransfer.effectAllowed = 'move'; e.dataTransfer.setData('text/plain', li.dataset.checkId); }
+};
+el.ondragend = (e) => {
+const li = e.target.closest('.todo-item');
+if (li) li.classList.remove('dragging');
+document.querySelectorAll('.todo-list.list-drop-active').forEach(u => u.classList.remove('list-drop-active'));
+dragCtx = null;
+};
+
+// A list is ALSO a drop target: dropping a task dragged from a DIFFERENT list
+// moves it here. This is what lets any task be delegated into Assistant Tasks.
+// stopPropagation keeps the column-level "drag out of the focus band" handler
+// from also firing on the same drop.
+el.ondragover = (e) => {
+if (!dragCtx || dragCtx.source !== 'column' || dragCtx.listKey === listKey) return;
+e.preventDefault();
+e.stopPropagation();
+if (e.dataTransfer) e.dataTransfer.dropEffect = 'move';
+el.classList.add('list-drop-active');
+};
+el.ondragleave = (e) => { if (!el.contains(e.relatedTarget)) el.classList.remove('list-drop-active'); };
+el.ondrop = (e) => {
+el.classList.remove('list-drop-active');
+if (!dragCtx || dragCtx.source !== 'column' || dragCtx.listKey === listKey) return;
+e.preventDefault();
+e.stopPropagation();
+moveTaskBetweenLists(dragCtx.listKey, dragCtx.idx, listKey);
+};
+
+// Progress counts only what's actually on the list today, or a list could never
+// reach 100% because of tasks that aren't due.
+updateProgress(listKey, items.filter(isScheduledToday), progressId);
+}
+
+function updateProgress(listKey, items, progressId) {
+const wrap = document.getElementById(progressId);
+if (!wrap) return;
+if (!items.length) { wrap.style.display = 'none'; return; }
+let done = 0;
+items.forEach(t => { if (isDone(taskCheckId(listKey, t.text), !!t.recurring)) done++; });
+const pct = Math.round(done / items.length * 100);
+wrap.style.display = 'flex';
+wrap.querySelector('.progress-fill').style.width = pct + '%';
+wrap.querySelector('.progress-label').textContent = `${done}/${items.length} done`;
+}
+
+// Move a task from one list to another (drag a task onto another list's card).
+// The check-id is list-scoped (`<list>::<text>`), so a completed task would come
+// back open in its new home unless the completion is migrated too — do that,
+// locally and on the server, and carry any focus-band placement across as well.
+async function moveTaskBetweenLists(fromKey, idx, toKey) {
+const src = todosState[fromKey];
+const task = src && src[idx];
+if (!task || fromKey === toKey) return;
+todosState[toKey] = todosState[toKey] || [];
+if (todosState[toKey].some(t => t.text === task.text)) {
+toast('That task is already in that list', 'err');
+return;
+}
+
+const oldId = taskCheckId(fromKey, task.text);
+const newId = taskCheckId(toKey, task.text);
+const rec = !!task.recurring;
+const wasDone = isDone(oldId, rec);
+
+src.splice(idx, 1);
+todosState[toKey].push(task);
+
+// Migrate completion state. For a recurring task only TODAY's completion moves —
+// /api/task-checks writes one date at a time, so the historical streak log can't
+// follow it across lists. Keeping the local copy in step with what the server can
+// actually store avoids a value that flickers back on the next sync.
+if (rec) {
+const days = new Set(taskLog[oldId] || []);
+if (days.delete(localToday())) taskLog[newId] = [localToday()];
+if (days.size) taskLog[oldId] = [...days].sort(); else delete taskLog[oldId];
+} else if (checkedTodos.has(oldId)) {
+checkedTodos.delete(oldId);
+checkedTodos.add(newId);
+if (checkedAtMap[oldId]) { checkedAtMap[newId] = checkedAtMap[oldId]; delete checkedAtMap[oldId]; }
+}
+cacheChecks();
+
+// Keep it in the focus band / exclusion list if it was there under the old id.
+planState.order = planState.order.map(x => (x === oldId ? newId : x));
+planState.excluded = planState.excluded.map(x => (x === oldId ? newId : x));
+
+renderAllTasks();
+saveTodos();
+savePlan();
+toast(`Moved to ${LIST_LABELS[toKey] || toKey}`, 'ok');
+
+// Persist the completion migration (clear the old id, set the new one).
+if (wasDone) {
+const body = (id, checked) => JSON.stringify({ id, checked, recurring: rec, date: localToday(), confirmUncheck: true });
+try {
+await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(oldId, false) });
+await fetch('/api/task-checks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body(newId, true) });
+} catch (e) { console.warn('check migration sync failed (kept locally):', e); }
+}
+}
+
+const LIST_LABELS = { money: 'Money', health: 'Health', personal: 'Personal', assistant: 'Assistant' };
+
+// ── TASK CRUD ──
+function taskFormHtml(listKey, idx) {
+const editing = idx != null && idx >= 0;
+const t = editing ? todosState[listKey][idx] : { text: '', priority: 'med', recurring: false };
+return `
+<div class="task-form">
+<input type="text" id="tf-text-${listKey}" placeholder="Task description" value="${escapeHtml(t.text)}">
+<div class="task-form-row">
+<select id="tf-pri-${listKey}">
+<option value="key"${t.priority === 'key' ? ' selected' : ''}>Key</option>
+<option value="high"${t.priority === 'high' ? ' selected' : ''}>High</option>
+<option value="med"${t.priority === 'med' ? ' selected' : ''}>Med</option>
+<option value="low"${t.priority === 'low' ? ' selected' : ''}>Low</option>
+<option value="unassigned"${t.priority === 'unassigned' ? ' selected' : ''}>Unassigned</option>
+</select>
+<label><input type="checkbox" id="tf-rec-${listKey}"${t.recurring ? ' checked' : ''} onchange="toggleDayPicker('${listKey}')"> Repeats</label>
+<span class="tf-days" id="tf-days-${listKey}" style="display:${t.recurring ? '' : 'none'}" title="Pick the days it repeats on. None selected = every day.">
+${DAY_INITIALS.map((ini, n) => `<button type="button" class="tf-day${taskDays(t).includes(n) ? ' on' : ''}" data-day="${n}" title="${DAY_NAMES[n]}" onclick="this.classList.toggle('on')">${ini}</button>`).join('')}
+</span>
+<span class="spacer"></span>
+<button class="btn-sm" onclick="cancelForm('${listKey}')">Cancel</button>
+<button class="btn-sm primary" onclick="saveTask('${listKey}', ${editing ? idx : 'null'})">Save</button>
+</div>
+</div>`;
+}
+function showAddForm(listKey) {
+const f = document.getElementById(`form-${listKey}`);
+f.innerHTML = taskFormHtml(listKey, null);
+const inp = document.getElementById(`tf-text-${listKey}`);
+inp.focus();
+inp.onkeydown = (e) => { if (e.key === 'Enter') saveTask(listKey, null); if (e.key === 'Escape') cancelForm(listKey); };
+}
+function showEditForm(listKey, idx) {
+const f = document.getElementById(`form-${listKey}`);
+f.innerHTML = taskFormHtml(listKey, idx);
+const inp = document.getElementById(`tf-text-${listKey}`);
+inp.focus();
+inp.onkeydown = (e) => { if (e.key === 'Enter') saveTask(listKey, idx); if (e.key === 'Escape') cancelForm(listKey); };
+}
+function cancelForm(listKey) { document.getElementById(`form-${listKey}`).innerHTML = ''; }
+function toggleDayPicker(listKey) {
+const on = document.getElementById(`tf-rec-${listKey}`).checked;
+document.getElementById(`tf-days-${listKey}`).style.display = on ? '' : 'none';
+}
+
+function saveTask(listKey, idx) {
+const text = document.getElementById(`tf-text-${listKey}`).value.trim();
+if (!text) return;
+const priority = document.getElementById(`tf-pri-${listKey}`).value;
+const recurring = document.getElementById(`tf-rec-${listKey}`).checked;
+// Preserve fields the edit form has no controls for (why/addedAt) — this form
+// only edits text/priority/recurring, it must not silently drop the rest.
+const existing = (idx != null && idx >= 0) ? todosState[listKey][idx] : null;
+const task = { text, priority, recurring };
+// Selected weekdays, only meaningful while Repeats is on. "Daily" is written as
+// all seven rather than as an absent field, so the server can tell a deliberate
+// daily task apart from a stale client that doesn't know `days` exists and would
+// otherwise silently wipe a weekly schedule. taskDays() reads all-seven back as
+// daily, so nothing about the display changes.
+const picked = [...document.querySelectorAll(`#tf-days-${listKey} .tf-day.on`)].map(b => +b.dataset.day).sort();
+if (recurring) task.days = picked.length ? picked : [0, 1, 2, 3, 4, 5, 6];
+task.addedAt = existing?.addedAt || localToday();
+if (existing?.why) task.why = existing.why;
+// Keep the private board ranking when this older form edits an assistant task.
+if (listKey === 'assistant' && Number.isInteger(existing?.boardRank)) task.boardRank = existing.boardRank;
+if (idx == null || idx < 0) todosState[listKey].push(task);
+else todosState[listKey][idx] = task;
+cancelForm(listKey);
+renderAllTasks();
+// A rename removes the old text, so declare it — otherwise renaming a
+// recurring task would leave the old one restored alongside the new one.
+const renamed = existing && existing.text !== text
+? [`${PAYLOAD_LIST_KEY[listKey]}::${existing.text}`] : undefined;
+saveTodos(renamed);
+toast('Task saved', 'ok');
+}
+function deleteTask(listKey, idx) {
+const removed = todosState[listKey][idx];
+todosState[listKey].splice(idx, 1);
+renderAllTasks();
+// Name the removal so the server reads it as intent, not as a stale-copy
+// accident — otherwise deleting a recurring task would be undone.
+saveTodos(removed ? [`${PAYLOAD_LIST_KEY[listKey]}::${removed.text}`] : undefined);
+toast('Task deleted', 'ok');
+}
+
+// ── INLINE QUICK-ADD (persistent row at bottom of each list) ──
+async function quickAddTask(listKey) {
+const input = document.getElementById(`qa-text-${listKey}`);
+const priSel = document.getElementById(`qa-pri-${listKey}`);
+const btn = document.getElementById(`qa-go-${listKey}`);
+const text = input.value.trim();
+if (!text) { input.focus(); return; }
+let priority = priSel.value;
+if (priority === 'auto') {
+btn.disabled = true;
+const prev = btn.textContent;
+btn.textContent = '…';
+priority = await assignPriority(text, listKey);
+btn.disabled = false;
+btn.textContent = prev;
+}
+todosState[listKey] = todosState[listKey] || [];
+todosState[listKey].push({ text, priority, recurring: false, addedAt: localToday() });
+input.value = '';
+priSel.value = 'auto';
+renderAllTasks();
+saveTodos();
+toast('Task added', 'ok');
+input.focus();
+}
+
+// Ask Claude (server-side) to pick a priority. Falls back to "med" on any error.
+async function assignPriority(text, listKey) {
+try {
+const r = await fetch('/api/assign-priority', {
+method: 'POST', headers: { 'Content-Type': 'application/json' },
+body: JSON.stringify({ text, list: listKey }),
+});
+if (!r.ok) throw new Error('assign failed');
+const d = await r.json();
+return ['high', 'med', 'low'].includes(d.priority) ? d.priority : 'med';
+} catch (e) { return 'med'; }
+}
+// Server list key for each column. Money maps back to `business` so the single
+// merged Money Tasks list stays consolidated server-side.
+const PAYLOAD_LIST_KEY = { money: 'business', health: 'health', personal: 'personal', assistant: 'assistant', handoffs: 'handoffs' };
+
+// `allowDeletes` names tasks this save is deliberately removing, as
+// `<serverListKey>::<exact text>`. The server restores any recurring task that
+// goes missing without being named, which is what stops a stale tab from
+// quietly deleting a daily habit.
+async function saveTodos(allowDeletes) {
+const payload = {
+business:  todosState.money,
+health:    todosState.health,
+personal:  todosState.personal,
+assistant: todosState.assistant,
+handoffs:  todosState.handoffs || [],
+};
+if (allowDeletes && allowDeletes.length) payload.allowDeletes = allowDeletes;
+try {
+const r = await fetch('/api/todos', {
+method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload),
+});
+if (r.status === 409) {
+// This page's copy is out of date and the write was refused rather than
+// applied. Reload the live list so the user is editing reality again.
+const d = await r.json().catch(() => null);
+if (d?.todos) setTodos(d.todos);
+toast('Your task list was out of date — reloaded it. Please redo that change.', 'err');
+return;
+}
+if (!r.ok) throw new Error('save failed');
+} catch (e) { toast('Could not save tasks (will retry on next edit)', 'err'); }
+}
+
+function renderCalendar(events, colId, barClass, noticeId) {
+const el = document.getElementById(colId);
+const notice = document.getElementById(noticeId);
+if (events === null || events === undefined) {
+el.innerHTML = '<div class="empty">Not connected</div>';
+if (notice) notice.style.display = 'block';
+return;
+}
+if (!events.length) {
+el.innerHTML = '<div class="empty">No events today</div>';
+return;
+}
+el.innerHTML = events.map(e => `
+<div class="event">
+<div class="event-time">${e.time}</div>
+<div class="event-bar ${barClass}"></div>
+<div class="event-info">
+<div class="title">${e.title}</div>
+${e.subtitle ? `<div class="sub">${e.subtitle}</div>` : ''}
+</div>
+</div>
+`).join('');
+}
+
+function renderNews(items) {
+const el = document.getElementById('news-list');
+if (!items || !items.length) {
+el.innerHTML = '<div class="empty">No news loaded</div>';
+return;
+}
+el.innerHTML = items.map(n => `
+<div class="news-item" onclick="window.open('${n.url}','_blank')">
+<div class="news-title">${n.title}</div>
+<div class="news-source">${n.source} · ${n.age}</div>
+</div>
+`).join('');
+}
+
+function contribColor(s) {
+if (!s) return '#21d07a';
+if (s >= 80) return '#21d07a';
+if (s >= 60) return '#00c49a';
+if (s >= 40) return '#f5a623';
+return '#ef4444';
+}
+
+function contribLabel(s) {
+if (!s) return '—';
+if (s >= 80) return 'Optimal';
+if (s >= 60) return 'Good';
+if (s >= 40) return 'Fair';
+return 'Pay attention';
+}
+
+function setContrib(id, val, score) {
+const valEl = document.getElementById(`c-${id}`);
+const barEl = document.getElementById(`cb-${id}`);
+if (valEl) {
+valEl.textContent = val;
+valEl.className = score && score < 40 ? 'contrib-val contrib-val-attention' : 'contrib-val';
+}
+if (barEl) {
+barEl.style.background = contribColor(score);
+setTimeout(() => { barEl.style.width = (score ?? 0) + '%'; }, 120);
+}
+}
+
+function sleepSummary(score, totalMins) {
+const t = fmtMins(totalMins);
+if (!score) return ['—', ''];
+if (score >= 85) return ['Excellent recovery', `You got ${t} of high-quality sleep. Your body is primed to perform today.`];
+if (score >= 70) return ['A good night\'s sleep', `You slept ${t} last night. Solid recovery — you should feel good today.`];
+if (score >= 55) return ['Fair night\'s sleep', `You slept ${t} last night. Not your best — take it easy on intense workouts.`];
+return ['Rough night', `Only ${t} of sleep. Prioritize rest today and skip hard training.`];
+}
+
+function renderOura(data) {
+const notice = document.getElementById('oura-notice');
+const arc = document.getElementById('oura-ring-arc');
+const scoreEl = document.getElementById('sleep-score');
+
+if (!data) {
+scoreEl.textContent = '—';
+scoreEl.style.color = 'var(--muted)';
+if (arc) { arc.style.strokeDashoffset = '263.9'; arc.style.stroke = '#333'; }
+document.getElementById('oura-status-badge').textContent = '—';
+document.getElementById('oura-status-badge').style.color = 'var(--muted)';
+document.getElementById('oura-title').textContent = 'No sleep data';
+document.getElementById('oura-subtitle').textContent = '';
+document.getElementById('hrv-val').textContent = '—';
+document.getElementById('readiness-val').textContent = '—';
+['total-sleep','efficiency','restfulness','rem','deep','latency','timing'].forEach(id => {
+const v = document.getElementById(`c-${id}`); if (v) v.textContent = '—';
+const b = document.getElementById(`cb-${id}`); if (b) b.style.width = '0%';
+});
+renderOuraTrend(null);
+notice.style.display = 'block';
+return;
+}
+
+const { score, total_sleep, hrv_avg, rem, deep, light, awake,
+efficiency, latency_mins, readiness, contributors } = data;
+const totalMins = total_sleep || 0;
+const color = scoreColor(score);
+const c = contributors || {};
+
+// Ring
+if (arc) {
+arc.style.stroke = color;
+setTimeout(() => {
+arc.style.strokeDashoffset = score ? (263.9 * (1 - score / 100)).toString() : '263.9';
+}, 120);
+}
+scoreEl.textContent = score ?? '—';
+scoreEl.style.color = color;
+
+// Status badge + title
+const badge = document.getElementById('oura-status-badge');
+badge.style.color = color;
+if (score >= 85) { badge.textContent = 'OPTIMAL'; }
+else if (score >= 70) { badge.textContent = 'GOOD'; }
+else if (score >= 55) { badge.textContent = 'FAIR'; }
+else { badge.textContent = 'POOR'; }
+
+const [title, subtitle] = sleepSummary(score, totalMins);
+document.getElementById('oura-title').textContent = title;
+document.getElementById('oura-subtitle').textContent = subtitle;
+
+// HRV + Readiness
+document.getElementById('hrv-val').textContent = hrv_avg ? `${Math.round(hrv_avg)} ms` : '—';
+const readinessEl = document.getElementById('readiness-val');
+readinessEl.textContent = readiness ?? '—';
+if (readiness) readinessEl.style.color = scoreColor(readiness);
+
+// Contributors
+const remPct = totalMins > 0 ? Math.round((rem||0) / totalMins * 100) : 0;
+const deepPct = totalMins > 0 ? Math.round((deep||0) / totalMins * 100) : 0;
+
+setContrib('total-sleep', fmtMins(totalMins), c.total_sleep);
+setContrib('efficiency', efficiency ? `${efficiency}%` : '—', c.efficiency);
+setContrib('restfulness', contribLabel(c.restfulness), c.restfulness);
+setContrib('rem', `${fmtMins(rem)}, ${remPct}%`, c.rem_sleep);
+setContrib('deep', `${fmtMins(deep)}, ${deepPct}%`, c.deep_sleep);
+setContrib('latency', latency_mins ? `${latency_mins}m` : '—', c.latency);
+setContrib('timing', contribLabel(c.timing), c.timing);
+
+renderOuraTrend(data.trend);
+notice.style.display = 'none';
+}
+
+function renderOuraTrend(trend) {
+const box = document.getElementById('oura-trend');
+if (!box) return;
+if (!trend) { box.style.display = 'none'; return; }
+box.style.display = 'block';
+sparkline('spark-sleep', trend.sleep, '#00c49a');
+document.getElementById('avg-sleep').textContent = trend.avg_sleep ?? '—';
+document.getElementById('avg-readiness').textContent = trend.avg_readiness ?? '—';
+document.getElementById('avg-hrv').textContent = trend.avg_hrv != null ? `${trend.avg_hrv}` : '—';
+const st = trend.avg_steps;
+document.getElementById('avg-steps').textContent =
+st == null ? '—' : (st >= 1000 ? `${(st / 1000).toFixed(1)}k` : `${st}`);
+
+// Workout streak comes from the recurring "Workout" health task.
+const streak = calcStreak(taskCheckId('health', 'Workout'));
+const ws = document.getElementById('workout-streak');
+if (ws) ws.textContent = streak > 0 ? `🔥 ${streak}-day workout streak` : '';
+}
+
+function renderWatch(data) {
+const notice = document.getElementById('watch-notice');
+if (!data) {
+notice.style.display = 'block';
+return;
+}
+const { move_cal, move_goal, exercise_min, stand_hrs, steps, workout_min, resting_hr } = data;
+const movePct = move_goal > 0 ? Math.min(100, (move_cal / move_goal) * 100) : 0;
+const exercisePct = exercise_min != null ? Math.min(100, (exercise_min / 30) * 100) : 0;
+const standPct = Math.min(100, (stand_hrs / 12) * 100);
+
+animateRing('ring-move', movePct);
+animateRing('ring-exercise', exercisePct);
+animateRing('ring-stand', standPct);
+
+document.getElementById('ring-move-val').innerHTML =
+`${Math.round(movePct)}%<br><span style="font-size:9px;color:var(--muted)">${move_cal} / ${move_goal} CAL</span>`;
+document.getElementById('ring-exercise-val').innerHTML =
+`${exercise_min != null ? exercise_min + ' min' : '—'}<br><span style="font-size:9px;color:var(--muted)">/ 30 min</span>`;
+document.getElementById('ring-stand-val').innerHTML =
+`${stand_hrs} hrs<br><span style="font-size:9px;color:var(--muted)">/ 12 hrs</span>`;
+
+document.getElementById('steps-val').textContent = steps ? steps.toLocaleString() : '—';
+document.getElementById('workout-min').textContent = workout_min ?? '—';
+document.getElementById('resting-hr').textContent = resting_hr ? `${resting_hr} bpm` : '—';
+
+notice.style.display = 'none';
+}
+
+function fmtNWChange(chg) {
+if (chg == null) return '—';
+const abs = Math.abs(chg);
+let str;
+if (abs >= 1000000) str = `$${(abs/1000000).toFixed(2)}M`;
+else if (abs >= 1000) str = `$${(abs/1000).toFixed(1)}k`;
+else str = `$${abs}`;
+return (chg >= 0 ? '+' : '-') + str;
+}
+
+function renderMonarch(data) {
+const section = document.getElementById('monarch-section');
+const notice = document.getElementById('monarch-notice');
+if (!data) {
+section.innerHTML = '';
+notice.style.display = 'block';
+return;
+}
+const { net_worth, nw_change_1m, nw_change_3m, nw_change_all, nw_history_since,
+        nw_history, spending_yesterday, spending_week, spending_month,
+        spending_categories, yesterday_transactions, synced_at } = data;
+const nwColor = net_worth >= 0 ? 'var(--green)' : 'var(--red)';
+
+const chgColor = c => c == null ? 'var(--muted)' : c >= 0 ? 'var(--green)' : 'var(--red)';
+
+const txRows = (yesterday_transactions || []).map(tx => {
+const isTx = tx.is_transfer;
+return `
+<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid var(--border);${isTx ? 'opacity:0.45' : ''}">
+<div style="min-width:0;flex:1">
+<div style="font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:${isTx ? 'var(--muted)' : 'var(--text)'}">${tx.merchant}</div>
+${tx.category ? `<div style="font-size:10px;color:var(--muted)">${tx.category}</div>` : ''}
+</div>
+<div style="font-size:13px;font-weight:600;color:${isTx ? 'var(--muted)' : 'var(--red)'};margin-left:8px;flex-shrink:0">${isTx ? '' : '-'}${fmtDollars(tx.amount)}</div>
+</div>`;
+}).join('');
+
+const syncAge = synced_at ? (() => {
+const mins = Math.round((Date.now() - new Date(synced_at)) / 60000);
+if (mins < 60) return `${mins}m ago`;
+if (mins < 1440) return `${Math.round(mins/60)}h ago`;
+return `${Math.round(mins/1440)}d ago`;
+})() : '';
+
+// Top spending categories (last 30 days) as labeled bars.
+const cats = spending_categories || [];
+const maxCat = cats.length ? Math.max(...cats.map(c => c.amount)) : 1;
+const catBlock = cats.length ? `
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px">Top Categories (30d)</div>
+<div style="margin-bottom:14px">
+${cats.map(c => `
+<div class="cat-row">
+<div class="cat-top"><span class="cat-name">${escapeHtml(c.category)}</span><span class="cat-amt">${fmtDollars(c.amount)}</span></div>
+<div class="cat-track"><div class="cat-fill" style="width:${Math.round(c.amount / maxCat * 100)}%"></div></div>
+</div>`).join('')}
+</div>` : '';
+
+section.innerHTML = `
+<div style="margin-bottom:14px">
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px">
+<div style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em">Net Worth</div>
+${syncAge ? `<div style="font-size:10px;color:var(--muted)">synced ${syncAge}</div>` : ''}
+</div>
+<div style="font-size:34px;font-weight:800;color:${nwColor};line-height:1">${fmtDollars(net_worth)}</div>
+<svg class="spark" id="spark-nw" viewBox="0 0 300 40" preserveAspectRatio="none" style="margin-top:8px"></svg>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+<div class="metric">
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_1m)}">${fmtNWChange(nw_change_1m)}</div>
+<div class="lbl">1 Month</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_3m)}">${fmtNWChange(nw_change_3m)}</div>
+<div class="lbl">3 Months</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${chgColor(nw_change_all)}">${fmtNWChange(nw_change_all)}</div>
+<div class="lbl">All Time</div>
+</div>
+</div>
+${nw_history_since ? `<div style="font-size:10px;color:var(--muted);margin-top:-6px;margin-bottom:14px">All-time since ${new Date(nw_history_since + 'T00:00:00').toLocaleDateString('en-US',{month:'short',year:'numeric'})}</div>` : ''}
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Spending (excl. transfers)</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px">
+<div class="metric">
+<div class="val" style="font-size:15px;color:${spending_yesterday > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_yesterday > 0 ? '-' : ''}${fmtDollars(spending_yesterday)}</div>
+<div class="lbl">Yesterday</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${spending_week > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_week > 0 ? '-' : ''}${fmtDollars(spending_week)}</div>
+<div class="lbl">Last Week</div>
+</div>
+<div class="metric">
+<div class="val" style="font-size:15px;color:${spending_month > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_month > 0 ? '-' : ''}${fmtDollars(spending_month)}</div>
+<div class="lbl">Last Month</div>
+</div>
+</div>
+${catBlock}
+<div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+<div style="font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted)">Yesterday's Transactions</div>
+<div style="font-size:13px;font-weight:700;color:${spending_yesterday > 0 ? 'var(--red)' : 'var(--muted)'}">${spending_yesterday > 0 ? '-' : ''}${fmtDollars(spending_yesterday)}</div>
+</div>
+${txRows || '<div class="empty">No transactions yesterday</div>'}
+`;
+// Net-worth sparkline (after innerHTML so the <svg> exists).
+const balances = (nw_history || []).map(h => h.balance);
+sparkline('spark-nw', balances, net_worth >= 0 ? '#22c55e' : '#ef4444');
+notice.style.display = 'none';
+}
+
+// ── WEATHER (Open-Meteo, no key; located via IP geolocation, NYC fallback) ──
+function weatherInfo(code, isDay) {
+// WMO weather codes → [emoji, label]
+const day = isDay !== 0;
+if (code === 0) return [day ? '☀️' : '🌙', 'Clear'];
+if (code <= 2) return [day ? '🌤️' : '☁️', 'Partly cloudy'];
+if (code === 3) return ['☁️', 'Overcast'];
+if (code <= 48) return ['🌫️', 'Fog'];
+if (code <= 57) return ['🌦️', 'Drizzle'];
+if (code <= 67) return ['🌧️', 'Rain'];
+if (code <= 77) return ['🌨️', 'Snow'];
+if (code <= 82) return ['🌧️', 'Showers'];
+if (code <= 86) return ['🌨️', 'Snow showers'];
+if (code <= 99) return ['⛈️', 'Thunderstorm'];
+return ['🌡️', '—'];
+}
+// Resolve a location: browser geolocation (accurate) → IP services → NYC default.
+function resolveLocation() {
+return new Promise(resolve => {
+const ipFallback = async () => {
+for (const svc of [
+{ url: 'https://ipapi.co/json/', lat: 'latitude', lon: 'longitude', city: 'city' },
+{ url: 'https://ipwho.is/', lat: 'latitude', lon: 'longitude', city: 'city' },
+]) {
+try {
+const d = await fetch(svc.url).then(r => r.ok ? r.json() : null);
+if (d && d[svc.lat] && d[svc.lon]) return resolve({ lat: d[svc.lat], lon: d[svc.lon], place: d[svc.city] || '' });
+} catch (e) { /* try next */ }
+}
+resolve({ lat: 40.71, lon: -74.01, place: 'New York' });
+};
+if (navigator.geolocation) {
+navigator.geolocation.getCurrentPosition(
+p => resolve({ lat: p.coords.latitude, lon: p.coords.longitude, place: '' }),
+() => ipFallback(),
+{ timeout: 7000, maximumAge: 3600000 }
+);
+} else ipFallback();
+});
+}
+
+async function loadWeather() {
+const el = document.getElementById('weather-section');
+if (!el) return;
+const { lat, lon, place } = await resolveLocation();
+try {
+const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+`&current=temperature_2m,apparent_temperature,is_day,weather_code` +
+`&daily=temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&timezone=auto`;
+const d = await fetch(url).then(r => r.json());
+const c = d.current;
+if (!c) throw new Error('no weather');
+const [icon, label] = weatherInfo(c.weather_code, c.is_day);
+const hi = d.daily?.temperature_2m_max?.[0];
+const lo = d.daily?.temperature_2m_min?.[0];
+el.innerHTML = `
+<div class="weather-main">
+<div class="weather-icon">${icon}</div>
+<div class="weather-temp">${Math.round(c.temperature_2m)}°</div>
+<div class="weather-meta">
+${label}<br>
+${hi != null ? `H ${Math.round(hi)}° · L ${Math.round(lo)}°` : ''}<br>
+${place ? place + ' · ' : ''}Feels ${Math.round(c.apparent_temperature)}°
+</div>
+</div>`;
+} catch (e) {
+el.innerHTML = '<div class="empty">Weather unavailable</div>';
+}
+}
+
+// ── PUSH NOTIFICATIONS ──
+let pushPublicKey = null;
+function urlB64ToUint8(base64) {
+const pad = '='.repeat((4 - base64.length % 4) % 4);
+const b64 = (base64 + pad).replace(/-/g, '+').replace(/_/g, '/');
+const raw = atob(b64);
+return Uint8Array.from([...raw].map(c => c.charCodeAt(0)));
+}
+function setPushBtn(on) {
+const btn = document.getElementById('push-btn');
+if (!btn) return;
+btn.classList.toggle('on', on);
+btn.textContent = on ? '🔔 Notifications on' : '🔔 Notify me';
+}
+async function initPush() {
+if (!('serviceWorker' in navigator) || !('PushManager' in window)) return;
+try {
+const d = await fetch('/api/push/public-key').then(r => r.json());
+pushPublicKey = d.key;
+if (!pushPublicKey) return; // push not configured on the server yet
+document.getElementById('push-btn').style.display = 'inline-block';
+const reg = await navigator.serviceWorker.ready.catch(() => null);
+const sub = reg ? await reg.pushManager.getSubscription() : null;
+setPushBtn(!!sub);
+} catch (e) { /* push optional */ }
+}
+async function togglePush() {
+try {
+const reg = await navigator.serviceWorker.ready;
+let sub = await reg.pushManager.getSubscription();
+if (sub) {
+await fetch('/api/push/unsubscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ endpoint: sub.endpoint }) });
+await sub.unsubscribe();
+setPushBtn(false); toast('Notifications off', 'ok'); return;
+}
+const perm = await Notification.requestPermission();
+if (perm !== 'granted') { toast('Notification permission denied', 'err'); return; }
+sub = await reg.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlB64ToUint8(pushPublicKey) });
+await fetch('/api/push/subscribe', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(sub) });
+setPushBtn(true); toast("Notifications on — you'll get a morning summary", 'ok');
+} catch (e) { console.error(e); toast('Could not enable notifications', 'err'); }
+}
+
+// ── AUTO-SYNC (keeps tasks in sync across devices without heavy refetch) ──
+async function syncTasks() {
+try {
+const res = await fetch('/api/tasks-state');
+if (!res.ok) return;
+const d = await res.json();
+seedChecks(d.task_checks?.checked, d.task_checks?.log, d.task_checks?.checkedAt);
+seedPlan(d.plan);
+setTodos(d.todos);
+if (d.timesheet) applyAssistantTimer(d.timesheet.active, d.timesheet.entries);
+} catch (e) { /* transient; ignore */ }
+}
+setInterval(() => { if (document.visibilityState === 'visible') syncTasks(); }, 60000);
+document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') syncTasks(); });
+
+// ── Assistant's live work-session clock ──
+// Mirrors the timer card on absbyai.com/assistant — same layout, same
+// "Today: Xh Ym across N sessions" line — but hours + minutes only,
+// deliberately no seconds, and no start/stop button since Dan only watches
+// this, he doesn't clock in/out. Server-timestamped, so it's correct even
+// if this tab was closed while she was clocked in.
+let assistantTimerActive = null;  // { startedAt: ISOString } | null
+let assistantTimerEntries = [];   // [{ start, end, seconds }] — only refreshed on poll/load, not the live stream
+let assistantTimerTick = null;
+
+function aTimerFmtHM(sec) {
+sec = Math.max(0, Math.floor(sec));
+const h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60);
+return h ? `${h}h ${m}m` : `${m}m`;
+}
+
+function renderAssistantTimer() {
+const display = document.getElementById('a-timer-display');
+const status = document.getElementById('a-timer-status');
+const statusText = document.getElementById('a-timer-status-text');
+if (!display || !status || !statusText) return;
+if (assistantTimerActive) {
+const elapsed = (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+display.textContent = aTimerFmtHM(elapsed);
+display.classList.add('active');
+status.classList.add('active');
+statusText.textContent = 'Clocked in';
+} else {
+display.textContent = '0h 0m';
+display.classList.remove('active');
+status.classList.remove('active');
+statusText.textContent = 'Not clocked in';
+}
+renderAssistantTimerToday();
+}
+
+// Unpaid total, NOT today's. `assistantTimerEntries` is the server's unpaid
+// list: it accumulates across days and empties only when the button below is
+// pressed, so time she works is never lost to the date rolling over.
+function renderAssistantTimerToday() {
+const el = document.getElementById('a-timer-today');
+const btn = document.getElementById('a-timer-paid');
+if (!el) return;
+const sessionCount = assistantTimerEntries.length + (assistantTimerActive ? 1 : 0);
+let totalSec = assistantTimerEntries.reduce((sum, e) => sum + (e.seconds || 0), 0);
+if (assistantTimerActive) totalSec += (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+if (btn) btn.style.display = sessionCount ? '' : 'none';
+if (!sessionCount) { el.style.display = 'none'; return; }
+const since = assistantTimerEntries.length ? (assistantTimerEntries[0].start || '') : (assistantTimerActive?.startedAt || '');
+const sinceLabel = since ? ` since ${new Date(since).toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}` : '';
+el.style.display = '';
+el.textContent = `Unpaid: ${aTimerFmtHM(totalSec)} across ${sessionCount} session${sessionCount === 1 ? '' : 's'}${sinceLabel}`;
+if (btn) btn.textContent = `Mark ${aTimerFmtHM(totalSec)} as paid`;
+}
+
+// Clears the unpaid total. If she is clocked in when this runs, the server
+// closes that session at this instant and starts a fresh one, so nothing worked
+// before the payment leaks into the next period.
+let assistantPayBusy = false;
+async function markAssistantTimePaid() {
+if (assistantPayBusy) return;
+const btn = document.getElementById('a-timer-paid');
+let totalSec = assistantTimerEntries.reduce((sum, e) => sum + (e.seconds || 0), 0);
+if (assistantTimerActive) totalSec += (Date.now() - new Date(assistantTimerActive.startedAt).getTime()) / 1000;
+if (!confirm(`Mark ${aTimerFmtHM(totalSec)} as paid? The running total resets to zero and starts accumulating again from now.`)) return;
+assistantPayBusy = true;
+if (btn) btn.disabled = true;
+try {
+const r = await fetch('/api/timesheet/mark-paid', { method: 'POST' });
+const d = await r.json().catch(() => ({}));
+if (!r.ok) throw new Error(d.error || 'could not record the payment');
+applyAssistantTimer(d.active, d.entries || []);
+} catch (e) {
+alert(e.message || "Couldn't reach the server");
+} finally {
+assistantPayBusy = false;
+if (btn) btn.disabled = false;
+}
+}
+document.getElementById('a-timer-paid')?.addEventListener('click', markAssistantTimePaid);
+
+// `entries` only arrives from a poll/load (/api/tasks-state), never the live
+// stream — the stream deliberately omits it (see server.js), so a call with
+// no entries arg just keeps whatever total-so-far we already have.
+function applyAssistantTimer(active, entries) {
+assistantTimerActive = active || null;
+if (Array.isArray(entries)) assistantTimerEntries = entries;
+if (assistantTimerTick) { clearInterval(assistantTimerTick); assistantTimerTick = null; }
+if (assistantTimerActive) assistantTimerTick = setInterval(renderAssistantTimer, 20000);
+renderAssistantTimer();
+}
+
+// ── LIVE PUSH ──
+// The poll above only runs while this tab is in front, so a check made on
+// /assistant (or on another device) used to sit unseen here until the tab was
+// focused. This stream delivers task changes the moment they happen, including
+// to a background tab, so both surfaces always show one unified status.
+// EventSource reconnects on its own; the poll stays as a belt-and-braces
+// fallback for environments where the stream can't be held open.
+function applyTaskState(d) {
+if (!d) return;
+if (d.task_checks) seedChecks(d.task_checks.checked, d.task_checks.log, d.task_checks.checkedAt);
+if (d.todos) setTodos(d.todos); // setTodos calls renderAllTasks()
+else renderAllTasks();
+if (d.timesheet) applyAssistantTimer(d.timesheet.active, d.timesheet.entries);
+}
+function openTaskStream() {
+if (!('EventSource' in window)) return;
+let es;
+try { es = new EventSource('/api/tasks-events'); }
+catch (e) { return; }
+es.addEventListener('tasks', (e) => {
+try { applyTaskState(JSON.parse(e.data)); }
+catch (err) { console.warn('bad task stream frame:', err); }
+});
+// Don't stack reconnect handlers — EventSource retries by itself, and the
+// server sends `retry: 3000`. Only log so a dead stream is visible in console.
+es.onerror = () => { /* transient; EventSource will retry */ };
+}
+openTaskStream();
+
+// The stream's opening frame carries `active` but not `entries` (see
+// server.js), so today's total would sit hidden for up to 60s until the
+// next poll. One direct fetch on load closes that gap immediately.
+(async () => {
+try {
+const r = await fetch('/api/timesheet', { cache: 'no-store' });
+if (r.ok) { const d = await r.json(); applyAssistantTimer(d.active, d.entries); }
+} catch (e) { /* poll/stream will fill it in */ }
+})();
+
+// ── MAIN LOAD ──
+function skel(n) {
+let s = '';
+for (let i = 0; i < n; i++) s += `<div class="skel skel-line" style="width:${70 + (i % 3) * 10}%"></div>`;
+return s;
+}
+function showSkeletons() {
+const map = {
+'monarch-section': 4, 'news-list': 5, 'business-calendar': 3, 'rel-calendar': 3, 'weather-section': 2,
+};
+Object.entries(map).forEach(([id, n]) => {
+const el = document.getElementById(id);
+if (el && (!el.innerHTML || /Loading…/.test(el.innerHTML))) el.innerHTML = skel(n);
+});
+}
+
+async function loadData() {
+try {
+const userDate = new Date().toLocaleDateString('en-CA');  // YYYY-MM-DD in local time
+const tzOffset = -new Date().getTimezoneOffset();          // minutes east of UTC
+const res = await fetch(`/api/morning-data?date=${userDate}&tz=${tzOffset}`);
+if (!res.ok) throw new Error('API error');
+const d = await res.json();
+
+renderPosthog(d.posthog);
+renderStripe(d.stripe);
+seedChecks(d.task_checks?.checked, d.task_checks?.log, d.task_checks?.checkedAt); // sync state before render
+seedPlan(d.plan);
+setTodos(d.todos);
+renderCalendar(d.business_events, 'business-calendar', 'event-bar-money', 'calendar-notice');
+renderCalendar(d.rel_events, 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
+renderNews(d.news);
+renderOura(d.oura);
+renderWatch(d.watch);
+renderMonarch(d.monarch);
+renderGmail(d.gmail);
+
+} catch (e) {
+console.error('Dashboard load error:', e);
+toast('Could not load dashboard data — retrying is available via ↺ Refresh', 'err');
+renderPosthog(null);
+renderStripe(null);
+setTodos({ business: [], health: [], personal: [] });
+renderCalendar([], 'business-calendar', 'event-bar-money', 'calendar-notice');
+renderCalendar([], 'rel-calendar', 'event-bar-rel', 'rel-calendar-notice');
+renderNews([]);
+renderOura(null);
+renderWatch(null);
+renderMonarch(null);
+renderGmail(null);
+}
+}
+
+showSkeletons();
+initColumnDropTargets();
+loadData();
+loadWeather();
+initPush();
+</script>
+</body>
+</html>

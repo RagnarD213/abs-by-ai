@@ -1,0 +1,213 @@
+{
+ "version": 1,
+ "file": "/Volumes/Extreme/_edit_work/AV-01/ad1_vertical_59s.mp4",
+ "sha256": "aaa81b8a09c673285f18dd4df776a6355dc238e713e13f1cbdc9096d86f61c69",
+ "size": 61749767,
+ "gated_at": "2026-09-18 03:38:40",
+ "reference": {
+  "name": "this picture got me abs | muhammad | 16x9.mp4",
+  "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+ },
+ "synthetic": false,
+ "profile": null,
+ "window": [
+  0.9963286600000001,
+  47.816433
+ ],
+ "limits": {
+  "corr": 0.97,
+  "comb_margin": 0.35,
+  "edt": 80.0,
+  "tone_mean": 1.2,
+  "tone_max": 2.5,
+  "floor": 3.0,
+  "dry": 1.5,
+  "artifact_x": 1.1,
+  "harm_x": 1.35,
+  "lufs": -14.0,
+  "lufs_tol": 1.0,
+  "spread": 3.0,
+  "tp": -1.0,
+  "silent": 0,
+  "length": 0.1,
+  "vb_med": 0.1,
+  "vb_sec": 0.5,
+  "vb_image": 0.01,
+  "vb_lufs": 0.3,
+  "vb_lra": 0.3
+ },
+ "rows": [
+  {
+   "key": "provenance",
+   "ok": true,
+   "text": "reference mix: per-second level-normalised correlation with his_mix.wav median 1.0000 over 49 s (>= 0.99)",
+   "value": 1.0
+  },
+  {
+   "key": "verbatim_level",
+   "ok": true,
+   "text": "verbatim level: per-second level vs his_mix.wav median -0.01 dB, seconds -0.03..+0.00 dB over 49 s (|median| <= 0.1, every second within +/-0.5: no gain, no limiter, no compression)",
+   "value": {
+    "median": -0.006,
+    "min": -0.034,
+    "max": 0.0,
+    "seconds": 49
+   }
+  },
+  {
+   "key": "verbatim_image",
+   "ok": true,
+   "text": "verbatim image: L/R correlation +0.9881 vs his +0.9881 (within 0.01: not summed to mono, not widened)",
+   "value": {
+    "ours": 0.9881,
+    "his": 0.9881
+   }
+  },
+  {
+   "key": "verbatim_lufs",
+   "ok": true,
+   "text": "verbatim loudness: -14.40 LUFS / LRA 3.0 LU vs his -14.40 / 3.0 (within 0.3 LU / 0.3 LU)",
+   "value": {
+    "ours": [
+     -14.4,
+     3.0
+    ],
+    "his": [
+     -14.4,
+     3.0
+    ]
+   }
+  },
+  {
+   "key": "tp",
+   "ok": true,
+   "text": "no clipping: true peak -1.30 dBTP (<= -1.0)",
+   "value": -1.3
+  },
+  {
+   "key": "silence",
+   "ok": true,
+   "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+   "value": {
+    "dead": 0,
+    "quiet": 0
+   }
+  },
+  {
+   "key": "length",
+   "ok": true,
+   "text": "audio 49.813 s vs picture 49.816 s (within 0.1 s)",
+   "value": {
+    "audio": 49.813,
+    "video": 49.816
+   }
+  }
+ ],
+ "verdict": "PASS",
+ "ab": "/Volumes/Extreme/_edit_work/AV-01/AB_audio_vertical-59s.mp4",
+ "mode": "reference-verbatim",
+ "reference_mix": {
+  "source": "/Volumes/Extreme/_edit_work/AV-01/cut/his_mix.wav",
+  "sha256": "2281dc2779192aa0e4d1e69d677942fbafdc9fb84cdda59a96dc55093d5bc02c",
+  "per_second_corr_median": 1.0
+ },
+ "info_rows": [
+  {
+   "key": "lr_corr",
+   "ok": true,
+   "text": "one voice: L/R correlation +0.9878 (>= +0.97)",
+   "value": 0.9878,
+   "why": "the editor's own mix, delivered untouched (Dan 2026-09-10: 'Use Zishan's audio'); verbatim_image gates that it is his"
+  },
+  {
+   "key": "comb",
+   "ok": true,
+   "text": "no comb: spectral ripple 0.56 dB vs his 0.54 (<= his + 0.35)",
+   "value": 0.557,
+   "why": "not ours to gate"
+  },
+  {
+   "key": "edt",
+   "ok": true,
+   "text": "dry room: early decay 45 ms (<= 80; his 40)",
+   "value": 45.3,
+   "why": "not ours to gate"
+  },
+  {
+   "key": "tone",
+   "ok": true,
+   "text": "tone: mean |err| 0.54 dB (<= 1.2), max 2.07 (<= 2.5)",
+   "value": {
+    "mean": 0.542,
+    "max": 2.074,
+    "bands": [
+     6.51,
+     11.27,
+     12.22,
+     12.64,
+     9.25,
+     2.52,
+     -1.01,
+     -7.43,
+     -21.02,
+     -24.97
+    ]
+   },
+   "why": "not ours to gate"
+  },
+  {
+   "key": "floor",
+   "ok": true,
+   "text": "clean between words: voice-over-floor [28.9, 32.8, 26.0] vs his [27.6, 34.7, 28.0] (diff [1.4, -1.9, -1.9], >= -3.0)",
+   "value": [
+    28.94,
+    32.84,
+    26.04
+   ],
+   "why": "not ours to gate"
+  },
+  {
+   "key": "artifacts",
+   "ok": false,
+   "text": "no processing damage: flux 0.080 (his 0.072), HF swirl 0.906 (his 0.835), both <= his x1.1",
+   "value": {
+    "flux": 0.0805,
+    "sfm": 0.0913,
+    "swirl": 0.9057,
+    "gap": 28.4811
+   },
+   "why": "not ours to gate"
+  },
+  {
+   "key": "do_no_harm",
+   "ok": true,
+   "text": "do no harm: n/a -- no stage of ours produced this audio (the editor's mix, untouched)",
+   "value": "n/a",
+   "why": "the editor's own mix, delivered untouched (Dan 2026-09-10: 'Use Zishan's audio')"
+  },
+  {
+   "key": "dryness",
+   "ok": true,
+   "text": "words stop cleanly: drop 7.2 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+   "value": 7.22,
+   "why": "not ours to gate"
+  },
+  {
+   "key": "lufs",
+   "ok": true,
+   "text": "loudness: -14.40 LUFS (-14.0 +/-1.0)",
+   "value": -14.4,
+   "why": "the editor's own mix, delivered untouched (Dan 2026-09-10: 'Use Zishan's audio'); verbatim_lufs gates that it is his"
+  },
+  {
+   "key": "spread",
+   "ok": true,
+   "text": "not crushed: speech spread p90-p10 8.1 dB vs his 8.2 (>= his - 3.0); LRA 3.0 LU (his 3.5)",
+   "value": {
+    "spread": 8.1,
+    "lra": 3.0
+   },
+   "why": "not ours to gate"
+  }
+ ]
+}

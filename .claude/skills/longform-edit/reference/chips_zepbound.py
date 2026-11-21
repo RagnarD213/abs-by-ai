@@ -1,0 +1,27 @@
+# (key, SOURCE seconds, eyebrow, title)
+# Deliberately no drug name in any chip -- Dan's standing copy rule. One-line change.
+CHIPS = [
+ ("title",     75.0,  "ABS BY AI // DAN ROSE",   "MY HONEST 2-MONTH UPDATE"),
+ ("why",      124.0,  "PART 01",                 "WHY I STARTED"),
+ ("data",     230.0,  "WHAT THE DATA SHOWS",     "USERS LIVE LONGER"),
+ ("line",     366.0,  "WHERE I DREW THE LINE",   "30 POUNDS TO LOSE"),
+ ("nma",      578.0,  "IMPORTANT",               "THIS IS NOT MEDICAL ADVICE"),
+ ("transf",   692.0,  "TWO MONTHS",              "192 LBS  ->  181 LBS"),
+ ("alcohol",  779.0,  "THE KNOCKOUT ARGUMENT",   "10 DRINKS A WEEK  ->  1 OR 2"),
+ ("sugar",    841.0,  "WHAT ELSE CHANGED",       "60-70% LESS SUGAR"),
+ ("howto",    981.0,  "PART 02",                 "HOW TO ACTUALLY DO IT"),
+ ("brand",    995.0,  "STEP 01",                 "BRAND NAME, NOT COMPOUNDED"),
+ ("script",  1132.0,  "STEP 02",                 "GET A SCRIPT, THEN LILLY DIRECT"),
+ ("needle",  1216.0,  "STEP 03",                 "NEEDLE BEATS THE PEN"),
+ ("where",   1332.0,  "STEP 04",                 "STOMACH - BUTT - THIGH"),
+ ("day",     1463.0,  "STEP 05",                 "INJECT THURSDAY EVENING"),
+ ("sides",   1532.0,  "WHAT I ACTUALLY FELT",    "GAS + NO APPETITE, 2 DAYS"),
+ ("ladder",  1589.0,  "THE FIX",                 "START AT 1 MG, NOT 2.5"),
+ ("mistake", 1735.0,  "BIGGEST MISTAKE",         "GOING UP TOO FAST"),
+ ("skin",    1779.0,  "MYTH 01",                 "IT WILL NOT MARK YOUR SKIN"),
+ ("pain",    1839.0,  "MYTH 02",                 "IT BARELY HURTS"),
+ ("cap",     1898.0,  "MISTAKE 02",              "GOING ABOVE 2.5 MG"),
+ ("muscle",  2016.0,  "THE REAL RISK",           "LOSING MUSCLE, NOT FAT"),
+ ("protein", 2063.0,  "THE TARGET",              "0.8 G PROTEIN PER POUND"),
+ ("cta",     2203.0,  "GET STARTED FREE",        "ABSBYAI.COM"),
+]

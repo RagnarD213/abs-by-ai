@@ -1,0 +1,561 @@
+{
+ "gate_version": "2.6.3",
+ "format": "longform",
+ "verdict": "FAIL",
+ "sha256": "414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d",
+ "bytes": 766808132,
+ "when": "2026-11-06T22:17:38-0600",
+ "size": "1920x1080",
+ "fps": "30000/1001",
+ "duration": 277.1769,
+ "rows": {
+  "container:size": {
+   "ok": true,
+   "detail": "frame size 1920x1080 (want 1920x1080)",
+   "value": {
+    "got": "1920x1080",
+    "want": "1920x1080"
+   }
+  },
+  "container:fps": {
+   "ok": true,
+   "detail": "frame rate 30000/1001 (want 30000/1001)",
+   "value": {
+    "got": "30000/1001",
+    "want": "30000/1001"
+   }
+  },
+  "container:codec": {
+   "ok": true,
+   "detail": "h264 / aac 48000 Hz 2 ch (want h264 / aac 48000 Hz 2 ch)",
+   "value": {
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sr": 48000,
+    "ch": 2
+   }
+  },
+  "container:duration": {
+   "ok": true,
+   "detail": "video stream 277.177s vs target 277.177s (tolerance 1.5s)",
+   "value": {
+    "duration": 277.177,
+    "target": 277.177,
+    "tolerance": 1.5
+   }
+  },
+  "container:frames": {
+   "ok": true,
+   "detail": "8307 frames present, 8307 planned",
+   "value": {
+    "frames": 8307,
+    "planned": 8307
+   }
+  },
+  "audio:stamp": {
+   "ok": false,
+   "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on RO32_MASTER.mp4: tone -- fix the audio, do not deliver"
+  },
+  "audio:stream_integrity": {
+   "ok": true,
+   "detail": "audio 277.184s vs picture 277.177s (gap -0.007s; allowed -0.15..+0.15s); 0 silent second(s); quietest -24.2 dBFS",
+   "value": {
+    "adur": 277.184,
+    "vdur": 277.177,
+    "gap": -0.007,
+    "silent": []
+   }
+  },
+  "audio:lipsync": {
+   "ok": true,
+   "detail": "finished audio vs source at 5 checkpoints: +0.000, +0.000, +0.000, +0.000, +0.000 ms (worst +0.000, max 1.0 ms)",
+   "value": {
+    "lags_ms": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.0
+    ],
+    "worst_ms": 0.0,
+    "tol": 1.0
+   }
+  },
+  "audio:click_at_joins": {
+   "ok": true,
+   "detail": "0/17 joins above 1.25x the file's own natural ceiling (0.3419): []; read from `audio_joins`",
+   "value": {
+    "bad": [],
+    "ceiling": 0.34193,
+    "joins": 17,
+    "source": "audio_joins",
+    "controls": 33366,
+    "quantile": 0.9954
+   }
+  },
+  "style:coverage": {
+   "ok": true,
+   "detail": "98% of runtime is off the main scene (min 40%)",
+   "value": {
+    "coverage": 0.9765,
+    "min": 0.4
+   }
+  },
+  "style:static_run": {
+   "ok": true,
+   "detail": "longest stretch with no visual change 16.8s at 4:07.00 (max 30.0s)",
+   "value": {
+    "worst": 16.83,
+    "at": 247.0,
+    "max": 30.0
+   }
+  },
+  "style:change_rate": {
+   "ok": true,
+   "detail": "85 picture changes = 18.4/min (min 4.0/min)",
+   "value": {
+    "changes": 85,
+    "per_min": 18.4,
+    "min": 4.0
+   }
+  },
+  "framing:hair_top": {
+   "ok": true,
+   "detail": "hair top below the edge: min 42 px, median 56 (min 20 px, normalized to each 1080-high talking-head window); 0 sample(s) under it for >= 2 in a row []; independent top-rows test: 0 sample(s) with head in the top 12 rows (>= 0.2) []; 417/419 valid",
+   "value": {
+    "min": 42.0,
+    "median": 56.0,
+    "cut": [],
+    "edge": [],
+    "valid": 417,
+    "on_scene": 419,
+    "min_px": 20
+   }
+  },
+  "framing:headroom": {
+   "ok": true,
+   "detail": "29 tracked talking holds + 0 intentional fixed-wide; per-hold min hair top [47, 61, 57, 54, 50, 50, 55, 53, 54, 51, 50, 49]... (must sit in 20-70 normalized px inside its own window): 0 loose [], 0 tight []; median over the video 56 (max 75)",
+   "value": {
+    "holds": 29,
+    "fixed_wide": 0,
+    "mins": [
+     [
+      12.75,
+      47
+     ],
+     [
+      17.0,
+      61
+     ],
+     [
+      23.5,
+      57
+     ],
+     [
+      28.0,
+      54
+     ],
+     [
+      33.5,
+      50
+     ],
+     [
+      42.25,
+      50
+     ],
+     [
+      48.0,
+      55
+     ],
+     [
+      66.25,
+      53
+     ],
+     [
+      71.5,
+      54
+     ],
+     [
+      73.0,
+      51
+     ],
+     [
+      127.25,
+      50
+     ],
+     [
+      137.0,
+      49
+     ],
+     [
+      155.25,
+      49
+     ],
+     [
+      174.25,
+      57
+     ],
+     [
+      181.0,
+      54
+     ],
+     [
+      188.0,
+      49
+     ],
+     [
+      191.25,
+      51
+     ],
+     [
+      200.5,
+      53
+     ],
+     [
+      202.25,
+      52
+     ],
+     [
+      204.5,
+      50
+     ],
+     [
+      210.0,
+      53
+     ],
+     [
+      218.5,
+      51
+     ],
+     [
+      220.25,
+      48
+     ],
+     [
+      242.75,
+      52
+     ],
+     [
+      244.0,
+      51
+     ],
+     [
+      247.0,
+      49
+     ],
+     [
+      264.0,
+      53
+     ],
+     [
+      267.0,
+      52
+     ],
+     [
+      268.5,
+      47
+     ]
+    ],
+    "loose": [],
+    "tight": [],
+    "median": 56.0,
+    "seg_min": 20,
+    "seg_max": 70,
+    "median_max": 75
+   }
+  },
+  "framing:centering": {
+   "ok": true,
+   "detail": "not applicable: a 16:9 content video's layout may put Dan beside a graphic or a screen recording; centring is the layout's call, as for ad16x9",
+   "na": "a 16:9 content video's layout may put Dan beside a graphic or a screen recording; centring is the layout's call, as for ad16x9"
+  },
+  "framing:no_wide_level": {
+   "ok": true,
+   "detail": "29 talking holds; head height (hair -> chin) per hold: smallest 28.7% of its window at 191.25s (min 27.0%); 0 wide hold(s) []",
+   "value": {
+    "smallest": [
+     191.25,
+     0.28731
+    ],
+    "wide": [],
+    "min_frac": 0.27
+   }
+  },
+  "framing:push_coverage": {
+   "ok": true,
+   "detail": "29 talking holds on the dominant shot (head 30.1% of its window): per-hold median head height 28.7-38.2% = spread x1.331 (min x1.1); 39% of that talk sits >= 6 % off the dominant level; 0 hold(s) on other shots ignored",
+   "value": {
+    "spread": 1.3308,
+    "min_spread": 1.1,
+    "dominant_frac": 0.3012,
+    "off_frac": 0.387,
+    "holds": 29,
+    "other_shots": 0
+   }
+  },
+  "cut:uncovered_joins": {
+   "ok": true,
+   "detail": "0 same-scene picture jumps = 0.0/min (max 2.5/min, declared beats subtracted); first []",
+   "value": {
+    "bare": 0,
+    "per_min": 0.0,
+    "max": 2.5,
+    "times": [],
+    "declared_beats": 133
+   }
+  },
+  "cut:black_frames": {
+   "ok": true,
+   "detail": "0 frame(s) under luma 6.0 in the body (every frame scanned): []",
+   "value": {
+    "black": [],
+    "max_luma": 6.0,
+    "frames": 8307
+   }
+  },
+  "cut:min_segment": {
+   "ok": true,
+   "detail": "0 segment(s) under 0.2s: []",
+   "value": {
+    "short": [],
+    "min_seconds": 0.2
+   }
+  },
+  "cut:jump_cut": {
+   "ok": false,
+   "detail": "2 adjacent visible segment pair(s) at one framing: [(247.08, 253.69, 'C1771-W2'), (253.69, 259.36, 'C1771-W2')]",
+   "value": {
+    "same": [
+     [
+      247.08,
+      253.69,
+      "C1771-W2"
+     ],
+     [
+      253.69,
+      259.36,
+      "C1771-W2"
+     ]
+    ]
+   }
+  },
+  "cut:splice_visibility": {
+   "ok": true,
+   "detail": "0/80 joins above the file's own p99 ceiling (37.06): []",
+   "value": {
+    "bare": [],
+    "p99": 37.056,
+    "joins": 80
+   }
+  },
+  "cut:naked_splices": {
+   "ok": true,
+   "detail": "0 naked splice(s) of 2 candidates = 0.00/min (max 12.0/min, declared beats subtracted); first []",
+   "value": {
+    "naked": 0,
+    "per_min": 0.0,
+    "max": 12.0,
+    "candidates": 2,
+    "times": [],
+    "declared_beats": 141,
+    "settings": {
+     "peak": 20.0,
+     "sharp": 2.0,
+     "still": 0.25,
+     "hot_min": 8,
+     "subject_rows": 0.7,
+     "palette": 0.1,
+     "align_explains": 0.4
+    }
+   }
+  },
+  "captions:graphic_clearance": {
+   "ok": true,
+   "detail": "not applicable: no burned captions -- nothing to clear a graphic by",
+   "na": "no burned captions -- nothing to clear a graphic by"
+  },
+  "captions:card_collision": {
+   "ok": false,
+   "detail": "95 cues, 4 cards, 6 on a card: [(0.0, 'I was fat at 38.'), (2.0, 'Now I have six pack abs at 41.'), (48.06, 'Weight on your abs makes them grow\\nand b'), (132.0, 'These build shoulder width, and wide\\nsho'), (135.78, \"That's the V-Taper. It's what makes a gu\"), (263.86, \"Do these every week and you'll build\\nvis\")]",
+   "value": {
+    "cues": 95,
+    "cards": 4,
+    "bad": [
+     [
+      0.0,
+      "I was fat at 38."
+     ],
+     [
+      2.0,
+      "Now I have six pack abs at 41."
+     ],
+     [
+      48.06,
+      "Weight on your abs makes them grow\nand b"
+     ],
+     [
+      132.0,
+      "These build shoulder width, and wide\nsho"
+     ],
+     [
+      135.78,
+      "That's the V-Taper. It's what makes a gu"
+     ],
+     [
+      263.86,
+      "Do these every week and you'll build\nvis"
+     ]
+    ]
+   }
+  },
+  "captions:burned": {
+   "ok": false,
+   "detail": "no burned captions required; detected on 19% of 36 sampled frames (max 10%); source-verified graphic ink excluded on 0 samples",
+   "value": {
+    "frac": 0.194,
+    "max": 0.1,
+    "samples": 36,
+    "graphic_ink_samples": 0
+   }
+  },
+  "captions:within_runtime": {
+   "ok": true,
+   "detail": "95 cues, last ends 277.00s against a 277.18s picture; 0 past the end: []",
+   "value": {
+    "cues": 95,
+    "over": []
+   }
+  },
+  "captions:sync": {
+   "ok": true,
+   "detail": "not applicable: an organic longform burns no captions, so there is no on-screen highlight to synchronise; srt:shape covers the sidecar",
+   "na": "an organic longform burns no captions, so there is no on-screen highlight to synchronise; srt:shape covers the sidecar"
+  },
+  "compliance:banned_screen": {
+   "ok": true,
+   "detail": "8307 frames x 21 layout templates (3 paired + 0 single screens); best consistent paired-screen match 0.551 at 223.29s {'t': 288.0, 'scale': 0.5, 'top': 0.551, 'bottom': 0.596, 'white': 0.0, 'sd': 29.5, 'lr': -0.191, 'photo': False} (needs both strips >= 0.55); best consistent single-screen match -1.000 at Nones None (needs both >= 0.62); and the band between the strips must be a photograph (white <= 0.5, sd >= 30.0); 0 frame(s) hit (t, kind, top, bottom, white, sd, scale): []",
+   "value": {
+    "frames": 8307,
+    "best_paired": [
+     0.5510045289993286,
+     223.29,
+     {
+      "t": 288.0,
+      "scale": 0.5,
+      "top": 0.551,
+      "bottom": 0.596,
+      "white": 0.0,
+      "sd": 29.5,
+      "lr": -0.191,
+      "photo": false
+     }
+    ],
+    "best_single": [
+     -1.0,
+     null,
+     null
+    ],
+    "hits": [],
+    "min_strip_ncc": {
+     "paired": 0.55,
+     "single": 0.62
+    },
+    "photo_white_max": 0.5,
+    "photo_sd_min": 30.0,
+    "prescreen": 0.45
+   }
+  },
+  "compliance:labels": {
+   "ok": true,
+   "detail": "0 AI insert(s) + 4 real photo(s); label correlation min 0.922 (min 0.85); 0 missing []; 0 carrying the WRONG label []",
+   "value": {
+    "missing": [],
+    "crossed": [],
+    "min_corr": 0.85,
+    "scores_min": 0.922
+   }
+  },
+  "compliance:drug_names": {
+   "ok": true,
+   "detail": "not applicable: Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule",
+   "na": "Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule"
+  },
+  "compliance:negative_events": {
+   "ok": true,
+   "detail": "scanned 66 frames on 2026-11-06T22:01:41-06:00; no confirmed or unresolved negative-events finding (0 reviewer-cleared)",
+   "value": {
+    "frames": 66,
+    "confirmed": [],
+    "review": [],
+    "cleared": [],
+    "malformed": []
+   }
+  },
+  "compliance:script_fidelity": {
+   "ok": true,
+   "detail": "98.3% of the intended words are in the render (979 expected, 980 heard; min 95%)",
+   "value": {
+    "ratio": 0.9832,
+    "expected": 979,
+    "heard": 980,
+    "min": 0.95
+   }
+  },
+  "compliance:placeholder": {
+   "ok": true,
+   "detail": "asset-approval flow not used; watch checklist reports no visible placeholder"
+  },
+  "watch:pass": {
+   "ok": true,
+   "detail": "100/100 boundaries reviewed as consecutive frames, 212/112 images judged by ra-reviewer Opus 5.5, RO-32 round 3 (verdicts re-applied to the de-click remux: video stream sha256 77f2b0aa identical, all 212 images byte-identical) (tied to this file by sha256)",
+   "value": {
+    "reviewed": 100,
+    "boundaries": 100,
+    "images": 112,
+    "judged": 212,
+    "open_defects": 0,
+    "accepted": 0,
+    "tied_by": "sha256",
+    "watch_version": "1.2.0"
+   }
+  },
+  "srt:present": {
+   "ok": true,
+   "detail": "RO32.srt",
+   "value": {
+    "srt": "/Volumes/Extreme/_edit_work/RO-32/round1/final_r3/RO32.srt"
+   }
+  },
+  "srt:shape": {
+   "ok": true,
+   "detail": "95 cues, longest line 45 chars (max 48), 0 cue(s) over 2 lines, 0 banned spelling(s) []",
+   "value": {
+    "cues": 95,
+    "longest": 45,
+    "over": [],
+    "spellings": []
+   }
+  },
+  "junk:repeated_take": {
+   "ok": true,
+   "detail": "0 confirmed restart(s) in 956 words (cache:/Users/danielrose/Projects/Claude/Projects/Abs By AI/Media/_cache/asr/414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d.small.words.json); 0 deliberate repeat(s) kept, 0 fluent re-said phrase(s) for a listen",
+   "value": {
+    "confirmed": [],
+    "listen": [],
+    "candidates": 1,
+    "words": 956,
+    "words_source": "cache:/Users/danielrose/Projects/Claude/Projects/Abs By AI/Media/_cache/asr/414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d.small.words.json"
+   }
+  },
+  "junk:dead_air": {
+   "ok": true,
+   "detail": "longest silence inside the speech 0.72 s (max 2.00 s); 0 over the bound; threshold -30.0 dBFS against speech at -11.8",
+   "value": {
+    "longest": 0.72,
+    "bound": 2.0,
+    "over": [],
+    "gaps": 181
+   }
+  }
+ }
+}

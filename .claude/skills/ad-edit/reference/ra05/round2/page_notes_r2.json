@@ -1,0 +1,131 @@
+{
+ "intro": "Round 2 builds what you asked for on the round 1 page: every line kept and the whole ad sped up to 1.06x (58.4 s), the app's whole generation in the first 3.5 seconds, the start VSL body scan in place of the curls, the bass-lift voice, the Soft Blue analysis card, and START and END frames for the couch clip. No AI motion has been made: the couch clip plays here as a labelled placeholder (the two frames). Spend on AI generation: $0 of $10 (the frames were made on the Codex subscription).",
+ "locked": "the claim lines as filmed; the robot tailor is out; from your Cheat Code (RA-14) picks: the wider shot sizes, the brighter golden skin, the voice with the bass lift, the Soft Blue analysis card. Unchanged from round 1: takes, captions, the Step 1 and Step 2 lower thirds, the lock screen, the app tour, the physique poses, the Tap The Button Below button and the end hold.",
+ "first30": "Everything in it is finished except the couch clip, which shows its START frame and then its END frame with a yellow PREVIEW label. Captions in these 30 seconds were proofread word for word against the audio.",
+ "couch_see": "START: an ordinary guy (not a model, not you) in a plain charcoal T-shirt on a grey couch, holding his phone toward the camera; on the screen, a picture of him shirtless with a six pack. END: the same guy, same couch, same room, shirt off, the same abs in real life, the phone beside him still showing the picture, grinning. AI-GENERATED chip on both.",
+ "couch_no": "you on camera for the whole line (your close shot), the way round 1 did it.",
+ "couch_cost": "round 3: two 4-second takes on Veo 3.1 Fast (one from START, one from END), about $0.40 each, so about $0.80 plus any retake needed to pass the checks; the ad's cap is $10, $0 spent.",
+ "couch_sense": [
+  "<b>Cause and effect:</b> nothing appears or vanishes inside a shot. The change (shirt off, abs real) happens across a CUT between two natural shots, which is how a time jump is shown.",
+  "<b>Sound off, would a stranger get it?</b> Yes: a guy shows off an AI picture of himself with abs, then the same guy has those abs on the same couch.",
+  "<b>Does it show the line?</b> Yes: \"guys are using AI to get them six-pack abs in real life\". The cut lands on \"six-pack abs in real life\"."
+ ],
+ "decisions": [
+  {
+   "short": "Couch clip frames (approve for motion / changes)",
+   "q": "Couch clip START and END frames: approve them for motion?",
+   "body": "Recommended: approve. Motion is made in round 3 from exactly these two frames. Or name what to change (his look, the room, how he holds the phone)."
+  },
+  {
+   "short": "Opening (approve / changes)",
+   "q": "The new opening: the app's whole generation sped up, then the result alone for 1.5 s.",
+   "body": "Built as a fast cut through five moments (photo added, Peak tapped, Generate pressed, loading in two jumps, the result), 1.94 s of flow then 1.53 s of the result. Recommended: approve."
+  },
+  {
+   "short": "Body scan card (approve / changes)",
+   "q": "The start VSL body scan under \"It will see exactly where you need to gain muscle...\"",
+   "body": "Sides trimmed to the four callouts, full height, on the Soft Blue field above the captions. The callout words are about 16 px tall on the 1080 x 1920 frame (a quarter of the caption size): they read as the AI pointing at body parts at a glance, the words themselves need a close look. A wider card is not possible without cutting a callout. Recommended: approve."
+  },
+  {
+   "short": "Speed (keep 1.06x / 1.05x)",
+   "q": "The speed-up: keep 1.06x (58.4 s), or 1.05x (58.9 s)?",
+   "body": "Recommended: keep 1.06x. 1.05x is legal but leaves 0.1 s under the 0:59 limit. Listen to the two 15-second clips above the frames."
+  }
+ ],
+ "decided": [
+  "<b>Every line kept, whole ad at 1.06x:</b> 61.0 s of talk becomes 57.5 s, plus the 0.85 s end hold at normal speed = 58.36 s. Your voice keeps its pitch; picture and voice are sped by the same factor, the music bed is not sped.",
+  "<b>The speed-up uses Rubber Band</b> (the studio-standard time stretcher) instead of ffmpeg's: it measured less processing damage and passes every row of the audio gate, bass lift included. A blind AI listener could tell a 1.06x clip from the normal one when played side by side, but could not tell the stretch methods apart, and on a single listen said a viewer would not notice the speed-up.",
+  "<b>Fixed a round 1 sync drift:</b> each pause splice used to shorten the voice by 6 ms, so by the end the voice ran up to 0.1 s ahead of your lips. The voice is now exactly as long as the picture.",
+  "<b>Opening, fast cut not a smooth ramp:</b> his photo added (0.4 s, real time), Peak tapped and Generate pressed (0.5 s), loading in two jumps with the bar running 40 to 91 % (1.0 s), then the result alone for 1.53 s. The result lands under \"of you with six-pack abs\". Never the crop screen, never \"Meet the new you\", never the email form (checked on every frame).",
+  "<b>AI-GENERATED only on the result:</b> the chip comes up with the AI result, not over the man's real before photo.",
+  "<b>Couch cut moved</b> from \"in real life\" to \"six-pack abs in real life\", so the payoff shot runs 2.1 s instead of 1.1 s.",
+  "<b>END frame is the second take:</b> the first had an embossed swirl pattern on his sweatpants, a typical AI give-away at full size. The END is made from the START frame so the camera, room and man match.",
+  "<b>Analysis card:</b> the Soft Blue HyperFrames template. Rows land on \"exactly\", \"right now\" and \"where you want\", the plan band on \"to be\". The picture is the app man's result, the same person as the opening.",
+  "<b>Body scan:</b> library A0044 (the same file as the start VSL's version A), played at natural speed from 1.0 s, when all four callouts are up, so nothing is slowed or held.",
+  "<b>Your face first appears at 7.9 s</b> (\"Seriously\"), after the opening and the couch clip. If that feels slow to reach you, the fix is to start the couch clip at \"in real life\" and put you on camera for \"but now guys are using AI\". I have not changed it.",
+  "<b>Shot sizes:</b> every pause splice outside a card gets a close/wide change (the plan checks it). Cards and clips now cover 44.7 % of the ad.",
+  "<b>Audio:</b> the bass-lift voice passes the whole audio gate (-14.2 LUFS, true peak -2.4 dB). Music bed as round 1 (Realizer, 32 dB under)."
+ ],
+ "items": [
+  {
+   "id": "OPEN",
+   "key": "open",
+   "name": "The app generation, sped up",
+   "status": "new",
+   "status_txt": "new",
+   "at": 0.85,
+   "copy": "Real app recording, same man before and after: photo added, Peak, Generate, loading, then the AI result alone with AI-GENERATED.",
+   "source": "B0049 (3.05 to 29.6 s of the recording, five pieces)"
+  },
+  {
+   "id": "COUCH",
+   "key": "couch",
+   "name": "Steps out of the phone (PLACEHOLDER)",
+   "status": "new",
+   "status_txt": "frames only",
+   "at": 0.3,
+   "copy": "START frame then END frame, a cut between them. Motion in round 3 after you approve the frames.",
+   "source": "Codex frames, AI-GENERATED"
+  },
+  {
+   "id": "LT1",
+   "key": "LT1",
+   "name": "Step 1 lower third",
+   "status": "same",
+   "status_txt": "unchanged",
+   "at": 0.7,
+   "copy": "STEP 1 / Generate Your Goal Body",
+   "source": "Soft Blue HyperFrames lower third"
+  },
+  {
+   "id": "K1",
+   "key": "lock",
+   "name": "Goal picture on a lock screen",
+   "status": "same",
+   "status_txt": "unchanged",
+   "at": 0.5,
+   "copy": "AI-GENERATED",
+   "source": "A0074"
+  },
+  {
+   "id": "A1",
+   "key": "A1",
+   "name": "Analysis card, Soft Blue (new standard)",
+   "status": "new",
+   "status_txt": "new look",
+   "at": 0.85,
+   "copy": "BODY FAT / FAT TO LOSE / MUSCLE TO GAIN, then YOUR WORKOUT PLAN. No numbers. AI-GENERATED under the picture.",
+   "source": "_shared/hyperframes/analysis-card, the app man's result picture"
+  },
+  {
+   "id": "T1",
+   "key": "tour",
+   "name": "App tour",
+   "status": "same",
+   "status_txt": "unchanged",
+   "at": 0.5,
+   "copy": "AI Trainer exercise sheet, then a meal photo analysed",
+   "source": "B0544"
+  },
+  {
+   "id": "LT2",
+   "key": "LT2",
+   "name": "Step 2 lower third",
+   "status": "same",
+   "status_txt": "unchanged",
+   "at": 0.7,
+   "copy": "STEP 2 / Get A Plan Built For Your Goal",
+   "source": "Soft Blue HyperFrames lower third"
+  },
+  {
+   "id": "SCAN",
+   "key": "scan",
+   "name": "Body scan from the start VSL",
+   "status": "new",
+   "status_txt": "new",
+   "at": 0.6,
+   "copy": "Four callouts pointing at his body. AI-GENERATED under the card. Replaces the curls clip.",
+   "source": "A0044 (WV-01 round 4 SCAN-readable.mp4), x 150 to 1770, from 1.0 s"
+  }
+ ]
+}

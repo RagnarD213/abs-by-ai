@@ -1,0 +1,25 @@
+{
+  "method": "Apple Vision full-body masks, every 0.25 s across all 95.8497 s of source action. Before is x100 y0 1776x1000; after y18, unchanged scale. Mask top is any foreground, including weights, not a hairline detector. Native edge samples and matching stills additionally inspected.",
+  "total_frames": 383,
+  "invalid_samples": [
+    {
+      "t": 36.25,
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/qa/crop-dense/f0146.jpg",
+      "reason": "Vision returned an empty silhouette; requires visual review",
+      "visual_disposition": "Cleared by editor on f0146.jpg: body is bent to change weights, with hundreds of pixels above the head. The 19.44-pixel shift cannot clip hair or hands."
+    }
+  ],
+  "samples": 382,
+  "fixed_shift1080": 19.44,
+  "min_foreground_top_before": 40,
+  "min_foreground_top_after": 20.56,
+  "standing_median_top_before": 94.0,
+  "standing_median_top_after": 74.56,
+  "standing_headroom_reduction_percent": 20.680851063829788,
+  "editor_contact_sheets_checked": [
+    "crop-contact-0.jpg",
+    "crop-contact-1.jpg",
+    "crop-contact-2.jpg",
+    "crop-contact-3.jpg"
+  ]
+}

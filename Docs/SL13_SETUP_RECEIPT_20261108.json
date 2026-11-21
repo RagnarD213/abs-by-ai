@@ -1,0 +1,530 @@
+{
+  "date": "2026-11-08",
+  "category": "CONTENT (SFL)",
+  "job": "SL-13",
+  "status": "setup complete; verified shared waitlist; not scheduled",
+  "approval": {
+    "job": "SL-13",
+    "date": "2026-11-08",
+    "picked_by": "Dan",
+    "words": "Let's go with Protein X3, Eat Less X4, and Steps X3. Go ahead and finish the backups and setup, including verified waitlist placement if Blotato is still full.",
+    "covers": {
+      "sl13-short1-eat-protein-first": {
+        "short": "A",
+        "title": "Eat Protein First To Keep Muscle While Losing Fat",
+        "pick": "X3",
+        "slug": "sl13-short1-eat-protein-first",
+        "film_sha256": "b5b5037e1c133971c9a7080f2e96c1d3e76996104ba19252e2b532ac7378cf55",
+        "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Instagram_sl13-short1-eat-protein-first_cover-X3.png",
+        "instagram_sha256": "d15e36464cdfdefecee42b70c51cc81993a6da171e5cf8098844e0c0ac6f8e21",
+        "instagram_bytes": 1896583,
+        "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Youtube_sl13-short1-eat-protein-first_cover-X3.jpg",
+        "youtube_sha256": "818c30529a4693235874fa9dcab0787e2921f39adb878be67788ea9a27f02139",
+        "youtube_bytes": 399305
+      },
+      "sl13-short2-eat-less-without-counting": {
+        "short": "B",
+        "title": "Eat Less Without Counting Every Calorie",
+        "pick": "X4",
+        "slug": "sl13-short2-eat-less-without-counting",
+        "film_sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892",
+        "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Instagram_sl13-short2-eat-less-without-counting_cover-X4.png",
+        "instagram_sha256": "4b5fd0b2341e05427c977d919450ddbac5197c125b453fe510385b8ff0bb78e5",
+        "instagram_bytes": 1764982,
+        "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Youtube_sl13-short2-eat-less-without-counting_cover-X4.jpg",
+        "youtube_sha256": "52c2b3c706b585992707bf471e255b4cae7cea7149f5f6528c0ff05e711fe505",
+        "youtube_bytes": 336374
+      },
+      "sl13-short3-keep-your-steps-up": {
+        "short": "C",
+        "title": "Keep Your Steps Up While You Diet",
+        "pick": "X3",
+        "slug": "sl13-short3-keep-your-steps-up",
+        "film_sha256": "6dded1889c38ed4e48c86c52fbb6f6b24b68d185c7dcd8360e8aa6a854912b04",
+        "instagram": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Instagram_sl13-short3-keep-your-steps-up_cover-X3.png",
+        "instagram_sha256": "b893f95dd13131958ba7583c792c540b89c6c2abdf7d8bad53a0f25ef5edd8b1",
+        "instagram_bytes": 1762584,
+        "youtube": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-sl13/Youtube_sl13-short3-keep-your-steps-up_cover-X3.jpg",
+        "youtube_sha256": "10c7e62454c41fea8b82c37c94ed8e8be7de4de17919fe6d3e2594154b386ac3",
+        "youtube_bytes": 258198
+      }
+    }
+  },
+  "approved_media": [
+    {
+      "file": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short1_eat-protein-first.mp4",
+      "sha256": "b5b5037e1c133971c9a7080f2e96c1d3e76996104ba19252e2b532ac7378cf55",
+      "bytes": 185526440,
+      "srt": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short1_eat-protein-first.srt",
+      "srt_sha256": "e88a2fc0e8e81f5560ed4f5d49d1f1f65c2545d8dba7c8669f05251bd52eb5ca",
+      "srt_end": 57.691,
+      "duration": 57.728,
+      "transcript": "Let me give you two reasons why protein matters outside of calories. The first one is that your body burns about 20-30% of the calories in protein just digesting it. With carbs, it's 5-10%. So 200 calories of chicken and 200 calories of bread aren't the same thing once they're inside your body. The second reason is muscle. Researchers at McMaster University put two groups of young men on the same brutal diet with the same hard workouts for four weeks. The only difference was protein. One group ate twice as much as the other. The high protein group lost about 10.5 pounds of fat and they gained 2.5 pounds of muscle. The lower protein group lost about 8 pounds of fat and they didn't gain any muscle at all. Those were the same calories and the high protein guys ended up with a completely different body. So every meal you eat needs a big serving of meat, fish or eggs. Get your protein in first then fit your carbs into whatever calories you have left."
+    },
+    {
+      "file": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short2_eat-less-without-counting.mp4",
+      "sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892",
+      "bytes": 148745110,
+      "srt": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short2_eat-less-without-counting.srt",
+      "srt_sha256": "8816c4cf4d3a5de54e56041a8dba5c837f317764fbf0e2fc6495a35b4d26e0f6",
+      "srt_end": 52.319,
+      "duration": 52.3523,
+      "transcript": "Researchers at the University of Illinois gave a group of obese adults one rule. They could only eat inside a 4 or 6 hour window each day. Nobody counted calories, and nobody told them what to eat. After two months, they were eating about 550 fewer calories a day without even trying. And they lost about 3% of their body weight compared to the group that ate whenever they wanted. Then they ran a bigger study for a full year. One group fasted until noon every single day and never counted a single calorie. Another group counted every calorie they ate. The fasting group ate about 425 fewer calories per day and they lost about 10 pounds more than the people who changed nothing. They did just as well as the calorie counters. When you've got fewer hours to eat, you eat less and you don't have to fight yourself all day to do it. That's one more reason why I fast until 2 every day."
+    },
+    {
+      "file": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short3_keep-your-steps-up.mp4",
+      "sha256": "6dded1889c38ed4e48c86c52fbb6f6b24b68d185c7dcd8360e8aa6a854912b04",
+      "bytes": 170126005,
+      "srt": "/Volumes/Expansion/_internal-offload-20261031/Short-form video content/Calories Dont Matter - SL-13/Finalized R2/calories-dont-matter-short3_keep-your-steps-up.srt",
+      "srt_sha256": "209cfcd231c7ed2732d0543e6cdd6591e05c97c4e21d43c10d62984fc6905fc3",
+      "srt_end": 58.926,
+      "duration": 58.944,
+      "transcript": "The Mayo Clinic overfed a group of people by a thousand calories a day for eight weeks. Everybody got the same extra food. But the fat they gained was wildly different. One person gained less than a pound of fat. Another person gained over nine pounds. That's a ten times difference from the same extra calories. So what was the difference? It was how much they moved around during the day. I don't mean exercise. I mean walking, standing, taking the stairs, and even fidgeting. When you cut your calories, your body quietly makes you move less. You sit more, you take the elevator, and you don't even notice it happening. That can cancel out a big piece of your deficit. So here's what I would do. Set a minimum number of steps per day and hit it no matter what. I would say 8\u201310K is a good target for most of you guys. Walk after dinner, take your phone calls on your feet, and park at the back of the parking lot. Work at a standing desk. It all adds up and it protects your deficit you're working so hard for."
+    }
+  ],
+  "google_drive": {
+    "folder": "https://drive.google.com/drive/folders/1QsgJ3Cxn_38qW13LicRufWvi9rAwDDS_",
+    "files": [
+      {
+        "Path": "calories-dont-matter-short1_eat-protein-first.mp4",
+        "Name": "calories-dont-matter-short1_eat-protein-first.mp4",
+        "Size": 185526440,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-11-02T22:57:47.360Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "97f9da5c4cf29d32d46a5a2fecb632df",
+          "sha1": "e19166b40cfb4aa5af2fd668c3c3e6bf3cadc749",
+          "sha256": "b5b5037e1c133971c9a7080f2e96c1d3e76996104ba19252e2b532ac7378cf55"
+        },
+        "ID": "1iyvDXHDlplbkbgrzvcXhnqPE9JG5_ni9"
+      },
+      {
+        "Path": "calories-dont-matter-short1_eat-protein-first.srt",
+        "Name": "calories-dont-matter-short1_eat-protein-first.srt",
+        "Size": 2582,
+        "MimeType": "application/x-subrip",
+        "ModTime": "2026-11-02T22:58:07.040Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "32efec2de717b52a84d2d1ace83001a5",
+          "sha1": "a25188641e66377cadf52303eb935585518235a5",
+          "sha256": "e88a2fc0e8e81f5560ed4f5d49d1f1f65c2545d8dba7c8669f05251bd52eb5ca"
+        },
+        "ID": "1WHeLLtSPF_VdJWZCNhBq-9sxxikrdRZ7"
+      },
+      {
+        "Path": "calories-dont-matter-short2_eat-less-without-counting.mp4",
+        "Name": "calories-dont-matter-short2_eat-less-without-counting.mp4",
+        "Size": 148745110,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-11-03T15:16:14.620Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "06edcdca51f6029ca8e375522d63991e",
+          "sha1": "82d7869ced683acc32b1801166e2ebc4f0e7205f",
+          "sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892"
+        },
+        "ID": "1nX4OgyaN1fUtQ0Eax39wafHd7OoP7_-o"
+      },
+      {
+        "Path": "calories-dont-matter-short2_eat-less-without-counting.srt",
+        "Name": "calories-dont-matter-short2_eat-less-without-counting.srt",
+        "Size": 2406,
+        "MimeType": "application/x-subrip",
+        "ModTime": "2026-11-03T15:16:31.320Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "062ae6d4533a4b9a3322fe237588aad0",
+          "sha1": "61974911c11a5e9e6e63d3af9e9622b76fc40ba7",
+          "sha256": "8816c4cf4d3a5de54e56041a8dba5c837f317764fbf0e2fc6495a35b4d26e0f6"
+        },
+        "ID": "1oiDwGrssbYBmXyV0mgcKcJlL5Zz9YnPl"
+      },
+      {
+        "Path": "calories-dont-matter-short3_keep-your-steps-up.mp4",
+        "Name": "calories-dont-matter-short3_keep-your-steps-up.mp4",
+        "Size": 170126005,
+        "MimeType": "video/mp4",
+        "ModTime": "2026-11-02T23:15:23.650Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "51d54ca339159873a2eef5473f37e35d",
+          "sha1": "23d0cacb4296f6ae4c25d85d2f31875c8337e492",
+          "sha256": "6dded1889c38ed4e48c86c52fbb6f6b24b68d185c7dcd8360e8aa6a854912b04"
+        },
+        "ID": "1YslqLMtDiEJPuWmEPm_PMyekGJBgvfnk"
+      },
+      {
+        "Path": "calories-dont-matter-short3_keep-your-steps-up.srt",
+        "Name": "calories-dont-matter-short3_keep-your-steps-up.srt",
+        "Size": 2774,
+        "MimeType": "application/x-subrip",
+        "ModTime": "2026-11-02T23:15:50.400Z",
+        "IsDir": false,
+        "Hashes": {
+          "md5": "d1e96cc3082b6fd370749c6ce8bfe092",
+          "sha1": "beb462e16c6c5cc061f84fcf6b30a0b0ec380b62",
+          "sha256": "209cfcd231c7ed2732d0543e6cdd6591e05c97c4e21d43c10d62984fc6905fc3"
+        },
+        "ID": "1uaz_e9IQd3kqEfz9oFDh_UKV2YwyDS4q"
+      }
+    ],
+    "full_download_check": "6 matching files, 0 differences",
+    "sharing": "anyone with link, reader; connector verified"
+  },
+  "cover_backups": {
+    "drive": "https://drive.google.com/drive/folders/1sCmVrzLKJWrflROQ41SMicoILv_WYkai",
+    "drive_check": "7 matching files, 0 differences, includes6 exact approved covers and picks",
+    "extreme": "/Volumes/Extreme/Short-form video content/covers/approved-sl13",
+    "sharing": "anyone with link, reader; connector verified"
+  },
+  "waitlist": {
+    "date": "2026-11-08",
+    "queue_count": 199,
+    "parent_schedule": "5365814",
+    "parent_main": "2027-01-27T15:00:00.000Z",
+    "entries": [
+      {
+        "config": "scripts/blotato/configs/sl13-short1-eat-protein-first.json",
+        "kind": "short",
+        "job": "SL-13",
+        "label": "Eat Protein First To Keep Muscle While Losing Fat",
+        "added": "2026-11-08",
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "kitchen": false,
+        "gym": false,
+        "filming_set": "studio, with existing real stock cutaways",
+        "planned": "2027-01-28 18:00",
+        "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+      },
+      {
+        "config": "scripts/blotato/configs/sl13-short2-eat-less-without-counting.json",
+        "kind": "short",
+        "job": "SL-13",
+        "label": "Eat Less Without Counting Every Calorie",
+        "added": "2026-11-08",
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "kitchen": false,
+        "gym": false,
+        "filming_set": "studio, with existing real stock cutaways",
+        "planned": "2027-01-30 09:00",
+        "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+      },
+      {
+        "config": "scripts/blotato/configs/sl13-short3-keep-your-steps-up.json",
+        "kind": "short",
+        "job": "SL-13",
+        "label": "Keep Your Steps Up While You Diet",
+        "added": "2026-11-08",
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "after": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "kitchen": false,
+        "gym": false,
+        "filming_set": "studio, with existing real stock cutaways",
+        "planned": "2027-01-30 18:00",
+        "note": "All media and exact selected covers approved and backed up. Four uploaded platform assets per Short SHA256 verified. Keep after parent; shared daily top-up only."
+      }
+    ],
+    "configs": [
+      "scripts/blotato/configs/sl13-short1-eat-protein-first.json",
+      "scripts/blotato/configs/sl13-short2-eat-less-without-counting.json",
+      "scripts/blotato/configs/sl13-short3-keep-your-steps-up.json"
+    ],
+    "platform_preflight": [
+      {
+        "short": "A",
+        "platform": "facebook",
+        "account": "47105",
+        "when": "2027-01-29T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "A",
+        "platform": "instagram",
+        "account": "67203",
+        "when": "2027-01-29T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "A",
+        "platform": "tiktok",
+        "account": "58181",
+        "when": "2027-01-29T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "A",
+        "platform": "youtube",
+        "account": "46963",
+        "when": "2027-01-29T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "B",
+        "platform": "facebook",
+        "account": "47105",
+        "when": "2027-01-30T15:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "B",
+        "platform": "instagram",
+        "account": "67203",
+        "when": "2027-01-30T15:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "B",
+        "platform": "tiktok",
+        "account": "58181",
+        "when": "2027-01-30T15:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "B",
+        "platform": "youtube",
+        "account": "46963",
+        "when": "2027-01-30T15:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "C",
+        "platform": "facebook",
+        "account": "47105",
+        "when": "2027-01-31T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "C",
+        "platform": "instagram",
+        "account": "67203",
+        "when": "2027-01-31T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "C",
+        "platform": "tiktok",
+        "account": "58181",
+        "when": "2027-01-31T00:00:00.000Z",
+        "cover_preflight": true
+      },
+      {
+        "short": "C",
+        "platform": "youtube",
+        "account": "46963",
+        "when": "2027-01-31T00:00:00.000Z",
+        "cover_preflight": true
+      }
+    ],
+    "unrelated_entries_preserved": true,
+    "state": "waitlisted, not scheduled"
+  },
+  "final_verification": {
+    "date": "2026-11-08",
+    "queue_count": 199,
+    "own_live_schedules": 0,
+    "waitlist_entries": [
+      {
+        "config": "scripts/blotato/configs/sl13-short1-eat-protein-first.json",
+        "title": "Eat Protein First To Keep Muscle While Losing Fat",
+        "main": "2027-01-29T00:00:00.000Z",
+        "waitlist_count": 1,
+        "four_target_preflight": true,
+        "facebook_source_live_identical": true,
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "status": "waitlisted, not scheduled"
+      },
+      {
+        "config": "scripts/blotato/configs/sl13-short2-eat-less-without-counting.json",
+        "title": "Eat Less Without Counting Every Calorie",
+        "main": "2027-01-30T15:00:00.000Z",
+        "waitlist_count": 1,
+        "four_target_preflight": true,
+        "facebook_source_live_identical": true,
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "status": "waitlisted, not scheduled"
+      },
+      {
+        "config": "scripts/blotato/configs/sl13-short3-keep-your-steps-up.json",
+        "title": "Keep Your Steps Up While You Diet",
+        "main": "2027-01-31T00:00:00.000Z",
+        "waitlist_count": 1,
+        "four_target_preflight": true,
+        "facebook_source_live_identical": true,
+        "parent_config": "scripts/blotato/configs/ro11-calories-dont-matter.json",
+        "status": "waitlisted, not scheduled"
+      }
+    ],
+    "hosted_assets": [
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/6c881cc8-7ec3-4541-8478-f0ba4d4c105a.mp4",
+        "bytes": 185526440,
+        "sha256": "b5b5037e1c133971c9a7080f2e96c1d3e76996104ba19252e2b532ac7378cf55",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fed0d7b1-d0a0-4d45-b812-b0bba9e625b2.mp4",
+        "bytes": 185682689,
+        "sha256": "57ef14bedb40edf60e2e9fde8923d711a668fa10886b3928e3a624801cef2f58",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/4df2a522-fafd-4255-bf57-ebc54ccd449e.png",
+        "bytes": 1896583,
+        "sha256": "d15e36464cdfdefecee42b70c51cc81993a6da171e5cf8098844e0c0ac6f8e21",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/87619764-dec1-40a0-a595-f1d2a1265379.jpg",
+        "bytes": 399305,
+        "sha256": "818c30529a4693235874fa9dcab0787e2921f39adb878be67788ea9a27f02139",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/586cda01-80ad-4f31-9f9e-d291bc8c5ad2.mp4",
+        "bytes": 148745110,
+        "sha256": "1a10fea9f9ec9a3f9ada915c664e13b1bceb7ba612e3dae77f33d74f496bd892",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/23ba9946-b307-4873-98b2-f201b17726f1.mp4",
+        "bytes": 148889518,
+        "sha256": "54c2013d70d99a295acdd5f6b9b1570fe735b3b04c3613c35290898149184070",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/424b965f-9575-4be6-8d73-c9f72b5ec3fc.png",
+        "bytes": 1764982,
+        "sha256": "4b5fd0b2341e05427c977d919450ddbac5197c125b453fe510385b8ff0bb78e5",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/2eb9d7d1-a46c-401e-8d9c-9bfc4d6704d3.jpg",
+        "bytes": 336374,
+        "sha256": "52c2b3c706b585992707bf471e255b4cae7cea7149f5f6528c0ff05e711fe505",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/094e0900-9716-4627-bf32-f5f65b8c0183.mp4",
+        "bytes": 170126005,
+        "sha256": "6dded1889c38ed4e48c86c52fbb6f6b24b68d185c7dcd8360e8aa6a854912b04",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e5f470f4-04e6-44c2-815a-90ffbe958602.mp4",
+        "bytes": 170245353,
+        "sha256": "781b554a4fd0ee9028b8437079d7abc55c9ed6fc607b9a18849289e723ba5d14",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/7480f5c3-ab23-415a-9800-ecca36deda77.png",
+        "bytes": 1762584,
+        "sha256": "b893f95dd13131958ba7583c792c540b89c6c2abdf7d8bad53a0f25ef5edd8b1",
+        "full_download_match": true
+      },
+      {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fdc95883-23cb-47b9-9671-f39b5509821c.jpg",
+        "bytes": 258198,
+        "sha256": "10c7e62454c41fea8b82c37c94ed8e8be7de4de17919fe6d3e2594154b386ac3",
+        "full_download_match": true
+      }
+    ],
+    "all_pass": true
+  },
+  "tiktok": [
+    {
+      "short": "A",
+      "slug": "sl13-short1-eat-protein-first",
+      "title": "Eat Protein First To Keep Muscle While Losing Fat",
+      "path": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short1_eat-protein-first_tiktok.mp4",
+      "sha256": "57ef14bedb40edf60e2e9fde8923d711a668fa10886b3928e3a624801cef2f58",
+      "bytes": 185682689,
+      "firstFrame": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short1_eat-protein-first_frame0.png",
+      "audio_payload_sha256": "35fa81b1f24d4c4d1eb0ddc6d70541c5a25aabbc0d7d4e0280909cc5d900f266",
+      "audio_identical": true,
+      "verification": {
+        "frames_src": 1730,
+        "frames_out": 1731,
+        "audio_pkts_src": 2709,
+        "audio_pkts_out": 2709,
+        "decode_errors": "",
+        "cover_psnr": 49.35633023312532,
+        "ok": true
+      }
+    },
+    {
+      "short": "B",
+      "slug": "sl13-short2-eat-less-without-counting",
+      "title": "Eat Less Without Counting Every Calorie",
+      "path": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short2_eat-less-without-counting_tiktok.mp4",
+      "sha256": "54c2013d70d99a295acdd5f6b9b1570fe735b3b04c3613c35290898149184070",
+      "bytes": 148889518,
+      "firstFrame": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short2_eat-less-without-counting_frame0.png",
+      "audio_payload_sha256": "4052d948025d93f90eeed95e260dd3d2e0acebe15cc9a0fd8c2e98aa0535ae2d",
+      "audio_identical": true,
+      "verification": {
+        "frames_src": 1569,
+        "frames_out": 1570,
+        "audio_pkts_src": 2457,
+        "audio_pkts_out": 2457,
+        "decode_errors": "",
+        "cover_psnr": 50.202389464213255,
+        "ok": true
+      }
+    },
+    {
+      "short": "C",
+      "slug": "sl13-short3-keep-your-steps-up",
+      "title": "Keep Your Steps Up While You Diet",
+      "path": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short3_keep-your-steps-up_tiktok.mp4",
+      "sha256": "781b554a4fd0ee9028b8437079d7abc55c9ed6fc607b9a18849289e723ba5d14",
+      "bytes": 170245353,
+      "firstFrame": "/Users/danielrose/Projects/_edit_work/sl13-setup-20261107/calories-dont-matter-short3_keep-your-steps-up_frame0.png",
+      "audio_payload_sha256": "a15acbc6a718b86d17f60d2348e057f546eef21f431c59d4ec22e677c00775c8",
+      "audio_identical": true,
+      "verification": {
+        "frames_src": 1766,
+        "frames_out": 1767,
+        "audio_pkts_src": 2766,
+        "audio_pkts_out": 2766,
+        "decode_errors": "",
+        "cover_psnr": 51.40325270223647,
+        "ok": true
+      }
+    }
+  ],
+  "picture_audio_preservation": [
+    {
+      "short": "A",
+      "source_vcl_units": 1730,
+      "tiktok_vcl_units": 1731,
+      "source_picture_payload_preserved": true,
+      "audio_payload_preserved": true
+    },
+    {
+      "short": "B",
+      "source_vcl_units": 1569,
+      "tiktok_vcl_units": 1570,
+      "source_picture_payload_preserved": true,
+      "audio_payload_preserved": true
+    },
+    {
+      "short": "C",
+      "source_vcl_units": 1766,
+      "tiktok_vcl_units": 1767,
+      "source_picture_payload_preserved": true,
+      "audio_payload_preserved": true
+    }
+  ],
+  "queue_status": "SL-13 remains finalized until all12 actual platform schedules exist and read back",
+  "post_release": {
+    "public_tiles": "not yet observable, existing cover monitor and Facebook installer retained",
+    "pinned_comments": "written in all3 configs; existing shared routine posts/pins after release",
+    "article": "no Short draft required at setup; existing shared routine writes300-500word searchable article or records supported skip",
+    "parent": "live schedule5365814 Jan27 2027 at9AMChicago; after/parent_config retained; actual parent-public/release verification remains future work"
+  },
+  "limits": "Silent offline decode, packet/picture and first-frame checks. No audible listening. Exact masters unchanged; prior edit QA not rerun or relabeled as a newer gate. No new generation, paid spend, direct YouTube upload, public post or per-video automation."
+}

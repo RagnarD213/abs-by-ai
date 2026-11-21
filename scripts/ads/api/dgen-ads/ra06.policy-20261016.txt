@@ -1,0 +1,592 @@
+
+RA-14 The Cheat Code | ad 828015303786 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video CruqOCBcsiY
+   DESCRIPTION    APPROVED           REVIEWED                              Daniel Rose shows how AI turns a goal picture into a workout and nutrition plan.
+   DESCRIPTION    APPROVED           REVIEWED                              AI fitness coaching explained by a guy who did it at 40 years old.
+   DESCRIPTION    APPROVED           REVIEWED                              Your AI coach adjusts your plan when you are injured or cannot make it to the gym.
+   HEADLINE       APPROVED           REVIEWED                              The Cheat Code For Six Pack Abs
+   HEADLINE       APPROVED           REVIEWED                              See Your Goal Body First
+   HEADLINE       APPROVED           REVIEWED                              A Plan Built Just For You
+   LONG_HEADLINE  APPROVED           REVIEWED                              Daniel Rose shows the three steps: see your goal, get a plan, follow your AI coach.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here is how I use AI to plan my workouts, my meals and my coaching at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Upload a photo, see your goal body, then follow a plan built just for you.
+
+RA-05 Real Six Pack Abs | ad 828398569805 | ENABLED | UNKNOWN / REVIEW_IN_PROGRESS
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   DESCRIPTION    APPROVED           REVIEWED                              AI fitness coaching explained by a guy who did it at 40 years old.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 0DswKDBFW2E
+   DESCRIPTION    APPROVED           REVIEWED                              Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture.
+   DESCRIPTION    APPROVED           REVIEWED                              See yourself with your goal body, then get a training and meal plan built for it.
+   HEADLINE       APPROVED           REVIEWED                              How AI Can Get You Real Six Pack Abs
+   HEADLINE       APPROVED           REVIEWED                              See Yourself With Your Goal Body
+   HEADLINE       APPROVED           REVIEWED                              Why AI Is The Ultimate Trainer
+   LONG_HEADLINE  APPROVED           REVIEWED                              Daniel Rose shows how guys are using AI to plan their workouts and meals.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here is how AI turns a picture of your goal body into a workout and meal plan.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Generate a picture of your goal body, then follow a plan built for that goal.
+
+RA-06 Best Ab Exercise | ad 828274063389 | ENABLED | UNKNOWN / REVIEW_IN_PROGRESS
+   LOGO           -                  REVIEW_IN_PROGRESS                      null
+   BUSINESS_NAME  -                  REVIEW_IN_PROGRESS                      Abs by AI
+   CALL_TO_ACTION -                  REVIEW_IN_PROGRESS                      null
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      Fire Your Personal Trainer
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      How I Got Abs At 40
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      How AI Got Me Abs
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      AI fitness coaching explained by a guy who did it at 40 years old.
+   YOUTUBE_VIDEO  -                  REVIEW_IN_PROGRESS                      video 6WRVb61mY0Y
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      Daniel Rose shows how AI builds a workout plan for your body and your goals.
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      There is no best ab exercise for everyone. Get a plan built for you.
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      The Best Ab Exercise For You
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      A Workout Built Just For You
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      Daniel Rose explains why the best ab exercise depends on your body.
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      Here is why generic trainer plans fall short and how AI builds one just for you.
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      An AI trainer designs your workout around your goals, your body and your injuries.
+
+RA-06 Best Ab Exercise | ad 828320387740 | ENABLED | UNKNOWN / REVIEW_IN_PROGRESS
+   LOGO           -                  REVIEW_IN_PROGRESS                      null
+   BUSINESS_NAME  -                  REVIEW_IN_PROGRESS                      Abs by AI
+   CALL_TO_ACTION -                  REVIEW_IN_PROGRESS                      null
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      Fire Your Personal Trainer
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      How I Got Abs At 40
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      How AI Got Me Abs
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      AI fitness coaching explained by a guy who did it at 40 years old.
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      Daniel Rose shows how AI builds a workout plan for your body and your goals.
+   DESCRIPTION    -                  REVIEW_IN_PROGRESS                      There is no best ab exercise for everyone. Get a plan built for you.
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      The Best Ab Exercise For You
+   HEADLINE       -                  REVIEW_IN_PROGRESS                      A Workout Built Just For You
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      Daniel Rose explains why the best ab exercise depends on your body.
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      Here is why generic trainer plans fall short and how AI builds one just for you.
+   LONG_HEADLINE  -                  REVIEW_IN_PROGRESS                      An AI trainer designs your workout around your goals, your body and your injuries.
+   YOUTUBE_VIDEO  -                  REVIEW_IN_PROGRESS                      video CuN3CBE6ITs
+
+Ad 10 Busy Dad Fitness | ad 826635657832 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              AI plans workouts and meals around your schedule, equipment and starting point.
+   HEADLINE       APPROVED           REVIEWED                              A Busy Dad's Fitness System
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video Sg3vcEY2P_8
+   HEADLINE       APPROVED           REVIEWED                              How Busy Dads Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How 40+ Dads Can Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How I Lost Belly Fat With AI
+   DESCRIPTION    APPROVED           REVIEWED                              I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows busy dads how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 10 Busy Dad Fitness | ad 826635657835 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              AI plans workouts and meals around your schedule, equipment and starting point.
+   HEADLINE       APPROVED           REVIEWED                              A Busy Dad's Fitness System
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 4nDWFmdjzQQ
+   HEADLINE       APPROVED           REVIEWED                              How Busy Dads Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How 40+ Dads Can Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How I Lost Belly Fat With AI
+   DESCRIPTION    APPROVED           REVIEWED                              I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows busy dads how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 10 Busy Dad Fitness | ad 826635657838 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              AI plans workouts and meals around your schedule, equipment and starting point.
+   HEADLINE       APPROVED           REVIEWED                              A Busy Dad's Fitness System
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video CR4WAVmSuXY
+   HEADLINE       APPROVED           REVIEWED                              How Busy Dads Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How 40+ Dads Can Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How I Lost Belly Fat With AI
+   DESCRIPTION    APPROVED           REVIEWED                              I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows busy dads how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 10 Busy Dad Fitness | ad 827033455372 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              AI plans workouts and meals around your schedule, equipment and starting point.
+   HEADLINE       APPROVED           REVIEWED                              A Busy Dad's Fitness System
+   HEADLINE       APPROVED           REVIEWED                              How Busy Dads Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How 40+ Dads Can Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How I Lost Belly Fat With AI
+   DESCRIPTION    APPROVED           REVIEWED                              I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows busy dads how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 1q2nPYxIPu0
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 10 Busy Dad Fitness | ad 827114563613 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              AI plans workouts and meals around your schedule, equipment and starting point.
+   HEADLINE       APPROVED           REVIEWED                              A Busy Dad's Fitness System
+   HEADLINE       APPROVED           REVIEWED                              How Busy Dads Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How 40+ Dads Can Get Abs
+   HEADLINE       APPROVED           REVIEWED                              How I Lost Belly Fat With AI
+   DESCRIPTION    APPROVED           REVIEWED                              I had a dad bod at 38 and abs at 40. See how I used AI to lose my stubborn belly fat.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows busy dads how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              No time for the gym? See how this busy dad used AI to lose his dad bod and get abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 3CsujW486jM
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 3 Stop Paying Human Trainers | ad 826635679183 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job.
+   HEADLINE       APPROVED           REVIEWED                              How AI Replaces Personal Trainers
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's why I stopped paying a personal trainer and use an AI trainer instead.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 86jbUhqBTUQ
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate Him
+   HEADLINE       APPROVED           REVIEWED                              Trainers Hate This AI App
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I fired my personal trainer and got abs at 40 with AI. Video reveals full story
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+
+Ad 3 Stop Paying Human Trainers | ad 826635679186 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job.
+   HEADLINE       APPROVED           REVIEWED                              How AI Replaces Personal Trainers
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's why I stopped paying a personal trainer and use an AI trainer instead.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video xlC-tigurnA
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate Him
+   HEADLINE       APPROVED           REVIEWED                              Trainers Hate This AI App
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I fired my personal trainer and got abs at 40 with AI. Video reveals full story
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+
+Ad 3 Stop Paying Human Trainers | ad 826635679189 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job.
+   HEADLINE       APPROVED           REVIEWED                              How AI Replaces Personal Trainers
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's why I stopped paying a personal trainer and use an AI trainer instead.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video -wTErCSi640
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate Him
+   HEADLINE       APPROVED           REVIEWED                              Trainers Hate This AI App
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I fired my personal trainer and got abs at 40 with AI. Video reveals full story
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video LHg8vICBKr8
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video WiWg5GFOlMY
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video gU63JSYIX0Y
+
+Ad 3 Stop Paying Human Trainers | ad 826635679192 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job.
+   HEADLINE       APPROVED           REVIEWED                              How AI Replaces Personal Trainers
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's why I stopped paying a personal trainer and use an AI trainer instead.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video DXRkrfvcJEM
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate Him
+   HEADLINE       APPROVED           REVIEWED                              Trainers Hate This AI App
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I fired my personal trainer and got abs at 40 with AI. Video reveals full story
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+
+Ad 6 You're Not Too Old | ad 826595554443 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video Je2yvk00SHE
+   HEADLINE       APPROVED           REVIEWED                              How Men 40+ Lose Belly Fat
+   HEADLINE       APPROVED           REVIEWED                              How To Get Abs After 40
+   HEADLINE       APPROVED           REVIEWED                              How Busy 40+ Dads Lose Fat
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 6 You're Not Too Old | ad 826887690637 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How Men 40+ Lose Belly Fat
+   HEADLINE       APPROVED           REVIEWED                              How To Get Abs After 40
+   HEADLINE       APPROVED           REVIEWED                              How Busy 40+ Dads Lose Fat
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video Yd7iVlosIkQ
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 6 You're Not Too Old | ad 826887690655 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How Men 40+ Lose Belly Fat
+   HEADLINE       APPROVED           REVIEWED                              How To Get Abs After 40
+   HEADLINE       APPROVED           REVIEWED                              How Busy 40+ Dads Lose Fat
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video C-ThTBOPn2E
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 6 You're Not Too Old | ad 826887690931 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How Men 40+ Lose Belly Fat
+   HEADLINE       APPROVED           REVIEWED                              How To Get Abs After 40
+   HEADLINE       APPROVED           REVIEWED                              How Busy 40+ Dads Lose Fat
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 3Rx5TmyUARU
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+
+Ad 6 You're Not Too Old | ad 826887690943 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How Men 40+ Lose Belly Fat
+   HEADLINE       APPROVED           REVIEWED                              How To Get Abs After 40
+   HEADLINE       APPROVED           REVIEWED                              How Busy 40+ Dads Lose Fat
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs At 40
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              You're not too old to get abs. I got mine at 40 with an AI trainer. See how I did it.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows men 40+ how to lose their belly fat. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Think you're too old to get abs? See how I lost my stubborn belly fat and got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows men 40+ how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video aCsSsYG2vKI
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video mdDTIIhYTYM
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video HMoFBadQ_tI
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video C1drR51l0FE
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video EpnmsAw4IjA
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 7_YBBD__UmE
+
+Ad 13 The Cost Of Getting Abs | ad 826635661894 | PAUSED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video -SuKGXGcbIg
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+
+Ad 13 The Cost Of Getting Abs | ad 826888304284 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video VPyHyxEkHjo
+
+Ad 13 The Cost Of Getting Abs | ad 826888334290 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video f792V7H1Vkc
+
+Ad 13 The Cost Of Getting Abs | ad 826990035753 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video NQeyZ2jylVU
+
+Ad 13 The Cost Of Getting Abs | ad 826990035756 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 2-S3WVLhDsI
+
+Ad 13 The Cost Of Getting Abs | ad 826990035759 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              Fire Your Personal Trainer
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              Stop paying trainers and nutritionists to lose your belly fat. See how I use AI instead.
+   DESCRIPTION    APPROVED           REVIEWED                              See what getting abs was supposed to cost me, and how AI does the same job for less.
+   LONG_HEADLINE  APPROVED           REVIEWED                              I added up what trainers, nutritionists and supplements cost me. See what AI does instead
+   LONG_HEADLINE  APPROVED           REVIEWED                              Trainers despise this AI fitness app. See why men are replacing their trainer with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video W1xLK5W9l_0
+
+Ad 4 Stop Wasting Money On Supplements | ad 826635661909 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   DESCRIPTION    APPROVED           REVIEWED                              Many supplements are a waste of money. AI can identify which supplements you should cut.
+   HEADLINE       APPROVED           REVIEWED                              The Truth About Supplements
+   HEADLINE       APPROVED           REVIEWED                              How AI Fixed My Supplements
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's how AI fixed my supplements. Find which supplements are a waste of money with AI
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video R08TPEtkjuQ
+   HEADLINE       APPROVED           REVIEWED                              Supplement Corps Hate Him
+   DESCRIPTION    APPROVED           REVIEWED                              I was wasting money on supplements until AI audited my stack. See what it told me to cut.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app audits your supplements from one photo. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Take a photo of your supplements and AI tells you which ones are a waste of your money.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Supplement companies despise this AI app. See why men are cutting their supplement bill.
+
+Ad 4 Stop Wasting Money On Supplements | ad 826899464146 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   DESCRIPTION    APPROVED           REVIEWED                              Many supplements are a waste of money. AI can identify which supplements you should cut.
+   HEADLINE       APPROVED           REVIEWED                              The Truth About Supplements
+   HEADLINE       APPROVED           REVIEWED                              How AI Fixed My Supplements
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's how AI fixed my supplements. Find which supplements are a waste of money with AI
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Supplement Corps Hate Him
+   DESCRIPTION    APPROVED           REVIEWED                              I was wasting money on supplements until AI audited my stack. See what it told me to cut.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app audits your supplements from one photo. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Take a photo of your supplements and AI tells you which ones are a waste of your money.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Supplement companies despise this AI app. See why men are cutting their supplement bill.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video kyrAfWkg92k
+
+Ad 4 Stop Wasting Money On Supplements | ad 826899511366 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   DESCRIPTION    APPROVED           REVIEWED                              Many supplements are a waste of money. AI can identify which supplements you should cut.
+   HEADLINE       APPROVED           REVIEWED                              The Truth About Supplements
+   HEADLINE       APPROVED           REVIEWED                              How AI Fixed My Supplements
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's how AI fixed my supplements. Find which supplements are a waste of money with AI
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Supplement Corps Hate Him
+   DESCRIPTION    APPROVED           REVIEWED                              I was wasting money on supplements until AI audited my stack. See what it told me to cut.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app audits your supplements from one photo. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Take a photo of your supplements and AI tells you which ones are a waste of your money.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Supplement companies despise this AI app. See why men are cutting their supplement bill.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video Sr9gux0gB5I
+
+Ad 4 Stop Wasting Money On Supplements | ad 826899511387 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   DESCRIPTION    APPROVED           REVIEWED                              Many supplements are a waste of money. AI can identify which supplements you should cut.
+   HEADLINE       APPROVED           REVIEWED                              The Truth About Supplements
+   HEADLINE       APPROVED           REVIEWED                              How AI Fixed My Supplements
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's how AI fixed my supplements. Find which supplements are a waste of money with AI
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Supplement Corps Hate Him
+   DESCRIPTION    APPROVED           REVIEWED                              I was wasting money on supplements until AI audited my stack. See what it told me to cut.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app audits your supplements from one photo. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Take a photo of your supplements and AI tells you which ones are a waste of your money.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Supplement companies despise this AI app. See why men are cutting their supplement bill.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video TPlpl0LETqw
+
+Ad 4 Stop Wasting Money On Supplements | ad 826899511576 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   DESCRIPTION    APPROVED           REVIEWED                              Many supplements are a waste of money. AI can identify which supplements you should cut.
+   HEADLINE       APPROVED           REVIEWED                              The Truth About Supplements
+   HEADLINE       APPROVED           REVIEWED                              How AI Fixed My Supplements
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here's how AI fixed my supplements. Find which supplements are a waste of money with AI
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              Supplement Corps Hate Him
+   DESCRIPTION    APPROVED           REVIEWED                              I was wasting money on supplements until AI audited my stack. See what it told me to cut.
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app audits your supplements from one photo. Try it free for 7 days.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Take a photo of your supplements and AI tells you which ones are a waste of your money.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Supplement companies despise this AI app. See why men are cutting their supplement bill.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video eJ-dTPw40Hk
+
+RA-04 Top 3 Tips | ad 828272644005 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   DESCRIPTION    APPROVED           REVIEWED                              Daniel Rose shows three simple ways he uses AI for his workouts and meals.
+   DESCRIPTION    APPROVED           REVIEWED                              AI fitness tips explained by a guy who did it at 40 years old.
+   DESCRIPTION    APPROVED           REVIEWED                              When you get injured or miss the gym, AI adjusts your plan for you.
+   HEADLINE       APPROVED           REVIEWED                              Top 3 Tips For Getting Abs
+   HEADLINE       APPROVED           REVIEWED                              Make Your Goal Your Lock Screen
+   HEADLINE       APPROVED           REVIEWED                              A Plan That Adjusts With You
+   LONG_HEADLINE  APPROVED           REVIEWED                              Daniel Rose shares his top three tips for getting six pack abs with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here is how I use AI to picture my goal, plan my workouts and adjust my plan.
+   LONG_HEADLINE  APPROVED           REVIEWED                              See your goal body, get a plan built for it, and let AI handle the setbacks.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 8vKyOqqbe-s
+
+RA-04 Top 3 Tips | ad 828398458259 | ENABLED | UNKNOWN / REVIEW_IN_PROGRESS
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   DESCRIPTION    APPROVED           REVIEWED                              Daniel Rose shows three simple ways he uses AI for his workouts and meals.
+   DESCRIPTION    APPROVED           REVIEWED                              AI fitness tips explained by a guy who did it at 40 years old.
+   DESCRIPTION    APPROVED           REVIEWED                              When you get injured or miss the gym, AI adjusts your plan for you.
+   HEADLINE       APPROVED           REVIEWED                              Top 3 Tips For Getting Abs
+   HEADLINE       APPROVED           REVIEWED                              Make Your Goal Your Lock Screen
+   HEADLINE       APPROVED           REVIEWED                              A Plan That Adjusts With You
+   LONG_HEADLINE  APPROVED           REVIEWED                              Daniel Rose shares his top three tips for getting six pack abs with AI.
+   LONG_HEADLINE  APPROVED           REVIEWED                              Here is how I use AI to picture my goal, plan my workouts and adjust my plan.
+   LONG_HEADLINE  APPROVED           REVIEWED                              See your goal body, get a plan built for it, and let AI handle the setbacks.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video wCfKZT-m1aw
+
+RA-01 AI Got Me Abs | ad 826595554299 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video OUw788sF1KY
+   HEADLINE       APPROVED           REVIEWED                              A Personalized AI Fitness Plan
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              See how I used AI to lose my stubborn stomach fat and get six pack abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video PaiUtLitzcs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video IKWeRhKXXUw
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video j0giW0kYluU
+
+RA-01 AI Got Me Abs | ad 826595554302 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video rfCsWNxuNV0
+   HEADLINE       APPROVED           REVIEWED                              A Personalized AI Fitness Plan
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              See how I used AI to lose my stubborn stomach fat and get six pack abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 2iB52e6RAmg
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video gnkURrUXPZU
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video 6GONFWbtul8
+
+RA-01 AI Got Me Abs | ad 826755066385 | ENABLED | APPROVED / REVIEWED
+   LOGO           APPROVED           REVIEWED                              null
+   BUSINESS_NAME  APPROVED           REVIEWED                              Abs by AI
+   CALL_TO_ACTION APPROVED           REVIEWED                              null
+   HEADLINE       APPROVED           REVIEWED                              How I Got Abs At 40
+   HEADLINE       APPROVED           REVIEWED                              How AI Got Me Abs
+   HEADLINE       APPROVED           REVIEWED                              A Personalized AI Fitness Plan
+   HEADLINE       APPROVED           REVIEWED                              Human Trainers Hate This AI
+   HEADLINE       APPROVED           REVIEWED                              Trainers Despise Him
+   DESCRIPTION    APPROVED           REVIEWED                              This AI app shows you how to lose your belly fat. Try it free for 7 days.
+   YOUTUBE_VIDEO  APPROVED           REVIEWED                              video EfoVnGyAJjk
+   DESCRIPTION    APPROVED           REVIEWED                              I struggled with belly fat until I discovered how to use an AI trainer to get abs.
+   DESCRIPTION    APPROVED           REVIEWED                              AI built my workouts, planned my meals and tracked my macros. See how I got abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              See how I used AI to lose my stubborn stomach fat and get six pack abs at 40.
+   LONG_HEADLINE  APPROVED           REVIEWED                              AI fitness app shows you how to lose stomach fat and get abs. Try it free for 7 days!
+   LONG_HEADLINE  APPROVED           REVIEWED                              Scientists in China have discovered how to use AI to lose belly fat.

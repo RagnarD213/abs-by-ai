@@ -1,0 +1,20 @@
+{
+ "scope": "Both large-watching frames284..484. Match approved R5 full-camera watching x0; original watching size retained. Response centered and1.23x bigger at485. No internal camera edge, no same-scale handover.",
+ "frames": [
+  284,
+  485
+ ],
+ "scale": 0.6666666666666666,
+ "x": 0,
+ "y": 234.66666666666669,
+ "source_width": 1620,
+ "left_camera_boundary": 0,
+ "right_camera_boundary": 1080,
+ "expected_hair_top_range": [
+  594,
+  672
+ ],
+ "watching_median_head_x": 465.3874,
+ "reference": "ds40-codex-r5-reaction-format/snapshot/render.py lines55\u201357: watching full-camera x0, response1.25 centered",
+ "photo_behind_true_foreground": true
+}

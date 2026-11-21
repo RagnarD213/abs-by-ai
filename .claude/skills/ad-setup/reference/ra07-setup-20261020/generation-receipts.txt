@@ -1,0 +1,20 @@
+pool_9x16 {"ok":true,"out":"pool_9x16.png","width":1080,"height":1920,"codex_tokens":15374}
+mob_9x16 {"ok":true,"out":"mob_9x16.png","width":1080,"height":1920,"codex_tokens":15104}
+ai3_9x16 {"ok":true,"out":"ai3_9x16.png","width":1080,"height":1920,"codex_tokens":19995}
+ai3_16x9 {"ok":true,"out":"ai3_16x9.png","width":1920,"height":1080,"codex_tokens":40638}
+ai4_9x16 {"ok":true,"out":"ai4_9x16.png","width":1080,"height":1920,"codex_tokens":20793}
+ai5_9x16 {"ok":true,"out":"ai5_9x16.png","width":1080,"height":1920,"codex_tokens":18133}
+pool_16x9 {"ok":true,"out":"pool_16x9.png","width":1920,"height":1080,"codex_tokens":15893}
+mob_16x9 {"ok":true,"out":"mob_16x9.png","width":1920,"height":1080,"codex_tokens":16064}
+ai4_16x9 {"ok":true,"out":"ai4_16x9.png","width":1920,"height":1080,"codex_tokens":32511}
+ai5_16x9 {"ok":true,"out":"ai5_16x9.png","width":1920,"height":1080,"codex_tokens":21938}
+bab207363fcc989e931596ea82ee40d88d7aaa6cf70e663e3cce6c5f63c11c64  fire-your-trainer_1-pool-photo-221-pink-slip | 16x9.jpg
+3239ec8f1ff806150194989a240d434c471e2c69a5b5534a81946ffe8a61d417  fire-your-trainer_1-pool-photo-221-pink-slip | 9x16.jpg
+b39ac8c925214b93b17df73caecf9abe715950a637b5127f7899ae4cb0dd8495  fire-your-trainer_2-studio-blue-28-trainers-despise-him | 16x9.jpg
+82ee1de7b3f3074267e6cef447aebc297a473153ca5754f886cfa4b4928e134c  fire-your-trainer_2-studio-blue-28-trainers-despise-him | 9x16.jpg
+331e9290edb702e701e7c1cbbb7c2db01d9f3d0193aff4d091fdf6ae1e12fa8e  fire-your-trainer_3-ai-dan-robot-fist-bump-rockwell | 16x9.jpg
+b034f9b295c2cab57ee6827aa743293fee8a73939fc19c4616e4e9f9dfe7cbda  fire-your-trainer_3-ai-dan-robot-fist-bump-rockwell | 9x16.jpg
+15ea32105c95dbb00019f4d75098dd53980fd363e538fa51b104462c439406b4  fire-your-trainer_4-ai-orange-robot-coach-rounded | 16x9.jpg
+7c5df0ddd2b14698859d10c108e5bab5c466506264a365a0d4e6c9459afedfc3  fire-your-trainer_4-ai-orange-robot-coach-rounded | 9x16.jpg
+e98a107ed974df00f54d025696eadec94d9a0c5596b0d71266f0bfea7aacfe10  fire-your-trainer_5-ai-robot-hands-tear-plan-scarlet | 16x9.jpg
+0e0ed2c2fb0297e444940a4c671b2e0e2ab83122e5384531c6050a13f7de8843  fire-your-trainer_5-ai-robot-hands-tear-plan-scarlet | 9x16.jpg

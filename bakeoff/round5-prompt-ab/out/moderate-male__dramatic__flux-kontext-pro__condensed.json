@@ -1,0 +1,28 @@
+{
+  "caseId": "moderate-male__dramatic",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "condensed",
+  "label": "FLUX Kontext Pro",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 10341,
+  "geminiSafetyRetry": false,
+  "promptChars": 1068,
+  "nominalCost": 0.04,
+  "image": "moderate-male__dramatic__flux-kontext-pro__condensed.jpg",
+  "meta": {
+    "predictTime": 9.68179675,
+    "predictionId": "hqg9w2hkanrmy0czp1h97xj3sm"
+  },
+  "ts": "2026-07-30T00:17:43.583Z"
+}

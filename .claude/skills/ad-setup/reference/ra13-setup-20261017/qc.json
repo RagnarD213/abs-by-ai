@@ -1,0 +1,278 @@
+[
+  {
+    "option": 1,
+    "format": "16x9",
+    "file": "option-1-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 148,
+    "text_boxes": [
+      [
+        57,
+        170,
+        552,
+        282
+      ],
+      [
+        57,
+        299,
+        632,
+        412
+      ],
+      [
+        57,
+        429,
+        440,
+        541
+      ]
+    ],
+    "person_text_clearance_px": 112.7,
+    "bytes": 409066,
+    "pass": true
+  },
+  {
+    "option": 1,
+    "format": "9x16",
+    "file": "option-1-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 183,
+    "text_boxes": [
+      [
+        66,
+        235,
+        1013,
+        374
+      ],
+      [
+        101,
+        395,
+        978,
+        532
+      ]
+    ],
+    "person_text_clearance_px": 217.0,
+    "bytes": 593939,
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "16x9",
+    "file": "option-2-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 111,
+    "text_boxes": [
+      [
+        104,
+        520,
+        1175,
+        601
+      ],
+      [
+        139,
+        612,
+        1141,
+        693
+      ]
+    ],
+    "person_text_clearance_px": 31.0,
+    "bytes": 293003,
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "9x16",
+    "file": "option-2-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 135,
+    "text_boxes": [
+      [
+        123,
+        1429,
+        956,
+        1530
+      ],
+      [
+        44,
+        1543,
+        1035,
+        1644
+      ],
+      [
+        209,
+        1657,
+        870,
+        1758
+      ]
+    ],
+    "person_text_clearance_px": 163.0,
+    "bytes": 400938,
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "16x9",
+    "file": "option-3-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 84,
+    "text_boxes": [
+      [
+        57,
+        237,
+        494,
+        319
+      ],
+      [
+        57,
+        329,
+        552,
+        407
+      ],
+      [
+        57,
+        417,
+        388,
+        483
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 231362,
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "9x16",
+    "file": "option-3-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 121,
+    "text_boxes": [
+      [
+        54,
+        140,
+        1026,
+        257
+      ],
+      [
+        99,
+        275,
+        980,
+        369
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 491155,
+    "pass": true
+  },
+  {
+    "option": 4,
+    "format": "16x9",
+    "file": "option-4-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 95,
+    "text_boxes": [
+      [
+        64,
+        72,
+        776,
+        617
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 242479,
+    "pass": true
+  },
+  {
+    "option": 4,
+    "format": "9x16",
+    "file": "option-4-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 133,
+    "text_boxes": [
+      [
+        54,
+        1248,
+        1042,
+        1890
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 592788,
+    "pass": true
+  },
+  {
+    "option": 5,
+    "format": "16x9",
+    "file": "option-5-16x9.jpg",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 125,
+    "text_boxes": [
+      [
+        317,
+        33,
+        963,
+        127
+      ],
+      [
+        342,
+        138,
+        938,
+        232
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 258011,
+    "pass": true
+  },
+  {
+    "option": 5,
+    "format": "9x16",
+    "file": "option-5-9x16.jpg",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 189,
+    "text_boxes": [
+      [
+        52,
+        172,
+        1027,
+        313
+      ],
+      [
+        88,
+        330,
+        991,
+        471
+      ]
+    ],
+    "person_text_clearance_px": null,
+    "bytes": 788493,
+    "pass": true
+  }
+]

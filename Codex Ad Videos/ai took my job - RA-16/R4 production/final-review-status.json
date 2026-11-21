@@ -1,0 +1,588 @@
+{
+  "category": "AD",
+  "title": "AI Took Job AD R4",
+  "when": "2026-10-17T10:50:21-0500",
+  "ready_for_dan_review": true,
+  "approved_for_release": false,
+  "dan_final_approval": "approved",
+  "published": false,
+  "summary": "Dan approved both exact R4 films on October 17, 2026. Native media and all checks are preserved. Independent review found zero confirmed film defects. Historical numerical delivery verdicts remain FAIL with the original flags; no stamps or thresholds were changed. Finalized for thumbnail selection and setup, not uploaded.",
+  "films": [
+    {
+      "aspect": "9x16",
+      "master": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+      "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+      "duration": 58.892167,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "delivery_gate_verdict": "FAIL",
+      "passed_rows": 34,
+      "failed_rows": {
+        "audio:stamp": {
+          "ok": false,
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 9x16.mp4: tone -- fix the audio, do not deliver"
+        },
+        "style:coverage": {
+          "ok": false,
+          "detail": "31% of runtime is off the main scene (min 38%)",
+          "value": {
+            "coverage": 0.3051,
+            "min": 0.38
+          }
+        },
+        "framing:centering": {
+          "ok": false,
+          "detail": "10 tracked hold(s) + 0 intentional fixed-wide; head centre vs its window centre: worst +6.5% at 57.0s (max +-6%); 1 hold(s) off [(57.0, 0.06486)]",
+          "value": {
+            "worst": [
+              57.0,
+              0.06486
+            ],
+            "off": [
+              [
+                57.0,
+                0.06486
+              ]
+            ],
+            "max_px": 0.06
+          }
+        },
+        "cut:splice_visibility": {
+          "ok": false,
+          "detail": "3/11 joins above the file's own p99 ceiling (35.40): [(15.05, 37.82), (50.82, 35.41), (57.06, 36.36)]",
+          "value": {
+            "bare": [
+              [
+                15.05,
+                37.82
+              ],
+              [
+                50.82,
+                35.41
+              ],
+              [
+                57.06,
+                36.36
+              ]
+            ],
+            "p99": 35.398,
+            "joins": 11
+          }
+        }
+      },
+      "unmeasured_rows": {
+        "captions:sync": {
+          "ok": null,
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      },
+      "audio_gate": {
+        "version": 1,
+        "gate_version": "2.0.0",
+        "file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+        "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+        "size": 100282648,
+        "gated_at": "2026-10-17 10:36:27",
+        "reference": {
+          "name": "this picture got me abs | muhammad | 16x9.mp4",
+          "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+        },
+        "synthetic": false,
+        "profile": null,
+        "window": [
+          1.0,
+          56.892167
+        ],
+        "limits": {
+          "corr": 0.97,
+          "comb_margin": 0.35,
+          "edt": 80.0,
+          "tone_mean": 1.2,
+          "tone_max": 2.5,
+          "floor": 3.0,
+          "dry": 1.5,
+          "artifact_x": 1.1,
+          "harm_x": 1.35,
+          "lufs": -14.0,
+          "lufs_tol": 1.0,
+          "spread": 3.0,
+          "tp": -1.0,
+          "silent": 0,
+          "length": 0.1,
+          "vb_med": 0.1,
+          "vb_sec": 0.5,
+          "vb_image": 0.01,
+          "vb_lufs": 0.3,
+          "vb_lra": 0.3
+        },
+        "rows": [
+          {
+            "key": "lr_corr",
+            "ok": true,
+            "text": "one voice: L/R correlation +1.0000 (>= +0.97)",
+            "value": 1.0
+          },
+          {
+            "key": "comb",
+            "ok": true,
+            "text": "no comb: spectral ripple 0.46 dB vs his 0.54 (<= his + 0.35)",
+            "value": 0.457
+          },
+          {
+            "key": "edt",
+            "ok": true,
+            "text": "dry room: early decay 27 ms (<= 80; his 40)",
+            "value": 26.7
+          },
+          {
+            "key": "tone",
+            "ok": false,
+            "text": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)",
+            "value": {
+              "mean": 2.706,
+              "max": 5.282,
+              "bands": [
+                4.55,
+                7.63,
+                9.55,
+                9.59,
+                8.7,
+                2.45,
+                -0.51,
+                -5.89,
+                -16.34,
+                -19.72
+              ]
+            }
+          },
+          {
+            "key": "floor",
+            "ok": true,
+            "text": "clean between words: voice-over-floor [37.1, 42.8, 35.9] vs his [27.6, 34.7, 28.0] (diff [9.5, 8.1, 7.9], >= -3.0)",
+            "value": [
+              37.12,
+              42.81,
+              35.91
+            ]
+          },
+          {
+            "key": "artifacts",
+            "ok": true,
+            "text": "no processing damage: flux 0.096 (his 0.072; the untreated recording reads 0.112, so processing added none of it), HF swirl 1.002 (his 0.835; the untreated recording reads 1.004, so processing added none of it); each <= his x1.1 unless the untreated recording already carried it",
+            "value": {
+              "flux": 0.0964,
+              "sfm": 0.0765,
+              "swirl": 1.0016,
+              "gap": 44.5479,
+              "carried": {
+                "flux": 0.1115,
+                "swirl": 1.0041
+              }
+            }
+          },
+          {
+            "key": "do_no_harm",
+            "ok": true,
+            "text": "no worse than untreated: flux 0.096 vs untreated 0.112 (x0.86), swirl 1.002 vs untreated 1.004 (x1.00), both <= x1.35 (untreated EDT 24.0 ms)   [reported, not gated: gap x1.03, sfm x1.05]",
+            "value": {
+              "ratios": {
+                "flux": 0.864,
+                "sfm": 1.054,
+                "swirl": 0.998,
+                "gap": 1.029
+              },
+              "untreated": {
+                "flux": 0.1115,
+                "sfm": 0.0726,
+                "swirl": 1.0041,
+                "gap": 43.292
+              }
+            }
+          },
+          {
+            "key": "dryness",
+            "ok": true,
+            "text": "words stop cleanly: drop 7.8 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+            "value": 7.84
+          },
+          {
+            "key": "lufs",
+            "ok": true,
+            "text": "loudness: -14.40 LUFS (-14.0 +/-1.0)",
+            "value": -14.4
+          },
+          {
+            "key": "spread",
+            "ok": true,
+            "text": "not crushed: speech spread p90-p10 6.6 dB vs his 8.2 (>= his - 3.0); LRA 2.6 LU (his 3.5)",
+            "value": {
+              "spread": 6.63,
+              "lra": 2.6
+            }
+          },
+          {
+            "key": "tp",
+            "ok": true,
+            "text": "no clipping: true peak -1.80 dBTP (<= -1.0)",
+            "value": -1.8
+          },
+          {
+            "key": "silence",
+            "ok": true,
+            "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+            "value": {
+              "dead": 0,
+              "quiet": 0
+            }
+          },
+          {
+            "key": "length",
+            "ok": true,
+            "text": "audio 58.892 s vs picture 58.892 s (within 0.1 s)",
+            "value": {
+              "audio": 58.892,
+              "video": 58.892
+            }
+          }
+        ],
+        "verdict": "FAIL",
+        "ab": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/audio/Audio AB 9x16.mp4"
+      },
+      "watch_result": {
+        "ok": true,
+        "detail": "16/16 boundaries reviewed as consecutive frames, 35/19 images judged by Independent Codex R4 reviewer (tied to this file by sha256)",
+        "value": {
+          "reviewed": 16,
+          "boundaries": 16,
+          "images": 19,
+          "judged": 35,
+          "open_defects": 0,
+          "accepted": 0,
+          "tied_by": "sha256",
+          "watch_version": "1.2.0"
+        }
+      }
+    },
+    {
+      "aspect": "16x9",
+      "master": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4",
+      "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+      "duration": 58.892167,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "delivery_gate_verdict": "FAIL",
+      "passed_rows": 34,
+      "failed_rows": {
+        "audio:stamp": {
+          "ok": false,
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 16x9.mp4: tone -- fix the audio, do not deliver"
+        },
+        "style:coverage": {
+          "ok": false,
+          "detail": "23% of runtime is off the main scene (min 35%)",
+          "value": {
+            "coverage": 0.2288,
+            "min": 0.35
+          }
+        },
+        "framing:no_wide_level": {
+          "ok": false,
+          "detail": "11 talking holds; head height (hair -> chin) per hold: smallest 22.0% of its window at 46.5s (min 27.0%); 7 wide hold(s) [(0.0, 0.23361500000000002), (15.0, 0.23249999999999998), (24.25, 0.2275), (33.0, 0.228425), (46.5, 0.220465)]",
+          "value": {
+            "smallest": [
+              46.5,
+              0.220465
+            ],
+            "wide": [
+              [
+                0.0,
+                0.23361500000000002
+              ],
+              [
+                15.0,
+                0.23249999999999998
+              ],
+              [
+                24.25,
+                0.2275
+              ],
+              [
+                33.0,
+                0.228425
+              ],
+              [
+                46.5,
+                0.220465
+              ],
+              [
+                47.5,
+                0.232735
+              ],
+              [
+                53.25,
+                0.23685
+              ]
+            ],
+            "min_frac": 0.27
+          }
+        },
+        "cut:splice_visibility": {
+          "ok": false,
+          "detail": "4/11 joins above the file's own p99 ceiling (39.95): [(9.48, 39.97), (15.05, 42.55), (50.82, 40.64), (53.15, 41.66)]",
+          "value": {
+            "bare": [
+              [
+                9.48,
+                39.97
+              ],
+              [
+                15.05,
+                42.55
+              ],
+              [
+                50.82,
+                40.64
+              ],
+              [
+                53.15,
+                41.66
+              ]
+            ],
+            "p99": 39.946,
+            "joins": 11
+          }
+        }
+      },
+      "unmeasured_rows": {
+        "captions:sync": {
+          "ok": null,
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      },
+      "audio_gate": {
+        "version": 1,
+        "gate_version": "2.0.0",
+        "file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4",
+        "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+        "size": 85885396,
+        "gated_at": "2026-10-17 10:37:01",
+        "reference": {
+          "name": "this picture got me abs | muhammad | 16x9.mp4",
+          "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+        },
+        "synthetic": false,
+        "profile": null,
+        "window": [
+          1.0,
+          56.892167
+        ],
+        "limits": {
+          "corr": 0.97,
+          "comb_margin": 0.35,
+          "edt": 80.0,
+          "tone_mean": 1.2,
+          "tone_max": 2.5,
+          "floor": 3.0,
+          "dry": 1.5,
+          "artifact_x": 1.1,
+          "harm_x": 1.35,
+          "lufs": -14.0,
+          "lufs_tol": 1.0,
+          "spread": 3.0,
+          "tp": -1.0,
+          "silent": 0,
+          "length": 0.1,
+          "vb_med": 0.1,
+          "vb_sec": 0.5,
+          "vb_image": 0.01,
+          "vb_lufs": 0.3,
+          "vb_lra": 0.3
+        },
+        "rows": [
+          {
+            "key": "lr_corr",
+            "ok": true,
+            "text": "one voice: L/R correlation +1.0000 (>= +0.97)",
+            "value": 1.0
+          },
+          {
+            "key": "comb",
+            "ok": true,
+            "text": "no comb: spectral ripple 0.46 dB vs his 0.54 (<= his + 0.35)",
+            "value": 0.457
+          },
+          {
+            "key": "edt",
+            "ok": true,
+            "text": "dry room: early decay 27 ms (<= 80; his 40)",
+            "value": 26.7
+          },
+          {
+            "key": "tone",
+            "ok": false,
+            "text": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)",
+            "value": {
+              "mean": 2.706,
+              "max": 5.282,
+              "bands": [
+                4.55,
+                7.63,
+                9.55,
+                9.59,
+                8.7,
+                2.45,
+                -0.51,
+                -5.89,
+                -16.34,
+                -19.72
+              ]
+            }
+          },
+          {
+            "key": "floor",
+            "ok": true,
+            "text": "clean between words: voice-over-floor [37.1, 42.8, 35.9] vs his [27.6, 34.7, 28.0] (diff [9.5, 8.1, 7.9], >= -3.0)",
+            "value": [
+              37.12,
+              42.81,
+              35.91
+            ]
+          },
+          {
+            "key": "artifacts",
+            "ok": true,
+            "text": "no processing damage: flux 0.096 (his 0.072; the untreated recording reads 0.112, so processing added none of it), HF swirl 1.002 (his 0.835; the untreated recording reads 1.004, so processing added none of it); each <= his x1.1 unless the untreated recording already carried it",
+            "value": {
+              "flux": 0.0964,
+              "sfm": 0.0765,
+              "swirl": 1.0016,
+              "gap": 44.5479,
+              "carried": {
+                "flux": 0.1115,
+                "swirl": 1.0041
+              }
+            }
+          },
+          {
+            "key": "do_no_harm",
+            "ok": true,
+            "text": "no worse than untreated: flux 0.096 vs untreated 0.112 (x0.86), swirl 1.002 vs untreated 1.004 (x1.00), both <= x1.35 (untreated EDT 24.0 ms)   [reported, not gated: gap x1.03, sfm x1.05]",
+            "value": {
+              "ratios": {
+                "flux": 0.864,
+                "sfm": 1.054,
+                "swirl": 0.998,
+                "gap": 1.029
+              },
+              "untreated": {
+                "flux": 0.1115,
+                "sfm": 0.0726,
+                "swirl": 1.0041,
+                "gap": 43.292
+              }
+            }
+          },
+          {
+            "key": "dryness",
+            "ok": true,
+            "text": "words stop cleanly: drop 7.8 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+            "value": 7.84
+          },
+          {
+            "key": "lufs",
+            "ok": true,
+            "text": "loudness: -14.40 LUFS (-14.0 +/-1.0)",
+            "value": -14.4
+          },
+          {
+            "key": "spread",
+            "ok": true,
+            "text": "not crushed: speech spread p90-p10 6.6 dB vs his 8.2 (>= his - 3.0); LRA 2.6 LU (his 3.5)",
+            "value": {
+              "spread": 6.63,
+              "lra": 2.6
+            }
+          },
+          {
+            "key": "tp",
+            "ok": true,
+            "text": "no clipping: true peak -1.80 dBTP (<= -1.0)",
+            "value": -1.8
+          },
+          {
+            "key": "silence",
+            "ok": true,
+            "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+            "value": {
+              "dead": 0,
+              "quiet": 0
+            }
+          },
+          {
+            "key": "length",
+            "ok": true,
+            "text": "audio 58.892 s vs picture 58.892 s (within 0.1 s)",
+            "value": {
+              "audio": 58.892,
+              "video": 58.892
+            }
+          }
+        ],
+        "verdict": "FAIL",
+        "ab": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/audio/Audio AB 16x9.mp4"
+      },
+      "watch_result": {
+        "ok": true,
+        "detail": "16/16 boundaries reviewed as consecutive frames, 35/19 images judged by Independent Codex R4 reviewer (tied to this file by sha256)",
+        "value": {
+          "reviewed": 16,
+          "boundaries": 16,
+          "images": 19,
+          "judged": 35,
+          "open_defects": 0,
+          "accepted": 0,
+          "tied_by": "sha256",
+          "watch_version": "1.2.0"
+        }
+      }
+    }
+  ],
+  "independent_review": {
+    "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/INDEPENDENT_REVIEW.json",
+    "sha256": "4708d69cb146888dd86014cf1bf6b102d477298466d73f41a603a0767d7dfcb4",
+    "verdict": "READY_FOR_DAN_PRIVATE_REVIEW"
+  },
+  "approved_inputs": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/approval-verification.json",
+  "caption_repair": {
+    "status": "New exact candidates ready for review and full gates",
+    "changed_phrase": "And finally, AI adjusts",
+    "previous_onset": 42.67596666666667,
+    "new_onset": 43.1431,
+    "reason": "Confirmed quiet breath before audible And onset 43.17; prior phrase ends 42.66 before the graphic changes caption position. Source video, audio and graphics unchanged",
+    "at": 1792251450.3614972
+  },
+  "spend": {
+    "new_generation_usd": 0,
+    "combined_quality_review_estimate_cap_usd": 4,
+    "actual_billed_usd": null,
+    "editor_gemini_usage": {
+      "input": 42335,
+      "visible_output": 706,
+      "thinking": 4983
+    },
+    "independent_gemini_usage": {
+      "input": 42111,
+      "visible_output": 1704,
+      "thinking": 3583
+    },
+    "editor_and_reviewer_desktop_usage": "Unavailable in runtime; not zero",
+    "note": "Both initial full-film model reviews were within the under-$4 combined estimate. Actual billed provider charge unavailable. See review report for its estimate."
+  },
+  "state": "finalized",
+  "approved_for_setup": true,
+  "dan_approval": {
+    "date": "2026-10-17",
+    "quote": "Everything looks good. This is approved. Give me the handoff or setup",
+    "record": "Handoffs/video-editing/RA-16-R4-approval.json"
+  }
+}

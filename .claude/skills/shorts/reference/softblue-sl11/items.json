@@ -1,0 +1,376 @@
+[
+  {
+    "id": "A-title",
+    "short": "A",
+    "t": 390,
+    "topic": null,
+    "point": null,
+    "cap": "do it in",
+    "note": "Title and wider presenter crop. The full film keeps its approved colour and voice.",
+    "cap_top": 1412,
+    "file": "stills/A-title.jpg",
+    "crop": [
+      557,
+      40,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 390,
+      "shot": {
+        "id": "how.0",
+        "piece": "how",
+        "roll": "C1622",
+        "src_f0": 133,
+        "src_f1": 575,
+        "out_f0": 11530,
+        "out_f1": 11972
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1622.MP4",
+      "source_t": 9.7097,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "A-step1",
+    "short": "A",
+    "t": 450,
+    "topic": null,
+    "point": "Slump Before You Draw In",
+    "cap": "consciously slump",
+    "note": "The starting position is shown without a key-point bar, keeping both hands clear. The footage and captions teach the step.",
+    "cap_top": 1412,
+    "file": "stills/A-step1.jpg",
+    "crop": [
+      545,
+      28,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 450,
+      "shot": {
+        "id": "steps.0r0",
+        "piece": "steps",
+        "roll": "C1623",
+        "src_f0": 95,
+        "src_f1": 370,
+        "reframe": false,
+        "out_f0": 13250,
+        "out_f1": 13525
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1623.MP4",
+      "source_t": 11.077733333333333,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g0.825.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g0.825.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "A-step2",
+    "short": "A",
+    "t": 455,
+    "topic": "STEP 2",
+    "point": "Draw In And Hold",
+    "cap": "suck it in",
+    "note": "Keep the whole draw-in visible; do not zoom into the belly.",
+    "graphic": {
+      "kind": "glass",
+      "band": [
+        1118,
+        1366
+      ],
+      "box": [
+        68,
+        1130,
+        1012,
+        1306
+      ],
+      "lines": 1
+    },
+    "cap_top": 1412,
+    "file": "stills/A-step2.jpg",
+    "crop": [
+      541,
+      40,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 455,
+      "shot": {
+        "id": "steps.0r1",
+        "piece": "steps",
+        "roll": "C1623",
+        "src_f0": 370,
+        "src_f1": 777,
+        "reframe": true,
+        "out_f0": 13525,
+        "out_f1": 13932
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1623.MP4",
+      "source_t": 16.049366666666668,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g0.900.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g0.900.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "A-step3",
+    "short": "A",
+    "t": 470,
+    "topic": "STEP 3",
+    "point": "Use Time, Not Guesswork",
+    "cap": "20 second sets",
+    "note": "A compact timer instruction. The original long-form graphic is rebuilt, not sliced.",
+    "graphic": {
+      "kind": "glass",
+      "band": [
+        1358,
+        1606
+      ],
+      "box": [
+        68,
+        1370,
+        1012,
+        1546
+      ],
+      "lines": 1
+    },
+    "cap_top": 1650,
+    "file": "stills/A-step3.jpg",
+    "crop": [
+      555,
+      38,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 470,
+      "shot": {
+        "id": "timer.0",
+        "piece": "timer",
+        "roll": "C1623",
+        "src_f0": 818,
+        "src_f1": 1031,
+        "out_f0": 13932,
+        "out_f1": 14145
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1623.MP4",
+      "source_t": 32.4324,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "B-title",
+    "short": "B",
+    "t": 490,
+    "topic": null,
+    "point": null,
+    "cap": "hold their breath",
+    "note": "This is the original warning, not the new opening. B still needs its studio pickup.",
+    "cap_top": 1412,
+    "file": "stills/B-title.jpg",
+    "crop": [
+      554,
+      40,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 490,
+      "shot": {
+        "id": "breath.0r0",
+        "piece": "breath",
+        "roll": "C1624",
+        "src_f0": 202,
+        "src_f1": 551,
+        "reframe": false,
+        "out_f0": 14474,
+        "out_f1": 14823
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1624.MP4",
+      "source_t": 13.780433333333333,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "B-breaths",
+    "short": "B",
+    "t": 505,
+    "topic": "DURING THE HOLD",
+    "point": "Small Breaths Through Your Nose",
+    "cap": "taking little breaths",
+    "note": "The actual breathing demonstration stays visible.",
+    "graphic": {
+      "kind": "glass",
+      "band": [
+        1118,
+        1438
+      ],
+      "box": [
+        68,
+        1130,
+        1012,
+        1378
+      ],
+      "lines": 2
+    },
+    "cap_top": 1412,
+    "file": "stills/B-breaths.jpg",
+    "crop": [
+      547,
+      40,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 505,
+      "shot": {
+        "id": "breath.0r2",
+        "piece": "breath",
+        "roll": "C1624",
+        "src_f0": 744,
+        "src_f1": 1139,
+        "reframe": true,
+        "out_f0": 15016,
+        "out_f1": 15411
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1624.MP4",
+      "source_t": 28.795433333333335,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "B-recover",
+    "short": "B",
+    "t": 580,
+    "topic": "BETWEEN SETS",
+    "point": "Recover With Deep Breaths",
+    "cap": "deep belly breaths",
+    "note": "A separate recovery cue accompanies the rest instruction.",
+    "graphic": {
+      "kind": "glass",
+      "band": [
+        1358,
+        1606
+      ],
+      "box": [
+        68,
+        1370,
+        1012,
+        1546
+      ],
+      "lines": 1
+    },
+    "cap_top": 1650,
+    "file": "stills/B-recover.jpg",
+    "crop": [
+      620,
+      38,
+      563,
+      840
+    ],
+    "source": {
+      "t": 580,
+      "shot": {
+        "id": "routine.1r0",
+        "piece": "routine",
+        "roll": "C1626",
+        "src_f0": 842,
+        "src_f1": 1210,
+        "reframe": false,
+        "out_f0": 17245,
+        "out_f1": 17613
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1626.MP4",
+      "source_t": 32.699333333333335,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "C-title",
+    "short": "C",
+    "t": 556,
+    "topic": null,
+    "point": null,
+    "cap": "first thing when",
+    "note": "Title and wider crop. Opening picture will be the active exercise, then this presenter shot.",
+    "cap_top": 1650,
+    "file": "stills/C-title.jpg",
+    "crop": [
+      646,
+      42,
+      563,
+      840
+    ],
+    "source": {
+      "t": 556,
+      "shot": {
+        "id": "routine.0r0",
+        "piece": "routine",
+        "roll": "C1626",
+        "src_f0": 89,
+        "src_f1": 442,
+        "reframe": false,
+        "out_f0": 16506,
+        "out_f1": 16859
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1626.MP4",
+      "source_t": 8.2082,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  },
+  {
+    "id": "C-routine",
+    "short": "C",
+    "t": 566,
+    "topic": "BUILD UP GRADUALLY",
+    "point": "One Set, Then Two, Then Three",
+    "cap": "two sets of",
+    "note": "Progression is the useful takeaway; a minute of rest stays in the speech.",
+    "graphic": {
+      "kind": "glass",
+      "band": [
+        1358,
+        1678
+      ],
+      "box": [
+        68,
+        1370,
+        1012,
+        1618
+      ],
+      "lines": 2
+    },
+    "cap_top": 1650,
+    "file": "stills/C-routine.jpg",
+    "crop": [
+      593,
+      34,
+      698,
+      1040
+    ],
+    "source": {
+      "t": 566,
+      "shot": {
+        "id": "routine.0r1",
+        "piece": "routine",
+        "roll": "C1626",
+        "src_f0": 442,
+        "src_f1": 828,
+        "reframe": true,
+        "out_f0": 16859,
+        "out_f1": 17245
+      },
+      "source": "/Volumes/Expansion/Abs By AI Raw Footage/abs by ai 8:14 shoot | teleprompter ads, indoor talking content, outdoor workout content | jeff chagrin | dan rose/C1626.MP4",
+      "source_t": 18.2182,
+      "lut": "/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube",
+      "vf": "scale=1920:1080:flags=lanczos+accurate_rnd+full_chroma_int:in_color_matrix=bt709:in_range=tv,format=gbrpf32le,lut3d=file='/Volumes/Extreme/_edit_work/SL-11/round1/parent/look/cubes/A_g1.000.cube':interp=tetrahedral,format=rgb24"
+    }
+  }
+]

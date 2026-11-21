@@ -1,0 +1,7 @@
+{
+ "_note": "RA-12 take map on C1667, anchored to PHRASES (never seconds). R1: the only read of the hook through 'everyone else quits' (176-195 s; 8 s windows hear no restart). R2: the SECOND read from 'With Abs By AI' to the end (210.9-245.2 s): the first read (194.6-204.1) ran 'Just upload one photo, tap the button below.' then Dan stopped and asked to roll the prompter back. Spoken 'your AI trainer' replaces the script's 'your AI' (spoken wins).",
+ "ranges": [
+  {"name": "R1", "lines": "hook: the first step + picture + goal + why", "after": 176.0, "from": "the first step to getting", "to": "everyone else quits"},
+  {"name": "R2", "lines": "product + CTA 1 + analysis + plan + close + CTA 2", "after": 209.5, "from": "with abs by ai you can generate", "to": "see yourself with abs"}
+ ]
+}

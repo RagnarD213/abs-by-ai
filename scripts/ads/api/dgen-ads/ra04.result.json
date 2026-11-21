@@ -1,0 +1,344 @@
+{
+ "at": "2026-10-16T18:05:42.598Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/204926161127",
+  "customers/3427170837/adGroupCriteria/204926161127~2840",
+  "customers/3427170837/adGroupCriteria/204926161127~2124",
+  "customers/3427170837/adGroupCriteria/204926161127~1000",
+  "customers/3427170837/adGroupCriteria/204926161127~2498784755180",
+  "customers/3427170837/assets/430714710960",
+  "customers/3427170837/adGroupAds/204926161127~828272644005",
+  "customers/3427170837/assets/430628598994",
+  "customers/3427170837/adGroupAds/204926161127~828398458259"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204926161127",
+    "status": "ENABLED",
+    "id": "204926161127",
+    "name": "RA-04 Top 3 Tips",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204926161127~828272644005",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828272644005",
+     "id": "828272644005",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra04&utm_content=claude-9x16-vsl"
+     ],
+     "name": "RA-04 Top 3 Tips | Claude 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Top 3 Tips For Getting Abs"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "Make Your Goal Your Lock Screen"
+       },
+       {
+        "text": "A Plan That Adjusts With You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose shares his top three tips for getting six pack abs with AI."
+       },
+       {
+        "text": "Here is how I use AI to picture my goal, plan my workouts and adjust my plan."
+       },
+       {
+        "text": "See your goal body, get a plan built for it, and let AI handle the setbacks."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows three simple ways he uses AI for his workouts and meals."
+       },
+       {
+        "text": "AI fitness tips explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "When you get injured or miss the gym, AI adjusts your plan for you."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430714710960"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/204926161127",
+    "status": "ENABLED",
+    "id": "204926161127",
+    "name": "RA-04 Top 3 Tips",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/204926161127~828398458259",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828398458259",
+     "id": "828398458259",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra04&utm_content=claude-16x9-vsl"
+     ],
+     "name": "RA-04 Top 3 Tips | Claude 16:9 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "Top 3 Tips For Getting Abs"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "Make Your Goal Your Lock Screen"
+       },
+       {
+        "text": "A Plan That Adjusts With You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose shares his top three tips for getting six pack abs with AI."
+       },
+       {
+        "text": "Here is how I use AI to picture my goal, plan my workouts and adjust my plan."
+       },
+       {
+        "text": "See your goal body, get a plan built for it, and let AI handle the setbacks."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows three simple ways he uses AI for his workouts and meals."
+       },
+       {
+        "text": "AI fitness tips explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "When you get injured or miss the gym, AI adjusts your plan for you."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430628598994"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~10",
+    "type": "GENDER"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~11",
+    "type": "GENDER"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~20",
+    "type": "GENDER"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~300",
+    "type": "PARENTAL_STATUS"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~301",
+    "type": "PARENTAL_STATUS"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~302",
+    "type": "PARENTAL_STATUS"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503001",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503002",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503003",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503004",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503005",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503006",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~503999",
+    "type": "AGE_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510000",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510001",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510002",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510003",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510004",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510005",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~510006",
+    "type": "INCOME_RANGE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2501149785516",
+    "type": "CUSTOM_AUDIENCE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2501953468231",
+    "type": "CUSTOM_AUDIENCE"
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/204926161127~2501953468271",
+    "type": "CUSTOM_AUDIENCE"
+   }
+  }
+ ]
+}

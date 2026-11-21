@@ -1,0 +1,934 @@
+{
+  "category": "AD",
+  "round": 4,
+  "reviewer": "Independent Codex R4 reviewer",
+  "reviewer_model": null,
+  "reviewer_model_reason": "Current subagent runtime does not expose a model identifier or effort telemetry. No model inferred from a handoff.",
+  "reviewer_tokens": null,
+  "reviewer_tokens_reason": "Current runtime does not expose per-session input/output/cache token counts.",
+  "status": "Complete independent review of both final exact candidates",
+  "original_reviewed_masters": [
+    {
+      "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/rejected-caption-candidate/masters/AI Took Job AD R4 - 9x16.mp4",
+      "sha256": "96a04133d47da806765efce434fc22fdf78d6bd4b2e5c9d960fa62fde6978baf",
+      "bytes": 100274657,
+      "capture_path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4"
+    },
+    {
+      "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/rejected-caption-candidate/masters/AI Took Job AD R4 - 16x9.mp4",
+      "sha256": "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2",
+      "bytes": 85875798,
+      "capture_path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4"
+    }
+  ],
+  "approved_components": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+      "sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+      "bytes": 1924627
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+      "bytes": 2125554
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+      "sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+      "bytes": 315002194
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G02.mov",
+      "sha256": "a96228b49670b4d30bfb75851f1bb6003d92f0a6677defac382954c2812a00bc",
+      "bytes": 21583750
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G03.mov",
+      "sha256": "d0fcc8cdd960f250006564f5217455409f23373f5ba9ada701e0e4d6b193084d",
+      "bytes": 22373645
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+      "sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+      "bytes": 343182379
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02.mov",
+      "sha256": "85f029544e91d2af0a6b01769eae506c9fd43472d645bc865af02026123de49d",
+      "bytes": 22596191
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03.mov",
+      "sha256": "a616553520885b3037f7cb2325780422bb9af8dfd0aa012e747874e427265bc4",
+      "bytes": 23761502
+    }
+  ],
+  "local_inspection": {
+    "chronological_sheets": 6,
+    "native_boundary_strips": 32,
+    "outgoing_incoming_pairs": 32,
+    "total_named_watch_images": 70,
+    "initial_watch_verdicts": {
+      "clean": 6,
+      "expected": 64,
+      "defect": 0
+    },
+    "all_named_images_inspected": true,
+    "method": "All original chronological sheets were opened. Every named five-frame strip and pair was inspected in complete four-part montages with readable native frame/time labels. Independent D01/G01 comparison series were opened in full, then independent G02/G03 source stills and MOV entrance/interior/exit samples. Additional sequential-native pixel samples resolved provider conflicts and concealed splices. This was not a human real-time playback watch."
+  },
+  "scene_dispositions": [
+    {
+      "aspect": "9x16",
+      "id": "D01",
+      "frame_interval_half_open": [
+        581,
+        725
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+      "reference_sha256": "ed575e741716f9a2be54db02f44060dd50147827616556932fb2a803bbff2d39",
+      "observed": "Modern rounded upright phone. Dan sunglasses source photo enters in photo picker, same source remains through web app form and generating scan, real-photo chip stays with source. Brief approved phone/grid transition switches to AI chip; same-person AI pool goal fades up, then presenter returns. Entrance/interior/exit match independent R3 demo.",
+      "disposition": "clean",
+      "cause_effect": "Clear: input photo leads to generated goal and analysis; no unexplained physical event. Lower thirds are abstract text overlays rather than narrative motion.",
+      "understandable_without_sound": "Yes. Phone photo input/generation and body-analysis sequence are readable.",
+      "illustrates_spoken_line": "Yes. Photo generation for dream body and visible analysis for fat/muscle plan.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "id": "G01",
+      "frame_interval_half_open": [
+        757,
+        983
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+      "reference_sha256": "7679eac101860cb55f472d61ebafdcf8845de49e6f377bbbea273a61b5314eff",
+      "observed": "Approved static AI pool goal with persistent AI chip; scan line, Body Fat, Fat To Lose and Muscle To Gain bars build progressively, then Your Workout Plan band. No talking presenter is frozen underneath. Entrance/interior/exit match independent R2 G01.",
+      "disposition": "clean",
+      "cause_effect": "Clear: input photo leads to generated goal and analysis; no unexplained physical event. Lower thirds are abstract text overlays rather than narrative motion.",
+      "understandable_without_sound": "Yes. Phone photo input/generation and body-analysis sequence are readable.",
+      "illustrates_spoken_line": "Yes. Photo generation for dream body and visible analysis for fat/muscle plan.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "id": "G02",
+      "frame_interval_half_open": [
+        983,
+        1142
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G02.mov",
+      "reference_sha256": "a96228b49670b4d30bfb75851f1bb6003d92f0a6677defac382954c2812a00bc",
+      "observed": "A Plan Built Around Your Goal lower third enters and types on, holds, then fades across the deliberate wide-to-tight cut 38.005. Presenter continues moving. Entrance, full text and exit match independently approved R2 source.",
+      "disposition": "clean",
+      "cause_effect": "Clear text emphasis over continuous presenter, with no implied physical event.",
+      "understandable_without_sound": "Yes. Key point is legible and self-contained once fully revealed.",
+      "illustrates_spoken_line": "Yes. Distills personalized goal plan or adaptation when life changes.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "id": "G03",
+      "frame_interval_half_open": [
+        1279,
+        1421
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G03.mov",
+      "reference_sha256": "d0fcc8cdd960f250006564f5217455409f23373f5ba9ada701e0e4d6b193084d",
+      "observed": "Keep Progress Going When Life Changes lower third enters and types on, holds through tight-to-wide cut 46.380, then fades. Presenter continues moving throughout. Approved R2 source entrance/interior/exit inspected; separate caption onset repair has been verified in final native pixels.",
+      "disposition": "clean",
+      "cause_effect": "Clear text emphasis over continuous presenter, with no implied physical event.",
+      "understandable_without_sound": "Yes. Key point is legible and self-contained once fully revealed.",
+      "illustrates_spoken_line": "Yes. Distills personalized goal plan or adaptation when life changes.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "16x9",
+      "id": "D01",
+      "frame_interval_half_open": [
+        581,
+        725
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "reference_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256",
+      "observed": "Modern rounded upright phone. Dan sunglasses source photo enters in photo picker, same source remains through web app form and generating scan, real-photo chip stays with source. Brief approved phone/grid transition switches to AI chip; same-person AI pool goal fades up, then presenter returns. Entrance/interior/exit match independent R3 demo.",
+      "disposition": "clean",
+      "cause_effect": "Clear: input photo leads to generated goal and analysis; no unexplained physical event. Lower thirds are abstract text overlays rather than narrative motion.",
+      "understandable_without_sound": "Yes. Phone photo input/generation and body-analysis sequence are readable.",
+      "illustrates_spoken_line": "Yes. Photo generation for dream body and visible analysis for fat/muscle plan.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "id": "G01",
+      "frame_interval_half_open": [
+        757,
+        983
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+      "reference_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253",
+      "observed": "Approved static AI pool goal with persistent AI chip; scan line, Body Fat, Fat To Lose and Muscle To Gain bars build progressively, then Your Workout Plan band. No talking presenter is frozen underneath. Entrance/interior/exit match independent R2 G01.",
+      "disposition": "clean",
+      "cause_effect": "Clear: input photo leads to generated goal and analysis; no unexplained physical event. Lower thirds are abstract text overlays rather than narrative motion.",
+      "understandable_without_sound": "Yes. Phone photo input/generation and body-analysis sequence are readable.",
+      "illustrates_spoken_line": "Yes. Photo generation for dream body and visible analysis for fat/muscle plan.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "id": "G02",
+      "frame_interval_half_open": [
+        983,
+        1142
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02.mov",
+      "reference_sha256": "85f029544e91d2af0a6b01769eae506c9fd43472d645bc865af02026123de49d",
+      "observed": "A Plan Built Around Your Goal lower third enters and types on, holds, then fades across the deliberate wide-to-tight cut 38.005. Presenter continues moving. Entrance, full text and exit match independently approved R2 source.",
+      "disposition": "clean",
+      "cause_effect": "Clear text emphasis over continuous presenter, with no implied physical event.",
+      "understandable_without_sound": "Yes. Key point is legible and self-contained once fully revealed.",
+      "illustrates_spoken_line": "Yes. Distills personalized goal plan or adaptation when life changes.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "id": "G03",
+      "frame_interval_half_open": [
+        1279,
+        1421
+      ],
+      "reference": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03.mov",
+      "reference_sha256": "a616553520885b3037f7cb2325780422bb9af8dfd0aa012e747874e427265bc4",
+      "observed": "Keep Progress Going When Life Changes lower third enters and types on, holds through tight-to-wide cut 46.380, then fades. Presenter continues moving throughout. Approved R2 source entrance/interior/exit inspected; separate caption onset repair has been verified in final native pixels.",
+      "disposition": "clean",
+      "cause_effect": "Clear text emphasis over continuous presenter, with no implied physical event.",
+      "understandable_without_sound": "Yes. Key point is legible and self-contained once fully revealed.",
+      "illustrates_spoken_line": "Yes. Distills personalized goal plan or adaptation when life changes.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    }
+  ],
+  "freeze_dispositions": [
+    {
+      "aspect": "9x16",
+      "scan_frames": 1765,
+      "frozen_candidates": 0,
+      "disposed_candidates": 0,
+      "dispositions": [],
+      "observed": "No flagged candidate. Intentional goal photo is a specifically approved still; app/analysis graphics animate and live presenter moves. Full-film provider and chronological/native checks found no accidental hold.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "16x9",
+      "scan_frames": 1765,
+      "frozen_candidates": 0,
+      "disposed_candidates": 0,
+      "dispositions": [],
+      "observed": "No flagged candidate. Intentional goal photo is a specifically approved still; app/analysis graphics animate and live presenter moves. Full-film provider and chronological/native checks found no accidental hold.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    }
+  ],
+  "join_dispositions": [
+    {
+      "aspect": "9x16",
+      "t": 9.48,
+      "label": "P01 0 out / P02 284 in / join / punch:2",
+      "strip": "strip_000_00-09.48_P01_0_out___P02_284_in___join___punch_2.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Outgoing clasped-hands wide changes directly to distinct tighter composition. Hair and glasses contained. No same-size splice or intermediate crop.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 15.05,
+      "label": "P02 284 out / P03 451 in / join / punch:1",
+      "strip": "strip_001_00-15.05_P02_284_out___P03_451_in___join___punch_.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Tight clasped-hands composition cuts directly to clearly wider waist/thigh view. Intentional size step contains the changed gesture; no island.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 19.39,
+      "label": "P03 451 out / Sunglasses source photo in / covered in / join",
+      "strip": "strip_002_00-19.39_P03_451_out___Sunglasses_source_photo_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Presenter exits directly to complete modern rounded phone containing Dan sunglasses source photo. Real-photo chip appears below phone; no presenter remnant.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 22.72,
+      "label": "AI goal 1 in / Sunglasses source photo out",
+      "strip": "strip_003_00-22.72_AI_goal_1_in___Sunglasses_source_photo_o.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Source-photo generating UI gives way to two-frame phone transition with olive grid. Real-photo chip changes to AI-GENERATED on first replacement frame. This is the approved D01 transition, not missing app content.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 22.79,
+      "label": "AI goal 1 out / AI goal 2 in",
+      "strip": "strip_004_00-22.79_AI_goal_1_out___AI_goal_2_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Phone shell disappears while blue field remains and AI pool photo begins fading up on following native frames. Persistent AI chip and caption are clear. Matches independent D01 transition.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 24.19,
+      "label": "AI goal 2 out / P05 725 in / covered out / join / punch:1",
+      "strip": "strip_005_00-24.19_AI_goal_2_out___P05_725_in___covered_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: AI pool photo and chip leave directly for wider moving presenter. No photo remnant, uncovered presenter island, or cropped hair.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 25.25,
+      "label": "G01 in / AI goal 3 in / P05 725 out / covered in / graphic_regions in / join",
+      "strip": "strip_006_00-25.25_G01_in___AI_goal_3_in___P05_725_out___co.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Presenter gives way to full analysis scene with AI pool goal, AI chip and empty bar scaffold at animation entrance. Whole presenter is covered, with one caption only.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 32.8,
+      "label": "AI goal 3 out / P07 983 in / covered out / graphic_regions in / graphic_regions out / join / punch:1 / G01 out / G02 in",
+      "strip": "strip_007_00-32.80_AI_goal_3_out___P07_983_in___covered_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Complete three-bar analysis and Your Workout Plan band leave directly for wider moving presenter. AI chip leaves with goal. No exposed source cut before return.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 38.0,
+      "label": "P07 983 out / P08 1139 in / join / punch:2",
+      "strip": "strip_008_00-38.00_P07_983_out___P08_1139_in___join___punch.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to a clearly tighter presenter composition while G02 remains and fades. Lower third does not serve as splice cover; deliberate size change makes this acceptable.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 38.1,
+      "label": "graphic_regions out / G02 out",
+      "strip": "strip_009_00-38.10_graphic_regions_out___G02_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Fading G02 vanishes cleanly on consecutive frames while tight presenter motion continues. No pose reset or duplicated caption at graphic exit.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 42.66,
+      "label": "G03 in / graphic_regions in",
+      "strip": "strip_010_00-42.66_G03_in___graphic_regions_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: G03 entrance begins over the same continuing tight presenter. Hands continue normally; one subtitle line stays separate from the card entrance.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 46.38,
+      "label": "P08 1139 out / P09 1390 in / join / punch:1",
+      "strip": "strip_011_00-46.38_P08_1139_out___P09_1390_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Deliberate tight-to-wide composition cut occurs under continuing G03. Both sides contain hair. Overlay stays registered; no same-size presenter splice.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 47.41,
+      "label": "graphic_regions out / G03 out",
+      "strip": "strip_012_00-47.41_graphic_regions_out___G03_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: G03 fade completes over continuous wide presenter gesture. Caption remains single and unobstructed. No freeze or unexpected crop.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 50.82,
+      "label": "P09 1390 out / P10 1523 in / join / punch:2",
+      "strip": "strip_013_00-50.82_P09_1390_out___P10_1523_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to distinct tighter presenter for AI adjusts your plan section. Changed hand pose is accompanied by intentional composition step; no flash.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 53.15,
+      "label": "P10 1523 out / P11 1593 in / join / punch:1",
+      "strip": "strip_014_00-53.15_P10_1523_out___P11_1593_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Tight changes directly to distinct wider presenter for closing pitch. Both pointing hands and all hair are within picture. No intermediate crop.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 57.06,
+      "label": "P11 1593 out / P12 1710 in / join / punch:2",
+      "strip": "strip_015_00-57.06_P11_1593_out___P12_1710_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to tighter closing CTA presenter. Clasped hands replace open gesture across a deliberate size step, with hair contained.",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 25.9246116357,
+      "native_frames_half_open": [
+        775,
+        780
+      ],
+      "disposition": "covered",
+      "note": "Sequential native pixels show uninterrupted full G01 scene at the concealed source-audio splice. No presenter pixels appear. Scan line/bars continue without a picture reset. Full sound supplied to fresh model review, which found smooth speech through both.",
+      "evidence": "independent-extra/9x16-concealed-hair-last.jpg",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "9x16",
+      "t": 32.7062747487,
+      "native_frames_half_open": [
+        978,
+        983
+      ],
+      "disposition": "covered",
+      "note": "Sequential native pixels show uninterrupted full G01 scene at the concealed source-audio splice. No presenter pixels appear. Scan line/bars continue without a picture reset. Full sound supplied to fresh model review, which found smooth speech through both.",
+      "evidence": "independent-extra/9x16-concealed-hair-last.jpg",
+      "candidate_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+    },
+    {
+      "aspect": "16x9",
+      "t": 9.48,
+      "label": "P01 0 out / P02 284 in / join / punch:2",
+      "strip": "strip_000_00-09.48_P01_0_out___P02_284_in___join___punch_2.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Outgoing clasped-hands wide changes directly to distinct tighter composition. Hair and glasses contained. No same-size splice or intermediate crop.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 15.05,
+      "label": "P02 284 out / P03 451 in / join / punch:1",
+      "strip": "strip_001_00-15.05_P02_284_out___P03_451_in___join___punch_.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Tight clasped-hands composition cuts directly to clearly wider waist/thigh view. Intentional size step contains the changed gesture; no island.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 19.39,
+      "label": "P03 451 out / Sunglasses source photo in / covered in / join",
+      "strip": "strip_002_00-19.39_P03_451_out___Sunglasses_source_photo_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Presenter exits directly to complete modern rounded phone containing Dan sunglasses source photo. Real-photo chip appears below phone; no presenter remnant.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 22.72,
+      "label": "AI goal 1 in / Sunglasses source photo out",
+      "strip": "strip_003_00-22.72_AI_goal_1_in___Sunglasses_source_photo_o.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Source-photo generating UI gives way to two-frame phone transition with olive grid. Real-photo chip changes to AI-GENERATED on first replacement frame. This is the approved D01 transition, not missing app content.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 22.79,
+      "label": "AI goal 1 out / AI goal 2 in",
+      "strip": "strip_004_00-22.79_AI_goal_1_out___AI_goal_2_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Phone shell disappears while blue field remains and AI pool photo begins fading up on following native frames. Persistent AI chip and caption are clear. Matches independent D01 transition.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 24.19,
+      "label": "AI goal 2 out / P05 725 in / covered out / join / punch:1",
+      "strip": "strip_005_00-24.19_AI_goal_2_out___P05_725_in___covered_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: AI pool photo and chip leave directly for wider moving presenter. No photo remnant, uncovered presenter island, or cropped hair.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 25.25,
+      "label": "G01 in / AI goal 3 in / P05 725 out / covered in / graphic_regions in / join",
+      "strip": "strip_006_00-25.25_G01_in___AI_goal_3_in___P05_725_out___co.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Presenter gives way to full analysis scene with AI pool goal, AI chip and empty bar scaffold at animation entrance. Whole presenter is covered, with one caption only.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 32.8,
+      "label": "AI goal 3 out / P07 983 in / covered out / graphic_regions in / graphic_regions out / join / punch:1 / G01 out / G02 in",
+      "strip": "strip_007_00-32.80_AI_goal_3_out___P07_983_in___covered_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Complete three-bar analysis and Your Workout Plan band leave directly for wider moving presenter. AI chip leaves with goal. No exposed source cut before return.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 38.0,
+      "label": "P07 983 out / P08 1139 in / join / punch:2",
+      "strip": "strip_008_00-38.00_P07_983_out___P08_1139_in___join___punch.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to a clearly tighter presenter composition while G02 remains and fades. Lower third does not serve as splice cover; deliberate size change makes this acceptable.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 38.1,
+      "label": "graphic_regions out / G02 out",
+      "strip": "strip_009_00-38.10_graphic_regions_out___G02_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Fading G02 vanishes cleanly on consecutive frames while tight presenter motion continues. No pose reset or duplicated caption at graphic exit.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 42.66,
+      "label": "G03 in / graphic_regions in",
+      "strip": "strip_010_00-42.66_G03_in___graphic_regions_in.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: G03 entrance begins over the same continuing tight presenter. Hands continue normally; one subtitle line stays separate from the card entrance.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 46.38,
+      "label": "P08 1139 out / P09 1390 in / join / punch:1",
+      "strip": "strip_011_00-46.38_P08_1139_out___P09_1390_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Deliberate tight-to-wide composition cut occurs under continuing G03. Both sides contain hair. Overlay stays registered; no same-size presenter splice.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 47.41,
+      "label": "graphic_regions out / G03 out",
+      "strip": "strip_012_00-47.41_graphic_regions_out___G03_out.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: G03 fade completes over continuous wide presenter gesture. Caption remains single and unobstructed. No freeze or unexpected crop.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 50.82,
+      "label": "P09 1390 out / P10 1523 in / join / punch:2",
+      "strip": "strip_013_00-50.82_P09_1390_out___P10_1523_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to distinct tighter presenter for AI adjusts your plan section. Changed hand pose is accompanied by intentional composition step; no flash.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 53.15,
+      "label": "P10 1523 out / P11 1593 in / join / punch:1",
+      "strip": "strip_014_00-53.15_P10_1523_out___P11_1593_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Tight changes directly to distinct wider presenter for closing pitch. Both pointing hands and all hair are within picture. No intermediate crop.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 57.06,
+      "label": "P11 1593 out / P12 1710 in / join / punch:2",
+      "strip": "strip_015_00-57.06_P11_1593_out___P12_1710_in___join___punc.jpg",
+      "disposition": "expected",
+      "note": "Five native consecutive frames: Wide changes directly to tighter closing CTA presenter. Clasped hands replace open gesture across a deliberate size step, with hair contained.",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 25.9246116357,
+      "native_frames_half_open": [
+        775,
+        780
+      ],
+      "disposition": "covered",
+      "note": "Sequential native pixels show uninterrupted full G01 scene at the concealed source-audio splice. No presenter pixels appear. Scan line/bars continue without a picture reset. Full sound supplied to fresh model review, which found smooth speech through both.",
+      "evidence": "independent-extra/16x9-concealed-hair-last.jpg",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    },
+    {
+      "aspect": "16x9",
+      "t": 32.7062747487,
+      "native_frames_half_open": [
+        978,
+        983
+      ],
+      "disposition": "covered",
+      "note": "Sequential native pixels show uninterrupted full G01 scene at the concealed source-audio splice. No presenter pixels appear. Scan line/bars continue without a picture reset. Full sound supplied to fresh model review, which found smooth speech through both.",
+      "evidence": "independent-extra/16x9-concealed-hair-last.jpg",
+      "candidate_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+    }
+  ],
+  "provider_conflicts": [
+    {
+      "claim": "Vertical hair clipped at 0.0/3.2/8.8s and broadly throughout",
+      "disposition": "Rejected after independent native-pixel review. Hair has clear space above it at 0.000,3.203,8.809,14.014 and58.859, plus all chronological sheets and native joins. Exact-file hair gate also passes; gate scores alone did not decide this.",
+      "evidence": "independent-extra/9x16-concealed-hair-last.jpg"
+    },
+    {
+      "claim": "Jump cuts around 3.2/8.8/14.0 and later cuts are all jarring",
+      "disposition": "Not supported as naked splices. Early approximate times do not identify actual edit boundaries. Actual presenter joins are deliberate distinct fixed wide/tight composition cuts; hand-pose changes across those cuts are expected. All actual boundaries were reviewed as native strips and pairs.",
+      "evidence": "independent-findings-9x16.json and independent-findings-16x9.json"
+    }
+  ],
+  "caption_correction": {
+    "original_issue": "And finally, AI adjusts appears at 42.6759667 before a genuine quiet breath. Parent source/waveform audit confirms spoken And around 43.17. Full-film provider did not flag this timing issue.",
+    "original_frames": [
+      1279,
+      1293
+    ],
+    "planned_onset": 43.1431,
+    "scope": "Move this caption onset only. Preserve text, placement, graphics, picture and AAC.",
+    "other_phrase_audit_limits": "ASR-based onset audit also reports about 250-299ms lag at 24.32,26.09,50.95. No duplicated or missing phrase observed in full model review; generic shared word-highlight sync remains unresolved and must stay explicit.",
+    "status": "Resolved and independently rechecked in final pixels",
+    "final_onset_frame": 1293,
+    "final_onset_seconds": 43.1431,
+    "original_early_interval_removed": [
+      1279,
+      1293
+    ],
+    "horizontal_previous_phrase_end_frame": 1279,
+    "vertical_previous_phrase_end_frame": 1281,
+    "observed": "New phrase is absent through1292 and appears once at1293, near the spoken And onset43.17. Horizontal previous phrase clears before its two-frame position change; vertical preceding phrase retains its stable position. Caption wording and later transition at1343 remain intact.",
+    "evidence": [
+      "independent-repair/9x16-onset-native.jpg",
+      "independent-repair/16x9-onset-native.jpg"
+    ]
+  },
+  "horizontal_graphic_clearance": {
+    "independent_source_mask_bounds": [
+      86,
+      840,
+      1829,
+      1017
+    ],
+    "G02": {
+      "candidate_frame": 1049,
+      "candidate_time": 35.0016333,
+      "caption_bottom": 774,
+      "gap_px": 66
+    },
+    "G03": {
+      "candidate_frame": 1319,
+      "candidate_time": 44.0106333,
+      "caption_bottom": 788,
+      "gap_px": 52
+    },
+    "disposition": "No caption placement defect. Independently decoded approved overlay and blur-mask alpha agree on actual panel bounds, and native composites visibly confirm clear separation. Conservative metadata y760 caused the original automated collision flag.",
+    "evidence": "independent-extra/horizontal-clearance.json"
+  },
+  "full_motion_audio": {
+    "model": "gemini-3.1-pro-preview",
+    "full_clips": 2,
+    "duration_each_seconds": 58.892167,
+    "video_input_fps": 5,
+    "prompt_tokens": 42111,
+    "candidate_tokens": 1704,
+    "thoughts_tokens": 3583,
+    "estimated_usd": 0.147666,
+    "actual_billed_usd": null,
+    "actual_billed_reason": "Helper exposes token usage but no billed-dollar receipt. Estimate includes visible output and thinking at official <=200k standard rates.",
+    "pricing_source": "https://ai.google.dev/gemini-api/docs/gemini-3",
+    "limit_usd": 2,
+    "prompt_file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-gemini-prompt.txt",
+    "result_file": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-gemini-review.txt",
+    "limitations": [
+      "5fps cannot clear individual native frames or precise lip synchronization.",
+      "Provider timestamps are approximate and some jump assertions do not match native boundary evidence.",
+      "Full audio was supplied; Codex did not perform a human real-time listening watch."
+    ],
+    "historical_native_hashes": [
+      "96a04133d47da806765efce434fc22fdf78d6bd4b2e5c9d960fa62fde6978baf",
+      "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2"
+    ],
+    "historical_review_clips": [
+      {
+        "aspect": "9x16",
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/rejected-caption-candidate/review/AI Took Job AD R4 - 9x16 - REVIEW.mp4",
+        "sha256": "c28b6e7c4c78b2b3778aaf573039aef27259089bf7d1b7224691bb9a9067e326"
+      },
+      {
+        "aspect": "16x9",
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/rejected-caption-candidate/review/AI Took Job AD R4 - 16x9 - REVIEW.mp4",
+        "sha256": "183526cf3aec26fd629e98bfce1eb2b69046e431f27c8b83600f31b19835a063"
+      }
+    ]
+  },
+  "sound_disposition": "Fresh full-film Gemini review with complete sound reports coherent natural speech, stable normal voice, acceptable lip sync within its 5fps limit, complete opening and closing CTA, and no obvious junk/clipped/repeated words. No new pickup/callback exists. Exact unchanged AAC plus numerical audio-integrity checks bind this observation to the repaired version when equality is verified. Retain the known approved warm-bass tone mismatch as an actual audio FAIL.",
+  "publishing_authorized": false,
+  "changes_by_reviewer": "No media, sound treatment or thresholds changed by reviewer. Local evidence files and watch judgments only.",
+  "verdict": "READY_FOR_DAN_PRIVATE_REVIEW",
+  "ready_for_dan_review": true,
+  "confirmed_open_defects": [],
+  "release_authorized": false,
+  "ordinary_delivery_gate_cleared": false,
+  "completed_at": "2026-10-17T10:50:15-0500",
+  "masters": [
+    {
+      "aspect": "9x16",
+      "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+      "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+      "bytes": 100282648,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "duration_seconds": 58.892167,
+      "original_reviewed_sha256": "96a04133d47da806765efce434fc22fdf78d6bd4b2e5c9d960fa62fde6978baf",
+      "watch": {
+        "images": 35,
+        "judged": 35,
+        "boundaries": 16,
+        "reviewed": 16,
+        "inspected": true,
+        "open_defects": 0,
+        "frozen_candidates": 0,
+        "black_candidates": 0,
+        "jump_candidates": 0,
+        "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb"
+      },
+      "audio_gate": {
+        "verdict": "FAIL",
+        "when": "2026-10-17 10:36:27",
+        "gate_version": "2.0.0",
+        "flags": [
+          {
+            "key": "tone",
+            "status": "FAIL",
+            "detail": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)"
+          }
+        ],
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4.audio_gate.json"
+      },
+      "delivery_gate": {
+        "verdict": "FAIL",
+        "when": "2026-10-17T10:47:45-0500",
+        "gate_version": "2.6.1",
+        "flags": [
+          {
+            "key": "audio:stamp",
+            "status": "FAIL",
+            "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 9x16.mp4: tone -- fix the audio, do not deliver"
+          },
+          {
+            "key": "style:coverage",
+            "status": "FAIL",
+            "detail": "31% of runtime is off the main scene (min 38%)"
+          },
+          {
+            "key": "framing:centering",
+            "status": "FAIL",
+            "detail": "10 tracked hold(s) + 0 intentional fixed-wide; head centre vs its window centre: worst +6.5% at 57.0s (max +-6%); 1 hold(s) off [(57.0, 0.06486)]"
+          },
+          {
+            "key": "cut:splice_visibility",
+            "status": "FAIL",
+            "detail": "3/11 joins above the file's own p99 ceiling (35.40): [(15.05, 37.82), (50.82, 35.41), (57.06, 36.36)]"
+          },
+          {
+            "key": "captions:sync",
+            "status": "NOT MEASURED",
+            "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+          }
+        ],
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4.deliver_gate.json"
+      },
+      "repair_equivalence": {
+        "compared_all_frames": 1765,
+        "exact_decoded_frames": 1628,
+        "changed_frame_count": 137,
+        "outside_caption_interval_codec_spill_frames": 123,
+        "outside_interval_min_psnr_db": 42.0607,
+        "aac_packets": 2762,
+        "aac_packet_hashes_and_timestamps_identical": true,
+        "evidence": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-repair/all-frame-comparison.json"
+      }
+    },
+    {
+      "aspect": "16x9",
+      "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4",
+      "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+      "bytes": 85885396,
+      "frames": 1765,
+      "fps": "30000/1001",
+      "duration_seconds": 58.892167,
+      "original_reviewed_sha256": "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2",
+      "watch": {
+        "images": 35,
+        "judged": 35,
+        "boundaries": 16,
+        "reviewed": 16,
+        "inspected": true,
+        "open_defects": 0,
+        "frozen_candidates": 0,
+        "black_candidates": 0,
+        "jump_candidates": 0,
+        "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+      },
+      "audio_gate": {
+        "verdict": "FAIL",
+        "when": "2026-10-17 10:37:01",
+        "gate_version": "2.0.0",
+        "flags": [
+          {
+            "key": "tone",
+            "status": "FAIL",
+            "detail": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)"
+          }
+        ],
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4.audio_gate.json"
+      },
+      "delivery_gate": {
+        "verdict": "FAIL",
+        "when": "2026-10-17T10:50:10-0500",
+        "gate_version": "2.6.1",
+        "flags": [
+          {
+            "key": "audio:stamp",
+            "status": "FAIL",
+            "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 16x9.mp4: tone -- fix the audio, do not deliver"
+          },
+          {
+            "key": "style:coverage",
+            "status": "FAIL",
+            "detail": "23% of runtime is off the main scene (min 35%)"
+          },
+          {
+            "key": "framing:no_wide_level",
+            "status": "FAIL",
+            "detail": "11 talking holds; head height (hair -> chin) per hold: smallest 22.0% of its window at 46.5s (min 27.0%); 7 wide hold(s) [(0.0, 0.23361500000000002), (15.0, 0.23249999999999998), (24.25, 0.2275), (33.0, 0.228425), (46.5, 0.220465)]"
+          },
+          {
+            "key": "cut:splice_visibility",
+            "status": "FAIL",
+            "detail": "4/11 joins above the file's own p99 ceiling (39.95): [(9.48, 39.97), (15.05, 42.55), (50.82, 40.64), (53.15, 41.66)]"
+          },
+          {
+            "key": "captions:sync",
+            "status": "NOT MEASURED",
+            "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+          }
+        ],
+        "path": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 16x9.mp4.deliver_gate.json"
+      },
+      "repair_equivalence": {
+        "compared_all_frames": 1765,
+        "exact_decoded_frames": 1644,
+        "changed_frame_count": 121,
+        "outside_caption_interval_codec_spill_frames": 107,
+        "outside_interval_min_psnr_db": 40.8336,
+        "aac_packets": 2762,
+        "aac_packet_hashes_and_timestamps_identical": true,
+        "evidence": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-repair/all-frame-comparison.json"
+      }
+    }
+  ],
+  "remaining_numeric_flags": [
+    {
+      "aspect": "9x16",
+      "delivery": [
+        {
+          "key": "audio:stamp",
+          "status": "FAIL",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 9x16.mp4: tone -- fix the audio, do not deliver"
+        },
+        {
+          "key": "style:coverage",
+          "status": "FAIL",
+          "detail": "31% of runtime is off the main scene (min 38%)"
+        },
+        {
+          "key": "framing:centering",
+          "status": "FAIL",
+          "detail": "10 tracked hold(s) + 0 intentional fixed-wide; head centre vs its window centre: worst +6.5% at 57.0s (max +-6%); 1 hold(s) off [(57.0, 0.06486)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "status": "FAIL",
+          "detail": "3/11 joins above the file's own p99 ceiling (35.40): [(15.05, 37.82), (50.82, 35.41), (57.06, 36.36)]"
+        },
+        {
+          "key": "captions:sync",
+          "status": "NOT MEASURED",
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      ],
+      "audio": [
+        {
+          "key": "tone",
+          "status": "FAIL",
+          "detail": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)"
+        }
+      ]
+    },
+    {
+      "aspect": "16x9",
+      "delivery": [
+        {
+          "key": "audio:stamp",
+          "status": "FAIL",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on AI Took Job AD R4 - 16x9.mp4: tone -- fix the audio, do not deliver"
+        },
+        {
+          "key": "style:coverage",
+          "status": "FAIL",
+          "detail": "23% of runtime is off the main scene (min 35%)"
+        },
+        {
+          "key": "framing:no_wide_level",
+          "status": "FAIL",
+          "detail": "11 talking holds; head height (hair -> chin) per hold: smallest 22.0% of its window at 46.5s (min 27.0%); 7 wide hold(s) [(0.0, 0.23361500000000002), (15.0, 0.23249999999999998), (24.25, 0.2275), (33.0, 0.228425), (46.5, 0.220465)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "status": "FAIL",
+          "detail": "4/11 joins above the file's own p99 ceiling (39.95): [(9.48, 39.97), (15.05, 42.55), (50.82, 40.64), (53.15, 41.66)]"
+        },
+        {
+          "key": "captions:sync",
+          "status": "NOT MEASURED",
+          "detail": "NOT MEASURED -- no caption words sequence-align with delivered-audio words"
+        }
+      ],
+      "audio": [
+        {
+          "key": "tone",
+          "status": "FAIL",
+          "detail": "tone: mean |err| 2.71 dB (<= 1.2), max 5.28 (<= 2.5)"
+        }
+      ]
+    }
+  ],
+  "open_picture_corrections": [],
+  "final_gate_receipt": [
+    {
+      "aspect": "9x16",
+      "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+      "exit": 1
+    },
+    {
+      "aspect": "16x9",
+      "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+      "exit": 1
+    }
+  ],
+  "scope": "Private review only. Preserve approved intro, Color B, crop pair1, D01/G01/G02/G03 and warm-bass AAC. No publishing or new formats.",
+  "watch_evidence_extraction_note": "G03 seek-based strips/pairs initially disagreed with exact sequential samples. Original tool images were retained, and evidence-only replacements were extracted through full native sequential decode; no media or thresholds changed. See independent-extra/native-watch-evidence-repair.json.",
+  "final_candidate_evidence": "Full chronological/model motion/audio observations belong to the original exact native hashes. Both final candidates were then compared independently against all1765 original decoded frames and every AAC packet. Final targeted native onset frames, updated G03 entrance strips/pairs and affected contact sheets were opened. Unchanged scenes retain the independent source comparison judgments. Local codec spill is reported as a lossy re-encode difference, not exact picture identity. There was no second provider batch.",
+  "evidence_summary": {
+    "required_scenes": 8,
+    "checked_required_scenes": 8,
+    "watch_boundaries": 32,
+    "checked_watch_boundaries": 32,
+    "additional_concealed_splices": 4,
+    "checked_additional_concealed_splices": 4,
+    "new_pickup_callback_entries_exits": 0,
+    "frozen_candidates": 0,
+    "disposed_frozen_candidates": 0,
+    "open_confirmed_picture_defects": 0,
+    "full_movie_provider_batches": 1
+  }
+}

@@ -1,0 +1,33 @@
+{
+ "_note": "RA-15 option B: the script's hook wording from hook take 1 (C1668 13.1-17.4), then the main take from 'Thousands of guys'.",
+ "ranges": [
+  {
+   "name": "H1",
+   "lines": "L1",
+   "after": 12.0,
+   "from": "never pay a nutritionist again",
+   "to": "ai just took their job"
+  },
+  {
+   "name": "R1",
+   "lines": "L2-L3a",
+   "after": 76.0,
+   "from": "thousands of guys",
+   "to": "to get six-pack abs"
+  },
+  {
+   "name": "R2",
+   "lines": "L3b-L5",
+   "after": 93.0,
+   "from": "generate an image of yourself with abs",
+   "to": "and sees you twice"
+  },
+  {
+   "name": "R3",
+   "lines": "L6",
+   "after": 121.5,
+   "from": "start with a picture",
+   "to": "to make it real"
+  }
+ ]
+}

@@ -1,0 +1,68 @@
+{
+  "cold": {
+    "about": "Cold Claude: no guide and no examples. The writer sees only the content brief and one line on who Dan is. This is the floor every other setup is measured against.",
+    "files": []
+  },
+  "guide": {
+    "about": "Today's guide as a writing skill would load it: DAN-VOICE.md, every file in _shared/voice/ (the Part 1 examples, the P2A example files and the swearing rules), WRITING-RULES.md and the personal facts entry.",
+    "files": [
+      ".claude/skills/_shared/DAN-VOICE.md",
+      ".claude/skills/_shared/voice/*.md",
+      ".claude/skills/_shared/WRITING-RULES.md",
+      "Docs/memory/dan-personal-facts-for-scripts.md"
+    ]
+  },
+  "set5": {
+    "about": "Step B2 and B3 alone: no guide and no rules. The writer sees 5 whole real passages from the sample bank, chosen by format and length (never by topic, never from the same source as the test passage), and writes the next piece in the set.",
+    "bank": {
+      "n": 5
+    }
+  },
+  "pairs5": {
+    "about": "Contrast pairs alone: no guide and no rules. The writer sees 5 worked examples from the bank, each one a neutral brief, how Claude wrote it cold, and what Dan really wrote for the same content, then writes Dan's version of a new brief.",
+    "bank": {
+      "n": 5,
+      "pairs": true
+    }
+  },
+  "set5-crit": {
+    "about": "set5, then one revision pass: the dan-voice-critic agent (sees only the draft and 8 real pieces) marks what gives the draft away, the checker script (voice_check.py) reports the numbers outside his bands, and the writer rewrites only the marked spans.",
+    "bank": {
+      "n": 5
+    },
+    "critic": ".claude/agents/dan-voice-critic.md",
+    "revise": [
+      {
+        "critic": true,
+        "check": true
+      }
+    ]
+  },
+  "set5-core": {
+    "about": "set5 plus the short core notes (voice/CORE.md) and the notes for the type (voice/type-<type>.md), placed after the real passages.",
+    "bank": {
+      "n": 5
+    },
+    "files": [
+      ".claude/skills/_shared/voice/CORE.md",
+      ".claude/skills/_shared/voice/type-{type}.md"
+    ]
+  },
+  "set12": {
+    "about": "set5 with 12 real passages instead of 5 (about 3,500 words of him). Still no guide and no rules.",
+    "bank": {
+      "n": 12
+    }
+  },
+  "set5-fable": {
+    "about": "set5 with Fable 5.1 as the writer instead of Opus 5.5. Same passages, same prompt. Tests whether the writer model matters (the hard judge is Opus).",
+    "bank": {
+      "n": 5
+    },
+    "model": "claude-fable-5-1"
+  },
+  "pilot": {
+    "about": "Phase C pilot (2026-10-16): Llama 3.1 8B Instruct (4-bit, MLX) with a LoRA trained on Dan's tier 1 text only (no file that holds a held-out passage), 589 training chunks (of 726 cut; Haiku marked the rest unusable, mostly explicit sex instruction) each paired with a full-strength brief. It writes from the bench's brief directly, with no passages and no rules in its prompt. Drafts come from scripts/voice/pilot_write.py.",
+    "external": "~/.venvs/voice-pilot/bin/python scripts/voice/pilot_write.py --adapter <dir> --date <date>"
+  }
+}

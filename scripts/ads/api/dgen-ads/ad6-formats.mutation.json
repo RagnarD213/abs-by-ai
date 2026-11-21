@@ -1,0 +1,58 @@
+{
+  "ok": true,
+  "dryRun": false,
+  "results": [
+    "customers/3427170837/assets/427555866313",
+    "customers/3427170837/adGroupAds/204444440607~826887690637",
+    "customers/3427170837/assets/427458948149",
+    "customers/3427170837/adGroupAds/204444440607~826887690655",
+    "customers/3427170837/assets/427555872217",
+    "customers/3427170837/adGroupAds/204444440607~826887690931",
+    "customers/3427170837/assets/427555872259",
+    "customers/3427170837/adGroupAds/204444440607~826887690943"
+  ],
+  "response": {
+    "mutateOperationResponses": [
+      {
+        "assetResult": {
+          "resourceName": "customers/3427170837/assets/427555866313"
+        }
+      },
+      {
+        "adGroupAdResult": {
+          "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690637"
+        }
+      },
+      {
+        "assetResult": {
+          "resourceName": "customers/3427170837/assets/427458948149"
+        }
+      },
+      {
+        "adGroupAdResult": {
+          "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690655"
+        }
+      },
+      {
+        "assetResult": {
+          "resourceName": "customers/3427170837/assets/427555872217"
+        }
+      },
+      {
+        "adGroupAdResult": {
+          "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690931"
+        }
+      },
+      {
+        "assetResult": {
+          "resourceName": "customers/3427170837/assets/427555872259"
+        }
+      },
+      {
+        "adGroupAdResult": {
+          "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690943"
+        }
+      }
+    ]
+  }
+}

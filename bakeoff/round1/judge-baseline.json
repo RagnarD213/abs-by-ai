@@ -1,0 +1,3516 @@
+{
+  "summary": {
+    "judge": "production (server.js judgeCandidates, verbatim)",
+    "model": "claude-sonnet-5",
+    "casesEvaluated": 10,
+    "casesExcludedNoBest": [
+      "dan-real__max",
+      "heavier-male-dark__max"
+    ],
+    "pairings": 58,
+    "judgeCalls": 116,
+    "pairingAgreement": 0.6466,
+    "caseAgreement": 0.6,
+    "caseAgreementCount": "6/10",
+    "positionFlips": 10,
+    "positionFlipRate": 0.1724,
+    "lossesToTagCounts": {
+      "skin tone right": 1,
+      "too muscular": 18,
+      "too tan": 6,
+      "looks fake": 9,
+      "not enough change": 2,
+      "face drifted": 1
+    },
+    "perCase": {
+      "lean-male__dramatic": {
+        "wins": 0.5,
+        "total": 5,
+        "losses": [
+          {
+            "other": "A",
+            "model": "nano-banana-pro",
+            "variant": "full",
+            "tags": [],
+            "score": 0
+          },
+          {
+            "other": "B",
+            "model": "gpt-image-1.5",
+            "variant": "condensed",
+            "tags": [
+              "skin tone right",
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "C",
+            "model": "flux-kontext-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "D",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "too tan",
+              "too muscular",
+              "looks fake"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "E",
+            "model": "seedream-4.5",
+            "variant": "condensed",
+            "tags": [
+              "looks fake"
+            ],
+            "score": 0
+          }
+        ],
+        "rate": 0.1,
+        "majority": false,
+        "sweep": false
+      },
+      "lean-male__max": {
+        "wins": 5,
+        "total": 11,
+        "losses": [
+          {
+            "other": "A",
+            "model": "nano-banana-pro",
+            "variant": "full",
+            "tags": [
+              "too tan",
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "D",
+            "model": "seedream-4.5",
+            "variant": "condensed",
+            "tags": [
+              "looks fake"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "E",
+            "model": "flux-kontext-pro",
+            "variant": "full",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "H",
+            "model": "gemini-2.5-flash-image",
+            "variant": "full",
+            "tags": [
+              "not enough change"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "I",
+            "model": "gpt-image-1.5",
+            "variant": "condensed",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "K",
+            "model": "flux-kontext-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "L",
+            "model": "gpt-image-1.5",
+            "variant": "full",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          }
+        ],
+        "rate": 0.45454545454545453,
+        "majority": false,
+        "sweep": false
+      },
+      "moderate-male__dramatic": {
+        "wins": 4.5,
+        "total": 5,
+        "losses": [
+          {
+            "other": "D",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "looks fake",
+              "face drifted",
+              "too muscular"
+            ],
+            "score": 0.5
+          }
+        ],
+        "rate": 0.9,
+        "majority": true,
+        "sweep": false
+      },
+      "moderate-male__max": {
+        "wins": 4.5,
+        "total": 5,
+        "losses": [
+          {
+            "other": "C",
+            "model": "flux-kontext-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0.5
+          }
+        ],
+        "rate": 0.9,
+        "majority": true,
+        "sweep": false
+      },
+      "heavier-male__dramatic": {
+        "wins": 2.5,
+        "total": 4,
+        "losses": [
+          {
+            "other": "B",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "too tan",
+              "too muscular"
+            ],
+            "score": 0
+          },
+          {
+            "other": "E",
+            "model": "gpt-image-1.5",
+            "variant": "condensed",
+            "tags": [],
+            "score": 0.5
+          }
+        ],
+        "rate": 0.625,
+        "majority": true,
+        "sweep": false
+      },
+      "heavier-male__max": {
+        "wins": 10,
+        "total": 11,
+        "losses": [
+          {
+            "other": "G",
+            "model": "flux-2-pro",
+            "variant": "full",
+            "tags": [
+              "too tan",
+              "too muscular",
+              "looks fake"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "K",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular",
+              "looks fake",
+              "too tan"
+            ],
+            "score": 0.5
+          }
+        ],
+        "rate": 0.9090909090909091,
+        "majority": true,
+        "sweep": false
+      },
+      "heavier-female__dramatic": {
+        "wins": 2.5,
+        "total": 4,
+        "losses": [
+          {
+            "other": "A",
+            "model": "seedream-4.5",
+            "variant": "condensed",
+            "tags": [
+              "not enough change"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "B",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular"
+            ],
+            "score": 0
+          }
+        ],
+        "rate": 0.625,
+        "majority": true,
+        "sweep": false
+      },
+      "heavier-female__max": {
+        "wins": 6,
+        "total": 8,
+        "losses": [
+          {
+            "other": "B",
+            "model": "flux-2-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular",
+              "looks fake"
+            ],
+            "score": 0
+          },
+          {
+            "other": "I",
+            "model": "seedream-4.5",
+            "variant": "full",
+            "tags": [
+              "too tan",
+              "too muscular"
+            ],
+            "score": 0
+          }
+        ],
+        "rate": 0.75,
+        "majority": true,
+        "sweep": false
+      },
+      "dan-real__dramatic": {
+        "wins": 2,
+        "total": 4,
+        "losses": [
+          {
+            "other": "B",
+            "model": "gpt-image-1.5",
+            "variant": "condensed",
+            "tags": [
+              "too muscular",
+              "looks fake"
+            ],
+            "score": 0
+          },
+          {
+            "other": "C",
+            "model": "flux-kontext-pro",
+            "variant": "condensed",
+            "tags": [
+              "too muscular",
+              "looks fake"
+            ],
+            "score": 0.5
+          },
+          {
+            "other": "E",
+            "model": "nano-banana-pro",
+            "variant": "full",
+            "tags": [],
+            "score": 0.5
+          }
+        ],
+        "rate": 0.5,
+        "majority": false,
+        "sweep": false
+      },
+      "heavier-male-dark__dramatic": {
+        "wins": 0,
+        "total": 1,
+        "losses": [
+          {
+            "other": "B",
+            "model": "nano-banana-pro",
+            "variant": "full",
+            "tags": [],
+            "score": 0
+          }
+        ],
+        "rate": 0,
+        "majority": false,
+        "sweep": false
+      }
+    }
+  },
+  "results": [
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "gemini-2.5-flash-image",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "broken",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "face drifted",
+        "too muscular",
+        "too tan",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "broken",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "face drifted",
+        "too muscular",
+        "too tan",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "broken",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "G",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "G",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "J",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "J",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "K",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "K",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "L",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "lean-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "nano-banana-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "L",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake",
+        "face drifted",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "looks fake",
+        "face drifted",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-first",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change",
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-second",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change",
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-first",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-second",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-first",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-second",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-first",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-second",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-first",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "broken",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "moderate-male__max",
+      "order": "best-second",
+      "bestLetter": "B",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "face drifted",
+        "looks fake",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "broken",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "verdict": null,
+      "preferredBest": null,
+      "margin": null
+    },
+    {
+      "caseId": "heavier-male__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "A",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "B",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right",
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "D",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "E",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "G",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "G",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "H",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "H",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "J",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "J",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "K",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "K",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-first",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "L",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male__max",
+      "order": "best-second",
+      "bestLetter": "F",
+      "bestModel": "flux-kontext-pro",
+      "bestVariant": "full",
+      "otherLetter": "L",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-first",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-second",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-first",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-second",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-first",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-second",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-first",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__dramatic",
+      "order": "best-second",
+      "bestLetter": "E",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "A",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "skin tone right"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "F",
+      "otherModel": "flux-2-pro",
+      "otherVariant": "full",
+      "otherTags": [
+        "too muscular",
+        "too tan"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "H",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-first",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": false
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-female__max",
+      "order": "best-second",
+      "bestLetter": "G",
+      "bestModel": "gpt-image-1.5",
+      "bestVariant": "condensed",
+      "otherLetter": "I",
+      "otherModel": "seedream-4.5",
+      "otherVariant": "full",
+      "otherTags": [
+        "too tan",
+        "too muscular"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "gpt-image-1.5",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "C",
+      "otherModel": "flux-kontext-pro",
+      "otherVariant": "condensed",
+      "otherTags": [
+        "too muscular",
+        "looks fake"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": false
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "D",
+      "otherModel": "gemini-2.5-flash-image",
+      "otherVariant": "full",
+      "otherTags": [
+        "not enough change"
+      ],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "clear"
+      },
+      "preferredBest": true,
+      "margin": "clear"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "dan-real__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "E",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": true,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male-dark__dramatic",
+      "order": "best-first",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "winner": "b",
+        "margin": "close"
+      },
+      "preferredBest": false,
+      "margin": "close"
+    },
+    {
+      "caseId": "heavier-male-dark__dramatic",
+      "order": "best-second",
+      "bestLetter": "A",
+      "bestModel": "seedream-4.5",
+      "bestVariant": "condensed",
+      "otherLetter": "B",
+      "otherModel": "nano-banana-pro",
+      "otherVariant": "full",
+      "otherTags": [],
+      "verdict": {
+        "a": {
+          "identity": "borderline",
+          "photoreal": true
+        },
+        "b": {
+          "identity": "good",
+          "photoreal": true
+        },
+        "winner": "a",
+        "margin": "clear"
+      },
+      "preferredBest": false,
+      "margin": "clear"
+    }
+  ]
+}

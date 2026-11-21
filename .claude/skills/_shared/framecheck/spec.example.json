@@ -1,0 +1,19 @@
+{
+ "shot": "RA-04 AI1-3: one leg press push. Copy this file next to the frames as <shot>.spec.json and replace every value.",
+ "start_frame": "F4h.png (START; every box and line below is in START pixels, marked on a gridded 2x crop)",
+ "intent": "He lies back on a 45-degree plate-loaded leg press, left forearm in a cast and sling, phone in his right hand. START: knees bent, feet flat on the footplate, smiling at the phone. END: legs straighter, the sled a short way up the rails, smiling while working, phone at his chest.",
+ "person": {"guide": {"line": [533, 1021, 721, 833], "what": "the near chrome rail; the hip-to-ankle line runs along it", "max_deg": 10},
+            "anchored": ["hip", "shoulder", "nose"],
+            "reach": true},
+ "rigid": [{"name": "sled", "what": "footplate, horns and plates ride the rails as one piece",
+            "parts": {"footplate_top_corner": [555, 485, 610, 525], "footplate_left_corner": [500, 505, 545, 545],
+                      "plate_rim": [690, 555, 750, 610], "plate_hub": [780, 620, 830, 670], "horn_tip": [820, 628, 870, 662]},
+            "guide": [533, 1021, 721, 833], "move_px": [15, 120], "extent": [490, 470, 941, 790]}],
+ "contacts": [{"name": "near_shoe", "box": [595, 610, 640, 665], "rides": "sled", "what": "the near shoe's logo panel"}],
+ "still": {"frame_top": [860, 320, 930, 410], "upright": [880, 800, 925, 900], "base": [15, 1150, 100, 1225],
+           "lower_rails": [430, 1080, 500, 1140], "rack_left": [120, 450, 200, 520]},
+ "props": [{"name": "phone", "box": [266, 648, 302, 708], "held_by": "right"}],
+ "hands": {"right": "holds the phone in both frames", "left": "forearm in a white cast inside a navy sling in both frames"},
+ "may_change": {},
+ "bounds": {}
+}

@@ -1,0 +1,34 @@
+{
+  "job": "DS-49",
+  "title": "Why I Stopped Drinking Coconut Water",
+  "round": 2,
+  "category": "CONTENT",
+  "type": "SFC",
+  "approved_at": "2026-10-29T12:15:06.253646-05:00",
+  "dan": "Finalize it",
+  "scope": "Exact complete R2 film approved; prepare one Claude setup handoff. Covers require Dan pick before upload or scheduling. No new edit authorized.",
+  "approved_master": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Coconut Water - DS-49/Coconut Water SFC R2 - complete Short.mp4",
+  "work_master": "/Volumes/Extreme/_edit_work/DS-49/round2/review/Coconut Water SFC R2 - DS-49 - 1080p.mp4",
+  "backup": "/Volumes/Extreme/Short-form video content/Coconut Water - DS-49/Coconut Water SFC R2 - complete Short.mp4",
+  "sha256": "40e0c4d5a2fd4f6daa8a31124b87da0e705120eff76045ef20eb30fc89d342b0",
+  "backup_sha256_match": true,
+  "bytes": 49520670,
+  "duration": 50.617,
+  "choices": {
+    "colour": "V Deeper And More Vivid",
+    "voice": "B Fuller Bass",
+    "crop": "1 Original Portrait"
+  },
+  "gate": {
+    "version": "2.6.2",
+    "passed": 35,
+    "failed": [
+      "audio:stamp (bass-lift tone row)",
+      "framing:headroom",
+      "framing:no_wide_level",
+      "captions:burned (detector; captions present 12/12 frames)"
+    ],
+    "raw_verdict": "FAIL, known rows only"
+  },
+  "independent_review": "SHIP (round 2 rebuild)"
+}

@@ -1,0 +1,9 @@
+{
+ "shot": "SL-09 short 5 (Oura Ring Or WHOOP?) idea J2, R4 WHOOP version: ring and WHOOP strap on one hand, 9:16, about 6.8 s, over 'Oura Ring and WHOOP are my top two options ... wrist-based or a finger-based sleep tracker' (0:13.8-0:20.6)",
+ "start_frame": "J2w_start.png (1080x1920; boxes in START pixels). Both frames were generated at 941x1672 by Codex and resized to 1080x1920 (same aspect, Lanczos); raw files J2w_start_raw.png, J2w_end_raw.png. START is an edit of the approved R3 J2 START with only the band replaced.",
+ "intent": "Close-up from above of a man's right forearm and hand on a light wooden desk in daylight. On the wrist a WHOOP-style screenless tracker: a black knit strap with a small rectangular matte charcoal sensor pod on TOP of the wrist, facing the camera, in both frames. A matte black smart ring on the index finger (the finger next to the thumb). START: hand palm-down, fingers relaxed and apart. END: he has slowly closed the same hand into a relaxed loose fist, knuckles toward the camera, thumb along the outside of the index finger; the ring is still on the index finger and the pod is still on top of the wrist in the same place on the strap. The forearm stays where it is, entering from the bottom right; the desk, the light and the camera do not move.",
+ "still": {"desk_top_left": [10, 10, 200, 190], "desk_top_right": [880, 10, 1070, 160], "desk_bottom_left": [10, 1560, 330, 1900]},
+ "may_change": {"hand_both_frames": [30, 190, 1080, 1320], "wrist_strap_forearm": [460, 1080, 1080, 1920]},
+ "hands": {"right": "the only hand in shot: open palm-down in START, a relaxed loose fist in END; the ring on its index finger and the WHOOP strap with its pod on top of the wrist in both frames"},
+ "bounds": {}
+}

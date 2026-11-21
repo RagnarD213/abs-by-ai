@@ -1,0 +1,127 @@
+{
+  "master": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - complete Short.mp4",
+  "master_sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+  "review": "/Volumes/Extreme/_edit_work/DS-55/round5/review/context/Five Minute Exercises SFC R5 - REVIEW 540p.mp4",
+  "review_sha256": "98ba8a7c679c63144402ebc102043355ffc7b333f140fe3468190cb73bde64f7",
+  "frames": 1644,
+  "duration": 54.854800000000004,
+  "audio": "All2573AACpacketpayloads/PTS/DTS/durations exacttoR4 inmasterand540p",
+  "approved_files_still_match": true,
+  "rois": [
+    {
+      "id": "intro-plank",
+      "frames": [
+        0,
+        120
+      ],
+      "rect": [
+        12,
+        500,
+        430,
+        70
+      ],
+      "text": "Spiderman Planks"
+    },
+    {
+      "id": "intro-squat",
+      "frames": [
+        0,
+        120
+      ],
+      "rect": [
+        12,
+        1048,
+        440,
+        70
+      ],
+      "text": "Bodyweight Squats"
+    },
+    {
+      "id": "main-squat",
+      "frames": [
+        258,
+        518
+      ],
+      "rect": [
+        22,
+        24,
+        490,
+        70
+      ],
+      "text": "Bodyweight Squats"
+    },
+    {
+      "id": "main-plank",
+      "frames": [
+        937,
+        1163
+      ],
+      "rect": [
+        30,
+        338,
+        510,
+        78
+      ],
+      "text": "Spiderman Planks"
+    }
+  ],
+  "spend_usd": 0,
+  "delivered_at": "2026-10-26T15:24:04.413521+00:00",
+  "status": "requested_label_revision_rendered_checked_finished",
+  "category": "CONTENT",
+  "type": "SFC",
+  "round": 5,
+  "title": "Five Minute Exercises SFC R5",
+  "productionOwner": "01a17887-844b-73a3-9cfd-03291c7f09c3",
+  "revisionId": "01a1787b-eb46-7351-8839-0189486ec9d3",
+  "process_count": 1,
+  "review_url": "http://127.0.0.1:9176/",
+  "watch_ranges": [
+    "0:00\u20130:05",
+    "0:08\u20130:18",
+    "0:30\u20130:40"
+  ],
+  "local_VLC_copy": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Videos to Review/Five Minute Exercises SFC R5 - complete Short.mp4",
+  "independent_verdict": "No new visible defect; all4labels correct;31watchimages14boundaries judged",
+  "scope": "Sampled editor/independent picture review; every1644nativeframes scanned/compared; no continuous human audiovisual watch or fresh perceptual listen claimed",
+  "gate_version": "2.6.2",
+  "gate_toolchain_provenance": {
+    "source_ref": "7573798af48391d6b8a49affae5671ec34b51248",
+    "source": "Existing fetched origin/main, no shared checkout changes",
+    "files": [
+      {
+        "source": ".claude/skills/_shared/deliver/gate.py",
+        "local": "/Volumes/Extreme/_edit_work/DS-55/round5/qa-toolchain/gate-2.6.2.py",
+        "sha256": "a556bba527235fb116f71bdc89760426489eed38545eb301fb842ea324dc4b31"
+      },
+      {
+        "source": ".claude/skills/_shared/cut/junk.py",
+        "local": "/Volumes/Extreme/_edit_work/DS-55/round5/qa-toolchain/junk-2.6.2.py",
+        "sha256": "435d3247226b19f6989e3c524e335f7a37b2da535b952efba2abd0c49168bb99"
+      }
+    ]
+  },
+  "gate_count_definition": "30 applicable PASS rows; the gate console counts 34 true rows including 4 declared N/A; total39 rows",
+  "gate_stamp_sha256": "20c043c86bdb3050200ba70d8e058bd42de377c2772945a3ed4add0c8e924122",
+  "raw_gate_report_sha256": "70bae2dee897b1f5650aa96ebac4a568644ca52aa82ee221eec04435fa3c3fde",
+  "gate_verdict": "FAIL",
+  "gate_pass_count": 30,
+  "gate_fail_count": 5,
+  "gate_not_measured_count": 0,
+  "gate_not_applicable_count": 4,
+  "gate_failed_rows": [
+    "audio:stamp",
+    "framing:no_wide_level",
+    "framing:push_coverage",
+    "captions:graphic_clearance",
+    "captions:sync"
+  ],
+  "publication": "No upload or scheduling",
+  "external_spend_usd": 0,
+  "downloads": [],
+  "Dan_reviewed_R5_export": false,
+  "approval_interpretation": "Dan approved the appearance and authorized these4labels then finish. The requested revision is complete; no claim he viewed or approved the new exact R5 file. No new creative choice is requested.",
+  "protected_inputs_still_match": true,
+  "edit_slot": "Retained under Dan earlier explicit request to hold through review; transfer release was temporary",
+  "git_delivery": "See records/git-final-push.log for final synchronization outcome; media delivery is complete independently of shared repository synchronization"
+}

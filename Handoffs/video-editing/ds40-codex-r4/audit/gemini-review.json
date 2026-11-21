@@ -1,0 +1,57 @@
+[
+  {
+    "defect_type": "Spoken Word Completeness",
+    "timestamp": "00:00.000 - 00:19.800",
+    "detail": "Bill Maher's spoken words are fully captured by the captions: 'But let me ask you this. Have you ever seen a fat 90-year-old? Scary, isn't it? Healthy at any weight is an unchallenged lie.'"
+  },
+  {
+    "defect_type": "Spoken Word Completeness",
+    "timestamp": "00:55.750 - 01:00.800",
+    "detail": "The spoken words 'If you're on the obese category' are fully captured by the caption, and there is no missing speech or abrupt jump in the audio or captioning at this point. The transition from 'healthy weight' to 'If you're on the obese category' is smooth and complete."
+  },
+  {
+    "defect_type": "Opening Caption Onset",
+    "timestamp": "00:00.000",
+    "detail": "The opening caption 'But let me ask' appears precisely at the start of the spoken word, indicating good synchronization."
+  },
+  {
+    "defect_type": "Hair Edges and Ghosting",
+    "timestamp": "00:00.000 - 01:05.000",
+    "detail": "No observable defects in hair edges or ghosting for either speaker throughout the video. Both appear sharp and clear."
+  },
+  {
+    "defect_type": "Face and Hand Framing",
+    "timestamp": "00:00.000 - 01:05.000",
+    "detail": "Both Bill Maher and Dan are well-framed. Bill Maher is shown from the chest up, centered. Dan is shown from the chest up, centered, with his hands visible when he gestures, indicating good framing."
+  },
+  {
+    "defect_type": "Caption Spelling and Collisions",
+    "timestamp": "00:20.000",
+    "detail": "The caption 'Bill Mar is right' contains a spelling error. 'Mar' should be 'Maher'."
+  },
+  {
+    "defect_type": "Caption Spelling and Collisions",
+    "timestamp": "00:00.000 - 01:05.000",
+    "detail": "No observable caption collisions with other on-screen elements."
+  },
+  {
+    "defect_type": "BMI Table and Continuous Motion Behind It",
+    "timestamp": "00:43.000 - 01:00.800",
+    "detail": "The BMI table is static and clear. There is no continuous motion or any other visual element behind the table that would cause a defect. The background remains a solid light blue."
+  },
+  {
+    "defect_type": "First Five Seconds",
+    "timestamp": "00:00.000 - 00:05.000",
+    "detail": "No observable defects in video or audio quality during the first five seconds. Both speakers are clear, and captions are synchronized."
+  },
+  {
+    "defect_type": "Bill Maher Quote Completeness and Dan Silent Reaction",
+    "timestamp": "00:00.000 - 00:19.800",
+    "detail": "Bill Maher's quote is complete and fully captioned. Dan's reaction is consistently silent, as observed by his facial expressions and lack of audible response, which aligns with the video's presentation."
+  },
+  {
+    "defect_type": "Ending Subscribe Line",
+    "timestamp": "01:01.000 - 01:05.000",
+    "detail": "The ending subscribe line 'Subscribe to my channel and learn exactly how to lose your belly fat and get abs.' is fully present and correctly spelled. The 'Subscribe To The Channel' overlay is also clear and correctly spelled."
+  }
+]

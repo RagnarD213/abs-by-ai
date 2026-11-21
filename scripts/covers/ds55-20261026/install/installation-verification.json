@@ -1,0 +1,65 @@
+{
+  "checked_utc": "2026-10-28T14:03:06.584848+00:00",
+  "local_extreme": [
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "bytes": 84474520
+    },
+    {
+      "path": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "bytes": 84474520
+    },
+    {
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.srt",
+      "sha256": "82d16c95c2c615d043a57e2dd5c5c245b429ad6cbaec56e75364a12c92066ae5",
+      "bytes": 3611
+    },
+    {
+      "path": "/Volumes/Extreme/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.srt",
+      "sha256": "82d16c95c2c615d043a57e2dd5c5c245b429ad6cbaec56e75364a12c92066ae5",
+      "bytes": 3611
+    }
+  ],
+  "drive_master_srt_download_check": "0 differences, 2 matching files, 2026-10-28",
+  "drive_covers_download_check": "0 differences, 4 matching files, 2026-10-28",
+  "cover_decode_ok": true,
+  "youtube_cover_under_2mb": true,
+  "tiktok_frame_zero_visually_checked": true,
+  "uploads": {
+    "instagram_png": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e0564368-c4bb-47f5-8e82-3aaacecaaaf6.png",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds55/five-minute-exercises-instagram.png",
+      "sha256": "6687dd204410c444119bb77da699af0b29eab2b51266b54232e96dd5362b4c83",
+      "bytes": 3065039,
+      "remote_hash_verified": true
+    },
+    "youtube_jpg": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/83873b02-f789-4c79-8aaa-e469cd6fefd5.jpg",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/approved-ds55/five-minute-exercises-youtube.jpg",
+      "sha256": "9f780f86063d19c4e43cbb748c8ef5dd5da2b833c6c7bd30a247162eed7685c7",
+      "bytes": 618582,
+      "remote_hash_verified": true
+    },
+    "master": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/00042ac6-ed26-4cbd-971b-5217ff31bb40.mp4",
+      "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Five Minute Exercises - DS-55/Five Minute Exercises SFC R5 - complete Short.mp4",
+      "sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "bytes": 84474520,
+      "remote_hash_verified": true
+    },
+    "tiktok": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ed66fb05-4f44-427f-9fcb-27f405730b16.mp4",
+      "path": "/Volumes/Expansion/_edit_work/ds55-publish/five-minute-exercises-tiktok-cover-first.mp4",
+      "sha256": "52fd3a3b456a6b15367195b00fd3e955ecd15045c3968a7790f7b39ec209db36",
+      "bytes": 84781461,
+      "remote_hash_verified": true
+    }
+  },
+  "live_queue_count": 188,
+  "existing_ds55_schedules": 0,
+  "proposed_extra_slot": "2026-10-31T17:00:00.000Z",
+  "proposed_slot_clashes": 0,
+  "schedule_authorized": false
+}

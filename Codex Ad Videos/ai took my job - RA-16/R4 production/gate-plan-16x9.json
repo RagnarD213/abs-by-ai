@@ -1,0 +1,5426 @@
+{
+  "target_seconds": 58.89216666666667,
+  "target_frames": 1765,
+  "joins": [
+    9.476133333333333,
+    15.048366666666666,
+    19.386033333333334,
+    24.190833333333334,
+    25.258566666666667,
+    32.79943333333333,
+    38.00463333333333,
+    46.379666666666665,
+    50.817433333333334,
+    53.1531,
+    57.057
+  ],
+  "audio_joins": [
+    9.463828815108144,
+    15.034480657934836,
+    19.277505330490417,
+    24.19331404203473,
+    25.92461163569904,
+    32.70627474870544,
+    37.99884252208345,
+    46.395187328662814,
+    50.82659153213525,
+    53.15890953396284,
+    57.052086506244294
+  ],
+  "covered": [
+    [
+      19.386033333333334,
+      24.190833333333334
+    ],
+    [
+      25.258566666666667,
+      32.79943333333333
+    ]
+  ],
+  "punch": [
+    [
+      0.0,
+      9.476133333333333,
+      1
+    ],
+    [
+      9.476133333333333,
+      15.048366666666666,
+      2
+    ],
+    [
+      15.048366666666666,
+      19.386033333333334,
+      1
+    ],
+    [
+      19.386033333333334,
+      24.190833333333334,
+      "opaque"
+    ],
+    [
+      24.190833333333334,
+      25.258566666666667,
+      1
+    ],
+    [
+      25.258566666666667,
+      32.79943333333333,
+      "opaque"
+    ],
+    [
+      32.79943333333333,
+      38.00463333333333,
+      1
+    ],
+    [
+      38.00463333333333,
+      46.379666666666665,
+      2
+    ],
+    [
+      46.379666666666665,
+      50.817433333333334,
+      1
+    ],
+    [
+      50.817433333333334,
+      53.1531,
+      2
+    ],
+    [
+      53.1531,
+      57.057,
+      1
+    ],
+    [
+      57.057,
+      58.89216666666667,
+      2
+    ]
+  ],
+  "graphics": [
+    {
+      "name": "G01",
+      "beat": [
+        25.25182759671031,
+        32.81392019494364
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov"
+    },
+    {
+      "name": "G02",
+      "beat": [
+        32.81392019494364,
+        38.10648796832165
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G02.mov"
+    },
+    {
+      "name": "G03",
+      "beat": [
+        42.66347852573866,
+        47.4178190679257
+      ],
+      "mov": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G03.mov"
+    }
+  ],
+  "cards": [],
+  "evidence_contract": {
+    "version": 2,
+    "video_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+  },
+  "caption_states": [
+    {
+      "beat": [
+        0.10010000000000001,
+        1.2679333333333334
+      ],
+      "frame0": 3,
+      "frame1": 38,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-000.png",
+      "image_sha256": "07e5183fbdde1798e77b7a88adee97ce530acbf436990c88442c93268510fcf5",
+      "pos": [
+        620,
+        948
+      ],
+      "rect": [
+        620,
+        948,
+        681,
+        70
+      ],
+      "word": "I'm a personal trainer."
+    },
+    {
+      "beat": [
+        1.2679333333333334,
+        2.5692333333333335
+      ],
+      "frame0": 38,
+      "frame1": 77,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-001.png",
+      "image_sha256": "533ded54f5fa6dc9c19419a3ac27078031fcf04f3b625aaac4ba33d1dbc0de6f",
+      "pos": [
+        790,
+        948
+      ],
+      "rect": [
+        790,
+        948,
+        340,
+        70
+      ],
+      "word": "And AI just"
+    },
+    {
+      "beat": [
+        2.5692333333333335,
+        3.336666666666667
+      ],
+      "frame0": 77,
+      "frame1": 100,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-002.png",
+      "image_sha256": "038e910810db73e677cac7dfbc3471dc8ecfb9a455fc7b540a6553357eca4d76",
+      "pos": [
+        766,
+        948
+      ],
+      "rect": [
+        766,
+        948,
+        384,
+        70
+      ],
+      "word": "took my job."
+    },
+    {
+      "beat": [
+        3.7370666666666668,
+        4.2042
+      ],
+      "frame0": 112,
+      "frame1": 126,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-003.png",
+      "image_sha256": "a26afd4640361dd80bdf88fd9b788e0b9818a19e2456700b299b6b8928591e1d",
+      "pos": [
+        847,
+        948
+      ],
+      "rect": [
+        847,
+        948,
+        227,
+        55
+      ],
+      "word": "A lot of"
+    },
+    {
+      "beat": [
+        4.2042,
+        4.8048
+      ],
+      "frame0": 126,
+      "frame1": 144,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-004.png",
+      "image_sha256": "235cee2b069fda3a5c504ce862194c98cb29ccb4632a6488eccd6f4b9c5a0ea1",
+      "pos": [
+        648,
+        948
+      ],
+      "rect": [
+        648,
+        948,
+        624,
+        71
+      ],
+      "word": "people have figured"
+    },
+    {
+      "beat": [
+        4.8048,
+        5.4054
+      ],
+      "frame0": 144,
+      "frame1": 162,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-005.png",
+      "image_sha256": "2fc49d66f22e322b9f8f08832d2abd57c4b53ea2f724873ee9ec5c1182ca7716",
+      "pos": [
+        793,
+        949
+      ],
+      "rect": [
+        793,
+        949,
+        331,
+        55
+      ],
+      "word": "out that AI"
+    },
+    {
+      "beat": [
+        5.4054,
+        6.2062
+      ],
+      "frame0": 162,
+      "frame1": 186,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-006.png",
+      "image_sha256": "b78a782121c51e9455c01f96188c560a10195de4b361e97683d3705164b446a1",
+      "pos": [
+        630,
+        949
+      ],
+      "rect": [
+        630,
+        949,
+        661,
+        55
+      ],
+      "word": "can create a workout"
+    },
+    {
+      "beat": [
+        6.2062,
+        7.440766666666667
+      ],
+      "frame0": 186,
+      "frame1": 223,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-007.png",
+      "image_sha256": "4e58800f54b037742d5f1ecf8a56f5870b516ce9697bdea22bbaa0cf01606320",
+      "pos": [
+        610,
+        948
+      ],
+      "rect": [
+        610,
+        948,
+        702,
+        71
+      ],
+      "word": "program for you that's"
+    },
+    {
+      "beat": [
+        7.440766666666667,
+        8.341666666666667
+      ],
+      "frame0": 223,
+      "frame1": 250,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-008.png",
+      "image_sha256": "64f506e69115376415e9d6fe330dcd9adce9def468b7b46757168426841fe626",
+      "pos": [
+        642,
+        948
+      ],
+      "rect": [
+        642,
+        948,
+        635,
+        55
+      ],
+      "word": "far better than what"
+    },
+    {
+      "beat": [
+        8.341666666666667,
+        9.376033333333334
+      ],
+      "frame0": 250,
+      "frame1": 281,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-009.png",
+      "image_sha256": "bac6d25c00558de8604260fa8291395bedbe25f7625affd7a1a24a33aca316b8",
+      "pos": [
+        567,
+        948
+      ],
+      "rect": [
+        567,
+        948,
+        784,
+        70
+      ],
+      "word": "any human trainer could."
+    },
+    {
+      "beat": [
+        9.576233333333333,
+        10.276933333333334
+      ],
+      "frame0": 287,
+      "frame1": 308,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-010.png",
+      "image_sha256": "dc093184eac67aa7a8567a64c7355d763d67ff0b015d234a9aff7541853bcf5f",
+      "pos": [
+        671,
+        949
+      ],
+      "rect": [
+        671,
+        949,
+        574,
+        69
+      ],
+      "word": "That's why human"
+    },
+    {
+      "beat": [
+        10.276933333333334,
+        11.244566666666667
+      ],
+      "frame0": 308,
+      "frame1": 337,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-011.png",
+      "image_sha256": "4188daf6e7e25a5932a70ed6993fd2f31c19ce311f5fb3ddd7bf456dea5397c3",
+      "pos": [
+        608,
+        948
+      ],
+      "rect": [
+        608,
+        948,
+        707,
+        70
+      ],
+      "word": "personal trainers have"
+    },
+    {
+      "beat": [
+        11.244566666666667,
+        13.113100000000001
+      ],
+      "frame0": 337,
+      "frame1": 393,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-012.png",
+      "image_sha256": "a46e51a3696c2b004f09135fcbeb9f53dcdc4148a2e5d6cf385e43a177f15086",
+      "pos": [
+        513,
+        948
+      ],
+      "rect": [
+        513,
+        948,
+        895,
+        71
+      ],
+      "word": "gone obsolete and everyone"
+    },
+    {
+      "beat": [
+        13.146466666666667,
+        14.280933333333333
+      ],
+      "frame0": 394,
+      "frame1": 428,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-013.png",
+      "image_sha256": "593f555d91033a7c9a1df79fb8b194ec3d1d8592e20ca3ad0c5b0d7ebdeaa769",
+      "pos": [
+        762,
+        948
+      ],
+      "rect": [
+        762,
+        948,
+        399,
+        71
+      ],
+      "word": "is using AI to"
+    },
+    {
+      "beat": [
+        14.280933333333333,
+        14.981633333333333
+      ],
+      "frame0": 428,
+      "frame1": 449,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-014.png",
+      "image_sha256": "fc689f9a08de26b8dc37dd38e4e0dc15bc8c91654d029d1e8848a5c41b6ac808",
+      "pos": [
+        684,
+        948
+      ],
+      "rect": [
+        684,
+        948,
+        550,
+        71
+      ],
+      "word": "get in shape now."
+    },
+    {
+      "beat": [
+        15.181833333333334,
+        15.749066666666668
+      ],
+      "frame0": 455,
+      "frame1": 472,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-015.png",
+      "image_sha256": "1d3ba029b8e276c5c1f3129fb85fb775706d5a39e2870fda97e7b1445ac77004",
+      "pos": [
+        773,
+        949
+      ],
+      "rect": [
+        773,
+        949,
+        373,
+        70
+      ],
+      "word": "You can get"
+    },
+    {
+      "beat": [
+        15.749066666666668,
+        16.4164
+      ],
+      "frame0": 472,
+      "frame1": 492,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-016.png",
+      "image_sha256": "6082869e7d0021883d066b59dc458376cf0cbf3995a6eaeec747115db62e057d",
+      "pos": [
+        682,
+        948
+      ],
+      "rect": [
+        682,
+        948,
+        554,
+        71
+      ],
+      "word": "started getting in"
+    },
+    {
+      "beat": [
+        16.4164,
+        16.883533333333332
+      ],
+      "frame0": 492,
+      "frame1": 506,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-017.png",
+      "image_sha256": "9b7e0b6462fe5bff9f0591a7956dde6933523dcb1554f77fcebc0b109fcc3bf0",
+      "pos": [
+        749,
+        948
+      ],
+      "rect": [
+        749,
+        948,
+        420,
+        70
+      ],
+      "word": "shape with AI"
+    },
+    {
+      "beat": [
+        16.883533333333332,
+        17.817800000000002
+      ],
+      "frame0": 506,
+      "frame1": 534,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-018.png",
+      "image_sha256": "e8934f8ec1f2a71e45fd2eba7c68bfd05af560d01643add1e18c3aef09a50296",
+      "pos": [
+        688,
+        948
+      ],
+      "rect": [
+        688,
+        948,
+        540,
+        70
+      ],
+      "word": "with my free app."
+    },
+    {
+      "beat": [
+        18.051366666666667,
+        18.485133333333334
+      ],
+      "frame0": 541,
+      "frame1": 554,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-019.png",
+      "image_sha256": "88b9ff6c8ec9f2d62aaab67638fb289d0cb4115eca747916765c0108dd0a587f",
+      "pos": [
+        830,
+        949
+      ],
+      "rect": [
+        830,
+        949,
+        259,
+        69
+      ],
+      "word": "Just tap"
+    },
+    {
+      "beat": [
+        18.485133333333334,
+        19.2192
+      ],
+      "frame0": 554,
+      "frame1": 576,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-020.png",
+      "image_sha256": "5e276acf58ee06efef567be8994f08b0925ca8f1ea880d126dd19f738e3c8c0b",
+      "pos": [
+        676,
+        948
+      ],
+      "rect": [
+        676,
+        948,
+        563,
+        56
+      ],
+      "word": "the button below."
+    },
+    {
+      "beat": [
+        19.4194,
+        20.086733333333335
+      ],
+      "frame0": 582,
+      "frame1": 602,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-021.png",
+      "image_sha256": "43197b79bdbd5eeea989cd8f1143d67557fda94aef2ca1f9e954fcadade589f3",
+      "pos": [
+        646,
+        988
+      ],
+      "rect": [
+        646,
+        988,
+        628,
+        55
+      ],
+      "word": "Here's how it works."
+    },
+    {
+      "beat": [
+        20.653966666666665,
+        21.5215
+      ],
+      "frame0": 619,
+      "frame1": 645,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-022.png",
+      "image_sha256": "eedfbc51f3d00bd9354863398075a9346cc6d645d2f4090522f06916aa4ae34e",
+      "pos": [
+        664,
+        988
+      ],
+      "rect": [
+        664,
+        988,
+        594,
+        71
+      ],
+      "word": "First, you generate"
+    },
+    {
+      "beat": [
+        21.5215,
+        22.088733333333334
+      ],
+      "frame0": 645,
+      "frame1": 662,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-023.png",
+      "image_sha256": "2781cd1c74b6b31a5ea58edb2ce24abb87d9c52a9fd511c03a959ddf81830d54",
+      "pos": [
+        780,
+        988
+      ],
+      "rect": [
+        780,
+        988,
+        362,
+        70
+      ],
+      "word": "a picture of"
+    },
+    {
+      "beat": [
+        22.088733333333334,
+        22.689333333333334
+      ],
+      "frame0": 662,
+      "frame1": 680,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-024.png",
+      "image_sha256": "08328e2e538cc7676116c222caa9e0c7b3e110685b8655e9f44f09f3d912edea",
+      "pos": [
+        672,
+        988
+      ],
+      "rect": [
+        672,
+        988,
+        575,
+        70
+      ],
+      "word": "yourself with your"
+    },
+    {
+      "beat": [
+        22.689333333333334,
+        24.124100000000002
+      ],
+      "frame0": 680,
+      "frame1": 723,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-025.png",
+      "image_sha256": "0c49ab9ffa58896877f7c6e134110d6940aab0ebc5145cceaefabaeb4a0d08c2",
+      "pos": [
+        632,
+        988
+      ],
+      "rect": [
+        632,
+        988,
+        654,
+        71
+      ],
+      "word": "dream body using AI."
+    },
+    {
+      "beat": [
+        24.3243,
+        24.991633333333333
+      ],
+      "frame0": 729,
+      "frame1": 749,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-026.png",
+      "image_sha256": "4b1c7a3903b37e6bf046819b6e0a549857862e0e550e64bac385d9fb4404b774",
+      "pos": [
+        735,
+        949
+      ],
+      "rect": [
+        735,
+        949,
+        450,
+        54
+      ],
+      "word": "And that's not"
+    },
+    {
+      "beat": [
+        24.991633333333333,
+        25.258566666666667
+      ],
+      "frame0": 749,
+      "frame1": 757,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-027.png",
+      "image_sha256": "1bc4e0cf162b68dac252cb525fc346af37f51290d5c5c11f6232100d6f9ad8e5",
+      "pos": [
+        630,
+        948
+      ],
+      "rect": [
+        630,
+        948,
+        655,
+        70
+      ],
+      "word": "just to motivate you."
+    },
+    {
+      "beat": [
+        25.258566666666667,
+        25.892533333333333
+      ],
+      "frame0": 757,
+      "frame1": 776,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-028.png",
+      "image_sha256": "1bc4e0cf162b68dac252cb525fc346af37f51290d5c5c11f6232100d6f9ad8e5",
+      "pos": [
+        1040,
+        948
+      ],
+      "rect": [
+        1040,
+        948,
+        655,
+        70
+      ],
+      "word": "just to motivate you."
+    },
+    {
+      "beat": [
+        26.092733333333335,
+        26.993633333333335
+      ],
+      "frame0": 782,
+      "frame1": 809,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-029.png",
+      "image_sha256": "3b93da08e354375833fa13086eae20658b918a33d338fb558f7420844dd5b725",
+      "pos": [
+        1109,
+        949
+      ],
+      "rect": [
+        1109,
+        949,
+        522,
+        69
+      ],
+      "word": "That shows your"
+    },
+    {
+      "beat": [
+        26.993633333333335,
+        28.328300000000002
+      ],
+      "frame0": 809,
+      "frame1": 849,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-030.png",
+      "image_sha256": "561499926281862b1b158a4b14833d6664b2123078a232f2789b72aa2085dd07",
+      "pos": [
+        1100,
+        948
+      ],
+      "rect": [
+        1100,
+        948,
+        543,
+        70
+      ],
+      "word": "AI trainer exactly"
+    },
+    {
+      "beat": [
+        28.328300000000002,
+        28.928900000000002
+      ],
+      "frame0": 849,
+      "frame1": 867,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-031.png",
+      "image_sha256": "8b7ca0e7535a755c7b40f7df965e5640e2c65f9ee6635346b4d3c9656ea84f53",
+      "pos": [
+        1093,
+        948
+      ],
+      "rect": [
+        1093,
+        948,
+        555,
+        70
+      ],
+      "word": "how much fat you"
+    },
+    {
+      "beat": [
+        28.928900000000002,
+        29.7297
+      ],
+      "frame0": 867,
+      "frame1": 891,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-032.png",
+      "image_sha256": "fbaa88fa335baf24ea1d2b4363fb0278ab9758156153e5f704a103a3b56da8ea",
+      "pos": [
+        1116,
+        948
+      ],
+      "rect": [
+        1116,
+        948,
+        509,
+        55
+      ],
+      "word": "have to lose and"
+    },
+    {
+      "beat": [
+        29.7297,
+        30.4304
+      ],
+      "frame0": 891,
+      "frame1": 912,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-033.png",
+      "image_sha256": "10c9f4a6f3f6e919136afa15452208f8a74cf6287da41514df3a15bbb1e3a3b8",
+      "pos": [
+        1079,
+        949
+      ],
+      "rect": [
+        1079,
+        949,
+        583,
+        69
+      ],
+      "word": "where you need to"
+    },
+    {
+      "beat": [
+        30.4304,
+        31.398033333333334
+      ],
+      "frame0": 912,
+      "frame1": 941,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-034.png",
+      "image_sha256": "2943290f5b8c4b72d0fc8df30ef05aabed9b20755b7ee39b9b5ed3402fa2f00e",
+      "pos": [
+        1048,
+        948
+      ],
+      "rect": [
+        1048,
+        948,
+        646,
+        71
+      ],
+      "word": "gain muscle to make"
+    },
+    {
+      "beat": [
+        31.398033333333334,
+        32.632600000000004
+      ],
+      "frame0": 941,
+      "frame1": 978,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-035.png",
+      "image_sha256": "a662f7b7e493cb320119df55fed18a72ccced3b3e1cddef8d360a5c38e5538ee",
+      "pos": [
+        1028,
+        948
+      ],
+      "rect": [
+        1028,
+        948,
+        681,
+        70
+      ],
+      "word": "your dream body real."
+    },
+    {
+      "beat": [
+        32.8328,
+        33.7337
+      ],
+      "frame0": 984,
+      "frame1": 1011,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-036.png",
+      "image_sha256": "5033be5c64ecbdcdbe398089481fb1205b295422dc91ed0eb35277d4618763e8",
+      "pos": [
+        778,
+        719
+      ],
+      "rect": [
+        778,
+        719,
+        364,
+        62
+      ],
+      "word": "Next, the AI"
+    },
+    {
+      "beat": [
+        33.7337,
+        34.801433333333335
+      ],
+      "frame0": 1011,
+      "frame1": 1043,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-037.png",
+      "image_sha256": "f6c637407effc4389f35b0d7eefa5fecde381068e635a56603a83911865f454c",
+      "pos": [
+        561,
+        718
+      ],
+      "rect": [
+        561,
+        718,
+        796,
+        71
+      ],
+      "word": "generates a personalized"
+    },
+    {
+      "beat": [
+        34.801433333333335,
+        35.8358
+      ],
+      "frame0": 1043,
+      "frame1": 1074,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-038.png",
+      "image_sha256": "6d955de583b53a6b2a90b9d940569f2c8fbb87ee8ff5c21bba1e7a38895e9050",
+      "pos": [
+        614,
+        718
+      ],
+      "rect": [
+        614,
+        718,
+        690,
+        56
+      ],
+      "word": "workout and nutrition"
+    },
+    {
+      "beat": [
+        35.8358,
+        37.27056666666667
+      ],
+      "frame0": 1074,
+      "frame1": 1117,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-039.png",
+      "image_sha256": "9887b87f25da219bc85cf3d6f2215178ef456de4ff01fa740b45f84e82595cdb",
+      "pos": [
+        574,
+        718
+      ],
+      "rect": [
+        574,
+        718,
+        775,
+        71
+      ],
+      "word": "program designed to get"
+    },
+    {
+      "beat": [
+        37.27056666666667,
+        37.9379
+      ],
+      "frame0": 1117,
+      "frame1": 1137,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-040.png",
+      "image_sha256": "c3d51162fcf79e303a733b70df54287c6f98090fcaefbea51d8baf67a405e1dd",
+      "pos": [
+        696,
+        718
+      ],
+      "rect": [
+        696,
+        718,
+        524,
+        71
+      ],
+      "word": "you to your goal."
+    },
+    {
+      "beat": [
+        38.1381,
+        38.90553333333333
+      ],
+      "frame0": 1143,
+      "frame1": 1166,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-041.png",
+      "image_sha256": "9038f89cb1147769abded3c25c71b400c0502e14bb31cab3e88fcde8e4612798",
+      "pos": [
+        755,
+        948
+      ],
+      "rect": [
+        755,
+        948,
+        414,
+        55
+      ],
+      "word": "It's far better"
+    },
+    {
+      "beat": [
+        38.90553333333333,
+        39.70633333333333
+      ],
+      "frame0": 1166,
+      "frame1": 1190,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-042.png",
+      "image_sha256": "27ea69d38cdc6ef7afd2a90d49dfa13a90332d1c98cf941d679e4234596920ac",
+      "pos": [
+        587,
+        948
+      ],
+      "rect": [
+        587,
+        948,
+        745,
+        70
+      ],
+      "word": "than any human fitness"
+    },
+    {
+      "beat": [
+        39.70633333333333,
+        41.2412
+      ],
+      "frame0": 1190,
+      "frame1": 1236,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-043.png",
+      "image_sha256": "50d27c1d1d9e8682ec82e2e86ef49541164c4446cf44657441846e96ab2fc7e4",
+      "pos": [
+        508,
+        948
+      ],
+      "rect": [
+        508,
+        948,
+        909,
+        70
+      ],
+      "word": "plan because it's specifically"
+    },
+    {
+      "beat": [
+        41.2412,
+        42.67596666666667
+      ],
+      "frame0": 1236,
+      "frame1": 1279,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-044.png",
+      "image_sha256": "2370d47152255151248ef577629fed702b8bdc4d7a4f4e7dd57ddf7ef9ef98a7",
+      "pos": [
+        618,
+        948
+      ],
+      "rect": [
+        618,
+        948,
+        682,
+        71
+      ],
+      "word": "designed just for you."
+    },
+    {
+      "beat": [
+        43.143100000000004,
+        44.81143333333333
+      ],
+      "frame0": 1293,
+      "frame1": 1343,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-045.png",
+      "image_sha256": "72c877a468f36344dd3f274115d89d745b617affa186ae5c353360f2bd154daf",
+      "pos": [
+        619,
+        718
+      ],
+      "rect": [
+        619,
+        718,
+        681,
+        70
+      ],
+      "word": "And finally, AI adjusts"
+    },
+    {
+      "beat": [
+        44.81143333333333,
+        45.6456
+      ],
+      "frame0": 1343,
+      "frame1": 1368,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-046.png",
+      "image_sha256": "b82d02177ac8a57d90128fca8673d14956dce763558865f3cab96ad2d77cd912",
+      "pos": [
+        660,
+        718
+      ],
+      "rect": [
+        660,
+        718,
+        598,
+        70
+      ],
+      "word": "your plan when life"
+    },
+    {
+      "beat": [
+        45.6456,
+        46.31293333333333
+      ],
+      "frame0": 1368,
+      "frame1": 1388,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-047.png",
+      "image_sha256": "564929ccbd05bd3bd232ee2b08fb402e0ae781b076397f21ca70fcf9146bdcf6",
+      "pos": [
+        712,
+        718
+      ],
+      "rect": [
+        712,
+        718,
+        493,
+        71
+      ],
+      "word": "gets in the way."
+    },
+    {
+      "beat": [
+        46.513133333333336,
+        46.8468
+      ],
+      "frame0": 1394,
+      "frame1": 1404,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-048.png",
+      "image_sha256": "0fcf3c39db284f41cc1e3ea0403ee6302174a408bff941d42275c271dc9b83c1",
+      "pos": [
+        740,
+        719
+      ],
+      "rect": [
+        740,
+        719,
+        438,
+        70
+      ],
+      "word": "When you get"
+    },
+    {
+      "beat": [
+        46.8468,
+        47.4474
+      ],
+      "frame0": 1404,
+      "frame1": 1422,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-049.png",
+      "image_sha256": "0c66e8c261962f3bf93816e34338dc9dcb882bfefc826c7f886a56d82d3b9757",
+      "pos": [
+        682,
+        718
+      ],
+      "rect": [
+        682,
+        718,
+        558,
+        70
+      ],
+      "word": "injured, when you"
+    },
+    {
+      "beat": [
+        47.4474,
+        47.68096666666667
+      ],
+      "frame0": 1422,
+      "frame1": 1429,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-050.png",
+      "image_sha256": "0c66e8c261962f3bf93816e34338dc9dcb882bfefc826c7f886a56d82d3b9757",
+      "pos": [
+        682,
+        948
+      ],
+      "rect": [
+        682,
+        948,
+        558,
+        70
+      ],
+      "word": "injured, when you"
+    },
+    {
+      "beat": [
+        47.68096666666667,
+        48.28156666666667
+      ],
+      "frame0": 1429,
+      "frame1": 1447,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-051.png",
+      "image_sha256": "366fcc86408dfa9152a35ec3dee76ac661624216ba1d8952d1b5a2af714f6b1c",
+      "pos": [
+        717,
+        948
+      ],
+      "rect": [
+        717,
+        948,
+        487,
+        55
+      ],
+      "word": "can't make it to"
+    },
+    {
+      "beat": [
+        48.28156666666667,
+        48.98226666666667
+      ],
+      "frame0": 1447,
+      "frame1": 1468,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-052.png",
+      "image_sha256": "e31e3b8e6de658248dd36f93e6c0aa6af8d0fb30129813e88271fd39c09d6752",
+      "pos": [
+        690,
+        949
+      ],
+      "rect": [
+        690,
+        949,
+        534,
+        70
+      ],
+      "word": "the gym one day,"
+    },
+    {
+      "beat": [
+        49.082366666666665,
+        49.9499
+      ],
+      "frame0": 1471,
+      "frame1": 1497,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-053.png",
+      "image_sha256": "371664400710f5917e2d3c90c1a198f9c48f92366d0c3630a7ea002017a6ddf4",
+      "pos": [
+        593,
+        948
+      ],
+      "rect": [
+        593,
+        948,
+        734,
+        70
+      ],
+      "word": "or when the equipment"
+    },
+    {
+      "beat": [
+        49.9499,
+        50.7507
+      ],
+      "frame0": 1497,
+      "frame1": 1521,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-054.png",
+      "image_sha256": "410a18355271619ee2bcda6da7a021d91eee90467496adf71b1b65f2f4c42bb0",
+      "pos": [
+        652,
+        948
+      ],
+      "rect": [
+        652,
+        948,
+        611,
+        70
+      ],
+      "word": "you need is broken."
+    },
+    {
+      "beat": [
+        50.950900000000004,
+        51.98526666666667
+      ],
+      "frame0": 1527,
+      "frame1": 1558,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-055.png",
+      "image_sha256": "22d228f53e95f96ed028c70cf99cda54e83c5e39ee678b8c33e229fbee4f3848",
+      "pos": [
+        725,
+        948
+      ],
+      "rect": [
+        725,
+        948,
+        471,
+        70
+      ],
+      "word": "AI adjusts your"
+    },
+    {
+      "beat": [
+        51.98526666666667,
+        53.08636666666667
+      ],
+      "frame0": 1558,
+      "frame1": 1591,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-056.png",
+      "image_sha256": "a6b917fd99afebb8495d7416b962681e520382b0cdecbcf999d83fdc30bd226e",
+      "pos": [
+        706,
+        948
+      ],
+      "rect": [
+        706,
+        948,
+        507,
+        70
+      ],
+      "word": "plan in seconds."
+    },
+    {
+      "beat": [
+        53.286566666666666,
+        54.98826666666667
+      ],
+      "frame0": 1597,
+      "frame1": 1648,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-057.png",
+      "image_sha256": "833fd7027556b2941fade558058130714b2b9b6658ded713e800a0b7e1223fa7",
+      "pos": [
+        460,
+        948
+      ],
+      "rect": [
+        460,
+        948,
+        1003,
+        70
+      ],
+      "word": "Ditch expensive human trainers"
+    },
+    {
+      "beat": [
+        54.98826666666667,
+        55.922533333333334
+      ],
+      "frame0": 1648,
+      "frame1": 1676,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-058.png",
+      "image_sha256": "74d31792e663c736ac9e92e6efb96a5c09a8abfd2aab524cd0b89917f67b4b92",
+      "pos": [
+        685,
+        948
+      ],
+      "rect": [
+        685,
+        948,
+        553,
+        70
+      ],
+      "word": "and build your six"
+    },
+    {
+      "beat": [
+        55.922533333333334,
+        56.99026666666667
+      ],
+      "frame0": 1676,
+      "frame1": 1708,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-059.png",
+      "image_sha256": "583d244809944c504b315e125a1c4e48a18bb47fd322ba4bc152fab7f15b3d8c",
+      "pos": [
+        700,
+        948
+      ],
+      "rect": [
+        700,
+        948,
+        520,
+        70
+      ],
+      "word": "pack abs with AI."
+    },
+    {
+      "beat": [
+        57.190466666666666,
+        57.7577
+      ],
+      "frame0": 1714,
+      "frame1": 1731,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-060.png",
+      "image_sha256": "3a03c569eb410fd6f951767731eca120e1e8d1b40ed8a2679bd371ab3d4d15f4",
+      "pos": [
+        723,
+        949
+      ],
+      "rect": [
+        723,
+        949,
+        470,
+        69
+      ],
+      "word": "Tap the button"
+    },
+    {
+      "beat": [
+        57.7577,
+        58.825433333333336
+      ],
+      "frame0": 1731,
+      "frame1": 1763,
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions/16x9-061.png",
+      "image_sha256": "1dc6bf0d7085e6e935d08132758264247a5d9c615ed8cba164c8fe2bef4483d5",
+      "pos": [
+        633,
+        948
+      ],
+      "rect": [
+        633,
+        948,
+        654,
+        71
+      ],
+      "word": "below to get started."
+    }
+  ],
+  "speech_words": [
+    {
+      "w": " I'm",
+      "t": 0.0,
+      "e": 0.58,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 0.58,
+      "e": 0.66,
+      "p": null
+    },
+    {
+      "w": " personal",
+      "t": 0.66,
+      "e": 0.9,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 0.9,
+      "e": 1.26,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 1.26,
+      "e": 1.8,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 1.8,
+      "e": 2.04,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 2.04,
+      "e": 2.56,
+      "p": null
+    },
+    {
+      "w": " took",
+      "t": 2.56,
+      "e": 2.78,
+      "p": null
+    },
+    {
+      "w": " my",
+      "t": 2.78,
+      "e": 2.96,
+      "p": null
+    },
+    {
+      "w": " job.",
+      "t": 2.96,
+      "e": 3.28,
+      "p": null
+    },
+    {
+      "w": " A",
+      "t": 3.76,
+      "e": 3.94,
+      "p": null
+    },
+    {
+      "w": " lot",
+      "t": 3.94,
+      "e": 4.12,
+      "p": null
+    },
+    {
+      "w": " of",
+      "t": 4.12,
+      "e": 4.22,
+      "p": null
+    },
+    {
+      "w": " people",
+      "t": 4.22,
+      "e": 4.38,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 4.38,
+      "e": 4.56,
+      "p": null
+    },
+    {
+      "w": " figured",
+      "t": 4.56,
+      "e": 4.78,
+      "p": null
+    },
+    {
+      "w": " out",
+      "t": 4.78,
+      "e": 5.0,
+      "p": null
+    },
+    {
+      "w": " that",
+      "t": 5.0,
+      "e": 5.14,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 5.14,
+      "e": 5.38,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 5.38,
+      "e": 5.68,
+      "p": null
+    },
+    {
+      "w": " create",
+      "t": 5.68,
+      "e": 5.88,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 5.88,
+      "e": 5.98,
+      "p": null
+    },
+    {
+      "w": " workout",
+      "t": 5.98,
+      "e": 6.18,
+      "p": null
+    },
+    {
+      "w": " program",
+      "t": 6.18,
+      "e": 6.56,
+      "p": null
+    },
+    {
+      "w": " for",
+      "t": 6.56,
+      "e": 6.78,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 6.78,
+      "e": 6.96,
+      "p": null
+    },
+    {
+      "w": " that's",
+      "t": 6.96,
+      "e": 7.46,
+      "p": null
+    },
+    {
+      "w": " far",
+      "t": 7.46,
+      "e": 7.72,
+      "p": null
+    },
+    {
+      "w": " better",
+      "t": 7.72,
+      "e": 7.98,
+      "p": null
+    },
+    {
+      "w": " than",
+      "t": 7.98,
+      "e": 8.18,
+      "p": null
+    },
+    {
+      "w": " what",
+      "t": 8.18,
+      "e": 8.32,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 8.32,
+      "e": 8.54,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 8.54,
+      "e": 8.78,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 8.78,
+      "e": 9.06,
+      "p": null
+    },
+    {
+      "w": " could.",
+      "t": 9.06,
+      "e": 9.32,
+      "p": null
+    },
+    {
+      "w": " That's",
+      "t": 9.6,
+      "e": 9.9,
+      "p": null
+    },
+    {
+      "w": " why",
+      "t": 9.9,
+      "e": 10.02,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 10.02,
+      "e": 10.26,
+      "p": null
+    },
+    {
+      "w": " personal",
+      "t": 10.26,
+      "e": 10.62,
+      "p": null
+    },
+    {
+      "w": " trainers",
+      "t": 10.62,
+      "e": 11.02,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 11.02,
+      "e": 11.24,
+      "p": null
+    },
+    {
+      "w": " gone",
+      "t": 11.24,
+      "e": 11.54,
+      "p": null
+    },
+    {
+      "w": " obsolete",
+      "t": 11.54,
+      "e": 12.06,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 12.06,
+      "e": 12.66,
+      "p": null
+    },
+    {
+      "w": " everyone",
+      "t": 12.66,
+      "e": 13.04,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 13.04,
+      "e": 13.38,
+      "p": null
+    },
+    {
+      "w": " using",
+      "t": 13.38,
+      "e": 13.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 13.64,
+      "e": 13.92,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 13.92,
+      "e": 14.28,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 14.28,
+      "e": 14.4,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 14.4,
+      "e": 14.48,
+      "p": null
+    },
+    {
+      "w": " shape",
+      "t": 14.48,
+      "e": 14.66,
+      "p": null
+    },
+    {
+      "w": " now.",
+      "t": 14.66,
+      "e": 14.88,
+      "p": null
+    },
+    {
+      "w": " You",
+      "t": 15.16,
+      "e": 15.48,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 15.48,
+      "e": 15.62,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 15.62,
+      "e": 15.74,
+      "p": null
+    },
+    {
+      "w": " started",
+      "t": 15.74,
+      "e": 16.0,
+      "p": null
+    },
+    {
+      "w": " getting",
+      "t": 16.0,
+      "e": 16.22,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 16.22,
+      "e": 16.4,
+      "p": null
+    },
+    {
+      "w": " shape",
+      "t": 16.4,
+      "e": 16.56,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 16.56,
+      "e": 16.7,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 16.7,
+      "e": 16.88,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 16.88,
+      "e": 17.14,
+      "p": null
+    },
+    {
+      "w": " my",
+      "t": 17.14,
+      "e": 17.3,
+      "p": null
+    },
+    {
+      "w": " free",
+      "t": 17.3,
+      "e": 17.5,
+      "p": null
+    },
+    {
+      "w": " app.",
+      "t": 17.5,
+      "e": 17.76,
+      "p": null
+    },
+    {
+      "w": " Just",
+      "t": 17.94,
+      "e": 18.2,
+      "p": null
+    },
+    {
+      "w": " tap",
+      "t": 18.2,
+      "e": 18.46,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 18.46,
+      "e": 18.66,
+      "p": null
+    },
+    {
+      "w": " button",
+      "t": 18.66,
+      "e": 18.86,
+      "p": null
+    },
+    {
+      "w": " below.",
+      "t": 18.86,
+      "e": 19.12,
+      "p": null
+    },
+    {
+      "w": " Here's",
+      "t": 19.44,
+      "e": 19.66,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 19.66,
+      "e": 19.74,
+      "p": null
+    },
+    {
+      "w": " it",
+      "t": 19.74,
+      "e": 19.84,
+      "p": null
+    },
+    {
+      "w": " works.",
+      "t": 19.84,
+      "e": 20.04,
+      "p": null
+    },
+    {
+      "w": " First,",
+      "t": 20.6,
+      "e": 20.88,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 21.16,
+      "e": 21.22,
+      "p": null
+    },
+    {
+      "w": " generate",
+      "t": 21.22,
+      "e": 21.54,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 21.54,
+      "e": 21.7,
+      "p": null
+    },
+    {
+      "w": " picture",
+      "t": 21.7,
+      "e": 21.9,
+      "p": null
+    },
+    {
+      "w": " of",
+      "t": 21.9,
+      "e": 22.08,
+      "p": null
+    },
+    {
+      "w": " yourself",
+      "t": 22.08,
+      "e": 22.38,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 22.38,
+      "e": 22.58,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 22.58,
+      "e": 22.66,
+      "p": null
+    },
+    {
+      "w": " dream",
+      "t": 22.66,
+      "e": 22.88,
+      "p": null
+    },
+    {
+      "w": " body",
+      "t": 22.88,
+      "e": 23.12,
+      "p": null
+    },
+    {
+      "w": " using",
+      "t": 23.12,
+      "e": 23.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 23.64,
+      "e": 24.04,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 24.04,
+      "e": 24.56,
+      "p": null
+    },
+    {
+      "w": " that's",
+      "t": 24.56,
+      "e": 24.84,
+      "p": null
+    },
+    {
+      "w": " not",
+      "t": 24.84,
+      "e": 24.96,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 24.96,
+      "e": 25.14,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 25.14,
+      "e": 25.28,
+      "p": null
+    },
+    {
+      "w": " motivate",
+      "t": 25.28,
+      "e": 25.54,
+      "p": null
+    },
+    {
+      "w": " you.",
+      "t": 25.54,
+      "e": 25.84,
+      "p": null
+    },
+    {
+      "w": " That",
+      "t": 25.84,
+      "e": 26.52,
+      "p": null
+    },
+    {
+      "w": " shows",
+      "t": 26.52,
+      "e": 26.8,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 26.8,
+      "e": 26.98,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 26.98,
+      "e": 27.18,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 27.18,
+      "e": 27.54,
+      "p": null
+    },
+    {
+      "w": " exactly",
+      "t": 27.54,
+      "e": 28.3,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 28.3,
+      "e": 28.54,
+      "p": null
+    },
+    {
+      "w": " much",
+      "t": 28.54,
+      "e": 28.66,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 28.66,
+      "e": 28.78,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 28.78,
+      "e": 28.92,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 28.92,
+      "e": 29.04,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 29.04,
+      "e": 29.16,
+      "p": null
+    },
+    {
+      "w": " lose",
+      "t": 29.16,
+      "e": 29.36,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 29.36,
+      "e": 29.72,
+      "p": null
+    },
+    {
+      "w": " where",
+      "t": 29.72,
+      "e": 30.0,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 30.0,
+      "e": 30.18,
+      "p": null
+    },
+    {
+      "w": " need",
+      "t": 30.18,
+      "e": 30.32,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 30.32,
+      "e": 30.44,
+      "p": null
+    },
+    {
+      "w": " gain",
+      "t": 30.44,
+      "e": 30.58,
+      "p": null
+    },
+    {
+      "w": " muscle",
+      "t": 30.58,
+      "e": 30.84,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 30.84,
+      "e": 31.22,
+      "p": null
+    },
+    {
+      "w": " make",
+      "t": 31.22,
+      "e": 31.4,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 31.4,
+      "e": 31.54,
+      "p": null
+    },
+    {
+      "w": " dream",
+      "t": 31.54,
+      "e": 31.78,
+      "p": null
+    },
+    {
+      "w": " body",
+      "t": 31.78,
+      "e": 32.06,
+      "p": null
+    },
+    {
+      "w": " real.",
+      "t": 32.06,
+      "e": 32.54,
+      "p": null
+    },
+    {
+      "w": " Next,",
+      "t": 32.92,
+      "e": 33.12,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 33.4,
+      "e": 33.48,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 33.48,
+      "e": 33.7,
+      "p": null
+    },
+    {
+      "w": " generates",
+      "t": 33.7,
+      "e": 34.16,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 34.16,
+      "e": 34.4,
+      "p": null
+    },
+    {
+      "w": " personalized",
+      "t": 34.4,
+      "e": 34.78,
+      "p": null
+    },
+    {
+      "w": " workout",
+      "t": 34.78,
+      "e": 35.26,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 35.26,
+      "e": 35.54,
+      "p": null
+    },
+    {
+      "w": " nutrition",
+      "t": 35.54,
+      "e": 35.82,
+      "p": null
+    },
+    {
+      "w": " program",
+      "t": 35.82,
+      "e": 36.28,
+      "p": null
+    },
+    {
+      "w": " designed",
+      "t": 36.28,
+      "e": 36.82,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 36.82,
+      "e": 37.1,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 37.1,
+      "e": 37.24,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 37.24,
+      "e": 37.38,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 37.38,
+      "e": 37.52,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 37.52,
+      "e": 37.66,
+      "p": null
+    },
+    {
+      "w": " goal.",
+      "t": 37.66,
+      "e": 37.88,
+      "p": null
+    },
+    {
+      "w": " It's",
+      "t": 38.2,
+      "e": 38.38,
+      "p": null
+    },
+    {
+      "w": " far",
+      "t": 38.38,
+      "e": 38.64,
+      "p": null
+    },
+    {
+      "w": " better",
+      "t": 38.64,
+      "e": 38.9,
+      "p": null
+    },
+    {
+      "w": " than",
+      "t": 38.9,
+      "e": 39.06,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 39.06,
+      "e": 39.24,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 39.24,
+      "e": 39.48,
+      "p": null
+    },
+    {
+      "w": " fitness",
+      "t": 39.48,
+      "e": 39.72,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 39.72,
+      "e": 40.06,
+      "p": null
+    },
+    {
+      "w": " because",
+      "t": 40.06,
+      "e": 40.48,
+      "p": null
+    },
+    {
+      "w": " it's",
+      "t": 40.48,
+      "e": 40.68,
+      "p": null
+    },
+    {
+      "w": " specifically",
+      "t": 40.68,
+      "e": 41.22,
+      "p": null
+    },
+    {
+      "w": " designed",
+      "t": 41.22,
+      "e": 41.7,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 41.7,
+      "e": 42.2,
+      "p": null
+    },
+    {
+      "w": " for",
+      "t": 42.2,
+      "e": 42.5,
+      "p": null
+    },
+    {
+      "w": " you.",
+      "t": 42.5,
+      "e": 42.68,
+      "p": null
+    },
+    {
+      "w": " And",
+      "t": 43.16,
+      "e": 43.32,
+      "p": null
+    },
+    {
+      "w": " finally,",
+      "t": 43.32,
+      "e": 43.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 43.94,
+      "e": 44.16,
+      "p": null
+    },
+    {
+      "w": " adjusts",
+      "t": 44.16,
+      "e": 44.8,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 44.8,
+      "e": 44.8,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 44.8,
+      "e": 45.06,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 45.06,
+      "e": 45.36,
+      "p": null
+    },
+    {
+      "w": " life",
+      "t": 45.36,
+      "e": 45.64,
+      "p": null
+    },
+    {
+      "w": " gets",
+      "t": 45.64,
+      "e": 45.86,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 45.86,
+      "e": 46.0,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 46.0,
+      "e": 46.1,
+      "p": null
+    },
+    {
+      "w": " way.",
+      "t": 46.1,
+      "e": 46.26,
+      "p": null
+    },
+    {
+      "w": " When",
+      "t": 46.52,
+      "e": 46.58,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 46.58,
+      "e": 46.7,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 46.7,
+      "e": 46.84,
+      "p": null
+    },
+    {
+      "w": " injured",
+      "t": 46.84,
+      "e": 47.16,
+      "p": null
+    },
+    {
+      "w": " or",
+      "t": 47.16,
+      "e": 47.5,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 47.5,
+      "e": 47.58,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 47.58,
+      "e": 47.66,
+      "p": null
+    },
+    {
+      "w": " can't",
+      "t": 47.66,
+      "e": 47.96,
+      "p": null
+    },
+    {
+      "w": " make",
+      "t": 47.96,
+      "e": 48.08,
+      "p": null
+    },
+    {
+      "w": " it",
+      "t": 48.08,
+      "e": 48.18,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 48.18,
+      "e": 48.28,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 48.28,
+      "e": 48.36,
+      "p": null
+    },
+    {
+      "w": " gym",
+      "t": 48.36,
+      "e": 48.52,
+      "p": null
+    },
+    {
+      "w": " one",
+      "t": 48.52,
+      "e": 48.7,
+      "p": null
+    },
+    {
+      "w": " day",
+      "t": 48.7,
+      "e": 48.92,
+      "p": null
+    },
+    {
+      "w": " or",
+      "t": 48.92,
+      "e": 49.32,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 49.32,
+      "e": 49.48,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 49.48,
+      "e": 49.62,
+      "p": null
+    },
+    {
+      "w": " equipment",
+      "t": 49.62,
+      "e": 49.94,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 49.94,
+      "e": 50.16,
+      "p": null
+    },
+    {
+      "w": " need",
+      "t": 50.16,
+      "e": 50.3,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 50.3,
+      "e": 50.42,
+      "p": null
+    },
+    {
+      "w": " broken.",
+      "t": 50.42,
+      "e": 50.7,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 50.7,
+      "e": 51.14,
+      "p": null
+    },
+    {
+      "w": " adjust",
+      "t": 51.14,
+      "e": 51.7,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 51.7,
+      "e": 51.96,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 51.96,
+      "e": 52.22,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 52.22,
+      "e": 52.54,
+      "p": null
+    },
+    {
+      "w": " seconds.",
+      "t": 52.54,
+      "e": 53.0,
+      "p": null
+    },
+    {
+      "w": " Ditch",
+      "t": 53.42,
+      "e": 53.66,
+      "p": null
+    },
+    {
+      "w": " expensive",
+      "t": 53.66,
+      "e": 54.18,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 54.18,
+      "e": 54.58,
+      "p": null
+    },
+    {
+      "w": " trainers",
+      "t": 54.58,
+      "e": 54.98,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 54.98,
+      "e": 55.38,
+      "p": null
+    },
+    {
+      "w": " build",
+      "t": 55.38,
+      "e": 55.62,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 55.62,
+      "e": 55.74,
+      "p": null
+    },
+    {
+      "w": " six",
+      "t": 55.74,
+      "e": 55.94,
+      "p": null
+    },
+    {
+      "w": " pack",
+      "t": 55.94,
+      "e": 56.12,
+      "p": null
+    },
+    {
+      "w": " abs",
+      "t": 56.12,
+      "e": 56.36,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 56.36,
+      "e": 56.62,
+      "p": null
+    },
+    {
+      "w": " AI.",
+      "t": 56.62,
+      "e": 56.9,
+      "p": null
+    },
+    {
+      "w": " Tap",
+      "t": 57.14,
+      "e": 57.44,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 57.44,
+      "e": 57.58,
+      "p": null
+    },
+    {
+      "w": " button",
+      "t": 57.58,
+      "e": 57.74,
+      "p": null
+    },
+    {
+      "w": " below",
+      "t": 57.74,
+      "e": 58.02,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 58.02,
+      "e": 58.34,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 58.34,
+      "e": 58.44,
+      "p": null
+    },
+    {
+      "w": " started.",
+      "t": 58.44,
+      "e": 58.74,
+      "p": null
+    }
+  ],
+  "speech_words_evidence": {
+    "method": "delivered_asr",
+    "video_sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+  },
+  "graphic_regions": [
+    {
+      "beat": [
+        32.79943333333333,
+        38.104733333333336
+      ],
+      "rect": [
+        86,
+        840,
+        1743,
+        177
+      ]
+    },
+    {
+      "beat": [
+        42.67596666666667,
+        47.414033333333336
+      ],
+      "rect": [
+        86,
+        840,
+        1743,
+        177
+      ]
+    },
+    {
+      "beat": [
+        25.258566666666667,
+        32.79943333333333
+      ],
+      "rect": [
+        825,
+        150,
+        1003,
+        740
+      ]
+    },
+    {
+      "beat": [
+        25.258566666666667,
+        32.79943333333333
+      ],
+      "rect": [
+        319,
+        908,
+        327,
+        72
+      ]
+    }
+  ],
+  "talking_head_windows": [
+    {
+      "name": "P01 0",
+      "beat": [
+        0.0,
+        9.476133333333333
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P02 284",
+      "beat": [
+        9.476133333333333,
+        15.048366666666666
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P03 451",
+      "beat": [
+        15.048366666666666,
+        19.386033333333334
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P05 725",
+      "beat": [
+        24.190833333333334,
+        25.258566666666667
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P07 983",
+      "beat": [
+        32.79943333333333,
+        38.00463333333333
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P08 1139",
+      "beat": [
+        38.00463333333333,
+        46.379666666666665
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P09 1390",
+      "beat": [
+        46.379666666666665,
+        50.817433333333334
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P10 1523",
+      "beat": [
+        50.817433333333334,
+        53.1531
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P11 1593",
+      "beat": [
+        53.1531,
+        57.057
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    },
+    {
+      "name": "P12 1710",
+      "beat": [
+        57.057,
+        58.89216666666667
+      ],
+      "rect": [
+        0,
+        0,
+        1920,
+        1080
+      ],
+      "motion": "fixed-wide"
+    }
+  ],
+  "label_tracks": [
+    {
+      "kind": "real",
+      "beat": [
+        19.386033333333334,
+        22.7227
+      ],
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-real-0.png",
+      "image_sha256": "6d82062f23f8a9f69c77366bfee8f0919e215b70f8ba8325f50ef0735a55f16c",
+      "rect": [
+        548,
+        850,
+        824,
+        80
+      ],
+      "visibility": "full",
+      "sample_times": [
+        21.062708333333333
+      ],
+      "search_px": 4,
+      "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "source_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256"
+    },
+    {
+      "kind": "ai",
+      "beat": [
+        22.7227,
+        22.789433333333335
+      ],
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-ai-100.png",
+      "image_sha256": "e9b5bb1638777638542701279a0ac372081ebf6fcf46396b651ac01d68236567",
+      "rect": [
+        780,
+        850,
+        360,
+        80
+      ],
+      "visibility": "full",
+      "sample_times": [
+        22.764408333333332
+      ],
+      "search_px": 4,
+      "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "source_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256"
+    },
+    {
+      "kind": "ai",
+      "beat": [
+        22.789433333333335,
+        24.190833333333334
+      ],
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-ai-102.png",
+      "image_sha256": "0948ef00930b1c700f2a2e8e53ae20f3dcedbcfc4abba25c3f89f221cfce1833",
+      "rect": [
+        785,
+        840,
+        350,
+        80
+      ],
+      "visibility": "full",
+      "sample_times": [
+        23.498475
+      ],
+      "search_px": 4,
+      "source": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-16x9-CLEAN.mp4",
+      "source_sha256": "1542719b8eb06cd44369e08a1f942570a0846e93835220d41123c1e89b5d3256"
+    },
+    {
+      "kind": "ai",
+      "beat": [
+        25.258566666666667,
+        32.79943333333333
+      ],
+      "image": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-analysis.png",
+      "image_sha256": "6c2bd52e8539d6c035aee3fcf0637d49303aa658db16a3d2d2355dcc0d30f938",
+      "rect": [
+        319,
+        908,
+        327,
+        72
+      ],
+      "visibility": "full",
+      "search_px": 4,
+      "source": "/Volumes/Extreme/_edit_work/ra16/round2/hf16/renders/G01.mov",
+      "source_sha256": "a7cbfd08345bf1a6f0cf7daa188d518a3ba69d5e2e6814a0633ec1da05ca6253"
+    }
+  ],
+  "ai_inserts": [
+    {
+      "name": "AI goal 1",
+      "beat": [
+        22.7227,
+        22.789433333333335
+      ],
+      "chip": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-ai-100.png",
+      "pos": [
+        780,
+        850
+      ]
+    },
+    {
+      "name": "AI goal 2",
+      "beat": [
+        22.789433333333335,
+        24.190833333333334
+      ],
+      "chip": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-ai-102.png",
+      "pos": [
+        785,
+        840
+      ]
+    },
+    {
+      "name": "AI goal 3",
+      "beat": [
+        25.258566666666667,
+        32.79943333333333
+      ],
+      "chip": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-analysis.png",
+      "pos": [
+        319,
+        908
+      ]
+    }
+  ],
+  "real_photos": [
+    {
+      "name": "Sunglasses source photo",
+      "beat": [
+        19.386033333333334,
+        22.7227
+      ],
+      "chip": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/evidence/label-16x9-real-0.png",
+      "pos": [
+        548,
+        850
+      ]
+    }
+  ],
+  "words": [
+    {
+      "w": "I'm",
+      "t": 0.09867499238502596,
+      "e": 0.565138592750529
+    },
+    {
+      "w": "a",
+      "t": 0.565138592750529,
+      "e": 0.65484313128238
+    },
+    {
+      "w": "personal",
+      "t": 0.65484313128238,
+      "e": 0.8880749314651316
+    },
+    {
+      "w": "trainer.",
+      "t": 0.8880749314651316,
+      "e": 1.2468930855924594
+    },
+    {
+      "w": "And",
+      "t": 1.2468930855924594,
+      "e": 1.7851203167834382
+    },
+    {
+      "w": "AI",
+      "t": 1.7851203167834382,
+      "e": 2.0183521169661898
+    },
+    {
+      "w": "just",
+      "t": 2.0183521169661898,
+      "e": 2.5386384404508187
+    },
+    {
+      "w": "took",
+      "t": 2.5386384404508187,
+      "e": 2.753929332927195
+    },
+    {
+      "w": "my",
+      "t": 2.753929332927195,
+      "e": 2.9512793176972214
+    },
+    {
+      "w": "job.",
+      "t": 2.9512793176972214,
+      "e": 3.274215656411824
+    },
+    {
+      "w": "A",
+      "t": 3.704797441364602,
+      "e": 3.9200883338410035
+    },
+    {
+      "w": "lot",
+      "t": 3.9200883338410035,
+      "e": 4.099497410904655
+    },
+    {
+      "w": "of",
+      "t": 4.099497410904655,
+      "e": 4.189201949436506
+    },
+    {
+      "w": "people",
+      "t": 4.189201949436506,
+      "e": 4.386551934206532
+    },
+    {
+      "w": "have",
+      "t": 4.386551934206532,
+      "e": 4.548020103563808
+    },
+    {
+      "w": "figured",
+      "t": 4.548020103563808,
+      "e": 4.781251903746585
+    },
+    {
+      "w": "out",
+      "t": 4.781251903746585,
+      "e": 4.978601888516612
+    },
+    {
+      "w": "that",
+      "t": 4.978601888516612,
+      "e": 5.1400700578739125
+    },
+    {
+      "w": "AI",
+      "t": 5.1400700578739125,
+      "e": 5.3733018580566645
+    },
+    {
+      "w": "can",
+      "t": 5.3733018580566645,
+      "e": 5.6603563813585165
+    },
+    {
+      "w": "create",
+      "t": 5.6603563813585165,
+      "e": 5.857706366128543
+    },
+    {
+      "w": "a",
+      "t": 5.857706366128543,
+      "e": 5.9474109046603685
+    },
+    {
+      "w": "workout",
+      "t": 5.9474109046603685,
+      "e": 6.180642704843145
+    },
+    {
+      "w": "program",
+      "t": 6.180642704843145,
+      "e": 6.557401766676823
+    },
+    {
+      "w": "for",
+      "t": 6.557401766676823,
+      "e": 6.772692659153225
+    },
+    {
+      "w": "you",
+      "t": 6.772692659153225,
+      "e": 6.952101736216876
+    },
+    {
+      "w": "that's",
+      "t": 6.952101736216876,
+      "e": 7.418565336582404
+    },
+    {
+      "w": "far",
+      "t": 7.418565336582404,
+      "e": 7.705619859884256
+    },
+    {
+      "w": "better",
+      "t": 7.705619859884256,
+      "e": 7.974733475479758
+    },
+    {
+      "w": "than",
+      "t": 7.974733475479758,
+      "e": 8.172083460249784
+    },
+    {
+      "w": "what",
+      "t": 8.172083460249784,
+      "e": 8.315610721900711
+    },
+    {
+      "w": "any",
+      "t": 8.315610721900711,
+      "e": 8.530901614377113
+    },
+    {
+      "w": "human",
+      "t": 8.530901614377113,
+      "e": 8.764133414559863
+    },
+    {
+      "w": "trainer",
+      "t": 8.764133414559863,
+      "e": 9.051187937861716
+    },
+    {
+      "w": "could.",
+      "t": 9.051187937861716,
+      "e": 9.302360645750843
+    },
+    {
+      "w": "That's",
+      "t": 9.56250380749317,
+      "e": 9.885440146207747
+    },
+    {
+      "w": "why",
+      "t": 9.885440146207747,
+      "e": 10.028967407858673
+    },
+    {
+      "w": "human",
+      "t": 10.028967407858673,
+      "e": 10.26219920804145
+    },
+    {
+      "w": "personal",
+      "t": 10.26219920804145,
+      "e": 10.603076454462403
+    },
+    {
+      "w": "trainers",
+      "t": 10.603076454462403,
+      "e": 10.97983551629608
+    },
+    {
+      "w": "have",
+      "t": 10.97983551629608,
+      "e": 11.231008224185207
+    },
+    {
+      "w": "gone",
+      "t": 11.231008224185207,
+      "e": 11.51806274748706
+    },
+    {
+      "w": "obsolete",
+      "t": 11.51806274748706,
+      "e": 12.074230886384413
+    },
+    {
+      "w": "and",
+      "t": 12.074230886384413,
+      "e": 12.648339932988142
+    },
+    {
+      "w": "everyone",
+      "t": 12.648339932988142,
+      "e": 13.02509899482182
+    },
+    {
+      "w": "is",
+      "t": 13.132744441060021,
+      "e": 13.365976241242773
+    },
+    {
+      "w": "using",
+      "t": 13.365976241242773,
+      "e": 13.670971672251
+    },
+    {
+      "w": "AI",
+      "t": 13.670971672251,
+      "e": 13.904203472433776
+    },
+    {
+      "w": "to",
+      "t": 13.904203472433776,
+      "e": 14.263021626561079
+    },
+    {
+      "w": "get",
+      "t": 14.263021626561079,
+      "e": 14.388607980505654
+    },
+    {
+      "w": "in",
+      "t": 14.388607980505654,
+      "e": 14.47831251903748
+    },
+    {
+      "w": "shape",
+      "t": 14.47831251903748,
+      "e": 14.657721596101132
+    },
+    {
+      "w": "now.",
+      "t": 14.657721596101132,
+      "e": 14.890953396283908
+    },
+    {
+      "w": "You",
+      "t": 15.151096558026211,
+      "e": 15.47403289674079
+    },
+    {
+      "w": "can",
+      "t": 15.47403289674079,
+      "e": 15.617560158391715
+    },
+    {
+      "w": "get",
+      "t": 15.617560158391715,
+      "e": 15.74314651233629
+    },
+    {
+      "w": "started",
+      "t": 15.74314651233629,
+      "e": 15.994319220225417
+    },
+    {
+      "w": "getting",
+      "t": 15.994319220225417,
+      "e": 16.20961011270182
+    },
+    {
+      "w": "in",
+      "t": 16.20961011270182,
+      "e": 16.406960097471845
+    },
+    {
+      "w": "shape",
+      "t": 16.406960097471845,
+      "e": 16.550487359122773
+    },
+    {
+      "w": "with",
+      "t": 16.550487359122773,
+      "e": 16.711955528480047
+    },
+    {
+      "w": "AI",
+      "t": 16.711955528480047,
+      "e": 16.87342369783735
+    },
+    {
+      "w": "with",
+      "t": 16.87342369783735,
+      "e": 17.124596405726475
+    },
+    {
+      "w": "my",
+      "t": 17.124596405726475,
+      "e": 17.286064575083778
+    },
+    {
+      "w": "free",
+      "t": 17.286064575083778,
+      "e": 17.519296375266528
+    },
+    {
+      "w": "app.",
+      "t": 17.519296375266528,
+      "e": 17.752528175449307
+    },
+    {
+      "w": "Just",
+      "t": 18.039582698751158,
+      "e": 18.183109960402085
+    },
+    {
+      "w": "tap",
+      "t": 18.183109960402085,
+      "e": 18.452223575997586
+    },
+    {
+      "w": "the",
+      "t": 18.452223575997586,
+      "e": 18.649573560767614
+    },
+    {
+      "w": "button",
+      "t": 18.649573560767614,
+      "e": 18.84692354553764
+    },
+    {
+      "w": "below.",
+      "t": 18.84692354553764,
+      "e": 19.13397806883949
+    },
+    {
+      "w": "Here's",
+      "t": 19.403091684434994,
+      "e": 19.636323484617744
+    },
+    {
+      "w": "how",
+      "t": 19.636323484617744,
+      "e": 19.743968930855946
+    },
+    {
+      "w": "it",
+      "t": 19.743968930855946,
+      "e": 19.833673469387772
+    },
+    {
+      "w": "works.",
+      "t": 19.833673469387772,
+      "e": 20.01308254645142
+    },
+    {
+      "w": "First,",
+      "t": 20.623073408467878,
+      "e": 20.874246116357003
+    },
+    {
+      "w": "you",
+      "t": 21.143359731952504,
+      "e": 21.23306427048433
+    },
+    {
+      "w": "generate",
+      "t": 21.23306427048433,
+      "e": 21.52011879378618
+    },
+    {
+      "w": "a",
+      "t": 21.52011879378618,
+      "e": 21.681586963143484
+    },
+    {
+      "w": "picture",
+      "t": 21.681586963143484,
+      "e": 21.89687785561986
+    },
+    {
+      "w": "of",
+      "t": 21.89687785561986,
+      "e": 22.058346024977162
+    },
+    {
+      "w": "yourself",
+      "t": 22.058346024977162,
+      "e": 22.381282363691763
+    },
+    {
+      "w": "with",
+      "t": 22.381282363691763,
+      "e": 22.57863234846179
+    },
+    {
+      "w": "your",
+      "t": 22.57863234846179,
+      "e": 22.668336886993615
+    },
+    {
+      "w": "dream",
+      "t": 22.668336886993615,
+      "e": 22.865686871763643
+    },
+    {
+      "w": "body",
+      "t": 22.865686871763643,
+      "e": 23.11685957965277
+    },
+    {
+      "w": "using",
+      "t": 23.11685957965277,
+      "e": 23.637145903137398
+    },
+    {
+      "w": "AI.",
+      "t": 23.637145903137398,
+      "e": 24.03184587267745
+    },
+    {
+      "w": "And",
+      "t": 24.30095948827293,
+      "e": 24.570073103868406
+    },
+    {
+      "w": "that's",
+      "t": 24.570073103868406,
+      "e": 24.839186719463907
+    },
+    {
+      "w": "not",
+      "t": 24.839186719463907,
+      "e": 24.96477307340846
+    },
+    {
+      "w": "just",
+      "t": 24.96477307340846,
+      "e": 25.12624124276576
+    },
+    {
+      "w": "to",
+      "t": 25.12624124276576,
+      "e": 25.25182759671031
+    },
+    {
+      "w": "motivate",
+      "t": 25.25182759671031,
+      "e": 25.520941212305814
+    },
+    {
+      "w": "you.",
+      "t": 25.520941212305814,
+      "e": 25.807995735607665
+    },
+    {
+      "w": "That",
+      "t": 26.068138897349993,
+      "e": 26.534602497715497
+    },
+    {
+      "w": "shows",
+      "t": 26.534602497715497,
+      "e": 26.785775205604622
+    },
+    {
+      "w": "your",
+      "t": 26.785775205604622,
+      "e": 26.9651842826683
+    },
+    {
+      "w": "AI",
+      "t": 26.9651842826683,
+      "e": 27.19841608285105
+    },
+    {
+      "w": "trainer",
+      "t": 27.19841608285105,
+      "e": 27.593116052391103
+    },
+    {
+      "w": "exactly",
+      "t": 27.593116052391103,
+      "e": 28.310752360645758
+    },
+    {
+      "w": "how",
+      "t": 28.310752360645758,
+      "e": 28.526043253122133
+    },
+    {
+      "w": "much",
+      "t": 28.526043253122133,
+      "e": 28.65162960706671
+    },
+    {
+      "w": "fat",
+      "t": 28.65162960706671,
+      "e": 28.795156868717637
+    },
+    {
+      "w": "you",
+      "t": 28.795156868717637,
+      "e": 28.90280231495584
+    },
+    {
+      "w": "have",
+      "t": 28.90280231495584,
+      "e": 29.046329576606762
+    },
+    {
+      "w": "to",
+      "t": 29.046329576606762,
+      "e": 29.13603411513859
+    },
+    {
+      "w": "lose",
+      "t": 29.13603411513859,
+      "e": 29.351325007614992
+    },
+    {
+      "w": "and",
+      "t": 29.351325007614992,
+      "e": 29.710143161742295
+    },
+    {
+      "w": "where",
+      "t": 29.710143161742295,
+      "e": 29.979256777337795
+    },
+    {
+      "w": "you",
+      "t": 29.979256777337795,
+      "e": 30.176606762107824
+    },
+    {
+      "w": "need",
+      "t": 30.176606762107824,
+      "e": 30.302193116052397
+    },
+    {
+      "w": "to",
+      "t": 30.302193116052397,
+      "e": 30.42777946999695
+    },
+    {
+      "w": "gain",
+      "t": 30.42777946999695,
+      "e": 30.571306731647873
+    },
+    {
+      "w": "muscle",
+      "t": 30.571306731647873,
+      "e": 30.858361254949727
+    },
+    {
+      "w": "to",
+      "t": 30.858361254949727,
+      "e": 31.199238501370704
+    },
+    {
+      "w": "make",
+      "t": 31.199238501370704,
+      "e": 31.39658848614073
+    },
+    {
+      "w": "your",
+      "t": 31.39658848614073,
+      "e": 31.52217484008528
+    },
+    {
+      "w": "dream",
+      "t": 31.52217484008528,
+      "e": 31.791288455680785
+    },
+    {
+      "w": "body",
+      "t": 31.791288455680785,
+      "e": 32.04246116356991
+    },
+    {
+      "w": "real.",
+      "t": 32.04246116356991,
+      "e": 32.54480657934816
+    },
+    {
+      "w": "Next,",
+      "t": 32.81392019494364,
+      "e": 33.11891562595187
+    },
+    {
+      "w": "the",
+      "t": 33.38802924154734,
+      "e": 33.4777337800792
+    },
+    {
+      "w": "AI",
+      "t": 33.4777337800792,
+      "e": 33.71096558026195
+    },
+    {
+      "w": "generates",
+      "t": 33.71096558026195,
+      "e": 34.1594882729211
+    },
+    {
+      "w": "a",
+      "t": 34.1594882729211,
+      "e": 34.3747791653975
+    },
+    {
+      "w": "personalized",
+      "t": 34.3747791653975,
+      "e": 34.769479134937555
+    },
+    {
+      "w": "workout",
+      "t": 34.769479134937555,
+      "e": 35.25388364300943
+    },
+    {
+      "w": "and",
+      "t": 35.25388364300943,
+      "e": 35.52299725860491
+    },
+    {
+      "w": "nutrition",
+      "t": 35.52299725860491,
+      "e": 35.810051781906786
+    },
+    {
+      "w": "program",
+      "t": 35.810051781906786,
+      "e": 36.276515382272294
+    },
+    {
+      "w": "designed",
+      "t": 36.276515382272294,
+      "e": 36.79680170575692
+    },
+    {
+      "w": "to",
+      "t": 36.79680170575692,
+      "e": 37.10179713676514
+    },
+    {
+      "w": "get",
+      "t": 37.10179713676514,
+      "e": 37.245324398416074
+    },
+    {
+      "w": "you",
+      "t": 37.245324398416074,
+      "e": 37.37091075236062
+    },
+    {
+      "w": "to",
+      "t": 37.37091075236062,
+      "e": 37.514438014011574
+    },
+    {
+      "w": "your",
+      "t": 37.514438014011574,
+      "e": 37.64002436795612
+    },
+    {
+      "w": "goal.",
+      "t": 37.64002436795612,
+      "e": 37.855315260432526
+    },
+    {
+      "w": "It's",
+      "t": 38.10648796832165,
+      "e": 38.35766067621078
+    },
+    {
+      "w": "far",
+      "t": 38.35766067621078,
+      "e": 38.62677429180628
+    },
+    {
+      "w": "better",
+      "t": 38.62677429180628,
+      "e": 38.89588790740176
+    },
+    {
+      "w": "than",
+      "t": 38.89588790740176,
+      "e": 39.057356076759056
+    },
+    {
+      "w": "any",
+      "t": 39.057356076759056,
+      "e": 39.23676515382271
+    },
+    {
+      "w": "human",
+      "t": 39.23676515382271,
+      "e": 39.46999695400549
+    },
+    {
+      "w": "fitness",
+      "t": 39.46999695400549,
+      "e": 39.70322875418824
+    },
+    {
+      "w": "plan",
+      "t": 39.70322875418824,
+      "e": 40.04410600060919
+    },
+    {
+      "w": "because",
+      "t": 40.04410600060919,
+      "e": 40.474687785562
+    },
+    {
+      "w": "it's",
+      "t": 40.474687785562,
+      "e": 40.67203777033202
+    },
+    {
+      "w": "specifically",
+      "t": 40.67203777033202,
+      "e": 41.210265001523
+    },
+    {
+      "w": "designed",
+      "t": 41.210265001523,
+      "e": 41.694669509594874
+    },
+    {
+      "w": "just",
+      "t": 41.694669509594874,
+      "e": 42.17907401766676
+    },
+    {
+      "w": "for",
+      "t": 42.17907401766676,
+      "e": 42.48406944867498
+    },
+    {
+      "w": "you.",
+      "t": 42.48406944867498,
+      "e": 42.66347852573866
+    },
+    {
+      "w": "And",
+      "t": 42.66347852573866,
+      "e": 43.29141029546146
+    },
+    {
+      "w": "finally,",
+      "t": 43.29141029546146,
+      "e": 43.63228754188242
+    },
+    {
+      "w": "AI",
+      "t": 43.91934206518427,
+      "e": 44.13463295766067
+    },
+    {
+      "w": "adjusts",
+      "t": 44.13463295766067,
+      "e": 44.78050563508985
+    },
+    {
+      "w": "your",
+      "t": 44.78050563508985,
+      "e": 44.79844654279623
+    },
+    {
+      "w": "plan",
+      "t": 44.79844654279623,
+      "e": 45.0675601583917
+    },
+    {
+      "w": "when",
+      "t": 45.0675601583917,
+      "e": 45.354614681693576
+    },
+    {
+      "w": "life",
+      "t": 45.354614681693576,
+      "e": 45.64166920499543
+    },
+    {
+      "w": "gets",
+      "t": 45.64166920499543,
+      "e": 45.87490100517818
+    },
+    {
+      "w": "in",
+      "t": 45.87490100517818,
+      "e": 46.00048735912276
+    },
+    {
+      "w": "the",
+      "t": 46.00048735912276,
+      "e": 46.090191897654584
+    },
+    {
+      "w": "way.",
+      "t": 46.090191897654584,
+      "e": 46.25166006701188
+    },
+    {
+      "w": "When",
+      "t": 46.502832774901016,
+      "e": 46.57459640572649
+    },
+    {
+      "w": "you",
+      "t": 46.57459640572649,
+      "e": 46.700182759671044
+    },
+    {
+      "w": "get",
+      "t": 46.664300944258315,
+      "e": 46.82576911361562
+    },
+    {
+      "w": "injured,",
+      "t": 46.82576911361562,
+      "e": 47.1487054523302
+    },
+    {
+      "w": "when",
+      "t": 47.4178190679257,
+      "e": 47.54340542187025
+    },
+    {
+      "w": "you",
+      "t": 47.54340542187025,
+      "e": 47.668991775814824
+    },
+    {
+      "w": "can't",
+      "t": 47.668991775814824,
+      "e": 47.95604629911668
+    },
+    {
+      "w": "make",
+      "t": 47.95604629911668,
+      "e": 48.08163265306125
+    },
+    {
+      "w": "it",
+      "t": 48.08163265306125,
+      "e": 48.171337191593075
+    },
+    {
+      "w": "to",
+      "t": 48.171337191593075,
+      "e": 48.27898263783128
+    },
+    {
+      "w": "the",
+      "t": 48.27898263783128,
+      "e": 48.35074626865673
+    },
+    {
+      "w": "gym",
+      "t": 48.35074626865673,
+      "e": 48.5301553457204
+    },
+    {
+      "w": "one",
+      "t": 48.5301553457204,
+      "e": 48.69162351507768
+    },
+    {
+      "w": "day,",
+      "t": 48.69162351507768,
+      "e": 48.90691440755408
+    },
+    {
+      "w": "or",
+      "t": 49.05044166920501,
+      "e": 49.31955528480051
+    },
+    {
+      "w": "when",
+      "t": 49.31955528480051,
+      "e": 49.481023454157786
+    },
+    {
+      "w": "the",
+      "t": 49.481023454157786,
+      "e": 49.60660980810236
+    },
+    {
+      "w": "equipment",
+      "t": 49.60660980810236,
+      "e": 49.947487054523314
+    },
+    {
+      "w": "you",
+      "t": 49.947487054523314,
+      "e": 50.16277794699972
+    },
+    {
+      "w": "need",
+      "t": 50.16277794699972,
+      "e": 50.28836430094427
+    },
+    {
+      "w": "is",
+      "t": 50.28836430094427,
+      "e": 50.4318915625952
+    },
+    {
+      "w": "broken.",
+      "t": 50.4318915625952,
+      "e": 50.68306427048432
+    },
+    {
+      "w": "AI",
+      "t": 50.93423697837342,
+      "e": 51.14952787084982
+    },
+    {
+      "w": "adjusts",
+      "t": 51.14952787084982,
+      "e": 51.93892780992993
+    },
+    {
+      "w": "your",
+      "t": 51.93892780992993,
+      "e": 51.956868717636304
+    },
+    {
+      "w": "plan",
+      "t": 51.956868717636304,
+      "e": 52.225982333231805
+    },
+    {
+      "w": "in",
+      "t": 52.225982333231805,
+      "e": 52.54891867194638
+    },
+    {
+      "w": "seconds.",
+      "t": 52.54891867194638,
+      "e": 53.01538227231191
+    },
+    {
+      "w": "Ditch",
+      "t": 53.26655498020104,
+      "e": 53.643314042034746
+    },
+    {
+      "w": "expensive",
+      "t": 53.643314042034746,
+      "e": 54.12771855010662
+    },
+    {
+      "w": "human",
+      "t": 54.12771855010662,
+      "e": 54.576241242765775
+    },
+    {
+      "w": "trainers",
+      "t": 54.576241242765775,
+      "e": 54.97094121230583
+    },
+    {
+      "w": "and",
+      "t": 54.97094121230583,
+      "e": 55.383582089552256
+    },
+    {
+      "w": "build",
+      "t": 55.383582089552256,
+      "e": 55.616813889735006
+    },
+    {
+      "w": "your",
+      "t": 55.616813889735006,
+      "e": 55.74240024367956
+    },
+    {
+      "w": "six",
+      "t": 55.74240024367956,
+      "e": 55.921809320743236
+    },
+    {
+      "w": "pack",
+      "t": 55.921809320743236,
+      "e": 56.10121839780689
+    },
+    {
+      "w": "abs",
+      "t": 56.10121839780689,
+      "e": 56.37033201340239
+    },
+    {
+      "w": "with",
+      "t": 56.37033201340239,
+      "e": 56.621504721291515
+    },
+    {
+      "w": "AI.",
+      "t": 56.621504721291515,
+      "e": 56.90855924459337
+    },
+    {
+      "w": "Tap",
+      "t": 57.159731952482495,
+      "e": 57.428845568077996
+    },
+    {
+      "w": "the",
+      "t": 57.428845568077996,
+      "e": 57.590313737435295
+    },
+    {
+      "w": "button",
+      "t": 57.590313737435295,
+      "e": 57.7338409990862
+    },
+    {
+      "w": "below",
+      "t": 57.7338409990862,
+      "e": 58.03883643009445
+    },
+    {
+      "w": "to",
+      "t": 58.03883643009445,
+      "e": 58.3258909533963
+    },
+    {
+      "w": "get",
+      "t": 58.3258909533963,
+      "e": 58.45147730734085
+    },
+    {
+      "w": "started.",
+      "t": 58.45147730734085,
+      "e": 58.73853183064271
+    }
+  ],
+  "transcript_words": [
+    {
+      "w": " I'm",
+      "t": 0.0,
+      "e": 0.58,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 0.58,
+      "e": 0.66,
+      "p": null
+    },
+    {
+      "w": " personal",
+      "t": 0.66,
+      "e": 0.9,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 0.9,
+      "e": 1.26,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 1.26,
+      "e": 1.8,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 1.8,
+      "e": 2.04,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 2.04,
+      "e": 2.56,
+      "p": null
+    },
+    {
+      "w": " took",
+      "t": 2.56,
+      "e": 2.78,
+      "p": null
+    },
+    {
+      "w": " my",
+      "t": 2.78,
+      "e": 2.96,
+      "p": null
+    },
+    {
+      "w": " job.",
+      "t": 2.96,
+      "e": 3.28,
+      "p": null
+    },
+    {
+      "w": " A",
+      "t": 3.76,
+      "e": 3.94,
+      "p": null
+    },
+    {
+      "w": " lot",
+      "t": 3.94,
+      "e": 4.12,
+      "p": null
+    },
+    {
+      "w": " of",
+      "t": 4.12,
+      "e": 4.22,
+      "p": null
+    },
+    {
+      "w": " people",
+      "t": 4.22,
+      "e": 4.38,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 4.38,
+      "e": 4.56,
+      "p": null
+    },
+    {
+      "w": " figured",
+      "t": 4.56,
+      "e": 4.78,
+      "p": null
+    },
+    {
+      "w": " out",
+      "t": 4.78,
+      "e": 5.0,
+      "p": null
+    },
+    {
+      "w": " that",
+      "t": 5.0,
+      "e": 5.14,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 5.14,
+      "e": 5.38,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 5.38,
+      "e": 5.68,
+      "p": null
+    },
+    {
+      "w": " create",
+      "t": 5.68,
+      "e": 5.88,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 5.88,
+      "e": 5.98,
+      "p": null
+    },
+    {
+      "w": " workout",
+      "t": 5.98,
+      "e": 6.18,
+      "p": null
+    },
+    {
+      "w": " program",
+      "t": 6.18,
+      "e": 6.56,
+      "p": null
+    },
+    {
+      "w": " for",
+      "t": 6.56,
+      "e": 6.78,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 6.78,
+      "e": 6.96,
+      "p": null
+    },
+    {
+      "w": " that's",
+      "t": 6.96,
+      "e": 7.46,
+      "p": null
+    },
+    {
+      "w": " far",
+      "t": 7.46,
+      "e": 7.72,
+      "p": null
+    },
+    {
+      "w": " better",
+      "t": 7.72,
+      "e": 7.98,
+      "p": null
+    },
+    {
+      "w": " than",
+      "t": 7.98,
+      "e": 8.18,
+      "p": null
+    },
+    {
+      "w": " what",
+      "t": 8.18,
+      "e": 8.32,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 8.32,
+      "e": 8.54,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 8.54,
+      "e": 8.78,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 8.78,
+      "e": 9.06,
+      "p": null
+    },
+    {
+      "w": " could.",
+      "t": 9.06,
+      "e": 9.32,
+      "p": null
+    },
+    {
+      "w": " That's",
+      "t": 9.6,
+      "e": 9.9,
+      "p": null
+    },
+    {
+      "w": " why",
+      "t": 9.9,
+      "e": 10.02,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 10.02,
+      "e": 10.26,
+      "p": null
+    },
+    {
+      "w": " personal",
+      "t": 10.26,
+      "e": 10.62,
+      "p": null
+    },
+    {
+      "w": " trainers",
+      "t": 10.62,
+      "e": 11.02,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 11.02,
+      "e": 11.24,
+      "p": null
+    },
+    {
+      "w": " gone",
+      "t": 11.24,
+      "e": 11.54,
+      "p": null
+    },
+    {
+      "w": " obsolete",
+      "t": 11.54,
+      "e": 12.06,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 12.06,
+      "e": 12.66,
+      "p": null
+    },
+    {
+      "w": " everyone",
+      "t": 12.66,
+      "e": 13.04,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 13.04,
+      "e": 13.38,
+      "p": null
+    },
+    {
+      "w": " using",
+      "t": 13.38,
+      "e": 13.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 13.64,
+      "e": 13.92,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 13.92,
+      "e": 14.28,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 14.28,
+      "e": 14.4,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 14.4,
+      "e": 14.48,
+      "p": null
+    },
+    {
+      "w": " shape",
+      "t": 14.48,
+      "e": 14.66,
+      "p": null
+    },
+    {
+      "w": " now.",
+      "t": 14.66,
+      "e": 14.88,
+      "p": null
+    },
+    {
+      "w": " You",
+      "t": 15.16,
+      "e": 15.48,
+      "p": null
+    },
+    {
+      "w": " can",
+      "t": 15.48,
+      "e": 15.62,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 15.62,
+      "e": 15.74,
+      "p": null
+    },
+    {
+      "w": " started",
+      "t": 15.74,
+      "e": 16.0,
+      "p": null
+    },
+    {
+      "w": " getting",
+      "t": 16.0,
+      "e": 16.22,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 16.22,
+      "e": 16.4,
+      "p": null
+    },
+    {
+      "w": " shape",
+      "t": 16.4,
+      "e": 16.56,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 16.56,
+      "e": 16.7,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 16.7,
+      "e": 16.88,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 16.88,
+      "e": 17.14,
+      "p": null
+    },
+    {
+      "w": " my",
+      "t": 17.14,
+      "e": 17.3,
+      "p": null
+    },
+    {
+      "w": " free",
+      "t": 17.3,
+      "e": 17.5,
+      "p": null
+    },
+    {
+      "w": " app.",
+      "t": 17.5,
+      "e": 17.76,
+      "p": null
+    },
+    {
+      "w": " Just",
+      "t": 17.94,
+      "e": 18.2,
+      "p": null
+    },
+    {
+      "w": " tap",
+      "t": 18.2,
+      "e": 18.46,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 18.46,
+      "e": 18.66,
+      "p": null
+    },
+    {
+      "w": " button",
+      "t": 18.66,
+      "e": 18.86,
+      "p": null
+    },
+    {
+      "w": " below.",
+      "t": 18.86,
+      "e": 19.12,
+      "p": null
+    },
+    {
+      "w": " Here's",
+      "t": 19.44,
+      "e": 19.66,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 19.66,
+      "e": 19.74,
+      "p": null
+    },
+    {
+      "w": " it",
+      "t": 19.74,
+      "e": 19.84,
+      "p": null
+    },
+    {
+      "w": " works.",
+      "t": 19.84,
+      "e": 20.04,
+      "p": null
+    },
+    {
+      "w": " First,",
+      "t": 20.6,
+      "e": 20.88,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 21.16,
+      "e": 21.22,
+      "p": null
+    },
+    {
+      "w": " generate",
+      "t": 21.22,
+      "e": 21.54,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 21.54,
+      "e": 21.7,
+      "p": null
+    },
+    {
+      "w": " picture",
+      "t": 21.7,
+      "e": 21.9,
+      "p": null
+    },
+    {
+      "w": " of",
+      "t": 21.9,
+      "e": 22.08,
+      "p": null
+    },
+    {
+      "w": " yourself",
+      "t": 22.08,
+      "e": 22.38,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 22.38,
+      "e": 22.58,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 22.58,
+      "e": 22.66,
+      "p": null
+    },
+    {
+      "w": " dream",
+      "t": 22.66,
+      "e": 22.88,
+      "p": null
+    },
+    {
+      "w": " body",
+      "t": 22.88,
+      "e": 23.12,
+      "p": null
+    },
+    {
+      "w": " using",
+      "t": 23.12,
+      "e": 23.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 23.64,
+      "e": 24.04,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 24.04,
+      "e": 24.56,
+      "p": null
+    },
+    {
+      "w": " that's",
+      "t": 24.56,
+      "e": 24.84,
+      "p": null
+    },
+    {
+      "w": " not",
+      "t": 24.84,
+      "e": 24.96,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 24.96,
+      "e": 25.14,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 25.14,
+      "e": 25.28,
+      "p": null
+    },
+    {
+      "w": " motivate",
+      "t": 25.28,
+      "e": 25.54,
+      "p": null
+    },
+    {
+      "w": " you.",
+      "t": 25.54,
+      "e": 25.84,
+      "p": null
+    },
+    {
+      "w": " That",
+      "t": 25.84,
+      "e": 26.52,
+      "p": null
+    },
+    {
+      "w": " shows",
+      "t": 26.52,
+      "e": 26.8,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 26.8,
+      "e": 26.98,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 26.98,
+      "e": 27.18,
+      "p": null
+    },
+    {
+      "w": " trainer",
+      "t": 27.18,
+      "e": 27.54,
+      "p": null
+    },
+    {
+      "w": " exactly",
+      "t": 27.54,
+      "e": 28.3,
+      "p": null
+    },
+    {
+      "w": " how",
+      "t": 28.3,
+      "e": 28.54,
+      "p": null
+    },
+    {
+      "w": " much",
+      "t": 28.54,
+      "e": 28.66,
+      "p": null
+    },
+    {
+      "w": " fat",
+      "t": 28.66,
+      "e": 28.78,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 28.78,
+      "e": 28.92,
+      "p": null
+    },
+    {
+      "w": " have",
+      "t": 28.92,
+      "e": 29.04,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 29.04,
+      "e": 29.16,
+      "p": null
+    },
+    {
+      "w": " lose",
+      "t": 29.16,
+      "e": 29.36,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 29.36,
+      "e": 29.72,
+      "p": null
+    },
+    {
+      "w": " where",
+      "t": 29.72,
+      "e": 30.0,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 30.0,
+      "e": 30.18,
+      "p": null
+    },
+    {
+      "w": " need",
+      "t": 30.18,
+      "e": 30.32,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 30.32,
+      "e": 30.44,
+      "p": null
+    },
+    {
+      "w": " gain",
+      "t": 30.44,
+      "e": 30.58,
+      "p": null
+    },
+    {
+      "w": " muscle",
+      "t": 30.58,
+      "e": 30.84,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 30.84,
+      "e": 31.22,
+      "p": null
+    },
+    {
+      "w": " make",
+      "t": 31.22,
+      "e": 31.4,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 31.4,
+      "e": 31.54,
+      "p": null
+    },
+    {
+      "w": " dream",
+      "t": 31.54,
+      "e": 31.78,
+      "p": null
+    },
+    {
+      "w": " body",
+      "t": 31.78,
+      "e": 32.06,
+      "p": null
+    },
+    {
+      "w": " real.",
+      "t": 32.06,
+      "e": 32.54,
+      "p": null
+    },
+    {
+      "w": " Next,",
+      "t": 32.92,
+      "e": 33.12,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 33.4,
+      "e": 33.48,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 33.48,
+      "e": 33.7,
+      "p": null
+    },
+    {
+      "w": " generates",
+      "t": 33.7,
+      "e": 34.16,
+      "p": null
+    },
+    {
+      "w": " a",
+      "t": 34.16,
+      "e": 34.4,
+      "p": null
+    },
+    {
+      "w": " personalized",
+      "t": 34.4,
+      "e": 34.78,
+      "p": null
+    },
+    {
+      "w": " workout",
+      "t": 34.78,
+      "e": 35.26,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 35.26,
+      "e": 35.54,
+      "p": null
+    },
+    {
+      "w": " nutrition",
+      "t": 35.54,
+      "e": 35.82,
+      "p": null
+    },
+    {
+      "w": " program",
+      "t": 35.82,
+      "e": 36.28,
+      "p": null
+    },
+    {
+      "w": " designed",
+      "t": 36.28,
+      "e": 36.82,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 36.82,
+      "e": 37.1,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 37.1,
+      "e": 37.24,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 37.24,
+      "e": 37.38,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 37.38,
+      "e": 37.52,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 37.52,
+      "e": 37.66,
+      "p": null
+    },
+    {
+      "w": " goal.",
+      "t": 37.66,
+      "e": 37.88,
+      "p": null
+    },
+    {
+      "w": " It's",
+      "t": 38.2,
+      "e": 38.38,
+      "p": null
+    },
+    {
+      "w": " far",
+      "t": 38.38,
+      "e": 38.64,
+      "p": null
+    },
+    {
+      "w": " better",
+      "t": 38.64,
+      "e": 38.9,
+      "p": null
+    },
+    {
+      "w": " than",
+      "t": 38.9,
+      "e": 39.06,
+      "p": null
+    },
+    {
+      "w": " any",
+      "t": 39.06,
+      "e": 39.24,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 39.24,
+      "e": 39.48,
+      "p": null
+    },
+    {
+      "w": " fitness",
+      "t": 39.48,
+      "e": 39.72,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 39.72,
+      "e": 40.06,
+      "p": null
+    },
+    {
+      "w": " because",
+      "t": 40.06,
+      "e": 40.48,
+      "p": null
+    },
+    {
+      "w": " it's",
+      "t": 40.48,
+      "e": 40.68,
+      "p": null
+    },
+    {
+      "w": " specifically",
+      "t": 40.68,
+      "e": 41.22,
+      "p": null
+    },
+    {
+      "w": " designed",
+      "t": 41.22,
+      "e": 41.7,
+      "p": null
+    },
+    {
+      "w": " just",
+      "t": 41.7,
+      "e": 42.2,
+      "p": null
+    },
+    {
+      "w": " for",
+      "t": 42.2,
+      "e": 42.5,
+      "p": null
+    },
+    {
+      "w": " you.",
+      "t": 42.5,
+      "e": 42.68,
+      "p": null
+    },
+    {
+      "w": " And",
+      "t": 43.16,
+      "e": 43.32,
+      "p": null
+    },
+    {
+      "w": " finally,",
+      "t": 43.32,
+      "e": 43.64,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 43.94,
+      "e": 44.16,
+      "p": null
+    },
+    {
+      "w": " adjusts",
+      "t": 44.16,
+      "e": 44.8,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 44.8,
+      "e": 44.8,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 44.8,
+      "e": 45.06,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 45.06,
+      "e": 45.36,
+      "p": null
+    },
+    {
+      "w": " life",
+      "t": 45.36,
+      "e": 45.64,
+      "p": null
+    },
+    {
+      "w": " gets",
+      "t": 45.64,
+      "e": 45.86,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 45.86,
+      "e": 46.0,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 46.0,
+      "e": 46.1,
+      "p": null
+    },
+    {
+      "w": " way.",
+      "t": 46.1,
+      "e": 46.26,
+      "p": null
+    },
+    {
+      "w": " When",
+      "t": 46.52,
+      "e": 46.58,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 46.58,
+      "e": 46.7,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 46.7,
+      "e": 46.84,
+      "p": null
+    },
+    {
+      "w": " injured",
+      "t": 46.84,
+      "e": 47.16,
+      "p": null
+    },
+    {
+      "w": " or",
+      "t": 47.16,
+      "e": 47.5,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 47.5,
+      "e": 47.58,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 47.58,
+      "e": 47.66,
+      "p": null
+    },
+    {
+      "w": " can't",
+      "t": 47.66,
+      "e": 47.96,
+      "p": null
+    },
+    {
+      "w": " make",
+      "t": 47.96,
+      "e": 48.08,
+      "p": null
+    },
+    {
+      "w": " it",
+      "t": 48.08,
+      "e": 48.18,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 48.18,
+      "e": 48.28,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 48.28,
+      "e": 48.36,
+      "p": null
+    },
+    {
+      "w": " gym",
+      "t": 48.36,
+      "e": 48.52,
+      "p": null
+    },
+    {
+      "w": " one",
+      "t": 48.52,
+      "e": 48.7,
+      "p": null
+    },
+    {
+      "w": " day",
+      "t": 48.7,
+      "e": 48.92,
+      "p": null
+    },
+    {
+      "w": " or",
+      "t": 48.92,
+      "e": 49.32,
+      "p": null
+    },
+    {
+      "w": " when",
+      "t": 49.32,
+      "e": 49.48,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 49.48,
+      "e": 49.62,
+      "p": null
+    },
+    {
+      "w": " equipment",
+      "t": 49.62,
+      "e": 49.94,
+      "p": null
+    },
+    {
+      "w": " you",
+      "t": 49.94,
+      "e": 50.16,
+      "p": null
+    },
+    {
+      "w": " need",
+      "t": 50.16,
+      "e": 50.3,
+      "p": null
+    },
+    {
+      "w": " is",
+      "t": 50.3,
+      "e": 50.42,
+      "p": null
+    },
+    {
+      "w": " broken.",
+      "t": 50.42,
+      "e": 50.7,
+      "p": null
+    },
+    {
+      "w": " AI",
+      "t": 50.7,
+      "e": 51.14,
+      "p": null
+    },
+    {
+      "w": " adjust",
+      "t": 51.14,
+      "e": 51.7,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 51.7,
+      "e": 51.96,
+      "p": null
+    },
+    {
+      "w": " plan",
+      "t": 51.96,
+      "e": 52.22,
+      "p": null
+    },
+    {
+      "w": " in",
+      "t": 52.22,
+      "e": 52.54,
+      "p": null
+    },
+    {
+      "w": " seconds.",
+      "t": 52.54,
+      "e": 53.0,
+      "p": null
+    },
+    {
+      "w": " Ditch",
+      "t": 53.42,
+      "e": 53.66,
+      "p": null
+    },
+    {
+      "w": " expensive",
+      "t": 53.66,
+      "e": 54.18,
+      "p": null
+    },
+    {
+      "w": " human",
+      "t": 54.18,
+      "e": 54.58,
+      "p": null
+    },
+    {
+      "w": " trainers",
+      "t": 54.58,
+      "e": 54.98,
+      "p": null
+    },
+    {
+      "w": " and",
+      "t": 54.98,
+      "e": 55.38,
+      "p": null
+    },
+    {
+      "w": " build",
+      "t": 55.38,
+      "e": 55.62,
+      "p": null
+    },
+    {
+      "w": " your",
+      "t": 55.62,
+      "e": 55.74,
+      "p": null
+    },
+    {
+      "w": " six",
+      "t": 55.74,
+      "e": 55.94,
+      "p": null
+    },
+    {
+      "w": " pack",
+      "t": 55.94,
+      "e": 56.12,
+      "p": null
+    },
+    {
+      "w": " abs",
+      "t": 56.12,
+      "e": 56.36,
+      "p": null
+    },
+    {
+      "w": " with",
+      "t": 56.36,
+      "e": 56.62,
+      "p": null
+    },
+    {
+      "w": " AI.",
+      "t": 56.62,
+      "e": 56.9,
+      "p": null
+    },
+    {
+      "w": " Tap",
+      "t": 57.14,
+      "e": 57.44,
+      "p": null
+    },
+    {
+      "w": " the",
+      "t": 57.44,
+      "e": 57.58,
+      "p": null
+    },
+    {
+      "w": " button",
+      "t": 57.58,
+      "e": 57.74,
+      "p": null
+    },
+    {
+      "w": " below",
+      "t": 57.74,
+      "e": 58.02,
+      "p": null
+    },
+    {
+      "w": " to",
+      "t": 58.02,
+      "e": 58.34,
+      "p": null
+    },
+    {
+      "w": " get",
+      "t": 58.34,
+      "e": 58.44,
+      "p": null
+    },
+    {
+      "w": " started.",
+      "t": 58.44,
+      "e": 58.74,
+      "p": null
+    }
+  ],
+  "source_audio": "/Volumes/Extreme/_edit_work/ra16/round2/audio/retained-accelerated.wav",
+  "watch_log": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/watch/16x9/watch_pass.json",
+  "banned_source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots/app-flow-generate-future-self.mp4",
+  "banned_times": [
+    26.5,
+    27.5,
+    29.5,
+    31.0
+  ],
+  "srt": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/captions-16x9-evidence.srt",
+  "caption_evidence_note": "SRT reconstructed from actual renderer PNG-state intervals, solely to inspect burned phrase-caption runtime and collision. No sidecar is a deliverable. Word-highlight sync code is incompatible with phrase states; see phrase-caption-audit JSON and full picture/audio reviews.",
+  "punch_covered": [
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ],
+  "negative_events_scan": {
+    "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+    "when": "2026-10-17T10:47:46-0500",
+    "frames_checked": 59,
+    "method": "Original complete film visually reviewed through chronological sheets and native boundary strips, followed by exact-candidate repair identity and changed-span checks. Only phrase-caption onset changes. Separate independent full-candidate report retains limits.",
+    "findings": []
+  }
+}

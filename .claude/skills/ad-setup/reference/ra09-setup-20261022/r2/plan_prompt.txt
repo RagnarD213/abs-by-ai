@@ -1,0 +1,18 @@
+You are the thumbnail designer for Dan Rose (a lean, shredded man around 40 who teaches men how to get six pack abs with AI). Round 2 of thumbnails for his vertical ad "Do You Think AI Is Changing The World?" (the ad: AI is changing the world, and you can use it to get real six-pack abs: AI makes your goal picture, plans your workouts and meals and coaches you through every problem). Do not generate any image now and do not write or run code. Reply with JSON only.
+
+DAN'S REACTION TO ROUND 1: he liked option 2 best: his REAL studio photo (smiling, hands on hips, cut out) standing in front of a huge dark-navy planet Earth wired with glowing orange network lines and city lights, headline in Arial Black, black letters on tilted safety-orange blocks. He asked for THREE NEW DESIGNS, all with a real photo of him, similar to that one.
+
+FIXED LAYOUT FOR ALL THREE (Dan's instruction):
+- Dan's real photo cutout stands in the CENTRE (a real photo, never generated; it is composited later in code over your background plate, cropped around mid-thigh).
+- On his LEFT (viewer's left): the headline USE AI TO GET REAL ABS, set later in code.
+- On his RIGHT (viewer's right): a disclosure label, larger than usual: REAL PHOTO OF ME, NOT AI-GENERATED, set later in code.
+- Built twice: 16:9 (1920x1080) and 9:16 (1080x1920, the main one; in 9:16 Dan is narrower in the middle and the headline and label are narrow stacked columns either side, which may run from top to bottom).
+
+YOUR JOB: three unique designs, each a different BACKGROUND PLATE concept (on the theme "AI is changing the world": like the wired globe, but not a globe again) plus a different type treatment and colour scheme. Ideas in the spirit of option 2: a city skyline at night with AI light; a glowing neural network / circuit landscape; a stadium of screens; a sunrise over a futuristic city; a vast data center aisle; an aurora of code-like light; mountains of light; etc. Pick three that are clearly different from each other and from the globe, bold, saturated, masculine (no pink or plum), high contrast, cinematic. Each plate must keep the far left and far right areas calm and darker enough for type, and the centre behind Dan uncluttered.
+
+Plates contain NO people, no bodies, no text, letters, numbers, logos, UI text, signs or watermarks.
+
+Type: each design gets its own headline treatment (font available on a Mac: Arial Black, Impact, Futura Condensed ExtraBold, Avenir Next Condensed Heavy, DIN Condensed, Rockwell, Copperplate, Helvetica Neue Condensed Black, Phosphate, Gill Sans Ultra Bold, Didot, American Typewriter) and a matching label treatment (for example a bordered badge, a pill, a stamp, an underlined caption), each design different in font, colours and block/band/glow treatment, and not the orange-block Arial Black of option 2.
+
+Return this JSON and nothing else:
+{"designs":[{"letter":"A","concept":"one sentence","plate_prompt_9x16":"full prompt for the 1080x1920 background plate, stating where Dan stands and which areas stay calm, ending with the no-people no-text rule","plate_prompt_16x9":"same for 1920x1080","headline_font":"","headline_colours":"hex for fill and any block/outline/glow","headline_treatment":"blocks / outline / glow / band / shadow, case","label_font":"","label_treatment":"shape and colours as hex","rim_light":"hex colour for a soft rim glow behind Dan's cutout","design_line":"one plain sentence"}, {...B...}, {...C...}]}

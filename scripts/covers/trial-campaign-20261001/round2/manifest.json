@@ -1,0 +1,870 @@
+{
+  "campaign": "24316364155",
+  "status": "review_only_awaiting_Dan_picks",
+  "generation_count": 3,
+  "paid_image_api_calls": 0,
+  "generation_tokens": {
+    "ad13-robot": 45629,
+    "ad13-savings": 19131,
+    "ad6-age": 39670
+  },
+  "prompts": {
+    "ad13-robot": "Use case: ads-marketing. Create a photorealistic 16:9 thumbnail BACKGROUND ONLY in the reference's black and yellow luxury gym visual style. No text and no headline. No Dan or shirtless hero. The rightmost 44% is dark negative space for a real portrait added later. The top-left 38% of height is nearly black negative space for two headline lines. In the bottom-left 54% of the composition show a large friendly yet powerful personal-training robot, chrome black and yellow accents, visibly acting as the coach: holding a training clipboard, one hand presenting a dumbbell on a gym bench, with a discarded human trainer's whistle and lanyard beside it. Robot head and torso must be large and recognizable at phone size, not a tiny decorative robot. The robot is the trainer replacement, not a trainee lifting weights. Keep the robot completely within the left 53% and below y=39%. High contrast yellow rim light, realistic materials, crisp scene and simple silhouettes. No lettering, logos, numbers, currency symbols, human figure, extra robotic arms, or watermarks. Match reference cinematic dark yellow accent treatment. Output landscape 16:9.",
+    "ad13-savings": "Use case: ads-marketing. Create a photorealistic 16:9 thumbnail BACKGROUND ONLY in the reference's black and yellow luxury gym visual style. No text or headline. No person. Rightmost 44% remains dark negative space for a real portrait. Top-left 38% of height is nearly black negative space for two headline lines. Main visual in the bottom-left 54%: a large upright smartphone with luminous yellow stylized AI network icon on its black screen, next to a clear glass piggy bank visibly filled with coins, plus one small dumbbell behind them. The phone plus money saved is the main idea: low-cost AI coaching keeps money in your pocket. Make these two main props simple, large and obvious at 320px thumbnail size. Distinct from a robot scene and distinct from calculator, receipts and piles of banknotes. Black stone gym floor with realistic golden rim light and reflections, editorial high-end product photography, crisp contrast. Do not include readable text, logos, dollar numbers, human bodies, calculator, receipts or a robot. Output landscape 16:9.",
+    "ad6-age": "Use case: identity-preserve. Edit this exact photograph to make this same man look about 60 years old through salt-and-pepper gray hair and natural age-related SKIN changes on the face and neck. Keep exactly the same identity, facial bone structure, nose, eyes, expression, mouth shape, gaze, haircut silhouette, head angle, pose, body size, physique, muscle contours, abs, hands, fingers, arms, green shorts and background. Hair should be noticeably salt-and-pepper silver gray while retaining the exact haircut shape. Add natural forehead lines, crow's feet and cheek/neck skin texture. Age naturally, not a grotesque elderly caricature. Do not change ANY pixels below his collarbone, especially do not redraw or enhance the physique. Do not add clothing, facial hair or glasses. Preserve the image framing and dimensions exactly. This is a controlled aging edit of the supplied image, not a new portrait. No text or watermark."
+  },
+  "age_edit": {
+    "source": "studio-blue-221",
+    "edited_region": "hair, face, neck only",
+    "original_pixels_unchanged_below_y_fraction": 0.32
+  },
+  "ads": [
+    {
+      "id": "ad13",
+      "name": "Ad 13: The Cost Of Getting Abs",
+      "recommend": "13-R2B",
+      "why": "The robot makes the AI trainer replacement clear at a glance; the pool portrait carries the result.",
+      "choices": [
+        {
+          "id": "13-R2A",
+          "ad": "ad13",
+          "photo": "photo-10",
+          "waist": 0.713,
+          "base": "ad13",
+          "slot": "B",
+          "title": "Requested pool-photo swap",
+          "note": "Original B expense scene, now with the real pool portrait.",
+          "headline": [
+            "HUMAN TRAINERS",
+            "HATE THIS AI"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad13-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad13-B.png"
+        },
+        {
+          "id": "13-R2B",
+          "ad": "ad13",
+          "photo": "photo-10",
+          "waist": 0.713,
+          "base": "ad13",
+          "slot": "B",
+          "plate": "ad13-robot",
+          "title": "Robot trainer",
+          "note": "A coaching robot takes over the trainer role. Real pool portrait stays unchanged.",
+          "headline": [
+            "HUMAN TRAINERS",
+            "HATE THIS AI"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad13-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/generated/ad13-robot.png"
+        },
+        {
+          "id": "13-R2C",
+          "ad": "ad13",
+          "photo": "photo-10",
+          "waist": 0.713,
+          "base": "ad13",
+          "slot": "B",
+          "plate": "ad13-savings",
+          "title": "AI coaching saves money",
+          "note": "A phone and coin-filled piggy bank make the savings message visible.",
+          "headline": [
+            "HUMAN TRAINERS",
+            "HATE THIS AI"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad13-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/generated/ad13-savings.png"
+        }
+      ]
+    },
+    {
+      "id": "ra01",
+      "name": "RA-01: AI Got Me Abs",
+      "recommend": "RA-R2A",
+      "why": "Your requested combination makes the abs prominent while keeping the purple visual you liked.",
+      "choices": [
+        {
+          "id": "RA-R2A",
+          "ad": "ra01",
+          "photo": "studio-blue-53",
+          "waist": 0.8,
+          "base": "ra01",
+          "slot": "C",
+          "title": "C design + E photo",
+          "note": "Your arms-up E portrait in the original purple C scene.",
+          "headline": [
+            "HOW AI",
+            "GOT ME ABS"
+          ],
+          "aspects": [
+            "16x9",
+            "9x16"
+          ],
+          "reference": "ra01-C",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-C.png"
+        }
+      ]
+    },
+    {
+      "id": "ad10",
+      "name": "Ad 10: Busy Dad Fitness",
+      "recommend": "10-R2A",
+      "why": "Glasses, jeans and the office scene make the busy-dad message feel natural.",
+      "choices": [
+        {
+          "id": "10-R2A",
+          "ad": "ad10",
+          "photo": "studio-white-25",
+          "waist": 0.78,
+          "base": "ad10",
+          "slot": "B",
+          "title": "B design + D photo",
+          "note": "Jeans and glasses in the original orange home-office scene.",
+          "headline": [
+            "HOW BUSY DADS",
+            "GET ABS"
+          ],
+          "aspects": [
+            "16x9",
+            "9x16"
+          ],
+          "reference": "ad10-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad10-B.png"
+        }
+      ]
+    },
+    {
+      "id": "ad4",
+      "name": "Ad 4: Stop Wasting Money On Supplements",
+      "recommend": "4-R2A",
+      "why": "The sideways smirk supports the provocative headline better than the friendly original smile.",
+      "choices": [
+        {
+          "id": "4-B-original",
+          "ad": "ad4",
+          "photo": "studio-white-59",
+          "original": true,
+          "base": "ad4",
+          "slot": "B",
+          "title": "Original B, unchanged",
+          "note": "The exact round-1 JPG, kept for comparison.",
+          "headline": [
+            "SUPPLEMENT",
+            "CORPS",
+            "HATE HIM"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad4-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad4-B.png"
+        },
+        {
+          "id": "4-R2A",
+          "ad": "ad4",
+          "photo": "studio-gray-55",
+          "waist": 0.7,
+          "base": "ad4",
+          "slot": "B",
+          "title": "Confident smirk",
+          "note": "A real sideways smirk with hands behind the head. No facial retouching.",
+          "headline": [
+            "SUPPLEMENT",
+            "CORPS",
+            "HATE HIM"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad4-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad4-B.png"
+        }
+      ]
+    },
+    {
+      "id": "ad3",
+      "name": "Ad 3: Stop Paying Human Trainers",
+      "recommend": "3-R2A",
+      "why": "The phone stays visible and connects the trainer headline directly to an app.",
+      "choices": [
+        {
+          "id": "3-R2A",
+          "ad": "ad3",
+          "photo": "studio-blue-173",
+          "waist": 0.79,
+          "base": "ra01",
+          "slot": "B",
+          "title": "RA-01 B design + Ad 3 B copy",
+          "note": "The exact cyan phone-and-dumbbell design and real RA-01 B portrait.",
+          "headline": [
+            "TRAINERS",
+            "HATE THIS",
+            "AI APP"
+          ],
+          "aspects": [
+            "16x9",
+            "9x16",
+            "1x1"
+          ],
+          "reference": "ra01-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-B.png"
+        }
+      ]
+    },
+    {
+      "id": "ad6",
+      "name": "Ad 6: You're Not Too Old",
+      "recommend": "6-R2A",
+      "why": "The real jeans-and-glasses photo feels approachable and fits the men-over-40 message.",
+      "choices": [
+        {
+          "id": "6-B-original",
+          "ad": "ad6",
+          "photo": "studio-blue-221",
+          "original": true,
+          "base": "ad6",
+          "slot": "B",
+          "title": "Original B, unchanged",
+          "note": "The exact round-1 JPG, kept for comparison.",
+          "headline": [
+            "HOW MEN 40+",
+            "GET ABS"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad6-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png"
+        },
+        {
+          "id": "6-R2A",
+          "ad": "ad6",
+          "photo": "studio-blue-171",
+          "waist": 0.78,
+          "base": "ad6",
+          "slot": "B",
+          "title": "Jeans and glasses",
+          "note": "A different jeans-and-glasses photo from Ad 10, in the original warm gym.",
+          "headline": [
+            "HOW MEN 40+",
+            "GET ABS"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad6-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png"
+        },
+        {
+          "id": "6-R2B",
+          "ad": "ad6",
+          "photo": "studio-blue-221",
+          "waist": 0.71,
+          "base": "ad6",
+          "slot": "B",
+          "age": true,
+          "title": "Older appearance",
+          "note": "AI age edit: gray hair and older face/neck skin. Original body, hands and clothing retained.",
+          "headline": [
+            "HOW MEN 40+",
+            "GET ABS"
+          ],
+          "aspects": [
+            "16x9"
+          ],
+          "reference": "ad6-B",
+          "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png"
+        }
+      ]
+    }
+  ],
+  "outputs": [
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-10_FINAL_PRIMARY.jpg",
+      "photo": "photo-10",
+      "crop": [
+        447,
+        937,
+        2106,
+        2920
+      ],
+      "output_box": [
+        657,
+        26,
+        1237,
+        720
+      ],
+      "scale": 0.34997478567826523,
+      "font_size": 84,
+      "text_bbox": [
+        58,
+        65,
+        635,
+        220
+      ],
+      "headline": [
+        "HUMAN TRAINERS",
+        "HATE THIS AI"
+      ],
+      "text_person_overlap": 0,
+      "choice": "13-R2A",
+      "ad": "ad13",
+      "aspect": "16x9",
+      "path": "options/13-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 324470,
+      "sha256": "04f61f34ccc720a4b09d3d6e3f52d417983e8823c6ea6788b7801758d64ab1b8",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad13-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-10_FINAL_PRIMARY.jpg",
+      "photo": "photo-10",
+      "crop": [
+        447,
+        937,
+        2106,
+        2920
+      ],
+      "output_box": [
+        657,
+        26,
+        1237,
+        720
+      ],
+      "scale": 0.34997478567826523,
+      "font_size": 84,
+      "text_bbox": [
+        58,
+        65,
+        635,
+        220
+      ],
+      "headline": [
+        "HUMAN TRAINERS",
+        "HATE THIS AI"
+      ],
+      "text_person_overlap": 0,
+      "scene_transform": {
+        "translate_y": 75,
+        "fill": "#020304"
+      },
+      "choice": "13-R2B",
+      "ad": "ad13",
+      "aspect": "16x9",
+      "path": "options/13-R2B-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 333801,
+      "sha256": "534dce28d327663515801e453064ad2bcadb68df0a7ec137d1502f5704d4a214",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/generated/ad13-robot.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-10_FINAL_PRIMARY.jpg",
+      "photo": "photo-10",
+      "crop": [
+        447,
+        937,
+        2106,
+        2920
+      ],
+      "output_box": [
+        657,
+        26,
+        1237,
+        720
+      ],
+      "scale": 0.34997478567826523,
+      "font_size": 84,
+      "text_bbox": [
+        58,
+        65,
+        635,
+        220
+      ],
+      "headline": [
+        "HUMAN TRAINERS",
+        "HATE THIS AI"
+      ],
+      "text_person_overlap": 0,
+      "choice": "13-R2C",
+      "ad": "ad13",
+      "aspect": "16x9",
+      "path": "options/13-R2C-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 365075,
+      "sha256": "f842180a498a7f0d2f682ece6e21d6d4dc410d932373322e94ef82b5b7edc39d",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/round2/generated/ad13-savings.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-53_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-53",
+      "crop": [
+        402,
+        769,
+        2459,
+        4044
+      ],
+      "output_box": [
+        729,
+        26,
+        1164,
+        720
+      ],
+      "scale": 0.21190839694656488,
+      "font_size": 124,
+      "text_bbox": [
+        59,
+        65,
+        632,
+        294
+      ],
+      "headline": [
+        "HOW AI",
+        "GOT ME ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "RA-R2A",
+      "ad": "ra01",
+      "aspect": "16x9",
+      "path": "options/RA-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 279389,
+      "sha256": "514127fe9f5c1afeee79d2f7a4f521cc20adf5978822c88f7e3fed56d068dfdf",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-C.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-53_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-53",
+      "crop": [
+        402,
+        769,
+        2459,
+        4044
+      ],
+      "output_box": [
+        142,
+        654,
+        937,
+        1920
+      ],
+      "scale": 0.38656488549618323,
+      "font_size": 180,
+      "text_bbox": [
+        67,
+        102,
+        894,
+        432
+      ],
+      "headline": [
+        "HOW AI",
+        "GOT ME ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "RA-R2A",
+      "ad": "ra01",
+      "aspect": "9x16",
+      "path": "options/RA-R2A-9x16.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 491980,
+      "sha256": "1dadf4e0e85e9124a0fe856e28aab4d653e07c75363a386565d9e259e2903244",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-C.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-25_FINAL_PRIMARY.jpg",
+      "photo": "studio-white-25",
+      "crop": [
+        329,
+        469,
+        2942,
+        3943
+      ],
+      "output_box": [
+        686,
+        26,
+        1207,
+        720
+      ],
+      "scale": 0.19976971790443293,
+      "font_size": 88,
+      "text_bbox": [
+        58,
+        65,
+        634,
+        229
+      ],
+      "headline": [
+        "HOW BUSY DADS",
+        "GET ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "10-R2A",
+      "ad": "ad10",
+      "aspect": "16x9",
+      "path": "options/10-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 284252,
+      "sha256": "b49416da12e97ed66232c0e19c4daae5a11b5f8700ae37645e72c199b2ba17db",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad10-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-white-25_FINAL_PRIMARY.jpg",
+      "photo": "studio-white-25",
+      "crop": [
+        329,
+        469,
+        2942,
+        3943
+      ],
+      "output_box": [
+        64,
+        654,
+        1016,
+        1920
+      ],
+      "scale": 0.3644214162348877,
+      "font_size": 146,
+      "text_bbox": [
+        66,
+        102,
+        1014,
+        371
+      ],
+      "headline": [
+        "HOW BUSY DADS",
+        "GET ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "10-R2A",
+      "ad": "ad10",
+      "aspect": "9x16",
+      "path": "options/10-R2A-9x16.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 431883,
+      "sha256": "fcaac2439dd4780d57618cc98469088e0d7510df94e2b807747c2852a8ab82fb",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad10-B.png"
+    },
+    {
+      "unchanged_original": true,
+      "choice": "4-B-original",
+      "ad": "ad4",
+      "aspect": "16x9",
+      "path": "options/4-B-original-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 298716,
+      "sha256": "471b5dc2f983bba979dfd002d14e3b891a200b49e98d56ffdcb5ee0c805c6b67",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad4-B.png",
+      "photo": "studio-white-59",
+      "headline": [
+        "SUPPLEMENT",
+        "CORPS",
+        "HATE HIM"
+      ]
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-gray-55_FINAL_PRIMARY.jpg",
+      "photo": "studio-gray-55",
+      "crop": [
+        377,
+        526,
+        2700,
+        3539
+      ],
+      "output_box": [
+        679,
+        26,
+        1214,
+        720
+      ],
+      "scale": 0.23033521407235313,
+      "font_size": 114,
+      "text_bbox": [
+        57,
+        65,
+        629,
+        385
+      ],
+      "headline": [
+        "SUPPLEMENT",
+        "CORPS",
+        "HATE HIM"
+      ],
+      "text_person_overlap": 0,
+      "choice": "4-R2A",
+      "ad": "ad4",
+      "aspect": "16x9",
+      "path": "options/4-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 305329,
+      "sha256": "b4d114d4aaaed9866a836d775b1968db311d1b206fc1e2afc4902a948999ef9f",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad4-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-173_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-173",
+      "crop": [
+        379,
+        555,
+        2658,
+        3994
+      ],
+      "output_box": [
+        717,
+        26,
+        1176,
+        720
+      ],
+      "scale": 0.20180284966560047,
+      "font_size": 118,
+      "text_bbox": [
+        54,
+        65,
+        524,
+        394
+      ],
+      "headline": [
+        "TRAINERS",
+        "HATE THIS",
+        "AI APP"
+      ],
+      "text_person_overlap": 0,
+      "choice": "3-R2A",
+      "ad": "ad3",
+      "aspect": "16x9",
+      "path": "options/3-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 297777,
+      "sha256": "d7803e2bf1a4057c9d2bb0433684bdc68d75d8fbf23c70f5b1bf9f2b13d0c48e",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-173_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-173",
+      "crop": [
+        379,
+        555,
+        2658,
+        3994
+      ],
+      "output_box": [
+        121,
+        654,
+        959,
+        1920
+      ],
+      "scale": 0.36813027042744983,
+      "font_size": 174,
+      "text_bbox": [
+        60,
+        102,
+        748,
+        586
+      ],
+      "headline": [
+        "TRAINERS",
+        "HATE THIS",
+        "AI APP"
+      ],
+      "text_person_overlap": 0,
+      "choice": "3-R2A",
+      "ad": "ad3",
+      "aspect": "9x16",
+      "path": "options/3-R2A-9x16.jpg",
+      "size": [
+        1080,
+        1920
+      ],
+      "bytes": 455220,
+      "sha256": "9780a5feee0caa6c734462c5134f0b971dcf7724d3169ccaeeccc7065301bca2",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-173_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-173",
+      "crop": [
+        379,
+        555,
+        2658,
+        3994
+      ],
+      "output_box": [
+        456,
+        370,
+        926,
+        1080
+      ],
+      "scale": 0.2064553649316662,
+      "font_size": 98,
+      "text_bbox": [
+        60,
+        56,
+        450,
+        327
+      ],
+      "headline": [
+        "TRAINERS",
+        "HATE THIS",
+        "AI APP"
+      ],
+      "text_person_overlap": 0,
+      "scene_transform": {
+        "size": [
+          1120,
+          630
+        ],
+        "position": [
+          -40,
+          450
+        ],
+        "top_fade_pixels": 90
+      },
+      "choice": "3-R2A",
+      "ad": "ad3",
+      "aspect": "1x1",
+      "path": "options/3-R2A-1x1.jpg",
+      "size": [
+        1080,
+        1080
+      ],
+      "bytes": 266093,
+      "sha256": "2e3d7ced327bd68cc81d853ff09843d183863f47709ee9510648fe5bf9cf6449",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ra01-B.png"
+    },
+    {
+      "unchanged_original": true,
+      "choice": "6-B-original",
+      "ad": "ad6",
+      "aspect": "16x9",
+      "path": "options/6-B-original-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 323698,
+      "sha256": "744ada2d86cfe9d5975149085828bf924cd1efca7ec3ef2df35921ef2e38b748",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png",
+      "photo": "studio-blue-221",
+      "headline": [
+        "HOW MEN 40+",
+        "GET ABS"
+      ]
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-171_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-171",
+      "crop": [
+        346,
+        310,
+        3131,
+        3943
+      ],
+      "output_box": [
+        681,
+        26,
+        1213,
+        720
+      ],
+      "scale": 0.19102669969721991,
+      "font_size": 104,
+      "text_bbox": [
+        58,
+        65,
+        632,
+        259
+      ],
+      "headline": [
+        "HOW MEN 40+",
+        "GET ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "6-R2A",
+      "ad": "ad6",
+      "aspect": "16x9",
+      "path": "options/6-R2A-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 331396,
+      "sha256": "637d530d11c1f7d7b062e77333eb33d367958bdfbdabec33e729f68b100e2324",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png"
+    },
+    {
+      "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/studio-blue-221_FINAL_PRIMARY.jpg",
+      "photo": "studio-blue-221",
+      "crop": [
+        303,
+        302,
+        2855,
+        3589
+      ],
+      "output_box": [
+        678,
+        26,
+        1216,
+        720
+      ],
+      "scale": 0.21113477334955888,
+      "font_size": 104,
+      "text_bbox": [
+        58,
+        65,
+        632,
+        259
+      ],
+      "headline": [
+        "HOW MEN 40+",
+        "GET ABS"
+      ],
+      "text_person_overlap": 0,
+      "choice": "6-R2B",
+      "ad": "ad6",
+      "aspect": "16x9",
+      "path": "options/6-R2B-16x9.jpg",
+      "size": [
+        1280,
+        720
+      ],
+      "bytes": 325585,
+      "sha256": "f6f5c7f180065395d60d14dee0eb5b09f04492d80068ceef5bc2fe44b7c1be61",
+      "background": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/_trial-campaign-20261001/generated/ad6-B.png"
+    }
+  ]
+}

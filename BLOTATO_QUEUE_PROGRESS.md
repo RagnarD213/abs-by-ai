@@ -1,0 +1,669 @@
+## Got Abs? You need to see this. (RO-28 re-edit), scheduled November 18, 2026
+
+Release Thursday November 19. YouTube 7163158 at 10 AM Central. Facebook 7163160, Instagram 7163161, TikTok 7163163 at noon Central. X1 Studio portrait. Saved queue, timestamps, captions and covers verified. Noon posts depend on public YouTube. The 9 AM Rear Delt Flys Short stays in place. [Receipt](Docs/RO28_GOT_ABS_SETUP_RECEIPT_20261118.md).
+
+## DONE: Smaller Plates Reaction (DS-108), November 16, 2026
+
+Revised X5 R2 approved. All four saved/read-back schedules: January 23, 2027 at6PM Central; FB7058491, IG7058492, TikTok7058493, YouTube7058494. Caption/target and actual saved media hashes verified. Keyword FOOD; original live-action film, no synthetic-footage flag. Approved covers registered on both Macs; pinned question saved for shared post-release routine. [Receipt](Docs/DS108_SETUP_RECEIPT_20261116.md). No waiting list required, no direct YouTube holding upload.
+
+## WAITLISTED - DS-39 ChatGPT Coach, November 15, 2026
+
+Cover A approved and installed in both layouts. Approved off-the-cuff R5, cover assets and verified TikTok cover-first copy uploaded; complete four-platform package is on the shared video waiting list. Planned January12,2027 at6PM Central, subject to actual queue capacity. Blotato199/200; no live DS39 schedules created. Config: scripts/blotato/configs/ds39-chatgpt-coach.json. Existing shared top-up owns scheduling. Keyword COACH applies to Instagram; other platforms use direct links. Article and pinned question use existing post-release routines. Public tile verification remains after release.
+
+## DS-42: The Drink Post Malone Quit, scheduled November 14, 2026
+
+Cover B. All four posts scheduled January 9, 2027 at 6 p.m. Central. [Receipt](Docs/DS42_SETUP_RECEIPT_20261114.md).
+
+## RO-15 waiting for four slots | November 6, 2026
+
+Glycine: YouTube December 23 at 9 a.m. Central, socials December 24 at noon. Round 2 A approved. Blotato 198/200; saved the dated shared waiting-list entry and verified the media. See `Docs/RO15_SETUP_RECEIPT_20261106.md`.
+
+## DONE - DS-84 How To Do Hamstring Curls, Gemini R3, 2026-11-02
+
+Cover D installed. All four schedules verified for Nov23 2026 9AM Central: Facebook6390173, Instagram6390174, TikTok6390175, YouTube6390178. Master de0e83f5; original and post-hosted bytes hash-verified. No waiting list. TRAIN keyword; pinned question saved for shared release routine. Public tiles/captions after release. Full receipt: `Docs/DS84_SETUP_RECEIPT_20261102.md`.
+
+## Released: Stop Deadlifting, approved thumbnail 3 (2026-10-11)
+
+YouTube public `9nfvwfo52Z0`, approved thumbnail 3 installed and verified. Instagram 4976700 and TikTok 4976709 now use thumbnail 3; Facebook 4976695 cover installer prepared. Socials remain Monday Oct 12, 9 AM Central. Three in-feed engagement ads created: tier 2 827748286523, tier 1 827748286526, paused remarketing 827748286529. Google review pending, budgets unchanged. Article draft 1,140 words checked, daily publishing routine due 10:30 AM Central. Details: `Docs/STOP_DEADLIFTING_RELEASE_20261011.md`.
+
+# Blotato IG + Facebook queue — progress
+
+Last updated 2026-10-07.
+
+## Account state
+
+- Blotato **Starter, $29/mo, subscription ACTIVE**. 1750 AI credits (unused — we upload our own media).
+- Connected: **Instagram `@abs.by.ai` (id 65632)**, **Facebook Page "Abs by AI" (id 47105, pageId 1294282227094660)**, **YouTube (id 46963)**.
+- Auth is **OAuth via the Blotato MCP connector** (`https://mcp.blotato.com/mcp`), added in the Claude desktop app. **No API key was ever generated and none is needed** — the key and the OAuth login are two alternative ways to authenticate the same account. The free trial blocked MCP entirely (`"Free trial does not include MCP access"`); activating the subscription unblocked it with no further setup.
+- **TikTok deliberately NOT connected** until ~2026-09-02 (warm-up; early third-party connection risks a bot flag).
+- **@abs.by.ai (65632) RETIRED 2026-09-24:** farewell post https://www.instagram.com/p/DdsIKm8GPsv/ published; all 37 queued mirror posts deleted (queue 155 to 118); backup `scripts/blotato/absbyai_retire_backup_20260924.json`. Never queue it again; the queue scripts no longer build a mirror post.
+- **PERMANENT RULE (Dan, 2026-09-17): ADS ARE NEVER QUEUED HERE.** Blotato is organic-only. Every queue script
+  imports `scripts/blotato/ad_guard.py`; audit with `python3 scripts/blotato/ad_guard.py --scan`. See the incident below.
+- **CURRENT LONG-FORM RULE (Dan, 2026-10-07):** Blotato releases one organic long-form YouTube video at most each Sunday, 9 AM America/Chicago. No separate YouTube holding upload. Facebook, Instagram @danrosefit and TikTok follow no earlier than Monday at 9 AM, after the YouTube video is verified public. If YouTube fails to publish, move the Monday posts later. Ads remain Unlisted.
+
+## Current long-form platform timing (verified 2026-10-07)
+
+| Video | YouTube | Facebook, Instagram, TikTok |
+|---|---|---|
+| Stop Deadlifting | Sun Oct 11, 9 AM CDT | Mon Oct 12, 9 AM CDT |
+| Daily Salad | Sun Oct 18, 9 AM CDT | Mon Oct 19, 9 AM CDT |
+| Top 5 Zepbound Tips | Sun Oct 25, 9 AM CDT | Mon Oct 26, 9 AM CDT |
+| If I Had Belly Fat | Sun Nov 1, 9 AM CST | Mon Nov 2, 9 AM CST |
+| Oura Ring Review | Sun Nov 8, 9 AM CST | Mon Nov 9, 9 AM CST |
+| Alcohol and Abs | Sun Nov 15, 9 AM CST | Mon Nov 16, 9 AM CST |
+| The Stomach Vacuum | Sun Nov 22, 9 AM CST | Mon Nov 23, 9 AM CST |
+
+All 21 social schedule IDs were moved in place and read back at the Monday times. The YouTube schedule IDs stayed on Sunday. Entries below preserve their original setup history; this table gives the current dates.
+
+## PARTLY DONE: Studio photo posts, 27 approved (2026-10-03)
+
+Approved batch `output/studio-post-test-24-20260929` (27 posts, 51 images, six 5-image carousels). Mon/Wed/Fri 5 PM Central. **Queued 40 of 54 placements:** Instagram @danrosefit all 27 (Oct 26 to Dec 25), Facebook Abs by AI 13 (Jan 4 to Feb 1 2027, FB M/W/F full until Jan 1). Queue 160 to 200; Blotato then refused with `422 code 20010` (200 scheduled-post plan cap). **14 FB placements remain** (S07-B to S03-C, plan in `scripts/blotato/studio27_plan.json`); resume `studio27_queue.py plan` then `create` as slots free. Verified: 160 originals unchanged, captions/media order/image SHA256 match. Receipt `Docs/STUDIO27_BLOTATO_QUEUE_RECEIPT_20261003.md`.
+
+## DONE: RO-02 "The Stomach Vacuum: The Best Ab Exercise For Belly Fat (How To Do It)" (2026-10-05)
+
+Current slot Sun Nov 22 2026, 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 28. FB `5211308`, IG @danrosefit `5211309`, TikTok `5211310`, YouTube `5211312`; keyword ABS; UTM `ro02-the-vacuum`. Dan picked thumbnail A. Freed 4 slots by deleting 4 FB studio fillers (Jan 29 to Feb 5 2027; backup `cover_backup/ro02_freed_slots_20261005.json`), so 18 FB studio placements now wait. Receipt `Docs/RO02_SETUP_RECEIPT_20261005.md`.
+
+## DONE: RO-13 "Can You Drink Alcohol And Still Have Abs? (My 6 Rules)" (2026-10-05)
+
+Source `claude edited long form content/11 - Can You Drink Alcohol And Still Have Abs/... claude round 2 ... RO-13.mp4` (SHA-256 `2296902b...51c0`). Current Blotato slot Sun Nov 15 2026 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 21: Facebook 5194483, Instagram @danrosefit 5194485, TikTok 5194486 (cover-first), YouTube 5194487 (public release, thumbnail FINAL = golden-beer studio option, AI flag on). Thumbnail A/B (FINAL vs B, AI Dan with a beer) is added in Studio on release day. Keyword FOOD, UTM `ro13-alcohol-and-abs`. Four Feb 2027 Facebook studio posts were removed to fit the 200 cap (backup in `Docs/RO13_BLOTATO_REMOVED_TAIL_POSTS_20261005.json`). Receipt `Docs/RO13_SETUP_RECEIPT_20261005.md`.
+
+## DONE: Video 4 "My Honest Oura Ring Review After 1.5 Years (The Good, Bad & Ugly)" (2026-10-02)
+
+Zeeshan's `Video 4 Rev 3.mp4` (MD5 `52642857...`, 19:47.5), filed in `Zeeshan Content Videos/my honest oura ring review - video 4/` + Extreme + Google Drive. Current Blotato slot Sun Nov 8 2026 15:00Z (9 AM CST), moved and verified Oct 7 from Wed Oct 14: FB 5095439, IG @danrosefit 5095440, TikTok 5095441 (cover-first), YouTube 5095442 (public release by Blotato). Thumbnail A/B (AI ring macro vs AI night table): A on the Blotato target, B added in Studio after release. Keyword SLEEP, utm_content `oura-ring-review`, AI flags true. Receipt `Docs/OURA_SETUP_RECEIPT_20261002.md`.
+
+## DONE: RO-10 "Calories: The Reason You're Not Losing Weight (8 Ways To Eat Less)" (2026-10-02)
+
+Source `claude edited long form content/10 - Calories The Reason You're Not Losing Weight/... | claude round 2 | 16x9 | RO-10.mp4` (sha256 `655c7188...bb76e`). Wed Oct 7 14:00Z (9 AM CDT): FB 5090245, IG @danrosefit 5090246, TikTok 5090247 (cover-first), YouTube 5090248 (public release by Blotato). Thumbnail: Codex AI-Dan snack-cake design (option 3 of 5). Keyword FOOD, utm_content `ro10-calories-not-losing-weight`, AI flags true. Receipt `Docs/RO10_SETUP_RECEIPT_20261002.md`.
+
+Oct 7 correction: YouTube `n_E94JrCKGg` is Private after the early release. Dan requested a tiny end graphic revision and a new Sunday upload. `Handoffs/handoff-20261007-ro10-subtle-reedit-sunday-reupload.md` owns the replacement; hold SL-08 Shorts and the article until its new public video exists.
+
+## DONE: RO-16 "If I Had Belly Fat, Here's How I'd Lose It In 90 Days" (2026-10-02)
+
+Master `claude edited long form content/09 - If I Had Belly Fat, Here's How I'd Lose It In 90 Days/...round 3 | 16x9 | RO-16.mp4`, SHA-256 `c535ab4c…da02643b09` (3,986,257,903 bytes, 12:09.33); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/If I Had Belly Fat - RO-16`, folder `1XMLlis1pS0UkoH6AsKg0m-6LiQRvWR1T`, anyone with the link). No YouTube holding copy (Blotato-only rule): Blotato creates the public video with Dan's FINAL thumbnail (AI belly-fat Dan on fast-food background), synthetic media on.
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Nov 1, 9 AM CST = 15:00Z (`5090105` / `5090106` / `5090108` / `5090110`) |
+
+- Blotato copy 269 MB (h264_videotoolbox, audio stream-copied, 21,858 frames, same as the master). TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0`, AI label on. Re-hosted files MD5-matched.
+- Keyword `FOOD`; UTM `utm_content=ro16-belly-fat-90-days`. Config `scripts/blotato/configs/ro16-belly-fat-90-days.json`. Receipt `Docs/RO16_SETUP_RECEIPT_20261002.md`.
+- Owes: after Oct 25 add the RO-12 link to the YouTube description (`5090110`); after Nov 1 English captions, publish sixpackabs article `sixpackabs/articles/TBD-if-i-had-belly-fat.md`. Shorts job SL-07 READY.
+
+## DONE: SL-05 Stop Deadlifting shorts x5 (2026-10-01)
+
+FB, IG @danrosefit, TikTok and YouTube (Blotato creates it at release; no holding upload), 9 AM CDT, keyword `TRAIN`. AI flag on for shorts 1, 2, 3, 4; off for 5. Queue 137 to 157; ad-guard clean before and after.
+
+| short | date | FB / IG / TikTok / YouTube |
+|---|---|---|
+| 1 more injuries | Sat Oct 17 | `5053506` / `5053507` / `5053509` / `5053510` |
+| 4 two back exercises | Tue Oct 20 | `5053515` / `5053516` / `5053517` / `5053518` |
+| 2 safer lifts | Thu Oct 22 | `5053520` / `5053522` / `5053523` / `5053524` |
+| 5 train legs | Sat Oct 24 | `5053527` / `5053528` / `5053529` / `5053530` |
+| 3 powerlifter body | Tue Oct 27 | `5053535` / `5053536` / `5053538` / `5053539` |
+
+- Queued before the parent is public (it posts Oct 11). If the parent fails to post, hold these. Receipt: `Docs/SL05_SETUP_RECEIPT_20261001.md`.
+
+## DONE: RO-12 "Top 5 Zepbound Tips To Lose Fat And Keep Your Muscle" (2026-10-01)
+
+Master `claude edited long form content/09 - Top 5 Zepbound Tips/Top 5 Zepbound Tips | claude | 16x9 | RO-12.mp4`, SHA-256 `7f6766c5…7cae67b` (2,419,960,621 bytes, 9:11.42); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/Top 5 Zepbound Tips - RO-12`, folder `1nOpRxT9nusbHYNFMcBCKRUf7eGOgIuxN`, anyone with the link). No YouTube holding copy (Blotato-only rule, 2026-10-01): Blotato creates the public video with Dan's FINAL thumbnail (Codex R3 C), synthetic media on (three labelled AI clips).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 25, 9 AM CDT (`5046547` / `5046548` / `5046549` / `5046550`) |
+
+- Blotato copy 230 MB (h264_videotoolbox 4 Mbps, audio stream-copied, 16,526 frames, same as the master). Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0`, AI label on.
+- Keyword `FOOD`; UTM `utm_content=ro12-zepbound-tips`. Config `scripts/blotato/configs/ro12-zepbound-tips.json`. Receipt `Docs/RO12_SETUP_RECEIPT_20261001.md`.
+- Owes after Oct 25: English captions from the .srt in Studio; publish sixpackabs article `sixpackabs/articles/TBD-top-5-zepbound-tips.md`; WATCH NEXT card to RO-01 once RO-01 is public. Shorts job SL-06 READY.
+
+## DONE: RO-05 "How I Make My Daily Salad: 700 Calories, $4 a Bowl, Fresh for 7 Days" (2026-09-30)
+
+Master `claude edited long form content/08 - How I Make My Daily Salad (Fable recut)/How I Make My Daily Salad | claude round 4 | 16x9 | RO-05.mp4`, SHA-256 `23fdcb0c…b11378e` (1,905,547,451 bytes, 14:53.86); same file + .srt on the Extreme drive and Google Drive (`Claude Content Videos/How I Make My Daily Salad - RO-05`, folder `1QNZ2bk-z63l_TdzqpmXlPxnNz-SsLbjD`, anyone with the link). YouTube **Private** holding copy `mfoSLivtvdQ`, read back private, Dan's FINAL thumbnail (Codex option 5), synthetic off (no AI footage).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 18, 9 AM CDT (`5014529` / `5014531` / `5014533` / `5014534`) |
+
+- Blotato copy 290 MB (h264_videotoolbox 2.8 Mbps, audio stream-copied: audio packets identical to the master, 26,789 frames, 893.86 s). Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 26789 to 26790, audio packets 41901 unchanged, cover match 54.2 dB).
+- Keyword `FOOD`; UTM `utm_content=ro05-daily-salad`. Config `scripts/blotato/configs/ro05-daily-salad.json`.
+- Captions: the 277-cue SRT is not on YouTube (the token has no captions scope); add it in Studio to the Blotato-created video after Oct 18 if wanted.
+- Owes after Oct 18: publish sixpackabs article `sixpackabs/articles/TBD-daily-salad.md`; upload the RO-05 .srt as English captions in Studio to the Blotato-created public video (recommended 09-30). SL-03 shorts READY.
+
+## DONE: "Why I Stopped Deadlifting at 40 (Do These 4 Exercises Instead)", Zeeshan Video 3 (2026-09-29)
+
+Master = Zeeshan's **"Video 3 Rev 5"** (delivered 09-29, answers round 5: Rev 3 skin restored, Rev 4 blacks kept; audio identical to Rev 4, r 0.9999999, -13.9 LUFS / -1.0 dBTP; same 9:16.5 cut). `Zeeshan Content Videos/stop deadlifting - video 3/stop deadlifting | zeeshan | 16x9 | video 3.mp4`, MD5 `e98bbb9bace1085df31950e9e51fd326` (728,005,370 bytes); same file on the Extreme drive and Google Drive (`Zeeshan Content Videos/stop deadlifting - video 3`, folder `13hMGts3Lck398OMrStF1j3Ajfwp1Q0qT`, anyone with the link). YouTube **Private** holding copy `INLsTVVybJA`, read back private, thumbnail 1 (pool p172), synthetic on (AI clips at 0:44, 3:44, 4:56, 6:20).
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sun Oct 11, 9 AM CDT (`4976695` / `4976700` / `4976709` / `4976708`) |
+
+- Set up first from Rev 4 by mistake (Dan sent the Rev 4 link); swapped to Rev 5 the same day with `swap_media.py`. The stale Rev 4 private holding copy `FMRe6BR4WmI` is still on YouTube (Private, unused).
+- Blotato copy re-encoded to 264 MB (4 Mbps VideoToolbox, audio stream-copied): master is over the 400 MB cap. Re-hosted files MD5-matched.
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 16678 to 16679, audio packets 26086 unchanged, cover match 54.0 dB).
+- Keyword `TRAIN`; UTM `utm_content=stop-deadlifting`. Config `scripts/blotato/configs/stop-deadlifting.json`.
+- SL-05 shorts queued 10-01 for Oct 17-27 (see below). Owes: sixpackabs article `sixpackabs/articles/TBD-stop-deadlifting.md` to publish after Oct 11 (rename to the public id).
+
+## DONE: DS-18 "How to Do Kettlebell Deadlifts the Right Way at Home" (2026-09-28)
+
+Organic Short, first set up as an ad by mistake on 09-27 (ads paused, $0.62 spent). Master SHA-256 `aa7fe874…` (41.9 s).
+YouTube holding copy `CMsb0qbo2vM` switched to **Private**. Keyword `TRAIN`, cover C r5, TikTok cover-first copy.
+
+| FB · IG @danrosefit · TikTok · YouTube |
+|---|
+| Sat Oct 3, 9 AM CDT (`4938171` / `4938172` / `4938174` / `4938175`) |
+
+- Full evidence: `Docs/DS18_SETUP_RECEIPT_20260928.md`.
+
+## DONE: C1652 "Your Belly Fat Is an Emergency" RE-RELEASE moved to Sunday Oct 4 (2026-09-23)
+
+The 09-18 setup put it on a Wednesday (Sep 23), off the every-Sunday long-form cadence. It published at 9 AM on YouTube `YkrhNBTssPU` (Dan set it Private), Facebook reel `1073904172168151`, IG @danrosefit `Ddoecsjkhp3` and TikTok `7688730236640365855`. Those three are still live. Dan asked for a slightly different file re-released on Sunday.
+
+- New files: the two 09-18 Blotato derivatives with a 5 s silent freeze of the last frame appended (stream-copied concat, 679.39 s). `Media/codex-video-trial/06-organic-r4/platform-derivatives/rerelease-20260923/C1652_BLOTATO_RR.mp4` (252,581,940 bytes) and `..._TIKTOK_COVER_RR.mp4` (252,705,658 bytes, cover still frame 0). Both byte-verified on Blotato.
+- Sun Sep 27 already holds Arms & Shoulders, so this went to the next free Sunday.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Sun Oct 4, 9 AM CDT (`4757780` / `4757781` / `4757782` / `4757785`) | Mon Oct 5, 9 AM (`4757783`) |
+
+- Old unposted mirror `4578150` (Thu Sep 24) deleted. Config `scripts/blotato/configs/belly-fat-emergency-rerelease.json`. Queue 162; ad-guard clean.
+- sixpackabs.com page 784 (embedded the now-private `YkrhNBTssPU`) set to **draft**; the Oct 4 release makes a new page.
+- Captions: the 236-cue SRT lives only on the private holding copy `1mHgnH1GVtg`; the Blotato-created YouTube video gets none unless added in Studio after Oct 4.
+
+## DONE: SL-04 Arms & Shoulders shorts x5 (2026-09-30)
+
+FB, IG @danrosefit, TikTok and YouTube (Blotato creates it at release; no holding upload), 9 AM CDT, keyword `TRAIN`, no AI flag. Queue 113 to 133; ad-guard clean before and after.
+
+| short | date | FB / IG / TikTok / YouTube |
+|---|---|---|
+| 2 shirt-off pump | Tue Oct 6 | `5019222` / `5019223` / `5019224` / `5019225` |
+| 1 waist smaller | Thu Oct 8 | `5019226` / `5019227` / `5019228` / `5019229` |
+| 5 bicep curls | Sat Oct 10 | `5019232` / `5019233` / `5019234` / `5019235` |
+| 3 elbows | Tue Oct 13 | `5019237` / `5019238` / `5019240` / `5019241` |
+| 4 swinging | Thu Oct 15 | `5019247` / `5019250` / `5019251` / `5019252` |
+
+- Parent carries a Content ID claim on the live-round song (8:25-9:57) that shorts 1 and 2 end on; no reach impact. Receipt: `Docs/SL04_SETUP_RECEIPT_20260930.md`.
+
+## DONE: Arms & Shoulders Home Workout (Zeeshan "Video2 Rev 3", 11:00) (2026-09-22)
+
+Master `Zeeshan Content Videos/arms and shoulders home workout - video 2/arms and shoulders home workout | zeeshan | 16x9 | video 2.mp4`, MD5 `49c7dfb3d189043dbb2bc4b326e8fd81` (858,396,944 bytes). YouTube **Private** holding copy `QHWOoWbgWcY`, read back private, no publishAt, with Dan's own thumbnail "2 Min Home Arm Workout" (`social media graphics/youtube/thumbnails/Arms And Shoulders Home Workout/arms-shoulders-workout_DAN-2-min-home-arm-workout-FINAL.jpg`). Blotato copy re-encoded to 313 MB (videotoolbox 4 Mbps, audio stream-copied). Queue 157 to 162; ad-guard clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Sun Sep 27, 9 AM CDT (`4722756` / `4722757` / `4722920` / `4722764`) | Mon Sep 28, 9 AM (`4722761`) |
+
+- TikTok: cover prepended as frame 0, `videoCoverTimestamp: 0` (frames 19784 to 19785, audio packets 30944 unchanged, cover match 51.7 dB).
+- Keyword `ABS`; AI disclosure on (goal image at 10:48). Config `scripts/blotato/configs/arms-shoulders-home-workout.json`.
+- Zeeshan's 09-22 "Video 2 No music" was NOT used: it strips the approved live-round track too.
+- Owes: AV-13 vertical, AS-12 square, RO-04 follow-along. SL-04 shorts queued 09-30 (see below). Parent is public (YouTube `ZxsFnsv7mLo`); IG went live 09-30 via re-queue `4962222`: instagram.com/reel/Dd6f-bJgXNJ.
+
+## DONE — DS-04 “How to Do a Stomach Vacuum to Shrink Your Waist” (2026-09-18)
+
+Exact 70,119,789-byte master verified at SHA-256 `3e2a51b…` / MD5 `5f4b4457…`, then uploaded to YouTube as **Private** (`GNA1riDIdW4`) with cover A and no native publish time. Blotato owns release across all five organic destinations; fresh readback verified every account, timestamp, caption, target and media length. Queue 180 → 185; ad-guard scans clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Mon Sep 21, 9 AM CDT (`4586862` / `4586863` / `4586884` / `4586866`) | Tue Sep 22, 9 AM (`4586865`) |
+
+- TikTok uses cover A as frame 0 with `videoCoverTimestamp: 0`; verification measured 1,502 → 1,503 video frames, 2,351 → 2,351 audio packets, a clean decode and 43.3 dB cover match.
+- ManyChat keyword `ABS`; no AI-media disclosure; organic links use the UTM-tagged `absbyai.com` root.
+- Dan’s accepted `audio:stamp` exception was left untouched. Full evidence: `Docs/DS04_SETUP_RECEIPT_20260918.md`.
+
+## DONE — C1652 “Your Belly Fat Is an Emergency” (2026-09-18)
+
+Dan selected pool thumbnail **B only**; no A/B test. The exact approved 1.073 GB master was uploaded to YouTube as **Private** (`1mHgnH1GVtg`) with B, full description and chapters. Blotato owns release across all five organic destinations; fresh readback verified every account, timestamp, caption, target, media length and cover. Queue 175 → 180; ad-guard scans clean before and after.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Wed Sep 23, 9 AM CDT (`4578147` / `4578148` / `4578181` / `4578151`) | Thu Sep 24, 9 AM (`4578150`) |
+
+- IG and YouTube use B directly. TikTok uses the B-first-frame derivative with `videoCoverTimestamp: 0`; all approved AAC packets are unchanged.
+- The approved 236-cue English SRT is installed and published in YouTube Studio.
+- Full evidence and exact settings: `Docs/C1652_SETUP_RECEIPT_20260918.md`.
+
+## DONE — DS-17 “How to Jump Rope Without Tripping — Skip Like a Boxer” (2026-09-17)
+
+Approved 1080×1920 master (45.18 s, SHA-256 `ad4f7b46…`) uploaded to YouTube as **Private** (`m3oWfS1BTsw`) and queued through Blotato for public organic release. Dan approved full-bleed action cover C2 on 2026-09-18; YouTube and all cover-bearing Blotato schedules were replaced and freshly verified. Queue and ad-guard scans remain clean.
+
+| FB · IG @danrosefit · TikTok · YouTube | IG @abs.by.ai |
+|---|---|
+| Fri Sep 18, 5 PM CDT (`4557023` / `4584065` / `4584069` / `4584075`) | Sat Sep 19, 5 PM (`4584072`) |
+
+- IG uses approved cover C2. TikTok uses the same designed cover as frame 0 and saves `videoCoverTimestamp: 0`; the C2 derivative retained every audio packet and passed decode/hash verification. YouTube's saved Blotato target and Private holding upload both use C2.
+- To make DS-17 the next release, only three conflicting sodium **photo** posts were moved: `3584611`, `3841874`, and `3841875` to Sat Sep 19 at 9 AM. Existing Sunday/Tuesday videos were untouched.
+- Full evidence and exact settings: `Docs/DS17_SETUP_RECEIPT_20260917.md`.
+
+## DONE — "Ab Wheel Workout: 3 Sets For Stronger Abs (Do It With Me)", every platform (2026-09-13)
+
+Zeeshan's final "Video 1 Rev 2.mp4" (3:52, 300,660,846 bytes, md5 `b85099f6…`), filed at
+`Zeeshan Content Videos/ab wheel workout - video 1/`, posted untouched (under the 400 MB cap). **4 Blotato posts** by the
+new generic `scripts/blotato/longform_queue.py scripts/blotato/configs/abwheel-workout.json`, queue 187 → 191, all 4
+verified on a fresh pull. Built and recorded as the `/video-setup` skill.
+
+| FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|
+| Sun Sep 20, 9 AM CT (schedules 4413699 / 4413701 / 4413702) | Sep 21, 9 AM (4413703) | `b_bS9NdmL-g`, Sep 20 9 AM, thumbnail 5 (rollout screenshot) A/B vs 1 (pool photo-172) |
+
+- IG CTA keyword `ABS`; UTM `utm_campaign=longform&utm_content=abwheel-workout`. TikTok `isAiGenerated: true` and
+  YouTube synthetic disclosure on (the CTA shows the AI goal image).
+- The Test & Compare reads "Ineligible — not public" until 09-20; confirm it is running after publish.
+
+## ⚠ INCIDENT — Ad 5 was published ORGANICALLY and should never have been (2026-09-16/17)
+
+**Ad 5 is a PAID AD.** It ran free on Facebook, Instagram @danrosefit, the @abs.by.ai mirror and TikTok, and
+went Public on YouTube. Dan flagged it 2026-09-17. **The rule now: an ad is never published organically,
+however the request is phrased** (`AGENTS.md`, 2026-09-17).
+
+- **Cause:** on 2026-09-10 Dan wrote *"This video is finalized… upload it to YouTube and set it up on all
+  other platforms in the Blotato queue"* — the sentence he uses for content videos — and the session did
+  exactly that, building `ad5_queue.py`. `/ad-setup` positively permitted it at the time ("if cross-platform
+  organic distribution is separately requested, queue those platforms through Blotato"). Nothing
+  malfunctioned; the rule did not exist. Session `a5cc5f24-196b-41ca-ba1d-a30c000c41e1`, Claude Code.
+- **Takedown, 2026-09-17 (Dan's instruction):** Facebook reel `29205625742377322` DELETED via Graph API (read back 404).
+  IG @danrosefit `DdWc5d4CZof` was already gone (confirmed absent from the profile while signed in as danrosefit).
+  IG @abs.by.ai `DdZBorwDTGP` DELETED in the web UI ("Post deleted.", gone from the grid). YouTube `bwfSQopZy1w`
+  is **unlisted**; all 26 ad videos read back unlisted.
+  ⚠ **STILL LIVE: TikTok `https://www.tiktok.com/@absbyai/video/7686132607964269855`.** TikTok Studio greys out
+  Delete on it — the post carries TikTok's **"Promotional content"** label (the queue script set
+  `isYourBrand: true`), and TikTok restricts managing those to the phone app; the web video page has no manage
+  menu at all. **Delete it in the TikTok app.** This is a general trap: anything queued with `isYourBrand: true`
+  cannot be deleted or edited from the web afterwards.
+- **Queue audited 2026-09-17: CLEAN.** 174 scheduled posts, no other ad content — `python3 scripts/blotato/ad_guard.py --scan`.
+- **Fix:** `scripts/blotato/ad_guard.py` blocks an ad payload three ways (missing `content_type: organic`,
+  a source path under `<Editor> Ad Videos/`, a caption/slug matching a known ad title or ad YouTube id) and
+  every queue script imports it. `ad5_queue.py` is retired and refuses to run.
+
+## DONE (SUPERSEDED BY THE INCIDENT ABOVE) — Ad 5 "Every Diet You've Tried Failed for the Same Reason", every platform (2026-09-10)
+
+Muhammad's V3 HD (3:55, 311 MB, md5 `3873513e…`), posted untouched — under the 400 MB cap, so no
+re-encode. **4 Blotato posts** by `scripts/blotato/ad5_queue.py` (same shape and guards as the ab-wheel
+script), queue 193 → 197, all 4 verified on a fresh pull (schedules 4327372–4327375).
+
+| FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|
+| Wed Sep 16, 9 AM CT | Sep 17, 9 AM | `bwfSQopZy1w`, Sep 16 9 AM, thumbnail B2 clean white backdrop (studio-white-23, Dan's pick) |
+
+- IG CTA keyword **`FOOD`** (diet/meal-plan topic); UTM `utm_campaign=longform&utm_content=ad5-every-diet`.
+  Links go to the absbyai.com root, not `/start`, so organic traffic stays out of the `/start` A/B test.
+- TikTok `isAiGenerated: true` — the video shows the AI future-self image.
+
+## DONE — "The $17 Ab Wheel Beats Every Crunch" + its 5 Shorts, every platform (2026-09-10)
+
+Source: Muhammad's v2 HD cut (6:58, md5 `05eb475f…`) — the same file the 5 approved ab-wheel Shorts
+were cut from on 08-28, so nothing new was cut. **24 Blotato posts** by `scripts/blotato/abwheel_queue.py`
+(idempotent; refuses a slot clash or the 200 cap), queue 173 → 197, all 24 verified on a fresh pull.
+Accounts now in use: FB page 47105, IG `@danrosefit` 67203 (main), IG `@abs.by.ai` 65632 (mirror, next
+day), TikTok 58181. **YouTube is scheduled natively** with `scripts/youtube/upload.js --publish-at`
+(full-quality 1.1 GB master; Blotato caps uploads at 400 MB) and spends no Blotato slot.
+
+| video | FB · IG @danrosefit · TikTok | IG @abs.by.ai | YouTube |
+|---|---|---|---|
+| long-form | Sun Sep 13, 9 AM CT | Sep 14, 9 AM | `bkzT-3ENpoU`, Sep 13 9 AM, thumbnail A |
+| short 1 Why I Love The Ab Wheel | Tue Oct 27, 5 PM | Oct 28 | `xPPeXcNXs8Y` |
+| short 2 The Biggest Ab Wheel Mistake | Thu Oct 29 | Oct 30 | `q4xGarIzRnI` |
+| short 3 How To Do Ab Wheel Rollouts | Sat Oct 31 | Nov 1 | `GzjiGqbX3Wo` |
+| short 4 How Fast To Roll Out With The Ab Wheel | Tue Nov 3 | Nov 4 | `hnxqAmmO0gM` |
+| short 5 Why The Ab Wheel Beats Crunches | Thu Nov 5 | Nov 6 | `iA5PXzzaJzI` |
+
+- The long-form on Blotato is a 193 MB copy (h264_videotoolbox 4 Mbps, audio stream copied untouched).
+  Facebook gets it with **no mediaType**, i.e. a plain video, per the 90 s Reels rule below.
+- The Shorts start where the Reels queue ends (Oct 24). **Oct 3 and Oct 15 have no Reel but
+  `@danrosefit` has a photo in both 5 PM slots** — the script's clash check caught it before anything
+  was created. 5 PM is 22:00Z until Nov 1 and 23:00Z after.
+- Instagram covers = the **A** variant of each (its eyebrow/headline is the short's own burned title).
+  IG CTA keyword `ABS`; UTMs `utm_campaign=abwheel&utm_content=abwheel-short<N>` (long-form:
+  `utm_campaign=longform&utm_content=abwheel`, as V7).
+- ⚠ The TikTok long-form is 6:58. TikTok's per-account maximum length is not visible through Blotato;
+  if the Sep 13 TikTok post fails, check that first.
+
+## DONE — 27 Shorts × 2 platforms = 54 posts scheduled
+
+All at **5:00 PM Central** (= `22:00Z`; Aug–Oct is CDT, UTC−5). Dates **mirror the existing YouTube Studio schedule exactly**, read live off the Studio content list rather than from any doc.
+
+| date | Short | note |
+|---|---|---|
+| Aug 20 | `v3-short6_vacuum-exercises` | posted early as the first IG/FB post; its YouTube date is Sep 19 |
+| Aug 22 | `v2-short1_sugar-free-gum-trick` | |
+| ~~Aug 25~~ | ~~`v2-short2_sean-ray-vision-board`~~ | **PULLED 2026-08-25 — do not reschedule.** Names/shows Mike Chang (+ a Sean Ray poster); Dan does not want him mentioned this early. Removed from IG @danrosefit, the @abs.by.ai mirror and Facebook; YouTube Short `DiwFRZT4JUI` set to Private. Content archived in `Business/pulled-vision-board-2026-08-25.json`. The freed slot took the channel-intro backfill reel. |
+| Aug 27 | `v2-short3_supplements-3-percent` | |
+| Aug 29 | `v2-short4_macro-tracking-obsolete` | |
+| Sep 1 | `v2-short5_ask-ai-to-interview-you` | |
+| Sep 3 | `v2-short6_hire-a-maid-not-a-trainer` | |
+| Sep 5 | `v2-short7_chicken-soup-trick` | |
+| Sep 8 | `v3-short1_no-abs-until-you-see-abs` | |
+| Sep 10 | `v3-short2_whey-protein-insulin` | |
+| Sep 12 | `v3-short3_liquid-calories-milk` | |
+| Sep 15 | `v3-short4_train-abs-every-day` | |
+| Sep 17 | `v3-short5_jelly-bean-vs-soda` | |
+| Sep 22 | `v3-short7_fast-until-2pm` | |
+| Sep 24 | `v3-short8_weigh-yourself-every-day` | |
+| Sep 26 | `v3-short9_break-fast-low-carb` | |
+| Sep 29 | `v3-short10_eight-hours-is-not-sleep` | |
+| Oct 1 | `v3-short11_bubble-gut-vacuums` | **contains two bleeps** (steroid references) |
+| Oct 6 | `v6-short2_knee-yourself-in-the-face` | |
+| Oct 8 | `v6-short3_look-at-the-sky-deadlift` | |
+| Oct 10 | `v6-short4_towel-row-karate-chop` | |
+| Oct 13 | `v6-short5_you-always-have-three-minutes` | thin — motivational, not a tactic |
+| Oct 15 | `short5_1-minute-workout` | **CC-BY attribution required and included** — see below |
+| Oct 17 | `short1_4-ab-muscles` | already public on YouTube; appended |
+| Oct 20 | `short2_toe-touches` | already public on YouTube; appended |
+| Oct 22 | `short3_v-sit-twists` | already public on YouTube; appended |
+| Oct 24 | `short4_spiderman-planks` | already public on YouTube; appended |
+
+**Four Shorts were already published on YouTube** (`short1`–`short4`), so they had no future YouTube date to mirror. They are **appended after Oct 15** on the same Tue/Thu/Sat cadence rather than being slotted in early, which would have collided with the mirrored dates. Same precedent as the Oct 15 append in `SHORTS_UPLOAD_PROGRESS.md`.
+
+**`short5_1-minute-workout` carries a live licence obligation.** Its audio was replaced with "Get A Move On" by Audionautix (CC-BY 4.0) to clear a YouTube copyright claim. The attribution line is included in **both** the IG and FB captions and **must not be removed**.
+
+## RE-CENTRED RE-CUTS SWAPPED INTO THE QUEUE — 25 posts (2026-08-27)
+
+Dan flagged `v2-short3` as off-centre the day it posted. Root cause: one fixed `TALK_X` per video
+in the Shorts builds (full write-up in `AI_COORDINATION.md`). **10 shorts were re-cut with a crop
+centre measured per SHOT; 9 of them had queued posts and all 25 were replaced** — same scheduled
+time, caption, first comment, cover image and account, new media only.
+
+| short | posts replaced | dates |
+|---|---|---|
+| `v2-short3_supplements-3-percent` | 1 (the `@abs.by.ai` mirror only — the rest had already posted) | Aug 28 |
+| `v2-short4_macro-tracking-obsolete` | 3 | Aug 29 / 29 / 30 |
+| `v2-short5_ask-ai-to-interview-you` | 3 | Sep 1 / 1 / 2 |
+| `v2-short7_chicken-soup-trick` | 3 | Sep 5 / 5 / 6 |
+| `v3-short4_train-abs-every-day` | 3 | Sep 15 / 15 / 16 |
+| `v3-short7_fast-until-2pm` | 3 | Sep 22 / 22 / 23 |
+| `v3-short9_break-fast-low-carb` | 3 | Sep 26 / 26 / 27 |
+| `v3-short11_bubble-gut-vacuums` | 3 | Oct 1 / 1 / 2 |
+| `v6-short2_knee-yourself-in-the-face` | 3 | Oct 6 / 6 / 7 |
+
+`v2-short1_sugar-free-gum-trick` was also re-cut but had already posted everywhere, so nothing was
+re-queued; the corrected file is on disk for any future use.
+
+**Verified against a fresh live pull**, not the create responses: 198 scheduled before and after,
+0 old ids remaining, 0 account+day collisions, 74 video posts before and after. ⚠ **Blotato
+re-hosts VIDEO on create under a new UUID too**, so the queued files were downloaded and
+frame-compared — 0.000 difference against the new masters at 8 timestamps each.
+
+⚠ **THE SAME STALE FILES ARE STILL SCHEDULED NATIVELY IN YOUTUBE STUDIO.** YouTube cannot swap a
+file after upload, so fixing those means delete + re-upload and new video ids. **Dan's call.**
+
+⚠ **`short5_1-minute-workout` (Oct 15 in the table below) is NOT in the live queue.** Found while
+auditing; cause unknown. Its captions carry the CC-BY attribution that must not be dropped.
+
+## DONE — 65 photos x 2 platforms = 130 posts scheduled (2026-08-18)
+
+`photos/finalized social media photos/` — **65** `*_FINAL_PRIMARY*.jpg` (the earlier count of 63 was wrong;
+`photo-74` has an `-A` and a `-B` variant and both are in). **Mon/Wed/Fri at 5:00 PM Central, Aug 19 2026 →
+Jan 15 2027**, threading between the Tue/Thu/Sat Reels queue. Verified after creation against Blotato:
+**184 scheduled total = 130 photo + 54 reel**, 65 IG + 65 FB, all 65 date buckets match the plan exactly,
+every post at 17:00 CT, **zero days carry both a photo and a reel**, 0 posts missing media.
+
+- **IG uses the 4:5 crop, FB the full frame.** 54 of 65 already had an `-IG-4x5.jpg`; **5 were generated
+  this session** (photo-10, 13, 38, 158, 247 — full width, top-anchored, head and abs kept). The remaining
+  **6 are landscape at 1.49:1** (44, 117, 118, 122, 180, 230), which is inside Instagram's own 1.91:1 limit,
+  so those post uncropped on both platforms — hence **124 distinct media URLs across 130 posts**, not 130.
+- UTMs: `utm_medium=photo`, `utm_campaign=pool-shoot`, `utm_content=photo-<n>`, per-platform `utm_source`.
+- Caption plan (photo → caption → date) is saved at
+  `photos/finalized social media photos/_blotato-photo-queue-plan.json` (gitignored with the photos).
+- Review page Dan approved: https://claude.ai/code/artifact/157b4d34-6403-4fc8-854f-243dfba3551a
+
+**Dan's four caption revisions, applied before queuing** (worth keeping — they are corrections of fact, not taste):
+- **Kettlebell swing → kettlebell deadlift.** Dan does not do swings; he considers them high risk. Do not
+  write swings into future content.
+- **Never tell people to stop tracking calories.** A caption saying "you don't have to track forever"
+  undermines the app's own macro feature. The angle is that AI made tracking easy, not optional.
+- Overhead-hold caption → **medicine ball slams** (overhead, slam, bounce, catch, back overhead).
+- **Cardio goes first thing in the morning, before lifting** — that is how Dan actually trains. The original
+  caption said the opposite.
+
+## DONE — long-form catch-up, 10 posts scheduled (2026-08-18)
+
+Dan asked for an accelerated **Facebook** catch-up believing FB was behind Instagram. **It was not.**
+Matching durations against the local masters settled what is actually where — do not re-derive this by
+counting posts, the counts mislead:
+
+| video | length | on YouTube | on Facebook | on Instagram |
+|---|---|---|---|---|
+| V1 channel intro | 4:05 | yes | **yes** (Aug 12, "I got my six-pack back at 40") | no → **queued Aug 19** |
+| V2 six strategies | 38:25 | yes | **yes** (Aug 16) | **impossible** — see limit below |
+| V3 top 10 tips | 21:12 | yes (Aug 16) | no → **queued Aug 22** | **impossible** |
+| V4 1-minute ab workout | 8:12 | yes | no → **queued Aug 21** | **queued Aug 21** |
+| V5 ab workout follow-along | 4:42 | Aug 23 | **queued Aug 23** | **queued Aug 23** |
+| V6 3-minute total body | 13:18 | Aug 30 | **queued Aug 30** | **queued Aug 30** |
+| V7 total body follow-along | 13:12 | Sep 6 | **queued Sep 6** | **queued Sep 6** |
+
+**Instagram already had every Short Facebook had.** The "extra" Facebook reel in the raw count is a
+**second copy of `short1_4-ab-muscles`** (1:06, posted Aug 12 2:41pm *and* Aug 13 3:11pm). Durations are
+the reliable way to match a post to its source file — captions and thumbnails are not.
+
+**All 10 at 9:00 AM Central**, deliberately off the 5:00 PM slot so long-form never lands on a photo or a
+Short. V5/V6/V7 mirror their YouTube publish times exactly, which is the start of Dan's "everything posts
+at the same time on all platforms" rule. Verified after creation: **194 scheduled total = 130 photo +
+54 reel + 10 video**, and **zero day+time slots carry mixed content types**.
+
+**THE TWO LIMITS THAT DECIDE WHERE A VIDEO CAN GO:**
+- **Instagram Reels cap at 15 minutes** — so V2 (38:25) and V3 (21:12) can never be posted to Instagram as
+  they are. V6 and V7 fit at 13:18 and 13:12, but with under two minutes of headroom.
+- **Facebook Reels cap at 90 seconds**, so long-form must be posted with **`mediaType` omitted** (a regular
+  video post). Only the ~60s Shorts use `mediaType: "reel"` on Facebook. Business Suite labelling every
+  video a "Reel" in its UI is cosmetic and misleading.
+
+**The masters cannot be uploaded** — they run 690 MB to 3.1 GB. Re-encode first: `h264_videotoolbox`,
+1920x1080, 3500k, AAC 128k, `+faststart`. That put V3 at 501 MB and V4 at 197 MB, and **hardware encoding
+does 8 minutes of video in about 60 seconds**. Large files go through the **presigned-URL PUT** flow
+(`blotato_create_presigned_upload_url` → `curl -X PUT --data-binary`), NOT the base64 data-URI route, which
+is only sane for images. A 197 MB PUT took 44 s.
+
+## NOT DONE — two Instagram-only photos were deliberately NOT mirrored to Facebook
+
+- **The Aug 4 post (`p/DboiRHDj-LW`) has no caption at all.** Mirroring a captionless graphic breaks the
+  content rule below, so it was left alone.
+- **The Aug 13 post (`p/Db_kllPD3bC`) is a good jump-rope technique tip**, but it could not be retrieved:
+  the composited graphic is not on disk, and **Instagram's CSP blocks every extraction route** — a
+  cross-origin POST to Blotato and a POST to a local bridge server both fail with `Failed to fetch`, and
+  the browser tool blocks the CDN URL itself as query-string data. (Note this is the opposite of the Google
+  Drive finding recorded elsewhere, where a `http://127.0.0.1` fetch from an HTTPS page *did* work — it
+  depends entirely on the host page's CSP.) Judged not worth recreating: it is 5 days old with 2 likes, and
+  **the same tactic is already covered by the photo queue** (#41 "Land quiet", plus the two Aug rope shots).
+
+## Content rule established 2026-08-17 — read before adding anything
+
+**Every post must give the viewer a reason to watch. A clip whose only content is Dan's own result is a brag and gets killed.** `v6-short1_gained-muscle-in-quarantine` ("I GOT LEANER WITH NO GYM") was cut, captioned, scheduled as the first IG/FB post, and pulled by Dan on sight. **It is excluded from this queue entirely** — but note it is still scheduled on **YouTube for Oct 3**, which Dan may want to remove separately. Full rule in `.claude/skills/shorts/SKILL.md` Step 2 and memory `shorts-reason-to-watch`.
+
+Two others flagged but kept, for Dan to pull if he disagrees:
+- **Oct 13 `v6-short5`** — "you always have three minutes" is motivational rather than a tactic. Weakest of the 27 against the rule.
+- **Oct 1 `v3-short11`** — bleeped steroid references. Fine on YouTube; Meta's organic policies are looser than its ad policies, so it should be fine, but it is the spiciest item in the queue.
+
+## Caption conventions (keep these)
+
+- **Instagram caps at 5 hashtags** — Blotato hard-rejects a 6th with an error. Not a YouTube constraint; IG only.
+- **Facebook** puts the absbyai.com link inline (FB links are clickable). **Instagram** says "link in the first comment" and Blotato auto-posts the link as `firstComment` — IG captions don't hyperlink, so a raw URL there is dead text.
+- UTMs are per-platform: `utm_source=instagram|facebook`, `utm_medium=reel`, `utm_campaign=<source video>`, `utm_content=<short id>`. Lets IG and FB traffic be told apart in PostHog.
+- All videos posted as **Reels** on both platforms; IG additionally `shareToFeed: true`.
+
+## Mechanics worth not re-deriving
+
+- **Media upload:** `blotato_create_presigned_upload_url` → HTTP `PUT` the raw bytes with curl → use the returned `publicUrl` as `mediaUrls`. Blotato re-hosts a per-post copy, so each post's `mediaUrls` differs from the one you uploaded.
+- **File size is a non-issue.** 25–64 MB files upload in 5–8 s. The re-encode-to-8.5 MB fallback in `handoff-20260812-instagram-facebook-content-queue.md` is **not needed** — ignore it.
+- **The calendar view shows a static thumbnail only.** To actually watch a queued video use **Upcoming posts** (`my.blotato.com/queue/schedules`), which embeds a real player. The calendar lives at `/queue/calendar`, not `/calendar`.
+- **Reading the YouTube schedule:** on the Studio content list each row exposes `row.polymerController.__data.video`; `scheduledPublishingDetails.scheduledPublishings[0].scheduledTimeSeconds` converted to `America/Chicago` gives every date in one call. The Date column shows date but not time.
+- **There IS a REST API key now, and it is the only sane way to do bulk work.** Generated 2026-08-18 from
+  Settings → API → Generate API Key (standing auth covers restricted key creation). Stored at
+  **`Business/blotato-api-key.txt`** (gitignored — the repo is public). Blotato shows the key **once**;
+  regenerate from that page if lost. Base `https://backend.blotato.com/v2`, header `blotato-api-key`.
+  `POST /v2/media` accepts **`{"url": "data:image/jpeg;base64,..."}`** so local files upload with no
+  presigned-URL dance; `POST /v2/posts` takes `{post:{accountId,target,content},scheduledTime}`;
+  `GET /v2/schedules` paginates with `cursor`; `DELETE /v2/schedules/<id>` returns 204.
+  **Doing this over MCP would have been ~250 individual tool calls; over REST it is two scripts.**
+- **Rate limit is real and aggressive** — roughly 28 uploads then a cooldown, replying
+  `429 {"message":"Rate limit exceeded, retry in N seconds"}`. Run uploads sequentially with ~1.2s spacing
+  and honour the N from the message. Both scripts must be **idempotent** (cache `file → publicUrl` and
+  `job → postSubmissionId` to disk) so a re-run resumes instead of double-posting.
+- **Blotato refuses any schedule more than 9 months out** (`code 20011`). The Jan 2027 tail fits; a longer
+  queue would not.
+- **A feed photo takes no `mediaType`.** `mediaType` is `reel|story` only — omit it and the post is a normal
+  feed photo. `shareToFeed` is reel-only.
+- **Do not run two upload scripts at once.** Both write the same cache file and the loser's writes are lost,
+  which briefly regressed the map from 124 back to 120 entries.
+- **Meta Business Suite's Content list shows Instagram and Facebook rows together**, distinguished by the
+  glyph and the `Abs by AI` vs `abs.by.ai` byline — the fastest way to diff the two accounts. Its table is
+  virtualised (only ~9 rows in the DOM) and `innerText` of the page is blocked by the browser tool, so read
+  it by returning short per-row strings, not the whole page.
+- Deleting a queued post: `blotato_delete_schedule` with the **schedule id** from `blotato_list_posts` (not the `postSubmissionId` returned at creation).
+
+
+## RO-01 Keep Your Muscle, setup October 7, 2026
+
+CONTENT. Approved R10/B1 preserved and archived with matching hashes. YouTube 5295786: Dec 6 at 9 AM CST. Facebook 5295779, Instagram @danrosefit 5295782, TikTok 5295785: Dec 7 at 9 AM CST. Saved schedules and media hashes verified. Instagram delivery copy is 272 MB. TikTok full 11:52 is saved but exceeds the documented 10-minute API cap; delivery route unresolved. Public backups, payloads and release-check automation: `Docs/RO01_SETUP_RECEIPT_20261007.md`. SL-12 added; article draft prepared.
+
+## SL-03 Daily Salad shorts (2026-10-08)
+Shorts 1, 4, 5 queued (FB, IG @danrosefit, TikTok, YouTube) Oct 29, Oct 31, Nov 3 at 9 AM Central; queue 198 of 200. Short 2 queued 2026-10-09 for Thu Nov 5 (5361331 to 5361334); queue 199 of 200. Short 3 queued 2026-10-11 for Sat Nov 7 (5443391 to 5443394); queue 199 of 200. Short 6 owed (Nov 10) once there is room for 4 posts. Receipt: `Docs/SL03_SETUP_RECEIPT_20261008.md`. Handoff: `Handoffs/handoff-20261008-sl03-queue-shorts-2-3-6.md`.
+
+## DONE: I'm 41. I Wasted My Life. (RO-25), scheduled 2026-10-17
+
+Dan approved the exact R7 master (SHA256 `6045ac0e61b6323934477c5c60a3cdca095e658ef689b8493717cf50e82848a7`). Thumbnail C is the single approved design (SHA256 `d7c8a844889a350552c07f029176ad4282a5e5cd8f2e6619649c404965f70223`). Blotato live readback: YouTube 5699404, Sunday October 18 at 9 AM Chicago; Facebook 5699402 and Instagram 5699403, Monday October 19 at noon. The long-form exceeds Blotato's TikTok limit; cover-first direct TikTok file is ready for Monday after YouTube is verified public. Keyword ABS, organic root UTM `ro25-wasted-my-life`. Drive package: https://drive.google.com/drive/folders/1prfWWYTJ3NsTc4dzMFPQq8qPS6yU5tac. Full details: `Docs/RO25_SETUP_RECEIPT_20261017.md`. Nothing public at setup time.
+
+To make room at the 200-post cap, Dan authorized removing the last queued video. Four schedules for Can You Drink Alcohol And Still Have Abs? (RO-13), originally December 30/31, were saved in `Docs/RO25_CAPACITY_REMOVED_RO13_20261017.json`, removed and verified absent. The finished video remains on the normal waitlist with its December 30 target. The edit queue now reflects finalized, not uploaded, for RO-13 until it is scheduled again.
+
+
+## SL-07 If I Had Belly Fat shorts (2026-10-18)
+Five shorts set up and waiting for room (queue 198/200): on `scripts/blotato/video_waitlist.json`, slots Mon Dec 21, Tue Dec 22, Sat Dec 26, Mon Dec 28, Tue Dec 29, 9 AM Central, after RO-16 (YouTube Dec 20). Configs `scripts/blotato/configs/sl07-short{1..5}-*.json`. Receipt `Docs/SL07_SETUP_RECEIPT_20261018.md`.
+
+## SL-15 My First Spray Tan shorts (2026-10-22)
+- Waiting list, parent first: short 1 "Why You Look Less Ripped In Photos" Fri Jan 1 2027 and short 2 "Get A Tan Without Sun Damage" Sat Jan 2 2027, 9 AM Central, after RO-19 (Wed Dec 30). Entries carry `after` (RO-19 config), so they wait until RO-19 is queued and always land after its release day.
+- Configs `scripts/blotato/configs/sl15-short1-why-you-look-less-ripped-in-photos.json`, `sl15-short2-get-a-tan-without-sun-damage.json`; media hash-checked; FB covers registered. Receipt `Docs/SL15_SETUP_RECEIPT_20261022.md`.
+
+## DONE: SL-09 Oura Ring Review shorts (2026-10-21)
+Five shorts from "My Honest Oura Ring Review After 1.5 Years" (parent YouTube `5095442`, Wed Nov 11) queued on YouTube 46963, Facebook 47105, Instagram 67203 and TikTok 58181 at 9 AM Central: short 1 Fri Nov 13 (5867678/79/80/82), short 2 Mon Nov 16 (5867684/85/87/88), short 3 Fri Nov 20 (5867691/94/98, 5867701), short 4 Mon Nov 23 (5867702/03/04/06), short 5 Fri Nov 27 (5867711/13/15/16). Covers 1F 2C 3E 4F 5D; keyword SLEEP; `utm_content=sl09-short<N>`. Every hosted video hash-matched. Configs `scripts/blotato/configs/sl09-short{1..5}-*.json`. Receipt `Docs/SL09_SETUP_RECEIPT_20261021.md`.
+
+## SL-19 3 Healthy Foods That Made Me Fat shorts (2026-10-21)
+Three shorts set up and waiting behind RO-17 (YouTube Dec 13) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Mon Dec 14, Fri Dec 18, Fri Dec 25, 9 AM Central. Covers C, C, C; keyword FOOD; `utm_content=sl19-short<N>`. Configs `scripts/blotato/configs/sl19-short{1..3}-*.json`. Receipt `Docs/SL19_SETUP_RECEIPT_20261021.md`.
+
+## SL-18 I'm 41. I Wasted My Life. shorts (2026-10-22)
+Two shorts queued on all four platforms: Mon Oct 26 and Sat Dec 12, 9 AM Central (ids 5909596-5909600, 5909603-5909607). Covers C and revised D; keyword ABS; `utm_content=sl18-short<N>`. Configs `scripts/blotato/configs/sl18-short{1,2}-*.json`. Receipt `Docs/SL18_SETUP_RECEIPT_20261022.md`.
+
+## DONE: SL-06 Top 5 Zepbound Tips shorts (2026-10-22)
+Six shorts, four posts each (FB, IG @danrosefit, TikTok, YouTube), 9 AM Central: Mon Nov 9, Sat Nov 21, Sat Nov 28, Tue Dec 1, Sat Dec 5, Tue Dec 8 (parent RO-12 YouTube Sun Nov 8). Schedule ids 5909999, 5910000, 5910001, 5910003, 5910004, 5910006, 5910007, 5910008, 5910010, 5910011, 5910012, 5910013, 5910016, 5910017, 5910018, 5910019, 5910021, 5910022, 5910023, 5910024, 5910026, 5910027, 5910028, 5910029. Keyword FOOD, campaign zepbound-tips. Receipt: `Docs/SL06_SETUP_RECEIPT_20261022.md`.
+
+## DONE: RO-14 Why You're Not Losing Weight (4 Hidden Calorie Leaks) (2026-10-22)
+
+Source `claude edited long form content/22 - Why You're Not Losing Weight/... | claude round 3 | 16x9 | RO-14.mp4`, SHA-256 `14f2a85d...e07e3c`. Blotato schedules: YouTube `5910479` Sun Jan 3, 2027, 9 AM CT (thumbnail B2 level blocks, AI flag on); Facebook `5910475`, Instagram `5910476`, TikTok `5910478` Mon Jan 4, 2027, noon CT. Keyword TRACK, UTM `utm_content=ro14-not-losing-weight`. First 2027 slot because 2026 was full. Receipt `Docs/RO14_SETUP_RECEIPT_20261022.md`.
+
+## DONE — Alex Hormozi Asks A Fat Guy Why He Isn't 200 Pounds Heavier (DS-44), 2026-10-23
+Scripted R2 master (sha256 9d8deb8da3d5eb2b...), Thu 2026-12-17 9 AM CT on FB 5948215 / IG 5948216 / TikTok 5948217 / YouTube 5948218. Cover: split-screen A with Dan in the corner (round 4 option 1). Keyword TRACK, UTM hormozi-fat-guy. Off-the-cuff take (DS-44B) may replace the media if Dan picks it. Receipt: Docs/DS44_SETUP_RECEIPT_20261023.md.
+
+## SL-17 I'm 41. I'm Top 1%. How I Did It. shorts (2026-10-23)
+Three shorts set up and waiting behind RO-26 (YouTube Sun Oct 25) on `scripts/blotato/video_waitlist.json` (with `parent_config`): Fri Oct 30, Fri Nov 6, Mon Nov 30, 9 AM Central. Covers C, C, F (revised); keyword ABS; `utm_content=sl17-short<N>`. Configs `scripts/blotato/configs/sl17-short{1..3}-*.json`. Receipt `Docs/SL17_SETUP_RECEIPT_20261023.md`.
+
+## HOLD - Does Cristiano Ronaldo's Electric Shock Ab Belt Work? (DS-33), 2026-10-25
+
+Cover 3 expression R3 approved and installed. Exact R5 master MD5 `a51e9f48ee4e4b80b31bb3afa80045b9`; project, Extreme and Drive backups verified. Blotato 197/200, four-post dry run blocked at 201. One shared-waitlist entry targets Thu Dec 24, 9 AM America/Chicago; no schedule IDs or public YouTube ID yet. YouTube/Instagram covers, TikTok cover-first copy and Facebook installer registry verified. Keyword ABS; campaign ronaldo-ab-belt; per-platform root UTMs. Pinned question saved, posts and pins after release. Receipt: `Docs/DS33_SETUP_RECEIPT_20261025.md`.
+
+## HOLD - Bill Maher: Fat 90-Year-Old (DS-40), 2026-10-25
+
+Exact approved **Codex R5** master SHA-256 `3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720` and approved design 1 cover R3 installed. Four media uploads downloaded and hash-verified; project/Extreme/Drive backups verified. TikTok gets one cover frame, 1,945 total frames; source audio payload is bit-identical. Instagram and YouTube supplied approved layouts; Facebook repository/live installer cover hashes match. Blotato 197/200, standard dry run would reach 201, so one shared-waitlist entry targets Thu Dec 31, 2026, 9 AM America/Chicago. No DS-40 schedules or public YouTube ID yet. Keyword ABS; UTM `utm_content=ds40-bill-maher-fat-90-year-old`. Pinned question saved: “Do you agree with Bill Maher on this?”. Existing daily top-up and release monitors own the remaining actions. Receipt: `Docs/DS40_CODEX_R5_SETUP_RECEIPT_20261025.md`.
+
+## WAITLIST - Calories Not Losing Weight Shorts (2026-10-25)
+
+All five exact R6 films approved; C cover selected for each. Planned at9AM America/Chicago in2027: Jan4 Why I Fast Until2pm Every Day; Jan5 Eat a Salad First to Eat Less; Jan8 Stop Drinking Your Calories; Jan9 Snack on Protein, Not Carbs; Jan11 Make Fasting Easier With Black Coffee. All20 media/cover downloads hash-verified, three-copy final backup verified, FOOD and pinned questions saved. Blotato197/200 cannot fit four posts per Short, so five unique entries are on the shared waiting list with the Dec27 Calories parent dependency. No Short schedule IDs yet. Existing daily top-up owns queuing; public-tile and pinned-comment checks follow release. Receipt: `Docs/SL08_SETUP_RECEIPT_20261025.md`.
+
+## DONE — Dad Bod: Do Women Like The Dad Bod? (DS-35, 2026-10-26)
+
+Dan approved exact Off The Cuff R3 and design 2 revised title-case cover R3. Source: `Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4`; MD5 `3736db85645f4f8a19f71bf059f6d38a`; SHA256 `c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d`. All four posts scheduled Saturday December 19, 2026 at 9 AM America/Chicago (15:00 UTC), Dan-approved one-time Saturday exception, no other video displaced. Facebook 6072714; Instagram @danrosefit 6072716; TikTok 6072718; YouTube 6072720. Captions/targets read back exactly and all four actual rehosted media copies hash-verified. No direct YouTube holding upload; public YouTube ID appears at release. Instagram and YouTube approved cover URLs in config; FB repo/live installer registered; actual uploaded TikTok first frame visually checked and pixels match approved cover frame. Keyword ABS; root absbyai.com UTMs campaign=dad-bod, content=ds35-dad-bod. Three verified backup locations. Pinned question and dedicated-Short article handled after release by existing routines; public tile checks still due after release. DS-35 uploaded, Drive edit-queue status verified. Receipt: `Docs/DS35_SETUP_RECEIPT_20261026.md` + JSON. Config: `scripts/blotato/configs/ds35-dad-bod.json`.
+
+## DONE: Fat Millionaire corrected R4 setup,2026-10-28
+
+Dan approved exact corrected R4 and F3 cover. Thursday December10,2026 at5PM America/Chicago on all four destinations. Corrected master SHA256db5e76c31a39a0892efe8fab0b0a3b31c79399f9bdacd873932e7a8afb93004e. Verified saved schedules:Facebook6161575,Instagram6161577,TikTok6161579,YouTube6161581. Existing entry marked queued. Backups and actual uploaded bytes verified. Public YouTube id exists only after release; cover/pinned-comment release checks use existing routines. Receipt:Docs/DS05_SETUP_RECEIPT_20261028.md.
+
+## DONE: Boring Abs At 40 (RO-27), 2026-10-28
+
+Approved full R5 and R3 design1 uploaded/hash-verified. Four schedules read back: YouTube6164756 Wed Nov4,9AM Central; Facebook6164753/Instagram6164754/TikTok6164755 Thu Nov5,noon. Master MD5 `5d889826f8f7940104c9aa515287e5d1`, thumbnail SHA256 `0aa533016c08de2e37ce6cc2f5a6c758e5eea99953d4ff90c4c2b92ba4836e3f`. KeywordABS; UTM content ro27-boring-abs-at-40. Realistic AI flags true. No private YouTube holding copy or native scheduling. Article/pinned question prepared. Receipt: `Docs/RO27_SETUP_RECEIPT_20261028.md`. Actual public covers/captions/article/pinned question remain release checks.
+
+
+## DONE: Why Zepbound Improves Your Health Even If You're Ripped (RO-28), October29,2026
+
+Exact R5 approved, R2 design3 approved and installed. YouTube6213010 Wednesday November18,2026 9AM America/Chicago. Facebook6213006, Instagram6213007, TikTok6213008 Thursday November19 at noon. Queue196 to200, all saved targets/captions/times and actual rehosted videos hash-verified, cover fields verified. Full original backed up, upload copies preserve audio and frame counts, TikTok one-cover-frame copy checked. FOOD, homepage UTMs, AI flags, pinned question and981-word article ready. Public video ID, native English captions/tags and public cover observations occur after release; existing routines own article/pin/cover checks. SL-27 registered for3Shorts, no edit launched. Receipt Docs/RO28_SETUP_RECEIPT_20261029.md.
+
+## HOLD: The Vacuum Shorts SL-11, October29, 2026
+
+Dan approved all exact R4 cover pairs. Three original R3 masters and sound unchanged; 12 uploaded assets download/hash-verified. Complete configs and source/live FB covers; three shared waitlist entries: January16 9AM, January16 6PM, January18 6PM Central, after RO-02 January15. Blotato200/200, zero SL-11 schedules. Pinned questions saved; article/write-or-skip and actual public cover checks follow release through existing routines. `Docs/SL11_SETUP_RECEIPT_20261029.md`.
+
+
+## DONE: Reacting To Celebrity Ozempic Transformations (RO-24), 2026-10-30
+
+Exact R5 and thumbnail A. YouTube 6253113 Sun Nov 15, 9 AM Central. Facebook 6253110, Instagram 6253111, TikTok 6253112 Mon Nov 16 at noon. Queue 197/200. Master SHA256 `950120846b3b9a3b`. Keyword FOOD, utm_content ro24-celebrity-ozempic. Receipt: `Docs/RO24_SETUP_RECEIPT_20261030.md`.
+
+
+## HOLD - Love Handles (RO-30), October 30, 2026
+
+Film and R3 middle thumbnail approved. All four media assets uploaded and downloaded/hash-verified; main 150,820,101 bytes, Instagram 73,229,176, TikTok 150,894,219, cover 270,639. Config `scripts/blotato/configs/ro30-love-handles.json`, FOOD keyword, homepage UTMs, nine chapters and pinned question. Article 924 words, check OK, prepared for existing automatic publication after release.
+
+Queue 197/200; four posts need 201, so no schedules were created. Existing automatic waitlist retains YouTube Jan 10, 2027 9 AM Central and Facebook/Instagram @danrosefit/TikTok Jan 11 noon. Exact approved film MD5 `330a0be8efd01f372084195b907d8e07`, thumbnail SHA256 `c6c1b45f15ba64fd5f66be295779502e7d7788be12253ceb132cd546a0aaa2e1`. No public YouTube ID yet. Receipt: `Docs/RO30_SETUP_RECEIPT_20261030.md`.
+
+## SETUP COMPLETE, WAITLIST: Ab Exercise Ranking (RO-23), November 1, 2026
+
+Dan approved exact R4 and replacement X2. Exact master/SRT/thumbnail backed up to Extreme and shared Drive; main MP4, TikTok-only lossless cover-first copy and X2 image uploaded/download-hash verified. Main film unchanged. Complete four-platform config and protected Nov22 9AM Central target; FB/IG/TikTok Nov23 noon after public YouTube. Live queue199/200, four slots needed; shared video_waitlist top-up only, no partial set or per-video automation. Covers/guards, pinned question, 1036-word article, SRT/YouTube tags prepared. Captions/tags and actual public tiles checked after release. SL-31 registered only. Receipt `Docs/RO23_SETUP_RECEIPT_20261101.md`.
+
+## DONE: I'm 41. Here's What I'd Do If I Walked Into A Gym For The First Time (RO-37), 2026-11-02
+
+Exact R4 and round 3 C1 revised thumbnail. YouTube 6389292 Fri Jan 1 2027, 9 AM Central. Facebook 6389286, Instagram 6389290, TikTok 6389291 Sat Jan 2 at noon. Queue 196/200. Master SHA256 `5310603b118c74cb`. Keyword ABS, utm_content ro37-first-time-at-the-gym. SL-32 registered. Receipt: `Docs/RO37_SETUP_RECEIPT_20261102.md`.
+
+
+## WAITLIST: Why Zepbound Is Actually Free (DS-52), 2026-11-02
+
+Dan approved design 3/text B. Exact R3 master SHA256 `21aa8ee5cc7007d8e8b0120d8b761e2ea542da47a2c73e9f5a297df262b00f60`, MD5 `c8aa958a61de2760b447b1beba1fa656`. All four uploads hash-checked; project/Extreme/public Drive backups verified. Planned Dec28 6PM Central, one shared waiting-list entry for YouTube46963, Facebook47105, Instagram67203, TikTok58181; no publisher schedule IDs yet. Queue196/200, existing videos retain priority. Keyword FOOD; per-platform SixPackAbs.com UTMs, campaign zepbound-free/content ds52-zepbound-free. Captions already burned; no duplicate layer. Receipt: `Docs/DS52_SETUP_RECEIPT_20261102.md`.
+
+
+## SETUP READY, WAITLIST: How To Do Overhead Tricep Extensions (DS-63), 2026-11-02
+
+Dan approved X3. Exact R2 master, cover-first TikTok copy and both covers uploaded/download-hash-verified. All four platform configs pass guards. Planned Tuesday December29, 6PM Central; shared waitlist, live200/200, zero DS63 schedules. No per-video automation or YouTube holding upload. Master SHA25679eb9bb59d97584693a85b99dc36f76164bf9540f01712abe01b2e97760d7bda. Config `scripts/blotato/configs/ds63-overhead-tricep-extensions.json`; receipt `Docs/DS63_SETUP_RECEIPT_20261102.md`. Captions/tags, pinned question and actual cover tiles follow shared release routines.
+
+
+## READY ON WAITLIST: Home Workouts (DS-27), 2026-11-02
+
+Exact approved R2 1080p master and real-photo jump-rope cover 2 installed. Four media uploads fully downloaded and hash-verified; TikTok first cover frame checked, original audio payload identical. One shared waiting-list entry targets Thu Dec 31, 2026 at 6 PM Central on all four platforms. Blotato 200/200; no publisher schedules or YouTube ID exist yet. Existing daily top-up queues automatically. TRAIN keyword field; captions use SixPackAbs.com platform UTMs and no obsolete free-preview promise. Pinned question and post-release article/cover checks recorded. Receipt: `Docs/DS27_SETUP_RECEIPT_20261102.md`.
+
+## DONE: Cortisol Belly Is Real, But TikTok Has It Wrong (RO-29), 2026-11-04
+
+Master SHA256 `9dfeec01...` (R3). YouTube 6489209 Wed Jan 20 2027 9 AM CT; Facebook 6489205, Instagram 6489206, TikTok 6489207 Thu Jan 21 noon. Thumbnail `c257c4ab...` (round 3 X1 with @marta.khl TikTok frame). Keyword FOOD, UTM `ro29-cortisol-belly`. Queue 200/200 after. Receipt `Docs/RO29_SETUP_RECEIPT_20261104.md`.
+
+## SETUP COMPLETE, WAITLIST: Dr Mike Dial (DS-37), 2026-11-04
+
+Exact approved59.3sR4, revisedB approved and installed; four staged uploads downloaded/hash-verified, TikTok1778→1779frames and all2783AACpayloads unchanged, actual uploadedcoverframe checked. Queue200/200, zeroDS37schedules. One shared waiting-list entry targets Jan4,2027 at6PM America/Chicago acrossYouTube/Facebook/Instagram@danrosefit/TikTok. No nativeYouTube holding upload or per-videoautomation. Config:`scripts/blotato/configs/ds37-dr-mike-dial.json`. Receipt:`Docs/DS37_SETUP_RECEIPT_20261103.md`. Existingdaily top-up queues it; actualpublic covers andpinnedcomment followexistingmonitors.
+
+## DONE: How To Get Rid Of Man Boobs (RO-31), 2026-11-05
+
+Master `FINAL - How To Get Rid Of Man Boobs.mp4` SHA256 bce049d0 (615,526,730 bytes). Title "How To Get Rid Of Man Boobs: Chest Fat vs Gynecomastia". YouTube 6535767 Sun Jan 24 2027 9 AM Central; Facebook 6535763, Instagram 6535764, TikTok 6535766 Mon Jan 25 noon. Thumbnail revised X4 (5054788...). Keyword ABS, UTM `ro31-man-boobs`, AI label on. Saved per-post media re-downloaded and hash-matched. Queue 198/200. Receipt: `Docs/RO31_SETUP_RECEIPT_20261105.md`.
+
+
+## SL-12 A+B setup complete, publishing held, November9,2026
+
+Both1080x1920 masters approved and unchanged. A Weightlifting R3 SHA25617286ab36fdc19c69986d217396debbdd8b816ebdc3d6de4bc7a2e3607154ae0; B Daily Protein R2 SHA256dc37c605692b7d8c6bb09a3bc16b2fddf5f85dfd815a1eb3580719087f7b2e38. Revised A2 paired covers and food-visible BX2 Instagram approved/installed, BX2 YouTube preserved. Eight publishing assets uploaded/hash-verified, platform cover guards pass, Facebook repo/live registries synced. Shared waitlist entries SL12A/B both release_hold=true and excluded from top-up. No release dates/schedule IDs. On/after Dec6, verify actual parent RO01 public before clearing BOTH config/entry holds; assign actual dated Shorts slots A thenB. RootUTMs/captions/pinned questions/SRTs ready. Complete receipt Docs/SL12_SETUP_RECEIPT_20261108.md.
+
+
+## DONE: How To Do Chest Flies On The Machine (DS-78), 2026-11-09
+
+Dan picked X1, unchanged, both layouts. Final R1 SHA256 d12e90f5664bb785b9f288010bc022f154e1acbb304d1c9db44fae1dae67697d preserved; all publishing uploads and each saved post's actual media downloaded/hash-verified. TikTok cover frame and identical audio payload verified. All four platforms Tue Jan 12, 2027, 9 AM Central: Facebook 6716679, Instagram @danrosefit 6716680, TikTok 6716682, YouTube 6716683. Phase 3 gym slot, seven days after T-Bar Rows. Covers registered/verified, queue 194/200, guards clean. Keyword TRAIN, campaign chest-flies-machine, content ds78-chest-flies-machine. Pinned question saved; existing release routines handle public cover tiles, Facebook cover, comment and article. Edit Queue uploaded, Drive status uploaded. Receipt: `Docs/DS78_SETUP_RECEIPT_20261109.md`.
+
+
+## DONE: RO-32 Ten Exercises setup, 2026-11-13
+
+Exact film `414b54da03280c49683dbe8d7bc4962ebceae13ab5bea16a6bbcffb3f03ef10d` unchanged; approved FINAL thumbnail `a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9`. Blotato schedules YouTube6913482 Jan29,2027 9AM Central; FB6913478/IG6913479/TikTok6913481 Jan30 noon. All saved payloads/media downloads verified; queue180/200. Config `scripts/blotato/configs/ro32-ten-exercises.json`, TRAIN keyword, organic root UTM. No waitlist/native YouTube upload/new routine. Public YouTube must be verified before socials; native tags/SRT and actual public covers remain release checks. Receipt `Docs/RO32_SETUP_RECEIPT_20261113.md`.
+
+
+## DONE setup, shared waitlist: Jiu Jitsu DS-15 and Battle Ropes DS-19 (2026-11-13)
+
+Dan approved films and exact covers. Eight assets uploaded/downloaded/hash-verified, project + Extreme + public Drive checks passed. DS-19 X8 text V3 plans Jan7 2027 6PM Central; DS-15 X3 plans Jan9 9AM Central, each all four platforms. Both read back from the shared waitlist, no live Blotato schedules yet. Pinned questions saved; release-time articles and public cover checks use existing routines. Receipt: `Docs/DS15_DS19_SETUP_RECEIPT_20261102.md`; hashes/URLs `Docs/DS15_DS19_SETUP_VERIFICATION_20261113.json`.
+
+## DONE: RO-08 Facebook cover repair and queue (2026-11-13)
+
+Exact approved A installed in repo/live installer, SHA256 c00078f63800522454643f4b18388b4575207f3e514e9f392d13c00ad28f6461. Normal top-up path read back YouTube6915903 Nov27 9AM Central; FB6915899/IG6915901 Nov28 noon after public YouTube. TikTok direct follow-through remains. Also fixed existing approved FB cover gaps for RO-07, RO-19 and Zeeshan Video5; all 14 waiting long-form cover preflights pass. Post-write ad scan CLEAN, cover audit zero issues. Receipt: `Docs/RO08_SETUP_RECEIPT_20261014.md`.
+
+## DONE SETUP, SHARED WAITLIST: DS-34 Surgeon Fake Abs, November 14, 2026
+
+A Clean Stamp approved and installed on laughing X6. Exact R2 master SHA256 `3ea935bf9d416fb0dc352159f996e9aecd4b41a786128b32e47b8525bc74b23a`, MD5 `657be62faf29244bc886b76d4c9ff437`, untouched B Warm/D Fuller Bass. Four Blotato staging assets full-download SHA256 verified; TikTok cover-first 1925 frames fully decoded silently, all original video/audio packet payloads unchanged. Project/Extreme/Drive backups match. Config `scripts/blotato/configs/ds34-surgeon-fake-abs.json`, keyword ABS, organic root UTMs `utm_campaign=surgeon-fake-abs&utm_content=ds-34`. Exactly one ready shared waiting-list entry reserves January 11, 2027, 9 AM Central on YouTube, Facebook, Instagram @danrosefit and TikTok. No public YouTube id or live schedule ids yet. Existing daily top-up owns scheduling in order; cover/pin/article routines check after release. Receipt `Docs/DS34_SETUP_COMPLETION_20261114.md`.
+
+## HOLD: What To Cut Shorts (SL-21), setup complete 2026-11-15
+
+All three films and exact covers approved. Backups verified on project, Extreme and public Drive (36 files). Twelve publishing assets fully downloaded/hash matched; TikTok full original picture/audio preserved, cover-first checks pass. All twelve planned YouTube/Facebook/Instagram @danrosefit/TikTok targets pass preflight on both Macs. Three unique shared-waitlist entries plan February 8/10/12, 2027 at 9 AM Central, kitchen=true, after RO-20B planned December 11. Blotato 199/200, no live SL-21 schedules. No direct YouTube upload. Full configs, hashes, pinned questions, backup link and existing release-check work: `Docs/SL21_SETUP_RECEIPT_20261115.md`. Shared top-up owns release queueing; no Dan action.
+
+## DONE — Hormozi: You're Not Hungry, You're Bored. (DS-109)
+
+Scheduled January14,2027 at6PM America/Chicago on YouTube7055960, Facebook7055957, Instagram67203/7055958 and TikTok7055959. Exact approved R4 master SHA256 ce7c496e037ae91d1a74495f120e1d4c214c629df05c7493d7de88280941ca54, MD5 70b85a14916d253a7c914446be8b2a18. Revised B R3 cover approved, installed and both hosted covers hash-verified. TikTok one-frame cover copy SHA256 b9659c8240722146f4633deb2fa5751ebe6fc0d0903f911434796a0696d348c6,2022original picture packets and3164AACpayloads unchanged. Four actual saved media downloads verified. Queue194/200, cover audit0issues, ad_guardCLEAN; no pending waitlist hold. FOOD keyword, organic rootUTMs, pinned question prepared, post-release Short article routine applies. Public release/actual tile checks remain future. Receipt: Docs/DS109_SETUP_RECEIPT_20261116.md.

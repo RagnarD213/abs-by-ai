@@ -1,0 +1,586 @@
+{
+ "judge": "Claude fresh judge part 1 | Claude fresh judge part 2 | Claude fresh judge part 3",
+ "video": "ai showed me two futures | claude | 9x16 59s | ad 8.mp4",
+ "method": "Opened all 3 contact sheets, the negscan sheet and pair_000 to pair_026 (first third of the 80 sorted strip/pair images) one at a time; pulled exact frames 0, 146, 147, 384, 385, 414 and 478-565 with ffmpeg select into a private scratch folder to check the seam-1 framing and the dark block on the gym card. || Sorted the 80 strip and pair images by name; part 2 is the middle third plus one image either side so no image falls between judges: pair_026 to pair_039 and strip_000 to strip_014 (29 images). Opened every one with the Read tool. Checked captions against the word timings in cut_audit/plan.json. Pulled 22 exact frames with the ffmpeg select filter into scratch folder jad8e2 (243, 384, 478, 520, 580, 1206, 1240, 1282, 1284, 1500, 1530, 1548, 1600, 1630 to 1678) to confirm the first real-photo chip, seam 1 framing, the gym B-roll black block, the AI picture, the lower third and the CTA tail at full size. || Opened all 27 images of the last third of the sorted strip/pair list (strip_013 to strip_039) with the Read tool; read plan.json, cut_plan.json and cutdown_ranges.json; pulled exact frames with ffmpeg select (477, 520, 560, 1440, 1485 to 1492, 1513, 1594, 1620 to 1678) into a scratch folder to check the gym-card black block, seam 3 headroom, the lower-third wipe and the CTA ending.",
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "Hook 0-4 s: lower third 'AI Showed Me Two Pictures' types on, readable, no caption under it. Talking head framed with hair inside the top edge on every tile, both shoulders in. Captions legible and match the inferred speech ('one was a goal.', 'Here's how I avoided', 'A few years ago, I was', 'a busy, stressed out', 'dad with no', 'motivation.', 'I knew exactly what I', 'was supposed to do and', 'I did none of it.', 'Nothing worked'). No black or frozen tiles, no placeholder."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 4.0,
+   "note": "AI heavy poolside picture 3.97-5.6 s carries ONE 'AI-GENERATED' chip on the wall right of the head, clear of face and body; captions suppressed over a labelled picture of Dan."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 9.0,
+   "note": "Two real photos 8.1-12.8 s each carry ONE 'Real picture of me - not AI-generated' chip (top left beside the head, then top centre above the head), neither on face or abs; captions suppressed."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 16.0,
+   "note": "Dark gym card 15.9-19.5 s shows a black block on the right fifth of the picture in the first ~2 s. Exact frames 478-565 pulled: it is a dark foreground object in the stock clip that slides out as the camera tracks (parallax, slanted edge, changes every frame), not a crop fault or a black frame."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 23.0,
+   "note": "Phone lock-screen card 22.7-26.4 s: 'AI-GENERATED' chip sits under the card (declared clearance offset), captions suppressed."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 25.0,
+   "note": "Phone card, talking head, training / meal prep / calorie cards, talking head, AI abs poolside picture, flash return, talking head. Captions legible and match speech ('I looked at it dozens', 'of times a day, every', 'day for over a year.', 'And that's what gave', 'me the fire to train', 'consistently, to meal', 'prep every week and to', 'track my calories.', 'This picture helped me', 'so much that I built', 'an app that does', 'exactly this.', 'Once you generate it,', 'our AI builds you a', 'personalized workout', 'and nutrition plan to', 'make it real.', 'You get the picture'). Hair inside the top edge everywhere, no wide level, no junk text."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 41.0,
+   "note": "Seam 2 (40.2 s) lands on a change of picture: talking head 'exactly this.' to the full-frame AI abs picture with ONE 'AI-GENERATED' chip on the wall left of the head, clear of face and abs; captions suppressed; white flash on the return at 43.0 s."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 48.0,
+   "note": "Seam 3 (48.05 s): 'make it real.' then 'You get the picture', a sentence boundary; the exact cut frames belong to another judge's strips (pair_033)."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_00-55.99.jpg",
+   "verdict": "clean",
+   "t": 50.0,
+   "note": "Lower third 'You get the plan that makes it real.' types on with no caption under it; 'So pick your future.' caption; CTA pill 'Get A FREE AI Image Of Yourself With Abs' on the chest, not on the face, no caption under it; ends on the call to action with a closed-mouth hold. Hair inside the frame on all tiles."
+  },
+  {
+   "image": "pair_000_00-00.17.jpg",
+   "verdict": "clean",
+   "t": 0.17,
+   "note": "Lower third start; same continuous take, no cut, no jump. Hair inside top edge."
+  },
+  {
+   "image": "pair_001_00-00.20.jpg",
+   "verdict": "clean",
+   "t": 0.2,
+   "note": "Continuous take, card/lower third animating in below frame crop; no jump."
+  },
+  {
+   "image": "pair_002_00-01.97.jpg",
+   "verdict": "expected",
+   "t": 1.97,
+   "note": "punch FAR ramp start: no join, picture continuous; lower third fully typed 'AI Showed Me Two Pictures'."
+  },
+  {
+   "image": "pair_003_00-03.97.jpg",
+   "verdict": "expected",
+   "t": 3.97,
+   "note": "Cut from talking head to the AI heavy picture; lower third in its last fade frame on the -1 side (ghost text, finishing its fade, not cut mid-animation); AI-GENERATED chip clear of the face."
+  },
+  {
+   "image": "pair_004_00-04.91.jpg",
+   "verdict": "expected",
+   "t": 4.91,
+   "note": "Join in the talk underneath is covered by the full-frame AI picture; only the slow push on the still is visible, no subject jump."
+  },
+  {
+   "image": "pair_005_00-05.61.jpg",
+   "verdict": "expected",
+   "t": 5.61,
+   "note": "Picture to talking head: change of picture, plain cut return (no flash; within the capped flash rate)."
+  },
+  {
+   "image": "pair_006_00-06.07.jpg",
+   "verdict": "expected",
+   "t": 6.07,
+   "note": "Join with an instant size step up (NEAR); head clearly larger on the 0 frame, so no naked splice. Caption 'one was a goal.' unchanged across the cut."
+  },
+  {
+   "image": "pair_007_00-06.91.jpg",
+   "verdict": "expected",
+   "t": 6.91,
+   "note": "Join with an instant size step down (FAR) plus a change of pose; size step present."
+  },
+  {
+   "image": "pair_008_00-08.11.jpg",
+   "verdict": "expected",
+   "t": 8.11,
+   "note": "Talking head to real photo 1; ONE real-picture chip top left beside the head, not on face or abs; caption drops under the labelled picture."
+  },
+  {
+   "image": "pair_009_00-10.28.jpg",
+   "verdict": "expected",
+   "t": 10.28,
+   "note": "Real photo 1 to real photo 2: change of picture; each has exactly one chip, clear of face and abs."
+  },
+  {
+   "image": "pair_010_00-10.31.jpg",
+   "verdict": "clean",
+   "t": 10.31,
+   "note": "Same still, one frame later; chip steady, slow push only."
+  },
+  {
+   "image": "pair_011_00-12.81.jpg",
+   "verdict": "expected",
+   "t": 12.81,
+   "note": "SEAM 1. Real photo to talking head: a full change of picture on the seam, so no naked splice; the photo does not end mid-animation (chip steady, no half fade). Sentence boundary after '...at the age of 40.'; he is already opening on 'A few' at frame 0, caption arrives a few frames later. Hair inside the top edge (frames 384-385 checked at full size)."
+  },
+  {
+   "image": "pair_012_00-13.85.jpg",
+   "verdict": "expected",
+   "t": 13.85,
+   "note": "Talking head to the dad-at-laptop card on the dark plate; caption 'A few years ago, I was' carries across (stock clip of other people keeps captions)."
+  },
+  {
+   "image": "pair_013_00-13.88.jpg",
+   "verdict": "clean",
+   "t": 13.88,
+   "note": "Same card one frame on; no jump."
+  },
+  {
+   "image": "pair_014_00-15.92.jpg",
+   "verdict": "expected",
+   "t": 15.92,
+   "note": "Card to card (dad clip to dark gym clip): change of picture. Black block at the right of the gym clip is a foreground object in the footage (see sheet_00 note)."
+  },
+  {
+   "image": "pair_015_00-19.56.jpg",
+   "verdict": "expected",
+   "t": 19.56,
+   "note": "Return from the card to the talking head under the white flash (design)."
+  },
+  {
+   "image": "pair_016_00-21.39.jpg",
+   "verdict": "expected",
+   "t": 21.39,
+   "note": "Join with instant size step up (NEAR); caption 'I did none of it.' steady."
+  },
+  {
+   "image": "pair_017_00-22.66.jpg",
+   "verdict": "expected",
+   "t": 22.66,
+   "note": "Talking head to the phone lock-screen card; AI-GENERATED chip under the card; caption suppressed."
+  },
+  {
+   "image": "pair_018_00-26.46.jpg",
+   "verdict": "expected",
+   "t": 26.46,
+   "note": "Return to talking head under the white flash; chip fades with the card."
+  },
+  {
+   "image": "pair_019_00-28.39.jpg",
+   "verdict": "expected",
+   "t": 28.39,
+   "note": "Join with instant size step up (NEAR); blink on the -1 frame is the tail of the outgoing take, one frame, not a look-away."
+  },
+  {
+   "image": "pair_020_00-30.23.jpg",
+   "verdict": "expected",
+   "t": 30.23,
+   "note": "Talking head (mouth closed, sentence finished) to the training card; caption 'day for over a year.' carries over."
+  },
+  {
+   "image": "pair_021_00-30.26.jpg",
+   "verdict": "clean",
+   "t": 30.26,
+   "note": "Same card one frame on; clip playing, no jump."
+  },
+  {
+   "image": "pair_022_00-31.83.jpg",
+   "verdict": "expected",
+   "t": 31.83,
+   "note": "Card to card: lying leg-raise clip to seated twist clip, change of picture."
+  },
+  {
+   "image": "pair_023_00-33.07.jpg",
+   "verdict": "expected",
+   "t": 33.07,
+   "note": "Card to card: training clip to meal-prep clip, change of picture; caption 'consistently, to meal' fits the picture."
+  },
+  {
+   "image": "pair_024_00-34.60.jpg",
+   "verdict": "expected",
+   "t": 34.6,
+   "note": "Card to card: meal prep to writing-on-paper clip, change of picture."
+  },
+  {
+   "image": "pair_025_00-36.27.jpg",
+   "verdict": "expected",
+   "t": 36.27,
+   "note": "Return to talking head under the white flash; caption 'track my calories.' carries across."
+  },
+  {
+   "image": "pair_026_00-37.30.jpg",
+   "verdict": "expected",
+   "t": 37.3,
+   "note": "punch NEAR ramp start: no join, continuous take, gradual push; caption 'This picture helped me' steady."
+  },
+  {
+   "image": "pair_026_00-37.30.jpg",
+   "verdict": "expected",
+   "t": 37.304,
+   "note": "punch NEAR with no join: gradual ramp, -1|0 frames near identical. Caption 'This picture helped me' reads right, clear of face, hair inside frame."
+  },
+  {
+   "image": "pair_027_00-39.37.jpg",
+   "verdict": "expected",
+   "t": 39.373,
+   "note": "punch FAR ramp, no join. Caption page turns 'an app that does' to 'exactly this.' in step with speech. No subject jump."
+  },
+  {
+   "image": "pair_028_00-40.21.jpg",
+   "verdict": "expected",
+   "t": 40.207,
+   "note": "SEAM 2. Talking head ('exactly this.' finished, mouth closing) to full-frame AI poolside picture: a full change of picture, lands after the sentence end. One AI-GENERATED chip left of the neck on the wall, off face and abs. Card starts on its first frame, not mid-animation. Hands and watch on the AI picture look normal at full size (frames 1206, 1240)."
+  },
+  {
+   "image": "pair_029_00-42.81.jpg",
+   "verdict": "expected",
+   "t": 42.809,
+   "note": "Return from the AI picture to the talking head under a white light-leak flash: declared design. One chip on the picture, no caption over it."
+  },
+  {
+   "image": "pair_030_00-42.84.jpg",
+   "verdict": "expected",
+   "t": 42.843,
+   "note": "Second frame of the same return flash, brighter. Continuous motion, no jump."
+  },
+  {
+   "image": "pair_031_00-44.24.jpg",
+   "verdict": "expected",
+   "t": 44.244,
+   "note": "punch NEAR ramp, no join. Caption 'our AI builds you a' correct. Framing fine."
+  },
+  {
+   "image": "pair_032_00-46.35.jpg",
+   "verdict": "expected",
+   "t": 46.346,
+   "note": "punch FAR ramp, no join. Caption 'and nutrition plan to' correct."
+  },
+  {
+   "image": "pair_033_00-48.05.jpg",
+   "verdict": "expected",
+   "t": 48.048,
+   "note": "SEAM 3. 'make it real.' (smile, hands clasped, sentence over) to a new take with a clear size step (about 20 percent larger) and different pose, next word 'You' at 48.12. Not a naked splice. No graphic on screen either side of the seam. Hair inside frame on both sides."
+  },
+  {
+   "image": "pair_034_00-49.35.jpg",
+   "verdict": "expected",
+   "t": 49.349,
+   "note": "punch FAR ramp, no join. Caption 'You get the picture' correct."
+  },
+  {
+   "image": "pair_035_00-49.52.jpg",
+   "verdict": "expected",
+   "t": 49.516,
+   "note": "Lower third in: caption drops on this frame, plate animates on over the next frames. Checked at full size: frame 1500 plate wiping on, frame 1530 reads 'You get the plan that makes it real.' in full, low on the chest, clear of the face."
+  },
+  {
+   "image": "pair_036_00-51.75.jpg",
+   "verdict": "expected",
+   "t": 51.752,
+   "note": "Lower third out: last faint frame of the plate fade at 51.718, gone at 51.752. Clean exit, no caption overlap."
+  },
+  {
+   "image": "pair_037_00-52.82.jpg",
+   "verdict": "expected",
+   "t": 52.819,
+   "note": "Join with punch NEAR: clear size step on the cut frame, caption 'So pick your future.' held across. Not a naked splice. Hair inside frame."
+  },
+  {
+   "image": "pair_038_00-53.19.jpg",
+   "verdict": "expected",
+   "t": 53.186,
+   "note": "CTA pill in ('Get A FREE AI Image Of Yourself With Abs') on 'Tap'; caption suppressed under the pill. Pill sits on the black tank top below the collar, not on the face; no bare abs in shot."
+  },
+  {
+   "image": "pair_039_00-54.65.jpg",
+   "verdict": "expected",
+   "t": 54.655,
+   "note": "punch FAR ramp under the CTA pill, no join. Pill text clean, no caption on it. Tail checked at full size (frames 1630 to 1678): pill holds until about 55.85 s and fades over the last 4 or 5 frames, final frame is Dan smiling with no pill. Speech ends 55.16, so the ad still ends on the call to action."
+  },
+  {
+   "image": "strip_000_00-00.17_cards_in___lt_0_17_in.jpg",
+   "verdict": "expected",
+   "t": 0.167,
+   "note": "Opening lower third starts animating on (black plate growing from the left at +2f). Continuous shot, hair inside frame."
+  },
+  {
+   "image": "strip_001_00-00.20_card_0_167_in___lt_0_17_in.jpg",
+   "verdict": "expected",
+   "t": 0.2,
+   "note": "Same lower third wipe one frame later, plate widening. No jump."
+  },
+  {
+   "image": "strip_002_00-01.97_punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 1.969,
+   "note": "punch FAR ramp, no join. Lower third 'AI Showed Me Two Pictures' fully on, clean type, on the chest, no caption on top of it."
+  },
+  {
+   "image": "strip_003_00-03.97_auto_00119_in___cards_in___cards_out___c.jpg",
+   "verdict": "expected",
+   "t": 3.971,
+   "note": "Lower third fades out over the last two talk frames, then cut to the AI 'warning' poolside picture. One AI-GENERATED chip on the wall right of the head, off face and belly. No caption over the labelled picture."
+  },
+  {
+   "image": "strip_004_00-04.91_join.jpg",
+   "verdict": "clean",
+   "t": 4.905,
+   "note": "Join hidden under the AI picture: five frames show only the slow push on the still, chip steady. Nothing visible."
+  },
+  {
+   "image": "strip_005_00-05.61_auto_00119_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "t": 5.606,
+   "note": "AI picture to talking head on a plain cut (no flash; a dropped flash is allowed by the flash-rate cap). Full change of picture. Head fully in frame."
+  },
+  {
+   "image": "strip_006_00-06.07_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "t": 6.073,
+   "note": "Join with punch NEAR: size step and new pose on the cut frame. Caption 'one was a goal.' held. Not naked."
+  },
+  {
+   "image": "strip_007_00-06.91_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 6.907,
+   "note": "Join with punch FAR: clear size step out. Head about 37 percent of frame height, not a wide level. Caption correct."
+  },
+  {
+   "image": "strip_008_00-08.11_auto_00243_in___card_8_108_in___cards_in.jpg",
+   "verdict": "expected",
+   "t": 8.108,
+   "note": "Cut to real photo (matched to photo-180_FINAL_PRIMARY, a shoot still of Dan). One 'Real picture of me - not AI-generated' chip in the top left on the trees, beside his hair, not on face or abs (checked at full size, frame 243). Caption suppressed."
+  },
+  {
+   "image": "strip_009_00-10.28_auto_00243_out___auto_00308_in___cards_i.jpg",
+   "verdict": "expected",
+   "t": 10.277,
+   "note": "Real photo to second real photo (towel, pool). Each carries exactly one real-picture chip, the second above his head on the dark trees. No caption. Full change of picture."
+  },
+  {
+   "image": "strip_010_00-10.31_card_10_277_in___card_8_108_out.jpg",
+   "verdict": "expected",
+   "t": 10.31,
+   "note": "Same boundary one frame later: second photo steady, one chip, nothing doubled."
+  },
+  {
+   "image": "strip_011_00-12.81_auto_00308_out___card_10_277_out___cards.jpg",
+   "verdict": "expected",
+   "t": 12.813,
+   "note": "SEAM 1. Real photo (card ends on its planned out frame) to talking head NEAR: full change of picture after '...age of 40.'; next sentence 'A few years ago' starts at 12.88 with the caption. Checked at full size (frame 384): hair inside frame with margin, mouth opening for 'A'. Reads natural."
+  },
+  {
+   "image": "strip_012_00-13.85_covered_in___talk-32_out.jpg",
+   "verdict": "expected",
+   "t": 13.847,
+   "note": "Talking head to B-roll window card (dad at laptop with daughter) on the dark plate. Caption 'A few years ago, I was' kept under the clip of another person, as designed. Card border clean."
+  },
+  {
+   "image": "strip_013_00-13.88_punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 13.881,
+   "note": "punch change hidden under the B-roll card; card steady across the frames."
+  },
+  {
+   "image": "strip_014_00-15.92_covered_in___covered_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "t": 15.916,
+   "note": "B-roll card swaps to the dark gym clip, caption 'dad with no'. The black block on the right of the clip is a foreground object in the stock dolly shot: checked frames 478, 520, 580 at full size, it slides out and is gone by 19.3 s. Not a black frame or a crop fault."
+  },
+  {
+   "image": "strip_013_00-13.88_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 13.88,
+   "note": "Stock dad-and-daughter card already up from 13.85 (talk-32 out); card holds steady across the boundary, caption 'A few years ago, I was' reads right, captions kept on a clip of other people."
+  },
+  {
+   "image": "strip_014_00-15.92_covered_in___covered_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 15.92,
+   "note": "Covered cut between two stock cards (dad at laptop to man slumped in gym). Black block on the right of the gym card at 15.92 is a dark foreground object in the stock clip that slides out as the camera moves (checked frames 477, 520, 560), not a black frame. Caption 'dad with no' correct."
+  },
+  {
+   "image": "strip_015_00-19.56_covered_out___punch_FAR___talk-35_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 19.56,
+   "note": "Return from gym card to talking head at 19.55 with the light-leak flash (design). Head fully in frame, FAR level, caption 'was supposed to do and' correct."
+  },
+  {
+   "image": "strip_016_00-21.39_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 21.39,
+   "note": "Join at 21.39 with a clear size step FAR to NEAR (zoom-cut), hands leave frame; not a naked splice. Hair clear of the top edge. Caption 'I did none of it.' correct."
+  },
+  {
+   "image": "strip_017_00-22.66_auto_04280_in___card_142_809_in___cards_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 22.66,
+   "note": "Talking head to phone-in-hand card at 22.66; ONE AI-GENERATED chip under the card, clear of face and abs; caption suppressed on the labelled picture of Dan. Fingers on the phone look normal."
+  },
+  {
+   "image": "strip_018_00-26.46_auto_04280_out___card_142_809_out___card.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 26.46,
+   "note": "Return from the phone card at 26.46 with light-leak flash; head in frame, mouth opening on 'I'."
+  },
+  {
+   "image": "strip_019_00-28.39_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 28.39,
+   "note": "Join at 28.39 with size step to NEAR (zoom-cut); blink before, talking after. Caption 'of times a day, every' matches the aligned words."
+  },
+  {
+   "image": "strip_020_00-30.23_covered_in___join___talk-37_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 30.23,
+   "note": "Talking head to ab-workout card at 30.23 (covered in); clean picture change, caption 'day for over a year.' correct. Clip is real footage of Dan outdoors, no chip (video b-roll, not a still photo)."
+  },
+  {
+   "image": "strip_021_00-30.26_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 30.26,
+   "note": "Same card one frame later (punch boundary under cover); card steady, no jump, caption unchanged."
+  },
+  {
+   "image": "strip_022_00-31.83_covered_in___covered_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 31.83,
+   "note": "Covered cut between two workout clips (lying overhead reach to seated twist) at 31.83; different shots, reads as an edit. Caption 'me the fire to train' correct."
+  },
+  {
+   "image": "strip_023_00-33.07_covered_in___covered_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 33.07,
+   "note": "Covered cut workout clip to meal-prep clip at 33.07; caption 'consistently, to meal' correct, highlight advances."
+  },
+  {
+   "image": "strip_024_00-34.60_covered_in___covered_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 34.6,
+   "note": "Covered cut meal-prep to writing-on-paper clip at 34.60; caption 'prep every week and to' correct."
+  },
+  {
+   "image": "strip_025_00-36.27_covered_out___join___punch_FAR___talk-42.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 36.27,
+   "note": "Return to talking head at 36.27 with light-leak flash; head in frame, caption 'track my calories.' correct."
+  },
+  {
+   "image": "strip_026_00-37.30_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 37.3,
+   "note": "Punch NEAR ramp start at 37.30, no cut, continuous motion, caption rolls from 'This picture helped me' to 'so much that I built'."
+  },
+  {
+   "image": "strip_027_00-39.37_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 39.37,
+   "note": "Punch FAR ramp start at 39.37, continuous motion, no jump; caption 'an app that does' to 'exactly this.'."
+  },
+  {
+   "image": "strip_028_00-40.21_auto_05256_in___card_175_375_in___cards_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 40.21,
+   "note": "SEAM 2 at 40.21: talking head ends on 'exactly this.' then full-frame AI picture of Dan by the pool with ONE AI-GENERATED chip left of his head, off face and abs. Full picture change at a sentence end; the card starts on its first frame, no half animation. Caption suppressed on the labelled picture."
+  },
+  {
+   "image": "strip_029_00-42.81_auto_05256_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 42.81,
+   "note": "Return from the AI picture at 42.81 with light-leak flash; head in frame, mouth open on 'Once'."
+  },
+  {
+   "image": "strip_030_00-42.84_card_175_375_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 42.84,
+   "note": "Same flash one frame later (card out marker); flash builds smoothly, no black or frozen frame."
+  },
+  {
+   "image": "strip_031_00-44.24_punch_NEAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 44.24,
+   "note": "Punch NEAR ramp at 44.24, continuous, caption 'Once you generate it,' to 'our AI builds you a'."
+  },
+  {
+   "image": "strip_032_00-46.35_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 46.35,
+   "note": "Punch FAR ramp at 46.35, continuous motion, caption 'and nutrition plan to' correct, hair clear of top."
+  },
+  {
+   "image": "strip_033_00-48.05_join___punch_NEAR___talk-46_out___talk-4.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 48.05,
+   "note": "SEAM 3 at 48.05: after 'make it real.' the picture steps to NEAR with a different pose (steepled hands to open hand), a clear size step, so a zoom-cut and not a naked splice. Hair clear of the top edge on the NEAR frame (checked frame 1440). Caption gap of two frames then 'You get the picture'. The line repeats 'make it real' right after the seam; reads as emphasis, acceptable."
+  },
+  {
+   "image": "strip_034_00-49.35_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 49.35,
+   "note": "Punch FAR ramp at 49.35 while laughing on 'picture'; continuous, no jump."
+  },
+  {
+   "image": "strip_035_00-49.52_cards_in___lt_204_37_in___card_204_371_i.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 49.52,
+   "note": "Lower third starts wiping in at 49.52: accent bar then black plate growing left to right (frames 1485 to 1492), text types on after; this is the plate animating from its first frame, not a junk box. Caption suppressed under it."
+  },
+  {
+   "image": "strip_036_00-51.75_card_204_371_out___cards_out___lt_204_37.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 51.75,
+   "note": "Lower third 'You get the plan that makes it real.' fading out by 51.75; fully legible mid-beat (frame 1513), sits on his tank top below the chest, not on face. Fully gone by frame 0."
+  },
+  {
+   "image": "strip_037_00-52.82_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 52.82,
+   "note": "Join at 52.82 with size step FAR to NEAR (zoom-cut); caption 'So pick your future.' correct; hair clear of top."
+  },
+  {
+   "image": "strip_038_00-53.19_card_208_041_in___cards_in___cta_208_04_.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 53.19,
+   "note": "CTA pill 'Get A FREE AI Image Of Yourself / With Abs' pops in at 53.19 on 'Tap'; caption suppressed under the pill; pill on the tank top, not on face."
+  },
+  {
+   "image": "strip_039_00-54.65_punch_FAR.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 54.65,
+   "note": "Punch FAR ramp at 54.65, continuous; CTA pill steady. Pill holds to about 55.8 and fades over the last six frames (checked frames 1620 to 1678), so the ad ends on the call to action."
+  }
+ ]
+}

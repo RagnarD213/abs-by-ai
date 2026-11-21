@@ -1,0 +1,15 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/site-header",
+	"title": "SixPackAbs: Site header",
+	"category": "theme",
+	"icon": "video-alt3",
+	"description": "SixPackAbs header: logo, nav, Try the AI App, Subscribe, mobile menu.",
+	"textdomain": "sixpackabs-child",
+	"attributes": {},
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

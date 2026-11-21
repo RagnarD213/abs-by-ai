@@ -1,0 +1,458 @@
+[
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657832",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657832",
+    "id": "826635657832",
+    "name": "Ad 10 Busy Dad Fitness | Muhammad 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "A busy dad explains the workout, meal and adjustment plan he uses with AI."
+      },
+      {
+       "text": "See how Daniel built a fitness plan around work, family, equipment and real life."
+      },
+      {
+       "text": "AI workout planning explained by a working dad who put the plan into practice at 40."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows the practical fitness system he follows as a busy working dad."
+      },
+      {
+       "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+      },
+      {
+       "text": "A dad explains how he uses AI to keep his training and nutrition plan realistic."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657835",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657835",
+    "id": "826635657835",
+    "name": "Ad 10 Busy Dad Fitness | Claude 9:16 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "A busy dad explains the workout, meal and adjustment plan he uses with AI."
+      },
+      {
+       "text": "See how Daniel built a fitness plan around work, family, equipment and real life."
+      },
+      {
+       "text": "AI workout planning explained by a working dad who put the plan into practice at 40."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows the practical fitness system he follows as a busy working dad."
+      },
+      {
+       "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+      },
+      {
+       "text": "A dad explains how he uses AI to keep his training and nutrition plan realistic."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/202248166482",
+   "name": "Ad 10 Busy Dad Fitness"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657838",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635657838",
+    "id": "826635657838",
+    "name": "Ad 10 Busy Dad Fitness | Claude 9:16 59s | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "A busy dad explains the workout, meal and adjustment plan he uses with AI."
+      },
+      {
+       "text": "See how Daniel built a fitness plan around work, family, equipment and real life."
+      },
+      {
+       "text": "AI workout planning explained by a working dad who put the plan into practice at 40."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows the practical fitness system he follows as a busy working dad."
+      },
+      {
+       "text": "AI plans workouts and meals around your schedule, equipment and starting point."
+      },
+      {
+       "text": "A dad explains how he uses AI to keep his training and nutrition plan realistic."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204320854441",
+   "name": "Ad 3 Stop Paying Human Trainers"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679183",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635679183",
+    "id": "826635679183",
+    "name": "Ad 3 Stop Paying Human Trainers | Muhammad 16:9 clean | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+      },
+      {
+       "text": "AI builds a workout plan around your goal, your injuries and your equipment. Here's how."
+      },
+      {
+       "text": "Daniel Rose explains what a personal trainer costs and what AI does for him instead."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout."
+      },
+      {
+       "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+      },
+      {
+       "text": "AI workout planning and exercise videos, explained by a guy who did it at 40 years old."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204320854441",
+   "name": "Ad 3 Stop Paying Human Trainers"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679186",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635679186",
+    "id": "826635679186",
+    "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+      },
+      {
+       "text": "AI builds a workout plan around your goal, your injuries and your equipment. Here's how."
+      },
+      {
+       "text": "Daniel Rose explains what a personal trainer costs and what AI does for him instead."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout."
+      },
+      {
+       "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+      },
+      {
+       "text": "AI workout planning and exercise videos, explained by a guy who did it at 40 years old."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204320854441",
+   "name": "Ad 3 Stop Paying Human Trainers"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679189",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635679189",
+    "id": "826635679189",
+    "name": "Ad 3 Stop Paying Human Trainers | Claude 9:16 59s | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+      },
+      {
+       "text": "AI builds a workout plan around your goal, your injuries and your equipment. Here's how."
+      },
+      {
+       "text": "Daniel Rose explains what a personal trainer costs and what AI does for him instead."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout."
+      },
+      {
+       "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+      },
+      {
+       "text": "AI workout planning and exercise videos, explained by a guy who did it at 40 years old."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204320854441",
+   "name": "Ad 3 Stop Paying Human Trainers"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679192",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635679192",
+    "id": "826635679192",
+    "name": "Ad 3 Stop Paying Human Trainers | Claude 1:1 R2.1 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Here's why I stopped paying a personal trainer and use an AI trainer instead."
+      },
+      {
+       "text": "AI builds a workout plan around your goal, your injuries and your equipment. Here's how."
+      },
+      {
+       "text": "Daniel Rose explains what a personal trainer costs and what AI does for him instead."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how an AI trainer builds his plan and adjusts it at every workout."
+      },
+      {
+       "text": "Most personal trainers charge $70 to $200 an hour. Here's how I use AI for the same job."
+      },
+      {
+       "text": "AI workout planning and exercise videos, explained by a guy who did it at 40 years old."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204444440607",
+   "name": "Ad 6 You're Not Too Old"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204444440607~826595554443",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554443",
+    "id": "826595554443",
+    "name": "Ad 6 You're Not Too Old | Muhammad 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Daniel Rose explains how he rebuilt his fitness at 40 with a plan he could follow."
+      },
+      {
+       "text": "A 40-year-old dad shows the training plan and daily system he uses himself."
+      },
+      {
+       "text": "AI workout planning explained by a guy who put the plan into practice at 40."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows the workout and nutrition system he follows as a 40-year-old dad."
+      },
+      {
+       "text": "A practical AI fitness plan built around your age, schedule, equipment and starting point."
+      },
+      {
+       "text": "See how a 40-year-old dad uses AI to plan workouts, meals and weekly adjustments."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204553316830",
+   "name": "Ad 13 The Cost Of Getting Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635661894",
+    "id": "826635661894",
+    "name": "Ad 13 The Cost Of Getting Abs | Muhammad 16:9 r4 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Daniel Rose adds up the monthly cost of trainers, nutritionists, supplements and apps."
+      },
+      {
+       "text": "See why a plan built around one person can be more useful than a pile of generic advice."
+      },
+      {
+       "text": "Daniel compares paid fitness services with AI workout and meal planning."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose adds up what personal training, nutrition coaching and supplements can cost."
+      },
+      {
+       "text": "A practical comparison of generic fitness services and one personalized AI plan."
+      },
+      {
+       "text": "See how AI builds workouts and meals around your starting point, schedule and food."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/204553317030",
+   "name": "Ad 4 Stop Wasting Money On Supplements"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/204553317030~826635661909",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826635661909",
+    "id": "826635661909",
+    "name": "Ad 4 Stop Wasting Money On Supplements | Muhammad 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+      },
+      {
+       "text": "Take a photo of your supplements and AI reads every label. Here's how it works."
+      },
+      {
+       "text": "Daniel Rose explains why he stopped taking supplement advice from influencers."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+      },
+      {
+       "text": "Daniel Rose shows how AI reads the label on every supplement in his stack."
+      },
+      {
+       "text": "A photo of your supplement shelf is all it takes. Here's how the AI audit works."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/206348100928",
+   "name": "RA-01 AI Got Me Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554299",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554299",
+    "id": "826595554299",
+    "name": "RA-01 AI Got Me Abs | Claude 16:9 | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan."
+      },
+      {
+       "text": "AI analyzed Daniel's goal image and built a personalized workout and nutrition plan."
+      },
+      {
+       "text": "Daniel Rose explains how he uses AI to plan workouts, nutrition and macro tracking."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how AI turned his goal image into a personalized fitness plan."
+      },
+      {
+       "text": "AI workout and nutrition planning explained by a guy who used the system himself."
+      },
+      {
+       "text": "Daniel uses AI to analyze his goal, plan training and track daily macros."
+      }
+     ]
+    }
+   }
+  }
+ },
+ {
+  "adGroup": {
+   "resourceName": "customers/3427170837/adGroups/206348100928",
+   "name": "RA-01 AI Got Me Abs"
+  },
+  "adGroupAd": {
+   "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554302",
+   "ad": {
+    "resourceName": "customers/3427170837/ads/826595554302",
+    "id": "826595554302",
+    "name": "RA-01 AI Got Me Abs | Claude vertical | vsl",
+    "demandGenVideoResponsiveAd": {
+     "longHeadlines": [
+      {
+       "text": "Daniel Rose shows how he used AI to turn a goal image into a workout and nutrition plan."
+      },
+      {
+       "text": "AI analyzed Daniel's goal image and built a personalized workout and nutrition plan."
+      },
+      {
+       "text": "Daniel Rose explains how he uses AI to plan workouts, nutrition and macro tracking."
+      }
+     ],
+     "descriptions": [
+      {
+       "text": "Daniel Rose shows how AI turned his goal image into a personalized fitness plan."
+      },
+      {
+       "text": "AI workout and nutrition planning explained by a guy who used the system himself."
+      },
+      {
+       "text": "Daniel uses AI to analyze his goal, plan training and track daily macros."
+      }
+     ]
+    }
+   }
+  }
+ }
+]

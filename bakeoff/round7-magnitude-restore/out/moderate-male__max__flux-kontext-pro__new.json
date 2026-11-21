@@ -1,0 +1,21 @@
+{
+  "caseId": "moderate-male__max",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "condensed",
+  "promptVersion": "new",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 9989,
+  "geminiSafetyRetry": false,
+  "promptChars": 1232,
+  "nominalCost": 0.04,
+  "image": "moderate-male__max__flux-kontext-pro__new.jpg",
+  "ts": "2026-08-08T19:23:10.434Z"
+}

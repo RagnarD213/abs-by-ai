@@ -1,0 +1,1721 @@
+---
+name: ad-edit
+description: >
+  Edit a FILMED ad — Dan on camera reading a teleprompter script — from raw shoot
+  footage into finished 16:9 + 9:16 ad creatives: script-driven rough cut, zoom cuts
+  (never jump cuts), product-demo inserts, ad graphics, burned captions, color and
+  audio per /longform-edit. Use whenever Dan asks to edit an ad, cut ad footage,
+  build the ad from a shoot, or REVISE an ad edit — even if he doesn't say
+  "/ad-edit". For fully AI-generated ads use /make-ad; for content videos use
+  /longform-edit; for writing the script itself use /scriptwriting.
+---
+
+## Edit slot first (Dan, 2026-10-21)
+
+At most 5 edits do production at once. Before this edit's first production step (render-queue job, AI generation,
+build) and on every resume, run `python3 .claude/skills/_shared/editcap/editcap.py acquire <JOB> --title "<title>"
+--type <LFC|SFC|SFL|AD>`. Exit 3 = waiting: no rendering, generating, building or spending (read-only prep is fine);
+run `python3 .claude/skills/_shared/editcap/editcap.py wait <JOB>` with `run_in_background`, tell Dan the place in line
+in one line, end the turn, and continue when it exits. Review page up or stopping for Dan: `editcap.py release <JOB>
+--review`. Edit finished: `editcap.py release <JOB>` (if it prints `WAKE claude <id>`, send that session the message).
+Rule: `_shared/VIDEO-RULES.md`, "Active edit cap"; tool: `_shared/editcap/README.md`.
+
+**Which Mac (two Macs, 2026-11-14).** Before the first `acquire` of a new edit, run
+`python3 .claude/skills/_shared/editroute/editroute.py pick <JOB> --kind <AD|ADCUT> --round <N>` (`--chroma` for a full
+chroma key; `--host m6|m2` only when Dan names one). It prints `m6`, `m2` or `wait` and why. If it names the other Mac,
+start the edit there (Claude: new session on the SSH connection `m2`; Codex: `ssh m2 codex exec`) and do no
+production here. On the M6, footage comes from the M2 with `editroute.py fetch`; on the M2, review pages open on the
+M6 by themselves (same link) and finals go to the M6 with `editroute.py push`. Rule: VIDEO-RULES.md, "Two Macs".
+If Dan names a Mac, follow that shared section's **Named Mac and recommendation before starting** rule: recommend a clearly better alternative before production and wait for his choice; never silently switch.
+**Every existing-edit resume:** run `python3 .claude/skills/_shared/editroute/resume.py check <JOB>`. If remote (exit 5), keep this original chat as the editor and run commands through `resume.py run <JOB> -- <command>` on the owning Mac, including slot acquisition and build-file reads/writes. Exit 6 means ownership could not be verified: no production until resolved. Never ask Dan to add Mac instructions or start another chat. See editroute/README.md, "Continuing in the original chat".
+
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation: Google Flow via the `flow-veo` agent (VIDEO-RULES "AI video clips: Google Flow subscription first", 2026-10-17); per-job Kling/Replicate `gen_motion*.py` scripts are the paid rush path only.
+
+Read `_shared/VIDEO-RULES.md` first.
+
+## Audit 2026-10-20: rules that now govern
+
+Older text in this file that disagrees with these loses. Section titles are in `_shared/VIDEO-RULES.md` unless named otherwise.
+- Rounds and model: "Video rounds start automatically; editor chooses same task or fresh handoff" (2026-10-20); newest stable Sol, high effort.
+- Round order, decision budget, review page: `_shared/PRE-RENDER-APPROVAL.md`; "Organic content approval budget" (2026-09-29); "Round 1 always reviews every graphic, stock item and clip" (2026-10-08).
+- Nearly approved ads: "Short-form and ads: build the whole video instead of only the first 30 seconds when it is nearly approved" (2026-10-14).
+- Round 1 colour and voice options, studio sets included: "First-round options and AI ideas: Claude and Codex use the same standard" (2026-10-16).
+- Graphics: "All new or revised video graphics move in Soft Blue Light HyperFrames" (2026-10-17); title case for all graphic copy (2026-10-16, same section as above).
+- Analysis card: "The analysis card is Soft Blue Light, built with HyperFrames, in every video" (2026-10-14).
+- Real-photo label: "Real-photo labels include touched-up photographs" (2026-10-17).
+- AI video: "AI video clips: Google Flow subscription first, paid API only on \"rush\"" (2026-10-17); per-job Kling/Replicate `gen_motion*.py` is the paid path.
+- AI checks: "AI clips that make no physical sense, or do not show the line, never reach Dan" (2026-10-13/14): sense questions, `framecheck/gate.py`, `clipcheck.py`, fresh `frame-reviewer`.
+- Sourcing: "Clip library first" (2026-09-29, order 2026-10-01); cutaway bans (2026-10-11 phone, 2026-10-14 standing around, 2026-10-16 between-take junk); "All B-roll is colour corrected" (2026-10-11).
+- Openers and AI ideas: "The first 5 seconds get the most effort" (2026-10-08); "More AI clip ideas, funny ones, on every video" (2026-10-11).
+- Hair: "Head and hair clearance blocks review delivery" (2026-10-20): at least 20 px at 1080p on the rendered review export, before any preview.
+- Stumbles: "Stumbles inside a kept take get fixed" (2026-10-20).
+- Voice: "A subtle bass lift on his voice is the standard" (2026-10-12); "Audio comparison clips start on speech" (2026-10-11).
+- Sound effects: "Sound effects on transitions: judgment, not a blanket ban" (2026-10-08); sfxlib whoosh and riser are banned.
+- Builds: "Video builds: the render queue" (2026-10-20): no `ps` counts, wait loops, `buildcap`/`wait_slot`.
+- Formats and verticals: "Categorize every video before editing it" (2026-10-04); "Verticals: the camera lands on Dan, then holds" (2026-10-03).
+- Review delivery: "Review videos also go in `Videos to Review/`, for VLC" (2026-10-08, `review_server.py`); "Later-round delivery always includes revisions and review timestamps" (2026-10-10).
+- Belly framing: "No fat pinching or belly close-ups, above all in the first 30 seconds" (2026-10-04).
+- Independent audit: a fresh `ra-reviewer` agent (Opus 5.5, high), not Fable (model routing, AGENTS.md 2026-10-02).
+
+## Scene-content and freeze review (Dan, 2026-10-09)
+
+Follow section 5 of the project shared `.claude/skills/_shared/CUT-CONTINUITY-QC.md` before assembly and on the exact final candidate. Check required scenes against independently approved components, not references extracted from the candidate or a suspect flattened parent. Review every `scan.frozen` entry, including declared graphic spans, and record the actual static asset or open defect. Compare every pickup entry/exit in moving original and candidate context. A missing required phone/image, accidental talking-head hold or same-framing hand/pose reset remains open even if inherited or declared. Reused identical evidence cannot preserve a contradicted judgment. Keep incomplete checks and existing automated gate failures explicit.
+
+## Default jump-cut and junk-footage QC (Dan, 2026-09-29)
+
+Follow [CUT-CONTINUITY-QC.md](../_shared/CUT-CONTINUITY-QC.md) during source selection, before approval previews, and on the exact final candidate. Inspect every actual source/picture join, including reused composites, for a presenter jump without a distinct fixed wide/tight cut or complete approved clip cover. Fix uncovered jumps and recheck every boundary the repair creates. Detect and remove confirmed unscripted noises, empty lead-ins, unnecessary pauses and off-camera resets while protecting complete words, natural breaths and teaching action. Native consecutive frames plus moving/audio context are required; sparse scans and ASR alone cannot clear a join or authorize deletion. Keep the current still/frame, motion and full-render approval boundaries. This dated rule supersedes older suggestions that a pose match or audio fade alone clears a naked cut.
+
+## Short ads: show the whole video when it is nearly approved (Dan, 2026-10-14)
+
+When most assets are approved and the rest of the ad holds nothing new or likely to be turned down, the "first 30 seconds" round
+builds and shows the WHOLE ad instead. Rule and his words: `_shared/VIDEO-RULES.md`, "Short-form and ads: build the whole video instead of only the first 30 seconds" (2026-10-14).
+
+## Approval before the full render (Dan, 2026-09-26)
+
+> **ROUND METHOD, READ FIRST:** follow [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md) for round order, the decision budget and the review page, and VIDEO-RULES "Video rounds start automatically; editor chooses same task or fresh handoff" (2026-10-20) for how rounds continue. Never one-shot a video. Graphics: VIDEO-RULES "All new or revised video graphics move in Soft Blue Light HyperFrames" (2026-10-17). This overrides any older "one shot", "full v1 then revise" or "sample then full cut" instruction below.
+
+## Graphics: Soft Blue Light in every video (Dan, 2026-09-26)
+
+Every new or revised graphic uses the approved Soft Blue Light family, and every lower third uses the Motivation format with a topic that fits the narration. Spec: [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Build every new or revised graphic from the `_shared/hyperframes/` templates, moving for its whole screen time (VIDEO-RULES "All new or revised video graphics move in Soft Blue Light HyperFrames", 2026-10-17); [`softblue.py`](../_shared/softblue.py) and [SOFTBLUE.md](../_shared/SOFTBLUE.md) only for re-exports of approved films. Older palettes and graphic systems described further down (J2/olive, `motionlib` GREEN/J2AD/MIL/PAPER, graphics rebuilt from Muhammad's) are historical: use them only to reproduce or format-convert an approved export whose graphics are not being revised. Cutting, camera colour, audio, captions and transitions keep the rules below.
+
+For ads: the CTA device, end card and product-demo labels come from the HyperFrames templates (`lower-third`, `cta`, `media-card`). Step 5's J2 lock and lessons 25/83 describe approved historical ads.
+
+**Left-third text/list graphics (Dan, 2026-09-28):** use the approved 3A card exactly in every horizontal video (new or revised: the HyperFrames `side-list` template; static `softblue.left_third` / `shift_presenter` only for re-exports); squares put the full-width card at the bottom; verticals keep the full-frame camera crop with the card over it at the bottom (locked 2026-09-28); never the card mid-frame over Dan. Spec and references: the 3A section of [GRAPHICS-STANDARDS.md](../_shared/GRAPHICS-STANDARDS.md). Adapt only the heading and points, and show one short contextual sample before a full edit.
+
+> **READ FIRST: [`_shared/EDITOR-CARD.md`](../_shared/EDITOR-CARD.md)** — what Codex's approved C1652 R4 long-form and DS-17 short did that Claude's cuts did not (2026-09-17). Hold them for the whole build; start from the last approved recipe, not a blank directory.
+
+# Ad-Edit: raw teleprompter footage → finished ad creative
+
+## Edit queue status — REQUIRED when this video is a job on Dan's edit queue
+
+If the video is on `Handoffs/video-editing/00-MASTER.md` (IDs like `RA-01`, `DS-04`, `RO-02`, `SL-01`, `AV-05`, `AS-04`),
+keep its status current on Dan's pinned **Abs By AI Edit Queue** page: `in_progress` when you start building,
+`delivered` when the review copy goes to Dan, and **`finalized` the moment Dan says it is finalized / approved** (his
+words, never a passed gate). Never set `uploaded` here; that is `/ad-setup` (ads) or `/video-setup` (organic), after
+the upload. Procedure (one script call + one `Artifact write_db`): `.claude/skills/_shared/edit-queue/README.md`.
+
+## Default staffing and asset approval
+
+One editor owns planning through self-QA. Use one independent reviewer only after a complete, placeholder-free candidate exists (AI frames and takes still get their own fresh `frame-reviewer`, Step 4.5); do not use a recurring planner/reviewer supervision loop. For clip records, follow [ASSET-APPROVAL.md](../_shared/ASSET-APPROVAL.md) within the complete pre-render approval workflow above. Keep pending slots in the plan or short auditions; do not render a full placeholder film.
+For an edit-queue run, schema-1 `placeholders.json` and the queue's `draft_review` → `frames_approved` states are the authority; do not invent a chat-only approval or keep the editor session alive while waiting.
+
+## Square and vertical camera movement — updated 2026-09-16
+
+Read [the shared framing rule](../_shared/framing-motion.md) before choosing crop motion. Verticals use land-then-hold through `_shared/cut/landing.py` (VIDEO-RULES "Verticals: the camera lands on Dan, then holds", 2026-10-03, locked 2026-10-05). This supersedes any other tracking instruction below. For approved-master adaptations, preserve the existing zoom, framing height, edit and audio.
+
+First written 2026-08-20, built from a
+measured study of 11 winning direct-response ads (7 of Dan's own green-marked
+winners + V Shred's #1 all-time and 2026 winner + MadMuscles' current top ad) —
+see `reference/AD_STUDY.md` for the evidence. **Update this file after every ad**
+— especially the two LEARNING sections at the bottom. This skill is supposed to
+graduate from "Dan directs the details" to "Claude places them unprompted."
+
+## Why this is not /longform-edit
+
+The stakes are inverted. A longform video costs its production; an ad's edit sits
+in front of **thousands of dollars of paid testing**, so the end product must be
+as polished as we can make it, and the parts that carry the marketing message —
+the product-demo segments, the graphics, the CTA treatment — matter more than
+anything else on screen. Concretely:
+
+1. **The teleprompter script is ground truth (99%).** The cut is built TO the
+   script, not inferred from an outline. Deviations in delivery are almost always
+   Dan correcting a script mistake — keep his spoken version, flag the drift.
+2. **Zero jump cuts.** Every take join is disguised by a zoom cut or covered by
+   an insert. A visible jump cut fails QC.
+3. **Burned captions** (longform deliberately uses SRT; ads never do).
+4. **Every ad ships in several formats** (16:9, 9:16, square, a 0:59 cut); see Step 8 and VIDEO-RULES
+   "Categorize every video before editing it" (2026-10-04). All must be strong.
+5. **Cut the entire script, no length ceiling.** Dan's own winners run 4–7 min. The 0:59 version is its own format (Step 8).
+6. Graphics/motion graphics start **minimal** and grow via Dan's revisions —
+   that's the learning loop, not a lower bar.
+
+**Everything not listed here is /longform-edit, verbatim — do not re-derive it:**
+footage download + Step 0.5 clip identification, Whisper word-timestamp
+transcription, all six cut-placement rules (word boundaries PLACE, silence
+VALIDATES), the video-use render chain + segment cache, per-roll color grading
+(camera side only, never a WB correction on a skin-tone-subject video), loudness
+via `_shared/audio/voice_chain.py` (Step 0.4, never `loudnorm`), the QC assertion suite, all ffmpeg traps, `git
+check-ignore` before staging, and working on an external drive (`renderq.py workdir <job>` picks it). Read that SKILL.md
+first if you haven't this session.
+
+## Step 0 — inputs
+
+- **Script:** the ad's section of **"Abs by AI finalized scripts batch 1 -
+  TELEPROMPTER"** (`1bpEndCcM-imeOWS0tp86l7Ud0bGyxLQ-MWZVAwcacgA`) — pure spoken
+  words, THE ground truth for the cut.
+- **Cues + assets + per-ad notes:** the same ad in **"abs-by-ai ads batch 1
+  finalized scripts for teleprompter"** (`1r3Jmuihyryq0qv2Y3A--D_yaerF9B_ZqAb-QvOuAwjg`)
+  — bracketed visual cues, placed images, compliance notes. Every cue is a
+  graphics/insert obligation for the edit.
+- **Footage:** same shoot setup as longform (Sony rolls via Drive / `/Volumes/Extreme/`). One
+  teleprompter roll per ad plus b-roll clips.
+- **Shoot requirement to flag BEFORE filming: ads must be shot 4K.** Both pillars
+  of this skill — punch-in zoom cuts and the 9:16 export — need crop headroom. A
+  1080p source leaves ~1.15x of zoom before softening and makes the vertical crop
+  a 608→1080 px upscale. (Longform's 4K recommendation is a nice-to-have; here it
+  is load-bearing.)
+
+## Step 0.4 — AUDIO: `_shared/audio` is the standard. One lav pick, one chain, one gate, one stamp.
+
+**Every video this skill renders takes the LAV TRACK ONLY, as mono, duplicated to centred stereo,
+through ONE shared voice chain and ONE shared gate measured against Muhammad's `this picture got me
+abs | muhammad | 16x9.mp4` — and the shared delivery gate's `audio:stamp` row (and `deliver.sh`) refuses a file
+that does not carry that gate's stamp.** Module: `.claude/skills/_shared/audio/` (README there). Run `selftest.sh` before
+a batch.
+
+1. **`pick_lav.py <roll>`** on every roll, first. It probes every stream and channel (the 8/3 and 8/14
+   rolls are two hard-panned mics; the 8/28 rolls are FOUR mono tracks with the lav on `a:1`), cross-
+   correlates the live candidates, and writes `<roll>.audio_source.json` with the exact `-map` and
+   filter. `base.py` reads that JSON. **No script writes `pan=mono|c0=c1` again** — on an 8/28 roll
+   that takes the far mic or renders silence. It exits non-zero on ambiguity; do not guess.
+2. **`voice_chain.py --in <tight cut> --out <out.mov> [--bed music --bed-db -30] [--extra sfx.wav]`** —
+   the approved rev-2 chain (`audio3.py` is now a shim to it): NO dereverb by default (opt-in since
+   2026-09-29, `--dereverb-because` on a room measuring > 55 ms that a listener heard), EQ FITTED to his file per roll (never a pasted curve), expander, compressor OFF (his LRA
+   is 3.5), centred, bed ≤ −30 dB ducked, measured gain + `alimiter` (never `loudnorm`, which went
+   dynamic on rev 1) to −14 LUFS / −2.5 dBTP in PCM. It refuses silent input (a stacked `pan`).
+3. **`audio_gate.py <delivered file> --ab AB.mp4`** on the EXACT delivered file: L/R image, comb
+   ripple, early decay ≤ 80 ms (a fail is the measured half of a dereverb opt-in, not an order to dereverb), 10-band tone (mean ≤ 1.2 / max ≤ 2.5 dB), floor between words within
+   3 dB of his, dryness, −14 ±1 LUFS, speech spread, true peak ≤ −1.0 dBTP, zero silent seconds,
+   length. It writes `<file>.audio_gate.json` with the file's sha256. **A FAIL is not deliverable**,
+   and a re-render without a re-gate fails `require_stamp` on its sha256. Send the A/B (his three
+   sentences, then ours) with every review copy.
+
+**Voice standard and options:** start from VIDEO-RULES "A subtle bass lift on his voice is the standard" (2026-10-12; its B2 chain has no expander), show level-matched voice options in round 1 ("First-round options and AI ideas", 2026-10-16), and start every audition clip on speech ("Audio comparison clips start on speech", 2026-10-11).
+
+History: rev 1 of the website video read L/R +0.998 and still failed by 9.5 dB on floor (bed −23 dB,
+3:1 compressor with makeup, two air shelves); the spray-tan shorts passed every check and were
+rejected on ROOM (85 ms vs his 40). Both are rows of the gate now. Lessons 28, 32, 33, 74, 76 below
+are the measurements behind it.
+
+## Step 1 — script-driven rough cut
+
+Transcribe the roll (longform Step 1), then align the transcript against the
+teleprompter script line by line:
+
+- The script defines the **beats and their order** — nothing missing, nothing
+  reordered. Grep for retake markers first (longform Step 2), then map every
+  script sentence to its take(s).
+- **When delivery deviates from the script,** default to Dan's spoken words (he
+  fixes script mistakes live). If the drift changes meaning, drops a compliance
+  phrase, or loses a scripted callback, flag it in the delivery notes.
+- Build `ranges.py` + the EDL exactly as longform does, one range per kept take
+  span. **Never split a range to hang a graphic** (chips map by source time).
+
+## Step 2 — take selection (LEARNING MODE — currently hybrid)
+
+Dan's protocol, set 2026-08-20:
+
+1. **First minute: Dan picks.** Build a **take reel** — one MP4 containing every
+   usable take of every line in roughly the first minute, each take preceded by a
+   2s slate frame (`L3 T2` = line 3, take 2) and listed in chat with timestamps.
+   Send it; he replies with picks. Do not assemble the first minute before this.
+2. **Rest of the ad: Claude picks**, using the criteria below, and lists the
+   choices (line → take, one-line reason) in the delivery notes so Dan can
+   overrule cheaply.
+3. **Record every pick of Dan's that differs from what Claude would have chosen**
+   in "Take-selection lessons" below, with why (ask him if it isn't obvious).
+   When the lessons converge, propose graduating: Claude picks everything and
+   flags only genuine coin-flips. **Tell Dan when you're confident enough to take
+   it over — that's his stated plan.**
+
+Claude's starting criteria (to be corrected by his picks): complete and fluent
+first; then energy/punch over smoothness, especially in the first 30 seconds; no
+mid-word teleprompter cadence (audible reading rhythm); later takes of a line
+usually beat earlier ones (he retakes because something bothered him); a take
+whose ending flows into the next line's chosen take beats one that doesn't. Stumbles inside a kept take are cut or
+trimmed (VIDEO-RULES "Stumbles inside a kept take get fixed", 2026-10-20).
+
+## Step 3 — no jump cuts: the zoom-cut system
+
+**⚠ PICTURE CUTS AND PAUSES: `_shared/cut/` (REQUIRED, VQC-C 2026-09-24).** A matched frame alone does NOT hide a jump cut: Dan, 2026-09-24, on the A/B of one join, "They both look like jump cuts." So every same-framing talk cut still gets the framing step (instant punch-in or pull-out) or an insert; the tool only picks the least-bad frame for that cut. Once the EDL is final, run `python3 .claude/skills/_shared/cut/piccuts.py decide --build <work> --mode raw --raw <roll> [--rolls rolls.json] --grade <grade> --edl <edl> [--talk talk_spans.json]` and conform the PICTURE from `edl_picture.json` (the audio stays on the EDL; length is unchanged). It cuts each join on the frame within ±15 where Dan's head matches; a join still over the calibrated head jump comes back `cover: push` + `watch: true`, so give it the zoom step or an insert and put it on the watch list. Shorten pauses with `deadair.py --preset ad --pair` so every removal is a decided picture cut, never a bare one. Smooth any crop track with `landing.py` (`landing.track`: 0 px landing at every cut). Check with `piccuts.py strips`, by eye, not by a frame-difference score. See `_shared/cut/README.md`.
+
+Adjacent takes from one locked camera = a jump cut unless disguised. Two tools,
+in preference order:
+
+1. **Punch-in alternation** (what every studied winner does): alternate framings
+   between consecutive takes — full frame ↔ ~1.15–1.3x digital punch-in (4K
+   source: up to 2x). Keep the eyeline anchored (crop centered on his face, not
+   the frame center) and alternate strictly — never two identical framings across
+   a join. This doubles as visual pacing: in long uninterrupted speech, add a
+   punch level change on a sentence boundary every ~10–15s even where there's no
+   join to hide.
+2. **Cover the join with an insert** — b-roll, a demo clip, or a graphic card
+   spanning the cut. Prefer this when the join is mid-thought or the takes'
+   framing/posture mismatch survives a punch.
+
+QC assertion: no two adjacent segments from the same camera setup at the same
+punch level. A dissolve/whip is NOT the default fix — the studied ads cut, they
+don't dissolve (the only dissolves seen were the deliberate rewind-replay motif).
+
+
+**FRAMING STANDARD — LOCKED 2026-09-08 (Dan, website video rev 4: "lock that in and crop all the videos like this going
+forward").** Every talking-head crop, in every skill, is anchored to the measured TOP OF THE HAIR, never to the frame and
+never to a skin/hairline detector: per hold, `y0 = (the hold's minimum hair top) − 4 % of the crop height`, so the hair sits
+~43 px below the edge at his tallest instant. Two levels only — NEAR (hair → belly button) and FAR (hair → shorts line with the
+waistband in frame) — alternating across visible joins; no wide level exists. Measure, prove and gate with the tools and
+thresholds in VIDEO-RULES "Head and hair clearance blocks review delivery" (2026-10-20): at least 20 px at 1080p on every presenter
+hold, on the exact review export, before any preview (`longform-edit/reference/ro10/hair_first.py`, `haircheck.py`,
+`website-video/reference/recipe/hairdet.py`, `hairgate.py`; lessons 108-109). The level numbers above are
+the 8/28 kitchen set's; re-measure the zooms for a new set, keep the rule.
+
+## Step 4 — product-demo segments (the paramount part)
+
+These carry the marketing message; be pickiest here. Dan's rule set (2026-08-20):
+
+- **Reuse an existing clip if one fits and isn't worn out.** Track every use in
+  `reference/demo-clip-log.md` (create on first use: clip → source path → which
+  ads/videos used it). **Once a clip has appeared in ~3–4 ads/content videos,
+  generate a fresh one instead.**
+- **No fitting clip → capture a new one:** run the REAL app and screen-record it
+  — web at absbyai.com in a clean browser profile, or the iOS Simulator via the
+  /make-ad product-capture recipe (`simctl addmedia` → real picker → real
+  generation → `simctl io screenshot`/recording). **The make-ad warnings apply
+  verbatim: real generations cost real money (state the spend), and a generation
+  on the Apple-review demo account steals its home-screen hero — delete the stray
+  transformation and verify the beach-man hero is restored.**
+- Capture demos for whatever the script's cue sells — generation flow, Macro
+  Tracker analysis, the Trainer program, Daily Brief — when a live demo
+  communicates the value better than a still. When in doubt whether a segment
+  wants a demo, it probably does — the cue list is the contract.
+- **Treatment in frame (16:9):** a phone recording is 9:16 — use the longform
+  split-screen geometry (phone at native scale, Dan filling the rest) when he
+  talks over it, or a full-height phone panel on the locked graphics background
+  for standalone demo beats. Punch into the phone column briefly on the key
+  number/moment (longform rule). In the 9:16 export, demo recordings go
+  full-frame — they're native vertical.
+- **A before and after picture are the SAME PERSON** (Dan, 2026-09-12: *"don't mix before-and-after pictures… That doesn't really make sense if you change the person."*). Never pair one person's before with another's after — in an app recording, a result screen, a card or a thumbnail. If that person's after does not exist, generate it for THEM through the live product (a real generation, never a composite) or change the before so the pair matches. ⚠ The only real app recording in the asset library uploads a man who is NOT Dan, so every phone demo cut from it inherits this.
+- **Real photos of Dan carry the real-photo label** in the wording of VIDEO-RULES "Real-photo labels include touched-up photographs" (2026-10-17): "Real Photo(s) Of Me, Not AI-Generated". Never on real moving footage or thumbnails ("Label Dan's real pictures", 2026-09-16 exceptions). AI images of Dan keep "AI-GENERATED"; every picture of his physique carries exactly one of the two.
+- ⚠ **LABEL PLACEMENT — NEVER OVER HIS FACE AND NEVER OVER HIS ABS** (Dan, 2026-09-12, on the Ad 2 square: *"the label will not block my face or my abs… put it above my head, to the side, or somewhere that it doesn't block my face and my abs in all of these after pictures"*). This REPLACES the old "low on the frame, at the shorts/waistline" rule, which is what put the chip across his lower abs. Put it **above his head, off to one side, or anywhere in the frame his body does not occupy** — still inside the safe area, still large enough to read, still clear of the caption band. **The picture exists to show the physique; a label over the abs defeats the picture.** Choose the position by MEASURING him on the RENDERED frame (person mask → the bounding box of head + torso, then place the chip in the largest clear band), never at a fixed y — every photo frames him differently. If nothing is clear enough, shrink the chip or move it to a corner before you put it on him. Applies to BOTH labels on any picture of Dan.
+- **Compliance on every demo/AI asset:** the AI-GENERATED label on every AI
+  goal/after image; never a drug name on screen. **NEVER a side-by-side
+  before/after ANYWHERE — the in-app-UI exception is REVOKED (Dan, 2026-08-20,
+  after ad #1 shipped the app's "Meet the new you" screen and he called it the
+  most serious mistake in the video — account-suspension class).** The pattern is
+  always: before → something else → after, with the after clearly tagged
+  AI-GENERATED. An app screen that renders before+after together (e.g. "Meet the
+  new you") is unusable; use the flow's before-alone / generating / after-alone
+  screens instead.
+
+## Step 4.5 — prompting AI inserts (stills and clips)
+
+Applies to every AI asset that goes INSIDE a filmed ad — the b-roll clips, the
+future-self demos, the pastiche shots, the opener treatments. Sourcing follows
+VIDEO-RULES "Clip library first" (2026-09-29, order set 2026-10-01); this is about what goes in the prompt once you've
+decided to generate.
+
+The failure these rules prevent is not "a bad clip". It's a clip that reads as
+AI to a viewer who couldn't say why. Two things cause it: the prompt asks for a
+film crew, or the model returns its default human being.
+
+**Never let these words into a prompt.** Each one leaks a production the ad
+isn't supposed to have:
+
+- *Hardware* — any camera or lens brand, `anamorphic`, `large sensor`
+- *Optics* — `bokeh`, `shallow focus`, `lens flare`, bare `depth of field`
+- *Rig and move* — `dolly`, `crane`, `gimbal`, `steadicam`, `tripod`, `push in`,
+  `whip pan`
+- *Post* — `color grade`, `LUT`, `film grain`, `speed ramp`, `slow motion`
+- *Grandeur* — `cinematic`, `dramatic lighting`, `epic`, `stunning`, `moody`
+- *Crew* — anything implying a second camera, a boom, a light, or another pair
+  of hands
+
+Lean on the opposite instead: `handheld`, `overcast daylight`, `flat light`,
+`slight camera shake`, `small reframe mid-shot`, `amateur photograph realism`.
+
+**Fight the model's default person.** Image models return a symmetrical,
+poreless, evenly-lit human, and that is the tell. State the texture outright:
+open pores, uneven skin tone, a smile that sits slightly crooked, shadow under
+the eyes, hair that's escaped. Proportions of a person, not a model. Dull flat
+light, never low sun or anything shaped. Describe clothing down to its wear —
+"washed-out olive hoodie, collar gone slack", not "casual clothes". A settled,
+unremarkable expression: anything theatrical bakes in and then overrides your
+direction for the whole clip. This is the same correction lesson 49 arrives at
+from the other direction — write it in from the start rather than after a
+"celebrity likeness" rejection.
+
+**Rule out explicitly in the prompt:** lettering, logos or graphics on any
+garment (generated type comes out as mush and the video model faithfully
+rebuilds the mush); retouching; makeup; flawless teeth; sunglasses; hair across
+the face.
+
+**Frame it slightly wrong.** Subject off-centre, one small correction mid-shot.
+Clean, centred composition is the clearest signal that somebody was paid to
+stand there. (This does NOT relax the crop rules — never cut the top of the head
+or the shorts line.)
+
+**Check every still before it becomes a start frame:** six fingers, scrambled
+signage, anything in the background that shouldn't be there. Whatever is in the
+reference gets rebuilt as a solid object in the footage.
+
+**Measure every START/END pair for body and physics faults, then have a fresh reviewer check it, BEFORE Dan sees it (Dan,
+2026-10-14: "This is something which should have been caught in quality control. You never should have shown me this").**
+**The routine (2026-10-14): write the frame spec from START, run `_shared/framecheck/gate.py START END --spec spec.json`, then a
+fresh `frame-reviewer` agent; the review page refuses the pair until `gate.py START END --verify` exits 0.**
+**Then the motion take: `_shared/framecheck/clipcheck.py TAKE --spec spec.json --frames A:B` on the part the edit uses, a fresh
+`frame-reviewer`, and `clipcheck.py TAKE --frames A:B --verify` before any page shows it (README, "Motion takes").**
+**Every take also gets the three sense questions, in the reviewer's brief too (VIDEO-RULES "AI clips that make no physical sense,
+or do not show the line, never reach Dan", 2026-10-13).**
+Tools and rules: `_shared/framecheck/README.md` (pose angles and bone lengths, rigid-part tracking, still-pixel lock). A
+person using a machine pushes along the machine's guide, bone lengths match between frames, rigid parts move as one piece,
+nothing appears or vanishes. RA-04's leg press took seven independent reviews; when a machine part must move exactly, build
+the END in code (`reference/ra04/r2c_sled.py`).
+
+**Continuous action is ONE motion take, never two takes joined at a shared frame (RA-04 round 3, 2026-10-14).** Veo lands near its
+`last_frame`, not on it: a walk take ending on the approved middle frame and a phone take starting on it jumped 21-37 px at the join
+(failed independent review). Generate the whole action from the first approved frame to the last; play whole source frames (1.25x at
+29.97, not 1.12x with repeated frames). Recipe and lessons 17-21: `reference/ra04/README.md`.
+
+**Derive each END frame from its START frame (RA-04 round 2, 2026-10-14).** Pass the start
+frame to `codex-image.sh --image` with "keep the camera position, framing and background
+exactly; change only ...". Frames generated separately from one reference come back from
+different camera angles, and a pair from two cameras makes the video model warp the room.
+
+**If the clip has dialogue or a voice**, write it caught rather than performed:
+contractions, hedges, stalls, sentences that stop and restart. Fragments are
+correct. Keep any endorsement smaller than the product deserves — "okay, that's
+actually good?" lands; "it's completely transformed my daily routine" kills it.
+
+**Hold ambience density constant across every AI clip in one ad.** Background
+that thickens or thins between clips gives the edit away faster than any visual
+mismatch does.
+
+## Step 5 — graphics
+
+> **Superseded for new graphics on 2026-09-26 by Soft Blue Light** (see the Graphics section at the top of this skill); kept for approved legacy films.
+
+**LOCKED (ad #1 verdict, 2026-08-20): the J2 tactical system for graphics —
+panels, tags, green/olive outlines, and the J2 CTA bar — with MadMuscles-style
+captions (see Step 6).** Dan explicitly kept the olive-outlined J2 panel frames
+and the J2 lower-third CTA bar and rejected the MadMuscles red-pill/blur-panel
+look for everything except captions.
+
+**Historical (superseded 2026-10-08 and 2026-10-11 by VIDEO-RULES "The first 5 seconds get the most effort" and "More AI clip
+ideas, funny ones, on every video").** Minimal-first policy (Dan's original instruction): for the first few ads, place only
+the graphics that are *clearly* called for — the script doc's bracketed cues,
+the CTA treatment, and compliance labels. **When unsure whether to add a motion
+graphic or AI clip, DON'T** — Dan will direct placements in revisions, and every
+directed placement gets recorded in "Graphics-placement lessons" below until
+Claude can place them unprompted.
+
+The proven ad-graphics vocabulary to draw from as the skill matures (all from
+winners — details and examples in `reference/AD_STUDY.md`):
+
+- **Persistent CTA lower-third from the first CTA to the end of the ad** (pill or
+  bar: "Tap below or go to AbsByAI.com"). This is the single most consistent
+  device across every winner studied. First CTA lands ~20s–1:30 in.
+- **Side-panel inserts** beside the talking head every ~10–15s of pitch: b-roll
+  in a rounded rect, text cards (white + red emphasis words), physique photos,
+  red ✗ overs, simple graphs.
+- **Numbered-step chips** pinned through listicle sections; numbered list cards.
+- **Player-UI motifs** for hook-replay commentary: pause, rewind ⏪, red circle,
+  yellow arrows, the animated pointing-hand at the CTA.
+- **Metaphor visuals** for the mechanism, and the **AI-reveal shimmer** (exists
+  in ad-factory, pure ffmpeg) on generated images.
+- **End card:** goal-physique imagery (labeled) + "Tap below — or go to
+  AbsByAI.com" + the persistent bar still running.
+
+**Animated graphics live in `.claude/skills/_shared/motionlib.py`** (added 2026-08-21).
+
+⚠ **2026-08-24: there were TWO copies and only one was in git.** `_shared/motionlib.py`
+was the tracked one; `reference/motionlib.py` was an untracked duplicate sitting beside
+it on disk. That is the drift this repo has already lost a pipeline to. Both per-skill
+copies are now **shims that import from `_shared/`**, and `/longform-edit` imports the
+same file — which it never did before, which is why its edits shipped static PNG chips
+while the ad edits had animation, and why an outside editor beat it. It renders PIL
+frame sequences to alpha MOVs that ffmpeg overlays: `card_in`, `bullets_build`,
+`lower_third`, `title_card`, `callout_box`, `number_pop`/`pop_text`, `photo_swap`, plus
+primitives (`panel_plate`, `stroke_box`, `dashed_arrow`, `chip`, `rounded_photo`) and
+easing helpers. Its palette is the CONTENT style (bright paper, near-black ink, brand
+red, Manrope) — for PAID ads keep the locked dark J2 look and use the components with a
+J2 palette. `.claude/skills/_shared/sfxlib.py`'s whoosh and riser are banned; sound effects follow VIDEO-RULES "Sound effects on
+transitions" (2026-10-08).
+`reference/modern60/` is a complete worked example (tight cut → graphics → audio → QC).
+
+Graphics are one overlay pass over the finished cut at CRF 18 (longform Step 7),
+chips/graphics burned per the same PIL-not-drawtext rule, previewed composited
+on a REAL frame before rendering — both longform traps (Copperplate small-caps,
+eyebrow-over-bright-footage) apply.
+
+## Step 6 — captions
+
+Burned, word-timed from Whisper on the **final mixed audio** — never estimated
+windows (the /make-ad rule Dan enforced; `captions-from-words.js` is the model).
+Never `" ".join()` Whisper tokens (longform Step 8 token rules).
+
+**LOCKED (ad #1 verdict, 2026-08-20): MadMuscles-style captions — Arial Bold
+~64px at 1080p 16:9, white with black outline, centered, low third, above the
+CTA bar — on top of J2 graphics.** Dan's caption rules, non-negotiable:
+- **"abs" is ALWAYS lowercase in captions** (never ABS), every occurrence — it is
+  the central recurring word of every ad. "AI" stays uppercase. (Card and
+  end-card headlines use title case per VIDEO-RULES "First-round options and AI ideas" (2026-10-16); the J2 all-caps
+  applies only to legacy re-exports.)
+- **The first 30 seconds must be word-for-word accurate** — proof them manually
+  against the audio (Whisper misheard "goal picture" as "gold picture" on ad #1).
+  Outside the first 30s, small mishears are tolerable.
+- Keep a per-ad corrections dict for recurring Whisper mishears.
+
+Layout rule regardless of variant: captions sit ABOVE the persistent CTA bar and
+never collide with it, with side-inserts, or with the AI-GENERATED labels; no
+captions over the end card.
+**Standing rule (Dan, 2026-09-02): captions never overlap ANY graphic — lower thirds, phone
+insets, cards. Lower thirds sit at the bottom of the frame, captions lift above them, and QC
+measures the clearance in pixels (lesson 99). A collision is a FAIL, not a note.**
+
+## Step 7 — pacing targets (measured from the winners)
+
+- **First 30 seconds are cut noticeably faster than the body** — the money zone.
+  A montage/skit hook runs 0.7–2s per shot; even talking-head hooks alternate
+  framing quickly. Match the hook's edit energy to its copy.
+- **Body settles to a 4–7s median shot length**, with a visual change (punch
+  level, insert on/off, demo cutaway) at least every ~15s.
+- **Nothing sits visually unchanged longer than ~25s.**
+- **No speed-up pass for now** — Dan explicitly deferred the /make-ad 1.2x rule
+  for filmed ads; revisit only after he's watched a finished ad at 1.0x.
+- **Music bed ON** for filmed ads (CC0/Pixabay, chosen by measurement; locked 2026-08-23 in "Decisions locked vs
+  pending"). The older "no bed by default" note is superseded.
+- Hook variants (swap the first 5–10s, MadMuscles-style) are **out of scope for
+  v1** — deliberately deferred to keep this skill buildable; add when Dan asks.
+
+## Step 8: the other formats (9:16, square, 0:59)
+
+When the 16:9 is the master, the vertical, square and 0:59 cut are built by `/shortad-from-longform`
+(`kit9x16/kit_run.py --sheet`) from this skill's edit sheet (VIDEO-RULES "Categorize every video before editing it",
+2026-10-04). When a recipe builds the 9:16 first (RA-04 onward), follow that recipe and make the 16:9 per RA-06 round 4.
+Talking head: land-then-hold via `_shared/cut/landing.py` ("Verticals: the camera lands on Dan, then holds",
+2026-10-03). Demo screen recordings go full-frame; graphics and captions are re-laid-out for vertical.
+
+**Horizontal clips in the 9:16 (and any square): fill as much of the screen as the clip allows (Dan, 2026-10-02).**
+Crop the sides to the narrowest window that keeps what the clip is about, any shape between the whole clip and full
+screen, placed on the subject; never crop height. Blank space needs a reason in the build report. Use
+`shortad-from-longform/reference/kit9x16/clip_fit.py` (`decide()`), with Dan's own clip notes as overrides. Full rule:
+`_shared/VIDEO-RULES.md`, "Verticals and squares".
+
+## Step 9 — compliance scan (before delivery, every ad)
+
+1. AI-GENERATED label on every AI image/clip, in both aspect ratios.
+2. No side-by-side before/after ANYWHERE, including inside real app UI (rule
+   hardened 2026-08-20 — scan every insert frame for it explicitly).
+3. No drug names spoken or on screen ("weight loss medication" only).
+4. **Negative-imagery scan (Dan's rule, 2026-08-20):** sample frames across the
+   finished cut and check for Google's "Negative Events and Imagery" triggers —
+   above all **zoomed-in close-ups of overweight/out-of-shape body parts framed
+   with disgust or shame** (the fat-belly close-up + disapproving reaction is the
+   classic strike; it already limited one of our Demand Gen creatives). Close-ups
+   of fit bodies (abs, biceps) are fine. **Certain violation → replace the shot
+   yourself and say so. Unsure → leave it in and flag it for Dan's call.** Belly close-ups and fat
+   pinching are never used (VIDEO-RULES "No fat pinching or belly close-ups", 2026-10-04).
+5. The /make-ad micro-disclaimer applies to AI-actor content only; a filmed ad of
+   Dan needs no actor disclaimer, but keep "Results are not guaranteed" if the ad
+   shows transformation claims and Dan hasn't said otherwise. Still to confirm with Dan.
+
+## THE EDIT SHEET: written and validated BEFORE the delivery gate **(REQUIRED on every 16:9, 2026-10-01)**
+
+```
+python3 .claude/skills/_shared/edit-sheet/sheet_from_claude_build.py <build dir> --master <delivered 16:9> [--approved "<Dan's words>"]
+python3 .claude/skills/_shared/edit-sheet/validate.py "<delivered 16:9 minus .mp4>.edit-sheet.json" --hash
+```
+
+Every finished 16:9 writes `<master>.edit-sheet.json` beside it: the cut's exact frames, the crop and measured head
+position per shot, the words, every graphic's template and config, every picture with its real-or-AI label and who is
+in it, the audio and what Dan approved (`_shared/edit-sheet/README.md`). The vertical kit builds the 9:16 and the 59 s
+cutdown from it with no reverse-engineering (`kit9x16/kit_run.py --sheet`). **A sheet that fails `validate.py` blocks
+the delivery gate stamp: do not run the gate until it passes, and never hand-edit the sheet to pass it.** So the
+plan must record, for every clip and photo item, `people` (`dan` / `other` / `none`) and `physique` (true / false)
+beside its `label`; the sheet writer refuses to guess them. Graphics must come from the HyperFrames templates
+(`from_plan.py`) to be redrawable at 9:16.
+
+## THE DELIVERY GATE — `_shared/deliver/gate.py` **(REQUIRED on the delivered file, 2026-09-11)**
+
+```bash
+python3 .claude/skills/_shared/deliver/gate.py <delivered file> --format ad16x9 --plan plan.json
+```
+
+**One gate for every video skill, run on the file that is actually going out.** It carries the
+union of the rows that used to live in seventeen per-video QC forks, with every bound in
+`_shared/deliver/formats.py` beside the file and the date it was measured on. It writes
+`<file>.deliver_gate.json`; `gate.require_stamp(<file>)` refuses anything without a PASS stamp at
+the current `GATE_VERSION`.
+
+- **A missing input is `NOT MEASURED`, which FAILS** — never a silent skip. `--plan-keys` lists what
+  `plan.json` may carry; a row whose key is absent says so and fails.
+- **A row this format has not answered for FAILS as `UNCONFIGURED`.** If a check genuinely does not
+  apply here, add it to that format's `not_applicable` in `formats.py` with a written reason.
+- **Never raise a bound to make a build pass.** `python3 .claude/skills/_shared/qc_corpus/run.py`
+  must stay green, and it is what proves a bound change did not resurrect a rejected cut.
+
+**The shared gate is the only gate (2026-09-16, Phase 3 of `Handoffs/handoff-20260911-video-quality-engine.md`).**
+The per-video QC forks that used to sit in `reference/` are deleted; every row they carried, framing and the watch
+pass included, lives in `_shared/deliver`, and `python3 .claude/skills/_shared/deliver/gate.py --formats` says what
+each format is held to. Do not resurrect a fork from git history to "double-check": a second gate with its own copy
+of a bound is exactly how the 2026-09-09 dereverb fix reached one pipeline and missed the other (memory
+`shared-fix-may-not-reach-the-pipeline`).
+
+## Step 9.9 — THE WATCH PASS  **`_shared/deliver/watch.py`** — REQUIRED; `watch:pass` is a hard gate row
+
+Every metric above measures format. Nobody has looked at the moving picture until this runs, and the delivery
+gate's `watch:pass` row refuses the file until somebody has (Phase 3, 2026-09-16: one module for all six video
+skills; the per-skill watch scripts are gone).
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py <delivered file> --plan plan.json
+#  -> logs/watch_pass.json  +  watch/sheets/*.jpg  watch/strips/*.jpg  watch/CHECKLIST.md
+```
+
+On the EXACT delivered file, in one pass: **(1) the scan, every frame at native rate** — frozen runs, black frames,
+and discontinuities not at a boundary the plan declares, consecutive hits merged into one event, the threshold the
+file's own noise; **(2) naked splices** — the instrument behind the gate row `cut:naked_splices` (a same-scene,
+single-frame jump where the subject moves and the background does not; a push or a pan aligns and is not one);
+**(3) graphic presence** — is each declared `graphics[].mov` actually in the delivered pixels (or does the picture
+differ from `source_picture` there); **(4) a strip of the five CONSECUTIVE frames at −2/−1/0/+1/+2 for every
+boundary**, plus the −1|0 pair at half size — the only thing that exposes a jump cut, a frozen beat or a mistimed
+animation by eye (a 1 s contact sheet cannot, and `fps=1/N` sheets lag content by ~N/2 s); **(5) contact sheets of
+exact frame indices** for the checklist items a strip cannot show (hair at the edge, a junk card, a label on his
+face, a wide level, visual junk with no audio signature — look-aways, glasses, drinking, recomposing while talking).
+
+**Then the judge.** Launch a **fresh subagent** (Step 9.9b) with `watch/CHECKLIST.md`, every image in
+`watch/sheets` and `watch/strips`, the delivered file and the `personmask` CLI. It gives EVERY image a verdict —
+`clean`, `defect` (naming the checklist item and the time) or `expected` (a change the plan declares; it says which)
+— as `findings.json` (`{"entries": [{"image", "verdict", "item", "t", "note"}]}`), then:
+
+```bash
+python3 .claude/skills/_shared/deliver/watch.py --judge logs/watch_pass.json --findings findings.json --by "<who>"
+```
+
+Put `"watch_log": "logs/watch_pass.json"` in `plan.json` and run the gate (`--format ad16x9`). The row passes only
+when the log names this file's sha256, every sheet and strip carries a verdict, and no defect is open. **A defect is
+closed by a re-render** (new sha256, new watch pass) or by `"disposition": "accepted_by_dan"` with his words in the
+note — never by editing the log. There is no skip flag. A log from one of the old per-skill watch scripts is refused.
+
+### ⚠ Step 9.9b — AN INDEPENDENT SUBAGENT AUDIT IS PART OF THIS SKILL (Dan, 2026-09-01)
+
+**"I think calling Fable to review should be a part of this skill going forward."** (Dan, 2026-09-01; the reviewer is now
+the `ra-reviewer` agent, see below.) In `/shortad-from-longform` it
+has overturned the session's own "this is fixed" twice — once measuring a build just called centred at sd ~110 px,
+39 % of talking frames beyond 70 px and two multi-second stretches where his face was cut by the frame edge, and once
+catching that eyeball reads of "he is off to the left" were MIRRORED at three of four timestamps. So after the watch
+pass, before delivering, launch a **fresh `ra-reviewer` agent** (Opus 5.5, high effort; model routing, AGENTS.md 2026-10-02: Fable is escalation only)
+on the exact delivered file. Give it the compiled
+`personmask` CLI (`shorts/reference/recentre/personmask`), the watch pass's sheets and strips, and the plan; tell it
+which beat kinds to judge (talk only); and demand the population statistics, every contiguous run beyond 60 px off
+centre or outside the framing bounds for ≥ 1 s, full-resolution verification of anything it flags (exact `-ss` grabs,
+never a sheet), **and an explicit opinion on whatever trade-off you just made** — a faster tracking crop can swap a
+centering problem for a visible pan, and you are the last person who will notice that in your own build. Ask it to
+be skeptical and to say plainly if one visible problem was traded for another. Relay its verdict to Dan rather than
+your own. The watch-pass judge above and this audit may be one subagent run when it is given the delivered file too.
+
+⚠ **A subagent that has completed cannot be resumed** — its transcript is gone and `SendMessage` fails. Launch a
+fresh one for the re-audit and restate the context.
+
+## Step 10 — QC, review loop, delivery
+
+**QC = the full longform Step 9 suite** (splice discontinuity vs control
+distribution, loudness, no sub-0.20s adjacent ranges, graphics-window
+assertions, re-transcribe flagged joints from the FINISHED render) **plus:**
+
+- Script-fidelity check: re-transcribe the finished ad and diff against the
+  teleprompter script — every script beat present, in order; deviations listed.
+- No same-framing adjacent segments (the jump-cut assertion).
+- Caption timing spot-checks against the final mix; caption/CTA/label collision
+  check at both ratios.
+- The compliance scan above.
+
+**Review loop = the round method: [PRE-RENDER-APPROVAL.md](../_shared/PRE-RENDER-APPROVAL.md)** (round order, decision
+budget, review page). Rounds continue per VIDEO-RULES "Video rounds start automatically; editor chooses same task or fresh
+handoff" (2026-10-20); a nearly approved ad is shown whole per "Short-form and ads: build the whole video..." (2026-10-14).
+Take selection: Step 2. Revisions re-render off the segment cache. Other formats: Step 8.
+
+**Review delivery:** pass the hair clearance check before any preview (2026-10-20); serve pages with
+`_shared/review_server.py` and copy review files of 45 s or more to `Videos to Review/` (VIDEO-RULES "Review videos also go in
+`Videos to Review/`, for VLC", 2026-10-08); later rounds list each change with timestamps ("Later-round delivery always
+includes revisions and review timestamps", 2026-10-10). Cutaways: no between-take junk, standing around or phone clips
+(2026-10-11, 2026-10-14, 2026-10-16); all B-roll colour corrected (2026-10-11).
+
+**Delivery layout:** build in the folder `python3 .claude/skills/_shared/renderq/renderq.py workdir <JOB> --need <GB>` prints (the job's existing
+`/Volumes/*/_edit_work/<job>/`, else the least busy drive with room; frame dumps and test renders in `renderq.py
+scratch <job>`; media stays out of git); approved finals go to
+`Claude Ad Videos/<title> - <ID>/` as `<title> | claude | <aspect> | <ID>.mp4` per `/editor-deliveries` (memory
+`ad2-vertical-approved`), with the recipe (EDL, ranges, plan, notes) kept beside the build.
+
+Copy any new generic script into this skill's `reference/` (the longform lesson:
+scratchpads get cleaned, git-ignored media folders lose code).
+
+No human editor is in this loop — this skill is the entire pipeline.
+
+---
+
+## Take-selection lessons (LEARNING — append every divergence)
+
+Ad #1: Dan did not overrule any pick. The take reel offered the prompter-test
+pass vs the slated master; v1 shipped the master (Claude's default) and his
+revision notes accepted it silently. One correction that IS take-selection
+signal: the kept 2nd instance of a repeated sentence contained a 2s-pause
+faltering re-attempt (he heard it at 1:33 as "junk footage") — **when Whisper
+shows a stretched word inside a candidate take, LISTEN to the isolated span
+before keeping it; a later take with internal silences loses to a clean earlier
+take.** Rule updated: later-take-wins only when the later take is fluent.
+
+Spray-tan roll C1512, 2026-09-24 (the first run of `_shared/cut/takes.py`, reviewed by Dan on a
+labelled clip of every take): he agreed with all three picks -- intro take 5 of 5, closing take 4 of
+4, and the 4:00 stumble cut as the WHOLE restated sentence ("the second one is definitely better").
+His rule of thumb, in his words: **"usually the last take is clean. If there's no problem with it,
+keep the last take"** -- but "not all the time, maybe there's a stronger take before." That is
+exactly rule 1 as implemented: the last take wins only when it is fluent; a hesitation, restart or
+noise inside it hands the pick to the latest clean take before it.
+
+## Graphics-placement lessons (LEARNING — append every Dan-directed placement)
+
+Historical (superseded in parts; see "Audit 2026-10-20" at the top): sourcing order 2026-10-01 ("Clip library first"); graphic style 2026-09-26 (Soft Blue Light); sfxlib whoosh/riser banned 2026-09-23 ("Sound effects on transitions", 2026-10-08); stills via Codex 2026-10-01; Veo via Flow 2026-10-17; build cap via the render queue 2026-10-20 (lessons 67, 96, 112); hair thresholds 2026-10-20 (lessons 97, 103). The website-video recipe these lessons cite lives in `website-video/reference/recipe/`.
+
+Ad #1 rev-1 (2026-08-20), Dan's directed placements and the patterns behind them:
+1. **Static photos are never left static** — he asked for motion on the shoot-photo
+   run ("add motion effect so they're not static"). Default: Ken Burns (zoompan
+   ~1.0↔1.09 over the window, alternate in/out per consecutive image) on EVERY
+   still insert.
+2. **A benefit enumeration gets one insert PER benefit** — "more attractive to
+   women / men respect you / feel better-energy-health-live longer" got three
+   clips, cut on the phrase boundaries. Pattern: when the script lists concrete
+   life benefits, cover each with its own literal clip.
+3. **A pain/struggle line gets a literal struggle clip** — "finding motivation is
+   really hard" got an overweight-man-straining insert. Match the demographic
+   (overweight, male) or it doesn't land.
+4. **Stock-first sourcing works**: Pexels (free, no key needed —
+   `https://www.pexels.com/download/video/<ID>/` curls straight to the CDN;
+   search HTML greps for `/video/slug-ID/`). Dan's bar: stock if a GREAT clip
+   exists, AI-generate only otherwise. Ad #1 filled all four slots from Pexels, $0.
+5. **"Made it my phone lockscreen" beats want the goal image ON A PHONE** — he
+   replaced a reused AI b-roll clip with a phone-mockup of the goal image
+   (bezel + lockscreen clock + AI-GENERATED tag, slow push-in). Reusing the same
+   AI clip twice in one ad was rejected the second time.
+6. **Crop discipline on photo inserts: never cut the top of the head or the
+   shorts line** — fit the whole figure on the J2 panel instead of cover-cropping
+   (same rule as /coverimage).
+
+Ad #1 rev-2 (2026-08-21), second round of directed placements:
+7. **Ken Burns must be SUPERSAMPLED or it shakes.** zoompan on a ~2K input
+   jitters (integer x/y rounding) and Dan called it out immediately. Recipe:
+   `scale=7680:4320` before zoompan, output s=1920x1080 — verified smooth
+   (consistent inter-frame diffs). Applies to every still insert and the opener.
+8. **Benefit-clip casting matters as much as content**: the person must look like
+   the PROSPECT'S GOAL (his future-self demo: ripped six-pack, late 30s/40s,
+   matched ethnicity) — a generic fit person isn't enough, and an unclear
+   emotional read ("she's just running away") fails. Each clip must legibly act
+   out its sentence.
+9. **AI-clip protocol when stock fails: start/end frames first for Dan's approval
+   (nano-banana via `_shared/gemini-image.js`, ~$0.13/frame), then image-to-video.**
+   Write both prompts to Step 4.5 (banned vocabulary, anti-default-person, frame
+   slightly wrong) — it is cheaper than a regeneration.
+   Replicate Kling drained mid-session (again); **Veo 3.1 Fast via the same
+   GEMINI_API_KEY is the working fallback** (`:predictLongRunning`, image + prompt,
+   6s/720p/16:9 ≈ $0.90/clip). Veo traps: `lastFrame` is NOT supported on the
+   Gemini API (400 "use case not supported"); bikini/flirtation content trips the
+   RAI filter — restyle the scene (sundress) and neutralize the prompt ("talk and
+   laugh together"), retry; safety-filtered attempts are not charged.
+10. **Never show an email-capture form in an ad** — Dan had the after-screen's
+   email field hidden under an oversized black AI-GENERATED box (dual purpose:
+   disclosure + hiding the ask). Cover the WHOLE form incl. its explainer text.
+11. **The "AI reads your pictures" idea gets a custom animation, not a real app
+   screen**: scan line sweeping the (tagged) after image once, then invented-but-
+   coherent stats appearing (Current/Goal weight + BF%, fat loss, muscle gain),
+   ending in "Recommended Workout Plan" as the bottom line, plan NOT revealed.
+   Built as PIL frame-sequence → mp4 (`reference/ad1/prep_assets3.py`).
+12. **End card → live product flow.** Dan replaced the static end card with the
+   sample person's real flow: photo-in-generation-screen → generating → after
+   alone (covered email box). Show prospects what they'll actually experience.
+13. **Captions must clear graphics text**: per-event ASS MarginV override (field 8)
+   lifts cues over an insert's on-screen text windows.
+
+Ad #1 rev-3 (2026-08-21):
+14. **A module that builds assets at import time WILL silently regress fixes.**
+   prep_assets.py rebuilt ALL panels on every `exec_module` import from later
+   asset scripts, restoring cover-cropped photos Dan had already rejected —
+   the same defect shipped twice. Asset builders must guard their build loop
+   under `if __name__ == "__main__":`; per-revision fix scripts write the final
+   files LAST. Also: Ken Burns headroom — compose stills within the max-zoom-safe
+   window (image ≤1650x900 on the 1920x1080 panel at 1.09x zoom).
+15. **Never show the app's photo-crop screen in a demo** — start flows at the
+   generation screen with the photo already in place (Dan, twice: mid-video and
+   end flow). Demo-flow slices: appflow si=3.2.
+16. **The stats screen pattern locked**: tag directly BELOW the after image
+   (never covering it), stats, "Recommended Workout Plan" immediately after,
+   then app-style teaser body text that describes where they're at and what
+   it takes, without revealing the plan.
+
+Modern-edit 60s sample (2026-08-21) — built to close the gap against the Upwork trial
+edit; the reusable output is `_shared/motionlib.py` + `_shared/sfxlib.py`, and the
+whole sample is reproducible from `reference/modern60/`:
+19. **Graphics must MOVE.** Static PNG overlays are the single biggest reason our cuts
+   read as cheaper than a Premiere-template edit. Every element now animates:
+   `card_in` (scale 0.90→1.0 with a spring, ~0.42s), `bullets_build` (bullets appear on
+   the word that introduces them), `lower_third` (chip slides, red strip grows out of
+   it, statement wipes in), `title_card`, `callout_box` (stroke draws itself clockwise
+   then breathes), `pop_text` (letter-by-letter snap). Alpha is carried by **QTRLE MOV**
+   — libx264 has no alpha channel, and pre-multiplying against a guessed background is
+   how graphics get grey fringes.
+20. **Pause removal is a MEASUREMENT job, not a Whisper job.** Cut placement comes from
+   a 5 ms RMS envelope of the real audio. Whisper timestamps a word up to 0.4s before
+   any audio exists, and starts fricatives ("Fitness") before the /f/ — clamping cuts to
+   its word bounds either eats onsets or blocks two thirds of the valid cuts. Whisper's
+   only role is the re-transcription QC afterwards.
+21. **Every pause cut needs cover, and a punch change is the cheapest cover.** Assign
+   punch levels so their boundaries land ON the splices; the layout change masks the
+   jump and doubles as pacing. Protect the hook completely (no splice in the opening
+   line) — a micro-jump under a static overlay reads as a glitch, not an edit.
+22. **A video panel gets rounded corners from a PLATE, not a mask.** Composite order:
+   base → clip (square corners, filling the window) → `panel_plate` (opaque brand paper
+   with a rounded hole punched in it, shadow baked around the hole). One static PNG per
+   panel, no per-frame masking.
+23. **Synthesise the transition SFX.** `sfxlib.py` generates whooshes/pops/risers from
+   filtered noise and decaying sines — no account wall, no per-asset licence to track,
+   and the timbre is tunable. Two cascaded band-pass stages, not one: a single 6 dB/oct
+   skirt leaks enough broadband noise that a whoosh reads as hiss (centroid 7 kHz vs
+   3 kHz). Mix them ~10 dB under the speech RMS; normalised one-shots summed raw land AT
+   dialogue level and are jarring.
+24. **PIL's 'lt' anchor is the ascender top, not the ink top.** A rule placed at
+   `y + text_height` lands inside the glyphs — that shipped a strikethrough headline
+   once. Position from `textbbox()[3]`. And scale a glyph in its OWN small tile:
+   `scale_about` on a canvas-sized layer with an off-centre anchor translates the whole
+   frame instead of scaling in place.
+
+Modern-edit sample rev-2 (2026-08-22) — Dan: "the audio is still much worse than his":
+32. **When a fix keeps not working, stop tuning and go measure the SOURCE.** Two rounds
+   of EQ went onto a signal that was two microphones fighting each other. The tell was
+   available the whole time and took one command: cross-correlate the two channels with a
+   lag search. Strong peak at a non-zero lag = two mics, not stereo. Run it on every new
+   roll (Step 0.4). → `_shared/audio/pick_lav.py` does this per file now.
+33. **Check the stereo image of anything you deliver.** His voice measured +0.99 L/R
+   correlation with the side channel 23 dB under the mid; ours measured −0.01 with side
+   and mid EQUAL. That single number would have caught this on day one. A talking-head
+   voice belongs dead centre — `pan=stereo|c0=c0|c1=c0` after the voice chain. → row 1 of `audio_gate.py`.
+34. **An EQ match is only valid against the source you will actually ship.** Refitting
+   after the channel fix reversed almost every band: the comb-filtered mix wanted +4.5 dB
+   at 530 Hz and −3.2 at 4 kHz; the clean lav wants −4.6 at 320 and +4.6 dB of shelf
+   above 3.5 kHz. A lav correction is always roughly "cut the chest bump, add the air".
+35. **Fit across several windows of both videos, not one.** A single 4 s window put the
+   mean error at 1.25 dB; the same chain measured over five windows each was 3.02 dB. The
+   five-window fit is in `reference/modern60/fitvoice.py`.
+36. **Locate a matching span in a reference edit by TRANSCRIPT, not by envelope
+   correlation.** His cut removed different pauses so the offset drifts through the video,
+   and a 2 s envelope window false-matched "the knowledge isn't the problem" 17 s out of
+   place with a confident-looking 0.78 correlation. Whisper both tracks and search the
+   word list (`reference/modern60/ab_audio.py`).
+37. **Ship an A/B when the note is subjective.** "Sounds worse" is not measurable by
+   argument — three sentences, his then ours, back to back, lets Dan settle it in 20
+   seconds.
+
+Modern-edit sample rev-1 (2026-08-22) — Dan compared our screens against the trial
+edit's directly and picked HIS. These are the rules that difference came down to:
+25. **A full-screen graphic is a solid brand FIELD, not a white page with a card on it.** (Field for new graphics since 2026-09-26: `softblue.field`.)
+   Photographs sit straight on the field; the field IS the card. Type is bigger and
+   heavier than feels right, leading is TIGHT (~0.95 body, 0.88 display), blocks are
+   TOP-aligned not vertically centred, headings carry a solid accent rule at their own
+   width, list markers are small filled SQUARES, and title-card headlines sit in an
+   accent BAND in oblique caps. `motionlib.GREEN` is that system in J2 dark green with
+   an olive accent; the brand red stays reserved for attention devices (callout stroke,
+   lower-third strip) that sit over FOOTAGE rather than on a field.
+26. **Measure the reference's design, don't eyeball it.** Cap heights, line advances,
+   rule thickness and padding all came off his frames with a pixel scan, then got solved
+   back into Manrope point sizes. Eyeballing had the title headline at 118 px when his
+   was 145, and the panel bullets at 0.95 leading only because it was measured at 63 px
+   advance. Half an hour of measuring beats three revision rounds.
+27. **Grade-matching is a per-channel PERCENTILE fit, not a luma lift.** Rev-0 matched
+   his average brightness and still looked worse, because it crushed blacks to
+   `[0,5,0]` against his `[10,10,12]` and ran the blue midtone 22 levels under his.
+   Sample p10/p50/p90 per channel on a face-sized crop of both, fit `curves=r:g:b`
+   through those three points, and add NOTHING else — `eq=contrast` re-crushes the very
+   black lift the curve just added, and `eq=saturation` is what made the mids too warm.
+28. **"It sounds like there's echo" is a SPECTRUM problem before it is a reverb
+   problem.** Ours measured 3 dB hot at 3.2–8 kHz (where room reverb lives) and 5.5 dB
+   thin at 400–700 Hz (which makes a voice read as distant). Fix the tilt first, then
+   add a gentle downward expander for the tails, then light compression if the reference
+   is "flatter" (LRA 3.8 → 1.9 LU here). Note the presence lift we had been adding at
+   3.6 kHz was making the room WORSE. → the gate's tone, dryness and EDT rows; `voice_chain.py` dereverbed when EDT > 55 ms until 2026-09-29; it is opt-in now (`_shared/audio/README.md`).
+29. **Re-transcription is the audio QC, and it earns its keep.** An expander at
+   threshold 0.030 / ratio 2.4 ate the /f/ in "for free" and the "n't" in "isn't" —
+   inaudible in a spot check, obvious as 97.9 % → 96.0 % fidelity. After fixing that,
+   the same test caught the music bed masking "isn't" until the sidechain release went
+   to 420 ms. Never ship an audio-chain change without re-transcribing the finished mix.
+30. **PIL: measure with the anchor you draw with.** `textbbox()` defaults to `la`
+   (ascender); every draw call here uses `lt` (top of ink). At a 145 px headline that is
+   a 48 px error, and it put a title headline straight through the top edge of its own
+   accent band. Related: `oblique()` must shear about the TEXT's centre — shearing a
+   canvas-sized layer about the canvas centre translates the line sideways by
+   `k * (centre - y)` and pushed the headline off the right edge of the band.
+31. **"Where I'm at today" wants the SHOOT PHOTOGRAPHY, not workout b-roll** (Dan,
+   2026-08-22). The finalised social photos are the proof; a plank clip is just motion.
+
+Ad #1 rev-4 (2026-08-21):
+17. **AI-GENERATED tag placement differs by insert type.** On a FULL-FRAME AI
+   clip (no panel background, the clip fills 1920x1080) a centered tag sits mid-
+   frame and blocks the subject — Dan called this out at ~2:00. Fix: upper-left
+   corner (overlay 40:40) at 1.5x size for full-frame AI inserts. PANEL-style
+   inserts (phone mock, crude-photoshop clip — a clip scaled to <1920 width on a
+   background panel) keep the original centered small tag; nothing is blocked
+   there since the clip doesn't fill the frame. Decide by insert type (`wid==0`
+   in layout2.py's VID list = full-frame), not by clip content.
+18. **A stock clip that isn't a literal match to the script line gets replaced,
+   not kept as "good enough."** The tire-flip clip at 0:46 illustrated a fit
+   goal, not the "finding motivation is hard" pain point on screen at that
+   moment — Dan wanted the demographic-matched struggle clip (lesson 3) instead,
+   even though a fit-guy tire flip is visually strong on its own.
+
+Ad #1 rev-5 (2026-08-23) — Dan: *"still not as good as the one Muhammad made"*, with the
+editor's new 2:33 cut and **the revision doc Dan had sent that editor** as the brief. The
+whole build is reproducible from `reference/rev5/` (beats → gfx → layout → audio → captions
+→ qc). What it added to the system:
+
+38. **Anchor every beat to a PHRASE, never to a second, and search AFTER a time.** The tight
+   cut's timeline moves the moment a pause parameter changes, so hardcoded anchors drift off
+   the words they were placed on. Two traps in the lookup itself: Whisper tokens carry a
+   **leading space** (`" this" != "this"`, so `.strip()` in the normaliser), and an ad script
+   repeats whole phrases — "tap the button below", "phone lock screen", "stressful life" —
+   so a naive search matches the FIRST occurrence and yields beats with negative duration.
+   `reference/rev5/beats5.py` asserts every beat has positive duration for exactly this reason.
+39. **Grade-match on SKIN PIXELS, not on a fixed crop.** Rule 27's percentile fit assumes the
+   two videos frame the subject alike. The reference edit is already punched in, so its centre
+   crop is nearly all face while ours still contains the dark doorway — fitting that way lifted
+   our shadows into haze chasing his skin values. Select skin pixels in both (r>g>b, bounded
+   r−b) for the mid/high control points and take the black point from each video's own global
+   p1: skin error 23.2 → **5.1 levels**, and the black point landed on his exactly (4/4/2).
+40. **PIL ignores EXIF rotation and iPhone photos rely on it.** A sideways portrait reached a
+   finished graphic before `ImageOps.exif_transpose` went into `motionlib.fit_cover/fit_contain`.
+   Any photo that came off a phone must be opened through that path.
+41. **Count the beat's seconds before choosing how many stills go in it.** Four photos in a
+   1.8 s beat is 0.44 s each — a flicker, not a montage. Two landed there and the other two
+   moved to the line that was literally about how he looks now, which also filled a bare stretch.
+42. **A retimed insert needs its own source length.** `-t` defaulted to the beat length while
+   `setpts=PTS/3` demanded three times that, so a third of the intended footage played and
+   nobody would have seen it in a QC that only checks the beat is covered.
+43. **Panels need an edge on a near-black field.** `panel_plate` bakes a drop shadow, which is
+   invisible on (13,14,11) — a white app screenshot read as a floating rectangle with hard
+   corners until an olive hairline was drawn round the hole.
+44. **Whisper shells out to a bare `ffmpeg`.** Put the static build on `PATH` inside the script;
+   inheriting it from the calling shell fails the moment the script is backgrounded.
+45. **Read the whole of any clip Dan links before trusting his in/out points.** The app
+   recording for the 1:09 revision ends on the "Meet the new you" BEFORE/AFTER screen (from
+   25.25 s) and an email-capture screen after it — both banned. His stated 0:03–0:26 would have
+   shipped the violation; the usable window is 3.0–24.9 s.
+46. **Suppress captions over full-screen cards and app screens rather than dodging them.** A
+   card already carries a headline, and the product demo's UI text is the part of an ad that
+   matters most. 56 of 164 cues dropped; the remaining ones shift right over the bullet panels
+   and lift above the lower thirds.
+47. **The QC blind spot repeats: check what "covered" means before believing a FAIL.** Two
+   splices reported bare were under a Ken Burns card and an app-flow card that the covered-list
+   simply omitted. Third time this class of error has been the metric, not the media.
+48. **Music picked by measurement.** Score candidates on spectral distance to the bed under the
+   reference edit (sampled in its quietest window) plus energy flatness over the needed length —
+   `reference/rev5/pick_bed.py`. Pixabay's licence needs no attribution, which a CC-BY track
+   would have forced into a paid ad.
+49. **Veo rejects generated faces as "celebrity likeness".** Reprompt the still for an
+   explicitly ordinary, non-model face ("deliberately NOT a model, NOT anyone famous", amateur-
+   photograph realism). Filtered attempts are not charged.
+
+Measured against the reference edit: **3:55.3 from 4:31** (112 pause cuts, 30.1 s removed,
+**198 wpm** against his 203), −14.10 LUFS, −1.30 dBTP, L/R correlation **+0.9986** with the
+side channel 31.5 dB under the mid (his: +0.99 / 23.0 dB), script fidelity **98.6 %**.
+
+Ad 3 (2026-08-27) — "Stop wasting money on personal trainers", the first ad cut to the rev-5
+standard from a roll the reference editor never touched. Reproducible from
+`/Volumes/Extreme/_edit_work/ads234-8-14/c1593/`. **QC 12/12, then the watch pass found three
+real defects the metric gate had passed** — which is the whole argument for the watch pass:
+
+50. **A looped image input defaults to 25 fps. Pass `-framerate 30000/1001` on EVERY
+   `-loop 1` input.** Against a 29.97 fps timeline the two frame grids drift, and at the
+   output frames where they diverge the overlay drops the still for ONE frame: the plate
+   vanishes and whatever it was covering is exposed. That is how the app's **email-capture
+   form reached the delivered picture** with the disclosure correctly built, correctly
+   sized and correctly enabled. Proven by A/B on the exact failing parameters — 25 fps
+   exposes one frame, `30000/1001` exposes none; plate padding and overlay lead changed
+   nothing. This affects every plate, tag and Ken Burns still in `layout*.py`.
+51. **A compliance gate that SAMPLES cannot see a single-frame violation.** The
+   banned-screen scan ran at 2 fps and reported a clean 0.647; the same scan at full frame
+   rate reported **1.000 at 179.41 s**. Any check for a banned pattern runs on every frame.
+52. **`card_in` animates its entrance and then HOLDS.** The photo and CTA cards sat
+   dead-frozen 2.4–8.7 s, which is Dan's rev-1 note 1 verbatim. Every card now carries a
+   continuing Ken Burns drift (`scale_about` on the finished layer, alternating in/out on
+   consecutive stills); frozen runs went 16 → 7 and all survivors are the real app
+   recording's own holds. Verify on the alpha MOV itself and check the **longest identical
+   run**, not just runs ≥8 frames — a 3.8 % drift over 9.7 s changes the integer layer size
+   only every ~4 frames, which passes an 8-frame freeze test and is still imperceptible.
+53. **Caption from the TIGHT word list, not from a fresh pass on the finished mix**, whenever
+   the audio stage does no retiming (a `-c:v copy` mux). Measured here: the two agree to
+   **+22 ms median with no systematic offset**, but `small.en` over the mix DROPS PUNCTUATION
+   and mishears ("personal trainer" for "trainers", "gonna" for "going to"). Punctuation is
+   what tells the chunker where a sentence ends, so captioning off the mix split cues
+   straight across sentence boundaries ("...personal trainer AI has"). Keep the mix
+   transcription for QC — that is what it is actually good for.
+54. **Clip a caption at a card boundary; never drop it.** Dropping every cue that merely
+   touches a suppression window deleted real words and made the next caption open
+   mid-sentence ("of dollars on personal...").
+55. **`bullets_build` draws its heading on ONE line with no wrap**, and its accent rule is
+   drawn at the heading's own width — an over-long heading runs across the video column onto
+   Dan's face. Measure every heading against `panel_w - 2*PAD` (794 px at panel_w=980,
+   head_size=76) before building. Three of five failed on first write.
+56. **Whisper silently drops an abandoned re-attempt** and stitches the surviving halves into
+   one clean-looking sentence — the transcript reads fine while the audio stutters. Scan for
+   speech energy that no word interval covers (`_shared/cut/junk.py`, ORPHAN rows). One hit in this roll: a
+   whole abandoned sentence that would have shipped.
+57. **A roll's noise floor identifies the bad take.** Dan's own "did that plane pick up?" is
+   measurable — the flagged take's floor is −41.6 dBFS with the 20–200 Hz floor at −13.3 dB,
+   against −45.3 / −20.2 on the retake and ≈−48 dB everywhere else on the roll.
+58. **A grade fitted for one roll of a shoot transfers to its siblings — but fit the GAIN
+   first.** Raw C1593 measures within 3.8 levels of raw C1591 on skin percentiles, yet the
+   same chain landed 15.3 levels off, because the curve is steepest exactly where they
+   differ. A **1.13 linear pre-gain** (`colorlevels`) into Ad 1's approved chain lands **2.4
+   levels** from the shipped look. Refitting a fresh 6-point spline instead reached only
+   16.7 levels — a large correction overshoots through sparse control points. Prefer
+   gain-then-approved-curve over a fresh fit.
+59. **Parallelise the graphics build.** 22 alpha MOVs at ~3 min each serially; four workers
+   over an explicit partition finished all of them in 90 s. `_skip()` makes the partition safe.
+60. **Preview composited on a real frame at NATIVE resolution.** A 420 px preview made the
+   app-screenshot panel look illegible and nearly bought a needless re-render; at 1080p the
+   body copy reads cleanly. Fourth time the metric has been wrong rather than the media.
+61. **Native-vertical assets go in a PLATE, never cropped to 16:9.** A 16:9 crop of a
+   1080×1920 clip keeps 32 % of the height and cuts heads off. Size the plate hole to the
+   clip's own aspect (574×1020 for 9:16, 1264×1000 for the 4:3-ish archive clip) and let the
+   olive hairline give it an edge on the near-black field.
+
+Ad 2 (2026-08-27) — "Stop paying human nutritionists", cut from C1592 straight after Ad 3:
+
+62. **WHISPER SILENTLY DROPS WHOLE TAKES AND THE TRANSCRIPT LOOKS CLEAN.** On C1592 the
+   default pass (`condition_on_previous_text=True`) fed the previous window back as a
+   prompt and the decoder skipped a **complete second hook take** (32.2–46.9 s) as
+   "already said", emitting one word in its place. Setting it False fixed that and then
+   dropped the **third take of the close** instead. Neither pass alone is complete.
+   **Transcribe every ad roll with `reference/whisper_chunked.py`** — overlapping 70 s
+   windows stepped 60 s, each decoded with fresh short context, words kept only inside
+   their own span, plus a seam de-dup (the same word can be timed 119.9 in one window and
+   120.1 in the next). Result on C1592: 0 orphan speech runs, against 17 and 15.
+63. **The orphan scan (`ORPHAN` rows of `_shared/cut/junk.py`, 2026-09-24; was `reference/orphan_scan.py`) is the completeness proof, and it is not optional.** It
+   flags any run of speech-level energy that no word interval covers. It is what exposed
+   the missing hook take, and on C1593 it found the one real defect in that roll — an
+   abandoned re-attempt Whisper had stitched over, which would have shipped as a stutter.
+   Run it after transcribing and before building the EDL. Zero orphans = complete.
+64. **Force punch boundaries on the splices that are MEASURABLY visible, before rendering.**
+   `_shared/cut/junk.py --ranges tight_cuts.json --tight tight.mov` (`HARD_SPLICE` rows; was `reference/hard_splices.py`) measures the frame difference across every pause-removal
+   splice on the tight cut and reports the ones above the file's own p99 control. Intersect
+   that with "not under a graphic and not already a punch boundary" and force those. On
+   Ad 2: 135 splices, 76 measurably hard, 37 uncovered, and only **22** were both — 15
+   after a 1.6 s floor. Covering all 37 would shred the pacing; covering none shipped four
+   naked jump cuts that QC caught only after a full render. This is the cheap version of a
+   failure that otherwise costs 35 minutes.
+65. **The retime field is a source OUT-POINT, not a duration.** Passing the wanted length
+   where the code expects "usable until" gives `avail = 10 − 30 = −20` and ffmpeg dies on
+   `setpts=PTS/-2.36`. And clamp the rate to ~[0.85, 1.60]: a 5 s AI clip stretched over a
+   10.6 s beat is 2.1× slow motion and reads as a glitch. Play it near real time and hand
+   the rest of the beat back to Dan — which is the better edit anyway.
+66. **Two QC checks were wrong for a second ad, not the media** (this keeps happening —
+   count it). The AI-label check asserted "≥3 tagged inserts", which is an Ad-3 fact, not a
+   rule; the requirement is that every clip from the AI library carries a tag, so assert
+   that instead. And the caption/card collision check failed on a 4 ms overlap that is
+   pure ASS centisecond quantisation — a tenth of a frame. Give it 0.02 s of slack.
+67. **Launch a background render in ONE Bash call and wait in a SEPARATE one.** Combining
+   them means the harness's timeout kills the whole process group, and a caption burn died
+   mid-write leaving a 208 MB file with no moov atom.
+
+Ad 4 (2026-08-27) — "Stop wasting money on supplements", C1594, third of the batch:
+
+68. **The forced-punch set must be computed WITHOUT reference to the punch plan**, because
+   the plan is built from it. Testing "is this splice already near a boundary" against the
+   previous iteration's plan makes the result oscillate: a splice that was covered becomes
+   bare once the plan shifts, and QC finds it after a 35-minute render. Compute
+   hard ∩ uncovered, apply a spacing floor, done — one pass, converges.
+69. **The spacing floor is a real trade-off, so measure the result.** 1.6 s left two visible
+   splices bare on this ad; 0.8 s caught everything at the cost of one 0.36 s framing
+   segment. Check the resulting median hold (2.97–4.04 s across these three ads) against the
+   reference's 4–7 s and look at the short segment in the watch strips before accepting it.
+70. **A splice within ~4 frames of an insert boundary is masked BY that boundary.** QC's
+   0.05 s tolerance reported a splice 53 ms after an insert ended as "bare", when the
+   insert's own exit is the biggest visual event on that frame. 0.15 s is the honest number.
+71. **`plate=None` means FULL FRAME.** Native-16:9 stock is a downscale and should fill the
+   frame; only native-vertical assets need a plate. Keep both paths in `layout*.py`.
+72. **Do not fake a cue the doc says is missing.** Ad 4's own cue notes the Supplement Audit
+   RESULT screen needs a real photo of Dan's shelf run through the feature and that "nothing
+   here is faked". The ad ships without that beat and `notes.md` says so, which is the
+   correct outcome — an invented result screen would be a fabricated product claim.
+
+
+Website conversion video (2026-09-01/02) — the post-generation video on absbyai.com, cut from
+the 8/28 shoot (C1650+C1651) to a TRUST brief: no fast cuts, nothing flashy, the last thing a
+visitor watches before they buy. Reproducible from `website-video/reference/recipe/`. What it added:
+
+73. **A trust cut is the same pipeline with the dials turned down, not a different pipeline.**
+   Three punch levels, 9 s minimum hold, pauses shortened to ~0.30 s instead of 0.16 s, cards
+   that fade over 0.5 s and drift slowly, no SFX bed at all, music at −23 dB. Every insert is
+   REAL: the actual macro-tracker recording, the real trainer/meal-plan/brief screens, Dan's
+   real photos, one AI image (his own goal image) tagged. Dan stays on screen beside every
+   phone panel (panel LEFT, Dan in the right column) — the product and the person together is
+   the trust device. Coverage 54 %, Dan fully replaced only 16 %.
+74. **The 8/28 shoot is S-Log3 / S-Gamut3.Cine 4K with FOUR mono audio tracks.** No prior
+   grade transfers. `make_lut.py` builds a 33³ .cube in numpy (Sony's S-Log3 transfer →
+   linear, the S-Gamut3.Cine→Rec709 matrix in linear, a soft shoulder, the 709 OETF) and
+   `lut3d=...:interp=tetrahedral` applies it; exposure 1.45× and `eq=saturation=0.88` were
+   picked against the approved Ad 3 skin. **The lav is a:1** (SNR 40 dB); a:0 is the far mic,
+   7.2 ms late, polarity inverted; a:2/a:3 silent. `-map 0:a:1`, never `-ac 1`. → measured per file by `pick_lav.py`; `base.py` reads its JSON.
+75. **Render the base at 2560×1440 when the source is 4K.** The 1.30 punch of 1440p is
+   1969 px wide, so no framing level ever upscales; the cost is ~1.8× the base encode.
+76. **`loudnorm` fell back to DYNAMIC on this mix and the JSON said so.** −19.3 LUFS in with
+   TP −1.8 cannot reach −14 / −1.5 linearly. `audio2.py` is the replacement: measured gain +
+   `alimiter`, the limiter's delay MEASURED by cross-correlation (239 samples here, not the
+   remembered 219) and trimmed, then ebur128 on the result. Set the limiter low enough for
+   the AAC overshoot (0.71 → −2.2 dBTP on the delivered file). → the finish stage of `_shared/audio/voice_chain.py`.
+77. **Previewing a QTRLE alpha .mov with `-ss` + `overlay` onto a single PNG shows NOTHING and
+   looks like a broken graphic.** The still base has one frame at t=0 and the seeked overlay
+   never lines up. Extract the graphic frame to RGBA PNG and composite in PIL instead —
+   `pv/preview_sheet2.jpg` is the pattern. Cost 20 minutes and nearly a needless rebuild.
+78. **Assert panel-heading width before building** (`ml.text_size(heading.upper(), font(68,
+   'ExtraBold'))[0] <= panel_w − 2·PAD`). "A plan you can actually follow" measured 1215 px
+   against a 794 px limit and ran straight across Dan's chest in the preview; even "A plan you
+   can follow" (851) failed. Lesson 55 as a one-line assert, so it cannot recur.
+79. **A card the video ENDS on must not fade out.** `card_in`'s default out-fade exposed the
+   talking head for the last 0.36 s — visible only on the watch pass's final frames. `hold=True`
+   in `_card` sets `out_dur=0`; the website's button sits under the player, so ending on the
+   CTA card is the design.
+80. **Thin hard splices HARDEST-FIRST inside the spacing floor.** With a 3.5 s floor, first-come
+   ordering covered a 1.2-diff splice at 50.35 s and left the 2.62 one at 51.08 s bare. Sort
+   the candidates by measured difference, accept greedily against the floor.
+81. **Two-roll EDLs: `edl.py` anchors spans by phrase per roll and validates every edge against
+   a −40 dB envelope**; `base.py` takes N sources. The price line was re-read on the second
+   roll after Dan caught the script's `$[X.XX]` on camera (`"$20 … I forgot to put that in the
+   script"` → `$19.99` on C1651) — take the correction, cut the slip.
+
+
+Website conversion video rev 1 — REJECTED 2026-09-02 (audio, framing, graphics, in that order).
+Handoff for rev 2: `Handoffs/handoff-20260902-website-video-rev2.md`. Standing rules that came out
+of it, all three of which now fail a build rather than living in prose:
+
+82. **NEVER SHIP THE FULL WIDE FRAME FROM THE KITCHEN SET, AND NEVER A LEVEL THAT SHOWS THE LIGHT.**
+   Dan: "I don't want to use this wide shot ever… this was shot in 4K intentionally from far away so
+   we have room to punch in." The widest allowed level is top-of-head → shorts with the counter
+   barely visible (1.256× on the 8/28 set: 3058×1720 @ (451,40)); the tight level is head → navel
+   (1.66×). The studio light sits at x>3560 in the 4K frame — any crop reaching it is a defect.
+   Render the base at full 4K so the tight level never upscales. `layout.py` asserts the crop
+   never exceeds the widest level and never crosses the light.
+83. **GRAPHICS SPARINGLY, AND NEVER ON A BLACK FIELD WITH ONE SMALL ELEMENT.** Dan on the J2AD
+   phone panels and bullet panels: "a graphic on the left and a huge amount of black space… just a
+   bunch of text, generic… horrible." Rule: no graphic with more than ~40 % empty field; an app
+   screen goes NEXT TO DAN over the footage (a phone-shaped inset in a slightly wider crop), not on a
+   plate; when a full-frame card is used it fills the frame the way Muhammad's title cards do. His
+   panel field is the mid-olive gradient (`orglib.py` / `motionlib.MIL`), not near-black. (New graphics since 2026-09-26: `softblue.field`.)
+84. **IF A FEATURE LOOKS LAME ON SCREEN, DON'T SHOW IT.** The trainer workout screen with stick-figure
+   exercise icons was called "awful". The choice is not "which screen" but "screen or Dan"; Dan wins
+   unless the screen is genuinely good. Before/after and body-fat stats live on the viewer's own
+   screen for the website video — the script says "look near your image".
+85. **"How I look today" = Muhammad's four photos**, `00 ASSETS USED IN THE REFERENCE AD/04–07`, in
+   sequence, never side by side with the before picture. The before picture goes ON "I've been out
+   of shape" and nowhere near a line about being lean.
+86. **The audio complaint will be described as "the two-channel issue" whether or not it is one.**
+   Measure first (Step 0.5). Comb filter = L/R correlation near 0 with a 7–8 ms lag peak; floor =
+   voice-over-floor per band; tone = the 10-band fit. Three different fixes, one word from Dan.
+
+
+Website conversion video rev 2 — delivered 2026-09-02, the same day rev 1 was rejected. Audio gate
+PASSED on the delivered file (tone 0.80 dB mean / 2.10 max vs his ad; floor +2.6 / +0.3 / +0.6 dB vs
+his), QC 14/14, watch pass clean, $0.00 spend. Reproducible from `website-video/reference/recipe/` (rev-2
+scripts; rev 1's are in its `rev1/`). What it added:
+
+87. **Fit the EQ against the GATE'S OWN metric, iterate, and stop at the smooth iteration.**
+   `voicefit.py` copies `voice_ref_check.py`'s analysis and iterates 10 parametric bands (they
+   interact — one pass leaves 2.9 dB at the top band). Iteration 2 passed (0.76 mean / 1.06 max);
+   iteration 6 reached 0.30 only by alternating +4 / −3.4 / +1.5 / −7.4 / +1.7 / −5.2 on neighbouring
+   bands — an over-fit comb, not a voice EQ. A hand "+1.2 at 950 Hz" on top made the max error worse
+   (1.06 → 1.69). Ship the first smooth passing curve.
+88. **The bed is a floor problem, and every 4 dB of bed is ~2.5 dB of floor.** The bed file is
+   −9.5 LUFS against a −22 LUFS voice, so rev 1's "−23 dB" sat 10 dB under the voice and 9.5 dB over
+   his floor. Measured: −30 fails by 8 dB, −34 by 5.6, −40 passes 1.9 dB dirtier than his, **−44 lands
+   on his floor**. State the bed as dB below the VOICE's integrated level (34 dB here), never as a
+   volume on the file, and let the gate pick it.
+89. **The loudness finish costs floor too.** +9 dB of gain into the limiter took 0.5–2.6 dB off
+   voice-over-floor (premix +8.8 / +5.4 / +3.8 → finished +8.3 / +3.8 / +1.2, no bed). EQ alone does
+   not move the ratio (it scales voice and floor together in-band); makeup, limiting and the bed do.
+   Run the gate on the FINISHED file — the premix passes things the master does not.
+90. **Measure the reference's cards; do not inherit a description of them.** The handoff said his
+   photo cards put Dan in the other half of the frame. A pixel scan of his native frames showed
+   FULL-FRAME plates — 1476×924 on 1920×1080, photo inset 28 px, plate (66,76,37)→(80,89,49) on a
+   (10,11,5) grid field, title plate 1497×764 with ~142 px oblique caps at 0.88 leading — and his
+   phone splits at ~475×922 with Dan filling the right half. That is why his cards never read as
+   "one small element on black": the plate IS the frame. `gfx2.py` is that system.
+91. **Framing levels are code.** `layout.py` asserts every crop is no wider than the widest allowed
+   level and ends before the light (first bright pixel measured at x=3672 on two frames; guard 3530),
+   and `qc.py` re-asserts it on the plan. Two traps on the way: crop widths must be even (2311
+   failed), and the alternation counter must advance exactly once per segment — the rev-1 pattern
+   double-stepped into MID/WIDE/MID/WIDE with no TIGHT for the first minute.
+92. **Before → Dan → after needs an explicit gap.** Dan's note put the before photo on "out of
+   shape" and the after photos on the very next clause; the beat sheet's 0.35 s merge rule would have
+   crossfaded the two cards into a superimposed before/after for 0.4 s. End the before card 0.5 s
+   before the after card, so Dan is on camera between them.
+93. **A phone beside Dan in the footage is one alpha MOV**: the recording through a rounded-rect
+   mask (`alphamerge`), onto a transparent `color` source with `overlay=format=rgb`, then a
+   hairline+shadow plate PNG, `fade=…:alpha=1` at both ends, QTRLE argb. `layout.py pip` builds it
+   and `mix()` overlays it like any card. Size it like his (433×820 at 1080p), Dan pushed to 65 %.
+94. **A contact sheet made with `fps=1/N` and `%{pts}` labels lags the content by ~N/2 s.** Tile
+   "0:40" showed a card's fade-out that happens at 42.5–42.9 s, "3:35" showed a card that starts at
+   216.45 — three false alarms in one review. Grab suspect frames with exact `-ss` before calling
+   anything a defect; `deliver.sh` now builds the sheet from exact grabs.
+95. **Reusing a rev-1 graphic requires its beat to be unchanged — ffprobe it.** Five of the six
+   lower thirds matched; `num2.mov` was 0.15 s short of its rev-2 beat (rev 1's beat sheet had
+   trimmed it against a neighbour that no longer exists), which would have repeated a transparent
+   last frame for four frames. Assert `|mov − beat| < 0.1 s` for every reused MOV before the mix.
+96. **Concurrency held at two builds all session** by putting the long chain in the background with
+   a process waiter (`wait_stage2.sh`: `kill -0 PID` loop, hard timeout, grep for the wrapper's
+   RENDER COMPLETE line, then launch the next stage) — the audio fit, card previews and script work
+   ran in the foreground while the 4K base (29 min) and the 4K tight (~25 min) encoded.
+
+
+Website conversion video rev 2 — REVIEWED 2026-09-02: **audio approved** ("you got it nailed. This is
+the audio that we want"), rejected on headroom (every shot), one repeated line, and captions colliding
+with every lower third. Handoff for rev 3: `Handoffs/handoff-20260902-website-video-rev3.md`. Standing
+rules from it, each of which must be a measurement or an assertion, not prose:
+
+97. **ANCHOR EVERY CROP TO THE MEASURED HEAD, NEVER TO THE FRAME.** Rev 2's levels were top-anchored
+   at y=40 from a grid frame that read the head top at y≈100; `website-video/reference/recipe/headtrack.py`
+   measured the real head top every 0.5 s across the cut at **296–340 px** (median 336) — that frame
+   was not in the video. Result: 168–232 px of headroom at 1080p, worst on the tight level, which is
+   Dan's "very, very bad crop." Rule: per punch segment, `y0 = segment_min_head_top − 0.03 × crop_h`;
+   the head top lands ~30 px from the top edge in every level; the bottom edge goes as low as the
+   zoom allows (shorts and counter visible on the wide level). **QC asserts the headroom on the
+   DELIVERED frames** (head top within 15–60 px of the top, never cut). One reference frame is not
+   the video; measure the whole cut. Detector caveat: when he looks down the skin test misses and the
+   value jumps — use the per-segment minimum, misses only go down.
+98. **A STRETCHED WORD IS A HIDDEN RESTART UNTIL PROVEN OTHERWISE.** Whisper stitched "Now, I've been
+   out of shape, — I've been out of shape, and now at 40" into one 1.75 s `and`, and `orphan_scan.py`
+   passed because the stretched interval covered the energy. Dan heard the repeat at 0:32. Run
+   the junk pass, `python3 .claude/skills/_shared/cut/junk.py <roll> --ranges tight_cuts.json`
+   (`STRETCH` = words > 0.7 s, `REPEAT` = repeated 4-grams within 25 s classified RESTART / REINTRO /
+   ANAPHORA, `ORPHAN`, `PAUSE`, `SWALLOWED`; since 2026-09-24 it replaces `repeat_scan.py` +
+   `orphan_scan.py`) after every transcription and before the EDL. It re-transcribes every flagged
+   span IN ISOLATION itself (4 s window, medium.en, `condition_on_previous_text=False`) and marks
+   it confirmed or not. Cut the first attempt, keep the fluent restart -- the WHOLE restated
+   sentence, not the flub inside it. Take selection by the four written rules: `_shared/cut/takes.py`.
+99. **CAPTIONS NEVER OVERLAP A GRAPHIC — measured in pixels, asserted in QC.** All six lower thirds
+   sat at y 757–905 and the "lifted" captions (MarginV 300) inked at 727–806: 49 px of overlap on
+   every lower-third beat, and QC only checked captions against full cards. Dan: "move the graphics
+   down so they don't overlap with the captions. Let's make this a standing rule." Lower thirds sit
+   at the bottom (box ≈852–1000), captions lift above them (`MV_LIFT` from the measured ink bottom:
+   ink bottom ≈ 1080 − MarginV + 26 → 290 for ≥30 px clearance), and QC renders the ASS over black at
+   each lifted cue and asserts a ≥20 px gap to the lower third's alpha bbox, plus no ink inside the
+   phone box. Geometry you assumed is not geometry you measured.
+100. **When a revision passes every gate and still gets rejected, the gate was measuring the wrong
+   thing.** Rev 2 passed 14/14 and a clean watch pass; none of them measured headroom, caption
+   clearance to lower thirds, or restarts hidden inside a token. Each review adds the check that
+   would have caught it — that is how this skill scales out of Dan's eye.
+
+
+Website conversion video rev 3 (2026-09-02, same day) — the three rejected items rebuilt from the
+handoff's measurements; audio chain untouched. Reproducible from `website-video/reference/recipe/`
+(`rev3.sh` is the whole chain). Both new checks were run on rev 2's delivered file FIRST and failed it
+(caption gap −47 px on 21 cue/graphic pairs; headroom 159–261 px, median 201) — that is the proof a
+new gate is measuring the right thing before it is trusted on the new render.
+
+101. **Fix a stitched restart in the TRANSCRIPT first, then cut — and DROP every word inside a removed
+   span.** `to_tight()` collapses a word that sits inside a removed span onto the splice, so the first
+   attempt's five words would have captioned the cut line twice; the dry run showed it before any
+   render. `tx_patch.py` splices the isolated medium.en pass's words into the roll JSON (the first
+   word keeps the envelope onset; the restart's first word takes the measured −40 dB rise, 0.15 s
+   after Whisper's start), `tight.py` `MANUAL_CUTS` takes a BASE-time span with both edges asserted
+   against the envelope, absorbs the pause cuts inside it, and drops the words. Set the patch window's
+   edges BETWEEN the last token to replace and the first to keep — a window ending at 51.95 removed the
+   "I" at 51.90 and the isolated pass's "I" at 52.14 fell outside it. A dry run (`RENDER=0`) that
+   prints the words around the cut costs seconds; a render that captions a ghost word costs an hour.
+102. **Track the head on the BASE, not on the tight cut, and key the track to the keeps.**
+   `headtrack.py` samples `base.mov` at 4/s and maps each sample through `tight_cuts.json`; a re-cut
+   needs no re-extract, and `layout.py` asserts the track's keeps signature at import so a stale
+   track fails the build instead of framing the video. 982 samples, 0 without a detection, head top
+   min 296 / median 340 (4K px). Validate the detector on the TALLEST frames, not just a random
+   sheet — `pv/headtrack_tallest.jpg` is what proves the per-segment minimum is a head and not wood.
+103. **A fixed crop can hold the headroom at his TALLEST instant, not on every frame — assert what the
+   crop controls.** Anchored to each segment's minimum head top, the head sits ~33 px below the edge
+   at his tallest and the rest of the spread is his own posture inside the hold (up to ~50 px of 4K in
+   10–15 s). A crop that followed the slouch would cut his head when he stands up. So the gate is:
+   ≥15 px on every valid frame (never cut), per-segment minimum ≤45 px (the crop IS anchored), median
+   ≤60 px, ceiling 90 px — not "60 px on every frame". Look-down misses only ever read LOW, so a
+   sample is valid when it is within 40 px of the ±1.5 s minimum; print the rejected count.
+104. **Measure caption clearance by rendering the cue ALONE, retimed to t=0, over GREEN.** Rendering
+   the whole ASS over lavfi black at the cue's real time decodes minutes of frames per cue, and over
+   black the outline and shadow are invisible to a bbox — the ink measures ~6 px smaller than what the
+   viewer sees. Green frame, bbox of everything not green, against the graphic's own alpha bbox at
+   three points across the cue (the lower third is still growing in at its first frames); assert
+   ≥20 px wherever they overlap horizontally. The fix itself: `motionlib.lower_third_bar(bottom=1000)`
+   (plate 878–1000, alpha incl. its shadow 858–1044) and `MV_LIFT=290` (ink bottom 795, two-line cues
+   grow up to 668): 63 px clear.
+105. **A cut shrinks the card that sits on the cut line — re-plan the beat, don't just rebuild the
+   MOV.** BEFORE went 2.6 → 1.8 s. Fades 0.30/0.30, card out by "and" (Dan: never let the before
+   picture run into "and now at 40"), Dan on camera for "and now at 40," (1.1 s), and TODAY moved
+   from "now at 40" to "I have the most defined abs" — the claim the four photos prove. `beats.py`
+   asserts ≥0.5 s of Dan between the before and after cards, so the merge rule can never crossfade
+   them. This was a judgment call and is flagged as such in the delivery.
+106. **The head track must be measured at the DELIVERED scale too, and the crop takes the minimum over
+   both.** The first rev-3 render passed 17 of 18 checks and failed its own headroom floor: 7–11 px in
+   three TIGHT holds, hair on the edge, although the base-sampled track had placed the head 33 px down.
+   Two causes, both structural: the delivered check samples at a different phase, and its narrower
+   band (the same physical width the QC uses) reads the crown a few rows higher than the 90-px band on
+   the 4K did. `headtrack_refine.py` runs the QC detector on `punched.mov`, maps every head top back
+   into 4K through that segment's crop, and stores them under `refine`; `layout.py` merges both tracks
+   before the per-segment minimum. Segment anchors moved 3–34 px (4K); the two near-cut holds by 34
+   and 29. The plan → render → measure → refine → render loop can only move a crop UP, so it converges
+   in one pass. Rule: the sampler that gates the delivery is the sampler that anchors the crop.
+
+
+Website conversion video rev 3 — REJECTED 2026-09-08: **the top of Dan's hair is cut off in every hold**, the wide
+level is banned, and he wants AI clips to break up the talking head. Handoff for rev 4:
+`Handoffs/handoff-20260908-website-video-rev4.md`. The framing failure is the lesson, and it is a bad one:
+
+107. **HAIRLINE IS NOT HAIR. A detector line that "looks right" on a small tile can be 90 px inside the hair — validate
+   at NATIVE scale on his tallest frames, and never gate with the same detector that built the plan.** Rev 3's "head
+   top" was the first row with ≥30 % skin at `r>120`, minus a 40 px allowance from the same bad grid frame as rev 2's
+   y=40. On his tallest frames it read 296–300 (4K); the real top of his hair is at 196–215 (`pv/hair_measure.jpg`,
+   contrast-stretched 4K crops with a 50 px grid), and the hair band is 64 px, not 40. Every proof sheet — the 480 px
+   tiles of `headtrack_check.jpg`, `headtrack_tallest.jpg`, `headroom_sheet.jpg` — showed a red line "on the head",
+   because at that scale a line at the hairline and a line at the hair top are two pixels apart. So 23 of 26 holds
+   cropped the hair by 17–50 px at 1080p, and the delivered-frame gate passed 21–95 px of "headroom" because it
+   measured to the same wrong point. Three rules, each of which alone would have caught it: (a) the anchor is the HAIR
+   TOP, found by climbing from the skin start through the dark hair band until the row is back at the doorway header's
+   luma (hair ≈(26,28,25), header ≈(34,38,37)); a climb under 55 px is a MISS and reads LOW, the dangerous direction —
+   discard it; (b) the proof sheet is native-scale crops of the head with a grid, tallest AND median frames, contrast
+   stretched, looked at; (c) the delivered-frame gate needs a test independent of the detector — hair-coloured pixels
+   in the top rows of the head band = FAIL — because a gate built from the plan's detector inherits the plan's bias.
+   Dan's screenshot at 0:05 (hair against the top edge) is the reference failure.
+
+
+Website conversion video rev 4 (2026-09-08, same day) — the hair fix, the AI inserts and the two phone PiPs, built to
+`Handoffs/handoff-20260908-website-video-rev4.md`. Reproducible from `website-video/reference/recipe/` (`rev4.sh` is the
+chain after the first punch). What it added, each as a measurement or a gate:
+
+108. **THE HAIR DETECTOR THAT WORKS, in numbers (`website-video/reference/recipe/hairdet.py`).** On the graded 4K base the door
+   panel behind Dan's head is luma 36–37 with a row-mean sd of 0.5 for the whole video; his hair is luma 20–30; the
+   relaxed skin test (`r>g+10, r>55, g>b`) fires 50–78 px of 4K below the true hair top when he is upright. Two things
+   made the handoff's sketch fail on 92 % of frames and this one succeed on 1786 of 1963: (a) a pixel counts as HAIR-DARK
+   only when it is 5 levels darker than ITS OWN COLUMN's header luma — the door's dark grooves chain a naive per-column
+   walk straight up to the top of the frame (a 12-px gap tolerance read the hair top at rows 25–105); (b) the walk
+   runs on the band's hair-dark FRACTION per row (≥ 0.20, band 160 px centred on the dark-hair blob, not on a fixed x),
+   tolerating 12 consecutive rows under it so the hairline transition and the crown sheen do not stop it. Valid climb
+   50–110 px (short = stopped inside the hair = reads LOW = discarded). Longest run of discarded samples 1.5 s.
+   The delivered-scale callers resize the head region back to 4K scale and use the base's static column profile
+   (`hairtrack.json` `hdr_col`), so there is ONE detector, three callers.
+109. **Prove the gate on the known-bad file first, and make one of its tests detector-free.** `hairgate.py` on rev 3's
+   master: hair top 1 px, 626 of 771 samples discarded because the climb starts at the frame edge, and the independent
+   test — the top 12 rows of the head band hair-coloured against the door's column profile — failed 5371 of 5781
+   frames. The same file had passed rev 3's headroom gate at 21–95 px. A gate that finds nothing (it only asks whether
+   the top rows look like the door) cannot inherit the plan detector's bias.
+110. **Veo's "celebrity likeness" filter is per STILL, not per character.** Seven stills of the same generated man from
+   one reference image: six passed, the frontal kitchen one was filtered. Regenerating that still in three-quarter
+   profile (same reference, same prompt otherwise) passed; nothing about the man changed. Filtered attempts are not
+   charged; budget one retry per set.
+111. **Veo can bake a cross-DISSOLVE between two shots into an 8-s clip** (D2, 3.9–4.6 s: a translucent double image
+   of the close shot over the wide one). Scan every clip's frame strip for it. The fix is free: cut the two clean
+   shots together with a straight cut (`build_inserts.py EDIT`), which reads as ordinary b-roll editing where a
+   dissolve reads as an edit inside the AI clip.
+112. **Concurrent builds starve short jobs past the harness timeout.** A 6-s insert render took 143 s beside the 4K
+   punch encode, and a foreground `build_inserts.py` call was killed at five minutes with nothing lost only because
+   each asset writes last. Run asset builds as a background script with per-step timing and a completion line, and
+   make the chain grep for that line before it needs the assets.
+113. **Capture logged-in app screens on a LOCAL server with a fixture account, never with a real login.** `node
+   server.js` with `DATABASE_URL=pgmem://local` and `ADMIN_EMAILS=<fixture>` (in `.claude/launch.json`), then the
+   app's own signup → admin beta-members → login endpoints from a Playwright script (`hub/hub_capture.py`) and the
+   session token dropped into `localStorage` (`absbyai_session_token`) before the page loads. The hub hero
+   (before+after side by side) never renders because the fixture has no transformation; the comp-account wording
+   ("Beta tester") and the Daily Brief (needs the live AI) are hidden for the capture; all nine feature tiles are real.
+   A full-page screenshot (1170×3048 at DPR 3) plus a sliding 2214-px window is a perfect slow scroll, and the scroll
+   ends on the last feature tile, not on the account-deletion link below it.
+114. **A phone PiP is 433×820: capture at 390×738 CSS (DPR 3 → 1170×2214) so it fits the box with no crop.** The Ad 2
+   session's iPhone-13 viewport (390×664) is a different aspect. The macro tracker was re-recorded on absbyai.com at the
+   right viewport (`macro2/record_macro.py`, one real analysis call, no account); viewport shots are located inside the
+   full-page shots by exact pixel match (`_offset`, error < 3 levels), so scrolls between states are animated smoothly
+   instead of jumping between screenshots.
+
+115. **Every Veo clip's FIRST and LAST second get a frame strip and a look before the clip goes in — that is where all
+   three artifacts of the website video lived.** Rev 4 shipped two Dan caught at once: the grilling clip's "leans in and
+   breathes in the smell" rendered as smoke from his mouth in the insert's last second, and the portioning clip's static row
+   of containers drifted and vanished in its last second (a third, the baked dissolves, was caught before delivery — lesson
+   111). Two rules: (a) `build_inserts.py`-style strips of 0–1 s and the final second of every insert are part of the
+   by-eye pass, not optional; (b) never prompt an action the model renders badly — anything with breath, smell, steam or
+   blowing near the face, and any beat that ends on static objects (the model drifts them). Fix by trimming to the clean
+   span and shortening the beat (start the run a word later, give the difference to a neighbour with spare clip), never by
+   slowing below 0.85×; regenerate only when the clean span cannot fit.
+
+Website conversion video rev 5 (2026-09-08, same evening) — Dan's rev-4 review: the framing APPROVED and LOCKED, plus two
+Veo clip-tail artifacts and the goal-image card removed. Built to `Handoffs/handoff-20260908-website-video-rev5.md`,
+$0.00 spend, all gates green. Two rules came out of it, and the second one is worth more than the video:
+
+116. **A moved beat edge is not automatically a re-render — diff the plan, then diff the PIXELS.** Rev 5 moved three
+   insert edges; the punch plan changed on paper (two boundaries), which by the standing rule forces a ~20-minute punch
+   encode. Comparing the two plans FRAME BY FRAME — the crop each output frame would get under the old plan against the
+   new — showed **29 frames of 6900 differ, and all 29 sit inside a full-frame opaque insert**, so nothing visible
+   changed and `punched.mov` was reused unmodified. The test is three steps: build the per-frame (level, crop y) for both
+   plans; intersect the differing frames with the opaque-coverage map (an AI insert is opaque except during its own alpha
+   fade, and `ai_inserts()` only fades at the OUTER edges of a run, so mid-run clips are opaque end to end); re-render
+   only if anything is left. Run it before every punch a beat change appears to force — it cost 40 seconds here.
+117. **ffmpeg LIVELOCKS on a deep multi-input overlay graph, and it is indistinguishable from a slow machine until you
+   `sample` it.** The 21-input `layout.py mix` ran 11 minutes to 5 % (3.5 h projected) against rev 4's 9 minutes for the
+   identical graph. Every measurement said the machine was fine: the x264 encode floor was 38 s per 60 s of picture
+   (0.63x real time), decoding EVERY overlay MOV cost 2 s in total (`today.mov` is 554 MB and decodes in 0.9 s), the
+   drive read at 427 MB/s and wrote at 150 while doing 0.1, and RSS was 2 GB of 32. `sample <pid>` settled it in four
+   seconds: **336 threads, 336 of them parked in `tq_receive`, 0 busy, and the process burning 23 % CPU on the
+   park/wake cycle alone.** 21 inputs × ~11 default decode threads is the trigger; `-threads 1` per input does not fix it
+   (QTRLE has no frame threading, so the threads are the scheduler's, not the decoder's). **The fix is fewer inputs per
+   ffmpeg process:** `layout.py mix()` now takes `MIX_STAGES=N` and runs the overlay list as N sequential passes
+   (7 inputs each → 126 threads, 81 % CPU) through **rawvideo .nut intermediates, so staging is lossless** — 20 GB per
+   stage on a drive with 1.7 TB free, and they are deleted at the end. 24 minutes for the full mix instead of 3.5 hours.
+   `MIX_T` and `MIX_OUT` make a 20-second benchmark of the real graph one command; that benchmark is what proved the
+   graph was healthy at the start of the video and pathological later. Diagnosis rule: **all threads parked = livelock,
+   kill and restage; threads in encode/decode = genuinely slow, wait.** A caption burn on the same box at the same
+   moment ran at 242 % CPU with 53 threads, which is the control.
+
+## RA-04: the 8/28 raw ads in Soft Blue Light (2026-10-13)
+
+Start RA-02 and RA-05 to RA-16 from `reference/ra04/` (README: stage order and eleven lessons), not from the RA-01 recipe
+alone. It is the RA-01 cut, grade, voice chain and crops with Soft Blue lower thirds, a glass CTA button and phone plates
+through `_shared/hyperframes/vertical.py`. The three that cost a rebuild: every pause splice inside a same-size shot needs a
+level change on it (the plan asserts it); phone cards must end above the caption line; the caption word list needs the
+zero-length-word and per-ad fix-map patches.
+
+## RA-05: three traps on the 8/28 raw ads (2026-10-13)
+
+Recipe and eight lessons: `reference/ra05/README.md`. The three that would have shipped a defect:
+
+1. **The app recording B0049 shows the banned before/after screen ("Meet the new you") until about 27.6 s.** Start the
+   result screen at 28.0 s and look at the first five frames of every app card. RA-04's round 1 draft started at 27.3 s.
+2. **A colour pick made on one roll is carried to the next roll as a LOOK, not as its LUT file.** C1664 is half a stop
+   brighter than C1667; RA-14's LUTs put his face at 122 here against 96 there. Re-bake the exposure per roll
+   (`reference/ra05/s31_bake.py`) and measure the face on that roll's own frames.
+3. **Count the words before building.** 231 scripted words is 61 s airtight. When the ad cannot fit 0:59, cut the sentence
+   that sells nothing, keep the full take map on disk (`edl_spec_full.json`) and make the cut Dan's first decision.
+
+## RA-05 round 2: speeding an ad up instead of cutting a line (2026-10-14)
+
+Recipe and seven lessons: `reference/ra05/round2/README.md`. When Dan says keep every line and accelerate: one factor
+(`ra01lib.SPEED`), `cut.json` rewritten in film time (`s03s_speed.py`), every film-to-source mapping multiplied by it, the end hold
+at normal speed. Stretch the voice with Rubber Band (`rb_stretch.py`, pylibrb venv), not ffmpeg `atempo`: it passed every
+audio-gate row where `atempo` failed two. A blind AI listener cannot tell stretch methods apart (it scored three identically), so
+decide on the gate's measurements. And the old splice crossfade shortened the voice 6 ms per splice; the round 2 `s08_audio.py`
+keeps it exactly as long as the picture.
+
+## RA-05 round 3: a phone picture that Veo animates, and a 16:9 callout clip made vertical (2026-10-14)
+
+Recipe and five lessons: `reference/ra05/round3/README.md`. Veo animates (and degrades) a photo on a phone screen in every take,
+whatever the prompt says: hold it still in code with `reference/ra05/round3/lockscreen.py` (tracks the phone against frame 0, lays
+the APPROVED frame's picture back in). From a celebratory END frame Veo adds a fist pump; "smiles warmly... only his head moves"
+fixed it. Cropping a callout clip to 9:16 cuts its leader lines loose: keep the clip's own lines, trace new ones over them into new
+cards, paint only what the cards hide (painting over skin left seams).
+
+## RA-15: two traps on the 8/28 raw ads (2026-10-14)
+
+Recipe and twelve lessons: `reference/ra15/README.md` (round 2: Veo cannot drop a rigid cardboard cutout, so a locked-camera take is
+cut to itself, standing then fallen; Veo bakes hard cuts into takes, found by the frame-difference spike in `round2/check15.py`). The two that would have shipped a defect: a single clean-looking
+take hid a stopped-and-restarted sentence that only 8 s re-transcription windows heard (window the whole kept take);
+and a caption sat on the AI clip's punchline (the museum plaque), so check every clip's text against the caption band.
+Round 3 (README lessons 13-27): a payoff word ("twice") had been cut since round 1 as "a mouth noise" because Whisper timed it early;
+read the DELIVERED file's transcript against the script every round. And a following 9:16 crop needs three things together: an eased
+track at the standard band, centred on his body (arms) rather than his head, and the wide size on the holds with big gestures.
+
+## RA-06: three traps on the 8/28 raw ads (2026-10-14)
+
+Recipe and ten lessons: `reference/ra06/README.md` (the split-screen opener, land-then-hold wired into the render). The three
+that would have shipped a defect: (1) Replicate's large-v3 word times are CONTIGUOUS, so every pause hides inside a word;
+re-time word edges from the envelope (`s02b_patch.py`) before the EDL. (2) Look at what he does after the last word: on
+RA-06 his hands rise 0.7 s later (end hold 0.30 s), and RA-05's planner kept its own `END_HOLD`. (3) `-shortest` on the
+draft mux drops the last frames; mux with `apad -t <total>`.
+
+## RA-06 round 3: AI hand-offs, the close-centring band, dark B-roll (2026-10-14)
+
+Historical (superseded 2026-10-17 by VIDEO-RULES "AI video clips: Google Flow subscription first": the Kling/Replicate motion scripts here are the paid rush path only).
+
+Recipe and six lessons: `reference/ra06/round3/README.md`. The three that cost the most: Kling cannot draw three hand-offs between a
+START (people waiting) and an END (people holding the thing), so build it as two shots and a cut; the 9:16 preset's `fixed_under`
+is what lets a close sit off centre (use `landing.track` with `fixed_under=None` and a 1 % band when Dan asks for centring); and judge
+"too dark" B-roll by his body's skin inside a box on him, not by the panel mean.
+
+## RA-06 round 4: the 16:9 from an approved 9:16 (2026-10-15)
+
+Recipe and nine lessons: `reference/ra06/round4/README.md`. The three that would have shipped a defect: (1) run the full delivery
+gate on the approved 9:16 too; it found two caption collisions in a file Dan had approved. (2) In 16:9, app screens go beside Dan
+(`s06_beside16.py`), never as a small phone on an empty field; showing him under a former card exposes the source joins at its edges,
+so give each beside card a size that changes at every join. (3) The full-width 16:9 lower third covers his abs in a wide shot; use a
+narrow strip in the corner his body leaves clear.
+
+## RA-01 lessons — first cut from the 8/28 outdoor portrait rolls (2026-09-18, three-role pipeline)
+
+Historical (analysis card superseded 2026-10-14 by VIDEO-RULES "The analysis card is Soft Blue Light, built with HyperFrames"; J2AD cards superseded 2026-09-26 by Soft Blue Light; the Fable three-role loop is retired).
+
+Built as planner (Fable) → editor (Opus) → independent reviewer (fresh Fable), plan + rulings in
+`Handoffs/video-editing/RA-01-plan.md`, three rounds. What is durable:
+
+1. **C1654–C1672 are PORTRAIT rolls with one dual-mono stereo stream.** ffmpeg autorotates to 2160×3840 — never
+   `-noautorotate`, never a `transpose`; `pick_lav.py` per file, never the four-track `a:1` rule (that is C1650–53
+   only). `Docs/SHOOT_828_FOOTAGE_REPORT.md`.
+2. **The outdoor lav fails the audio gate's `artifacts` (flux) row before any processing** (untreated 0.096 vs the
+   indoor-reference bound 0.079; the chain lowers it to 0.090 and cannot pass). Do not process harder, do not tune
+   the bound — it is Dan's exception per roll until the gate carries an outdoor reference through the corpus. Every
+   8/28 outdoor roll will hit it.
+3. **The kitchen LUT is wrong for daylight.** Face luma says an unpushed 1.0–1.15× LUT; skin then reads ≈ 73 % of
+   Ad 1's chroma at the 1.25 saturation cap and the rest is hue (overcast vs tungsten). Build a daylight LUT rather
+   than lifting saturation; the look is Dan's call.
+4. **Dan is small on these rolls (41 % of the width, hair 29 % down):** NEAR crops upscale 1.8×, FAR 1.5×, and the
+   delivered face sharpness is ≈ 0.5× the approved Ad 1 vertical. Next shoot: camera in, 4 % headroom.
+5. **Captions may print a spoken number.** "Never a printed number" binds cards, pills and headlines; burned captions
+   are a verbatim transcript (the approved Ad 1 vertical captions "200 pounds"). Captions run from the first word
+   to the last, over photo cards too — round 1 shipped 12 s of silence-with-a-still and was rejected for it.
+6. **Transition SFX broke the `tone` row** (0.74/1.92 → 1.24/4.63 dB) on this mix; left out, accepted.
+7. **Gate-plan geometry must be measured from the render, never a static rectangle** — round 1's CTA rectangle was
+   752 px wide of the truth in 16:9 and the caption-clearance rows were grading air.
+**APPROVED by Dan 2026-09-18 as the template for future videos** ("I think you nailed it. Audio sounded good, and
+color correction looks good. The way you cut it… transitions… this was a template for future videos"). Build the next
+filmed ads the same way:
+
+* **Process:** one editor owns the measured source facts, take map, cue map, framing, audio, build and self-QA. One
+  fresh independent reviewer enters only after a complete candidate exists and returns one consolidated verdict.
+  Keep `Handoffs/video-editing/RA-01-plan.md` as useful evidence, but do not repeat its planner → editor → reviewer
+  loop. For new AI/stock/existing-B-roll choices, use the shared early approval + placeholder workflow above.
+* **Hook grammar that was approved:** the picture the ad is about on frame 0 with its caption → Dan's FACE by 3 s →
+  back to the picture → BEFORE ≥ 1.2 s → Dan on camera ≥ 0.8 s (the "other" between before and after, never a flash)
+  → three real afters ≥ 0.6 s each → the AI image on the words that name it. File opens on the first word (≤ 0.15 s).
+* **The analysis card is a shared component now:** `.claude/skills/_shared/adkit/analysis_card.py` (README there).
+  Dan: "illustrated it better than we did in past videos… reuse in future videos." Historical: since 2026-10-14 new videos use
+  `_shared/hyperframes/analysis-card/`; this J2 version only for RA-01 re-exports.
+* **Cards** stop above the caption band on the flat J2AD field, hard cuts in and out, always drifting; 9:16 chips in
+  the safe band (y ≥ 200, x ≤ 940); 16:9 chips in a reserved strip inside the card. All in `adkit/cardlib.py`.
+* **16:9 zoom cuts:** every NEAR hold takes its neighbouring FAR hold's centre, or Dan hops sideways at each cut.
+* **CTA pill:** compact, sized to its text, placed by person mask where he never stands; same geometry for both CTAs.
+* **App clips:** verify the first frame is not an empty field and the last 10 frames hold one stable screen.
+* **One end-hold constant, one place** (picture and audio builders read the same value — round 2's `length` fail).
+
+8. **Review evidence that remains useful:** the independent reviewer reads the plan, rules and files rather than
+   being coached by the editor's conclusions, and reports one fixed-format, deduplicated verdict. A rejection parks
+   the candidate with a short correction list; it does not automatically start another supervisory loop. The old
+   three-role run consumed roughly 0.3–0.8 M editor tokens plus ≈0.3 M reviewer tokens per round, which is why it is
+   no longer the default.
+
+## RA-07 lessons, round 1 (2026-10-13)
+
+Historical (the two-build cap in lesson 1 superseded 2026-10-20 by VIDEO-RULES "Video builds: the render queue").
+
+1. **A transcript does not need a build slot.** `reference/replicate_words.js <audio> <offset s> <out.json>` gets
+   word timings from Replicate's Whisper (the model `/ad-setup`'s `transcribe.js` uses, under a cent, about 3 s) in the
+   shape `s03_edl.py` reads. On 2026-10-13 a local Whisper job sat behind the two-build cap for over an hour.
+2. **One pass over 88 s dropped everything after "while human trainers"** and invented a closing line (lesson 62
+   again). Send overlapping pieces of 60 s or less, join them in a pause, and read the joined text against the roll
+   sidecar's transcript before building the EDL.
+3. **Whisper stretches the first word of a take back across the silence before it** ("Get" timed 0.9 s early, "Fire"
+   1.3 s early, "step." ending 0.5 s late). Then the 60 % overlap rule in `s03_edl.py` drops a real word or keeps a
+   ghost one. Print the word list of the cut and correct those times from the 5 ms envelope.
+4. **The level 15 dB over the floor before a first word is usually the inhale, not the word.** Print the envelope in
+   20 ms steps: the breath sits near -50 dB for about 0.2 s, then a dip, then the consonant. Pin the head edge after
+   the breath so the file opens on the word.
+5. **Look at what he does after the last word before choosing the end hold.** On C1664 he holds his smile 0.9 s, then
+   drops his hands and speaks; RA-01's 1.65 s hold would have shown it. The hold is real footage, so it is only as
+   long as the pose lasts.
+6. **Before calling a look "locked", read today's handoffs for the sibling jobs on the same set.** RA-14's round 1
+   came back the same afternoon with "both shots a little too tight" and "we can do better with the colour"; RA-07's
+   page was about to present the same framing and grade as settled. Compare framing between rolls in head heights,
+   not pixels (Dan is 370 px tall in the head on C1663/C1664 and 290 px on C1667).
+7. **A chip on a full-frame AI clip is placed by looking at the clip's people**, not at a fixed corner: top left on
+   A0147 covered the walking trainer's face. And never put a `#` comment in the middle of a `a; b; c` line: it
+   silently removed the `chip.save(...)` that followed it.
+
+## RA-07 round 2 lessons: carrying a sibling's approved look, and the fix clips (2026-10-14)
+
+Historical (superseded 2026-10-17 by VIDEO-RULES "AI video clips: Google Flow subscription first": the Kling/Replicate motion scripts here are the paid rush path only).
+
+Recipe: `reference/ra07/round2/` (s70 plan, s75 clips, s83 phone cards, s86 assemble, s88 checks, s87 page, gen_motion.py).
+
+1. **Carry an approved look by comparing against the frames Dan APPROVED, side by side.** On C1664, RA-14's C2 LUT as is put his
+   face at 117-120 against 113-120 on RA-14's approved round 3 frames; RA-05's re-bake for this roll (expo 1.6) measured 91-96, a
+   stop darker. The head-size framing conversion (738/918) filled the frame like RA-14; RA-05's landmark conversion (648/810) was
+   tighter. RA-05 lessons 2-3 were measured against round 2 stills: render both candidates beside the approved frames and look.
+2. **A lower third whose headline waits for a later phrase is an empty glass strip over him** ("2 OF 3" up at "Two,", headline on
+   "AI can design": 0.55-0.9 s of blank blur that a viewer reads as a mistake). Land the headline on the first word of the line.
+3. **Kling faults on hand-outs and exits:** a loose stack of paper turned into a black binder, and a second trainer appeared when the
+   walk-off path was left open. Write "exactly N people", the path ("walks straight back on the LEFT, never behind them") and "loose
+   white paper only, no folder". Most faults sit in the last second: check the tail, then trim from the head if the slot allows.
+4. **A take that holds a pause in the middle (knock, 2 s of standing, then the turn) cannot be cut to fit**: use the end that carries
+   the joke and say what was dropped. A move between two places (bench to machine) is two takes joined by a cut.
+5. **`s82_holds.py` concat dies on a zero-frame span** when a piece edge rounds onto a hold start: filter `b > a`.
+6. Real-ESRGAN is not installed on this Mac; the gemini_listen helper's default model is retired (`GM=gemini-3.1-pro-preview`).
+
+## RA-07 round 3 lessons: machine clips, carried takes and gate evidence (2026-10-14)
+
+Historical (superseded 2026-10-17 by VIDEO-RULES "AI video clips: Google Flow subscription first": the Kling/Replicate motion scripts here are the paid rush path only).
+
+Recipe: `reference/ra07/round3/` (s70r3 plan with I2/I3B/I4B camera switches, s75r3 clips with per-clip chip spots, s86r3/s88r3,
+s91_tail07, s92r3 chips, s93r3 gate plan, s96_ctc1 alignment, gen_motion3, lock_tone, s87r3 page).
+
+1. **Gym-machine frames are where the image model fails, and the frame reviewer catches it every time.** Lateral raise: twelve
+   arms-up frames failed (Codex puts the lever pivots beside the neck, so the pads would slide off the arms). What passed: the START of
+   the rep, arms down, levers hidden behind the upper arms, pads on the outside of the elbows, handle brackets drawn in. Hack squat: ten
+   frames failed (wedge or shelf foot platform, plates welded to the rail, kinked rails, a seat ledge, two handles per fist). Budget
+   machine frames at several review rounds, and prefer a pose that hides the joint the model gets wrong.
+2. **Rep takes from a single frame do not rep.** start = end gave a still; start-only gave a rep where the FOOT PLATFORM rode up with
+   him (a leg press). The take from the client's approved START/END pair passed only for its walk-on part (it bakes a cut at 2.9 s).
+3. **Fix one area of a passing frame by pasting, never by a whole-frame edit.** A Codex "relax the face" edit redrew the machine too;
+   pasting only the face (feathered ellipse, phase-correlated) passed. `lockstill.py` leaves a tone step where START's person stood:
+   `reference/ra07/round3/lock_tone.py` shifts the fill by the smooth START-minus-END field and feathers 15 px; force a box over the
+   frame edge, where the segmenter misses a cut-off sleeve.
+4. **Carried takes go through clipcheck and a fresh reviewer too, before you build.** I2 had been on Dan's round 2 page with no
+   objection; under the 10-14 rule its reviewer found a phantom shoe (f0-8), a ghost head (f9-10) and a paper stack turning to cloth
+   (f33 on), leaving 0.9 s clean, under the 1.2 s floor. Run the take reviews first, not after the full render.
+5. **Caption-sync evidence: one CTC window over the whole file.** Whisper's delivered word times ran about 180 ms late; windowed CTC
+   handed words the previous word's audio at window edges ("lose" onto "goal,"); a single window over a 53 s ad put every word on its
+   audio. Spell numbers out ("20" had no tokens and shifted its neighbours). `reference/ra07/round3/s96_ctc1.py`.
+6. **A card with a slow push moves its label chip.** Declare one chip reference per 9-frame window, scaled and placed by the push
+   (`s93r3_gateplan.py`, K1), or `compliance:labels` reads it as missing.
+7. **Codex image saves fail intermittently with three or four jobs at once.** Run two at a time and retry a missing file.
+
+## RA-07 round 4 lessons: a library clip cut around its faults, and frame pairs that stop mid-step (2026-10-16)
+
+Historical (lesson 6's `buildcap.wait` superseded 2026-10-20 by VIDEO-RULES "Video builds: the render queue": wrap the chain in `renderq.py run --group`).
+
+Recipe: `reference/ra07/round4/` (s70r4 plan, s75r4 clips with `start_frame` pieces, s86r4 assemble with labelled placeholders, s87r4 page, specs).
+
+1. **A library clip Dan approved earlier still goes through clipcheck and a fresh reviewer, window by window.** A0179 (RA-04) is AI1-12_c raw frames 4+ then AI1-3_b raw 61-87, played 1:1 at 29.97. Windows 32-67 and 8-43 failed (no head shake that reads, a smeared phone out of the pocket, his arm rising to his hip from frame 35); frames 0-34 and 101-128 passed. Cut around the fault and say so on the page; the slot boundary moved one frame to fit the clean 62 frames.
+2. **Find a library clip's scene change from the frame difference (a spike of about 40), not from a 3 fps sheet.** I read it as frame 102 and the true first frame is 101. Seeking half a frame early and letting `fps=` run duplicated the first frame at the join (a 0.01 difference after the spike); conform with `trim=start_frame=N:end_frame=N+n,setpts=PTS-STARTPTS` and no `-ss` when the source is already 29.97.
+3. **A START mid-stride and an END standing fail the bone check (shin -9 to -17 %).** Tell Codex "BOTH FEET STAY EXACTLY WHERE THEY ARE ... same stride, same shoes", and change only the upper body. That passed the gate; the reviewer then failed what the model did next: a chest turned 90 degrees over still hips (turn the HEAD, keep shoulders within about 45 degrees of the hips), a forearm bent across the spine (elbow stays at the side), and a hand over the sign text (keep a hand-width and a half of clear air). Four tries on the leg press END; the head-turn-plus-shoulder-lift version passed. Both pairs keep the same feet in START and END, so the video model has to supply the last step: check the motion take for sliding feet.
+4. **Reuse unchanged holds by matching plan time, frame count, level and end to an earlier round's `holds.json`** and copy the mp4 (15 of 15 matched): no Dan shot re-rendered, first 30 s frame-identical by md5.
+5. **A placeholder band at y 760-1000 covers the sign and the machine in the contextual clip.** Put it on the floor (y about 1080-1280, above the caption ink at 1407) next time.
+6. The build waits behind other sessions' renders (`buildcap.wait`); queue one chain script (assemble, md5 check, cuts) and wait on its log for `WORK_DONE` and `CUTS_DONE`.
+
+## RA-07 round 5 lessons: motion for frame pairs that stop mid-step, and a gate that moved under us (2026-10-16)
+
+Historical (superseded 2026-10-17 by VIDEO-RULES "AI video clips: Google Flow subscription first": the Kling/Replicate motion scripts here are the paid rush path only).
+
+Recipe: `reference/ra07/round5/` (gen_motion5 with the round 4 pairs, s75r5 clips with a `retime` source, s70r5/s86r5 with PENDING empty, s92r5b K1 chips, s93r5 gate plan, s87r5 page, the two take specs).
+
+1. **A Kling take from a mid-stride START and a same-feet END walks in place for its first 2.5 s** (the man cycles his legs and does not travel against a locked camera), then stops and does the gesture. Find the window by tracking the shoes, use only the planted part (G1 frames 59-96, O1 frames 55-96), and say so; never cut the treadmill part in. The slot then opens on him already stopped, and clipcheck plus a fresh reviewer pass because nothing slides.
+2. **A 24 fps take enters the 29.97 film one source frame per film frame (1.25x):** `trim=start_frame=N:end_frame=N+n,setpts=N/(30000/1001)/TB` instead of `fps=30000/1001` (which repeats every fifth frame). Clip frames needed = slot frames, so pick the in-point from the end of the take.
+3. **Delivery gate 2.6.1 (same day) samples `compliance:labels` on whole frames at the start, middle and end of every declared beat.** A push-in card's chip reference must be accurate at the window edges: K1's 9-frame windows read 0.838 and 0.833 against 0.85. Draw the references from the component in 3-frame windows (`s92r5b_k1push.py`), never from the delivered file, and never touch the bound.
+4. **A re-render changes the bytes of frames next to the changed ones (30-frame GOPs).** Prove "everything else unchanged" by pixel difference (MSE under 0.3 outside the slots, 900+ inside), not by framemd5; md5 matched only up to the first changed GOP.
+5. **The Extreme drive hit 100% (176 MB free) mid-build:** the 540p cut and the A/B mux died with "No space left on device". Delete only regenerable frame dumps (`round*/checks/frames`, superseded `work_v*` pictures), never other sessions' files, and re-run the stage that failed.
+6. The audio gate's `tone` row (fixed bass lift) and one caption-timing miss on "20" at 21.3 s (inside the approved first 30 s) fail identically to round 3 and are reported, not tuned.
+
+## RA-07 round 6 lessons: lengthening a library clip's window, and labels on a tight crop (2026-10-17)
+
+Historical (superseded 2026-10-17 by VIDEO-RULES "AI video clips: Google Flow subscription first": the Kling/Replicate motion scripts here are the paid rush path only).
+
+Recipe: `reference/ra07/round6/` (s70r6 plan with G1 at 14 frames, s75r6 clips with a `pre` crop and `no_chip`, s86r6 with the placeholder band on the floor, s87r6 page, the phone frame spec and prompts).
+
+1. **A library clip whose window grows is a new window: clipcheck plus a fresh reviewer, even if Dan saw it before.** A0039 (home curls) passed round 5 unreviewed; stretched from 1.2 s to 2.0 s, its reviewer found the left hand melting into a see-through blob (source frames 17-19, 35-38, 62-68) and a hand opening off the dumbbell. Those frames were inside round 5's window too. A red-blotch count per frame (`R - G > 70` inside the hand area) finds the melt fast. Replaced by A0080 frames 127-186.
+2. **Check casting before swapping a clip.** The real stock curls clip B0117 had no AI faults but a pale young man in an over-bright room beside the 40-something man of A1, G1 and O1: rejected on sight. A0070's shoulder press lost both dumbbells in a 9:16 crop.
+3. **On a crop the man fills, place the chip from the person mask over the whole take, dilated 20 px**, and pass the reviewer's gap numbers. The automatic spot touched his face, a top-right spot touched his temple; the wall right of his shoulder from y 480 down was clear.
+4. **Library AI clips can carry a few rows of black letterbox; a 9:16 crop enlarges it into a visible band.** Crop inside it (`pre="crop=598:1064:602:8,"` on A0080) and check row 0 and the last row of every film frame.
+5. **A START frame for a "pull out his phone" beat: turn him three-quarters to the camera** with the right hand beside the shorts pocket, and in END have the screen face him (only the phone's back shows: no generated UI text). Gate and reviewer passed on the first pair (`PH.spec.json`).
+
+6. **Stage 2, the phone pull-out:** from a START with the hand beside the pocket, a Kling v3 5 s take put the hand into the pocket and drew the phone out of it (frames 40-58); the 4 s take skipped the pocket and the phone appeared in an open hand. Ask for 5 s when the action has three steps, and read the hand frame by frame at 3x around the moment the prop leaves the pocket.
+7. **A library swap still faces the whole-film sense check.** A0080 passed clipcheck and its frame reviewer, but the independent ra-reviewer failed it in context: a power rack behind him reads as a gym under "can't make it to the gym", and he is a different man from the clip before on the same sentence. Judge a replacement against the line and the neighbouring clip's casting, not only its own faults. Fixed with new frames of G1's man at home (`HC.spec.json`); a head that tilts toward the curling arm fails `anchored_nose` (124 px), so tell Codex the head stays exactly where it is and only the eyes move. A still box on a straight horizontal edge (a frame's top edge) slides along it: use a textured patch.
+
+## RA-14 round 2 lessons: colour and framing on the 8/28 pool rolls (2026-10-13)
+
+Dan on round 1, which reused RA-01's grade and framing rule on roll C1667: "both are a little bit too tight" and "we can
+do better with the color corrections". Recipe: `reference/ra14/round2/`. His picks were made after this round (RA-14 round 3 lessons below).
+
+1. **On these rolls the fault is exposure, not white balance. Measure before choosing a fix.** Clouds read neutral in
+   linear (R/G 1.00, B/G 1.04), so the camera was set right. His face sat 1.5 stops under mid grey in front of a bright
+   sky; RA-01's exposure rule (face luma against an INDOOR reference) left it there. Face luma 64 against 77 to 78 on
+   the approved RA-01 and Ad 1.
+2. **Brightening alone turns his skin pink** (Lab hue 51 falls to 44 at one stop up). Hold the skin on the approved hue
+   (53 to 55) with a secondary on skin tones only, baked into the LUT (`colour/lab.py` `skin_rot`). 8 degrees is the
+   natural tan; 10 and over goes yellow in the shadows of his face, which only shows at NATIVE size.
+3. **Each candidate is one 65-point .cube** (`colour/bake.py`), so a look is a single `lut3d` and candidates render in
+   the same decode (split after the crop).
+4. **Do not decode a roll from frame 0 to reach a late take.** An input seek to half a frame before frame N lands on
+   exactly N (checked against a full-decode strip: difference 0.0 at offset 0, 4.5 one frame either side). RA-14's
+   opening went from a 6.5 minute decode to the 18 seconds it uses (`s72_sample.py`).
+5. **Removing a card can uncover a splice.** The AI picture Dan cut at 5 s had been covering a tightened pause; with
+   it gone the join was a visible jump (frame difference 19 against 7.6 beside it). Re-run the inside-hold splice check
+   whenever a card comes out, and put the size change on the splice.
+6. **Measure his head on the exact first frame of every hold** (`s04b_holdstart.py`). The 5-per-second track put the
+   landing 5 to 20 source px off; with the extra sample it is 0.
+
+## RA-14 round 3 lessons: a code-built AI opener and the shared analysis card (2026-10-14)
+
+Recipe: `reference/ra14/round3/` (s81 opener, s82 holds, s83 phone cards, s84 plan, s85 captions, s86 assemble, s87 page, s88 checks).
+
+1. **An 8-bit / pixel-art opener can move in code from the approved frames at $0.** Lift the sprites off the approved START and END
+   frames, get any extra poses from ONE Codex sprite sheet on flat magenta with the start frame as reference, map the sheet onto the
+   start sprite's own palette, and composite on a plate made from the frames themselves. Four independent reviews were needed; their
+   catches are the checklist: (a) sheet poses that are a different drawing (half-turned) read as AI, keep only side-on ones; (b) anchor
+   poses by measured upper-body overlap, not bounding boxes, and move every frame, or he lurches; (c) never hole-fill a sprite mask,
+   the sky between his legs travels with him; (d) stop sprite masks at the ground's top edge, or ground specks travel with his feet;
+   (e) repaint lifted areas row by row from that row's own sky, a flat patch shows as an outline; (f) never draw a prop over a face, a
+   hop that punched the tile read as a layering mistake, running into it reads at once; (g) an idle "pump" made by moving only the arms
+   opens gaps at the elbows, raise the whole upper body and repeat a shin row.
+2. **`encode_h264` in `ra01lib.py` and `_shared/adkit/cardlib.py` wrote BT.601 under a BT.709 tag** (PNG frames into libx264 with no
+   `out_color_matrix`). Every code-drawn card or clip is affected. Fixed in `reference/ra14/round3/ra01lib.py`; the shared one is a
+   separate task. Check any PIL-rendered mp4 by decoding frame 0 as BT.709 against its source PNG.
+3. **Measure in-hold pause splices on the RENDERED picture, all of them.** On RA-14 all five were visible (head moved 15-40 px,
+   frame difference 2-3.3x its neighbours); each got a size change. Also check the frame either side of every take seam: rounding put
+   a one-frame flash of the other take at the end of a hold. A join a few frames into a hold that sits in a pause can be removed by
+   slipping the picture into the removed pause (`picture_slip`), audio untouched.
+4. **The analysis card is `_shared/hyperframes/analysis-card/`** (Soft Blue, every aspect). Its rows land on the word that starts their
+   clause; check its first frame is empty (a GSAP `fromTo` without `immediateRender: false` wrote a later state at time 0).
+5. **Captions over a bottom card:** lift whole lines (never mid-line) while the card is up, and clip held states at the card's in and
+   out frames, or a caption touches the card for one frame at each hand-over (`s85_captions.py`, checked by `s88_checks.py`).
+
+## RA-14 round 4 lessons: the full 9:16 from locked parts, gated (2026-10-14)
+
+Recipe: `reference/ra14/round4/` (s91 tail, s92 chips, s93 gate plan, s94 phone box, s95 trim).
+
+1. **The end hold Dan never saw finished is where the defect hides.** A first-30-seconds round never shows the last second. The
+   watch-pass judge found Dan mouthing silently, then stepping out of frame with the crop chasing him, in the last 0.97 s. Before
+   building the full video, print the mouth frame by frame after the last word and end on the last frame of the held pose.
+2. **Smooth a music tail on the MIX, after the last word, not by re-running the chain.** The chain loudness-normalises the whole file,
+   so a new bed moves every voice sample. After the last word the mix is the bed alone, so s42's inverse envelope applied there leaves
+   the approved voice bit-identical (integer null test). Measure the tail with the chain's fade divided out: 15.7 dB here.
+3. **A 9:16 gate plan with lower thirds over Dan needs `talking_head_windows`** (one full-frame window per hold). Without them the
+   framing rows drop every beat a graphic sits over him and measured 11 samples in 50 s. List the full-screen cards in `punch` too,
+   with `punch_covered: true`, or `cut:jump_cut` pairs the NEAR shots either side of a card.
+4. **A phone shell's image box is not the phone.** `cards.json` `phone_box` reached y 1386 with transparent padding; the phone ends
+   at 1348. Declare the measured rectangle (`s94_phonebox.py`) or caption clearance grades air.
+5. **The edit-sheet writer reads 16:9 builds only.** The 9:16 has no sheet; it is written with the 16:9.
+
+## RA-12: three traps when starting from RA-14's recipe (2026-10-15)
+
+Recipe and eleven lessons: `reference/ra12/README.md`. The three that would have shipped a defect: (1) RA-14's `s08_audio.py`
+still drops 6 ms per splice, so the voice ran up to 90 ms ahead of his lips by the end; use RA-05 round 2's length-preserving
+crossfade and measure every delivered piece against the lav. (2) A pause cut can clip a word's final /s/ or /z/ (the -40 dB
+silence starts inside it): `TAIL_EXTRA` in `s03_edl.py`. (3) A look carries across one roll, its fitted EQ does not: refit per cut.
+Library traps: A0138 has a burned KEY POINT banner; A0069 is pizza and cuts to push-ups at 1.9 s; A0074's phone photo moves.
+
+## RA-09: a restart hidden by the transcript, and fixed-length reused clips (2026-10-21)
+
+Recipe and seven lessons: `reference/ra09/README.md`. The three that would have shipped a defect: Replicate large-v3 merged a restarted
+sentence into one 2.5 s word (isolate every long word); a card starting under a frame after an audio join showed a one-frame jump (start it
+on the join's frame); moving a range edge into a word's span silently dropped that word from the captions (re-time it in the patch).
+
+## Decisions locked vs pending
+
+| decision | status |
+|---|---|
+| **FRAMING STANDARD for every talking-head video: crops anchored to the measured TOP OF THE HAIR (`website-video/reference/recipe/hairdet.py`; tools and the 20 px rule: VIDEO-RULES "Head and hair clearance blocks review delivery", 2026-10-20), NEAR = hair → belly button (1.85× on the 8/28 set), FAR = hair → shorts line (1.46×), never a wide level, the hair never within 20 px of the top edge on the delivered frames (`hairgate.py`), validated by eye at native scale before rendering** | LOCKED 2026-09-08 — Dan on rev 4: "The framing and the cropping are all looking good. You nailed it with this one. Let's lock that in and crop all the videos like this going forward." |
+| Script = ground truth; spoken corrections win; flag drift | LOCKED (2026-08-20) |
+| Take selection: Dan first minute, Claude rest, learn toward full handoff | LOCKED |
+| 16:9 primary + 9:16 secondary this batch; both must be strong | Historical: formats per VIDEO-RULES "Categorize every video before editing it" (2026-10-04), Step 8 |
+| Cut whole script, no ceiling | LOCKED |
+| No 1.2x pass, no hook variants (for now) | LOCKED |
+| Music bed ON for filmed ads, CC0/Pixabay (no attribution), chosen by measurement | LOCKED 2026-08-23 (Dan) |
+| Persistent CTA bar DROPPED for ad 1 rev-5; burned captions KEPT | Dan, 2026-08-23 |
+| Paid-ad graphics palette = `motionlib.J2AD`: black field, olive/dark-green headers, white body | Historical: superseded 2026-09-26 by Soft Blue Light (`_shared/softblue.py`) |
+| Every graphic approved as a still screenshot, then in motion, before the full render (round method) | LOCKED 2026-09-28 |
+| Negative-imagery scan; remove certain violations, flag unsure ones | LOCKED |
+| NO before/after anywhere, incl. in-app UI; before → other → tagged after | LOCKED (2026-08-20, Dan's #1) |
+| Style: J2 graphics + CTA bar (historical: superseded 2026-09-26 by Soft Blue Light), MadMuscles captions, "abs" lowercase | captions and "abs" LOCKED (2026-08-20) |
+| "Results are not guaranteed" micro-disclaimer (photo run + end card) | shipped on ad #1, not vetoed |
+| CTA bar exact copy/geometry per style | Historical: CTA now from the HyperFrames `cta` template (2026-10-17) |
+| CONTENT style (YouTube episodes): see `/longform-edit` Step 7 and `reference/HOUSE_STYLE.md` there — the palette is `motionlib.MIL` (military green, Dan's 2026-08-24 revision), NOT `GREEN` | Historical: superseded 2026-09-26 by Soft Blue Light; content videos follow `/longform-edit` |
+| (superseded) CONTENT style: the trial edit's screen system — solid brand FIELD, big heavy type, tight leading, top-aligned, accent rules/bands — in J2 dark green with an olive accent (`motionlib.GREEN`); no captions | Dan chose his structure over our bright-paper version, 2026-08-22 |
+| Airtight pause removal + music bed + transition SFX for CONTENT cuts | Historical: content cuts follow `/longform-edit`; SFX per VIDEO-RULES "Sound effects on transitions" (2026-10-08) |
+| Grade CONTENT cuts by per-channel percentile fit to a reference, not a luma lift | LOCKED 2026-08-22 |
+| Voice chain: EQ-match to the reference, gentle expander for room tails, light compression | Historical: `_shared/audio/voice_chain.py` plus VIDEO-RULES "A subtle bass lift on his voice is the standard" (2026-10-12) |
+| Music: track choice is a measured decision (least mid-band energy, flattest energy over the needed window); CC-BY needs a description credit — budget a paid library if it becomes house style | ⏳ Dan |
+
+## Long renders: never poll for a filename, always signal DONE
+
+A backgrounded render watcher once ran **20 hours after its render had finished** because it
+polled for a filename the render never wrote (2026-08-22) — Dan saw a blinking dot and left a
+finished video unreviewed for a day. Wait on the **process** (`wait $PID`), never on
+`[ -f "$OUT" ]`; give every wait a hard timeout; make it print why it exited; and end the
+session with the file path, size and *ready to review*. Helper that does all of this:
+`.claude/skills/longform-edit/reference/render_wait.sh`. Full rule: the Delivery section of
+`/longform-edit`.

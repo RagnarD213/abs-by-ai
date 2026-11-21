@@ -1,0 +1,32 @@
+{
+ "file": "/Volumes/Extreme/_edit_work/ra01/master_16x9.mp4",
+ "samples": 196,
+ "misses": 0,
+ "sample_hz": 6.0,
+ "face_box_8_92": {
+  "rule": "the face box stays inside 8-92 % of the frame width on every frame",
+  "worst_left_frac": 0.4662,
+  "worst_right_frac": 0.6922,
+  "violations": 0,
+  "worst": [],
+  "pass": true
+ },
+ "face_centre_frac": {
+  "min": 0.5209,
+  "max": 0.63,
+  "median": 0.5693
+ },
+ "face_sharpness_lapvar_face256": {
+  "delivered_median": 37.3,
+  "ad1_vertical_median": 108.5,
+  "ratio": 0.344
+ },
+ "face_colour": {
+  "delivered_luma": 79.2,
+  "delivered_chroma": 24.41,
+  "ad1_vertical_luma": 76.4,
+  "ad1_vertical_chroma": 30.08,
+  "chroma_pct_of_ad1": 81.2,
+  "floor_pct": 85.0
+ }
+}

@@ -1,0 +1,4 @@
+[
+ { "campaignOperation": { "update": { "resourceName": "customers/3427170837/campaigns/24305381214", "status": "ENABLED" }, "updateMask": "status" } },
+ { "campaignOperation": { "update": { "resourceName": "customers/3427170837/campaigns/24316408288", "status": "ENABLED" }, "updateMask": "status" } }
+]

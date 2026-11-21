@@ -1,0 +1,18 @@
+{
+ "_rule": "RA-15 round 1: Dan's RA-14 pick (C2 brighter, golden skin; 2026-10-14 'Go with the brighter golden skin, the recommended color.') re-baked for C1668, which reads ~0.2 stop brighter than C1667: exposure 2.4 -> 2.0 lands the face on RA-14's approved brightness (mean 91.9 on four frames vs 91.7 on RA-14's three). Shown with alternatives in round 1 (outdoor rule 2026-10-14).",
+ "look": "C2_brighter_gold",
+ "params": {
+  "expo": 2.0,
+  "knee": 0.45,
+  "sat": 0.85,
+  "vib": 0.5,
+  "contrast": 0.2,
+  "pivot": 0.46,
+  "skin_rot": 8,
+  "skin_sat": 0.96
+ },
+ "lut": "/Volumes/Extreme/_edit_work/ra15/colour/luts/ra15_C2_brighter_gold.cube",
+ "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra15/colour/luts/ra15_C2_brighter_gold.cube:interp=tetrahedral",
+ "exposure": null,
+ "saturation": null
+}

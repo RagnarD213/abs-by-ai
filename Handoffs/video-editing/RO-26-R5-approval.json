@@ -1,0 +1,21 @@
+{
+  "job": "RO-26",
+  "round": 5,
+  "date": "2026-10-17",
+  "status": "approved",
+  "approved_by": "Dan",
+  "source": "Direct user message in Top 1 Percent LFC R5 chat",
+  "dan": "All right this looks great. This is approved. Go ahead and finalize this and give me the handoff for setup",
+  "scope": "Complete exact R5 film as-is, including disclosed inherited findings; finalize and prepare setup handoff. No new edit or upload/publishing authorization in this finalization turn.",
+  "master": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Content Videos/Top 1 Percent - RO-26/Top 1 Percent | codex | 16x9 | RO-26.mp4",
+  "sha256": "395cd8fb4c99d0c235e9df691c8256e333d21a0f4efa09b60be53126fd6d24ce",
+  "bytes": 169874229,
+  "duration": 303.7367666667,
+  "gate": {
+    "verdict": "FAIL",
+    "pass": 31,
+    "fail": 8,
+    "not_measured": 0
+  },
+  "notes": "Human approval does not rewrite the historical automated gate results. Three inherited three-frame crop flashes remain in this approved file. Setup is separate and starts with five thumbnail choices."
+}

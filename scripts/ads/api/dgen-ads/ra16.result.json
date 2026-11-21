@@ -1,0 +1,206 @@
+{
+ "at": "2026-10-17T19:04:15.182Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/202854620044",
+  "customers/3427170837/adGroupCriteria/202854620044~2840",
+  "customers/3427170837/adGroupCriteria/202854620044~2124",
+  "customers/3427170837/adGroupCriteria/202854620044~1000",
+  "customers/3427170837/adGroupCriteria/202854620044~2498784755180",
+  "customers/3427170837/assets/431059916190",
+  "customers/3427170837/adGroupAds/202854620044~828352448280",
+  "customers/3427170837/assets/431059888638",
+  "customers/3427170837/adGroupAds/202854620044~828398913310"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202854620044",
+    "status": "ENABLED",
+    "id": "202854620044",
+    "name": "RA-16 AI Took Job",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202854620044~828352448280",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828352448280",
+     "id": "828352448280",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra16&utm_content=codex-9x16-vsl"
+     ],
+     "name": "RA-16 AI Took Job | Codex R4 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "AI Took My Job"
+       },
+       {
+        "text": "How AI Plans Your Workouts"
+       },
+       {
+        "text": "A Trainer Explains AI Fitness"
+       },
+       {
+        "text": "Workout And Nutrition Plans With AI"
+       },
+       {
+        "text": "A Fitness Plan That Adapts To You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "A personal trainer explains how AI builds a workout and nutrition plan around a goal."
+       },
+       {
+        "text": "Daniel Rose shows how a goal picture guides an AI fitness plan."
+       },
+       {
+        "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "A personal trainer explains the AI tools changing fitness coaching."
+       },
+       {
+        "text": "See how AI builds a workout and nutrition plan around a personal goal."
+       },
+       {
+        "text": "Daniel Rose shows how AI adapts a fitness plan when life gets in the way."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431059916190"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/202854620044",
+    "status": "ENABLED",
+    "id": "202854620044",
+    "name": "RA-16 AI Took Job",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/202854620044~828398913310",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828398913310",
+     "id": "828398913310",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra16&utm_content=codex-16x9-vsl"
+     ],
+     "name": "RA-16 AI Took Job | Codex R4 16:9 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "AI Took My Job"
+       },
+       {
+        "text": "How AI Plans Your Workouts"
+       },
+       {
+        "text": "A Trainer Explains AI Fitness"
+       },
+       {
+        "text": "Workout And Nutrition Plans With AI"
+       },
+       {
+        "text": "A Fitness Plan That Adapts To You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "A personal trainer explains how AI builds a workout and nutrition plan around a goal."
+       },
+       {
+        "text": "Daniel Rose shows how a goal picture guides an AI fitness plan."
+       },
+       {
+        "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "A personal trainer explains the AI tools changing fitness coaching."
+       },
+       {
+        "text": "See how AI builds a workout and nutrition plan around a personal goal."
+       },
+       {
+        "text": "Daniel Rose shows how AI adapts a fitness plan when life gets in the way."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431059888638"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/202854620044~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/202854620044~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/202854620044~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/202854620044~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

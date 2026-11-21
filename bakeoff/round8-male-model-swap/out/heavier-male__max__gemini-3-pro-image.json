@@ -1,0 +1,22 @@
+{
+  "caseId": "heavier-male__max",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-3-pro-image",
+  "modelLabel": "Nano Banana Pro (gemini-3-pro-image, GA)",
+  "variant": "full",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 15867,
+  "safetyRetry": false,
+  "promptChars": 4411,
+  "nominalCost": 0.134,
+  "image": "heavier-male__max__gemini-3-pro-image.jpg",
+  "ts": "2026-08-09T20:44:41.064Z"
+}

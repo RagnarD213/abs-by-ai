@@ -1,0 +1,61 @@
+{
+ "box": [
+  224,
+  600,
+  854,
+  732
+ ],
+ "boxes": [
+  [
+   224,
+   600,
+   854,
+   732
+  ],
+  [
+   224,
+   574,
+   854,
+   706
+  ]
+ ],
+ "placement": [
+  {
+   "chin_lowest": 475,
+   "chin_probes": 9,
+   "head": 285,
+   "abs_top": 774,
+   "jaw_clearance_px": 125,
+   "level": "NEAR",
+   "method": "compact pill on the chest band between the jaw and the top of the abs, centred on him"
+  },
+  {
+   "chin_lowest": 457,
+   "chin_probes": 9,
+   "head": 274,
+   "abs_top": 744,
+   "jaw_clearance_px": 117,
+   "level": "NEAR",
+   "method": "compact pill on the chest band between the jaw and the top of the abs, centred on him"
+  }
+ ],
+ "pill_size": [
+  630,
+  132
+ ],
+ "beats": [
+  [
+   18.885533,
+   20.5205
+  ],
+  [
+   53.787067,
+   55.2552
+  ]
+ ],
+ "mov": "/Volumes/Extreme/_edit_work/ra01-sq/cta_1x1/cta.mov",
+ "beat_movs": [
+  "/Volumes/Extreme/_edit_work/ra01-sq/cta_1x1/cta_b0.mov",
+  "/Volumes/Extreme/_edit_work/ra01-sq/cta_1x1/cta_b1.mov"
+ ]
+}

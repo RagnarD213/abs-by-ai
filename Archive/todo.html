@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abs By AI — Daily To-Do</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0f0f0f;
+    color: #e0e0e0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    min-height: 100vh;
+    padding: 32px 24px 60px;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  header h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.5px;
+  }
+  header p {
+    color: #555;
+    font-size: 0.85rem;
+    margin-top: 6px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+  .column h2 {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #666;
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #222;
+  }
+  .task-list { list-style: none; }
+  .task-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 4px;
+    border-bottom: 1px solid #1c1c1c;
+    cursor: pointer;
+    transition: background 0.1s;
+    border-radius: 4px;
+  }
+  .task-item:last-child { border-bottom: none; }
+  .task-item:hover { background: #161616; }
+  .badge {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .badge.high { background: #7f1d1d; color: #fca5a5; }
+  .badge.mid  { background: #713f12; color: #fde68a; }
+  .badge.low  { background: #1f2937; color: #9ca3af; }
+  .task-text {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex: 1;
+    transition: color 0.15s;
+  }
+  .task-item.done .task-text {
+    color: #3a3a3a;
+    text-decoration: line-through;
+  }
+  .task-item.done .badge { opacity: 0.3; }
+  .sync-bar {
+    text-align: center;
+    margin-top: 28px;
+    font-size: 0.75rem;
+    color: #444;
+    min-height: 18px;
+  }
+  #sync-status.ok { color: #4ade80; }
+  #sync-status.err { color: #f87171; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Abs By AI — Daily To-Do</h1>
+  <p id="today-date"></p>
+</header>
+
+<div class="grid">
+  <div class="column">
+    <h2>Business</h2>
+    <ul class="task-list" id="business-list"></ul>
+  </div>
+  <div class="column">
+    <h2>Personal</h2>
+    <ul class="task-list" id="personal-list"></ul>
+  </div>
+</div>
+
+<div class="sync-bar"><span id="sync-status">Syncing…</span></div>
+
+<script>
+const TODAY = new Date().toISOString().slice(0, 10);
+document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric'});
+
+const BUSINESS_TASKS = [
+  { text: "Add generation limiting feature to app", priority: "high" },
+  { text: "Add pay for generations to app", priority: "high" },
+  { text: "Add email capture to app", priority: "high" },
+  { text: "Set up email autoresponder", priority: "mid" },
+  { text: "Write outlines for test shoot", priority: "mid" },
+  { text: "Fix Printify store name and picture issue", priority: "mid" },
+  { text: "Add shipping costs to app", priority: "mid" },
+  { text: "Create workout program", priority: "low" },
+];
+
+const PERSONAL_TASKS = [
+  { text: "Work out", priority: "high" },
+  { text: "Supplements", priority: "high" },
+  { text: "Shower", priority: "high" },
+  { text: "Eat salad", priority: "high" },
+  { text: "Call fence company", priority: "high" },
+  { text: "Call title company", priority: "high" },
+  { text: "Make eyebrow threading appointment", priority: "mid" },
+  { text: "Find best mechanic to fix car", priority: "mid" },
+  { text: "Take Audi to mechanic", priority: "mid" },
+  { text: "Take out trash", priority: "low" },
+  { text: "Review dating apps", priority: "low" },
+];
+
+let completedSet = new Set();
+
+function key(cid, text) { return cid + ':' + text; }
+
+function renderList(el, cid, tasks) {
+  el.innerHTML = '';
+  tasks.forEach((task, i) => {
+    const k = key(cid, task.text);
+    const li = document.createElement('li');
+    li.className = 'task-item' + (completedSet.has(k) ? ' done' : '');
+    li.innerHTML = '<div class="badge ' + task.priority + '">' + (i+1) + '</div><div class="task-text">' + task.text + '</div>';
+    li.addEventListener('click', () => {
+      completedSet.has(k) ? completedSet.delete(k) : completedSet.add(k);
+      renderAll();
+      syncToServer();
+    });
+    el.appendChild(li);
+  });
+}
+
+function renderAll() {
+  renderList(document.getElementById('business-list'), 'business', BUSINESS_TASKS);
+  renderList(document.getElementById('personal-list'), 'personal', PERSONAL_TASKS);
+}
+
+async function syncToServer() {
+  const s = document.getElementById('sync-status');
+  try {
+    const r = await fetch('/api/todo-state', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({completed: Array.from(completedSet), date: TODAY})
+    });
+    if (!r.ok) throw new Error(r.status);
+    s.textContent = 'Saved ✓'; s.className = 'ok';
+    setTimeout(() => { s.textContent = ''; s.className = ''; }, 2500);
+  } catch(e) {
+    s.textContent = 'Sync error'; s.className = 'err';
+  }
+}
+
+async function loadFromServer() {
+  const s = document.getElementById('sync-status');
+  try {
+    const r = await fetch('/api/todo-state');
+    if (!r.ok) throw new Error(r.status);
+    const data = await r.json();
+    if (data.date === TODAY && Array.isArray(data.completed)) {
+      completedSet = new Set(data.completed);
+    }
+    s.textContent = ''; s.className = '';
+    renderAll();
+  } catch(e) {
+    s.textContent = 'Could not load state'; s.className = 'err';
+    renderAll();
+  }
+}
+
+loadFromServer();
+</script>
+</body>
+</html>

@@ -1,0 +1,637 @@
+{
+ "judge": "Claude fresh judge part 2",
+ "video": "ai showed me two futures | claude | 9x16 | ad 8.mp4",
+ "method": "Opened all 90 images of the middle third (pair_090 to pair_133, strip_000 to strip_045) one at a time. Exact frames pulled with the ffmpeg select filter into the scratch folder for five checks: frames 5152-5258 (possible hidden cut 172-175 s), frames 1-8 (hair headroom at the open), frames 438/484 (chip beside the face), frames 1767-1776 (jump inside the phone clip), frames 5497-5640 (app screen recording labels). Checked against beats.json flashes, lower thirds, CTAs and deviations.",
+ "entries": [
+  {
+   "image": "pair_090_02-26.61.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 146.61,
+   "note": "Flash return from the AI phone card (AI-GENERATED chip under the card) to the talking head; planned flash 146.50."
+  },
+  {
+   "image": "pair_091_02-28.55.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 148.55,
+   "note": "Talk join with a clear size step to NEAR; caption \"of times a day, every\" reads correctly."
+  },
+  {
+   "image": "pair_092_02-30.38.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 150.38,
+   "note": "Talk to 16:9 exercise insert in the olive card; caption \"day for over a year.\" carries across."
+  },
+  {
+   "image": "pair_093_02-30.42.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 150.42,
+   "note": "Same insert one frame on, card settling to full size (pop-in); punch under the card is covered."
+  },
+  {
+   "image": "pair_094_02-31.99.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 151.99,
+   "note": "Insert to insert inside the card (lying to seated med-ball); caption \"me the fire to train\"."
+  },
+  {
+   "image": "pair_095_02-33.22.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 153.22,
+   "note": "Exercise insert to meal-prep insert; caption \"consistently, to meal\"."
+  },
+  {
+   "image": "pair_096_02-34.75.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 154.75,
+   "note": "Meal-prep insert to calorie-writing insert; caption \"prep every week and to\"."
+  },
+  {
+   "image": "pair_097_02-36.42.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 156.42,
+   "note": "Flash return from the insert card to the talking head; planned flash 156.31; caption \"track my calories.\""
+  },
+  {
+   "image": "pair_098_02-37.46.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 157.46,
+   "note": "0.5 s ramp to NEAR, no cut; frames continuous."
+  },
+  {
+   "image": "pair_099_02-39.53.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 159.53,
+   "note": "0.5 s ramp to FAR, no cut; caption advances \"an app that does\" to \"exactly this.\""
+  },
+  {
+   "image": "pair_100_02-40.53.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 160.53,
+   "note": "Talking head to the bullet window; caption suppressed under the text plate."
+  },
+  {
+   "image": "pair_101_02-44.33.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 164.33,
+   "note": "Join inside the window with a clear size step; bullets legible, no caption on the plate."
+  },
+  {
+   "image": "pair_102_02-48.63.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 168.63,
+   "note": "Join inside the window with a size step back to FAR."
+  },
+  {
+   "image": "pair_103_02-49.04.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 169.04,
+   "note": "Join inside the window with a size step to NEAR, 0.4 s after the previous one (two quick cuts, both stepped)."
+  },
+  {
+   "image": "pair_104_02-50.34.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.34,
+   "note": "Flash return from the window to full-screen talk; planned flash 170.23."
+  },
+  {
+   "image": "pair_105_02-50.37.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.37,
+   "note": "Flash continuing, window card out."
+  },
+  {
+   "image": "pair_106_02-50.50.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 170.5,
+   "note": "Flash peak then lower third in."
+  },
+  {
+   "image": "pair_107_02-50.54.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 170.54,
+   "note": "Lower third wipe starting (thin bar visible) under the tail of the flash."
+  },
+  {
+   "image": "pair_108_02-52.04.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 172.04,
+   "note": "Ramp to NEAR, no cut; lower third \"Abs In Less Than 10 Seconds\" clear of the face, no caption over it."
+  },
+  {
+   "image": "pair_109_02-53.71.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 173.71,
+   "note": "Ramp to FAR, no cut; lower third fading out."
+  },
+  {
+   "image": "pair_110_02-53.81.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 173.81,
+   "note": "Lower third out; continuous talk. Checked frames 5152 to 5258: the background change through here is a gradual reframe, not a hidden cut."
+  },
+  {
+   "image": "pair_111_02-53.84.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 173.84,
+   "note": "Continuous talk after the lower third."
+  },
+  {
+   "image": "pair_112_02-54.24.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 174.24,
+   "note": "CTA pill about to appear; continuous talk."
+  },
+  {
+   "image": "pair_113_02-54.27.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 174.27,
+   "note": "CTA pill \"Get A FREE AI Image Of Yourself / With Abs\" in over the chest, no caption on it, clear of the face. Mouth closes within a frame; hands continuous, not a splice."
+  },
+  {
+   "image": "pair_114_02-55.24.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.24,
+   "note": "CTA pill fading out; continuous."
+  },
+  {
+   "image": "pair_115_02-55.28.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.28,
+   "note": "CTA pill gone; continuous."
+  },
+  {
+   "image": "pair_116_02-55.38.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 175.38,
+   "note": "Talk to full-bleed AI goal picture; one AI-GENERATED chip beside the shoulder, clear of face and abs; no caption."
+  },
+  {
+   "image": "pair_117_02-57.98.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 177.98,
+   "note": "Flash return from the AI picture to talk; planned flash 177.87."
+  },
+  {
+   "image": "pair_118_02-58.01.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 178.01,
+   "note": "Flash continuing."
+  },
+  {
+   "image": "pair_119_02-59.41.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 179.41,
+   "note": "Ramp to NEAR, no cut; caption \"our AI builds you a\"."
+  },
+  {
+   "image": "pair_120_03-01.51.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 181.51,
+   "note": "Ramp to FAR, no cut; caption \"and nutrition plan to\"."
+  },
+  {
+   "image": "pair_121_03-03.38.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 183.38,
+   "note": "Talk to window with the app screen recording card. Phone shows the AI goal image with its own small burned-in AI chip, no second chip (checked frames 5497 to 5640). No caption under the window."
+  },
+  {
+   "image": "pair_122_03-10.92.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 190.92,
+   "note": "Screen recording window to the bullet window; app card out."
+  },
+  {
+   "image": "pair_123_03-17.30.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 197.3,
+   "note": "Flash return from the \"Your workout plan\" window to talk; planned flash 197.19. Bullets legible."
+  },
+  {
+   "image": "pair_124_03-19.73.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 199.73,
+   "note": "Ramp to NEAR, no cut; caption \"goal and it's built\"."
+  },
+  {
+   "image": "pair_125_03-21.44.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 201.44,
+   "note": "Ramp to FAR, no cut; caption \"foods you like best.\""
+  },
+  {
+   "image": "pair_126_03-22.77.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 202.77,
+   "note": "Talk join with a clear size step to NEAR."
+  },
+  {
+   "image": "pair_127_03-24.20.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 204.2,
+   "note": "Ramp to FAR, no cut; caption \"You get the picture\"."
+  },
+  {
+   "image": "pair_128_03-24.37.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 204.37,
+   "note": "Lower third coming in, caption removed for it."
+  },
+  {
+   "image": "pair_129_03-24.40.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 204.4,
+   "note": "Lower third wipe starting."
+  },
+  {
+   "image": "pair_130_03-26.61.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 206.61,
+   "note": "Lower third \"You get the plan that makes it real.\" fading out; continuous."
+  },
+  {
+   "image": "pair_131_03-27.67.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 207.67,
+   "note": "Talk join with a clear size step to NEAR; caption \"So pick your future.\""
+  },
+  {
+   "image": "pair_132_03-28.04.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 208.04,
+   "note": "End CTA pill in, caption removed, pill clear of the face."
+  },
+  {
+   "image": "pair_133_03-29.51.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 209.51,
+   "note": "Ramp to FAR under the end CTA pill, no cut."
+  },
+  {
+   "image": "strip_000_00-00.17_cards_in___lt_0_17_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.17,
+   "note": "Opening talk, lower third about to wipe in. Headroom is tight (hair about 18 px under the top edge at full size, frames 1 to 8) but the hair is not cut."
+  },
+  {
+   "image": "strip_001_00-00.20_card_0_167_in___lt_0_17_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 0.2,
+   "note": "Lower third plate wiping in at the chest; continuous talk."
+  },
+  {
+   "image": "strip_002_00-01.97_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 1.97,
+   "note": "Ramp to FAR, no cut; lower third \"AI Showed Me Two Pictures\" legible, clear of the face."
+  },
+  {
+   "image": "strip_003_00-03.97_auto_00119_in___cards_in___cards_out___c.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 3.97,
+   "note": "Talk to full-bleed AI \"before\" picture; one AI-GENERATED chip on the wall, clear of face and body; lower third fades out before the cut."
+  },
+  {
+   "image": "strip_004_00-04.91_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 4.91,
+   "note": "Talk join underneath the covered AI picture; picture continuous (slow push only)."
+  },
+  {
+   "image": "strip_005_00-05.61_auto_00119_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 5.61,
+   "note": "Plain cut back to talk with no flash: flash_dropped at 5.606 is listed in deviations."
+  },
+  {
+   "image": "strip_006_00-06.07_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 6.07,
+   "note": "Talk join with a clear size step to NEAR; caption \"one was a goal.\""
+  },
+  {
+   "image": "strip_007_00-06.91_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 6.91,
+   "note": "Talk join with a clear size step to FAR."
+  },
+  {
+   "image": "strip_008_00-08.11_auto_00243_in___card_8_108_in___cards_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 8.11,
+   "note": "Talk to full-bleed real photo; one real-picture chip top left, clear of the face and abs; no caption."
+  },
+  {
+   "image": "strip_009_00-10.28_auto_00243_out___auto_00308_in___cards_i.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 10.28,
+   "note": "Photo to photo; one real-picture chip in the dark sky above his head."
+  },
+  {
+   "image": "strip_010_00-10.31_card_10_277_in___card_8_108_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 10.31,
+   "note": "Same boundary one frame on; chip steady."
+  },
+  {
+   "image": "strip_011_00-12.81_auto_00308_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 12.81,
+   "note": "Plain cut back to talk with no flash: flash_dropped at 12.813 is listed in deviations."
+  },
+  {
+   "image": "strip_012_00-12.85_card_10_277_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 12.85,
+   "note": "Continuous talk after the return."
+  },
+  {
+   "image": "strip_013_00-14.58_auto_00437_in___card_14_581_in___cards_i.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 14.58,
+   "note": "Talk to full-bleed \"before\" photo; chip top left sits next to the forehead but clear of the face through the push (checked frames 438 and 484). The photo is soft when enlarged."
+  },
+  {
+   "image": "strip_014_00-16.22_auto_00437_out___auto_00486_in___card_14.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 16.22,
+   "note": "Full-bleed photo to an old photo in the olive card; one real-picture chip under the card."
+  },
+  {
+   "image": "strip_015_00-18.09_auto_00486_out___auto_00542_in___cards_i.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 18.09,
+   "note": "Card to card; one chip under the card; card pops to size."
+  },
+  {
+   "image": "strip_016_00-18.12_card_16_216_out___card_18_085_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 18.12,
+   "note": "Same boundary one frame on."
+  },
+  {
+   "image": "strip_017_00-20.02_auto_00542_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.02,
+   "note": "Flash return from the card to talk; planned flash 19.91."
+  },
+  {
+   "image": "strip_018_00-20.05_card_18_085_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 20.05,
+   "note": "Flash continuing."
+  },
+  {
+   "image": "strip_019_00-22.19_auto_00665_in___cards_in___covered_in___.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 22.19,
+   "note": "Talk to full-bleed real photo; one chip top right, clear of the face and abs."
+  },
+  {
+   "image": "strip_020_00-22.79_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 22.79,
+   "note": "Talk join underneath the covered photo; photo and chip steady."
+  },
+  {
+   "image": "strip_021_00-23.29_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 23.29,
+   "note": "Talk join underneath the covered photo; steady."
+  },
+  {
+   "image": "strip_022_00-24.29_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.29,
+   "note": "Talk join underneath the covered photo; steady."
+  },
+  {
+   "image": "strip_023_00-24.96_auto_00665_out___auto_00748_in___card_22.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 24.96,
+   "note": "Photo to flag photo; one chip in the dark area above his head."
+  },
+  {
+   "image": "strip_024_00-28.30_auto_00748_out___cards_in___cards_out___.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 28.3,
+   "note": "Photo to the \"I'll show you\" window; bullets animate in on the first frame."
+  },
+  {
+   "image": "strip_025_00-33.67_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 33.67,
+   "note": "Join inside the window with a clear size step; bullets legible, no caption on the plate."
+  },
+  {
+   "image": "strip_026_00-43.58_cards_out___covered_out___join___talk-13.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 43.58,
+   "note": "Flash return from the window to talk; planned flash 43.47."
+  },
+  {
+   "image": "strip_027_00-43.61_card_28_295_out___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 43.61,
+   "note": "Flash continuing; ramp to FAR underneath."
+  },
+  {
+   "image": "strip_028_00-44.21_cards_in___lt_44_21_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 44.21,
+   "note": "Continuous talk; lower third plate starting."
+  },
+  {
+   "image": "strip_029_00-44.24_card_44_211_in___lt_44_21_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 44.24,
+   "note": "Lower third plate wiping in."
+  },
+  {
+   "image": "strip_030_00-46.38_join___punch_NEAR___card_44_211_out___ca.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 46.38,
+   "note": "Talk join with a clear size step to NEAR. Trade-off: the lower third is still fading on the cut frame, so a faint ghost of its text sits over his raised hands for one frame."
+  },
+  {
+   "image": "strip_031_00-47.65_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 47.65,
+   "note": "Talk join with a clear size step to FAR; caption \"shape, but get in\"."
+  },
+  {
+   "image": "strip_032_00-48.78_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 48.78,
+   "note": "Talk join with a clear size step to NEAR; caption \"shape is fog.\""
+  },
+  {
+   "image": "strip_033_00-49.55_join___punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 49.55,
+   "note": "Talk join with a clear size step to FAR."
+  },
+  {
+   "image": "strip_034_00-51.85_punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 51.85,
+   "note": "Ramp to NEAR, no cut; caption \"chase fog, but give it\"."
+  },
+  {
+   "image": "strip_035_00-54.35_punch_FAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 54.35,
+   "note": "Ramp to FAR, no cut; both raised hands inside the frame; caption \"specific body, yours,\"."
+  },
+  {
+   "image": "strip_036_00-55.89_punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 55.89,
+   "note": "Ramp to NEAR, no cut."
+  },
+  {
+   "image": "strip_037_00-58.59_auto_01756_in___cards_in___covered_in___.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 58.59,
+   "note": "Talk to the AI phone clip in the olive card; one AI-GENERATED chip under the card; no caption."
+  },
+  {
+   "image": "strip_038_00-58.63_card_58_592_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 58.63,
+   "note": "Same boundary one frame on; card pops to size."
+  },
+  {
+   "image": "strip_039_00-59.16_join.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 59.16,
+   "note": "Talk join underneath the covered card. The hand thrusts the phone forward fast just before (frames 1767 to 1770); it reads as motion in the clip, not a cut."
+  },
+  {
+   "image": "strip_040_01-02.96_auto_01756_out___cards_out___covered_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 62.96,
+   "note": "Flash return from the card to talk; planned flash 62.85."
+  },
+  {
+   "image": "strip_041_01-03.00_card_58_592_out.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.0,
+   "note": "Flash continuing."
+  },
+  {
+   "image": "strip_042_01-03.03_cards_in___lt_63_03_in.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 63.03,
+   "note": "Flash peak; lower third bar starting."
+  },
+  {
+   "image": "strip_043_01-03.06_card_63_030_in___lt_63_03_in.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 63.06,
+   "note": "Lower third plate wiping in under the flash tail."
+  },
+  {
+   "image": "strip_044_01-06.53_join___punch_NEAR.jpg",
+   "verdict": "expected",
+   "item": "",
+   "t": 66.53,
+   "note": "Talk join with a clear size step to NEAR; lower third \"You'll Be Filled With Motivation\" fading across the cut."
+  },
+  {
+   "image": "strip_045_01-06.57_cards_out___lt_63_03_out.jpg",
+   "verdict": "clean",
+   "item": "",
+   "t": 66.57,
+   "note": "Lower third out, caption \"That means it'll be\" in; continuous."
+  }
+ ]
+}

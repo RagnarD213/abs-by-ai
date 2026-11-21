@@ -1,0 +1,45 @@
+{
+ "shot": "DS-31 A1 opener gag: homework tower topples onto a college student",
+ "start_frame": "A1-start.png",
+ "intent": "Dorm desk at night. START: a lean college guy in a grey hoodie sits at his desk, hands on his head, staring up in dread at a ceiling-high leaning tower of textbooks and papers on the desk beside him. END: the tower has toppled onto the desk and onto him; books and papers are piled across the desk and over his shoulders, a few sheets still falling, only his head and one raised hand out, deadpan look at camera. Motion: the tower tips toward him and collapses onto him (falls under gravity, nothing vanishes).",
+ "person": {},
+ "still": {
+  "poster_wall": [
+   0,
+   560,
+   110,
+   880
+  ],
+  "lamp_shade": [
+   10,
+   1020,
+   90,
+   1100
+  ],
+  "ceiling_left": [
+   0,
+   0,
+   200,
+   200
+  ]
+ },
+ "may_change": {
+  "tower_desk_and_falling_papers": [
+   240,
+   0,
+   1080,
+   1920
+  ],
+  "student_and_pile": [
+   30,
+   940,
+   720,
+   1660
+  ]
+ },
+ "hands": {
+  "right": "on his head in START; raised out of the pile in END",
+  "left": "on his head in START; under the pile in END"
+ },
+ "bounds": {}
+}

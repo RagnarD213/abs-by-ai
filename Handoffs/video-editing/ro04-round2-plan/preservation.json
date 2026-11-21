@@ -1,0 +1,129 @@
+{
+  "graphic_functions_identical": {
+    "state": true,
+    "paint": true
+  },
+  "r1_r2_firstminute_audio_packets_identical": true,
+  "source_start_unchanged": true,
+  "frames": 1789,
+  "timer_boundaries_seconds": [
+    5.8497,
+    35.8497,
+    65.8497,
+    95.8497,
+    125.8497
+  ],
+  "crop_before_xywh": [
+    100,
+    0,
+    1776,
+    1000
+  ],
+  "crop_after_xywh": [
+    100,
+    18,
+    1776,
+    1000
+  ],
+  "no_added_pan_or_zoom": true,
+  "files": [
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute.mp4",
+      "sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-Arms Shoulders Workout LFC R2 - first minute.m4a",
+      "aac_sha256": "53e3ffcb475fd25b33d6628977f4338c8002072fe0f8eaf3218551ffa14b5e9e",
+      "reference_aac_sha256": "53e3ffcb475fd25b33d6628977f4338c8002072fe0f8eaf3218551ffa14b5e9e",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/Arms Shoulders Workout LFC R2 - first minute - REVIEW 540p.mp4",
+      "sha256": "d304580b0de00007d051d76d08e83e03eafb16b839afcb5d72b1ad077450c290",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-Arms Shoulders Workout LFC R2 - first minute.m4a",
+      "aac_sha256": "53e3ffcb475fd25b33d6628977f4338c8002072fe0f8eaf3218551ffa14b5e9e",
+      "reference_aac_sha256": "53e3ffcb475fd25b33d6628977f4338c8002072fe0f8eaf3218551ffa14b5e9e",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-A - REVIEW 540p.mp4",
+      "sha256": "224d120fc4e0db5d97ed0c342ac598710076525ed2a46416ce9bb763b0a38c1b",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-A.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/overhead-crop-check - REVIEW 540p.mp4",
+      "sha256": "a500301e71792c5bdce36107a07916b1a8c61c73856d2be18c6047b347733ff7",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-overhead-crop-check.m4a",
+      "aac_sha256": "f8443797f63da1eae74129408dd386198226ae60020d2ddedc58d49ca2cb56ed",
+      "reference_aac_sha256": "f8443797f63da1eae74129408dd386198226ae60020d2ddedc58d49ca2cb56ed",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-C - REVIEW 540p.mp4",
+      "sha256": "599d9e5d2feb196e6d7b716af63289f76d1f4118b5c96eefa76387c7bc0f4aa9",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-C.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-B - REVIEW 540p.mp4",
+      "sha256": "81a4ab1857e517a7224b577c5d018bbd25eaaec6dfdded86da3bccb170aafcc3",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-B.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-OLD - REVIEW 540p.mp4",
+      "sha256": "a2f3d9219a56877ef291795514f8886ecd48769d518b7f72c268032f4ad7dc64",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-OLD.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-C.mp4",
+      "sha256": "a1029ade4d0005893cbf8bfea8facd5c75980bc39efe6aa380de591cdeb03086",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-C.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-B.mp4",
+      "sha256": "3348e3df788f8c4defb022a6b9b533bdffe030491087246878272db4aea21e8f",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-B.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-A.mp4",
+      "sha256": "4210571a1701723298b7ad95d5b1b0d18ff993e7ce297308666a17e61d2e2a29",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-A.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/color-OLD.mp4",
+      "sha256": "793d7cc8679d936b3741999cff527307c8dcc12aea6c22eac5a02508a465d605",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-color-OLD.m4a",
+      "aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "reference_aac_sha256": "71fe8cfc6531d94da7811f0993b066e1b9f987653a1385670be09d496061e3c3",
+      "aac_packets_identical": true
+    },
+    {
+      "video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/context/overhead-crop-check.mp4",
+      "sha256": "05a61fdafa85a17ed1e5c0110e5601367b7f8c220629507e92cffd35a5c8f3a2",
+      "reference_cut": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round2/audio/reference-overhead-crop-check.m4a",
+      "aac_sha256": "f8443797f63da1eae74129408dd386198226ae60020d2ddedc58d49ca2cb56ed",
+      "reference_aac_sha256": "f8443797f63da1eae74129408dd386198226ae60020d2ddedc58d49ca2cb56ed",
+      "aac_packets_identical": true
+    }
+  ],
+  "r1_r2_audio_packet_timing_and_skip_metadata_identical": true,
+  "r1_r2_audio_packet_count": 2829
+}

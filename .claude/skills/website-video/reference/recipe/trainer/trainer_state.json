@@ -1,0 +1,803 @@
+{
+ "state": {
+  "title": "Week 1 \u00b7 Monday",
+  "cards": [
+   "Treadmill, bike, rower, or incline walk",
+   "Goblet Squat",
+   "Push-Up",
+   "Lat Pulldown",
+   "Dumbbell Shoulder Press",
+   "Plank",
+   "Dead Bug"
+  ],
+  "anims": 0,
+  "h": 1435
+ },
+ "sheets": {
+  "db-goblet-squat": {
+   "rect": [
+    20,
+    235.609375,
+    350,
+    196.875
+   ],
+   "poster": "/exercise-demos/db-goblet-squat.jpg",
+   "src": "/exercise-demos/db-goblet-squat.mp4",
+   "dpr": 3,
+   "title": "Goblet Squat",
+   "hasSvg": false,
+   "rect_px": [
+    60,
+    707,
+    1050,
+    591
+   ]
+  },
+  "pushup": {
+   "rect": [
+    20,
+    235.609375,
+    350,
+    196.875
+   ],
+   "poster": "/exercise-demos/pushup.jpg",
+   "src": "/exercise-demos/pushup.mp4",
+   "dpr": 3,
+   "title": "Push-Up",
+   "hasSvg": false,
+   "rect_px": [
+    60,
+    707,
+    1050,
+    591
+   ]
+  },
+  "plank": {
+   "rect": [
+    20,
+    235.609375,
+    350,
+    196.875
+   ],
+   "poster": "/exercise-demos/plank.jpg",
+   "src": "/exercise-demos/plank.mp4",
+   "dpr": 3,
+   "title": "Plank",
+   "hasSvg": false,
+   "rect_px": [
+    60,
+    707,
+    1050,
+    591
+   ]
+  }
+ },
+ "program": {
+  "programId": "fixture-rev6",
+  "blockNumber": 1,
+  "locked": false,
+  "unchanged": false,
+  "program": {
+   "stage": 4,
+   "equipment_track": "full",
+   "start_dow": 1,
+   "start_day": 1,
+   "assessment": {
+    "starting_point": "Solid base from your last block \u2014 the abs are showing and the upper body is behind the legs.",
+    "goal_summary": "Your after photo is about 4\u20135 % body fat away, with more shoulder and arm size.",
+    "assigned_level": "Intermediate"
+   },
+   "why_this_works": "Three full-body days let you train hard and still recover with a 12-hour workday. Every session opens with 5 minutes of easy cardio, then four compound lifts and an abs finisher.",
+   "weeks": [
+    {
+     "week": 1,
+     "theme": "Build the base",
+     "days": [
+      {
+       "day": 1,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-goblet-squat",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Sit between your heels, chest tall \u2014 your knee felt fine at this depth last block.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hands under shoulders, squeeze your glutes so the hips don't sag.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "lat-pulldown",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull the elbows to your back pockets, pause at the chest.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-shoulder-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Ribs down, press straight up \u2014 no arch to cheat the rep.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "plank",
+         "sets": 3,
+         "reps": "40 sec",
+         "rest_sec": 45,
+         "cue": "Brace like you're about to be poked in the stomach.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "dead-bug",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Lower back glued down \u2014 shrink the range before it lifts.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-rdl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hips back, soft knees, feel the hamstrings load.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-bench-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Elbows at 45\u00b0, touch the chest, drive up.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "seated-cable-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Squeeze the shoulder blades, don't rock the torso.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-lateral-raise",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Lead with the elbows, stop at shoulder height.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "lying-leg-raise",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Press the lower back down, lower the legs slowly.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "side-plank",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Push the floor away, stack the hips.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "leg-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Full foot on the plate, knees track over the toes.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "incline-pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Same straight line as the floor version \u2014 just easier.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull to the hip, pause, lower under control.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-curl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Elbows pinned, no swing.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "hollow-hold",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Lower back flat, lift only as high as it stays flat.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "bird-dog",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Balance a cup of water on your lower back.",
+         "common_mistake": ""
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week": 2,
+     "theme": "Add a set",
+     "days": [
+      {
+       "day": 1,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-goblet-squat",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Sit between your heels, chest tall \u2014 your knee felt fine at this depth last block.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hands under shoulders, squeeze your glutes so the hips don't sag.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "lat-pulldown",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull the elbows to your back pockets, pause at the chest.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-shoulder-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Ribs down, press straight up \u2014 no arch to cheat the rep.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "plank",
+         "sets": 3,
+         "reps": "40 sec",
+         "rest_sec": 45,
+         "cue": "Brace like you're about to be poked in the stomach.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "dead-bug",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Lower back glued down \u2014 shrink the range before it lifts.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-rdl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hips back, soft knees, feel the hamstrings load.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-bench-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Elbows at 45\u00b0, touch the chest, drive up.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "seated-cable-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Squeeze the shoulder blades, don't rock the torso.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-lateral-raise",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Lead with the elbows, stop at shoulder height.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "lying-leg-raise",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Press the lower back down, lower the legs slowly.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "side-plank",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Push the floor away, stack the hips.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "leg-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Full foot on the plate, knees track over the toes.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "incline-pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Same straight line as the floor version \u2014 just easier.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull to the hip, pause, lower under control.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-curl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Elbows pinned, no swing.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "hollow-hold",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Lower back flat, lift only as high as it stays flat.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "bird-dog",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Balance a cup of water on your lower back.",
+         "common_mistake": ""
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week": 3,
+     "theme": "Push the load",
+     "days": [
+      {
+       "day": 1,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-goblet-squat",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Sit between your heels, chest tall \u2014 your knee felt fine at this depth last block.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hands under shoulders, squeeze your glutes so the hips don't sag.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "lat-pulldown",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull the elbows to your back pockets, pause at the chest.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-shoulder-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Ribs down, press straight up \u2014 no arch to cheat the rep.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "plank",
+         "sets": 3,
+         "reps": "40 sec",
+         "rest_sec": 45,
+         "cue": "Brace like you're about to be poked in the stomach.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "dead-bug",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Lower back glued down \u2014 shrink the range before it lifts.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-rdl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hips back, soft knees, feel the hamstrings load.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-bench-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Elbows at 45\u00b0, touch the chest, drive up.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "seated-cable-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Squeeze the shoulder blades, don't rock the torso.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-lateral-raise",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Lead with the elbows, stop at shoulder height.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "lying-leg-raise",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Press the lower back down, lower the legs slowly.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "side-plank",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Push the floor away, stack the hips.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "leg-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Full foot on the plate, knees track over the toes.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "incline-pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Same straight line as the floor version \u2014 just easier.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull to the hip, pause, lower under control.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-curl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Elbows pinned, no swing.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "hollow-hold",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Lower back flat, lift only as high as it stays flat.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "bird-dog",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Balance a cup of water on your lower back.",
+         "common_mistake": ""
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "week": 4,
+     "theme": "Deload + retest",
+     "days": [
+      {
+       "day": 1,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-goblet-squat",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Sit between your heels, chest tall \u2014 your knee felt fine at this depth last block.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hands under shoulders, squeeze your glutes so the hips don't sag.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "lat-pulldown",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull the elbows to your back pockets, pause at the chest.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-shoulder-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Ribs down, press straight up \u2014 no arch to cheat the rep.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "plank",
+         "sets": 3,
+         "reps": "40 sec",
+         "rest_sec": 45,
+         "cue": "Brace like you're about to be poked in the stomach.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "dead-bug",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Lower back glued down \u2014 shrink the range before it lifts.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 3,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "db-rdl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Hips back, soft knees, feel the hamstrings load.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-bench-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Elbows at 45\u00b0, touch the chest, drive up.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "seated-cable-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Squeeze the shoulder blades, don't rock the torso.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-lateral-raise",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Lead with the elbows, stop at shoulder height.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "lying-leg-raise",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Press the lower back down, lower the legs slowly.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "side-plank",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Push the floor away, stack the hips.",
+         "common_mistake": ""
+        }
+       ]
+      },
+      {
+       "day": 5,
+       "focus": "Total-body \u2014 upper + arms + abs",
+       "warmup": [],
+       "main": [
+        {
+         "exercise_id": "leg-press",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Full foot on the plate, knees track over the toes.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "incline-pushup",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Same straight line as the floor version \u2014 just easier.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-row",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 60,
+         "cue": "Pull to the hip, pause, lower under control.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "db-curl",
+         "sets": 3,
+         "reps": "12",
+         "rest_sec": 45,
+         "cue": "Elbows pinned, no swing.",
+         "common_mistake": ""
+        }
+       ],
+       "abs_finisher": [
+        {
+         "exercise_id": "hollow-hold",
+         "sets": 3,
+         "reps": "30 sec",
+         "rest_sec": 45,
+         "cue": "Lower back flat, lift only as high as it stays flat.",
+         "common_mistake": ""
+        },
+        {
+         "exercise_id": "bird-dog",
+         "sets": 3,
+         "reps": "15",
+         "rest_sec": 45,
+         "cue": "Balance a cup of water on your lower back.",
+         "common_mistake": ""
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ }
+}

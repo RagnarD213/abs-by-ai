@@ -1,0 +1,7 @@
+Metadata for an organic dedicated Short teaching a five-minute home bodyweight workout.
+Return JSON only, with title, hook, body, close, youtube_description and pinned_comment.
+Title: 5-Minute Home Workout: 3 Exercises, No Equipment.
+Cover text is already approved: 5 Minute / Home Workout.
+The full transcript is supplied as Dan's own words. Use only that content. Exercises are bodyweight squats, push-ups (from the knees if needed), and Spiderman Planks. In this film Spiderman Planks means alternating from forearms to a push-up position, one side then the other, switching sides for the next set. Do not turn it into knee-to-elbow mountain climbers.
+Each exercise30 seconds, rest30 seconds, cycle through all three until five minutes. Start every morning, then build to10 and15 minutes after it becomes a habit. Bodyweight squats work legs/glutes; push-ups chest/shoulders/arms; Spiderman Planks abs/core.
+Hook is one sentence using the opening's idea. Body60-90words with the routine and instruction to build the habit. Close asks viewers to subscribe for practical workouts. YouTube description under150words, includes the three exercises as a simple numbered list and the30seconds work/rest/five minute instructions. Pinned comment is one easy question asking which is hardest: squats, push-ups or Spiderman Planks, under180characters, no links. No added personal facts, results promises, prices or free image offer. No source credit needed; all footage is ours. No URLs: the setup owner adds current organic links separately. No long dashes.

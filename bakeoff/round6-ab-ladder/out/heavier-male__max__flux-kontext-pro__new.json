@@ -1,0 +1,21 @@
+{
+  "caseId": "heavier-male__max",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "condensed",
+  "promptVersion": "new",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 8684,
+  "geminiSafetyRetry": false,
+  "promptChars": 945,
+  "nominalCost": 0.04,
+  "image": "heavier-male__max__flux-kontext-pro__new.jpg",
+  "ts": "2026-08-07T15:29:55.450Z"
+}

@@ -1,0 +1,28 @@
+{
+  "caseId": "lean-male__dramatic",
+  "photoKey": "lean-male",
+  "gender": "male",
+  "condition": "very_lean",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "flux-kontext-pro",
+  "set": 2,
+  "variant": "condensed",
+  "label": "FLUX Kontext Pro",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 10746,
+  "geminiSafetyRetry": false,
+  "promptChars": 1343,
+  "nominalCost": 0.04,
+  "image": "lean-male__dramatic__flux-kontext-pro__condensed.jpg",
+  "meta": {
+    "predictTime": 10.127332555,
+    "predictionId": "t79rvv3711rmw0czp1grnd659r"
+  },
+  "ts": "2026-07-30T00:16:51.689Z"
+}

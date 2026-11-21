@@ -1,0 +1,28 @@
+{
+  "9": {
+    "box": [
+      68,
+      1530,
+      944,
+      180
+    ],
+    "top_px": 30,
+    "big_px": 64,
+    "top_offset": 20,
+    "big_offset": 65,
+    "radius": 36
+  },
+  "16": {
+    "box": [
+      68,
+      740,
+      590,
+      140
+    ],
+    "top_px": 24,
+    "big_px": 46,
+    "top_offset": 20,
+    "big_offset": 58,
+    "radius": 28
+  }
+}

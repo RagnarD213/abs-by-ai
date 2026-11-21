@@ -1,0 +1,84 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "round": 2,
+  "review_delivery_complete": true,
+  "release_ready": false,
+  "summary": "Independent picture and audio review passed both formats. Full automated delivery gates remain FAIL for the approved voice versus the studio reference, approved horizontal wide framing, and deliberate zoom cuts. These are R2 review candidates; the locked choices are preserved.",
+  "videos": [
+    {
+      "format": "9x16",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4",
+      "sha256": "2f10b36412e1890c8618161c628725876cce1f794e329bc5c31e7f49abaa90ed",
+      "frames": 1616,
+      "duration": 53.92053333333333,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "1/10 joins above the file's own p99 ceiling (25.21): [(42.61, 25.51)]"
+        }
+      ]
+    },
+    {
+      "format": "16x9",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4",
+      "sha256": "453c6f10bcb7142f6065c7344e8b91fa0b29a088b301d245a450f4a9a4752d5a",
+      "frames": 1616,
+      "duration": 53.92053333333333,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+        },
+        {
+          "key": "framing:no_wide_level",
+          "detail": "6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]"
+        }
+      ]
+    }
+  ],
+  "open_gate_rows": {
+    "9x16": [
+      {
+        "key": "audio:stamp",
+        "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+      },
+      {
+        "key": "cut:splice_visibility",
+        "detail": "1/10 joins above the file's own p99 ceiling (25.21): [(42.61, 25.51)]"
+      }
+    ],
+    "16x9": [
+      {
+        "key": "audio:stamp",
+        "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+      },
+      {
+        "key": "framing:no_wide_level",
+        "detail": "6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]"
+      },
+      {
+        "key": "cut:splice_visibility",
+        "detail": "2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]"
+      }
+    ]
+  },
+  "independent_media_defects": [],
+  "review_url": "http://127.0.0.1:8973/",
+  "actual_provider_billing_usd": null,
+  "estimated_session_review_usd_upper_bound": 3,
+  "new_generation_usd": 0,
+  "reviewer_usage": "Codex editor/reviewer model and token usage unavailable; Gemini usage in attached receipts.",
+  "native_folder_open": "Not opened automatically: Mac was locked.",
+  "when": "2026-10-14T22:27:22.005539"
+}

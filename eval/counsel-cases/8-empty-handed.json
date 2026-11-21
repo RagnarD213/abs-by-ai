@@ -1,0 +1,13 @@
+{
+  "decisionType": "supplement-audit",
+  "mustBeGreen": true,
+  "expect": "Zero current items — an ADD-only keep_drop_table and a new_stack that honors the $50 budget and 3–4 servings cap. Should recommend the proven shortlist (creatine, protein as food convenience, vitamin D if low). monthly_savings \"$0\" (nothing dropped).",
+  "intake": {
+    "items": [],
+    "medications": "none",
+    "budget_monthly": "$25–75",
+    "max_daily_servings": "3–4",
+    "caffeine_other": "1 coffee",
+    "stack_style": "optimize"
+  }
+}

@@ -1,0 +1,382 @@
+{
+ "reference_version": 1,
+ "when": "2026-09-16T19:22:32",
+ "files": {
+  "ad1": {
+   "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/this picture got me abs - ad 1/this picture got me abs | muhammad | 16x9 | ad 1.mp4",
+   "sha256": "e99a9332851a85a552c19fdb9e49b00260446776c0e57f2378000f885ed9453c",
+   "verdict": "PASS",
+   "rows": [
+    {
+     "key": "change_rate_per_min",
+     "value": 12.12,
+     "status": "PASS"
+    },
+    {
+     "key": "coverage",
+     "value": 0.4442,
+     "status": "PASS"
+    },
+    {
+     "key": "static_run_s",
+     "value": 16.83,
+     "status": "PASS"
+    },
+    {
+     "key": "naked_splices_per_min",
+     "value": 9.537,
+     "status": "PASS"
+    },
+    {
+     "key": "push_spread",
+     "value": 1.2599,
+     "status": "PASS"
+    },
+    {
+     "key": "push_off_frac",
+     "value": 0.266,
+     "status": "PASS"
+    },
+    {
+     "key": "pushed_holds_per_min",
+     "value": 2.319927775321113,
+     "status": "PASS"
+    },
+    {
+     "key": "events_per_min",
+     "value": 9.021941348470994,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_median_s",
+     "value": 4.8400000000000105,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_p90_s",
+     "value": 14.245000000000001,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_max_s",
+     "value": 20.849999999999998,
+     "status": "PASS"
+    },
+    {
+     "key": "talking_head_luma",
+     "value": 66.1748275756836,
+     "status": "PASS"
+    },
+    {
+     "key": "on_scene_frac",
+     "value": 0.576118119266055,
+     "status": "PASS"
+    },
+    {
+     "key": "opening_changes_15s",
+     "value": 4.0,
+     "status": "PASS"
+    },
+    {
+     "key": "closing_changes_15s",
+     "value": 2.0,
+     "status": "PASS"
+    },
+    {
+     "key": "graphics_per_min",
+     "value": 4.124316045015312,
+     "status": "PASS"
+    },
+    {
+     "key": "lower_thirds_per_min",
+     "value": 1.8043882696941989,
+     "status": "PASS"
+    },
+    {
+     "key": "cta_count",
+     "value": 3.0,
+     "status": "PASS"
+    },
+    {
+     "key": "inserts_per_min",
+     "value": 6.959783325963339,
+     "status": "PASS"
+    },
+    {
+     "key": "insert_coverage_hand",
+     "value": 0.5692415374630506,
+     "status": "PASS"
+    },
+    {
+     "key": "flashes_per_min",
+     "value": 2.835467280948027,
+     "status": "PASS"
+    },
+    {
+     "key": "pushes_hand_per_min",
+     "value": 3.6087765393883977,
+     "status": "PASS"
+    },
+    {
+     "key": "longest_talk_hand_s",
+     "value": 16.95,
+     "status": "PASS"
+    }
+   ]
+  },
+  "ad2": {
+   "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/stop wasting money on nutritionists - ad 2/stop wasting money on nutritionists | muhammad | 16x9 | ad 2.mp4",
+   "sha256": "f21c69629ebf1f39c36dfb4b792a274af06e2650281056a50499c80074b8539b",
+   "verdict": "PASS",
+   "rows": [
+    {
+     "key": "change_rate_per_min",
+     "value": 9.78,
+     "status": "PASS"
+    },
+    {
+     "key": "coverage",
+     "value": 0.3786,
+     "status": "PASS"
+    },
+    {
+     "key": "static_run_s",
+     "value": 19.67,
+     "status": "PASS"
+    },
+    {
+     "key": "naked_splices_per_min",
+     "value": 7.606,
+     "status": "PASS"
+    },
+    {
+     "key": "push_spread",
+     "value": 1.1817,
+     "status": "PASS"
+    },
+    {
+     "key": "push_off_frac",
+     "value": 0.016,
+     "status": "PASS"
+    },
+    {
+     "key": "pushed_holds_per_min",
+     "value": 0.21730535299467257,
+     "status": "PASS"
+    },
+    {
+     "key": "events_per_min",
+     "value": 5.649939177861487,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_median_s",
+     "value": 7.740000000000009,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_p90_s",
+     "value": 23.528000000000013,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_max_s",
+     "value": 34.83999999999999,
+     "status": "PASS"
+    },
+    {
+     "key": "talking_head_luma",
+     "value": 72.000732421875,
+     "status": "PASS"
+    },
+    {
+     "key": "on_scene_frac",
+     "value": 0.6194561933534743,
+     "status": "PASS"
+    },
+    {
+     "key": "opening_changes_15s",
+     "value": 4.0,
+     "status": "PASS"
+    },
+    {
+     "key": "closing_changes_15s",
+     "value": 1.0,
+     "status": "PASS"
+    },
+    {
+     "key": "graphics_per_min",
+     "value": 2.173053529946726,
+     "status": "PASS"
+    },
+    {
+     "key": "lower_thirds_per_min",
+     "value": 0.43461070598934515,
+     "status": "PASS"
+    },
+    {
+     "key": "cta_count",
+     "value": 3.0,
+     "status": "PASS"
+    },
+    {
+     "key": "inserts_per_min",
+     "value": 3.9114963539041065,
+     "status": "PASS"
+    },
+    {
+     "key": "insert_coverage_hand",
+     "value": 0.4196528541915451,
+     "status": "PASS"
+    },
+    {
+     "key": "flashes_per_min",
+     "value": 3.476885647914761,
+     "status": "PASS"
+    },
+    {
+     "key": "pushes_hand_per_min",
+     "value": 3.259580294920089,
+     "status": "PASS"
+    },
+    {
+     "key": "longest_talk_hand_s",
+     "value": 25.58,
+     "status": "PASS"
+    }
+   ]
+  },
+  "attempt1": {
+   "path": "/Volumes/Extreme/_edit_work/ad1-8-14/vert9x16/ad1_vertical_59s.mp4",
+   "sha256": "edfbfdc0c297295cfc51426350a6c46f2046e8eecabf581577955e6bc4900855",
+   "format": "ad9x16",
+   "required_failures": {
+    "push_spread": "DEFECT",
+    "naked_splices_per_min": "DEFECT"
+   },
+   "observed": {
+    "push_spread": "DEFECT",
+    "naked_splices_per_min": "DEFECT"
+   },
+   "verdict": "FAIL as required",
+   "rows": [
+    {
+     "key": "change_rate_per_min",
+     "value": 14.19,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "coverage",
+     "value": 0.4314,
+     "status": "PASS"
+    },
+    {
+     "key": "static_run_s",
+     "value": 7.66,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "naked_splices_per_min",
+     "value": 14.187,
+     "status": "DEFECT"
+    },
+    {
+     "key": "push_spread",
+     "value": 1.0225,
+     "status": "DEFECT"
+    },
+    {
+     "key": "push_off_frac",
+     "value": 0.0,
+     "status": "PASS"
+    },
+    {
+     "key": "pushed_holds_per_min",
+     "value": 0.0,
+     "status": "PASS"
+    },
+    {
+     "key": "events_per_min",
+     "value": 11.82249702959762,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "shot_len_median_s",
+     "value": 4.340700000000005,
+     "status": "PASS"
+    },
+    {
+     "key": "shot_len_p90_s",
+     "value": 7.739999999999995,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "shot_len_max_s",
+     "value": 8.68,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "talking_head_luma",
+     "value": 65.24999237060547,
+     "status": "PASS"
+    },
+    {
+     "key": "on_scene_frac",
+     "value": 0.5450361604207759,
+     "status": "PASS"
+    },
+    {
+     "key": "opening_changes_15s",
+     "value": 4.0,
+     "status": "PASS"
+    },
+    {
+     "key": "closing_changes_15s",
+     "value": 3.0,
+     "status": "OVERSHOOT"
+    },
+    {
+     "key": "graphics_per_min",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "lower_thirds_per_min",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "cta_count",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "inserts_per_min",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "insert_coverage_hand",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "flashes_per_min",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "pushes_hand_per_min",
+     "value": null,
+     "status": "NOT MEASURED"
+    },
+    {
+     "key": "longest_talk_hand_s",
+     "value": null,
+     "status": "NOT MEASURED"
+    }
+   ]
+  }
+ },
+ "verdict": "PROVEN"
+}

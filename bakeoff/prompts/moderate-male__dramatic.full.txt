@@ -1,0 +1,21 @@
+Transform this physique into a fitness magazine cover model with a dramatic, unmistakable body composition shift. Target 9-11% body fat with visibly added lean muscle mass — approximately 12 pounds of additional muscle underneath the fat loss. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. As the body fat comes off, the physique underneath must be visibly more muscular and more developed than the input — a fuller, squarer chest, distinctly larger and rounder shoulder caps, wider lats creating an obvious V-taper, and noticeably thicker arms. The result must look like someone who both lost the fat AND built real muscle, not simply a smaller, softer version of the same body.
+
+- Reduce body fat to 9-11%, revealing sharp, deeply etched abdominal definition: a prominent six-pack with clear separation between each upper-ab block, a sharp vertical midline groove, and visible intercostal separation between the ribs
+- Build a fuller, squarer chest with a pronounced lower-pec line and clear pec-delt separation
+- Enlarge and round the shoulder caps visibly — they must be noticeably wider and more prominent than the input, creating an immediate V-taper silhouette
+- Widen the lats, flaring them out from the armpits to create a dramatic inverted-triangle back and a narrower, more defined waist by contrast
+- Thicken the upper back and create visible lat separation from the rear
+- Add visible bicep peak and a full, swept tricep line; arms must read as substantially more muscular and defined than the input
+- Tighten and define the obliques and waist, narrowing the midsection below the navel with no softness at the sides — the V-cut must be sharp and visible
+- Render all definition with real light-and-shadow contrast: each ab block catching light with a distinct shadow in the groove beside it, never flat low-contrast lines
+- Skin must be taut and dry, drawn tight over the muscle, with a subtle natural sheen on the ab blocks, chest, and shoulders — an athletic, natural look
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+Add a light sun-kissed warmth to the skin — no more than 1-2 shades deeper than the natural skin tone. Do NOT dramatically darken fair or light skin. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID: any alteration to face, identity, apparent ethnicity, or age; heavily oiled, greasy, wet, or sweat-drenched skin; exaggerated or cartoonish proportions; cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body; an output identical or nearly identical to the input; bulging veins or competition vascularity; comically oversized muscles; spray-on abs that look digitally pasted on.
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

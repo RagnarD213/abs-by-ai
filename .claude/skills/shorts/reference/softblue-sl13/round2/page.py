@@ -1,0 +1,35 @@
+from pathlib import Path
+import sys,json,shutil,subprocess,html
+D=Path(__file__).parent;sys.path.insert(0,str(D));import batch as B
+W=Path(B.WORK);OUT=W/'review';(OUT/'media').mkdir(parents=True,exist_ok=True);(OUT/'stills').mkdir(exist_ok=True)
+shutil.copyfile(Path(B.lib.ROOT)/'.claude/skills/_shared/review_player.js',OUT/'review_player.js')
+items=[];info={}
+for S in 'ABC':
+ source=OUT/(B.P.NAME[S]+'.mp4');shutil.copyfile(source,OUT/'media'/(S+'.mp4'))
+ T=json.loads((W/'build'/S/'timeline.json').read_text());words=json.loads((W/'build'/S/'words.json').read_text());shots=json.loads((W/'build'/S/'shots.json').read_text());man=json.loads((W/'build'/S/'hf/manifest.json').read_text())
+ info[S]=dict(title=' '.join(B.P.TITLE[S][1]),seconds=round(T['frames']/B.FPS,3),file=source.name)
+ want=[]
+ if S=='A':want=[dict(id='Revised Study Comparison',a=33.50,b=45.21,t=44.8,copy='High Protein: • 10.5 lbs. Fat Loss • 2.5 lbs. Muscle Gain. Low Protein: • 8 lbs. Fat Loss • No Muscle Gain.',note='A changed only here. The original audio was stream-copied; the approved title, captions, timing and footage were preserved.')]
+ else:
+  for sh in shots:
+   a,b=sh['f0']/B.FPS,sh['f1']/B.FPS
+   kind=sh['kind'];name=sh['roll'].replace('-',' ').title() if kind=='clip' else 'Presenter: '+('Closer Crop' if sh.get('win')=='mid' else 'Wider Crop')
+   want.append(dict(id=name,a=a,b=b,t=max(a+.1,b-.65) if kind=='clip' else (a+b)/2,copy=' '.join(w['w'] for w in words if a<=w['t']<b),note='Moving Soft Blue Light graphic.' if kind=='clip' and 'stairs' not in sh['roll'] else 'Existing stairs footage, colour matched to the film.' if 'stairs' in sh['roll'] else 'Approved look and voice; measured land-then-hold framing.'))
+ for i,it in enumerate(want):
+  it.update(short=S);im=OUT/'stills'/f'{S}-{i:02d}.jpg';subprocess.run([B.lib.FF,'-v','error','-y','-ss',str(it['t']),'-i',str(source),'-frames:v','1',str(im)],check=True);it['image']=im.name
+  for name,a,b in [('before',max(0,it['a']-3),it['a']),('during',it['a'],it['b']),('after',it['b'],min(T['total'],it['b']+3))]:it[name]=' '.join(w['w'] for w in words if a<=w['t']<b)
+  items.append(it)
+(OUT/'items.json').write_text(json.dumps(items,indent=2));(OUT/'media-manifest.json').write_text(json.dumps(info,indent=2))
+esc=html.escape;cards=[]
+for it in items:
+ cards.append(f'''<article><a href="stills/{it['image']}" target="_blank"><img src="stills/{it['image']}" alt="{it['short']}: {esc(it['id'])}"></a><h3>{it['short']} · {esc(it['id'])}</h3><small>{it['a']:.2f}–{it['b']:.2f}s</small><p>{esc(it['copy'])}</p><p>{esc(it['note'])}</p><button onclick="context('{it['short']}',{max(0,it['a']-3):.3f})">Play {it['short']} In Context</button><details><summary>Surrounding Speech</summary><p>Before: {esc(it['before'])}</p><p><b>During: {esc(it['during'])}</b></p><p>After: {esc(it['after'])}</p></details></article>''')
+buttons=''.join(f'''<p><button onclick="context('{S}',0)">Play Full {S}</button> {esc(info[S]['title'])} · {info[S]['seconds']:.1f}s · <a href="media/{S}.mp4" download>Download 1080p</a> · <a href="AB_film-vs-short_{B.P.NAME[S]}.mp4">Compare Audio</a></p>''' for S in 'ABC')
+page='''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Calories Dont Matter SFC R2</title><style>
+*{box-sizing:border-box}body{font:16px/1.5 system-ui;background:#071324;color:#eef6ff;margin:0}main{max-width:1360px;margin:0 auto;padding:36px 430px 80px 28px}h1{font-size:34px;line-height:1.15}h2{margin-top:36px}p,li{color:#cbd9e9}.tag{color:#71c7ff;font-weight:700}a{color:#83d1ff}button{background:#164b74;color:white;border:1px solid #4287ae;border-radius:8px;padding:10px 14px;cursor:pointer}aside{position:fixed;right:24px;top:60px;width:360px;max-height:91vh;overflow:auto;background:#0f243b;padding:14px;border-radius:14px;border:1px solid #284c69}video{display:block;width:100%;max-height:69vh;background:#000}aside p{margin:10px 0}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}article{border:1px solid #27475f;border-radius:12px;overflow:hidden;background:#0e2135;padding:12px}article img{width:100%;aspect-ratio:9/16;object-fit:contain;display:block}article h3{margin:12px 0 0}article p{font-size:14px}textarea{width:100%;height:115px;padding:12px;background:#10263b;color:white;border:1px solid #42617a;border-radius:8px}.notice{background:#102c45;padding:18px;border-left:3px solid #6ac9ff}small{color:#9fb6ca}@media(max-width:1100px){main{padding:24px;max-width:980px}aside{position:static;margin:20px auto;width:min(100%,400px)}.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(max-width:650px){.grid{grid-template-columns:1fr 1fr}h1{font-size:28px}}
+</style><script src="review_player.js"></script><main><span class="tag">A Revised · B And C First Complete Review</span><h1>Calories Dont Matter<br>SFC R2</h1><div class="notice"><b>Review A at 33–46 seconds, then all of B and C.</b><p>A now has High Protein and Low Protein headings with two bullets beneath each. Everything else in A follows the approved cut. B and C use that approved treatment.</p><button onclick="context('A',33)">Review A's Change</button></div>'''+buttons+'''<aside><video id="review-video" muted controls playsinline preload="metadata" src="media/A.mp4" poster="stills/A-00.jpg"></video><p id="context-label">Full Short A · 1080p</p><button onclick="context(active,0)">Play From Start</button><p><a id="download" href="media/A.mp4" download>Download Current Short</a> · <a href="checks.md">Checks And Limits</a></p></aside><h2>What I Decided <small>(Overrule Anything)</small></h2><ul><li>Preserve A outside its study graphic, including its original audio.</li><li>Keep the approved colour, voice, two presenter sizes and caption style for B and C.</li><li>Open B on the eating-window idea and C on existing moving stairs footage.</li><li>Keep complete words at the cuts, including the whole word “fidgeting.”</li><li>Use moving Soft Blue Light graphics. No new AI footage, covers or publishing.</li></ul><h2>A's Change And Every B/C Graphic And Clip</h2><p>Click an image to inspect it full size. Context buttons use the same 1080p files as the full videos.</p><section class="grid">'''+''.join(cards)+'''</section><h2>Your Notes</h2><textarea id="notes">A: approved / changes:
+B: approved / changes:
+C: approved / changes:</textarea><button onclick="navigator.clipboard.writeText(document.getElementById('notes').value)">Copy Notes</button><p>Reply in the chat. Notes are not sent automatically.</p><p class="notice">These are review copies awaiting Dan's approval. Exact-file check results and any unfinished checks are in Checks And Limits.</p></main><script>
+let active='A';
+function context(s,t){const v=document.getElementById('review-video');v.pause();if(active!==s){v.src='media/'+s+'.mp4';active=s;}v.currentTime=t;document.getElementById('context-label').textContent='Short '+s+' · from '+t.toFixed(1)+' seconds';document.getElementById('download').href='media/'+s+'.mp4';v.play().catch(()=>{});}
+</script></html>'''
+(OUT/'index.html').write_text(page);print('PAGE READY',OUT,flush=True)

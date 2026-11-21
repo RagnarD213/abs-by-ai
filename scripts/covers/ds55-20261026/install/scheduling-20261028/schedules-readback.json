@@ -1,0 +1,122 @@
+{
+  "checked_utc": "2026-10-28T18:08:48.647697+00:00",
+  "queue_count": 196,
+  "schedules": [
+    {
+      "platform": "facebook",
+      "account": "47105",
+      "id": "6161528",
+      "when": "2026-10-31T17:00:00.000Z",
+      "draft": {
+        "target": {
+          "pageId": "1294282227094660",
+          "mediaType": "reel",
+          "targetType": "facebook"
+        },
+        "content": {
+          "text": "If I only had five minutes to work out at home, these are the three exercises I would do.\n\nStart with bodyweight squats. Sit back like there's a chair behind you, then stand up tall. Next, push-ups. Keep your body straight and bring your chest all the way down. Do them from your knees if needed. Then Spiderman Planks: go from your forearms to a push-up position, one side then the other. Switch sides next set. Do each exercise for 30 seconds, rest 30 seconds, and cycle through until five minutes. Start every morning. Once it's a habit, build to 10, then 15 minutes.\n\nSubscribe to the channel for more practical workouts you can do at home.\n\nAbs By AI: https://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=five-minute-exercises&utm_content=ds55-five-minute-exercises\n\n#HomeWorkout #BodyweightWorkout #Fitness #Shorts",
+          "platform": "facebook",
+          "mediaUrls": [
+            "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/824d21cb-fdc6-4d67-97e4-62ba902d8a77.mp4"
+          ]
+        },
+        "accountId": "47105"
+      },
+      "verified": true,
+      "downloaded_media_sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "downloaded_media_bytes": 84474520,
+      "media_rehosted_by_blotato": true
+    },
+    {
+      "platform": "instagram",
+      "account": "67203",
+      "id": "6161529",
+      "when": "2026-10-31T17:00:00.000Z",
+      "draft": {
+        "target": {
+          "mediaType": "reel",
+          "targetType": "instagram",
+          "shareToFeed": true,
+          "firstComment": "Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=five-minute-exercises&utm_content=ds55-five-minute-exercises",
+          "coverImageUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/e0564368-c4bb-47f5-8e82-3aaacecaaaf6.png"
+        },
+        "content": {
+          "text": "If I only had five minutes to work out at home, these are the three exercises I would do.\n\nStart with bodyweight squats. Sit back like there's a chair behind you, then stand up tall. Next, push-ups. Keep your body straight and bring your chest all the way down. Do them from your knees if needed. Then Spiderman Planks: go from your forearms to a push-up position, one side then the other. Switch sides next set. Do each exercise for 30 seconds, rest 30 seconds, and cycle through until five minutes. Start every morning. Once it's a habit, build to 10, then 15 minutes.\n\nSubscribe to the channel for more practical workouts you can do at home.\n\nMore at AbsByAI.com. Link in bio.\n\n#HomeWorkout #BodyweightWorkout #Fitness #Shorts",
+          "platform": "instagram",
+          "mediaUrls": [
+            "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/48c67f78-023d-477d-8fd6-2d7541a2d10d.mp4"
+          ]
+        },
+        "accountId": "67203"
+      },
+      "verified": true,
+      "downloaded_media_sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "downloaded_media_bytes": 84474520,
+      "media_rehosted_by_blotato": true
+    },
+    {
+      "platform": "tiktok",
+      "account": "58181",
+      "id": "6161531",
+      "when": "2026-10-31T17:00:00.000Z",
+      "draft": {
+        "target": {
+          "targetType": "tiktok",
+          "isYourBrand": false,
+          "disabledDuet": false,
+          "privacyLevel": "PUBLIC_TO_EVERYONE",
+          "isAiGenerated": false,
+          "disabledStitch": false,
+          "disabledComments": false,
+          "isBrandedContent": false,
+          "videoCoverTimestamp": 0
+        },
+        "content": {
+          "text": "If I only had five minutes to work out at home, these are the three exercises I would do.\n\nStart with bodyweight squats. Sit back like there's a chair behind you, then stand up tall. Next, push-ups. Keep your body straight and bring your chest all the way down. Do them from your knees if needed. Then Spiderman Planks: go from your forearms to a push-up position, one side then the other. Switch sides next set. Do each exercise for 30 seconds, rest 30 seconds, and cycle through until five minutes. Start every morning. Once it's a habit, build to 10, then 15 minutes.\n\nSubscribe to the channel for more practical workouts you can do at home.\n\nAbs By AI: https://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=five-minute-exercises&utm_content=ds55-five-minute-exercises\n\n#HomeWorkout #BodyweightWorkout #Fitness #Shorts",
+          "platform": "tiktok",
+          "mediaUrls": [
+            "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/999c3c05-d809-433b-b67a-e005dcb56070.mp4"
+          ]
+        },
+        "accountId": "58181"
+      },
+      "verified": true,
+      "downloaded_media_sha256": "52fd3a3b456a6b15367195b00fd3e955ecd15045c3968a7790f7b39ec209db36",
+      "downloaded_media_bytes": 84781461,
+      "media_rehosted_by_blotato": true
+    },
+    {
+      "platform": "youtube",
+      "account": "46963",
+      "id": "6161533",
+      "when": "2026-10-31T17:00:00.000Z",
+      "draft": {
+        "target": {
+          "title": "5-Minute Home Workout: 3 Exercises, No Equipment",
+          "targetType": "youtube",
+          "thumbnailUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/83873b02-f789-4c79-8aaa-e469cd6fefd5.jpg",
+          "isMadeForKids": false,
+          "privacyStatus": "public",
+          "containsSyntheticMedia": false,
+          "shouldNotifySubscribers": true
+        },
+        "content": {
+          "text": "If you only have five minutes to work out at home, start with these three exercises. Together, they hit almost every muscle you have.\n\n1. Bodyweight squats work your legs and glutes. Sit back like there's a chair behind you, then stand up tall.\n2. Push-ups work your chest, shoulders and arms. Keep your body straight. If needed, do them from your knees.\n3. Spiderman Planks work your abs and core. Go from your forearms to a push-up position, one side then the other. Switch sides for your next set.\n\nDo each exercise for 30 seconds, rest 30 seconds, then cycle through until five minutes are up. Start every morning. Once it's a habit, go to 10 minutes and then 15.\n\nAbs By AI: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=five-minute-exercises&utm_content=ds55-five-minute-exercises\n\n#HomeWorkout #BodyweightWorkout #Fitness #Shorts",
+          "platform": "youtube",
+          "mediaUrls": [
+            "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/b6eddc91-c27d-49c2-9f98-bff5a3cdec9b.mp4"
+          ]
+        },
+        "accountId": "46963"
+      },
+      "verified": true,
+      "downloaded_media_sha256": "36746f1212068e47740a8003b766973ad413f115ff6d99570d41c0d387b22e2a",
+      "downloaded_media_bytes": 84474520,
+      "media_rehosted_by_blotato": true
+    }
+  ],
+  "all_fields_and_actual_media_bytes_match": true,
+  "original_master_unchanged": true,
+  "all_ds55_schedule_count": 4,
+  "note": "Blotato rewrote all four scheduled media URLs asynchronously after creation. Downloaded actual saved URLs and verified their exact approved SHA-256 rather than treating URL identity as byte identity."
+}

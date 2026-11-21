@@ -1,0 +1,32 @@
+[
+  {
+    "mode": "fast",
+    "before_field": [
+      214,
+      223,
+      228
+    ],
+    "after_field": [
+      211,
+      222,
+      224
+    ],
+    "body_mae": 2.299779902853673,
+    "field_mae": 2.6666666666666665
+  },
+  {
+    "mode": "accurate",
+    "before_field": [
+      214,
+      223,
+      228
+    ],
+    "after_field": [
+      214,
+      223,
+      228
+    ],
+    "body_mae": 0.6073643999190447,
+    "field_mae": 0.0
+  }
+]

@@ -1,0 +1,133 @@
+{
+ "at": "2026-10-22T16:03:02.294Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/200913806626",
+  "customers/3427170837/adGroupCriteria/200913806626~2840",
+  "customers/3427170837/adGroupCriteria/200913806626~2124",
+  "customers/3427170837/adGroupCriteria/200913806626~1000",
+  "customers/3427170837/adGroupCriteria/200913806626~2498784755180",
+  "customers/3427170837/assets/432303543749",
+  "customers/3427170837/adGroupAds/200913806626~829196685786"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/200913806626",
+    "status": "ENABLED",
+    "id": "200913806626",
+    "name": "RA-09 Do You Think AI Is Changing The World",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/200913806626~829196685786",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/829196685786",
+     "id": "829196685786",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra09&utm_content=claude-9x16-vsl"
+     ],
+     "name": "RA-09 Do You Think AI Is Changing The World | Claude R1 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "AI Is Changing The World"
+       },
+       {
+        "text": "Use AI As Your Abs Coach"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "AI Coaching For Your Workouts"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Here is how AI can plan your workouts and meals and coach you every day."
+       },
+       {
+        "text": "Daniel Rose explains how he uses AI as a personal coach for his training."
+       },
+       {
+        "text": "AI builds a personalized workout and nutrition plan around your goal picture."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI plans, coaches and adjusts your training."
+       },
+       {
+        "text": "Upload one photo and see your AI goal picture in seconds, free."
+       },
+       {
+        "text": "AI coaching explained by a guy who did it at 40 years old."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/432303543749"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200913806626~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200913806626~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200913806626~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/200913806626~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "shot": "RA-07 round 5 take G1_v1, frames 59-96 as used in the film",
+ "start_frame": "G1_v1.mp4 frame 59 (720x1280); every box is in that frame's pixels",
+ "intent": "A man in a black t-shirt and black shorts stands on the sidewalk in front of the glass door of a gym with a printed red and white CLOSED sign hanging on the glass. Frames 59-96: his feet are planted, his arms open out from his sides, both hands palm up and empty at waist height, shoulders dropped, head tilted, a resigned look at the sign. The door, the sign, the building, the sidewalk and the dark gym interior do not move. The camera is locked.",
+ "person": {
+  "reach": false
+ },
+ "camera": "locked",
+ "still": {
+  "sign": [
+   545,
+   230,
+   654,
+   325
+  ],
+  "door_handle": [
+   652,
+   528,
+   718,
+   708
+  ],
+  "hinge_top": [
+   392,
+   75,
+   413,
+   132
+  ],
+  "hinge_mid": [
+   392,
+   463,
+   413,
+   511
+  ],
+  "door_corner": [
+   650,
+   1102,
+   715,
+   1174
+  ]
+ },
+ "hands": {
+  "right": "empty, hanging in START; palm up, empty, in END",
+  "left": "empty, swinging back in START; palm up, empty, in END"
+ },
+ "may_change": {},
+ "bounds": {}
+}

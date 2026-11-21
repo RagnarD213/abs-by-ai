@@ -1,0 +1,171 @@
+{
+ "version": 1,
+ "gate_version": "2.0.0",
+ "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Claude Ad Videos/how ai can get you real six pack abs - RA-05/how ai can get you real six pack abs | claude | 9x16 | RA-05.mp4",
+ "sha256": "c0a57092fc85b01575d507ec3dcedf28cd1d60b35c1e56ef96f9a298acbcaceb",
+ "size": 95463751,
+ "gated_at": "2026-10-14 20:32:22",
+ "reference": {
+  "name": "this picture got me abs | muhammad | 16x9.mp4",
+  "sha256": "3b4641dbcb40e9851e7f9c9a144c39e854af500504f42211b890f6b85309f391"
+ },
+ "synthetic": false,
+ "profile": null,
+ "window": [
+  1.0,
+  56.3583
+ ],
+ "limits": {
+  "corr": 0.97,
+  "comb_margin": 0.35,
+  "edt": 80.0,
+  "tone_mean": 1.2,
+  "tone_max": 2.5,
+  "floor": 3.0,
+  "dry": 1.5,
+  "artifact_x": 1.1,
+  "harm_x": 1.35,
+  "lufs": -14.0,
+  "lufs_tol": 1.0,
+  "spread": 3.0,
+  "tp": -1.0,
+  "silent": 0,
+  "length": 0.1,
+  "vb_med": 0.1,
+  "vb_sec": 0.5,
+  "vb_image": 0.01,
+  "vb_lufs": 0.3,
+  "vb_lra": 0.3
+ },
+ "rows": [
+  {
+   "key": "lr_corr",
+   "ok": true,
+   "text": "one voice: L/R correlation +0.9998 (>= +0.97)",
+   "value": 0.9998
+  },
+  {
+   "key": "comb",
+   "ok": true,
+   "text": "no comb: spectral ripple 0.52 dB vs his 0.54 (<= his + 0.35)",
+   "value": 0.518
+  },
+  {
+   "key": "edt",
+   "ok": true,
+   "text": "dry room: early decay 27 ms (<= 80; his 40)",
+   "value": 26.7
+  },
+  {
+   "key": "tone",
+   "ok": true,
+   "text": "tone: mean |err| 1.09 dB (<= 1.2), max 2.25 (<= 2.5)",
+   "value": {
+    "mean": 1.092,
+    "max": 2.248,
+    "bands": [
+     7.65,
+     11.25,
+     12.62,
+     11.14,
+     10.42,
+     3.04,
+     -0.91,
+     -8.79,
+     -20.23,
+     -26.2
+    ]
+   }
+  },
+  {
+   "key": "floor",
+   "ok": true,
+   "text": "clean between words: voice-over-floor [27.6, 34.8, 27.7] vs his [27.6, 34.7, 28.0] (diff [0.1, 0.1, -0.3], >= -3.0)",
+   "value": [
+    27.64,
+    34.82,
+    27.69
+   ]
+  },
+  {
+   "key": "artifacts",
+   "ok": true,
+   "text": "no processing damage: flux 0.086 (his 0.072; the untreated recording reads 0.097, so processing added none of it), HF swirl 0.766 (his 0.835); each <= his x1.1 unless the untreated recording already carried it",
+   "value": {
+    "flux": 0.086,
+    "sfm": 0.0326,
+    "swirl": 0.766,
+    "gap": 32.7637,
+    "carried": {
+     "flux": 0.0967
+    }
+   }
+  },
+  {
+   "key": "do_no_harm",
+   "ok": true,
+   "text": "no worse than untreated: flux 0.086 vs untreated 0.097 (x0.89), swirl 0.766 vs untreated 0.982 (x0.78), both <= x1.35 (untreated EDT 24.0 ms)   [reported, not gated: gap x0.76, sfm x0.42]",
+   "value": {
+    "ratios": {
+     "flux": 0.889,
+     "sfm": 0.415,
+     "swirl": 0.78,
+     "gap": 0.756
+    },
+    "untreated": {
+     "flux": 0.0967,
+     "sfm": 0.0784,
+     "swirl": 0.9822,
+     "gap": 43.3374
+    }
+   }
+  },
+  {
+   "key": "dryness",
+   "ok": true,
+   "text": "words stop cleanly: drop 10.5 dB 64 ms after a word vs his 7.4 (>= his - 1.5)",
+   "value": 10.49
+  },
+  {
+   "key": "lufs",
+   "ok": true,
+   "text": "loudness: -14.20 LUFS (-14.0 +/-1.0)",
+   "value": -14.2
+  },
+  {
+   "key": "spread",
+   "ok": true,
+   "text": "not crushed: speech spread p90-p10 7.1 dB vs his 8.2 (>= his - 3.0); LRA 3.8 LU (his 3.5)",
+   "value": {
+    "spread": 7.08,
+    "lra": 3.8
+   }
+  },
+  {
+   "key": "tp",
+   "ok": true,
+   "text": "no clipping: true peak -2.40 dBTP (<= -1.0)",
+   "value": -2.4
+  },
+  {
+   "key": "silence",
+   "ok": true,
+   "text": "nothing missing: 0 digitally silent second(s) (< -60 dBFS); 0 below -50 dBFS",
+   "value": {
+    "dead": 0,
+    "quiet": 0
+   }
+  },
+  {
+   "key": "length",
+   "ok": true,
+   "text": "audio 58.358 s vs picture 58.358 s (within 0.1 s)",
+   "value": {
+    "audio": 58.358,
+    "video": 58.358
+   }
+  }
+ ],
+ "verdict": "PASS",
+ "ab": null
+}

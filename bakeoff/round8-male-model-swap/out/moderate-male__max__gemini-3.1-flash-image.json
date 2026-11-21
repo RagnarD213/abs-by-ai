@@ -1,0 +1,22 @@
+{
+  "caseId": "moderate-male__max",
+  "photoKey": "moderate-male",
+  "gender": "male",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-3.1-flash-image",
+  "modelLabel": "Nano Banana 2 (gemini-3.1-flash-image, GA)",
+  "variant": "full",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 8935,
+  "safetyRetry": false,
+  "promptChars": 4967,
+  "nominalCost": 0.067,
+  "image": "moderate-male__max__gemini-3.1-flash-image.jpg",
+  "ts": "2026-08-09T20:42:16.392Z"
+}

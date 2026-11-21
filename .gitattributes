@@ -1,0 +1,5 @@
+# Status lists that many sessions on both Macs edit, one entry per line. When two sides add or change entries at
+# the same spot, git keeps both sides' lines instead of stopping with a conflict (two-Mac checkout sync, 2026-11-15:
+# scripts/two-mac/README.md). A changed entry can then appear twice, old and new: its owner removes the old one.
+AI_COORDINATION.md merge=union
+Handoffs/README.md merge=union

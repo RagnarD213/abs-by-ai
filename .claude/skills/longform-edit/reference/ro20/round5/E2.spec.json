@@ -1,0 +1,83 @@
+{
+ "shot": "RO-20C R5 E2, excuse voice at 4:12.3-4:16.0: 'Oh, Dan, I don't have the money for $30 a pound on salmon every week.' Lip-synced to Dan's recording.",
+ "intent": "A heavyset bearded man in a maroon hoodie sits on an apartment couch behind a coffee table of pizza, fried chicken, cheese puffs, ice cream and soda cans. START: he holds a pepperoni slice in his left hand, put-upon face, mouth closed. END: the same slice in the same hand gestures toward the camera, his other hand lifted palm up, mouth open mid-complaint. Locked camera; table, food and room unchanged.",
+ "person": {
+  "anchored": [
+   "shoulder",
+   "nose"
+  ],
+  "legs_hidden": {
+   "below_y": 600
+  },
+  "reach": false
+ },
+ "still": {
+  "lamp": [
+   200,
+   20,
+   270,
+   90
+  ],
+  "books": [
+   360,
+   190,
+   430,
+   250
+  ],
+  "pizza": [
+   600,
+   690,
+   680,
+   750
+  ],
+  "cheese_puffs": [
+   250,
+   720,
+   330,
+   790
+  ],
+  "cans": [
+   1240,
+   700,
+   1310,
+   770
+  ],
+  "chicken_bucket": [
+   130,
+   540,
+   220,
+   600
+  ],
+  "console": [
+   1560,
+   315,
+   1645,
+   360
+  ]
+ },
+ "props": [
+  {
+   "name": "pizza_slice",
+   "box": [
+    940,
+    400,
+    1090,
+    530
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "left": "holds the pizza slice in both frames",
+  "right": "START: resting on the table edge; END: lifted palm up"
+ },
+ "may_change": {
+  "tv_screen": [
+   1630,
+   0,
+   1672,
+   260
+  ]
+ },
+ "bounds": {}
+}

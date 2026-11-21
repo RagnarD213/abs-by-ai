@@ -1,0 +1,63 @@
+{
+ "intro": "Round 2. The three AI clips you approved on the round 1 page (fridge, restaurant, cardboard nutritionist) are now moving and cut into the ad, with your V2 voice. Each clip was checked for physical sense before this page, by me and by a separate reviewer. Motion spend: $3.00 of the $10 ad budget (7 takes: 6 charged, 1 blocked by the model and free).",
+ "locked": "hook A, colour C2, shot size F2, voice V2 (+3 dB bass), the museum opener (A0016), both claim lines kept as spoken, every other graphic and clip from round 1.",
+ "no_questions": "No open questions. If the three clips look right, say so and the next round builds the finished 9:16 and 16:9 masters and runs every delivery check.",
+ "full": "The whole 51 seconds as it now stands, with the V2 voice. It is a review copy: the delivery checks, the 16:9 version and the independent full-film review come in the next round, after your OK on the motion.",
+ "clips": [
+  {
+   "id": "I2",
+   "key": "fridge",
+   "name": "Chicken and broccoli forever (fridge)",
+   "at": [
+    0.08,
+    0.5,
+    0.92
+   ],
+   "body": "Replaces the factory conveyor card and fills the screen. He swings the fridge door open on its hinge; the shelves are packed with identical chicken-and-broccoli containers from the first moment the door opens; he stares at them. It plays over the words \"chicken and broccoli\". I used the second half of the take: in its first second he let go of the handle and the whole fridge slid toward him, which you never see."
+  },
+  {
+   "id": "I4",
+   "key": "restaurant",
+   "name": "Ask it what to order (restaurant)",
+   "at": [
+    0.1,
+    0.55,
+    0.92
+   ],
+   "body": "Starts on \"Eating at a restaurant?\": the menu is open on the table, he picks up his phone, checks it and points at a dish while the waiter writes it down. The macro phone card now stops where this begins. The first take had a second phone appear in a stranger's hand and was thrown out; this is the second take, from after a jump the model put in its first second."
+  },
+  {
+   "id": "I5",
+   "key": "cutout",
+   "name": "The cardboard nutritionist",
+   "at": [
+    0.2,
+    0.55,
+    0.92
+   ],
+   "body": "Two shots on one fixed camera. First: he eats dinner across from a life-size cardboard nutritionist. Cut. Then she is lying flat on the floor and he keeps eating and looks over at the empty spot, on \"and sees you twice\". The fall itself is not shown: in all three takes the model spun the cutout around and stood it back up before it fell, so I cut from standing to fallen instead (the way a time jump is shown). It replaces the 3.5 s of you on camera that was here."
+  }
+ ],
+ "changed": [
+  {
+   "id": "M1",
+   "key": "macro",
+   "name": "Meal photo to macros (phone card), now 1.5 s",
+   "at": [
+    0.2,
+    0.8
+   ],
+   "body": "Same recording and plate as round 1, now ending on \"every single meal\" so the restaurant clip can start on \"Eating at a restaurant?\" (was 3.4 s). It still shows the photo being taken and the itemized result."
+  }
+ ],
+ "decided": [
+  "Fridge: used take frames 33 to 86 at normal speed (2.2 s), the part where the door swings open and he stares. The take's first second is not used.",
+  "Restaurant: second take, frames 32 to 78 at normal speed (1.9 s). The first take was rejected (a hand reached in and a second phone appeared).",
+  "Cardboard nutritionist: two shots joined by a cut on a fixed camera (take frames 6 to 35, then 89 to 143), the fall not shown. Three takes of the fall all spun the cutout and stood it back up. Your round 1 picture (you on camera) is the fallback if the cut does not work for you.",
+  "Captions over the cardboard clip sit higher, over the table, so the last lines never cover her face on the floor (the punchline). Whole lines move, never mid-line; everywhere else captions are where they were.",
+  "AI-GENERATED chip on each clip placed where no person stands across every frame used: top right on the fridge, top left on the other two.",
+  "No sound effect on the cardboard cut or anywhere else.",
+  "All three clips fill the 9:16 screen (they were made vertical), so no boxes."
+ ],
+ "decisions": []
+}

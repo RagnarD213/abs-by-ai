@@ -1,0 +1,79 @@
+{
+ "auto_00119": {
+  "box": [
+   784,
+   228,
+   248,
+   46
+  ],
+  "frames": 17,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_00243": {
+  "box": [
+   40,
+   210,
+   248,
+   142
+  ],
+  "frames": 23,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_00308": {
+  "box": [
+   328,
+   150,
+   387,
+   116
+  ],
+  "frames": 26,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_00437": {
+  "box": [
+   52,
+   150,
+   235,
+   133
+  ],
+  "frames": 17,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_00665": {
+  "box": [
+   652,
+   162,
+   387,
+   116
+  ],
+  "frames": 29,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_00748": {
+  "box": [
+   418,
+   150,
+   422,
+   124
+  ],
+  "frames": 34,
+  "contact_px": 0,
+  "ok": true
+ },
+ "auto_05256": {
+  "box": [
+   106,
+   426,
+   349,
+   56
+  ],
+  "frames": 27,
+  "contact_px": 0,
+  "ok": true
+ }
+}

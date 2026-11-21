@@ -1,0 +1,1169 @@
+{
+  "words": [
+    {
+      "w": "But",
+      "t": 0.0,
+      "e": 0.36,
+      "src": "whisper",
+      "source": "Actual original-audio ASR and listening confirmation"
+    },
+    {
+      "w": "let",
+      "t": 0.09,
+      "e": 0.344,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "me",
+      "t": 0.344,
+      "e": 0.598,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "ask",
+      "t": 0.598,
+      "e": 0.852,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "you",
+      "t": 0.852,
+      "e": 1.106,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "this.",
+      "t": 1.106,
+      "e": 1.36,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Have",
+      "t": 1.79,
+      "e": 2.1042857142857145,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "you",
+      "t": 2.1042857142857145,
+      "e": 2.4185714285714286,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "ever",
+      "t": 2.4185714285714286,
+      "e": 2.732857142857143,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "seen",
+      "t": 2.732857142857143,
+      "e": 3.047142857142857,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "a",
+      "t": 3.047142857142857,
+      "e": 3.361428571428571,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "fat",
+      "t": 3.361428571428571,
+      "e": 3.675714285714286,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "90-year-old?",
+      "t": 3.675714285714286,
+      "e": 3.99,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Scary,",
+      "t": 8.99,
+      "e": 9.290000000000001,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "isn't",
+      "t": 9.290000000000001,
+      "e": 9.59,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "it?",
+      "t": 9.59,
+      "e": 9.89,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Healthy",
+      "t": 15.4,
+      "e": 15.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "at",
+      "t": 15.9,
+      "e": 16.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "any",
+      "t": 16.4,
+      "e": 16.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "weight",
+      "t": 16.9,
+      "e": 17.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "is",
+      "t": 17.4,
+      "e": 17.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "an",
+      "t": 17.9,
+      "e": 18.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "unchallenged",
+      "t": 18.4,
+      "e": 18.9,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "lie.",
+      "t": 18.9,
+      "e": 19.4,
+      "source": "Verified original Bill Maher audio; acoustic CTC follows"
+    },
+    {
+      "w": "Bill",
+      "t": 19.76740000000018,
+      "e": 20.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "Maher",
+      "t": 20.087400000000116,
+      "e": 20.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 20.427400000000034,
+      "e": 20.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right.",
+      "t": 20.687400000000025,
+      "e": 20.967399999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "There",
+      "t": 21.327400000000125,
+      "e": 21.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 21.52740000000017,
+      "e": 21.74739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "no",
+      "t": 21.74739999999997,
+      "e": 21.907400000000052,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "such",
+      "t": 21.907400000000052,
+      "e": 22.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "thing",
+      "t": 22.12740000000008,
+      "e": 22.347400000000107,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "as",
+      "t": 22.347400000000107,
+      "e": 22.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "being",
+      "t": 22.48739999999998,
+      "e": 22.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 22.64740000000006,
+      "e": 22.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 22.927400000000034,
+      "e": 23.107400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "any",
+      "t": 23.107400000000098,
+      "e": 23.26740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "size.",
+      "t": 23.26740000000018,
+      "e": 23.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "And",
+      "t": 23.967399999999998,
+      "e": 24.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 24.22739999999999,
+      "e": 24.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 24.36740000000009,
+      "e": 24.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overfat",
+      "t": 24.607400000000098,
+      "e": 25.047400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right",
+      "t": 25.047400000000152,
+      "e": 25.28740000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "now,",
+      "t": 25.28740000000016,
+      "e": 25.547400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "it's",
+      "t": 25.74739999999997,
+      "e": 25.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "comforting",
+      "t": 25.927400000000034,
+      "e": 26.307400000000143,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 26.307400000000143,
+      "e": 26.547400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tell",
+      "t": 26.547400000000152,
+      "e": 26.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "yourself",
+      "t": 26.72739999999999,
+      "e": 27.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 27.067400000000134,
+      "e": 27.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 27.24739999999997,
+      "e": 27.38740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 27.38740000000007,
+      "e": 27.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 27.52740000000017,
+      "e": 27.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 27.64740000000006,
+      "e": 27.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 27.88740000000007,
+      "e": 28.047400000000152,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "any",
+      "t": 28.047400000000152,
+      "e": 28.207400000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "size.",
+      "t": 28.207400000000007,
+      "e": 28.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "But",
+      "t": 28.52740000000017,
+      "e": 29.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 29.12740000000008,
+      "e": 29.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 29.427400000000034,
+      "e": 29.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 29.687400000000025,
+      "e": 29.827400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lie",
+      "t": 29.827400000000125,
+      "e": 30.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 30.02740000000017,
+      "e": 30.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "that",
+      "t": 30.36740000000009,
+      "e": 30.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lie",
+      "t": 30.607400000000098,
+      "e": 30.927400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 30.927400000000034,
+      "e": 31.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "literally",
+      "t": 31.24739999999997,
+      "e": 31.607400000000098,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "killing",
+      "t": 31.607400000000098,
+      "e": 31.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you.",
+      "t": 31.98739999999998,
+      "e": 32.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "That's",
+      "t": 32.64740000000006,
+      "e": 33.04740000000015,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "why",
+      "t": 33.04740000000015,
+      "e": 33.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 33.187400000000025,
+      "e": 33.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "need",
+      "t": 33.34740000000011,
+      "e": 33.447400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 33.447400000000016,
+      "e": 33.567400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "treat",
+      "t": 33.567400000000134,
+      "e": 33.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 33.72739999999999,
+      "e": 33.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "belly",
+      "t": 33.86740000000009,
+      "e": 34.04740000000015,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 34.04740000000015,
+      "e": 34.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "as",
+      "t": 34.30740000000014,
+      "e": 34.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "an",
+      "t": 34.62740000000008,
+      "e": 34.74739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "emergency",
+      "t": 34.74739999999997,
+      "e": 35.26740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "because",
+      "t": 35.26740000000018,
+      "e": 35.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 35.947400000000016,
+      "e": 36.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "future",
+      "t": 36.14740000000006,
+      "e": 36.447400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 36.447400000000016,
+      "e": 36.72739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "going",
+      "t": 36.72739999999999,
+      "e": 36.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 36.90740000000005,
+      "e": 37.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 37.067400000000134,
+      "e": 37.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "amazing",
+      "t": 37.22739999999999,
+      "e": 37.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 37.84740000000011,
+      "e": 38.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 38.36740000000009,
+      "e": 38.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 38.48739999999998,
+      "e": 38.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "don't",
+      "t": 38.64740000000006,
+      "e": 38.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lose",
+      "t": 38.76740000000018,
+      "e": 38.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 38.9674,
+      "e": 39.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight",
+      "t": 39.087400000000116,
+      "e": 39.22739999999999,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 39.22739999999999,
+      "e": 39.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "aren't",
+      "t": 39.64740000000006,
+      "e": 39.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "going",
+      "t": 39.9674,
+      "e": 40.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 40.1074000000001,
+      "e": 40.16740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be",
+      "t": 40.16740000000004,
+      "e": 40.28740000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "around",
+      "t": 40.28740000000016,
+      "e": 40.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 40.48739999999998,
+      "e": 40.64740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 40.64740000000006,
+      "e": 40.80740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "how",
+      "t": 40.80740000000014,
+      "e": 41.00739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "awesome",
+      "t": 41.00739999999996,
+      "e": 41.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "it",
+      "t": 41.427400000000034,
+      "e": 41.6074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "will",
+      "t": 41.6074000000001,
+      "e": 41.70740000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "be.",
+      "t": 41.70740000000001,
+      "e": 41.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "So,",
+      "t": 42.4674,
+      "e": 42.6074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "on",
+      "t": 42.64740000000006,
+      "e": 42.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "screen",
+      "t": 42.84740000000011,
+      "e": 43.087400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "right",
+      "t": 43.087400000000116,
+      "e": 43.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "now",
+      "t": 43.30740000000014,
+      "e": 43.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 43.587400000000116,
+      "e": 43.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 43.86740000000009,
+      "e": 43.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 43.98739999999998,
+      "e": 44.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 44.14740000000006,
+      "e": 44.24739999999997,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "BMI",
+      "t": 44.24739999999997,
+      "e": 44.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "table",
+      "t": 44.52740000000017,
+      "e": 44.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 44.947400000000016,
+      "e": 45.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tell",
+      "t": 45.14740000000006,
+      "e": 45.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 45.327400000000125,
+      "e": 45.4674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 45.4674,
+      "e": 45.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight.",
+      "t": 45.62740000000008,
+      "e": 46.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "So",
+      "t": 46.567400000000134,
+      "e": 46.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "look",
+      "t": 46.687400000000025,
+      "e": 46.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 46.90740000000005,
+      "e": 47.02740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 47.02740000000017,
+      "e": 47.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight,",
+      "t": 47.12740000000008,
+      "e": 47.36740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "look",
+      "t": 47.567400000000134,
+      "e": 47.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "at",
+      "t": 47.62740000000008,
+      "e": 47.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 47.76740000000018,
+      "e": 47.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "height",
+      "t": 47.88740000000007,
+      "e": 48.12740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 48.12740000000008,
+      "e": 48.62740000000008,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "then",
+      "t": 48.62740000000008,
+      "e": 48.86740000000009,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "see",
+      "t": 48.86740000000009,
+      "e": 49.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 49.327400000000125,
+      "e": 49.4674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 49.4674,
+      "e": 49.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight",
+      "t": 49.587400000000116,
+      "e": 49.947400000000016,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "or",
+      "t": 49.947400000000016,
+      "e": 50.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "obese.",
+      "t": 50.1074000000001,
+      "e": 50.40740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "If",
+      "t": 50.927400000000034,
+      "e": 51.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 51.1074000000001,
+      "e": 51.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "in",
+      "t": 51.34740000000011,
+      "e": 51.427400000000034,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 51.427400000000034,
+      "e": 51.52740000000017,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "overweight",
+      "t": 51.52740000000017,
+      "e": 51.80740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "category,",
+      "t": 51.80740000000014,
+      "e": 52.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 52.6074000000001,
+      "e": 52.84740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "health",
+      "t": 52.84740000000011,
+      "e": 53.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "will",
+      "t": 53.1074000000001,
+      "e": 53.30740000000014,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "tremendously",
+      "t": 53.30740000000014,
+      "e": 53.88740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "improve",
+      "t": 53.88740000000007,
+      "e": 54.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "if",
+      "t": 54.48739999999998,
+      "e": 54.66740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 54.66740000000004,
+      "e": 54.76740000000018,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "get",
+      "t": 54.76740000000018,
+      "e": 54.90740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 54.90740000000005,
+      "e": 55.067400000000134,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "a",
+      "t": 55.067400000000134,
+      "e": 55.14740000000006,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "healthy",
+      "t": 55.14740000000006,
+      "e": 55.38740000000007,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "weight.",
+      "t": 55.38740000000007,
+      "e": 55.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "If",
+      "t": 55.947400000000016,
+      "e": 56.1074000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you're",
+      "t": 56.1074000000001,
+      "e": 56.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "on",
+      "t": 56.327400000000125,
+      "e": 56.40740000000005,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 56.40740000000005,
+      "e": 56.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "obese",
+      "t": 56.50739999999996,
+      "e": 56.687400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "category,",
+      "t": 56.687400000000025,
+      "e": 57.26739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "losing",
+      "t": 57.76739999999995,
+      "e": 58.02739999999994,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 58.02739999999994,
+      "e": 58.307399999999916,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "is",
+      "t": 58.307399999999916,
+      "e": 58.587400000000116,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "literally",
+      "t": 58.587400000000116,
+      "e": 58.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "the",
+      "t": 58.9674,
+      "e": 59.307399999999916,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "most",
+      "t": 59.307399999999916,
+      "e": 59.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "important",
+      "t": 59.50739999999996,
+      "e": 59.827400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "thing",
+      "t": 59.827400000000125,
+      "e": 60.02739999999994,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "you",
+      "t": 60.02739999999994,
+      "e": 60.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "can",
+      "t": 60.187400000000025,
+      "e": 60.327400000000125,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "do.",
+      "t": 60.327400000000125,
+      "e": 60.48739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "Subscribe",
+      "t": 61.00739999999996,
+      "e": 61.26739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 61.26739999999995,
+      "e": 61.56739999999991,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "my",
+      "t": 61.56739999999991,
+      "e": 61.66740000000004,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "channel",
+      "t": 61.66740000000004,
+      "e": 61.98739999999998,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 61.98739999999998,
+      "e": 62.187400000000025,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "learn",
+      "t": 62.187400000000025,
+      "e": 62.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "exactly",
+      "t": 62.34740000000011,
+      "e": 62.76739999999995,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "how",
+      "t": 62.76739999999995,
+      "e": 62.9674,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "to",
+      "t": 62.9674,
+      "e": 63.047399999999925,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "lose",
+      "t": 63.047399999999925,
+      "e": 63.20740000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "your",
+      "t": 63.20740000000001,
+      "e": 63.34740000000011,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "belly",
+      "t": 63.34740000000011,
+      "e": 63.50739999999996,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "fat",
+      "t": 63.50739999999996,
+      "e": 63.787399999999934,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "and",
+      "t": 63.787399999999934,
+      "e": 64.18740000000003,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "get",
+      "t": 64.18740000000003,
+      "e": 64.3474000000001,
+      "source": "C1730 roll sidecar"
+    },
+    {
+      "w": "abs.",
+      "t": 64.3474000000001,
+      "e": 64.5673999999999,
+      "source": "C1730 roll sidecar"
+    }
+  ]
+}

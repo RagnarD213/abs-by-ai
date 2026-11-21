@@ -1,0 +1,18 @@
+--- a/Handoffs/video-editing/jobs.json
++++ b/Handoffs/video-editing/jobs.json
+@@ -4766,12 +4766,12 @@
+    "codexModel": "GPT-6.1 Sol, high",
+    "codex": "Read Handoffs/video-editing/00-RULES.md and Media/footage-index/shoot-20261023/queue-jobs/DS-105.json, then execute Handoffs/video-editing/DS-105-why-i-wear-a-mouthpiece-for-cardio-and-weightlifting.md for \"Why I Wear A Mouthpiece For Cardio And Weightlifting\". Use its verified Extreme working sources and approved shared library IDs. Select the best performance across all recorded takes and hooks; preserve the filmed wording and any correction noted in the map. Follow the applicable first-review/first-minute and asset approval stages, run required checks, deliver the review, and update the queue. No publishing or setup in this editing task.",
+    "state": "delivered",
+-   "note": "R1 look/assets review: http://127.0.0.1:9274/ . Opening34s, all graphics with narration, colour/voice/framing options. Full64s Short not assembled; awaiting Dan choices. Final gate not cleared: sound reference flags and9px caption gap remain. No publishing/setup; dispatcher stays paused.",
++   "note": "R2 complete64s review http://127.0.0.1:9275/; B/A/1 applied, AI omitted. Caption timing and33px spacing repaired. Independent review ready with no confirmed visual/caption defect. Actual full gate30PASS/3FAIL/6unmeasured retained; sound/reference and detector limits explicit. Dan approval pending; no covers/publishing/setup. Work Extreme DS-105/round2.",
+    "unattended": false,
+    "intakeKey": "SHOOT-20261023-30",
+    "order": 207,
+-   "updated": "2026-10-26",
+-   "rev": 4,
++   "updated": "2026-10-28",
++   "rev": 6,
+    "syncedRev": 0,
+    "by": "Codex",
+    "editor": "Codex",

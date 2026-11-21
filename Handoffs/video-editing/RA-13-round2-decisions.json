@@ -1,0 +1,86 @@
+{
+  "job": "RA-13",
+  "category": "AD",
+  "round": 2,
+  "date": "2026-10-14",
+  "user_words": "Let's go with the brighter natural color The vertical framing looks good but for the horizontal close frame there's slightly too much space above my head. Take out about 30% of that space above my head in the horizontal close frame Go with the letter base for the voice. Give me the handoff for the next round",
+  "decisions": [
+    {
+      "id": "COLOR",
+      "verdict": "approved",
+      "selection": "B: Brighter natural",
+      "evidence": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/B-256.jpg",
+          "sha256": "7e40e20481f426c3cbb45488d6b0ac638bcb939b837c0fd72fe78a967901a894"
+        },
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/B-289.jpg",
+          "sha256": "c3c12c2b342388b4e087dbb4bae2a81f37a2b7aaf5277935b8d6bba72edb2f01"
+        },
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/grade-options.json",
+          "sha256": "f0c5b67720eed72fcf58a7528332a4eb5e14346935b186e32b0f5a851c332dbb"
+        }
+      ],
+      "filter": "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709,lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube:interp=tetrahedral,eq=saturation=1.12:gamma=1.03"
+    },
+    {
+      "id": "VERTICAL_FRAMING",
+      "verdict": "approved",
+      "wide": [
+        738,
+        1312
+      ],
+      "close": [
+        630,
+        1120
+      ],
+      "evidence": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-wide.jpg",
+          "sha256": "73465851939edf10563f5a47d43d406aaecd846387d7e474cd9baebedcc3059a"
+        },
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-close.jpg",
+          "sha256": "5aaa94207ac23114579e07529615cd0de779315f9e140db517369d44ab82c242"
+        }
+      ]
+    },
+    {
+      "id": "HORIZONTAL_CLOSE",
+      "verdict": "approved_with_notes",
+      "crop": [
+        1728,
+        972
+      ],
+      "horizontal_center": 1080,
+      "instruction": "Reduce existing empty headroom by approximately 30%, leaving 70%. Keep crop dimensions. Measure hair top and shift the fixed crop down by 0.30 times the existing gap. Check all frames for head clearance.",
+      "evidence": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/stills/crop-horizontal-close.jpg",
+          "sha256": "69dd350863bfc9e08fa9061d9c411ff13594ed6dda31cc0cc666ef9336c661b4"
+        }
+      ]
+    },
+    {
+      "id": "AUDIO",
+      "verdict": "approved",
+      "selection": "lighter-bass",
+      "interpretation": "letter base refers to the named lighter bass option",
+      "evidence": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/audio-options/lighter-bass.wav",
+          "sha256": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f"
+        },
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra13/round1/audio/lighter-bass.wav",
+          "sha256": "e9240e3ae96f31bf75e0dcd2c64572da22ca8eec22c2da96191c812db24a703f"
+        }
+      ]
+    }
+  ],
+  "scope": "Look references and voice choice approved. Motion QA, revised horizontal close framing, asset decisions and complete film gates remain pending.",
+  "scripted_claims_status": "Pre-approved under 2026-10-14 standing instruction; no renewed flags or approval requests.",
+  "new_ai_motion_authorized": []
+}

@@ -1,0 +1,63 @@
+{
+  "space": "1080-wide final vertical output; all samples native frame grid; picture-cut jumps excluded",
+  "travel_px": 712.7,
+  "pan_p90_px_s": 53.9,
+  "moving_frac": 0.369,
+  "head_offset_px": {
+    "median": 31.5,
+    "max": 97.9
+  },
+  "landings": [
+    {
+      "frame": 0,
+      "error_px": 0.0,
+      "hair_clearance": 102.61603375527426
+    },
+    {
+      "frame": 284,
+      "error_px": 0.0,
+      "hair_clearance": 77.6470588235294
+    },
+    {
+      "frame": 451,
+      "error_px": 0.0,
+      "hair_clearance": 78.31223628691983
+    },
+    {
+      "frame": 725,
+      "error_px": 0.0,
+      "hair_clearance": 78.31223628691983
+    },
+    {
+      "frame": 983,
+      "error_px": 0.0,
+      "hair_clearance": 78.31223628691983
+    },
+    {
+      "frame": 1139,
+      "error_px": 0.0,
+      "hair_clearance": 77.6470588235294
+    },
+    {
+      "frame": 1390,
+      "error_px": 0.0,
+      "hair_clearance": 78.31223628691983
+    },
+    {
+      "frame": 1523,
+      "error_px": 0.0,
+      "hair_clearance": 77.6470588235294
+    },
+    {
+      "frame": 1593,
+      "error_px": 0.0,
+      "hair_clearance": 78.31223628691983
+    },
+    {
+      "frame": 1710,
+      "error_px": 0.0,
+      "hair_clearance": 77.6470588235294
+    }
+  ],
+  "hair_method": "Face-connected silhouettes, every six delivered frames plus first/last; final exact-file gate and native visual inspection remain separate."
+}

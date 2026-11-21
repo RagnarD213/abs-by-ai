@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light Motivation lower third (softblue.lower_third), with motion and an optional counter bar.
+         mode "content": tint, border, specular line, accent, text, bar. mode "mask": the strip shape only, white 92 %,
+         so the composite can blur the footage under the glass (a transparent overlay cannot). */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      :root {
+        --tint: rgba(14, 40, 70, 0.86);        /* GLASS_TINT at the glass blend 0.54 */
+        --line: rgb(64, 112, 153);             /* GLASS_LINE hairline */
+        --cyan: rgb(104, 197, 255);            /* CYAN accent, topic, the short bar */
+        --white: rgb(244, 250, 255);           /* WHITE point */
+        --spec: rgb(135, 210, 248);            /* SPECULAR */
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #drift, #enter { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      #strip { position: absolute; background: var(--tint); border: 1px solid var(--line); overflow: hidden; }
+      #spec { position: absolute; top: 1px; width: 180px; height: 4px; border-radius: 2px; background: var(--spec); }
+      #accent { position: absolute; border-radius: 8px; background: var(--cyan); }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      #topic { font-size: 28px; color: var(--cyan); }
+      .part { font-size: 56px; color: var(--white); }
+      .part span { display: inline-block; white-space: pre; }
+      .track, .fill { position: absolute; border-radius: 7px; }
+      .track { background: rgba(244, 250, 255, 0.14); }
+      #longFill { background: rgba(244, 250, 255, 0.78); transform-origin: 0% 50%; }
+      #shortFill { background: var(--cyan); transform-origin: 0% 50%; }
+      .lbl { position: absolute; font-size: 30px; line-height: 1.4; white-space: nowrap; text-align: right; }
+      #longLbl { color: var(--white); }
+      #shortLbl { color: var(--cyan); }
+      /* mask render: only the strip's shape, same motion */
+      .mask #strip { background: rgba(255, 255, 255, 0.92); border-color: transparent; }
+      .mask #spec, .mask .content { visibility: hidden; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <div id="drift">
+        <div id="enter">
+          <div id="strip"><div id="spec"></div></div>
+          <div id="accent" class="content"></div>
+          <div id="topic" class="t content"></div>
+          <div id="parts" class="content"></div>
+          <div id="bar" class="content"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      if (CFG.mode === "mask") document.getElementById("root").classList.add("mask");
+
+      const [sx, sy, sw, sh] = CFG.strip;
+      const strip = document.getElementById("strip");
+      place(strip, sx, sy, sw, sh); strip.style.borderRadius = px(CFG.radius);
+      const acc = document.getElementById("accent"); place(acc, ...CFG.accent);
+      const topic = document.getElementById("topic"); place(topic, CFG.topic.x, CFG.topic.y);
+      topic.textContent = CFG.topic.s;
+      const partsBox = document.getElementById("parts");
+      const parts = CFG.parts.map(p => {
+        const e = document.createElement("div"); e.className = "t part"; place(e, p.x, p.y == null ? CFG.point_y : p.y);   // p.y: a wrapped line (9:16)
+        p.s.split(" ").forEach((w, i, a) => { const s = document.createElement("span"); s.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(s); });
+        partsBox.appendChild(e); return e;
+      });
+
+      const tl = gsap.timeline({ paused: true });
+      // always drifting: a few px over the scene; the specular line runs the top edge (softblue.glass)
+      tl.fromTo("#drift", { y: 0 }, { y: CFG.drift, duration: D, ease: "sine.inOut" }, 0);
+      const specN = Math.max(1, Math.round(D / 2.4));
+      tl.fromTo("#spec", { x: 40 }, { x: sw - 40 - 180 - 40, duration: D / specN, ease: "sine.inOut", yoyo: true, repeat: specN - 1 }, 0);
+      // enter: the strip rises and settles, then the cyan accent draws upward, then the topic
+      tl.fromTo("#enter", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(acc, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: 0.4, ease: "power2.out" }, 0.25);
+      tl.fromTo(topic, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out" }, 0.35);
+      // the point: each part rises in on the word Dan says it (words 0.06 s apart), no typing
+      parts.forEach((e, i) => {
+        tl.fromTo(e.children, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.06 }, Math.max(0.3, CFG.times[i]));
+      });
+
+      // counter bar: long way fills with its counter, then the short way retracts over it with its own counter
+      if (CFG.bar) {
+        const b = CFG.bar, bw = b.x1 - b.x0, box = document.getElementById("bar");
+        const mk = (id, cls) => { const e = document.createElement("div"); e.id = id; e.className = cls; box.appendChild(e); return e; };
+        const track = mk("track", "track"), longF = mk("longFill", "fill"), shortF = mk("shortFill", "fill");
+        [track, longF, shortF].forEach(e => place(e, b.x0, b.y, bw, b.h));
+        const longL = mk("longLbl", "lbl"), shortL = mk("shortLbl", "lbl");
+        // labels are right-aligned to a moving x: a zero-width anchor with the text hanging to its left
+        const anchor = (e, x, y) => { place(e, x, y); e.style.transform = "translateX(-100%)"; };
+        anchor(longL, b.x1, b.label_top); anchor(shortL, b.x1, b.label_bottom);
+        const n1 = { v: 0 }, n2 = { v: b.from_value, r: 1 };
+        const set1 = () => { longL.textContent = Math.round(n1.v) + " " + b.grow_unit; };
+        const set2 = () => { shortL.textContent = Math.round(n2.v) + " " + b.unit; shortL.style.left = px(b.x0 + bw * n2.r); };
+        set1(); set2();
+        tl.fromTo(track, { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, Math.max(0.3, b.grow - 0.35));
+        tl.fromTo(longF, { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.inOut" }, b.grow);
+        tl.fromTo(longL, { opacity: 0 }, { opacity: 1, duration: 0.2, ease: "power2.out" }, b.grow);
+        tl.fromTo(n1, { v: 0 }, { v: b.grow_value, duration: 0.9, ease: "power2.inOut", onUpdate: set1 }, b.grow);
+        // the short way: cyan covers the long bar, then retracts to ratio while its number counts down
+        const dur2 = Math.max(0.6, b.land - b.shrink);
+        tl.fromTo(shortF, { opacity: 0, scaleX: 1 }, { opacity: 1, duration: 0.18, ease: "power2.out" }, b.shrink);
+        tl.fromTo(shortL, { opacity: 0 }, { opacity: 1, duration: 0.18, ease: "power2.out" }, b.shrink);
+        tl.fromTo(shortF, { scaleX: 1 }, { scaleX: b.ratio, duration: dur2, ease: "power2.inOut", immediateRender: false }, b.shrink);
+        tl.fromTo(n2, { v: b.from_value, r: 1 }, { v: b.value, r: b.ratio, duration: dur2, ease: "power2.inOut", onUpdate: set2 }, b.shrink);
+        tl.fromTo(longF, { opacity: 1 }, { opacity: 0.32, duration: dur2, ease: "power2.inOut", immediateRender: false }, b.shrink);
+        tl.fromTo(longL, { opacity: 1 }, { opacity: 0.55, duration: dur2, ease: "power2.inOut", immediateRender: false }, b.shrink);
+        // one soft glow when the short bar lands
+        const L = b.shrink + dur2;
+        tl.fromTo(shortF, { boxShadow: "0 0 0px rgba(104,197,255,0)" }, { boxShadow: "0 0 22px rgba(104,197,255,0.85)", duration: 0.22, ease: "power2.out", immediateRender: false }, L);
+        tl.to(shortF, { boxShadow: "0 0 6px rgba(104,197,255,0.25)", duration: 0.7, ease: "sine.inOut" }, L + 0.22);
+      }
+
+      // exit: fade and drop 10 px, gone exactly on the out cut
+      tl.fromTo("#enter", { opacity: 1, y: 0 }, { opacity: 0, y: 10, duration: 0.33, ease: "power2.in", immediateRender: false }, D - 0.33);
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

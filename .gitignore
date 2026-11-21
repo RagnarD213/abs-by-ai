@@ -1,0 +1,169 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# Vercel
+.vercel
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Private, restorable snapshot of the retired Decision Counsel feature.
+# MUST stay ignored: express.static('.') serves the whole repo over HTTP, so
+# committing this would publish it. Local-only backup — see _counsel_archive/README.md
+_counsel_archive/
+
+# Bake-off test images (55MB+ of generated candidates and source photos).
+# The harness code, prompts, results.json and the blind key ARE committed —
+# only the image bytes stay local so the deploy repo doesn't carry them.
+bakeoff/round1/images/
+bakeoff/round1/photos/
+bakeoff/**/.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Android build artifacts & signing secrets (back up the keystore separately!)
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+android/keystore/
+android/keystore.properties
+bakeoff/round1/scaled/
+
+# Live API/session tokens written by helper scripts — never commit
+.demotoken
+**/.demotoken
+native-smoke-out/
+
+# AI ad factory work files (video/audio/images — public repo, keep out of git)
+ad-factory/
+
+# macOS/iCloud/Drive sync-conflict duplicate copies ("file 2.md", "file 7.json", etc.)
+# Verified against `git ls-files` before adding — no tracked file matches this pattern.
+* [0-9].md
+* [0-9].json
+* [0-9].js
+* [0-9].sh
+* [0-9].txt
+
+# Local-only working media, not part of the deployed app.
+# Covers Media/B roll, Media/video_edit, Media/abs by ai images, Media/example
+# pictures, Media/dan future visualizations, and Media/photos (real personal
+# photos). One rule instead of per-folder rules: the repo is public, so the
+# default for this tree is "never commit". Production art lives in public/img/
+# and assets/judge-exemplars/, which are outside Media/ and stay tracked.
+Media/
+
+# Company formation and legal paperwork — repo is public, never commit.
+Business/
+
+# Video working folders (public repo — never commit; these hold shirtless footage).
+# NOTE: match by prefix, not exact name. "YouTube Content/" alone silently stopped
+# matching when the folder was renamed to "YouTube Long Form Video Content/", leaving
+# 8.3 GB unignored (found 2026-08-08). Re-run `git check-ignore -v` after any rename.
+YouTube*Content/
+
+# Dan's finished longform deliverables. He moved these OFF the Seagate and INTO the
+# project folder on 2026-08-21, so the tree now holds multi-GB masters of shirtless
+# footage in a PUBLIC repo. Prefix match, per the YouTube*Content lesson above.
+claude edited*/
+
+# BELT AND BRACES: no video file, anywhere in this tree, ever. Folder-name rules keep
+# failing when a folder is renamed (YouTube Content -> YouTube Long Form Video Content
+# leaked 8.3 GB in 2026-08; "EDITED 8-20-26" -> "claude edited long form content"
+# arrived unignored in 2026-08). Extensions do not get renamed. Verified safe:
+# `git ls-files` tracked ZERO video files when this was added, so nothing is orphaned.
+# Deliverables live on disk and in the delivery README, never in git.
+*.mp4
+*.MP4
+*.mov
+*.MOV
+*.m4v
+*.avi
+*.mkv
+*.webm
+YouTube Long Form Video Content/
+Short-form video content/
+
+# Exception: compressed web-delivery exercise demo clips ARE meant to be served
+# from public/ and tracked (small, ~1-1.4MB each) — distinct from the raw masters
+# in gitignored Media/exercise-demos/.
+!public/exercise-demos/*.mp4
+
+# Exception: small muted B-roll clips handed to freelance editors via absbyai.com/ad-assets/
+# (Dan's own footage that is going into public ads anyway; keep each under ~3 MB)
+!public/ad-assets/*.mp4
+!public/ad-assets/*.png
+
+# Personal before-photo candidates and derived edits (public repo — never commit)
+before-photo-candidates/
+
+# Dan's personal photos (public repo — never commit)
+photos/
+
+# Thumbnails/graphics built from Dan's personal photos (public repo — never commit)
+social media graphics/
+
+# AI transformation results of real people (public repo — never commit)
+after-photo-results/
+
+# personal unemployment paperwork (contains home address) - never commit
+TWC work search/
+TWCCorrespondence.pdf
+scripts/blotato/swap_backup/
+# tiktok_cover.py scratch: multi-GB of downloaded + rebuilt videos, and cover_backup holds the
+# pre-swap post bodies. Both are local working state, never repo content.
+scripts/blotato/cover_work/
+scripts/blotato/cover_backup/
+.claude/skills/shorts/reference/recentre/personmask
+
+# Local report written by scripts/ads/auto-boost.js runs on this Mac; the cron records runs in Postgres
+brief-autoboost.json
+
+# Finished website videos (Dan's delivery folder, 2026-09-09): masters + review copies + notes, never in the public repo.
+Website Videos/
+
+# The QC regression corpus stores PATHS + sha256, never masters (this repo is public).
+# `run.py --extract` rebuilds these excerpts from the masters on any machine that has them.
+.claude/skills/_shared/qc_corpus/excerpts/
+
+# The marketing list lived here until 2026-09-11. It is in Postgres now
+# (Docs/SUBSCRIBER_STORE.md) — never let this file come back into the repo.
+subscribers-data.json
+
+# edit queue artifact-sync exports (scripts/edit-queue/queue.py)
+tmp/edit-queue-export/
+
+# overnight edit queue: runtime files (scripts/edit-queue/README.md)
+scripts/edit-queue/PAUSE
+scripts/edit-queue/.installed-once
+scripts/edit-queue/review-snapshot.html
+scripts/edit-queue/scoreboard.json.lock
+scripts/edit-queue/*.tmp
+Handoffs/video-editing/.jobs.lock
+Handoffs/video-editing/jobs.json.tmp
+
+# macOS AppleDouble sidecars from the external drive
+._*
+
+# Review copies for Dan to watch in VLC (media; the repo is public)
+Videos to Review/
+
+# Dan voice corpus: raw text, never in the public repo (mirrored to Drive 1FE1_fv6XhV96w4OQDji51w7Lrz6ZpiOM)
+voice-corpus/

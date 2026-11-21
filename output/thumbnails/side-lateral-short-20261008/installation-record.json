@@ -1,0 +1,26 @@
+{
+  "updated": "2026-10-08",
+  "approved": "A-poolside.jpg",
+  "youtube": {
+    "id": "qBXYI96DSXE",
+    "status": "installed",
+    "verification": "Saved in Studio and visible on public Shorts grid"
+  },
+  "facebook": {
+    "id": "2065821977374724",
+    "status": "installed",
+    "verification": "Graph preferred thumbnail downloaded and visually matches approved A"
+  },
+  "instagram": {
+    "url": "https://www.instagram.com/danrosefit/reel/DePGTjggiwV/",
+    "status": "installed",
+    "verification": "Saved in mobile Edit info and visible on public profile grid",
+    "note": "Profile crop retains raised dumbbells and Look Smaller; full cover keeps complete headline. Mirroring drag did not adjust crop."
+  },
+  "tiktok": {
+    "account": "@danrosefit",
+    "status": "pending",
+    "blocker": "iPhone Mirroring scroll gestures did not move the post controls row. Edit post is off-screen. Alternate Studio button did not open.",
+    "next": "On phone: latest lateral raise post > Share > scroll bottom controls to Edit post > Edit cover > Upload > newest photo A > Save."
+  }
+}

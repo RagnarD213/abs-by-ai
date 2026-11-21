@@ -1,0 +1,53 @@
+{
+ "category": "CONTENT",
+ "type": "SFC",
+ "job": "DS-31",
+ "round": 2,
+ "date": "2026-10-20",
+ "status": "finalized",
+ "dan": "Okay, everything looks good. We'll keep the warm, vivid color, and the intro clip looks good. Let's proceed to set up.",
+ "scope": "The complete delivered R2 Short with colour option C (Warm vivid) and the A1 Homework tower opener, approved in this chat. Setup requested; handed to a separate setup task.",
+ "colour_pick": {
+  "option": "C",
+  "name": "Warm vivid",
+  "record": "/Volumes/Extreme/_edit_work/ds31/round2/col/pick.json"
+ },
+ "ai_clip": {
+  "id": "A1",
+  "take": "/Volumes/Extreme/_edit_work/ds31/round2/veo/A1r-flow-t1.mp4",
+  "take_frames": [
+   25,
+   108
+  ],
+  "speed": "1.249x one take frame per film frame",
+  "clipcheck": "PASS",
+  "reviewer": "PASS",
+  "source": "Google Flow Veo 3.1 Fast, subscription, $0"
+ },
+ "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/AI Homework SFC R2 - complete Short.mp4",
+ "sha256": "69213798dd2c34fe88eace189c869d5169ca990f67e877aafde3c15d7777c2ba",
+ "bytes": 94943517,
+ "frames": 1848,
+ "fps": "30000/1001",
+ "duration": 61.6616,
+ "srt": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/AI Homework SFC R2.srt",
+ "srt_sha256": "084b58bbbcf710abe12040efe901e16e9f5fab577157f48e29f3e4f4e41c2a75",
+ "extreme_copy": "/Volumes/Extreme/Short-form video content/AI Homework - DS-31/AI Homework SFC R2 - complete Short.mp4",
+ "original_delivery": "/Volumes/Extreme/_edit_work/ds31/round2/review/AI Homework SFC R2 - complete Short.mp4",
+ "delivery_gate": "FAIL",
+ "gate_version": "2.6.1",
+ "measured_pass": 35,
+ "fail": 4,
+ "not_applicable": 3,
+ "not_measured": 0,
+ "open_rows": [
+  "audio:stamp (tone: approved bass lift)",
+  "framing:no_wide_level (Pair B wide keeps both lights)",
+  "framing:push_coverage (same)",
+  "captions:sync (legacy waveform method)"
+ ],
+ "independent_review": "/Volumes/Extreme/_edit_work/ds31/round2/audit/ROUND-2-REVIEW.md: SHIP (re-check of the one-to-one opener confirmed nothing else changed; its condition, the gate on the new file, is met with the same four known rows)",
+ "watch_pass": "two fresh Opus judges, 0 defects",
+ "spend_usd": 0,
+ "flow_credits": 60
+}

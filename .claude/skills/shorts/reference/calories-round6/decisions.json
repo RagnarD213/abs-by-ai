@@ -1,0 +1,36 @@
+{
+  "category": "CONTENT (SFL)",
+  "job": "SL-08",
+  "requested_round": 6,
+  "previous_thread": "01a15a6a-0218-7050-aeb9-6fe028b3b394",
+  "approval": {
+    "message_id": "01a1691c-d030-71a3-9cfe-c194fec9bed1",
+    "exact_words": "approved, proceed with edit",
+    "applies_to": "R5 standing-counter Snack on Protein, Not Carbs pair; R4 fasting pair already approved"
+  },
+  "execution_constraint": {
+    "message_id": "01a16920-9764-72b1-bd1c-053ed6f3c439",
+    "exact_words": "Work in the background, stop taking over my screen",
+    "rule": "No foreground browser/app activation, visible tab navigation, native mouse/keyboard operation or audible playback. Use only supported genuinely background controls. If Flow cannot be completed without screen takeover, stop that dependent step and report the limitation; never silently use paid generation."
+  },
+  "approved_images": [
+    {
+      "path": "/Volumes/Extreme/_edit_work/sl08/round4/frames/A01-start.png",
+      "sha256": "68d99d41357ca6e9ed53fb3b3a766ba2bb9c236eb567680416947c156ca290ac"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/sl08/round4/frames/A01-end.png",
+      "sha256": "78c0d6524a179e830d2cd9344bb412e93a5757cccd489f9862fd6c4c357785e8"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/sl08/round5/frames/D01-start.png",
+      "sha256": "19f82f653e1b8115a3c10181b0c57a4c6d361d3c0d9f2adc2b24e42d8fa02e0f"
+    },
+    {
+      "path": "/Volumes/Extreme/_edit_work/sl08/round5/frames/D01-end.png",
+      "sha256": "dc756f17d2919f93becf0ffcee62022fcf8281105e14757351255086aa09b430"
+    }
+  ],
+  "preserve": "All approved R3 audio, grade, titles, caption words/timing, cuts; R2/R3/R4/R5 media and old review panels; B/C/E unchanged",
+  "scope": "Two opening motion clips; subscription only. Measured and fresh independent motion checks and narrated context review before full A/D assembly under existing gates. No covers, uploading, scheduling or publishing."
+}

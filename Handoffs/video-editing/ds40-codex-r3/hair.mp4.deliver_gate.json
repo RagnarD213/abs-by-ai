@@ -1,0 +1,296 @@
+{
+ "gate_version": "2.6.1",
+ "format": "organic9x16",
+ "verdict": "FAIL",
+ "sha256": "89d1e7eead74f5f0d2cf22956823c5fcef1335f9b39b89716970946c83dd4fc9",
+ "bytes": 7941650,
+ "when": "2026-10-20T10:04:04-0500",
+ "size": "1500x900",
+ "fps": "30000/1001",
+ "duration": 10.01,
+ "rows": {
+  "container:size": {
+   "ok": false,
+   "detail": "frame size 1500x900 (want 1080x1920)",
+   "value": {
+    "got": "1500x900",
+    "want": "1080x1920"
+   }
+  },
+  "container:fps": {
+   "ok": true,
+   "detail": "frame rate 30000/1001 (want 30000/1001)",
+   "value": {
+    "got": "30000/1001",
+    "want": "30000/1001"
+   }
+  },
+  "container:codec": {
+   "ok": true,
+   "detail": "h264 / aac 48000 Hz 2 ch (want h264 / aac 48000 Hz 2 ch)",
+   "value": {
+    "vcodec": "h264",
+    "acodec": "aac",
+    "sr": 48000,
+    "ch": 2
+   }
+  },
+  "container:duration": {
+   "ok": true,
+   "detail": "video stream 10.010s vs target 10.010s (tolerance 0.1s)",
+   "value": {
+    "duration": 10.01,
+    "target": 10.01,
+    "tolerance": 0.1
+   }
+  },
+  "container:frames": {
+   "ok": true,
+   "detail": "300 frames present, 300 planned",
+   "value": {
+    "frames": 300,
+    "planned": 300
+   }
+  },
+  "audio:stamp": {
+   "ok": false,
+   "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on hair.mp4: comb, tone -- fix the audio, do not deliver"
+  },
+  "audio:stream_integrity": {
+   "ok": true,
+   "detail": "audio 10.010s vs picture 10.010s (gap +0.000s; allowed -0.15..+0.15s); 0 silent second(s); quietest -23.2 dBFS",
+   "value": {
+    "adur": 10.01,
+    "vdur": 10.01,
+    "gap": 0.0,
+    "silent": []
+   }
+  },
+  "audio:lipsync": {
+   "ok": true,
+   "detail": "finished audio vs source at 5 checkpoints: -0.021, -0.021, -0.021, -0.021, -0.021 ms (worst -0.021, max 1.0 ms)",
+   "value": {
+    "lags_ms": [
+     -0.0208,
+     -0.0208,
+     -0.0208,
+     -0.0208,
+     -0.0208
+    ],
+    "worst_ms": -0.0208,
+    "tol": 1.0
+   }
+  },
+  "audio:click_at_joins": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing.",
+   "na": "declared by this build: This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing."
+  },
+  "style:coverage": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "style:static_run": {
+   "ok": true,
+   "detail": "longest stretch with no visual change 10.0s at 0:00.00 (max 30.0s)",
+   "value": {
+    "worst": 10.01,
+    "at": 0.0,
+    "max": 30.0
+   }
+  },
+  "style:change_rate": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "framing:hair_top": {
+   "ok": true,
+   "detail": "hair top below the edge: min 149 px, median 167 (min 20 px, normalized to each 1080-high talking-head window); 0 sample(s) under it for >= 2 in a row []; independent top-rows test: 0 sample(s) with head in the top 12 rows (>= 0.2) []; 39/40 valid",
+   "value": {
+    "min": 148.8,
+    "median": 166.8,
+    "cut": [],
+    "edge": [],
+    "valid": 39,
+    "on_scene": 40,
+    "min_px": 20
+   }
+  },
+  "framing:headroom": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test.",
+   "na": "declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test."
+  },
+  "framing:centering": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test.",
+   "na": "declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test."
+  },
+  "framing:no_wide_level": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test.",
+   "na": "declared by this build: Dan explicitly requested the widest camera view for this technical sample to inspect his arm edges. Full native camera width is held without crop tracking. Normal tight presenter composition is not this requested test."
+  },
+  "framing:push_coverage": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "cut:uncovered_joins": {
+   "ok": true,
+   "detail": "0 same-scene picture jumps = 0.0/min (max 2.5/min, declared beats subtracted); first []",
+   "value": {
+    "bare": 0,
+    "per_min": 0.0,
+    "max": 2.5,
+    "times": [],
+    "declared_beats": 1
+   }
+  },
+  "cut:black_frames": {
+   "ok": true,
+   "detail": "0 frame(s) under luma 6.0 in the body (every frame scanned): []",
+   "value": {
+    "black": [],
+    "max_luma": 6.0,
+    "frames": 300
+   }
+  },
+  "cut:min_segment": {
+   "ok": true,
+   "detail": "0 segment(s) under 0.2s: []",
+   "value": {
+    "short": [],
+    "min_seconds": 0.2
+   }
+  },
+  "cut:jump_cut": {
+   "ok": true,
+   "detail": "0 adjacent visible segment pair(s) at one framing: []",
+   "value": {
+    "same": []
+   }
+  },
+  "cut:splice_visibility": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing.",
+   "na": "declared by this build: This is one continuous camera/audio take with no edit joins. The full Short will require join tests after editing."
+  },
+  "cut:naked_splices": {
+   "ok": true,
+   "detail": "0 naked splice(s) of 0 candidates = 0.00/min (max 12.0/min, declared beats subtracted); first []",
+   "value": {
+    "naked": 0,
+    "per_min": 0.0,
+    "max": 12.0,
+    "candidates": 0,
+    "times": [],
+    "declared_beats": 1,
+    "settings": {
+     "peak": 20.0,
+     "sharp": 2.0,
+     "still": 0.25,
+     "hot_min": 8,
+     "subject_rows": 0.7,
+     "palette": 0.1,
+     "align_explains": 0.4
+    }
+   }
+  },
+  "captions:graphic_clearance": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round.",
+   "na": "declared by this build: Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round."
+  },
+  "captions:card_collision": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "captions:burned": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "captions:within_runtime": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round.",
+   "na": "declared by this build: Dan explicitly requested only chroma key, audio and color for this calibration sample. No captions in this round."
+  },
+  "captions:sync": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short.",
+   "na": "declared by this build: Explicit user scope: continuous 10-second key/color/audio test only. No editorial inserts, framing changes or captions are requested in this round. Required for the later full Short."
+  },
+  "compliance:banned_screen": {
+   "ok": true,
+   "detail": "not applicable: declared by this build: No app screen or screenshot is used. Every frame is camera footage of Dan on a flat technical test background.",
+   "na": "declared by this build: No app screen or screenshot is used. Every frame is camera footage of Dan on a flat technical test background."
+  },
+  "compliance:labels": {
+   "ok": true,
+   "detail": "not applicable: this cut carries no picture of Dan's physique: `ai_inserts` and `real_photos` are both empty",
+   "na": "this cut carries no picture of Dan's physique: `ai_inserts` and `real_photos` are both empty"
+  },
+  "compliance:drug_names": {
+   "ok": true,
+   "detail": "not applicable: Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule",
+   "na": "Dan 2026-09-30: organic videos may name the drug; the brand-name ban is an ad rule"
+  },
+  "compliance:negative_events": {
+   "ok": null,
+   "detail": "NOT MEASURED -- no `negative_events_scan` in the plan. Sample frames across the finished cut, look for close-ups of out-of-shape body parts framed with shame, and record {sha256, when, frames_checked, findings}. A certain violation you replace yourself; an unsure one you leave in and flag for Dan"
+  },
+  "compliance:script_fidelity": {
+   "ok": true,
+   "detail": "100.0% of the intended words are in the render (43 expected, 43 heard; min 95%)",
+   "value": {
+    "ratio": 1.0,
+    "expected": 43,
+    "heard": 43,
+    "min": 0.95
+   }
+  },
+  "compliance:placeholder": {
+   "ok": true,
+   "detail": "asset-approval flow not used; watch checklist reports no visible placeholder"
+  },
+  "watch:pass": {
+   "ok": null,
+   "detail": "NOT MEASURED -- `watch_log` is not on disk: /Volumes/Extreme/_edit_work/DS-40-codex/round3/watch-hair/watch_pass.json"
+  },
+  "srt:present": {
+   "ok": true,
+   "detail": "not applicable: the vertical burns its captions; the sidecar belongs to the 16:9",
+   "na": "the vertical burns its captions; the sidecar belongs to the 16:9"
+  },
+  "srt:shape": {
+   "ok": true,
+   "detail": "not applicable: no sidecar -- see srt:present",
+   "na": "no sidecar -- see srt:present"
+  },
+  "junk:repeated_take": {
+   "ok": true,
+   "detail": "0 confirmed restart(s) in 40 words (whisper:small); 0 deliberate repeat(s) kept, 0 fluent re-said phrase(s) for a listen",
+   "value": {
+    "confirmed": [],
+    "listen": [],
+    "candidates": 1,
+    "words": 40,
+    "words_source": "whisper:small"
+   }
+  },
+  "junk:dead_air": {
+   "ok": true,
+   "detail": "longest silence inside the speech 0.36 s (max 2.00 s); 0 over the bound; threshold -30.0 dBFS against speech at -12.2",
+   "value": {
+    "longest": 0.36,
+    "bound": 2.0,
+    "over": [],
+    "gaps": 6
+   }
+  }
+ }
+}

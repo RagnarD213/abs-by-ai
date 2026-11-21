@@ -1,0 +1,190 @@
+{
+  "judge": "AV-07 fresh independent visual judge, part 2",
+  "video": "/Volumes/Extreme/_edit_work/kit9x16/ad10-master/ad10_vertical_59s.mp4",
+  "method": "Read JUDGE_PROMPT.md and CHECKLIST.md, verified the candidate SHA256, then opened every regular pair_NNN and strip_NNN JPG for NNN 013 through 025 individually at original detail. Scored each boundary against all 11 checklist items and the locked transition and photo-label rules. No sampling was used.",
+  "sha256": "36ae2f6d528ebf34692e81040343c88d17046eff27a25bc1c266f2fd816dd00f",
+  "entries": [
+    {
+      "image": "pair_013_00-23.29.jpg",
+      "verdict": "expected",
+      "item": "naked_splice",
+      "t": 23.29,
+      "note": "Plan declares a bare TALK join plus punch NEAR. The take and roughly 20 percent framing step change at the cut, followed by the planned punch treatment. Hair and body framing remain safe."
+    },
+    {
+      "image": "strip_013_00-23.29_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "naked_splice",
+      "t": 23.29,
+      "note": "Five-frame strip confirms the declared TALK join and punch NEAR onset. The visible take change is paired with the allowed framing step and is not an exposed same-size splice."
+    },
+    {
+      "image": "pair_014_00-24.02.jpg",
+      "verdict": "expected",
+      "item": "naked_splice",
+      "t": 24.024,
+      "note": "Plan declares a bare TALK join plus punch FAR. The instant framing reset is the allowed roughly 20 percent TALK-cut step, with no hair crop or off-center body cut."
+    },
+    {
+      "image": "strip_014_00-24.02_join___punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "naked_splice",
+      "t": 24.024,
+      "note": "Five-frame strip shows the declared join and FAR reset. The framing change covers the take change, and the following frames are stable and properly framed."
+    },
+    {
+      "image": "pair_015_00-26.00.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 25.993,
+      "note": "Plan declares cards out and lower third out. The lower-third text is visibly fading at the boundary while TALK remains continuous."
+    },
+    {
+      "image": "strip_015_00-26.00_cards_out___lt_22_90_out.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 25.993,
+      "note": "Five-frame strip confirms the planned lower-third fade-out. No black frame, freeze, framing fault, or leftover card is visible."
+    },
+    {
+      "image": "pair_016_00-26.03.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 26.026,
+      "note": "Plan declares the card and lower third fully out. The TALK frame is clean after the completed fade."
+    },
+    {
+      "image": "strip_016_00-26.03_card_22_900_out___lt_22_90_out.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 26.026,
+      "note": "Five-frame strip shows the final planned removal of the card and lower third with uninterrupted TALK footage and no blank or frozen frame."
+    },
+    {
+      "image": "pair_017_00-27.06.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 27.06,
+      "note": "Plan declares TALK to the full-bleed real_red_shorts photo. No flash is used on the full-bleed photo. Exactly one real-photo label appears above and to the right of Dan, clear of his face and abs."
+    },
+    {
+      "image": "strip_017_00-27.06_card_27_060_in___cards_in___covered_in__.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 27.06,
+      "note": "Five-frame strip confirms the declared full-bleed photo onset. The single real-photo label is legible and remains off Dan's face and abs, with no flash on the photo."
+    },
+    {
+      "image": "pair_018_00-28.63.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 28.629,
+      "note": "Plan declares a full-bleed real-photo swap from real_red_shorts to real_park_close. Each side has exactly one real-photo label, and both placements are clear of Dan's face and abs."
+    },
+    {
+      "image": "strip_018_00-28.63_cards_in___cards_out___covered_in___cove.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 28.629,
+      "note": "Five-frame strip shows the declared photo-to-photo cut without a flash. The new image has exactly one safe label to the left of Dan's shoulder, not over his face or abs."
+    },
+    {
+      "image": "pair_019_00-28.66.jpg",
+      "verdict": "clean",
+      "item": "label_over_face",
+      "t": 28.662,
+      "note": "The internal card-overlay handoff is visually stable. The real_park_close image retains exactly one legible label, safely positioned off Dan's face and abs."
+    },
+    {
+      "image": "strip_019_00-28.66_card_27_060_out___card_28_629_in.jpg",
+      "verdict": "clean",
+      "item": "label_over_face",
+      "t": 28.662,
+      "note": "Five-frame strip remains visually stable through the overlay handoff. No duplicate label, flash, black frame, freeze, or card junk appears."
+    },
+    {
+      "image": "pair_020_00-30.06.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 30.063,
+      "note": "Plan declares the real photo out and full-bleed AI goal photo in. No flash is used on the full-bleed photo. The AI-GENERATED label is the only label and is clear of Dan's face and abs."
+    },
+    {
+      "image": "strip_020_00-30.06_ai_goal_in___card_28_629_out___card_90_2.jpg",
+      "verdict": "expected",
+      "item": "label_over_face",
+      "t": 30.063,
+      "note": "Five-frame strip confirms the declared real-to-AI full-bleed photo cut. The single AI label is legible and safely placed to the left of Dan's head and torso."
+    },
+    {
+      "image": "pair_021_00-33.07.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 33.066,
+      "note": "Plan declares the full-bleed AI goal out and the phone card in. The card appears complete with one AI-generated disclosure, and no flash is required for this photo-to-card change."
+    },
+    {
+      "image": "strip_021_00-33.07_ai_goal_out___card_90_223_out___card_93_.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 33.066,
+      "note": "Five-frame strip shows the declared card onset cleanly. The phone image, frame, disclosure, and background render without garbling, clipping, placeholder text, or black frames."
+    },
+    {
+      "image": "pair_022_00-34.73.jpg",
+      "verdict": "clean",
+      "item": "naked_splice",
+      "t": 34.735,
+      "note": "The declared join inside the phone-card sequence has no visible jump in the minus-one to zero pair. Card geometry and disclosure remain stable."
+    },
+    {
+      "image": "strip_022_00-34.73_join.jpg",
+      "verdict": "clean",
+      "item": "naked_splice",
+      "t": 34.735,
+      "note": "Five-frame strip confirms a visually continuous phone-card join with no exposed subject jump, freeze, black frame, or drifting card."
+    },
+    {
+      "image": "pair_023_00-35.23.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 35.235,
+      "note": "Plan declares the card out and TALK back in. The white flash is present exactly on the permitted return from a card to TALK."
+    },
+    {
+      "image": "strip_023_00-35.23_cards_out___covered_out___talk-22_in___c.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 35.235,
+      "note": "Five-frame strip shows the expected flash blooming across the return from the card to TALK. The flash is intentional, not a black or corrupt frame."
+    },
+    {
+      "image": "pair_024_00-39.01.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 39.006,
+      "note": "Plan declares TALK out and the card background in. No flash is used because this is TALK to card, not a return to TALK. The olive panel is the planned first stage before its content reveal."
+    },
+    {
+      "image": "strip_024_00-39.01_cards_in___covered_in___join___talk-22_o.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 39.006,
+      "note": "Five-frame strip confirms the planned card panel onset. The one-frame separation before card content starts is declared by the next boundary and is not a placeholder or frozen beat."
+    },
+    {
+      "image": "pair_025_00-39.04.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 39.039,
+      "note": "Plan declares card@99.166 content in after the panel onset. The first reveal frame is intentionally subtle and contains no malformed or off-screen text."
+    },
+    {
+      "image": "strip_025_00-39.04_card_99_166_in.jpg",
+      "verdict": "expected",
+      "item": "graphic_missing",
+      "t": 39.039,
+      "note": "Five-frame strip shows the planned content reveal beginning inside the already-present olive card. No placeholder, garbled type, black frame, or unintended flash is visible."
+    }
+  ]
+}

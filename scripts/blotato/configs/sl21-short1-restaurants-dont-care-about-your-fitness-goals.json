@@ -1,0 +1,50 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/whattocut-short1_restaurants-dont-care-about-your-fitness-goals.mp4",
+  "slug": "sl21-short1",
+  "campaign": "what-to-cut",
+  "title": "Restaurants Don't Care About Your Fitness Goals",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/244583fa-3db6-4909-b602-0ed93ee37f2f.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/90c140ad-fa2a-48ce-b632-ba5970eedea4.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/096fee12-98e4-43d8-a920-b847f6f19b38.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/8011cf58-0afe-4bbd-a522-1b9b692fdaa2.jpg",
+  "main": "2027-02-08T15:00:00.000Z",
+  "keyword": "FOOD",
+  "ai_generated": true,
+  "hook": "I don't have the money for a gym membership.",
+  "body": "But you look at their credit card statement, and they're eating out at restaurants two or three times per week.\n\nWhen you're going to restaurants, they don't care about your long-term fitness goals. They only care about making you happy in the moment. They just want you to have a delicious meal.",
+  "close": "If you sacrifice restaurants for just a few weeks, that will free up hundreds of dollars that you could reinvest in your health.",
+  "tags": "#Fitness #FatLoss #FitnessOnABudget #Shorts",
+  "youtube_tags": [
+    "fitness",
+    "gym membership",
+    "fitness on a budget",
+    "eating out",
+    "restaurant food",
+    "getting in shape",
+    "Dan Rose Fitness",
+    "Abs By AI"
+  ],
+  "youtube_description": "I don't have the money for a gym membership.\n\nBut you look at their credit card statement, and they're eating out at restaurants two or three times per week.\n\nWhen you're going to restaurants, they don't care about your long-term fitness goals. They only care about making you happy in the moment. They just want you to have a delicious meal.\n\nIf you sacrifice restaurants for just a few weeks, that will free up hundreds of dollars that you could reinvest in your health.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short1\n\nFull video on this channel: What To Cut To Afford Getting In Shape\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #FatLoss #FitnessOnABudget #Shorts",
+  "pinned_comment": "What's the hardest restaurant meal for you to stick to your plan with?",
+  "instagram_first_comment": "Try Abs By AI: https://absbyai.com/?utm_source=instagram&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short1",
+  "parent_config": "scripts/blotato/configs/ro20b-what-to-cut.json",
+  "kitchen": true,
+  "gym": false,
+  "filming_set": "kitchen (Aug 3)",
+  "approved_cover": "Restaurant R4 X2",
+  "approval_date": "2026-11-15",
+  "media_sha256": {
+    "master": "544f74b7bb182d5a4350a8ffa740b2d6c8529a3259b82fb271b71cb311ea85d5",
+    "tiktok": "47dd734b0d570ec720e128c9d7aed16d9a0e9bfb2464a38008f7d827024bb684",
+    "ig": "28d5500fecd5625c2653fd1637b7367cc20809d2f824b8518de53670706e15ec",
+    "yt": "02fbcbcdfe8f51c83154ce4710434487718b265d116da13f6a4caac5af293885"
+  },
+  "caption_overrides": {
+    "facebook": "I don't have the money for a gym membership.\n\nBut you look at their credit card statement, and they're eating out at restaurants two or three times per week.\n\nWhen you're going to restaurants, they don't care about your long-term fitness goals. They only care about making you happy in the moment. They just want you to have a delicious meal.\n\nIf you sacrifice restaurants for just a few weeks, that will free up hundreds of dollars that you could reinvest in your health.\n\nTry Abs By AI:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short1\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #FatLoss #FitnessOnABudget #Shorts",
+    "instagram": "I don't have the money for a gym membership.\n\nBut you look at their credit card statement, and they're eating out at restaurants two or three times per week.\n\nWhen you're going to restaurants, they don't care about your long-term fitness goals. They only care about making you happy in the moment. They just want you to have a delicious meal.\n\nIf you sacrifice restaurants for just a few weeks, that will free up hundreds of dollars that you could reinvest in your health.\n\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #FatLoss #FitnessOnABudget #Shorts",
+    "tiktok": "I don't have the money for a gym membership.\n\nBut you look at their credit card statement, and they're eating out at restaurants two or three times per week.\n\nWhen you're going to restaurants, they don't care about your long-term fitness goals. They only care about making you happy in the moment. They just want you to have a delicious meal.\n\nIf you sacrifice restaurants for just a few weeks, that will free up hundreds of dollars that you could reinvest in your health.\n\nAbs By AI, link in bio.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=short&utm_campaign=what-to-cut&utm_content=sl21-short1\n\nSome footage in this video is AI-generated and labeled on screen.\n\n#Fitness #FatLoss #FitnessOnABudget #Shorts"
+  },
+  "engagement_prompt": "What's the hardest restaurant meal for you to stick to your plan with?",
+  "engagement_topic": "lifestyle"
+}

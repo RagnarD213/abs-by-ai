@@ -1,0 +1,1569 @@
+{
+  "method": "Actual rendered phrase start matched to delivered-ASR first word through source-to-ASR sequence alignment. This is a phrase-start audit, not a word-highlight PASS. All emitted PNG states independently verified in delivered pixels by graphic_clearance; reviewer checked continuous phrase captions.",
+  "video_sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+  "states": 60,
+  "matched_phrase_starts": 60,
+  "max_abs_start_offset_ms": 284.3,
+  "observations": [
+    {
+      "phrase": "I'm a personal trainer.",
+      "visible": [
+        0.10010000000000001,
+        1.2679333333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 0.10010000000000001,
+      "source_first_word": {
+        "w": "I'm",
+        "t0": 0.09867499238502596,
+        "t1": 0.565138592750529,
+        "src_start": 163.46,
+        "src_end": 163.98,
+        "piece": "P01",
+        "frame0": 3,
+        "frame1": 17
+      },
+      "delivered_asr_first_word": {
+        "w": " I'm",
+        "t": 0.0,
+        "e": 0.58,
+        "p": null
+      },
+      "start_offset_ms": 100.1
+    },
+    {
+      "phrase": "And AI just",
+      "visible": [
+        1.2679333333333334,
+        2.5692333333333335
+      ],
+      "continuation": false,
+      "phrase_origin": 1.2679333333333334,
+      "source_first_word": {
+        "w": "And",
+        "t0": 1.2468930855924594,
+        "t1": 1.7851203167834382,
+        "src_start": 164.74,
+        "src_end": 165.34,
+        "piece": "P01",
+        "frame0": 38,
+        "frame1": 54
+      },
+      "delivered_asr_first_word": {
+        "w": " and",
+        "t": 1.26,
+        "e": 1.8,
+        "p": null
+      },
+      "start_offset_ms": 7.9
+    },
+    {
+      "phrase": "took my job.",
+      "visible": [
+        2.5692333333333335,
+        3.336666666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 2.5692333333333335,
+      "source_first_word": {
+        "w": "took",
+        "t0": 2.5386384404508187,
+        "t1": 2.753929332927195,
+        "src_start": 166.18,
+        "src_end": 166.42,
+        "piece": "P01",
+        "frame0": 77,
+        "frame1": 83
+      },
+      "delivered_asr_first_word": {
+        "w": " took",
+        "t": 2.56,
+        "e": 2.78,
+        "p": null
+      },
+      "start_offset_ms": 9.2
+    },
+    {
+      "phrase": "A lot of",
+      "visible": [
+        3.7370666666666668,
+        4.2042
+      ],
+      "continuation": false,
+      "phrase_origin": 3.7370666666666668,
+      "source_first_word": {
+        "w": "A",
+        "t0": 3.704797441364602,
+        "t1": 3.9200883338410035,
+        "src_start": 167.48,
+        "src_end": 167.72,
+        "piece": "P01",
+        "frame0": 112,
+        "frame1": 118
+      },
+      "delivered_asr_first_word": {
+        "w": " A",
+        "t": 3.76,
+        "e": 3.94,
+        "p": null
+      },
+      "start_offset_ms": -22.9
+    },
+    {
+      "phrase": "people have figured",
+      "visible": [
+        4.2042,
+        4.8048
+      ],
+      "continuation": false,
+      "phrase_origin": 4.2042,
+      "source_first_word": {
+        "w": "people",
+        "t0": 4.189201949436506,
+        "t1": 4.386551934206532,
+        "src_start": 168.02,
+        "src_end": 168.24,
+        "piece": "P01",
+        "frame0": 126,
+        "frame1": 132
+      },
+      "delivered_asr_first_word": {
+        "w": " people",
+        "t": 4.22,
+        "e": 4.38,
+        "p": null
+      },
+      "start_offset_ms": -15.8
+    },
+    {
+      "phrase": "out that AI",
+      "visible": [
+        4.8048,
+        5.4054
+      ],
+      "continuation": false,
+      "phrase_origin": 4.8048,
+      "source_first_word": {
+        "w": "out",
+        "t0": 4.781251903746585,
+        "t1": 4.978601888516612,
+        "src_start": 168.68,
+        "src_end": 168.9,
+        "piece": "P01",
+        "frame0": 144,
+        "frame1": 150
+      },
+      "delivered_asr_first_word": {
+        "w": " out",
+        "t": 4.78,
+        "e": 5.0,
+        "p": null
+      },
+      "start_offset_ms": 24.8
+    },
+    {
+      "phrase": "can create a workout",
+      "visible": [
+        5.4054,
+        6.2062
+      ],
+      "continuation": false,
+      "phrase_origin": 5.4054,
+      "source_first_word": {
+        "w": "can",
+        "t0": 5.3733018580566645,
+        "t1": 5.6603563813585165,
+        "src_start": 169.34,
+        "src_end": 169.66,
+        "piece": "P01",
+        "frame0": 162,
+        "frame1": 170
+      },
+      "delivered_asr_first_word": {
+        "w": " can",
+        "t": 5.38,
+        "e": 5.68,
+        "p": null
+      },
+      "start_offset_ms": 25.4
+    },
+    {
+      "phrase": "program for you that's",
+      "visible": [
+        6.2062,
+        7.440766666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 6.2062,
+      "source_first_word": {
+        "w": "program",
+        "t0": 6.180642704843145,
+        "t1": 6.557401766676823,
+        "src_start": 170.24,
+        "src_end": 170.66,
+        "piece": "P01",
+        "frame0": 186,
+        "frame1": 197
+      },
+      "delivered_asr_first_word": {
+        "w": " program",
+        "t": 6.18,
+        "e": 6.56,
+        "p": null
+      },
+      "start_offset_ms": 26.2
+    },
+    {
+      "phrase": "far better than what",
+      "visible": [
+        7.440766666666667,
+        8.341666666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 7.440766666666667,
+      "source_first_word": {
+        "w": "far",
+        "t0": 7.418565336582404,
+        "t1": 7.705619859884256,
+        "src_start": 171.62,
+        "src_end": 171.94,
+        "piece": "P01",
+        "frame0": 223,
+        "frame1": 231
+      },
+      "delivered_asr_first_word": {
+        "w": " far",
+        "t": 7.46,
+        "e": 7.72,
+        "p": null
+      },
+      "start_offset_ms": -19.2
+    },
+    {
+      "phrase": "any human trainer could.",
+      "visible": [
+        8.341666666666667,
+        9.376033333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 8.341666666666667,
+      "source_first_word": {
+        "w": "any",
+        "t0": 8.315610721900711,
+        "t1": 8.530901614377113,
+        "src_start": 172.62,
+        "src_end": 172.86,
+        "piece": "P01",
+        "frame0": 250,
+        "frame1": 256
+      },
+      "delivered_asr_first_word": {
+        "w": " any",
+        "t": 8.32,
+        "e": 8.54,
+        "p": null
+      },
+      "start_offset_ms": 21.7
+    },
+    {
+      "phrase": "That's why human",
+      "visible": [
+        9.576233333333333,
+        10.276933333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 9.576233333333333,
+      "source_first_word": {
+        "w": "That's",
+        "t0": 9.56250380749317,
+        "t1": 9.885440146207747,
+        "src_start": 176.24,
+        "src_end": 176.6,
+        "piece": "P02",
+        "frame0": 287,
+        "frame1": 297
+      },
+      "delivered_asr_first_word": {
+        "w": " That's",
+        "t": 9.6,
+        "e": 9.9,
+        "p": null
+      },
+      "start_offset_ms": -23.8
+    },
+    {
+      "phrase": "personal trainers have",
+      "visible": [
+        10.276933333333334,
+        11.244566666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 10.276933333333334,
+      "source_first_word": {
+        "w": "personal",
+        "t0": 10.26219920804145,
+        "t1": 10.603076454462403,
+        "src_start": 177.02,
+        "src_end": 177.4,
+        "piece": "P02",
+        "frame0": 308,
+        "frame1": 318
+      },
+      "delivered_asr_first_word": {
+        "w": " personal",
+        "t": 10.26,
+        "e": 10.62,
+        "p": null
+      },
+      "start_offset_ms": 16.9
+    },
+    {
+      "phrase": "gone obsolete and everyone",
+      "visible": [
+        11.244566666666667,
+        13.113100000000001
+      ],
+      "continuation": false,
+      "phrase_origin": 11.244566666666667,
+      "source_first_word": {
+        "w": "gone",
+        "t0": 11.231008224185207,
+        "t1": 11.51806274748706,
+        "src_start": 178.1,
+        "src_end": 178.42,
+        "piece": "P02",
+        "frame0": 337,
+        "frame1": 346
+      },
+      "delivered_asr_first_word": {
+        "w": " gone",
+        "t": 11.24,
+        "e": 11.54,
+        "p": null
+      },
+      "start_offset_ms": 4.6
+    },
+    {
+      "phrase": "is using AI to",
+      "visible": [
+        13.146466666666667,
+        14.280933333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 13.146466666666667,
+      "source_first_word": {
+        "w": "is",
+        "t0": 13.132744441060021,
+        "t1": 13.365976241242773,
+        "src_start": 180.22,
+        "src_end": 180.48,
+        "piece": "P02",
+        "frame0": 394,
+        "frame1": 401
+      },
+      "delivered_asr_first_word": {
+        "w": " is",
+        "t": 13.04,
+        "e": 13.38,
+        "p": null
+      },
+      "start_offset_ms": 106.5
+    },
+    {
+      "phrase": "get in shape now.",
+      "visible": [
+        14.280933333333333,
+        14.981633333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 14.280933333333333,
+      "source_first_word": {
+        "w": "get",
+        "t0": 14.263021626561079,
+        "t1": 14.388607980505654,
+        "src_start": 181.48,
+        "src_end": 181.62,
+        "piece": "P02",
+        "frame0": 428,
+        "frame1": 432
+      },
+      "delivered_asr_first_word": {
+        "w": " get",
+        "t": 14.28,
+        "e": 14.4,
+        "p": null
+      },
+      "start_offset_ms": 0.9
+    },
+    {
+      "phrase": "You can get",
+      "visible": [
+        15.181833333333334,
+        15.749066666666668
+      ],
+      "continuation": false,
+      "phrase_origin": 15.181833333333334,
+      "source_first_word": {
+        "w": "You",
+        "t0": 15.151096558026211,
+        "t1": 15.47403289674079,
+        "src_start": 188.68,
+        "src_end": 189.04,
+        "piece": "P03",
+        "frame0": 455,
+        "frame1": 464
+      },
+      "delivered_asr_first_word": {
+        "w": " You",
+        "t": 15.16,
+        "e": 15.48,
+        "p": null
+      },
+      "start_offset_ms": 21.8
+    },
+    {
+      "phrase": "started getting in",
+      "visible": [
+        15.749066666666668,
+        16.4164
+      ],
+      "continuation": false,
+      "phrase_origin": 15.749066666666668,
+      "source_first_word": {
+        "w": "started",
+        "t0": 15.74314651233629,
+        "t1": 15.994319220225417,
+        "src_start": 189.34,
+        "src_end": 189.62,
+        "piece": "P03",
+        "frame0": 472,
+        "frame1": 480
+      },
+      "delivered_asr_first_word": {
+        "w": " started",
+        "t": 15.74,
+        "e": 16.0,
+        "p": null
+      },
+      "start_offset_ms": 9.1
+    },
+    {
+      "phrase": "shape with AI",
+      "visible": [
+        16.4164,
+        16.883533333333332
+      ],
+      "continuation": false,
+      "phrase_origin": 16.4164,
+      "source_first_word": {
+        "w": "shape",
+        "t0": 16.406960097471845,
+        "t1": 16.550487359122773,
+        "src_start": 190.08,
+        "src_end": 190.24,
+        "piece": "P03",
+        "frame0": 492,
+        "frame1": 497
+      },
+      "delivered_asr_first_word": {
+        "w": " shape",
+        "t": 16.4,
+        "e": 16.56,
+        "p": null
+      },
+      "start_offset_ms": 16.4
+    },
+    {
+      "phrase": "with my free app.",
+      "visible": [
+        16.883533333333332,
+        17.817800000000002
+      ],
+      "continuation": false,
+      "phrase_origin": 16.883533333333332,
+      "source_first_word": {
+        "w": "with",
+        "t0": 16.87342369783735,
+        "t1": 17.124596405726475,
+        "src_start": 190.6,
+        "src_end": 190.88,
+        "piece": "P03",
+        "frame0": 506,
+        "frame1": 514
+      },
+      "delivered_asr_first_word": {
+        "w": " with",
+        "t": 16.88,
+        "e": 17.14,
+        "p": null
+      },
+      "start_offset_ms": 3.5
+    },
+    {
+      "phrase": "Just tap",
+      "visible": [
+        18.051366666666667,
+        18.485133333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 18.051366666666667,
+      "source_first_word": {
+        "w": "Just",
+        "t0": 18.039582698751158,
+        "t1": 18.183109960402085,
+        "src_start": 191.9,
+        "src_end": 192.06,
+        "piece": "P03",
+        "frame0": 541,
+        "frame1": 545
+      },
+      "delivered_asr_first_word": {
+        "w": " Just",
+        "t": 17.94,
+        "e": 18.2,
+        "p": null
+      },
+      "start_offset_ms": 111.4
+    },
+    {
+      "phrase": "the button below.",
+      "visible": [
+        18.485133333333334,
+        19.2192
+      ],
+      "continuation": false,
+      "phrase_origin": 18.485133333333334,
+      "source_first_word": {
+        "w": "the",
+        "t0": 18.452223575997586,
+        "t1": 18.649573560767614,
+        "src_start": 192.36,
+        "src_end": 192.58,
+        "piece": "P03",
+        "frame0": 554,
+        "frame1": 559
+      },
+      "delivered_asr_first_word": {
+        "w": " the",
+        "t": 18.46,
+        "e": 18.66,
+        "p": null
+      },
+      "start_offset_ms": 25.1
+    },
+    {
+      "phrase": "Here's how it works.",
+      "visible": [
+        19.4194,
+        20.086733333333335
+      ],
+      "continuation": false,
+      "phrase_origin": 19.4194,
+      "source_first_word": {
+        "w": "Here's",
+        "t0": 19.403091684434994,
+        "t1": 19.636323484617744,
+        "src_start": 193.86,
+        "src_end": 194.12,
+        "piece": "P04",
+        "frame0": 582,
+        "frame1": 589
+      },
+      "delivered_asr_first_word": {
+        "w": " Here's",
+        "t": 19.44,
+        "e": 19.66,
+        "p": null
+      },
+      "start_offset_ms": -20.6
+    },
+    {
+      "phrase": "First, you generate",
+      "visible": [
+        20.653966666666665,
+        21.5215
+      ],
+      "continuation": false,
+      "phrase_origin": 20.653966666666665,
+      "source_first_word": {
+        "w": "First,",
+        "t0": 20.623073408467878,
+        "t1": 20.874246116357003,
+        "src_start": 195.22,
+        "src_end": 195.5,
+        "piece": "P04",
+        "frame0": 619,
+        "frame1": 626
+      },
+      "delivered_asr_first_word": {
+        "w": " First,",
+        "t": 20.6,
+        "e": 20.88,
+        "p": null
+      },
+      "start_offset_ms": 54.0
+    },
+    {
+      "phrase": "a picture of",
+      "visible": [
+        21.5215,
+        22.088733333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 21.5215,
+      "source_first_word": {
+        "w": "a",
+        "t0": 21.52011879378618,
+        "t1": 21.681586963143484,
+        "src_start": 196.22,
+        "src_end": 196.4,
+        "piece": "P04",
+        "frame0": 645,
+        "frame1": 650
+      },
+      "delivered_asr_first_word": {
+        "w": " a",
+        "t": 21.54,
+        "e": 21.7,
+        "p": null
+      },
+      "start_offset_ms": -18.5
+    },
+    {
+      "phrase": "yourself with your",
+      "visible": [
+        22.088733333333334,
+        22.689333333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 22.088733333333334,
+      "source_first_word": {
+        "w": "yourself",
+        "t0": 22.058346024977162,
+        "t1": 22.381282363691763,
+        "src_start": 196.82,
+        "src_end": 197.18,
+        "piece": "P04",
+        "frame0": 662,
+        "frame1": 671
+      },
+      "delivered_asr_first_word": {
+        "w": " yourself",
+        "t": 22.08,
+        "e": 22.38,
+        "p": null
+      },
+      "start_offset_ms": 8.7
+    },
+    {
+      "phrase": "dream body using AI.",
+      "visible": [
+        22.689333333333334,
+        24.124100000000002
+      ],
+      "continuation": false,
+      "phrase_origin": 22.689333333333334,
+      "source_first_word": {
+        "w": "dream",
+        "t0": 22.668336886993615,
+        "t1": 22.865686871763643,
+        "src_start": 197.5,
+        "src_end": 197.72,
+        "piece": "P04",
+        "frame0": 680,
+        "frame1": 686
+      },
+      "delivered_asr_first_word": {
+        "w": " dream",
+        "t": 22.66,
+        "e": 22.88,
+        "p": null
+      },
+      "start_offset_ms": 29.3
+    },
+    {
+      "phrase": "And that's not",
+      "visible": [
+        24.3243,
+        24.991633333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 24.3243,
+      "source_first_word": {
+        "w": "And",
+        "t0": 24.30095948827293,
+        "t1": 24.570073103868406,
+        "src_start": 199.58,
+        "src_end": 199.88,
+        "piece": "P05",
+        "frame0": 729,
+        "frame1": 737
+      },
+      "delivered_asr_first_word": {
+        "w": " and",
+        "t": 24.04,
+        "e": 24.56,
+        "p": null
+      },
+      "start_offset_ms": 284.3
+    },
+    {
+      "phrase": "just to motivate you.",
+      "visible": [
+        24.991633333333333,
+        25.892533333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 24.991633333333333,
+      "source_first_word": {
+        "w": "just",
+        "t0": 24.96477307340846,
+        "t1": 25.12624124276576,
+        "src_start": 200.32,
+        "src_end": 200.5,
+        "piece": "P05",
+        "frame0": 749,
+        "frame1": 754
+      },
+      "delivered_asr_first_word": {
+        "w": " just",
+        "t": 24.96,
+        "e": 25.14,
+        "p": null
+      },
+      "start_offset_ms": 31.6
+    },
+    {
+      "phrase": "That shows your",
+      "visible": [
+        26.092733333333335,
+        26.993633333333335
+      ],
+      "continuation": false,
+      "phrase_origin": 26.092733333333335,
+      "source_first_word": {
+        "w": "That",
+        "t0": 26.068138897349993,
+        "t1": 26.534602497715497,
+        "src_start": 216.36,
+        "src_end": 216.88,
+        "piece": "P06",
+        "frame0": 782,
+        "frame1": 796
+      },
+      "delivered_asr_first_word": {
+        "w": " That",
+        "t": 25.84,
+        "e": 26.52,
+        "p": null
+      },
+      "start_offset_ms": 252.7
+    },
+    {
+      "phrase": "AI trainer exactly",
+      "visible": [
+        26.993633333333335,
+        28.328300000000002
+      ],
+      "continuation": false,
+      "phrase_origin": 26.993633333333335,
+      "source_first_word": {
+        "w": "AI",
+        "t0": 26.9651842826683,
+        "t1": 27.19841608285105,
+        "src_start": 217.36,
+        "src_end": 217.62,
+        "piece": "P06",
+        "frame0": 809,
+        "frame1": 816
+      },
+      "delivered_asr_first_word": {
+        "w": " AI",
+        "t": 26.98,
+        "e": 27.18,
+        "p": null
+      },
+      "start_offset_ms": 13.6
+    },
+    {
+      "phrase": "how much fat you",
+      "visible": [
+        28.328300000000002,
+        28.928900000000002
+      ],
+      "continuation": false,
+      "phrase_origin": 28.328300000000002,
+      "source_first_word": {
+        "w": "how",
+        "t0": 28.310752360645758,
+        "t1": 28.526043253122133,
+        "src_start": 218.86,
+        "src_end": 219.1,
+        "piece": "P06",
+        "frame0": 849,
+        "frame1": 855
+      },
+      "delivered_asr_first_word": {
+        "w": " how",
+        "t": 28.3,
+        "e": 28.54,
+        "p": null
+      },
+      "start_offset_ms": 28.3
+    },
+    {
+      "phrase": "have to lose and",
+      "visible": [
+        28.928900000000002,
+        29.7297
+      ],
+      "continuation": false,
+      "phrase_origin": 28.928900000000002,
+      "source_first_word": {
+        "w": "have",
+        "t0": 28.90280231495584,
+        "t1": 29.046329576606762,
+        "src_start": 219.52,
+        "src_end": 219.68,
+        "piece": "P06",
+        "frame0": 867,
+        "frame1": 871
+      },
+      "delivered_asr_first_word": {
+        "w": " have",
+        "t": 28.92,
+        "e": 29.04,
+        "p": null
+      },
+      "start_offset_ms": 8.9
+    },
+    {
+      "phrase": "where you need to",
+      "visible": [
+        29.7297,
+        30.4304
+      ],
+      "continuation": false,
+      "phrase_origin": 29.7297,
+      "source_first_word": {
+        "w": "where",
+        "t0": 29.710143161742295,
+        "t1": 29.979256777337795,
+        "src_start": 220.42,
+        "src_end": 220.72,
+        "piece": "P06",
+        "frame0": 891,
+        "frame1": 899
+      },
+      "delivered_asr_first_word": {
+        "w": " where",
+        "t": 29.72,
+        "e": 30.0,
+        "p": null
+      },
+      "start_offset_ms": 9.7
+    },
+    {
+      "phrase": "gain muscle to make",
+      "visible": [
+        30.4304,
+        31.398033333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 30.4304,
+      "source_first_word": {
+        "w": "gain",
+        "t0": 30.42777946999695,
+        "t1": 30.571306731647873,
+        "src_start": 221.22,
+        "src_end": 221.38,
+        "piece": "P06",
+        "frame0": 912,
+        "frame1": 917
+      },
+      "delivered_asr_first_word": {
+        "w": " gain",
+        "t": 30.44,
+        "e": 30.58,
+        "p": null
+      },
+      "start_offset_ms": -9.6
+    },
+    {
+      "phrase": "your dream body real.",
+      "visible": [
+        31.398033333333334,
+        32.632600000000004
+      ],
+      "continuation": false,
+      "phrase_origin": 31.398033333333334,
+      "source_first_word": {
+        "w": "your",
+        "t0": 31.39658848614073,
+        "t1": 31.52217484008528,
+        "src_start": 222.3,
+        "src_end": 222.44,
+        "piece": "P06",
+        "frame0": 941,
+        "frame1": 945
+      },
+      "delivered_asr_first_word": {
+        "w": " your",
+        "t": 31.4,
+        "e": 31.54,
+        "p": null
+      },
+      "start_offset_ms": -2.0
+    },
+    {
+      "phrase": "Next, the AI",
+      "visible": [
+        32.8328,
+        33.7337
+      ],
+      "continuation": false,
+      "phrase_origin": 32.8328,
+      "source_first_word": {
+        "w": "Next,",
+        "t0": 32.81392019494364,
+        "t1": 33.11891562595187,
+        "src_start": 224.12,
+        "src_end": 224.46,
+        "piece": "P07",
+        "frame0": 984,
+        "frame1": 993
+      },
+      "delivered_asr_first_word": {
+        "w": " Next,",
+        "t": 32.92,
+        "e": 33.12,
+        "p": null
+      },
+      "start_offset_ms": -87.2
+    },
+    {
+      "phrase": "generates a personalized",
+      "visible": [
+        33.7337,
+        34.801433333333335
+      ],
+      "continuation": false,
+      "phrase_origin": 33.7337,
+      "source_first_word": {
+        "w": "generates",
+        "t0": 33.71096558026195,
+        "t1": 34.1594882729211,
+        "src_start": 225.12,
+        "src_end": 225.62,
+        "piece": "P07",
+        "frame0": 1011,
+        "frame1": 1024
+      },
+      "delivered_asr_first_word": {
+        "w": " generates",
+        "t": 33.7,
+        "e": 34.16,
+        "p": null
+      },
+      "start_offset_ms": 33.7
+    },
+    {
+      "phrase": "workout and nutrition",
+      "visible": [
+        34.801433333333335,
+        35.8358
+      ],
+      "continuation": false,
+      "phrase_origin": 34.801433333333335,
+      "source_first_word": {
+        "w": "workout",
+        "t0": 34.769479134937555,
+        "t1": 35.25388364300943,
+        "src_start": 226.3,
+        "src_end": 226.84,
+        "piece": "P07",
+        "frame0": 1043,
+        "frame1": 1057
+      },
+      "delivered_asr_first_word": {
+        "w": " workout",
+        "t": 34.78,
+        "e": 35.26,
+        "p": null
+      },
+      "start_offset_ms": 21.4
+    },
+    {
+      "phrase": "program designed to get",
+      "visible": [
+        35.8358,
+        37.27056666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 35.8358,
+      "source_first_word": {
+        "w": "program",
+        "t0": 35.810051781906786,
+        "t1": 36.276515382272294,
+        "src_start": 227.46,
+        "src_end": 227.98,
+        "piece": "P07",
+        "frame0": 1074,
+        "frame1": 1088
+      },
+      "delivered_asr_first_word": {
+        "w": " program",
+        "t": 35.82,
+        "e": 36.28,
+        "p": null
+      },
+      "start_offset_ms": 15.8
+    },
+    {
+      "phrase": "you to your goal.",
+      "visible": [
+        37.27056666666667,
+        37.9379
+      ],
+      "continuation": false,
+      "phrase_origin": 37.27056666666667,
+      "source_first_word": {
+        "w": "you",
+        "t0": 37.245324398416074,
+        "t1": 37.37091075236062,
+        "src_start": 229.06,
+        "src_end": 229.2,
+        "piece": "P07",
+        "frame0": 1117,
+        "frame1": 1121
+      },
+      "delivered_asr_first_word": {
+        "w": " you",
+        "t": 37.24,
+        "e": 37.38,
+        "p": null
+      },
+      "start_offset_ms": 30.6
+    },
+    {
+      "phrase": "It's far better",
+      "visible": [
+        38.1381,
+        38.90553333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 38.1381,
+      "source_first_word": {
+        "w": "It's",
+        "t0": 38.10648796832165,
+        "t1": 38.35766067621078,
+        "src_start": 230.16,
+        "src_end": 230.44,
+        "piece": "P08",
+        "frame0": 1143,
+        "frame1": 1150
+      },
+      "delivered_asr_first_word": {
+        "w": " It's",
+        "t": 38.2,
+        "e": 38.38,
+        "p": null
+      },
+      "start_offset_ms": -61.9
+    },
+    {
+      "phrase": "than any human fitness",
+      "visible": [
+        38.90553333333333,
+        39.70633333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 38.90553333333333,
+      "source_first_word": {
+        "w": "than",
+        "t0": 38.89588790740176,
+        "t1": 39.057356076759056,
+        "src_start": 231.04,
+        "src_end": 231.22,
+        "piece": "P08",
+        "frame0": 1166,
+        "frame1": 1171
+      },
+      "delivered_asr_first_word": {
+        "w": " than",
+        "t": 38.9,
+        "e": 39.06,
+        "p": null
+      },
+      "start_offset_ms": 5.5
+    },
+    {
+      "phrase": "plan because it's specifically",
+      "visible": [
+        39.70633333333333,
+        41.2412
+      ],
+      "continuation": false,
+      "phrase_origin": 39.70633333333333,
+      "source_first_word": {
+        "w": "plan",
+        "t0": 39.70322875418824,
+        "t1": 40.04410600060919,
+        "src_start": 231.94,
+        "src_end": 232.32,
+        "piece": "P08",
+        "frame0": 1190,
+        "frame1": 1201
+      },
+      "delivered_asr_first_word": {
+        "w": " plan",
+        "t": 39.72,
+        "e": 40.06,
+        "p": null
+      },
+      "start_offset_ms": -13.7
+    },
+    {
+      "phrase": "designed just for you.",
+      "visible": [
+        41.2412,
+        42.67596666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 41.2412,
+      "source_first_word": {
+        "w": "designed",
+        "t0": 41.210265001523,
+        "t1": 41.694669509594874,
+        "src_start": 233.62,
+        "src_end": 234.16,
+        "piece": "P08",
+        "frame0": 1236,
+        "frame1": 1250
+      },
+      "delivered_asr_first_word": {
+        "w": " designed",
+        "t": 41.22,
+        "e": 41.7,
+        "p": null
+      },
+      "start_offset_ms": 21.2
+    },
+    {
+      "phrase": "And finally, AI adjusts",
+      "visible": [
+        43.143100000000004,
+        44.81143333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 43.143100000000004,
+      "source_first_word": {
+        "w": "And",
+        "t0": 42.66347852573866,
+        "t1": 43.29141029546146,
+        "src_start": 235.24,
+        "src_end": 235.94,
+        "piece": "P08",
+        "frame0": 1279,
+        "frame1": 1298
+      },
+      "delivered_asr_first_word": {
+        "w": " And",
+        "t": 43.16,
+        "e": 43.32,
+        "p": null
+      },
+      "start_offset_ms": -16.9
+    },
+    {
+      "phrase": "your plan when life",
+      "visible": [
+        44.81143333333333,
+        45.6456
+      ],
+      "continuation": false,
+      "phrase_origin": 44.81143333333333,
+      "source_first_word": {
+        "w": "your",
+        "t0": 44.78050563508985,
+        "t1": 44.79844654279623,
+        "src_start": 237.6,
+        "src_end": 237.62,
+        "piece": "P08",
+        "frame0": 1343,
+        "frame1": 1343
+      },
+      "delivered_asr_first_word": {
+        "w": " your",
+        "t": 44.8,
+        "e": 44.8,
+        "p": null
+      },
+      "start_offset_ms": 11.4
+    },
+    {
+      "phrase": "gets in the way.",
+      "visible": [
+        45.6456,
+        46.31293333333333
+      ],
+      "continuation": false,
+      "phrase_origin": 45.6456,
+      "source_first_word": {
+        "w": "gets",
+        "t0": 45.64166920499543,
+        "t1": 45.87490100517818,
+        "src_start": 238.56,
+        "src_end": 238.82,
+        "piece": "P08",
+        "frame0": 1368,
+        "frame1": 1375
+      },
+      "delivered_asr_first_word": {
+        "w": " gets",
+        "t": 45.64,
+        "e": 45.86,
+        "p": null
+      },
+      "start_offset_ms": 5.6
+    },
+    {
+      "phrase": "When you get",
+      "visible": [
+        46.513133333333336,
+        46.8468
+      ],
+      "continuation": false,
+      "phrase_origin": 46.513133333333336,
+      "source_first_word": {
+        "w": "When",
+        "t0": 46.502832774901016,
+        "t1": 46.57459640572649,
+        "src_start": 239.82,
+        "src_end": 239.9,
+        "piece": "P09",
+        "frame0": 1394,
+        "frame1": 1396
+      },
+      "delivered_asr_first_word": {
+        "w": " When",
+        "t": 46.52,
+        "e": 46.58,
+        "p": null
+      },
+      "start_offset_ms": -6.9
+    },
+    {
+      "phrase": "injured, when you",
+      "visible": [
+        46.8468,
+        47.68096666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 46.8468,
+      "source_first_word": {
+        "w": "injured,",
+        "t0": 46.82576911361562,
+        "t1": 47.1487054523302,
+        "src_start": 240.18,
+        "src_end": 240.54,
+        "piece": "P09",
+        "frame0": 1404,
+        "frame1": 1414
+      },
+      "delivered_asr_first_word": {
+        "w": " injured",
+        "t": 46.84,
+        "e": 47.16,
+        "p": null
+      },
+      "start_offset_ms": 6.8
+    },
+    {
+      "phrase": "can't make it to",
+      "visible": [
+        47.68096666666667,
+        48.28156666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 47.68096666666667,
+      "source_first_word": {
+        "w": "can't",
+        "t0": 47.668991775814824,
+        "t1": 47.95604629911668,
+        "src_start": 241.12,
+        "src_end": 241.44,
+        "piece": "P09",
+        "frame0": 1429,
+        "frame1": 1438
+      },
+      "delivered_asr_first_word": {
+        "w": " can't",
+        "t": 47.66,
+        "e": 47.96,
+        "p": null
+      },
+      "start_offset_ms": 21.0
+    },
+    {
+      "phrase": "the gym one day,",
+      "visible": [
+        48.28156666666667,
+        48.98226666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 48.28156666666667,
+      "source_first_word": {
+        "w": "the",
+        "t0": 48.27898263783128,
+        "t1": 48.35074626865673,
+        "src_start": 241.8,
+        "src_end": 241.88,
+        "piece": "P09",
+        "frame0": 1447,
+        "frame1": 1450
+      },
+      "delivered_asr_first_word": {
+        "w": " the",
+        "t": 48.28,
+        "e": 48.36,
+        "p": null
+      },
+      "start_offset_ms": 1.6
+    },
+    {
+      "phrase": "or when the equipment",
+      "visible": [
+        49.082366666666665,
+        49.9499
+      ],
+      "continuation": false,
+      "phrase_origin": 49.082366666666665,
+      "source_first_word": {
+        "w": "or",
+        "t0": 49.05044166920501,
+        "t1": 49.31955528480051,
+        "src_start": 242.66,
+        "src_end": 242.96,
+        "piece": "P09",
+        "frame0": 1471,
+        "frame1": 1479
+      },
+      "delivered_asr_first_word": {
+        "w": " or",
+        "t": 48.92,
+        "e": 49.32,
+        "p": null
+      },
+      "start_offset_ms": 162.4
+    },
+    {
+      "phrase": "you need is broken.",
+      "visible": [
+        49.9499,
+        50.7507
+      ],
+      "continuation": false,
+      "phrase_origin": 49.9499,
+      "source_first_word": {
+        "w": "you",
+        "t0": 49.947487054523314,
+        "t1": 50.16277794699972,
+        "src_start": 243.66,
+        "src_end": 243.9,
+        "piece": "P09",
+        "frame0": 1497,
+        "frame1": 1504
+      },
+      "delivered_asr_first_word": {
+        "w": " you",
+        "t": 49.94,
+        "e": 50.16,
+        "p": null
+      },
+      "start_offset_ms": 9.9
+    },
+    {
+      "phrase": "AI adjusts your",
+      "visible": [
+        50.950900000000004,
+        51.98526666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 50.950900000000004,
+      "source_first_word": {
+        "w": "AI",
+        "t0": 50.93423697837342,
+        "t1": 51.14952787084982,
+        "src_start": 244.92,
+        "src_end": 245.16,
+        "piece": "P10",
+        "frame0": 1527,
+        "frame1": 1533
+      },
+      "delivered_asr_first_word": {
+        "w": " AI",
+        "t": 50.7,
+        "e": 51.14,
+        "p": null
+      },
+      "start_offset_ms": 250.9
+    },
+    {
+      "phrase": "plan in seconds.",
+      "visible": [
+        51.98526666666667,
+        53.08636666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 51.98526666666667,
+      "source_first_word": {
+        "w": "plan",
+        "t0": 51.956868717636304,
+        "t1": 52.225982333231805,
+        "src_start": 246.06,
+        "src_end": 246.36,
+        "piece": "P10",
+        "frame0": 1558,
+        "frame1": 1566
+      },
+      "delivered_asr_first_word": {
+        "w": " plan",
+        "t": 51.96,
+        "e": 52.22,
+        "p": null
+      },
+      "start_offset_ms": 25.3
+    },
+    {
+      "phrase": "Ditch expensive human trainers",
+      "visible": [
+        53.286566666666666,
+        54.98826666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 53.286566666666666,
+      "source_first_word": {
+        "w": "Ditch",
+        "t0": 53.26655498020104,
+        "t1": 53.643314042034746,
+        "src_start": 251.16,
+        "src_end": 251.58,
+        "piece": "P11",
+        "frame0": 1597,
+        "frame1": 1608
+      },
+      "delivered_asr_first_word": {
+        "w": " Ditch",
+        "t": 53.42,
+        "e": 53.66,
+        "p": null
+      },
+      "start_offset_ms": -133.4
+    },
+    {
+      "phrase": "and build your six",
+      "visible": [
+        54.98826666666667,
+        55.922533333333334
+      ],
+      "continuation": false,
+      "phrase_origin": 54.98826666666667,
+      "source_first_word": {
+        "w": "and",
+        "t0": 54.97094121230583,
+        "t1": 55.383582089552256,
+        "src_start": 253.06,
+        "src_end": 253.52,
+        "piece": "P11",
+        "frame0": 1648,
+        "frame1": 1660
+      },
+      "delivered_asr_first_word": {
+        "w": " and",
+        "t": 54.98,
+        "e": 55.38,
+        "p": null
+      },
+      "start_offset_ms": 8.3
+    },
+    {
+      "phrase": "pack abs with AI.",
+      "visible": [
+        55.922533333333334,
+        56.99026666666667
+      ],
+      "continuation": false,
+      "phrase_origin": 55.922533333333334,
+      "source_first_word": {
+        "w": "pack",
+        "t0": 55.921809320743236,
+        "t1": 56.10121839780689,
+        "src_start": 254.12,
+        "src_end": 254.32,
+        "piece": "P11",
+        "frame0": 1676,
+        "frame1": 1682
+      },
+      "delivered_asr_first_word": {
+        "w": " pack",
+        "t": 55.94,
+        "e": 56.12,
+        "p": null
+      },
+      "start_offset_ms": -17.5
+    },
+    {
+      "phrase": "Tap the button",
+      "visible": [
+        57.190466666666666,
+        57.7577
+      ],
+      "continuation": false,
+      "phrase_origin": 57.190466666666666,
+      "source_first_word": {
+        "w": "Tap",
+        "t0": 57.159731952482495,
+        "t1": 57.428845568077996,
+        "src_start": 255.76,
+        "src_end": 256.06,
+        "piece": "P12",
+        "frame0": 1714,
+        "frame1": 1722
+      },
+      "delivered_asr_first_word": {
+        "w": " Tap",
+        "t": 57.14,
+        "e": 57.44,
+        "p": null
+      },
+      "start_offset_ms": 50.5
+    },
+    {
+      "phrase": "below to get started.",
+      "visible": [
+        57.7577,
+        58.825433333333336
+      ],
+      "continuation": false,
+      "phrase_origin": 57.7577,
+      "source_first_word": {
+        "w": "below",
+        "t0": 57.7338409990862,
+        "t1": 58.03883643009445,
+        "src_start": 256.4,
+        "src_end": 256.74,
+        "piece": "P12",
+        "frame0": 1731,
+        "frame1": 1740
+      },
+      "delivered_asr_first_word": {
+        "w": " below",
+        "t": 57.74,
+        "e": 58.02,
+        "p": null
+      },
+      "start_offset_ms": 17.7
+    }
+  ]
+}

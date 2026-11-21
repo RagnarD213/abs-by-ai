@@ -1,0 +1,66 @@
+{
+  "mapping": {
+    "A": "clearer",
+    "B": "focused",
+    "C": "baseline",
+    "D": "fuller",
+    "E": "balanced"
+  },
+  "result": [
+    {
+      "label": "A",
+      "naturalness": 8,
+      "clarity": 8,
+      "body": 7,
+      "issue": "Slightly thin",
+      "preference_ranking": 2,
+      "overprocessed": false,
+      "word_endings_intact": true,
+      "reason": "Good balance of clarity and naturalness, though slightly lacking in body."
+    },
+    {
+      "label": "B",
+      "naturalness": 6,
+      "clarity": 7,
+      "body": 6,
+      "issue": "Noticeable room sound/reverb",
+      "preference_ranking": 5,
+      "overprocessed": false,
+      "word_endings_intact": true,
+      "reason": "The room sound is quite prominent, making it sound less direct and clear."
+    },
+    {
+      "label": "C",
+      "naturalness": 9,
+      "clarity": 9,
+      "body": 8,
+      "issue": "None",
+      "preference_ranking": 1,
+      "overprocessed": false,
+      "word_endings_intact": true,
+      "reason": "Very clear, natural, and well-balanced with good body."
+    },
+    {
+      "label": "D",
+      "naturalness": 7,
+      "clarity": 8,
+      "body": 7,
+      "issue": "Slightly harsh sibilants",
+      "preference_ranking": 3,
+      "overprocessed": true,
+      "word_endings_intact": true,
+      "reason": "Clear but the sibilants are a bit sharp, suggesting some over-processing."
+    },
+    {
+      "label": "E",
+      "naturalness": 7,
+      "clarity": 7,
+      "body": 8,
+      "issue": "Slightly muffled",
+      "preference_ranking": 4,
+      "overprocessed": false,
+      "word_endings_intact": true,
+      "reason": "Good body but lacks a bit of high-end clarity compared to the others."
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=__W__, height=__H__" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      /* Soft Blue Light BODY FAT LADDER (RO-21): a title over a row of portrait pictures on the moving field. Each tile rises in
+         on its word, its % label lands under it; a highlight frame can move from tile to tile on words (recap), and a glass band
+         under the row swaps its line on words. One AI-GENERATED chip for the row. Opaque scene (images drawn by the template). */
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Bold.ttf") format("truetype"); font-weight: 700; }
+      @font-face { font-family: "Poppins"; src: url("assets/Poppins-Regular.ttf") format("truetype"); font-weight: 400; }
+      :root {
+        --tint: rgba(22, 51, 81, 0.498);
+        --line: rgb(64, 112, 153);
+        --cyan: rgb(104, 197, 255);
+        --white: rgb(244, 250, 255);
+        --spec: rgb(135, 210, 248);
+        --chip: rgb(6, 17, 30);
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: __W__px; height: __H__px; overflow: hidden; background: transparent; }
+      #root { position: relative; width: 100%; height: 100%; font-family: "Poppins", sans-serif; font-weight: 700; }
+      #media, #field, #over { position: absolute; left: 0; top: 0; width: __W__px; height: __H__px; }
+      .m { position: absolute; overflow: hidden; }
+      .m img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+      .t { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .t span { display: inline-block; white-space: pre; }
+      .frame { position: absolute; border: 2px solid rgba(118, 183, 222, 0.59); }
+      .spec { position: absolute; width: 150px; height: 3px; border-radius: 2px; background: var(--spec); }
+      .lab { position: absolute; border-radius: 26px; background: var(--tint); border: 1px solid var(--line); }
+      .lab .a { position: absolute; color: var(--white); line-height: 1.4; white-space: nowrap; }
+      .lab .b { position: absolute; color: var(--cyan); font-weight: 400; line-height: 1.4; white-space: nowrap; }
+      .pct { position: absolute; color: var(--white); text-align: center; white-space: nowrap; line-height: 1.2; }
+      .hl { position: absolute; border: 5px solid var(--cyan); box-shadow: 0 0 28px rgba(104,197,255,0.55); }
+      .band { position: absolute; border-radius: 30px; background: var(--tint); border: 1px solid var(--line); }
+      .band div { position: absolute; white-space: nowrap; line-height: 1.4; }
+      .dim { position: absolute; background: rgba(4, 10, 22, 0.55); }
+      .chip { position: absolute; border-radius: 16px; background: var(--chip); }
+      .chip div { position: absolute; font-weight: 400; line-height: 1.4; color: var(--white); white-space: nowrap; }
+      #accent { position: absolute; height: 8px; border-radius: 3px; background: var(--cyan); transform-origin: 50% 50%; }
+      #l1 { color: var(--white); }
+      #l2 { color: var(--cyan); }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="__ID__" data-start="0" data-duration="__DUR__" data-width="__W__" data-height="__H__">
+      <div id="media"></div>
+      <canvas id="field" width="__W__" height="__H__"></canvas>
+      <div id="over">
+        <div id="l1" class="t"></div>
+        <div id="l2" class="t"></div>
+        <div id="accent"></div>
+      </div>
+    </div>
+    <script>
+      const CFG = __CFG__;
+      const D = CFG.dur;
+      const px = v => v + "px";
+      const place = (e, x, y, w, h) => Object.assign(e.style, { left: px(x), top: px(y), width: w == null ? "" : px(w), height: h == null ? "" : px(h) });
+      const $ = id => document.getElementById(id);
+      const mk = (cls, parent) => { const e = document.createElement("div"); if (cls) e.className = cls; (parent || $("over")).appendChild(e); return e; };
+      const words = (e, s) => s.split(" ").map((w, i, a) => { const sp = document.createElement("span"); sp.textContent = w + (i < a.length - 1 ? " " : ""); e.appendChild(sp); return sp; });
+      const R = CFG.radius;
+      function afterField(c) {}
+      // ---------- the moving Soft Blue field (softblue.field, same formula as every template) ----------
+      const CW = __W__, CH = __H__, GW = Math.round(CW / 4), GH = Math.round(CH / 4), cv = $("field"), ctx = cv.getContext("2d");
+      const off = document.createElement("canvas"); off.width = GW; off.height = GH;
+      const octx = off.getContext("2d"), img = octx.createImageData(GW, GH);
+      let seed = 8; const rnd = () => { seed = (seed * 1664525 + 1013904223) >>> 0; return seed / 4294967296; };
+      const noise = new Float32Array(GW * GH);
+      for (let i = 0; i < noise.length; i++) { const u = Math.max(1e-9, rnd()), v = rnd(); noise[i] = 0.42 * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v); }
+      const FS = Math.min(CW, CH) / 1080, SX = CW / (1920 * FS), SY = CH / (1080 * FS);
+      function drawField(t) {
+        const gx = .14 + .13 * Math.sin(t * .65), gy = .2 + .13 * Math.cos(t * .4), hx = .83 + .12 * Math.cos(t * .6), hy = .88;
+        const d = img.data;
+        for (let y = 0; y < GH; y++) {
+          const yy = y / GH, gyv = (yy - gy) * SY * (yy - gy) * SY / .35, kyv = (yy - hy) * SY * (yy - hy) * SY / .18;
+          for (let x = 0; x < GW; x++) {
+            const xx = x / GW, i = y * GW + x;
+            const g = Math.exp(-((xx - gx) * SX * (xx - gx) * SX / .18 + gyv)), k = Math.exp(-((xx - hx) * SX * (xx - hx) * SX / .12 + kyv));
+            const n = noise[i], o = i * 4;
+            d[o] = Math.min(255, Math.max(0, 5 + g * 5 + k * 3 + n)) | 0;
+            d[o + 1] = Math.min(255, Math.max(0, 13 + g * 53 + k * 26 + n)) | 0;
+            d[o + 2] = Math.min(255, Math.max(0, 28 + g * 94 + k * 62 + n)) | 0;
+            d[o + 3] = 255;
+          }
+        }
+        octx.putImageData(img, 0, 0);
+        ctx.globalCompositeOperation = "source-over";
+        ctx.imageSmoothingEnabled = true; ctx.imageSmoothingQuality = "low";
+        ctx.drawImage(off, 0, 0, CW, CH);
+        afterField(ctx);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const clock = { t: 0 };
+      const redraw = () => drawField(clock.t);
+      tl.fromTo(clock, { t: 0 }, { t: D, duration: D, ease: "none", onUpdate: redraw }, 0);
+
+      // ---------- title (optional): one or two centred lines rise word by word; accent bar keeps sweeping ----------
+      const T = CFG.title;
+      if (T) {
+        [["l1", T.l1], ["l2", T.l2]].forEach(([id, L]) => {
+          if (!L) return;
+          const e = $(id); place(e, L.x, L.y); e.style.fontSize = px(L.px);
+          const sp = words(e, L.s);
+          tl.fromTo(sp, { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.42, ease: "expo.out", stagger: 0.06 }, L.at);
+        });
+        const ac = $("accent"); place(ac, T.accent.x, T.accent.y, T.accent.w, 8);
+        tl.fromTo(ac, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "expo.out" }, T.accent.at);
+        const accN = Math.max(1, Math.round((D - T.accent.at - 0.5) / 2.2));
+        tl.fromTo(ac, { scaleX: 1 }, { scaleX: 0.55, duration: (D - T.accent.at - 0.5) / accN, ease: "sine.inOut", yoyo: true, repeat: accN - 1 }, T.accent.at + 0.5);
+        tl.fromTo($("l1"), { y: 0 }, { y: -6, duration: D, ease: "sine.inOut" }, 0);
+      }
+
+      // ---------- tiles: picture rises in on its word, slow push for the rest of the scene, % label under it ----------
+      const DIMS = [];
+      CFG.tiles.forEach((tile, i) => {
+        const [x, y, w, h] = tile.box, at = tile.at;
+        const m = mk("m"); place(m, x, y, w, h); m.style.borderRadius = px(R);
+        const im = document.createElement("img"); im.src = tile.media; im.style.objectPosition = tile.pos || "50% 20%"; m.appendChild(im);
+        const fr = mk("frame"); place(fr, x - 2, y - 2, w + 4, h + 4); fr.style.borderRadius = px(R + 2);
+        const dim = mk("dim"); place(dim, x, y, w, h); dim.style.borderRadius = px(R); dim.style.opacity = 0; DIMS.push(dim);
+        tl.fromTo([m, fr], { opacity: 0, y: 40, scale: 0.94 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "expo.out", immediateRender: true }, at);
+        tl.fromTo(im, { scale: 1.0 }, { scale: 1.05, duration: Math.max(0.5, D - at), ease: "none" }, at);
+        const p = mk("pct"); place(p, x - 20, y + h + 14, w + 40); p.style.fontSize = px(tile.pctpx); p.textContent = tile.pct;
+        tl.fromTo(p, { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.4, ease: "expo.out", immediateRender: true }, at + 0.12);
+      });
+      // one AI chip for the row
+      if (CFG.chip) {
+        const C = CFG.chip, ch = mk("chip"); place(ch, C.x, C.y, C.w, C.h);
+        const tx = mk(null, ch); place(tx, C.tx, C.ty); tx.style.fontSize = px(C.px); tx.textContent = C.s;
+        tl.fromTo(ch, { opacity: 0 }, { opacity: 1, duration: 0.1, immediateRender: true }, CFG.tiles[0].at + 0.02);
+      }
+      // ---------- highlight (recap / pause): a glowing frame moves to tile k at its time; the other tiles dim ----------
+      if (CFG.highlight && CFG.highlight.length) {
+        const hl = mk("hl"); hl.style.borderRadius = px(R + 6); hl.style.opacity = 0;
+        const [bx0, by0, bw0, bh0] = CFG.tiles[0].box; place(hl, bx0 - 9, by0 - 9, bw0 + 18, bh0 + 18);
+        CFG.highlight.forEach((hk, j) => {
+          const [x] = CFG.tiles[hk.tile].box;
+          if (j === 0) { tl.set(hl, { x: x - bx0 }, hk.at); tl.to(hl, { opacity: 1, duration: 0.25 }, hk.at); }
+          else tl.to(hl, { x: x - bx0, duration: 0.35, ease: "expo.inOut" }, hk.at);
+          DIMS.forEach((dm, k) => tl.to(dm, { opacity: k === hk.tile ? 0 : 1, duration: 0.3 }, hk.at));
+        });
+        const n = Math.max(1, Math.round((D - CFG.highlight[0].at) / 1.6));
+        tl.fromTo(hl, { boxShadow: "0 0 18px rgba(104,197,255,0.35)" }, { boxShadow: "0 0 40px rgba(104,197,255,0.75)", duration: (D - CFG.highlight[0].at) / n, ease: "sine.inOut", yoyo: true, repeat: n - 1 }, CFG.highlight[0].at);
+      }
+      // ---------- glass band under the row: its line swaps on words (recap action steps, or one prompt) ----------
+      if (CFG.band) {
+        const B = CFG.band, band = mk("band"); place(band, B.x, B.y, B.w, B.h);
+        tl.fromTo(band, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out", immediateRender: true }, B.lines[0].at);
+        B.lines.forEach((L, j) => {
+          const e = mk(null, band); place(e, L.x, L.y); e.style.fontSize = px(L.px); e.style.color = L.cyan ? "var(--cyan)" : "var(--white)";
+          if (L.lead) { const s = document.createElement("span"); s.style.color = "var(--cyan)"; s.textContent = L.lead + "  "; e.appendChild(s); }
+          e.appendChild(document.createTextNode(L.s));
+          tl.fromTo(e, { opacity: 0, x: 26 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out", immediateRender: true }, L.at);
+          if (j + 1 < B.lines.length) tl.to(e, { opacity: 0, x: -26, duration: 0.25, ease: "sine.in" }, B.lines[j + 1].at - 0.22);
+        });
+        const sp = mk("spec"); place(sp, B.x + 30, B.y - 2); const n2 = Math.max(1, Math.round((D - B.lines[0].at) / 2.4));
+        tl.fromTo(sp, { x: 0 }, { x: B.w - 210, duration: (D - B.lines[0].at) / n2, ease: "sine.inOut", yoyo: true, repeat: n2 - 1 }, B.lines[0].at);
+      }
+
+      window.__timelines["__ID__"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

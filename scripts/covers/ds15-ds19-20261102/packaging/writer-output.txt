@@ -1,0 +1,20 @@
+{
+  "ds15": {
+    "title": "Does Jiu Jitsu Get You Abs?",
+    "hook": "Does jiu jitsu get you abs? Here's the honest answer from a black belt.",
+    "body": "I'm a Brazilian Jiu Jitsu black belt who's been training for 22 years. Jiu jitsu does give you a great ab workout, both with the conditioning exercises we do and with wrestling live rounds. But it might be the hardest possible way to get abs. If you just want abs and you don't care about wrestling, gym ab exercises do the job faster. And nutrition is 80% of getting abs either way. You can't out-train a bad diet, not even with jiu jitsu.",
+    "close": "Comment below to let me know if jiu jitsu has helped your abs.",
+    "tags": ["#jiujitsu", "#bjj", "#abs", "#sixpackabs", "#Shorts"],
+    "youtube_description": "Does jiu jitsu get you abs? I'm a Brazilian Jiu Jitsu black belt who's been training for 22 years, and I've had a lot of people asking me this. Jiu jitsu does give you a great ab workout, both with the conditioning exercises and with live rounds. But it might be the hardest possible way to get abs. If you just want abs, gym ab exercises do the job faster. And remember, nutrition is 80% of getting abs whether you do jiu jitsu or not. So focus on how you're eating, not how you're training. If you love jiu jitsu, the ab workout is a great bonus.\n\nAbs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=jiu-jitsu-abs&utm_content=ds-15",
+    "pinned_comment": "How long have you been training jiu jitsu?"
+  },
+  "ds19": {
+    "title": "How To Use Battle Ropes",
+    "hook": "Battle ropes are an incredible total body cardio workout. Here's how to use them.",
+    "body": "Loop the ropes around a pillar or tree. Stand at the end of the ropes with your feet shoulder width apart, a slight bend in your legs, and grab the rope with both hands. For a less intense workout, do alternating waves. Hold one end in each hand and move your arms up and down in a whip-like motion to send waves towards the anchor. For a more intense total body workout, do two arm slams. Lift both arms overhead and slam the ropes down using your entire body.",
+    "close": "Leave me a comment to let me know your favorite way to do battle ropes.",
+    "tags": ["#battleropes", "#cardio", "#homeworkout", "#fullbodyworkout", "#Shorts"],
+    "youtube_description": "Battle ropes are an incredible total body cardio workout, and here's how to use them. Loop the ropes around a pillar or tree. Get in your starting stance with your feet shoulder width apart and a slight bend in your legs. If you want a less intense workout that focuses on your upper body, do alternating waves. If you want a more intense total body workout, try two arm slams. Lift both arms overhead and slam the ropes down onto the floor. I love battle ropes for home cardio because you can set them up anywhere and get a great workout in a matter of minutes.\n\nAbs By AI:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=battle-ropes&utm_content=ds-19",
+    "pinned_comment": "Which do you like better, alternating waves or two arm slams?"
+  }
+}

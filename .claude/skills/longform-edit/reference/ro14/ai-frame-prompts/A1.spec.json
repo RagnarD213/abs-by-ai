@@ -1,0 +1,27 @@
+{
+ "shot": "RO-14 A1 The broken scale",
+ "start_frame": "A1-start.png",
+ "intent": "Bright bathroom. START: a man in a grey tee and black gym shorts, towel on his left shoulder, stands on a white digital bathroom scale and looks down at it. END: he has stepped one step back and to his right, off the scale; he holds the same scale up in both hands in front of his chest, peering at it, frowning, as if it is broken. The floor where the scale stood is empty.",
+ "person": {
+  "anchored": []
+ },
+ "hands": {
+  "right": "empty at his side in START; holds the scale's right edge in END",
+  "left": "empty at his side in START; holds the scale's left edge in END"
+ },
+ "may_change": {
+  "scale_held_END": [
+   620,
+   140,
+   810,
+   300
+  ],
+  "scale_floor_START": [
+   700,
+   810,
+   940,
+   941
+  ]
+ },
+ "bounds": {}
+}

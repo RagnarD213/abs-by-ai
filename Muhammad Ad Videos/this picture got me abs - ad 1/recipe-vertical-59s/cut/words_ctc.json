@@ -1,0 +1,817 @@
+[
+{
+"word": "This",
+"start": 0.181,
+"end": 0.342
+},
+{
+"word": "picture",
+"start": 0.443,
+"end": 0.765
+},
+{
+"word": "got",
+"start": 1.006,
+"end": 1.167
+},
+{
+"word": "me",
+"start": 1.228,
+"end": 1.288
+},
+{
+"word": "abs",
+"start": 1.469,
+"end": 1.65
+},
+{
+"word": "and",
+"start": 1.892,
+"end": 1.952
+},
+{
+"word": "it's",
+"start": 1.972,
+"end": 2.053
+},
+{
+"word": "not",
+"start": 2.113,
+"end": 2.234
+},
+{
+"word": "even",
+"start": 2.294,
+"end": 2.435
+},
+{
+"word": "real.",
+"start": 2.515,
+"end": 2.697
+},
+{
+"word": "I",
+"start": 2.943,
+"end": 2.963
+},
+{
+"word": "generated",
+"start": 3.123,
+"end": 3.625
+},
+{
+"word": "this",
+"start": 3.706,
+"end": 3.826
+},
+{
+"word": "picture",
+"start": 3.927,
+"end": 4.228
+},
+{
+"word": "with",
+"start": 4.308,
+"end": 4.449
+},
+{
+"word": "AI",
+"start": 4.549,
+"end": 4.79
+},
+{
+"word": "back",
+"start": 5.031,
+"end": 5.212
+},
+{
+"word": "when",
+"start": 5.292,
+"end": 5.413
+},
+{
+"word": "I",
+"start": 5.453,
+"end": 5.473
+},
+{
+"word": "was",
+"start": 5.533,
+"end": 5.634
+},
+{
+"word": "200",
+"start": 5.64,
+"end": 6.16
+},
+{
+"word": "pounds.",
+"start": 6.377,
+"end": 6.698
+},
+{
+"word": "I",
+"start": 6.983,
+"end": 7.003
+},
+{
+"word": "made",
+"start": 7.083,
+"end": 7.243
+},
+{
+"word": "it",
+"start": 7.284,
+"end": 7.324
+},
+{
+"word": "my",
+"start": 7.384,
+"end": 7.444
+},
+{
+"word": "phone",
+"start": 7.524,
+"end": 7.745
+},
+{
+"word": "lock",
+"start": 7.785,
+"end": 7.966
+},
+{
+"word": "screen",
+"start": 8.046,
+"end": 8.307
+},
+{
+"word": "and",
+"start": 8.508,
+"end": 8.588
+},
+{
+"word": "I",
+"start": 8.668,
+"end": 8.688
+},
+{
+"word": "looked",
+"start": 8.769,
+"end": 8.99
+},
+{
+"word": "at",
+"start": 9.03,
+"end": 9.09
+},
+{
+"word": "it",
+"start": 9.15,
+"end": 9.19
+},
+{
+"word": "every",
+"start": 9.551,
+"end": 9.792
+},
+{
+"word": "single",
+"start": 9.913,
+"end": 10.194
+},
+{
+"word": "day",
+"start": 10.254,
+"end": 10.455
+},
+{
+"word": "for",
+"start": 10.655,
+"end": 10.756
+},
+{
+"word": "more",
+"start": 10.836,
+"end": 10.976
+},
+{
+"word": "than",
+"start": 11.017,
+"end": 11.137
+},
+{
+"word": "a",
+"start": 11.177,
+"end": 11.197
+},
+{
+"word": "year.",
+"start": 11.257,
+"end": 11.418
+},
+{
+"word": "And",
+"start": 11.528,
+"end": 11.675
+},
+{
+"word": "this",
+"start": 11.786,
+"end": 12.007
+},
+{
+"word": "is",
+"start": 12.39,
+"end": 12.451
+},
+{
+"word": "where",
+"start": 12.491,
+"end": 12.632
+},
+{
+"word": "I'm",
+"start": 12.652,
+"end": 12.753
+},
+{
+"word": "at",
+"start": 12.773,
+"end": 12.894
+},
+{
+"word": "today.",
+"start": 12.934,
+"end": 13.176
+},
+{
+"word": "With",
+"start": 13.3806,
+"end": 13.5006
+},
+{
+"word": "AI,",
+"start": 13.6006,
+"end": 13.8816
+},
+{
+"word": "you",
+"start": 14.2426,
+"end": 14.3226
+},
+{
+"word": "can",
+"start": 14.3836,
+"end": 14.4636
+},
+{
+"word": "create",
+"start": 14.5436,
+"end": 14.7646
+},
+{
+"word": "a",
+"start": 14.8246,
+"end": 14.8446
+},
+{
+"word": "picture",
+"start": 14.9046,
+"end": 15.1856
+},
+{
+"word": "of",
+"start": 15.2256,
+"end": 15.2656
+},
+{
+"word": "yourself,",
+"start": 15.3456,
+"end": 15.8676
+},
+{
+"word": "your",
+"start": 16.3686,
+"end": 16.5286
+},
+{
+"word": "face,",
+"start": 16.6296,
+"end": 16.9106
+},
+{
+"word": "your",
+"start": 17.3136,
+"end": 17.4946
+},
+{
+"word": "body,",
+"start": 17.5946,
+"end": 17.8556
+},
+{
+"word": "with",
+"start": 18.2366,
+"end": 18.3566
+},
+{
+"word": "the",
+"start": 18.4176,
+"end": 18.4776
+},
+{
+"word": "ripped",
+"start": 18.5576,
+"end": 18.7586
+},
+{
+"word": "six",
+"start": 18.8186,
+"end": 18.9586
+},
+{
+"word": "pack",
+"start": 19.0596,
+"end": 19.2396
+},
+{
+"word": "abs",
+"start": 19.4006,
+"end": 19.5606
+},
+{
+"word": "you've",
+"start": 19.7816,
+"end": 19.9416
+},
+{
+"word": "always",
+"start": 20.0826,
+"end": 20.3436
+},
+{
+"word": "wanted.",
+"start": 20.4236,
+"end": 20.6846
+},
+{
+"word": "And",
+"start": 20.9046,
+"end": 20.9656
+},
+{
+"word": "once",
+"start": 21.1056,
+"end": 21.2466
+},
+{
+"word": "you",
+"start": 21.2666,
+"end": 21.3466
+},
+{
+"word": "see",
+"start": 21.4466,
+"end": 21.5676
+},
+{
+"word": "yourself",
+"start": 21.6076,
+"end": 21.9086
+},
+{
+"word": "with",
+"start": 21.9686,
+"end": 22.0686
+},
+{
+"word": "abs,",
+"start": 22.2096,
+"end": 22.3696
+},
+{
+"word": "the",
+"start": 22.5336,
+"end": 22.6136
+},
+{
+"word": "real",
+"start": 22.7336,
+"end": 22.9746
+},
+{
+"word": "you,",
+"start": 23.0746,
+"end": 23.2156
+},
+{
+"word": "not",
+"start": 23.6766,
+"end": 23.8576
+},
+{
+"word": "some",
+"start": 23.8976,
+"end": 24.0576
+},
+{
+"word": "fitness",
+"start": 24.0776,
+"end": 24.3986
+},
+{
+"word": "model,",
+"start": 24.4396,
+"end": 24.6996
+},
+{
+"word": "everything",
+"start": 24.9806,
+"end": 25.3616
+},
+{
+"word": "changes.",
+"start": 25.4426,
+"end": 25.8436
+},
+{
+"word": "you",
+"start": 26.2217,
+"end": 26.3217
+},
+{
+"word": "can",
+"start": 26.4017,
+"end": 26.5027
+},
+{
+"word": "generate",
+"start": 26.5827,
+"end": 26.9637
+},
+{
+"word": "an",
+"start": 27.0237,
+"end": 27.0637
+},
+{
+"word": "AI",
+"start": 27.2047,
+"end": 27.3647
+},
+{
+"word": "image",
+"start": 27.5247,
+"end": 27.7257
+},
+{
+"word": "of",
+"start": 27.7677,
+"end": 27.8277
+},
+{
+"word": "yourself",
+"start": 27.8697,
+"end": 28.2107
+},
+{
+"word": "with",
+"start": 28.5107,
+"end": 28.6317
+},
+{
+"word": "ripped",
+"start": 28.7517,
+"end": 28.9527
+},
+{
+"word": "six",
+"start": 28.9727,
+"end": 29.1127
+},
+{
+"word": "pack",
+"start": 29.2127,
+"end": 29.3937
+},
+{
+"word": "abs,",
+"start": 29.5337,
+"end": 29.6947
+},
+{
+"word": "completely",
+"start": 30.0557,
+"end": 30.6567
+},
+{
+"word": "free.",
+"start": 30.9977,
+"end": 31.2187
+},
+{
+"word": "Just",
+"start": 31.5397,
+"end": 31.6997
+},
+{
+"word": "tap",
+"start": 31.7797,
+"end": 31.9807
+},
+{
+"word": "the",
+"start": 32.0807,
+"end": 32.1607
+},
+{
+"word": "button",
+"start": 32.1807,
+"end": 32.3617
+},
+{
+"word": "below",
+"start": 32.4217,
+"end": 32.6627
+},
+{
+"word": "to",
+"start": 33.0237,
+"end": 33.1037
+},
+{
+"word": "see",
+"start": 33.1837,
+"end": 33.3237
+},
+{
+"word": "yourself",
+"start": 33.3647,
+"end": 33.6647
+},
+{
+"word": "with",
+"start": 33.7257,
+"end": 33.8057
+},
+{
+"word": "abs.",
+"start": 33.9257,
+"end": 34.0867
+},
+{
+"word": "You're",
+"start": 34.1997,
+"end": 34.3607
+},
+{
+"word": "more",
+"start": 34.4007,
+"end": 34.5607
+},
+{
+"word": "attractive",
+"start": 34.5847,
+"end": 35.0067
+},
+{
+"word": "to",
+"start": 35.0467,
+"end": 35.1067
+},
+{
+"word": "women.",
+"start": 35.1867,
+"end": 35.4077
+},
+{
+"word": "Men",
+"start": 35.6687,
+"end": 35.8687
+},
+{
+"word": "respect",
+"start": 36.0697,
+"end": 36.4507
+},
+{
+"word": "you",
+"start": 36.4907,
+"end": 36.5717
+},
+{
+"word": "more.",
+"start": 36.6517,
+"end": 36.8327
+},
+{
+"word": "You",
+"start": 37.0727,
+"end": 37.1537
+},
+{
+"word": "feel",
+"start": 37.2737,
+"end": 37.4747
+},
+{
+"word": "better.",
+"start": 37.5547,
+"end": 37.7757
+},
+{
+"word": "Generating",
+"start": 37.8616,
+"end": 38.3626
+},
+{
+"word": "an",
+"start": 38.4036,
+"end": 38.4636
+},
+{
+"word": "image",
+"start": 38.5836,
+"end": 38.7646
+},
+{
+"word": "of",
+"start": 38.8446,
+"end": 38.8846
+},
+{
+"word": "yourself",
+"start": 38.9446,
+"end": 39.2056
+},
+{
+"word": "with",
+"start": 39.2656,
+"end": 39.3666
+},
+{
+"word": "abs",
+"start": 39.5266,
+"end": 39.6876
+},
+{
+"word": "is",
+"start": 39.8476,
+"end": 39.9076
+},
+{
+"word": "just",
+"start": 40.0486,
+"end": 40.2886
+},
+{
+"word": "the",
+"start": 40.3526,
+"end": 40.4136
+},
+{
+"word": "first",
+"start": 40.4736,
+"end": 40.6736
+},
+{
+"word": "step.",
+"start": 40.7346,
+"end": 40.9546
+},
+{
+"word": "After",
+"start": 41.2956,
+"end": 41.4766
+},
+{
+"word": "that,",
+"start": 41.5566,
+"end": 41.7176
+},
+{
+"word": "our",
+"start": 42.0986,
+"end": 42.1786
+},
+{
+"word": "personalized",
+"start": 42.2986,
+"end": 42.9616
+},
+{
+"word": "AI",
+"start": 43.0816,
+"end": 43.2416
+},
+{
+"word": "fitness",
+"start": 43.3626,
+"end": 43.7036
+},
+{
+"word": "program",
+"start": 43.7236,
+"end": 44.1246
+},
+{
+"word": "helps",
+"start": 44.4656,
+"end": 44.7066
+},
+{
+"word": "you",
+"start": 44.7666,
+"end": 44.8476
+},
+{
+"word": "make",
+"start": 44.9076,
+"end": 45.0476
+},
+{
+"word": "it",
+"start": 45.1076,
+"end": 45.1476
+},
+{
+"word": "real.",
+"start": 45.2086,
+"end": 45.3886
+},
+{
+"word": "To",
+"start": 45.6116,
+"end": 45.6916
+},
+{
+"word": "start",
+"start": 45.7926,
+"end": 46.0326
+},
+{
+"word": "losing",
+"start": 46.1126,
+"end": 46.3536
+},
+{
+"word": "your",
+"start": 46.3936,
+"end": 46.4936
+},
+{
+"word": "belly",
+"start": 46.5336,
+"end": 46.7546
+},
+{
+"word": "fat",
+"start": 46.8146,
+"end": 47.0146
+},
+{
+"word": "and",
+"start": 47.1156,
+"end": 47.1956
+},
+{
+"word": "getting",
+"start": 47.2356,
+"end": 47.4156
+},
+{
+"word": "six",
+"start": 47.4956,
+"end": 47.6366
+},
+{
+"word": "pack",
+"start": 47.7366,
+"end": 47.8966
+},
+{
+"word": "abs,",
+"start": 48.0776,
+"end": 48.2376
+},
+{
+"word": "tap",
+"start": 48.6586,
+"end": 48.8796
+},
+{
+"word": "the",
+"start": 48.9796,
+"end": 49.0596
+},
+{
+"word": "button",
+"start": 49.0996,
+"end": 49.3196
+},
+{
+"word": "below.",
+"start": 49.4006,
+"end": 49.6206
+}
+]

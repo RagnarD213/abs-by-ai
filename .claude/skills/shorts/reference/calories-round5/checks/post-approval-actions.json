@@ -1,0 +1,19 @@
+{
+  "scope": "after Dan approves R5 D frames",
+  "flow_route": "Google Flow subscription only",
+  "fasting": "Use approved R4 exact pair; same clock advance/daylight requirements and narration timing. No need to reopen image approval.",
+  "protein": "Use R5 exact pair. Standing against right-side counter, full abdomen visible, same physiques/body scale; preserve arms/hands/food, only heads lean to bite.",
+  "caption_update": {
+    "short": "Snack on Protein, Not Carbs",
+    "output_time": [
+      0,
+      2.3004666667
+    ],
+    "caption_top": 1755,
+    "after_opening": "retain existing placement for unchanged remainder",
+    "reason": "keep caption clear of exposed heavier stomach and lean abs"
+  },
+  "remove_from_finished_film": "Frame Preview: Motion Not Generated label is preview-only",
+  "preserve": "All other R3 timing, audio, grade, title treatment, selections. Other three R3 complete Shorts unchanged.",
+  "pending": "Motion takes, measured and fresh independent motion checks, narrated motion review, remaining two full Shorts and final exact-file checks. No covers or publishing."
+}

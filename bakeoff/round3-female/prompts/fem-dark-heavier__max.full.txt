@@ -1,0 +1,35 @@
+Transform this woman into a fitness magazine cover model at 25% body fat — a strong, realistic, and unmistakably leaner version of herself. The body in the output image MUST look unmistakably and dramatically different from the body in the input photo — a clearly visible transformation is required. This subject starts at a higher body-fat level, so the transformation requires a LARGE, whole-body fat reduction — the midsection, waist, lower belly, hips, arms, and thighs must ALL look substantially leaner and tighter, with a defined feminine midsection clearly visible through the reduced fat. Do NOT return a still-soft or still-heavy result — the drop must be major and obvious at a glance. Keep her unmistakably feminine: natural curves at the hips and chest, no masculine bulk, no blocky muscle, no veins. This is a strong, realistic transformation — a noticeably flatter stomach, a visibly tighter and more tapered waist, leaner arms, and a firmer overall shape, so she looks clearly leaner and fitter than the input — but a believable mid-journey stage, not a shredded peak physique.
+
+BODY TRANSFORMATION:
+• Reduce overall body fat dramatically across the entire torso, waist, lower belly, hips, thighs, and arms — a visible, whole-body drop that changes the silhouette from soft to athletic
+• Sculpt a defined feminine midsection with a clear upper-ab outline, a sharp vertical midline groove, and visible oblique definition framing the waist — the stomach must read as noticeably flatter and tighter than the input
+• Tighten and narrow the waist measurably; create a pronounced waist-to-hip taper that reads as clearly more feminine and sculpted than the input
+• Carve visible quad definition in the thighs and reduce inner-thigh softness; lift and round the glutes so they appear firmer and more sculpted
+• Define the shoulders with rounder, more sculpted caps; tighten and tone the arms with visible bicep shape and a clean tricep line
+• Reduce softness in the lower belly, flanks, and sides; eliminate any roll or bulge at the waist and hips
+• Tighten the chest and allow it to sit higher and firmer on the frame, maintaining natural breast shape and size
+• Render the skin taut and dry with a healthy, vibrant glow — an athletic look with real light-and-shadow contrast across the ab blocks, obliques, and muscle definition
+• Target archetype: fitness magazine cover model — strong, lean, feminine, and achievable
+
+PRESERVE EXACTLY: the same face, facial features, jawline, hairstyle, hair color, hair length, eye color, ethnicity, age, smile, expression, clothing, jewelry, watch, accessories, shoes, pose, and background from the original photo. Keep the same light direction, color temperature, time of day, and overall exposure so it reads as the same photograph — but let that light model the new muscle: allow deeper shadow inside the ab separations, the oblique lines, and the V-cut, and brighter highlights across the ab blocks, chest, and shoulders, so the physique is sculpted by light rather than flattened. The subject must be immediately recognizable as the same person. Only the body composition changes.
+
+FRAMING: Keep the exact same framing, camera distance, zoom, and aspect ratio as the original photo, with the entire subject — full head, face, torso, abs, and waistline — completely visible with the same margins as the input. Do NOT crop, zoom in, cut off, re-center, re-compose, or change the image dimensions. The output must show the same crop of the person as the input, only with the body composition changed.
+
+SKIN TONE RULES: Preserve the subject's exact natural skin tone from the input photo — the same colour, the same warmth, the same depth. Do NOT add a tan, bronzing, golden cast, or sun-kissed warmth, and do NOT darken or lighten the skin. The only permissible difference is the healthy look that comes from the light modelling the new muscle; the skin colour itself must be identical to the input. If the subject has naturally deep brown, dark brown, or darker complexion, preserve the exact natural skin tone with NO lightening or darkening. Add only a healthy, vibrant glow. Never make any skin tone change that could alter the subject's apparent ethnicity.
+
+AVOID:
+- any alteration to face, identity, apparent ethnicity, or age
+- heavily oiled, greasy, wet, or sweat-drenched skin
+- exaggerated or cartoonish proportions; anything sexualized in pose, framing, or clothing
+- any tan, bronzing, golden cast, or darkening of the skin versus the input photo
+- an airbrushed, plastic, or rendered look
+- cropping, zooming, re-framing, changing camera distance or aspect ratio, or cutting off any part of the head or body
+- an output identical or nearly identical to the input
+- bodybuilder-scale muscle mass
+- visible veins on arms or stomach
+- gaunt or hollowed facial features
+- any change to natural breast size
+- Preserve the subject's natural breast shape, size, and proportions — do not enlarge, reduce, or alter them; allow them to appear naturally proportional to the leaner frame.
+- Preserve natural hip width and bone structure. Only narrow the waist, never the hips.
+
+The final image should look like a natural, unretouched smartphone photograph of the same person at their new physical condition.

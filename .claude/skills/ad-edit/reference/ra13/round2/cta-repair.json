@@ -1,0 +1,28 @@
+[
+  {
+    "format": "9",
+    "before": "/Volumes/Extreme/_edit_work/ra13/round2/before-cta-repair/why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4",
+    "after": "/Volumes/Extreme/_edit_work/ra13/round2/final/why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4",
+    "audio_sha256": "5096725671133de4e4536d58c4d2a082fcf5ed6fb23b50a9a96c84c671ebea52",
+    "audio_bit_identical": true,
+    "box": [
+      68,
+      1530,
+      1012,
+      1710
+    ]
+  },
+  {
+    "format": "16",
+    "before": "/Volumes/Extreme/_edit_work/ra13/round2/before-cta-repair/why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4",
+    "after": "/Volumes/Extreme/_edit_work/ra13/round2/final/why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4",
+    "audio_sha256": "5096725671133de4e4536d58c4d2a082fcf5ed6fb23b50a9a96c84c671ebea52",
+    "audio_bit_identical": true,
+    "box": [
+      68,
+      740,
+      658,
+      880
+    ]
+  }
+]

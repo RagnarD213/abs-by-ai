@@ -1,0 +1,40 @@
+{
+  "http": [
+    {
+      "asset": "index",
+      "status": 200,
+      "content_range": null
+    },
+    {
+      "asset": "A01-narration.wav",
+      "status": 206,
+      "content_range": "bytes 0-99/1198040"
+    },
+    {
+      "asset": "D01-narration.wav",
+      "status": 206,
+      "content_range": "bytes 0-99/442084"
+    },
+    {
+      "asset": "frames/A01-start-full.png",
+      "status": 206,
+      "content_range": "bytes 0-99/1932130"
+    },
+    {
+      "asset": "frames/D01-end-full.png",
+      "status": 206,
+      "content_range": "bytes 0-99/1892818"
+    }
+  ],
+  "browser_checks": {
+    "created_new_tab_only": true,
+    "old_panels_operated": false,
+    "both_narrations_played_muted": true,
+    "forward_backward_seeking": true,
+    "paired_images_update_on_seek": true,
+    "final_player_paused": true,
+    "sound_left_muted": true
+  },
+  "audio": "exact original PCM prefixes; no remaster",
+  "version": "R4 synchronized still preview"
+}

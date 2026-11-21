@@ -1,0 +1,31 @@
+{
+ "shot": "RO-14 A1 The broken scale, round 3 START-only take (1920x1080)",
+ "intent": "Bright bathroom, locked camera. A man in a grey tee and black gym shorts, towel on his left shoulder, stands on a white digital bathroom scale and looks down at it; his face falls into a frown. He steps back off it onto the tile (feet never inside the scale), bends, lifts the SAME scale in both hands to his chest with the display toward him, taps the display, shakes the scale, frowns at it as if it is broken. One rigid scale with one display the whole time; the floor where it stood is empty after the lift.",
+ "camera": "locked",
+ "may_change": {
+  "scale_held_END": [
+   600,
+   100,
+   1050,
+   560
+  ],
+  "scale_floor_START": [
+   804,
+   930,
+   1079,
+   1080
+  ]
+ },
+ "props": [
+  {
+   "name": "scale",
+   "box": [
+    804,
+    930,
+    1079,
+    1080
+   ]
+  }
+ ],
+ "note": "frame spec boxes scaled 1672x941 -> 1920x1080; people are may_change boxes (legs out of frame); props added for the take; round 3: START-only takes, held-scale box widened to the chest area because the model chooses where he holds it"
+}

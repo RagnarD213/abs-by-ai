@@ -1,0 +1,92 @@
+[
+  {
+    "short": "a",
+    "letter": "A",
+    "concept": "Yellow headline family. Photoreal editorial photo: Dan doing a clear standing stomach vacuum at a tall wall mirror in a bright home workout room. Three-quarter front view, contracted hollow abdomen visibly drawn inward, chest lifted, hands on hips clear of abs. A single coherent reflection shows the side view of the same movement. Cropped mid-thigh. Matte navy exercise shorts.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "a",
+    "letter": "B",
+    "concept": "Dark navy/cyan sports editorial. Dan in a clean dark gym, three-quarter SIDE view demonstrating a strong stomach vacuum, abdomen pulled deeply inward under ribs, hands on hips without blocking it, face turned to viewer. Cool rim lighting with natural warm skin. Torso extended and clearly hollow, not normal flexed six-pack. Navy shorts. He occupies the lower right two thirds; background upper half is uninterrupted navy wall.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "a",
+    "letter": "C",
+    "concept": "BACKGROUND ONLY, no people, no reflection of people: a bright blue modern home gym with a large vertical mirror on the left, simple bench and exercise mat. Clean center/right space to composite a real physique portrait. Clear uncluttered upper wall.",
+    "source_kind": "real studio photo on generated background"
+  },
+  {
+    "short": "a",
+    "letter": "D",
+    "concept": "Portrait fitness editorial. Dan from head to upper hips, front three-quarter view in a sunlit home fitness studio, doing a hollow stomach vacuum with hands on hips, elbows outside abdomen. Intense clear abdominal draw-in, lean ribs natural. Camera at chest height. Subject hair starts at 16% image height, abdomen ends by 63%; bottom 35% is uninterrupted dark navy exercise mat foreground / dark seamless background for a large bottom headline. A real scene, no floating torso.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "a",
+    "letter": "E",
+    "concept": "Premium warm black/gold editorial. Dan at an outdoor terrace in warm directional sunlight, showing a side-facing standing stomach vacuum with torso rotated enough for face recognition. Black workout shorts, hands behind hips, full unblocked hollow contraction. Natural calm focused expression. Face and torso in lower 65%, dark simple warm backdrop above. No props.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "b",
+    "letter": "A",
+    "concept": "Yellow headline family. Bright home workout room. Dan in front three-quarter view sustaining a clear hollow stomach vacuum, chest lifted, shoulders relaxed, mouth gently closed, taking a subtle nasal breath. Hands on hips clear of stomach. Black exercise shorts. Add no graphic breath cloud or arrows. A large mirror off to one side supports the exercise context. Natural physique, extremely visible pulled-in abdomen.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "b",
+    "letter": "B",
+    "concept": "Navy/cyan sports editorial. Dan three-quarter side view doing a stomach vacuum in a dark gym, visible hollow abdominal contraction under ribs, left hand on hip, right index finger held beside his nose as a small-breath cue without touching or obscuring his face. Relaxed nose breathing, no puffed cheeks. Black shorts. Clear upper navy negative space.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "b",
+    "letter": "C",
+    "concept": "BACKGROUND ONLY with no people: a crisp midnight blue training studio, large wall mirror to left and a simple breathing wave design as a subtle abstract light pattern on a far wall, no letters or icons, uncluttered center for a real cutout.",
+    "source_kind": "real studio photo on generated background"
+  },
+  {
+    "short": "b",
+    "letter": "D",
+    "concept": "Editorial close fitness portrait of Dan head through upper hips. Dan standing upright at poolside sustaining a hollow stomach vacuum, shoulders relaxed, nostrils natural, closed relaxed mouth. One hand makes a small finger-and-thumb pinch gesture OUTSIDE his body beside his shoulder to indicate tiny breaths, other hand on hip. No touching skin or belly pinching. Hair starts at 16% height, whole contracted abdomen ends by 63%; bottom 35% dark plain navy space. Complete natural person, not disembodied.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "b",
+    "letter": "E",
+    "concept": "Premium black/gold studio photograph. Dan standing three-quarter front in black shorts, doing a clear vacuum hold with hollow abdomen and lifted ribcage. One index finger raised at his side as a teaching cue. Calm naturally breathing expression, subtle mouth parting, no distress. Warm sidelight, charcoal empty upper background. Body below upper 35%.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "c",
+    "letter": "A",
+    "concept": "Yellow headline family. Photoreal Dan in a sunlit bedroom exercise corner at dawn, standing next to a full-height wall mirror doing a strong hollow stomach vacuum, hands on hips without covering abdomen. Black shorts. A small simple digital interval timer sits on a narrow table beside him, blank dark display to add digits locally. Warm morning light, face and torso large in lower two thirds.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "c",
+    "letter": "B",
+    "concept": "Dark navy/cyan sport editorial. Dan in a home gym in cool dawn light from a window, three-quarter front doing a pronounced stomach vacuum, one hand on hip and the other holding a compact interval timer off to his side, screen facing camera but display completely blank dark. Clear hollowed abdomen, no hands covering it. Black shorts, relaxed focused expression. Upper 35% clear navy wall.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "c",
+    "letter": "C",
+    "concept": "BACKGROUND ONLY no people: warm morning bedroom workout corner with a large floor mirror, sheer-curtained window lit by sunrise, black interval timer on a small side table at left. Display blank. Clear central space for a real studio portrait. Upper wall plain.",
+    "source_kind": "real studio photo on generated background"
+  },
+  {
+    "short": "c",
+    "letter": "D",
+    "concept": "Fitness editorial portrait: Dan head to upper hips standing beside an east-facing bright bedroom window after waking, performing a deeply hollowed stomach vacuum with hands on hips, navy shorts, calm alert face. Strong natural morning beam, abs uncovered. Hair starts at 16% height and abdomen ends by 63%. Lower 35% smooth dark navy negative space for headline; whole natural person continues out of frame.",
+    "source_kind": "AI Dan using real identity reference"
+  },
+  {
+    "short": "c",
+    "letter": "E",
+    "concept": "Premium warm black/gold editorial: Dan doing a clear standing vacuum hold in a simple morning fitness room, looking at viewer with small natural confident smile, one hand on hip and other holding a compact simple stopwatch off to his side, display blank. Hollow abdomen clearly readable. Shirtless, black exercise shorts. Golden window light, plain charcoal upper 35%.",
+    "source_kind": "AI Dan using real identity reference"
+  }
+]

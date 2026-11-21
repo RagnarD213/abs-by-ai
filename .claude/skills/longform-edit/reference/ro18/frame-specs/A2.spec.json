@@ -1,0 +1,40 @@
+{
+ "shot": "RO-18 A2 Voice-to-text rage (excuse voice, lip sync)",
+ "start_frame": "A2-start.png",
+ "intent": "Living room in the evening. START: a man in a grey hoodie on a couch holds his phone close to his mouth and whines into it, mouth open mid-word. END: he has lowered the same phone to chest height in the same hand and glares down at its screen in disgust, mouth closed, lips pressed. Nothing else changes. His lips will be synced to Dan's own recorded impression of the line.",
+ "hands": {
+  "right": "holds the phone in both frames (at his mouth in START, at his chest in END)",
+  "left": "out of frame in both"
+ },
+ "may_change": {
+  "the_man": [
+   300,
+   30,
+   1400,
+   941
+  ]
+ },
+ "still": {
+  "lamp": [
+   200,
+   240,
+   410,
+   460
+  ],
+  "picture_frame": [
+   110,
+   20,
+   250,
+   230
+  ],
+  "left_cushion": [
+   0,
+   600,
+   300,
+   941
+  ]
+ },
+ "props": [],
+ "bounds": {},
+ "note": "person block left out (seated, legs out of frame); the man is a may_change box and the reviewer judges face and hand"
+}

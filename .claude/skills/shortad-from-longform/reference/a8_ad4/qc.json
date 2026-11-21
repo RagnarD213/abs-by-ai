@@ -1,0 +1,21 @@
+{
+ "target_seconds": 238.90533333333335,
+ "his_mix": "his_mix.wav",
+ "audio_mode": "verbatim",
+ "captions": "captions.mov",
+ "watch_log": "logs/watch_pass.json",
+ "banned_source": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD/09_CLIP_app-generate-future-self.mp4",
+ "banned_times": [
+  26.5,
+  27.5,
+  29.5,
+  31.0
+ ],
+ "min_coverage": 0.4,
+ "max_static": 18.0,
+ "min_changes_per_min": 9.0,
+ "min_push_frac": 0.25,
+ "size": "1080x1920",
+ "fps": "30000/1001",
+ "skip": {}
+}

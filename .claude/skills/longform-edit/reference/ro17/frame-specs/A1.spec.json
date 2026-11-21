@@ -1,0 +1,18 @@
+{
+ "shot": "RO-17 A1",
+ "start_frame": "A1-start.png",
+ "intent": "An ordinary open-plan office. A man dressed for a mountain expedition (hat with headlamp, big backpack on, trekking poles against the desk) sits at his desk typing; a bag of trail mix beside the keyboard. END: still staring at his screen, he pushes a handful of trail mix into his mouth; the bag is a little emptier. Coworkers keep working.",
+ "hands": {
+  "right": "on the keyboard in START, at his mouth with trail mix in END",
+  "left": "on the keyboard"
+ },
+ "may_change": {
+  "hiker_and_bag": [
+   480,
+   0,
+   1060,
+   941
+  ]
+ },
+ "bounds": {}
+}

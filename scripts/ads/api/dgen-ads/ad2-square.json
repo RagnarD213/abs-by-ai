@@ -1,0 +1,30 @@
+{
+  "adNumber": 2,
+  "label": "Ad 2 Stop Wasting Money On Nutritionists",
+  "videos": [
+    { "youtubeId": "hHiPzQKTzrg", "version": "Muhammad square", "utm": "muhammad-square" }
+  ],
+  "audience": {
+    "label": "AI fitness + competitor apps + get abs belly fat",
+    "segments": ["1013657228", "1011514645", "1011510739"]
+  },
+  "copy": {
+    "headlines": [
+      "Fire Your Nutritionist. Use AI Instead",
+      "How AI Replaces Nutritionists",
+      "How I Got Abs With AI",
+      "How I Got Abs At 40",
+      "How AI Got Me Abs"
+    ],
+    "longHeadlines": [
+      "Here's why I stopped paying a nutritionist and use AI to plan and track my meals instead.",
+      "AI can plan your meals and track your macros. This video shows you how I use it.",
+      "Daniel Rose explains what a nutritionist costs and what AI does for him instead."
+    ],
+    "descriptions": [
+      "Daniel Rose shows how AI plans his meals and tracks his macros instead of a nutritionist.",
+      "Most nutritionists charge hundreds a month. Here's how I use AI for the same job.",
+      "AI meal planning and macro tracking, explained by a guy who did it at 40 years old."
+    ]
+  }
+}

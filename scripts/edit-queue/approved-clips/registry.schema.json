@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://absbyai.local/edit-queue/approved-clip-registry.schema.json",
+  "title": "Abs By AI approved clip registry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "clips"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "clips": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_job", "source_video", "item_id", "type", "path", "sha256", "selection_fingerprint", "source", "trim", "dimensions", "fps", "duration", "action", "beat", "rights", "provenance", "approved_words", "approved_at", "finalized_video_sha256"],
+        "properties": {
+          "source_job": {"type": "string", "minLength": 1},
+          "source_video": {"type": "string", "minLength": 1},
+          "item_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,79}$"},
+          "type": {"enum": ["ai_motion", "stock", "existing_broll"]},
+          "path": {"type": "string", "minLength": 1},
+          "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "selection_fingerprint": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "source": {"type": "string", "minLength": 1},
+          "trim": {"type": "object", "required": ["in", "out"], "properties": {"in": {"type": "number", "minimum": 0}, "out": {"type": "number", "exclusiveMinimum": 0}}, "additionalProperties": false},
+          "dimensions": {"type": "string", "pattern": "^[0-9]+x[0-9]+$"},
+          "fps": {"type": "number", "exclusiveMinimum": 0},
+          "duration": {"type": "number", "exclusiveMinimum": 0},
+          "action": {"type": "string", "minLength": 1},
+          "beat": {"type": "string", "minLength": 1},
+          "rights": {"type": "string", "minLength": 1},
+          "provenance": {"type": "string", "minLength": 1},
+          "approved_words": {"type": "string", "minLength": 1},
+          "approved_at": {"type": "string", "minLength": 1},
+          "finalized_video_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+          "estimated_usd": {"type": "number", "minimum": 0},
+          "actual_usd": {"type": ["number", "null"], "minimum": 0}
+        }
+      }
+    }
+  }
+}

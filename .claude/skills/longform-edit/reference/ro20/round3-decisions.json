@@ -1,0 +1,160 @@
+{
+ "job": "RO-20 / RO-20B / RO-20C",
+ "round_reviewed": 2,
+ "recorded": "2026-10-12",
+ "source": "Dan's chat reply to the round 2 page (http://127.0.0.1:8864/), dictated",
+ "dan_full_reply": "For the intro for this, I want to try something new. I want to try a full-screen graphic, but I want a unique full-screen graphic that's better than our regular ones, which we generate as an AI video. Try a couple of ideas for a full-screen graphic: \"Why You Need to Invest More in Your Health,\" generated as an AI video, that are better and more attention-getting than our usual graphics. Show me certain end frames for those in the beginning. For the fat guy saying what I did at 26 seconds, the lip-syncing doesn't match up at all. I want you to try to get that better. Try to get the whole clip better. If that doesn't work, just try to get a segment of it which was the best lined up and use that, but get that lip-syncing better than it is at 26 seconds. Job interview clip looks good. Partnership clip looks good. The pickups and everything else look good. Let's talk about the best way for me to record the pickups. What's the easiest way for me to record the pickups and to get them to you?",
+ "items": [
+  {
+   "item": "Video 1 intro",
+   "verdict": "new request",
+   "dan": "For the intro for this, I want to try something new. I want to try a full-screen graphic, but I want a unique full-screen graphic that's better than our regular ones, which we generate as an AI video. Try a couple of ideas ... Show me certain end frames for those in the beginning.",
+   "next": "two or three title-graphic concepts as START and END frames (editor's reading of 'certain end frames': start and end frames); no motion until he picks one",
+   "new_frames_before_motion": true
+  },
+  {
+   "item": "A1 (fat guy who has money), lip sync",
+   "verdict": "changes requested",
+   "dan": "For the fat guy saying what I did at 26 seconds, the lip-syncing doesn't match up at all. I want you to try to get that better. Try to get the whole clip better. If that doesn't work, just try to get a segment of it which was the best lined up and use that, but get that lip-syncing better than it is at 26 seconds.",
+   "next": "re-sync; fall back to the best-aligned segment"
+  },
+  {
+   "item": "J1 (job interview, boardroom)",
+   "verdict": "approved",
+   "dan": "Job interview clip looks good.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J1-start.png",
+     "sha256": "38691506efff475b5544fd557607084d975df3f3d46b4dbc3bd27662a1aaa4ff"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J1-end.png",
+     "sha256": "5330b1981ccaa60c60a195f2ed2380f4a0695628b6486e9ef7dd0dd66a1486c1"
+    }
+   }
+  },
+  {
+   "item": "J2 (partnership, golf clubhouse)",
+   "verdict": "approved",
+   "dan": "Partnership clip looks good.",
+   "scope": "frames; motion authorized",
+   "frames": {
+    "start": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J2-start.png",
+     "sha256": "6f86e3e438feddbee6ef2ee4f6ac12e666d44f2ae4b228d6d56173d8173cbf40"
+    },
+    "end": {
+     "path": "/Volumes/Extreme/_edit_work/ro20/aiframes/J2-end.png",
+     "sha256": "b04ce131b76e1643edc544dd46ec703eda603f8a40810e7f9f8d49eed0fd3fba"
+    }
+   }
+  },
+  {
+   "item": "Pickup scripts and on-screen plans, and everything else on the round 2 page",
+   "verdict": "approved",
+   "dan": "The pickups and everything else look good.",
+   "scope": "pickup scripts as written; the three-part card and three-levels card; Cb11 dating card; Cb12 diagram card; A2 and A3 motion; the 24 B-roll grades; the two dropped sentences. Editor's reading: decision 3 (video 2 opens on camera with the sum1 take) stands as recommended, since he did not overrule it"
+  },
+  {
+   "item": "Video 1 intro",
+   "verdict": "T3 picked",
+   "dan": "Let's go with T3, the piggy bank, for the intro.",
+   "scope": "frames T3; motion authorized (8 s take, $0.80, takes video 1 past its $5 cap: see budget)",
+   "frames": {
+    "start": "aiframes/T3-start.png",
+    "end": "aiframes/T3-end.png"
+   }
+  },
+  {
+   "item": "A1 (fat guy who has money)",
+   "verdict": "approved",
+   "dan": "Fat guy who has money looks good.",
+   "scope": "the silent version, round3/motion/A1-t2.mp4: LOCKED"
+  },
+  {
+   "item": "Lip sync, standing rule",
+   "verdict": "new rule",
+   "dan": "I think generally this is a good way to handle it: if our lip sync fails the first time and doesn't pass the quality check, just do it without the lip sync if it's too challenging.",
+   "scope": "VIDEO-RULES.md, 2026-10-12"
+  },
+  {
+   "item": "Pickups",
+   "verdict": "recorded",
+   "dan": "Go ahead and start the mic. I want to record the pickups here. ... Use the Yeti mic. ... Okay, clips are recorded.",
+   "scope": "Media/longform-raw/ro20-pickups/pickups_all_takes_48k_mono.wav (all four, two or more takes each) + pickups_all_takes.transcript.json"
+  },
+  {
+   "item": "Budget for video 1",
+   "verdict": "answered",
+   "dan": "Video 1 AI budget: $12.",
+   "scope": "video 1 (RO-20) AI generation cap raised from $5 to $12, all rounds counted; J1 and J2 retakes, the T3 intro and spare retakes fit under it",
+   "recorded": "2026-10-12, round 3 execution session starter prompt"
+  },
+  {
+   "item": "Round 3 scope",
+   "verdict": "direction",
+   "dan": "Check the pickup audio first and tell me if any pickup needs a re-record. Then lay the pickups in, make the piggy bank intro and the job clips, show me the first minute of videos 2 and 3 and only what else is new, then build the three full films only when nothing is pending."
+  },
+  {
+   "item": "Pickup recording of 2026-10-12 (ffmpeg avfoundation capture)",
+   "verdict": "REJECTED BY THE EDITOR'S CHECK, re-record requested",
+   "evidence": "pickups_yeti_20261012.wav: every 512-frame block written twice; 13,293,568 unique frames = 276.9 s for about 320 s of wall time (file birth to last write), a break at 13.7 % of block joins inside speech (about 11 a second). Best repair (duplicates removed, 1 ms fades at each break) judged blind by gemini-3.1-pro-preview against the film voice: 2/10 against 9/10, 'constant robotic flutter, digital choppiness', not usable as an insert. pickups_all_takes_48k_mono.wav keeps the duplicated blocks (its pitch reads 93.9 Hz, the block rate).",
+   "next": "re-record with _shared/audio/rec_mic.swift into Media/longform-raw/ro20-pickups/rerecord_20261012/"
+  },
+  {
+   "item": "Round 3 page (http://127.0.0.1:8868/), Dan's reply",
+   "verdict": "reply, word for word",
+   "dan": "For 77 seconds of video, one looks good. Oh, the pickup screens look good. For P4, I don't really understand why I'm standing around before the clip, but the graphic itself looks good. Give me those pickups to re-record.",
+   "scope": "video 1 first 77 s APPROVED (T3 intro motion, J1-t3 in place); pickup screens P1 to P4 APPROVED as shown (includes the receipts clip in P2's window: editor's reading, it was on the screen he approved); P4: remove the opening shot of him standing by the pool (B0429), the three-levels graphic stays; pickups to be re-recorded now. NOT answered: the sign-off sentence ended on 'filled with motivation.'; the partnership clip (J2-t3) and the sign-off were not mentioned"
+  },
+  {
+   "item": "Pickups re-recorded 2026-10-13",
+   "verdict": "recorded",
+   "dan": "Okay, clips are recorded.",
+   "scope": "Media/longform-raw/ro20-pickups/rerecord_20261012/pickups_rerecord_48k_mono.wav (166.2 s, rec_mic, no block breaks) + pickups_rerecord.transcript.json; takes and treatment in recipe/pickup_audio20.py; blind listener still rates the joins 8 of 10 noticeable, shown to Dan as decision 1 on the page"
+  },
+  {
+   "item": "Pickup voice (round 3 page decision 1)",
+   "verdict": "REJECTED: re-record on the studio set at the shoot",
+   "recorded": "2026-10-13",
+   "dan": "Yeah, that audio doesn't work. What I'm going to do is I'm just going to record these pickups on my studio set instead. What I want you to do is to get all of the pickups that we need for this task and every other outstanding video edit that we have. I know there are some other ones that we need to get in addition to this one that aren't going to turn out good on this mic. Make me a list of the pickups and make me a separate document. For pickups, I'll just do those first to make sure we get them, and then I'll just upload the pickups. From there, we can finish out all the videos. Hand off the pickups for everything, and I'll finish this video and all the other ones that need pickups once we have that from Thursday's shoot. This should add the pickups of both the filming scripts document and a separate tellerprompter document for pickups only, which is uploaded to PromptSmart Pro.",
+   "scope": "all four RO-20 pickups wait for the shoot roll; the desk recordings are timing placeholders only; list: Docs/PICKUPS_1017_SHOOT.md. Not answered: the sign-off sentence (page decision 2)"
+  }
+ ],
+ "motion_authorized": [
+  "A1",
+  "A2",
+  "A3",
+  "J1",
+  "J2",
+  "T3"
+ ],
+ "lip_sync_authorized": [
+  "A1"
+ ],
+ "new_frames_before_motion": [
+  "video 1 intro title graphic"
+ ],
+ "locked": [
+  "look D (both sizes)",
+  "voice 4",
+  "frames A1, A2, A3, J1, J2",
+  "motion A2, A3",
+  "pickup scripts P1 to P4",
+  "Cb11",
+  "Cb12",
+  "three-part card",
+  "three-levels card",
+  "B-roll grades (round2/broll_grades.json)",
+  "A1 silent version (round3/motion/A1-t2.mp4)",
+  "intro concept T3 (frames)",
+  "T3 motion (T3-t1.x112.mp4)",
+  "J1 motion (J1-t3.mp4)",
+  "video 1 first minute (round 3)",
+  "pickup screens P1, P2, P3 as built; P4 without the B0429 open"
+ ],
+ "reply_2_recorded": "2026-10-12",
+ "video1_ai_cap_usd": 12.0,
+ "reply_3_recorded": "2026-10-13"
+}

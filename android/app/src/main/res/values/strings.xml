@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Abs by AI</string>
+    <!-- Must mirror https://absbyai.com/.well-known/assetlinks.json so Android
+         trusts the site and hides the browser UI. -->
+    <string name="asset_statements">
+        [{
+            \"relation\": [\"delegate_permission/common.handle_all_urls\"],
+            \"target\": {
+                \"namespace\": \"web\",
+                \"site\": \"https://absbyai.com\"
+            }
+        }]
+    </string>
+</resources>

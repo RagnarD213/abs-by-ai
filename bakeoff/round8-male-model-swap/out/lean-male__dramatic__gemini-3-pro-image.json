@@ -1,0 +1,22 @@
+{
+  "caseId": "lean-male__dramatic",
+  "photoKey": "lean-male",
+  "gender": "male",
+  "condition": "very_lean",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "modelKey": "gemini-3-pro-image",
+  "modelLabel": "Nano Banana Pro (gemini-3-pro-image, GA)",
+  "variant": "full",
+  "arm": "challenger",
+  "ok": true,
+  "blocked": false,
+  "firstAttemptBlocked": false,
+  "error": null,
+  "latencyMs": 16305,
+  "safetyRetry": false,
+  "promptChars": 4911,
+  "nominalCost": 0.134,
+  "image": "lean-male__dramatic__gemini-3-pro-image.jpg",
+  "ts": "2026-08-09T20:43:02.661Z"
+}

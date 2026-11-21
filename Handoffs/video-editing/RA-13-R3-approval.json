@@ -1,0 +1,54 @@
+{
+  "category": "AD",
+  "job": "RA-13",
+  "round": 3,
+  "date": "2026-10-17",
+  "status": "finalized",
+  "dan": "All right this looks good. Give me the handoff for setup",
+  "scope": "Both delivered R3 formats in this chat. Setup handoff requested; setup has not started.",
+  "videos": [
+    {
+      "format": "9x16",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4",
+      "sha256": "6bb5d4767de0e5b922e08b90c43eba9b66c1b4af78ea60b7ce4ea78ea648ce2a",
+      "frames": 1616,
+      "duration": 53.92053333333333,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R3.mp4: tone, floor -- fix the audio, do not deliver"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "2/10 joins above the file's own p99 ceiling (23.92): [(2.27, 24.35), (42.61, 25.24)]"
+        }
+      ]
+    },
+    {
+      "format": "16x9",
+      "path": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Codex Ad Videos/why do most guys never get abs - RA-13/why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4",
+      "sha256": "0a58d484df06a7a076dd03b74944c64b498425e1c3462cd766ddfc51a3e6510b",
+      "frames": 1616,
+      "duration": 53.92053333333333,
+      "delivery_gate": "FAIL",
+      "open_rows": [
+        {
+          "key": "audio:stamp",
+          "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R3.mp4: tone, floor -- fix the audio, do not deliver"
+        },
+        {
+          "key": "framing:no_wide_level",
+          "detail": "6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]"
+        },
+        {
+          "key": "cut:splice_visibility",
+          "detail": "2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]"
+        }
+      ]
+    }
+  ],
+  "independent_media_defects": [],
+  "numerical_gate_failures_preserved": true,
+  "setup_handoff": "Handoffs/handoff-20261017-ra13-setup.md"
+}

@@ -1,0 +1,539 @@
+{
+  "judge": "GPT-5.6 fresh judge 3",
+  "video": "ad10_9x16_review.mp4",
+  "method": "76 assigned images individually inspected with correct sequential-decode rechecks",
+  "entries": [
+    {
+      "image": "pair_078_02-02.86.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 122.856,
+      "note": "The -1|0 pair confirms the planned change. Declared app-screen card change is clean. Dan has exactly one real-photo label, placed below the image and clear of his face and abs."
+    },
+    {
+      "image": "strip_078_02-02.86_card_121_822_out___card_122_823_in.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 122.856,
+      "note": "The five-frame strip confirms the planned interval. Declared app-screen card change is clean. Dan has exactly one real-photo label, placed below the image and clear of his face and abs."
+    },
+    {
+      "image": "pair_079_02-04.66.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 124.658,
+      "note": "The -1|0 pair confirms: declared join is clean, with continuous framing and no naked splice or visual junk."
+    },
+    {
+      "image": "strip_079_02-04.66_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 124.658,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with continuous framing and no naked splice or visual junk."
+    },
+    {
+      "image": "pair_080_02-05.66.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 125.659,
+      "note": "The -1|0 pair confirms the planned change. Declared form-to-goal change and label swap are clean. The real and AI pictures each have exactly one correct label clear of face and abs."
+    },
+    {
+      "image": "strip_080_02-05.66_app1_form_out___app1_goal_clean_in___car.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 125.659,
+      "note": "The five-frame strip confirms the planned interval. Declared form-to-goal change and label swap are clean. The real and AI pictures each have exactly one correct label clear of face and abs."
+    },
+    {
+      "image": "pair_081_02-05.69.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 125.692,
+      "note": "The -1|0 pair confirms the planned change. Declared goal-card boundary is clean. The AI picture of Dan has exactly one label below the image."
+    },
+    {
+      "image": "strip_081_02-05.69_card_122_823_out___card_125_659_in.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 125.692,
+      "note": "The five-frame strip confirms the planned interval. Declared goal-card boundary is clean. The AI picture of Dan has exactly one label below the image."
+    },
+    {
+      "image": "pair_082_02-07.06.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 127.06,
+      "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "strip_082_02-07.06_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 127.06,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "pair_083_02-07.36.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 127.361,
+      "note": "The -1|0 pair confirms the planned change. Declared goal-card-to-Dan-window change is clean. This is not a return to TALK, so the no-flash change is expected. The photo has one AI label clear of face and abs."
+    },
+    {
+      "image": "strip_083_02-07.36_app1_goal_clean_out___cards_in___cards_o.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 127.361,
+      "note": "The five-frame strip confirms the planned interval. Declared goal-card-to-Dan-window change is clean. This is not a return to TALK, so the no-flash change is expected. The photo has one AI label clear of face and abs."
+    },
+    {
+      "image": "pair_084_02-07.39.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 127.394,
+      "note": "The -1|0 pair confirms the planned change. Declared card-to-window continuation is clean. No return flash is expected on this card-to-window change."
+    },
+    {
+      "image": "strip_084_02-07.39_card_125_659_out___card_127_361_in.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 127.394,
+      "note": "The five-frame strip confirms the planned interval. Declared card-to-window continuation is clean. No return flash is expected on this card-to-window change."
+    },
+    {
+      "image": "pair_085_02-13.77.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 133.767,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+    },
+    {
+      "image": "strip_085_02-13.77_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 133.767,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+    },
+    {
+      "image": "pair_086_02-16.64.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 136.637,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch FAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+    },
+    {
+      "image": "strip_086_02-16.64_join___punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 136.637,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch FAR are present. The instant roughly 20 percent framing step is expected on this bare TALK/window cut."
+    },
+    {
+      "image": "pair_087_02-19.04.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 139.039,
+      "note": "The -1|0 pair confirms the planned change. Declared window return to TALK is covered by the expected white bloom flash."
+    },
+    {
+      "image": "strip_087_02-19.04_cards_out___covered_out___join___talk-34.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 139.039,
+      "note": "The five-frame strip confirms the planned interval. Declared window return to TALK is covered by the expected white bloom flash."
+    },
+    {
+      "image": "pair_088_02-19.07.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 139.072,
+      "note": "The -1|0 pair confirms the planned change. Declared flash tail and card exit are visible after the return to TALK."
+    },
+    {
+      "image": "strip_088_02-19.07_card_127_361_out.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 139.072,
+      "note": "The five-frame strip confirms the planned interval. Declared flash tail and card exit are visible after the return to TALK."
+    },
+    {
+      "image": "pair_089_02-21.30.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 141.308,
+      "note": "The -1|0 pair confirms the planned change. Declared lower-third and card entrance are visible and clean."
+    },
+    {
+      "image": "strip_089_02-21.30_cards_in___lt_141_30_in___card_141_300_i.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 141.308,
+      "note": "The five-frame strip confirms the planned interval. Declared lower-third and card entrance are visible and clean."
+    },
+    {
+      "image": "pair_090_02-22.24.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 142.242,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "strip_090_02-22.24_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 142.242,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "pair_091_02-23.58.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 143.577,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch FAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "strip_091_02-23.58_join___punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 143.577,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch FAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "pair_092_02-24.60.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 144.611,
+      "note": "The -1|0 pair confirms the planned change. Declared lower-third and card exit complete cleanly."
+    },
+    {
+      "image": "strip_092_02-24.60_cards_out___lt_141_30_out___card_141_300.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 144.611,
+      "note": "The five-frame strip confirms the planned interval. Declared lower-third and card exit complete cleanly."
+    },
+    {
+      "image": "pair_093_02-26.01.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 146.013,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "strip_093_02-26.01_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 146.013,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "pair_094_02-26.30.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 146.313,
+      "note": "The -1|0 pair confirms the planned change. Declared lower-third and card entrance are visible and clean."
+    },
+    {
+      "image": "strip_094_02-26.30_cards_in___lt_146_30_in___card_146_300_i.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 146.313,
+      "note": "The five-frame strip confirms the planned interval. Declared lower-third and card entrance are visible and clean."
+    },
+    {
+      "image": "pair_095_02-27.45.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 147.447,
+      "note": "The -1|0 pair confirms the planned change. Declared punch FAR moves progressively across consecutive frames, matching the planned 0.5-second ramp."
+    },
+    {
+      "image": "strip_095_02-27.45_punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 147.447,
+      "note": "The five-frame strip confirms the planned interval. Declared punch FAR moves progressively across consecutive frames, matching the planned 0.5-second ramp."
+    },
+    {
+      "image": "pair_096_02-30.90.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 150.884,
+      "note": "The -1|0 pair confirms the planned change. Declared lower-third and card exit complete cleanly."
+    },
+    {
+      "image": "strip_096_02-30.90_cards_out___lt_146_30_out___card_146_300.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 150.884,
+      "note": "The five-frame strip confirms the planned interval. Declared lower-third and card exit complete cleanly."
+    },
+    {
+      "image": "pair_097_02-31.59.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 151.585,
+      "note": "The -1|0 pair confirms the planned change. Declared TALK-to-food-card change is clean. No flash is expected on insert entry."
+    },
+    {
+      "image": "strip_097_02-31.59_covered_in___join___talk-34_out.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 151.585,
+      "note": "The five-frame strip confirms the planned interval. Declared TALK-to-food-card change is clean. No flash is expected on insert entry."
+    },
+    {
+      "image": "pair_098_02-32.85.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 152.853,
+      "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "strip_098_02-32.85_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 152.853,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "pair_099_02-35.59.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 155.589,
+      "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "strip_099_02-35.59_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 155.589,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "pair_100_02-36.60.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 156.59,
+      "note": "The -1|0 pair confirms the planned change. Declared food-card-to-Dan-window change is clean. No flash is expected on a card-to-window change."
+    },
+    {
+      "image": "strip_100_02-36.60_cards_in___covered_in___covered_out___wi.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 156.59,
+      "note": "The five-frame strip confirms the planned interval. Declared food-card-to-Dan-window change is clean. No flash is expected on a card-to-window change."
+    },
+    {
+      "image": "pair_101_02-39.93.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 159.926,
+      "note": "The -1|0 pair confirms the planned change. Declared window return to TALK is covered by the expected white bloom flash."
+    },
+    {
+      "image": "strip_101_02-39.93_card_156_600_out___card_159_926_in___car.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 159.926,
+      "note": "The five-frame strip confirms the planned interval. Declared window return to TALK is covered by the expected white bloom flash."
+    },
+    {
+      "image": "pair_102_02-43.53.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 163.53,
+      "note": "The -1|0 pair confirms the planned change. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "strip_102_02-43.53_join___punch_NEAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 163.53,
+      "note": "The five-frame strip confirms the planned interval. Declared join and punch NEAR are present. The instant framing step is expected on this bare TALK cut."
+    },
+    {
+      "image": "pair_103_02-44.00.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 163.997,
+      "note": "The -1|0 pair confirms the planned change. Declared lower-third exit is visible and clean."
+    },
+    {
+      "image": "strip_103_02-44.00_cards_out___lt_159_93_out.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 163.997,
+      "note": "The five-frame strip confirms the planned interval. Declared lower-third exit is visible and clean."
+    },
+    {
+      "image": "pair_104_02-44.03.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 164.031,
+      "note": "The -1|0 pair confirms the planned change. Declared card and lower-third exit continuation is visible and clean."
+    },
+    {
+      "image": "strip_104_02-44.03_card_159_926_out___lt_159_93_out.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 164.031,
+      "note": "The five-frame strip confirms the planned interval. Declared card and lower-third exit continuation is visible and clean."
+    },
+    {
+      "image": "pair_105_02-45.03.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 165.032,
+      "note": "The -1|0 pair confirms the planned change. Declared TALK-to-AI-window entry is clean. No flash is expected on insert entry."
+    },
+    {
+      "image": "strip_105_02-45.03_covered_in___talk-37_out.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 165.032,
+      "note": "The five-frame strip confirms the planned interval. Declared TALK-to-AI-window entry is clean. No flash is expected on insert entry."
+    },
+    {
+      "image": "pair_106_02-45.06.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 165.065,
+      "note": "The -1|0 pair confirms the planned change. Declared punch FAR is clean and follows the planned 0.5-second ramp. Robust sequential decoding from more than two seconds earlier confirms 165.065 and surrounding frames are free of H.264 delta-block corruption."
+    },
+    {
+      "image": "strip_106_02-45.06_punch_FAR.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 165.065,
+      "note": "The five-frame strip confirms the planned interval. Declared punch FAR is clean and follows the planned 0.5-second ramp. Robust sequential decoding from more than two seconds earlier confirms 165.065 and surrounding frames are free of H.264 delta-block corruption."
+    },
+    {
+      "image": "pair_107_02-46.17.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 166.166,
+      "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "strip_107_02-46.17_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 166.166,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "pair_108_02-47.30.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 167.3,
+      "note": "The -1|0 pair confirms the planned change. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+    },
+    {
+      "image": "strip_108_02-47.30_covered_in___covered_out___join.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 167.3,
+      "note": "The five-frame strip confirms the planned interval. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+    },
+    {
+      "image": "pair_109_02-49.47.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 169.469,
+      "note": "The -1|0 pair confirms the planned change. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+    },
+    {
+      "image": "strip_109_02-49.47_covered_in___covered_out___join.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 169.469,
+      "note": "The five-frame strip confirms the planned interval. Declared insert-to-insert change is clean. No return-to-TALK flash is expected."
+    },
+    {
+      "image": "pair_110_02-52.84.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 172.839,
+      "note": "The -1|0 pair confirms the planned change. Declared app before-card entrance is clean. Dan has exactly one real-photo label below the phone and clear of face and abs."
+    },
+    {
+      "image": "strip_110_02-52.84_app2_before_in___card_172_839_in___cards.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 172.839,
+      "note": "The five-frame strip confirms the planned interval. Declared app before-card entrance is clean. Dan has exactly one real-photo label below the phone and clear of face and abs."
+    },
+    {
+      "image": "pair_111_02-53.87.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 173.874,
+      "note": "The -1|0 pair confirms the planned change. Declared before-to-form app change is clean. Dan retains exactly one real-photo label clear of face and abs."
+    },
+    {
+      "image": "strip_111_02-53.87_app2_before_out___app2_form_in___cards_i.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 173.874,
+      "note": "The five-frame strip confirms the planned interval. Declared before-to-form app change is clean. Dan retains exactly one real-photo label clear of face and abs."
+    },
+    {
+      "image": "pair_112_02-53.91.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 173.907,
+      "note": "The -1|0 pair confirms the planned change. Declared card swap within the app sequence is clean. The single real-photo label remains correctly placed."
+    },
+    {
+      "image": "strip_112_02-53.91_card_172_839_out___card_173_874_in.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 173.907,
+      "note": "The five-frame strip confirms the planned interval. Declared card swap within the app sequence is clean. The single real-photo label remains correctly placed."
+    },
+    {
+      "image": "pair_113_02-56.74.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 176.743,
+      "note": "The -1|0 pair confirms the planned change. Declared form-to-goal change and label swap are clean. Robust sequential decoding from more than two seconds earlier confirms 176.643 and surrounding frames are free of H.264 delta-block corruption. Each Dan picture has one correct label clear of face and abs."
+    },
+    {
+      "image": "strip_113_02-56.74_app2_form_out___app2_goal_clean_in___car.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 176.743,
+      "note": "The five-frame strip confirms the planned interval. Declared form-to-goal change and label swap are clean. Robust sequential decoding from more than two seconds earlier confirms 176.643 and surrounding frames are free of H.264 delta-block corruption. Each Dan picture has one correct label clear of face and abs."
+    },
+    {
+      "image": "pair_114_02-57.81.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 177.811,
+      "note": "The -1|0 pair confirms: declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "strip_114_02-57.81_join.jpg",
+      "verdict": "clean",
+      "item": "",
+      "t": 177.811,
+      "note": "The five-frame strip confirms the planned interval. Declared join is clean, with no naked splice, black frame, or visual junk."
+    },
+    {
+      "image": "pair_115_02-58.28.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 178.278,
+      "note": "The -1|0 pair confirms the planned change. Declared goal-card return to TALK and CTA entrance are covered by the expected white bloom flash. The AI picture has one label clear of face and abs, and the CTA stays off his face."
+    },
+    {
+      "image": "strip_115_02-58.28_app2_goal_clean_out___card_176_743_out__.jpg",
+      "verdict": "expected",
+      "item": "",
+      "t": 178.278,
+      "note": "The five-frame strip confirms the planned interval. Declared goal-card return to TALK and CTA entrance are covered by the expected white bloom flash. The AI picture has one label clear of face and abs, and the CTA stays off his face."
+    }
+  ]
+}

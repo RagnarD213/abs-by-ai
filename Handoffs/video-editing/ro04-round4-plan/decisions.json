@@ -1,0 +1,48 @@
+{
+  "category": "CONTENT (LFC)",
+  "job_id": "RO-04",
+  "round": 4,
+  "revision_id": "01a16918-0e30-7af1-90a7-267206829cad",
+  "owner_turn_id": "01a16918-0a73-7653-8b85-043b21bf9ed1",
+  "previous_thread_id": "01a15a62-8443-72f2-885b-f2bbb0a1483b",
+  "date": "2026-10-23",
+  "verbatim_revisions": "Revisions around 1:14 when I go into the overhead tricep extensions, I want a slightly closer crop. Make sure the dumbbell doesn't go out of the top of the frame but I feel like you can crop in about 20% without losing anything here. This crop is a little bit too wide right now for the end screen. Rather than saying \"I feel like this is kind of weird to end on,\" I want a better end screen: &#x20;\n\n- At the top a large title graphic: \"Congratulations you completed the round.\"\n- Some clips of me doing each exercise, a few seconds long for each one, playing on the left side.\n- Text on the right side telling them how to make it complete: \"For beginners replay 2 more rounds. For advanced guys replay 4 more rounds.\"\n- Display that for 30 seconds with the 30-second rest timer.\n\n&#x20; Show me that end graphic and, for the tricep extensions, zoom to approve first before rendering the full film again",
+  "scope": "Two approval previews only: closer overhead-triceps crop and 30-second completion/rest screen. Do not render the complete revised film before Dan approves both.",
+  "copy": {
+    "title": "Congratulations you completed the round.",
+    "right": [
+      "For beginners replay 2 more rounds.",
+      "For advanced guys replay 4 more rounds."
+    ]
+  },
+  "framing": {
+    "requested_magnification": "about 20 percent closer",
+    "fixed_horizontal_crop": true,
+    "dumbbell_and_hair_always_inside": true,
+    "affected_action": "overhead triceps near 1:14, inspect full set and natural starting boundary"
+  },
+  "ending": {
+    "duration_seconds": 30,
+    "left": "Real moving excerpts of Dan doing curls, lateral raises and overhead triceps, a few seconds each, repeating through the rest if needed.",
+    "right": "Dan's exact round instructions",
+    "timer": "30-second rest countdown, fully readable throughout",
+    "theme": "Soft Blue Light HyperFrames motion"
+  },
+  "preserve": [
+    "R2 B Warm Rich Vivid camera color",
+    "Original stereo camera workout audio and native timing",
+    "All R3 reviewed files and all earlier rounds",
+    "Unchanged curls/laterals picture/timers and real-time set duration"
+  ],
+  "approval_status": {
+    "prior_full_film": "Reviewed, revisions requested; not finalized",
+    "new_crop": "pending Dan",
+    "new_end_screen": "pending Dan",
+    "full_film_rerender": "not authorized until new previews approved"
+  },
+  "costs": {
+    "this_round_generation_usd": 0,
+    "this_round_review_usd": 0,
+    "prior_round_review_estimate_usd": "under 2, actual billed unavailable"
+  }
+}

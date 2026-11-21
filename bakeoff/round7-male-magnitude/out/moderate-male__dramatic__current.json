@@ -1,0 +1,16 @@
+{
+  "caseId": "moderate-male__dramatic",
+  "arm": "current",
+  "condition": "moderate",
+  "intensity": "dramatic",
+  "intensityLabel": "Subtle",
+  "desc": "Average male — the modal user",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 6456,
+  "safetyRetry": false,
+  "promptChars": 4808,
+  "image": "moderate-male__dramatic__current.jpg",
+  "ts": "2026-08-07T22:40:46.362Z"
+}

@@ -1,0 +1,21 @@
+{
+  "caseId": "heavier-male__max",
+  "photoKey": "heavier-male",
+  "gender": "male",
+  "condition": "heavier",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "modelKey": "gemini-2.5-flash-image",
+  "set": 1,
+  "variant": "full",
+  "promptVersion": "new",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 8798,
+  "geminiSafetyRetry": false,
+  "promptChars": 4662,
+  "nominalCost": 0.039,
+  "image": "heavier-male__max__gemini-2.5-flash-image__new.jpg",
+  "ts": "2026-08-08T19:22:19.538Z"
+}

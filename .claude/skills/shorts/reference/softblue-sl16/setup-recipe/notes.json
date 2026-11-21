@@ -1,0 +1,38 @@
+{
+  "decided": [
+    "Mix per your 2026-10-25 rule: A and B are two different AI pictures of you acting the topic out, C is a real studio photo (your real pixels, only the background is generated), D and E are my picks from your history: D a wrong-vs-right food comparison (reads at a glance, no person), E a third AI you, since AI you is what you pick most.",
+    "Five different layouts per Short: A yellow band on top (your usual pick), B white and cyan headline at the bottom, C centred headline with a yellow marker, D black band across the middle, E big Impact headline on the left with a white frame.",
+    "Same approved title on all five. No website mark, no claims, no photo labels. All four approved Short videos stay untouched.",
+    "Short 4 shows boxing gear only, never Mike Tyson."
+  ],
+  "designs": {
+    "s1": {
+      "A": "AI you acting it out: sitting at a kitchen table sliding a full plate of pancakes",
+      "B": "AI you, second scene: sitting down happily to a big lunch plate of grilled chicken",
+      "C": "Real studio photo (studio-white-23) on an AI scene",
+      "D": "Wrong vs right: two food photos with the title in the black band",
+      "E": "AI you, expressive: standing at an open refrigerator early in the morning"
+    },
+    "s2": {
+      "A": "AI you acting it out: slumped at a home office desk in an afternoon food coma",
+      "B": "AI you, second scene: wide awake and focused at a standing desk typing on an open laptop",
+      "C": "Real studio photo (studio-gray-79) on an AI scene",
+      "D": "Wrong vs right: two food photos with the title in the black band",
+      "E": "AI you, expressive: sitting at an office desk firmly pushing an open box of glazed donuts away with one flat hand"
+    },
+    "s3": {
+      "A": "AI you acting it out: sitting at a dark wooden bar counter with a hearty plate of grilled steak and vegetables in front of him",
+      "B": "AI you, second scene: at a home dinner table eating his first meal of the day",
+      "C": "Real studio photo (studio-blue-213) on an AI scene",
+      "D": "Wrong vs right: two food photos with the title in the black band",
+      "E": "AI you, expressive: standing behind a bar counter turning a plain empty wine glass upside down onto the counter"
+    },
+    "s4": {
+      "A": "AI you acting it out: wearing red boxing gloves in a gritty boxing gym leaning back to dodge a heavy punching bag swinging toward his face",
+      "B": "AI you, second scene: standing calm in a chaotic morning kitchen holding a plain black mug of black coffee",
+      "C": "Real studio photo (studio-blue-74) on an AI scene",
+      "D": "Wrong vs right: two food photos with the title in the black band",
+      "E": "AI you, expressive: in a boxing ring corner with red boxing gloves raised in a guard"
+    }
+  }
+}

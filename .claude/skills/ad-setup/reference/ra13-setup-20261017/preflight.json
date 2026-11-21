@@ -1,0 +1,657 @@
+{
+  "at": "2026-10-17T15:16:34.535Z",
+  "channel": "UC236gjadarHAhEhOMYNGJ9g",
+  "recentUploadsChecked": 50,
+  "oldestRecentUpload": "2026-09-24T22:00:10Z",
+  "matchingYouTubeUploads": [],
+  "campaign": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "name": "[TRIAL] [DGEN] VSL page | 6 ads | MU 25-54 | US+CA",
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    }
+  ],
+  "referenceCpa": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/199824307366",
+        "id": "199824307366",
+        "name": "RA-14 The Cheat Code",
+        "targetCpaMicros": "40000000"
+      }
+    }
+  ],
+  "audience": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/206348100928~2498784755180",
+        "audience": {
+          "audience": "customers/3427170837/audiences/359952376"
+        }
+      }
+    }
+  ],
+  "matchingAdGroups": [],
+  "campaignUrls": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/199824307366",
+        "id": "199824307366",
+        "name": "RA-14 The Cheat Code"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/199824307366~828015303786",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828015303786",
+          "id": "828015303786",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra14&utm_content=claude-9x16-thumbB-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/199904676174",
+        "id": "199904676174",
+        "name": "RA-05 Real Six Pack Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/199904676174~828398569805",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828398569805",
+          "id": "828398569805",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra05&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/199908283143",
+        "id": "199908283143",
+        "name": "RA-06 Best Ab Exercise"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/199908283143~828274063389",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828274063389",
+          "id": "828274063389",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra06&utm_content=claude-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/199908283143",
+        "id": "199908283143",
+        "name": "RA-06 Best Ab Exercise"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/199908283143~828320387740",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828320387740",
+          "id": "828320387740",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra06&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657832",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657832",
+          "id": "826635657832",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=muhammad-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657835",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657835",
+          "id": "826635657835",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~826635657838",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635657838",
+          "id": "826635657838",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-9x16-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~827033455372",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827033455372",
+          "id": "827033455372",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-square-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/202248166482",
+        "id": "202248166482",
+        "name": "Ad 10 Busy Dad Fitness"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/202248166482~827114563613",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/827114563613",
+          "id": "827114563613",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad10&utm_content=claude-square-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679183",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679183",
+          "id": "826635679183",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=muhammad-16x9-clean-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679186",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679186",
+          "id": "826635679186",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679189",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679189",
+          "id": "826635679189",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-9x16-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204320854441",
+        "id": "204320854441",
+        "name": "Ad 3 Stop Paying Human Trainers"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204320854441~826635679192",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635679192",
+          "id": "826635679192",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad3&utm_content=claude-square-r2-1-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826595554443",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554443",
+          "id": "826595554443",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=muhammad-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690637",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690637",
+          "id": "826887690637",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690655",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690655",
+          "id": "826887690655",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-vertical-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690931",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690931",
+          "id": "826887690931",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204444440607",
+        "id": "204444440607",
+        "name": "Ad 6 You're Not Too Old"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204444440607~826887690943",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826887690943",
+          "id": "826887690943",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad6&utm_content=claude-square-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826635661894",
+        "status": "PAUSED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661894",
+          "id": "826635661894",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=muhammad-16x9-r4-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888304284",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888304284",
+          "id": "826888304284",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826888334290",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826888334290",
+          "id": "826888334290",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035753",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035753",
+          "id": "826990035753",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-16x9-r4-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035756",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035756",
+          "id": "826990035756",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553316830",
+        "id": "204553316830",
+        "name": "Ad 13 The Cost Of Getting Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553316830~826990035759",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826990035759",
+          "id": "826990035759",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad13&utm_content=codex-1x1-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826635661909",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826635661909",
+          "id": "826635661909",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=muhammad-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899464146",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899464146",
+          "id": "826899464146",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-square-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511366",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511366",
+          "id": "826899511366",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-vertical-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511387",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511387",
+          "id": "826899511387",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-vertical-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511576",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511576",
+          "id": "826899511576",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-square-59s-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204926161127",
+        "id": "204926161127",
+        "name": "RA-04 Top 3 Tips"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204926161127~828272644005",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828272644005",
+          "id": "828272644005",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra04&utm_content=claude-9x16-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204926161127",
+        "id": "204926161127",
+        "name": "RA-04 Top 3 Tips"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204926161127~828398458259",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/828398458259",
+          "id": "828398458259",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra04&utm_content=claude-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554299",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554299",
+          "id": "826595554299",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-16x9-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826595554302",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826595554302",
+          "id": "826595554302",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-vertical-vsl"
+          ]
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/206348100928",
+        "id": "206348100928",
+        "name": "RA-01 AI Got Me Abs"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/206348100928~826755066385",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826755066385",
+          "id": "826755066385",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra01&utm_content=claude-square-vsl"
+          ]
+        }
+      }
+    }
+  ]
+}

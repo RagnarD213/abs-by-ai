@@ -1,0 +1,31 @@
+{
+ "shot": "RO-14 A7 The giant drink",
+ "start_frame": "A7-start.png",
+ "intent": "Bright kitchen counter at lunch. START: a slightly heavy man in a light blue polo sits proudly before a tiny plate with a small side salad and a fork in his right hand; beside it an enormous bucket-sized clear cup of iced coffee with whipped cream and caramel and a thick straw. END: he has put the fork down by the salad and holds the giant cup in both hands, sipping through the straw, eyes closed in bliss; the drink is a little lower; the salad is untouched.",
+ "hands": {
+  "right": "holds the fork over the salad in START; on the giant cup in END",
+  "left": "on the counter in START; on the giant cup in END"
+ },
+ "may_change": {
+  "fork_and_salad": [
+   420,
+   770,
+   720,
+   941
+  ],
+  "giant_cup_moved_and_drunk": [
+   870,
+   160,
+   1465,
+   941
+  ],
+  "the_man_and_his_hands": [
+   330,
+   10,
+   1120,
+   941
+  ]
+ },
+ "bounds": {},
+ "note": "person block left out (legs out of frame, pose visibility under 0.15, so the bone row measures nothing); the person is a declared may_change box and the reviewer judges the body"
+}

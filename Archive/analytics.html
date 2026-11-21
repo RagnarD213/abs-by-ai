@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abs By AI — Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+  <style>
+    :root { color-scheme: light; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f6fa; color: #1a1a2e; padding: 12px; height: 100vh; overflow: hidden; display: flex; flex-direction: column; gap: 8px; }
+    .header { display: flex; justify-content: space-between; align-items: center; flex-shrink: 0; }
+    .header-left h1 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+    .header-left .subtitle { font-size: 11px; color: #888; margin-top: 1px; }
+    .header-right { display: flex; align-items: center; gap: 8px; }
+    .date-select { padding: 4px 8px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 12px; background: white; cursor: pointer; color: #333; }
+    .refresh-btn { padding: 4px 10px; background: #6366f1; color: white; border: none; border-radius: 6px; font-size: 12px; cursor: pointer; font-weight: 500; }
+    .refresh-btn:hover { background: #5254cc; }
+    .last-updated { font-size: 11px; color: #aaa; }
+    .setup-notice { background: #fffbeb; border: 1px solid #fde68a; border-radius: 8px; padding: 10px 14px; flex-shrink: 0; display: none; }
+    .setup-notice strong { font-size: 12px; color: #92400e; display: block; margin-bottom: 4px; }
+    .setup-notice p { font-size: 11px; color: #78350f; line-height: 1.5; }
+    .setup-notice code { background: rgba(0,0,0,0.07); padding: 1px 4px; border-radius: 3px; font-family: 'SF Mono', monospace; font-size: 10px; }
+    .section-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #ccc; flex-shrink: 0; }
+    .kpi-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; flex-shrink: 0; }
+    .kpi-grid-costs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; flex-shrink: 0; }
+    .kpi-card { background: white; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #efefef; position: relative; overflow: hidden; }
+    .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent, #6366f1); }
+    .kpi-grid .kpi-card:nth-child(1) { --accent: #6366f1; }
+    .kpi-grid .kpi-card:nth-child(2) { --accent: #8b5cf6; }
+    .kpi-grid .kpi-card:nth-child(3) { --accent: #06b6d4; }
+    .kpi-grid .kpi-card:nth-child(4) { --accent: #10b981; }
+    .kpi-grid .kpi-card:nth-child(5) { --accent: #f59e0b; }
+    .kpi-grid .kpi-card:nth-child(6) { --accent: #10b981; }
+    .kpi-grid-costs .kpi-card:nth-child(1) { --accent: #6366f1; }
+    .kpi-grid-costs .kpi-card:nth-child(2) { --accent: #f43f5e; }
+    .kpi-grid-costs .kpi-card:nth-child(3) { --accent: #f97316; }
+    .kpi-grid-costs .kpi-card:nth-child(4) { --accent: #eab308; }
+    .kpi-grid-costs .kpi-card:nth-child(5) { --accent: #ef4444; }
+    .kpi-label { font-size: 9px; color: #aaa; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600; margin-bottom: 5px; }
+    .kpi-value { font-size: 20px; font-weight: 800; color: #1a1a2e; line-height: 1; margin-bottom: 3px; }
+    .kpi-value.loading { color: #ddd; font-size: 16px; }
+    .kpi-sub { font-size: 10px; color: #bbb; }
+    .kpi-sub.profit { font-size: 10px; font-weight: 600; }
+    .kpi-sub.profit.positive { color: #10b981; }
+    .kpi-sub.profit.negative { color: #ef4444; }
+    .charts-row { display: grid; grid-template-columns: 2fr 1fr; gap: 8px; flex: 1; min-height: 0; }
+    .bottom-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; flex: 1; min-height: 0; }
+    .chart-card { background: white; border-radius: 8px; padding: 10px 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #efefef; display: flex; flex-direction: column; min-height: 0; }
+    .chart-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 6px; flex-shrink: 0; }
+    .chart-title { font-size: 11px; font-weight: 600; color: #555; }
+    .chart-legend { display: flex; gap: 8px; font-size: 10px; color: #aaa; }
+    .legend-dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; margin-right: 3px; vertical-align: middle; }
+    .chart-wrap { flex: 1; position: relative; min-height: 0; }
+    .spinner { display: inline-block; width: 12px; height: 12px; border: 2px solid #e0e0e0; border-top-color: #6366f1; border-radius: 50%; animation: spin 0.7s linear infinite; vertical-align: middle; margin-right: 4px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="header-left">
+      <h1>💪 Abs By AI</h1>
+      <div class="subtitle" id="subtitleRange">Last 30 days · PostHog</div>
+    </div>
+    <div class="header-right">
+      <select class="date-select" id="dateRange" onchange="loadData()">
+        <option value="7">Last 7 days</option>
+        <option value="30" selected>Last 30 days</option>
+        <option value="90">Last 90 days</option>
+      </select>
+      <button class="refresh-btn" onclick="loadData()">↻ Refresh</button>
+      <span class="last-updated" id="lastUpdated"></span>
+    </div>
+  </div>
+  <div class="setup-notice" id="setupNotice">
+    <strong>📭 No data yet</strong>
+    <p>• <code>generation_created</code> with <code>cost_usd</code> · <code>generation_locked_in</code> · <code>purchase_completed</code> with <code>revenue</code>, <code>product_cost</code>, <code>shipping_cost</code></p>
+  </div>
+  <div class="section-label">Revenue &amp; Performance</div>
+  <div class="kpi-grid">
+    <div class="kpi-card"><div class="kpi-label">Visitors</div><div class="kpi-value loading" id="kpiVisitors">—</div><div class="kpi-sub">unique users</div></div>
+    <div class="kpi-card"><div class="kpi-label">Generations</div><div class="kpi-value loading" id="kpiGenerations">—</div><div class="kpi-sub">total created</div></div>
+    <div class="kpi-card"><div class="kpi-label">Locked In</div><div class="kpi-value loading" id="kpiLockedIn">—</div><div class="kpi-sub">lock-ins</div></div>
+    <div class="kpi-card"><div class="kpi-label">Lock-In Rate</div><div class="kpi-value loading" id="kpiLockRate">—</div><div class="kpi-sub">locked ÷ total</div></div>
+    <div class="kpi-card"><div class="kpi-label">Revenue</div><div class="kpi-value loading" id="kpiRevenue">—</div><div class="kpi-sub">gross sales</div></div>
+    <div class="kpi-card"><div class="kpi-label">Profit</div><div class="kpi-value loading" id="kpiProfit">—</div><div class="kpi-sub profit" id="kpiProfitSub">rev − costs</div></div>
+  </div>
+  <div class="section-label">Cost Breakdown</div>
+  <div class="kpi-grid-costs">
+    <div class="kpi-card"><div class="kpi-label">Generation Cost</div><div class="kpi-value loading" id="kpiGenCost">—</div><div class="kpi-sub">AI spend</div></div>
+    <div class="kpi-card"><div class="kpi-label">Payment Processing</div><div class="kpi-value loading" id="kpiPaymentCost">—</div><div class="kpi-sub">2.9% + $0.30/txn</div></div>
+    <div class="kpi-card"><div class="kpi-label">Product Cost</div><div class="kpi-value loading" id="kpiProductCost">—</div><div class="kpi-sub">from Printify</div></div>
+    <div class="kpi-card"><div class="kpi-label">Shipping Cost</div><div class="kpi-value loading" id="kpiShippingCost">—</div><div class="kpi-sub">from Printify</div></div>
+    <div class="kpi-card"><div class="kpi-label">Total Cost</div><div class="kpi-value loading" id="kpiTotalCost">—</div><div class="kpi-sub">all costs</div></div>
+  </div>
+  <div class="charts-row">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Visitors &amp; Generations</div>
+        <div class="chart-legend">
+          <span><span class="legend-dot" style="background:#6366f1"></span>Visitors</span>
+          <span><span class="legend-dot" style="background:#8b5cf6"></span>Generations</span>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="mainChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header"><div class="chart-title">Lock-In Rate %</div></div>
+      <div class="chart-wrap"><canvas id="lockChart"></canvas></div>
+    </div>
+  </div>
+  <div class="bottom-row">
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Revenue &amp; Profit</div>
+        <div class="chart-legend">
+          <span><span class="legend-dot" style="background:#f59e0b"></span>Revenue</span>
+          <span><span class="legend-dot" style="background:#10b981"></span>Profit</span>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="revenueChart"></canvas></div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-header">
+        <div class="chart-title">Daily Cost Breakdown</div>
+        <div class="chart-legend">
+          <span><span class="legend-dot" style="background:#6366f1"></span>Gen</span>
+          <span><span class="legend-dot" style="background:#f43f5e"></span>Payment</span>
+          <span><span class="legend-dot" style="background:#f97316"></span>Product</span>
+          <span><span class="legend-dot" style="background:#eab308"></span>Ship</span>
+        </div>
+      </div>
+      <div class="chart-wrap"><canvas id="costChart"></canvas></div>
+    </div>
+  </div>
+  <script>
+    let charts = {};
+    async function sql(query) {
+      try {
+        const r = await fetch('/api/posthog-query', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ query }) });
+        if (!r.ok) return [];
+        const data = await r.json();
+        if (!data.results || !data.columns) return [];
+        return data.results.map(row => { const obj = {}; data.columns.forEach((col, i) => { obj[col] = row[i]; }); return obj; });
+      } catch(e) { return []; }
+    }
+    function fmt(n) { const v = parseFloat(n); if (isNaN(v)) return '0'; if (v >= 1e6) return (v/1e6).toFixed(1)+'M'; if (v >= 1e3) return (v/1e3).toFixed(1)+'k'; return Math.round(v).toLocaleString(); }
+    function money(n) { const v = parseFloat(n)||0; if (v >= 1000) return '$'+(v/1000).toFixed(1)+'k'; if (v < 0) return '-$'+Math.abs(v).toFixed(2); return '$'+v.toFixed(2); }
+    function makeChart(id, type, labels, datasets, options={}) {
+      if (charts[id]) charts[id].destroy();
+      charts[id] = new Chart(document.getElementById(id), { type, data: { labels, datasets }, options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, tooltip: { mode: 'index', intersect: false } }, scales: { x: { grid: { display: false }, ticks: { font: { size: 9 }, color: '#ccc', maxTicksLimit: 8 } }, y: { beginAtZero: true, grid: { color: '#f4f4f4' }, ticks: { font: { size: 9 }, color: '#ccc' } } }, ...options } });
+    }
+    async function loadData() {
+      const days = parseInt(document.getElementById('dateRange').value);
+      const intv = `INTERVAL ${days} DAY`;
+      document.getElementById('lastUpdated').innerHTML = '<span class="spinner"></span>';
+      document.getElementById('subtitleRange').textContent = `Last ${days} days · PostHog`;
+      try {
+        const [visitors,generations,lockedIn,revenue,purchaseCount,genCosts,productCosts,shippingCosts,dailyVisitors,dailyGenerations,dailyLockRate,dailyRevenue,dailyPurchaseCount,dailyGenCosts,dailyProductCosts,dailyShippingCosts] = await Promise.all([
+          sql(`SELECT uniq(person_id) as val FROM events WHERE event = '$pageview' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT count() as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT count() as val FROM events WHERE event = 'generation_locked_in' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(toFloat(coalesce(properties.revenue, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT count() as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(toFloat(coalesce(properties.cost_usd, 0))) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(if(toFloat(coalesce(properties.product_cost, 0)) > 0, toFloat(coalesce(properties.product_cost, 0)), if(properties.product_type = 'poster', 7.00, if(properties.product_type = 'canvas', 20.00, 3.50)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT sum(if(toFloat(coalesce(properties.shipping_cost, 0)) > 0, toFloat(coalesce(properties.shipping_cost, 0)), if(properties.product_type = 'poster', 4.99, if(properties.product_type = 'canvas', 8.99, 3.99)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} LIMIT 1`),
+          sql(`SELECT toDate(timestamp) as day, uniq(person_id) as val FROM events WHERE event = '$pageview' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, count() as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, countIf(event='generation_locked_in') as locked, countIf(event='generation_created') as total FROM events WHERE event IN ('generation_created','generation_locked_in') AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(toFloat(coalesce(properties.revenue, 0))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, count() as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(toFloat(coalesce(properties.cost_usd, 0))) as val FROM events WHERE event = 'generation_created' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(if(toFloat(coalesce(properties.product_cost, 0)) > 0, toFloat(coalesce(properties.product_cost, 0)), if(properties.product_type = 'poster', 7.00, if(properties.product_type = 'canvas', 20.00, 3.50)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+          sql(`SELECT toDate(timestamp) as day, sum(if(toFloat(coalesce(properties.shipping_cost, 0)) > 0, toFloat(coalesce(properties.shipping_cost, 0)), if(properties.product_type = 'poster', 4.99, if(properties.product_type = 'canvas', 8.99, 3.99)))) as val FROM events WHERE event = 'purchase_completed' AND timestamp > now() - ${intv} GROUP BY day ORDER BY day ASC LIMIT 100`),
+        ]);
+        const totalVisitors=parseFloat(visitors[0]?.val)||0, totalGenerations=parseFloat(generations[0]?.val)||0, totalLockedIn=parseFloat(lockedIn[0]?.val)||0;
+        const totalRevenue=parseFloat(revenue[0]?.val)||0, totalPurchases=parseFloat(purchaseCount[0]?.val)||0;
+        const totalGenCost=parseFloat(genCosts[0]?.val)||0, totalProductCost=parseFloat(productCosts[0]?.val)||0, totalShipping=parseFloat(shippingCosts[0]?.val)||0;
+        const totalPaymentCost = totalRevenue * 0.029 + totalPurchases * 0.30;
+        const totalCost=totalGenCost+totalPaymentCost+totalProductCost+totalShipping, profit=totalRevenue-totalCost, lockRate=totalGenerations>0?(totalLockedIn/totalGenerations*100):0;
+        document.getElementById('kpiVisitors').textContent=fmt(totalVisitors);
+        document.getElementById('kpiGenerations').textContent=fmt(totalGenerations);
+        document.getElementById('kpiLockedIn').textContent=fmt(totalLockedIn);
+        document.getElementById('kpiLockRate').textContent=lockRate.toFixed(1)+'%';
+        document.getElementById('kpiRevenue').textContent=money(totalRevenue);
+        document.getElementById('kpiProfit').textContent=money(profit);
+        document.getElementById('kpiGenCost').textContent=money(totalGenCost);
+        document.getElementById('kpiPaymentCost').textContent=money(totalPaymentCost);
+        document.getElementById('kpiProductCost').textContent=money(totalProductCost);
+        document.getElementById('kpiShippingCost').textContent=money(totalShipping);
+        document.getElementById('kpiTotalCost').textContent=money(totalCost);
+        const profitSub=document.getElementById('kpiProfitSub');
+        profitSub.textContent=`${money(totalRevenue)} − ${money(totalCost)}`;
+        profitSub.className='kpi-sub profit '+(profit>=0?'positive':'negative');
+        ['kpiVisitors','kpiGenerations','kpiLockedIn','kpiLockRate','kpiRevenue','kpiProfit','kpiGenCost','kpiPaymentCost','kpiProductCost','kpiShippingCost','kpiTotalCost'].forEach(id=>document.getElementById(id).classList.remove('loading'));
+        document.getElementById('setupNotice').style.display=(totalVisitors>0||totalGenerations>0||totalRevenue>0)?'none':'block';
+        const allDays=[...new Set([...dailyVisitors.map(r=>r.day),...dailyGenerations.map(r=>r.day)])].sort();
+        const vMap=Object.fromEntries(dailyVisitors.map(r=>[r.day,parseInt(r.val)||0]));
+        const gMap=Object.fromEntries(dailyGenerations.map(r=>[r.day,parseInt(r.val)||0]));
+        const revMap=Object.fromEntries(dailyRevenue.map(r=>[r.day,parseFloat(r.val)||0]));
+        const pcMap=Object.fromEntries(dailyPurchaseCount.map(r=>[r.day,parseFloat(r.val)||0]));
+        const gcMap=Object.fromEntries(dailyGenCosts.map(r=>[r.day,parseFloat(r.val)||0]));
+        const prMap=Object.fromEntries(dailyProductCosts.map(r=>[r.day,parseFloat(r.val)||0]));
+        const shMap=Object.fromEntries(dailyShippingCosts.map(r=>[r.day,parseFloat(r.val)||0]));
+        const pmForDay=d=>(revMap[d]||0)*0.029+(pcMap[d]||0)*0.30;
+        makeChart('mainChart','bar',allDays.map(d=>d.slice(5)),[{label:'Visitors',data:allDays.map(d=>vMap[d]||0),backgroundColor:'rgba(99,102,241,0.7)',borderRadius:3},{label:'Generations',data:allDays.map(d=>gMap[d]||0),backgroundColor:'rgba(139,92,246,0.7)',borderRadius:3}]);
+        const lrData=dailyLockRate.map(r=>{const locked=parseInt(r.locked)||0,total=parseInt(r.total)||0;return total>0?parseFloat((locked/total*100).toFixed(1)):0;});
+        makeChart('lockChart','line',dailyLockRate.map(r=>r.day?.slice(5)),[{label:'Lock-In %',data:lrData,borderColor:'#10b981',backgroundColor:'rgba(16,185,129,0.08)',tension:0.35,fill:true,pointRadius:2,borderWidth:2}],{scales:{x:{grid:{display:false},ticks:{font:{size:9},color:'#ccc',maxTicksLimit:8}},y:{beginAtZero:true,max:100,grid:{color:'#f4f4f4'},ticks:{font:{size:9},color:'#ccc',callback:v=>v+'%'}}}});
+        const allRevDays=[...new Set(dailyRevenue.map(r=>r.day))].sort();
+        makeChart('revenueChart','bar',allRevDays.map(d=>d.slice(5)),[{label:'Revenue',data:allRevDays.map(d=>revMap[d]||0),backgroundColor:'rgba(245,158,11,0.7)',borderRadius:3},{label:'Profit',data:allRevDays.map(d=>{const rev=revMap[d]||0,cost=(gcMap[d]||0)+pmForDay(d)+(prMap[d]||0)+(shMap[d]||0);return parseFloat((rev-cost).toFixed(4));}),backgroundColor:'rgba(16,185,129,0.7)',borderRadius:3}],{scales:{x:{grid:{display:false},ticks:{font:{size:9},color:'#ccc',maxTicksLimit:8}},y:{beginAtZero:true,grid:{color:'#f4f4f4'},ticks:{font:{size:9},color:'#ccc',callback:v=>'$'+v}}}});
+        const allCostDays=[...new Set([...dailyGenCosts.map(r=>r.day),...dailyPurchaseCount.map(r=>r.day),...dailyProductCosts.map(r=>r.day),...dailyShippingCosts.map(r=>r.day)])].sort();
+        makeChart('costChart','bar',allCostDays.map(d=>d.slice(5)),[{label:'Gen',data:allCostDays.map(d=>+(gcMap[d]||0).toFixed(4)),backgroundColor:'rgba(99,102,241,0.75)',borderRadius:2,stack:'c'},{label:'Payment',data:allCostDays.map(d=>+pmForDay(d).toFixed(4)),backgroundColor:'rgba(244,63,94,0.75)',borderRadius:2,stack:'c'},{label:'Product',data:allCostDays.map(d=>+(prMap[d]||0).toFixed(4)),backgroundColor:'rgba(249,115,22,0.75)',borderRadius:2,stack:'c'},{label:'Ship',data:allCostDays.map(d=>+(shMap[d]||0).toFixed(4)),backgroundColor:'rgba(234,179,8,0.75)',borderRadius:2,stack:'c'}],{scales:{x:{grid:{display:false},stacked:true,ticks:{font:{size:9},color:'#ccc',maxTicksLimit:8}},y:{beginAtZero:true,stacked:true,grid:{color:'#f4f4f4'},ticks:{font:{size:9},color:'#ccc',callback:v=>'$'+v.toFixed(2)}}}});
+        document.getElementById('lastUpdated').textContent=new Date().toLocaleTimeString();
+      } catch(e) { document.getElementById('lastUpdated').textContent='Error: '+e.message; }
+    }
+    loadData();
+  </script>
+</body>
+</html>

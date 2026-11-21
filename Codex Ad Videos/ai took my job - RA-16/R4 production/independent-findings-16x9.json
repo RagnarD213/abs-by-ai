@@ -1,0 +1,251 @@
+{
+  "entries": [
+    {
+      "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+      "verdict": "clean",
+      "note": "Inspected every chronological tile from0.00 to23.99s: clean opening presenter, complete hair, single readable captions, direct wide/tight changes, modern phone and same-person sunglasses photo, then explicitly labelled AI pool goal. No junk take, black tile or missing insert. Horizontal composition remains fixed and analysis label sits below the photo, clear of face/abs.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+      "verdict": "clean",
+      "note": "Reopened complete affected chronological sheet. G03 early phrase is now absent at43.01s and appears once by44.01s, with all scene contents and single captions preserved. Native exact samples separately confirm onset43.1431. No new framing, text or graphic defect.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "sheet_02_00-50.02_to_00-57.99.jpg",
+      "verdict": "clean",
+      "note": "Inspected every tile from50.02 to57.99s: contained hair and face, single captions, deliberate wide/tight closing cuts and intact final CTA picture. No junk card, flash, placeholder or new end mark. Horizontal composition remains fixed and analysis label sits below the photo, clear of face/abs.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_000_00-09.48_P01_0_out___P02_284_in___join___punch_2.jpg",
+      "verdict": "expected",
+      "t": 9.48,
+      "note": "Five native consecutive frames: Outgoing clasped-hands wide changes directly to distinct tighter composition. Hair and glasses contained. No same-size splice or intermediate crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_000_00-09.48.jpg",
+      "verdict": "expected",
+      "t": 9.48,
+      "note": "Outgoing/incoming pair: Outgoing clasped-hands wide changes directly to distinct tighter composition. Hair and glasses contained. No same-size splice or intermediate crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_001_00-15.05_P02_284_out___P03_451_in___join___punch_.jpg",
+      "verdict": "expected",
+      "t": 15.05,
+      "note": "Five native consecutive frames: Tight clasped-hands composition cuts directly to clearly wider waist/thigh view. Intentional size step contains the changed gesture; no island.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_001_00-15.05.jpg",
+      "verdict": "expected",
+      "t": 15.05,
+      "note": "Outgoing/incoming pair: Tight clasped-hands composition cuts directly to clearly wider waist/thigh view. Intentional size step contains the changed gesture; no island.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_002_00-19.39_P03_451_out___Sunglasses_source_photo_in.jpg",
+      "verdict": "expected",
+      "t": 19.39,
+      "note": "Five native consecutive frames: Presenter exits directly to complete modern rounded phone containing Dan sunglasses source photo. Real-photo chip appears below phone; no presenter remnant.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_002_00-19.39.jpg",
+      "verdict": "expected",
+      "t": 19.39,
+      "note": "Outgoing/incoming pair: Presenter exits directly to complete modern rounded phone containing Dan sunglasses source photo. Real-photo chip appears below phone; no presenter remnant.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_003_00-22.72_AI_goal_1_in___Sunglasses_source_photo_o.jpg",
+      "verdict": "expected",
+      "t": 22.72,
+      "note": "Five native consecutive frames: Source-photo generating UI gives way to two-frame phone transition with olive grid. Real-photo chip changes to AI-GENERATED on first replacement frame. This is the approved D01 transition, not missing app content.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_003_00-22.72.jpg",
+      "verdict": "expected",
+      "t": 22.72,
+      "note": "Outgoing/incoming pair: Source-photo generating UI gives way to two-frame phone transition with olive grid. Real-photo chip changes to AI-GENERATED on first replacement frame. This is the approved D01 transition, not missing app content.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_004_00-22.79_AI_goal_1_out___AI_goal_2_in.jpg",
+      "verdict": "expected",
+      "t": 22.79,
+      "note": "Five native consecutive frames: Phone shell disappears while blue field remains and AI pool photo begins fading up on following native frames. Persistent AI chip and caption are clear. Matches independent D01 transition.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_004_00-22.79.jpg",
+      "verdict": "expected",
+      "t": 22.79,
+      "note": "Outgoing/incoming pair: Phone shell disappears while blue field remains and AI pool photo begins fading up on following native frames. Persistent AI chip and caption are clear. Matches independent D01 transition.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_005_00-24.19_AI_goal_2_out___P05_725_in___covered_out.jpg",
+      "verdict": "expected",
+      "t": 24.19,
+      "note": "Five native consecutive frames: AI pool photo and chip leave directly for wider moving presenter. No photo remnant, uncovered presenter island, or cropped hair.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_005_00-24.19.jpg",
+      "verdict": "expected",
+      "t": 24.19,
+      "note": "Outgoing/incoming pair: AI pool photo and chip leave directly for wider moving presenter. No photo remnant, uncovered presenter island, or cropped hair.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_006_00-25.25_G01_in___AI_goal_3_in___P05_725_out___co.jpg",
+      "verdict": "expected",
+      "t": 25.25,
+      "note": "Five native consecutive frames: Presenter gives way to full analysis scene with AI pool goal, AI chip and empty bar scaffold at animation entrance. Whole presenter is covered, with one caption only.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_006_00-25.25.jpg",
+      "verdict": "expected",
+      "t": 25.25,
+      "note": "Outgoing/incoming pair: Presenter gives way to full analysis scene with AI pool goal, AI chip and empty bar scaffold at animation entrance. Whole presenter is covered, with one caption only.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_007_00-32.80_AI_goal_3_out___P07_983_in___covered_out.jpg",
+      "verdict": "expected",
+      "t": 32.8,
+      "note": "Five native consecutive frames: Complete three-bar analysis and Your Workout Plan band leave directly for wider moving presenter. AI chip leaves with goal. No exposed source cut before return.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_007_00-32.80.jpg",
+      "verdict": "expected",
+      "t": 32.8,
+      "note": "Outgoing/incoming pair: Complete three-bar analysis and Your Workout Plan band leave directly for wider moving presenter. AI chip leaves with goal. No exposed source cut before return.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_008_00-38.00_P07_983_out___P08_1139_in___join___punch.jpg",
+      "verdict": "expected",
+      "t": 38.0,
+      "note": "Five native consecutive frames: Wide changes directly to a clearly tighter presenter composition while G02 remains and fades. Lower third does not serve as splice cover; deliberate size change makes this acceptable.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_008_00-38.00.jpg",
+      "verdict": "expected",
+      "t": 38.0,
+      "note": "Outgoing/incoming pair: Wide changes directly to a clearly tighter presenter composition while G02 remains and fades. Lower third does not serve as splice cover; deliberate size change makes this acceptable.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_009_00-38.10_graphic_regions_out___G02_out.jpg",
+      "verdict": "expected",
+      "t": 38.1,
+      "note": "Five native consecutive frames: Fading G02 vanishes cleanly on consecutive frames while tight presenter motion continues. No pose reset or duplicated caption at graphic exit.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_009_00-38.10.jpg",
+      "verdict": "expected",
+      "t": 38.1,
+      "note": "Outgoing/incoming pair: Fading G02 vanishes cleanly on consecutive frames while tight presenter motion continues. No pose reset or duplicated caption at graphic exit.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_010_00-42.66_G03_in___graphic_regions_in.jpg",
+      "verdict": "expected",
+      "t": 42.66,
+      "note": "G03 entrance retains continuous presenter and approved graphic. Authoritative sequential native frames1278/1279/1281/1292/1293/1294 were opened: horizontal previous phrase clears before1279 with no two-frame upward bounce; new And finally phrase is absent through1292 and appears once at1293(43.1431). No picture splice or flash. The initial seek-based strip/pair discrepancy is documented; replacement with full sequential five-frame extraction is complete and was inspected as an evidence-only repair.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_010_00-42.66.jpg",
+      "verdict": "expected",
+      "t": 42.66,
+      "note": "G03 entrance retains continuous presenter and approved graphic. Authoritative sequential native frames1278/1279/1281/1292/1293/1294 were opened: horizontal previous phrase clears before1279 with no two-frame upward bounce; new And finally phrase is absent through1292 and appears once at1293(43.1431). No picture splice or flash. The initial seek-based strip/pair discrepancy is documented; replacement with full sequential five-frame extraction is complete and was inspected as an evidence-only repair.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_011_00-46.38_P08_1139_out___P09_1390_in___join___punc.jpg",
+      "verdict": "expected",
+      "t": 46.38,
+      "note": "Five native consecutive frames: Deliberate tight-to-wide composition cut occurs under continuing G03. Both sides contain hair. Overlay stays registered; no same-size presenter splice.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_011_00-46.38.jpg",
+      "verdict": "expected",
+      "t": 46.38,
+      "note": "Outgoing/incoming pair: Deliberate tight-to-wide composition cut occurs under continuing G03. Both sides contain hair. Overlay stays registered; no same-size presenter splice.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_012_00-47.41_graphic_regions_out___G03_out.jpg",
+      "verdict": "expected",
+      "t": 47.41,
+      "note": "Five native consecutive frames: G03 fade completes over continuous wide presenter gesture. Caption remains single and unobstructed. No freeze or unexpected crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_012_00-47.41.jpg",
+      "verdict": "expected",
+      "t": 47.41,
+      "note": "Outgoing/incoming pair: G03 fade completes over continuous wide presenter gesture. Caption remains single and unobstructed. No freeze or unexpected crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_013_00-50.82_P09_1390_out___P10_1523_in___join___punc.jpg",
+      "verdict": "expected",
+      "t": 50.82,
+      "note": "Five native consecutive frames: Wide changes directly to distinct tighter presenter for AI adjusts your plan section. Changed hand pose is accompanied by intentional composition step; no flash.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_013_00-50.82.jpg",
+      "verdict": "expected",
+      "t": 50.82,
+      "note": "Outgoing/incoming pair: Wide changes directly to distinct tighter presenter for AI adjusts your plan section. Changed hand pose is accompanied by intentional composition step; no flash.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_014_00-53.15_P10_1523_out___P11_1593_in___join___punc.jpg",
+      "verdict": "expected",
+      "t": 53.15,
+      "note": "Five native consecutive frames: Tight changes directly to distinct wider presenter for closing pitch. Both pointing hands and all hair are within picture. No intermediate crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_014_00-53.15.jpg",
+      "verdict": "expected",
+      "t": 53.15,
+      "note": "Outgoing/incoming pair: Tight changes directly to distinct wider presenter for closing pitch. Both pointing hands and all hair are within picture. No intermediate crop.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "strip_015_00-57.06_P11_1593_out___P12_1710_in___join___punc.jpg",
+      "verdict": "expected",
+      "t": 57.06,
+      "note": "Five native consecutive frames: Wide changes directly to tighter closing CTA presenter. Clasped hands replace open gesture across a deliberate size step, with hair contained.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    },
+    {
+      "image": "pair_015_00-57.06.jpg",
+      "verdict": "expected",
+      "t": 57.06,
+      "note": "Outgoing/incoming pair: Wide changes directly to tighter closing CTA presenter. Clasped hands replace open gesture across a deliberate size step, with hair contained.",
+      "review_basis": "Original full independent image inspection plus all1765-frame final/original comparison and exact unchanged AAC. Changed G03 native onset evidence reopened."
+    }
+  ],
+  "sha256": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d",
+  "original_reviewed_sha256": "05dd6d4591fcd4bfa9363450f7fcde6909d32c5756626e85f5f7c00d2438d7e2",
+  "all_frame_comparison": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-repair/all-frame-comparison.json",
+  "targeted_evidence": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/independent-repair/16x9-onset-native.jpg",
+  "evidence_strip_replacement": "Complete, full sequential native extraction1277..1281 inspected; original tool images retained with hashes in independent-extra/native-watch-evidence-repair.json"
+}

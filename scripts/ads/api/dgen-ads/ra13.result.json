@@ -1,0 +1,206 @@
+{
+ "at": "2026-10-17T15:28:32.408Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/201534026375",
+  "customers/3427170837/adGroupCriteria/201534026375~2840",
+  "customers/3427170837/adGroupCriteria/201534026375~2124",
+  "customers/3427170837/adGroupCriteria/201534026375~1000",
+  "customers/3427170837/adGroupCriteria/201534026375~2498784755180",
+  "customers/3427170837/assets/430845852830",
+  "customers/3427170837/adGroupAds/201534026375~828468045056",
+  "customers/3427170837/assets/431033327331",
+  "customers/3427170837/adGroupAds/201534026375~828468037364"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201534026375",
+    "status": "ENABLED",
+    "id": "201534026375",
+    "name": "RA-13 Most Guys Abs",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201534026375~828468037364",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828468037364",
+     "id": "828468037364",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-16x9-vsl"
+     ],
+     "name": "RA-13 Most Guys Abs | Codex R3 16:9 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "How AI Builds Your Fitness Plan"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "AI Workouts Built Around Your Goal"
+       },
+       {
+        "text": "A Fitness Plan That Adapts To You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose shows how AI builds workouts and nutrition plans around a clear goal."
+       },
+       {
+        "text": "See how a goal picture guides a personal workout and nutrition plan."
+       },
+       {
+        "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture."
+       },
+       {
+        "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "See yourself with your goal body, then get a training and meal plan built for it."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/431033327331"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  },
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/201534026375",
+    "status": "ENABLED",
+    "id": "201534026375",
+    "name": "RA-13 Most Guys Abs",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/201534026375~828468045056",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828468045056",
+     "id": "828468045056",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra13&utm_content=codex-9x16-vsl"
+     ],
+     "name": "RA-13 Most Guys Abs | Codex R3 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "How AI Builds Your Fitness Plan"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "AI Workouts Built Around Your Goal"
+       },
+       {
+        "text": "A Fitness Plan That Adapts To You"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose shows how AI builds workouts and nutrition plans around a clear goal."
+       },
+       {
+        "text": "See how a goal picture guides a personal workout and nutrition plan."
+       },
+       {
+        "text": "AI adjusts the plan around injuries, missed gym sessions and everyday life."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture."
+       },
+       {
+        "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "See yourself with your goal body, then get a training and meal plan built for it."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430845852830"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201534026375~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/201534026375~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

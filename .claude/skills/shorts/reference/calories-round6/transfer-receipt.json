@@ -1,0 +1,16 @@
+{
+  "category": "CONTENT (SFL)",
+  "job": "SL-08",
+  "round": 6,
+  "old_thread": "01a15a6a-0218-7050-aeb9-6fe028b3b394",
+  "new_thread": "01a169a7-fab3-7330-b0f6-148b8984cffe",
+  "new_title": "Calories Not Losing Weight SFL R6",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "status": "ownership transferred; child started and pinned; old unpinned; wake sent once",
+  "media_production_in_parent": false,
+  "heartbeat": "resume-calories-shorts-edit PAUSED",
+  "background_only": true,
+  "slot": "SL-08 admitted; transfers with same video, child must acquire",
+  "manifest_files": 10
+}

@@ -1,0 +1,14 @@
+The attached image is a frame from an old 8-bit side-scrolling platform game. Use the little shirtless pixel man in it (brown hair, red shorts, soft body with a small rounded tummy and thin arms, no muscles) as the character reference.
+
+Make one wide 16:9 sprite sheet of THIS SAME character, in the exact same pixel-art style and palette: chunky square pixels, hard black outline, no anti-aliasing, no gradients, no blur, no shading beyond what the reference has.
+
+Draw five poses of him in one evenly spaced row, all the same size (each figure about 55 percent of the image height), all facing right, all with their feet on the same invisible baseline:
+1. running, right leg forward, left arm forward
+2. running, legs passing under the body (both feet close together, one lifted)
+3. running, left leg forward, right arm forward
+4. running, legs passing under the body again, the other foot lifted
+5. jumping straight up, knees slightly bent, one fist punched straight up above his head
+
+His body stays soft in every pose: small rounded tummy, thin arms, no muscles. Same face, same hair, same red shorts.
+
+The background is one flat solid magenta colour (pure #FF00FF) everywhere, with nothing else on it: no ground, no shadow, no sky, no sparkles, no frame lines, no grid. No text, letters, numbers or labels anywhere.

@@ -1,0 +1,113 @@
+[
+  {
+    "choice": "A1",
+    "file": "RO28-R2-A1.jpg",
+    "sha256": "9a7d1a035e903203055a70a829b390ef688013cef2b90a4ed4ebc1563b31b1b5",
+    "source_sha256": "a276c255027148dafddee0d68c226d6c8498bffed7bab6145a5b93cd0ee2d910",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 337575,
+    "minimum_person_text_clearance_px": 113.51,
+    "overlap_pixels": 0,
+    "text_boxes": [
+      [
+        44,
+        32,
+        175,
+        121
+      ],
+      [
+        44,
+        162,
+        505,
+        278
+      ],
+      [
+        44,
+        365,
+        425,
+        439
+      ],
+      [
+        44,
+        497,
+        446,
+        618
+      ]
+    ],
+    "copy": "Why Ripped Men Should Take Zepbound",
+    "pass": true
+  },
+  {
+    "choice": "A2",
+    "file": "RO28-R2-A2.jpg",
+    "sha256": "fdb0fc5937c4c169bb0bf52508f7090f2b90ce343680c3cc2d39ec481d62b5f3",
+    "source_sha256": "9e0eba2cac2b4f56141376f399b2499b6c97246b1b9f98083b11006a7ed384b4",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 325810,
+    "minimum_person_text_clearance_px": 28.64,
+    "overlap_pixels": 0,
+    "text_boxes": [
+      [
+        763,
+        61,
+        935,
+        146
+      ],
+      [
+        763,
+        185,
+        1238,
+        272
+      ],
+      [
+        763,
+        326,
+        1193,
+        396
+      ],
+      [
+        763,
+        470,
+        1188,
+        564
+      ]
+    ],
+    "copy": "Why Ripped Men Should Take Zepbound",
+    "pass": true
+  },
+  {
+    "choice": "A3",
+    "file": "RO28-R2-A3.jpg",
+    "sha256": "60cb671556f9dce7fadc8d9b53fc9362439cf2b8b488a66b4f0237df96aa5799",
+    "source_sha256": "83df76cde54e2bd064d614d3a87cdee39573eeb04d7861643bbb2d18f8c5c7c8",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "bytes": 377743,
+    "minimum_person_text_clearance_px": 55.0,
+    "overlap_pixels": 0,
+    "text_boxes": [
+      [
+        143,
+        12,
+        1137,
+        112
+      ],
+      [
+        343,
+        118,
+        937,
+        209
+      ]
+    ],
+    "copy": "Why Ripped Men Should Take Zepbound",
+    "pass": true
+  }
+]

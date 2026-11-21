@@ -1,0 +1,379 @@
+{
+  "job": "DS-31",
+  "category": "CONTENT",
+  "status": "awaiting-dan-pick",
+  "headline": "Let AI Do Your Homework",
+  "film_untouched": true,
+  "generation": "Codex subscription, gpt-6.1-sol high, 5 images (option 5 regenerated once: take 1 too close to option 4)",
+  "designs": {
+    "1": "Real pool photo as shot; black Impact on two tilted yellow highlighter strips over the water, bottom centre",
+    "2": "Real studio cutout with glasses and white keyline on a green chalkboard; white and yellow chalk lettering stacked upper left with a chalk underline",
+    "3": "AI Dan curling a dumbbell beside a laptop writing his essay; tall white and sky-blue DIN Condensed headline centred across the top wall",
+    "4": "Codex choice: robot hand writing in a notebook above a dumbbell on solid orange; Futura ExtraBold in two cream label boxes through the middle",
+    "5": "Codex choice: hourglass, glowing laptop and kettlebell in a gym bag, dark amber light; heavy Arial Black stacked left with an amber bar"
+  },
+  "outputs": [
+    {
+      "option": 1,
+      "layout": "youtube",
+      "design": "Real pool photo as shot; black Impact on two tilted yellow highlighter strips over the water, bottom centre",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/youtube/1-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 533423,
+      "sha256": "59d1e73ee85b635d475f7b07b94be28c5c9e194001be449efad0eaa4c636c099",
+      "text_boxes": [
+        [
+          285,
+          1430,
+          796,
+          1551
+        ],
+        [
+          71,
+          1597,
+          1010,
+          1714
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-273_FINAL_PRIMARY.jpg",
+        "treatment": "real photo as shot, resize/crop only",
+        "hair_face_box": [
+          372,
+          202,
+          681,
+          576
+        ]
+      }
+    },
+    {
+      "option": 1,
+      "layout": "instagram",
+      "design": "Real pool photo as shot; black Impact on two tilted yellow highlighter strips over the water, bottom centre",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/instagram/1-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 531877,
+      "sha256": "d6e91e010f7daf7d0bd4bd726e3186ec1103961a8788d179c5e3b7f00812ad71",
+      "text_boxes": [
+        [
+          285,
+          1262,
+          796,
+          1383
+        ],
+        [
+          71,
+          1429,
+          1010,
+          1546
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-273_FINAL_PRIMARY.jpg",
+        "treatment": "real photo as shot, resize/crop only",
+        "hair_face_box": [
+          372,
+          202,
+          681,
+          576
+        ]
+      }
+    },
+    {
+      "option": 2,
+      "layout": "youtube",
+      "design": "Real studio cutout with glasses and white keyline on a green chalkboard; white and yellow chalk lettering stacked upper left with a chalk underline",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/youtube/2-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 555415,
+      "sha256": "12c07b30077907c1bdf0682ebae320dc107c5878f162a44870934c6e9c647c29",
+      "text_boxes": [
+        [
+          64,
+          150,
+          786,
+          264
+        ],
+        [
+          64,
+          298,
+          434,
+          411
+        ],
+        [
+          64,
+          445,
+          834,
+          555
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-100_CUTOUT.png",
+        "treatment": "real cutout, resize and composite only; no AI redraw",
+        "sha256": "8ddeb66785d89e86d9f06f4374e5312812ef86ec94d9e499c49ae5e0d508b487",
+        "crop_to_fraction": 0.8,
+        "position": [
+          150,
+          690
+        ],
+        "height": 1330,
+        "hair_face_box": [
+          528,
+          690,
+          810,
+          956
+        ]
+      }
+    },
+    {
+      "option": 2,
+      "layout": "instagram",
+      "design": "Real studio cutout with glasses and white keyline on a green chalkboard; white and yellow chalk lettering stacked upper left with a chalk underline",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/instagram/2-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 558329,
+      "sha256": "f40cd390f0720bd444c74edeb29e65f005b57c2d76e57ca0eca0543f7de03bc2",
+      "text_boxes": [
+        [
+          64,
+          330,
+          786,
+          444
+        ],
+        [
+          64,
+          478,
+          434,
+          591
+        ],
+        [
+          64,
+          625,
+          834,
+          735
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-100_CUTOUT.png",
+        "treatment": "real cutout, resize and composite only; no AI redraw",
+        "sha256": "8ddeb66785d89e86d9f06f4374e5312812ef86ec94d9e499c49ae5e0d508b487",
+        "crop_to_fraction": 0.8,
+        "position": [
+          150,
+          770
+        ],
+        "height": 1260,
+        "hair_face_box": [
+          508,
+          770,
+          775,
+          1022
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "youtube",
+      "design": "AI Dan curling a dumbbell beside a laptop writing his essay; tall white and sky-blue DIN Condensed headline centred across the top wall",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/youtube/3-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 519332,
+      "sha256": "862d659cb6df93c951e2b184f8ac4202c5557058792422b7d39a7f6777b749f0",
+      "text_boxes": [
+        [
+          254,
+          84,
+          827,
+          235
+        ],
+        [
+          57,
+          251,
+          1023,
+          392
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "photo-273_FINAL_PRIMARY.jpg",
+        "hair_face_box": [
+          324,
+          522,
+          605,
+          806
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "instagram",
+      "design": "AI Dan curling a dumbbell beside a laptop writing his essay; tall white and sky-blue DIN Condensed headline centred across the top wall",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/instagram/3-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 455612,
+      "sha256": "a7ef9da87484e8ef5eafa780cffd850352b6c3f5e5653f10459efcf5adea97e7",
+      "text_boxes": [
+        [
+          254,
+          262,
+          827,
+          413
+        ],
+        [
+          57,
+          429,
+          1023,
+          570
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "photo-273_FINAL_PRIMARY.jpg",
+        "hair_face_box": [
+          324,
+          722,
+          605,
+          1006
+        ]
+      }
+    },
+    {
+      "option": 4,
+      "layout": "youtube",
+      "design": "Codex choice: robot hand writing in a notebook above a dumbbell on solid orange; Futura ExtraBold in two cream label boxes through the middle",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/youtube/4-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 531513,
+      "sha256": "fc7a4158e1014d40acf8b98e6e8846b8f1ec1b175dceca7bf25c37b95c294028",
+      "text_boxes": [
+        [
+          233,
+          686,
+          848,
+          844
+        ],
+        [
+          77,
+          866,
+          1003,
+          1018
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 4,
+      "layout": "instagram",
+      "design": "Codex choice: robot hand writing in a notebook above a dumbbell on solid orange; Futura ExtraBold in two cream label boxes through the middle",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/instagram/4-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 531513,
+      "sha256": "fc7a4158e1014d40acf8b98e6e8846b8f1ec1b175dceca7bf25c37b95c294028",
+      "text_boxes": [
+        [
+          233,
+          686,
+          848,
+          844
+        ],
+        [
+          77,
+          866,
+          1003,
+          1018
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 5,
+      "layout": "youtube",
+      "design": "Codex choice: hourglass, glowing laptop and kettlebell in a gym bag, dark amber light; heavy Arial Black stacked left with an amber bar",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/youtube/5-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 493801,
+      "sha256": "8f7a2f04489ce226e81751e978bb12caa226ebf747a1b2f7422d970b737be0d6",
+      "text_boxes": [
+        [
+          60,
+          190,
+          666,
+          277
+        ],
+        [
+          60,
+          307,
+          381,
+          397
+        ],
+        [
+          60,
+          427,
+          661,
+          501
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 5,
+      "layout": "instagram",
+      "design": "Codex choice: hourglass, glowing laptop and kettlebell in a gym bag, dark amber light; heavy Arial Black stacked left with an amber bar",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/instagram/5-ai-homework-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 488690,
+      "sha256": "027442ee9913dd5cf52886700ba762b6bc5993090a1669ed75bd7d287c0c5b82",
+      "text_boxes": [
+        [
+          60,
+          290,
+          595,
+          367
+        ],
+        [
+          60,
+          397,
+          381,
+          487
+        ],
+        [
+          60,
+          517,
+          591,
+          582
+        ]
+      ],
+      "subject": null
+    }
+  ]
+}

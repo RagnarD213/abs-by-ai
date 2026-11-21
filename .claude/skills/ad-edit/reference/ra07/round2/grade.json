@@ -1,0 +1,18 @@
+{
+ "_rule": "ROUND 2 (Dan, 2026-10-14: \"the color in the cheat code. Basically, all the cheat code settings are good.\"): RA-14's baked C2 LUT as is. Measured on C1664 beside RA-14's approved round 3 frames (round2/look/lookcheck.json): face luma 117-120 against 113-120 there; RA-05's C1664 re-bake (expo 1.6) measured 91-96, a stop darker, so it was not used. Round 1's grade is round2/grade_r1.json.",
+ "look": "C2_brighter_gold",
+ "lut": "/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C2_brighter_gold.cube",
+ "params": {
+  "expo": 2.4,
+  "knee": 0.45,
+  "sat": 0.85,
+  "vib": 0.5,
+  "contrast": 0.2,
+  "pivot": 0.46,
+  "skin_rot": 8,
+  "skin_sat": 0.96
+ },
+ "filter": "lut3d=file=/Volumes/Extreme/_edit_work/ra14/round2/colour/luts/ra14_C2_brighter_gold.cube:interp=tetrahedral",
+ "exposure": null,
+ "saturation": null
+}

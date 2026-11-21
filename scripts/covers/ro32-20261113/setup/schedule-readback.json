@@ -1,0 +1,118 @@
+{
+  "account_identity_note": "Schedule account IDs verified against existing shared queue configuration. Optional account-list endpoint returned401 in prior attempt; no profile lookup claimed.",
+  "checked_at": "2026-11-13T22:21:54.228349+00:00",
+  "queue_count": 180,
+  "ro32_count": 4,
+  "schedules": [
+    {
+      "platform": "facebook",
+      "account_id": "47105",
+      "schedule_id": "6913478",
+      "scheduled_utc": "2027-01-30T18:00:00.000Z",
+      "scheduled_chicago": "2027-01-30T12:00:00-06:00",
+      "caption": "I was fat at 38. Now I have six pack abs at 41.\n\nI train first thing in the morning, seven days a week, and every workout is total body. My favorite ab exercise is cable crunches. This is how I built my abs. Weight on your abs makes them grow, and bigger abs show through sooner. In my opinion, regular crunches and sit-ups are the most overrated ab exercises there are. That's why they're not on this list.\n\nWatch the full video to see proper form on all 10 exercises.\n\nTry Abs By AI free for 7 days:\nhttps://absbyai.com/?utm_source=facebook&utm_medium=video&utm_campaign=longform&utm_content=ro32-ten-exercises\n\n#GymWorkout #FullBodyWorkout #FitnessOver40 #AbsByAI",
+      "target": {
+        "pageId": "1294282227094660",
+        "mediaType": "reel",
+        "targetType": "facebook"
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/fb19a4ed-0498-43d7-8399-cedf97485869.mp4",
+      "media_verification": {
+        "sha256": "df21407c90a94ab4df1f86506020ea54d54fe6239b9e7ce0c1ee8f349c43b691",
+        "bytes": 163248308
+      },
+      "cover": null,
+      "youtube_public_required_before_social_release": true,
+      "readback_verified": true
+    },
+    {
+      "platform": "instagram",
+      "account_id": "67203",
+      "schedule_id": "6913479",
+      "scheduled_utc": "2027-01-30T18:00:00.000Z",
+      "scheduled_chicago": "2027-01-30T12:00:00-06:00",
+      "caption": "I was fat at 38. Now I have six pack abs at 41.\n\nI train first thing in the morning, seven days a week, and every workout is total body. My favorite ab exercise is cable crunches. This is how I built my abs. Weight on your abs makes them grow, and bigger abs show through sooner. In my opinion, regular crunches and sit-ups are the most overrated ab exercises there are. That's why they're not on this list.\n\nWatch the full video to see proper form on all 10 exercises.\n\nComment TRAIN and I'll send you the link to try Abs By AI free for 7 days.\n\n#GymWorkout #FullBodyWorkout #FitnessOver40 #AbsByAI",
+      "target": {
+        "mediaType": "reel",
+        "targetType": "instagram",
+        "shareToFeed": true,
+        "firstComment": "Try Abs By AI free for 7 days: https://absbyai.com/?utm_source=instagram&utm_medium=video&utm_campaign=longform&utm_content=ro32-ten-exercises",
+        "coverImageUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d249a359-b031-4400-ab9b-3279968c84ab.jpg"
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/1cd4fd1d-9c00-480c-a0af-b179739967e6.mp4",
+      "media_verification": {
+        "sha256": "f574a33f0edeac75ace8a5f725ff87171230822701e86c95e281a66c094bd394",
+        "bytes": 69763802
+      },
+      "cover": {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/d249a359-b031-4400-ab9b-3279968c84ab.jpg",
+        "sha256": "371827c7cfeeaaa90b0e7a5619692d0358c33678293bea2ccf181dc293d9b344",
+        "bytes": 488164
+      },
+      "youtube_public_required_before_social_release": true,
+      "readback_verified": true
+    },
+    {
+      "platform": "tiktok",
+      "account_id": "58181",
+      "schedule_id": "6913481",
+      "scheduled_utc": "2027-01-30T18:00:00.000Z",
+      "scheduled_chicago": "2027-01-30T12:00:00-06:00",
+      "caption": "I was fat at 38. Now I have six pack abs at 41.\n\nI train first thing in the morning, seven days a week, and every workout is total body. My favorite ab exercise is cable crunches. This is how I built my abs. Weight on your abs makes them grow, and bigger abs show through sooner. In my opinion, regular crunches and sit-ups are the most overrated ab exercises there are. That's why they're not on this list.\n\nWatch the full video to see proper form on all 10 exercises.\n\nTry Abs By AI free for 7 days. Link in bio at AbsByAI.com.\nhttps://absbyai.com/?utm_source=tiktok&utm_medium=video&utm_campaign=longform&utm_content=ro32-ten-exercises\n\n#GymWorkout #FullBodyWorkout #FitnessOver40 #AbsByAI",
+      "target": {
+        "targetType": "tiktok",
+        "isYourBrand": false,
+        "disabledDuet": false,
+        "privacyLevel": "PUBLIC_TO_EVERYONE",
+        "isAiGenerated": false,
+        "disabledStitch": false,
+        "disabledComments": false,
+        "isBrandedContent": false,
+        "videoCoverTimestamp": 0
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/73df853b-6f42-48cc-91e2-34868ed39b90.mp4",
+      "media_verification": {
+        "sha256": "da0d8c0018add02c6a5f247074dc927b87c1893d68f601ea45845e87deeee03c",
+        "bytes": 163348415
+      },
+      "cover": null,
+      "youtube_public_required_before_social_release": true,
+      "readback_verified": true
+    },
+    {
+      "platform": "youtube",
+      "account_id": "46963",
+      "schedule_id": "6913482",
+      "scheduled_utc": "2027-01-29T15:00:00.000Z",
+      "scheduled_chicago": "2027-01-29T09:00:00-06:00",
+      "caption": "I was fat at 38. Now I have six pack abs at 41. Here's the 10 exercises I did every week to get here, and how to do each one right.\n\nHere's how my workouts work. I train first thing in the morning, seven days a week. Every workout is total body. 15 minutes of cardio, then one leg exercise, three upper body exercises, and one ab exercise. I rotate through these 10 over the week, so it's not all 10 every workout. I do three sets of each exercise. One light warm-up set of 12 to 15 reps, then two working sets of 6 to 10 reps with the most weight I can lift.\n\nThe 10 exercises are cable crunches, leg press, hamstring curls, the glute bridge machine, side laterals, pull-ups, T-bar rows, chest flies, cable curls, and tricep pushdowns. I show you proper form on every one.\n\nSubscribe to the channel for more videos like this, and go to SixPackAbs.com to get all my newest videos as soon as they're published.\n\nTry Abs By AI free for 7 days:\nhttps://absbyai.com/?utm_source=youtube&utm_medium=video&utm_campaign=longform&utm_content=ro32-ten-exercises\n\nCHAPTERS\n0:00 Fat at 38, abs at 41: the 10 exercises\n0:12 How every workout works\n0:44 1. Cable crunches\n1:18 2. Leg press\n1:35 3. Hamstring curls\n1:50 4. Glute bridge machine\n2:09 5. Side laterals\n2:41 6. Pull-ups\n3:05 7. T-bar rows\n3:26 8. Chest flies\n3:44 9. Cable curls\n3:56 10. Tricep pushdowns\n4:04 Recap\n\n#GymWorkout #FullBodyWorkout #FitnessOver40 #AbsByAI",
+      "target": {
+        "title": "I'm 41. Here Are The 10 Exercises I Do Every Week",
+        "targetType": "youtube",
+        "thumbnailUrl": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/489d481a-9c80-44a8-8f61-9ec6902ffd52.jpg",
+        "isMadeForKids": false,
+        "privacyStatus": "public",
+        "containsSyntheticMedia": false,
+        "shouldNotifySubscribers": true
+      },
+      "media_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/a6e21dcf-34e8-47da-8d72-7125fa391971.mp4",
+      "media_verification": {
+        "sha256": "df21407c90a94ab4df1f86506020ea54d54fe6239b9e7ce0c1ee8f349c43b691",
+        "bytes": 163248308
+      },
+      "cover": {
+        "url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/489d481a-9c80-44a8-8f61-9ec6902ffd52.jpg",
+        "sha256": "a144e20a6ea4b003439516a61317b83b208aa82452b55b3156226ec0b06cf6e9",
+        "bytes": 474224
+      },
+      "youtube_public_required_before_social_release": false,
+      "readback_verified": true
+    }
+  ],
+  "waitlisted": false,
+  "native_youtube_upload": false,
+  "new_per_video_routine": false,
+  "tag_application": "Saved in config; Blotato target has no native keyword-tags field. Apply after release.",
+  "caption_application": "English SRT filed; native track waits for public YouTube ID.",
+  "future_public_tile_verification": "Actual tiles checked after release, not claimed now."
+}

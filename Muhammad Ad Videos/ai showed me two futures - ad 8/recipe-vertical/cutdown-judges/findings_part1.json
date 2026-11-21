@@ -1,0 +1,229 @@
+{
+ "judge": "Claude fresh judge part 1",
+ "video": "ai showed me two futures | claude | 9x16 59s | ad 8.mp4",
+ "method": "Opened all 3 contact sheets, the negscan sheet and pair_000 to pair_026 (first third of the 80 sorted strip/pair images) one at a time; pulled exact frames 0, 146, 147, 384, 385, 414 and 478-565 with ffmpeg select into a private scratch folder to check the seam-1 framing and the dark block on the gym card.",
+ "entries": [
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "Hook 0-4 s: lower third 'AI Showed Me Two Pictures' types on, readable, no caption under it. Talking head framed with hair inside the top edge on every tile, both shoulders in. Captions legible and match the inferred speech ('one was a goal.', 'Here's how I avoided', 'A few years ago, I was', 'a busy, stressed out', 'dad with no', 'motivation.', 'I knew exactly what I', 'was supposed to do and', 'I did none of it.', 'Nothing worked'). No black or frozen tiles, no placeholder."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 4.0,
+   "note": "AI heavy poolside picture 3.97-5.6 s carries ONE 'AI-GENERATED' chip on the wall right of the head, clear of face and body; captions suppressed over a labelled picture of Dan."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 9.0,
+   "note": "Two real photos 8.1-12.8 s each carry ONE 'Real picture of me - not AI-generated' chip (top left beside the head, then top centre above the head), neither on face or abs; captions suppressed."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 16.0,
+   "note": "Dark gym card 15.9-19.5 s shows a black block on the right fifth of the picture in the first ~2 s. Exact frames 478-565 pulled: it is a dark foreground object in the stock clip that slides out as the camera tracks (parallax, slanted edge, changes every frame), not a crop fault or a black frame."
+  },
+  {
+   "image": "sheet_00_00-00.00_to_00-23.99.jpg",
+   "verdict": "expected",
+   "t": 23.0,
+   "note": "Phone lock-screen card 22.7-26.4 s: 'AI-GENERATED' chip sits under the card (declared clearance offset), captions suppressed."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "clean",
+   "t": 25.0,
+   "note": "Phone card, talking head, training / meal prep / calorie cards, talking head, AI abs poolside picture, flash return, talking head. Captions legible and match speech ('I looked at it dozens', 'of times a day, every', 'day for over a year.', 'And that's what gave', 'me the fire to train', 'consistently, to meal', 'prep every week and to', 'track my calories.', 'This picture helped me', 'so much that I built', 'an app that does', 'exactly this.', 'Once you generate it,', 'our AI builds you a', 'personalized workout', 'and nutrition plan to', 'make it real.', 'You get the picture'). Hair inside the top edge everywhere, no wide level, no junk text."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 41.0,
+   "note": "Seam 2 (40.2 s) lands on a change of picture: talking head 'exactly this.' to the full-frame AI abs picture with ONE 'AI-GENERATED' chip on the wall left of the head, clear of face and abs; captions suppressed; white flash on the return at 43.0 s."
+  },
+  {
+   "image": "sheet_01_00-24.99_to_00-49.02.jpg",
+   "verdict": "expected",
+   "t": 48.0,
+   "note": "Seam 3 (48.05 s): 'make it real.' then 'You get the picture', a sentence boundary; the exact cut frames belong to another judge's strips (pair_033)."
+  },
+  {
+   "image": "sheet_02_00-50.02_to_00-55.99.jpg",
+   "verdict": "clean",
+   "t": 50.0,
+   "note": "Lower third 'You get the plan that makes it real.' types on with no caption under it; 'So pick your future.' caption; CTA pill 'Get A FREE AI Image Of Yourself With Abs' on the chest, not on the face, no caption under it; ends on the call to action with a closed-mouth hold. Hair inside the frame on all tiles."
+  },
+  {
+   "image": "negscan/sheet.jpg",
+   "verdict": "clean",
+   "t": 0.0,
+   "note": "30 frames checked for body-shame framing. The heavy AI picture is a neutral full-figure standing shot (no close-up of a body part, not lingered on, ~1.6 s). The slumped gym figure is a wide mood shot of a fit person. No finding."
+  },
+  {
+   "image": "pair_000_00-00.17.jpg",
+   "verdict": "clean",
+   "t": 0.17,
+   "note": "Lower third start; same continuous take, no cut, no jump. Hair inside top edge."
+  },
+  {
+   "image": "pair_001_00-00.20.jpg",
+   "verdict": "clean",
+   "t": 0.2,
+   "note": "Continuous take, card/lower third animating in below frame crop; no jump."
+  },
+  {
+   "image": "pair_002_00-01.97.jpg",
+   "verdict": "expected",
+   "t": 1.97,
+   "note": "punch FAR ramp start: no join, picture continuous; lower third fully typed 'AI Showed Me Two Pictures'."
+  },
+  {
+   "image": "pair_003_00-03.97.jpg",
+   "verdict": "expected",
+   "t": 3.97,
+   "note": "Cut from talking head to the AI heavy picture; lower third in its last fade frame on the -1 side (ghost text, finishing its fade, not cut mid-animation); AI-GENERATED chip clear of the face."
+  },
+  {
+   "image": "pair_004_00-04.91.jpg",
+   "verdict": "expected",
+   "t": 4.91,
+   "note": "Join in the talk underneath is covered by the full-frame AI picture; only the slow push on the still is visible, no subject jump."
+  },
+  {
+   "image": "pair_005_00-05.61.jpg",
+   "verdict": "expected",
+   "t": 5.61,
+   "note": "Picture to talking head: change of picture, plain cut return (no flash; within the capped flash rate)."
+  },
+  {
+   "image": "pair_006_00-06.07.jpg",
+   "verdict": "expected",
+   "t": 6.07,
+   "note": "Join with an instant size step up (NEAR); head clearly larger on the 0 frame, so no naked splice. Caption 'one was a goal.' unchanged across the cut."
+  },
+  {
+   "image": "pair_007_00-06.91.jpg",
+   "verdict": "expected",
+   "t": 6.91,
+   "note": "Join with an instant size step down (FAR) plus a change of pose; size step present."
+  },
+  {
+   "image": "pair_008_00-08.11.jpg",
+   "verdict": "expected",
+   "t": 8.11,
+   "note": "Talking head to real photo 1; ONE real-picture chip top left beside the head, not on face or abs; caption drops under the labelled picture."
+  },
+  {
+   "image": "pair_009_00-10.28.jpg",
+   "verdict": "expected",
+   "t": 10.28,
+   "note": "Real photo 1 to real photo 2: change of picture; each has exactly one chip, clear of face and abs."
+  },
+  {
+   "image": "pair_010_00-10.31.jpg",
+   "verdict": "clean",
+   "t": 10.31,
+   "note": "Same still, one frame later; chip steady, slow push only."
+  },
+  {
+   "image": "pair_011_00-12.81.jpg",
+   "verdict": "expected",
+   "t": 12.81,
+   "note": "SEAM 1. Real photo to talking head: a full change of picture on the seam, so no naked splice; the photo does not end mid-animation (chip steady, no half fade). Sentence boundary after '...at the age of 40.'; he is already opening on 'A few' at frame 0, caption arrives a few frames later. Hair inside the top edge (frames 384-385 checked at full size)."
+  },
+  {
+   "image": "pair_012_00-13.85.jpg",
+   "verdict": "expected",
+   "t": 13.85,
+   "note": "Talking head to the dad-at-laptop card on the dark plate; caption 'A few years ago, I was' carries across (stock clip of other people keeps captions)."
+  },
+  {
+   "image": "pair_013_00-13.88.jpg",
+   "verdict": "clean",
+   "t": 13.88,
+   "note": "Same card one frame on; no jump."
+  },
+  {
+   "image": "pair_014_00-15.92.jpg",
+   "verdict": "expected",
+   "t": 15.92,
+   "note": "Card to card (dad clip to dark gym clip): change of picture. Black block at the right of the gym clip is a foreground object in the footage (see sheet_00 note)."
+  },
+  {
+   "image": "pair_015_00-19.56.jpg",
+   "verdict": "expected",
+   "t": 19.56,
+   "note": "Return from the card to the talking head under the white flash (design)."
+  },
+  {
+   "image": "pair_016_00-21.39.jpg",
+   "verdict": "expected",
+   "t": 21.39,
+   "note": "Join with instant size step up (NEAR); caption 'I did none of it.' steady."
+  },
+  {
+   "image": "pair_017_00-22.66.jpg",
+   "verdict": "expected",
+   "t": 22.66,
+   "note": "Talking head to the phone lock-screen card; AI-GENERATED chip under the card; caption suppressed."
+  },
+  {
+   "image": "pair_018_00-26.46.jpg",
+   "verdict": "expected",
+   "t": 26.46,
+   "note": "Return to talking head under the white flash; chip fades with the card."
+  },
+  {
+   "image": "pair_019_00-28.39.jpg",
+   "verdict": "expected",
+   "t": 28.39,
+   "note": "Join with instant size step up (NEAR); blink on the -1 frame is the tail of the outgoing take, one frame, not a look-away."
+  },
+  {
+   "image": "pair_020_00-30.23.jpg",
+   "verdict": "expected",
+   "t": 30.23,
+   "note": "Talking head (mouth closed, sentence finished) to the training card; caption 'day for over a year.' carries over."
+  },
+  {
+   "image": "pair_021_00-30.26.jpg",
+   "verdict": "clean",
+   "t": 30.26,
+   "note": "Same card one frame on; clip playing, no jump."
+  },
+  {
+   "image": "pair_022_00-31.83.jpg",
+   "verdict": "expected",
+   "t": 31.83,
+   "note": "Card to card: lying leg-raise clip to seated twist clip, change of picture."
+  },
+  {
+   "image": "pair_023_00-33.07.jpg",
+   "verdict": "expected",
+   "t": 33.07,
+   "note": "Card to card: training clip to meal-prep clip, change of picture; caption 'consistently, to meal' fits the picture."
+  },
+  {
+   "image": "pair_024_00-34.60.jpg",
+   "verdict": "expected",
+   "t": 34.6,
+   "note": "Card to card: meal prep to writing-on-paper clip, change of picture."
+  },
+  {
+   "image": "pair_025_00-36.27.jpg",
+   "verdict": "expected",
+   "t": 36.27,
+   "note": "Return to talking head under the white flash; caption 'track my calories.' carries across."
+  },
+  {
+   "image": "pair_026_00-37.30.jpg",
+   "verdict": "expected",
+   "t": 37.3,
+   "note": "punch NEAR ramp start: no join, continuous take, gradual push; caption 'This picture helped me' steady."
+  }
+ ]
+}

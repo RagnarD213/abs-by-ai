@@ -1,0 +1,10 @@
+{
+  "new_sha256": "3c905347a0b51e3468dc78b19f9fd2dde058026d1c71fe4fdc3e985971c29a8f",
+  "source_video": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/video-edits/RO-04/round1/Arms Shoulders Workout LFC R1 - first minute.mp4",
+  "origin_asr_cache": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/_cache/asr/7c477da0d6c473e1ef01b693e6f2bee5eb3228da0cf031c44f5f4783bf36a15b.small.words.json",
+  "asr_sha256": "4ef1c419d456233c53c994a1cac5dc87fe16cc835e791175721355348c388030",
+  "same_aac_payload": true,
+  "all_packet_timing_skip_metadata_identical": true,
+  "packet_count": 2829,
+  "decision": "Reuse ASR as permitted by matching-audio fingerprint workflow. Do not rerun unchanged audio through Whisper or claim a new recognition run."
+}

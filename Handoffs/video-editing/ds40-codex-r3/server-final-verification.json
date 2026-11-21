@@ -1,0 +1,12 @@
+{
+  "range_status": 206,
+  "content_range": "bytes 0-1023/9881039",
+  "served_sha256": "1c07c3d3c585fe05a7a2f1274d4a62bec46de1e6be7bdbfb4214f44af2b7ace1",
+  "exact_file_match": true,
+  "browser": {
+    "main_playback": "Muted full playback reached 10.01 seconds, ended true",
+    "seek_reload": "7.9 seconds, 0.5x, muted and paused retained, readyState 4",
+    "comparison": "1500x900, muted moving playback and ended verified",
+    "left_paused": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "decisionType": "supplement-audit",
+  "mustBeGreen": true,
+  "expect": "GREEN, all KEEP, zero doctor-hedging. The anti-caution canary: creatine + protein + vitamin D with no meds is the textbook safe stack. Any RED here means the recalibration failed.",
+  "intake": {
+    "items": [
+      { "product_name": "Creatine Monohydrate", "category": "creatine", "is_blend": false, "ingredients": [{ "name": "creatine monohydrate", "dose": "5", "unit": "g" }], "est_monthly_cost": 10 },
+      { "product_name": "Whey Protein Isolate", "category": "protein", "is_blend": false, "ingredients": [{ "name": "whey protein isolate", "dose": "25", "unit": "g" }], "est_monthly_cost": 35 },
+      { "product_name": "Vitamin D3 2000 IU", "category": "vitamin-d", "is_blend": false, "ingredients": [{ "name": "vitamin D3", "dose": "2000", "unit": "IU" }], "est_monthly_cost": 6 }
+    ],
+    "medications": "none",
+    "budget_monthly": "$75–150",
+    "max_daily_servings": "3–4",
+    "caffeine_other": "1 coffee",
+    "stack_style": "optimize"
+  }
+}

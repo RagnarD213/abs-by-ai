@@ -1,0 +1,140 @@
+[
+  {
+    "option": 1,
+    "format": "16x9",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 158,
+    "text_boxes": [
+      [
+        101,
+        547,
+        1179,
+        694
+      ]
+    ],
+    "bytes": 407435,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-1-16x9.jpg",
+    "pass": true
+  },
+  {
+    "option": 1,
+    "format": "9x16",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 199,
+    "text_boxes": [
+      [
+        182,
+        1488,
+        898,
+        1671
+      ],
+      [
+        235,
+        1684,
+        844,
+        1851
+      ]
+    ],
+    "bytes": 851761,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-1-9x16.jpg",
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "16x9",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 127,
+    "text_boxes": [
+      [
+        58,
+        23,
+        1221,
+        141
+      ]
+    ],
+    "bytes": 360915,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-2-16x9.jpg",
+    "pass": true
+  },
+  {
+    "option": 2,
+    "format": "9x16",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 197,
+    "text_boxes": [
+      [
+        62,
+        68,
+        1018,
+        251
+      ],
+      [
+        147,
+        258,
+        933,
+        401
+      ]
+    ],
+    "bytes": 713475,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-2-9x16.jpg",
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "16x9",
+    "size": [
+      1280,
+      720
+    ],
+    "font_size": 114,
+    "text_boxes": [
+      [
+        108,
+        572,
+        1172,
+        687
+      ]
+    ],
+    "bytes": 509315,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-3-16x9.jpg",
+    "pass": true
+  },
+  {
+    "option": 3,
+    "format": "9x16",
+    "size": [
+      1080,
+      1920
+    ],
+    "font_size": 173,
+    "text_boxes": [
+      [
+        110,
+        1517,
+        969,
+        1690
+      ],
+      [
+        185,
+        1705,
+        894,
+        1843
+      ]
+    ],
+    "bytes": 753356,
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/R2/option-3-9x16.jpg",
+    "pass": true
+  }
+]

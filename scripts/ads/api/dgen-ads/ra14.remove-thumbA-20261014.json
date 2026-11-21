@@ -1,0 +1,58 @@
+{
+ "at": "2026-10-14T23:39:12.017Z",
+ "removed": "customers/3427170837/adGroupAds/199824307366~828015334077",
+ "before": [
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199824307366~828015303786",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828015303786",
+     "id": "828015303786",
+     "name": "RA-14 The Cheat Code | Claude 9:16 thumb B AI | vsl"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199824307366~828015334077",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828015334077",
+     "id": "828015334077",
+     "name": "RA-14 The Cheat Code | Claude 9:16 thumb A studio | vsl"
+    }
+   }
+  }
+ ],
+ "after": [
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199824307366~828015303786",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828015303786",
+     "id": "828015303786",
+     "name": "RA-14 The Cheat Code | Claude 9:16 thumb B AI | vsl"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  },
+  {
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199824307366~828015334077",
+    "status": "REMOVED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828015334077",
+     "id": "828015334077",
+     "name": "RA-14 The Cheat Code | Claude 9:16 thumb A studio | vsl"
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS"
+    }
+   }
+  }
+ ]
+}

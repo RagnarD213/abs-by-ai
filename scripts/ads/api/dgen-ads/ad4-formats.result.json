@@ -1,0 +1,972 @@
+{
+  "at": "2026-10-04T19:00:26.722Z",
+  "campaignId": "24316364155",
+  "adGroupId": "204553317030",
+  "campaignsBefore": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "status": "PAUSED",
+        "targetCpa": {
+          "targetCpaMicros": "30000000"
+        },
+        "id": "24243839443"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+        "id": "15862488218",
+        "amountMicros": "50000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24305381214"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+        "id": "15911284202",
+        "amountMicros": "10000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "status": "ENABLED",
+        "id": "24308574894"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+        "id": "15923601274",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316408288",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "3000000"
+        },
+        "id": "24316408288"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+        "id": "15911284550",
+        "amountMicros": "10000000"
+      }
+    }
+  ],
+  "campaignsAfter": [
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24243839443",
+        "status": "PAUSED",
+        "targetCpa": {
+          "targetCpaMicros": "30000000"
+        },
+        "id": "24243839443"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15862488218",
+        "id": "15862488218",
+        "amountMicros": "50000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24305381214",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24305381214"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284202",
+        "id": "15911284202",
+        "amountMicros": "10000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24308574894",
+        "status": "ENABLED",
+        "id": "24308574894"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15923601274",
+        "id": "15923601274",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316364155",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "40000000"
+        },
+        "id": "24316364155"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911255930",
+        "id": "15911255930",
+        "amountMicros": "30000000"
+      }
+    },
+    {
+      "campaign": {
+        "resourceName": "customers/3427170837/campaigns/24316408288",
+        "status": "ENABLED",
+        "targetCpa": {
+          "targetCpaMicros": "3000000"
+        },
+        "id": "24316408288"
+      },
+      "campaignBudget": {
+        "resourceName": "customers/3427170837/campaignBudgets/15911284550",
+        "id": "15911284550",
+        "amountMicros": "10000000"
+      }
+    }
+  ],
+  "criteriaBefore": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~10",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~11",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~20",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~300",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~301",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~302",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~1000",
+        "status": "ENABLED",
+        "type": "LANGUAGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2124",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2840",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503001",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503002",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503003",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503004",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503005",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503006",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503999",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510000",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510001",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510002",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510003",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510004",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510005",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510006",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2499225533929",
+        "status": "ENABLED",
+        "type": "AUDIENCE",
+        "negative": false,
+        "audience": {
+          "audience": "customers/3427170837/audiences/358994450"
+        }
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501149785516",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468231",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468271",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    }
+  ],
+  "criteriaAfter": [
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~10",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~11",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~20",
+        "status": "ENABLED",
+        "type": "GENDER",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~300",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~301",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~302",
+        "status": "ENABLED",
+        "type": "PARENTAL_STATUS",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~1000",
+        "status": "ENABLED",
+        "type": "LANGUAGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2124",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2840",
+        "status": "ENABLED",
+        "type": "LOCATION",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503001",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503002",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503003",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503004",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503005",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503006",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": true
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~503999",
+        "status": "ENABLED",
+        "type": "AGE_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510000",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510001",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510002",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510003",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510004",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510005",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~510006",
+        "status": "ENABLED",
+        "type": "INCOME_RANGE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2499225533929",
+        "status": "ENABLED",
+        "type": "AUDIENCE",
+        "negative": false,
+        "audience": {
+          "audience": "customers/3427170837/audiences/358994450"
+        }
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501149785516",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468231",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    },
+    {
+      "adGroupCriterion": {
+        "resourceName": "customers/3427170837/adGroupCriteria/204553317030~2501953468271",
+        "status": "ENABLED",
+        "type": "CUSTOM_AUDIENCE",
+        "negative": false
+      }
+    }
+  ],
+  "created": [
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "status": "ENABLED",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899464146",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899464146",
+          "id": "826899464146",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-square-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175851"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "status": "ENABLED",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511366",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511366",
+          "id": "826899511366",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-vertical-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175764"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "status": "ENABLED",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511387",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511387",
+          "id": "826899511387",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-vertical-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 9:16 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175791"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    },
+    {
+      "adGroup": {
+        "resourceName": "customers/3427170837/adGroups/204553317030",
+        "status": "ENABLED",
+        "id": "204553317030",
+        "name": "Ad 4 Stop Wasting Money On Supplements",
+        "targetCpaMicros": "40000000"
+      },
+      "adGroupAd": {
+        "resourceName": "customers/3427170837/adGroupAds/204553317030~826899511576",
+        "status": "ENABLED",
+        "ad": {
+          "resourceName": "customers/3427170837/ads/826899511576",
+          "id": "826899511576",
+          "finalUrls": [
+            "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ad4&utm_content=claude-square-59s-vsl"
+          ],
+          "name": "Ad 4 Stop Wasting Money On Supplements | Claude 1:1 59s | vsl",
+          "demandGenVideoResponsiveAd": {
+            "headlines": [
+              {
+                "text": "How AI Fixed My Supplements"
+              },
+              {
+                "text": "Supplement Corps Hate Him"
+              },
+              {
+                "text": "The Truth About Supplements"
+              },
+              {
+                "text": "How I Got Abs At 40"
+              },
+              {
+                "text": "How AI Got Me Abs"
+              }
+            ],
+            "longHeadlines": [
+              {
+                "text": "Here's how AI fixed my supplements. Find which supplements are a waste of money with AI"
+              },
+              {
+                "text": "Take a photo of your supplements and AI tells you which ones are a waste of your money."
+              },
+              {
+                "text": "Supplement companies despise this AI app. See why men are cutting their supplement bill."
+              }
+            ],
+            "descriptions": [
+              {
+                "text": "Many supplements are a waste of money. AI can identify which supplements you should cut."
+              },
+              {
+                "text": "I was wasting money on supplements until AI audited my stack. See what it told me to cut."
+              },
+              {
+                "text": "This AI app audits your supplements from one photo. Try it free for 7 days."
+              }
+            ],
+            "videos": [
+              {
+                "asset": "customers/3427170837/assets/427583175869"
+              }
+            ],
+            "logoImages": [
+              {
+                "asset": "customers/3427170837/assets/400941168572"
+              }
+            ],
+            "businessName": {
+              "text": "Abs by AI"
+            },
+            "callToActions": [
+              {
+                "asset": "customers/3427170837/assets/401407635767"
+              }
+            ]
+          }
+        },
+        "policySummary": {
+          "reviewStatus": "REVIEW_IN_PROGRESS",
+          "approvalStatus": "UNKNOWN"
+        }
+      }
+    }
+  ],
+  "assets": [
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427583175764",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "Sr9gux0gB5I"
+        },
+        "id": "427583175764"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427583175791",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "TPlpl0LETqw"
+        },
+        "id": "427583175791"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427583175851",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "kyrAfWkg92k"
+        },
+        "id": "427583175851"
+      }
+    },
+    {
+      "asset": {
+        "resourceName": "customers/3427170837/assets/427583175869",
+        "youtubeVideoAsset": {
+          "youtubeVideoId": "eJ-dTPw40Hk"
+        },
+        "id": "427583175869"
+      }
+    }
+  ],
+  "existingAdsUnchanged": true
+}

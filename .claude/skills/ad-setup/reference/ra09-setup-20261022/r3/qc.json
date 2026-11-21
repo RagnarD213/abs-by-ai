@@ -1,0 +1,50 @@
+[
+  {
+    "design": "p13",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r3_pool-13-lime | 16x9.jpg",
+    "clearance_px": 59,
+    "headroom_px": 182,
+    "ok": true
+  },
+  {
+    "design": "p13",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r3_pool-13-lime | 9x16.jpg",
+    "clearance_px": 214,
+    "headroom_px": 771,
+    "ok": true
+  },
+  {
+    "design": "p230",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r3_pool-230-orange | 16x9.jpg",
+    "clearance_px": 56,
+    "headroom_px": 92,
+    "ok": true
+  },
+  {
+    "design": "p230",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r3_pool-230-orange | 9x16.jpg",
+    "clearance_px": 215,
+    "headroom_px": 627,
+    "ok": true
+  },
+  {
+    "design": "p247",
+    "fmt": "16x9",
+    "file": "ai-changing-world-r3_pool-247-yellow | 16x9.jpg",
+    "clearance_px": 63,
+    "headroom_px": 164,
+    "ok": true
+  },
+  {
+    "design": "p247",
+    "fmt": "9x16",
+    "file": "ai-changing-world-r3_pool-247-yellow | 9x16.jpg",
+    "clearance_px": 214,
+    "headroom_px": 716,
+    "ok": true
+  }
+]

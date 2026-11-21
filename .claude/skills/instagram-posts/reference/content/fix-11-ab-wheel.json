@@ -1,0 +1,62 @@
+{
+ "format": "the-fix",
+ "id": "fix-11-ab-wheel",
+ "tag": "The Fix · 11",
+ "status": "draft R1 2026-10-21; wording source: 8/28 roll C1672 (DS-22 how to use the ab wheel script: 'The biggest ab wheel mistake is letting your hips sag at the bottom. That arches your lower back and that's how guys get hurt'), 8/14 roll C1631 (ab wheel long-form), shorts abwheel-short2/short4 | ON HOLD (Dan 2026-10-22): needs the footage on the shoot list before it can post.",
+ "cover": {
+  "headline": "Stop using the ab wheel\n[y]like this.[/y]",
+  "image": {
+   "placeholder": "Side-on, camera at mat height, Dan on his knees rolling out and letting his hips sag to the mat at the bottom, lower back arched (the mistake), 3 slow reps"
+  },
+  "swipe": "Swipe for the fix"
+ },
+ "mistake": {
+  "image": {
+   "placeholder": "Side-on, same setup: Dan at full roll-out with hips sagged and lower back visibly arched, hold 2 seconds at the bottom"
+  },
+  "headline": "Hips sag\nat the bottom.",
+  "body": "The biggest ab wheel mistake. Letting your hips sag arches your lower back, and that's how guys get hurt."
+ },
+ "fix": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-11-ab-wheel/fix.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan rolling out on the ab wheel from his knees, body straight from head to knees"
+  },
+  "headline": "Straight line,\nhead to knees.",
+  "body": "Start on your knees, wheel under your shoulders. Roll out slow, only as far as you can with control. [em]Pull back with your abs, not your arms.[/em]"
+ },
+ "cues": {
+  "image": {
+   "src": "Short-form video content/instagram-danrosefit/assets/fix-11-ab-wheel/cues.jpg",
+   "pos": "50% 50%",
+   "zoom": 1.0,
+   "label": "real",
+   "alt": "Dan kneeling with the ab wheel by the pool"
+  },
+  "title": "3 cues",
+  "subtitle": "for the ab wheel",
+  "items": [
+   "Only roll out as far as you can with control.",
+   "Arms locked straight, back flat.",
+   "Roll out a little further every week."
+  ]
+ },
+ "cta": {
+  "blocks": [
+   {
+    "icon": "save",
+    "title": "Save this",
+    "text": "for your next ab day."
+   },
+   {
+    "icon": "send",
+    "title": "Send it",
+    "text": "to the guy whose ab wheel reps end face down on the mat."
+   }
+  ],
+  "follow": "One fix a week, filmed on me."
+ }
+}

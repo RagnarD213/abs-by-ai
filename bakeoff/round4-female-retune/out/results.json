@@ -1,0 +1,178 @@
+[
+  {
+    "caseId": "fem-dark-heavier__dramatic",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 15937,
+    "geminiSafetyRetry": false,
+    "promptChars": 1406,
+    "nominalCost": 0.04,
+    "image": "fem-dark-heavier__dramatic__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 14.853392798,
+      "predictionId": "s4ejk6yd19rmt0czncevr6m3jm"
+    },
+    "ts": "2026-07-28T23:45:00.070Z"
+  },
+  {
+    "caseId": "fem-dark-heavier__max",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 16675,
+    "geminiSafetyRetry": false,
+    "promptChars": 1481,
+    "nominalCost": 0.04,
+    "image": "fem-dark-heavier__max__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 16.129361439,
+      "predictionId": "dvatzngns1rmt0czncfbqw4afr"
+    },
+    "ts": "2026-07-28T23:45:19.791Z"
+  },
+  {
+    "caseId": "fem-moderate__dramatic",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 15764,
+    "geminiSafetyRetry": false,
+    "promptChars": 1288,
+    "nominalCost": 0.04,
+    "image": "fem-moderate__dramatic__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 15.202206543,
+      "predictionId": "h0wb79v2qsrmy0czncf9mgy6ac"
+    },
+    "ts": "2026-07-28T23:45:38.585Z"
+  },
+  {
+    "caseId": "fem-moderate__max",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 19723,
+    "geminiSafetyRetry": false,
+    "promptChars": 1211,
+    "nominalCost": 0.04,
+    "image": "fem-moderate__max__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 19.152631586,
+      "predictionId": "wgm0zgdc5xrmr0czncf8j1krbg"
+    },
+    "ts": "2026-07-28T23:46:01.349Z"
+  },
+  {
+    "caseId": "fem-pale__dramatic",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 16798,
+    "geminiSafetyRetry": false,
+    "promptChars": 898,
+    "nominalCost": 0.04,
+    "image": "fem-pale__dramatic__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 16.154200495,
+      "predictionId": "y77pesg591rmw0czncfsxwz06g"
+    },
+    "ts": "2026-07-28T23:46:21.188Z"
+  },
+  {
+    "caseId": "fem-pale__max",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 14997,
+    "geminiSafetyRetry": false,
+    "promptChars": 1335,
+    "nominalCost": 0.04,
+    "image": "fem-pale__max__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 14.351991969,
+      "predictionId": "1abjff2jwhrmy0czncfsj82x80"
+    },
+    "ts": "2026-07-28T23:46:39.223Z"
+  },
+  {
+    "caseId": "fem-lean-real__dramatic",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 15068,
+    "geminiSafetyRetry": false,
+    "promptChars": 1297,
+    "nominalCost": 0.04,
+    "image": "fem-lean-real__dramatic__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 14.344481151,
+      "predictionId": "nvja88wsnnrmy0czncfvcqeq5w"
+    },
+    "ts": "2026-07-28T23:46:57.331Z"
+  },
+  {
+    "caseId": "fem-lean-real__max",
+    "modelKey": "seedream-4.5",
+    "variant": "condensed",
+    "label": "Seedream 4.5 (edit)",
+    "provider": "replicate",
+    "ok": true,
+    "blocked": false,
+    "outOfCredit": false,
+    "throttled": false,
+    "error": null,
+    "latencyMs": 22380,
+    "geminiSafetyRetry": false,
+    "promptChars": 1258,
+    "nominalCost": 0.04,
+    "image": "fem-lean-real__max__seedream-4.5__condensed.jpg",
+    "meta": {
+      "predictTime": 21.639887994,
+      "predictionId": "hwq83vz09xrmw0czncft0g1r04"
+    },
+    "ts": "2026-07-28T23:47:22.748Z"
+  }
+]

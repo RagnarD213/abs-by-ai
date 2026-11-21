@@ -1,0 +1,133 @@
+{
+ "at": "2026-10-16T18:08:12.511Z",
+ "budgetBefore": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "budgetAfter": {
+  "status": "ENABLED",
+  "budgetId": "15911255930",
+  "perDay": 30
+ },
+ "results": [
+  "customers/3427170837/adGroups/199904676174",
+  "customers/3427170837/adGroupCriteria/199904676174~2840",
+  "customers/3427170837/adGroupCriteria/199904676174~2124",
+  "customers/3427170837/adGroupCriteria/199904676174~1000",
+  "customers/3427170837/adGroupCriteria/199904676174~2498784755180",
+  "customers/3427170837/assets/430628964901",
+  "customers/3427170837/adGroupAds/199904676174~828398569805"
+ ],
+ "readBack": [
+  {
+   "adGroup": {
+    "resourceName": "customers/3427170837/adGroups/199904676174",
+    "status": "ENABLED",
+    "id": "199904676174",
+    "name": "RA-05 Real Six Pack Abs",
+    "targetCpaMicros": "40000000"
+   },
+   "adGroupAd": {
+    "resourceName": "customers/3427170837/adGroupAds/199904676174~828398569805",
+    "status": "ENABLED",
+    "ad": {
+     "resourceName": "customers/3427170837/ads/828398569805",
+     "id": "828398569805",
+     "finalUrls": [
+      "https://absbyai.com/start?utm_source=google&utm_medium=video_ad&utm_campaign=dgen-trial-ra05&utm_content=claude-9x16-vsl"
+     ],
+     "name": "RA-05 Real Six Pack Abs | Claude 9:16 | vsl",
+     "demandGenVideoResponsiveAd": {
+      "headlines": [
+       {
+        "text": "How AI Can Get You Real Six Pack Abs"
+       },
+       {
+        "text": "How AI Got Me Abs"
+       },
+       {
+        "text": "How I Got Abs At 40"
+       },
+       {
+        "text": "See Yourself With Your Goal Body"
+       },
+       {
+        "text": "Why AI Is The Ultimate Trainer"
+       }
+      ],
+      "longHeadlines": [
+       {
+        "text": "Daniel Rose shows how guys are using AI to plan their workouts and meals."
+       },
+       {
+        "text": "Here is how AI turns a picture of your goal body into a workout and meal plan."
+       },
+       {
+        "text": "Generate a picture of your goal body, then follow a plan built for that goal."
+       }
+      ],
+      "descriptions": [
+       {
+        "text": "Daniel Rose shows how AI builds a workout and nutrition plan from your goal picture."
+       },
+       {
+        "text": "AI fitness coaching explained by a guy who did it at 40 years old."
+       },
+       {
+        "text": "See yourself with your goal body, then get a training and meal plan built for it."
+       }
+      ],
+      "videos": [
+       {
+        "asset": "customers/3427170837/assets/430628964901"
+       }
+      ]
+     }
+    },
+    "policySummary": {
+     "reviewStatus": "REVIEW_IN_PROGRESS",
+     "approvalStatus": "UNKNOWN"
+    }
+   }
+  }
+ ],
+ "criteria": [
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199904676174~1000",
+    "type": "LANGUAGE",
+    "language": {
+     "languageConstant": "languageConstants/1000"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199904676174~2124",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2124"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199904676174~2840",
+    "type": "LOCATION",
+    "location": {
+     "geoTargetConstant": "geoTargetConstants/2840"
+    }
+   }
+  },
+  {
+   "adGroupCriterion": {
+    "resourceName": "customers/3427170837/adGroupCriteria/199904676174~2498784755180",
+    "type": "AUDIENCE",
+    "audience": {
+     "audience": "customers/3427170837/audiences/359952376"
+    }
+   }
+  }
+ ]
+}

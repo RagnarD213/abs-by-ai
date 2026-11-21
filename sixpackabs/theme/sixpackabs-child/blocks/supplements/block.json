@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "spa/supplements",
+	"title": "SixPackAbs: Supplements row",
+	"category": "theme",
+	"icon": "cart",
+	"description": "Six product cards linking to shop.sixpackabs.com. Shows nothing until the spa_shop_live option is on.",
+	"textdomain": "sixpackabs-child",
+	"supports": {
+		"html": false,
+		"reusable": false
+	}
+}

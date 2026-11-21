@@ -1,0 +1,95 @@
+{
+  "directory_alias_proof": "Path.samefile verified immediately before transfer",
+  "native_list_threads_limit": 50,
+  "observations": [
+    {
+      "tool": "mcp__codex_app__list_threads",
+      "args": {
+        "limit": 50
+      },
+      "identities": [
+        {
+          "id": "01a15a6a-0218-7050-aeb9-6fe028b3b394",
+          "title": "Calories Not Losing Weight SFL R5",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+          "pinnedIndex": 7
+        }
+      ]
+    },
+    {
+      "tool": "mcp__codex_app__read_thread",
+      "args": {
+        "threadId": "01a169a7-fab3-7330-b0f6-148b8984cffe",
+        "hostId": "local",
+        "turnLimit": 1,
+        "includeOutputs": false
+      },
+      "identities": [
+        {
+          "id": "01a169a7-fab3-7330-b0f6-148b8984cffe",
+          "title": "Calories Not Losing Weight SFL R6",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI"
+        }
+      ],
+      "turns": [
+        {
+          "id": "01a169a7-fda6-7891-9b12-fb1f3b621f0e",
+          "status": "inProgress",
+          "startedAt": 1792773979,
+          "error": null
+        }
+      ]
+    },
+    {
+      "tool": "mcp__codex_app__list_threads",
+      "args": {
+        "limit": 50
+      },
+      "identities": [
+        {
+          "id": "01a15a6a-0218-7050-aeb9-6fe028b3b394",
+          "title": "Calories Not Losing Weight SFL R5",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+          "pinnedIndex": 7
+        },
+        {
+          "id": "01a169a7-fab3-7330-b0f6-148b8984cffe",
+          "title": "Calories Not Losing Weight SFL R6",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+          "pinnedIndex": 10
+        }
+      ]
+    },
+    {
+      "tool": "mcp__codex_app__list_threads",
+      "args": {
+        "limit": 50
+      },
+      "identities": [
+        {
+          "id": "01a169a7-fab3-7330-b0f6-148b8984cffe",
+          "title": "Calories Not Losing Weight SFL R6",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+          "pinnedIndex": 9
+        },
+        {
+          "id": "01a15a6a-0218-7050-aeb9-6fe028b3b394",
+          "title": "Calories Not Losing Weight SFL R5",
+          "hostId": "local",
+          "cwd": "/Users/danielrose/Documents/Claude/Projects/Abs By AI",
+          "reportedCwd": "/Users/danielrose/Projects/Claude/Projects/Abs By AI"
+        }
+      ]
+    }
+  ]
+}

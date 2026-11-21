@@ -1,0 +1,213 @@
+{
+ "field": {
+  "fn": "vlib.field()",
+  "tokens": {
+   "FIELD": [
+    13,
+    14,
+    11
+   ],
+   "FIELD_HI": [
+    23,
+    25,
+    19
+   ],
+   "grid_px": 46
+  },
+  "file": "field.png"
+ },
+ "card_4x5": {
+  "fn": "vlib.plate_card(dur, media_ar=0.800)",
+  "hole": [
+   68,
+   150,
+   1012,
+   1330
+  ],
+  "tokens": {
+   "CARD_OL": [
+    90,
+    100,
+    58
+   ],
+   "frame_px": 14,
+   "radius": 30,
+   "hole_radius": 20,
+   "glow": 26
+  },
+  "file": "card_4x5.png"
+ },
+ "card_16x9": {
+  "fn": "vlib.plate_card(dur, media_ar=1.778)",
+  "hole": [
+   40,
+   458,
+   1040,
+   1021
+  ],
+  "tokens": {
+   "CARD_OL": [
+    90,
+    100,
+    58
+   ],
+   "frame_px": 14,
+   "radius": 30,
+   "hole_radius": 20,
+   "glow": 26
+  },
+  "file": "card_16x9.png"
+ },
+ "card_4x5_ai_chip": {
+  "fn": "vlib.plate_card(dur, media_ar=0.80, label='AI-GENERATED')",
+  "hole": [
+   68,
+   150,
+   1012,
+   1330
+  ],
+  "note": "the card's own chip hangs off the hole bottom (plate_card): not on Dan's body",
+  "file": "card_4x5_ai_chip.png"
+ },
+ "window_bullets": {
+  "fn": "vlib.plate_window(header, bullets, dur)",
+  "dan_window": [
+   0,
+   60,
+   1080,
+   1280
+  ],
+  "tokens": {
+   "header_px": 46,
+   "bullet_px": 50,
+   "margin": 76,
+   "clamp": [
+    820,
+    1220
+   ]
+  },
+  "file": "window_bullets.png"
+ },
+ "window_statement": {
+  "fn": "vlib.plate_stmt_window(parts, dur)",
+  "dan_window": [
+   0,
+   60,
+   1080,
+   1280
+  ],
+  "file": "window_statement.png"
+ },
+ "window_media": {
+  "fn": "vlib.plate_window_media(dur, media_ar=0.5625)",
+  "dan_window": [
+   0,
+   60,
+   1080,
+   720
+  ],
+  "media_hole": [
+   293,
+   762,
+   786,
+   1640
+  ],
+  "file": "window_media.png"
+ },
+ "title_card": {
+  "fn": "vlib.plate_title_card(headline, sub, dur)",
+  "tokens": {
+   "radius": 30,
+   "glow": 26,
+   "headline_px": 96
+  },
+  "file": "title_card.png"
+ },
+ "lower_third": {
+  "fn": "vlib.overlay_lower_third(lines, dur, y_bottom=1600)",
+  "tokens": {
+   "tab": [
+    140,
+    153,
+    91
+   ],
+   "bar_alpha": 232,
+   "y_bottom": 1600,
+   "line1_px": 52,
+   "line2_px": 40
+  },
+  "his": {
+   "tab": "translucent olive",
+   "bar": "translucent black ~85 % opaque with an olive outline",
+   "note": "see measurements.json lower_third_*; the approved verticals carry vlib's solid tab"
+  },
+  "file": "lower_third.png"
+ },
+ "cta_pill": {
+  "fn": "vlib.overlay_cta(top, big, dur)",
+  "tokens": {
+   "fill": [
+    140,
+    153,
+    91
+   ],
+   "radius": 26,
+   "glow": 16,
+   "y": "CAP_Y - h/2"
+  },
+  "file": "cta_pill.png"
+ },
+ "flash_peak": {
+  "fn": "vlib.overlay_flash(dur)",
+  "note": "the synthesised light leak; the attempt-3 Ad 1 build used his extracted template instead (_flash/final)",
+  "file": "flash_peak.png"
+ },
+ "vignette": {
+  "fn": "vlib.vignette_mask()",
+  "note": "his radial falloff remapped into 9:16 (grade.VIGNETTE)",
+  "file": "vignette.png"
+ },
+ "_meta": {
+  "frame": [
+   1080,
+   1920
+  ],
+  "cap_y": 1400,
+  "safe": {
+   "top": 150,
+   "bottom": 1660
+  },
+  "palette": {
+   "FIELD": [
+    13,
+    14,
+    11
+   ],
+   "FIELD_HI": [
+    23,
+    25,
+    19
+   ],
+   "OLIVE": [
+    140,
+    153,
+    91
+   ],
+   "CARD_OL": [
+    90,
+    100,
+    58
+   ],
+   "INK": [
+    255,
+    255,
+    255
+   ],
+   "INK_SOFT": [
+    176,
+    184,
+    158
+   ]
+  }
+ }
+}

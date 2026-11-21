@@ -1,0 +1,349 @@
+#!/usr/bin/env python3
+"""THE ONE VOICE CHAIN -- the approved audio3.py chain (website video rev 2: "you got it nailed"),
+with the source track taken from pick_lav's JSON and the EQ FITTED to the reference per roll
+(voicefit lineage) instead of copied. LIGHT TOUCH BY DEFAULT: no dereverb, no compressor, no bed.
+
+  python3 voice_chain.py --in <video|wav> --out <out.wav|.mov|.mp4> [--source audio_source.json]
+         [--video picture.mp4] [--bed music.mp3 --bed-db -30] [--extra sfx.wav] [--comp]
+         [--target -14] [--tp -2.5] [--no-fit] [--eq "<af>"] [--frame-lock picture.mp4]
+         [--dereverb-because "<what you heard, on which A/B>"] [--no-expander-because "<what you heard>"]
+
+Stages (length-preserving, so pictures stay frame-locked):
+  pull      lav track only, mono, per `audio_source.json` (refuses without it unless --in is a WAV
+            or --pull is given); refuses SILENT input -- a stacked `pan` asks for a channel that no
+            longer exists and ffmpeg renders silence, not an error (it blanked 4.48 s of a short)
+  dereverb  OFF BY DEFAULT (2026-09-29, Dan: Codex's audio approach works better; copy it). Opt-in
+            with --dereverb-because, and only on a room that measures wet (raw EDT > EDT_WET);
+            both the measurement and the reason are written to the sidecar
+  fit       highpass 70 + 9 parametric bands + a treble shelf, iterated against the reference on the
+            gate's own metric, damped and smoothed so it is a voice EQ and never a comb
+  dynamics  downward expander between words (audio3 EXPAND); compressor OFF unless --comp (<= 1.5:1).
+            The expander can be left out with --no-expander-because (2026-10-10): on an echoey room it
+            chops the room tail off word endings, which Dan rejected on the RO-07 round 1 first minute
+  image     pan=stereo|c0=c0|c1=c0 (centred), bed <= -30 dB ducked by the voice, optional SFX
+  finish    measured gain + alimiter (NEVER loudnorm: it goes dynamic), limiter delay measured by
+            cross-correlation and removed, -14 LUFS, true peak -2.5 in PCM so the AAC lands <= -1.5
+The gate (audio_gate.py) is the judge, not this script -- run it on the delivered file.
+"""
+import argparse, json, os, subprocess, sys, wave
+import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import common as C
+import reference as R
+from dereverb import dereverb
+
+EXPAND = "agate=threshold=0.012:ratio=1.8:range=0.35:attack=4:release=250:knee=6"
+COMPRESS = "acompressor=threshold=0.126:ratio=1.5:attack=12:release=220:makeup=1.0"
+# ⚠ APPROVED BY DAN'S EAR 2026-09-09 from a four-way A/B. The previous values
+# (alpha 0.62, d2 150, floor -24) are what he rejected as "underwater": they hit EDT 32 ms,
+# past Muhammad's 40, and cost 1.29x his spectral flux, 1.19x his HF swirl and a floor 14 dB
+# deeper than his. These are the SAME numbers as dereverb.py's defaults - keep them in step.
+DEREVERB = dict(alpha=0.30, d1_ms=22, d2_ms=70, floor_db=-10.0, smooth=0.45)
+# ⚠ DEREVERB IS OPT-IN (2026-09-29). Until then the chain dereverbed any room over 55 ms by itself.
+# What Dan approved and rejected, side by side:
+#   APPROVED  website rev 2 ("you got it nailed")  audio3 chain, NO dereverb, room 75 ms
+#   APPROVED  DS-17 R4 ("this works ... finalized")  this chain, no dereverb, room 29 ms, fitted EQ
+#   APPROVED  C1652 R4 voice ("the voice is sounding good")  this chain, --no-dereverb on a room
+#             measuring 61-83 ms raw, a gentle fixed warm EQ, no compressor, no bed
+#   REJECTED  invest-health + spray-tan shorts ("underwater")  dereverb alpha 0.62 / floor -24
+#   REJECTED  C1652 R1 ("Muhammad's audio is significantly, significantly better")  THIS chain's
+#             auto-dereverb at the approved alpha 0.30, plus --comp and a bed; it PASSED the gate
+#   APPROVED  website rev 6 ("you nailed it")  the ONE justified dereverb: rev 5 had no dereverb, the
+#             room measured 77 ms AND Dan heard it ("room for improvement... more like Muhammad's"),
+#             so rev 6 added alpha 0.30. That is the opt-in below, done right.
+# Every dereverb Dan rejected was applied because a number said so; the one he approved was applied
+# because he heard the room. So the default is the light touch, and a dereverb needs BOTH halves:
+# the raw room measures wet (EDT > EDT_WET, measured here) AND someone listened to an A/B and heard
+# the room (--dereverb-because "<what, on which A/B>").
+EDT_WET = 55.0
+
+
+def write_wav(path, x, sr=C.SR):
+    w = wave.open(path, "w"); w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr)
+    w.writeframes((np.clip(x, -1, 1) * 32767).astype(np.int16).tobytes()); w.close()
+
+
+def read_wav_mono(path):
+    x = C.pcm(path, ac=1); return x
+
+
+def pull(src, source_json, explicit_pull, work):
+    """lav track -> mono 48 k WAV. Returns (wav path, description)."""
+    lav = os.path.join(work, "lav.wav")
+    if src.lower().endswith(".wav") and not explicit_pull and not source_json:
+        x = C.pcm(src, ac=1); how = "wav as given"
+        nch = C.probe_audio(src)[0]["channels"]
+        if nch > 1: print(f"  ⚠ --in WAV has {nch} channels; folded to mono (if these are two mics, run pick_lav first)")
+    else:
+        if explicit_pull:
+            amap, af, how = "0:a:0", explicit_pull, f"--pull {explicit_pull}"
+        else:
+            s = C.load_source(source_json or src)
+            amap, af, how = s["map"], s["filter"], f"{s['verdict']}: -map {s['map']} -af {s['filter']}"
+        x = C.pcm(src, af=af, amap=amap, ac=1)
+    if len(x) < C.SR:
+        raise SystemExit("pull produced under one second of audio -- wrong map/filter?")
+    dead, quiet = C.silent_seconds(x)
+    rms = 10 * np.log10((x ** 2).mean() + 1e-15)
+    if rms < -55 or dead > max(2, 0.2 * (len(x) / C.SR)):
+        raise SystemExit(f"PULLED AUDIO IS SILENT ({rms:.1f} dBFS, {dead} dead seconds) -- the pull filter asks for "
+                         f"a channel that does not exist (a stacked `pan`?). Refusing to render silence.")
+    write_wav(lav, x)
+    return lav, x, how
+
+
+def eq_chain(g):
+    """10 gains at the gate's band centres -> ffmpeg chain. Bells on the first nine, a treble shelf on top."""
+    parts = ["highpass=f=70"]
+    for c, gain in zip(C.CENTRES[:-1], g[:-1]):
+        if abs(gain) >= 0.15: parts.append(f"equalizer=f={c}:t=q:w=1.3:g={gain:+.2f}")
+    if abs(g[-1]) >= 0.15: parts.append(f"treble=g={g[-1]:+.2f}:f=6500:width_type=q:width=0.6")
+    return ",".join(parts)
+
+
+def fit_eq(lav_wav, ref, work, iters=10):
+    """voicefit.py lineage: iterate the 10 gains on the gate's own metric; smooth + clamp so it is a voice EQ.
+
+    ⚠ ADAPTIVE PER-BAND STEP (2026-09-02). A fixed 0.75 step OSCILLATED on the supplements Shorts: the
+    treble shelf (q 0.6 at 6.5 k) moves the top band ~2.4x the gain asked for, so a -6.5 dB request
+    flipped a +8.7 dB error to -7.2 and the loop bounced between them for twelve iterations. Now each
+    band has its own step; a band whose error changes sign halves its step (the shelf starts at 0.35),
+    and the kept iterate is the best on BOTH limits (mean/1.2 and max/2.5), not the mean alone."""
+    ss, dur = C.analysis_window(lav_wav)
+    rb = np.array(ref["bands"])
+    chain = eq_chain
+    def err_of(af):
+        b, _, _, _ = C.analyse(C.pcm(lav_wav, af=af, ss=ss, dur=dur)); return b - rb
+    score = lambda e: max(np.abs(e).mean() / 1.2, np.abs(e).max() / 2.5)
+    g = np.zeros(10); err = err_of("highpass=f=70")
+    step = np.full(10, 0.75); step[-1] = 0.35
+    print(f"  fit: raw tone error mean {np.abs(err).mean():.2f} dB, max {np.abs(err).max():.2f}")
+    best = (score(err), chain(g), g.copy(), err)
+    for it in range(iters):
+        prev = err
+        g = g - step * err
+        g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]       # neighbours cannot alternate
+        g = np.clip(g, -10, 10)
+        af = chain(g); err = err_of(af)
+        step[np.sign(err) != np.sign(prev)] *= 0.5                     # overshoot -> smaller step for that band
+        sc = score(err)
+        print(f"  fit {it+1}: mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  gains {np.round(g,1).tolist()}")
+        if sc < best[0]: best = (sc, af, g.copy(), err)
+        if sc < 0.5: break
+    print(f"  fitted EQ (mean {np.abs(best[3]).mean():.2f}, max {np.abs(best[3]).max():.2f}): {best[1]}")
+    return best[1], [round(float(v), 2) for v in best[2]], step
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--in", dest="src", required=True); ap.add_argument("--out", required=True)
+    ap.add_argument("--source", help="audio_source.json from pick_lav (default: <in>.audio_source.json)")
+    ap.add_argument("--pull", help="explicit pull filter (testing only; production reads audio_source.json)")
+    ap.add_argument("--video", help="picture to mux onto (-c:v copy); default: --in when it has video")
+    ap.add_argument("--bed"); ap.add_argument("--bed-db", type=float, default=-30.0)
+    ap.add_argument("--extra", help="a pre-rendered SFX/extra track mixed at 0 dB")
+    ap.add_argument("--comp", action="store_true")
+    ap.add_argument("--comp-ratio", type=float, default=1.5,
+                    help="with --comp: gentler compression from 1.0 to the approved maximum 1.5; default unchanged")
+    ap.add_argument("--target", type=float, default=-14.0)
+    ap.add_argument("--tp", type=float, default=-2.5); ap.add_argument("--no-fit", action="store_true")
+    ap.add_argument("--eq", help="use this EQ chain instead of fitting")
+    ap.add_argument("--no-dereverb", action="store_true",
+                    help="accepted for old callers; a no-op since 2026-09-29 (no dereverb is the default)")
+    ap.add_argument("--dereverb-because", metavar="WHAT_YOU_HEARD",
+                    help="OPT IN to the dereverb: what a listener heard on which A/B (e.g. 'room audible on the "
+                         "untreated vs Muhammad A/B at 0:40'). Refused unless the raw room also measures wet "
+                         "(EDT > %d ms). Written to the sidecar." % EDT_WET)
+    ap.add_argument("--dereverb", help="with --dereverb-because only: override the approved params, "
+                                       "'alpha=0.62,floor_db=-24' (TESTING ONLY - the defaults are what Dan "
+                                       "approved by ear on 2026-09-09; the selftest uses this to prove the gate "
+                                       "still fails the build he rejected)")
+    ap.add_argument("--no-expander-because", metavar="WHAT_YOU_HEARD",
+                    help="leave the between-words expander OUT: what a listener heard on which A/B (e.g. 'word "
+                         "endings chopped on the RO-07 first minute; Dan picked the no-expander audition'). "
+                         "Written to the sidecar. The default (expander on) is unchanged.")
+    ap.add_argument("--frame-lock", help="pad/trim the output to exactly this picture's duration")
+    ap.add_argument("--finish-only", action="store_true",
+                    help="input is an already-finished STEREO mix (e.g. the reference's own mix): no pull/dereverb/fit/expander, just measured gain + limiter to target")
+    ap.add_argument("--oversample", type=int, default=1,
+                    help="run the limiter at N x 48 kHz (true-peak aware); 4 on a dynamic mix that needs a big lift")
+    ap.add_argument("--mono-sum", action="store_true",
+                    help="finish-only: sum a near-mono stereo mix to centred mono (L/R >= ~0.95 at lag 0 only)")
+    ap.add_argument("--work", help="work dir (default beside --out)")
+    A = ap.parse_args()
+    if not 1.0 <= A.comp_ratio <= 1.5:
+        raise SystemExit("--comp-ratio must be between 1.0 and the approved maximum 1.5")
+    if A.comp_ratio != 1.5 and not A.comp:
+        raise SystemExit("--comp-ratio requires --comp")
+    compress = COMPRESS.replace("ratio=1.5", f"ratio={A.comp_ratio:g}") if A.comp else ""
+    if A.dereverb and not A.dereverb_because:
+        raise SystemExit("--dereverb PARAMS needs --dereverb-because: the dereverb is opt-in (2026-09-29)")
+    if A.dereverb_because is not None and len(A.dereverb_because.strip()) < 12:
+        raise SystemExit("--dereverb-because needs a real reason: what was heard, on which A/B")
+    if A.no_expander_because is not None and len(A.no_expander_because.strip()) < 12:
+        raise SystemExit("--no-expander-because needs a real reason: what was heard, on which A/B")
+    expand = "" if A.no_expander_because is not None else EXPAND
+    work = A.work or os.path.join(os.path.dirname(os.path.abspath(A.out)), "_voice_chain"); os.makedirs(work, exist_ok=True)
+    ref_audio, ref = R.resolve()
+    log = dict(version=C.STAMP_VERSION, src=os.path.abspath(A.src), out=os.path.abspath(A.out))
+
+    # ---- finish-only: skip straight to the measured gain + limiter on the mix as given
+    if A.finish_only:
+        lav = A.src; x = C.pcm(A.src, ac=1); how = "finish-only (mix as given, channels kept)"
+        log["pull"] = how; print(f"voice_chain  {os.path.basename(A.src)}  {how}  {len(x)/C.SR:.2f} s")
+        # the limiter-delay measurement window below needs `ss` on this path too (it was only
+        # set on the full-chain path -- NameError on the first real --finish-only run, 2026-09-03)
+        ss, dur = C.analysis_window(lav)
+        # --mono-sum: his two channels are the SAME lav with a faint stereo difference (Zeeshan's Ad 1: L/R +0.970 at lag 0,
+        # each channel 0.92 against the raw lav) -- summed at lag 0 they cannot comb, and the side component it drops sits
+        # ~18 dB under the voice. It is the house standard (one centred voice) applied to a finished mix. 2026-09-10.
+        voice = ("pan=stereo|c0=0.5*c0+0.5*c1|c1=0.5*c0+0.5*c1" if A.mono_sum else "aformat=channel_layouts=stereo")
+        eq = gains = fstep = None; log["voice"] = voice; log["mono_sum"] = bool(A.mono_sum)
+    else:
+        lav, x, how = pull(A.src, A.source, A.pull, work); log["pull"] = how
+        print(f"voice_chain  {os.path.basename(A.src)}  pull: {how}  {len(x)/C.SR:.2f} s")
+
+        # ---- DO-NO-HARM BASELINE, recorded before anything touches the signal (2026-09-09).
+        # This is the only moment the untreated audio exists. audio_gate's `do_no_harm` row has
+        # nothing to compare against without it, and a build that is worse than doing nothing
+        # ships on a good EDT alone - which is exactly what happened to three Shorts batches.
+        ss, dur = C.analysis_window(lav)
+        b = C.stash_untreated(A.out, C.pcm(lav, ss=ss, dur=dur), note=f"pull: {how}")
+        log["untreated"] = b
+        print(f"  untreated baseline: flux {b['flux']:.3f}  swirl {b['swirl']:.3f}  EDT {b['edt_ms']:.0f} ms"
+              f"  -> {os.path.basename(C.untreated_path(A.out))}")
+
+        # ---- dereverb: OPT-IN ONLY (2026-09-29) -- a wet room by measurement AND by ear, see EDT_WET
+        e0 = b["edt_ms"]; log["edt_raw"] = e0
+        if A.dereverb_because is not None:
+            if e0 <= EDT_WET:
+                raise SystemExit(f"--dereverb-because refused: the raw room measures EDT {e0:.0f} ms, not wet "
+                                 f"(> {EDT_WET:.0f} ms). There is no measured room problem to treat.")
+            kw = dict(DEREVERB)
+            if A.dereverb:
+                kw.update({k: float(v) for k, v in (t.split("=") for t in A.dereverb.split(","))})
+                print(f"  !! --dereverb OVERRIDE {kw} (testing only; approved defaults {DEREVERB})")
+            y = dereverb(x, sr=C.SR, **kw); write_wav(lav, y)
+            e1 = C.edt(C.pcm(lav, ss=ss, dur=dur)); log["edt_dereverb"] = round(e1, 1); log["dereverb"] = kw
+            log["dereverb_because"] = A.dereverb_because.strip()
+            print(f"  room: EDT {e0:.0f} ms > {EDT_WET:.0f}, opted in ({A.dereverb_because.strip()!r}) "
+                  f"-> dereverb -> {e1:.0f} ms (his {ref['edt_ms']:.0f})")
+        else:
+            log["dereverb"] = None
+            print(f"  room: EDT {e0:.0f} ms (his {ref['edt_ms']:.0f}) -- no dereverb (the default)"
+                  + (f"; the room measures wet, so if the A/B sounds roomy, listen before opting in "
+                     f"with --dereverb-because" if e0 > EDT_WET else ""))
+
+        # ---- EQ
+        if A.eq: eq, gains, fstep = A.eq, None, None
+        elif A.no_fit: eq, gains, fstep = "highpass=f=70", None, None
+        else: eq, gains, fstep = fit_eq(lav, ref, work)
+        log["eq"] = eq; log["eq_gains"] = gains
+        voice = ",".join(v for v in [eq, expand, compress, "pan=stereo|c0=c0|c1=c0"] if v)
+        log["voice"] = voice; log["expander"] = bool(expand)
+        if not expand:
+            log["no_expander_because"] = A.no_expander_because.strip()
+            print(f"  dynamics: expander OFF ({A.no_expander_because.strip()!r})")
+
+    out = A.out
+    def render(voice):
+        log["voice"] = voice
+        # ---- graph: [0]=lav wav, [1]=bed?, [2]=extra?
+        inputs = ["-i", lav]; n = 1; parts = []; total = len(x) / C.SR
+        if A.frame_lock: total = C.duration(A.frame_lock, "v:0")
+        elif A.video or C.has_video(A.src): total = C.duration(A.video or A.src, "v:0")
+        if A.bed:
+            inputs += ["-i", A.bed]; bi = n; n += 1
+            parts.append(f"[0:a]{voice},asplit=2[vmix][vkey]")
+            parts.append(f"[{bi}:a]aloop=loop=-1:size={int(600*44100)},atrim=0:{total:.3f},asetpts=PTS-STARTPTS,"
+                         f"volume={A.bed_db}dB,afade=t=in:st=0:d=1.5,afade=t=out:st={max(0,total-2.0):.3f}:d=2.0[mus]")
+            parts.append("[mus][vkey]sidechaincompress=threshold=0.020:ratio=6:attack=12:release=420:makeup=1:level_sc=1[duck]")
+            parts.append("[vmix][duck]amix=inputs=2:duration=first:normalize=0[pm]")
+        else:
+            parts.append(f"[0:a]{voice}[pm]")
+        if A.extra:
+            inputs += ["-i", A.extra]; ei = n; n += 1
+            parts.append(f"[pm][{ei}:a]amix=inputs=2:duration=first:normalize=0[pm2]"); last = "pm2"
+        else: last = "pm"
+        fc = ";".join(parts) + f";[{last}]aresample=48000[premix]"
+
+        def render(extra, fmt_args):
+            return subprocess.run([C.FF, "-nostdin", "-v", "error"] + inputs + ["-filter_complex", f"{fc};[premix]{extra}[a]",
+                                  "-map", "[a]"] + fmt_args, capture_output=True)
+        def ebur(extra):
+            p = subprocess.run([C.FF, "-nostdin", "-nostats"] + inputs + ["-filter_complex", f"{fc};[premix]{extra},ebur128=peak=true[a]",
+                               "-map", "[a]", "-f", "null", "-"], capture_output=True, text=True).stderr
+            import re; g = lambda k: float(re.findall(rf"{k}:\s*(-?[\d.]+)", p)[-1]); return g("I"), g("Peak"), g("LRA")
+        I0, TP0, LRA0 = ebur("anull"); print(f"  premix  I {I0:.2f}  TP {TP0:.2f}  LRA {LRA0:.2f}")
+        gain = A.target - I0
+        lim = f"alimiter=limit={10**(A.tp/20):.4f}:attack=5:release=60:level=false"
+        # --oversample N: run the limiter at N x 48 kHz so it catches the INTERSAMPLE peaks a 48 kHz limiter
+        # cannot see (2026-09-10, Zeeshan's Ad 1 mix: -23.5 LUFS / -1.7 dBTP, so +10 dB of constant gain;
+        # at 48 kHz the limiter held the samples at -1.4 and the true peak still read -0.3 dBTP after AAC;
+        # at 4x it read -1.2 with the same gain, the same ceiling and the same per-second shave).
+        if A.oversample > 1:
+            lim = f"aresample={48000*A.oversample},{lim},aresample=48000"
+        log["oversample"] = A.oversample
+        # limiter delay measured on the real programme by cross-correlation (audio2.py lesson)
+        pcmargs = ["-ac", "2", "-ar", "48000", "-f", "f32le", "-"]
+        refx = np.frombuffer(render(f"volume={gain:.3f}dB", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
+        limx = np.frombuffer(render(f"volume={gain:.3f}dB,{lim}", pcmargs).stdout, dtype=np.float32).reshape(-1, 2)[:, 0]
+        s0 = int(min(ss, max(0, total - 25)) * C.SR); s1 = s0 + int(min(20, total - 1) * C.SR)
+        _, delay, _ = C.xcorr(limx[s0:s1], refx[s0:s1], max_ms=15.0)
+        delay = max(0, delay); log["limiter_delay_samples"] = delay
+        def fin(g):
+            return f"volume={g:.3f}dB,{lim}" + (f",atrim=start_sample={delay},asetpts=N/SR/TB" if delay > 0 else "") + \
+                   f",apad=whole_dur={total:.3f},atrim=0:{total:.3f}"
+        I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB (limiter delay {delay}) -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
+        for _ in range(3):                      # the limiter eats part of each trim; converge, do not assume
+            if abs(I1 - A.target) <= 0.3: break
+            gain += (A.target - I1); I1, TP1, LRA1 = ebur(fin(gain)); print(f"  gain {gain:+.2f} dB -> I {I1:.2f}  TP {TP1:.2f}  LRA {LRA1:.2f}")
+        log.update(gain_db=round(gain, 2), lufs=round(I1, 2), tp_pcm=round(TP1, 2), lra=round(LRA1, 2), duration=round(total, 3))
+
+        ext = out.lower().rsplit(".", 1)[-1]
+        pic = A.video or (A.src if C.has_video(A.src) and ext in ("mov", "mp4") else None)
+        cmd = [C.FF, "-nostdin", "-y", "-v", "error"] + inputs
+        if pic: cmd += ["-i", pic]
+        cmd += ["-filter_complex", f"{fc};[premix]{fin(gain)}[aout]"]
+        if pic: cmd += ["-map", f"{n}:v", "-map", "[aout]", "-c:v", "copy"]
+        else: cmd += ["-map", "[aout]"]
+        if ext == "mp4": cmd += ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart"]
+        else: cmd += ["-c:a", "pcm_s16le", "-ar", "48000", "-ac", "2"]
+        cmd += ["-t", f"{total:.3f}", out]
+        r = subprocess.run(cmd, capture_output=True, text=True)
+        if r.returncode: raise SystemExit(r.stderr)
+
+    render(voice)
+
+    # ---- VERIFY ON THE FILE THAT SHIPS, then fold the residual back (spray-tan finishaudio lesson,
+    # 2026-09-02): the fit converged on the lav (max 1.1-1.8 dB) while the delivered file read 2.2-2.8 --
+    # the expander, the limiter and the AAC encode all move the spectrum. So measure the OUTPUT on the
+    # gate's own metric and re-render with the residual folded in, up to two more passes, keeping the best.
+    if gains is not None and not A.finish_only:
+        rb = np.array(ref["bands"]); g = np.array(gains, dtype=float)
+        oss, odur = C.analysis_window(out)
+        def out_err(): return C.analyse(C.pcm(out, ss=oss, dur=odur))[0] - rb
+        err = out_err(); best = (max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5), out + ".pass0", g.copy())
+        import shutil; shutil.copyfile(out, best[1])
+        print(f"  verify 0: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}")
+        step = np.array(fstep, dtype=float)      # the per-band sensitivity the fit learned (shelf ~2.4x)
+        for k in range(1, 4):
+            if best[0] < 0.8: break
+            prev = err
+            g = np.clip(g - step * err, -10, 10); g[1:-1] = 0.15 * g[:-2] + 0.70 * g[1:-1] + 0.15 * g[2:]
+            eq = eq_chain(g); log["eq"] = eq; log["eq_gains"] = [round(float(v), 2) for v in g]
+            render(",".join(v for v in [eq, expand, compress, "pan=stereo|c0=c0|c1=c0"] if v))
+            err = out_err(); sc = max(np.abs(err).mean() / 1.2, np.abs(err).max() / 2.5)
+            step[np.sign(err) != np.sign(prev)] *= 0.5
+            print(f"  verify {k}: delivered tone mean {np.abs(err).mean():.2f} max {np.abs(err).max():.2f}  err {np.round(err,1).tolist()}")
+            if sc < best[0]: best = (sc, out + f".pass{k}", g.copy()); shutil.copyfile(out, best[1])
+        shutil.copyfile(best[1], out)                       # the best pass is what ships
+        log["eq_gains"] = [round(float(v), 2) for v in best[2]]; log["eq"] = eq_chain(best[2])
+        for k in range(4):
+            try: os.remove(out + f".pass{k}")
+            except FileNotFoundError: pass
+    json.dump(log, open(out + ".voice_chain.json", "w"), indent=1)
+    print(f"  wrote {out}  ({log.get('duration')} s)  sidecar {os.path.basename(out)}.voice_chain.json\n  now: audio_gate.py {out}")
+
+
+if __name__ == "__main__": main()

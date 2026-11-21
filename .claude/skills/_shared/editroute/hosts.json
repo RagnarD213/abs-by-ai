@@ -1,0 +1,66 @@
+{
+  "_doc": "Two-Mac edit routing (handoff 03, Dan, 2026-11-12; built 2026-11-14). The ONE place for the per-Mac numbers. Change a number here and every tool follows: editcap.py (edit slots), renderq.py (cores), editroute.py (where the next edit goes). README.md beside this file explains each field.",
+  "primary": "m6",
+  "tie": "m6",
+  "remote_connect_s": 3,
+  "remote_timeout_s": 8,
+  "reserve_min": 30,
+  "hosts": {
+    "m6": {
+      "label": "M6 (Dan's Mac)",
+      "names": [
+        "m6",
+        "M6"
+      ],
+      "ssh": "m6",
+      "address": "10.66.0.1",
+      "repo": "/Users/danrrose/Projects/Claude/Projects/Abs By AI",
+      "slots": 2,
+      "cores_present": 6,
+      "cores_away": 10,
+      "away_after_min": 30,
+      "night": [
+        22,
+        7
+      ],
+      "first": [
+        "SFC",
+        "SFL",
+        "ADCUT",
+        "REV"
+      ],
+      "work_before_internal": [],
+      "drives_note": "No drives of its own. The Extreme and Seagate stay plugged into the M2; since 2026-11-14 they also reach this Mac as network shares at the same names. An M6 edit still works on this Mac's internal SSD (never a heavy encode against a share) and copies the footage it needs with editroute.py fetch. Job folders on a share count as the M2's.",
+      "load_guard": true
+    },
+    "m2": {
+      "label": "M2 Pro (edit machine)",
+      "names": [
+        "m2",
+        "M2",
+        "Mac-mini"
+      ],
+      "ssh": "m2",
+      "address": "10.66.0.2",
+      "repo": "/Users/danielrose/Projects/Claude/Projects/Abs By AI",
+      "slots": 3,
+      "cores_present": 8,
+      "cores_away": 8,
+      "away_after_min": 30,
+      "night": [
+        22,
+        7
+      ],
+      "first": [
+        "LFC",
+        "CHROMA",
+        "EXDEMO",
+        "QUEUE"
+      ],
+      "work_before_internal": [],
+      "drives_note": "Holds the Extreme and Seagate. Work folders use internal SSD if 80 GB reserve remains, then Extreme, then Seagate. M2 edits read local footage in place.",
+      "mirror_reviews_to": "m6",
+      "load_guard": false
+    }
+  }
+}

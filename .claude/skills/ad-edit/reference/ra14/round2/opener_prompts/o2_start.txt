@@ -1,0 +1,9 @@
+Make one vertical 9:16 portrait image in pure pixel art, the look of a late 1980s 8-bit side-scrolling platform game: chunky square pixels, a small limited colour palette, hard edges, no anti-aliasing, no gradients, no blur. No text, letters, numbers, score, lives counter or any HUD anywhere in the picture.
+
+Scene: a bright blue sky with a few blocky white clouds, simple green hills behind, and a brown brick ground whose top edge runs straight across the frame about 68 percent of the way down. Below it is solid brick to the bottom edge.
+
+A small pixel man stands on the ground, drawn large enough to read clearly at a glance (about one fifth of the frame height). He is caught mid-stride, running to the right, and he is placed a little left of the centre of the frame. He is shirtless with red shorts and brown hair. His body is drawn soft: a small rounded tummy and thin arms, no muscles drawn.
+
+Just ahead of him, a little right of the centre of the frame and floating about one character-height above the ground, is a glowing power-up item: a golden square tile showing a six-pack of abs (two columns of three rounded squares), with a ring of bright pixel sparkles around it so it clearly reads as a collectible.
+
+Both the man and the power-up sit inside the middle third of the frame width. Nothing else important is at the left or right edges. No text of any kind.

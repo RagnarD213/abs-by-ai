@@ -1,0 +1,16 @@
+{
+  "caseId": "heavier-male__max",
+  "arm": "restored",
+  "condition": "heavier",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "desc": "Heavier male",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 6856,
+  "safetyRetry": false,
+  "promptChars": 4238,
+  "image": "heavier-male__max__restored.jpg",
+  "ts": "2026-08-07T22:41:56.818Z"
+}

@@ -1,0 +1,115 @@
+{
+ "shot": "RA-04 AI1-3 (round 2b): leg press push",
+ "start_frame": "F4c_a.png (START; every box below is in START pixels)",
+ "intent": "Same action as spec_AI1-3_F4h.json on the round 2b START frame.",
+ "person": {
+  "count": 1,
+  "guide": {
+   "line": [
+    440,
+    880,
+    690,
+    510
+   ],
+   "what": "the near chrome rail",
+   "max_deg": 10
+  },
+  "anchored": [
+   "hip",
+   "shoulder",
+   "nose"
+  ],
+  "reach": true
+ },
+ "rigid": [
+  {
+   "name": "sled",
+   "parts": {
+    "footplate_left": [
+     495,
+     760,
+     545,
+     800
+    ],
+    "footplate_right": [
+     710,
+     770,
+     750,
+     810
+    ],
+    "left_plate": [
+     460,
+     740,
+     500,
+     790
+    ],
+    "right_hub": [
+     870,
+     840,
+     930,
+     880
+    ]
+   },
+   "guide": [
+    440,
+    880,
+    690,
+    510
+   ],
+   "move_px": [
+    15,
+    200
+   ],
+   "extent": [
+    450,
+    700,
+    941,
+    1010
+   ]
+  }
+ ],
+ "contacts": [
+  {
+   "name": "near_shoe",
+   "box": [
+    640,
+    800,
+    720,
+    940
+   ],
+   "rides": "sled"
+  }
+ ],
+ "still": {
+  "upright_top": [
+   870,
+   450,
+   935,
+   520
+  ],
+  "base": [
+   10,
+   1240,
+   90,
+   1290
+  ],
+  "rack_left": [
+   120,
+   450,
+   200,
+   520
+  ]
+ },
+ "props": [
+  {
+   "name": "phone",
+   "box": [
+    252,
+    912,
+    298,
+    958
+   ],
+   "held_by": "right"
+  }
+ ]
+}

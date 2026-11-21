@@ -1,0 +1,25 @@
+{
+  "job": "DS-31",
+  "category": "CONTENT",
+  "date": "2026-10-20",
+  "status": "approved",
+  "dan": "Let's go with B: finalizing install B.",
+  "round1": "Five covers rejected: \"I don't like any of these.\"",
+  "youtube": {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/youtube/B-ai-homework-cover.jpg",
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/setup/ai-homework-youtube-approved.jpg",
+    "sha256": "953482443c2fa754cffbfa7ffa6a31ab7b9f609e9672095f1967797cf78e6853",
+    "bytes": 589572
+  },
+  "instagram_facebook_tiktok": {
+    "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/covers/round2/instagram/B-ai-homework-cover.jpg",
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/setup/ai-homework-instagram-approved.jpg",
+    "sha256": "69f6cf79a0395387f9f7440f6ee549d5096d5ad0870dee23736108f8bd1cc3f0",
+    "bytes": 498794
+  },
+  "tiktok_package": {
+    "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/AI Homework - DS-31/setup/AI Homework SFC R2 - TikTok cover-first.mp4",
+    "sha256": "8fb0881a1c6c1f0c5382006e120684f0a486d9064332ae7a2ef98cf888bd5bdd",
+    "frames": "1848 -> 1849", "audio_packets": "2891 -> 2891", "decode_errors": "none", "cover_psnr_db": 49.48
+  }
+}

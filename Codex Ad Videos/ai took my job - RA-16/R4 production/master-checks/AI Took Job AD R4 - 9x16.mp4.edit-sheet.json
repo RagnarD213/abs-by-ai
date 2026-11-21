@@ -1,0 +1,2579 @@
+{
+  "schema": "abs-edit-sheet/1",
+  "job": "RA-16",
+  "title": "AI Took Job",
+  "type": "AD",
+  "editor": "codex",
+  "video": {
+    "master": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+    "sha256": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+    "fps": 29.97002997002997,
+    "frames": 1765,
+    "duration": 58.89216666666667,
+    "width": 1080,
+    "height": 1920,
+    "rolls": {
+      "C1668": {
+        "path": "/Volumes/Extreme/abs by ai 8:28 shoot | jeff | dan | ads, dedicated shorts, b roll, scripted long form content/main camera/C1668.MP4",
+        "width": 2160,
+        "height": 3840,
+        "fps": 29.97002997002997
+      },
+      "D01": {
+        "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+        "width": 1080,
+        "height": 1920,
+        "fps": 29.97002997002997
+      },
+      "G01": {
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+        "width": 1080,
+        "height": 1920,
+        "fps": 29.97002997002997
+      }
+    }
+  },
+  "grade": {
+    "filter": "scale=in_color_matrix=bt709:in_range=tv:out_color_matrix=bt709,lut3d=file=/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube:interp=tetrahedral,eq=saturation=1.12:gamma=1.03",
+    "order": "at_source_size",
+    "lut": "/Volumes/Extreme/_edit_work/website-video-828/slog3_709_e1.45.cube",
+    "decode": "bt709",
+    "note": "Approved Color B; automatic -90 rotation to native portrait before crop."
+  },
+  "edl": [
+    {
+      "roll": "C1668",
+      "src_in": 163.35,
+      "src_out": 173.91371671760044,
+      "out_in": 0.0,
+      "out_out": 9.476133333333333,
+      "src_f0": 4896,
+      "out_f0": 0,
+      "out_f1": 284,
+      "shot": "P01",
+      "join": "first",
+      "audio": {
+        "src_in": 0.0,
+        "src_out": 9.476133333333333,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 176.14371671760043,
+      "src_out": 182.35547971703448,
+      "out_in": 9.476133333333333,
+      "out_out": 15.048366666666666,
+      "src_f0": 5279,
+      "out_f0": 284,
+      "out_f1": 451,
+      "shot": "P02",
+      "join": "cut",
+      "audio": {
+        "src_in": 9.476133333333333,
+        "src_out": 15.048366666666666,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 188.56547971703452,
+      "src_out": 193.4009838483305,
+      "out_in": 15.048366666666666,
+      "out_out": 19.386033333333334,
+      "src_f0": 5651,
+      "out_f0": 451,
+      "out_f1": 581,
+      "shot": "P03",
+      "join": "cut",
+      "audio": {
+        "src_in": 15.048366666666666,
+        "src_out": 19.386033333333334,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "D01",
+      "src_in": 0,
+      "src_out": 4.8048,
+      "out_in": 19.386033333333334,
+      "out_out": 24.190833333333334,
+      "src_f0": 0,
+      "out_f0": 581,
+      "out_f1": 725,
+      "shot": "D01",
+      "join": "cut",
+      "audio": {
+        "src_in": 19.386033333333334,
+        "src_out": 24.190833333333334,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 199.45723457838145,
+      "src_out": 200.64751251839277,
+      "out_in": 24.190833333333334,
+      "out_out": 25.258566666666667,
+      "src_f0": 5978,
+      "out_f0": 725,
+      "out_f1": 757,
+      "shot": "P05",
+      "join": "cut",
+      "audio": {
+        "src_in": 24.190833333333334,
+        "src_out": 25.258566666666667,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "G01",
+      "src_in": 0,
+      "src_out": 7.540866666666667,
+      "out_in": 25.258566666666667,
+      "out_out": 32.79943333333333,
+      "src_f0": 0,
+      "out_f0": 757,
+      "out_f1": 983,
+      "shot": "G01",
+      "join": "cut",
+      "audio": {
+        "src_in": 25.258566666666667,
+        "src_out": 32.79943333333333,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 224.10385046972272,
+      "src_out": 229.9064554272779,
+      "out_in": 32.79943333333333,
+      "out_out": 38.00463333333333,
+      "src_f0": 6716,
+      "out_f0": 983,
+      "out_f1": 1139,
+      "shot": "P07",
+      "join": "cut",
+      "audio": {
+        "src_in": 32.79943333333333,
+        "src_out": 38.00463333333333,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 230.04645542727786,
+      "src_out": 239.38269801924164,
+      "out_in": 38.00463333333333,
+      "out_out": 46.379666666666665,
+      "src_f0": 6894,
+      "out_f0": 1139,
+      "out_f1": 1390,
+      "shot": "P08",
+      "join": "cut",
+      "audio": {
+        "src_in": 38.00463333333333,
+        "src_out": 46.379666666666665,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 239.68269801924163,
+      "src_out": 244.62979070741366,
+      "out_in": 46.379666666666665,
+      "out_out": 50.817433333333334,
+      "src_f0": 7183,
+      "out_f0": 1390,
+      "out_f1": 1523,
+      "shot": "P09",
+      "join": "cut",
+      "audio": {
+        "src_in": 46.379666666666665,
+        "src_out": 50.817433333333334,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 244.78979070741372,
+      "src_out": 247.39352370118849,
+      "out_in": 50.817433333333334,
+      "out_out": 53.1531,
+      "src_f0": 7336,
+      "out_f0": 1523,
+      "out_f1": 1593,
+      "shot": "P10",
+      "join": "cut",
+      "audio": {
+        "src_in": 50.817433333333334,
+        "src_out": 53.1531,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 251.03352370118844,
+      "src_out": 255.38547741935483,
+      "out_in": 53.1531,
+      "out_out": 57.057,
+      "src_f0": 7523,
+      "out_f0": 1593,
+      "out_f1": 1710,
+      "shot": "P11",
+      "join": "cut",
+      "audio": {
+        "src_in": 53.1531,
+        "src_out": 57.057,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    },
+    {
+      "roll": "C1668",
+      "src_in": 255.64547741935482,
+      "src_out": 257.69126762874924,
+      "out_in": 57.057,
+      "out_out": 58.89216666666667,
+      "src_f0": 7662,
+      "out_f0": 1710,
+      "out_f1": 1765,
+      "shot": "P12",
+      "join": "cut",
+      "audio": {
+        "src_in": 57.057,
+        "src_out": 58.89216666666667,
+        "path": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav"
+      }
+    }
+  ],
+  "framing": [
+    {
+      "name": "P01",
+      "crop": [
+        800,
+        1422,
+        734.2350387573242,
+        1332
+      ],
+      "head": {
+        "hair_top": 1408,
+        "cx": 1159.1502928733826,
+        "chin": 1714.8294067382812
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P01-0/measure.json"
+    },
+    {
+      "name": "P02",
+      "crop": [
+        612,
+        1088,
+        793.8013973236084,
+        1364
+      ],
+      "head": {
+        "hair_top": 1408,
+        "cx": 1129.574818611145,
+        "chin": 1716.7006301879883
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P02-284/measure.json"
+    },
+    {
+      "name": "P03",
+      "crop": [
+        800,
+        1422,
+        727.6077723503113,
+        1350
+      ],
+      "head": {
+        "hair_top": 1408,
+        "cx": 1123.6986565589905,
+        "chin": 1716.9007873535156
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P03-451/measure.json"
+    },
+    {
+      "name": "D01",
+      "crop": [
+        1080,
+        1920,
+        0,
+        0
+      ],
+      "head": {
+        "hair_top": 0,
+        "cx": 540.0,
+        "chin": 1920
+      },
+      "measured": "No talking presenter in full-screen approved component; virtual full component bounds, not a head measurement."
+    },
+    {
+      "name": "P05",
+      "crop": [
+        800,
+        1422,
+        701.938066482544,
+        1354
+      ],
+      "head": {
+        "hair_top": 1412,
+        "cx": 1157.8742909431458,
+        "chin": 1709.2738723754883
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P05-725/measure.json"
+    },
+    {
+      "name": "G01",
+      "crop": [
+        1080,
+        1920,
+        0,
+        0
+      ],
+      "head": {
+        "hair_top": 0,
+        "cx": 540.0,
+        "chin": 1920
+      },
+      "measured": "No talking presenter in full-screen approved component; virtual full component bounds, not a head measurement."
+    },
+    {
+      "name": "P07",
+      "crop": [
+        800,
+        1422,
+        759.453296661377,
+        1342
+      ],
+      "head": {
+        "hair_top": 1400,
+        "cx": 1101.4263010025024,
+        "chin": 1718.078727722168
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P07-983/measure.json"
+    },
+    {
+      "name": "P08",
+      "crop": [
+        612,
+        1088,
+        788.0054440498352,
+        1356
+      ],
+      "head": {
+        "hair_top": 1400,
+        "cx": 1125.5925750732422,
+        "chin": 1713.5366821289062
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P08-1139/measure.json"
+    },
+    {
+      "name": "P09",
+      "crop": [
+        800,
+        1422,
+        729.4716286659241,
+        1342
+      ],
+      "head": {
+        "hair_top": 1400,
+        "cx": 1125.5573630332947,
+        "chin": 1710.6930541992188
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P09-1390/measure.json"
+    },
+    {
+      "name": "P10",
+      "crop": [
+        612,
+        1088,
+        831.3710346221924,
+        1356
+      ],
+      "head": {
+        "hair_top": 1400,
+        "cx": 1126.7360973358154,
+        "chin": 1709.8987197875977
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P10-1523/measure.json"
+    },
+    {
+      "name": "P11",
+      "crop": [
+        800,
+        1422,
+        772.8647065162659,
+        1342
+      ],
+      "head": {
+        "hair_top": 1400,
+        "cx": 1133.9172291755676,
+        "chin": 1710.9654235839844
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P11-1593/measure.json"
+    },
+    {
+      "name": "P12",
+      "crop": [
+        612,
+        1088,
+        824.9137773513794,
+        1360
+      ],
+      "head": {
+        "hair_top": 1404,
+        "cx": 1136.9775545597076,
+        "chin": 1707.3455429077148
+      },
+      "measured": "Output-grid first/last and every sixth frame; MediaPipe face, Apple Vision and MediaPipe silhouettes. /Volumes/Expansion/Abs By AI Edit Work/ra16/round4/measure/P12-1710/measure.json"
+    }
+  ],
+  "words": {
+    "list": [
+      {
+        "w": "I'm",
+        "t0": 0.09867499238502596,
+        "t1": 0.565138592750529,
+        "src_start": 163.46,
+        "src_end": 163.98,
+        "piece": "P01"
+      },
+      {
+        "w": "a",
+        "t0": 0.565138592750529,
+        "t1": 0.65484313128238,
+        "src_start": 163.98,
+        "src_end": 164.08,
+        "piece": "P01"
+      },
+      {
+        "w": "personal",
+        "t0": 0.65484313128238,
+        "t1": 0.8880749314651316,
+        "src_start": 164.08,
+        "src_end": 164.34,
+        "piece": "P01"
+      },
+      {
+        "w": "trainer.",
+        "t0": 0.8880749314651316,
+        "t1": 1.2468930855924594,
+        "src_start": 164.34,
+        "src_end": 164.74,
+        "piece": "P01"
+      },
+      {
+        "w": "And",
+        "t0": 1.2468930855924594,
+        "t1": 1.7851203167834382,
+        "src_start": 164.74,
+        "src_end": 165.34,
+        "piece": "P01"
+      },
+      {
+        "w": "AI",
+        "t0": 1.7851203167834382,
+        "t1": 2.0183521169661898,
+        "src_start": 165.34,
+        "src_end": 165.6,
+        "piece": "P01"
+      },
+      {
+        "w": "just",
+        "t0": 2.0183521169661898,
+        "t1": 2.5386384404508187,
+        "src_start": 165.6,
+        "src_end": 166.18,
+        "piece": "P01"
+      },
+      {
+        "w": "took",
+        "t0": 2.5386384404508187,
+        "t1": 2.753929332927195,
+        "src_start": 166.18,
+        "src_end": 166.42,
+        "piece": "P01"
+      },
+      {
+        "w": "my",
+        "t0": 2.753929332927195,
+        "t1": 2.9512793176972214,
+        "src_start": 166.42,
+        "src_end": 166.64,
+        "piece": "P01"
+      },
+      {
+        "w": "job.",
+        "t0": 2.9512793176972214,
+        "t1": 3.274215656411824,
+        "src_start": 166.64,
+        "src_end": 167.0,
+        "piece": "P01"
+      },
+      {
+        "w": "A",
+        "t0": 3.704797441364602,
+        "t1": 3.9200883338410035,
+        "src_start": 167.48,
+        "src_end": 167.72,
+        "piece": "P01"
+      },
+      {
+        "w": "lot",
+        "t0": 3.9200883338410035,
+        "t1": 4.099497410904655,
+        "src_start": 167.72,
+        "src_end": 167.92,
+        "piece": "P01"
+      },
+      {
+        "w": "of",
+        "t0": 4.099497410904655,
+        "t1": 4.189201949436506,
+        "src_start": 167.92,
+        "src_end": 168.02,
+        "piece": "P01"
+      },
+      {
+        "w": "people",
+        "t0": 4.189201949436506,
+        "t1": 4.386551934206532,
+        "src_start": 168.02,
+        "src_end": 168.24,
+        "piece": "P01"
+      },
+      {
+        "w": "have",
+        "t0": 4.386551934206532,
+        "t1": 4.548020103563808,
+        "src_start": 168.24,
+        "src_end": 168.42,
+        "piece": "P01"
+      },
+      {
+        "w": "figured",
+        "t0": 4.548020103563808,
+        "t1": 4.781251903746585,
+        "src_start": 168.42,
+        "src_end": 168.68,
+        "piece": "P01"
+      },
+      {
+        "w": "out",
+        "t0": 4.781251903746585,
+        "t1": 4.978601888516612,
+        "src_start": 168.68,
+        "src_end": 168.9,
+        "piece": "P01"
+      },
+      {
+        "w": "that",
+        "t0": 4.978601888516612,
+        "t1": 5.1400700578739125,
+        "src_start": 168.9,
+        "src_end": 169.08,
+        "piece": "P01"
+      },
+      {
+        "w": "AI",
+        "t0": 5.1400700578739125,
+        "t1": 5.3733018580566645,
+        "src_start": 169.08,
+        "src_end": 169.34,
+        "piece": "P01"
+      },
+      {
+        "w": "can",
+        "t0": 5.3733018580566645,
+        "t1": 5.6603563813585165,
+        "src_start": 169.34,
+        "src_end": 169.66,
+        "piece": "P01"
+      },
+      {
+        "w": "create",
+        "t0": 5.6603563813585165,
+        "t1": 5.857706366128543,
+        "src_start": 169.66,
+        "src_end": 169.88,
+        "piece": "P01"
+      },
+      {
+        "w": "a",
+        "t0": 5.857706366128543,
+        "t1": 5.9474109046603685,
+        "src_start": 169.88,
+        "src_end": 169.98,
+        "piece": "P01"
+      },
+      {
+        "w": "workout",
+        "t0": 5.9474109046603685,
+        "t1": 6.180642704843145,
+        "src_start": 169.98,
+        "src_end": 170.24,
+        "piece": "P01"
+      },
+      {
+        "w": "program",
+        "t0": 6.180642704843145,
+        "t1": 6.557401766676823,
+        "src_start": 170.24,
+        "src_end": 170.66,
+        "piece": "P01"
+      },
+      {
+        "w": "for",
+        "t0": 6.557401766676823,
+        "t1": 6.772692659153225,
+        "src_start": 170.66,
+        "src_end": 170.9,
+        "piece": "P01"
+      },
+      {
+        "w": "you",
+        "t0": 6.772692659153225,
+        "t1": 6.952101736216876,
+        "src_start": 170.9,
+        "src_end": 171.1,
+        "piece": "P01"
+      },
+      {
+        "w": "that's",
+        "t0": 6.952101736216876,
+        "t1": 7.418565336582404,
+        "src_start": 171.1,
+        "src_end": 171.62,
+        "piece": "P01"
+      },
+      {
+        "w": "far",
+        "t0": 7.418565336582404,
+        "t1": 7.705619859884256,
+        "src_start": 171.62,
+        "src_end": 171.94,
+        "piece": "P01"
+      },
+      {
+        "w": "better",
+        "t0": 7.705619859884256,
+        "t1": 7.974733475479758,
+        "src_start": 171.94,
+        "src_end": 172.24,
+        "piece": "P01"
+      },
+      {
+        "w": "than",
+        "t0": 7.974733475479758,
+        "t1": 8.172083460249784,
+        "src_start": 172.24,
+        "src_end": 172.46,
+        "piece": "P01"
+      },
+      {
+        "w": "what",
+        "t0": 8.172083460249784,
+        "t1": 8.315610721900711,
+        "src_start": 172.46,
+        "src_end": 172.62,
+        "piece": "P01"
+      },
+      {
+        "w": "any",
+        "t0": 8.315610721900711,
+        "t1": 8.530901614377113,
+        "src_start": 172.62,
+        "src_end": 172.86,
+        "piece": "P01"
+      },
+      {
+        "w": "human",
+        "t0": 8.530901614377113,
+        "t1": 8.764133414559863,
+        "src_start": 172.86,
+        "src_end": 173.12,
+        "piece": "P01"
+      },
+      {
+        "w": "trainer",
+        "t0": 8.764133414559863,
+        "t1": 9.051187937861716,
+        "src_start": 173.12,
+        "src_end": 173.44,
+        "piece": "P01"
+      },
+      {
+        "w": "could.",
+        "t0": 9.051187937861716,
+        "t1": 9.302360645750843,
+        "src_start": 173.44,
+        "src_end": 173.72,
+        "piece": "P01"
+      },
+      {
+        "w": "That's",
+        "t0": 9.56250380749317,
+        "t1": 9.885440146207747,
+        "src_start": 176.24,
+        "src_end": 176.6,
+        "piece": "P02"
+      },
+      {
+        "w": "why",
+        "t0": 9.885440146207747,
+        "t1": 10.028967407858673,
+        "src_start": 176.6,
+        "src_end": 176.76,
+        "piece": "P02"
+      },
+      {
+        "w": "human",
+        "t0": 10.028967407858673,
+        "t1": 10.26219920804145,
+        "src_start": 176.76,
+        "src_end": 177.02,
+        "piece": "P02"
+      },
+      {
+        "w": "personal",
+        "t0": 10.26219920804145,
+        "t1": 10.603076454462403,
+        "src_start": 177.02,
+        "src_end": 177.4,
+        "piece": "P02"
+      },
+      {
+        "w": "trainers",
+        "t0": 10.603076454462403,
+        "t1": 10.97983551629608,
+        "src_start": 177.4,
+        "src_end": 177.82,
+        "piece": "P02"
+      },
+      {
+        "w": "have",
+        "t0": 10.97983551629608,
+        "t1": 11.231008224185207,
+        "src_start": 177.82,
+        "src_end": 178.1,
+        "piece": "P02"
+      },
+      {
+        "w": "gone",
+        "t0": 11.231008224185207,
+        "t1": 11.51806274748706,
+        "src_start": 178.1,
+        "src_end": 178.42,
+        "piece": "P02"
+      },
+      {
+        "w": "obsolete",
+        "t0": 11.51806274748706,
+        "t1": 12.074230886384413,
+        "src_start": 178.42,
+        "src_end": 179.04,
+        "piece": "P02"
+      },
+      {
+        "w": "and",
+        "t0": 12.074230886384413,
+        "t1": 12.648339932988142,
+        "src_start": 179.04,
+        "src_end": 179.68,
+        "piece": "P02"
+      },
+      {
+        "w": "everyone",
+        "t0": 12.648339932988142,
+        "t1": 13.02509899482182,
+        "src_start": 179.68,
+        "src_end": 180.1,
+        "piece": "P02"
+      },
+      {
+        "w": "is",
+        "t0": 13.132744441060021,
+        "t1": 13.365976241242773,
+        "src_start": 180.22,
+        "src_end": 180.48,
+        "piece": "P02"
+      },
+      {
+        "w": "using",
+        "t0": 13.365976241242773,
+        "t1": 13.670971672251,
+        "src_start": 180.48,
+        "src_end": 180.82,
+        "piece": "P02"
+      },
+      {
+        "w": "AI",
+        "t0": 13.670971672251,
+        "t1": 13.904203472433776,
+        "src_start": 180.82,
+        "src_end": 181.08,
+        "piece": "P02"
+      },
+      {
+        "w": "to",
+        "t0": 13.904203472433776,
+        "t1": 14.263021626561079,
+        "src_start": 181.08,
+        "src_end": 181.48,
+        "piece": "P02"
+      },
+      {
+        "w": "get",
+        "t0": 14.263021626561079,
+        "t1": 14.388607980505654,
+        "src_start": 181.48,
+        "src_end": 181.62,
+        "piece": "P02"
+      },
+      {
+        "w": "in",
+        "t0": 14.388607980505654,
+        "t1": 14.47831251903748,
+        "src_start": 181.62,
+        "src_end": 181.72,
+        "piece": "P02"
+      },
+      {
+        "w": "shape",
+        "t0": 14.47831251903748,
+        "t1": 14.657721596101132,
+        "src_start": 181.72,
+        "src_end": 181.92,
+        "piece": "P02"
+      },
+      {
+        "w": "now.",
+        "t0": 14.657721596101132,
+        "t1": 14.890953396283908,
+        "src_start": 181.92,
+        "src_end": 182.18,
+        "piece": "P02"
+      },
+      {
+        "w": "You",
+        "t0": 15.151096558026211,
+        "t1": 15.47403289674079,
+        "src_start": 188.68,
+        "src_end": 189.04,
+        "piece": "P03"
+      },
+      {
+        "w": "can",
+        "t0": 15.47403289674079,
+        "t1": 15.617560158391715,
+        "src_start": 189.04,
+        "src_end": 189.2,
+        "piece": "P03"
+      },
+      {
+        "w": "get",
+        "t0": 15.617560158391715,
+        "t1": 15.74314651233629,
+        "src_start": 189.2,
+        "src_end": 189.34,
+        "piece": "P03"
+      },
+      {
+        "w": "started",
+        "t0": 15.74314651233629,
+        "t1": 15.994319220225417,
+        "src_start": 189.34,
+        "src_end": 189.62,
+        "piece": "P03"
+      },
+      {
+        "w": "getting",
+        "t0": 15.994319220225417,
+        "t1": 16.20961011270182,
+        "src_start": 189.62,
+        "src_end": 189.86,
+        "piece": "P03"
+      },
+      {
+        "w": "in",
+        "t0": 16.20961011270182,
+        "t1": 16.406960097471845,
+        "src_start": 189.86,
+        "src_end": 190.08,
+        "piece": "P03"
+      },
+      {
+        "w": "shape",
+        "t0": 16.406960097471845,
+        "t1": 16.550487359122773,
+        "src_start": 190.08,
+        "src_end": 190.24,
+        "piece": "P03"
+      },
+      {
+        "w": "with",
+        "t0": 16.550487359122773,
+        "t1": 16.711955528480047,
+        "src_start": 190.24,
+        "src_end": 190.42,
+        "piece": "P03"
+      },
+      {
+        "w": "AI",
+        "t0": 16.711955528480047,
+        "t1": 16.87342369783735,
+        "src_start": 190.42,
+        "src_end": 190.6,
+        "piece": "P03"
+      },
+      {
+        "w": "with",
+        "t0": 16.87342369783735,
+        "t1": 17.124596405726475,
+        "src_start": 190.6,
+        "src_end": 190.88,
+        "piece": "P03"
+      },
+      {
+        "w": "my",
+        "t0": 17.124596405726475,
+        "t1": 17.286064575083778,
+        "src_start": 190.88,
+        "src_end": 191.06,
+        "piece": "P03"
+      },
+      {
+        "w": "free",
+        "t0": 17.286064575083778,
+        "t1": 17.519296375266528,
+        "src_start": 191.06,
+        "src_end": 191.32,
+        "piece": "P03"
+      },
+      {
+        "w": "app.",
+        "t0": 17.519296375266528,
+        "t1": 17.752528175449307,
+        "src_start": 191.32,
+        "src_end": 191.58,
+        "piece": "P03"
+      },
+      {
+        "w": "Just",
+        "t0": 18.039582698751158,
+        "t1": 18.183109960402085,
+        "src_start": 191.9,
+        "src_end": 192.06,
+        "piece": "P03"
+      },
+      {
+        "w": "tap",
+        "t0": 18.183109960402085,
+        "t1": 18.452223575997586,
+        "src_start": 192.06,
+        "src_end": 192.36,
+        "piece": "P03"
+      },
+      {
+        "w": "the",
+        "t0": 18.452223575997586,
+        "t1": 18.649573560767614,
+        "src_start": 192.36,
+        "src_end": 192.58,
+        "piece": "P03"
+      },
+      {
+        "w": "button",
+        "t0": 18.649573560767614,
+        "t1": 18.84692354553764,
+        "src_start": 192.58,
+        "src_end": 192.8,
+        "piece": "P03"
+      },
+      {
+        "w": "below.",
+        "t0": 18.84692354553764,
+        "t1": 19.13397806883949,
+        "src_start": 192.8,
+        "src_end": 193.12,
+        "piece": "P03"
+      },
+      {
+        "w": "Here's",
+        "t0": 19.403091684434994,
+        "t1": 19.636323484617744,
+        "src_start": 193.86,
+        "src_end": 194.12,
+        "piece": "P04"
+      },
+      {
+        "w": "how",
+        "t0": 19.636323484617744,
+        "t1": 19.743968930855946,
+        "src_start": 194.12,
+        "src_end": 194.24,
+        "piece": "P04"
+      },
+      {
+        "w": "it",
+        "t0": 19.743968930855946,
+        "t1": 19.833673469387772,
+        "src_start": 194.24,
+        "src_end": 194.34,
+        "piece": "P04"
+      },
+      {
+        "w": "works.",
+        "t0": 19.833673469387772,
+        "t1": 20.01308254645142,
+        "src_start": 194.34,
+        "src_end": 194.54,
+        "piece": "P04"
+      },
+      {
+        "w": "First,",
+        "t0": 20.623073408467878,
+        "t1": 20.874246116357003,
+        "src_start": 195.22,
+        "src_end": 195.5,
+        "piece": "P04"
+      },
+      {
+        "w": "you",
+        "t0": 21.143359731952504,
+        "t1": 21.23306427048433,
+        "src_start": 195.8,
+        "src_end": 195.9,
+        "piece": "P04"
+      },
+      {
+        "w": "generate",
+        "t0": 21.23306427048433,
+        "t1": 21.52011879378618,
+        "src_start": 195.9,
+        "src_end": 196.22,
+        "piece": "P04"
+      },
+      {
+        "w": "a",
+        "t0": 21.52011879378618,
+        "t1": 21.681586963143484,
+        "src_start": 196.22,
+        "src_end": 196.4,
+        "piece": "P04"
+      },
+      {
+        "w": "picture",
+        "t0": 21.681586963143484,
+        "t1": 21.89687785561986,
+        "src_start": 196.4,
+        "src_end": 196.64,
+        "piece": "P04"
+      },
+      {
+        "w": "of",
+        "t0": 21.89687785561986,
+        "t1": 22.058346024977162,
+        "src_start": 196.64,
+        "src_end": 196.82,
+        "piece": "P04"
+      },
+      {
+        "w": "yourself",
+        "t0": 22.058346024977162,
+        "t1": 22.381282363691763,
+        "src_start": 196.82,
+        "src_end": 197.18,
+        "piece": "P04"
+      },
+      {
+        "w": "with",
+        "t0": 22.381282363691763,
+        "t1": 22.57863234846179,
+        "src_start": 197.18,
+        "src_end": 197.4,
+        "piece": "P04"
+      },
+      {
+        "w": "your",
+        "t0": 22.57863234846179,
+        "t1": 22.668336886993615,
+        "src_start": 197.4,
+        "src_end": 197.5,
+        "piece": "P04"
+      },
+      {
+        "w": "dream",
+        "t0": 22.668336886993615,
+        "t1": 22.865686871763643,
+        "src_start": 197.5,
+        "src_end": 197.72,
+        "piece": "P04"
+      },
+      {
+        "w": "body",
+        "t0": 22.865686871763643,
+        "t1": 23.11685957965277,
+        "src_start": 197.72,
+        "src_end": 198.0,
+        "piece": "P04"
+      },
+      {
+        "w": "using",
+        "t0": 23.11685957965277,
+        "t1": 23.637145903137398,
+        "src_start": 198.0,
+        "src_end": 198.58,
+        "piece": "P04"
+      },
+      {
+        "w": "AI.",
+        "t0": 23.637145903137398,
+        "t1": 24.03184587267745,
+        "src_start": 198.58,
+        "src_end": 199.02,
+        "piece": "P04"
+      },
+      {
+        "w": "And",
+        "t0": 24.30095948827293,
+        "t1": 24.570073103868406,
+        "src_start": 199.58,
+        "src_end": 199.88,
+        "piece": "P05"
+      },
+      {
+        "w": "that's",
+        "t0": 24.570073103868406,
+        "t1": 24.839186719463907,
+        "src_start": 199.88,
+        "src_end": 200.18,
+        "piece": "P05"
+      },
+      {
+        "w": "not",
+        "t0": 24.839186719463907,
+        "t1": 24.96477307340846,
+        "src_start": 200.18,
+        "src_end": 200.32,
+        "piece": "P05"
+      },
+      {
+        "w": "just",
+        "t0": 24.96477307340846,
+        "t1": 25.12624124276576,
+        "src_start": 200.32,
+        "src_end": 200.5,
+        "piece": "P05"
+      },
+      {
+        "w": "to",
+        "t0": 25.12624124276576,
+        "t1": 25.25182759671031,
+        "src_start": 200.5,
+        "src_end": 200.64,
+        "piece": "P05"
+      },
+      {
+        "w": "motivate",
+        "t0": 25.25182759671031,
+        "t1": 25.520941212305814,
+        "src_start": 200.64,
+        "src_end": 200.94,
+        "piece": "P05"
+      },
+      {
+        "w": "you.",
+        "t0": 25.520941212305814,
+        "t1": 25.807995735607665,
+        "src_start": 200.94,
+        "src_end": 201.26,
+        "piece": "P05"
+      },
+      {
+        "w": "That",
+        "t0": 26.068138897349993,
+        "t1": 26.534602497715497,
+        "src_start": 216.36,
+        "src_end": 216.88,
+        "piece": "P06"
+      },
+      {
+        "w": "shows",
+        "t0": 26.534602497715497,
+        "t1": 26.785775205604622,
+        "src_start": 216.88,
+        "src_end": 217.16,
+        "piece": "P06"
+      },
+      {
+        "w": "your",
+        "t0": 26.785775205604622,
+        "t1": 26.9651842826683,
+        "src_start": 217.16,
+        "src_end": 217.36,
+        "piece": "P06"
+      },
+      {
+        "w": "AI",
+        "t0": 26.9651842826683,
+        "t1": 27.19841608285105,
+        "src_start": 217.36,
+        "src_end": 217.62,
+        "piece": "P06"
+      },
+      {
+        "w": "trainer",
+        "t0": 27.19841608285105,
+        "t1": 27.593116052391103,
+        "src_start": 217.62,
+        "src_end": 218.06,
+        "piece": "P06"
+      },
+      {
+        "w": "exactly",
+        "t0": 27.593116052391103,
+        "t1": 28.310752360645758,
+        "src_start": 218.06,
+        "src_end": 218.86,
+        "piece": "P06"
+      },
+      {
+        "w": "how",
+        "t0": 28.310752360645758,
+        "t1": 28.526043253122133,
+        "src_start": 218.86,
+        "src_end": 219.1,
+        "piece": "P06"
+      },
+      {
+        "w": "much",
+        "t0": 28.526043253122133,
+        "t1": 28.65162960706671,
+        "src_start": 219.1,
+        "src_end": 219.24,
+        "piece": "P06"
+      },
+      {
+        "w": "fat",
+        "t0": 28.65162960706671,
+        "t1": 28.795156868717637,
+        "src_start": 219.24,
+        "src_end": 219.4,
+        "piece": "P06"
+      },
+      {
+        "w": "you",
+        "t0": 28.795156868717637,
+        "t1": 28.90280231495584,
+        "src_start": 219.4,
+        "src_end": 219.52,
+        "piece": "P06"
+      },
+      {
+        "w": "have",
+        "t0": 28.90280231495584,
+        "t1": 29.046329576606762,
+        "src_start": 219.52,
+        "src_end": 219.68,
+        "piece": "P06"
+      },
+      {
+        "w": "to",
+        "t0": 29.046329576606762,
+        "t1": 29.13603411513859,
+        "src_start": 219.68,
+        "src_end": 219.78,
+        "piece": "P06"
+      },
+      {
+        "w": "lose",
+        "t0": 29.13603411513859,
+        "t1": 29.351325007614992,
+        "src_start": 219.78,
+        "src_end": 220.02,
+        "piece": "P06"
+      },
+      {
+        "w": "and",
+        "t0": 29.351325007614992,
+        "t1": 29.710143161742295,
+        "src_start": 220.02,
+        "src_end": 220.42,
+        "piece": "P06"
+      },
+      {
+        "w": "where",
+        "t0": 29.710143161742295,
+        "t1": 29.979256777337795,
+        "src_start": 220.42,
+        "src_end": 220.72,
+        "piece": "P06"
+      },
+      {
+        "w": "you",
+        "t0": 29.979256777337795,
+        "t1": 30.176606762107824,
+        "src_start": 220.72,
+        "src_end": 220.94,
+        "piece": "P06"
+      },
+      {
+        "w": "need",
+        "t0": 30.176606762107824,
+        "t1": 30.302193116052397,
+        "src_start": 220.94,
+        "src_end": 221.08,
+        "piece": "P06"
+      },
+      {
+        "w": "to",
+        "t0": 30.302193116052397,
+        "t1": 30.42777946999695,
+        "src_start": 221.08,
+        "src_end": 221.22,
+        "piece": "P06"
+      },
+      {
+        "w": "gain",
+        "t0": 30.42777946999695,
+        "t1": 30.571306731647873,
+        "src_start": 221.22,
+        "src_end": 221.38,
+        "piece": "P06"
+      },
+      {
+        "w": "muscle",
+        "t0": 30.571306731647873,
+        "t1": 30.858361254949727,
+        "src_start": 221.38,
+        "src_end": 221.7,
+        "piece": "P06"
+      },
+      {
+        "w": "to",
+        "t0": 30.858361254949727,
+        "t1": 31.199238501370704,
+        "src_start": 221.7,
+        "src_end": 222.08,
+        "piece": "P06"
+      },
+      {
+        "w": "make",
+        "t0": 31.199238501370704,
+        "t1": 31.39658848614073,
+        "src_start": 222.08,
+        "src_end": 222.3,
+        "piece": "P06"
+      },
+      {
+        "w": "your",
+        "t0": 31.39658848614073,
+        "t1": 31.52217484008528,
+        "src_start": 222.3,
+        "src_end": 222.44,
+        "piece": "P06"
+      },
+      {
+        "w": "dream",
+        "t0": 31.52217484008528,
+        "t1": 31.791288455680785,
+        "src_start": 222.44,
+        "src_end": 222.74,
+        "piece": "P06"
+      },
+      {
+        "w": "body",
+        "t0": 31.791288455680785,
+        "t1": 32.04246116356991,
+        "src_start": 222.74,
+        "src_end": 223.02,
+        "piece": "P06"
+      },
+      {
+        "w": "real.",
+        "t0": 32.04246116356991,
+        "t1": 32.54480657934816,
+        "src_start": 223.02,
+        "src_end": 223.58,
+        "piece": "P06"
+      },
+      {
+        "w": "Next,",
+        "t0": 32.81392019494364,
+        "t1": 33.11891562595187,
+        "src_start": 224.12,
+        "src_end": 224.46,
+        "piece": "P07"
+      },
+      {
+        "w": "the",
+        "t0": 33.38802924154734,
+        "t1": 33.4777337800792,
+        "src_start": 224.76,
+        "src_end": 224.86,
+        "piece": "P07"
+      },
+      {
+        "w": "AI",
+        "t0": 33.4777337800792,
+        "t1": 33.71096558026195,
+        "src_start": 224.86,
+        "src_end": 225.12,
+        "piece": "P07"
+      },
+      {
+        "w": "generates",
+        "t0": 33.71096558026195,
+        "t1": 34.1594882729211,
+        "src_start": 225.12,
+        "src_end": 225.62,
+        "piece": "P07"
+      },
+      {
+        "w": "a",
+        "t0": 34.1594882729211,
+        "t1": 34.3747791653975,
+        "src_start": 225.62,
+        "src_end": 225.86,
+        "piece": "P07"
+      },
+      {
+        "w": "personalized",
+        "t0": 34.3747791653975,
+        "t1": 34.769479134937555,
+        "src_start": 225.86,
+        "src_end": 226.3,
+        "piece": "P07"
+      },
+      {
+        "w": "workout",
+        "t0": 34.769479134937555,
+        "t1": 35.25388364300943,
+        "src_start": 226.3,
+        "src_end": 226.84,
+        "piece": "P07"
+      },
+      {
+        "w": "and",
+        "t0": 35.25388364300943,
+        "t1": 35.52299725860491,
+        "src_start": 226.84,
+        "src_end": 227.14,
+        "piece": "P07"
+      },
+      {
+        "w": "nutrition",
+        "t0": 35.52299725860491,
+        "t1": 35.810051781906786,
+        "src_start": 227.14,
+        "src_end": 227.46,
+        "piece": "P07"
+      },
+      {
+        "w": "program",
+        "t0": 35.810051781906786,
+        "t1": 36.276515382272294,
+        "src_start": 227.46,
+        "src_end": 227.98,
+        "piece": "P07"
+      },
+      {
+        "w": "designed",
+        "t0": 36.276515382272294,
+        "t1": 36.79680170575692,
+        "src_start": 227.98,
+        "src_end": 228.56,
+        "piece": "P07"
+      },
+      {
+        "w": "to",
+        "t0": 36.79680170575692,
+        "t1": 37.10179713676514,
+        "src_start": 228.56,
+        "src_end": 228.9,
+        "piece": "P07"
+      },
+      {
+        "w": "get",
+        "t0": 37.10179713676514,
+        "t1": 37.245324398416074,
+        "src_start": 228.9,
+        "src_end": 229.06,
+        "piece": "P07"
+      },
+      {
+        "w": "you",
+        "t0": 37.245324398416074,
+        "t1": 37.37091075236062,
+        "src_start": 229.06,
+        "src_end": 229.2,
+        "piece": "P07"
+      },
+      {
+        "w": "to",
+        "t0": 37.37091075236062,
+        "t1": 37.514438014011574,
+        "src_start": 229.2,
+        "src_end": 229.36,
+        "piece": "P07"
+      },
+      {
+        "w": "your",
+        "t0": 37.514438014011574,
+        "t1": 37.64002436795612,
+        "src_start": 229.36,
+        "src_end": 229.5,
+        "piece": "P07"
+      },
+      {
+        "w": "goal.",
+        "t0": 37.64002436795612,
+        "t1": 37.855315260432526,
+        "src_start": 229.5,
+        "src_end": 229.74,
+        "piece": "P07"
+      },
+      {
+        "w": "It's",
+        "t0": 38.10648796832165,
+        "t1": 38.35766067621078,
+        "src_start": 230.16,
+        "src_end": 230.44,
+        "piece": "P08"
+      },
+      {
+        "w": "far",
+        "t0": 38.35766067621078,
+        "t1": 38.62677429180628,
+        "src_start": 230.44,
+        "src_end": 230.74,
+        "piece": "P08"
+      },
+      {
+        "w": "better",
+        "t0": 38.62677429180628,
+        "t1": 38.89588790740176,
+        "src_start": 230.74,
+        "src_end": 231.04,
+        "piece": "P08"
+      },
+      {
+        "w": "than",
+        "t0": 38.89588790740176,
+        "t1": 39.057356076759056,
+        "src_start": 231.04,
+        "src_end": 231.22,
+        "piece": "P08"
+      },
+      {
+        "w": "any",
+        "t0": 39.057356076759056,
+        "t1": 39.23676515382271,
+        "src_start": 231.22,
+        "src_end": 231.42,
+        "piece": "P08"
+      },
+      {
+        "w": "human",
+        "t0": 39.23676515382271,
+        "t1": 39.46999695400549,
+        "src_start": 231.42,
+        "src_end": 231.68,
+        "piece": "P08"
+      },
+      {
+        "w": "fitness",
+        "t0": 39.46999695400549,
+        "t1": 39.70322875418824,
+        "src_start": 231.68,
+        "src_end": 231.94,
+        "piece": "P08"
+      },
+      {
+        "w": "plan",
+        "t0": 39.70322875418824,
+        "t1": 40.04410600060919,
+        "src_start": 231.94,
+        "src_end": 232.32,
+        "piece": "P08"
+      },
+      {
+        "w": "because",
+        "t0": 40.04410600060919,
+        "t1": 40.474687785562,
+        "src_start": 232.32,
+        "src_end": 232.8,
+        "piece": "P08"
+      },
+      {
+        "w": "it's",
+        "t0": 40.474687785562,
+        "t1": 40.67203777033202,
+        "src_start": 232.8,
+        "src_end": 233.02,
+        "piece": "P08"
+      },
+      {
+        "w": "specifically",
+        "t0": 40.67203777033202,
+        "t1": 41.210265001523,
+        "src_start": 233.02,
+        "src_end": 233.62,
+        "piece": "P08"
+      },
+      {
+        "w": "designed",
+        "t0": 41.210265001523,
+        "t1": 41.694669509594874,
+        "src_start": 233.62,
+        "src_end": 234.16,
+        "piece": "P08"
+      },
+      {
+        "w": "just",
+        "t0": 41.694669509594874,
+        "t1": 42.17907401766676,
+        "src_start": 234.16,
+        "src_end": 234.7,
+        "piece": "P08"
+      },
+      {
+        "w": "for",
+        "t0": 42.17907401766676,
+        "t1": 42.48406944867498,
+        "src_start": 234.7,
+        "src_end": 235.04,
+        "piece": "P08"
+      },
+      {
+        "w": "you.",
+        "t0": 42.48406944867498,
+        "t1": 42.66347852573866,
+        "src_start": 235.04,
+        "src_end": 235.24,
+        "piece": "P08"
+      },
+      {
+        "w": "And",
+        "t0": 42.66347852573866,
+        "t1": 43.29141029546146,
+        "src_start": 235.24,
+        "src_end": 235.94,
+        "piece": "P08"
+      },
+      {
+        "w": "finally,",
+        "t0": 43.29141029546146,
+        "t1": 43.63228754188242,
+        "src_start": 235.94,
+        "src_end": 236.32,
+        "piece": "P08"
+      },
+      {
+        "w": "AI",
+        "t0": 43.91934206518427,
+        "t1": 44.13463295766067,
+        "src_start": 236.64,
+        "src_end": 236.88,
+        "piece": "P08"
+      },
+      {
+        "w": "adjusts",
+        "t0": 44.13463295766067,
+        "t1": 44.78050563508985,
+        "src_start": 236.88,
+        "src_end": 237.6,
+        "piece": "P08"
+      },
+      {
+        "w": "your",
+        "t0": 44.78050563508985,
+        "t1": 44.79844654279623,
+        "src_start": 237.6,
+        "src_end": 237.62,
+        "piece": "P08"
+      },
+      {
+        "w": "plan",
+        "t0": 44.79844654279623,
+        "t1": 45.0675601583917,
+        "src_start": 237.62,
+        "src_end": 237.92,
+        "piece": "P08"
+      },
+      {
+        "w": "when",
+        "t0": 45.0675601583917,
+        "t1": 45.354614681693576,
+        "src_start": 237.92,
+        "src_end": 238.24,
+        "piece": "P08"
+      },
+      {
+        "w": "life",
+        "t0": 45.354614681693576,
+        "t1": 45.64166920499543,
+        "src_start": 238.24,
+        "src_end": 238.56,
+        "piece": "P08"
+      },
+      {
+        "w": "gets",
+        "t0": 45.64166920499543,
+        "t1": 45.87490100517818,
+        "src_start": 238.56,
+        "src_end": 238.82,
+        "piece": "P08"
+      },
+      {
+        "w": "in",
+        "t0": 45.87490100517818,
+        "t1": 46.00048735912276,
+        "src_start": 238.82,
+        "src_end": 238.96,
+        "piece": "P08"
+      },
+      {
+        "w": "the",
+        "t0": 46.00048735912276,
+        "t1": 46.090191897654584,
+        "src_start": 238.96,
+        "src_end": 239.06,
+        "piece": "P08"
+      },
+      {
+        "w": "way.",
+        "t0": 46.090191897654584,
+        "t1": 46.25166006701188,
+        "src_start": 239.06,
+        "src_end": 239.24,
+        "piece": "P08"
+      },
+      {
+        "w": "When",
+        "t0": 46.502832774901016,
+        "t1": 46.57459640572649,
+        "src_start": 239.82,
+        "src_end": 239.9,
+        "piece": "P09"
+      },
+      {
+        "w": "you",
+        "t0": 46.57459640572649,
+        "t1": 46.700182759671044,
+        "src_start": 239.9,
+        "src_end": 240.04,
+        "piece": "P09"
+      },
+      {
+        "w": "get",
+        "t0": 46.664300944258315,
+        "t1": 46.82576911361562,
+        "src_start": 240.0,
+        "src_end": 240.18,
+        "piece": "P09"
+      },
+      {
+        "w": "injured,",
+        "t0": 46.82576911361562,
+        "t1": 47.1487054523302,
+        "src_start": 240.18,
+        "src_end": 240.54,
+        "piece": "P09"
+      },
+      {
+        "w": "when",
+        "t0": 47.4178190679257,
+        "t1": 47.54340542187025,
+        "src_start": 240.84,
+        "src_end": 240.98,
+        "piece": "P09"
+      },
+      {
+        "w": "you",
+        "t0": 47.54340542187025,
+        "t1": 47.668991775814824,
+        "src_start": 240.98,
+        "src_end": 241.12,
+        "piece": "P09"
+      },
+      {
+        "w": "can't",
+        "t0": 47.668991775814824,
+        "t1": 47.95604629911668,
+        "src_start": 241.12,
+        "src_end": 241.44,
+        "piece": "P09"
+      },
+      {
+        "w": "make",
+        "t0": 47.95604629911668,
+        "t1": 48.08163265306125,
+        "src_start": 241.44,
+        "src_end": 241.58,
+        "piece": "P09"
+      },
+      {
+        "w": "it",
+        "t0": 48.08163265306125,
+        "t1": 48.171337191593075,
+        "src_start": 241.58,
+        "src_end": 241.68,
+        "piece": "P09"
+      },
+      {
+        "w": "to",
+        "t0": 48.171337191593075,
+        "t1": 48.27898263783128,
+        "src_start": 241.68,
+        "src_end": 241.8,
+        "piece": "P09"
+      },
+      {
+        "w": "the",
+        "t0": 48.27898263783128,
+        "t1": 48.35074626865673,
+        "src_start": 241.8,
+        "src_end": 241.88,
+        "piece": "P09"
+      },
+      {
+        "w": "gym",
+        "t0": 48.35074626865673,
+        "t1": 48.5301553457204,
+        "src_start": 241.88,
+        "src_end": 242.08,
+        "piece": "P09"
+      },
+      {
+        "w": "one",
+        "t0": 48.5301553457204,
+        "t1": 48.69162351507768,
+        "src_start": 242.08,
+        "src_end": 242.26,
+        "piece": "P09"
+      },
+      {
+        "w": "day,",
+        "t0": 48.69162351507768,
+        "t1": 48.90691440755408,
+        "src_start": 242.26,
+        "src_end": 242.5,
+        "piece": "P09"
+      },
+      {
+        "w": "or",
+        "t0": 49.05044166920501,
+        "t1": 49.31955528480051,
+        "src_start": 242.66,
+        "src_end": 242.96,
+        "piece": "P09"
+      },
+      {
+        "w": "when",
+        "t0": 49.31955528480051,
+        "t1": 49.481023454157786,
+        "src_start": 242.96,
+        "src_end": 243.14,
+        "piece": "P09"
+      },
+      {
+        "w": "the",
+        "t0": 49.481023454157786,
+        "t1": 49.60660980810236,
+        "src_start": 243.14,
+        "src_end": 243.28,
+        "piece": "P09"
+      },
+      {
+        "w": "equipment",
+        "t0": 49.60660980810236,
+        "t1": 49.947487054523314,
+        "src_start": 243.28,
+        "src_end": 243.66,
+        "piece": "P09"
+      },
+      {
+        "w": "you",
+        "t0": 49.947487054523314,
+        "t1": 50.16277794699972,
+        "src_start": 243.66,
+        "src_end": 243.9,
+        "piece": "P09"
+      },
+      {
+        "w": "need",
+        "t0": 50.16277794699972,
+        "t1": 50.28836430094427,
+        "src_start": 243.9,
+        "src_end": 244.04,
+        "piece": "P09"
+      },
+      {
+        "w": "is",
+        "t0": 50.28836430094427,
+        "t1": 50.4318915625952,
+        "src_start": 244.04,
+        "src_end": 244.2,
+        "piece": "P09"
+      },
+      {
+        "w": "broken.",
+        "t0": 50.4318915625952,
+        "t1": 50.68306427048432,
+        "src_start": 244.2,
+        "src_end": 244.48,
+        "piece": "P09"
+      },
+      {
+        "w": "AI",
+        "t0": 50.93423697837342,
+        "t1": 51.14952787084982,
+        "src_start": 244.92,
+        "src_end": 245.16,
+        "piece": "P10"
+      },
+      {
+        "w": "adjusts",
+        "t0": 51.14952787084982,
+        "t1": 51.93892780992993,
+        "src_start": 245.16,
+        "src_end": 246.04,
+        "piece": "P10"
+      },
+      {
+        "w": "your",
+        "t0": 51.93892780992993,
+        "t1": 51.956868717636304,
+        "src_start": 246.04,
+        "src_end": 246.06,
+        "piece": "P10"
+      },
+      {
+        "w": "plan",
+        "t0": 51.956868717636304,
+        "t1": 52.225982333231805,
+        "src_start": 246.06,
+        "src_end": 246.36,
+        "piece": "P10"
+      },
+      {
+        "w": "in",
+        "t0": 52.225982333231805,
+        "t1": 52.54891867194638,
+        "src_start": 246.36,
+        "src_end": 246.72,
+        "piece": "P10"
+      },
+      {
+        "w": "seconds.",
+        "t0": 52.54891867194638,
+        "t1": 53.01538227231191,
+        "src_start": 246.72,
+        "src_end": 247.24,
+        "piece": "P10"
+      },
+      {
+        "w": "Ditch",
+        "t0": 53.26655498020104,
+        "t1": 53.643314042034746,
+        "src_start": 251.16,
+        "src_end": 251.58,
+        "piece": "P11"
+      },
+      {
+        "w": "expensive",
+        "t0": 53.643314042034746,
+        "t1": 54.12771855010662,
+        "src_start": 251.58,
+        "src_end": 252.12,
+        "piece": "P11"
+      },
+      {
+        "w": "human",
+        "t0": 54.12771855010662,
+        "t1": 54.576241242765775,
+        "src_start": 252.12,
+        "src_end": 252.62,
+        "piece": "P11"
+      },
+      {
+        "w": "trainers",
+        "t0": 54.576241242765775,
+        "t1": 54.97094121230583,
+        "src_start": 252.62,
+        "src_end": 253.06,
+        "piece": "P11"
+      },
+      {
+        "w": "and",
+        "t0": 54.97094121230583,
+        "t1": 55.383582089552256,
+        "src_start": 253.06,
+        "src_end": 253.52,
+        "piece": "P11"
+      },
+      {
+        "w": "build",
+        "t0": 55.383582089552256,
+        "t1": 55.616813889735006,
+        "src_start": 253.52,
+        "src_end": 253.78,
+        "piece": "P11"
+      },
+      {
+        "w": "your",
+        "t0": 55.616813889735006,
+        "t1": 55.74240024367956,
+        "src_start": 253.78,
+        "src_end": 253.92,
+        "piece": "P11"
+      },
+      {
+        "w": "six",
+        "t0": 55.74240024367956,
+        "t1": 55.921809320743236,
+        "src_start": 253.92,
+        "src_end": 254.12,
+        "piece": "P11"
+      },
+      {
+        "w": "pack",
+        "t0": 55.921809320743236,
+        "t1": 56.10121839780689,
+        "src_start": 254.12,
+        "src_end": 254.32,
+        "piece": "P11"
+      },
+      {
+        "w": "abs",
+        "t0": 56.10121839780689,
+        "t1": 56.37033201340239,
+        "src_start": 254.32,
+        "src_end": 254.62,
+        "piece": "P11"
+      },
+      {
+        "w": "with",
+        "t0": 56.37033201340239,
+        "t1": 56.621504721291515,
+        "src_start": 254.62,
+        "src_end": 254.9,
+        "piece": "P11"
+      },
+      {
+        "w": "AI.",
+        "t0": 56.621504721291515,
+        "t1": 56.90855924459337,
+        "src_start": 254.9,
+        "src_end": 255.22,
+        "piece": "P11"
+      },
+      {
+        "w": "Tap",
+        "t0": 57.159731952482495,
+        "t1": 57.428845568077996,
+        "src_start": 255.76,
+        "src_end": 256.06,
+        "piece": "P12"
+      },
+      {
+        "w": "the",
+        "t0": 57.428845568077996,
+        "t1": 57.590313737435295,
+        "src_start": 256.06,
+        "src_end": 256.24,
+        "piece": "P12"
+      },
+      {
+        "w": "button",
+        "t0": 57.590313737435295,
+        "t1": 57.7338409990862,
+        "src_start": 256.24,
+        "src_end": 256.4,
+        "piece": "P12"
+      },
+      {
+        "w": "below",
+        "t0": 57.7338409990862,
+        "t1": 58.03883643009445,
+        "src_start": 256.4,
+        "src_end": 256.74,
+        "piece": "P12"
+      },
+      {
+        "w": "to",
+        "t0": 58.03883643009445,
+        "t1": 58.3258909533963,
+        "src_start": 256.74,
+        "src_end": 257.06,
+        "piece": "P12"
+      },
+      {
+        "w": "get",
+        "t0": 58.3258909533963,
+        "t1": 58.45147730734085,
+        "src_start": 257.06,
+        "src_end": 257.2,
+        "piece": "P12"
+      },
+      {
+        "w": "started.",
+        "t0": 58.45147730734085,
+        "t1": 58.73853183064271,
+        "src_start": 257.2,
+        "src_end": 257.52,
+        "piece": "P12"
+      }
+    ],
+    "timing": "mapped-source",
+    "fixes": [
+      [
+        "trainer",
+        "trainer."
+      ],
+      [
+        "and",
+        "And"
+      ],
+      [
+        "seconds",
+        "seconds."
+      ]
+    ]
+  },
+  "graphics": [
+    {
+      "id": "G01",
+      "template": "analysis-card",
+      "config": {
+        "a": 25.25182759671031,
+        "b": 32.81392019494364,
+        "band": [
+          "Your Workout Plan",
+          31.397
+        ],
+        "drift": -6,
+        "id": "G01",
+        "label": "AI-GENERATED",
+        "photo": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/example pictures/dan by pool.png",
+        "push": 1.05,
+        "reveal": [
+          26.786,
+          28.311,
+          30.428
+        ],
+        "rows": [
+          "Body Fat",
+          "Fat To Lose",
+          "Muscle To Gain"
+        ],
+        "rendered_vertical_layout": {
+          "id": "G01",
+          "dur": 7.562,
+          "canvas": [
+            1080,
+            1920
+          ],
+          "push": 1.05,
+          "drift": -6,
+          "photo": {
+            "x": 230,
+            "y": 160,
+            "w": 619,
+            "h": 720,
+            "src": "assets/photo.png"
+          },
+          "chip": {
+            "x": 394,
+            "y": 906,
+            "w": 290,
+            "h": 64,
+            "s": "AI-GENERATED",
+            "px": 34,
+            "pad": 24,
+            "ty": 8
+          },
+          "card": [
+            36,
+            996,
+            1008,
+            380
+          ],
+          "rows": [
+            {
+              "s": "Body Fat",
+              "px": 34,
+              "lx": 64,
+              "ly": 1032,
+              "bx": 359,
+              "by": 1043,
+              "bw": 657,
+              "bh": 26,
+              "v": 0.58,
+              "t": 1.534
+            },
+            {
+              "s": "Fat To Lose",
+              "px": 34,
+              "lx": 64,
+              "ly": 1108,
+              "bx": 359,
+              "by": 1119,
+              "bw": 657,
+              "bh": 26,
+              "v": 0.42,
+              "t": 3.059
+            },
+            {
+              "s": "Muscle To Gain",
+              "px": 34,
+              "lx": 64,
+              "ly": 1184,
+              "bx": 359,
+              "by": 1195,
+              "bw": 657,
+              "bh": 26,
+              "v": 0.66,
+              "t": 5.176
+            }
+          ],
+          "band": {
+            "x": 64,
+            "y": 1264,
+            "w": 952,
+            "h": 84,
+            "s": "Your Workout Plan",
+            "px": 40,
+            "t": 6.145,
+            "tx": 289,
+            "ty": 14
+          },
+          "scan": [
+            0.1,
+            1.4
+          ]
+        }
+      },
+      "text": [
+        "Body Fat",
+        "Fat To Lose",
+        "Muscle To Gain",
+        "Your Workout Plan",
+        "AI-GENERATED"
+      ],
+      "t0": 25.25182759671031,
+      "t1": 32.81392019494364,
+      "layer": "full",
+      "driven_by": [
+        {
+          "part": "in",
+          "phrase": "motivate you",
+          "t": 25.25182759671031
+        },
+        {
+          "part": "out",
+          "phrase": "Next",
+          "t": 32.81392019494364
+        },
+        {
+          "part": "Body Fat",
+          "phrase": "your AI trainer",
+          "t": 26.786
+        },
+        {
+          "part": "Fat To Lose",
+          "phrase": "how much fat",
+          "t": 28.311
+        },
+        {
+          "part": "Muscle To Gain",
+          "phrase": "gain muscle",
+          "t": 30.428
+        },
+        {
+          "part": "Your Workout Plan",
+          "phrase": "your dream body real",
+          "t": 31.397
+        }
+      ]
+    },
+    {
+      "id": "G02",
+      "template": "lower-third",
+      "config": {
+        "a": 32.81392019494364,
+        "b": 38.10648796832165,
+        "drift": 0,
+        "id": "G02",
+        "parts": [
+          [
+            "A Plan Built Around Your Goal",
+            34.375
+          ]
+        ],
+        "topic": "KEY POINT",
+        "rendered_vertical_layout": {
+          "id": "G02",
+          "mode": "content",
+          "dur": 5.293,
+          "drift": 0,
+          "times": [
+            1.561,
+            1.561
+          ],
+          "canvas": [
+            1080,
+            1920
+          ],
+          "strip": [
+            68.0,
+            1057.6000000000001,
+            945.0,
+            249.0
+          ],
+          "radius": 36.0,
+          "accent": [
+            70.0,
+            1063.6000000000001,
+            16.0,
+            236.0
+          ],
+          "topic": {
+            "x": 130.0,
+            "y": 1083.6000000000001,
+            "s": "KEY POINT"
+          },
+          "point_y": 1133.6000000000001,
+          "parts": [
+            {
+              "s": "A Plan Built",
+              "x": 130.0,
+              "y": 1133.6000000000001
+            },
+            {
+              "s": "Around Your Goal",
+              "x": 130.0,
+              "y": 1205.6000000000001
+            }
+          ]
+        }
+      },
+      "text": [
+        "KEY POINT",
+        "A Plan Built Around Your Goal"
+      ],
+      "t0": 32.81392019494364,
+      "t1": 38.10648796832165,
+      "layer": "overlay",
+      "driven_by": [
+        {
+          "part": "in",
+          "phrase": "Next",
+          "t": 32.81392019494364
+        },
+        {
+          "part": "out",
+          "phrase": "It's far better",
+          "t": 38.10648796832165
+        },
+        {
+          "part": "A Plan Built Around Your Goal",
+          "phrase": "personalized workout",
+          "t": 34.375
+        }
+      ]
+    },
+    {
+      "id": "G03",
+      "template": "lower-third",
+      "config": {
+        "a": 42.66347852573866,
+        "b": 47.4178190679257,
+        "drift": 0,
+        "id": "G03",
+        "parts": [
+          [
+            "Keep Progress Going",
+            43.919
+          ],
+          [
+            "When Life Changes",
+            45.068
+          ]
+        ],
+        "topic": "KEY POINT",
+        "rendered_vertical_layout": {
+          "id": "G03",
+          "mode": "content",
+          "dur": 4.754,
+          "drift": 0,
+          "times": [
+            1.256,
+            2.405
+          ],
+          "canvas": [
+            1080,
+            1920
+          ],
+          "strip": [
+            68.0,
+            1057.6000000000001,
+            945.0,
+            249.0
+          ],
+          "radius": 36.0,
+          "accent": [
+            70.0,
+            1063.6000000000001,
+            16.0,
+            236.0
+          ],
+          "topic": {
+            "x": 130.0,
+            "y": 1083.6000000000001,
+            "s": "KEY POINT"
+          },
+          "point_y": 1133.6000000000001,
+          "parts": [
+            {
+              "s": "Keep Progress Going",
+              "x": 130.0,
+              "y": 1133.6000000000001
+            },
+            {
+              "s": "When Life Changes",
+              "x": 130.0,
+              "y": 1205.6000000000001
+            }
+          ]
+        }
+      },
+      "text": [
+        "KEY POINT",
+        "Keep Progress Going",
+        "When Life Changes"
+      ],
+      "t0": 42.66347852573866,
+      "t1": 47.4178190679257,
+      "layer": "overlay",
+      "driven_by": [
+        {
+          "part": "in",
+          "phrase": "And finally",
+          "t": 42.66347852573866
+        },
+        {
+          "part": "out",
+          "phrase": "when you can't make",
+          "t": 47.4178190679257
+        },
+        {
+          "part": "Keep Progress Going",
+          "phrase": "AI adjusts",
+          "t": 43.919
+        },
+        {
+          "part": "When Life Changes",
+          "phrase": "when life gets",
+          "t": 45.068
+        }
+      ]
+    }
+  ],
+  "pictures": [
+    {
+      "id": "D01-real",
+      "t0": 19.386033333333334,
+      "t1": 22.7227,
+      "kind": "phone",
+      "sources": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+          "src_in": 0,
+          "frames": 100
+        }
+      ],
+      "label_kind": "real",
+      "label": "Real picture of me. Not AI-generated.",
+      "label_source": "Approved R3 disclosure, preserved in exact independently hashed source",
+      "people": "dan",
+      "physique": true,
+      "approved_crop": null,
+      "library_id": null,
+      "note": "Approved same-person simulation. R3 source component reused."
+    },
+    {
+      "id": "D01-ai",
+      "t0": 22.7227,
+      "t1": 24.190833333333334,
+      "kind": "phone",
+      "sources": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra16/round3/DEMO-9x16-CLEAN.mp4",
+          "src_in": 0,
+          "frames": 44
+        }
+      ],
+      "label_kind": "ai",
+      "label": "AI-GENERATED",
+      "label_source": "Approved R3 disclosure, preserved in exact independently hashed source",
+      "people": "dan",
+      "physique": true,
+      "approved_crop": null,
+      "library_id": null,
+      "note": "Approved same-person simulation. R3 source component reused."
+    },
+    {
+      "id": "G01",
+      "t0": 25.258566666666667,
+      "t1": 32.79943333333333,
+      "kind": "photo",
+      "sources": [
+        {
+          "path": "/Volumes/Extreme/_edit_work/ra16/round2/hf9/renders/G01.mov",
+          "src_in": 0,
+          "frames": 226
+        }
+      ],
+      "label_kind": "ai",
+      "label": "AI-GENERATED",
+      "label_source": "Approved R3 disclosure, preserved in exact independently hashed source",
+      "people": "dan",
+      "physique": true,
+      "approved_crop": null,
+      "library_id": null,
+      "note": "Approved same-person simulation. R3 source component reused."
+    }
+  ],
+  "audio": {
+    "mix": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4",
+    "untreated": "/Volumes/Extreme/_edit_work/ra16/round2/audio/retained-accelerated.wav",
+    "gate_stamp": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/masters/AI Took Job AD R4 - 9x16.mp4.audio_gate.json",
+    "chain": "/Volumes/Extreme/_edit_work/ra16/round2/audio/warm-bass-final-timing.wav.voice_chain.json",
+    "music": null
+  },
+  "approvals": {
+    "status": "pending",
+    "round": 4,
+    "decisions": [
+      {
+        "id": "R3 components",
+        "verdict": "approved",
+        "dan": "Everything is approved. Go ahead and give me the handoff for the next round to generate the full film",
+        "scope": "All R3 components in both formats; complete R4 film pending Dan"
+      }
+    ],
+    "source": "/Volumes/Extreme/_edit_work/ra16/round3/round4-plan/decisions.json"
+  },
+  "provenance": {
+    "written": "2026-10-16",
+    "by": "Codex R4 editor",
+    "build_dir": "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4",
+    "inputs": {
+      "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/recipe/r4_gate.py": "a7cca801d3163620e4fd30db95d3d3734e84f6e23ff8c11324e80150656d7823",
+      "/Volumes/Expansion/Abs By AI Edit Work/ra16/round4/recipe/r4_render.py": "ae88afdcb1bd9ea2ab0b6fbf81c1b8e4a844a2dc34cdc0f34493f8d9a743029b"
+    }
+  }
+}

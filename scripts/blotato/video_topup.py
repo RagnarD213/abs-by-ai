@@ -1,0 +1,226 @@
+#!/usr/bin/env python3
+"""Daily video top-up: queue every finished video that is waiting for Blotato room (Dan, 2026-10-11).
+
+ONE routine queues all waiting videos. Never make a scheduled task for a single video.
+
+The waiting list is scripts/blotato/video_waitlist.json, in release order:
+    [{"config": "scripts/blotato/configs/<slug>.json", "kind": "longform" | "short",
+      "job": "RO-07", "label": "Why You MUST Work Out Every Day", "added": "2026-10-11"}, ...]
+A setup that cannot queue because the plan cap is full adds its entry here and stops. Each entry
+needs a finished config (media uploaded, thumbnail, captions) that the normal helper accepts.
+
+For each waiting entry, in order, while the queue has room for its 4 posts:
+  - long-form: keeps the config's date if it is a long-form day of its phase (release_phases.py), still free and
+    at least 1 day away, otherwise takes the first free long-form day after the last queued one. 9 AM
+    America/Chicago. The other platforms follow the next day (longform_queue.py does that). One
+    long-form per day. Release order and dates come from the approved calendar written into each config's "main".
+  - short: keeps the config's slot if it is a Short slot of its phase (release_phases.py: 9 AM, plus 6 PM in the
+    two-a-day phases), still free, in the future and allowed for its content, otherwise takes the next free
+    slot on a day with no long-form. Dedicated and cut Shorts share the same slots (Dan, 2026-10-28; was
+    Thursday-only for dedicated Shorts). Dated plan: Docs/SHORTS_RELEASE_CALENDAR.md.
+    An explicitly approved Short timestamp is preserved; a conflict stops instead of silently moving it.
+    Waitlist flags: "kitchen": true (kitchen footage, never auto-slotted in phases 1 and 3 except the salad family),
+    "gym": true (Oct 23 gym Short, held for January unless "phase1_test": true).
+    A Short whose entry names "after": "<parent config>" waits until that parent is queued and is always
+    slotted after the parent's YouTube release day (no Short before its parent is public; added 2026-10-22).
+    An entry with "parent_config" (the long-form's config) is never slotted on or before the parent's day.
+Then it runs the normal helper (longform_queue.py or organic_short_queue.py) with --apply, which
+verifies on a fresh pull. Entries never jump the line: if the first waiting one does not fit, nothing
+behind it is queued. Never touches, moves or deletes existing Blotato posts. Photo posts
+(queue_topup.py) wait while any video is waiting.
+
+    python3 scripts/blotato/video_topup.py            # dry run
+    python3 scripts/blotato/video_topup.py --apply
+    python3 scripts/blotato/video_topup.py --pending  # prints the number still waiting
+"""
+from __future__ import annotations
+
+import json
+import os
+import subprocess
+import sys
+import urllib.request
+from datetime import date, datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
+
+HERE = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(os.path.dirname(HERE))
+sys.path.insert(0, HERE)
+import release_phases as rp  # noqa: E402
+WAITLIST = os.path.join(HERE, "video_waitlist.json")
+CAP, NEED = 200, 4
+CT = ZoneInfo("America/Chicago")
+YOUTUBE, ACCOUNTS = "46963", ("47105", "67203", "58181", "46963")
+IG_MAX_BYTES = 300_000_000
+HELPER = {"longform": "longform_queue.py", "short": "organic_short_queue.py"}
+# Long-form weekdays, Short days and times now come from release_phases.py (dated phases, Dan 2026-10-28).
+
+
+def load() -> list:
+    return json.load(open(WAITLIST)) if os.path.exists(WAITLIST) else []
+
+
+def pending(entries: list) -> list:
+    return [e for e in entries if not e.get("queued") and not e.get("release_hold")]
+
+
+def utc(day: date, hhmm: str = "09:00") -> str:
+    local = datetime(day.year, day.month, day.day, int(hhmm[:2]), int(hhmm[3:]), tzinfo=CT)
+    return local.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S.000Z")
+
+
+def local_day(iso: str) -> date:
+    return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(CT).date()
+
+
+def local_hhmm(iso: str) -> str:
+    return datetime.fromisoformat(iso.replace("Z", "+00:00")).astimezone(CT).strftime("%H:%M")
+
+
+def acct(i: dict) -> str:
+    return str(i.get("accountId") or (i.get("draft") or {}).get("accountId"))
+
+
+def head_bytes(url: str) -> int | None:
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, method="HEAD"), timeout=30) as r:
+            return int(r.headers.get("Content-Length") or 0) or None
+    except Exception:
+        return None
+
+
+def main() -> int:
+    apply = "--apply" in sys.argv
+    entries = load()
+    if "--pending" not in sys.argv:
+        for e in entries:
+            if e.get("release_hold") and not e.get("queued"):
+                print(f"  held            {e['job']}: release approval/corrections pending")
+    if "--pending" in sys.argv:
+        print(len(pending(entries))); return 0
+    if not pending(entries):
+        print("video top-up: nothing waiting"); return 0
+
+    from danrosefit_migration import api_key, fetch_schedules
+    items = fetch_schedules(api_key())
+    blob = [json.dumps(i) for i in items]
+    free = CAP - len(items)
+    if not apply and "--assume-free" in sys.argv:  # test the slotting on a full queue; dry run only
+        free = int(sys.argv[sys.argv.index("--assume-free") + 1])
+    now = datetime.now(timezone.utc); today = now.astimezone(CT).date()
+
+    yt_slots, longform_days, minutes = set(), set(), set()
+    for i in items:
+        when = i.get("scheduledAt") or ""
+        minutes.add((acct(i), when[:16]))
+        if acct(i) == YOUTUBE:
+            yt_slots.add((local_day(when), local_hhmm(when)))
+            text = ((i.get("draft") or {}).get("content") or {}).get("text") or ""
+            if "utm_campaign=longform" in text:
+                longform_days.add(local_day(when))
+
+    # Explicit date approvals reserve their day even while earlier entries wait for
+    # capacity. Otherwise an earlier film's fallback can take a later film's date.
+    approved_days = {local_day(e['approved_release']): e['config'] for e in pending(entries)
+                     if e.get('kind') == 'longform' and e.get('approved_release')}
+    queued_now, problem, queued_slugs = [], None, set()
+    print(f"queue {len(items)}/{CAP}, free {free}, videos waiting {len(pending(entries))}")
+    for e in pending(entries):
+        path = os.path.join(ROOT, e["config"]); v = json.load(open(path))
+        if e.get("release_hold") or v.get("release_hold"):
+            print(f"  held            {e['job']}: release approval/corrections pending")
+            continue
+        marker = f"utm_content={v['slug']}"
+        have = sum(1 for b in blob if marker in b)
+        need = NEED - (1 if v.get("tiktok_direct") else 0)  # TikTok uploaded by hand for that film
+        if have >= need:
+            e["queued"] = {"found": str(today), "main": v["main"]}
+            print(f"  already queued  {e['job']} {e['label']}"); continue
+        if have:
+            problem = f"{e['job']} is partly queued ({have} of {need} posts): finish it by hand"; break
+        if free < need:
+            print(f"  no room yet     {e['job']} {e['label']} (needs {need}, free {free})"); break
+
+        for key in ("video_url", "tiktok_video_url", "youtube_cover_url", "instagram_video_url"):
+            if v.get(key) and not head_bytes(v[key]):
+                problem = f"{e['job']}: media {key} no longer downloads, re-upload it"; break
+        if problem: break
+        if e["kind"] == "longform" and (head_bytes(v.get("instagram_video_url", v["video_url"])) or 0) > IG_MAX_BYTES:
+            problem = f"{e['job']}: Instagram copy is over 300 MB, add instagram_video_url to the config"; break
+
+        want = local_day(v["main"]); slug = v["slug"]
+        if e["kind"] == "longform":
+            reserved = {day for day, owner in approved_days.items() if owner != e['config']}
+            ok = (rp.longform_allowed(want) and want >= today + timedelta(days=1)
+                  and want not in longform_days and want not in reserved
+                  and not rp.blocked_by_content(want, e, slug))
+            if e.get('approved_release') and (not ok or v['main'] != e['approved_release']):
+                problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
+                break
+            if not ok:
+                want = max(max(longform_days, default=today), today + timedelta(days=1))
+                want = rp.next_longform_day(want, longform_days, reserved)
+                while rp.blocked_by_content(want, e, slug):
+                    want = rp.next_longform_day(want, longform_days, reserved)
+            main = utc(want)
+        else:
+            main = v["main"]; hhmm = local_hhmm(main)
+            clash = any((a, main[:16]) in minutes for a in ACCOUNTS)
+            # A Short never airs before its parent long-form (Dan, 2026-10-17). "after" (2026-10-22) also waits
+            # until the parent is on Blotato; "parent_config" (2026-10-17) only keeps it after the parent's day.
+            earliest = today
+            parent = e.get("after") or e.get("parent_config")
+            if parent:
+                pv = json.load(open(os.path.join(ROOT, parent)))
+                if e.get("after") and not any(f"utm_content={pv['slug']}" in b for b in blob) and pv["slug"] not in queued_slugs:
+                    print(f"  waiting parent  {e['job']} {e['label']}: {pv['slug']} is not queued yet"); continue
+                earliest = max(today, local_day(pv["main"]) + timedelta(days=1))
+            # An explicit approval keeps its own clock time (e.g. 5 PM); any other Short must sit on a phase slot.
+            slot_ok = (bool(rp.short_times(want, want in longform_days)) if e.get('approved_release')
+                       else rp.is_short_slot(want, hhmm, want in longform_days))
+            invalid_slot = (datetime.fromisoformat(main.replace("Z", "+00:00")) < now + timedelta(hours=2)
+                            or clash or not slot_ok or want < earliest or rp.blocked_by_content(want, e, slug)
+                            or (want, hhmm) in yt_slots)
+            if e.get('approved_release') and (invalid_slot or main != e['approved_release']):
+                problem = f"{e['job']}: explicitly approved release date is unavailable or changed; keep it for review, do not re-slot"
+                break
+            if invalid_slot:
+                taken = set(yt_slots)
+                start = max(want, today, earliest - timedelta(days=1))
+                while True:
+                    want, hhmm = rp.next_short_slot(start, taken, e, slug)
+                    if not any((a, utc(want, hhmm)[:16]) in minutes for a in ACCOUNTS):
+                        break
+                    taken.add((want, hhmm))
+                main = utc(want, hhmm)
+        moved = main != v["main"]
+        print(f"  {'queue ' if apply else 'would queue'}  {e['job']} {e['label']}: {e['kind']} on "
+              f"{datetime.fromisoformat(main.replace('Z', '+00:00')).astimezone(CT):%a %Y-%m-%d %I:%M %p} Central{' (re-slotted)' if moved else ''}")
+        if apply:
+            if moved:
+                v["main"] = main; open(path, "w").write(json.dumps(v, indent=2, ensure_ascii=False) + "\n")
+            run = subprocess.run([sys.executable, os.path.join(HERE, HELPER[e["kind"]]), path, "--apply"],
+                                 capture_output=True, text=True)
+            print("    " + run.stdout.strip().replace("\n", "\n    "))
+            if run.returncode != 0:
+                problem = f"{e['job']}: {HELPER[e['kind']]} failed: {(run.stderr or run.stdout).strip()[-300:]}"; break
+            e["queued"] = {"date": str(today), "main": main}
+            json.dump(entries, open(WAITLIST, "w"), indent=1)
+        queued_now.append(e["job"]); queued_slugs.add(v["slug"])
+        free -= need
+        day = local_day(main); yt_slots.add((day, local_hhmm(main)))
+        if e["kind"] == "longform":
+            longform_days.add(day)
+        for a in ACCOUNTS:
+            minutes.add((a, main[:16]))
+
+    if apply:
+        json.dump(entries, open(WAITLIST, "w"), indent=1)
+    left = len(pending(entries)) - (0 if apply else len(queued_now))
+    print(f"{'queued' if apply else '(dry) would queue'}: {', '.join(queued_now) or 'none'}; still waiting: {left}")
+    if problem:
+        print("PROBLEM: " + problem); return 1
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

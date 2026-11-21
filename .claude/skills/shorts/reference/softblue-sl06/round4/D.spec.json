@@ -1,0 +1,80 @@
+{
+ "shot": "SL-06 short D R4 AI flex intro (9:16), under the pickup 'Here's why Thursday evening is the best time to inject Zepbound.'",
+ "start_frame": "D_start.jpg",
+ "intent": "AI Dan, shirtless in black gym shorts, dark grey rectangular glasses, in a real gym (charcoal wall, power rack at left edge, cable machine at right edge, dumbbell rack low behind him), front double biceps pose, each fist pinching its own tiny Zepbound vial between thumb and index finger. On the wall at picture left a one-month paper calendar (SUN to SAT header, dates 1 to 30) with every Thursday (5, 12, 19, 26) circled in red and nothing else circled; at picture right a printed navy poster with a yellow top band and border reading exactly 'Inject / Zepbound / Thursday / evening' and a small yellow dumbbell icon, no other text. START: the pose, smiling. END: a beat later, camera locked, both biceps squeeze a little tighter (fists a bit closer to the shoulders) and the grin is a little bigger; both vials still pinched; calendar, poster, gym equipment, wall, face, glasses, shorts unchanged. Only his arms, hands and face expression move.",
+ "person": {
+  "anchored": [
+   "nose",
+   "shoulder"
+  ],
+  "reach": false
+ },
+ "still": {
+  "calendar_thursdays": [
+   320,
+   240,
+   382,
+   470
+  ],
+  "calendar_left": [
+   110,
+   215,
+   315,
+   520
+  ],
+  "poster_line1": [
+   690,
+   215,
+   890,
+   295
+  ],
+  "poster_line3": [
+   640,
+   385,
+   935,
+   465
+  ],
+  "rack_left": [
+   10,
+   120,
+   70,
+   560
+  ],
+  "cable_pulley": [
+   985,
+   190,
+   1075,
+   330
+  ]
+ },
+ "props": [
+  {
+   "name": "vial_picture_left",
+   "box": [
+    246,
+    670,
+    288,
+    739
+   ],
+   "held_by": "right"
+  },
+  {
+   "name": "vial_picture_right",
+   "box": [
+    805,
+    670,
+    846,
+    739
+   ],
+   "held_by": "left"
+  }
+ ],
+ "hands": {
+  "right": "flexed, pinches a vial",
+  "left": "flexed, pinches a vial"
+ },
+ "may_change": {},
+ "bounds": {},
+ "camera": "locked",
+ "note": "Waist-up framing: the legs are off-frame (pose visibility near 0), and no limb straightens, so person.reach is false. Both elbows reach the frame edges in the source pose."
+}

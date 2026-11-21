@@ -1,0 +1,27 @@
+{
+  "content_type": "organic",
+  "source": "Short-form video content/top1-short2_start-with-5-minutes-every-morning.mp4",
+  "slug": "sl17-short2",
+  "campaign": "top-1-percent",
+  "title": "Start With 5 Minutes Every Morning",
+  "video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3e5fda77-c35b-45d7-81a6-20440a5437c3.mp4",
+  "tiktok_video_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/bc67e65d-6292-4c08-986f-90b3a3c9c0e5.mp4",
+  "instagram_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/3ed89f1f-b1f1-4d39-88dc-ff4b1b595529.png",
+  "youtube_cover_url": "https://database.blotato.io/storage/v1/object/public/public_media/a836fa29-cde6-464e-8712-36d8a0de9f32/ff6dadba-19f2-497b-a813-3d6df9a089d9.jpg",
+  "main": "2026-11-06T15:00:00.000Z",
+  "keyword": "ABS",
+  "ai_generated": false,
+  "hook": "If you want to start working out, start with 5 minutes every day, first thing in the morning.",
+  "body": "Then step it up to 10 minutes, then 15, every day. You can start small and build it up, and once the habit is locked in, you'll be shocked at how much better your life gets. That's why I still work out first thing in the morning, 7 days a week. Working out made me healthier, made me feel better, made me more productive, and made my dating life better.",
+  "close": "Leave a comment to let me know how many minutes you're starting with.",
+  "tags": "#MorningWorkout #MorningRoutine #WorkoutMotivation #FitnessTips #AbsByAI",
+  "youtube_description": "If you want to start working out, start with 5 minutes every day, first thing in the morning.\n\nTry your free Abs By AI preview: https://absbyai.com/?utm_source=youtube&utm_medium=short&utm_campaign=top-1-percent&utm_content=sl17-short2\n\nThen step it up to 10 minutes, then 15, every day. You can start small and build it up, and once the habit is locked in, you'll be shocked at how much better your life gets. That's why I still work out first thing in the morning, 7 days a week. Working out made me healthier, made me feel better, made me more productive, and made my dating life better.\n\nFull video on my channel: I'm 41. I'm Top 1%. How I Did It.\n\n#MorningWorkout #MorningRoutine #WorkoutMotivation #FitnessTips #Shorts",
+  "pinned_comment": "I still work out first thing in the morning, 7 days a week. What time do you usually work out?",
+  "parent_config": "ro26-top-1-percent.json",
+  "media_sha256": {
+    "master": "2443763bd108c63f7301aee134b920d8c5f66019b50cb8d9b8fc51ecae836d38",
+    "tiktok": "a285917f06b7f7df98a899e945e34d434ee1bc462c9492b151973cd47f5332c8",
+    "ig": "14d09fa976c63db45607147e755a74113dc1c27f1ea9741f4e43543a3dbec80a",
+    "yt": "382ff7276c3b8027947d9680f7b4bde6991cf12b9175defe2d60bd7e405104d6"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-20",
+  "category": "CONTENT (LFC)",
+  "title": "Arms Shoulders Workout LFC R3",
+  "status": "rendered_checked_awaiting_Dan_review",
+  "review_url": "http://127.0.0.1:8974/",
+  "drive_folder": "https://drive.google.com/drive/folders/1lSinVSCnvlo9zO6Fxm1nCT5IAuesWkI-",
+  "native_sha256": "2a37855812c91260004ed53e56c84d4a0545dd92e5513c8bcc97446f911f318d",
+  "duration_seconds": 125.8590666667,
+  "frames": 3772,
+  "delivery_gate": {
+    "version": "2.6.1",
+    "verdict": "PASS",
+    "counts": {
+      "passed": 25,
+      "declared_na": 14
+    }
+  },
+  "independent_open_defects": 0,
+  "full_film_Dan_approval": false,
+  "model_review_fps": 4,
+  "human_native_rate_continuous_watch": false,
+  "provider_billed_usd": null,
+  "estimated_review_batch_total_usd": "under 2",
+  "ai_generation_usd": 0,
+  "r1_r2_preserved": true,
+  "delivery": "Native and phone audio gates PASS; delivery gate 2.6.1 PASS, 25 measured checks plus 14 declared N/A. Original automatic detector failures retained and bounded evidence recorded.",
+  "local_delivery_folder": "Codex Content Videos/Arms Shoulders Workout Only - RO-04/Round 3",
+  "native_vlc_file": "Videos to Review/Arms Shoulders Workout LFC R3 - full workout.mp4",
+  "independent_report": "Media/video-edits/RO-04/round3/qa/independent-review.md",
+  "executed_handoff": "Handoffs/handoff-20261020-ro04-round3-color-b-full-film.md",
+  "review_player_tested_muted": true,
+  "all_eight_original_backup_files_saved_and_hash_verified": true,
+  "provider_cost": "Estimated total review spend under $2; actual billed amount unavailable; no generation."
+}

@@ -1,0 +1,16 @@
+{
+  "caseId": "moderate-male__max",
+  "arm": "restored",
+  "condition": "moderate",
+  "intensity": "max",
+  "intensityLabel": "Ripped",
+  "desc": "Average male — today's prompt carries NO pounds figure at all on this path",
+  "ok": true,
+  "blocked": false,
+  "error": null,
+  "latencyMs": 6945,
+  "safetyRetry": false,
+  "promptChars": 4965,
+  "image": "moderate-male__max__restored.jpg",
+  "ts": "2026-08-07T22:41:16.420Z"
+}

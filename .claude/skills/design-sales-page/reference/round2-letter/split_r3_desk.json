@@ -1,0 +1,33 @@
+{
+ "parts": [
+  {
+   "file": "R3-Desktop-Top.dc.html",
+   "title": "Desktop \u00b7 top of the page: the guarantee row in the offer card",
+   "keys": [
+    "stripe",
+    "hero",
+    "video",
+    "soundline",
+    "offer1",
+    "note"
+   ],
+   "h": 2400,
+   "content": 2295
+  },
+  {
+   "file": "R3-Desktop-Close.dc.html",
+   "title": "Desktop \u00b7 the close: guarantee card, plan wording, new question, last button",
+   "keys": [
+    "try",
+    "s10",
+    "straight",
+    "cta_s11",
+    "faq",
+    "final",
+    "footer"
+   ],
+   "h": 4560,
+   "content": 4391
+  }
+ ]
+}

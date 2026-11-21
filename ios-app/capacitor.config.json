@@ -1,0 +1,28 @@
+{
+  "appId": "com.absbyai.app",
+  "appName": "Abs by AI",
+  "webDir": "www",
+  "server": {
+    "url": "https://absbyai.com",
+    "allowNavigation": [
+      "absbyai.com",
+      "www.absbyai.com"
+    ]
+  },
+  "ios": {
+    "contentInset": "never",
+    "backgroundColor": "#f6f5f2",
+    "preferredContentMode": "mobile"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "launchAutoHide": true,
+      "backgroundColor": "#f6f5f2",
+      "showSpinner": false
+    },
+    "Keyboard": {
+      "resize": "native"
+    }
+  }
+}

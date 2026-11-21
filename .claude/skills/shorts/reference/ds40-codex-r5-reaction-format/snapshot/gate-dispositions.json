@@ -1,0 +1,49 @@
+{
+  "master_sha256": "3808e604f218ad7281865ea74b3cbcf1a740a1bc595d060f1bcb34b8a3f4f720",
+  "raw_verdict": "FAIL",
+  "purpose": "Review candidate awaiting Dan; not an all-row PASS. No detector thresholds or raw outcomes changed.",
+  "rows": [
+    {
+      "row": "audio:stamp",
+      "raw_ok": false,
+      "raw_detail": "no valid audio-gate stamp: AUDIO GATE FAILED on bill-maher-fat-90-year-old-r5.mp4: lr_corr, tone, artifacts, dryness -- fix the audio, do not deliver",
+      "disposition": "Raw FAIL retained. Four reference-comparison audio failures remain. Dan selected Balanced voice; R5 AAC is byte-identical to R4. Explicit instruction forbids retuning this locked sound. No fresh human listening is claimed."
+    },
+    {
+      "row": "audio:stream_integrity",
+      "raw_ok": false,
+      "raw_detail": "audio 64.863s vs picture 64.865s (gap +0.002s; allowed -0.15..+0.15s); 1 silent second(s) at [4]; quietest -53.8 dBFS",
+      "disposition": "Raw FAIL retained. The flagged second4 is a quiet portion of the preserved complete Bill quote; audio duration differs by only0.002s. Audio gate reports no digitally silent second, but one below-50dBFS second. Original quote and selected voice timing are locked. No cuts or processing added to force a pass."
+    },
+    {
+      "row": "framing:hair_top",
+      "raw_ok": false,
+      "raw_detail": "hair top below the edge: min 0 px, median 12 (min 20 px, normalized to each 1080-high talking-head window); 92 sample(s) under it for >= 2 in a row [(4.75, 0.0), (5.0, 0.0), (5.25, 0.0), (5.5, 0.0), (5.75, 0.0)]; independent top-rows test: 11 sample(s) with head in the top 12 rows (>= 0.2) [(20.25, 0.397), (20.5, 0.622), (20.75, 0.359), (21.0, 0.275), (21.25, 0.212)]; 165/187 valid",
+      "disposition": "Raw FAIL retained. Generic check measures the top of an artificial talking-head subwindow beginning at y600; actual foreground hair intentionally overlaps above this window into the interview panel. Editor measured every source alpha and placement. Fresh independent export check gives native conservative48px and phone52px native-equivalent for all494 main portrait frames, zero invalid. Opening/panel actual native frames and source/geometry evidence were independently inspected. This does not claim the generic detector passed."
+    },
+    {
+      "row": "framing:headroom",
+      "raw_ok": false,
+      "raw_detail": "4 tracked talking holds + 1 intentional fixed-wide; per-hold min hair top [0, 52, 59, 52] (must sit in 30-70 normalized px inside its own window): 0 loose [], 1 tight [(19.0, 0)]; median over the video 51 (max 75)",
+      "disposition": "Raw FAIL retained for required interview-behind-hair layout at19s. The head crosses its artificial subwindow upper edge by design, not the actual film edge. The complete hair remains visible. Native frame/source placement proof and independent review reconcile this row; no crop/style change made to fit a generic portrait window."
+    },
+    {
+      "row": "cut:splice_visibility",
+      "raw_ok": false,
+      "raw_detail": "2/9 joins above the file's own p99 ceiling (10.58): [(32.4, 18.68), (38.0, 22.92)]",
+      "disposition": "Raw FAIL retained. The two changes at32.399 and38.005 are deliberate fixed wide/tight size cuts. Adjacent native frames and2s ordered contexts were independently reviewed, with no naked same-framing splice. Shared native watch scan reports0 naked splices."
+    },
+    {
+      "row": "compliance:banned_screen",
+      "raw_ok": null,
+      "raw_detail": "NOT MEASURED -- `banned_source` not readable (None) -- is the asset library mounted? Without the screen itself nothing can scan for it",
+      "disposition": "NOT MEASURED retained: no readable banned_source was supplied. No fabricated measurement."
+    },
+    {
+      "row": "compliance:negative_events",
+      "raw_ok": null,
+      "raw_detail": "NOT MEASURED -- no `negative_events_scan` in the plan. Sample frames across the finished cut, look for close-ups of out-of-shape body parts framed with shame, and record {sha256, when, frames_checked, findings}. A certain violation you replace yourself; an unsure one you leave in and flag for Dan",
+      "disposition": "NOT MEASURED retained: no negative_events_scan supplied. No fabricated measurement."
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "shot": "D01 standing lean and heavier Dan beside side kitchen counter",
+  "camera": "locked",
+  "intent": "Both men have no necklaces or jewelry in either frame. START two stacked panels, lean shirtless Dan above and heavier shirtless Dan below, both standing beside and leaning against right-side kitchen counter, head-to-mid-thigh, entire abdomen/waist unobstructed. Top right hand holds forked sardine near mouth; left hand holds tin at side above counter. Bottom right holds chip near mouth; left rests on side counter, bowl/chips/crackers remain there. END only heads/necks/mouths lean slightly toward the SAME stationary sardine/chip to bite. Top abs and bottom heavier stomach remain clearly exposed at same size. Keep arms, elbows, wrists, hands, food, fork, tin, counter, body, shorts, camera, split and kitchen fixed. 2.300467 seconds. Do not move food to chase mouths. Mouth contact may occlude or remove only the actual bitten upper edge. No speech/lip sync.",
+  "hands": {
+    "top_right": "holds fixed fork and sardine",
+    "top_left": "holds tin at side above counter, forearm against edge",
+    "bottom_right": "holds stationary chip",
+    "bottom_left": "rests on side counter unchanged"
+  },
+  "may_change": {
+    "top_head_neck": [
+      385,
+      10,
+      625,
+      305
+    ],
+    "bottom_head_neck": [
+      380,
+      780,
+      635,
+      1065
+    ],
+    "top_mouth_food_contact": [
+      440,
+      180,
+      490,
+      240
+    ],
+    "bottom_mouth_chip_contact": [
+      442,
+      950,
+      500,
+      1005
+    ]
+  },
+  "still": {
+    "top_fork_hand": [
+      340,
+      220,
+      385,
+      250
+    ],
+    "top_fork_shaft": [
+      396,
+      201,
+      433,
+      215
+    ],
+    "top_tin_rim": [
+      737,
+      411,
+      783,
+      427
+    ],
+    "top_left_hand": [
+      793,
+      446,
+      826,
+      478
+    ],
+    "top_abs": [
+      465,
+      423,
+      528,
+      478
+    ],
+    "top_shorts_drawstring": [
+      489,
+      560,
+      536,
+      602
+    ],
+    "top_counter_corner": [
+      852,
+      547,
+      892,
+      581
+    ],
+    "top_window_frame": [
+      292,
+      80,
+      307,
+      145
+    ],
+    "bottom_chip_hand": [
+      365,
+      995,
+      403,
+      1028
+    ],
+    "bottom_resting_hand": [
+      797,
+      1245,
+      840,
+      1277
+    ],
+    "bottom_shorts_drawstring": [
+      483,
+      1355,
+      530,
+      1405
+    ],
+    "bottom_chip_bowl": [
+      897,
+      1200,
+      935,
+      1235
+    ],
+    "bottom_counter_corner": [
+      859,
+      1328,
+      900,
+      1360
+    ]
+  },
+  "static": true,
+  "measurement_notes": "Two stacked standing figures, only upper/mid thighs visible, no reliable full-body automatic pose. Reviewer manually measures each visible shoulder/elbow/wrist and silhouette consistency. Check all four hands, both foods, clothing, lean/heavy distinction, side counter support, full abs/stomach visibility. Spec saved before END generation. Mouth bite contact masks allow only naturally occluded/bitten edge, not food/utensil drift. Necklace repair declared before repaired END generation: remove necklaces from both frames only; all source geometry, food and body pixels otherwise remain locked. No new may_change boxes or bounds."
+}

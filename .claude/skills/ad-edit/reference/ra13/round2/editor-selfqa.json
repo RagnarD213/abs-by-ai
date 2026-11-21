@@ -1,0 +1,44 @@
+{
+  "status": "Media self-QA complete, numerical gates FAIL as recorded.",
+  "initial_candidate_verdict": "CTA overlap requires repair",
+  "checks": {
+    "locked_choices": "8 reference fingerprints verified; exact B grade, crop sizes and lighter voice chain preserved.",
+    "headroom": "20 source pixel crop shift;30.86% of existing64.8px gap; min close clearance38px over checked samples; fixed horizontal center1080.",
+    "source_audio": "Per-file lav averaged stereo, actual attached full-cut listen, final full-file attached-media listens. No dereverb.",
+    "source_scene_checks": "Real sunglasses-before photo and AI pool goal from independent approved sources, analysis same photo, B0544 workout/food scenes. A0074 and B0037 rejected and absent.",
+    "native_frame_scan": "Both1616frame scans. No black frames, no unexplained jumps. Vertical five frozen candidates all in still goal image; horizontal one0.4s app-screen span; fresh audit records dispositions.",
+    "root_native_views": "All3 native contact sheets per format,54 sampled frames each; pairs at2.269,28.161,42.609,46.580 per format; ending frames1573,1594,1612; full actual-media support reviews. Not a claimed human native-rate full playback.",
+    "caption_source": "169CTC words,actual final audio alignment,169compositor PNG states.",
+    "ending": "Initial4fps model freeze allegation52.5-53.75 contradicted by all-frame native scan and changing face/hand frames. Independent full actual-media review did not find ending freeze."
+  },
+  "pending": [],
+  "when": "2026-10-14T21:47:07.811822",
+  "repaired_cta": "Viewed native ending strips and pairs for both; abs, face and captions clear.",
+  "additional_native_views": "All9 new final-inventory images viewed by editor: P2cut and finalfive frames plus horizontalP1pair.",
+  "delivery_gate_status": {
+    "9x16": [
+      {
+        "key": "audio:stamp",
+        "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 9x16 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+      },
+      {
+        "key": "cut:splice_visibility",
+        "detail": "1/10 joins above the file's own p99 ceiling (25.21): [(42.61, 25.51)]"
+      }
+    ],
+    "16x9": [
+      {
+        "key": "audio:stamp",
+        "detail": "no valid audio-gate stamp: AUDIO GATE FAILED on why do most guys never get abs | codex | 16x9 | RA-13 R2.mp4: tone, floor -- fix the audio, do not deliver"
+      },
+      {
+        "key": "framing:no_wide_level",
+        "detail": "6 talking holds; head height (hair -> chin) per hold: smallest 23.6% of its window at 46.5s (min 27.0%); 3 wide hold(s) [(0.0, 0.23778), (39.0, 0.23963), (46.5, 0.23583500000000002)]"
+      },
+      {
+        "key": "cut:splice_visibility",
+        "detail": "2/10 joins above the file's own p99 ceiling (36.45): [(2.27, 36.8), (42.61, 39.19)]"
+      }
+    ]
+  }
+}

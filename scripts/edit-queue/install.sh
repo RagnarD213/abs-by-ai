@@ -1,0 +1,31 @@
+#!/bin/sh
+# Install (or remove) the overnight edit queue's two launchd jobs for this user.
+#   scripts/edit-queue/install.sh            install + start. The queue starts PAUSED if no PAUSE decision exists yet.
+#   scripts/edit-queue/install.sh uninstall  stop + remove both jobs (scripts, job list and scoreboard are untouched)
+set -eu
+HERE="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+ROOT="$(CDPATH= cd -- "$HERE/../.." && pwd)"
+AGENTS="$HOME/Library/LaunchAgents"
+DOMAIN="gui/$(id -u)"
+for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
+  launchctl bootout "$DOMAIN/$L" 2>/dev/null || true
+  rm -f "$AGENTS/$L.plist"
+done
+[ "${1:-}" = "uninstall" ] && { echo "Removed. Nothing runs on its own now."; exit 0; }
+mkdir -p "$AGENTS" "$HOME/Library/Logs/absbyai-edit-queue"
+# The real interpreter, not the /usr/bin/python3 shim: through the shim, macOS privacy checks intermittently
+# refused the launchd job access to ~/Documents (2026-09-17); launched directly it was allowed 5/5.
+# Prefer the Command Line Tools Python (2026-11-18): macOS credits a Python inside Xcode.app to Xcode itself, so a
+# Full Disk Access grant on that Python never reaches the agent. The M6 and M2 both grant this copy.
+CLT_PY=/Library/Developer/CommandLineTools/usr/bin/python3
+if [ -x "$CLT_PY" ]; then PY="$CLT_PY"; else PY="$(xcrun --find python3 2>/dev/null || command -v python3)"; fi
+# First install starts paused: un-pausing is a deliberate act (dispatcher.py resume).
+[ -f "$HERE/.installed-once" ] || { python3 "$HERE/dispatcher.py" pause >/dev/null; : > "$HERE/.installed-once"; }
+for L in com.absbyai.edit-queue com.absbyai.edit-queue-review; do
+  sed -e "s|__ROOT__|$ROOT|g" -e "s|__HOME__|$HOME|g" -e "s|__PYTHON__|$PY|g" "$HERE/launchd/$L.plist" > "$AGENTS/$L.plist"
+  launchctl enable "$DOMAIN/$L"
+  launchctl bootstrap "$DOMAIN" "$AGENTS/$L.plist"
+done
+echo "Installed. Dispatcher ticks every 2 min; review page: http://127.0.0.1:8830"
+[ -f "$HERE/PAUSE" ] && echo "The queue is PAUSED (scripts/edit-queue/PAUSE exists). Resume: python3 scripts/edit-queue/dispatcher.py resume"
+echo "Logs: ~/Library/Logs/absbyai-edit-queue/"

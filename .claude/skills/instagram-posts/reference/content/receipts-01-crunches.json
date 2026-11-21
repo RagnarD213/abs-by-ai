@@ -1,0 +1,34 @@
+{
+ "format": "receipts", "id": "receipts-01-crunches", "tag": "Receipts · 01",
+ "status": "posted 2026-10-26 (approved R1 C2); kept as the reference example",
+ "cover": {
+  "headline": "6 weeks of\ncrunches.\n[hl]Zero[/hl] belly\nfat lost.",
+  "sub": "A real study, and my own before photo.",
+  "polaroid": {"image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/toetouch.jpg", "pos": "45% 40%", "zoom": 1.0, "label": "real", "alt": "Dan doing toe-touch crunches on a mat outdoors"}, "caption": "Me now. Crunches weren't why."},
+  "swipe": "Swipe for the receipts"
+ },
+ "study": {
+  "headline": "Researchers had people do 7 ab exercises, 5 days a week, for 6 weeks.",
+  "stats": [{"n": "7", "label": "ab exercises"}, {"n": "5", "label": "days a week"}, {"n": "6", "label": "weeks"}],
+  "rows": [{"label": "Ab endurance", "result": "Went up", "tone": "good"}, {"label": "Belly fat", "result": "No change", "tone": "bad"}],
+  "note": "compared with the group that skipped the ab work",
+  "source": "Vispute et al., Journal of Strength and Conditioning Research, 2011"
+ },
+ "exhibit_b": {
+  "stamp": "Exhibit B: me at 38",
+  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/before.jpg", "pos": "50% 55%", "label": "real", "alt": "Dan at 38 and about 200 pounds, shirtless in a deck chair by a pool"},
+  "caption": "200 lb. Hundreds of crunches.", "headline": "I saw exactly none of them."
+ },
+ "verdict": {
+  "headline": "Abs are a\n[y]body-fat number,[/y]\nnot a rep count.",
+  "body": "The muscle was there the whole time. It was under the fat.",
+  "image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/cut-blue-53.webp", "label": "real", "alt": "Dan now, shirtless with hands behind his head, abs visible"}
+ },
+ "works": {
+  "stamp": "What actually moved it",
+  "items": ["AI built my plan.", "A photo of every plate checked my food.", "I trained 3 days a week."],
+  "side": {"image": {"src": "Short-form video content/instagram-danrosefit/template-r1-mockups/source/app.jpg", "label": "screenshot", "alt": "Phone screen of a meal logged from a photo"}, "caption": "Real screenshot"},
+  "headline": "200 lb at 38.\n[hl]A real six-pack at 40.[/hl]",
+  "save": "Save this for the next time someone tells you to do 100 crunches a day."
+ }
+}

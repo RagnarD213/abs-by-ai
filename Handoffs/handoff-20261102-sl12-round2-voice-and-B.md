@@ -1,0 +1,3 @@
+# Keep Your Muscle SFC R2
+CONTENT. Owner remains 01a19c6e-4550-7283-a7cb-b9db7c442d0f.
+Dan approved A/B asset previews and requested finished B plus an AI own-voice opening and B-roll for A. Exact line and locks: /Volumes/Extreme/_edit_work/SL-12/round2/decisions.json. New AI frames require approval before motion; old assets stay locked. No publication before RO01 is confirmed public Dec6 or later, no setup/upload in this task. R1 source hash/recipe/evidence in .claude/skills/shorts/reference/softblue-sl12/README.md. Final Shorts not built yet, no final gates yet. Up to $5 estimated voice generation; no paid video authorization. Next: B full assembly, own-voice comparisons and new AI opener frames. Same task, Sol high. No new transcript cuts have been applied.

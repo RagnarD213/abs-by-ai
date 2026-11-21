@@ -1,0 +1,5 @@
+# Real identifiable private individuals; the repo is public.
+photos/
+out/*.jpg
+out/thumbs/
+out/gallery.html

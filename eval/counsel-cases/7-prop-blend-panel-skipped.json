@@ -1,0 +1,14 @@
+{
+  "decisionType": "supplement-audit",
+  "expect": "The Skeptic should attack the undisclosed proprietary blend as presumed-underdosed; keep_drop should flag that doses were NOT verified (panel skipped) and lean DROP or SWAP toward a transparent single-ingredient alternative. Not a safety RED on its own.",
+  "intake": {
+    "items": [
+      { "product_name": "BlackList Pre-Workout", "category": "pre-workout", "is_blend": true, "ingredients": [], "needs_panel": true, "panel_skipped": true, "caffeine_mg_per_serving": null, "est_monthly_cost": 45 }
+    ],
+    "medications": "none",
+    "budget_monthly": "$25–75",
+    "max_daily_servings": "1–2",
+    "caffeine_other": "2 coffees",
+    "stack_style": "optimize"
+  }
+}

@@ -1,0 +1,435 @@
+#!/usr/bin/env python3
+"""LABEL CHIPS PLACED BY MEASURING HIM -- the approved square's method (a11_sq_ad1/sqlabelplace.py,
+Dan 2026-09-13: "put that above my head or somewhere it doesn't block my face or abs") ported to the
+9:16 full-bleed beats. For every bleed beat whose content carries `label_kind` (real | ai): render the
+beat WITHOUT a chip, person-mask every 3rd frame + the last (stills push, so frame 0 is not enough),
+take the union, dilate it CLEAR px, and search chip placements in preference order:
+   A  one line, fully ABOVE his head          (Dan's first choice)
+   B  beside his head, one to three lines, high in the frame
+   C  anywhere else clear of him, above the caption band
+Bigger type beats fewer lines. Writes the chip layer PNG per beat, `chip_png` + `chip_box` into
+beats.json, label_place.json and a proof tile per beat; `--verify <delivered>` re-masks the delivered
+file and fails if any chip box comes within VERIFY_PX of him.
+
+  python3 kit_labels.py --build DIR            # place (renders the labelled bleed beats chip-less first)
+  python3 kit_labels.py --build DIR --verify master.mp4
+"""
+import argparse
+import glob
+import json
+import os
+import shutil
+import subprocess
+import sys
+
+import numpy as np
+from PIL import Image, ImageDraw
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.abspath(os.path.join(HERE, "..", "..", "..", "..", ".."))
+FF = os.path.join(REPO, "Media/video_edit/bin/ffmpeg")
+PERSONMASK = os.path.join(REPO, ".claude/skills/shorts/reference/recentre/personmask")
+sys.path.insert(0, os.path.join(REPO, ".claude/skills/_shared"))
+from motionlib import font, text_size  # noqa: E402
+
+FPS = 30000 / 1001
+VW, VH = 1080, 1920
+REAL_LABEL = "Real Photo Of Me, Not AI-Generated"          # VIDEO-RULES "Real-photo labels include touched-up photographs" (Dan 2026-10-17):
+REAL_LABEL_PLURAL = "Real Photos Of Me, Not AI-Generated"  # title case, comma, no em dash, never "Retouched"; plural for a group of photos in one beat (`sheet_label`)
+AI_LABEL = "AI-GENERATED"
+CLEAR = 16                    # px of clearance between the chip and any pixel of him (sqlabelplace)
+VERIFY_PX = 8                 # the delivered-file bound (sqlabelplace --verify)
+VALIDATE_PX = 24              # the PLACEMENT margin with the chip drawn: three times the delivered bound. The
+                              # segmenter is unstable at the bound -- today_towel validated clear on first/mid/last
+                              # at 8 px and the delivered beat still read 53,735 px on its last three frames, when
+                              # the slow push brought his hair beside the chip (measured 2026-09-17)
+TOP_SAFE = 150                # nothing readable above this (vlib TOP_SAFE)
+CHIP_BOTTOM_MAX = 1340        # above the caption band (CAP_Y 1400 minus the shadow)
+INK = (255, 255, 255, 255)
+
+
+SBL = False                   # set from beats.json `style`: a sheet build draws the Soft Blue Light chip (softblue.disclosure)
+
+
+def _font(size):
+    if SBL:
+        import softblue
+        return softblue.font(size, False)
+    return font(size, "SemiBold")
+
+
+def is_real(label):
+    """The real-photo chip, current wording ("Real Photo(s) Of Me, Not AI-Generated") or a legacy one still carried
+    by an older label_place.json / sheet_label ("Real picture of me - not AI-generated", "Real picture of me. Not
+    AI-generated."). The AI chip never starts this way."""
+    return str(label or "").lower().startswith("real p")
+
+
+def chip_parts(label, lines):
+    """Line breaks for the real-photo chip: 2 lines break after the first punctuated word ("Real Photo Of Me," /
+    "Not AI-Generated"; a legacy hyphen copy breaks before the "-"), 3 lines keep "AI-Generated" alone on the last
+    ("Real Photo" / "Of Me, Not" / "AI-Generated"). Same split for the Soft Blue Light and the olive chip."""
+    if lines == 1 or not is_real(label):
+        return [label]
+    w = label.split()
+    if lines == 2:
+        cut = next((i + 1 for i, t in enumerate(w[:-1]) if t[-1] in ",.:"), None)
+        if cut is None:
+            cut = next((i for i, t in enumerate(w) if t in ("-", "\u2014")), len(w) // 2)
+        return [" ".join(w[:cut]), " ".join(w[cut:])]
+    return [" ".join(w[:2]), " ".join(w[2:-1]), w[-1]]
+
+
+def chip_dims(label, lines, size):
+    f = _font(size)
+    parts = chip_parts(label, lines)
+    w = max(text_size(p, f)[0] for p in parts) + 34
+    h = (int(size * 1.18) * len(parts) + 22) if lines > 1 else text_size(parts[0], f)[1] + 22
+    return int(w), int(h)
+
+
+def chip_at(label, x, y, lines=1, size=34):
+    f = _font(size)
+    parts = chip_parts(label, lines)
+    w, h = chip_dims(label, lines, size)
+    lay = Image.new("RGBA", (VW, VH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    d.rounded_rectangle([x, y, x + w, y + h], radius=(h * 3 // 10 if SBL else 9), fill=((6, 17, 30, 255) if SBL else (0, 0, 0, 215)))
+    if len(parts) == 1:
+        d.text((x + 17, y + 11), parts[0], font=f, fill=INK, anchor="lt")
+    else:
+        lh = int(size * 1.18)
+        asc = f.getmetrics()[0]
+        for i, p_ in enumerate(parts):
+            d.text((x + (w - text_size(p_, f)[0]) // 2, y + 11 + i * lh + asc), p_, font=f, fill=INK, anchor="ls")
+    return lay
+
+
+def masks_for(video, idxs, d):
+    shutil.rmtree(d, ignore_errors=True)
+    os.makedirs(d + "/m")
+    sel = "+".join(f"eq(n,{i})" for i in idxs)
+    subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-i", video, "-vf", f"select='{sel}'", "-fps_mode", "passthrough",
+                    f"{d}/%04d.png"], check=True)
+    fs = sorted(glob.glob(f"{d}/*.png"))
+    if not fs:
+        raise SystemExit(f"no frames extracted from {video} at {idxs[:4]}")
+    subprocess.run([PERSONMASK, f"{d}/m"] + fs, check=True, capture_output=True)
+    ms = []
+    for f in fs:
+        mf = f"{d}/m/" + os.path.basename(f).replace(".png", ".mask.png")
+        ms.append(np.array(Image.open(mf).convert("L").resize((VW, VH))) > 127)
+    return fs, ms
+
+
+def dilate(m, r):
+    from scipy.ndimage import binary_dilation
+    return binary_dilation(m, iterations=r)
+
+
+def head_box(m):
+    ys, xs = np.nonzero(m)
+    y0 = ys.min()
+    hs = xs[ys <= y0 + 0.12 * VH]
+    return int(hs.min()), int(y0), int(hs.max()), int(y0 + 0.12 * VH)
+
+
+def candidates(label, union, hbox):
+    """Every clear placement worth trying, in preference order: class A (above the head) before B (beside
+    it) before C (anywhere clear), bigger type before fewer lines; per (class, size, lines) the best
+    position plus mirrored / lower alternates, because the VALIDATION below can refuse the first."""
+    hx0, hy0, hx1, hy1 = hbox
+    hcx = (hx0 + hx1) / 2
+    dil = dilate(union, CLEAR)
+    ii = np.pad(dil.astype(np.int32).cumsum(0).cumsum(1), ((1, 0), (1, 0)))
+
+    def clear(x, y, w, h):
+        return ii[y + h, x + w] - ii[y, x + w] - ii[y + h, x] + ii[y, x] == 0
+    lines_opts = (1, 2, 3) if is_real(label) else (1,)
+    out = []
+    for cls in ("A", "B", "C"):
+        for size in (44, 40, 36, 34, 32, 30, 28, 26, 24):      # 26, 24: a person who fills the frame leaves only a corner (Ad 6 round 2, Dan: fill before boxing)
+            for lines in lines_opts:
+                w, h = chip_dims(label, lines, size)
+                found = []
+                for y in range(TOP_SAFE, CHIP_BOTTOM_MAX - h + 1, 6):
+                    for x in range(40, VW - 40 - w + 1, 6):
+                        if not clear(x, y, w, h):
+                            continue
+                        above = y + h <= hy0
+                        beside = (not above) and y < hy1
+                        if cls == "A" and not above:
+                            continue
+                        if cls == "B" and not beside:
+                            continue
+                        cost = abs(x + w / 2 - hcx) + (0 if cls == "A" else 0.5 * y)
+                        found.append((cost, x, y))
+                found.sort()
+                picked = []
+                for cost, x, y in found:                      # the best, then alternates at least 150 px away
+                    if all(abs(x - px) + abs(y - py) >= 150 for _, px, py in picked):
+                        picked.append((cost, x, y))
+                    if len(picked) >= 3:
+                        break
+                for cost, x, y in picked:
+                    out.append(dict(cls=cls, lines=lines, size=size, x=x, y=y, w=w, h=h))
+    return out
+
+
+def validate(label, c, frames, tag):
+    """⚠ VALIDATE WITH THE CHIP IN THE FRAME. The gate's compliance:labels row person-masks the DELIVERED
+    frame, chip and all, and Apple Vision absorbs a dark chip into the person on some pictures (the kit's
+    first Ad 1 render: `today_towel` read 33,275 px of contact = the whole chip box, at a placement that
+    is 16 px clear of him on the chip-less frame). A placement only counts if the segmenter still reads
+    the chip box as clear WITH the chip drawn, on the first, middle and last frames of the beat."""
+    d = f"labels/_val_{tag}"
+    shutil.rmtree(d, ignore_errors=True)
+    os.makedirs(d + "/m")
+    lay = chip_at(label, c["x"], c["y"], c["lines"], c["size"])
+    raw = []
+    for i, f in enumerate(frames):
+        im = Image.open(f).convert("RGBA")
+        im.alpha_composite(lay)
+        q = f"{d}/c{i:03d}.png"
+        im.convert("RGB").save(q)
+        raw.append(q)
+    # ⚠ THROUGH THE DELIVERY ENCODE: the segmenter reads the chip as part of him on single COMPRESSED frames that
+    # it reads as clear uncompressed (Ad 10 29.83 s: 0 px on the composited png, 2,425 px on the same frame of the
+    # delivered mp4, kit autofill 2026-09-30). The composites go through the render's encoder and back.
+    enc = f"{d}/enc.mp4"
+    subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-framerate", "30000/1001", "-i", f"{d}/c%03d.png", "-c:v", "libx264",
+                    "-preset", "medium", "-crf", "16", "-pix_fmt", "yuv420p", enc], check=True)
+    subprocess.run([FF, "-nostdin", "-v", "error", "-y", "-i", enc, f"{d}/%04d.png"], check=True)
+    ps = sorted(glob.glob(f"{d}/[0-9][0-9][0-9][0-9].png"))
+    subprocess.run([PERSONMASK, f"{d}/m"] + ps, check=True, capture_output=True)
+    worst, worst8, worst16 = 0, 0, 0
+    for q in ps:
+        m = np.array(Image.open(f"{d}/m/" + os.path.basename(q).replace(".png", ".mask.png")).convert("L").resize((VW, VH))) > 127
+        box = (slice(c["y"], c["y"] + c["h"]), slice(c["x"], c["x"] + c["w"]))
+        worst = max(worst, int(dilate(m, VALIDATE_PX)[box].sum()))
+        worst16 = max(worst16, int(dilate(m, 2 * VERIFY_PX)[box].sum()))
+        worst8 = max(worst8, int(dilate(m, VERIFY_PX)[box].sum()))
+    shutil.rmtree(d, ignore_errors=True)
+    c["contact_at_verify_px"] = worst8
+    c["contact_at_2x_verify_px"] = worst16
+    return worst
+
+
+def render_beats(build, idxs):
+    """render.py --only i,j renders those segments into out/s{i}.mp4 (chip-less when chip_png is absent)."""
+    subprocess.run([sys.executable, "render.py", "--only", ",".join(str(i) for i in idxs)], cwd=build, check=True)
+
+
+def place(build, only=None):
+    """only: re-place just these media keys, never at a spot listed for them in labels/exclude.json (the kit's
+    post-encode clearance check writes it: a spot the gate's person mask read as touching him on the DELIVERED
+    file). Every other chip stays exactly where it is."""
+    os.chdir(build)
+    sys.path.insert(0, os.getcwd())
+    J = json.load(open("beats.json"))
+    global SBL
+    SBL = J.get("style") == "softblue"
+    import beats as B
+    tl, _ = B.timeline()
+    todo = [(i, b) for i, b in enumerate(tl) if b["kind"] == "bleed" and b.get("label_kind") in ("real", "ai")]
+    if only:
+        todo = [(i, b) for i, b in todo if (b.get("media") or f"beat{i}") in only]
+    excl = json.load(open("labels/exclude.json")) if os.path.exists("labels/exclude.json") else {}
+    pref = json.load(open("labels/prefer.json")) if os.path.exists("labels/prefer.json") else {}
+    keep = json.load(open("label_place.json")) if (only and os.path.exists("label_place.json")) else {}
+    todo_media = {b.get("media") for _, b in todo}
+    if not todo:
+        print("no labelled full-bleed beats")
+        return
+    # 1. render them WITHOUT a chip
+    for i, b in todo:
+        b.pop("chip_png", None)
+    for jb in J["beats"]:
+        if only and jb.get("media") not in todo_media:
+            continue
+        jb.pop("chip_png", None); jb.pop("chip_box", None)
+        # ⚠ a full-bleed beat must carry NO `label` text: render.py's pre-rule fallback draws a fixed-y chip
+        # at the WAISTLINE for it. The kit's second pass measured "chip-less" frames that still had that bar
+        # across his abs (2026-09-17), because the first pass had written the label text back into the beat.
+        if jb.get("kind") == "bleed" and jb.get("label_kind"):
+            jb.pop("label", None)
+    json.dump(J, open("beats.json", "w"), indent=1)
+    render_beats(build, [i for i, _ in todo])
+    os.makedirs("labels", exist_ok=True)
+    res = dict(keep)
+    prev = 0
+    starts = {}
+    for i, b in enumerate(tl):
+        cum = round(b["t1"] * FPS)
+        starts[i] = (prev, cum - prev)
+        prev = cum
+    for i, b in todo:
+        n0, nfr = starts[i]
+        key = b.get("media") or f"beat{i}"
+        label = b.get("sheet_label") or (REAL_LABEL if b["label_kind"] == "real" else AI_LABEL)
+        vid = f"out/s{i:03d}.mp4"
+        idxs = sorted(set(list(range(0, nfr, 3)) + [nfr - 1]))
+        fs, ms = masks_for(vid, idxs, f"labels/{key}")
+        union = np.any(ms, axis=0)
+        if union.sum() < 2000:
+            raise SystemExit(f"{key}: the person mask found nobody in the beat -- is this a picture of Dan?")
+        hb = head_box(union)
+        c, tried = None, []
+        probe = list(fs)                                  # EVERY sampled frame (each 3rd + the last): the push moves him
+        bad = {tuple(x) for x in excl.get(key, [])}
+        allc = [c_ for c_ in candidates(label, union, hb) if (c_["x"], c_["y"], c_["lines"], c_["size"]) not in bad]
+        # a bounded, class-balanced try list: validation costs a segmenter pass per candidate
+        tryl = [c_ for c_ in allc if c_["cls"] == "A"][:8] + [c_ for c_ in allc if c_["cls"] == "B"][:14] + \
+               [c_ for c_ in allc if c_["cls"] == "C"][:14]
+        # labels/prefer.json {media key: [[x, y, lines, size], ...]}: placements measured beforehand (a fill-or-box trial,
+        # Ad 6 round 2) are tried FIRST. They pass the same with-the-chip validation as any other; nothing is trusted.
+        for x_, y_, ln_, sz_ in reversed(pref.get(key, [])):
+            w_, h_ = chip_dims(label, ln_, sz_)
+            if (x_, y_, ln_, sz_) not in bad:
+                tryl.insert(0, dict(cls="P", lines=ln_, size=sz_, x=x_, y=y_, w=w_, h=h_))
+        fallback = None
+        fallback16 = None
+        for cand in tryl:
+            contact = validate(label, cand, probe, key)
+            tried.append((cand["cls"], cand["lines"], cand["size"], cand["x"], cand["y"], contact))
+            if contact == 0:
+                c = cand
+                break
+            # second tier: clear at TWICE the delivered bound (16 px) on every frame, smallest contact at the 24 px
+            # margin -- some pictures' segmentation never grants the full margin (today_towel, dark foliage).
+            # Third tier, last resort: clear only at the delivered bound (8 px). A placement accepted there flipped
+            # on the delivered file (from-raw today_trees: 0 px measured, 1,479 px delivered -- the segmenter's
+            # edge moves a few px between a segment's frames and the muxed file's), so 16 px is tried first.
+            if cand.get("contact_at_2x_verify_px", 1) == 0 and (fallback16 is None or contact < fallback16[0]):
+                fallback16 = (contact, cand)
+            if cand["contact_at_verify_px"] == 0 and (fallback is None or contact < fallback[0]):
+                fallback = (contact, cand)
+        if not c and fallback16:
+            c = dict(fallback16[1], margin_note=f"clear at {2 * VERIFY_PX} px on every frame; {fallback16[0]} px of contact at the {VALIDATE_PX} px margin")
+        if not c and fallback:
+            c = dict(fallback[1], margin_note=f"clear at {VERIFY_PX} px on every frame ONLY; {fallback[0]} px of contact at the {VALIDATE_PX} px margin")
+        if not c:
+            raise SystemExit(f"{key}: no placement the segmenter reads as clear with the chip drawn (tried {tried[:8]}...) -- "
+                             "pick a different picture (Dan prefers a correct different picture over a cropped right one)")
+        lay = chip_at(label, c["x"], c["y"], c["lines"], c["size"])
+        png = os.path.abspath(f"labels/chip_{key}.png")
+        lay.save(png)
+        res[key] = dict(c, beat=[b["t0"], b["t1"]], head=hb, label=label, png=png, tried=tried,
+                        body=[int(v) for v in (np.nonzero(union)[1].min(), np.nonzero(union)[0].min(),
+                                               np.nonzero(union)[1].max(), np.nonzero(union)[0].max())])
+        for jb in J["beats"]:
+            # match on the beat's END: beats.timeline() snaps a beat's start onto the previous beat's end when the
+            # gap is under 0.4 s (the raw build: today_trees 15.48 -> 15.50), and a t0 match then silently wrote
+            # no chip -- two real photos rendered unlabelled (kit9x16 from-raw pass 5, 2026-09-18)
+            if jb.get("media") == b.get("media") and abs(float(jb["t1"]) - float(b["t1"])) < 0.01:
+                jb["chip_png"] = png
+                jb["chip_box"] = [c["x"], c["y"], c["w"], c["h"]]
+                jb["chip_label"] = label                      # NOT `label`: that key is render.py's fixed-y fallback
+        tiles = []
+        for f in (fs[0], fs[-1]):
+            im = Image.open(f).convert("RGBA")
+            im.alpha_composite(lay)
+            arr = np.array(im)
+            edge = dilate(union, 2) & ~union
+            arr[edge] = [255, 0, 0, 255]
+            tiles.append(Image.fromarray(arr).convert("RGB").resize((540, 960)))
+        sheet = Image.new("RGB", (1080, 960))
+        sheet.paste(tiles[0], (0, 0))
+        sheet.paste(tiles[1], (540, 0))
+        sheet.save(f"labels/{key}_proof.jpg")
+        print(f"{key:16s} {label[:12]:12s} class {c['cls']} {c['lines']}L@{c['size']} at {c['x']},{c['y']} {c['w']}x{c['h']}  head {hb}", flush=True)
+    json.dump(J, open("beats.json", "w"), indent=1)
+    json.dump(res, open("label_place.json", "w"), indent=1)
+    print(f"{len(res)} chips placed -> label_place.json, labels/*_proof.jpg; beats.json updated (re-render those beats)")
+
+
+def verify(build, video):
+    os.chdir(build)
+    sys.path.insert(0, os.getcwd())
+    import beats as B
+    tl, _ = B.timeline()
+    prev, bad, out = 0, 0, {}
+    for i, b in enumerate(tl):
+        cum = round(b["t1"] * FPS)
+        n0, nfr = prev, cum - prev
+        prev = cum
+        if b["kind"] != "bleed" or not b.get("chip_box"):
+            continue
+        x, y, w, h = b["chip_box"]
+        key = b.get("media") or f"beat{i}"
+        idxs = sorted(set([n0 + k for k in range(0, nfr, 3)] + [n0 + nfr - 1]))
+        fs, ms = masks_for(video, idxs, f"labels/verify_{key}")
+        # HIS BODY, not specks: on single compressed frames the segmenter marks a few px of the dark chip itself as
+        # "person" (Ad 8 10.3 s: 1,284 px on one frame of 26, on a chip a full head-height above him). The delivery
+        # gate's own measurement is the bound (kit_run's prewatch loop meets it); this stricter every-3rd-frame
+        # check counts only the mask's main connected region and anything at least a tenth its size.
+        from scipy.ndimage import label as _cc
+        def body(m):
+            lab, n = _cc(m)
+            if n <= 1:
+                return m
+            sizes = np.bincount(lab.ravel())[1:]
+            keep = [k + 1 for k, s_ in enumerate(sizes) if s_ >= 0.1 * sizes.max()]
+            return np.isin(lab, keep)
+        worst = max(int(dilate(body(m), VERIFY_PX)[y:y + h, x:x + w].sum()) for m in ms)
+        ok = worst == 0
+        bad += not ok
+        out[key] = dict(box=[x, y, w, h], frames=len(ms), contact_px=worst, ok=ok)
+        print(f"{'PASS' if ok else 'FAIL'}  {key:16s} box {x},{y} {w}x{h}  {len(ms)} frames  contact {worst} px")
+    json.dump(out, open(video + ".labelcheck.json", "w"), indent=1)
+    print("LABELS OFF HIS BODY", "PASS" if not bad else f"FAIL ({bad})")
+    return bad
+
+
+def redraw_existing(build):
+    """Redraw chip text at already measured placements without rerunning masks.
+
+    This is for copy-only changes that make a chip no larger than the measured
+    one: it refuses (rerun placement) when the redrawn chip is wider or taller than
+    the measured box. The title-case copy of 2026-10-17 ("Real Photo Of Me, Not
+    AI-Generated") is narrower than the hyphen copy it replaced in one and two lines
+    (measured 2026-10-20: 611 vs 631 px at 34/1L), but the olive THREE-line chip is
+    2-5 px wider (252 vs 248 at 34), so a 3-line olive placement is refused here and
+    needs `--only <key>` placement. A delivered-file `--verify` is still mandatory
+    after rendering.
+    """
+    os.chdir(build)
+    J = json.load(open("beats.json"))
+    res = json.load(open("label_place.json"))
+    for key, c in res.items():
+        label = REAL_LABEL if is_real(c.get("label")) else AI_LABEL
+        old_w, old_h = int(c["w"]), int(c["h"])
+        w, h = chip_dims(label, int(c["lines"]), int(c["size"]))
+        if w > old_w or h > old_h:
+            raise SystemExit(f"{key}: redrawn chip {w}x{h} exceeds measured {old_w}x{old_h}; rerun placement")
+        c.update(label=label, w=w, h=h)
+        png = c.get("png") or os.path.abspath(f"labels/chip_{key}.png")
+        chip_at(label, int(c["x"]), int(c["y"]), int(c["lines"]), int(c["size"])).save(png)
+        for jb in J["beats"]:
+            if jb.get("media") == key and abs(float(jb["t1"]) - float(c["beat"][1])) < 0.01:
+                jb["chip_png"] = png
+                jb["chip_box"] = [int(c["x"]), int(c["y"]), w, h]
+                jb["chip_label"] = label
+    json.dump(J, open("beats.json", "w"), indent=1)
+    json.dump(res, open("label_place.json", "w"), indent=1)
+    print(f"{len(res)} chips redrawn at existing measured placements; delivered verify still required")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--build", required=True)
+    ap.add_argument("--verify")
+    ap.add_argument("--redraw-existing", action="store_true")
+    ap.add_argument("--only", nargs="*", help="media keys to re-place (the rest keep their chips)")
+    a = ap.parse_args()
+    if a.verify:
+        return 1 if verify(a.build, a.verify) else 0
+    if a.redraw_existing:
+        redraw_existing(a.build)
+        return 0
+    place(a.build, only=set(a.only) if a.only else None)
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

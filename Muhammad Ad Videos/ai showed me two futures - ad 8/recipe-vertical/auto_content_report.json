@@ -1,0 +1,2314 @@
+{
+ "master": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Muhammad Ad Videos/ai showed me two futures - ad 8/ai showed me two futures | muhammad | 16x9 | ad 8.mp4",
+ "frames": 6320,
+ "fps": 29.97002997002997,
+ "beats": 33,
+ "lower_thirds": 6,
+ "ctas": 3,
+ "kinds": [
+  "bleed",
+  "card",
+  "window",
+  "winmedia"
+ ],
+ "escalations": [],
+ "complete": true,
+ "ai": {
+  "calls": 180,
+  "usd": 0.1128,
+  "by_purpose": {
+   "caption_check": 0.0136,
+   "cutdown": 0.017,
+   "leftover": 0.0821
+  }
+ },
+ "entries": [
+  {
+   "entry": {
+    "t0": 3.971,
+    "t1": 5.606,
+    "kind": "bleed",
+    "label_kind": "ai",
+    "caps": false,
+    "media": "auto_00119",
+    "flash_after": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     119,
+     "168"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000141.png",
+    "olive": 0.522,
+    "picture_area": 0.167,
+    "motion": 1.19,
+    "text": [
+     "THE WARNING"
+    ],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/05 AI Images and Gag Graphics/ai_warning_heavier.png",
+      "inliers": 625,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.99,
+      "shown": 0.971,
+      "fit": 2.913
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets/batch1-ads/full/ai_warning_heavier.png",
+      "inliers": 625,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.99,
+      "shown": 0.971,
+      "fit": 2.913
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets/batch1-ads/doc/ai_warning_heavier.jpg",
+      "inliers": 460,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.99,
+      "shown": 0.971,
+      "fit": 6.347
+     }
+    ],
+    "hole": [
+     1068,
+     224,
+     1620,
+     956
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1.0,
+     "why": "The man in the image is shirtless, clearly showing his chest and abdomen, which constitutes a bare torso or physique."
+    },
+    "source": "clean library still",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 8.108,
+    "t1": 10.277,
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00243"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     243,
+     308
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000272.png",
+    "olive": 0.028,
+    "picture_area": 0.203,
+    "motion": 0.02,
+    "text": [],
+    "burned_label": "real",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/06 Dan Photo Shoot Stills/photo-180_FINAL_PRIMARY.png",
+      "inliers": 1022,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.993,
+      "shown": 0.958,
+      "fit": 1.007
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/photo-180_FINAL_PRIMARY copy.png",
+      "inliers": 1022,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.993,
+      "shown": 0.958,
+      "fit": 1.007
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/shoot04_trees.jpg",
+      "inliers": 1022,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.993,
+      "shown": 0.958,
+      "fit": 1.007
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1.0,
+     "why": "The man in the image is shirtless, and his chest and abdominal muscles are clearly visible, indicating a bare torso/physique."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 10.277,
+    "t1": 12.813,
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00308",
+    "flash_after": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     308,
+     "384"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000342.png",
+    "olive": 0.011,
+    "picture_area": 0.115,
+    "motion": 0.01,
+    "text": [],
+    "burned_label": "real",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/06 Dan Photo Shoot Stills/dan-pool-shoot-towel-smile-retouched-final.jpg",
+      "inliers": 850,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 1.0,
+      "shown": 0.644,
+      "fit": 3.306
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/dan-pool-shoot-towel-smile-retouched-final.jpg",
+      "inliers": 850,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 1.0,
+      "shown": 0.644,
+      "fit": 3.306
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/shoot06_towel.jpg",
+      "inliers": 850,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 1.0,
+      "shown": 0.644,
+      "fit": 3.306
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1,
+     "why": "The man in the image is shirtless, and his chest and abdominal muscles are clearly visible, indicating a focus on his physique."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 14.581,
+    "t1": 16.216,
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00437"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     437,
+     486
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000459.png",
+    "olive": 0.464,
+    "picture_area": 0.267,
+    "motion": 0.77,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/00_ORIGINAL_deckchair_675x900.jpg",
+      "inliers": 543,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.989,
+      "shown": 0.999,
+      "fit": 2.6
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/03_before_picture - DAN BEFORE.png",
+      "inliers": 542,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.988,
+      "shown": 1.0,
+      "fit": 1.842
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets/ad2-nutritionist/full/03_before_picture.png",
+      "inliers": 542,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.988,
+      "shown": 1.0,
+      "fit": 1.842
+     }
+    ],
+    "hole": [
+     600,
+     88,
+     1280,
+     992
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 0.95,
+     "why": "The man in the image is shirtless, and his bare chest and abdomen are clearly visible, which constitutes a bare torso or physique."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 16.216,
+    "t1": 18.085,
+    "kind": "card",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00486"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     486,
+     542
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000511.png",
+    "olive": 0.504,
+    "picture_area": 0.116,
+    "motion": 0.1,
+    "text": [
+     "X"
+    ],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_edit_work/kit9x16/approved_crops/dad_standing_crop.jpg",
+      "inliers": 141,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.619,
+      "shown": 1.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/fatdad_standing.jpg",
+      "inliers": 848,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.991,
+      "shown": 0.971,
+      "fit": 3.273
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 111,
+      "typ": "vid",
+      "prov": "real",
+      "t": 52.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": [
+     636,
+     112,
+     1284,
+     968
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "not_physique",
+     "confidence": 1.0,
+     "why": "The man in the image is wearing a grey t-shirt, covering his torso. His chest and abs are not visible."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 18.085,
+    "t1": 20.02,
+    "kind": "card",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00542",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     542,
+     "600"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000568.png",
+    "olive": 0.278,
+    "picture_area": 0.375,
+    "motion": 0.63,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_edit_work/kit9x16/approved_crops/dad_ride_crop.jpg",
+      "inliers": 773,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.787,
+      "shown": 1.0,
+      "fit": 1.627
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/fatdad_ride.jpg",
+      "inliers": 1120,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.991,
+      "shown": 1.0,
+      "fit": 1.605
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/people/B0178_red-haired-freckled-woman-portrait_4096x2160_16s.mp4",
+      "inliers": 66,
+      "typ": "vid",
+      "prov": "real",
+      "t": 15.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": [
+     376,
+     108,
+     1540,
+     984
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "not_physique",
+     "confidence": 1.0,
+     "why": "The man in the image is wearing a t-shirt, so his bare torso or physique (abs or chest) is not visible."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 22.189,
+    "t1": 24.958,
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00665"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     665,
+     "748"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000702.png",
+    "olive": 0.01,
+    "picture_area": 0.098,
+    "motion": 0.02,
+    "text": [],
+    "burned_label": "real",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/06 Dan Photo Shoot Stills/photo-137_FINAL_PRIMARY.jpg",
+      "inliers": 808,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.999,
+      "shown": 0.626,
+      "fit": 4.14
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/shoot07_standing.jpg",
+      "inliers": 808,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.999,
+      "shown": 0.626,
+      "fit": 4.14
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/00 ASSETS USED IN THE REFERENCE AD/07_SHOT4_photoshoot-standing.jpg",
+      "inliers": 808,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.999,
+      "shown": 0.626,
+      "fit": 4.14
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1,
+     "why": "The man in the image is shirtless, clearly displaying his chest and well-defined abdominal muscles (abs)."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 24.958,
+    "t1": 28.295,
+    "kind": "bleed",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_00748"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "748",
+     "848"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f000793.png",
+    "olive": 0.005,
+    "picture_area": 0.345,
+    "motion": 0.01,
+    "text": [],
+    "burned_label": "real",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/06 Dan Photo Shoot Stills/Dan-flag-FINAL.jpg",
+      "inliers": 1063,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.997,
+      "shown": 0.826,
+      "fit": 6.066
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/Dan-flag-FINAL.jpg",
+      "inliers": 1063,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.997,
+      "shown": 0.826,
+      "fit": 6.066
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/shoot05_flag.jpg",
+      "inliers": 1063,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.997,
+      "shown": 0.826,
+      "fit": 6.066
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1,
+     "why": "The man in the image is shirtless, and his chest and abdominal muscles are clearly visible."
+    },
+    "source": "clean library still",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "kind": "window",
+    "header": "I'll show you",
+    "bullets": [
+     "The two-picture trick that made my motivation automatic.",
+     "How to generate an AI picture of YOURSELF with six-pack abs, for free so you can lock in, and finally lose your belly fat that's been bothering you so much."
+    ],
+    "t0": 28.295,
+    "t1": 43.577,
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "848",
+     "1306"
+    ],
+    "reads_agreeing": 54,
+    "read_frame": 1080,
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f001080.png",
+    "left_agreement": 0.021,
+    "right_agreement": 0.99,
+    "transcript_check": [
+     {
+      "line": "The two-picture trick that made my motivation automatic.",
+      "ratio": 0.991,
+      "spoken": "the two picture trick that made my motivation automatic."
+     },
+     {
+      "line": "How to generate an AI picture of YOURSELF with six-pack abs, for free so you can lock in, and finally lose your belly fat that's been bothering you so much.",
+      "ratio": 0.99,
+      "spoken": "how to generate an AI picture of yourself with six back abs for free so you can lock in and finally lose your belly fat that's been bothering you so much."
+     }
+    ],
+    "boundary": "flash-burst centre"
+   }
+  },
+  {
+   "entry": {
+    "t0": 58.592,
+    "t1": 62.963,
+    "kind": "card",
+    "label_kind": "ai",
+    "caps": false,
+    "media": "auto_01756",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "1756",
+     "1887"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f001814.png",
+    "olive": 0.477,
+    "picture_area": 0.185,
+    "motion": 0.53,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/ai-dan/A0002_heavier-dan-couch-shows-ripped-phone_9x16_10s.mp4",
+      "inliers": 904,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 7.0,
+      "coverage": 0.995,
+      "shown": 0.887,
+      "fit": 25.131
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/05 AI Images and Gag Graphics/hero_dan_phone.png",
+      "inliers": 904,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.995,
+      "shown": 0.887,
+      "fit": 25.131
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets/batch1-ads/tmp/d2.mp4",
+      "inliers": 977,
+      "typ": "vid",
+      "prov": null,
+      "t": 2.0,
+      "coverage": 0.999,
+      "shown": 0.888,
+      "fit": 16.073
+     }
+    ],
+    "hole": [
+     1044,
+     108,
+     1596,
+     980
+    ],
+    "phone": false,
+    "source": "his master 58.992-62.696 s (his transitions trimmed), the picture inside his card (552, 872, 1044, 108), lifted into the olive card",
+    "still": false,
+    "label": "AI label: the matched file lives in an AI-generated library",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 68.001,
+    "t1": 69.169,
+    "kind": "card",
+    "media": "auto_02038"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     2038,
+     2073
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f002053.png",
+    "olive": 0.005,
+    "picture_area": 0.962,
+    "motion": 0.95,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0062_meal-prep-containers-kitchen-hands_16x9_5s.mp4",
+      "inliers": 1003,
+      "typ": "vid",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.981,
+      "shown": 0.973,
+      "fit": 15.572
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0306_carbonated-drink-bubbles-macro_16x9_42s.mp4",
+      "inliers": 62,
+      "typ": "vid",
+      "prov": "real",
+      "t": 38.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 45,
+      "typ": "vid",
+      "prov": "real",
+      "t": 52.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 68.001-69.169 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 69.169,
+    "t1": 70.804,
+    "kind": "card",
+    "media": "auto_02073",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     2073,
+     "2122"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f002095.png",
+    "olive": 0.038,
+    "picture_area": 0.666,
+    "motion": 3.57,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/gym-and-exercise/B0076_man-crunches-mat-dumbbell-rack-window-light_16x9_5s.mp4",
+      "inliers": 456,
+      "typ": "vid",
+      "prov": "real",
+      "t": 1.0,
+      "coverage": 0.979,
+      "shown": 0.919,
+      "fit": 77.759
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0306_carbonated-drink-bubbles-macro_16x9_42s.mp4",
+      "inliers": 46,
+      "typ": "vid",
+      "prov": "real",
+      "t": 38.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0275_ecg-paper-strip-printing-macro_16x9_13s.mp4",
+      "inliers": 45,
+      "typ": "vid",
+      "prov": "real",
+      "t": 10.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 69.169-70.604 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 77.711,
+    "t1": 87.421,
+    "kind": "card",
+    "media": "auto_02329",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     2329,
+     "2620"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f002459.png",
+    "olive": 0.714,
+    "picture_area": 0.027,
+    "motion": 0.43,
+    "text": [],
+    "burned_label": "ai",
+    "matches": [],
+    "hole": null,
+    "phone": false,
+    "source": "his master 77.711-87.087 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "his burned ai label is carried in the lifted picture",
+    "provenance": null
+   }
+  },
+  {
+   "entry": {
+    "kind": "window",
+    "header": null,
+    "bullets": [
+     "That was how I locked in.",
+     "That's how I lost my stomach fat, and finally got the six pack abs I always wanted."
+    ],
+    "t0": 92.225,
+    "t1": 97.831,
+    "his_flash": false
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "2764",
+     2932
+    ],
+    "reads_agreeing": 25,
+    "read_frame": 2850,
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f002850.png",
+    "left_agreement": 0.036,
+    "right_agreement": 0.991,
+    "transcript_check": [
+     {
+      "line": "That was how I locked in.",
+      "ratio": 1.0,
+      "spoken": "That was how I locked in."
+     },
+     {
+      "line": "That's how I lost my stomach fat, and finally got the six pack abs I always wanted.",
+      "ratio": 0.947,
+      "spoken": "That's how I lost my stomach fat and got the six pack abs I always wanted."
+     }
+    ],
+    "boundary": "flash-burst centre"
+   }
+  },
+  {
+   "entry": {
+    "t0": 98.198,
+    "t1": 99.366,
+    "kind": "card",
+    "label_kind": "real",
+    "caps": false,
+    "media": "auto_02943"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     2943,
+     2978
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f002958.png",
+    "olive": 0.474,
+    "picture_area": 0.109,
+    "motion": 0.07,
+    "text": [
+     "Cancel",
+     "Adjust Photo",
+     "Use Photo"
+    ],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/00_ORIGINAL_deckchair_upscaled3x.jpg",
+      "inliers": 459,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.998,
+      "shown": 0.97,
+      "fit": 10.514
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/03_before_picture - DAN BEFORE.png",
+      "inliers": 512,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.998,
+      "shown": 0.975,
+      "fit": 11.113
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/00_ORIGINAL_deckchair_675x900.jpg",
+      "inliers": 510,
+      "typ": "img",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.998,
+      "shown": 0.971,
+      "fit": 10.38
+     }
+    ],
+    "hole": [
+     712,
+     56,
+     1204,
+     1024
+    ],
+    "phone": true,
+    "source": "his phone (484, 960, 716, 60) lifted from his master, his picture 98.198-99.366 s",
+    "still": false,
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 99.366,
+    "t1": 103.503,
+    "kind": "card",
+    "media": "auto_02978",
+    "label_kind": "real",
+    "caps": false,
+    "label_spans": [
+     [
+      0.0,
+      1.401
+     ],
+     [
+      2.202,
+      4.137
+     ]
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     2978,
+     "3102"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003033.png",
+    "olive": 0.467,
+    "picture_area": 0.106,
+    "motion": 0.37,
+    "text": [
+     "Sex",
+     "Male",
+     "Female",
+     "Where you are now",
+     "Heavier",
+     "Fat to lose",
+     "Average",
+     "Soft, can lean out",
+     "Fit",
+     "Some definition.",
+     "Lean",
+     "How dramatic",
+     "Subtle",
+     "Polished you",
+     "Ripped",
+     "Photornoot readi",
+     "Describe your dream physique Optional",
+     "Lean and athletic, defined but not bulky-",
+     "Generate my goal image",
+     "+ 2 free generations remaining",
+     "Two AI steps - about 20 seconds",
+     "Your photo and details are sent securely to our AI partners (Anthropic",
+     "Google, Replicate) to create your result - never sold, delete anytime",
+     "Privacy Policy",
+     "AbsByAl is an app for generating an image of your fitness goal. The",
+     "examples shown above are not real fitness transformations. They",
+     "are examples of the type of images our app can make. Abs By AI does",
+     "not change your body and does not promise any physical result."
+    ],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/02 App Screen Recordings and Screenshots/app-flow-generate-future-self.mp4",
+      "inliers": 92,
+      "typ": "vid",
+      "prov": "real",
+      "t": 8.0,
+      "coverage": 0.693,
+      "shown": 0.929,
+      "fit": 99.0
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/screen-recordings/B0049_app-generate-future-self-full-recording_1320x2868_34s.mp4",
+      "inliers": 102,
+      "typ": "vid",
+      "prov": "real",
+      "t": 7.0,
+      "coverage": 0.696,
+      "shown": 0.928,
+      "fit": 39.49
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/screen-recordings/B0006_app-flow-generate-future-self-upload-result_1320x2868_34s.mp4",
+      "inliers": 92,
+      "typ": "vid",
+      "prov": "real",
+      "t": 8.0,
+      "coverage": 0.693,
+      "shown": 0.929,
+      "fit": 99.0
+     }
+    ],
+    "hole": [
+     712,
+     56,
+     1204,
+     1024
+    ],
+    "phone": true,
+    "source": "his phone (484, 960, 716, 60) lifted from his master, his picture 99.366-103.370 s",
+    "still": false,
+    "label": "real label only while the uploaded photo is on screen: 99.37-100.77, 101.57-103.50",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 103.503,
+    "t1": 105.138,
+    "kind": "card",
+    "label_kind": "ai",
+    "caps": false,
+    "media": "auto_03102",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "3102",
+     "3151"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003124.png",
+    "olive": 0.404,
+    "picture_area": 0.239,
+    "motion": 0.51,
+    "text": [],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/dan by pool - AI GOAL IMAGE.png",
+      "inliers": 529,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.997,
+      "shown": 0.927,
+      "fit": 58.386
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/screen-recordings/B0036_app-goal-photo-upload-phone-real-picture-chip_16x9_10s.mp4",
+      "inliers": 303,
+      "typ": "vid",
+      "prov": "real",
+      "t": 4.0,
+      "coverage": 1.0,
+      "shown": 0.283,
+      "fit": 13.692
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/ai-dan/A0066_holographic-scan-over-goal-photo-pool_9x16_8s.mp4",
+      "inliers": 418,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.732,
+      "shown": 0.977,
+      "fit": 56.441
+     }
+    ],
+    "hole": [
+     644,
+     92,
+     1324,
+     1000
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1,
+     "why": "The man in the image is shirtless, and his chest and abdominal muscles are clearly visible, indicating a bare torso and physique."
+    },
+    "source": "clean library still",
+    "provenance": "ai",
+    "layout": "card: part of an app-demo sequence"
+   }
+  },
+  {
+   "entry": {
+    "t0": 111.311,
+    "t1": 115.315,
+    "kind": "card",
+    "media": "auto_03336"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     3336,
+     3456
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003390.png",
+    "olive": 0.046,
+    "picture_area": 0.875,
+    "motion": 3.27,
+    "text": [],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/lifestyle/A0073_couple-beach-dad-teaching-kid-bike-montage_16x9_4s.mp4",
+      "inliers": 456,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 1.0,
+      "coverage": 0.981,
+      "shown": 0.978,
+      "fit": 70.982
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/people/A0061_woman-drawn-to-fit-man-pool-golden-hour_16x9_6s.mp4",
+      "inliers": 364,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 3.0,
+      "coverage": 0.963,
+      "shown": 0.966,
+      "fit": 87.608
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/ai_women_pool.mp4",
+      "inliers": 364,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 3.0,
+      "coverage": 0.963,
+      "shown": 0.966,
+      "fit": 87.608
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 111.311-115.315 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "his burned ai label is carried in the lifted picture",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 115.315,
+    "t1": 116.75,
+    "kind": "card",
+    "media": "auto_03456"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     3456,
+     3499
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003475.png",
+    "olive": 0.049,
+    "picture_area": 0.774,
+    "motion": 2.29,
+    "text": [],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/gym-and-exercise/A0062_less-fit-man-shakes-hands-fit-man-gym_16x9_6s.mp4",
+      "inliers": 358,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 1.0,
+      "coverage": 0.999,
+      "shown": 0.992,
+      "fit": 115.551
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/ai_respect_gym.mp4",
+      "inliers": 358,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 1.0,
+      "coverage": 0.999,
+      "shown": 0.992,
+      "fit": 115.551
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 47,
+      "typ": "vid",
+      "prov": "real",
+      "t": 29.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 115.315-116.750 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "his burned ai label is carried in the lifted picture",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 116.75,
+    "t1": 122.122,
+    "kind": "card",
+    "media": "auto_03499",
+    "his_flash": false
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     3499,
+     3660
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003571.png",
+    "olive": 0.001,
+    "picture_area": 0.967,
+    "motion": 2.06,
+    "text": [
+     "-"
+    ],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/lifestyle/A0042_man-jogging-beach-sunrise-smiling_16x9_6s.mp4",
+      "inliers": 125,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 2.0,
+      "coverage": 0.917,
+      "shown": 0.853,
+      "fit": 80.43
+     },
+     {
+      "file": "/Volumes/Extreme/_edit_work/ad1-8-14/rev5/assets/ai_health_beachrun.mp4",
+      "inliers": 125,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 2.0,
+      "coverage": 0.917,
+      "shown": 0.853,
+      "fit": 80.43
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/gym-and-exercise/B0283_hand-loads-barbell-plate-closeup_9x16_7s.mp4",
+      "inliers": 49,
+      "typ": "vid",
+      "prov": "real",
+      "t": 5.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 116.750-122.122 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "his burned ai label is carried in the lifted picture",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 125.325,
+    "t1": 127.094,
+    "kind": "card",
+    "media": "auto_03756"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     3756,
+     3809
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003779.png",
+    "olive": 0.005,
+    "picture_area": 0.724,
+    "motion": 1.47,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/gym-and-exercise/B0072_man-red-tee-running-on-treadmill_16x9_2s.mp4",
+      "inliers": 366,
+      "typ": "vid",
+      "prov": "real",
+      "t": 1.0,
+      "coverage": 0.995,
+      "shown": 0.964,
+      "fit": 42.552
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0306_carbonated-drink-bubbles-macro_16x9_42s.mp4",
+      "inliers": 58,
+      "typ": "vid",
+      "prov": "real",
+      "t": 38.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0275_ecg-paper-strip-printing-macro_16x9_13s.mp4",
+      "inliers": 51,
+      "typ": "vid",
+      "prov": "real",
+      "t": 10.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 125.325-127.094 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 127.094,
+    "t1": 130.097,
+    "kind": "card",
+    "media": "auto_03809",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     3809,
+     "3899"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f003849.png",
+    "olive": 0.034,
+    "picture_area": 0.774,
+    "motion": 1.09,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0275_ecg-paper-strip-printing-macro_16x9_13s.mp4",
+      "inliers": 68,
+      "typ": "vid",
+      "prov": "real",
+      "t": 10.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": 148.584
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 62,
+      "typ": "vid",
+      "prov": "real",
+      "t": 52.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0400_blue-syringes-loaded-glove-hand_9x16_8s.mp4",
+      "inliers": 55,
+      "typ": "vid",
+      "prov": "real",
+      "t": 7.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 127.094-129.863 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 134.001,
+    "t1": 136.069,
+    "kind": "card",
+    "media": "auto_04016"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4016,
+     4078
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004043.png",
+    "olive": 0.164,
+    "picture_area": 0.262,
+    "motion": 4.58,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0071_man-laptop-couch-partner-touches-shoulder_16x9_2s.mp4",
+      "inliers": 45,
+      "typ": "vid",
+      "prov": "real",
+      "t": 1.0,
+      "coverage": 1.0,
+      "shown": 0.397,
+      "fit": 31.255
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0306_carbonated-drink-bubbles-macro_16x9_42s.mp4",
+      "inliers": 24,
+      "typ": "vid",
+      "prov": "real",
+      "t": 38.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 22,
+      "typ": "vid",
+      "prov": "real",
+      "t": 52.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": [
+     24,
+     120,
+     1908,
+     968
+    ],
+    "phone": false,
+    "source": "his master 134.001-136.069 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 136.069,
+    "t1": 140.007,
+    "kind": "card",
+    "media": "auto_04078",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4078,
+     "4196"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004131.png",
+    "olive": 0.004,
+    "picture_area": 0.587,
+    "motion": 0.71,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0275_ecg-paper-strip-printing-macro_16x9_13s.mp4",
+      "inliers": 89,
+      "typ": "vid",
+      "prov": "real",
+      "t": 10.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": 130.416
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/people/B0178_red-haired-freckled-woman-portrait_4096x2160_16s.mp4",
+      "inliers": 72,
+      "typ": "vid",
+      "prov": "real",
+      "t": 15.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 63,
+      "typ": "vid",
+      "prov": "real",
+      "t": 52.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 136.069-139.773 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 142.809,
+    "t1": 146.613,
+    "kind": "card",
+    "label_kind": "ai",
+    "caps": false,
+    "media": "auto_04280",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "4280",
+     "4394"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004331.png",
+    "olive": 0.478,
+    "picture_area": 0.14,
+    "motion": 0.59,
+    "text": [
+     "-"
+    ],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/ai-dan/A0002_heavier-dan-couch-shows-ripped-phone_9x16_10s.mp4",
+      "inliers": 882,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 7.0,
+      "coverage": 0.994,
+      "shown": 0.878,
+      "fit": 32.083
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/05 AI Images and Gag Graphics/hero_dan_phone.png",
+      "inliers": 882,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.994,
+      "shown": 0.878,
+      "fit": 32.083
+     },
+     {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Media/ad-assets/batch1-ads/clips/ai-fat-dan-sees-ripped-dan-phone-10s.mp4",
+      "inliers": 882,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 7.0,
+      "coverage": 0.994,
+      "shown": 0.878,
+      "fit": 32.083
+     }
+    ],
+    "hole": [
+     1068,
+     108,
+     1624,
+     976
+    ],
+    "phone": false,
+    "source": "his master 143.243-146.380 s (his transitions trimmed), the picture inside his card (556, 868, 1068, 108), lifted into the olive card",
+    "still": false,
+    "label": "AI label: the matched file lives in an AI-generated library",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "t0": 150.384,
+    "t1": 151.985,
+    "kind": "card",
+    "media": "auto_04507"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4507,
+     4555
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004528.png",
+    "olive": 0.334,
+    "picture_area": 0.346,
+    "motion": 3.49,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0003_dan-medicine-ball-crunch-mat-4s_16x9_4s.mp4",
+      "inliers": 51,
+      "typ": "vid",
+      "prov": "real",
+      "t": 4.0,
+      "coverage": 0.878,
+      "shown": 0.563,
+      "fit": 94.521
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0048_dan-medicine-ball-situps-outdoor-mat_16x9_5s.mp4",
+      "inliers": 49,
+      "typ": "vid",
+      "prov": "real",
+      "t": 3.0,
+      "coverage": 0.926,
+      "shown": 0.611,
+      "fit": 95.975
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 64,
+      "typ": "vid",
+      "prov": "real",
+      "t": 21.0,
+      "coverage": 0.001,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": [
+     0,
+     444,
+     1920,
+     1040
+    ],
+    "phone": false,
+    "source": "his master 150.384-151.985 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 151.985,
+    "t1": 153.22,
+    "kind": "card",
+    "media": "auto_04555"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4555,
+     4592
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004571.png",
+    "olive": 0.223,
+    "picture_area": 0.602,
+    "motion": 3.49,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0003_dan-medicine-ball-crunch-mat-4s_16x9_4s.mp4",
+      "inliers": 34,
+      "typ": "vid",
+      "prov": "real",
+      "t": 4.0,
+      "coverage": 0.69,
+      "shown": 0.618,
+      "fit": 96.255
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0048_dan-medicine-ball-situps-outdoor-mat_16x9_5s.mp4",
+      "inliers": 33,
+      "typ": "vid",
+      "prov": "real",
+      "t": 2.0,
+      "coverage": 0.759,
+      "shown": 0.701,
+      "fit": 107.312
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/dan-filmed/B0423_dan-spiderman-planks-driveway-mat_16x9_25s.mp4",
+      "inliers": 23,
+      "typ": "vid",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.604,
+      "shown": 0.491,
+      "fit": 103.735
+     }
+    ],
+    "hole": [
+     204,
+     48,
+     1920,
+     496
+    ],
+    "phone": false,
+    "source": "his master 151.985-153.220 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 153.22,
+    "t1": 154.755,
+    "kind": "card",
+    "media": "auto_04592"
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4592,
+     4638
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004612.png",
+    "olive": 0.011,
+    "picture_area": 0.909,
+    "motion": 2.35,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0074_man-meal-prepping-black-containers-kitchen_16x9_2s.mp4",
+      "inliers": 58,
+      "typ": "vid",
+      "prov": "real",
+      "t": 0.0,
+      "coverage": 0.998,
+      "shown": 0.487,
+      "fit": 36.878
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0275_ecg-paper-strip-printing-macro_16x9_13s.mp4",
+      "inliers": 52,
+      "typ": "vid",
+      "prov": "real",
+      "t": 10.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/other/B0400_blue-syringes-loaded-glove-hand_9x16_8s.mp4",
+      "inliers": 37,
+      "typ": "vid",
+      "prov": "real",
+      "t": 7.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 153.220-154.755 s (his transitions trimmed), lifted into the olive card",
+    "still": false,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "t0": 154.755,
+    "t1": 156.423,
+    "kind": "card",
+    "media": "auto_04638",
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     4638,
+     "4688"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f004660.png",
+    "olive": 0.028,
+    "picture_area": 0.919,
+    "motion": 0.35,
+    "text": [],
+    "burned_label": null,
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/gym-and-exercise/B0078_tattooed-legs-foam-rolling-blue-mat_16x9_2s.mp4",
+      "inliers": 924,
+      "typ": "vid",
+      "prov": "real",
+      "t": 1.0,
+      "coverage": 0.995,
+      "shown": 1.0,
+      "fit": 24.763
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/food-nutrition/B0306_carbonated-drink-bubbles-macro_16x9_42s.mp4",
+      "inliers": 80,
+      "typ": "vid",
+      "prov": "real",
+      "t": 38.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/stock/lifestyle/B0253_woman-in-robe-applies-cream-shoulder_16x9_52s.mp4",
+      "inliers": 53,
+      "typ": "vid",
+      "prov": "real",
+      "t": 29.0,
+      "coverage": 0.0,
+      "shown": 0.0,
+      "fit": null
+     }
+    ],
+    "hole": null,
+    "phone": false,
+    "source": "his master 154.755-156.223 s (his transitions trimmed), lifted into the olive card",
+    "still": true,
+    "label": "no label: real footage (the real-picture label is for still photos of his physique)",
+    "provenance": "real"
+   }
+  },
+  {
+   "entry": {
+    "kind": "window",
+    "header": null,
+    "bullets": [
+     "It's designed purely for making fitness transformation images of men like you.",
+     "It's way better at it than ChatGPT or any general purpose AI.",
+     "And it's completely free."
+    ],
+    "t0": 160.527,
+    "t1": 170.337,
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "4811",
+     "5105"
+    ],
+    "reads_agreeing": 9,
+    "read_frame": 5060,
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f005060.png",
+    "left_agreement": 0.026,
+    "right_agreement": 0.981,
+    "transcript_check": [
+     {
+      "line": "It's designed purely for making fitness transformation images of men like you.",
+      "ratio": 1.0,
+      "spoken": "It's designed purely for making fitness transformation images of men like you."
+     },
+     {
+      "line": "It's way better at it than ChatGPT or any general purpose AI.",
+      "ratio": 0.992,
+      "spoken": "It's way better at it than chat GPT or any general purpose AI"
+     },
+     {
+      "line": "And it's completely free.",
+      "ratio": 1.0,
+      "spoken": "and it's completely free"
+     }
+    ],
+    "boundary": "flash-burst centre"
+   }
+  },
+  {
+   "entry": {
+    "t0": 175.375,
+    "t1": 177.978,
+    "kind": "bleed",
+    "label_kind": "ai",
+    "caps": false,
+    "media": "auto_05256",
+    "flash_after": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "5256",
+     "5334"
+    ],
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f005291.png",
+    "olive": 0.441,
+    "picture_area": 0.228,
+    "motion": 0.04,
+    "text": [],
+    "burned_label": "ai",
+    "matches": [
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/01 Before and After Images/dan by pool - AI GOAL IMAGE.png",
+      "inliers": 511,
+      "typ": "img",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 1.0,
+      "shown": 0.887,
+      "fit": 63.18
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/03 B-Roll - Real Footage/screen-recordings/B0036_app-goal-photo-upload-phone-real-picture-chip_16x9_10s.mp4",
+      "inliers": 288,
+      "typ": "vid",
+      "prov": "real",
+      "t": 4.0,
+      "coverage": 1.0,
+      "shown": 0.27,
+      "fit": 11.83
+     },
+     {
+      "file": "/Volumes/Extreme/_asset_library_stage/Abs By AI - Video Asset Library/04 AI-Generated Clips/ai-dan/A0066_holographic-scan-over-goal-photo-pool_9x16_8s.mp4",
+      "inliers": 469,
+      "typ": "vid",
+      "prov": "ai",
+      "t": 0.0,
+      "coverage": 0.767,
+      "shown": 0.977,
+      "fit": 54.745
+     }
+    ],
+    "hole": [
+     648,
+     92,
+     1296,
+     1000
+    ],
+    "phone": false,
+    "ai_answer": {
+     "answer": "physique",
+     "confidence": 1,
+     "why": "The man in the image is shirtless, and his chest and abdominal muscles are clearly visible, indicating a bare torso and physique."
+    },
+    "source": "clean library still",
+    "provenance": "ai"
+   }
+  },
+  {
+   "entry": {
+    "kind": "winmedia",
+    "media": "auto_05496",
+    "t0": 183.383,
+    "t1": 190.924
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     "5496",
+     5722
+    ],
+    "reads_agreeing": 4,
+    "read_frame": 5650,
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f005650.png",
+    "left_agreement": 0.106,
+    "right_agreement": 0.987,
+    "source": "portrait crop of his master at x=177 (the phone beside Dan)",
+    "picture_area": 0.126,
+    "ui_text": [
+     "AI-GENERATED",
+     "My Program - Block 1",
+     "Here's what we saw",
+     "You're coming in with a genuinely strong",
+     "foundation - your before photo shows a broad",
+     "frame with clear muscle mass underneath.",
+     "sitting in roughly the 28-34% body-fat range.",
+     "Your shoulders and chest have good width, and",
+     "there's a solid muscle base that many people",
+     "spend years building. Your fitness level reads as",
+     "intermediate: you re not deconditioned. just",
+     "carrying extra body fat that's ready to come off.",
+     "The gap to your after photo: Your after photo",
+     "calls for significant fat loss - roughly 20-30 Ibs",
+     "of fat - while revealing and slightly sharpening",
+     "the muscle definition that's already there,",
+     "particularly in the abs, chest, and shoulders.",
+     "The muscle-building requirement is modest:",
+     "the main job is a sustained, aggressive cut.",
+     "Your level: intermediate Stage Stage of of7 - 20",
+     "min/day- home",
+     "Why this works for you",
+     "You're already carrying a solid muscle base",
+     "underneath, and your after photo shows that",
+     "the framework you need is already there - it's",
+     "mainly a fat-loss and definition phase that",
+     "stands between you and that six-pack.",
+     "Because you're training at home with no",
+     "equipment right now, this program uses fast."
+    ],
+    "boundary": "flash-burst centre"
+   }
+  },
+  {
+   "entry": {
+    "kind": "window",
+    "header": "Your workout plan",
+    "bullets": [
+     "Works around your injuries.",
+     "Targets your lagging body parts.",
+     "Uses the equipment you actually have."
+    ],
+    "t0": 190.924,
+    "t1": 197.297,
+    "his_flash": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "frames": [
+     5722,
+     "5913"
+    ],
+    "reads_agreeing": 13,
+    "read_frame": 5855,
+    "rep_frame": "/Volumes/Extreme/_edit_work/kit9x16/av09-ad8/auto/frames/f005855.png",
+    "left_agreement": 0.025,
+    "right_agreement": 0.988,
+    "transcript_check": [
+     {
+      "line": "Works around your injuries.",
+      "ratio": 1.0,
+      "spoken": "works around your injuries,"
+     },
+     {
+      "line": "Targets your lagging body parts.",
+      "ratio": 0.935,
+      "spoken": "targets your lacking body parts,"
+     },
+     {
+      "line": "Uses the equipment you actually have.",
+      "ratio": 1.0,
+      "spoken": "uses the equipment you actually have."
+     }
+    ],
+    "boundary": "his cut inside the window run"
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 0.167,
+    "t1": 3.971,
+    "lines": [
+     "AI Showed Me Two Pictures"
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 23,
+    "reads_agreeing": 20,
+    "box_1280": [
+     306.0,
+     569.7,
+     1146.0,
+     625.0
+    ],
+    "transcript_check": {
+     "ratio": 1.0,
+     "spoken": "AI showed me two pictures"
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 44.211,
+    "t1": 46.413,
+    "lines": [
+     "Let's talk about why this",
+     "actually works."
+    ],
+    "equal": true
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 14,
+    "reads_agreeing": 11,
+    "box_1280": [
+     346.7,
+     536.7,
+     1140.7,
+     652.0
+    ],
+    "transcript_check": {
+     "ratio": 0.987,
+     "spoken": "let's talk about why this actually works."
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 63.03,
+    "t1": 66.567,
+    "lines": [
+     "You'll Be Filled With Motivation"
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 21,
+    "reads_agreeing": 19,
+    "box_1280": [
+     304.0,
+     564.0,
+     1184.0,
+     620.0
+    ],
+    "transcript_check": {
+     "ratio": 1.0,
+     "spoken": "you'll be filled with motivation"
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 75.576,
+    "t1": 77.711,
+    "lines": [
+     "Fear Fades. It Always Does."
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 13,
+    "reads_agreeing": 11,
+    "box_1280": [
+     350.0,
+     576.0,
+     1120.0,
+     628.0
+    ],
+    "transcript_check": {
+     "ratio": 1.0,
+     "spoken": "Fear fades, it always does."
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "cta",
+    "t0": 105.305,
+    "t1": 109.309
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 24,
+    "reads_agreeing": 23,
+    "box_1280": [
+     449.5,
+     549.5,
+     838.0,
+     629.4
+    ],
+    "transcript_check": {
+     "ratio": 0.53,
+     "spoken": "to see how amazing you would look with six"
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 170.504,
+    "t1": 173.807,
+    "lines": [
+     "Abs In Less Than 10 Seconds"
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 20,
+    "reads_agreeing": 18,
+    "box_1280": [
+     318.0,
+     574.0,
+     1082.0,
+     620.0
+    ],
+    "transcript_check": {
+     "ratio": 1.0,
+     "spoken": "abs in less than 10 seconds."
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "cta",
+    "t0": 174.241,
+    "t1": 175.242
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 6,
+    "reads_agreeing": 6,
+    "box_1280": [
+     454.0,
+     552.0,
+     838.0,
+     629.5
+    ],
+    "transcript_check": {
+     "ratio": 0.835,
+     "spoken": "generate an image of yourself with abs"
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "lower_third",
+    "t0": 204.371,
+    "t1": 206.606,
+    "lines": [
+     "You get the plan that makes it real."
+    ]
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 14,
+    "reads_agreeing": 12,
+    "box_1280": [
+     266.0,
+     581.0,
+     1174.0,
+     633.0
+    ],
+    "transcript_check": {
+     "ratio": 1.0,
+     "spoken": "you get the plan that makes it real."
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "cta",
+    "t0": 208.041,
+    "t1": 210.877
+   },
+   "confidence": "high",
+   "evidence": {
+    "reads": 16,
+    "reads_agreeing": 16,
+    "box_1280": [
+     452.0,
+     549.8,
+     838.0,
+     629.2
+    ],
+    "transcript_check": {
+     "ratio": 0.434,
+     "spoken": "it real. So pick your future. Tap the button"
+    }
+   }
+  },
+  {
+   "entry": {
+    "kind": "flash",
+    "t0": 5.606,
+    "t1": 5.606
+   },
+   "confidence": "high",
+   "evidence": {
+    "why": "his white flash on the return (mean luma 247)"
+   }
+  },
+  {
+   "entry": {
+    "kind": "flash",
+    "t0": 12.813,
+    "t1": 12.813
+   },
+   "confidence": "high",
+   "evidence": {
+    "why": "his white flash on the return (mean luma 247)"
+   }
+  },
+  {
+   "entry": {
+    "kind": "flash",
+    "t0": 177.978,
+    "t1": 177.978
+   },
+   "confidence": "high",
+   "evidence": {
+    "why": "his white flash on the return (mean luma 247)"
+   }
+  }
+ ],
+ "thresholds": {
+  "T_TALK": 0.5,
+  "T_INSERT": 0.45,
+  "WIN_DEAD": 0.25,
+  "WIN_LIVE": 0.75,
+  "CUT_SPIKE": 12.0,
+  "MIN_SHOT": 6,
+  "OCR_EVERY": 5,
+  "MATCH_MIN_INLIERS": 25
+ }
+}

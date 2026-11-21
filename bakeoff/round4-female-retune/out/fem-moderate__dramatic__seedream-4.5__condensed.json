@@ -1,0 +1,22 @@
+{
+  "caseId": "fem-moderate__dramatic",
+  "modelKey": "seedream-4.5",
+  "variant": "condensed",
+  "label": "Seedream 4.5 (edit)",
+  "provider": "replicate",
+  "ok": true,
+  "blocked": false,
+  "outOfCredit": false,
+  "throttled": false,
+  "error": null,
+  "latencyMs": 15764,
+  "geminiSafetyRetry": false,
+  "promptChars": 1288,
+  "nominalCost": 0.04,
+  "image": "fem-moderate__dramatic__seedream-4.5__condensed.jpg",
+  "meta": {
+    "predictTime": 15.202206543,
+    "predictionId": "h0wb79v2qsrmy0czncf9mgy6ac"
+  },
+  "ts": "2026-07-28T23:45:38.585Z"
+}

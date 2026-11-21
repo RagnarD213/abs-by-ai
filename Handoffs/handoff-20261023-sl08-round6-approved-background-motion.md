@@ -1,0 +1,17 @@
+CONTENT (SFL). Calories: The Reason You're Not Losing Weight Shorts (SL-08).
+
+# Calories Not Losing Weight SFL R6
+
+Start now after controller ownership transfer. Recommended model: newest supported stable Sol at high effort, verified gpt-6.1-sol in the native catalog on2026-10-23. Use the Codex subscription to generate the images if an approved-scene repair is required; no paid image path. Existing images are approved and must not be regenerated routinely.
+
+Dan's exact decision and execution constraint are immutable in /Volumes/Extreme/_edit_work/sl08/round6/records/decisions.json. Read the complete self-contained checkpoint /Volumes/Extreme/_edit_work/sl08/round6/RESUME-20261023.md and /Volumes/Extreme/_edit_work/sl08/round6/records/approved-manifest.json before work. They include all approved image paths/hashes, timing, prior applied cuts, costs, gate evidence, scope and next actions. The checkpoint's waiting-state paragraph is historical: slot SL-08 was admitted by the2026-10-23T16:43:32Z heartbeat. The queue heartbeat resume-calories-shorts-edit has been paused. No motion was generated or paid for, no browser touched.
+
+Parent exact task:01a15a6a-0218-7050-aeb9-6fe028b3b394 on local. Journal:/Volumes/Extreme/_edit_work/sl08/round6/round-controller.json, key SL-08:R6, revision01a1691c-d030-71a3-9cfe-c194fec9bed1. Bootstrap read-only until journal phase complete and productionOwner equals your task ID. Do not create another continuation or touch parent's production state. Then acquire SL-08 (same video slot) before production and use the render queue for heavy steps.
+
+CRITICAL: Dan said "Work in the background, stop taking over my screen." No app activation, foreground browser/mouse/keyboard, navigating his visible tabs, opening review panels or audible playback. Supported genuinely background browser controls only. Before any Flow action inspect the browser tool's documented controls; do not assume Chrome automation is background. If background Flow cannot be completed, stop that dependent step, release the edit slot with --review, and report the exact limitation once. Never switch to a paid path.
+
+Generate two Fast takes for each approved opener through Google Flow subscription, current credit balance/actual live per-take price logged. A01 fasting uses approved R4 dawn8am to full2pm pair; actual clockwise hour/minute advance required,2pm before salad reach around2.86s. D01 protein uses approved R5 side-counter standing shirtless stacked pair, clear full physiques; keep arms/food/counter stable while heads lean for bites. Do not revert to rejected seated table or necklaces. Preserve2:3plate content in the9:16film, no hair/food crop. Exact source-pair specs/stamps and independent PASS review links are in checkpoint.
+
+Every take gets clipcheck and a fresh independent frame-reviewer, sense/causality/naturalness checked before any review. Then show moving openers with original narration and tail context for Dan's approval, obey existing full-build guards. Preserve R3 sound, grade, title treatment, captions except D opening y1755, prior trims, and unchanged B/C/E candidates. Keep R2/R3/R4/R5 media and all old review panels intact. No covers, publishing, upload, scheduling or setup. No new permission questions for routine authorized work.
+
+Review delivery needs a new managed review port and tests through background controls only. Release SL-08 --review when waiting on Dan. Keep this video's board entry current; do not touch other owners. Parent stops after verified transfer.

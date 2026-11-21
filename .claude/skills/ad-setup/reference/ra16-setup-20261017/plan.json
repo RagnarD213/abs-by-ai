@@ -1,0 +1,83 @@
+{
+  "category": "AD",
+  "job": "RA-16",
+  "headline": "AI Took My Job",
+  "generator": "Codex subscription via codex-image.sh",
+  "model": "gpt-6.1-sol",
+  "effort": "high",
+  "generation_count": 5,
+  "api_spend_usd": 0,
+  "status": "waiting for Dan thumbnail pick; no YouTube uploads or Ads mutations",
+  "options": {
+    "1": "Real pool cutout, teal pool, large left condensed white and yellow type",
+    "2": "Real studio cutout, white/red sports editorial, full-width bottom black geometric type",
+    "3": "AI Dan handing training clipboard to robot, cobalt cinematic frame, cream serif title panel",
+    "4": "Chrome robot trainer, electric violet halo, staggered neon block headline",
+    "5": "Empty trainer chair, ivory and orange still life, spare black editorial headline"
+  },
+  "source_cutouts": {
+    "1": "Real pool photo-167 cutout copied unchanged from RA-13 setup",
+    "2": "Real studio-blue-221 cutout copied unchanged from RA-13 setup"
+  },
+  "approved_sha256": {
+    "9x16": "fdc6ad507531a2f5b113dea8b03c23680db4bcec4e43102c1fefc39c9749e5fb",
+    "16x9": "789944e4dc7ee70b2e5b0af55d5ece8c73dda446155e609c28420553e84c963d"
+  },
+  "codex_tokens": 92168,
+  "review_sheet": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/REVIEW-five-options.jpg",
+  "review_checks": {
+    "all_ten_files_under_2mb": true,
+    "real_cutout_text_clearance_px_min": 70,
+    "manual_visual_review": "All ten variants inspected on numbered sheet; AI Dan face recognizable; face and hair clear; pool crop stops before brief leg openings. Real pool and studio people preserved.",
+    "master_files": "Both exact native hashes verified unchanged."
+  },
+  "prompts": {
+    "1": "Use case: ads-marketing. Wide 16:9 premium fitness ad BACKGROUND ONLY. A modern luxury turquoise swimming pool in bright golden sunshine, dark teal palm shadows at left, sparkling cyan water toward right, warm cream deck. Simple deep teal negative space across left 55 percent for later typography. The right half receives a real photo cutout later. Photographic, crisp and clean. NO PEOPLE, no bodies, no text, no lettering, no logos. Not a finished graphic.\n",
+    "2": "Use case: ads-marketing. Wide 16:9 premium sports editorial background plate. Minimal architectural white and silver gym with a giant vivid red diagonal structural beam behind center, subtle concrete texture, glossy floor, black gym equipment at far edges. Center left empty for a real man cutout added later. White, black and vermilion red palette. Keep bottom 28 percent clean white for later type. NO PEOPLE, no bodies, no text, no letters, no brand or logo. No generated typography.\n",
+    "3": "Use case: ads-marketing. Portrait 4:5 cinematic editorial AI illustration of the man in attached reference, a recognizable Asian male fitness coach with the same face and hairstyle, lean and shredded, not bulky, same size as reference. He wears a fitted charcoal sleeveless training shirt and black athletic shorts, at right-center, smiling with amused surprise while a sleek small white humanoid robot at left takes a blank training clipboard from his hand. A clear handover of his trainer job to AI. Premium cobalt-blue gym at night with blue rim lighting, natural anatomy, clean hands, no extra limbs, no giant muscles. Entire hair with headroom; waist-up composition, both faces below top 20 percent. Top 20 percent quiet deep blue for later text. No text, no letters, no logos, no watermarks. AI-generated concept, not a real-photo edit.\n",
+    "4": "Use case: ads-marketing. Portrait 4:5 dramatic premium conceptual 3D studio photograph. One sleek chrome robot trainer holding a single black dumbbell at chest height like a fitness professional, looking at camera with two small bright cyan eyes. Full head and upper body, centered, subject occupies middle and bottom 70 percent. Black and electric violet modern gym with luminous purple circular halo behind robot head, high material quality, strong controlled light. Top 20 percent dark negative space. No humans. No text, no letters, no logos, no brand marks, no watermarks. Bold instantly readable icon of AI replacing a personal trainer.\n",
+    "5": "Use case: ads-marketing. Portrait 4:5 sophisticated warm editorial still life photograph for a fitness ad about AI taking the personal trainer job. A single empty black director chair on a warm pale ivory gym floor, a large bright orange gym whistle hanging from the backrest, and a silver training clipboard resting on the seat beside a black dumbbell. A small blue glowing AI processing cube on the floor beside the chair, visible and simple. Objects cluster in central 75 percent and lower 65 percent. Strong hard afternoon light from left makes long graphic shadows, sophisticated ivory, orange, charcoal palette. Keep upper 30 percent clean cream wall for later huge headline. No people, no faces, no text, no letters, no symbols, no logos, no words, no watermark.\n"
+  },
+  "files": [
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-1-16x9.jpg",
+      "sha256": "f79c4abbe355f194f74846cba0385bd8d806dada05fa1fc6fab9447d6be512df"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-1-9x16.jpg",
+      "sha256": "c246f54e8ed960877fa48f2b85196b6398f09ba02cf290e9879c3e5109b1b348"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-2-16x9.jpg",
+      "sha256": "3c61f07a5f6abb25899c5a835febbd17202aa322a22b0a56a461cf57a335416b"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-2-9x16.jpg",
+      "sha256": "843b071485863b4f32febe70f76fd98889de4f3fa16929027fc01f6ad0c4e300"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-3-16x9.jpg",
+      "sha256": "a5fa9bdd451acc80e77827c12fd1307113b4227334419c3c05f099c531f2ff48"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-3-9x16.jpg",
+      "sha256": "d6c774d7235299439ed64322b2b2fa9a0458a9e056187701fb66691236312aac"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-4-16x9.jpg",
+      "sha256": "d4fc3de2db9214becfcf01884d9dcdbd4ac14ca24ebe47f50559bb244d83b5cb"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-4-9x16.jpg",
+      "sha256": "e6e6897a42f9cdd25608aa650843ee96919a1f093596e42d7a1397e0962ee40d"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-5-16x9.jpg",
+      "sha256": "da78e239eb386e96f7a9b0ecd55a5958dec3631978413773ec758af690a8c31c"
+    },
+    {
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/social media graphics/youtube/thumbnails/RA-16 AI Took My Job/option-5-9x16.jpg",
+      "sha256": "d6e5cb036465e860f0cb07216c70e163b10c55b10038620f737825c1dbe78732"
+    }
+  ]
+}

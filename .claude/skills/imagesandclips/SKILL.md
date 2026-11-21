@@ -1,0 +1,359 @@
+---
+name: imagesandclips
+description: >
+  Fill in the actual images and clips for a finished ad/video script — walk every
+  bracketed visual cue in the script doc, source or generate the right asset, and
+  place it in the Google Doc under its cue. Use whenever Dan asks to "fill in the
+  assets", "add the images", "get the clips", or "do the images and clips" for a
+  script — even if he doesn't say "/imagesandclips". Writing the script itself is
+  /scriptwriting; writing the outline is /ad-outlines; a fully AI-generated video
+  ad is /make-ad.
+---
+
+## Video editing task names (Dan, 2026-10-16)
+
+At the start of a video editing/review task, name the chat `<Recognizable Video Title> <Type> R<round>` under the [shared naming rule](../_shared/VIDEO-RULES.md#video-editing-task-names-dan-2026-10-16). Use LFC for long-form, SFC for dedicated shorts, and SFL for shorts extracted from long-form; retain existing paid-ad type labels. Put the recognizable video title first, omit internal job codes and generic action prefixes, and use the same name in handoff prompts. Asset/brief work supporting an existing editing task keeps that task's name and round.
+
+> **Image generation: Codex only (Dan, 2026-10-01).** Every still image this skill generates (backgrounds, plates, AI frames, thumbnails, covers, posts, retouch passes) is made with `.claude/skills/_shared/codex-image.sh` on the ChatGPT subscription. Where the steps below name Nano Banana Pro, Gemini, Seedream, FLUX, `gemini-image.js`, `rep-t2i.js` or `replicate-edit.js` for a still image, use the helper instead. Read `.claude/skills/_shared/IMAGE-GENERATION.md` first. Video generation is unchanged.
+
+# Images and clips for a script
+
+Input: a finished script in **"Abs by AI finalized scripts batch 1 - WITH FILMING
+NOTES"** (`1r3Jmuihyryq0qv2Y3A--D_yaerF9B_ZqAb-QvOuAwjg`), where bracketed gold
+lines are visual cues. Output: every cue that needs a picture has one sitting
+directly under it, plus new cues where the script clearly implies a visual and
+nobody wrote one.
+
+## The rule that decides what to add — Dan's, 2026-08-06
+
+**Only add assets the editor could not have chosen just as well herself.** Do not
+add generic stock ("a plate of food", "someone at a gym", "money"). She can find
+those. Add the things only we know about:
+
+- Six Pack Shortcuts / SixPackAbs.com clips — she has no idea which one has Dan in it
+- Dan's before picture, and shots from the recent photo shoot
+- Any footage or photos of Dan (including his ad-agency channel)
+- Abs By AI before/afters we generate
+- **Real screen captures of the live absbyai.com app**
+- AI-generated stills/clips we make
+
+When the script implies a clip that doesn't exist, **generate a still that would
+make a good START FRAME for it** and add a cue. Dan reviews the still first; the
+clip gets made only after he approves.
+
+## Video cues — still first, clip later, link never embed
+
+1. Generate the **still** and put it in the doc under the cue.
+2. Dan approves the look.
+3. Only then generate the clip.
+4. Upload the finished clip to Google Drive and put a **link** in the doc. Never
+   try to embed video — a Doc can't hold it.
+
+## Where the assets live
+
+**Search the clip library first** for any video cue: `python3 .claude/skills/_shared/cliplib/clip_library.py find "<cue>" --rolls`.
+A hit is linked by its Drive link and ID; only then fall through to the sources below.
+
+| Need | Source |
+|---|---|
+| Six Pack Shortcuts / SixPackAbs clips | `Media/B roll/` |
+| Dan's own footage | `Media/B roll/youtube ad agency b roll.mov` (his agency channel) |
+| Workout B-roll | `Media/B roll/` — 3 min ab workout · deadlift · m-100s · jump rope |
+| Before picture, AI future-self, photo-shoot shots | **Already inside the scripts doc** — pull them out of the .docx export rather than re-deriving (see below) |
+| App screens | Capture live from absbyai.com (recipe below) |
+| Cartoon/gag stills | Replicate `google/nano-banana-pro` |
+
+### B roll — what's actually in each file (verified 2026-08-06, don't re-scan)
+
+The B-roll files are **screen recordings of YouTube**, not raw footage.
+
+- **`sixpackabs can diet alone get you abs.mp4`** — SixPackAbs.com "Can DIET ALONE
+  get you abs?" (1.1M views), downloaded 2026-08-07 at 1080p. **This is the go-to for
+  `[SHOW CLIP OF DAN FROM SIX PACK SHORTCUTS]` on any nutrition/diet script** — it is
+  the most diet-focused video in the Mike Chang + Daniel Rose playlist. **Dan is on
+  the RIGHT** in the plain black v-neck; Mike Chang is on the LEFT in the Nutrition
+  Depot tank. There is exactly one Dan-solo stretch: **0:33–1:08.6**. 1:08.6–2:00 is
+  Chang solo (avoid); the rest is two-shot.
+- **`interview b roll.mov`** — SixPackAbs.com "How To Lose Your Belly Fat" (3.3M
+  views). **Dan is the man on the LEFT.** Best solo close-up at **0:18**. Fallback
+  for the SixPackAbs cue if the diet video doesn't suit the script.
+- **`youtube ad agency b roll.mov`** — Dan's own "How To Set Up Your First YouTube
+  Ad Campaign", channel *Daniel Rose – Social Response*. Dan alone, on camera,
+  whole clip. Use it for the "running a successful ad agency" line.
+- **`sixpackabs.com rebrand b roll.mov`** — mostly **Mike Chang and Thomas
+  DeLauer**, not Dan. He appears only as a lower-third title card at ~0:11–0:15
+  ("Dan Rose · Six Pack Shortcuts Co-Founder & CEO"). Use only if you specifically
+  want the title card; it breaks Dan's "keep the focus on me" rule otherwise.
+- 3 min ab workout / deadlift / m-100s / jump rope — training B-roll, pick by topic.
+
+**To download a SixPackAbs video from YouTube:** the `yt_dlp` Python module is
+installed (no CLI). YouTube blocks the default client — use
+`extractor_args={'youtube':{'player_client':['android_vr']}}`, which works where
+`tv`, `ios`, `web_safari` and `mweb` all fail.
+
+**To make a "watching it on YouTube" screen-capture clip:** don't screen-record.
+Capture the real watch page in headless Chrome at 1600×900 @2× (pause the video,
+hide the player chrome), read the `<video>` element's rect, then composite the
+downloaded footage into that rect with ffmpeg `overlay`. Full quality, deterministic,
+and the page shows the correct title, channel, view count and playlist sidebar.
+
+**Pick frames by looking, never by guessing.** Contact sheet at 1 fps, then crop
+the player region out of the browser chrome:
+
+```bash
+FF="Media/video_edit/bin/ffmpeg"   # no Homebrew ffmpeg on this Mac
+"$FF" -v error -i "Media/B roll/interview b roll.mov" \
+  -vf "fps=1,scale=300:-1,tile=5x4" -frames:v 1 -y sheet.jpg
+# sources are 3840x2160; the YouTube player sits at roughly 200,330 1990x1180
+"$FF" -v error -ss 18 -i "Media/B roll/interview b roll.mov" \
+  -frames:v 1 -vf "crop=1990:1180:200:330" -y still.jpg
+```
+
+### Reusing assets already in the scripts doc
+
+The before picture, the AI future-self image and the photo-shoot shots are already
+embedded. Pull the exact files instead of hunting the originals — they are also
+already scaled correctly for pasting.
+
+```bash
+# Drive MCP download_file_content, export mime = ...wordprocessingml.document
+# result lands on disk as JSON with base64 `content` (too big to read inline)
+python3 -c "import json,base64;d=json.load(open(P));open('doc.docx','wb').write(base64.b64decode(d['content']))"
+unzip -oq doc.docx      # images in word/media/
+```
+Then walk `word/document.xml` paragraphs in order, resolving `r:embed` rIds through
+`word/_rels/document.xml.rels`, to map each image to the cue above it. The export
+**dedupes** — one file can be referenced at two cues.
+
+### Real app screenshots — retina, from live prod, with zero AI spend
+
+Use the Apple-review comp account (`danroseconsulting+applereview@gmail.com`,
+password in `app-store-assets/LISTING_COPY.md`). **Check what it already has before
+generating anything** — it usually already holds a saved meal plan, logged meals and
+transformations, so nothing needs to be created:
+
+```bash
+curl -s -X POST https://absbyai.com/api/auth/login -H 'Content-Type: application/json' \
+  -d '{"email":"...","password":"..."}'          # -> token
+# then GET /api/mealplan, /api/meals, /api/transformations with Bearer <token>
+```
+
+**Never run a generation on that account** — it pollutes the reviewer's gallery and
+can displace the curated hero image (2026-07-30 lesson). The app is in App Store
+review.
+
+Capture with headless Chrome over CDP (Node 24 has a built-in WebSocket client):
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
+  --remote-debugging-port=9333 --user-data-dir=<scratch>/prof --no-first-run \
+  --hide-scrollbars about:blank &
+```
+Then `Emulation.setDeviceMetricsOverride` at 390×844 @3× (gives 1170×2532 retina),
+set `localStorage.absbyai_session_token`, reload, click hub tiles via
+`Runtime.evaluate` on `#hubSection [data-feature="nutritionist"|"macro"|"counsel"]`
+(take the LAST match — the first ones are Daily Brief rows), and
+`Page.captureScreenshot`.
+
+**Crop the account email out of any hub shot** before it goes in the doc.
+
+### AI stills
+
+`google/nano-banana-pro` on Replicate, `aspect_ratio: "9:16"`, `resolution: "2K"`.
+The token is not on this machine — read it from Railway → abs-by-ai → Variables
+(Dan copies it; `pbpaste > <scratch>/.keys.env`, chmod 600; never into chat).
+~13¢ per image.
+
+**Draft on Nano Banana 2, finish on Pro (cost rule, 2026-08-10).** A cue usually
+takes several attempts to find the right composition, and those exploratory takes
+do not need the expensive model. `gemini-3.1-flash-image` (Nano Banana 2) is about
+half the price and roughly twice as fast (8.5s vs 17s measured), which makes it the
+right tool for "which of these four framings works". Then regenerate **only the
+chosen composition** on `gemini-3-pro-image`:
+
+```bash
+node ../_shared/gemini-image.js generate --prompt-file cue.txt --out draft.jpg \
+  --model gemini-3.1-flash-image --tier draft --env <keys>     # exploration
+node ../_shared/gemini-image.js generate --prompt-file cue.txt --out final.jpg \
+  --tier final --env <keys>                                    # the keeper
+```
+
+**This applies ONLY to brand-new images.** Anything that edits an existing photo —
+a retouch, a "same shot but…" variant, anything with an `--image` input that must
+be preserved — must stay on Nano Banana Pro: Nano Banana 2 re-renders rather than
+edits (it changed a subject's shorts colour and shifted framing in the 2026-08-10
+test). Full evidence in the `photo-edit` skill, §3a.
+
+Prompt style that worked: *"a simple, funny hand-drawn 2D cartoon
+illustration on a clean off-white background, vertical composition with lots of
+empty space … flat colors, bold clean ink lines, no text."* Say **no text** — the
+model will otherwise letter it badly.
+
+## Placing assets in the Google Doc
+
+Pre-scale everything first — **Docs ignores `width=` and CSS `width` and inserts at
+natural pixel size.** 300px wide for portrait, 340px for landscape. Convert PNG →
+JPEG q86; it took the Ad 2 payload from 1.2 MB to 412 KB, and smaller payloads
+paste more reliably (551 KB is a known-good size, 2.8 MB is a known-fail).
+
+**Insert per cue. Do not rewrite the ad** — that would delete Dan-approved copy for
+no reason.
+
+### The working loop (each cue)
+
+1. **Jump to the ad** via the left-hand document outline, then scroll and screenshot.
+2. **Click at the end of the cue line** (or the last line of the target paragraph)
+   and press `End`.
+3. **Only now** set the clipboard.
+4. `Return`, then `cmd+v`, then screenshot **and look at what actually landed**.
+
+Order matters: positioning between setting the clipboard and pasting is what lets
+Docs substitute its own internal clipboard.
+
+Clipboard, both flavors, with readback verification:
+
+```bash
+osascript -e 'set the clipboard to {«class HTML»:«data HTML<hex>», «class utf8»:«data utf8<hex>»}'
+osascript -e 'get the clipboard as «class HTML»'   # compare hex to what you wrote
+```
+
+Wrap the payload as `<p style="…gold bold…">[CUE]</p>` (when adding a new cue) plus
+`<p style="text-align:center;margin:0;"><img src="data:image/jpeg;base64,…"></p>`.
+Cue style: `font-family:Arial;font-size:10pt;font-weight:bold;font-style:normal;
+text-decoration:none;color:#7A6A2E`. Body paragraphs need explicit
+`color:#000000;font-weight:normal;font-style:normal` or they inherit the neighbour's.
+
+### Traps — all of these fired on Ad 2 (2026-08-06)
+
+- **`cmd+F` does not work.** Keystrokes sent after opening Docs' find box land in
+  the **document**, not the box — with any delay, and clicking the box first just
+  steals focus back to the document. It typed `PUSHES A LAME-LOOKING NUTRITIONIST`
+  into the H1 title twice. **Navigate by outline + scroll + click. Never by find.**
+- **`clipboard info` showing `«class HTML»` proves nothing** — it stays true for a
+  stale payload. Read the HTML flavor **back** and compare bytes. Even then, Docs
+  can still paste from its own internal clipboard while the system clipboard
+  verifiably holds the right bytes.
+- **The internal-clipboard trap gets WORSE the longer the editing session runs.**
+  On the Ad 2 revision pass it fired on roughly one paste in three, and what it
+  pasted came from the user's wider clipboard history — a bank/tax admin screenshot
+  and an Apple Developer page — not from the document. Two consequences:
+  1. **Re-set the clipboard immediately before EVERY paste**, even when pasting the
+     same asset repeatedly, and **screenshot after every paste**. `cmd+z` + re-set +
+     re-paste fixed it every time, on the first retry.
+  2. **A bad paste can inject sensitive content into the document.** After any long
+     pass, export the .docx and enumerate every embedded image (size + which cue it
+     sits under), not just the ones you meant to add. A stray screenshot of someone's
+     bank page is a much worse defect than a missing picture.
+- **Undo is per-operation.** A `Return` plus a paste is two. Undo one at a time and
+  screenshot between. After undoing a bad paste, the empty paragraph is usually
+  still there and correctly positioned — re-paste into it rather than pressing
+  `Return` again.
+- **Insert bottom-up when two targets are on screen.** Inserting at the lower one
+  first keeps the upper one's coordinates valid.
+- **Anchor on the END of a paragraph.** `End` goes to the end of the *visual line*,
+  not the paragraph, so clicking mid-paragraph puts the image mid-paragraph.
+- **Short text: type it, don't paste it.** Typing at the end of an existing note
+  inherits that note's italic styling for free.
+- **The Drive text export can be badly stale.** Verify structure in the live editor;
+  use a Drive re-read only as the *final* check, after the "Saving…" indicator has
+  gone back to the cloud icon.
+
+## Verify before reporting
+
+Re-download the .docx and count images per section, printing the cue above each:
+
+```
+13 images  AD 2   ← every cue accounted for, in order
+ 7 images  AD 1   ← unchanged
+ 6 images  AD 3   ← unchanged
+```
+Also confirm the section order and that Production notes is still last, and grep
+the text for residue from any bad paste and for the banned copy rules.
+
+## Copy and compliance rules that apply to assets
+
+- **Never a side-by-side before/after in an ad frame** (Dan's rule, 2026-08-07). No
+  two-up before/after, no split screen, no "before | after" pair — not even with an
+  "AI-GENERATED" label. Meta prohibits before/after imagery in health and wellness
+  outright, the label does not cure it, and on a new Google Ads account it is the
+  single highest-risk composition in the ad. **The one exception:** a before/after
+  that appears *inside the app's own UI* in a real screenshot or screen recording —
+  there it reads as a product demo, not an advertising claim. Where a script needs
+  to connect the plan to the pictures, show the **goal image alone**, tagged, or cut
+  between shots instead of placing them side by side.
+- **Never render the ChatGPT logo** (or any competitor's mark) in an asset, even
+  when the cue asks for it. Use a generic glowing "AI" badge and say so in the note.
+  A competitor trademark in a paid ad is a real Google/Meta review risk.
+- The **AI future-self image keeps its "AI-GENERATED" tag**. Dan's real photo-shoot
+  pictures carry the burned label "Real picture of me — not AI-generated" (Dan, 2026-09-11; viewers were taking
+  them for AI) — the two labels are mutually exclusive, and **neither ever sits over his face OR his
+  abs** (Dan, 2026-09-12): above his head, off to one side, or anywhere his body is not.
+- **A before and after picture are the SAME PERSON** (Dan, 2026-09-12): never source one person's before against
+  another's after; if that person's after does not exist, generate it for THEM rather than substituting someone else's.
+- Never write "GLP-1" or any drug name — "weight loss medication".
+- Crude-photoshop gags must be generic fakes, never a real person's face.
+- Never sell sleep.
+
+## Record what you did
+
+Write a `PLACEMENT.md` next to the assets mapping every cue → file → source
+(including clip timecodes), and note what's still missing and why.
+
+## Lessons
+
+- **Ask before starting.** Dan explicitly wanted questions first on this workflow;
+  the answers (which B-roll, how aggressive, real vs fake app shots) changed the
+  whole shape of the work.
+- **Look at the footage.** The first two frames sampled from the "sixpackabs.com
+  rebrand" clip were Mike Chang and Thomas DeLauer. Sampling three timestamps would
+  have shipped the wrong man; a 1 fps contact sheet found the truth in one look.
+- **Check what the account already has before spending.** Ad 2's three app screens
+  cost $0 because the demo account already had a meal plan and logged meals.
+- **A missing asset is a finding, not a failure.** The Macro Tracker *result* screen
+  needs one real photo of real food — say so plainly rather than faking a plate.
+
+### Placing 50+ assets: drive it with Apps Script, not the clipboard (2026-08-10)
+
+Clipboard pasting is fine for one ad. For a whole batch (Ads 1–13 needed **115 images
+and 59 note lines**) it is hours of work with a mis-paste roughly one time in three.
+The reliable route is a throwaway **Apps Script** bound to Dan's account:
+
+1. Export the doc as .docx and build a spec of `{paragraphIndex, images[], notes[]}`.
+2. **Verify the index alignment first.** Apps Script `body.getChild(i)` lined up
+   exactly with the .docx paragraph order in this document — but prove it with a
+   `verifyDoc()` that logs the text at a handful of known indices before writing.
+3. **Insert in DESCENDING paragraph index.** Insertions below never shift the indices
+   above, so every original index stays valid for the whole run.
+4. Images: `p.appendInlineImage(blob)` then `setWidth(225)` (points) — that is 300 px
+   at 96 dpi and matches the images already in the doc.
+5. One run did 88 cues with 0 errors in ~70 seconds.
+
+**Getting the files into Drive.** Drive **ignores synthetic drop events** and its
+upload button opens a native picker with no `<input type=file>` to target, so neither
+the drop trick nor `file_upload` works. What does: deploy the script as a **web app**
+with a `doPost` that writes `Utilities.base64Decode(payload)` to a folder, then from a
+Google page `fetch()` each file off a local HTTP server and POST it (`mode:'no-cors'`,
+`Content-Type: text/plain`). 29 images and 9 clips (48 MB) went up this way.
+**Archive the deployment the moment you're done** — it is a public endpoint that
+writes to Dan's Drive. Guard it with a random secret in the payload meanwhile.
+
+**Three traps, all of which fired:**
+
+- **`pbcopy` mangled every non-ASCII character.** Em dashes, en dashes, curly quotes
+  and middle dots went into the doc as `‚Äî`, `‚Äì`, `‚Äú`, `¬∑` — 144 characters of
+  mojibake. Fix: generate the spec with `json.dumps(..., ensure_ascii=True)` so the
+  pasted source is **pure ASCII** and JavaScript decodes the `\uXXXX` escapes itself.
+  To repair after the fact, build the bad strings with `String.fromCharCode(...)` (so
+  the repair script is ASCII too) and `body.replaceText`. **Audit by diffing the set
+  of non-ASCII characters against the original export** — that is what caught the
+  middle dot after the first repair pass looked clean.
+- **A failed private-network preflight is cached per port.** Once a hung localhost
+  fetch poisons a port, every later fetch from that origin silently hangs with no
+  error and the request never reaches the server. **Move to a fresh port.** Also
+  serve with `ThreadingHTTPServer` — a single-threaded server deadlocks on the first
+  held-open connection, which is what caused the hang in the first place.
+- **The Apps Script editor page blocks localhost fetches** (CSP). Run the upload loop
+  from a `drive.google.com` or `docs.google.com` tab instead.
+
+**The OAuth consent is Dan's call, not yours.** Running the script needs him to click
+through an "unverified app" warning. Ask before doing it.

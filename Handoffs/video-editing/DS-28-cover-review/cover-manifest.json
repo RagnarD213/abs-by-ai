@@ -1,0 +1,362 @@
+{
+  "status": "awaiting-dan-pick",
+  "headline": "Stop Cooking Your Meals",
+  "film_untouched": true,
+  "generation": "Codex subscription, gpt-6.1-sol high",
+  "outputs": [
+    {
+      "option": 1,
+      "layout": "youtube",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/youtube/1-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 1009024,
+      "sha256": "14c13a5ff85b90798aba69229475e4a3a0a75974f387065f10667ada87acbb9d",
+      "text_boxes": [
+        [
+          66,
+          115,
+          838,
+          225
+        ],
+        [
+          66,
+          260,
+          762,
+          351
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/photo-247_CUTOUT.png",
+        "crop": [
+          334,
+          492,
+          2060,
+          3730
+        ],
+        "position": [
+          320,
+          565
+        ],
+        "height": 1400,
+        "hair_face_box": [
+          506,
+          565,
+          880,
+          915
+        ]
+      }
+    },
+    {
+      "option": 1,
+      "layout": "instagram",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/instagram/1-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 1015912,
+      "sha256": "67b774ca0143ea0ae17980696c588d2479744775f95dd6f53979750159316415",
+      "text_boxes": [
+        [
+          66,
+          304,
+          838,
+          414
+        ],
+        [
+          66,
+          449,
+          762,
+          540
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/photo-247_CUTOUT.png",
+        "crop": [
+          334,
+          492,
+          2060,
+          3730
+        ],
+        "position": [
+          320,
+          645
+        ],
+        "height": 1400,
+        "hair_face_box": [
+          506,
+          645,
+          880,
+          995
+        ]
+      }
+    },
+    {
+      "option": 2,
+      "layout": "youtube",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/youtube/2-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 682820,
+      "sha256": "f8a4059ef27206fa3062a4491a3796595d9bacdfad6e67c9530309340ab7ac3d",
+      "text_boxes": [
+        [
+          81,
+          120,
+          999,
+          276
+        ],
+        [
+          128,
+          305,
+          952,
+          451
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-222_CUTOUT.png",
+        "crop": [
+          83,
+          521,
+          2665,
+          4490
+        ],
+        "position": [
+          100,
+          570
+        ],
+        "height": 1400,
+        "hair_face_box": [
+          328,
+          570,
+          783,
+          920
+        ]
+      }
+    },
+    {
+      "option": 2,
+      "layout": "instagram",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/instagram/2-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 639776,
+      "sha256": "67ce1a0754f9b7727261409fd7d935ed1c92fea228cf24f8f268b4ae77007c20",
+      "text_boxes": [
+        [
+          81,
+          304,
+          999,
+          460
+        ],
+        [
+          128,
+          489,
+          952,
+          635
+        ]
+      ],
+      "subject": {
+        "source": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/photos/finalized social media photos/_cutouts/studio-blue-222_CUTOUT.png",
+        "crop": [
+          83,
+          521,
+          2665,
+          4490
+        ],
+        "position": [
+          100,
+          680
+        ],
+        "height": 1400,
+        "hair_face_box": [
+          328,
+          680,
+          783,
+          1030
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "youtube",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/youtube/3-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 518307,
+      "sha256": "df751a9d2ef68c62ec54798b0e41c5d21ce28e528fcd6803547b049384e6d267",
+      "text_boxes": [
+        [
+          142,
+          1468,
+          938,
+          1587
+        ],
+        [
+          219,
+          1607,
+          861,
+          1697
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "studio-white-23_FINAL_PRIMARY.jpg",
+        "hair_face_box": [
+          380,
+          80,
+          680,
+          395
+        ]
+      }
+    },
+    {
+      "option": 3,
+      "layout": "instagram",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/instagram/3-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 484842,
+      "sha256": "0638ffce3b8790dd3344ed7e1b517a9b4b80e0b174a45c37dedea1bbe5e8abf3",
+      "text_boxes": [
+        [
+          142,
+          1385,
+          938,
+          1504
+        ],
+        [
+          219,
+          1524,
+          861,
+          1614
+        ]
+      ],
+      "subject": {
+        "generated": true,
+        "reference": "studio-white-23_FINAL_PRIMARY.jpg",
+        "hair_face_box": [
+          380,
+          275,
+          680,
+          590
+        ]
+      }
+    },
+    {
+      "option": 4,
+      "layout": "youtube",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/youtube/4-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 1082270,
+      "sha256": "6cf1218134df02e480e96245c81c3fe12e022e5405b2ea17b9f87088fdf8110d",
+      "text_boxes": [
+        [
+          66,
+          736,
+          878,
+          880
+        ],
+        [
+          66,
+          892,
+          827,
+          1018
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 4,
+      "layout": "instagram",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/instagram/4-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 1082020,
+      "sha256": "7baa42c21ee648fff2dfb781f9125c5e9d93456d921570cb00fe2de4105e8dda",
+      "text_boxes": [
+        [
+          66,
+          794,
+          878,
+          938
+        ],
+        [
+          66,
+          950,
+          827,
+          1076
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 5,
+      "layout": "youtube",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/youtube/5-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 635479,
+      "sha256": "7be2609bce5acc21d11b8200a20ac868411b4003979e006bea58c1deaa5b909e",
+      "text_boxes": [
+        [
+          67,
+          325,
+          713,
+          435
+        ],
+        [
+          67,
+          470,
+          714,
+          585
+        ]
+      ],
+      "subject": null
+    },
+    {
+      "option": 5,
+      "layout": "instagram",
+      "file": "/Users/danielrose/Documents/Claude/Projects/Abs By AI/Short-form video content/Meal Prep - DS-28/covers/round1/instagram/5-meal-prep-cover.jpg",
+      "dimensions": [
+        1080,
+        1920
+      ],
+      "bytes": 635534,
+      "sha256": "c9af4f4164af8346510f8a0586cb01dc6b32bb33a151085f69a19ad08bf97f09",
+      "text_boxes": [
+        [
+          67,
+          440,
+          713,
+          550
+        ],
+        [
+          67,
+          585,
+          714,
+          700
+        ]
+      ],
+      "subject": null
+    }
+  ]
+}

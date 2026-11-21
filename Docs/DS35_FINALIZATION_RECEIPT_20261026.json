@@ -1,0 +1,52 @@
+{
+  "status": "completed",
+  "approved_take": "off_the_cuff",
+  "approved_at": "2026-10-26",
+  "approval": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/approval.json",
+  "files": [
+    {
+      "name": "Dad Bod SFC R3 - off the cuff.mp4",
+      "sha256": "c68ec458d8b258b37ae9560967a5e53ee1f512ce5c1444ab3e04e176461d0c1d",
+      "bytes": 83295310,
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4",
+      "extreme": "/Volumes/Extreme/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4"
+    },
+    {
+      "name": "Dad Bod SFC R3 - off the cuff.srt",
+      "sha256": "9abb9b2b26fb69cf0db36755380556b9924344b128bfe4559ff7c9a42d7bc45d",
+      "bytes": 4161,
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.srt",
+      "extreme": "/Volumes/Extreme/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.srt"
+    },
+    {
+      "name": "Dad Bod SFC R3 - off the cuff.mp4.deliver_gate.json",
+      "sha256": "190b8d5a6f4f0b3c696b2a67c6f6551d54da299ce45501eda6f3d968ce01093c",
+      "bytes": 13830,
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4.deliver_gate.json",
+      "extreme": "/Volumes/Extreme/Short-form video content/Dad Bod - DS-35/Dad Bod SFC R3 - off the cuff.mp4.deliver_gate.json"
+    },
+    {
+      "name": "approval.json",
+      "sha256": "38d885b07d3a020d92c59a1a217a8959fdad2ab1ea5fe30f8e4b1713b44aefd5",
+      "bytes": 1257,
+      "project": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/Dad Bod - DS-35/approval.json",
+      "extreme": "/Volumes/Extreme/Short-form video content/Dad Bod - DS-35/approval.json"
+    }
+  ],
+  "drive_status": "verified; rclone check 0 differences, 4 matching files",
+  "not_uploaded_to_social": true,
+  "not_scheduled": true,
+  "drive_folder_url": "https://drive.google.com/open?id=1lhRJsL8sWSN9Znwnn306XcyE_j87p545",
+  "drive_remote": "gdrive_backup:Short-form video content/Dad Bod - DS-35",
+  "setup_handoff": "Handoffs/handoff-20261026-ds35-dad-bod-off-cuff-setup.md",
+  "checked_date": "2026-10-26",
+  "review_cleanup": {
+    "review_only_vlc_copies_removed": 4,
+    "review_services_removed": [
+      9185,
+      9238,
+      9241
+    ],
+    "original_delivery_files_preserved": true
+  }
+}

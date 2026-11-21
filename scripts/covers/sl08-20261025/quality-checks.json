@@ -1,0 +1,1374 @@
+{
+ "status": "PASS",
+ "files": 50,
+ "fails": [],
+ "rows": [
+  {
+   "short": "s2",
+   "variant": "A",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short2-eat-a-salad-first-to-eat-less_cover-A.png",
+   "text_bbox": [
+    52,
+    259,
+    999,
+    622
+   ],
+   "faces": [
+    [
+     475,
+     763,
+     720,
+     1008
+    ]
+   ],
+   "min_text_person_clearance_px": 45.6,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "A",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short2-eat-a-salad-first-to-eat-less_cover-A.png",
+   "text_bbox": [
+    52,
+    73,
+    999,
+    436
+   ],
+   "faces": [
+    [
+     466,
+     591,
+     747,
+     871
+    ]
+   ],
+   "min_text_person_clearance_px": 44.6,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "B",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short2-eat-a-salad-first-to-eat-less_cover-B.png",
+   "text_bbox": [
+    81,
+    257,
+    1004,
+    611
+   ],
+   "faces": [
+    [
+     526,
+     762,
+     753,
+     989
+    ]
+   ],
+   "min_text_person_clearance_px": 34.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "B",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short2-eat-a-salad-first-to-eat-less_cover-B.png",
+   "text_bbox": [
+    81,
+    69,
+    1004,
+    423
+   ],
+   "faces": [
+    [
+     528,
+     578,
+     765,
+     815
+    ]
+   ],
+   "min_text_person_clearance_px": 31.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "C",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short2-eat-a-salad-first-to-eat-less_cover-C.png",
+   "text_bbox": [
+    0,
+    236,
+    1080,
+    701
+   ],
+   "faces": [
+    [
+     453,
+     827,
+     615,
+     989
+    ]
+   ],
+   "min_text_person_clearance_px": 49.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "C",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short2-eat-a-salad-first-to-eat-less_cover-C.png",
+   "text_bbox": [
+    0,
+    48,
+    1080,
+    513
+   ],
+   "faces": [
+    [
+     453,
+     772,
+     613,
+     932
+    ]
+   ],
+   "min_text_person_clearance_px": 184.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "D",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short2-eat-a-salad-first-to-eat-less_cover-D.png",
+   "text_bbox": [
+    59,
+    1228,
+    1028,
+    1608
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 283.8,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "D",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short2-eat-a-salad-first-to-eat-less_cover-D.png",
+   "text_bbox": [
+    59,
+    1348,
+    1028,
+    1728
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 401.2,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "E",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short2-eat-a-salad-first-to-eat-less_cover-E.png",
+   "text_bbox": [
+    0,
+    700,
+    1080,
+    1077
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s2",
+   "variant": "E",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short2-eat-a-salad-first-to-eat-less_cover-E.png",
+   "text_bbox": [
+    0,
+    700,
+    1080,
+    1077
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "A",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short3-stop-drinking-your-calories_cover-A.png",
+   "text_bbox": [
+    51,
+    259,
+    889,
+    630
+   ],
+   "faces": [
+    [
+     522,
+     751,
+     694,
+     923
+    ]
+   ],
+   "min_text_person_clearance_px": 44.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "A",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short3-stop-drinking-your-calories_cover-A.png",
+   "text_bbox": [
+    51,
+    73,
+    889,
+    444
+   ],
+   "faces": [
+    [
+     519,
+     577,
+     717,
+     774
+    ]
+   ],
+   "min_text_person_clearance_px": 44.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "B",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short3-stop-drinking-your-calories_cover-B.png",
+   "text_bbox": [
+    139,
+    257,
+    943,
+    612
+   ],
+   "faces": [
+    [
+     428,
+     749,
+     654,
+     976
+    ]
+   ],
+   "min_text_person_clearance_px": 32.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "B",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short3-stop-drinking-your-calories_cover-B.png",
+   "text_bbox": [
+    139,
+    69,
+    943,
+    424
+   ],
+   "faces": [
+    [
+     415,
+     573,
+     670,
+     827
+    ]
+   ],
+   "min_text_person_clearance_px": 37.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "C",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short3-stop-drinking-your-calories_cover-C.png",
+   "text_bbox": [
+    0,
+    236,
+    1080,
+    701
+   ],
+   "faces": [
+    [
+     336,
+     834,
+     527,
+     1026
+    ]
+   ],
+   "min_text_person_clearance_px": 50.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "C",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short3-stop-drinking-your-calories_cover-C.png",
+   "text_bbox": [
+    0,
+    48,
+    1080,
+    513
+   ],
+   "faces": [
+    [
+     337,
+     702,
+     527,
+     892
+    ]
+   ],
+   "min_text_person_clearance_px": 107.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "D",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short3-stop-drinking-your-calories_cover-D.png",
+   "text_bbox": [
+    57,
+    1199,
+    1014,
+    1608
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "D",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short3-stop-drinking-your-calories_cover-D.png",
+   "text_bbox": [
+    57,
+    1319,
+    1014,
+    1728
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "E",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short3-stop-drinking-your-calories_cover-E.png",
+   "text_bbox": [
+    0,
+    743,
+    1080,
+    1140
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s3",
+   "variant": "E",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short3-stop-drinking-your-calories_cover-E.png",
+   "text_bbox": [
+    0,
+    743,
+    1080,
+    1140
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "A",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short4-snack-on-protein-not-carbs_cover-A.png",
+   "text_bbox": [
+    55,
+    259,
+    990,
+    594
+   ],
+   "faces": [
+    [
+     469,
+     761,
+     708,
+     999
+    ]
+   ],
+   "min_text_person_clearance_px": 47.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "A",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short4-snack-on-protein-not-carbs_cover-A.png",
+   "text_bbox": [
+    55,
+    73,
+    990,
+    408
+   ],
+   "faces": [
+    [
+     458,
+     594,
+     731,
+     866
+    ]
+   ],
+   "min_text_person_clearance_px": 47.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "B",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short4-snack-on-protein-not-carbs_cover-B.png",
+   "text_bbox": [
+    65,
+    257,
+    1016,
+    606
+   ],
+   "faces": [
+    [
+     485,
+     741,
+     725,
+     980
+    ]
+   ],
+   "min_text_person_clearance_px": 31.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "B",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short4-snack-on-protein-not-carbs_cover-B.png",
+   "text_bbox": [
+    65,
+    69,
+    1016,
+    418
+   ],
+   "faces": [
+    [
+     486,
+     557,
+     730,
+     801
+    ]
+   ],
+   "min_text_person_clearance_px": 34.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "C",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short4-snack-on-protein-not-carbs_cover-C.png",
+   "text_bbox": [
+    0,
+    236,
+    1080,
+    675
+   ],
+   "faces": [
+    [
+     427,
+     804,
+     625,
+     1002
+    ]
+   ],
+   "min_text_person_clearance_px": 50.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "C",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short4-snack-on-protein-not-carbs_cover-C.png",
+   "text_bbox": [
+    0,
+    48,
+    1080,
+    487
+   ],
+   "faces": [
+    [
+     435,
+     732,
+     632,
+     928
+    ]
+   ],
+   "min_text_person_clearance_px": 164.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "D",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short4-snack-on-protein-not-carbs_cover-D.png",
+   "text_bbox": [
+    51,
+    1260,
+    1024,
+    1608
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "D",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short4-snack-on-protein-not-carbs_cover-D.png",
+   "text_bbox": [
+    51,
+    1380,
+    1024,
+    1728
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "E",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short4-snack-on-protein-not-carbs_cover-E.png",
+   "text_bbox": [
+    0,
+    738,
+    1080,
+    1111
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s4",
+   "variant": "E",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short4-snack-on-protein-not-carbs_cover-E.png",
+   "text_bbox": [
+    0,
+    738,
+    1080,
+    1111
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "A",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short5-make-fasting-easier-with-black-coffee_cover-A.png",
+   "text_bbox": [
+    52,
+    259,
+    999,
+    562
+   ],
+   "faces": [
+    [
+     549,
+     689,
+     765,
+     906
+    ]
+   ],
+   "min_text_person_clearance_px": 44.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "A",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short5-make-fasting-easier-with-black-coffee_cover-A.png",
+   "text_bbox": [
+    52,
+    73,
+    999,
+    376
+   ],
+   "faces": [
+    [
+     550,
+     516,
+     795,
+     761
+    ]
+   ],
+   "min_text_person_clearance_px": 44.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "B",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short5-make-fasting-easier-with-black-coffee_cover-B.png",
+   "text_bbox": [
+    68,
+    257,
+    1013,
+    574
+   ],
+   "faces": [
+    [
+     353,
+     743,
+     619,
+     1009
+    ]
+   ],
+   "min_text_person_clearance_px": 50.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "B",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short5-make-fasting-easier-with-black-coffee_cover-B.png",
+   "text_bbox": [
+    68,
+    69,
+    1013,
+    386
+   ],
+   "faces": [
+    [
+     354,
+     557,
+     622,
+     825
+    ]
+   ],
+   "min_text_person_clearance_px": 48.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "C",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short5-make-fasting-easier-with-black-coffee_cover-C.png",
+   "text_bbox": [
+    0,
+    236,
+    1080,
+    635
+   ],
+   "faces": [
+    [
+     479,
+     821,
+     656,
+     997
+    ]
+   ],
+   "min_text_person_clearance_px": 110.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "C",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short5-make-fasting-easier-with-black-coffee_cover-C.png",
+   "text_bbox": [
+    0,
+    48,
+    1080,
+    447
+   ],
+   "faces": [
+    [
+     479,
+     821,
+     656,
+     997
+    ]
+   ],
+   "min_text_person_clearance_px": 298.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "D",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short5-make-fasting-easier-with-black-coffee_cover-D.png",
+   "text_bbox": [
+    52,
+    1289,
+    1035,
+    1608
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "D",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short5-make-fasting-easier-with-black-coffee_cover-D.png",
+   "text_bbox": [
+    52,
+    1409,
+    1035,
+    1728
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "E",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short5-make-fasting-easier-with-black-coffee_cover-E.png",
+   "text_bbox": [
+    0,
+    718,
+    1080,
+    1195
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 231.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s5",
+   "variant": "E",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short5-make-fasting-easier-with-black-coffee_cover-E.png",
+   "text_bbox": [
+    0,
+    718,
+    1080,
+    1195
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 231.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "A",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short1-why-i-fast-until-2-pm-every-day_cover-A.png",
+   "text_bbox": [
+    52,
+    259,
+    997,
+    561
+   ],
+   "faces": [
+    [
+     339,
+     745,
+     659,
+     1064
+    ]
+   ],
+   "min_text_person_clearance_px": 45.2,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "A",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short1-why-i-fast-until-2-pm-every-day_cover-A.png",
+   "text_bbox": [
+    52,
+    73,
+    997,
+    375
+   ],
+   "faces": [
+    [
+     311,
+     579,
+     676,
+     944
+    ]
+   ],
+   "min_text_person_clearance_px": 44.4,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "hair_not_cropped": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "B",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short1-why-i-fast-until-2-pm-every-day_cover-B.png",
+   "text_bbox": [
+    69,
+    257,
+    1007,
+    608
+   ],
+   "faces": [
+    [
+     494,
+     745,
+     720,
+     972
+    ]
+   ],
+   "min_text_person_clearance_px": 35.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "B",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short1-why-i-fast-until-2-pm-every-day_cover-B.png",
+   "text_bbox": [
+    69,
+    69,
+    1007,
+    420
+   ],
+   "faces": [
+    [
+     494,
+     559,
+     719,
+     784
+    ]
+   ],
+   "min_text_person_clearance_px": 35.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "C",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short1-why-i-fast-until-2-pm-every-day_cover-C.png",
+   "text_bbox": [
+    0,
+    236,
+    1080,
+    619
+   ],
+   "faces": [
+    [
+     435,
+     835,
+     663,
+     1063
+    ]
+   ],
+   "min_text_person_clearance_px": 113.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true,
+    "person_inside_grid_tile": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "C",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short1-why-i-fast-until-2-pm-every-day_cover-C.png",
+   "text_bbox": [
+    0,
+    48,
+    1080,
+    431
+   ],
+   "faces": [
+    [
+     435,
+     835,
+     663,
+     1063
+    ]
+   ],
+   "min_text_person_clearance_px": 301.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true,
+    "person_found": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "D",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short1-why-i-fast-until-2-pm-every-day_cover-D.png",
+   "text_bbox": [
+    55,
+    1286,
+    1021,
+    1608
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "D",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short1-why-i-fast-until-2-pm-every-day_cover-D.png",
+   "text_bbox": [
+    55,
+    1406,
+    1021,
+    1728
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "E",
+   "platform": "instagram",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/instagram/calories-short1-why-i-fast-until-2-pm-every-day_cover-E.png",
+   "text_bbox": [
+    0,
+    706,
+    1080,
+    1087
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  },
+  {
+   "short": "s1",
+   "variant": "E",
+   "platform": "youtube",
+   "path": "/Users/danielrose/Projects/Claude/Projects/Abs By AI/Short-form video content/covers/review/sl08-20261025/youtube/calories-short1-why-i-fast-until-2-pm-every-day_cover-E.png",
+   "text_bbox": [
+    0,
+    706,
+    1080,
+    1087
+   ],
+   "faces": [],
+   "min_text_person_clearance_px": 9999.0,
+   "checks": {
+    "RGB_1080x1920": true,
+    "headline_lines": true,
+    "text_clear_of_person_25px": true,
+    "text_clear_of_face_and_hair": true,
+    "text_safe_band": true,
+    "jpeg_under_2MB": true
+   }
+  }
+ ]
+}
