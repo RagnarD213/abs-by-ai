@@ -492,15 +492,18 @@ def drive_folder_ids(token, rel_folder):
     return parent
 
 
-RCLONE_EXCLUDES = ["--exclude", "._*", "--exclude", ".DS_Store", "--exclude", "08 SixPackAbs Archive*/**"]
+PRIVATE_STOCK_PATTERN = "*_storyblocks-sbv-*"
+RCLONE_EXCLUDES = ["--exclude", "._*", "--exclude", ".DS_Store", "--exclude", "08 SixPackAbs Archive*/**",
+                   "--exclude", PRIVATE_STOCK_PATTERN]
 
 
 def drive_sync(cat, only=None):
     """Mirror the library to Drive (rclone creates folders), then record each clip's Drive file id.
 
-    08 SixPackAbs Archive stays off Drive: it is quarantined and the Drive folder is anyone-with-link."""
+    Quarantined archive files and licensed Storyblocks originals stay out of this anyone-with-link folder."""
+    public_clips = [c for c in cat["clips"] if not Path(c["library_path"]).match(PRIVATE_STOCK_PATTERN)]
     if only:
-        for c in cat["clips"]:
+        for c in public_clips:
             if c["id"] in only and (LIB / c["library_path"]).exists():
                 subprocess.run([RCLONE, "copyto", str(LIB / c["library_path"]), DRIVE_REMOTE + c["library_path"],
                                 "--drive-root-folder-id=" + DRIVE_ROOT, "-q"], check=True)
@@ -512,7 +515,7 @@ def drive_sync(cat, only=None):
         res = subprocess.run([RCLONE, "lsjson", "-R", "--files-only", DRIVE_REMOTE + top, "--drive-root-folder-id=" + DRIVE_ROOT],
                              capture_output=True, text=True, check=True)
         ids = {top + "/" + r["Path"]: r["ID"] for r in json.loads(res.stdout)}
-        for c in cat["clips"]:
+        for c in public_clips:
             if c["library_path"] in ids:
                 c["drive_id"] = ids[c["library_path"]]
     return cat
