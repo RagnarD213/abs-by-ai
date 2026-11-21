@@ -1,0 +1,67 @@
+{
+  "url": "http://127.0.0.1:9818/",
+  "phone": {
+    "width": 390,
+    "scrollWidth": 390
+  },
+  "desktop": {
+    "width": 1280,
+    "scrollWidth": 1280
+  },
+  "tests": {
+    "all_five_muted_playback": true,
+    "all_five_native_midpoint_seek": true,
+    "muted_pullup_reload_recovered": true,
+    "page_reload_all_reset": true,
+    "console_errors": 0,
+    "volume_controls_untouched": true,
+    "volume_property_not_exposed_by_browser_dom": true
+  },
+  "owner": [
+    {
+      "height": 1080,
+      "id": "video-captains-chair-leg-raise",
+      "muted": false,
+      "paused": true,
+      "ready": 4,
+      "time": 0,
+      "width": 1920
+    },
+    {
+      "height": 1080,
+      "id": "video-machine-calf-raise",
+      "muted": false,
+      "paused": true,
+      "ready": 4,
+      "time": 0,
+      "width": 1920
+    },
+    {
+      "height": 1080,
+      "id": "video-machine-hip-thrust",
+      "muted": false,
+      "paused": true,
+      "ready": 4,
+      "time": 0,
+      "width": 1920
+    },
+    {
+      "height": 1080,
+      "id": "video-assisted-pullup",
+      "muted": false,
+      "paused": true,
+      "ready": 4,
+      "time": 0,
+      "width": 1920
+    },
+    {
+      "height": 1080,
+      "id": "video-assisted-dip",
+      "muted": false,
+      "paused": true,
+      "ready": 4,
+      "time": 0,
+      "width": 1920
+    }
+  ]
+}

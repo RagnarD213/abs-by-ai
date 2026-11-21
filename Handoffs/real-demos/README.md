@@ -2,7 +2,7 @@
 
 ## Next unedited batch
 
-Start with Batch 4 (five gym demos), using [the current remaining-work handoff](remaining-unedited-20261116.md). It carries the latest timing/review rules and the full 29-demo inventory. No new production has started.
+Batch 4 R1 is rendered and checked, awaiting Dan’s video/copy review: [1080p review page](http://127.0.0.1:9818/) · [November 21 receipt](../../Docs/REALDEMOS_B04_R1_REVIEW_20261121.md). Five future-library demos, not installed. The assisted pull-up has a disclosed camera-original crown crop. Do not restart Batch 4 or launch other batches from its starter. The [remaining-work handoff](remaining-unedited-20261116.md) stays OPEN; its November 16 inventory below is historical.
 
 ## Current progress, 2026-11-16
 
