@@ -5307,17 +5307,17 @@
    "codexModel": "GPT-6.1 Sol, high",
    "codex": "AD (Great Again T upsell video). Name this chat \"GAT Upsell 2 AD R1\". Read `Handoffs/video-editing/00-RULES.md` and `Docs/SHOOT_1113_FOOTAGE_REPORT.md`, then execute `Handoffs/video-editing/WV-05-great-again-t-upsell-2-eternal-burn-am-pm.md`: cut \"Great Again T Upsell 2: Eternal Burn AM/PM\" from the 11/13 green-screen shoot, rolls C1904. Use `.claude/skills/ad-edit/SKILL.md`. Key with the approved house chroma key (`.claude/skills/_shared/chroma-key/README.md`). Follow the first-review approvals before the full render. Deliver, send Dan the review copy, update `00-MASTER.md`.",
    "state": "delivered",
-   "note": "Full 10:03 Round 2 draft checked and ready for Dan. Eight card choices, five checked picture pairs across four new ideas, and a checked wives reaction.",
+   "note": "Round 5 private full-film review independently checked. The VLC copy matches the review master.",
    "order": 234,
-   "updated": "2026-11-20",
+   "updated": "2026-11-21",
    "by": "Codex",
-   "rev": 7,
+   "rev": 12,
    "syncedRev": 5,
    "editor": "Codex",
    "needs": "",
-   "review_ready_at": 1795208061.3553889,
-   "review_question": "Which graphic options, clip or picture pairs, and button wording should stay for the next pass?",
-   "review_url": "http://127.0.0.1:9881/"
+   "review_ready_at": 1795288561.324456,
+   "review_question": "Review the restored camera, bottle moves, and speech repairs, then approve or give timestamps.",
+   "review_url": "http://127.0.0.1:9905/"
   },
   {
    "id": "WV-06",

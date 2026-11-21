@@ -1,1 +1,0 @@
-Write just one pinned YouTube comment question about this exact video: ask which of the four changes after 40 has been hardest for the viewer, stress, food, moving less or sleeping worse. A viewer can answer in a few words. One question, under 180 characters. Output only the question.

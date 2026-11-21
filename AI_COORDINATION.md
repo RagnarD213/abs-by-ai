@@ -86,7 +86,7 @@ Board. History: [`AI_COORDINATION_ARCHIVE.md`](AI_COORDINATION_ARCHIVE.md). Fact
 **Ten Exercises LFC Setup QUEUED 2026-11-13, Codex.** Approved 2-revised installed; four schedules verified Jan29 9AM YouTube, Jan30 noon socials. RO-32 uploaded; SL-38 registered. Release checks: public YouTube before socials, covers/SRT/tags. `Docs/RO32_SETUP_RECEIPT_20261113.md`.
 
 **GreatAgainT-VSL-R8(WV-03):WITH-DAN:2026-11-21:Codex,M2.** First full film, 23:46. [Round 8 review](http://127.0.0.1:9830/). Next: Dan approves or leaves timestamped changes.
-**GATUpsell2(WV-05):R2-WITH-DAN:2026-11-20:Codex,M2.** Full 10:03 draft checked with independent review. Next: Dan’s graphics, clips and CTA picks on http://127.0.0.1:9881/.
+**GATUpsell2(WV-05):R5-WITH-DAN:2026-11-21:Codex,M2.** Full 10:03 draft independently checked. [Private review](http://127.0.0.1:9905/) and exact VLC copy ready. Next: Dan's review.
 **GATUpsell4(WV-07):R1-WITH-DAN:2026-11-19:Claude,M6.** Round 1 page http://127.0.0.1:9878/; slot released; remaining key pieces run in background. Next: Dan's reply starts the full build. `~/Projects/_edit_work/WV-07/round1/ROUND-1-NOTES.md`.
 **GATUpsell1(WV-04):R3-WITH-DAN:2026-11-20:Codex,M2.** R3e independently reviewed. Page http://127.0.0.1:9937/; VLC copy verified; slot released. Next: Dan’s AI and graphic picks plus checkbox image and wording.
 **GATUpsell3(WV-06):PAUSED-FOR-CODEX-TRANSFER:2026-11-20:Claude,M2.** Slot released, nothing running. R1 page http://127.0.0.1:9879/ waits for Dan. Handoff `Handoffs/handoff-20261120-wv06-transfer-to-codex.md`.
