@@ -422,7 +422,11 @@
   "job": "RO-20B",
   "label": "What To Cut To Afford Getting In Shape",
   "added": "2026-10-20",
-  "kitchen": true
+  "kitchen": true,
+  "queued": {
+   "date": "2026-11-22",
+   "main": "2026-12-11T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl16-short4-why-you-need-a-simple-nutrition-plan.json",

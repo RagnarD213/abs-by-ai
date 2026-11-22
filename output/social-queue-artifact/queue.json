@@ -1,47 +1,11 @@
 {
-"generated": "2026-11-21T12:26:16+00:00",
+"generated": "2026-11-22T12:26:22+00:00",
 "cap": 200,
 "scheduled": [
 {
-"id": "5910004",
-"platform": "facebook",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
-"batch": ""
-},
-{
-"id": "5910006",
-"platform": "instagram",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
-"batch": ""
-},
-{
-"id": "5910007",
-"platform": "tiktok",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
-"batch": ""
-},
-{
-"id": "5910008",
-"platform": "youtube",
-"when": "2026-11-21T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's why I stopped using the pen to inject Zepbound and use a needle and vial instead.",
-"batch": ""
-},
-{
 "id": "6598153",
 "platform": "youtube",
-"when": "2026-11-22T15:00:00.000Z",
+"when": "2026-11-22T23:00:00.000Z",
 "kind": "Video",
 "slides": 1,
 "text": "Regular crunches and regular sit-ups are at the bottom of my ab exercise list. So if they're your whole ab rou",
@@ -1083,6 +1047,15 @@
 "batch": ""
 },
 {
+"id": "7342642",
+"platform": "youtube",
+"when": "2026-12-11T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're not broke. You're spending your money on the wrong things. In part 2 of this series I show you exactly ",
+"batch": ""
+},
+{
 "id": "5867702",
 "platform": "facebook",
 "when": "2026-12-12T15:00:00.000Z",
@@ -1116,6 +1089,33 @@
 "kind": "Video",
 "slides": 1,
 "text": "You're probably not sleeping as well as you think. You've got to buy a sleep tracker, even if it's not the Our",
+"batch": ""
+},
+{
+"id": "7342636",
+"platform": "facebook",
+"when": "2026-12-12T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're not broke. You're spending your money on the wrong things.",
+"batch": ""
+},
+{
+"id": "7342638",
+"platform": "instagram",
+"when": "2026-12-12T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "You're not broke. You're spending your money on the wrong things.",
+"batch": ""
+},
+{
+"id": "7342641",
+"platform": "tiktok",
+"when": "2026-12-12T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "You're not broke. You're spending your money on the wrong things.",
 "batch": ""
 },
 {
