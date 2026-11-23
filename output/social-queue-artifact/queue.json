@@ -1,16 +1,7 @@
 {
-"generated": "2026-11-22T12:26:22+00:00",
+"generated": "2026-11-23T12:26:28+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "6598153",
-"platform": "youtube",
-"when": "2026-11-22T23:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Regular crunches and regular sit-ups are at the bottom of my ab exercise list. So if they're your whole ab rou",
-"batch": ""
-},
 {
 "id": "6390173",
 "platform": "facebook",
@@ -1116,6 +1107,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "You're not broke. You're spending your money on the wrong things.",
+"batch": ""
+},
+{
+"id": "7398798",
+"platform": "facebook",
+"when": "2026-12-13T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is",
+"batch": ""
+},
+{
+"id": "7398801",
+"platform": "instagram",
+"when": "2026-12-13T00:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is",
+"batch": ""
+},
+{
+"id": "7398802",
+"platform": "tiktok",
+"when": "2026-12-13T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is",
+"batch": ""
+},
+{
+"id": "7398803",
+"platform": "youtube",
+"when": "2026-12-13T00:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is",
 "batch": ""
 },
 {

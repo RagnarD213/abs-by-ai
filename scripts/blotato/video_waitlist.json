@@ -437,7 +437,11 @@
   "parent_config": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "after": "scripts/blotato/configs/ro08-intermittent-fasting.json",
   "kitchen": true,
-  "planned": "2026-12-12 18:00"
+  "planned": "2026-12-12 18:00",
+  "queued": {
+   "date": "2026-11-23",
+   "main": "2026-12-13T00:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/ro17-3-healthy-foods.json",
