@@ -15,6 +15,9 @@ Reacting To Celebrity Ozempic Transformations (RO-24), the long-form green-scree
 - Quota exit 3: wait, never switch to a paid key. Log every `agy` call, time and token counts.
 - Key to the house standard (Claude R2 key, calibrated per source). Do not let Gemini invent its own key recipe.
 
+- Model (default picked by Claude, Dan can change): `agy -m gemini-4-neon-high`. On a failed step retry that step on `gemini-4-neon-xhigh`; one optional rerun on `gemini-4-carbon-high` to see if the model matters. Record the model per call.
+- Gemini desktop app attempt: Dan has not named its model or file. Search Drive (Dan's recent Gemini/green screen files) and `~/Downloads`, `Media/` for it; if found include it on the review page and record its model, else report that it is missing and compare against R5 only.
+
 ## Compare (write `Docs/AGY_CHROMA_TEST_20261124.md`)
 1. Key quality, measured with `mcflicker.py` and `measure_r2.py` on both: edge flicker (bar 0.69), dark rim (bar 2.7%), see-through over watch/glasses, specks, strands.
 2. Structure vs R5 table: hook, per-person sequence, corner reactions, background changes on words, cards, recap, close.
