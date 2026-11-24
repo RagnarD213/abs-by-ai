@@ -324,13 +324,6 @@
       "boardRank": 0
     },
     {
-      "text": "Assemble bar",
-      "priority": "key",
-      "recurring": false,
-      "addedAt": "2026-11-17",
-      "boardRank": 1
-    },
-    {
       "text": "Load dishwasher",
       "priority": "key",
       "recurring": true,
@@ -383,86 +376,6 @@
       "addedAt": "2026-10-20",
       "addedBy": "assistant",
       "boardRank": 8
-    },
-    {
-      "text": "Bring packages in",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-17",
-      "addedBy": "assistant",
-      "boardRank": 9
-    },
-    {
-      "text": "Transfer all bar related items to assembled bar shelf",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 10
-    },
-    {
-      "text": "Clean up bar shelf box, plastic, and stryofoam",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 11
-    },
-    {
-      "text": "Replace robot mop water",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 12
-    },
-    {
-      "text": "Dishes",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 13
-    },
-    {
-      "text": "Fold laundry",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 14
-    },
-    {
-      "text": "Make bed",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 15
-    },
-    {
-      "text": "Take trash out",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 16
-    },
-    {
-      "text": "Vacuum bedroom",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 17
-    },
-    {
-      "text": "Sweep outdoor entry way",
-      "priority": "unassigned",
-      "recurring": false,
-      "addedAt": "2026-11-18",
-      "addedBy": "assistant",
-      "boardRank": 18
     },
     {
       "text": "Laundry",
