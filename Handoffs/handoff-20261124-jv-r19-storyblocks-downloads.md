@@ -1,3 +1,5 @@
+**SUPERSEDED 2026-11-24 12:30 ET: Claude can download from Dan's signed-in Chrome (Browser 1); do not start this handoff.**
+
 # Joint Vigor R19: Storyblocks clip downloads (for Codex AND Grokbot)
 
 Category: AD (client VSL) | SRM-JV-R5 | written 2026-11-24 by Claude (Sonnet) because Claude's Chrome is not signed in to Storyblocks and the first Codex run could not save files (its Chrome browser host was unavailable, so it downloaded 0 files; see `full_f2/production/r19/sourcing/RESULT.md` in `/Users/danrrose/Projects/_edit_work/SRM-JV-R5`).
