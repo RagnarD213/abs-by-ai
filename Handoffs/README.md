@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Antigravity re-edit test: RO-24 long-form chroma key](handoff-20261124-antigravity-chroma-key-reedit-test.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol high, M2.** Blind agy rebuild vs approved R5 and the Gemini desktop attempt; test only.
 - [Joint Vigor R19 (paused for usage)](handoff-20261124-jv-r19-transfer-to-codex.md), 2026-11-24. **PAUSED 13:10 ET: Claude 89% (resets Thu 11 AM ET), Codex 8% left. Resume production on Claude after the Thu reset; save Codex for the two blind reviews. Do not start Codex production.**
 - [Joint Vigor R19 Storyblocks downloads](handoff-20261124-jv-r19-storyblocks-downloads.md), 2026-11-24. **SUPERSEDED 12:30 ET: Claude found downloads work from Dan's signed-in Chrome (Browser 1) and is doing them itself. Do not start.**
 - [AppleCare coverage check: M6 and M2 Mac minis](handoff-20261124-applecare-coverage-check.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium, or Grokbot.** Read-only: which devices AppleCare One covers and whether the M6 is covered. Apple sign-in and CAPTCHA blocked Claude.
