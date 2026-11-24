@@ -11,7 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
-- [Joint Vigor R19 transfer to Codex](handoff-20261124-jv-r19-transfer-to-codex.md), 2026-11-24. **OPEN: fire when Dan's Claude usage hits 99% (89% at 12:29 ET, resets Thu 11:00 AM ET). Codex GPT-6.2 Sol, high effort.** Full state, disk cleanup terms, footage sourcing, review rules and starter prompt.
+- [Joint Vigor R19 transfer to Codex](handoff-20261124-jv-r19-transfer-to-codex.md), 2026-11-24. **FIRED 13:00 ET: Codex GPT-6.2 Sol high is running it (started by Claude). Do not start another.**
 - [Joint Vigor R19 Storyblocks downloads](handoff-20261124-jv-r19-storyblocks-downloads.md), 2026-11-24. **SUPERSEDED 12:30 ET: Claude found downloads work from Dan's signed-in Chrome (Browser 1) and is doing them itself. Do not start.**
 - [AppleCare coverage check: M6 and M2 Mac minis](handoff-20261124-applecare-coverage-check.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium, or Grokbot.** Read-only: which devices AppleCare One covers and whether the M6 is covered. Apple sign-in and CAPTCHA blocked Claude.
 - [Great Again T Upsell 1 AD Setup](handoff-20261121-wv04-upsell-1-setup.md), 2026-11-21. **OPEN: start now. GPT-6.2 Sol, high effort.** Final R5 approved. Verify private backup and stage the first post-purchase upsell.
