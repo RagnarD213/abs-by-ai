@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Joint Vigor R19 Storyblocks downloads](handoff-20261124-jv-r19-storyblocks-downloads.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium, or Grokbot.** Download-only: save about 15 Storyblocks clips from Dan's signed-in account. Claude's Chrome is not signed in and the first Codex run saved 0 files.
 - [AppleCare coverage check: M6 and M2 Mac minis](handoff-20261124-applecare-coverage-check.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium, or Grokbot.** Read-only: which devices AppleCare One covers and whether the M6 is covered. Apple sign-in and CAPTCHA blocked Claude.
 - [Great Again T Upsell 1 AD Setup](handoff-20261121-wv04-upsell-1-setup.md), 2026-11-21. **OPEN: start now. GPT-6.2 Sol, high effort.** Final R5 approved. Verify private backup and stage the first post-purchase upsell.
 - [Great Again T VSL travel checkpoint on the M6](handoff-20261123-wv-03-m6-travel.md), 2026-11-23. Use the M6 for the next revisions. [Watch Round 9 with jump times](http://127.0.0.1:9831/).
