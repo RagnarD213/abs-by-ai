@@ -11,9 +11,13 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [AppleCare coverage check: M6 and M2 Mac minis](handoff-20261124-applecare-coverage-check.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium, or Grokbot.** Read-only: which devices AppleCare One covers and whether the M6 is covered. Apple sign-in and CAPTCHA blocked Claude.
+- [Great Again T Upsell 1 AD Setup](handoff-20261121-wv04-upsell-1-setup.md), 2026-11-21. **OPEN: start now. GPT-6.2 Sol, high effort.** Final R5 approved. Verify private backup and stage the first post-purchase upsell.
+- [Great Again T VSL travel checkpoint on the M6](handoff-20261123-wv-03-m6-travel.md), 2026-11-23. Use the M6 for the next revisions. [Watch Round 9 with jump times](http://127.0.0.1:9831/).
+- [Great Again T VSL AD R9 full-film handoff](handoff-20261121-wv-03-full-film.md), 2026-11-21. The M2 production record for the complete Round 9 private review.
 - [Joint Vigor VSL: Codex owns it until Thu 11-26](handoff-20261120-joint-vigor-to-codex.md), 2026-11-20. **OPEN: fire for the NEXT round (after this Feedback 2 round finishes) in Dan's Codex app; GPT-6.2 Sol xhigh, fast mode.** Eric's reply, then the full film.
 - [GAT Upsell 2 (WV-05) round 2: transfer to Codex](handoff-20261120-wv05-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** Paused before the full-draft render; cards, audio and wives-clip takes ready.
-- [GAT Upsell 4 (WV-07) round 2: transfer to Codex](handoff-20261120-wv07-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M6.** Paused mid-build; 0:57 fix in the cut, demos/meal photos/CTA ready to render.
+- [GAT Upsell 4 (WV-07) Round 3 full-film edit](video-editing/WV-07-round-3-revisions.md), 2026-11-21. **OPEN: Dan starts the next Codex chat on M6.** Side laterals, leg press, side laterals, and the standard Soft Blue Light CTA. Round 2 was delivered and reviewed.
 - [Great Again T VSL (WV-03) round 8: transfer to Codex](handoff-20261120-wv-03-transfer-to-codex.md), 2026-11-20. **OPEN: fire once Dan's ChatGPT upgrade is active; Codex GPT-6.2 Sol high, M2.** All 173 pieces keyed; full-film render left running unattended (section 0 of 6 at handoff); next: gates, independent review, round 8 page.
 
 
@@ -40,8 +44,8 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 - [Clip-library batch2: mostly vertical AI Dan](handoff-20261116-flow-clip-library-batch2-vertical-ai-dan.md), 2026-11-16. **PHASE B AWAITING REVIEW ON M2: 14 frame pairs approved; 6 UNDECIDED held.** 32 native videos from 33 submissions; all 38 native/export files verified across originals/M2/archive/Drive. 346 of 5,000 credits used, 4,654 remaining. [Fourteen checked motion clips from thirteen selected scenes](http://127.0.0.1:9875/) available; [one checked replacement bag-scene whole pair](http://127.0.0.1:9876/) needs a new frame pick before motion. Both versions of the comparison branch failed and remain withheld. 0 usable keeper IDs pending final motion approval. M6 remains with Joint Vigor. [Frame review](http://127.0.0.1:9871/), [receipt](../Docs/FLOW_CLIP_LIBRARY_BATCH2_20261116.md).
 
-- [Great Again T Upsell 1: Prepaid Packs (GAT Upsell 1 AD R3) transfer to Codex](handoff-20261120-wv04-transfer-to-codex.md), 2026-11-20. **OPEN: Dan fires after his ChatGPT upgrade is live; Codex GPT-6.2 Sol high, on the M2.** Round 3 paused unchecked (R3e film); checks, one fresh review, then deliver the round 3 page. Replaces the executed R2 handoff.
-- [Great Again T Upsell 3: Electro-Creatine (GAT Upsell 3 AD R2) transfer to Codex](handoff-20261120-wv06-transfer-to-codex.md), 2026-11-20. **OPEN: Dan fires after his ChatGPT upgrade is live and he has given his round 1 picks; Codex GPT-6.2 Sol high, on the M2.** Round 1 page http://127.0.0.1:9879/ waits on 5 picks; then the full film.
+- [GAT Upsell 1: Prepaid Packs · Round 4 full render](handoff-20261121-wv04-round4-full-render.md), 2026-11-21. **OPEN: Dan starts the next task. Codex GPT-6.2 Sol High on M2.** Three approved inserts and the approved checkbox are ready for the full 9:16 render and review.
+- [Great Again T Upsell 3: Electro-Creatine · Round 3 full render](handoff-20261121-wv06-round3-full-render.md), 2026-11-21. **OPEN: Dan starts the next chat. Codex GPT-6.2 Sol High on M2.** P-A, P-B, X1, the shirtless press and Storyblocks SB1/SB3 selected. R02/R03 frames approved; prospect motion approval precedes the full render.
 
 - [Great Again T VSL AD R8](handoff-20261116-great-again-t-vsl-round8.md), 2026-11-16. **EXECUTED by Claude through keying; rest moves to Codex (see the 2026-11-20 transfer).** Round 7 reviewed: all graphics approved; new pairs for AI-47 (Dan with glasses), the trail with family, stairs, jogging, electrician, shoulder ride in his 50s, two kayak ideas, bed aftermath, wiffle fix; motion for his picks; first full-film build.
 
