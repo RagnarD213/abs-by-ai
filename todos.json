@@ -425,6 +425,13 @@
       "recurring": false,
       "addedAt": "2026-11-25",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Do all dirty laundry",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
