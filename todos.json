@@ -481,6 +481,13 @@
       "recurring": false,
       "addedAt": "2026-11-25",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Take bulk trash and recycling and put them back",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
