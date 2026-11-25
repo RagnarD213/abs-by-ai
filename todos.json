@@ -446,6 +446,13 @@
       "recurring": false,
       "addedAt": "2026-11-25",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Put clean dishes away and dirty ones in dishwasher",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
