@@ -12,7 +12,8 @@
     "assistant::Take recycling to curb",
     "assistant::Take trash bin to curb",
     "assistant::Pool care tutorial",
-    "assistant::Put fresh clean on bed"
+    "assistant::Put fresh clean on bed",
+    "assistant::Put clean dishes away and dirty ones in dishwasher"
   ],
   "log": {
     "health::Shower": [
@@ -251,6 +252,7 @@
     "assistant::Take recycling to curb": "2026-11-20",
     "assistant::Take trash bin to curb": "2026-11-20",
     "assistant::Pool care tutorial": "2026-11-20",
-    "assistant::Put fresh clean on bed": "2026-11-24"
+    "assistant::Put fresh clean on bed": "2026-11-24",
+    "assistant::Put clean dishes away and dirty ones in dishwasher": "2026-11-24"
   }
 }
