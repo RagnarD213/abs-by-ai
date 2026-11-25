@@ -418,6 +418,13 @@
       "recurring": false,
       "addedAt": "2026-11-20",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Stripped used bedding",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
