@@ -453,6 +453,13 @@
       "recurring": false,
       "addedAt": "2026-11-25",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Clean out expired food in fridge",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
