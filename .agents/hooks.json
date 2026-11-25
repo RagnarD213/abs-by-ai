@@ -1,0 +1,12 @@
+{
+  "abs-by-ai-memory-loader": {
+    "enabled": true,
+    "SessionStart": [
+      {
+        "type": "command",
+        "command": "python3 ./hooks/session_start_memory.py",
+        "timeout": 10
+      }
+    ]
+  }
+}
