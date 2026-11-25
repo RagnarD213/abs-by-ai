@@ -15,7 +15,8 @@
     "assistant::Put fresh clean on bed",
     "assistant::Put clean dishes away and dirty ones in dishwasher",
     "assistant::Stripped used bedding",
-    "assistant::Replace robot mop water & empty dirty water"
+    "assistant::Replace robot mop water & empty dirty water",
+    "assistant::Clean out expired food in fridge"
   ],
   "log": {
     "health::Shower": [
@@ -257,6 +258,7 @@
     "assistant::Put fresh clean on bed": "2026-11-24",
     "assistant::Put clean dishes away and dirty ones in dishwasher": "2026-11-24",
     "assistant::Stripped used bedding": "2026-11-24",
-    "assistant::Replace robot mop water & empty dirty water": "2026-11-24"
+    "assistant::Replace robot mop water & empty dirty water": "2026-11-24",
+    "assistant::Clean out expired food in fridge": "2026-11-24"
   }
 }
