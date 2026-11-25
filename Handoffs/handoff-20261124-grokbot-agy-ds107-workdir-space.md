@@ -1,3 +1,5 @@
+> **DONE 2026-11-24 (Claude, no Grokbot needed).** Deleted only regenerable scratch on the Extreme, no finals: `ad1-8-14/vert9x16/{ref_audit,seg,_flash,_cx,base.mp4}`, `ad2-vert-v2/{audit_v2,audit_v3,fr,segs,segs_pic,base*.mp4}`, `ad3-vert/{segs,base.mp4}`. Extreme free 19 GB -> 43 GB; `renderq.py workdir AGY-DS107 --need 15` printed `/Volumes/Extreme/_edit_work/AGY-DS107` (empty folder removed afterwards). Not done: M6 internal stale reservations (`--help`, `WV-05`, `DS-41-setup`) and `WV-05.moved-to-m2-20261119`; internal still 38 GB free. Untouched: finals, AI-clip folders (`rev/gen2*`), `_rejected_*`, DS-98-blind, SRM-JV-R5*.
+
 # Free space so `renderq.py workdir AGY-DS107 --need 15` passes (Grokbot, 2026-11-24)
 
 Narrow, urgent slice of [handoff-20261124-m6-extreme-space-cleanup.md](handoff-20261124-m6-extreme-space-cleanup.md). That handoff is the broad cleanup; this one is only what the Antigravity DS-107 edit test needs ([handoff-20261124-antigravity-m6-edit-test.md](handoff-20261124-antigravity-m6-edit-test.md)). Do not duplicate work: if Codex already ran Step 2 or 3 of the broad handoff, start by re-running the gate command below.
