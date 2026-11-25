@@ -178,6 +178,9 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Edit Queue ETA](edit-queue-eta.md): 11-18: sessions report steps with eta.py; page shows ETA ranges every 10 min, no AI; never post ETAs in chat unprompted
 - [Private video off the site](private-video-comes-off-the-site.md): 11-18 video made private/unlisted/deleted = its sixpackabs.com page to draft same day, verify home page + /videos/
 - [Real demos + down-arrow CTA](real-demos-and-down-arrow-cta.md): 11-19 exercise demos in any video = real B-roll (gym + home); funnel video CTA = "Click the button below" + down arrows, no in-video button
+- [Delegate to Codex until Nov 26](delegate-to-codex-until-nov-26.md): 11-20: Claude usage low; until Thu 11-26 delegate as much as possible to Codex, incl. Claude-owned edits
+- [Ask before Codex fast mode](ask-before-codex-fast-mode.md): 11-24: never use the priority (fast) tier without asking Dan, especially when usage is low
+- [Antigravity memory & improvement loop](antigravity-memory-and-improvement-loop.md): 11-24: Antigravity reads/writes this shared memory via GEMINI.md + .agents/hooks.json (SessionStart loads AGENTS.md overflow + MEMORY.md); do not delete or create a separate silo
 - [Vertical Shorts first; B-roll colour checks](shorts-vertical-first-broll-final-check.md): 11-16 actual vertical drafts plus look/voice choices, no horizontal selection exports; inspect every final B-roll insert
 - [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs
