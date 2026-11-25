@@ -14,7 +14,8 @@
     "assistant::Pool care tutorial",
     "assistant::Put fresh clean on bed",
     "assistant::Put clean dishes away and dirty ones in dishwasher",
-    "assistant::Stripped used bedding"
+    "assistant::Stripped used bedding",
+    "assistant::Replace robot mop water & empty dirty water"
   ],
   "log": {
     "health::Shower": [
@@ -255,6 +256,7 @@
     "assistant::Pool care tutorial": "2026-11-20",
     "assistant::Put fresh clean on bed": "2026-11-24",
     "assistant::Put clean dishes away and dirty ones in dishwasher": "2026-11-24",
-    "assistant::Stripped used bedding": "2026-11-24"
+    "assistant::Stripped used bedding": "2026-11-24",
+    "assistant::Replace robot mop water & empty dirty water": "2026-11-24"
   }
 }
