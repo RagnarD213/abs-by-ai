@@ -11,7 +11,8 @@
     "assistant::Detailing; polishing, wiping mirrors, dusting, misc.",
     "assistant::Take recycling to curb",
     "assistant::Take trash bin to curb",
-    "assistant::Pool care tutorial"
+    "assistant::Pool care tutorial",
+    "assistant::Put fresh clean on bed"
   ],
   "log": {
     "health::Shower": [
@@ -249,6 +250,7 @@
     "assistant::Detailing; polishing, wiping mirrors, dusting, misc.": "2026-11-20",
     "assistant::Take recycling to curb": "2026-11-20",
     "assistant::Take trash bin to curb": "2026-11-20",
-    "assistant::Pool care tutorial": "2026-11-20"
+    "assistant::Pool care tutorial": "2026-11-20",
+    "assistant::Put fresh clean on bed": "2026-11-24"
   }
 }
