@@ -432,6 +432,13 @@
       "recurring": false,
       "addedAt": "2026-11-25",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Wash all bedding",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-25",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
