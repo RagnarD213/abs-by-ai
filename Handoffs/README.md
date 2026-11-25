@@ -12,6 +12,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 ## OPEN — not yet executed
 
 - [M6 + Extreme space cleanup](handoff-20261124-m6-extreme-space-cleanup.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium and Grokbot (Drive logins).** Back up keep-list to Drive, then delete verified folders; Seagate step waits for Austin.
+- [AGY-DS107 workdir space (narrow slice of the cleanup above)](handoff-20261124-grokbot-agy-ds107-workdir-space.md), 2026-11-24. **OPEN: start now. Grokbot (Drive logins), Codex Sol medium as alternate.** Free ~30 GB on the Extreme (old ad scratch) and clear stale reservations so `renderq.py workdir AGY-DS107 --need 15` passes.
 - [Antigravity M6 + Extreme edit test: DS-107 Short](handoff-20261124-antigravity-m6-edit-test.md), 2026-11-24. **OPEN: start after the space cleanup, strictly below Joint Vigor. `agy` Gemini 4 Neon XHigh.** Blind rebuild of a 1-minute green-screen Short from C1908; replaces the RO-24 test; test only.
 - [Antigravity re-edit test: RO-24 long-form chroma key](handoff-20261124-antigravity-chroma-key-reedit-test.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol high, M2.** Blind agy rebuild vs approved R5 and the Gemini desktop attempt; test only.
 - [Joint Vigor R19 (paused for usage)](handoff-20261124-jv-r19-transfer-to-codex.md), 2026-11-24. **PAUSED 13:10 ET: Claude 89% (resets Thu 11 AM ET), Codex 8% left. Resume production on Claude after the Thu reset; save Codex for the two blind reviews. Do not start Codex production.**
