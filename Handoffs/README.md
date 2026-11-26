@@ -11,6 +11,7 @@ Anything not in the Open table is executed, superseded or dead — history only.
 
 ## OPEN — not yet executed
 
+- [Joint Vigor R25: continue the edit](handoff-20261126-joint-vigor-r25-continue.md), 2026-11-26. **OPEN: start now. Claude Opus 5.5 high or Fable high for reviews, Sonnet medium to orchestrate Gemini.** R25 built and shared; two independent reviews and a possible R26 fix round remain.
 - [M6 + Extreme space cleanup](handoff-20261124-m6-extreme-space-cleanup.md), 2026-11-24. **OPEN: start now. Codex GPT-6.2 Sol medium and Grokbot (Drive logins).** Back up keep-list to Drive, then delete verified folders; Seagate step waits for Austin.
 - [Clear more space round 2: M6 internal 100 GB, Extreme 150 GB](handoff-20261124-grokbot-clear-more-space-round2.md), 2026-11-24. **OPEN: start now. Grokbot (Drive logins), Codex Sol medium as alternate.** Extreme 571 GB Joint Vigor duplicate, finished DS/RO intermediates, WV-05.moved-to-m2, stale reservations. Manifest first, then delete verified folders.
 - [AGY-DS107 workdir space (narrow slice of the cleanup above)](handoff-20261124-grokbot-agy-ds107-workdir-space.md), 2026-11-24. **DONE 2026-11-24 by Claude: gate passes on the Extreme (43 GB free). Do not start.** Remaining optional: stale reservations in storage.json (M6 internal still 38 GB free).
