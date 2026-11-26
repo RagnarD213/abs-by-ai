@@ -19,7 +19,8 @@
     "assistant::Clean out expired food in fridge",
     "assistant::Wash all bedding",
     "assistant::Check on pool Wed/Thurs",
-    "assistant::Take out trash"
+    "assistant::Take out trash",
+    "assistant::Take bulk trash and recycling and put them back"
   ],
   "log": {
     "health::Shower": [
@@ -266,6 +267,7 @@
     "assistant::Clean out expired food in fridge": "2026-11-24",
     "assistant::Wash all bedding": "2026-11-24",
     "assistant::Check on pool Wed/Thurs": "2026-11-26",
-    "assistant::Take out trash": "2026-11-26"
+    "assistant::Take out trash": "2026-11-26",
+    "assistant::Take bulk trash and recycling and put them back": "2026-11-26"
   }
 }
