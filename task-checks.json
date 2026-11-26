@@ -20,7 +20,8 @@
     "assistant::Wash all bedding",
     "assistant::Check on pool Wed/Thurs",
     "assistant::Take out trash",
-    "assistant::Take bulk trash and recycling and put them back"
+    "assistant::Take bulk trash and recycling and put them back",
+    "assistant::Take in mail and amazon packages"
   ],
   "log": {
     "health::Shower": [
@@ -268,6 +269,7 @@
     "assistant::Wash all bedding": "2026-11-24",
     "assistant::Check on pool Wed/Thurs": "2026-11-26",
     "assistant::Take out trash": "2026-11-26",
-    "assistant::Take bulk trash and recycling and put them back": "2026-11-26"
+    "assistant::Take bulk trash and recycling and put them back": "2026-11-26",
+    "assistant::Take in mail and amazon packages": "2026-11-26"
   }
 }
