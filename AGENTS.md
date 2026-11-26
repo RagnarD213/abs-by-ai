@@ -431,7 +431,7 @@ Dan, on the Google AI Ultra upgrade: "two sets of starting frames for all clips 
 
 ## Google Drive sharing: always public (Dan, 2026-09-24)
 
-- Everything a session creates or uploads on Google Drive is set to "anyone with the link can view" at creation. Never leave work files private; it blocks editors. Personal or sensitive documents (keys, legal, IDs) are the only exception. Mechanics: memory `drive-always-public`.
+- Everything a session creates or uploads on Google Drive is set to "anyone with the link can view" at creation. Never leave work files private; it blocks editors. Personal or sensitive documents (keys, legal, IDs) are the only exception. **Client work too (Dan, 2026-11-26):** review copies and finals for client jobs (SRM, Joint Vigor and the like) are also set to anyone-with-the-link and additionally shared with the client's address as a viewer by default, never left private. Mechanics: memory `drive-always-public`.
 
 ## Delivery and deployment
 
