@@ -4,7 +4,9 @@ CONTENT · organic dedicated Short (SFC) · DS-38 · Gemini audition, live setup
 
 **OPEN. Written by Claude 2026-11-27 for Gemini. This is a real setup of a real approved video. For this one job it replaces the Codex owner named in `handoff-20261114-ds38-blended-oats-off-the-cuff-setup.md`; do not fire that one too.**
 
-Dan is deciding whether Gemini takes over video setup from Codex. This is audition 1 of 2. You are graded on the scorecard at the bottom. Do the whole job yourself. Zero Codex, zero Claude, zero paid API.
+Dan is deciding whether Gemini takes over video setup from Codex. This is audition 1 of 2. You are graded on the scorecard at the bottom. Do the whole job yourself. Codex is used for the five Codex cover pictures only, through the image script; zero Claude, zero paid API.
+
+**Changed 2026-11-27 after this test had started (Dan: "Let's continue using Codex images as normal in addition to Gemini").** The blind cover mix stays: five Codex designs plus three Google options, shuffled and unlabeled. The run already in progress made a Gemini-only set first; before Dan picks, add the five Codex designs, keep your best three as the Google options, and rebuild the page blind.
 
 ## Where to run it (decided, tested today)
 
@@ -46,23 +48,23 @@ Organic, not an ad. The film ends "Thanks for watching and subscribe to the chan
 5. `.claude/skills/_shared/WRITING-RULES.md`, `.claude/skills/_shared/DAN-VOICE.md`.
 6. Worked example, same shoot and same reaction format, all on this Mac: Kevin James Tried One Cheat Day A Week. It Wrecked His Diet. (DS-41): `Docs/DS41_SETUP_RECEIPT_20261115.md`, `scripts/blotato/configs/ds41-kevin-james-cheat-day.json`, `~/Projects/_edit_work/DS-41-setup/` (`design-plan.md`, `prompts/`, `layout-manifest.json`, `final/uploads.json`, `final/tiktok-verification.json`). Cover builder example: `~/Projects/_edit_work/DS-34-covers-r3/build.py`. Upload example: `/Volumes/Extreme/_edit_work/DS-108-setup/publishing/upload_assets.py`.
 
-Where a skill says "Codex" or `codex-image.sh`, you do that step yourself with your own image generation. Everything else in the skills applies as written.
+You are the setup owner where a skill says "Codex owns setup". For the five Codex cover designs you call `.claude/skills/_shared/codex-image.sh` yourself, with the model and effort the image rules name, exactly as a Claude setup owner does. Everything else in the skills applies as written.
 
 ## Phase A: up to Dan's cover pick
 
 1. Run `agy` `/usage` and save the percentages (start reading). Note the start time.
 2. Verify both hashes above. Recheck that no DS-38 config, waitlist entry or receipt exists.
-3. **Five cover concepts, each as a pair: Instagram/Facebook Reels 1080x1920 and YouTube Shorts 1080x1920.**
+3. **Eight cover options (five Codex designs plus three Google options of yours), each as a pair: Instagram/Facebook Reels 1080x1920 and YouTube Shorts 1080x1920.** The five Codex designs follow the mix below; your three are extra designs following the same guidance, not copies.
    - Two different AI pictures of Dan acting out the topic. Identity reference: `social media graphics/youtube/thumbnails/I'm 41. Here Are The 10 Exercises I Do Every Week/_build-20261113/identity-reference.jpg`. Look at every generated face before using it. Lean and shredded, not bulky. No frowning by default.
    - One real photo of Dan, original person pixels, from `photos/finalized social media photos/_cutouts/` (pool or studio), on a generated background.
    - Two concepts guided by what Dan actually picked recently: look at `/Volumes/Extreme/Short-form video content/covers/approved-*` and the last five setup receipts in `Docs/`.
    - Follow "Reaction cover composition" in the setup skill.
-   - All pictures come from your built-in image generation on the subscription. **Zero `codex-image.sh`, zero Codex CLI, zero Flow credits needed, zero paid API** (`GEMINI_API_KEY`, `GOOGLE_API_KEY` and `ALLOW_API_IMAGE` stay unset).
-   - Dan has suspended the blind Codex-versus-Google mix for this test. Do not use `blind.py` and do not log picks to the blind scorecard.
-   - Your pictures come back around 768x1376. Headlines are set in code (Pillow), never generated. Upscale locally to 1080x1920 (no paid upscaler) and say which method you used.
-   - If the image model refuses a picture (shirtless Dan is the likely case), record the refusal, do not reword around the filter, and make a different concept. Never fall back to Codex.
+   - The five Codex designs come from `codex-image.sh` on the ChatGPT subscription (state the image count first, make no spares). Your three Google options come from your built-in image generation. **Zero paid API** (`GEMINI_API_KEY`, `GOOGLE_API_KEY` and `ALLOW_API_IMAGE` stay unset).
+   - The blind test is on. Use `.claude/skills/_shared/blind-image/blind.py` (`add`, `build`, `pick`): neutral labels X1 to X8, no source named anywhere Dan can see, pick logged.
+   - Your own pictures come back around 768x1376; Codex pictures around 941x1672. Headlines are set in code (Pillow), never generated. Upscale locally to 1080x1920 (no paid upscaler) and say which method you used.
+   - If the image model refuses a picture (shirtless Dan is the likely case), record the refusal, do not reword around the filter, and make a different concept for that slot.
    - Every word on a cover starts with a capital letter. Run the layout checks the cover skill requires and keep the output.
-4. Build a phone-first review page with `.claude/skills/_shared/review_server.py`: five concepts, both layouts each, labels 1 to 5. Give Dan the `http://127.0.0.1:PORT/` link.
+4. Build a phone-first review page with `.claude/skills/_shared/review_server.py`: all eight options, both layouts each, blind labels X1 to X8. Give Dan the `http://127.0.0.1:PORT/` link.
 5. While the page is up, prepare without waiting: copy master and captions to `/Volumes/Extreme/Short-form video content/Blended Oats - DS-38/` under the names `Blended Oats SFC R3 - off the cuff.mp4` / `.srt`, verify SHA-256, back up to Google Drive with `~/bin/rclone` (anyone-with-the-link, byte check). Draft title, platform captions, YouTube description, hashtags and the `engagement_prompt` from the actual words in `off.srt`, in Dan's voice. No long dashes in any outward-facing file: run the dash count check from AGENTS.md ("No em dashes in outward-facing writing") on each one; it must print 0.
 6. **STOP. Show Dan the page, the proposed captions and the proposed release slot. Wait for his pick.** A revised cover needs his OK on the exact revised pair before it is installed.
 
@@ -94,13 +96,13 @@ Hashes and byte counts, Drive link, cover pick and file hashes, every uploaded U
 | # | Area | Pass |
 |---|---|---|
 | 1 | Copy and voice | Title unchanged. Captions, description and `engagement_prompt` read like Dan, use the film's real words, no long dashes, zero AI stock phrases, prompt under 180 characters. Dan edits at most one line. |
-| 2 | Cover package | Five clearly different concepts in both layouts, exact 1080x1920, recognizable Dan in the AI pictures, clean cutout edge on the real photo, readable on a phone, layout checks pass. Dan picks one without asking for a full redo. |
+| 2 | Cover package | Five Codex designs plus three Google options, all clearly different, in both layouts, blind, exact 1080x1920, recognizable Dan in the AI pictures, clean cutout edge on the real photo, readable on a phone, layout checks pass. Dan picks one without asking for a full redo. |
 | 3 | Technical accuracy | Valid config, uploaded files hash-match on download, one clean waitlist entry, correct slot for the phase rules, audits clean, receipt truthful. |
-| 4 | Zero leak | No Codex or Claude calls, no `codex-image.sh`, no paid API charge, Gemini weekly usage drop reported. |
+| 4 | Small Codex footprint | Codex used only for the five cover pictures (count reported), no Claude calls, no paid API charge, Gemini weekly usage drop reported. |
 | 5 | Ran on its own | Finished in one session with no path, link or permission rescue from Dan, and none of the stop lines crossed. |
 
 ## Starter prompt
 
 ```bash
-cd "/Users/danrrose/Projects/Claude/Projects/Abs By AI" && agy --model gemini-4-neon-high --dangerously-skip-permissions -i "Start Blended Oats SFC Setup (Gemini setup test 1). Read and execute Handoffs/handoff-20261127-gemini-setup-test-1-ds38-blended-oats.md exactly. Dan approved the Off-the-cuff R3 film on November 14; do not ask about the film again. Do the whole job yourself with zero Codex, zero Claude and zero paid API. Stop at the cover pick and wait for Dan."
+cd "/Users/danrrose/Projects/Claude/Projects/Abs By AI" && agy --model gemini-4-neon-high --dangerously-skip-permissions -i "Start Blended Oats SFC Setup (Gemini setup test 1). Read and execute Handoffs/handoff-20261127-gemini-setup-test-1-ds38-blended-oats.md exactly. Dan approved the Off-the-cuff R3 film on November 14; do not ask about the film again. Do the whole job yourself: Codex only for the five Codex cover pictures through the image script, zero Claude, zero paid API. Stop at the cover pick and wait for Dan."
 ```
