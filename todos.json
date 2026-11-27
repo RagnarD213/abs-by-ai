@@ -460,6 +460,13 @@
       "recurring": false,
       "addedAt": "2026-11-26",
       "addedBy": "assistant"
+    },
+    {
+      "text": "Make cold brew",
+      "priority": "unassigned",
+      "recurring": false,
+      "addedAt": "2026-11-27",
+      "addedBy": "assistant"
     }
   ],
   "handoffs": [
