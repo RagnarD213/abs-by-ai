@@ -4,6 +4,7 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 ## Working with Dan
 - Agency (SRM) work: 11-02: Upwork, outreach, no-calls rule and SRM email memory live in the Social Response Marketing project (`~/Projects/Claude/Projects/Social Response Marketing`)
 - [Client ledger gates client work](client-ledger-gates-client-work.md): 11-19: every client instruction itemized in his exact words the turn it arrives; client_ledger.py gate before build, review and any send; never 'approved by client' without his quote
+- [Client message lessons](client-message-lessons.md): 11-27 greet back by name, recommend with a business reason, commit a delivery day; never invent facts about Dan
 - [Bias to action](bias-toward-action.md): act if reversible
 - [Do the clicks yourself](do-the-clicks-yourself.md): 11-05 standing rule: checkout/buy = do every step up to payment (Continue, shipping address); hand Dan only payment
 - [Do the next step, contact support](do-the-next-step-and-contact-support.md): 11-05: do it yourself, open vendor support chat/tickets proactively (like ChatGPT); only hard limits stay Dan's

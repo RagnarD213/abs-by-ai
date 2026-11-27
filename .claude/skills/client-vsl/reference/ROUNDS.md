@@ -144,6 +144,16 @@ for timestamped revisions from the captioned version, the number of included rev
   builder asserts it).
 
 ## Client messages
+Learned from Dan's edits to a feedback reply (2026-11-27):
+- Answer the client's own greeting by name ("Thanks <name>! Hope you had a great Thanksgiving too."). Thanking them
+  for a greeting is fine. Never invent a fact about Dan's day or holiday to fill the line.
+- When they ask about a choice, give Dan's recommendation with the business reason from his experience (ad approvals,
+  conversions, cost), then say he will do whichever they prefer. Never a bare "which would you like?".
+- Close with what we need from them and by when ("as soon as you're able to") AND a committed delivery day ("I'll get
+  you the next draft by Tuesday"). Never "I'll come back to you with timing". Put a proposed day in the draft and
+  tell Dan to confirm or change it. Log the day as a `promise` item.
+- Ask only for what this round needs; do not repeat a question an earlier message already put to them.
+- He kept as written: one plain paragraph naming the changes, and a short numbered list of the decisions needed.
 - Drafted by Claude in Dan's voice, sent only after Dan says so; record the send (time, story id) at the top of the
   draft file and in `STATUS.md`. Dan may edit before sending; keep his edits as the record of his voice.
 - Shape (from the four Joint Vigor messages): "Hi <first name>," then one line on what is ready, the link, a numbered
