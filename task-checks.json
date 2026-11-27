@@ -17,7 +17,8 @@
     "assistant::Take bulk trash and recycling and put them back",
     "assistant::Take in mail and amazon packages",
     "assistant::Clean cold brew dispenser",
-    "assistant::Make cold brew"
+    "assistant::Make cold brew",
+    "assistant::Do all dirty laundry"
   ],
   "log": {
     "health::Shower": [
@@ -262,6 +263,7 @@
     "assistant::Take bulk trash and recycling and put them back": "2026-11-26",
     "assistant::Take in mail and amazon packages": "2026-11-26",
     "assistant::Clean cold brew dispenser": "2026-11-27",
-    "assistant::Make cold brew": "2026-11-27"
+    "assistant::Make cold brew": "2026-11-27",
+    "assistant::Do all dirty laundry": "2026-11-27"
   }
 }
