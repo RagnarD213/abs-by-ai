@@ -6,11 +6,11 @@ CONTENT · organic dedicated Short (SFC) · DS-38 · Gemini audition, live setup
 
 Dan is deciding whether Gemini takes over video setup from Codex. This is audition 1 of 2. You are graded on the scorecard at the bottom. Do the whole job yourself. Codex is used for the five Codex cover pictures only, through the image script; zero Claude, zero paid API.
 
-**Changed 2026-11-27 after this test had started (Dan: "Let's continue using Codex images as normal in addition to Gemini").** The blind cover mix stays: five Codex designs plus three Google options, shuffled and unlabeled. The run already in progress made a Gemini-only set first; before Dan picks, add the five Codex designs, keep your best three as the Google options, and rebuild the page blind.
+**Changed 2026-11-27 after this test had started (Dan: "Let's continue using Codex images as normal in addition to Gemini").** The blind cover mix stays: five Codex designs plus three Google options, shuffled and unlabeled. An earlier Terminal run of this test was stopped on Nov 27 before any pick. Its work folder was set aside at `/Volumes/Extreme/_edit_work/DS-38-setup.cli-run-20261127/` and its old page is on port 9930: do not open or reuse either, start clean in `/Volumes/Extreme/_edit_work/DS-38-setup/`. That run already copied the master and captions to `/Volumes/Extreme/Short-form video content/Blended Oats - DS-38/` and began the Drive backup: verify both by hash and byte count, finish what is missing, never assume.
 
 ## Where to run it (decided, tested today)
 
-- **Antigravity CLI (`agy`) in Terminal on the M6, started from the project folder.** Model `gemini-4-neon-high`.
+- **The Antigravity app on the M6, with the project folder open as the workspace.** Model Gemini 4 Neon, High. Dan fires this himself in Antigravity to test the real process (Nov 27). The Terminal command `agy` is the same engine and was the surface Claude verified; the app window itself is not yet verified, so report any permission or path wall you hit as a scorecard item.
 - **Not Gemini Desktop Task Mode.** On Nov 27 it was denied writing into `Handoffs/`, and the keys, `~/bin/rclone` and `~/.absbyai/` sit outside its two connected folders.
 - Claude tested headless `agy` on this Mac on Nov 27: it wrote files, could read `~/.absbyai-secrets.env`, ran `~/bin/rclone` (v1.75.1), hashed the DS-38 master correctly and made a 9:16 picture with the built-in image generator (768x1376). All passed.
 - Trap seen in that test: `agy` wrote its files into the `--add-dir` folder, not the folder it was started in. Start it from the project folder and always write to full absolute paths.
@@ -101,8 +101,8 @@ Hashes and byte counts, Drive link, cover pick and file hashes, every uploaded U
 | 4 | Small Codex footprint | Codex used only for the five cover pictures (count reported), no Claude calls, no paid API charge, Gemini weekly usage drop reported. |
 | 5 | Ran on its own | Finished in one session with no path, link or permission rescue from Dan, and none of the stop lines crossed. |
 
-## Starter prompt
+## Starter prompt (paste into Antigravity, project folder open, Gemini 4 Neon High)
 
-```bash
-cd "/Users/danrrose/Projects/Claude/Projects/Abs By AI" && agy --model gemini-4-neon-high --dangerously-skip-permissions -i "Start Blended Oats SFC Setup (Gemini setup test 1). Read and execute Handoffs/handoff-20261127-gemini-setup-test-1-ds38-blended-oats.md exactly. Dan approved the Off-the-cuff R3 film on November 14; do not ask about the film again. Do the whole job yourself: Codex only for the five Codex cover pictures through the image script, zero Claude, zero paid API. Stop at the cover pick and wait for Dan."
+```text
+Start Blended Oats SFC Setup (Gemini setup test 1). Read and execute Handoffs/handoff-20261127-gemini-setup-test-1-ds38-blended-oats.md exactly. Dan approved the Off-the-cuff R3 film on November 14; do not ask about the film again. Do the whole job yourself: Codex only for the five Codex cover pictures through the image script, zero Claude, zero paid API. Stop at the cover pick and wait for Dan.
 ```
