@@ -25,7 +25,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Personal facts](dan-personal-facts-for-scripts.md): glycine, Oura
 ## Machine, repo and models
 - [Work drive order](work-drive-order.md): 11-06: internal first, then Extreme, Seagate last; Seagate corrupts copies, checksum always
-- [Review pages retire](review-pages-retire-idle.md): 11-02: idle 3 days → retired so the Mac cannot freeze; `review_retire.py --restore PORT`
 - [Auto push](auto-commit-push.md): safe-push.sh only, no rebase
 - [Repo is public](repo-is-public.md): ask before personal data
 - [Memory mirror](memory-repo-copy.md): sync script, .repo-private
@@ -41,18 +40,11 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Audio joins smooth](audio-joins-smooth-before-ship.md): 10-20: seamscan every join, listen twice, fix; never carry a failing audio row
 - [Audio strip](audio-never-over-strip.md): never past reference
 - [Editor audio](editor-audio-untouched.md): untouched, --verbatim
-- [Voice bass](voice-bass-standard.md): +3 dB at 120 Hz
 - [Framing](framing-standard-hair-anchored.md): hair anchor, NEAR/FAR
-- [Centering](vertical-centering-standard.md): crop lands on Dan
 - [Clip fit + calm camera](vertical-clip-rule-and-calm-camera.md): verticals fill, else square, else whole; camera 30% calmer; clip_fit.py
-- [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
-- [No boxes](no-boxes-without-reason.md): fill the frame
 - [Take picks](take-selection-rule-approved.md): last clean take
 - [Jump cuts](muhammad-trial-edit-analysis.md): punch-in or insert hides
-- [Decision budget](decision-budget-per-video.md): 10-15 per video
 - [Swearing](swearing-never-cut-never-ask.md): stays, never ask
-- [BT.601 trap](untagged-video-bt601-trap.md): decode as BT.709
-- [Longform finals](longform-delivery-location.md): finals in folder; work in `renderq.py workdir` folder
 ## Review rounds
 - [No next round until review is finished](no-next-round-until-review-finished.md): 11-16: notes still coming or a decision open = write the handoff and wait; never start the next chat on partial feedback
 - [Review page](review-page-what-i-decided.md): "What I decided"
@@ -74,7 +66,6 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [AI clip sense QC](ai-clip-sense-qc.md): cause and effect, shows the line; ~5 clips; ask budget
 - [AI clip gags: no injury jokes](ai-clip-gags-injury-and-sense.md): 11-08: injury lines play straight; gag must read in one look; sleep clips show good sleep
 - [AI clip ideas](ai-clip-ideas-more-and-funnier.md): more, funnier; abstract lines get an unreal gag
-- [AI label on the picture](ai-label-on-the-picture-not-the-scene.md): 10-30: AI picture in a real scene gets its label on the TV/inset, never frame corner; never on face or abs
 - [Graphic lock](graphic-lock-and-ai-frames-first.md): AI frames first
 - [AI frames start+end first](ai-frames-start-and-end-first.md): 11-05: Dan sees START and END together from the first step, two full pairs for the blind test
 - [Blind Google vs Codex](blind-google-vs-codex-images.md): 10-30: start frames both ways, thumbnails 5 Codex + 3 Google, unlabeled; scorecard only when asked
@@ -82,29 +73,9 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Clip library](clip-library.md): find first, add after
 - [B-roll first](broll-library-first.md): scan the library
 - [B-roll grade](broll-always-colour-corrected.md): never raw footage, ever; real grade, not a gamma lift (10-23)
-- [B-roll looks](broll-choose-where-dan-looks-best.md): best light
-- [Named gear](broll-shows-what-he-names.md): show him using it
-- [No standing shots](no-standing-around-shots.md): cutaways show action
-- [One shoot](no-mixing-shoots-on-camera.md): no mixing days
-- [Phone clip](never-use-dan-phone-clip.md): B0437 never
-- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only
-- [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
-- [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
-- [Before/after](before-after-same-person.md): same person
-- [No before+after on one screen](no-before-after-same-screen.md): 11-05: before full screen, then after full screen; never a side-by-side pair
-- [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
-- [Speedo crop](speedo-crop-rule.md): at waistband
 ## Graphics, thumbnails and covers
-- [SixPackAbs logo kit](sixpackabs-logo-kit.md): 11-05: all logo files in sixpackabs/brand/logo/ (svg, pdf, png, jpg, favicons); gold on dark only
-- [SixPackAbs labels](sixpackabs-label-preferences.md): 11-04: Claude set won for bold names; all-gold accents, no ribbon (11-05), existing logo symbol, % not "in blend"
 - [Website phone first](website-phone-first.md): 11-04: every AI designs at 390 first, then 1440; reviews open phone first
 - [Design: Astra first](design-astra-first.md): 11-17: Astra won the blind GAT page contest; page/site/cart design goes to Codex Astra high; Dan's feedback to all models
-- [GAT sales page direction](gat-sales-page-direction.md): 11-17: model Healthy Back first (full-height vertical player, free-bottle terms box); plain headline, no red word; long non-clickable citation list
-- [GAT page words for Google Ads](gat-page-google-ads-words.md): 11-17: no "testosterone" on the page (T or test), no drugs or needles, other poison words out; study list without paper titles
-- [GAT live funnel build](gat-live-funnel-build.md): 11-17: live on the shop, not launched; generated pages, deploy through the M2; Shopify repeats first-order shipping on refills
-- [GAT one-page checkout](gat-one-page-checkout.md): 11-19: LIVE for everyone, real cards (?classic=1 = old flow); shop auto-sends paid orders to Supliful; Stripe receipts say Abs By AI; Codex needs Dan for key creation
-- [Shop design direction](sixpackabs-shop-design-direction.md): 11-04: Claude A won; light pages not black; center product on phone; gold logo, existing symbol + Archivo
-- [Supliful to Shopify linking](supliful-shopify-linking.md): 11-05: publish from Supliful to fulfill; multipacks = Supliful bundles; Combined Listings Plus-only; other 5 products still hand-made
 
 - [Thumbnail five](thumbnail-standard-codex-in-setup.md): Codex makes five unique designs; 2 AI Dan, 1 real photo, 2 history-guided
 - [Cover picks](cover-picks-ai-dan-acting-topic.md): 10-21: AI Dan acting the title out, yellow band; expressive when the topic needs it
@@ -112,13 +83,9 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Cover photos](cover-photo-selection.md): shoot photos, sharp abs
 - [Touched-up = real](touched-up-screenshot-means-real.md): 11-06: "touched-up screenshot" = real frame + photo edits only, never AI
 - [Thumbnail system](thumbnail-design-system.md): Manrope/red bar look; five unique designs since 10-13
-- [Thumbnail colours](thumbnail-masculine-colours.md): masculine palettes, no pink or plum
 - [Thumbnail claims](thumbnail-no-claims.md): none; waist crop
 - [Approve revised cover](approve-revised-cover-before-install.md): revised thumbnail or cover waits for his OK on the final file
-- [Frowning photos](frowning-photos-standing-rule.md): never default
 - [Analysis card](analysis-card-reusable-graphic.md): reuse it; Soft Blue HyperFrames since 10-14
-- [Recap row loved](recap-ladder-end-graphic-loved.md): 10-30: full-screen level recap that closes RO-21; reuse for level videos
-- [Caps](graphic-caps-emphasis-sparingly.md): rare punch word
 ## Scripts and voice
 - [Shoot unfilmed first](shoot-unfilmed-first.md): 11-14: next shoot films the Unfilmed Content And Ads doc before any new ideas; remind Dan at every shoot-planning step
 - [Script lessons](script-zero-edit-lessons.md): WHAT DAN CHANGED
@@ -130,37 +97,16 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [Dan picks the hook](dan-picks-the-hook.md): 11-12: he bolds the hook he wants in the outline; never 'film three, the edit picks'; script uses only the bolded one
 - [Bracket notes in Docs](dan-bracket-notes-in-docs.md): 11-12: he leaves ALL CAPS [REWRITE...] notes in a Doc he is editing; sweep the live Doc and do them all in the same turn
 - [Content scripts: one version](content-scripts-one-version.md): 11-12: one script per content video from his edited outline, written to approve as is; no alternates or blind sets (those are for ads)
-- [Channel music lyrics](channel-music-lyrics-rules.md): 11-18: no AI/computer words, no age, speak to the viewer; flowing rap, never shouted chants
 - [Voice guide](dan-voice-guide.md): use dan-voice-writer
 - [Filming scripts](filming-scripts-first.md): caps notes first
-- [Teleprompter spacing](teleprompter-no-blank-lines.md): no blank lines; edit in Filming doc
-- [Outline style](video-outline-style.md): real specifics, no listicles
-- [Facts in scripts](personal-facts-only-when-relevant.md): only if relevant
-- [Shorts tactic](shorts-reason-to-watch.md): never brag-only
-- [Shorts opener](shorts-open-with-pickup.md): pickup line
-- [Shortlist transcripts](shorts-shortlist-full-transcripts.md): every proposed Short shows title and full transcript
-- [Reaction clips](reaction-clip-criteria.md): Dan watches clips before any script; hooks fast, big name, a lesson, under 15 s
-- [Reactions clip first](reaction-shorts-clip-first.md): clip plays first, no line before it, never repeat the clip
-- [Reaction laptop + clips](reaction-laptop-and-matching-clips.md): 10-30: laptop visible while Dan watches; panel behind his reply shows what he claims
 ## Publishing and ads
-- [Blotato fails](blotato-false-failure-large-video.md): may be live; 400 MB
-- [YouTube upload](youtube-upload-capability.md): upload.js
-- [TikTok cover](tiktok-cover-frame-0.md): timestamp only
 - [Long-form ranking](longform-strength-ranking.md): studio>kitchen, scripted>cuff; Sun strong, Wed weak; Shorts evidence
-- [IG what works](instagram-what-works-oct2026.md): exercise fix Reels win; photos don't grow
-- [IG post formats](instagram-post-formats.md): Fix, Receipts, Steal My Workout carousels + cheat sheets; no Swaps or Timeline
 - [Ad or organic](ad-vs-organic-classification.md): closing CTA decides
 - [Ad retry](ad-retry-rule-and-no-trick.md): never "trick"; tamer
 - [Headlines](ad-copy-headline-voice.md): person + outcome
 - [Ad claims](ad-copy-no-unbelievable-claims.md): believable only
 - [VSL scripts from Dan's outline](vsl-scripts-from-dans-outline.md): 11-09: Dan rejected AI-outlined VSL scripts as awful; script only from his outline, his/V Shred voice; intro = proven idea + original attention idea
-- [GAT upsells: cleaner, more camera](gat-upsells-cleaner-more-camera.md): 11-16: upsells WV-04 to 07 are less busy than the VSL, more Dan on camera, fewer AI clips, larger cards, high production value
-- [GAT VSL: teal studio test later](gat-vsl-teal-studio-test-later.md): 11-15: VSL background is the medium wood kitchen; Teal Studio (his winners' look) saved as the first split test once live
 - [Model proven funnels exactly](model-proven-funnels-exactly.md): 11-08: copy what winners actually do (check transcript); no 'improvements' from general judgment
-- [HBI top 10 ad creatives](hbi-top-ad-creatives-sheet.md): 11-12 sheet of Dan's top HBI ads with scripts and spend; Five Foods $1.69M is the model for food ads
-- [YT ads](ytads-retired-manual-management.md): instant on, never pause
-- [Ads UI](google-ads-ui-automation.md): Chrome traps
-- [Channel research traps](channel-performance-research-traps.md): 11-12: Studio organic filter by URL; ad cost per sub fell 85% on Oct 7 (never rank across it); rank Shorts on stayed/US views
 ## More by topic (open the hub, then the entry)
 - [Workflow](hub-workflow.md): Standing process rules, many also in AGENTS.md: batch approval, downloads, handoffs, dashboard pause, task chips, planning
 - [Editing detail](hub-editing.md): Formats and per-shoot facts: green-screen standards, chroma key, shoots, audio demos, edit kit, Muhammad workout model
@@ -172,17 +118,13 @@ Rules also live in AGENTS.md and CLAUDE.md. Entries not listed here are in the h
 - [App and site internals](hub-app.md): The product: trainer, nutritionist, Sleep Coach, native apps, Stripe, Railway, email, SixPackAbs site, deploy traps
 
 - [Setup owner](setup-owner-codex.md): 11-07: Codex does setup for both editors; Claude only when Dan explicitly asks
-- [YouTube comments: no email](youtube-comments-no-email.md): 11-09: emails get comments auto-deleted; ask for a reply; Dan posts outreach comments himself
-- [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
-- [M6 network drive drops](m6-network-drive-drops.md): 11-16: M6 edits on M2 drives die when the share drops; keepalive + throttled copies
 - [Ads: no drug terms in metadata](ads-no-drug-terms-in-metadata.md): 11-18 advertised videos never show Zepbound/GLP-1/needle/vial in title, description, thumbnail, ad text; neutral title until ads end
-- [Edit Queue ETA](edit-queue-eta.md): 11-18: sessions report steps with eta.py; page shows ETA ranges every 10 min, no AI; never post ETAs in chat unprompted
 - [Private video off the site](private-video-comes-off-the-site.md): 11-18 video made private/unlisted/deleted = its sixpackabs.com page to draft same day, verify home page + /videos/
 - [Real demos + down-arrow CTA](real-demos-and-down-arrow-cta.md): 11-19 exercise demos in any video = real B-roll (gym + home); funnel video CTA = "Click the button below" + down arrows, no in-video button
 - [Delegate to Codex until Nov 26](delegate-to-codex-until-nov-26.md): 11-20: Claude usage low; until Thu 11-26 delegate as much as possible to Codex, incl. Claude-owned edits
 - [Ask before Codex fast mode](ask-before-codex-fast-mode.md): 11-24: never use the priority (fast) tier without asking Dan, especially when usage is low
-- [Antigravity memory & improvement loop](antigravity-memory-and-improvement-loop.md): 11-24: Antigravity reads/writes this shared memory via GEMINI.md + .agents/hooks.json (SessionStart loads AGENTS.md overflow + MEMORY.md); do not delete or create a separate silo
 - [Gemini agy for next long-form green screen](gemini-agy-next-longform-greenscreen.md): 11-25 default after RO-24 blind rebuild passed; not yet an AGENTS.md rule
+- [January 2027 launch plan](january-2027-launch-plan.md): 11-27: Dec month plan; GAT + greens live in Jan, $5k-8k ad cash, ChatGPT $500 plan ends 12-20, goal $10k revenue and $10k projected profit
 - [Vertical Shorts first; B-roll colour checks](shorts-vertical-first-broll-final-check.md): 11-16 actual vertical drafts plus look/voice choices, no horizontal selection exports; inspect every final B-roll insert
 - [Exercise demo length](exercise-demo-length-15s.md): 11-15: every demo targets 15 s, minimum 10 s; 1-2 reps too brief, add cues like rep pace
 - [Major decisions with Claude](claude-codex-major-decisions.md): 10-28: independent proposals, evidence-based comparison, openly revise, merge once, one implementation owner; reusable template in Docs

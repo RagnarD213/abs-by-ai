@@ -45,3 +45,7 @@ Second-level memory index, split out of MEMORY.md on 2026-11-01 so that file loa
 - [Edit cost](video-editing-cost-quality-feedback.md): too costly, 09-14
 - [Edit master list](video-editing-master-list.md): 00-MASTER.md
 - [Docs bullets](google-docs-nested-bullets.md): nesting from HTML export
+- [Review pages retire](review-pages-retire-idle.md): 11-02: idle 3 days → retired so the Mac cannot freeze; `review_retire.py --restore PORT`
+- [Two-Mac edit routing](two-mac-edit-routing.md) — M6 2 slots + M2 3 slots; editroute.py pick before editcap acquire
+- [Edit Queue ETA](edit-queue-eta.md): 11-18: sessions report steps with eta.py; page shows ETA ranges every 10 min, no AI; never post ETAs in chat unprompted
+- [Antigravity memory & improvement loop](antigravity-memory-and-improvement-loop.md): 11-24: Antigravity reads/writes this shared memory via GEMINI.md + .agents/hooks.json (SessionStart loads AGENTS.md overflow + MEMORY.md); do not delete or create a separate silo

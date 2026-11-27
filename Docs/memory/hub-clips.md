@@ -22,3 +22,16 @@ Second-level memory index, split out of MEMORY.md on 2026-11-01 so that file loa
 - [Follow-along](followalong-workout-script-format.md): no script in rounds
 - [Standard before](standard-before-picture.md): deck-chair shot
 - [Before photos](dan-before-photo-search.md): 2022-24 candidates
+- [AI label on the picture](ai-label-on-the-picture-not-the-scene.md): 10-30: AI picture in a real scene gets its label on the TV/inset, never frame corner; never on face or abs
+- [B-roll looks](broll-choose-where-dan-looks-best.md): best light
+- [Named gear](broll-shows-what-he-names.md): show him using it
+- [No standing shots](no-standing-around-shots.md): cutaways show action
+- [One shoot](no-mixing-shoots-on-camera.md): no mixing days
+- [Phone clip](never-use-dan-phone-clip.md): B0437 never
+- [Jump rope](jump-rope-clip-rule.md): ONLY fast one-foot skip B0448/B0542; both-feet (B0430, 10/15 C1742) = mistake demo only
+- [Ab demos](home-ab-demos-reuse.md): reuse, never regenerate
+- [AI pool photo correction](ro26-ai-pool-photo-correction.md): dan by pool.png is AI-generated; never label real (Dan 2026-10-16)
+- [Before/after](before-after-same-person.md): same person
+- [No before+after on one screen](no-before-after-same-screen.md): 11-05: before full screen, then after full screen; never a side-by-side pair
+- [Fat pinch](no-fat-pinch-belly-focus.md): no belly pinching or zoom
+- [Speedo crop](speedo-crop-rule.md): at waistband

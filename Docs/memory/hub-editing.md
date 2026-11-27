@@ -32,3 +32,11 @@ Second-level memory index, split out of MEMORY.md on 2026-11-01 so that file loa
 - [Videos to Review](videos-to-review-folder.md): copy 45 s+
 - [Workout edits](workout-videos-model-muhammad.md): model Muhammad
 - [RO-05 recut](ro05-salad-cut-rejected.md): intro, saturation
+- [Voice bass](voice-bass-standard.md): +3 dB at 120 Hz
+- [Centering](vertical-centering-standard.md): crop lands on Dan
+- [16:9 cards](no-height-crop-horizontal-in-vertical.md): keep full height
+- [No boxes](no-boxes-without-reason.md): fill the frame
+- [Decision budget](decision-budget-per-video.md): 10-15 per video
+- [BT.601 trap](untagged-video-bt601-trap.md): decode as BT.709
+- [Longform finals](longform-delivery-location.md): finals in folder; work in `renderq.py workdir` folder
+- [M6 network drive drops](m6-network-drive-drops.md): 11-16: M6 edits on M2 drives die when the share drops; keepalive + throttled copies

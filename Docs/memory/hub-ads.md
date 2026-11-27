@@ -28,3 +28,9 @@ Second-level memory index, split out of MEMORY.md on 2026-11-01 so that file loa
 - [Stripe test](stripe-test-mode-cart-recipe.md): fake-card recipe
 - [Local funnel test](local-funnel-test-recipe.md): live-key config, seeded pair
 - [PostHog API](posthog-api-access.md): query-only keys
+- [GAT upsells: cleaner, more camera](gat-upsells-cleaner-more-camera.md): 11-16: upsells WV-04 to 07 are less busy than the VSL, more Dan on camera, fewer AI clips, larger cards, high production value
+- [GAT VSL: teal studio test later](gat-vsl-teal-studio-test-later.md): 11-15: VSL background is the medium wood kitchen; Teal Studio (his winners' look) saved as the first split test once live
+- [HBI top 10 ad creatives](hbi-top-ad-creatives-sheet.md): 11-12 sheet of Dan's top HBI ads with scripts and spend; Five Foods $1.69M is the model for food ads
+- [YT ads](ytads-retired-manual-management.md): instant on, never pause
+- [Ads UI](google-ads-ui-automation.md): Chrome traps
+- [Channel research traps](channel-performance-research-traps.md): 11-12: Studio organic filter by URL; ad cost per sub fell 85% on Oct 7 (never rank across it); rank Shorts on stayed/US views
