@@ -448,7 +448,11 @@
   "kind": "longform",
   "job": "RO-17",
   "label": "3 Healthy Foods That Made Me Fat",
-  "added": "2026-10-18"
+  "added": "2026-10-18",
+  "queued": {
+   "date": "2026-11-27",
+   "main": "2026-12-13T15:00:00.000Z"
+  }
  },
  {
   "config": "scripts/blotato/configs/sl19-short1-coconut-water-is-just-sugar-water.json",

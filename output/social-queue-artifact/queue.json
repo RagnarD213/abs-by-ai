@@ -1,250 +1,7 @@
 {
-"generated": "2026-11-23T12:26:28+00:00",
+"generated": "2026-11-27T14:53:57+00:00",
 "cap": 200,
 "scheduled": [
-{
-"id": "6390173",
-"platform": "facebook",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them.",
-"batch": ""
-},
-{
-"id": "6390174",
-"platform": "instagram",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them.",
-"batch": ""
-},
-{
-"id": "6390175",
-"platform": "tiktok",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Hamstring curls are the key to building well-balanced aesthetic legs. Here's how to do them.",
-"batch": ""
-},
-{
-"id": "6390178",
-"platform": "youtube",
-"when": "2026-11-23T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's how to do hamstring curls for well-balanced aesthetic legs. Line your knees up with the machine hinge, ",
-"batch": ""
-},
-{
-"id": "6598150",
-"platform": "facebook",
-"when": "2026-11-23T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
-"batch": ""
-},
-{
-"id": "6598151",
-"platform": "instagram",
-"when": "2026-11-23T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
-"batch": ""
-},
-{
-"id": "6598152",
-"platform": "tiktok",
-"when": "2026-11-23T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Crunches and sit-ups are the most popular ab exercises in the world, but regular crunches and regular sit-ups ",
-"batch": ""
-},
-{
-"id": "5912330",
-"platform": "facebook",
-"when": "2026-11-23T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "$17 ab wheel. 3 levels. Pick yours. 3 sets, 1 rep left in the tank.",
-"batch": ""
-},
-{
-"id": "5912329",
-"platform": "instagram",
-"when": "2026-11-23T23:00:00.000Z",
-"kind": "Carousel",
-"slides": 5,
-"text": "$17 ab wheel. 3 levels. Pick yours. 3 sets, 1 rep left in the tank.",
-"batch": ""
-},
-{
-"id": "5524573",
-"platform": "facebook",
-"when": "2026-11-24T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524576",
-"platform": "instagram",
-"when": "2026-11-24T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524579",
-"platform": "tiktok",
-"when": "2026-11-24T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524580",
-"platform": "youtube",
-"when": "2026-11-24T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Photos alone get your calorie tracking close. One extra line gets it accurate.",
-"batch": ""
-},
-{
-"id": "5524588",
-"platform": "youtube",
-"when": "2026-11-25T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can build a full home gym for $58, or about $150 for the complete setup. Here is every item I recommend, w",
-"batch": ""
-},
-{
-"id": "5912334",
-"platform": "facebook",
-"when": "2026-11-25T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Protein per 100 calories. Shrimp gives you 24 grams for every 100 calories you eat.",
-"batch": ""
-},
-{
-"id": "5912332",
-"platform": "instagram",
-"when": "2026-11-25T23:00:00.000Z",
-"kind": "Photo",
-"slides": 1,
-"text": "Protein per 100 calories. Shrimp gives you 24 grams for every 100 calories you eat.",
-"batch": ""
-},
-{
-"id": "6636873",
-"platform": "facebook",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's how to do hammer curls.",
-"batch": ""
-},
-{
-"id": "6636874",
-"platform": "instagram",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "Here's how to do hammer curls.",
-"batch": ""
-},
-{
-"id": "6636875",
-"platform": "tiktok",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's how to do hammer curls.",
-"batch": ""
-},
-{
-"id": "6636877",
-"platform": "youtube",
-"when": "2026-11-26T15:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "Here's how to do hammer curls.",
-"batch": ""
-},
-{
-"id": "5524584",
-"platform": "facebook",
-"when": "2026-11-26T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
-"batch": ""
-},
-{
-"id": "5524586",
-"platform": "instagram",
-"when": "2026-11-26T18:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
-"batch": ""
-},
-{
-"id": "5524587",
-"platform": "tiktok",
-"when": "2026-11-26T18:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You don't need a gym membership to get in shape. A full home gym costs $58.",
-"batch": ""
-},
-{
-"id": "5053527",
-"platform": "facebook",
-"when": "2026-11-27T00:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can train your legs hard without deadlifts.",
-"batch": ""
-},
-{
-"id": "5053528",
-"platform": "instagram",
-"when": "2026-11-27T00:00:00.000Z",
-"kind": "Reel",
-"slides": 1,
-"text": "You can train your legs hard without deadlifts.",
-"batch": ""
-},
-{
-"id": "5053529",
-"platform": "tiktok",
-"when": "2026-11-27T00:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "You can train your legs hard without deadlifts.",
-"batch": ""
-},
-{
-"id": "5053530",
-"platform": "youtube",
-"when": "2026-11-27T00:00:00.000Z",
-"kind": "Video",
-"slides": 1,
-"text": "How I train legs without deadlifts: the leg press, with the safety stops set.",
-"batch": ""
-},
 {
 "id": "6915903",
 "platform": "youtube",
@@ -1143,6 +900,42 @@
 "kind": "Video",
 "slides": 1,
 "text": "Mike Tyson once said everybody has a plan until they get punched in the face, and when you're dieting, life is",
+"batch": ""
+},
+{
+"id": "7631642",
+"platform": "youtube",
+"when": "2026-12-13T15:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "Trail mix, dried fruit and coconut water are sold as health foods, but they're high in calories and very easy ",
+"batch": ""
+},
+{
+"id": "7631638",
+"platform": "facebook",
+"when": "2026-12-14T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "One cup of trail mix is about 700 calories. That's more than a Big Mac.",
+"batch": ""
+},
+{
+"id": "7631640",
+"platform": "instagram",
+"when": "2026-12-14T18:00:00.000Z",
+"kind": "Reel",
+"slides": 1,
+"text": "One cup of trail mix is about 700 calories. That's more than a Big Mac.",
+"batch": ""
+},
+{
+"id": "7631641",
+"platform": "tiktok",
+"when": "2026-12-14T18:00:00.000Z",
+"kind": "Video",
+"slides": 1,
+"text": "One cup of trail mix is about 700 calories. That's more than a Big Mac.",
 "batch": ""
 },
 {

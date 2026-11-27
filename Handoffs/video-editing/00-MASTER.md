@@ -120,7 +120,7 @@ Deliverable: 9:16 master ≤0:59 + 16:9 from the same edit. The square comes aft
 | [RO-14](RO-14-why-you-re-not-losing-weight.md) | Why You're Not Losing Weight | 9/23 C1708 | UPLOADED | L |
 | [RO-15](RO-15-sleep-better-with-glycine.md) | Sleep Better With Glycine | 9/23 C1709 | FINALIZED | L |
 | [RO-16](RO-16-if-i-had-belly-fat-here-s-how-i-d-lose-it-in-90-da.md) | If I Had Belly Fat, Here's How I'd Lose It In 90 Days | 9/23 C1710 | UPLOADED | L |
-| [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | FINALIZED | L |
+| [RO-17](RO-17-3-healthy-foods-that-made-me-fat.md) | 3 Healthy Foods That Made Me Fat | 9/23 C1713 | UPLOADED | L |
 | [RO-18](RO-18-how-to-make-time-for-exercise-nutrition.md) | How To Make Time For Exercise & Nutrition | 9/23 C1714-C1715 | FINALIZED | L |
 | [RO-19](RO-19-my-first-spray-tan.md) | My First Spray Tan (old edit scrapped 10-02, redo from scratch) | 8/3 C1512 (31 min) | UPLOADED | L |
 | [RO-20](RO-20-invest-more-in-your-health.md) | Why You Should Invest More In Your Health (part 1 of 3 since 10-11; old edit scrapped 10-02) | 8/3 C1511 (69 min) | UPLOADED | L |
@@ -236,7 +236,7 @@ Thirty dedicated Shorts and two long-form recordings. Working content sources: E
 | [DS-95](DS-95-what-to-do-your-first-day-at-the-gym.md) | What To Do Your First Day At The Gym | 10/23 C1891 | READY | S |
 | [DS-96](DS-96-how-to-pick-the-right-weight-on-every-exercise.md) | How To Pick The Right Weight On Every Exercise | 10/23 C1891 | READY | S |
 | [DS-97](DS-97-how-to-stop-feeling-embarrassed-at-the-gym-when-you-re-fat.md) | How To Stop Feeling Embarrassed At The Gym When You're Fat | 10/23 C1891 | READY | S |
-| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | IN PROGRESS | S |
+| [DS-98](DS-98-the-only-5-machines-you-need-at-the-gym.md) | The Only 5 Machines You Need At The Gym | 10/23 C1891 | DELIVERED: awaiting Dan | S |
 | [DS-99](DS-99-why-i-use-machines-and-cables-instead-of-barbells-at-41.md) | Why I Use Machines And Cables Instead Of Barbells At 41 | 10/23 C1891 | READY | S |
 | [DS-100](DS-100-the-3-gym-exercises-i-never-do.md) | The 3 Gym Exercises I Never Do | 10/23 C1892 | READY | S |
 | [DS-101](DS-101-the-only-2-exercises-you-need-for-a-wide-back.md) | The Only 2 Exercises You Need For A Wide Back | 10/23 C1892 | READY | S |
@@ -277,7 +277,7 @@ Dan, 2026-11-02: re-edit the 8 top ads on the SRM site so SRM holds its own copi
 ### 1C5 · 11/13 shoot, green screen (added 2026-11-14)
 Roll map and formats: `Docs/SHOOT_1113_FOOTAGE_REPORT.md`. Great Again T ads and sales videos are ADs; the rest is CONTENT.
 
-RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; all production slots released; no automatic restart. [Pause record](../../Docs/RO39_PAUSE_20261118.md).
+RO-39 resumed on M2 at Dan’s request, November 20. Preserved keys are being reused; contextual previews and checks are in production. No first-review delivery yet. [Resume record](../../Docs/RO39_RESUME_20261120.md).
 
 | job | video | rolls | status | size |
 |---|---|---|---|---|
@@ -305,7 +305,7 @@ RO-39 is paused by Dan as of November 18 to free the machine. Progress saved; al
 | [RA-33](RA-33-great-again-t-s11-3-signs-your-testosterone-is-dropping.md) | Great Again T S11: 3 Signs Your Testosterone Is Dropping | C1906 | READY | S |
 | [RA-34](RA-34-great-again-t-s13-how-to-keep-your-gut-after-40.md) | Great Again T S13: How To Keep Your Gut After 40 | C1906 | READY | S |
 | [RA-35](RA-35-great-again-t-s21-the-frog-study-in-45-seconds.md) | Great Again T S21: The Frog Study In 45 Seconds | C1906 | READY | S |
-| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | BLOCKED | L |
+| [RO-39](RO-39-i-crashed-my-tesla-because-i-didnt-trust-fsd.md) | I Crashed My Tesla Because I Didn't Trust FSD | C1914 | IN PROGRESS | L |
 | [RO-40](RO-40-im-41-if-i-were-25-again-this-is-exactly-how-id-get-in-shape.md) | I'm 41. If I Were 25 Again, This Is Exactly How I'd Get In Shape. | C1914 + C1915 | READY | L |
 | [RO-41](RO-41-i-ranked-15-healthy-foods-from-actually-healthy-to-basically.md) | I Ranked 15 "Healthy" Foods From Actually Healthy To Basically Candy | C1915 | BLOCKED | L |
 | [RO-42](RO-42-why-bulking-is-a-scam.md) | Why Bulking Is a Scam | C1915 | READY | L |
