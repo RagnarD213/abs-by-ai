@@ -40,4 +40,17 @@ terminal, choose **1. Google OAuth**, open the printed URL in Dan's Chrome, pick
 click Sign in, paste the code. Over SSH it prints the URL and code prompt automatically. Never put token or
 credential files in the repo.
 
-Not yet wired into any workflow (first-look review checks and clip-library logging are the next step).
+## Full agent mode (whole jobs, not one answer), checked on the M6 2026-11-27
+`gemini.sh` only asks a question and forbids file changes. To give Gemini a whole job, start `agy` itself from the
+project folder: `agy --model <id> --dangerously-skip-permissions -i "<brief>"` (interactive, Dan can answer a stop),
+or `-p` for an unattended run. Checked headless on the M6 (agy 1.5.18): it writes files, can read
+`~/.absbyai-secrets.env`, runs `~/bin/rclone`, and its built-in image generator returns a 768x1376 PNG for 9:16.
+- It wrote its files into the `--add-dir` folder, not the folder it was started in. Give absolute paths.
+- `agy mcp list` is empty: no Blotato, Upwork, WordPress or Gmail connectors. Use project scripts and REST, or add a
+  server with `agy mcp add`.
+- `agy models` also lists Claude Opus 5.5 and Sonnet 5.5 on a separate "Claude and GPT models" allowance (100% unused
+  on 2026-11-27). Its size per job is not measured yet.
+- Gemini Desktop Task Mode is a different surface: writes into `Handoffs/` were denied there and the keys sit outside
+  its connected folders. Use `agy` for anything that writes to the repo or needs keys.
+
+First whole-job trials: `Docs/AGY_CHROMA_TEST_20261124.md` (edit) and the two setup tests in `Handoffs/` dated 2026-11-27.
